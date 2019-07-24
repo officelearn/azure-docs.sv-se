@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Lär dig hur du skapar en offentlig belastningsutjämnare med IPv6 med Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
-ms.author: kumud
-ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516680"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274960"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
@@ -46,11 +46,11 @@ Följande steg visar hur du skapar en offentlig belastningsutjämnare med hjälp
 
 Distribuera en belastningsutjämnare, skapa och konfigurera följande objekt:
 
-* **Frontend-IP-konfigurationen**: Innehåller den offentliga IP-adresser för inkommande nätverkstrafik.
-* **Backend adresspoolen**: Innehåller nätverksgränssnitten (NIC) som de virtuella datorerna att ta emot nätverkstrafik från belastningsutjämnaren.
-* **Regler för belastningsutjämning**: Innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
-* **Ingående NAT-regler**: Innehåller regler network address translation (NAT) som mappar en offentlig port på belastningsutjämnaren till en port för en specifik virtuell dator i backend-adresspoolen.
-* **Avsökningar**: Innehåller hälsoavsökningar som används för att kontrollera tillgängligheten för instanser av virtuella datorer i backend-adresspoolen.
+* **IP-konfiguration på klient**sidan: Innehåller offentliga IP-adresser för inkommande nätverks trafik.
+* **Backend-adresspool**: Innehåller nätverks gränssnitt (NIC) för de virtuella datorerna för att ta emot nätverks trafik från belastningsutjämnaren.
+* **Belastnings Utjämnings regler**: Innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
+* **Inkommande NAT-regler**: Innehåller Network Address Translation (NAT) regler som mappar en offentlig port på belastningsutjämnaren till en port för en speciell virtuell dator i backend-adresspoolen.
+* Avsökningar: Innehåller hälso avsökningar som används för att kontrol lera tillgängligheten för virtuella dator instanser i backend-adresspoolen.
 
 ## <a name="set-up-azure-cli"></a>Konfigurera Azure CLI
 

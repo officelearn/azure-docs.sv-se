@@ -1,80 +1,90 @@
 ---
-title: Visualisering av beroenden i Azure Migrate | Microsoft Docs
-description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten.
+title: Beroende visualisering i Azure Migrate | Microsoft Docs
+description: Innehåller en översikt över bedömnings beräkningar i Server Assessment service i Azure Migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.author: raynew
-ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/18/2019
+ms.author: hamusa
+ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201575"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312207"
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
-Den [Azure Migrate](migrate-overview.md) tjänsterna utvärderar grupper av lokala datorer för migrering till Azure. Du kan använda beroendevisualiseringsfunktionen i Azure Migrate för att skapa grupper. Den här artikeln innehåller information om den här funktionen.
+Azure Migrate: Server utvärderingen bedömer grupper med lokala datorer för migrering till Azure. Du kan använda funktionen för beroende visualisering i Server utvärdering för att skapa grupper. Den här artikeln innehåller information om den här funktionen.
 
 > [!NOTE]
 > Funktionen för beroendevisualisering är inte tillgänglig i Azure Government.
 
 ## <a name="overview"></a>Översikt
 
-Visualisering av beroenden i Azure Migrate kan du skapa grupper med hög exakthet för migreringsutvärdering. Med hjälp av beroendevisualisering du kan visa nätverksberoenden för datorer och identifiera relaterade datorer som behövde migreras tillsammans till Azure. Den här funktionen är användbar i scenarier där du inte är helt känner till de datorer som utgör ditt program och måste migreras tillsammans till Azure.
+Med beroende visualisering i Server utvärdering kan du skapa grupper med hög exakthet för utvärdering av migrering. Med hjälp av beroende visualisering kan du Visa nätverks beroenden för datorer och identifiera relaterade datorer som behöver migreras tillsammans till Azure. Den här funktionen är användbar i scenarier där du inte är helt medveten om de datorer som utgör ditt program och som måste migreras tillsammans till Azure.
+
+## <a name="before-you-start"></a>Innan du börjar
+
+- Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
+- Om du redan har skapat ett projekt ser du till att du har [lagt till](how-to-assess.md) Azure Migrate: Verktyget Server bedömning.
+- Kontrol lera att du har identifierat datorerna i Azure Migrate. Det kan du göra genom att konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. [Läs mer](migrate-appliance.md).
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-Azure Migrate använder den [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) lösning i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) för visualisering av beroenden.
-- Om du vill använda visualisering av beroenden, måste du koppla en Log Analytics-arbetsyta, ny eller befintlig, med ett Azure Migrate-projekt.
-- Du kan bara skapa eller koppla en arbetsyta i samma prenumeration där migration-projekt skapas.
-- Om du vill koppla en Log Analytics-arbetsyta till ett projekt, gå till **Essentials** avsnittet projektets **översikt** och klicka på **kräver konfiguration**
+Azure Migrate använder [tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) -lösningen i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) för beroende visualisering.
+- Om du vill utnyttja beroende visualiseringen måste du associera en Log Analytics arbets yta, antingen ny eller befintlig, med ett Azure Migrate projekt.
+- Du kan bara skapa eller koppla en arbets yta i samma prenumeration där Azure Migrate projektet skapas.
+- Koppla en Log Analytics arbets yta till ett projekt:
+    1. På fliken **servrar** i **Azure Migrate: Panelen Server** bedömning klickar du på **Översikt**.
+    2. I **Översikt**klickar du på nedpilen för att expandera **grunderna**.
+    3. I **OMS**-arbetsytan klickar du på **kräver konfiguration**.
+    4. I **Konfigurera arbets yta**anger du om du vill skapa en ny arbets yta eller Använd en befintlig:
+    
+    ![Lägg till arbets yta](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    ![Associera arbetsytan för Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
-
-- När du kopplar en arbetsyta, får du alternativet för att skapa en ny arbetsyta eller bifoga en befintlig:
-  - När du skapar en ny arbetsyta kan behöva du ange ett namn för arbetsytan. Arbetsytan skapas i en region i samma [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migration-projekt.
-  - När du ansluter en befintlig arbetsyta, kan du välja från alla tillgängliga arbetsytor i samma prenumeration som migration-projekt. Observera att endast dessa arbetsytor visas som har skapats i en region där [Tjänstkarta stöds](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Se till att du har ”läsare” åtkomst till arbetsytan om du vill kunna bifoga en arbetsyta.
+- När du kopplar en arbets yta får du möjlighet att skapa en ny arbets yta eller att koppla en befintlig:
+  - När du skapar en ny arbets yta måste du ange ett namn för arbets ytan. Arbets ytan skapas sedan i en region i samma Azure- [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migreringsjobbet.
+  - När du ansluter en befintlig arbets yta kan du välja mellan alla tillgängliga arbets ytor i samma prenumeration som migreringsjobbet. Observera att endast de arbets ytor som har skapats i en region där [tjänstkarta stöds](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Se till att du har "läsare"-åtkomst till arbets ytan för att kunna ansluta till en arbets yta.
 
   > [!NOTE]
-  > När du har kopplat en arbetsyta till ett projekt, kan du ändra den senare.
+  > När du har kopplat en arbets yta till ett projekt kan du inte ändra den senare.
 
-- Arbetsytan associerade märks med nyckeln **migreringsprojektet**, och värdet **projektnamn**, som du kan använda för att söka i Azure-portalen.
-- Om du vill gå till arbetsytan som är kopplade till projektet, går du till **Essentials** avsnittet projektets **översikt** sidan och få åtkomst till arbetsytan
+- Den associerade arbets ytan är Taggad med det här och värdet **projekt namn**, som du kan använda för att söka i Azure Portal.
+- Om du vill navigera till arbets ytan som är kopplad till projektet kan du  gå till avsnittet Essentials på projekt **översikts** sidan och komma åt arbets ytan
 
-    ![Navigera Log Analytics-arbetsyta](./media/concepts-dependency-visualization/oms-workspace.png)
+    ![Navigera Log Analytics arbets ytan](./media/concepts-dependency-visualization/oms-workspace.png)
 
-Om du vill använda visualisering av beroenden, måste du ladda ned och installera agenter på varje lokal dator som du vill analysera.  
+Om du vill använda beroende visualisering måste du ladda ned och installera agenter på varje lokal dator som du vill analysera.  
 
-- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) måste installeras på varje dator.
-- Den [beroendeagenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) måste installeras på varje dator.
-- Dessutom om du har datorer som saknar Internetanslutning kan behöva du hämta och installera Log Analytics-gatewayen på dem.
+- [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) måste installeras på varje dator. [Läs mer](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) om hur du installerar MMA-agenten.
+- [Beroende agenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) måste installeras på varje dator. [Läs mer](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) om hur du installerar beroende agenten.
+- Om du dessutom har datorer som saknar Internet anslutning måste du ladda ned och installera Log Analytics gateway på dem.
 
-Du behöver inte dessa agenter på datorer som du vill utvärdera om du inte använder beroendevisualisering.
+Du behöver inte dessa agenter på datorer som du vill utvärdera om du inte använder beroende visualisering.
 
 ## <a name="do-i-need-to-pay-for-it"></a>Behöver jag betala för det?
 
-Azure Migrate är tillgänglig utan extra kostnad. Användning av funktionen beroendevisualisering i Azure Migrate kräver Tjänstkarta och kräver att du associerar en Log Analytics-arbetsyta, ny eller befintlig, med Azure Migrate-projektet. Beroendevisualiseringsfunktionen i Azure Migrate är kostnadsfri under de första 180 dagarna i Azure Migrate.
+Funktionen för beroende visualisering är tillgänglig utan extra kostnad. Användning av funktionen beroende visualisering i Server utvärdering kräver Tjänstkarta och kräver att du associerar en Log Analytics arbets yta, antingen en ny eller befintlig, med Azure Migrate projektet. Funktionen för beroende visualisering i Server utvärdering är kostnads fri under de första 180 dagarna.
 
-1. Användning av några lösningar än Tjänstkartan i den här Log Analytics-arbetsytan medför [standard logganalys](https://azure.microsoft.com/pricing/details/log-analytics/) avgifter.
-2. För att stödja Migreringsscenarier utan extra kostnad, behöver lösningen Tjänstkarta inte betala något under de första 180 dagarna från dagen för att associera Log Analytics-arbetsytan med Azure Migrate-projektet. Efter 180-dagarsperioden tillkommer Log Analytics standardkostnader.
+1. Om du använder andra lösningar än Tjänstkarta i den här Log Analytics arbets ytan debiteras [standard Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) avgifter.
+2. Om du vill ha stöd för migrering utan extra kostnad debiteras Tjänstkarta-lösningen inga avgifter för de första 180 dagarna från dagen för att koppla arbets ytan Log Analytics till Azure Migrate-projektet. Efter 180 dagar kommer standard Log Analytics avgifter att gälla.
 
-När du registrerar agenter till arbetsytan använder du ID: T och nyckeln som anges av projektet på sidan Installera agenten steg.
+När du registrerar agenter på arbets ytan använder du det ID och den nyckel som angavs av projektet på sidan Installera agent-steg.
 
-När Azure Migrate-projekt tas bort, raderas inte arbetsytan tillsammans med den. Publicera projektet borttagningen Service Map användning är inte kostnadsfria och varje nod debiteras enligt den kostnadsfria nivån av Log Analytics-arbetsyta.
+När Azure Migrate-projektet tas bort, tas inte arbets ytan bort tillsammans med den. Publicera projektet, Tjänstkarta användningen är inte kostnads fri och varje nod debiteras enligt den betalda nivån av Log Analytics arbets yta.
 
 > [!NOTE]
-> Funktionen beroendevisualisering använder Tjänstkarta via en Log Analytics-arbetsyta. Eftersom den 28 februari 2018 är med tillkännagivandet av Azure Migrate allmänt tillgängliga, funktionen nu tillgänglig utan extra kostnad. Du måste skapa ett nytt projekt att använda arbetsytan kostnadsfri användning. Befintliga arbetsytor före den allmänt tillgängliga är fortfarande begränsad omfattning, därför rekommenderar vi att du flyttar till ett nytt projekt.
+> Funktionen för beroende visualisering använder Tjänstkarta via en Log Analytics arbets yta. Sedan den 28 februari 2018 med meddelandet om Azure Migrate allmän tillgänglighet är funktionen nu tillgänglig utan extra kostnad. Du måste skapa ett nytt projekt för att kunna använda arbets ytan ledig användning. Befintliga arbets ytor före allmän tillgänglighet är fortfarande debiterbara, och vi rekommenderar därför att du flyttar till ett nytt projekt.
 
 Mer information om priser för Azure Migrate finns [här](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
-## <a name="how-do-i-manage-the-workspace"></a>Hur hanterar jag arbetsytan?
+## <a name="how-do-i-manage-the-workspace"></a>Hur gör jag för att hantera arbets ytan?
 
-Du kan använda Log Analytics-arbetsytan utanför Azure Migrate. Den tas inte bort om du tar bort migration-projekt där den skapades. Om du inte längre behöver arbetsytan [ta bort den](../azure-monitor/platform/manage-access.md) manuellt.
+Du kan använda Log Analytics arbets ytan utanför Azure Migrate. Det tas inte bort om du tar bort Azure Migrate projektet där det skapades. Om du inte längre behöver arbets ytan [tar du bort den](../azure-monitor/platform/manage-access.md) manuellt.
 
-Ta inte bort den arbetsyta som skapats av Azure Migrate, såvida inte du ta bort migreringsprojektet. Om du gör det, kommer beroendevisualiseringsfunktionen inte fungerar som förväntat.
+Ta inte bort arbets ytan som skapats av Azure Migrate, om du inte tar bort Azure Migrate-projektet. Om du gör det fungerar inte beroende visualiserings funktionen som förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Gruppera datorer med datorberoenden](how-to-create-group-machine-dependencies.md)
-- [Läs mer](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) om frågor och svar på beroendevisualisering.
+- [Gruppera datorer med dator beroenden](how-to-create-group-machine-dependencies.md)
+- [Lär dig mer](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) om de vanliga frågorna om beroende visualisering.

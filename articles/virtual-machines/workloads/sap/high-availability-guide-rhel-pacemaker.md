@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Pacemaker på Red Hat Enterprise Linux i Azure | Microsoft Docs
-description: Konfigurera Pacemaker på Red Hat Enterprise Linux i Azure
+title: Konfigurera pacemaker på Red Hat Enterprise Linux i Azure | Microsoft Docs
+description: Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc703f02ecf5dbaf5eb69e8e20918415e76ba469
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992152"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228382"
 ---
-# <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera Pacemaker på Red Hat Enterprise Linux i Azure
+# <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
@@ -39,35 +39,36 @@ ms.locfileid: "65992152"
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!NOTE]
-> Pacemaker på Red Hat Enterprise Linux använder Azure avgränsningstecken agenten för att fence en klusternod om det behövs. En redundansväxling kan ta upp till 15 minuter om det inte går att stoppa en resurs eller noderna i klustret inte kan kommunicera som varandra längre. Mer information finns [virtuell Azure-dator som körs som en hög tillgänglighet för RHEL-klustermedlem ta mycket lång tid att vara inhägnade eller hägna in misslyckas / timeout innan den virtuella datorn stängs av](https://access.redhat.com/solutions/3408711)
+> [!TIP]
+> Pacemaker på Red Hat Enterprise Linux använder Azure-stängsel-agenten för att stängsela en klusternod vid behov. En ny version av Azure-stängsel-agenten är tillgänglig och redundansväxlingen tar inte längre tid, om en resurs slutar fungera eller om klusternoderna inte kan kommunicera med varandra längre. Mer information finns i den [virtuella Azure-datorn som körs som en RHEL hög tillgänglighets kluster medlem tar lång tid att begränsas, eller staket/timeout innan den virtuella datorn stängs av](https://access.redhat.com/solutions/3408711)
 
-Läs följande SAP Notes och papers först:
+Läs följande SAP-anteckningar och dokument först:
 
-* SAP-kommentar [1928533], som har:
-  * Lista över Azure VM-storlekar som stöds för distribution av SAP-program.
-  * Viktiga kapacitetsinformation för Azure VM-storlekar.
-  * SAP-program som stöds, och operativsystem (OS) och kombinationer av databasen.
-  * Den obligatoriska SAP kernel-versionen för Windows och Linux på Microsoft Azure.
-* SAP-kommentar [2015553] visar en lista över kraven för distribution av SAP-stöd för SAP-programvara i Azure.
-* SAP-kommentar [2002167] rekommenderar OS-inställningar för Red Hat Enterprise Linux
-* SAP-kommentar [2009879] har SAP HANA riktlinjer för Red Hat Enterprise Linux
-* SAP-kommentar [2178632] mer information om all övervakning mått som rapporterats för SAP i Azure.
-* SAP-kommentar [2191498] har Värdagenten för SAP-version som krävs för Linux i Azure.
-* SAP-kommentar [2243692] har licensieringsinformation SAP på Linux i Azure.
-* SAP-kommentar [1999351] innehåller ytterligare felsökningsinformation för Azure förbättrad övervakning av tillägget för SAP.
-* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP Notes för Linux.
-* [Azure virtuella datorer, planering och implementering av SAP på Linux][planning-guide]
+* SAP anmärkning [1928533], som har:
+  * Listan med virtuella Azure-storlekar som stöds för distribution av SAP-program.
+  * Viktig kapacitets information för storlekar på virtuella Azure-datorer.
+  * De SAP-program och-operativ system och databas kombinationer som stöds.
+  * Den nödvändiga SAP kernel-versionen för Windows och Linux på Microsoft Azure.
+* SAP NOTE [2015553] visar krav för SAP-program distributioner som stöds i Azure.
+* SAP NOTE [2002167] har rekommenderade OS-inställningar för Red Hat Enterprise Linux
+* SAP NOTE [2009879] har SAP HANA rikt linjer för Red Hat Enterprise Linux
+* SAP NOTE [2178632] innehåller detaljerad information om alla övervaknings mått som rapporter ATS för SAP i Azure.
+* SAP NOTE [2191498] har den version av SAP host agent som krävs för Linux i Azure.
+* SAP NOTE [2243692] innehåller information om SAP-licensiering på Linux i Azure.
+* SAP anmärkning [1999351] innehåller ytterligare felsöknings information för Azure Enhanced Monitoring-tillägget för SAP.
+* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP-anteckningar för Linux.
+* [Azure Virtual Machines planera och implementera SAP på Linux][planning-guide]
 * [Azure Virtual Machines-distribution för SAP på Linux (den här artikeln)][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
-* [SAP HANA-systemreplikering på pacemaker kluster](https://access.redhat.com/articles/3004101)
-* Allmänna RHEL-dokumentation
-  * [Översikt över tillägg för hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Hög tillgänglighet tillägg Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referens för tillägg för hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-* Azure specifika RHEL-dokumentationen:
-  * [Stöd för principer för RHEL-kluster för hög tillgänglighet – Microsoft Azure-datorer som medlemmar i ett kluster](https://access.redhat.com/articles/3131341)
-  * [Installera och konfigurera en Red Hat Enterprise Linux 7.4 (och senare) hög tillgänglighet-kluster på Microsoft Azure](https://access.redhat.com/articles/3252491)
+* [SAP HANA system replikering i pacemaker-kluster](https://access.redhat.com/articles/3004101)
+* Allmän dokumentation om RHEL
+  * [Översikt över hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administrations tillägg med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referens för hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Azure-speciell RHEL-dokumentation:
+  * [Support principer för RHEL-kluster med hög tillgänglighet – Microsoft Azure Virtual Machines som kluster medlemmar](https://access.redhat.com/articles/3131341)
+  * [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Konfigurera SAP S/4HANA ASCS/ERS med fristående server 2 (ENSA2) i pacemaker på RHEL 7,6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Klusterinstallationen
 
@@ -75,9 +76,9 @@ Läs följande SAP Notes och papers först:
 
 Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
-1. **[A]**  Registrera
+1. **[A]** -register
 
-   Registrera dina virtuella datorer och koppla den till en pool som innehåller databaser för RHEL 7.
+   Registrera dina virtuella datorer och koppla dem till en pool som innehåller databaser för RHEL 7.
 
    <pre><code>sudo subscription-manager register
    # List the available pools
@@ -85,27 +86,40 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Observera att genom att koppla en pool till en Azure Marketplace PAYG RHEL-avbildning kan du effektivt double-värde som faktureras för RHEL-användning: en gång för PAYG-avbildning och en gång för RHEL-rättigheten i poolen som du har kopplat. Åtgärda detta genom erbjuder Azure nu BYOS RHEL-avbildningar. Mer information finns [här](https://aka.ms/rhel-byos).
+   Observera att genom att koppla en pool till en Azure Marketplace PAYG RHEL-avbildning, kommer du i praktiken att faktureras för din RHEL-användning: en gång för PAYG-avbildningen och en gång för RHEL-rättigheterna i poolen som du ansluter. För att minimera detta tillhandahåller Azure nu BYOS RHEL-avbildningar. Mer information finns [här](https://aka.ms/rhel-byos).
 
-1. **[A]**  Aktivera RHEL for SAP-lagringsplatser
+1. **[A]** aktivera RHEL för SAP databaser
 
    Aktivera följande databaser för att installera de nödvändiga paketen.
 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-rpms
-   sudo subscription-manager repos --enable="rhel-sap-for-rhel-7-server-rpms"
+   sudo subscription-manager repos --enable=rhel-sap-for-rhel-7-server-rpms
+   sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
    </code></pre>
 
-1. **[A]**  Installera RHEL-tillägg för hög tillgänglighet
+1. **[A]** installera RHEL ha-tillägg
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   </code></pre>
+
+   > [!IMPORTANT]
+   > Vi rekommenderar följande versioner av Azure stängsel-agenten (eller senare) för att kunderna ska kunna dra nytta av en snabbare redundansväxling, om en resurs slutar att fungera eller om klusternoderna inte kan kommunicera med varandra längre:  
+   > RHEL 7,6: Fence-agents-4.2.1 -11. el7 _ 6,8  
+   > RHEL 7,5: Fence-agents-4.0.11 -86. el7 _ 5,8 tum  
+   > RHEL 7,4: Fence-agents-4.0.11 -66. el7 _ 4.12  
+   > Mer information finns i den [virtuella Azure-datorn som körs som en RHEL hög tillgänglighets kluster medlem tar lång tid att begränsas, eller staket/timeout innan den virtuella datorn stängs av](https://access.redhat.com/solutions/3408711)
+
+   Kontrol lera versionen av Azure-stängsel-agenten. Vid behov kan du uppdatera den till en version som är lika med eller senare än den som anges ovan.
+   <pre><code># Check the version of the Azure Fence Agent
+    sudo yum info fence-agents-azure-arm
    </code></pre>
 
 1. **[A]**  Konfigurera matcha värdnamn
 
    Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
-   Ersätt IP-adressen och värdnamnet i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS som kan vara en enda åtkomstpunkt för fel för.
+   Ersätt IP-adressen och värdnamnet i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS, vilket kan vara en enda åtkomstpunkt för fel för.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -123,25 +137,25 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Lägga till brandväggsregler för pacemaker
+1. **[A]** Lägg till brand Väggs regler för pacemaker
 
-   Lägg till följande brandväggsregler för alla klusterkommunikation mellan klusternoderna.
+   Lägg till följande brand Väggs regler till all kluster kommunikation mellan klusternoderna.
 
    <pre><code>sudo firewall-cmd --add-service=high-availability --permanent
    sudo firewall-cmd --add-service=high-availability
    </code></pre>
 
-1. **[A]**  Aktivera grundläggande klustertjänster
+1. **[A]** aktivera grundläggande kluster tjänster
 
-   Kör följande kommandon för att aktivera tjänsten Pacemaker och starta den.
+   Kör följande kommandon för att aktivera pacemaker-tjänsten och starta den.
 
    <pre><code>sudo systemctl start pcsd.service
    sudo systemctl enable pcsd.service
    </code></pre>
 
-1. **[1]**  Skapa Pacemaker kluster
+1. **[1]** skapa pacemaker-kluster
 
-   Kör följande kommandon för att autentisera noderna och skapa klustret. Ange token 30000 att tillåta minne bevarande underhåll. Mer information finns i [i den här artikeln för Linux][virtual-machines-linux-maintenance].
+   Kör följande kommandon för att autentisera noderna och skapa klustret. Ange token till 30000 för att tillåta underhåll av minnes bevaran. Mer information finns i [den här artikeln för Linux][virtual-machines-linux-maintenance].
 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
@@ -171,25 +185,27 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]**  Ange förväntade röster
+1. **[A]** ange förväntade röster
 
    <pre><code>sudo pcs quorum expected-votes 2
    </code></pre>
 
-## <a name="create-stonith-device"></a>Skapa STONITH enhet
+## <a name="create-stonith-device"></a>Skapa STONITH-enhet
 
 STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg om du vill skapa ett huvudnamn för tjänsten.
 
 1. Gå till <https://portal.azure.com>
-1. Öppna bladet Azure Active Directory går du till egenskaper och Skriv ned Directory-ID. Det här är den **klient-ID**.
+1. Öppna bladet Azure Active Directory  
+   Gå till egenskaper och anteckna Directory-ID. Det här är den **klient-ID**.
 1. Klicka på App-registreringar
-1. Klicka på Lägg till
-1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel http:\//localhost) och klicka på Skapa
-1. Inloggnings-URL: en används inte och kan vara vilken giltig URL
-1. Välj den nya appen och klicka på nycklar på fliken Inställningar
-1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
+1. Klicka på ny registrering
+1. Ange ett namn, välj "konton endast i den här organisations katalogen" 
+2. Välj program typ "Web", ange en inloggnings-URL (till exempel http:\//localhost) och klicka på Lägg till  
+   Inloggnings-URL: en används inte och kan vara vilken giltig URL
+1. Välj certifikat och hemligheter och klicka sedan på ny klient hemlighet
+1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Lägg till
 1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
-1. Anteckna programmets ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
+1. Välj översikt. Anteckna programmets ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Skapa en anpassad roll för agenten avgränsningstecken
 
@@ -217,7 +233,7 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehåll till d
 }
 ```
 
-### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]**  Och tilldela den anpassade rollen till tjänstens huvudnamn
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** tilldela den anpassade rollen till tjänstens huvud namn
 
 Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som har skapats i det senaste kapitlet till tjänstens huvudnamn. Använd inte ägarrollen längre!
 
@@ -240,21 +256,21 @@ När du har redigerat behörigheterna för de virtuella datorerna kan du konfigu
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-Använd följande kommando för att konfigurera avgränsningstecken enheten.
+Använd följande kommando för att konfigurera avgränsnings enheten.
 
 > [!NOTE]
-> Alternativet ”pcmk_host_map' krävs endast i det här kommandot om RHEL-värdnamn och Azure-nod-namn inte är identiska. Referera till avsnittet fet stil i kommandot.
+> Alternativet pcmk_host_map krävs endast i kommandot om RHEL-värdnamn och Azure-nodnamn inte är identiska. Se avsnittet fet i kommandot.
 
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
 
-### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]**  Aktivera användning av en enhet med STONITH
+### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** Aktivera användning av en STONITH-enhet
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure virtuella datorer, planering och implementering av SAP][planning-guide]
-* [Azure Virtual Machines-distribution för SAP][deployment-guide]
+* [Azure Virtual Machines planera och implementera SAP][planning-guide]
+* [Azure Virtual Machines distribution för SAP][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP][dbms-guide]
-* Läs hur du etablerar hög tillgänglighet och planera för katastrofåterställning av SAP HANA på Azure Virtual Machines i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (VM)][sap-hana-ha]
+* Information om hur du upprättar hög tillgänglighet och planerar för haveri beredskap för SAP HANA på virtuella Azure-datorer finns i [hög tillgänglighet för SAP HANA på Azure-Virtual Machines (VM)][sap-hana-ha]

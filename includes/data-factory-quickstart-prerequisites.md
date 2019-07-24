@@ -5,31 +5,33 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/01/2018
+ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c1ae8e1d06fca79b586208a3eaee0c5d26975ea1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dc12d77e9a57938051300277940b6e5107e45496
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187814"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234476"
 ---
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ### <a name="azure-roles"></a>Azure-roller
-Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna *deltagare* eller *ägare*, eller vara *administratör* för Azure-prenumerationen. Om du vill visa vilka behörigheter du har i prenumerationen öppnar du Azure-portalen, väljer användarnamnet i det övre högra hörnet och väljer sedan **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. 
+Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna *deltagare* eller *ägare*, eller vara *administratör* för Azure-prenumerationen. Om du vill visa de behörigheter som du har i prenumerationen går du till [Azure Portal](https://portal.azure.com), väljer ditt användar namn i det övre högra hörnet, väljer **fler alternativ** (...) och väljer sedan **mina behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration.
 
 För att skapa och hantera underordnade resurser för Data Factory – inklusive datauppsättningar, länkade tjänster, pipelines, utlösare och integreringskörningar – gäller följande krav:
+
 - För att kunna skapa och hantera underordnade resurser i Azure-portalen måste du tillhöra rollen **Data Factory-deltagare** på resursgruppsnivå eller högre.
 - För att skapa och hantera underordnade resurser med PowerShell eller SDK räcker det att du har rollen som **deltagare** på resursnivå eller högre.
 
 För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../articles/billing/billing-add-change-azure-subscription-administrator.md).
 
 Mer information finns i följande artiklar:
+
 - [Rollen Data Factory-deltagare](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
 - [Roller och behörigheter för Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
@@ -39,51 +41,41 @@ I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Stor
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du behöver namnet och nyckeln för Azure Storage-kontot för den här snabbstarten. Följande procedur innehåller steg för att få fram namnet och nyckeln för ditt lagringskonto: 
 
-1. Öppna en webbläsare och gå till [Azure-portalen](https://portal.azure.com). Logga in med ditt användarnamn och lösenord för Azure. 
-2. Välj **Alla tjänster** i den vänstra menyn, filtrera på nyckelordet **Lagring** och välj **Lagringskonton**.
-
-   ![Sök efter ett lagringskonto](media/data-factory-quickstart-prerequisites/search-storage-account.png)
-3. Filtrera på ditt lagringskonto (om det behövs) i listan med lagringskonton och välj sedan ditt lagringskonto. 
-4. Gå till sidan **Lagringskonto** och välj **Åtkomstnycklar** i menyn.
+1. I en webbläsare går du till [Azure Portal](https://portal.azure.com) och loggar in med ditt användar namn och lösen ord för Azure.
+2. Välj **alla tjänster** > **lagrings** > **lagrings konton**.
+3. På sidan **lagrings konton** filtrerar du ditt lagrings konto (om det behövs) och väljer sedan ditt lagrings konto. 
+4.  -    På sidan konto namn *> lagrings kontots sid panelen, går du till inställnings etiketten och väljer åtkomst nycklar. \<* Konto namnet > - **åtkomst nycklar** visas.  *\<*
 
    ![Hämta lagringskontots namn och nyckel](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
 5. Kopiera värdena för fälten **Lagringskontots namn** och **Nyckel 1** till Urklipp. Klistra in dem i Anteckningar eller något annat redigeringsprogram och spara. Du använder det senare i den här snabbstarten.   
 
-#### <a name="create-the-input-folder-and-files"></a>Skapa indatamapp och filer
-I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azure Blob Storage. Skapa en mapp med namnet **input** i containern och ladda upp en exempelfil i indatamappen. 
+#### <a name="create-a-blob-container"></a>Skapa en blobcontainer
+I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azure Blob Storage.
 
-1. På sidan **Lagringskonto** växlar du till **Översikt** och väljer sedan **Blobar**. 
+1.  -   >  På sidan konto namn *> åtkomst nycklar sidans marginal List väljer du översikts blobbar. \<*
+2. På sidan -    *kontonamn>blobs-sidans\<* verktygsfält väljer du behållare.
+3. I dialogrutan **Ny container** anger du **adftutorial** som namn och väljer **OK**.  -    *Sidankontonamn>blobbaruppdaterasförattinkluderaadftutorialilistan\<* över behållare.
 
-   ![Alternativet Välj blobar](media/data-factory-quickstart-prerequisites/select-blobs.png)
-2. På sidan **Blob Service** väljer du **+ Container** i verktygsfältet. 
+   ![Lista över behållare](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
-   ![Lägga till containerknapp](media/data-factory-quickstart-prerequisites/add-container-button.png)    
-3. I dialogrutan **Ny container** anger du **adftutorial** som namn och väljer **OK**. 
+#### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Lägg till en mapp för indata och en fil för BLOB-behållaren
+I det här avsnittet ska du skapa en mapp  med namnet indata i den behållare som du nyss skapade och sedan ladda upp en exempel fil till mappen indata. Innan du börjar måste du öppna en text redigerare, till exempel **anteckningar**, och skapa en fil med namnet **EMP. txt** med följande innehåll:
 
-   ![Ange namn på container](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
-4. Välj **adftutorial** i listan med containrar. 
+```emp.txt
+John, Doe
+Jane, Doe
+```
 
-   ![Välja containern](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)
-5. På sidan **Container** väljer du **Ladda upp** i verktygsfältet.  
+Spara filen i mappen **C:\ADFv2QuickStartPSH** (Om mappen inte redan finns skapar du den.) Gå sedan tillbaka till Azure Portal och följ de här stegen:
 
-   ![Knappen för överföring](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
-6. På sidan **Ladda upp blob** väljer du **Avancerat**.
+1. På sidan -    *kontonamn>blobbardärduslutade,väljerduadftutorialfrånden\<* uppdaterade listan över behållare. (Om du stängde fönstret eller gick till en annan sida loggar du in på [Azure Portal](https://portal.azure.com) igen, väljer **alla tjänster** > **lagrings** > **lagrings konton**, väljer ditt lagrings konto och väljer sedan **blobbar** **adftutorial.** )  > 
+2. I verktygsfältet för **adftutorial** container-sidan väljer du **Ladda upp**.
+3. På sidan **Ladda upp BLOB** väljer du rutan **filer** och bläddrar sedan till och väljer filen **EMP. txt** .
+4. Expandera den **avancerade** rubriken. Sidan visas nu som på det sätt som visas:
 
    ![Välj länken Avancerat](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
-7. Starta **Anteckningar** och skapa en fil med namnet **emp.txt** och följande innehåll: Spara den i mappen **c:\ADFv2QuickStartPSH**. Skapa mappen **ADFv2QuickStartPSH** om den inte redan finns.
-    
-   ```
-   John, Doe
-   Jane, Doe
-   ```    
-8. På sidan **Ladda upp blob** i Azure-portalen bläddrar du till och väljer filen **emp.txt** för rutan **Filer**. 
-9. Ange **input** som värde i rutan **Ladda upp till mapp**. 
+5. I rutan **Ladda upp till mapp** anger du **ininformation**.
+6. Välj knappen **Ladda upp**. Du bör se filen **emp.txt** och uppladdningens status i listan.
+7. Välj ikonen **Stäng** (a **X**) för att stänga sidan **Ladda upp BLOB** .
 
-    ![Ladda upp blobinställningar](media/data-factory-quickstart-prerequisites/upload-blob-settings.png)    
-10. Kontrollera att mappen är **input**, att filen är **emp.txt** och välj **Ladda upp**.
-    
-    Du bör se filen **emp.txt** och uppladdningens status i listan. 
-12. Stäng sidan **Ladda upp blob** genom att klicka på **X** i hörnet. 
-
-    ![Stänga sidan Ladda upp blob](media/data-factory-quickstart-prerequisites/close-upload-blob.png)
-1. Låt sidan **Container** vara öppen. Du kommer att använda den för att bekräfta utdata i slutet av snabbstarten.
+Behåll sidan **adftutorial** container öppen. Du kommer att använda den för att bekräfta utdata i slutet av snabbstarten.

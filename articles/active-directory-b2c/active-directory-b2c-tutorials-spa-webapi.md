@@ -1,25 +1,25 @@
 ---
-title: Självstudie – Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med Azure Active Directory B2C | Microsoft Docs
-description: Självstudie som visar hur du använder Active Directory B2C för att skydda ett .NET Core webb-API och anropar det från en ensidesapp.
+title: Självstudie – bevilja åtkomst till ett ASP.NET Core webb-API från ett program med en sida – Azure Active Directory B2C
+description: 'Lär dig hur du använder Active Directory B2C för att skydda ett .NET Core webb-API och anropa API: et från ett Node. js-program med en enda sida.'
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cbea29320c896637190766d1b2b60c09f7db5163
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b53ce30f4c49580bcd8ad3e259adf0300d8bd4a6
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347160"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369321"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C
 
-I den här självstudien får du lära dig att anropa en ASP.NET Core webb-API-resurs som skyddas av Azure Active Directory (Azure AD) B2C från en ensidesapp.
+Den här självstudien visar hur du anropar en Azure Active Directory (Azure AD) B2C-skyddad ASP.NET Core webb-API-resurs från ett enda webb program.
 
 I den här guiden får du lära dig att:
 
@@ -29,145 +29,200 @@ I den här guiden får du lära dig att:
 > * Tilldela behörigheter till webb-API:et
 > * Konfigurera exemplet för att använda programmet
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## <a name="prerequisites"></a>Förutsättningar
 
-Slutför stegen och kraven i [självstudien: Aktivera autentisering för en ensidesapp med konton med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
+* Slutför stegen och förutsättningarna i [Självstudie: Aktivera autentisering i ett program med en enda sida med](active-directory-b2c-tutorials-spa.md)hjälp av Azure Active Directory B2C.
+* Visual Studio 2019 eller senare, eller Visual Studio Code
+* .NET Core 2,2 eller senare
+* Node.js
 
 ## <a name="add-a-web-api-application"></a>Lägga till ett program för webb-API
 
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **Program** och därefter **Lägg till**.
-5. Ange ett namn på programmet. Till exempel *webapi1*.
-6. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
-7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:5000`.
-8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
-9. Klicka på **Skapa**.
-10. På egenskapssidan antecknar du program-ID:t du kommer att använda när du konfigurerar webbappen.
+1. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **Program** och därefter **Lägg till**.
+1. Ange ett namn på programmet. Till exempel *webapi1*.
+1. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
+1. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:5000`.
+1. För **app-ID-URI**anger du en API-slutpunkt-ID till den URI som visas. I självstudien anger `api`du, så att hela URI: n `https://contosotenant.onmicrosoft.com/api`liknar.
+1. Klicka på **Skapa**.
+1. Välj *webapi1* -programmet för att öppna dess egenskaps sida.
+1. Registrera det **program-ID** som visas på sidan Egenskaper. Du behöver det här ID: t i ett senare steg när du konfigurerar webb programmet.
 
 ## <a name="configure-scopes"></a>Konfigurera omfång
 
-Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. I den här självstudien definierar du läs- och skrivrättigheter för webb-API:et.
+Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. I den här självstudien definierar du både Läs-och Skriv behörighet för webb-API: et.
 
-1. Välj **Program** och sedan *webapi1*.
-2. Välj **Publicerade omfång**.
-3. Som **omfång** anger du `Hello.Read` och som beskrivning anger du `Read access to hello`.
-4. Som **omfång** anger du `Hello.Write` och som beskrivning anger du `Write access to hello`.
-5. Klicka på **Spara**.
+1. Välj **program**och välj sedan *webapi1* för att öppna dess egenskaps sida om den inte redan är öppen.
+1. Välj **Publicerade omfång**.
+1. För **omfattning**, ange `Hello.Read`och för **Beskrivning**anger `Read access to hello`du.
+1. För **omfattning**, ange `Hello.Write`och för **Beskrivning**anger `Write access to hello`du.
+1. Välj **Spara**.
+1. Registrera det **fullständiga värdet för omfattning** för `Hello.Read` det omfång som ska användas i ett senare steg när du konfigurerar ett program med en sida. Det fullständiga värdet för `https://yourtenant.onmicrosoft.com/api/Hello.Read`omfattning liknar.
 
 De publicerade omfången kan användas för att tilldela behörighet för webb-API till ett klientprogram.
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
-Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:et. I den obligatoriska föregående självstudien skapade du en webbapp i Azure AD B2C med namnet *webapp1*. Du använder det programmet för att anropa webb-API:et.
+Om du vill anropa ett skyddat webb-API från ett annat program måste du ge den program behörighet till webb-API: et.
 
+I den nödvändiga självstudien har du skapat ett webb program med namnet *webapp1*. I den här självstudien konfigurerar du programmet för att anropa det webb-API som du skapade i ett tidigare avsnitt, *webapi1*.
+
+1. Navigera till din B2C-klient i Azure Portal
 1. Välj **Program** och därefter *webapp1*.
-2. Välj **API-åtkomst** och därefter **Lägg till**.
-3. I listrutan **Välj API** väljer du *webapi1*.
-4. I listrutan **Välj reservationsomfång** väljer du omfången **Hello.Read** och **Hello.Write** som du definierade tidigare.
-5. Klicka på **OK**.
+1. Välj **API-åtkomst** och därefter **Lägg till**.
+1. I listrutan **Välj API** väljer du *webapi1*.
+1. I listrutan **Välj reservationsomfång** väljer du omfången **Hello.Read** och **Hello.Write** som du definierade tidigare.
+1. Klicka på **OK**.
 
-**My sample single page app** är registrerad för att anropa det skyddade **Hello Core API:et**. En användare autentiserar med Azure AD B2C för att använda ensidesappen. Ensidesappen får ett auktoriseringsbeviljande från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
+Webb programmet med en sida är registrerat för att anropa det skyddade webb-API: et. En användare autentiseras med Azure AD B2C för att använda ett program med en sida. En app med en enda sida får en auktorisering från Azure AD B2C för åtkomst till det skyddade webb-API: et.
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-När webb-API:et är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så den använder din Azure AD B2C-klientorganisation. I den här självstudien får du konfigurera ett .NET Core-program som du kan ladda ned från GitHub. [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) eller klona exempelwebbappen från GitHub.
+När webb-API:t är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så att den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du ett exempel på ett .NET Core-webbprogram som du hämtar från GitHub.
 
-```
+[Hämta ett \*zip-arkiv](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) eller klona exempel webb-API-projektet från GitHub.
+
+```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi.git
 ```
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
-1. Öppna **B2C-WebAPI.sln**-lösningen i Visual Studio.
-2. Öppna filen **appsettings.json**. Uppdatera följande värden för att konfigurera webb-API:et för att använda din klient:
+1. Öppna filen *B2C-WebAPI/* * appSettings. JSON** * i Visual Studio eller Visual Studio Code.
+1. `AzureAdB2C` Ändra blocket så att det återspeglar ditt klient namn, program-ID: t för webb-API-programmet, namnet på din registrerings-och inloggnings princip och de omfattningar som du definierade tidigare. Blocket bör se ut ungefär som i följande exempel (med `Tenant` lämpliga `ClientId` värden och värden):
 
-    ```javascript
-    "AzureAdB2C": 
-      {
-        "Tenant": "<your tenant name>.onmicrosoft.com", 
-        "ClientId": "<application-ID>",
-        "Policy": "B2C_1_signupsignin1>",
-        "ScopeRead": "Hello.Read"  
-      },
+    ```json
+    "AzureAdB2C": {
+      "Tenant": "<your-tenant-name>.onmicrosoft.com",
+      "ClientId": "<webapi-application-ID>",
+      "Policy": "B2C_1_signupsignin1",
+
+      "ScopeRead": "Hello.Read",
+      "ScopeWrite": "Hello.Write"
+    },
     ```
 
 #### <a name="enable-cors"></a>Aktivera CORS
 
-Om du vill tillåta ensidesappen att anropa ASP.NET Core webb-API:et måste du aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors).
+Du måste aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors) i webb-API: et om du vill tillåta att ett program med en enda sida anropar ASP.net Core webb-API.
 
-1. Lägg till CORS till metoden `ConfigureServices()` i **Startup.cs**.
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services) {
-      services.AddCors();
-    ```
-
-2. Konfigurera CORS i metoden `Configure()` i **Startup.cs**.
+1. Lägg till CORS till metoden `ConfigureServices()` i *Startup.cs*.
 
     ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
-      app.UseCors(builder =>
-        builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddCors();
     ```
 
-3. Öppna filen **launchSettings.json** under **egenskaper**, leta upp inställningen **iisSettings** *applicationURL* och ange porten som registrerats för API för svars-URL`http://localhost:5000`.
+1. I `ConfigureServices()` -metoden `jwtOptions.Authority` ställer du in värdet på följande URI för token-utfärdare.
 
-### <a name="configure-the-single-page-application"></a>Konfigurera ensidesappen
+    Ersätt `<your-tenant-name>` med namnet på din B2C-klient.
 
-Ensidesappen använder Azure AD B2C för användarregistrering, inloggning och skyddade ASP.NET Core webb-API-anrop. Du måste uppdatera ensidesappen för att anropa .NET Core webb-API:et.
+    ```csharp
+    jwtOptions.Authority = $"https://<your-tenant-name>.b2clogin.com/{Configuration["AzureAdB2C:Tenant"]}/{Configuration["AzureAdB2C:Policy"]}/v2.0";
+    ```
 
-Så här ändrar du appinställningarna:
+1. Konfigurera CORS i- metoden.`Configure()`
 
-1. Öppna filen `index.html`.
-2. Konfigurera exemplet med registreringsinformation för Azure AD B2C-klientorganisationen. I följande kod lägger du till namnet på din klientorganisation i **b2cScopes** och ändrar **webApi**-värdet till det *applicationURL*-värde som du skrev ned tidigare:
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+    {
+        app.UseCors(builder =>
+            builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
+    ```
+
+1. (Endast Visual Studio) Under **Egenskaper** i Solution Explorer öppnar du filen *launchSettings. JSON* och letar `iisExpress` sedan upp blocket.
+1. (Endast Visual Studio) Uppdatera värdet med det port nummer du angav när du registrerade webapi1-programmet i ett tidigare steg.  `applicationURL` Exempel:
+
+    ```json
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5000/",
+      "sslPort": 0
+    }
+    ```
+
+### <a name="configure-the-single-page-application"></a>Konfigurera ett program med en sida
+
+En Enkels Ides applikation (SPA) från [föregående självstudie](active-directory-b2c-tutorials-spa.md) i serien använder Azure AD B2C för användarens registrering och inloggning, och anropar det ASP.net Core webb-API som skyddas av *frabrikamb2c* demo-klienten.
+
+I det här avsnittet ska du uppdatera det enkla programmet för att anropa det ASP.NET Core webb-API som skyddas av *din* Azure AD B2C klient och som du kör på den lokala datorn.
+
+Ändra inställningarna i SPA:
+
+1. Öppna filen *index. html* i [Active-Directory-B2C-JavaScript-msal-singlepageapp][github-js-spa] -projektet som du laddade ned eller klonade i föregående självstudie.
+1. Konfigurera exemplet med URI för den *Hello. Read* -omfattning som du skapade tidigare och URL: en för webb-API: et.
+    1. I definitionen ersätter du värdet med den fullständiga URI: n för omfattningen (det **fullständiga värdet** som du registrerade tidigare). `b2cScopes` `appConfig`
+    1. Ändra värdet till det `applicationURL` värde som du angav i föregående avsnitt. `webApi`
+
+    Definitionen bör likna följande kodblock (med ditt klient namn i stället för `<your-tenant-name>`): `appConfig`
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
-    var applicationConfig = {
-        clientID: '<application-ID>',
-        authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_signupsignin1",
-        b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/api/Hello.Read"],
-        webApi: 'http://localhost:5000/api/values',
+    var appConfig = {
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/Hello.Read"],
+      webApi: "http://localhost:5000/"
     };
     ```
 
-## <a name="run-the-spa-application-and-web-api"></a>Köra SPA-programmet och webb-API:et
+## <a name="run-the-spa-and-web-api"></a>Köra SPA-och webb-API: et
 
-Du behöver köra både Node.js-ensidesappen och .NET Core webb-API:et.
+Slutligen kör du både webb-API: et för ASP.NET Core och Node. js-programmet på den lokala datorn. Sedan loggar du in på ett program med en enda sida och trycker på en knapp för att initiera en begäran till det skyddade API: et.
 
-### <a name="run-the-aspnet-core-web-api"></a>Kör ASP.NET Core webb-API:et 
+Även om båda programmen körs lokalt i den här självstudien använder de Azure AD B2C för säker registrering/inloggning och för att bevilja åtkomst till det skyddade webb-API: et.
 
-Tryck på **F5** för att felsöka **B2C-WebAPI.sln** i Visual Studio.
+### <a name="run-the-aspnet-core-web-api"></a>Kör ASP.NET Core webb-API
 
-När projektet startar visas en webbsida i din standardwebbläsare som meddelar att webb-API:et är tillgängligt för förfrågningar.
+I Visual Studio trycker du på **F5** för att bygga och felsöka lösningen *WebAPI. SLN* . När projektet startas visas en webb sida i din standard webbläsare som visar att webb-API: et är tillgängligt för förfrågningar.
+
+Om du föredrar att använda `dotnet` cli i stället för Visual Studio:
+
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller  *\*. CSPROJ* -filen. Exempel:
+
+    `cd active-directory-b2c-dotnetcore-webapi/B2C-WebApi`
+
+1. Skapa och kör webb-API: et genom `dotnet run`att köra.
+
+    När API: et är igång bör du se utdata som liknar följande (för självstudien kan du ignorera eventuella `NETSDK1059` varningar):
+
+    ```console
+    $ dotnet run
+    Hosting environment: Production
+    Content root path: /home/user/active-directory-b2c-dotnetcore-webapi/B2C-WebApi
+    Now listening on: http://localhost:5000
+    Application started. Press Ctrl+C to shut down.
+    ```
 
 ### <a name="run-the-single-page-app"></a>Kör ensidesappen
 
-1. Starta en kommandotolk för Node.js.
-2. Gå till den katalog som innehåller Node.js-exemplet. Till exempel `cd c:\active-directory-b2c-javascript-msal-singlepageapp`
-3. Kör följande kommandon:
-    ```
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller Node. js-exemplet. Exempel:
+
+    `cd active-directory-b2c-javascript-msal-singlepageapp`
+
+1. Kör följande kommandon:
+
+    ```console
     npm install && npm update
     node server.js
     ```
 
     Konsolfönstret visar portnumret där programmet finns.
-    
-    ```
+
+    ```console
     Listening on port 6420...
     ```
 
-4. Använd en webbläsare för att gå till adressen `http://localhost:6420` för att visa programmet.
-5. Logga in med e-postadressen och lösenordet som skapades i [autentisering av användare med Azure Active Directory B2C i en ensidesapp (JavaScript)](active-directory-b2c-tutorials-spa.md).
-6. Klicka på **Anropa API**.
+1. Navigera till `http://localhost:6420` i webbläsaren om du vill visa programmet.
+1. Logga in med e-postadressen och lösen ordet som du använde i [föregående självstudie](active-directory-b2c-tutorials-spa.md). När inloggningen är klar bör du se `User 'Your Username' logged-in` meddelandet.
+1. Klicka på knappen **anropa webb-API** . SPA får ett bemyndigande från Azure AD B2C och ansluter sedan till det skyddade webb-API: et för att visa innehållet på index sidan:
 
-När du registrerar dig eller loggar in med ett användarkonto anropar exemplet det skyddade webb-API:et och returnerar ett resultat.
+    ```Output
+    Web APi returned:
+    "<html>\r\n<head>\r\n  <title>Azure AD B2C API Sample</title>\r\n ...
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -179,5 +234,10 @@ I den här självstudiekursen lärde du dig att:
 > * Tilldela behörigheter till webb-API:et
 > * Konfigurera exemplet för att använda programmet
 
+Nu när du har sett en SPA-begäran en resurs från ett skyddat webb-API, får du en djupare förståelse för hur dessa program typer interagerar med varandra och med Azure AD B2C.
+
 > [!div class="nextstepaction"]
-> [Självstudier: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Program typer som kan användas i Active Directory B2C >](active-directory-b2c-apps.md)
+
+<!-- Links - EXTERNAL -->
+[github-js-spa]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp

@@ -1,9 +1,9 @@
 ---
-title: Azure Batch Sluthändelse för uppgift | Microsoft Docs
-description: Referens för Batch Sluthändelse för uppgift.
+title: Händelse för Azure Batch aktivitet slutförd | Microsoft Docs
+description: Referens för slut händelse för batch-aktivitet.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60e5e6cc6fdd839c8bbe44d8e1d2e794e7afb34d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549979"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323048"
 ---
 # <a name="task-complete-event"></a>Sluthändelse för uppgift
 
- Den här händelsen genereras när en uppgift är slutförd, oavsett slutkoden. Den här händelsen kan användas för att fastställa varaktigheten för en uppgift, där aktiviteten kördes och om den återförsöktes.
+ Den här händelsen genereras när en uppgift har slutförts, oavsett slut koden. Den här händelsen kan användas för att avgöra varaktigheten för en aktivitet, var aktiviteten kördes och om den har gjorts om.
 
 
- I följande exempel visar innehållet i en Sluthändelse för uppgift.
+ I följande exempel visas bröd texten i en uppgift slutförd händelse.
 
 ```
 {
@@ -52,42 +52,42 @@ ms.locfileid: "60549979"
 }
 ```
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|type|Anteckningar|
 |------------------|----------|-----------|
-|jobId|String|Id för jobbet som innehåller aktiviteten.|
-|id|String|Id för uppgiften.|
-|taskType|String|Typ av uppgiften. Detta kan vara som anger det är en job manager-aktivitet ' JobManager ”eller” användare ”som anger det inte är en job manager-aktivitet. Den här händelsen genereras inte för jobbförberedelse, jobbpubliceringsaktiviteter eller startaktiviteter.|
-|systemTaskVersion|Int32|Det här är räknaren interna återförsök för en aktivitet. Batch-tjänsten kan internt gör en uppgift för tillfälliga problem. De här problemen kan omfatta interna schemaläggning fel eller försök att komma tillrätta med compute-noder i ett felaktigt tillstånd.|
-|[nodeInfo](#nodeInfo)|Komplex typ|Innehåller information om Beräkningsnoden som aktiviteten kördes.|
-|[multiInstanceSettings](#multiInstanceSettings)|Komplex typ|Anger att uppgiften är en Flerinstansuppgift som kräver flera beräkningsnoder.  Se [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) information.|
-|[Begränsningar](#constraints)|Komplex typ|Begränsningar för körning som gäller för den här uppgiften.|
-|[executionInfo](#executionInfo)|Komplex typ|Innehåller information om körning av aktiviteten.|
+|jobId|Sträng|ID för jobbet som innehåller uppgiften.|
+|id|Sträng|Aktivitetens ID.|
+|taskType|Sträng|Aktivitetens typ. Detta kan antingen vara ' JobManager ' som indikerar att det är en Job Manager-uppgift eller ' användare ' som indikerar att den inte är en Job Manager-aktivitet. Den här händelsen genereras inte för jobb förberedelse aktiviteter, jobb publicerings aktiviteter eller start uppgifter.|
+|systemTaskVersion|Int32|Detta är den interna återförsöks räknaren för en aktivitet. Internt kan batch-tjänsten göra ett nytt försök med en uppgift för att redovisa tillfälliga problem. De här problemen kan omfatta interna schemaläggnings fel eller försök att återställa från datornoder i ett felaktigt tillstånd.|
+|[nodeInfo](#nodeInfo)|Komplex typ|Innehåller information om den beräknings nod som aktiviteten kördes på.|
+|[multiInstanceSettings](#multiInstanceSettings)|Komplex typ|Anger att aktiviteten är en multi-instance-aktivitet som kräver flera datornoder.  Se [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) för mer information.|
+|[begränsningar](#constraints)|Komplex typ|De körnings begränsningar som gäller för den här uppgiften.|
+|[executionInfo](#executionInfo)|Komplex typ|Innehåller information om körningen av uppgiften.|
 
-###  <a name="nodeInfo"></a> nodeInfo
+###  <a name="nodeInfo"></a>nodeInfo
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|type|Anteckningar|
 |------------------|----------|-----------|
-|poolId|String|Id för poolen som aktiviteten kördes.|
-|nodeId|String|Id för noden som aktiviteten kördes.|
+|poolId|Sträng|ID för den pool där aktiviteten kördes.|
+|nodeId|Sträng|ID: t för noden som aktiviteten kördes på.|
 
-###  <a name="multiInstanceSettings"></a> multiInstanceSettings
+###  <a name="multiInstanceSettings"></a>multiInstanceSettings
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|type|Anteckningar|
 |------------------|----------|-----------|
-|numberOfInstances|Int32|Antalet beräkningsnoder som uppgiften kräver.|
+|numberOfInstances|Int32|Antalet Compute-noder som aktiviteten kräver.|
 
-###  <a name="constraints"></a> Begränsningar
+###  <a name="constraints"></a>begränsningar
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|type|Anteckningar|
 |------------------|----------|-----------|
-|maxTaskRetryCount|Int32|Det maximala antalet gånger uppgiften kan göras. Batch-tjänsten försöker en uppgift om dess slutkod inte är noll.<br /><br /> Observera att det här värdet särskilt styr antalet försök. Batch-tjänsten kommer att försöka aktiviteten en gång och försök sedan upp till den här gränsen. Till exempel om maximalt antal försök är 3, Batch försök en uppgift upp till 4 gånger du (ett första försök och 3 nya försök).<br /><br /> Om maximalt antal försök är 0, försöka uppgifter inte igen av Batch-tjänsten.<br /><br /> Om det högsta antalet försök är -1, görs nya försök uppgifter utan begränsning.<br /><br /> Standardvärdet är 0 (inga nya försök).|
+|maxTaskRetryCount|Int32|Det maximala antalet gånger som aktiviteten kan göras om. Batch-tjänsten försöker igen med en aktivitet om dess slutkod är skilt från noll.<br /><br /> Observera att det här värdet specifikt styr antalet återförsök. Batch-tjänsten kommer att försöka utföra åtgärden en gång och kan sedan försöka igen till den här gränsen. Om till exempel det maximala antalet försök är 3, försöker batch utföra en aktivitet upp till fyra gånger (ett första försök och tre försök).<br /><br /> Om det maximala antalet försök är 0, gör batch-tjänsten inte om aktiviteterna.<br /><br /> Om det maximala antalet försök är-1, kommer batch-tjänsten att försöka utföra aktiviteter utan begränsning.<br /><br /> Standardvärdet är 0 (inga återförsök).|
 
-###  <a name="executionInfo"></a> executionInfo
+###  <a name="executionInfo"></a>executionInfo
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|type|Anteckningar|
 |------------------|----------|-----------|
-|startTime|DateTime|Tidpunkten då aktiviteten startades som körs. ”Kör” motsvarar den **kör** tillstånd, så om aktiviteten anger resursfiler eller programpaket, återspeglar starttiden tidpunkten då aktiviteten startades ladda ned eller distribution av dessa.  Om uppgiften har startats om eller göras, är de senaste tidpunkten då aktiviteten startades som körs.|
-|endTime|DateTime|Den tid då uppgiften är slutförd.|
-|Slutkod|Int32|Slutkoden för uppgiften.|
-|RetryCount|Int32|Hur många gånger uppgiften avslutas av Batch-tjänsten. Uppgiften görs om avslutas med en slutkod, upp till den angivna MaxTaskRetryCount.|
-|requeueCount|Int32|Antal gånger som aktiviteten har åter placerats i kö av Batch-tjänsten som ett resultat av en användarbegäran.<br /><br /> När användaren tar bort noder från en pool (genom att ändra storlek på eller minska storleken på poolen) eller när jobbet är inaktiverad och användaren kan ange att uppgifter som körs på noderna ska placeras i kö för körning. Det här antalet spårar hur många gånger uppgiften har åter placerats i kö av dessa skäl.|
+|startTime|DateTime|Tiden då uppgiften startade. "Körs" motsvarar körnings tillstånd  , så om aktiviteten anger resursfiler eller programpaket, visar start tiden tiden då uppgiften startade nedladdningen eller distributionen av dessa.  Om aktiviteten har startats om eller gjorts om, är det här den senaste tiden då uppgiften startades.|
+|endTime|DateTime|Tiden då uppgiften slutfördes.|
+|exitCode|Int32|Avslutnings koden för aktiviteten.|
+|retryCount|Int32|Antalet gånger som aktiviteten har fått nytt försök av batch-tjänsten. Aktiviteten provas igen om den avslutas med en slutkod som inte är noll, upp till den angivna MaxTaskRetryCount.|
+|requeueCount|Int32|Antalet gånger som aktiviteten har ställts i kö av batch-tjänsten som ett resultat av en användarbegäran.<br /><br /> När användaren tar bort noder från en pool (genom att ändra storlek på eller krympa poolen) eller när jobbet har inaktiverats, kan användaren ange att aktiviteter som körs på noderna ska köas för körning. Antalet spårar hur många gånger aktiviteten har ställts i kö av dessa orsaker.|

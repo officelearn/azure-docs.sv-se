@@ -1,6 +1,6 @@
 ---
-title: Webhook-åtgärder för loggaviseringar i Azure-aviseringar
-description: Den här artikeln beskriver hur du skapar en loggvarningsregel med hjälp av Log Analytics-arbetsyta eller Application Insights, hur aviseringen skickar data som en HTTP-webhook och information om de olika anpassningar som är möjliga.
+title: Webhook-åtgärder för logg aviseringar i Azure-aviseringar
+description: Den här artikeln beskriver hur du skapar en logg aviserings regel med hjälp av Log Analytics arbets ytan eller Application Insights, hur aviseringen skickar data som en HTTP-webhook och information om de olika anpassningar som är möjliga.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6aa007c621e76cb0c188a7dab6279fd9e387b2b3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8bdd0d5230feeeb4c80775ce63aa7e4eaccb601c
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705196"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226799"
 ---
-# <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
-När en [log aviseringen har skapats i Azure](alerts-log.md), har möjlighet att [konfigurera den med hjälp av åtgärdsgrupper](action-groups.md) att utföra en eller flera åtgärder. Den här artikeln beskriver de olika webhook-åtgärder som är tillgängliga och visar hur du konfigurerar en anpassad JSON-baserade webhook.
+# <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för logg aviserings regler
+När en [logg avisering skapas i Azure](alerts-log.md)har du möjlighet att [Konfigurera den med hjälp av åtgärds grupper](action-groups.md) för att utföra en eller flera åtgärder. Den här artikeln beskriver de olika webhook-åtgärder som är tillgängliga och visar hur du konfigurerar en anpassad JSON-baserad webhook.
 
 > [!NOTE]
-> Du kan också använda den [gemensamma avisering schemat](https://aka.ms/commonAlertSchemaDocs) för webhook-integreringar. Det gemensamma schemat för avisering innehåller fördelen att en enda omfattande och enhetligt avisering nyttolast alla aviseringar tjänster i Azure Monitor. [Läs mer om vanliga avisering schemadefinitioner.](https://aka.ms/commonAlertSchemaDefinitions)
+> Du kan också använda [vanliga aviserings scheman](https://aka.ms/commonAlertSchemaDocs) för webhook-integreringar. Det vanliga aviserings schemat ger fördelarna med att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor. [Lär dig mer om vanliga aviserings schema definitioner.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
 
-Du kan anropa en extern process via en HTTP POST-begäran med webhook-åtgärder. Den tjänst som kallas bör stöder webhooks och Bestäm hur du använder alla nyttolast som den tar emot.
+Med webhook-åtgärder kan du anropa en extern process genom en enda HTTP POST-begäran. Tjänsten som anropas bör ha stöd för Webhooks och avgöra hur du använder den nytto last som den tar emot.
 
 Webhook-åtgärder kräver egenskaperna i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| **Webhook-URL** |URL till webhooken. |
-| **Anpassad JSON-nyttolast** |Anpassad nyttolast ska skicka med webhooken när det här alternativet väljs under skapande av varning. Mer information finns i [hantera loggvarningar](alerts-log.md).|
+| **Webhook-URL** |Webhookens URL. |
+| **Anpassad JSON-nyttolast** |Den anpassade nytto lasten som ska skickas med webhooken när det här alternativet väljs när aviseringen skapas. Mer information finns i [Hantera logg aviseringar](alerts-log.md).|
 
 > [!NOTE]
-> Den **visa Webhook** knappen tillsammans med den **inkludera anpassad JSON-nyttolast för webhook** alternativet för log-aviseringen visar exempel webhook-nyttolasten för anpassning som har angetts. Den innehåller inte faktiska data men är representativ för JSON-schemat som används för aviseringar. 
+> Knappen **Visa webhook** tillsammans med alternativet **inkludera anpassad JSON-nyttolast för webhook** för logg aviseringen visar exempel på webhook-nyttolasten för den anpassning som tillhandahölls. Den innehåller inte faktiska data utan är representativ för det JSON-schema som används för logg aviseringar. 
 
-Webhooks är en URL och en nyttolast som formaterats i JSON som informationen som skickas till den externa tjänsten. Som standard innehåller nyttolasten värdena i tabellen nedan. Du kan välja att ersätta den här nyttolasten med en anpassad på egen hand. I så fall använda variabler i tabellen för var och en av parametrarna för att inkludera deras värden i din anpassade nyttolast.
+Webhooks innehåller en URL och en nytto last som är formaterad i JSON som data som skickas till den externa tjänsten. Som standard innehåller nytto lasten värdena i följande tabell. Du kan välja att ersätta den här nytto lasten med en egen egen. I så fall använder du variablerna i tabellen för var och en av parametrarna för att ta med värdena i din anpassade nytto Last.
 
 
 | Parameter | Variabel | Beskrivning |
 |:--- |:--- |:--- |
-| *AlertRuleName* |#alertrulename |Namnet på regeln. |
-| *Allvarlighetsgrad* |#severity |Allvarlighetsgrad för aviseringen skickades log. |
-| *AlertThresholdOperator* |#thresholdoperator |Tröskeloperator för regeln, som använder större eller mindre än. |
-| *AlertThresholdValue* |#thresholdvalue |Tröskelvärde för regeln. |
-| *LinkToSearchResults* |#linktosearchresults |Länka till Analytics-portalen som returnerar poster från den fråga som skapade aviseringen. |
-| *ResultCount* |#searchresultcount |Antalet poster i sökresultaten. |
-| *Söktiden för intervallslut* |#searchintervalendtimeutc |Sluttid för frågan i UTC, med formatet mm/dd/åååå hh: mm: ss AM/PM. |
-| *Intervall för sökning* |#searchinterval |Tidsfönster för regeln, med formatet: mm: ss. |
-| *Sök efter intervall StartTime* |#searchintervalstarttimeutc |Starttid för frågan i UTC, med formatet mm/dd/åååå hh: mm: ss AM/PM. 
-| *SearchQuery* |#searchquery |Logga sökfråga används av regeln. |
-| *SearchResults* |"IncludeSearchResults": true|Poster som returneras av frågan som en JSON-tabell, begränsad till de första 1 000 posterna, om ”IncludeSearchResults”: true läggs till i en anpassad JSON webhook-definition som en översta egenskap. |
-| *Typ av avisering*| #alerttype | Typ av loggvarningsregel som konfigurerats som [metriska måttenheter](alerts-unified-log.md#metric-measurement-alert-rules) eller [antal resultat](alerts-unified-log.md#number-of-results-alert-rules).|
-| *WorkspaceID* |#workspaceid |ID för Log Analytics-arbetsytan. |
-| *Program-ID* |#applicationid |ID för Application Insights app. |
-| *Prenumerations-ID* |#subscriptionid |ID för din Azure-prenumeration används. 
+| *AlertRuleName* |#alertrulename |Aviserings regelns namn. |
+| *Allvarlighets grad* |#severity |Allvarlighets grad har angetts för den utlöst logg aviseringen. |
+| *AlertThresholdOperator* |#thresholdoperator |Tröskel operator för varnings regeln, som använder större eller mindre än. |
+| *AlertThresholdValue* |#thresholdvalue |Tröskel värde för varnings regeln. |
+| *LinkToSearchResults* |#linktosearchresults |Länk till analys portalen som returnerar poster från frågan som skapade aviseringen. |
+| *Resultcount som* |#searchresultcount |Antal poster i Sök resultaten. |
+| *Slut tid för Sök intervall* |#searchintervalendtimeutc |Slut tid för frågan i UTC, med formatet MM/DD/ÅÅÅÅ HH: mm: SS. |
+| *Sök intervall* |#searchinterval |Tids period för varnings regeln med formatet HH: mm: SS. |
+| *Sök intervall StartTime* |#searchintervalstarttimeutc |Start tid för frågan i UTC, med formatet MM/DD/ÅÅÅÅ HH: mm: SS. 
+| *SearchQuery* |#searchquery |Loggs öknings fråga som används av varnings regeln. |
+| *SearchResults* |"IncludeSearchResults": true|Poster som returneras av frågan som en JSON-tabell, begränsade till de första 1 000 posterna, om "IncludeSearchResults": true läggs till i en anpassad JSON webhook-definition som en egenskap på den översta nivån. |
+| *Aviserings typ*| #alerttype | Typ av logg aviserings regel som kon figurer ATS som [mått mätning](alerts-unified-log.md#metric-measurement-alert-rules) eller [antal resultat](alerts-unified-log.md#number-of-results-alert-rules).|
+| *WorkspaceID* |#workspaceid |ID för din Log Analytics-arbetsyta. |
+| *Program-ID* |#applicationid |ID för Application Insights-appen. |
+| *Prenumerations-ID* |#subscriptionid |ID för din Azure-prenumeration som används. 
 
 > [!NOTE]
-> *LinkToSearchResults* skickar parametrar som *SearchQuery*, *Search intervall StartTime*, och *Search intervall sluttid* i URL: en till Azure Portal för visning i avsnittet Analytics. Azure-portalen har en URI storleksgräns på cirka 2 000 tecken. Portalen kommer *inte* öppna länkarna i aviseringarna om parametervärdena som överskrider gränsen. Du kan manuellt ange information om du vill visa resultat i Analytics-portalen. Du kan också använda den [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](/rest/api/loganalytics/) att hämta resultat programmässigt. 
+> *LinkToSearchResults* överför parametrar som *SearchQuery*, sökintervallet StartTime och *Sök Intervallets slut tid* i URL: en till Azure Portal för visning i avsnittet analys. Azure Portal har en URI-storleks gräns på ungefär 2 000 tecken. Portalen kommer *inte* att öppna länkar som finns i aviseringar om parameter värden överskrider gränsen. Du kan mata in information manuellt om du vill visa resultat i Analytics-portalen. Du kan också använda [Application Insights Analytics-REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](/rest/api/loganalytics/) för att hämta resultat program mässigt. 
 
-Du kan till exempel ange följande anpassade nyttolasten som innehåller en enda parameter med namnet *text*. Den här parametern förväntar sig att den tjänst som denna webhook-anrop.
+Du kan till exempel ange följande anpassade nytto last som innehåller en enda parameter som kallas *text*. Tjänsten som denna webhook anropar förväntar sig denna parameter.
 
 ```json
 
@@ -67,25 +67,25 @@ Du kan till exempel ange följande anpassade nyttolasten som innehåller en enda
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-Den här exempel-nyttolasten löser till något som liknar följande när det skickas till webhooken:
+Den här exempel nytto lasten matchas till något som liknar följande när den skickas till webhooken:
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Eftersom alla variabler i en anpassad webhook måste anges i ett JSON-hölje som ”#searchinterval”, gällande webhooken har också variabeln data i höljen, som ”00: 05:00”.
+Eftersom alla variabler i en anpassad webhook måste anges i ett JSON-hölje, t. ex. "#searchinterval", innehåller den resulterande webhooken även variabla data i höljen, till exempel "00:05:00".
 
-För att inkludera sökresultat i en anpassad nyttolast, kontrollerar du att **IncludeSearchResults** har angetts som en översta egenskap i JSON-nyttolast. 
+Om du vill inkludera Sök resultat i en anpassad nytto Last kontrollerar du att **IncludeSearchResults** har angetts som en egenskap på den översta nivån i JSON-nyttolasten. 
 
-## <a name="sample-payloads"></a>Exempel-nyttolaster
-Det här avsnittet visas exempel nyttolaster för webhooks för aviseringar. Exempel-nyttolaster innehåller exempel när nyttolasten är standard och när den är anpassat.
+## <a name="sample-payloads"></a>Exempel på nytto laster
+I det här avsnittet visas exempel på nytto laster för Webhooks för logg aviseringar. Exempel på nytto laster innehåller exempel när nytto lasten är standard och när den är anpassad.
 
-### <a name="standard-webhook-for-log-alerts"></a>Standard-webbhook för loggaviseringar 
-Båda dessa exempel har en dummy-nyttolast med bara två kolumner och två rader.
+### <a name="standard-webhook-for-log-alerts"></a>Standard-webhook för logg aviseringar 
+Båda dessa exempel har en provdockans nytto last med endast två kolumner och två rader.
 
-#### <a name="log-alert-for-log-analytics"></a>Log aviseringen för Log Analytics
-Följande exempel nyttolasten är för en standard webhook-åtgärd *utan en anpassad JSON-alternativet* som används för aviseringar baserat på Log Analytics:
+#### <a name="log-alert-for-log-analytics"></a>Logg avisering för Log Analytics
+Följande exempel på nytto Last är för en standard-webhook-åtgärd *utan ett anpassat JSON-alternativ* som används för aviseringar baserat på Log Analytics:
 
 ```json
 {
@@ -124,11 +124,11 @@ Följande exempel nyttolasten är för en standard webhook-åtgärd *utan en anp
  ```
 
 > [!NOTE]
-> Fältet ”allvarlighetsgrad” kan ändras om du har [växlas föredrar API](alerts-log-api-switch.md) för loggaviseringar i Log Analytics.
+> Värdet för fältet allvarlighets grad kan ändras om du har [ändrat API-inställningen](alerts-log-api-switch.md) för logg aviseringar på Log Analytics.
 
 
-#### <a name="log-alert-for-application-insights"></a>Log aviseringen för Application Insights
-Följande exempel nyttolasten är för en standard webhook *utan en anpassad JSON-alternativet* när den används för aviseringar baserat på Application Insights:
+#### <a name="log-alert-for-application-insights"></a>Logg avisering för Application Insights
+Följande exempel på nytto Last är för en standard-webhook *utan ett anpassat JSON-alternativ* när den används för logg aviseringar baserat på Application Insights:
     
 ```json
 {
@@ -169,8 +169,8 @@ Följande exempel nyttolasten är för en standard webhook *utan en anpassad JSO
 }
 ```
 
-#### <a name="log-alert-with-custom-json-payload"></a>Log avisering med anpassad JSON-nyttolast
-Om du vill skapa en anpassad nyttolast som innehåller bara aviseringsnamn och sökresultaten kan du till exempel använda följande: 
+#### <a name="log-alert-with-custom-json-payload"></a>Logg avisering med anpassad JSON-nyttolast
+Om du till exempel vill skapa en anpassad nytto last som endast innehåller aviserings namnet och Sök resultaten kan du använda följande: 
 
 ```json
     {
@@ -179,12 +179,12 @@ Om du vill skapa en anpassad nyttolast som innehåller bara aviseringsnamn och s
     }
 ```
 
-Nyttolasten i följande exempel är en anpassad webhook-åtgärd för alla log-avisering:
+Följande exempel på nytto Last är för en anpassad webhook-åtgärd för valfri logg avisering:
     
 ```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
-    "SearchResult":
+    "SearchResults":
         {
         "tables":[
                     {"name":"PrimaryResult","columns":
@@ -206,9 +206,9 @@ Nyttolasten i följande exempel är en anpassad webhook-åtgärd för alla log-a
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [loggaviseringar i Azure-aviseringar](alerts-unified-log.md).
-- Förstå hur du [hantera loggaviseringar i Azure](alerts-log.md).
-- Skapa och hantera [åtgärdsgrupper i Azure](action-groups.md).
+- Lär dig mer om [logg aviseringar i Azure](alerts-unified-log.md)-aviseringar.
+- Förstå hur du [hanterar logg aviseringar i Azure](alerts-log.md).
+- Skapa och hantera [Åtgärds grupper i Azure](action-groups.md).
 - Läs mer om [Application Insights](../../azure-monitor/app/analytics.md).
-- Läs mer om [logga frågor](../log-query/log-query-overview.md). 
+- Läs mer om [logg frågor](../log-query/log-query-overview.md). 
 

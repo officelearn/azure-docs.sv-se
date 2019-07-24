@@ -1,6 +1,6 @@
 ---
 title: Advanced Threat Protection för Azure Storage
-description: Konfigurera Azure Storage Advanced Threat Protection för att identifiera avvikelser i kontoaktivitet och meddela dig om potentiellt skadliga försök att komma åt ditt konto.
+description: Konfigurera Azure Storage Avancerat skydd för att identifiera avvikelser i konto aktivitet och meddela dig om potentiellt skadliga försök att komma åt ditt konto.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,156 +8,166 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fb221d774d9d00a5dc7b0d94edc35a5651443a5b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621962"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874058"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection för Azure Storage
 
-Med Advanced Threat Protection för Azure Storage får du en ytterligare nivå med säkerhetsinsikter som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Du kan hantera hot utan att behöva vara säkerhetsexpert eller hantera säkerhetssystem för övervakning i den här skyddsnivå. 
+Med Advanced Threat Protection för Azure Storage får du en ytterligare nivå med säkerhetsinsikter som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Det här skydds lagret gör att du kan åtgärda hot utan att behöva vara säkerhets expert eller hantera säkerhets övervaknings system. 
 
-Säkerhetsvarningar utlöses när avvikelser i aktivitet inträffar.  Dessa säkerhetsaviseringar som är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/), och också skickas via e-post till prenumerationens administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöka och åtgärda hot.
+Säkerhets varningar utlöses när avvikelser i aktivitet inträffar.  Dessa säkerhets aviseringar är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/)och skickas också via e-post till prenumerations administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot.
 
 > [!NOTE]
-> * Avancerat skydd för Azure Storage är endast tillgänglig för Blob-lagringen.
-> * Prisinformationen, inklusive en kostnadsfria 30-dagars utvärderingsversion finns i den [sidan med priser för Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
-> * ATP för Azure storage-funktionen är för närvarande inte tillgänglig i Azure government och nationellt molnregioner.
+> * Avancerat skydd för Azure Storage är för närvarande endast tillgängligt för Blob Storage.
+> * För pris information, inklusive en kostnads fri 30-dagars utvärderings version, se [sidan Azure Security Center prissättning]( https://azure.microsoft.com/pricing/details/security-center/).
+> * ATP för Azure Storage-funktionen är för närvarande inte tillgänglig i moln regionerna Azure myndigheter och suveräna myndigheter.
 
-Avancerat skydd för Azure Storage matar in diagnostiska loggar för Läs-, Skriv- och delete-begäranden till Blob storage för identifiering av hot. Du kan visa relaterade storage-aktivitet som använder loggning av Storage Analytics för att undersöka aviseringar från Avancerat skydd. Läs mer om hur du [konfigurera Storage Analytics loggning](storage-monitor-storage-account.md#configure-logging).
+Avancerat skydd för Azure Storage matar in diagnostikloggar för Läs-, skriv-och borttagnings förfrågningar till Blob Storage för hot identifiering. Om du vill undersöka aviseringar från Avancerat skydd kan du Visa relaterad lagrings aktivitet med hjälp av Lagringsanalys loggning. Mer information finns i så här [konfigurerar du Lagringsanalys loggning](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="set-up-advanced-threat-protection"></a>Konfigurera Avancerat skydd 
 
 ### <a name="using-the-portal"></a>Använda portalen
 
-1. Starta Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com/).
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
 
-2. Gå till konfigurationssidan för Azure Storage-konto som du vill skydda. I den **inställningar** väljer **Advanced Threat Protection**.
+2. Gå till konfigurations sidan för det Azure Storage konto som du vill skydda. På sidan **Inställningar** väljer du **Avancerat skydd**.
 
-3. I den **Advanced Threat Protection** konfigurationsbladet
-    * Aktivera **på** avancerade *skydd mot hot*
-    * Klicka på **spara** att spara den nya eller uppdaterade Avancerat skydd-principen. (Priserna i avbildningen är till exempel endast.)
+3. I bladet **Avancerat skydds** konfiguration
+    * Aktivera **Avancerat** *skydd*
+    * Klicka på **Spara** för att spara den nya eller uppdaterade Advanced Threat Protection-principen. (Priserna i bilden är till exempel endast avsedda.)
 
 ![Aktivera Azure Storage Avancerat skydd](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="using-azure-security-center"></a>Använda Azure Security Center
-När du prenumererar på Standard-nivån i Azure Security Center Advanced Threat Protection har ställts in på dina lagringskonton. Mer information finns i [uppgradera till standardnivån i Security Center för ökad säkerhet](https://docs.microsoft.com/azure/security-center/security-center-pricing). (Priserna i avbildningen är till exempel endast.)
 
-![Standard-nivån i ASC](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing.png)
+När du prenumererar på standard nivån i Azure Security Center konfigureras Avancerat skydd automatiskt på alla dina lagrings konton. Du kan aktivera eller inaktivera Avancerat skydd för dina lagrings konton under en speciell prenumeration på följande sätt:
 
-### <a name="using-azure-resource-manager-templates"></a>Med Azure Resource Manager-mallar
+1. Starta **Azure Security Center** i [Azure Portal]([https://portal.azure.com).
+1. Klicka på **priser & inställningar**på huvud menyn.
+1. Klicka på den prenumeration som du vill aktivera eller inaktivera hot skydd för dess lagrings konton.
 
-Använd en Azure Resource Manager-mall för att distribuera ett Azure Storage-konto med avancerat skydd aktiverat.
-Mer information finns i [Storage-konto med Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+    ![Välj en prenumeration](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
-### <a name="using-azure-policy"></a>Med Azure-princip
+1. Klicka på **pris nivå**.
+1. I avsnittet **Välj pris nivå efter resurs typ** klickar du på aktive rad eller inaktive rad på raden **lagrings konton** .
 
-Använda en Azure för att aktivera Avancerat skydd på lagringskonton under en viss prenumeration eller resursgrupp grupp.
+    ![Aktivera ATP i Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
+1. Klicka på **Spara**.
 
-1. Lunch Azure **princip – definitioner** sidan.
+### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager mallar
 
-1. Sök efter den **distribuera Avancerat skydd på Storage-konton** princip.
+Använd en Azure Resource Manager mall för att distribuera ett Azure Storage konto med avancerat skydd aktiverat. Mer information finns i [lagrings konto med avancerat skydd](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-     ![Sök efter princip](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+### <a name="using-azure-policy"></a>Använda Azure Policy
+
+Använd en Azure Policy för att aktivera avancerat skydd mellan lagrings konton under en speciell prenumeration eller resurs grupp.
+
+1. Lunch sidan Azure **policy-definitions** .
+
+1. Sök efter principen **distribuera Avancerat skydd på lagrings konton** .
+
+     ![Sök princip](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
   
-1. Välj en Azure-prenumeration eller resursgrupp grupp.
+1. Välj en Azure-prenumeration eller resurs grupp.
 
-    ![Välj en prenumeration eller grupp](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+    ![Välj prenumeration eller grupp](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
 
 1. Tilldela principen.
 
-    ![Sidan definitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
+    ![Sidan princip definitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>Använda REST-API:et
-Använda Rest API-kommandon för att skapa, uppdatera eller få Avancerat skydd-inställningarna för ett specifikt lagringskonto.
+Använd REST API-kommandon för att skapa, uppdatera eller Hämta inställningen för avancerat skydd för ett angivet lagrings konto.
 
-* [Avancerat skydd - skapa](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-* [Avancerat skydd - hämta](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+* [Avancerat skydd – skapa](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [Avancerat skydd – Hämta](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
 Använd följande PowerShell-cmdletar:
 
-  * [Aktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-  * [Få Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [Aktivera avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Hämta Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Inaktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
-## <a name="explore-security-anomalies"></a>Utforska säkerhetsavvikelser
+## <a name="explore-security-anomalies"></a>Utforska säkerhets avvikelser
 
-När storage aktivitet avvikelser inträffar, kan du få ett e-postmeddelande med information om den misstänkta händelsen. Information om händelsen är:
+När avvikelser i lagrings aktiviteter inträffar får du ett e-postmeddelande med information om den misstänkta säkerhets händelsen. Information om händelsen är:
 
-* Typen av avvikelsen
-* Lagringskontonamn
-* Tidpunkt för händelsen
-* Lagringstyp
+* Avvikelsens karaktär
+* Lagrings kontots namn
+* Händelse tiden
+* Lagrings typ
 * Möjliga orsaker 
-* Vilka undersökningssteg
-* Anvisningarna för reparation
+* Undersöknings stegen
+* Reparations stegen
 
 
-E-postmeddelandet också innehåller detaljer om möjliga orsaker och rekommenderade åtgärder för att undersöka och minimera det potentiella hotet.
+E-postmeddelandet innehåller också information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minimera det potentiella hotet.
 
-![Azure advanced threat protection aviseringsmeddelande-lagring](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert-email.png)
+![Azure Storage e-postadress för avancerat skydds avisering](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert-email.png)
 
-Du kan granska och hantera din aktuella säkerhetsaviseringar från Azure Security Center [panelen säkerhetsaviseringar](../../security-center/security-center-managing-and-responding-alerts.md#managing-security-alerts). När du klickar på en specifik avisering innehåller information och åtgärder för att undersöka den aktuella hot och framtida hot-adressering.
+Du kan granska och hantera dina aktuella säkerhets aviseringar från Azure Security Center [rutan säkerhets aviseringar](../../security-center/security-center-managing-and-responding-alerts.md#managing-security-alerts). Om du klickar på en enskild avisering visas information och åtgärder för att undersöka det aktuella hotet och åtgärda framtida hot.
 
-![Azure advanced threat protection aviseringsmeddelande-lagring](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
+![Azure Storage e-postadress för avancerat skydds avisering](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
 
-## <a name="protection-alerts"></a>Protection-aviseringar
+## <a name="protection-alerts"></a>Skydds aviseringar
 
-Aviseringarna genereras av onormala och potentiellt skadliga försök att komma åt eller utnyttja storage-konton. Dessa händelser kan utlösa följande aviseringar:
+Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Dessa händelser kan utlösa följande aviseringar:
 
-### <a name="anomalous-access-pattern-alerts"></a>Avvikande åtkomst mönstret aviseringar
+### <a name="anomalous-access-pattern-alerts"></a>Aviseringar om avvikande åtkomst mönster
 
-* **Åtkomst från ovanlig plats**: Den här aviseringen utlöses när någon har använt ett lagringskonto från en ovanlig geografisk plats.
+* **Åtkomst från ovanlig plats**: Den här aviseringen utlöses när någon har fått åtkomst till ett lagrings konto från en ovanlig geografisk plats.
 Möjliga orsaker:
-   * En angripare har åtkomst till ditt storage-konto
-   * En legitim användare har åtkomst till ditt lagringskonto från en ny plats
+   * En angripare har åtkomst till ditt lagrings konto
+   * En legitim användare har åtkomst till ditt lagrings konto från en ny plats
  
-* **Programmet Avvikelseidentifiering**: Den här varningen anger att ett ovanligt program har åtkomst till det här lagringskontot. Möjliga orsaker:
-   * En angripare har åtkomst till ditt storage-konto med hjälp av ett nytt program.
-   * En legitim användare har använt en ny application/webbläsare för att få åtkomst till ditt storage-konto.
+* **Program avvikelse**: Den här varningen anger att ett ovanligt program har åtkomst till det här lagrings kontot. Möjliga orsaker:
+   * En angripare har åtkomst till ditt lagrings konto med hjälp av ett nytt program.
+   * En legitim användare har använt ett nytt program/en ny webbläsare för att komma åt ditt lagrings konto.
 
-* **Anonym åtkomst**: Den här varningen anger att det här kontot har de senaste åtkomstmönstret på det här kontot används anonymt (d.v.s. utan någon autentisering), som är oväntad jämfört med.
+* **Anonym åtkomst**: Den här varningen anger att det här kontot har öppnats anonymt (dvs. utan någon autentisering), vilket är oväntat jämfört med det senaste åtkomst mönstret för det här kontot.
 Möjliga orsaker:
-   * En angripare har utnyttjat offentlig läsbehörighet till en behållare.
-   * En legitim användare eller ett program har använt offentlig läsbehörighet till en behållare.
+   * En angripare har utnyttjat offentlig Läs behörighet till en behållare.
+   * En legitim användare eller ett program har använt offentlig Läs behörighet till en behållare.
 
-* **Tor Avvikelseidentifiering**: Den här varningen anger att det här kontot har använts har från en IP-adress som kallas för en aktiv slutnod av Tor (en anonymizing proxy). Allvarlighetsgraden för aviseringen betraktar autentiseringstypen används (om sådan finns) och om det här är det första fallet av sådan åtkomst.
+* **Tor-avvikelse**: Den här varningen anger att det här kontot har kunnat nås från en IP-adress som kallas för en aktiv nod i Tor (en maskera proxy). Allvarlighets graden för den här aviseringen tar hänsyn till den autentiseringstyp som används (om det finns någon) och om detta är första fallet för sådan åtkomst.
 Möjliga orsaker:
-   * En angripare har åtkomst till ditt storage-konto med hjälp av Tor.
-   * En legitim användare har åtkomst till ditt storage-konto med hjälp av Tor.
+   * En angripare har åtkomst till ditt lagrings konto med Tor.
+   * En legitim användare har åtkomst till ditt lagrings konto med Tor.
 
 
-### <a name="anomalous-extractupload-alerts"></a>Avvikande extrahera/laddar upp aviseringar
+### <a name="anomalous-extractupload-alerts"></a>Avvikande utdrag/uppladdning-aviseringar
 
-* **Dataexfiltrering**: Den här varningen anger att ett ovanligt stora mängder data har extraherats jämfört med senaste aktivitet på denna lagringsbehållare. Möjliga orsaker:
-   * En angripare har extraherats en stor mängd data från en behållare. (Till exempel: data exfiltrering/intrång, obehörig överföring av data)
-   * En legitim användare eller ett program har extraherats en ovanlig datamängd från en behållare. (Till exempel: Underhåll)
+* **Data exfiltrering**: Den här varningen anger att en ovanligt stor mängd data har extraherats jämfört med senaste aktivitet på den här lagrings behållaren. Möjliga orsaker:
+   * En angripare har extraherat en stor mängd data från en behållare. (Till exempel: data exfiltrering/intrång, obehörig överföring av data)
+   * En legitim användare eller ett program har extraherat en ovanlig mängd data från en behållare. (Till exempel: underhålls aktivitet)
 
-* **Oväntat delete**: Den här varningen anger att en eller flera oväntade delete-åtgärder har inträffat i ett lagringskonto, jämfört med senaste aktiviteter för det här kontot. Möjliga orsaker:
-   * En angripare har tagit bort data från ditt lagringskonto.
+* **Oväntad borttagning**: Den här varningen anger att en eller flera oväntade borttagnings åtgärder har inträffat i ett lagrings konto, jämfört med senaste aktivitet på det här kontot. Möjliga orsaker:
+   * En angripare har tagit bort data från ditt lagrings konto.
    * En legitim användare har utfört en ovanlig borttagning.
 
-* **Ladda upp Azure Cloud Service-paketet**: Den här varningen anger att ett Azure Cloud Service-paket (.cspkg-fil) har överförts till ett lagringskonto på ett annorlunda sätt, jämfört med senaste aktiviteter för det här kontot. Möjliga orsaker: 
-   * En angripare har förbereder att distribuera skadlig kod från ditt lagringskonto till ett Azure-molntjänst.
-   * En legitim användare har förbereda för distribution av en legitim.
+* **Ladda upp Azure Cloud Service-paket**: Den här varningen anger att ett Azure Cloud Service-paket (. cspkg-fil) har överförts till ett lagrings konto på ett ovanligt sätt jämfört med senaste aktivitet på det här kontot. Möjliga orsaker: 
+   * En angripare har förberett sig för att distribuera skadlig kod från ditt lagrings konto till en moln tjänst i Azure.
+   * En legitim användare har för berett en legitim tjänst distribution.
 
-### <a name="suspicious-storage-activities-alerts"></a>Lagring av misstänkta aktiviteter aviseringar
+### <a name="suspicious-storage-activities-alerts"></a>Aviseringar om misstänkta lagrings aktiviteter
 
-* **Få åtkomst till behörigheten Ändra**: Den här varningen anger att åtkomstbehörigheterna för den här lagringsbehållaren har ändrats på ett annorlunda sätt. Möjliga orsaker: 
-   * En angripare har ändrats behörigheter för behållaren att begränsa dess säkerhet.
-   * En legitim användare har ändrat behörigheter för behållare.
+* **Ändring av åtkomst behörighet**: Den här varningen anger att åtkomst behörigheterna för den här lagrings behållaren har ändrats på ett onormalt sätt. Möjliga orsaker: 
+   * En angripare har ändrat behållar behörigheten för att begränsa säkerheten.
+   * En legitim användare har ändrat behållar behörigheter.
 
-* **Komma åt inspektion**: Den här varningen anger att åtkomstbehörigheterna för ett lagringskonto har kontrollerats på ett annorlunda sätt, jämfört med senaste aktiviteter för det här kontot. Möjliga orsaker: 
-   * En angripare har utfört rekognosering för ett framtida angrepp.
-   * En legitim användare har utfört Underhåll på lagringskontot.
+* **Åtkomst kontroll**: Den här varningen anger att åtkomst behörigheterna för ett lagrings konto har inspekterats på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. Möjliga orsaker: 
+   * En angripare har utfört rekognosering för framtida angrepp.
+   * En legitim användare har utfört underhåll av lagrings kontot.
 
-* **Datagranskning**: Den här varningen anger att BLOB eller behållare i ett lagringskonto har räknats upp på ett annorlunda sätt, jämfört med senaste aktiviteter för det här kontot. Möjliga orsaker: 
-   * En angripare har utfört rekognosering för ett framtida angrepp.
-   * En legitim användare eller programlogiken har utforskat data i lagringskontot.
+* **Data utforskning**: Den här varningen anger att blobbar eller behållare i ett lagrings konto har räknats upp på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. Möjliga orsaker: 
+   * En angripare har utfört rekognosering för framtida angrepp.
+   * En legitim användare eller program logik har utforskat data i lagrings kontot.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Automatisera StorSimple filresursen DR med Azure Site Recovery | Microsoft Docs
-description: Beskriver stegen och bästa praxis för att skapa en lösning för haveriberedskap för filresurser som finns på Microsoft Azure StorSimple-lagring.
+title: Automatisera StorSimple-fileshare DR med Azure Site Recovery | Microsoft Docs
+description: Beskriver stegen och bästa praxis för att skapa en katastrof återställnings lösning för fil resurser som finns på Microsoft Azure StorSimple Storage.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -13,195 +13,195 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
-ms.author: vidarmsft
-ms.openlocfilehash: 8c82170cf9cff1870739bb13db9ac0e348a46c07
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: alkohli
+ms.openlocfilehash: 650798fdb884e6494990efb533335a1dd8b4d89f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443072"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875399"
 ---
-# <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad Disaster Recovery-lösning med Azure Site Recovery för filresurser som finns på StorSimple
+# <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad katastrof återställnings lösning med Azure Site Recovery för fil resurser som finns på StorSimple
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
-Microsoft Azure StorSimple är en hybridmolnlagringslösning som åtgärdar komplexiteten i Ostrukturerade data som vanligtvis är kopplad filresurser. StorSimple använder lagringsutrymmet i molnet som ett tillägg av lokal lösning och data i nivåer i den lokala lagringen och molnlagring. Integrerat dataskydd, med lokala och molnbaserade ögonblicksbilder, eliminerar behovet av en sprawling lagringsinfrastruktur.
+Microsoft Azure StorSimple är en hybrid moln lagrings lösning som hanterar de komplexa data som är ofta kopplade till fil resurser. StorSimple använder moln lagring som en förlängning av den lokala lösningen och data skiktas automatiskt i lokal lagring och moln lagring. Integrerat data skydd med lokala och molnbaserade ögonblicks bilder, eliminerar behovet av en Sprawling lagrings infrastruktur.
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) är en Azure-baserad tjänst som tillhandahåller haveriberedskap (DR) funktioner genom att samordna replikering, redundans och återställning av virtuella datorer. Azure Site Recovery stöder ett antal tekniker för replikering av att replikera konsekvent, skydda och smidigt växla över virtuella datorer och program i privata/offentliga eller värdbaserade moln.
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) är en Azure-baserad tjänst som tillhandahåller funktioner för haveri beredskap (Dr) genom att dirigera replikering, redundans och återställning av virtuella datorer. Azure Site Recovery har stöd för ett antal olika replikerings tekniker för att konsekvent replikera, skydda och sömlöst redundansväxla virtuella datorer och program till privata/offentliga eller värdbaserade moln.
 
-Med hjälp av Azure Site Recovery och replikeringen StorSimple funktionerna för ögonblicksbilder av molnet, kan du skydda hela filen server-miljö. Du kan använda ett enda klick i händelse av avbrott, för att ge dina filresurser online i Azure på bara några minuter.
+Med hjälp av Azure Site Recovery, replikering av virtuella datorer och StorSimple-funktioner i molnet kan du skydda den kompletta fil Server miljön. I händelse av ett avbrott kan du använda ett enda klick för att ta dina fil resurser online i Azure på bara några minuter.
 
-Det här dokumentet beskriver i detalj hur du kan skapa en lösning för haveriberedskap för dina filresurser som finns på StorSimple-lagring och utföra planerad och oplanerad och testa redundans med hjälp av en återställningsplan med ett klick. I princip visar den hur du kan ändra den Återställningsplanen för i din Azure Site Recovery-valvet för att aktivera StorSimple redundans under katastrofscenarier. Dessutom beskrivs förutsättningar och konfigurationer som stöds. Det här dokumentet förutsätter att du är bekant med grunderna för Azure Site Recovery och StorSimple arkitekturer.
+Det här dokumentet beskriver i detalj hur du kan skapa en katastrof återställnings lösning för dina fil resurser som finns på StorSimple-lagring och utföra planerade, oplanerat och redundanstest med en återställnings plan med ett klick. I grunden visar det hur du kan ändra återställnings planen i Azure Site Recovery-valvet för att aktivera StorSimple redundans under katastrof scenarier. Dessutom beskrivs konfigurationer och krav som stöds. Det här dokumentet förutsätter att du är bekant med grunderna i Azure Site Recovery-och StorSimple-arkitekturer.
 
-## <a name="supported-azure-site-recovery-deployment-options"></a>Stöds Azure Site Recovery-distributionsalternativ
-Kunder kan distribuera filservrar som fysiska eller virtuella datorer (VM) som körs på Hyper-V eller VMware och skapa filresurser från volymerna högg av StorSimple-lagring. Azure Site Recovery kan skydda både fysiska och virtuella distributioner till en sekundär plats eller till Azure. Det här dokumentet innehåller information om en katastrofåterställningslösning med Azure som återställningsplats för en filserver som är värd för virtuell dator på Hyper-V och filresurser på StorSimple-lagring. Andra scenarier där filen server-dator är på en VMware-VM eller en fysisk dator kan implementeras på samma sätt.
+## <a name="supported-azure-site-recovery-deployment-options"></a>Azure Site Recovery distributions alternativ som stöds
+Kunder kan distribuera fil servrar som fysiska servrar eller virtuella datorer som körs på Hyper-V eller VMware och sedan skapa fil resurser från volymer hämtas out of StorSimple Storage. Azure Site Recovery kan skydda både fysiska och virtuella distributioner till antingen en sekundär plats eller till Azure. Det här dokumentet beskriver information om en DR-lösning med Azure som återställnings plats för en virtuell fil server som finns på Hyper-V och med fil resurser på StorSimple-lagring. Andra scenarier där fil serverns virtuella dator finns på en virtuell VMware-dator eller en fysisk dator kan implementeras på samma sätt.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Implementera en lösning för katastrofåterställning med ett klick som använder Azure Site Recovery för filresurser som finns på StorSimple-lagring har följande krav:
+Att implementera en lösning för haveri beredskap med en klickning som använder Azure Site Recovery för fil resurser som finns på StorSimple-lagringen har följande krav:
 
-   - En lokal fil för Windows Server 2012 R2-servern virtuell dator i Hyper-V eller VMware eller en fysisk dator
-   - StorSimple storage enheten lokala registrerad med Azure StorSimple manager
-   - StorSimple-Molninstallationen har skapats i Azure StorSimple manager. Installationen kan förvaras i en avstängningstillstånd.
-   - Filresurser på volymer som konfigurerats på StorSimple-lagringsenhet
-   - [Azure Site Recovery services-valv](../site-recovery/site-recovery-vmm-to-vmm.md) skapas i en Microsoft Azure-prenumeration
+   - Lokal Windows Server 2012 R2-baserad virtuell dator på Hyper-V eller VMware eller en fysisk dator
+   - StorSimple lagrings enhet lokalt registrerad med Azure StorSimple Manager
+   - StorSimple Cloud Appliance som skapats i Azure StorSimple Manager. Installationen kan behållas i avstängnings tillstånd.
+   - Fil resurser som finns på de volymer som kon figurer ATS på StorSimple lagrings enhet
+   - [Azure Site Recovery Services](../site-recovery/site-recovery-vmm-to-vmm.md) -valvet har skapats i en Microsoft Azure-prenumeration
 
-Dessutom, om du använder Azure som återställningsplats kör den [Azure VM gratisverktyget för utvärdering av](https://azure.microsoft.com/downloads/vm-readiness-assessment/) på virtuella datorer så att de är kompatibla med Azure virtuella datorer och Azure Site Recovery services.
+Om Azure är din återställnings plats kör du dessutom [verktyget för beredskap för virtuella Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) -datorer på virtuella datorer för att säkerställa att de är kompatibla med virtuella Azure-datorer och Azure Site Recovery-tjänster.
 
-Att undvika fördröjning problem (vilket kan resultera i högre kostnader), se till att du skapar din StorSimple-Molninstallationen, automation-konto och lagring eller konton i samma region.
+Se till att du skapar StorSimple Cloud Appliance, Automation-konto och lagrings konto i samma region för att undvika latens problem (vilket kan leda till högre kostnader).
 
-## <a name="enable-dr-for-storsimple-file-shares"></a>Aktivera DR för StorSimple-filresurser
-Varje komponent i den lokala miljön måste skyddas om du vill aktivera fullständig replikering och återställning. Det här avsnittet beskrivs hur du:
+## <a name="enable-dr-for-storsimple-file-shares"></a>Aktivera DR för StorSimple fil resurser
+Varje komponent i den lokala miljön måste skyddas för att aktivera fullständig replikering och återställning. I det här avsnittet beskrivs hur du:
     
    - Konfigurera Active Directory och DNS-replikering (valfritt)
-   - Använd Azure Site Recovery för att aktivera skydd för den virtuella datorn
-   - Aktivera skydd för StorSimple-volymer
+   - Använd Azure Site Recovery för att aktivera skydd av den virtuella fil servern
+   - Aktivera skydd av StorSimple-volymer
    - Konfigurera nätverket
 
 ### <a name="set-up-active-directory-and-dns-replication-optional"></a>Konfigurera Active Directory och DNS-replikering (valfritt)
-Om du vill skydda datorer som kör Active Directory och DNS så att de är tillgängliga på DR-plats måste du uttryckligen skyddar dem (så att filservrarna som är tillgängliga efter redundans med autentisering). Det finns två rekommenderade alternativ baserat på komplexitet och kundens lokala miljö.
+Om du vill skydda datorerna som kör Active Directory och DNS så att de är tillgängliga på DR-platsen måste du uttryckligen skydda dem (så att fil servrarna är tillgängliga efter redundansväxlingen med autentisering). Det finns två rekommenderade alternativ beroende på hur komplex kundens lokala miljö är.
 
 #### <a name="option-1"></a>Alternativ 1
-Om kunden har ett litet antal program, en enda domänkontrollant för hela lokal plats och vara växling över hela platsen, och vi rekommenderar att du använder Azure Site Recovery-replikering för att replikera den domain controller-datorn till en sekundär plats (Detta gäller för både plats-till-plats och plats till Azure).
+Om kunden har ett litet antal program, en enda domänkontrollant för hela den lokala platsen och kommer att Miss sen över hela platsen, rekommenderar vi att du använder Azure Site Recovery replikering för att replikera domänkontrollantens dator till en sekundär plats (Detta gäller både för plats-till-plats och plats-till-Azure).
 
 #### <a name="option-2"></a>Alternativ 2
-Om kunden har ett stort antal program, körs en Active Directory-skog och misslyckas över några program i taget, så rekommenderar vi att konfigurera ytterligare en domänkontrollant på DR-plats (en sekundär plats eller i Azure).
+Om kunden har ett stort antal program, kör en Active Directory skog och kommer att Miss par över några program i taget, rekommenderar vi att du konfigurerar ytterligare en domänkontrollant på DR-platsen (antingen en sekundär plats eller i Azure).
 
-Referera till [automatisk katastrofåterställningslösning för Active Directory och DNS med hjälp av Azure Site Recovery](../site-recovery/site-recovery-active-directory.md) anvisningar när du gör en domänkontrollant som är tillgängliga på DR-plats. I resten av det här dokumentet förutsätter vi en domänkontrollant är tillgänglig på webbplatsen DR.
+Läs den [automatiserade Dr-lösningen för Active Directory och DNS med Azure Site Recovery](../site-recovery/site-recovery-active-directory.md) för instruktioner när du gör en domänkontrollant tillgänglig på Dr-webbplatsen. För resten av det här dokumentet förutsätter vi att en domänkontrollant är tillgänglig på DR-webbplatsen.
 
-### <a name="use-azure-site-recovery-to-enable-protection-of-the-file-server-vm"></a>Använd Azure Site Recovery för att aktivera skydd för den virtuella datorn
-Det här steget måste du förbereda den lokala filen server-miljö, skapa och Förbered en Azure Site Recovery-valvet och aktivera Filskydd för den virtuella datorn.
+### <a name="use-azure-site-recovery-to-enable-protection-of-the-file-server-vm"></a>Använd Azure Site Recovery för att aktivera skydd av den virtuella fil servern
+Det här steget kräver att du förbereder den lokala fil Server miljön, skapar och förbereder ett Azure Site Recovery valv och aktiverar fil skydd för den virtuella datorn.
 
-#### <a name="to-prepare-the-on-premises-file-server-environment"></a>För att förbereda filen lokalt server-miljö
-1. Ange den **User Account Control** till **meddela aldrig**. Detta krävs så att du kan använda Azure automatiseringsskript för att ansluta iSCSI-mål efter redundans av Azure Site Recovery.
+#### <a name="to-prepare-the-on-premises-file-server-environment"></a>Så här förbereder du den lokala fil Server miljön
+1. Ange **User Account Control** att **aldrig meddela**. Detta krävs för att du ska kunna använda Azure Automation-skript för att ansluta iSCSI-målen efter redundansväxlingen genom att Azure Site Recovery.
    
    1. Tryck på Windows-tangenten + Q och Sök efter **UAC**.  
    1. Välj **ändra User Account Control inställningar**.  
-   1. Dra fältet till botten mot **meddela aldrig**.  
-   1. Klicka på **OK** och välj sedan **Ja** när du tillfrågas.  
+   1. Dra fältet till längst ned mot **Meddela aldrig**.  
+   1. Klicka på **OK** och välj sedan **Ja** när du uppmanas att göra det.  
    
-      ![Inställningar för kontroll av användarkonto](./media/storsimple-disaster-recovery-using-azure-site-recovery/image1.png) 
+      ![User Account Control inställningar](./media/storsimple-disaster-recovery-using-azure-site-recovery/image1.png) 
 
-1. Installera VM-agenten på varje filserver virtuella datorer. Detta krävs så att du kan köra Azure automatiseringsskript på den virtuella datorer.
+1. Installera VM-agenten på alla virtuella datorer i fil servern. Detta krävs för att du ska kunna köra Azure Automation-skript på misslyckade virtuella datorer.
    
-   1. [Ladda ned agenten](https://aka.ms/vmagentwin) till `C:\\Users\\<username>\\Downloads`.
-   1. Öppna Windows PowerShell i administratörsläge (Kör som administratör) och ange sedan följande kommando för att navigera till nedladdningsplatsen:  
+   1. [Ladda ned](https://aka.ms/vmagentwin) agenten `C:\\Users\\<username>\\Downloads`till.
+   1. Öppna Windows PowerShell i administratörs läge (kör som administratör) och ange följande kommando för att navigera till nedladdnings platsen:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
          > [!NOTE]
-         > Filnamnet kan ändras beroende på vilken version.
+         > Fil namnet kan ändras beroende på version.
       
 1. Klicka på **Nästa**.
-1. Acceptera den **av villkor** och klicka sedan på **nästa**.
+1. Godkänn **villkoren i avtalet** och klicka sedan på **Nästa**.
 1. Klicka på **Slutför**.
-1. Skapa filresurser med hjälp av volymer högg av StorSimple-lagring. Mer information finns i [använda StorSimple Manager-tjänsten för att hantera volymer](storsimple-manage-volumes.md).
+1. Skapa fil resurser med hjälp av volymer hämtas out of StorSimple Storage. Mer information finns i [använda tjänsten StorSimple Manager för att hantera volymer](storsimple-manage-volumes.md).
    
-   1. Tryck på Windows-tangenten + Q på dina lokala virtuella datorer, och Sök efter **iSCSI**.
-   1. Välj **iSCSI-initieraren**.
-   1. Välj den **Configuration** fliken och kopiera initierarnamnet.
+   1. På dina lokala virtuella datorer trycker du på Windows-tangenten + Q och söker efter **iSCSI**.
+   1. Välj **iSCSI**-initierare.
+   1. Välj fliken **konfiguration** och kopiera initierarens namn.
    1. Logga in på [Azure-portalen](https://portal.azure.com/).
-   1. Välj den **StorSimple** fliken och välj sedan StorSimple Manager-tjänsten som innehåller den fysiska enheten.
-   1. Skapa volymbehållare och skapa sedan volymer. (Dessa volymer är för fil-resurs/er på filservern virtuella datorer). Kopiera namnet på initieraren och ge ett lämpligt namn för åtkomstkontrollposterna när du skapar volymer.
-   1. Välj den **konfigurera** och notera ned IP-adressen för enheten.
-   1. På din lokala virtuella datorer går du till den **iSCSI-initieraren** igen och ange den IP-Adressen i avsnittet Snabbanslut. Klicka på **Snabbanslut** (enheten bör nu vara ansluten).
-   1. Öppna Azure portal och väljer den **volymer och enheter** fliken. Klicka på **automatiskt konfigurera**. Den volym som du skapade bör visas.
-   1. I portalen, väljer du den **enheter** fliken och välj sedan **skapa en ny virtuell enhet.** (Den här virtuella enheten kommer att användas om det uppstår redundans). Den här nya virtuella enheten kan hållas i offline-tillstånd att undvika extra kostnader. Om du vill koppla från den virtuella enheten, går du till den **virtuella datorer** avsnittet på portalen och Stäng av den.
-   1. Gå tillbaka till de lokala virtuella datorerna och öppna Diskhantering (tryck på Windows-tangenten + X och välj **Diskhantering**).
-   1. Du ser några extra diskar (beroende på antalet volymer som du har skapat). Högerklicka på den första bilden, Välj **initiera Disk**, och välj **OK**. Högerklicka på den **inte allokerat** väljer **ny enkel volym**, tilldela den en enhetsbeteckning och slutför guiden.
-   1. Upprepa steget l för alla diskar. Du kan nu se alla diskar på **den här datorn** i Windows Explorer.
-   1. Använda rollen fil- och lagringstjänster för att skapa filresurser på dessa volymer.
+   1. Välj fliken **StorSimple** och välj sedan den StorSimple Manager tjänst som innehåller den fysiska enheten.
+   1. Skapa volym containrar och skapa sedan volym (er). (Dessa volymer är för fil resurserna på fil serverns virtuella datorer). Kopiera initierarens namn och ange ett lämpligt namn för Access Control poster när du skapar volymerna.
+   1. Välj fliken **Konfigurera** och anteckna enhetens IP-adress.
+   1. På dina lokala virtuella datorer går du till iSCSI- **initieraren** igen och anger IP i avsnittet snabb anslutning. Klicka på **snabb anslutning** (enheten bör nu vara ansluten).
+   1. Öppna Azure Portal och välj fliken **volymer och enheter** . Klicka på **Konfigurera automatiskt**. Volymen som du skapade bör visas.
+   1. Välj fliken **enheter** i portalen och välj sedan **skapa en ny virtuell enhet.** (Den här virtuella enheten kommer att användas om en redundansväxling inträffar). Den här nya virtuella enheten kan försättas i offline-tillstånd för att undvika extra kostnader. Om du vill koppla från den virtuella enheten går du till avsnittet **Virtual Machines** på portalen och stänger den.
+   1. Gå tillbaka till lokala virtuella datorer och öppna disk hantering (tryck på Windows-tangenten + X och välj **disk hantering**).
+   1. Du kommer att märka vissa extra diskar (beroende på antalet volymer som du har skapat). Högerklicka på den första, Välj **initiera disk**och välj **OK**. Högerklicka på avsnittet inte  tilldelat, Välj **Ny enkel volym**, tilldela en enhets beteckning och Slutför guiden.
+   1. Upprepa steg l för alla diskar. Nu kan du se alla diskar på **den här datorn** i Utforskaren.
+   1. Använd rollen fil-och lagrings tjänster för att skapa fil resurser på dessa volymer.
 
-#### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Att skapa och förbereda ett Azure Site Recovery-valv
-Referera till den [dokumentation om Azure Site Recovery](../site-recovery/site-recovery-hyper-v-site-to-azure.md) att komma igång med Azure Site Recovery innan du skyddar servern VM.
+#### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Skapa och förbereda ett Azure Site Recovery-valv
+Läs Azure Site Recovery- [dokumentationen](../site-recovery/site-recovery-hyper-v-site-to-azure.md) för att komma igång med Azure Site Recovery innan du skyddar den virtuella fil servern.
 
-#### <a name="to-enable-protection"></a>Att aktivera skydd
-1. Koppla från iSCSI-mål från de lokala virtuella datorer som du vill skydda via Azure Site Recovery:
+#### <a name="to-enable-protection"></a>Aktivera skydd
+1. Koppla från iSCSI-målen från de lokala virtuella datorer som du vill skydda genom att Azure Site Recovery:
    
    1. Tryck på Windows-tangenten + Q och Sök efter **iSCSI**.
-   1. Välj **Konfigurera iSCSI-initieraren**.
-   1. Koppla från StorSimple-enheten som du tidigare har anslutit. Du kan också du kan inaktivera filservern för ett par minuter när skyddet aktiverades.
+   1. Välj **Konfigurera iSCSI**-initierare.
+   1. Koppla från StorSimple-enheten som du anslöt tidigare. Alternativt kan du stänga av fil servern i några minuter när skyddet aktive ras.
       
    > [!NOTE]
-   > Detta innebär att filresurserna för att vara temporärt otillgänglig.
+   > Detta gör att fil resurserna är tillfälligt otillgängliga.
    
-1. [Aktivera skydd för virtuella datorer](../site-recovery/site-recovery-hyper-v-site-to-azure.md) på filservern virtuell dator från Azure Site Recovery-portalen.
-1. När den första synkroniseringen börjar återansluta du målet igen. Gå till iSCSI-initierare Välj StorSimple-enheten och klicka på **Connect**.
-1. När synkroniseringen har slutförts och statusen för den virtuella datorn är **skyddade**, Välj den virtuella datorn, Välj den **konfigurera** fliken och uppdateras nätverket för den virtuella datorn (det här är nätverket som den över Virtuella datorer blir en del av). Om nätverket inte visas, betyder det att synkroniseringen som fortfarande pågår.
+1. [Aktivera skydd av virtuell dator](../site-recovery/site-recovery-hyper-v-site-to-azure.md) för den virtuella fil serverdatorn från Azure Site Recovery-portalen.
+1. När den första synkroniseringen börjar kan du återansluta målet igen. Gå till iSCSI-initieraren, Välj StorSimple-enheten och klicka på **Anslut**.
+1. När synkroniseringen är klar och statusen för den virtuella datorn är **skyddad**väljer du den virtuella datorn, väljer fliken **Konfigurera** och uppdaterar nätverket för den virtuella datorn i enlighet med detta (det nätverk som det misslyckade över VM: ar kommer att ingå i). Om nätverket inte visas innebär det att synkroniseringen fortfarande pågår.
 
-### <a name="enable-protection-of-storsimple-volumes"></a>Aktivera skydd för StorSimple-volymer
-Om du inte har valt den **aktiverar en standardsäkerhetskopiering för den här volymen** för StorSimple-volymer, gå till **Säkerhetskopieringsprinciper** i StorSimple Manager-tjänsten och skapa en lämplig princip för säkerhetskopiering för alla volymer. Vi rekommenderar att du ställer in säkerhetskopieringsfrekvensen mål för återställningspunkt (RPO) som du skulle vilja se för programmet.
+### <a name="enable-protection-of-storsimple-volumes"></a>Aktivera skydd av StorSimple-volymer
+Om du inte har valt alternativet **Aktivera en standard säkerhets kopiering för den här volymen** för StorSimple-volymerna går du till **säkerhets kopierings principer** i StorSimple managers Tjänsten och skapar en lämplig säkerhets kopierings princip för alla volymer. Vi rekommenderar att du anger frekvensen för säkerhets kopieringar till det återställnings punkt mål (återställnings punkt mål) som du vill se för programmet.
 
 ### <a name="configure-the-network"></a>Konfigurera nätverket
-Konfigurera nätverksinställningar i Azure Site Recovery för filserver VM så att de Virtuella datornätverk som är kopplade till rätt DR-nätverk efter redundansväxling.
+Konfigurera nätverks inställningar i Azure Site Recovery så att de virtuella dator nätverken är kopplade till rätt DR-nätverk efter redundans för den virtuella fil servern.
 
-Du kan välja den virtuella datorn i den **replikerade objekt** fliken Konfigurera nätverk, enligt följande bild.
+Du kan välja den virtuella datorn på fliken **replikerade objekt** för att konfigurera nätverks inställningarna, som du ser i följande bild.
 
 ![Beräkning och nätverk](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>Skapa en återställningsplan
-Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen av filresurserna. Om ett avbrott inträffar, kan du öppna filresurserna på några minuter med ett enda klick. Om du vill aktivera det här automation, behöver du ett Azure automation-konto.
+Du kan skapa en återställnings plan i ASR för att automatisera växlings processen för fil resurserna. Om ett avbrott inträffar kan du ta med fil resurserna på några minuter med bara ett enda klick. Om du vill aktivera den här automatiseringen behöver du ett Azure Automation-konto.
 
 #### <a name="to-create-an-automation-account"></a>Skapa ett Automation-konto
-1. Gå till Azure-portalen &gt; **Automation** avsnittet.
-1. Klicka på **+ Lägg till** knappen öppnas under bladet.
+1. Gå till avsnittet Azure Portal &gt; **Automation** .
+1. Klicka på **+ Lägg till** knappen, öppnas under bladet.
    
    ![Lägga till ett Automation-konto](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
    
-   - Name - ange ett nytt automation-konto
+   - Namn – Ange ett nytt Automation-konto
    - Prenumeration – Välj prenumeration
-   - Resource group - skapa nya/Välj befintlig resursgrupp
-   - Plats – Välj plats, förvara den på samma geo/region som den StorSimple-Molninstallationen och Storage-konton har skapats.
-   - Skapa Azure kör som-konto – Välj **Ja** alternativet.
+   - Resurs grupp – skapa ny/Välj en befintlig resurs grupp
+   - Plats – Välj plats, behåll den i samma geo/region där StorSimple Cloud Appliance-och lagrings kontona skapades.
+   - Skapa Kör som-konto i Azure – Välj **Ja** -alternativ.
    
-1. Gå till Automation-kontot, klickar du på **Runbooks** &gt; **Bläddringsgalleriegenskapen** att importera alla nödvändiga runbooks till automation-kontot.
-1. Lägg till följande runbooks genom att söka efter **Disaster Recovery** tagg i galleriet:
+1. Gå till Automation-kontot och klicka på **Runbooks** &gt; **Bläddra i Galleri** för att importera alla Runbook-flöden som krävs till Automation-kontot.
+1. Lägg till följande runbooks genom att hitta Disaster **Recovery** -tag gen i galleriet:
    
-   - Rensa av StorSimple-volymer efter Test Failover (TFO)
-   - Failover StorSimple volymbehållare
-   - Montera volymer på StorSimple-enhet efter en redundansväxling
-   - Avinstallera tillägget för anpassat skript i Azure VM
-   - Starta StorSimple Virtual Appliance
+   - Rensa upp StorSimple-volymer efter redundanstest (TFO)
+   - StorSimple volym behållare
+   - Montera volymer på StorSimple-enheten efter redundans
+   - Avinstallera anpassat skript tillägg i virtuell Azure-dator
+   - Starta StorSimple Virtual installation
    
-      ![Sök i galleri](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
+      ![Bläddra i galleriet](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
    
-1. Publicera alla skript genom att välja runbook i automation-kontot och klicka på **redigera** &gt; **publicera** och sedan **Ja** i verifieringsmeddelandet. Efter det här steget i **Runbooks** fliken visas på följande sätt:
+1. Publicera alla skript genom att välja Runbook i Automation-kontot och klicka på **Redigera** &gt; **publicera** och sedan på **Ja** till verifierings meddelandet. Efter det här steget ser fliken **Runbooks** ut så här:
    
    ![Runbooks](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
    
-1. I automation-konto klickar du på **variabler** &gt; **Lägg till en variabel** och Lägg till följande variabler. Du kan välja att kryptera dessa tillgångar. Dessa variabler finns specifika återställningsplan. Om din återställningsplanen är som du skapar i nästa steg namn TestPlan, dina variabler ska vara TestPlan-StorSimRegKey, TestPlan AzureSubscriptionName och så vidare.
+1. I Automation-kontot klickar du på **variabler** &gt; **Lägg till en variabel** och lägger till följande variabler. Du kan välja att kryptera dessa till gångar. Dessa variabler är en unik återställnings plan. Om din återställnings plan, som du kommer att skapa i nästa steg, är TestPlan, så bör variablerna vara TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName och så vidare.
 
-   - **BaseUrl**: Resource Manager-url för Azure-molnet. Få med **Get-AzEnvironment | Select-Object-namn, ResourceManagerUrl** cmdlet.
-   - _RecoveryPlanName_ **-ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
-   - _RecoveryPlanName_ **-ManagerName**: StorSimple-resursen med StorSimple-enheten.
-   - _RecoveryPlanName_ **-DeviceName**: StorSimple-enheten som har växlas.
-   - _RecoveryPlanName_ **-DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **nätverk** &gt; **DNS-inställningarna** grupp).
-   - _RecoveryPlanName_ **- VolumeContainers**: En kommaavgränsad sträng med volymbehållare på enheten som behöver växlas; till exempel: volcon1 volcon2, volcon3.
-   - _RecoveryPlanName_ **-TargetDeviceName**: StorSimple-Molninstallationen som är behållarna som ska redundansväxlas.
-   - _RecoveryPlanName_ **-TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** grupp &gt; **nätverk** fliken).
-   - _RecoveryPlanName_ **-StorageAccountName**: Namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
-   - _RecoveryPlanName_ **-StorageAccountKey**: Åtkomstnyckeln för lagringskontot ovan.
-   - _RecoveryPlanName_ **-VMGUIDS**: När du skyddar en virtuell dator, tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
+   - **BaseUrl**: Resource Manager-URL för Azure-molnet. Hämta med **Get-AzEnvironment | Välj-objekt namn, ResourceManagerUrl-** cmdlet.
+   - _RecoveryPlanName_ **-ResourceGroupName**: Resource Manager-gruppen som har StorSimple-resursen.
+   - _RecoveryPlanName_ **-ManagerName**: StorSimple-resursen som har StorSimple-enheten.
+   - _RecoveryPlanName_ **– Enhets**namn: StorSimple-enheten som måste växlas över.
+   - _RecoveryPlanName_ **-DeviceIpAddress**: Enhetens IP-adress (detta finns på fliken **enheter** under StorSimple **Enhetshanteraren avsnittet** &gt; &gt; **nätverks** &gt; inställningar för **DNS-inställningar** ).
+   - _RecoveryPlanName_ **-VolumeContainers**: En kommaavgränsad sträng med volym behållare som finns på den enhet som måste redundansväxla. till exempel: volcon1, volcon2, volcon3.
+   - _RecoveryPlanName_ **-TargetDeviceName**: StorSimple Cloud Appliance som behållarna ska redundansväxla till.
+   - _RecoveryPlanName_ **-TargetDeviceIpAddress**: IP-adressen för mål enheten (detta finns på fliken **nätverks** inställnings grupp &gt; i avsnittet &gt; **Inställningar** för **virtuell dator** ).
+   - _RecoveryPlanName_ **-StorageAccountName**: Namnet på det lagrings konto där skriptet (som måste köras på den virtuella datorn som har redundansväxlats) kommer att lagras. Det kan vara valfritt lagrings konto som har lite utrymme för att lagra skriptet tillfälligt.
+   - _RecoveryPlanName_ **-StorageAccountKey**: Åtkomst nyckeln för lagrings kontot ovan.
+   - _RecoveryPlanName_ **-VMGUIDS**: När du skyddar en virtuell dator tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade virtuella datorn. Hämta VMGUID genom att välja fliken **Recovery Services** och klicka på **skyddade objekt** &gt; **skydds grupper** &gt; **Egenskaper**för **datorer** &gt; . Om du har flera virtuella datorer lägger du till GUID som en kommaavgränsad sträng.
 
-     Om namnet på återställningsplanen är fileServerpredayRP, till exempel sedan din **variabler**, **anslutningar** och **certifikat** fliken bör visas på följande sätt när du lägger till alla tillgångar.
+     Om namnet på återställnings planen till exempel är fileServerpredayRP, ska fliken **variabler**, **anslutningar** och **certifikat** visas på följande sätt när du har lagt till alla till gångar.
 
       ![Tillgångar](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
-1. Ladda upp StorSimple 8000-serien Runbook-modulen i ditt Automation-konto. Använd den nedanstående steg för att lägga till en modul:
+1. Ladda upp Runbook-modulen StorSimple 8000-serien i ditt Automation-konto. Använd stegen nedan för att lägga till en modul:
    
-   1. Öppna powershell, skapa en ny mapp och ändra katalogen till mappen.
+   1. Öppna PowerShell, skapa en ny mapp & ändra katalogen till mappen.
       
       ```
             mkdir C:\scripts\StorSimpleSDKTools
             cd C:\scripts\StorSimpleSDKTools
       ```
-   1. Ladda ned nuget CLI under samma mapp i steg 1.
-      Olika versioner av nuget.exe finns på [nuget hämtar](https://www.nuget.org/downloads). Varje nedladdningslänk pekar direkt på en .exe-fil, så se till att högerklicka på och spara filen på datorn i stället körs från webbläsaren.
+   1. Hämta NuGet CLI under samma mapp i steg 1.
+      Olika versioner av NuGet. exe finns på [NuGet-nedladdningar](https://www.nuget.org/downloads). Varje nedladdnings länk pekar direkt till en. exe-fil, så se till att högerklicka och spara filen på datorn i stället för att köra den från webbläsaren.
       
       ```
             wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
       ```
       
-   1. Ladda ned beroende SDK
+   1. Ladda ned den beroende SDK: n
       
       ```
             C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8000series
@@ -209,7 +209,7 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
             C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
       ```
       
-   1. Skapa en Azure Automation Runbook-modul för enhetshantering i StorSimple 8000-serien. Använd den nedan kommandon för att skapa ett Automation-modul zip-filen.
+   1. Skapa en Azure Automation Runbook-modul för enhets hantering i StorSimple 8000-serien. Använd kommandona nedan för att skapa en zip-fil för Automation-modulen.
          
       ```powershell
             # set path variables
@@ -230,136 +230,136 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
             compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
       ```
          
-   1. Importera Azure Automation-modul zip-filen (Microsoft.Azure.Management.StorSimple8000Series.zip) skapade i steget ovan. Detta kan göras genom att välja det Automation-kontot, klickar du på **moduler** under delade resurser och klicka sedan på **lägger till en modul**.
+   1. Importera zip-filen för Azure Automation modul (Microsoft. Azure. Management. StorSimple8000Series. zip) som skapades i ovanstående steg. Det kan du göra genom att välja Automation-kontot, klicka på **moduler** under delade resurser och sedan klicka på **Lägg till en modul**.
    
-   När du har importerat modulen StorSimple 8000-serien i **moduler** fliken bör visas på följande sätt:
+   När du har importerat modulen StorSimple 8000-serien bör fliken **moduler** visas på följande sätt:
    
       ![Moduler](./media/storsimple-disaster-recovery-using-azure-site-recovery/image12.png)
 
-1. Gå till den **återställningstjänster** och väljer Azure Site Recovery-valvet som du skapade tidigare.
-1. Välj den **Återställningsplaner (Site Recovery)** alternativet från **hantera** gruppera och skapa en ny återställningsplan enligt följande:
+1. Gå till avsnittet **Recovery Services** och välj det Azure Site Recovery-valv som du skapade tidigare.
+1. Välj alternativet **återställnings planer (Site Recovery)** från **Hantera** grupp och skapa en ny återställnings plan enligt följande:
    
-   - Klicka på **+ Återställ plan** knappen öppnas under bladet.
+   - Klicka på + knappen för att **återställa plan** , öppnas under bladet.
       
       ![Skapa en återställningsplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
       
-   - Ange ett namn på recovery plan, Välj källa, mål och distribution modell-värden.
+   - Ange ett namn på återställnings plan, Välj källa, mål & distributions modell värden.
    
-   - Välj de virtuella datorerna från skyddsgruppen som du vill inkludera i återställningsplanen och klicka på **OK** knappen.
+   - Välj de virtuella datorer i skydds gruppen som du vill inkludera i återställnings planen och klicka på **OK** .
    
-   - Välj återställningsplan som du skapade tidigare, klicka på **anpassa** knappen för att öppna vyn Recovery plan anpassning.
+   - Välj återställnings plan som du skapade tidigare, klicka på knappen **Anpassa** för att öppna vyn anpassning av återställnings plan.
    
-   - Högerklicka på **stänger alla grupper** och klicka på **Lägg till åtgärd i förväg**.
+   - Högerklicka på **alla grupper Stäng** av och klicka på **Lägg till för att vidta åtgärder**.
    
-   - Öppnar Infoga åtgärd bladet, anger du ett namn, Välj **primär sida** alternativet att köra alternativet markerar du Automation-konto (som du har lagt till runbooks) och välj sedan den **redundans-StorSimple-volym-behållare**  runbook.
+   - Öppnar bladet infoga åtgärd, anger ett namn,  väljer primärt alternativ i rutan var du vill köra, väljer du Automation-konto (där du har lagt till Runbooks) och väljer sedan Runbook- **behållaren redundans-StorSimple-container** .
    
-   - Högerklicka på **grupp 1: Starta** och klicka på **Lägg till skyddade objekt** alternativet och välj sedan de virtuella datorer som ska skyddas i återställningsplanen och på **Ok** knappen. Valfritt, om den redan valt virtuella datorer.
+   - Högerklicka på **grupp 1: Starta** och klicka på alternativet för att **lägga till skyddade objekt** och välj sedan de virtuella datorer som ska skyddas i återställnings planen och klicka på **OK** -knappen. Valfritt, om det redan är valt virtuella datorer.
    
-   - Högerklicka på **grupp 1: Starta** och klicka på **publicera åtgärden** alternativet och sedan lägga till följande skript:  
+   - Högerklicka på **grupp 1: Starta** och klicka på alternativet **post åtgärd** och Lägg sedan till alla följande skript:  
       
-      - Start-StorSimple-virtuell-installation-runbook  
-      - Det gick inte over-StorSimple-volym-behållare runbook  
-      - Montera volymer efter redundans-runbook  
-      - Avinstallera –--tillägget för anpassat skript runbook  
+      - Start-StorSimple – Runbook med virtuella enheter  
+      - Redundansväxla-StorSimple-container-container  
+      - Montering-volymer-efter-redundansväxling Runbook  
+      - Avinstallera – anpassad – skript tillägg Runbook  
         
-   - Lägg till en manuell åtgärd efter ovan 4 skripten i samma **grupp 1: Steg efter** avsnittet. Den här åtgärden är den punkt där du kan kontrollera att allt fungerar korrekt. Den här åtgärden måste du lägga till som en del av redundanstest (endast väljer den **Redundanstest** kryssrutan).
+   - Lägg till en manuell åtgärd efter ovanstående 4-skript i samma **grupp 1: Avsnittet efter steg** . Den här åtgärden är den punkt där du kan kontrol lera att allt fungerar som det ska. Den här åtgärden behöver bara läggas till som en del av redundanstest (så Markera kryss rutan **testa redundans** ).
     
-   - När den manuella åtgärden, lägger du till den **Rensa** skript på samma sätt som du använde för den andra runbooks. **Spara** återställningsplanen.
+   - Efter den manuella åtgärden lägger du till **rensnings** skriptet med samma procedur som du använde för de andra Runbooks. **Spara** återställnings planen.
     
    > [!NOTE]
-   > När du kör ett redundanstest, bör du kontrollera allt på den manuella åtgärden eftersom StorSimple-volymer som hade varit klonas på målenheten kommer att tas bort som en del av rensningen när den manuella åtgärden har slutförts.
+   > När du kör ett redundanstest bör du kontrol lera allt i det manuella åtgärds steget, eftersom de StorSimple-volymer som har klonas på mål enheten tas bort som en del av rensningen när den manuella åtgärden har slutförts.
        
-      ![Återställningsplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
+      ![Återställnings plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
 ## <a name="perform-a-test-failover"></a>Utför ett redundanstest
-Referera till den [Active Directory katastrofåterställningslösning](../site-recovery/site-recovery-active-directory.md) tillhörande guide för specifika saker du bör Active Directory under redundanstestningen. Den lokala installationen påverkas inte alls när testet av redundansväxling sker. StorSimple-volymer som kopplats till en lokal virtuell dator klonas till StorSimple-Molninstallation i Azure. En virtuell dator för testning tas i Azure och de klonade volymerna är kopplade till den virtuella datorn.
+I guiden [Active Directory Dr](../site-recovery/site-recovery-active-directory.md) -lösnings assistenten hittar du information om hur du Active Directory under redundanstest. Den lokala installationen störs inte alls när redundanstestning inträffar. De StorSimple-volymer som var anslutna till den lokala virtuella datorn klonas till StorSimple Cloud Appliance på Azure. En virtuell dator för test syfte hämtas i Azure och de klonade volymerna är anslutna till den virtuella datorn.
 
-#### <a name="to-perform-the-test-failover"></a>Att testa redundans
-1. I Azure-portalen väljer du valvet för Site Recovery.
-1. Klicka på återställningsplanen som skapats för filservern VM.
-1. Klicka på **Redundanstest**.
-1. Välj den Azure-nätverk som virtuella Azure-datorer ska ansluta till efter redundansväxlingen.
+#### <a name="to-perform-the-test-failover"></a>Utföra redundanstest
+1. I Azure Portal väljer du Site Recovery valvet.
+1. Klicka på den återställnings plan som skapades för den virtuella fil servern.
+1. Klicka på **testa redundans**.
+1. Välj det virtuella Azure-nätverket som de virtuella Azure-datorerna ska anslutas till När redundansväxlingen sker.
    
    ![Starta redundans](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
    
-1. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper eller på den **testjobb för ett redundanskluster** i valvnamnet &gt; **jobb** &gt; **Site Recovery-jobb**.
-1. När redundansväxlingen är klar bör du även att kunna se Azure datorn visas i Azure-portalen &gt; **virtuella datorer**. Du kan utföra dina verifieringar.
-1. När validering är klar klickar du på **verifieringar fullständig**. Bort StorSimple-volymer tas och stänga av StorSimple Cloud Appliance.
-1. När du är klar klickar du på **Rensa redundanstestning** på återställningsplanen. I anteckningar och sparar eventuella observationer från redundanstestningen. Detta tar bort den virtuella datorn som skapades under redundanstestningen.
+1. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att öppna dess egenskaper eller på **jobbet testa redundans** i &gt; valv namn **jobb** &gt; **Site Recovery jobb**.
+1. När redundansväxlingen är klar bör du även kunna se repliken av Azure-datorn i Azure Portal &gt; **Virtual Machines**. Du kan utföra dina verifieringar.
+1. När verifieringen är klar klickar du på **valideringar slutfört**. Detta tar bort StorSimple-volymerna och stänger av StorSimple Cloud Appliance.
+1. När du är klar klickar du på **rensning** av redundanstest i återställnings planen. I Notes-posten och spara alla observationer som är kopplade till redundanstest. Detta tar bort den virtuella dator som skapades under redundanstest.
 
-## <a name="perform-a-planned-failover"></a>Utför en planerad redundansväxling
-   Under en planerad redundans för lokalt filservern Virtuella datorn stängs av ett smidigt sätt och ett moln som tas ögonblicksbilden av säkerhetskopian volymer på StorSimple-enhet. StorSimple-volymer växlas över till den virtuella enheten, en virtuell replikdator tas i Azure och volymerna som är kopplade till den virtuella datorn.
+## <a name="perform-a-planned-failover"></a>Utföra en planerad redundansväxling
+   Under en planerad redundansväxling stängs den lokala fil serverns virtuella dator på ett smidigt sätt och en ögonblicks bild av en moln säkerhets kopia av volymerna på StorSimple-enheten tas bort. StorSimple-volymerna har redundansväxlats till den virtuella enheten, en virtuell replik dator skapas på Azure och volymerna är anslutna till den virtuella datorn.
 
-#### <a name="to-perform-a-planned-failover"></a>Att utföra en planerad redundans
-1. I Azure-portalen väljer du **återställningstjänster** vault &gt; **återställningsplaner (Site Recovery)** &gt; **recoveryplan_name** skapade för den filen server-dator.
-1. Klicka på bladet Recovery plan **mer** &gt; **planerad redundans**.
+#### <a name="to-perform-a-planned-failover"></a>Utföra en planerad redundansväxling
+1. I Azure Portal väljer du återställnings planer &gt; för **Recovery Services** **-valv (Site Recovery)** &gt; **som skapats för** den virtuella fil servern.
+1. På bladet återställnings plan klickar du på **mer** &gt; **planerad redundansväxling**.
 
-   ![Återställningsplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
-1. På den **bekräfta planerad redundans** bladet Välj käll- och målplatserna och väljer målnätverk och klicka på kryssikonen ✓ att starta redundansprocessen.
-1. När replikering av virtuella datorer skapas är de i ett åtagande väntetillstånd. Klicka på **Commit** att genomföra redundans.
-1. När replikeringen är klar, virtuella datorer som startas på den sekundära platsen.
+   ![Återställnings plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+1. På bladet **Bekräfta Planerad redundans** väljer du käll-och mål platserna och väljer mål nätverk och klickar sedan på kryss ✓ för att starta redundansväxlingen.
+1. När de virtuella replik datorerna har skapats är de i ett väntande tillstånd. Klicka på **genomför** för att genomföra redundansväxlingen.
+1. När replikeringen är klar startar de virtuella datorerna på den sekundära platsen.
 
-## <a name="perform-a-failover"></a>Utför en redundansväxling
-StorSimple-volymer växlas över till den virtuella enheten under en oplanerad redundans, en virtuell replikdator ska göras tillgänglig på Azure och volymerna som är kopplade till den virtuella datorn.
+## <a name="perform-a-failover"></a>Utföra en redundansväxling
+Under en oplanerad redundansväxling växlar StorSimple-volymer över till den virtuella enheten, en virtuell replik dator skapas på Azure och volymerna är anslutna till den virtuella datorn.
 
-#### <a name="to-perform-a-failover"></a>Att utföra en redundansväxling
-1. I Azure-portalen väljer du **återställningstjänster** vault &gt; **återställningsplaner (Site Recovery)** &gt; **recoveryplan_name** skapade för den filen server-dator.
-1. Klicka på bladet Recovery plan **mer** &gt; **redundans**.
-1. På den **bekräfta redundans** bladet Välj källa och mål platser.
-1. Välj **stänga av virtuella datorer och synkronisera senaste data** att ange att Site Recovery bör försöka att Stäng av den skyddade virtuella datorn och synkronisera data så att den senaste versionen av data kommer att redundansväxlas.
-1. Efter redundansen är de virtuella datorerna i ett åtagande väntetillstånd. Klicka på **Commit** att genomföra redundans.
+#### <a name="to-perform-a-failover"></a>Utföra en redundansväxling
+1. I Azure Portal väljer du återställnings planer &gt; för **Recovery Services** **-valv (Site Recovery)** &gt; **som skapats för** den virtuella fil servern.
+1. Klicka på **mer** &gt; **redundans**på bladet återställnings plan.
+1. På bladet **Bekräfta redundans** väljer du käll-och mål platserna.
+1. Välj **Stäng virtuella datorer och synkronisera senaste data** för att ange att Site Recovery ska försöka stänga av den skyddade virtuella datorn och synkronisera data så att den senaste versionen av data kommer att Miss lyckas.
+1. Efter redundansväxlingen är de virtuella datorerna i ett väntande tillstånd. Klicka på **genomför** för att genomföra redundansväxlingen.
 
 
 ## <a name="perform-a-failback"></a>Utföra en återställning efter fel
-Under en återställning efter fel växlas StorSimple volymbehållare över tillbaka till den fysiska enheten när en säkerhetskopia görs.
+Under en återställning efter fel växlar StorSimple volym behållare tillbaka till den fysiska enheten när en säkerhets kopia har gjorts.
 
-#### <a name="to-perform-a-failback"></a>Att utföra en återställning efter fel
-1. I Azure-portalen väljer du **återställningstjänster** vault &gt; **återställningsplaner (Site Recovery)** &gt; **recoveryplan_name** skapade för den filen server-dator.
-1. Klicka på bladet Recovery plan **mer** &gt; **planerad redundans**.
-1. Välj käll- och målplatserna, väljer du lämplig datasynkronisering och alternativ för skapande av virtuell dator.
+#### <a name="to-perform-a-failback"></a>Utföra en återställning efter fel
+1. I Azure Portal väljer du återställnings planer &gt; för **Recovery Services** **-valv (Site Recovery)** &gt; **som skapats för** den virtuella fil servern.
+1. På bladet återställnings plan klickar du på **mer** &gt; **planerad redundansväxling**.
+1. Välj käll-och mål platserna, Välj lämplig data synkronisering och alternativ för att skapa virtuella datorer.
 1. Klicka på **OK** för att starta processen för återställning efter fel.
    
    ![Starta återställning efter fel](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
 ## <a name="best-practices"></a>Metodtips
-### <a name="capacity-planning-and-readiness-assessment"></a>Kapacitet planerings- och readiness assessment
+### <a name="capacity-planning-and-readiness-assessment"></a>Kapacitets planering och beredskaps bedömning
 #### <a name="hyper-v-site"></a>Hyper-V-plats
-Använd den [användaren kapacitetsplaneringsverktyget](https://www.microsoft.com/download/details.aspx?id=39057) att designa den server, lagring och nätverksinfrastruktur för din miljö för Hyper-V-repliken.
+Använd [verktyget för användar kapacitets planering](https://www.microsoft.com/download/details.aspx?id=39057) för att utforma Server-, lagrings-och nätverks infrastrukturen för din Hyper-V-replik miljö.
 
 #### <a name="azure"></a>Azure
-Du kan köra den [Azure VM gratisverktyget för utvärdering av](https://azure.microsoft.com/downloads/vm-readiness-assessment/) på virtuella datorer så att de är kompatibla med Azure virtuella datorer och Azure Site Recovery Services. Verktyget för diagnostisk utvärdering kontrollerar VM-konfigurationer och varnar när konfigurationer som inte är kompatibla med Azure. Till exempel utfärdar den en varning om en enhet C: är större än 127 GB.
+Du kan köra [verktyget för bedömning av beredskap för virtuella Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) -datorer på virtuella datorer för att säkerställa att de är kompatibla med virtuella Azure-datorer och Azure Site Recovery-tjänster. Verktyget readiness Assessment kontrollerar VM-konfigurationer och varnar när konfigurationer inte är kompatibla med Azure. Det kan till exempel vara en varning om en C: enhet är större än 127 GB.
 
-Kapacitetsplanering består av minst två viktiga processer:
+Kapacitets planering består av minst två viktiga processer:
 
-   - Mappning av en lokal Hyper-V-datorer till Azure VM-storlekar (till exempel A6, A7, A8 och A9).
-   - Fastställa nödvändig Internet-bandbredd.
+   - Mappa lokala virtuella Hyper-V-datorer till Azure VM-storlekar (till exempel A6, A7, A8 och A9).
+   - Fastställer nödvändig Internet bandbredd.
 
 ## <a name="limitations"></a>Begränsningar
-- För närvarande kan endast 1 StorSimple-enhet redundansväxlas (för att en enda StorSimple Cloud Appliance). Scenario för en filserver som sträcker sig över flera StorSimple-enheter stöds inte ännu.
-- Om du får ett fel medan skyddet aktiveras för en virtuell dator kan du kontrollera att du har kopplat från iSCSI-mål.
-- Alla volymcontainrar som grupperas tillsammans på grund av säkerhetskopiering principer som täcker över volymbehållare redundansväxlas tillsammans.
-- Alla volymer i de volymbehållare som du har valt kommer att redundansväxlas.
-- Volymer som lägga till upp till fler än 64 TB redundansväxlas inte eftersom den maximala kapaciteten på ett enda StorSimple Cloud Appliance är 64 TB.
-- Om planerad/oplanerad redundans misslyckas och de virtuella datorerna skapas i Azure, sedan du inte rensa upp de virtuella datorerna. I stället gör en återställning efter fel. Om du tar bort de virtuella datorerna kan sedan lokala virtuella datorer inte aktiveras igen.
-- Efter en redundansväxling om du inte kan se volymerna, går du till de virtuella datorerna, öppnar du Diskhantering, skanna om diskarna och tar dem online.
-- I vissa fall kan Enhetsbokstäverna i DR-plats vara annorlunda än de bokstäver lokalt. Om detta inträffar kommer du behöva korrigera problemet manuellt när redundansen är klar.
-- Tidsgräns för redundans-jobb: StorSimple-skriptet når tidsgränsen om redundans för volymbehållare tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
-- Tidsgräns för säkerhetskopieringsjobbet: StorSimple-skriptet sin tidsgräns om säkerhetskopiering av volymer tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
+- För närvarande kan endast 1 StorSimple-enhet växlas över (till en enda StorSimple Cloud Appliance). Scenariot för en fil server som sträcker sig över flera StorSimple-enheter stöds inte ännu.
+- Om du får ett fel när du aktiverar skydd för en virtuell dator bör du kontrol lera att du har kopplat från iSCSI-målen.
+- Alla volym behållare som har grupper ATS tillsammans på grund av säkerhets kopierings principer som sträcker sig över volym behållare kommer att Miss lyckas tillsammans.
+- Alla volymer i de volym behållare som du har valt kommer att växlas över.
+- Volymer som lägger upp till mer än 64 TB kan inte redundansväxla eftersom den maximala kapaciteten för en enskild StorSimple Cloud Appliance är 64 TB.
+- Om den planerade/oplanerade redundansväxlingen Miss lyckas och de virtuella datorerna skapas i Azure ska du inte rensa de virtuella datorerna. Gör i stället en återställning efter fel. Om du tar bort de virtuella datorerna kan de lokala virtuella datorerna inte aktive ras igen.
+- Om du inte kan se volymerna går du till de virtuella datorerna, öppnar disk hantering, skannar om diskarna och ansluter dem sedan igen.
+- I vissa fall kan enhets beteckningarna på DR-platsen skilja sig från de lokala bokstäverna. Om detta inträffar måste du korrigera problemet manuellt när redundansväxlingen är klart.
+- Timeout för redundans jobb: StorSimple-skriptet tar slut om redundansväxlingen av volym behållare tar längre tid än Azure Site Recovery gränsen per skript (för närvarande 120 minuter).
+- Timeout för säkerhets kopierings jobb: StorSimple-skriptet nådde tids gränsen om säkerhets kopieringen av volymer tar längre tid än Azure Site Recovery gränsen per skript (för närvarande 120 minuter).
    
   > [!IMPORTANT]
-  > Köra säkerhetskopieringen manuellt från Azure-portalen och kör sedan återställningsplanen igen.
+  > Kör säkerhets kopieringen manuellt från Azure Portal och kör sedan återställnings planen igen.
    
-- Klona jobb tidsgräns: StorSimple-skriptet sin tidsgräns om kloning av volymer tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
-- Tid synkroniseringsfel: StorSimple skript fel ut säger att säkerhetskopieringarna inte genomfördes trots att säkerhetskopieringen är klar i portalen. En möjlig orsak till detta kan vara att tiden för StorSimple-installation kan vara synkroniserad med den aktuella tiden i den aktuella tidszonen.
-   
-  > [!IMPORTANT]
-  > Synkronisera tiden för installationen med den aktuella tiden i den aktuella tidszonen.
-   
-- Installationen redundans-fel: StorSimple-skriptet kan misslyckas om det är en installation redundans när återställningsplanen körs.
+- Timeout för klon jobb: StorSimple-skriptet nådde tids gränsen om kloningen av volymer tar längre tid än Azure Site Recovery gränsen per skript (för närvarande 120 minuter).
+- Fel vid synkronisering av tid: StorSimple skript fel som säger att säkerhets kopiorna inte lyckades trots att säkerhets kopieringen lyckades i portalen. En möjlig orsak kan vara att StorSimple-apparatens tid kanske inte är synkroniserad med den aktuella tiden i tids zonen.
    
   > [!IMPORTANT]
-  > Nytt återställningsplanen efter redundansväxlingen för installationen är klar.
+  > Synkronisera apparatens tid med den aktuella tiden i tids zonen.
+   
+- Fel i redundansväxling: StorSimple-skriptet kan Miss Miss förväntat om det sker en redundansväxling när återställnings planen körs.
+   
+  > [!IMPORTANT]
+  > Kör återställnings planen igen när installationen av enheten är klar.
 
 
 ## <a name="summary"></a>Sammanfattning
-Med Azure Site Recovery kan du skapa en fullständig automatiserad haveriberedskapsplan för en filserver VM har filresurser som finns på StorSimple-lagring. Du kan påbörja redundans på några sekunder från var som helst i händelse av ett avbrott och få programmet igång på några få minuter.
+Med hjälp av Azure Site Recovery kan du skapa en fullständig automatiserad katastrof återställnings plan för en virtuell fil server som har fil resurser som finns på StorSimple-lagring. Du kan initiera redundansväxlingen inom några sekunder från var som helst i händelse av ett avbrott och få programmet igång på några få minuter.

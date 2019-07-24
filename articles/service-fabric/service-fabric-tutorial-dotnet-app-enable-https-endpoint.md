@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2019
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 48dd09bf70e99adc250027df872266bea39a786b
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 72fddc542155c8aab891f746bff99ce7bd2fc7fa
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302414"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385255"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudier: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:et för ASP.NET Core med hjälp av Kestrel
 
@@ -47,12 +47,12 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15.5 eller senare med den **Azure development** och **ASP.NET och webbutveckling** arbetsbelastningar.
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15,5 eller senare med arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Hämta ett certifikat eller skapa ett självsignerat utvecklingscertifikat
@@ -185,7 +185,7 @@ private X509Certificate2 GetCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Ge NETWORK SERVICE åtkomst till certifikatets privata nyckel
 
-I föregående steg importerade du certifikatet till `Cert:\LocalMachine\My`-lagret på utvecklingsdatorn.  Nu kan explicit ge kontot som kör tjänsten (NETWORK SERVICE som standard) åtkomst till certifikatets privata nyckel. Du kan göra det här steget manuellt (med verktyget certlm.msc), men det är bättre att automatiskt köra ett PowerShell-skript med [konfigurera ett startskript](service-fabric-run-script-at-service-startup.md) i den **SetupEntryPoint** för tjänstmanifestet.
+I föregående steg importerade du certifikatet till `Cert:\LocalMachine\My`-lagret på utvecklingsdatorn.  Nu ska du uttryckligen ge kontot som kör tjänsten (nätverks tjänsten som standard) åtkomst till certifikatets privata nyckel. Du kan göra det här steget manuellt (med verktyget certlm. msc), men det är bättre att köra ett PowerShell-skript automatiskt genom att [Konfigurera ett start skript](service-fabric-run-script-at-service-startup.md) i **SetupEntryPoint** i tjänst manifestet.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Konfigurera tjänstens konfigurationsstartpunkt
 
@@ -344,9 +344,9 @@ I avsnittet **ServiceManifestImport** för VotingWebPkg ska du sedan konfigurera
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
 
-I Solution Explorer väljer du den **Voting** och ställer in den **programmets URL** egenskap ”https:\//localhost:443”.
+I Solution Explorer väljer du röstnings programmet och anger egenskapen för **program-URL** till "https\/:/localhost: 443".
 
-Spara alla filer och tryck på F5 för att köra programmet lokalt.  När programmet distribueras en webbläsare öppnas till https:\//localhost:443. Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
+Spara alla filer och tryck på F5 för att köra programmet lokalt.  När programmet har distribuerats öppnas en webbläsare till https:\//localhost: 443. Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
 
 ![Röstningsprogrammet][image2]
 
@@ -360,7 +360,7 @@ Exportera först certifikatet till en PFX-fil. Öppna programmet certlm.msc och 
 
 I exportguiden väljer du **Ja, exportera den privata nyckeln** och sedan formatet PFX (Personal Information Exchange).  Exportera filen till *C:\Users\sfuser\votingappcert.pfx*.
 
-Installera certifikatet på fjärrklustret med den [Lägg till AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) cmdlet.
+Sedan installerar du certifikatet på fjärrklustret med cmdleten [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) .
 
 > [!Warning]
 > Ett självsignerat certifikat räcker för utveckling och testning. För produktionsprogram ska du använda ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority) istället för ett självsignerat certifikat.

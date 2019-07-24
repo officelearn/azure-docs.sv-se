@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2018
+ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: f978087a935bcf6ac78760fee5842573eb3a326e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 82358f4d5548464f1304d77a846d71863ed9efa1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274110"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385015"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudier: Installera och skapa Service Fabric-kluster
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudier: Installera och skapa Service Fabric kluster
 
-Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudiekursen, skapa ett fristående kluster som finns på AWS- eller Azure och installera ett program till den.
+Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudien skapar du ett fristående kluster som finns på AWS eller Azure och installerar ett program i det.
 
 Den här självstudien är del två i en serie. Självstudien vägleder dig genom stegen för att skapa ett fristående Service Fabric-kluster.
 
@@ -37,7 +37,7 @@ I del två i serien lär du dig hur du:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Ladda ned Service Fabric för Windows Server-paketet
 
-Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned installationspaketet](https://go.microsoft.com/fwlink/?LinkId=730690) på den lokala datorn.  Kopiera den via RDP-anslutning till den virtuella datorn när den har laddat ned och klistra in den på skrivbordet.
+Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned installationspaketet](https://go.microsoft.com/fwlink/?LinkId=730690) på den lokala datorn.  När du har hämtat kopian via RDP-anslutningen till den virtuella datorn och klistrar in den på Skriv bordet.
 
 Välj zip-filen, öppna snabbmenyn och välj **Extrahera alla** > **Extrahera**.  När du extraherar filerna skapas en mapp på skrivbordet med samma namn som zip-filen.
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Hämta Service Fabric Explorer
 
-Nu kan du ansluta till klustret med Service Fabric Explorer antingen direkt från en av datorerna med http:\//localhost:19080/Explorer/index.html eller via en fjärranslutning med http:\/ /<  *IPAddressofaMachine*>: 19080/Explorer/index.html.
+Nu kan du ansluta till klustret med Service Fabric Explorer antingen direkt från\/någon av datorerna med http:/localhost:19080/Explorer/index.html eller via fjärr anslutning med http:\//<IPAddressofaMachine > : 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Lägga till och ta bort noder
 

@@ -1,74 +1,75 @@
 ---
-title: Använd Helm databaser i Azure Container Registry
-description: Lär dig hur du använder ett Helm-lagringsplatsen med Azure Container Registry för att lagra diagram för dina program
+title: Använda Helm-databaser i Azure Container Registry
+description: Lär dig hur du använder en Helm-lagringsplats med Azure Container Registry för att lagra diagram för dina program
 services: container-registry
-author: iainfoulds
+author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: ba0e1386d67e920f1805d244f9042044bb462ec9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2135a3a5a8f14cf6c2e7fd2984d9b221e2445c1d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62109859"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309513"
 ---
-# <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Använda Azure Container Registry som ett Helm-lagringsplatsen för dina program-diagram
+# <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Använda Azure Container Registry som Helm-lagringsplats för dina program diagram
 
-Du kan använda för att snabbt hantera och distribuera program för Kubernetes, den [Pakethanteraren för öppen källkod Helm][helm]. Program med Helm, anges som *diagram* som lagras i en lagringsplats för Helm-diagram. Dessa diagram definierar konfigurationer och beroenden och kan versionshanteras under hela programmets livscykel. Azure Container Registry kan användas som värd för databaser för Helm-diagram.
+Om du snabbt vill hantera och distribuera program för Kubernetes kan du använda [paket hanteraren med öppen källkod för Helm][helm]. Med Helm definieras program som *diagram* som lagras i en Helm-diagram lagrings plats. De här diagrammen definierar konfigurationer och beroenden och kan vara versioner i hela programmets livs cykel. Azure Container Registry kan användas som värd för Helm-diagram-databaser.
 
-Med Azure Container Registry har du en privat, säker Helm-diagram-lagringsplatsen, som kan integreras med skapandet av pipelines eller andra Azure-tjänster. Helm-diagram-databaser i Azure Container Registry innehåller funktioner för geo-replikering för att hålla dina diagram nära distributioner och för redundans. Du bara betalar för den lagring som används av diagrammen och är tillgängliga för alla nivåer i Azure Container Registry-priset.
+Med Azure Container Registry har du en privat, säker lagrings plats för Helm diagram som kan integreras med build-pipeliner eller andra Azure-tjänster. Helm-diagram Arkiv i Azure Container Registry innehåller funktioner för geo-replikering för att hålla dina diagram nära distributioner och för redundans. Du betalar bara för det lagrings utrymme som används av diagrammen och är tillgängligt för alla Azure Container Registry pris nivåer.
 
-Den här artikeln visar hur du använder en lagringsplats för Helm-diagrammet som lagras i Azure Container Registry.
+Den här artikeln visar hur du använder en Helm-databas lagring som lagras i Azure Container Registry.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Följande krav måste uppfyllas för att slutföra stegen i den här artikeln:
+För att slutföra stegen i den här artikeln måste följande krav vara uppfyllda:
 
-- **Azure Container Registry** -skapa ett behållarregister i Azure-prenumerationen. Till exempel använda den [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm-klientversionen 2.11.0 (inte en RC-versionen) eller senare** – kör `helm version` att hitta din nuvarande version. Du måste också ett Helm-server (Tiller) som initieras i ett Kubernetes-kluster. Om det behövs kan du [skapa ett Azure Kubernetes Service-kluster][aks-quickstart]. Läs mer om hur du installera och uppgradera Helm [installera Helm][helm-install].
-- **Azure CLI version 2.0.46 eller senare** – kör `az --version` att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+- **Azure Container Registry** – skapa ett behållar register i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
+- **Helm klient version 2.11.0 (inte en RC-version) eller senare** – `helm version` kör för att hitta din aktuella version. Du behöver också en Helm-Server (till gång) som initierats i ett Kubernetes-kluster. Om det behövs kan du [skapa ett Azure Kubernetes service-kluster][aks-quickstart]. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install].
+- **Azure CLI version 2.0.46 eller senare** – kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
-## <a name="add-a-repository-to-helm-client"></a>Lägga till en lagringsplats i Helm-klienten
+## <a name="add-a-repository-to-helm-client"></a>Lägga till en lagrings plats i Helm-klienten
 
-Ett Helm-lagringsplatsen är en HTTP-server som kan lagra Helm-diagram. Azure Container Registry kan ange den här lagringen för Helm-diagram och hantera indexdefinitionen när du lägger till och ta bort diagram i databasen.
+En Helm-lagringsplats är en HTTP-server som kan lagra Helm-diagram. Azure Container Registry kan tillhandahålla den här lagringen för Helm-diagram och hantera index definitionen när du lägger till och tar bort diagram i lagrings platsen.
 
-Om du vill lägga till ditt Azure-Behållarregister som en lagringsplats för Helm-diagrammet kan du använda Azure CLI. Med den här metoden uppdateras Helm klienten med URI och autentiseringsuppgifter för den lagringsplats som backas upp av Azure Container Registry. Du behöver inte ange informationen databasen manuellt så att autentiseringsuppgifterna som inte visas i kommandohistoriken, till exempel.
+Om du vill lägga till din Azure Container Registry som en Helm diagram-lagringsplats använder du Azure CLI. Med den här metoden uppdateras din Helm-klient med URI: n och autentiseringsuppgifterna för databasen som stöds av Azure Container Registry. Du behöver inte ange den här lagrings informationen manuellt, så autentiseringsuppgifterna visas inte i kommando historiken, till exempel.
 
-Om det behövs, logga in på Azure CLI och följa anvisningarna:
+Om det behövs loggar du in på Azure CLI och följer anvisningarna:
 
 ```azurecli
 az login
 ```
 
-Konfigurera standardinställningar för Azure CLI med namnet på din Azure-Behållarregister med hjälp av den [az konfigurera] [ az-configure] kommando. I följande exempel ersätter `<acrName>` med namnet på ditt register:
+Konfigurera Azure CLI-standardinställningarna med namnet på din Azure Container Registry med hjälp av kommandot [AZ Configure][az-configure] . I följande exempel ersätter `<acrName>` du med namnet på ditt register:
 
 ```azurecli
 az configure --defaults acr=<acrName>
 ```
 
-Lägg nu till din lagringsplats för Azure Container Registry Helm-diagrammet Helm klienten med hjälp av den [az acr helm-lagringsplatsen Lägg till] [ az-acr-helm-repo-add] kommando. Det här kommandot hämtar en autentisering token för Azure container registry som används av Helm-klienten. Autentiseringstoken är giltig för 1 timme. Liknar `docker login`, du kan köra det här kommandot i framtida CLI-sessioner för att autentisera din Helm-klient med din lagringsplats för Azure Container Registry Helm-diagrammet:
+Lägg nu till din Azure Container Registry Helm Chart-lagringsplats till Helm-klienten med kommandot [AZ ACR Helm lagrings platsen Add][az-acr-helm-repo-add] . Det här kommandot hämtar en autentiseringstoken för ditt Azure Container Registry som används av Helm-klienten. Autentiseringstoken är giltig i 1 timme. Precis som `docker login`kan du köra det här kommandot i framtida CLI-sessioner för att autentisera din Helm-klient med din Azure Container Registry Helm-diagram lagrings plats:
 
 ```azurecli
 az acr helm repo add
 ```
 
-## <a name="add-a-chart-to-the-repository"></a>Lägga till ett diagram i databasen
+## <a name="add-a-chart-to-the-repository"></a>Lägg till ett diagram i lagrings platsen
 
-I den här artikeln ska vi hämta ett befintligt Helm-diagram från offentliga Helm *stabil* lagringsplatsen. Den *stabil* lagringsplats är en granskad, offentliga lagringsplats som innehåller vanliga program diagram. Paketet sköter underhåll själva kan skicka sina diagram för den *stabil* lagringsplats på samma sätt som Docker-hubb tillhandahåller ett offentligt register för gemensam behållaravbildningar. Diagrammet som hämtats från offentligt *stabil* lagringsplatsen kan sedan skickas till din privata Azure Container Registry-lagringsplatsen. I de flesta fall skulle du skapa och ladda upp egna diagram för de program som du utvecklar. Läs mer om hur du skapar egna Helm-diagram, [utveckla Helm-diagram][develop-helm-charts].
+I den här artikeln ska vi hämta ett befintligt Helm-diagram från den offentliga Helm *stabila* lagrings platsen. Den *stabila* lagrings platsen är en granskad, offentlig lagrings platsen som innehåller vanliga program diagram. Paket underhållare kan skicka sina diagram till den *stabila* lagrings platsen, på samma sätt som Docker Hub tillhandahåller ett offentligt register för vanliga behållar avbildningar. Diagrammet som hämtas från den offentliga *stabila* lagrings platsen kan sedan skickas till din privata Azure Container Registry-lagringsplats. I de flesta fall skulle du skapa och ladda upp dina egna diagram för de program som du utvecklar. Mer information om hur du skapar egna Helm-diagram finns i [utveckla Helm-diagram][develop-helm-charts].
 
-Börja med att skapa en katalog på *~/acr-helm*, ladda ned den befintliga *stable/wordpress* diagram:
+Skapa först en katalog på *~/ACR-Helm*och hämta sedan det befintliga *stabila/WordPress-* diagrammet:
 
 ```console
 mkdir ~/acr-helm && cd ~/acr-helm
 helm fetch stable/wordpress
 ```
 
-Lista hämtade diagrammet och Observera Wordpress-version som ingår i filnamnet. Den `helm fetch stable/wordpress` kommando inte angav en viss version, så den *senaste* version hämtades. Alla Helm-diagram innehåller ett versionsnummer i filnamnet som följer den [SemVer 2] [ semver2] standard. I följande Exempelutdata Wordpress-diagrammet är version *2.1.10*:
+Ange det hämtade diagrammet och anteckna WordPress-versionen som ingår i fil namnet. Kommandot angav inte någon särskild version, så den senaste versionen hämtades.  `helm fetch stable/wordpress` Alla Helm-diagram innehåller ett versions nummer i fil namnet som följer [SemVer 2][semver2] -standarden. I följande exempel utdata är WordPress-diagrammet version *2.1.10*:
 
 ```
 $ ls
@@ -76,13 +77,13 @@ $ ls
 wordpress-2.1.10.tgz
 ```
 
-Skicka nu diagrammet till Helm-diagram-lagringsplatsen i Azure Container Registry med Azure CLI [az acr helm push] [ az-acr-helm-push] kommando. Ange namnet på din Helm-diagrammet hämtade i föregående steg, till exempel *wordpress-2.1.10.tgz*:
+Skicka nu diagrammet till Helm-diagrammets lagrings plats i Azure Container Registry använda kommandot Azure CLI [AZ ACR Helm push][az-acr-helm-push] . Ange namnet på ditt Helm-diagram som hämtades i föregående steg, till exempel *WordPress-2.1.10. tgz*:
 
 ```azurecli
 az acr helm push wordpress-2.1.10.tgz
 ```
 
-Efter en liten stund rapporterar Azure CLI att diagrammet har sparats, som visas i följande Exempelutdata:
+Efter en liten stund rapporterar Azure CLI att diagrammet har sparats, vilket visas i följande exempel på utdata:
 
 ```
 $ az acr helm push wordpress-2.1.10.tgz
@@ -92,21 +93,21 @@ $ az acr helm push wordpress-2.1.10.tgz
 }
 ```
 
-## <a name="list-charts-in-the-repository"></a>Lista diagram i databasen
+## <a name="list-charts-in-the-repository"></a>Visa lista över diagram i databasen
 
-Helm-klienten har en lokal cachelagrad kopia av innehållet i fjärranslutna databaser. Ändringar till en fjärrlagringsplats uppdateras inte automatiskt en lista över tillgängliga diagram lokalt är känt av Helm-klienten. När du söker efter diagram över lagringsplatser använder Helm sin lokala cachelagrade index. För att använda diagrammet som laddades upp i föregående steg, måste du uppdatera det lokala Helm-lagringsplatsen indexet. Du kan indexera om databaserna i Helm-klienten eller använda Azure CLI för att uppdatera indexet för databasen. Varje gång du lägger till ett diagram till databasen, måste det här steget utföras:
+Helm-klienten har en lokal cachelagrad kopia av innehållet i fjärrdatabaser. Ändringar i en fjärrlagringsplats uppdaterar inte automatiskt listan över tillgängliga diagram som är kända lokalt av Helm-klienten. När du söker efter diagram över flera databaser använder Helm det lokala, cachelagrade indexet. Om du vill använda diagrammet som laddades upp i föregående steg måste det lokala Helm-lagringsplatsens index uppdateras. Du kan indexera om databaserna i Helm-klienten eller använda Azure CLI för att uppdatera lagrings platsens index. Varje gång du lägger till ett diagram i din lagrings plats måste det här steget utföras:
 
 ```azurecli
 az acr helm repo add
 ```
 
-Du kan använda vanliga Helm-klientkommandon att söka efter och installera med ett diagram som lagras i databasen och det uppdaterade indexet som är tillgängliga lokalt. Om du vill se alla diagram i databasen, använda `helm search <acrName>`. Ange din egen Azure Container Registry-namn:
+Med ett diagram som är lagrat i din lagrings plats och det uppdaterade indexet tillgängligt lokalt kan du söka efter eller installera de vanliga Helm-klient kommandona. Använd `helm search <acrName>`om du vill se alla diagram i din lagrings plats. Ange ett eget Azure Container Registry namn:
 
 ```console
 helm search <acrName>
 ```
 
-Wordpress-diagrammet som överfördes i föregående steg visas som visas i följande Exempelutdata:
+WordPress-diagrammet som du publicerade i föregående steg visas i listan, som du ser i följande exempel:
 
 ```
 $ helm search myacrhelm
@@ -115,21 +116,21 @@ NAME                CHART VERSION   APP VERSION DESCRIPTION
 helmdocs/wordpress  2.1.10          4.9.8       Web publishing platform for building blogs and websites.
 ```
 
-Du kan också ange diagram med Azure CLI, med hjälp av [az acr helm lista][az-acr-helm-list]:
+Du kan också visa diagram med Azure CLI med hjälp av [AZ ACR Helm List][az-acr-helm-list]:
 
 ```azurecli
 az acr helm list
 ```
 
-## <a name="show-information-for-a-helm-chart"></a>Visa information för ett Helm-diagram
+## <a name="show-information-for-a-helm-chart"></a>Visa information om ett Helm-diagram
 
-Om du vill visa information för ett specifikt diagram i lagringsplatsen, kan du igen använda reguljära Helm-klienten. Att visa information för diagrammet med namnet *wordpress*, använda `helm inspect`.
+Om du vill visa information om ett särskilt diagram i lagrings platsen kan du använda den vanliga Helm-klienten igen. Använd`helm inspect`om du vill se information om diagrammet med namnet *WordPress*.
 
 ```console
 helm inspect <acrName>/wordpress
 ```
 
-När inga versionsnumret tillhandahålls den *senaste* version som används. Helm returnerar detaljerad information om schemat, som visas i följande komprimerade exempel på utdata:
+När inget versions nummer anges används den *senaste* versionen. Helm returnerar detaljerad information om diagrammet, som du ser i följande komprimerade exempel utdata:
 
 ```
 $ helm inspect myacrhelm/wordpress
@@ -157,30 +158,30 @@ version: 2.1.10
 [...]
 ```
 
-Du kan också visa information för ett diagram med Azure CLI [az acr helm show] [ az-acr-helm-show] kommando. Igen, den *senaste* version av ett diagram returneras som standard. Du kan lägga till `--version` vill visa en specifik version av ett diagram, till exempel *2.1.10*:
+Du kan också visa informationen för ett diagram med kommandot Azure CLI [AZ ACR Helm show][az-acr-helm-show] . Den *senaste* versionen av ett diagram returneras som standard. Du kan lägga `--version` till en lista med en angiven version av ett diagram, till exempel *2.1.10*:
 
 ```azurecli
 az acr helm show wordpress
 ```
 
-## <a name="install-a-helm-chart-from-the-repository"></a>Installera ett Helm-diagram från databasen
+## <a name="install-a-helm-chart-from-the-repository"></a>Installera ett Helm-diagram från lagrings platsen
 
-Helm-diagrammet i databasen är installerad genom att ange namnet på lagringsplatsen och diagramområdets namn. Använd Helm-klienten för att installera Wordpress-diagrammet:
+Helm-diagrammet i din lagrings plats installeras genom att ange databas namnet och sedan diagram namnet. Använd Helm-klienten för att installera WordPress-diagrammet:
 
 ```console
 helm install <acrName>/wordpress
 ```
 
 > [!TIP]
-> Om du push-överföra till din lagringsplats för Azure Container Registry Helm-diagrammet och senare gå tillbaka i en ny CLI-session, måste en uppdaterad autentiseringstoken i din lokala Helm-klient. Så här skaffar du en ny autentiseringstoken i [az acr helm-lagringsplatsen Lägg till] [ az-acr-helm-repo-add] kommando.
+> Om du push-överför till din Azure Container Registry Helm Chart-lagringsplats och senare återgår till en ny CLI-session, behöver din lokala Helm-klient en uppdaterad autentiseringstoken. Om du vill hämta en ny autentiseringstoken använder du kommandot [AZ ACR Helm lagrings platsen Add][az-acr-helm-repo-add] .
 
-Följande steg måste utföras under installationen.
+Följande steg slutförs under installations processen:
 
-- Helm-klienten söker lagringsplats indexet.
-- Motsvarande diagrammet hämtas från Azure Container Registry-databasen.
-- Diagrammet med hjälp av Tiller i Kubernetes-klustret.
+- Helm-klienten söker igenom det lokala lagrings plats indexet.
+- Motsvarande diagram hämtas från Azure Container Registry-lagringsplatsen.
+- Diagrammet distribueras med hjälp av till-modulen i Kubernetes-klustret.
 
-Följande komprimerade exempel på utdata visar Kubernetes-resurser som distribueras via Helm-diagrammet:
+I följande komprimerade exempel utdata visas de Kubernetes-resurser som distribueras via Helm-diagrammet:
 
 ```
 $ helm install myacrhelm/wordpress
@@ -198,17 +199,17 @@ irreverent-jaguar-mariadb-0                   0/1    Pending  0         1s
 [...]
 ```
 
-## <a name="delete-a-helm-chart-from-the-repository"></a>Ta bort ett Helm-diagram från databasen
+## <a name="delete-a-helm-chart-from-the-repository"></a>Ta bort ett Helm-diagram från lagrings platsen
 
-Ta bort ett diagram från databasen genom att använda den [az acr helm delete] [ az-acr-helm-delete] kommando. Ange namnet på diagrammet, till exempel *wordpress*, och versionen för att ta bort, till exempel *2.1.10*.
+Om du vill ta bort ett diagram från databasen använder du kommandot [AZ ACR Helm Delete][az-acr-helm-delete] . Ange namnet på diagrammet, till exempel *WordPress*, och den version som ska tas bort, till exempel *2.1.10*.
 
 ```azurecli
 az acr helm delete wordpress --version 2.1.10
 ```
 
-Om du vill ta bort alla versioner av namngivna diagrammet hoppar över den `--version` parametern.
+Lämna `--version` parametern om du vill ta bort alla versioner av det namngivna diagrammet.
 
-Fortsätter att returneras i `helm search <acrName>`. Helm-klienten uppdatera inte igen och automatiskt listan över tillgängliga diagrammen i en databas. Uppdatera Helm klienten lagringsplatsen indexet med den [az acr helm-lagringsplatsen Lägg till] [ az-acr-helm-repo-add] -kommandot på nytt:
+Diagrammet fortsätter att returneras i `helm search <acrName>`. Helm-klienten uppdaterar inte automatiskt listan över tillgängliga diagram i en lagrings plats. Om du vill uppdatera Helm-klientens lagrings platsen-index använder du kommandot [AZ ACR Helm lagrings platsen Lägg till][az-acr-helm-repo-add] kommando igen:
 
 ```azurecli
 az acr helm repo add
@@ -216,11 +217,11 @@ az acr helm repo add
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln används ett befintligt Helm-diagram från offentligt *stabil* lagringsplats. Läs mer om hur du skapar och distribuerar Helm-diagram, [utveckla Helm-diagram][develop-helm-charts].
+I den här artikeln användes ett befintligt Helm-diagram från den offentliga *säkra* databasen. Mer information om hur du skapar och distribuerar Helm-diagram finns i [utveckla Helm-diagram][develop-helm-charts].
 
-Helm-diagram kan användas som en del av behållaren skapandeprocessen. Mer information finns i [använder Azure Container Registry uppgifter][acr-tasks].
+Helm-diagram kan användas som en del av behållar Bygg processen. Mer information finns i [använda Azure Container Registry uppgifter][acr-tasks].
 
-Mer information om hur du använder och hanterar Azure Container Registry finns i den [bästa praxis][acr-bestpractices].
+Mer information om hur du använder och hanterar Azure Container Registry finns i [metod tips][acr-bestpractices].
 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/

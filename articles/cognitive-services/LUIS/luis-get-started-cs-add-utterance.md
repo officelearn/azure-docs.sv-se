@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 01fd5b06a2e534a85c88d5c1a706713f07f40106
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d44877e35687745ddba51d4d015729e62106c9ca
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277550"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348450"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snabbstart: Ändra modell med hjälp av C#
 
@@ -37,19 +37,19 @@ ms.locfileid: "68277550"
 
 ## <a name="create-quickstart-code"></a>Kod för att skapa snabbstart 
 
-I Visual Studio skapar du en ny **Windows Classic Desktop-konsolen** app med hjälp av .NET Framework. Ge projektet namnet `ConsoleApp1`.
+I Visual Studio skapar du en ny **Windows klassisk stationär program konsol** med hjälp av .NET Framework. Namnge projektet `ConsoleApp1`.
 
 ![Visual Studio-projekttyp](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>Lägga till System.Web-beroendet
 
-Visual Studio-projektet behöver **System.Web**. I Solution Explorer högerklickar du på **referenser** och välj **Lägg till referens** från avsnittet sammansättningar.
+Visual Studio-projektet behöver **System.Web**. Högerklicka på **referenser** i Solution Explorer och välj **Lägg till referens** i avsnittet sammansättningar.
 
 ![Lägga till System.web-referens](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>Lägg till andra beroenden
 
-Visual Studio-projektet behöver **JsonFormatterPlus** och **CommandLineParser**. I Solution Explorer högerklickar du på **Referenser** i väljer **Manage NuGet Packages...** (Hantera NuGet-paket...). Söka efter och lägga till var och en av de två paket. 
+Visual Studio-projektet behöver **JsonFormatterPlus** och **CommandLineParser**. I Solution Explorer högerklickar du på **Referenser** i väljer **Manage NuGet Packages...** (Hantera NuGet-paket...). Bläddra efter och Lägg till var och en av de två paketen. 
 
 ![Lägga till beroenden från tredje part](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -57,7 +57,7 @@ Visual Studio-projektet behöver **JsonFormatterPlus** och **CommandLineParser**
 ### <a name="write-the-c-code"></a>Skriva C#-koden
 **Program.cs**-filen ska vara:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +75,7 @@ namespace ConsoleApp1
 }
 ```
 
-Uppdatera beroenden så som är:
+Uppdatera beroendena så att är:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ För att hantera kommandoradsargumenten lägger du till huvudkoden. Lägg till m
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Kopiera utterances.json till utdatakatalogen
 
-I Solution Explorer lägger du till den `utterances.json` genom att högerklicka på projektnamnet i Solution Explorer, sedan välja **Lägg till**, sedan välja **befintliga objekt**. Välj den `utterances.json` filen. Detta lägger till filen i projektet. Sedan måste den läggas till i utdata-riktning. Högerklicka på den `utterances.json` och välj **egenskaper**. I fönstret Properties (Egenskaper) märker du **Build Action** (Skapandeåtgärd) för `Content` och **Copy to Output Directory** (Kopiera till utdatakatalog) för `Copy Always`.  
+I Solution Explorer lägger du till `utterances.json` genom att högerklicka på Solution Explorer projekt namn och sedan välja **Lägg till**och sedan på **befintligt objekt**. `utterances.json` Välj filen. Detta lägger till filen i projektet. Sedan måste den läggas till i utmatnings riktningen. Högerklicka på och välj egenskaper.  `utterances.json` I fönstret Properties (Egenskaper) märker du **Build Action** (Skapandeåtgärd) för `Content` och **Copy to Output Directory** (Kopiera till utdatakatalog) för `Copy Always`.  
 
 ![Märk JSON-filen som innehåll](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

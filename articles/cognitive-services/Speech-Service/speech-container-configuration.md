@@ -1,7 +1,7 @@
 ---
 title: Konfigurera tal behållare
 titleSuffix: Azure Cognitive Services
-description: Tal-behållaren
+description: Tal behållaren
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072446"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321359"
 ---
-# <a name="configure-speech-service-containers"></a>Konfigurera Speech Service-behållare
+# <a name="configure-speech-service-containers"></a>Konfigurera tal tjänst behållare
 
-Tal-behållare kan kunder skapa en programarkitektur med tal som är optimerad för att dra nytta av både robusta funktioner och edge ort. Vi stöder nu två tal behållarna är **tal till text** och **text till tal**. 
+Tal behållare gör det möjligt för kunder att bygga en tal program arkitektur som är optimerad för att dra nytta av både robusta moln funktioner och Edge-plats. De två tal behållarna som vi stöder nu är **tal-till-text** och **text till tal**. 
 
-Den **tal** behållare körningsmiljö konfigureras med hjälp av den `docker run` kommandot argument. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. Behållare-specifika inställningar är de fakturering inställningarna. 
+**Tal** behållarens körnings miljö konfigureras med `docker run` hjälp av kommando argumenten. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
 
 # <a name="configuration-settings"></a>Konfigurationsinställningar
 
@@ -32,11 +32,11 @@ Den **tal** behållare körningsmiljö konfigureras med hjälp av den `docker ru
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _tal_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
+Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _tal_ resurs som angetts för [`Billing`](#billing-configuration-setting) konfigurations inställningen.
 
-Den här inställningen kan hittas på följande plats:
+Du hittar den här inställningen på följande plats:
 
-* Azure-portalen: **Tals** resurshantering under **nycklar**
+* Azure-portalen: **Tal ' s** Resurs hantering, under **nycklar**
 
 ## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
 
@@ -44,13 +44,13 @@ Den här inställningen kan hittas på följande plats:
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` inställningen anger URI för den _tal_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _tal_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
+Inställningen anger slut punkts-URI för tal resursen i Azure som används för att mäta fakturerings information för behållaren.  `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _tal_ resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
-Den här inställningen kan hittas på följande plats:
+Du hittar den här inställningen på följande plats:
 
-* Azure-portalen: **Tals** översikt, märkt `Endpoint`
+* Azure-portalen: **Tal ' s** Översikt, märkt`Endpoint`
 
-|Obligatoriskt| Namn | Datatyp | Beskrivning |
+|Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
@@ -62,7 +62,7 @@ Den här inställningen kan hittas på följande plats:
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP-proxyinställningarna för autentiseringsuppgifter
+## <a name="http-proxy-credentials-settings"></a>Inställningar för autentiseringsuppgifter för http-proxy
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -74,77 +74,77 @@ Den här inställningen kan hittas på följande plats:
 
 Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando.
 
-Tal-behållare använder inte indata eller utdata monterar för att lagra utbildning eller tjänstdata. 
+Tal behållarna använder inte indata eller utdata monteras för att lagra utbildning eller tjänst data. 
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](speech-container-howto.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter. 
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | String | Tal behållare Använd inte detta.|
-|Valfri| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Tillåts inte| `Input` | Sträng | Tal behållare använder inte detta.|
+|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
 
 I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon.  När du kör, behållaren fortsätter att köras tills du [stoppa](speech-container-howto.md#stop-the-container) den.
 
-* **Fortsättning på raden tecknet**: Docker-kommandon i följande avsnitt använder det omvända snedstrecket `\`, som en fortsättning tecknet. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
-* **Argumentet order**: Ändra inte argumentens ordning om du inte är bekant med Docker-behållare.
+* **Rad fortsättnings avstånd**: Docker- `\`kommandona i följande avsnitt använder omvänt snedstreck, som ett fortsättnings streck. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
+* **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
 Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{BILLING_KEY} | Slutpunktsnyckeln för tal-resurs. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet inklusive region.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|{API_KEY} | Tal resursens API-nyckel. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | Slut punkt svärdet inklusive region.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing-configuration-setting).
-> ApiKey-värdet är den **nyckel** från sidan nycklar för Azure-resurs för tal. 
+> ApiKey-värdet är **nyckeln** på sidan med resurs nycklar för Azure-tal. 
 
-## <a name="speech-container-docker-examples"></a>Tal behållare Docker-exempel
+## <a name="speech-container-docker-examples"></a>Exempel på tal container Docker
 
-I följande exempel Docker är för tal-behållaren. 
+Följande Docker-exempel är för tal behållaren. 
 
-### <a name="basic-example-for-speech-to-text"></a>Grundläggande exempel för tal till text
-
-```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}   
-```
-
-### <a name="basic-example-for-text-to-speech"></a>Grundläggande exempel för text till tal
-
-```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}  
-```
-
-### <a name="logging-example-for-speech-to-text"></a>Loggning exempel för tal till text
+### <a name="basic-example-for-speech-to-text"></a>Basic-exempel för tal till text
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}   
-  Logging:Console:LogLevel:Default=Information
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-text-to-speech"></a>Loggning exempel för text till tal
+### <a name="basic-example-for-text-to-speech"></a>Basic-exempel för text till tal
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}  
-  Logging:Console:LogLevel:Default=Information
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example-for-speech-to-text"></a>Loggnings exempel för tal till text
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+### <a name="logging-example-for-text-to-speech"></a>Loggnings exempel för text till tal
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,16 +11,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: d30c2218fe20d6b760f379caf52ca0bf97e1c750
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071500"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320519"
 ---
-# <a name="configure-face-docker-containers"></a>Konfigurera ansikte Docker-behållare
+# <a name="configure-face-docker-containers"></a>Konfigurera ansikts Docker-behållare
 
-Den **ansikte** behållare körningsmiljö konfigureras med hjälp av den `docker run` kommandot argument. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. Behållare-specifika inställningar är de fakturering inställningarna. 
+Runtime-miljön för **ansikts** behållare konfigureras med `docker run` hjälp av kommando argumenten. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
@@ -31,11 +31,11 @@ Den **ansikte** behållare körningsmiljö konfigureras med hjälp av den `docke
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
+Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för [`Billing`](#billing-configuration-setting) konfigurations inställningen.
 
-Den här inställningen kan hittas på följande plats:
+Du hittar den här inställningen på följande plats:
 
-* Azure-portalen: **Cognitive Services** resurshantering under **nycklar**
+* Azure-portalen: **Cognitive Services** Resurs hantering, under **nycklar**
 
 ## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
 
@@ -43,15 +43,15 @@ Den här inställningen kan hittas på följande plats:
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` inställningen anger URI för den _Cognitive Services_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _Cognitive Services_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
+Inställningen anger slut punkts-URI för den Cognitive Services resursen på Azure som används för att mäta fakturerings information för behållaren.  `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
-Den här inställningen kan hittas på följande plats:
+Du hittar den här inställningen på följande plats:
 
-* Azure-portalen: **Cognitive Services** översikt, märkt `Endpoint`
+* Azure-portalen: **Cognitive Services** Översikt, märkt`Endpoint`
 
-Kom ihåg att lägga till den _ansikte_ routning till slutpunkten URI som du ser i exemplet. 
+Kom ihåg att lägga till _ansikts_ dirigering till slut punkts-URI: n som visas i exemplet. 
 
-|Obligatoriskt| Namn | Datatyp | Beskrivning |
+|Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
@@ -73,10 +73,10 @@ Ansikts-behållaren lagrar blob, cache, metadata och data i kön, beroende på v
   Alla fyra typer av data lagras i minnet. De inte har distribuerats, och inte heller de beständiga. Om Ansikts-behållaren stoppas eller tas bort, förstörs alla data i lagring för den behållaren.  
   Detta är standard storage scenariot för Ansikts-behållaren.
 * Azure  
-  Ansikts-behållare använder Azure Storage och Azure Cosmos DB för att distribuera dessa fyra typer av data till beständig lagring. BLOB-och kön hanteras av Azure Storage. Metadata och cache hanteras av Azure Cosmos DB. Om Ansikts-behållaren stoppas eller tas bort, förblir alla data i lagring för den behållaren lagras i Azure Storage och Azure Cosmos DB.  
+  Ansikts-behållare använder Azure Storage och Azure Cosmos DB för att distribuera dessa fyra typer av data till beständig lagring. BLOB-och kön hanteras av Azure Storage. Metadata och cachelagrade data hanteras av Azure Cosmos DB. Om Ansikts-behållaren stoppas eller tas bort, förblir alla data i lagring för den behållaren lagras i Azure Storage och Azure Cosmos DB.  
   De resurser som används av Azure storage-scenariot har följande ytterligare krav
   * Azure Storage-resursen måste använda StorageV2-kontotyp
-  * Azure Cosmos DB-resursen måste använda Azure Cosmos DB: s API för MongoDB
+  * Den Azure Cosmos DB resursen måste använda Azure Cosmos DBs API för MongoDB
 
 Storage-scenarier och tillhörande konfigurationsinställningar som hanteras av den `Storage` objekt under den `CloudAI` konfigurationsavsnittet. Följande inställningar är tillgängliga i den `Storage` objekt:
 
@@ -106,7 +106,7 @@ Storage-scenariot hanteras separat från indata monterar och utdata monterar. Du
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP-proxyinställningarna för autentiseringsuppgifter
+## <a name="http-proxy-credentials-settings"></a>Inställningar för autentiseringsuppgifter för http-proxy
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -118,36 +118,36 @@ Storage-scenariot hanteras separat från indata monterar och utdata monterar. Du
 
 Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando.
 
-Ansikts-behållare använder inte indata eller utdata monterar för att lagra utbildning eller tjänstdata. 
+Ansikts behållare använder inte indata eller utdata monteras för att lagra utbildning eller tjänst data. 
 
-Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](face-how-to-install-containers.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värden montera plats behörigheter. 
+Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](face-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | String | Ansikte behållare Använd inte detta.|
-|Valfri| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Tillåts inte| `Input` | Sträng | Ansikts behållare använder inte detta.|
+|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
 
 I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon.  När du kör, behållaren fortsätter att köras tills du [stoppa](face-how-to-install-containers.md#stop-the-container) den.
 
-* **Fortsättning på raden tecknet**: Docker-kommandon i följande avsnitt använder det omvända snedstrecket `\`, som en fortsättning tecknet. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
-* **Argumentet order**: Ändra inte argumentens ordning om du inte är bekant med Docker-behållare.
+* **Rad fortsättnings avstånd**: Docker- `\`kommandona i följande avsnitt använder omvänt snedstreck, som ett fortsättnings streck. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
+* **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
 Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{BILLING_KEY} | Slutpunkt-nyckel för resurs för Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet inklusive region och ansikte routning.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{API_KEY} | Cognitive Services resursens slut punkts nyckel. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | Slut punkt svärdet inklusive region och ansikts dirigering.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](face-how-to-install-containers.md#billing).
-> ApiKey-värdet är den **nyckel** från Azure `Cognitive Services` resurssida nycklar. 
+> ApiKey-värdet är **nyckeln** på sidan med Azures `Cognitive Services` resurs nycklar. 
 
-## <a name="face-container-docker-examples"></a>Står inför behållare Docker-exempel
+## <a name="face-container-docker-examples"></a>Docker-exempel för ansikts behållare
 
-I följande exempel Docker är avsedda för ansikts-behållaren. 
+Följande Docker-exempel är för ansikts behållaren. 
 
 ### <a name="basic-example"></a>Grundläggande exempel 
 
@@ -155,16 +155,16 @@ I följande exempel Docker är avsedda för ansikts-behållaren.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Exempel för loggning 
+### <a name="logging-example"></a>Loggnings exempel 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

@@ -1,6 +1,6 @@
 ---
-title: Exempel – Storbritannien officiella och Storbritannien NHS skiss – distribuera steg
-description: Distribuera stegen i Storbritannien officiella och Storbritannien NHS skissen exempel.
+title: Exempel – Storbritannien och Storbritannien NHS skiss – distribuera steg
+description: Distribuera steg av NHS-skisserna från Storbritannien och Storbritannien.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,16 +8,16 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 43aae882f27031d3e51ac8a4f5a68d243a973d6d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d720f220b8903d960e7bba2a75aa5a86bd0391ce
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453208"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226000"
 ---
-# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuera Storbritannien officiella och Storbritannien NHS skissen-exempel
+# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuera de NHSa skiss exemplen från Storbritannien och Storbritannien
 
-Följande steg måste vidtas för att distribuera den officiella Storbritannien och Storbritannien NHS skissen exempel:
+Följande steg måste vidtas för att distribuera de NHS i Storbritannien och Storbritannien i Storbritannien:
 
 > [!div class="checklist"]
 > - Skapa en ny skiss från exemplet
@@ -28,87 +28,87 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
-Först måste implementera skissen exemplet genom att skapa en ny skiss i din miljö med exemplet som en starter.
+Börja med att implementera skiss exemplet genom att skapa en ny skiss i din miljö med hjälp av exemplet som ett start verktyg.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Från den **komma igång** sidan till vänster, Välj den **skapa** knappen _skapa en skiss_.
+1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
 
-1. Hitta den **Storbritannien officiella** eller **Storbritannien NHS** skissen exemplet under _andra exempel_ och välj **använda det här exemplet**.
+1. Leta upp utkastet bioNHS i **Storbritannien** eller **Storbritannien** under _andra exempel_ och välj **Använd det här exemplet**.
 
-1. Ange den _grunderna_ av skiss exemplet:
+1. Ange _grunderna_ för skiss exemplet:
 
-   - **Namn på skiss**: Ange ett namn för din kopia av exemplet skissen.
-   - **Definitionens plats**: Använd de tre punkterna och välj hanteringsgruppen för att spara din kopia av exemplet för att.
+   - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet.
+   - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj den _artefakter_ fliken högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
+1. Välj fliken _artefakter_ högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
 
-1. Granska listan över artefakter som utgör skissen exemplet. Många av artefakter har parametrar som ska vi definiera senare. Välj **spara utkast** när du har granskat skissen exemplet.
+1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
-## <a name="publish-the-sample-copy"></a>Publicera exempel-kopia
+## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
 
-Din kopia av exemplet skissen har skapats i din miljö. Den skapas i **Draft** läge och måste vara **publicerad** innan den kan tilldelas och distribueras. Kopia av exemplet skissen kan anpassas till din miljö och behov, utan att ändringar kan flytta dem från standarden.
+Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och behov, men den ändringen kan flytta den bort från standard.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Välj den **skiss definitioner** sidan till vänster. Använd filtren för att hitta din kopia av exemplet skissen och markera den.
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
 
-1. Välj **publicera skiss** överst på sidan. I den nya sidan till höger, tillhandahåller en **Version** för din kopia av exemplet skissen. Den här egenskapen är användbar för om du gör en ändring av senare. Ange **ändra anteckningar** som ”första versionen publicerade från UK OFFICIAL eller Storbritannien NHS skissen provet”. Välj sedan **publicera** längst ned på sidan.
+1. Välj **publicera skiss** överst på sidan. På den nya sidan till höger anger du en **version** för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** , till exempel "första versionen som publicerades från det officiella NHS i Storbritannien eller Storbritannien." Välj sedan **publicera** längst ned på sidan.
 
-## <a name="assign-the-sample-copy"></a>Tilldela exempel-kopia
+## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
 
-När kopian av exemplet skissen har installerats utan **publicerad**, så kan de tilldelas en prenumeration inom den sparades till hanteringsgruppen. Det här steget är där parametrar har angetts så att varje distribution av kopian av exemplet skissen unikt.
+När kopieringen av skiss exemplet har publicerats kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Välj den **skiss definitioner** sidan till vänster. Använd filtren för att hitta din kopia av exemplet skissen och markera den.
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
 
-1. Välj **tilldela skissen** överst på sidan för skissen definition.
+1. Välj **tilldela skiss** överst på skiss definitions sidan.
 
-1. Ange parametervärden för skisstilldelningen:
+1. Ange parameter värden för skiss tilldelningen:
 
    - Grundläggande inställningar
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som är i hanteringsgruppen som du sparade din kopia av exemplet skissen till. Om du väljer mer än en prenumeration skapas en tilldelning för att använda de parametrar som anges.
-     - **Tilldelningsnamn**: Namnet är förifyllda baserat på namnet på skissen.
-       Ändra vid behov eller lämna skick.
-     - **Plats**: Välj en region för den hanterade identitet som ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Definitionsversion för skissen**: Välj en **publicerad** version av din kopia av exemplet skissen.
+     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
+     - **Tilldelnings namn**: Namnet är ifyllt för dig baserat på namnet på skissen.
+       Ändra vid behov eller lämna det som är.
+     - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
 
-   - Tilldelning av Lås
+   - Lås tilldelning
 
-     Markera skiss Lås för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
+     Välj skiss lås inställningen för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
 
    - Hanterad identitet
 
-     Låt standardvärdet _systemtilldelad_ hanterad identitet alternativet.
+     Lämna alternativet standard _tilldelade_ hanterade identiteter.
 
-   - Artefakten parametrar
+   - Artefakt parametrar
 
-     De parametrar som definierats i det här avsnittet gäller för artefakten som den definieras. De här parametrarna kan [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definierades vid tilldelning av skissen. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [artefakt parametrar tabell](#artifact-parameters-table).
+     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
-1. När alla parametrar har angetts, väljer **tilldela** längst ned på sidan. Skisstilldelningen har skapats och distribution av artefakt påbörjas. Distributionen tar ungefär en timme. Öppna skisstilldelningen för att kontrollera statusen för distributionen.
+1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan. Skiss tilldelningen skapas och artefakt distributionen påbörjas. Distributionen tar ungefär en timme. Du kan kontrol lera statusen för distributionen genom att öppna skiss tilldelningen.
 
 > [!WARNING]
-> Tjänsten Azure skisser och inbyggda skissen exemplen är **kostar**. Azure-resurser är [prissätts per produkt](https://azure.microsoft.com/pricing/). Använd den [priskalkylator](https://azure.microsoft.com/pricing/calculator/) att uppskatta kostnaden för att köra resurser som har distribuerats av den här skissen-exemplet.
+> Tjänsten Azure-ritningar och de inbyggda skiss exemplen är **kostnads fria**. Azure-resurser [priss ätts per produkt](https://azure.microsoft.com/pricing/). Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaden för att köra resurser som distribuerats i skiss exemplet.
 
-## <a name="artifact-parameters-table"></a>Artefakten parametrar tabell
+## <a name="artifact-parameters-table"></a>Tabellen artefakt parametrar
 
-Följande tabell innehåller en lista över skissen artefakt parametrar:
+I följande tabell visas en lista över Skissernas artefakt parametrar:
 
-Artefaktnamn|Typ av artefakt|Parameternamn|Beskrivning|
+Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|Skiss initiativ för Storbritannien officiella eller Storbritannien NHS|Principtilldelning |Resurstyper granska diagnostikloggar (princip: Skiss initiativ för Storbritannien officiella eller Storbritannien NHS) |Lista över resurstyper granska om diagnostiklogg inställningen är Obs aktiverat.  Godkända värden finns i [tjänster, scheman och kategorier som stöds för diagnostikloggar för Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|[Förhandsversion]\: Distribuera Log Analytics-agenten för Linux-datorer |Principtilldelning |Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget (princip: [förhandsversion]: Distribuera Log Analytics-agenten för Linux-datorer) |(Valfritt) Standardvärdet är _ingen_. Mer information finns i [skapa en Log Analytics-arbetsyta i Azure-portalen](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|[Förhandsversion]\: Distribuera Log Analytics-agenten för Windows-datorer |Principtilldelning |Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget (princip: [förhandsversion]: Distribuera Log Analytics-agenten för Windows-datorer) |(Valfritt) Standardvärdet är _ingen_. Mer information finns i [skapa en Log Analytics-arbetsyta i Azure-portalen](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Skiss initiativ för NHS Storbritannien eller Storbritannien|Principtilldelning |Resurs typer för att granska diagnostikloggar (princip: Skiss initiativ för de officiella eller brittiska NHS i Storbritannien |Lista över resurs typer som ska granskas om diagnostisk logg inställning är antecknings aktive rad.  För acceptabla värden, se [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
+|\[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i området (princip: \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget (princip: \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har gått igenom stegen för att distribuera den officiella Storbritannien och Storbritannien NHS skissen exempel finns i följande artiklar om du vill veta mer om översikt och kontroll mappning:
+Nu när du har granskat stegen för att distribuera NHS-skisserna från Storbritannien och Storbritannien kan du gå till följande artiklar om du vill veta mer om översikt och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [Storbritannien officiella och Storbritannien NHS skisser - översikt](./index.md)
-> [Storbritannien officiella och Storbritannien NHS skisser - styra mappning](./control-mapping.md)
+> [Officiella och brittiska NHS-ritningar – översikt](./index.md)
+> [Storbritannien och Storbritannien NHS ritningar – kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

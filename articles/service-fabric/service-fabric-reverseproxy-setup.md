@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric konfigurera omvänd proxy | Microsoft Docs
-description: Förstå hur du skapar och konfigurerar Service Fabric omvänd proxy.
+title: Konfigurera omvänd proxy för Azure Service Fabric | Microsoft Docs
+description: Lär dig hur du konfigurerar och konfigurerar Service Fabric omvänd proxy.
 services: service-fabric
 documentationcenter: na
 author: jimacoMS2
@@ -13,45 +13,45 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: v-jamebr
-ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: chackdan
+ms.openlocfilehash: df25c52e7a3f35355eb52bd95a39f55852adfcae
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393018"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876582"
 ---
-# <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installera och konfigurera omvänd proxy i Azure Service Fabric
-Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper dig att mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du skapar och konfigurerar omvänd proxy i klustret. 
+# <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurera och konfigurera omvänd proxy i Azure Service Fabric
+Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper mikrotjänster som körs i ett Service Fabric kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du konfigurerar och konfigurerar omvänd proxy i klustret. 
 
-## <a name="enable-reverse-proxy-using-azure-portal"></a>Aktivera omvänd proxy med hjälp av Azure portal
+## <a name="enable-reverse-proxy-using-azure-portal"></a>Aktivera omvänd proxy med Azure Portal
 
-Azure portal innehåller ett alternativ för att aktivera omvänd proxy när du skapar ett nytt Service Fabric-kluster. Du kan inte uppgradera ett befintligt kluster om du vill använda omvänd proxy via portalen. 
+Azure Portal innehåller ett alternativ för att aktivera omvänd proxy när du skapar ett nytt Service Fabric-kluster. Du kan inte uppgradera ett befintligt kluster om du vill använda omvänd proxy via portalen. 
 
-Konfigurera omvänd proxy när du [skapa ett kluster med Azure-portalen](./service-fabric-cluster-creation-via-portal.md), gör du följande:
+Om du vill konfigurera omvänd proxy när du [skapar ett kluster med hjälp av Azure Portal](./service-fabric-cluster-creation-via-portal.md), se till att göra följande:
 
-1. I **steg 2: Klusterkonfiguration**under **konfiguration av nodtyp**väljer **aktivera omvänd proxy**.
+1. I **steg 2: Kluster konfiguration**, under **nodtyp konfiguration**, väljer du **Aktivera omvänd proxy**.
 
-   ![Aktivera omvänd proxy i portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Valfritt) Om du vill konfigurera säker omvänd proxy, måste du konfigurera ett SSL-certifikat. I **steg 3: Security**på **konfigurera säkerhetsinställningar för kluster**under **konfigurationstypen**väljer **anpassad**. Sedan, under **omvänd Proxy SSL-certifikat**väljer **innehåller ett SSL-certifikat för omvänd proxy** och ange information om ditt certifikat.
+   ![Aktivera omvänd proxy på portalen](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
+2. Valfritt Om du vill konfigurera säker omvänd proxy måste du konfigurera ett SSL-certifikat. I **steg 3: Säkerhet**, **Konfigurera säkerhets inställningar för kluster**under **konfigurations typ**väljer du **anpassad**. Under reversed **proxy SSL-certifikat**väljer du sedan **inkludera ett SSL-certifikat för omvänd proxy** och anger information om certifikatet.
 
-   ![Konfigurera säker omvänd proxy i portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
+   ![Konfigurera säker omvänd proxy på portalen](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
-   Om du väljer att inte konfigurera omvänd proxy med ett certifikat när du skapar klustret, kan du göra det senare via Resource Manager-mall för klustrets resursgrupp. Mer information finns i [aktivera omvänd proxy via Azure Resource Manager-mallar](#enable-reverse-proxy-via-azure-resource-manager-templates).
+   Om du väljer att inte konfigurera den omvända proxyn med ett certifikat när du skapar klustret kan du göra det senare via Resource Manager-mallen för klustrets resurs grupp. Läs mer i [Aktivera omvänd proxy via Azure Resource Manager mallar](#enable-reverse-proxy-via-azure-resource-manager-templates).
 
-## <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Aktivera omvänd proxy via Azure Resource Manager-mallar
+## <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Aktivera omvänd proxy via Azure Resource Manager mallar
 
-Du kan använda Azure Resource Manager-mallen för kluster i Azure för att aktivera omvänd proxy i Service Fabric. Du kan aktivera omvänd proxy när du skapar klustret eller aktivera det genom att uppdatera klustret vid ett senare tillfälle. 
+För kluster i Azure kan du använda Azure Resource Manager-mallen för att aktivera omvänd proxy i Service Fabric. Du kan aktivera omvänd proxy när du skapar klustret eller aktiverar det genom att uppdatera klustret vid ett senare tillfälle. 
 
-För ett nytt kluster, kan du [skapar en anpassad mall i Resource Manager](service-fabric-cluster-creation-via-arm.md) eller så kan du använda en exempelmall. 
+För ett nytt kluster kan du [skapa en anpassad Resource Manager-mall](service-fabric-cluster-creation-via-arm.md) eller så kan du använda en exempel mall. 
 
-Du hittar exempel Resource Manager-mallar som kan hjälpa dig konfigurera säker omvänd proxy för ett Azure-kluster i den [säker omvänd Proxy-exempelmallar](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) på GitHub. Referera till [konfigurera HTTPS omvänd Proxy i ett säkert kluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) i filen Viktigt för anvisningar och mallarna för att använda för att konfigurera säker omvänd proxy med ett certifikat och att hantera förnya certifikatet.
+Du hittar exempel på Resource Manager-mallar som kan hjälpa dig att konfigurera säker omvänd proxy för ett Azure-kluster i Sample-mallarna för [säker omvänd proxy](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) på GitHub. Se [Konfigurera https omvänd proxy i ett säkert kluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) i Readme-filen för instruktioner och mallar som ska användas för att konfigurera säker omvänd proxy med ett certifikat och för att hantera certifikat förnyelse.
 
-För ett befintligt kluster, kan du exportera Resource Manager-mallen för den klusterresursen gruppen med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), eller [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
+För ett befintligt kluster kan du exportera Resource Manager-mallen för klustrets resurs grupp med hjälp av [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [POWERSHELL](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)eller [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
-När du har en Resource Manager-mall kan aktivera du den omvända proxyn med följande steg:
+När du har en Resource Manager-mall kan du aktivera omvänd proxy med följande steg:
 
-1. Definiera en port för omvänd proxy i den [parameteravsnittet](../azure-resource-manager/resource-group-authoring-templates.md) för mallen.
+1. Definiera en port för omvänd proxy i [avsnittet parametrar](../azure-resource-manager/resource-group-authoring-templates.md) i mallen.
 
     ```json
     "SFReverseProxyPort": {
@@ -62,9 +62,9 @@ När du har en Resource Manager-mall kan aktivera du den omvända proxyn med fö
         }
     },
     ```
-2. Ange port för varje nodetype objekten i den [ **Microsoft.ServiceFabric/clusters** ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [typ avsnittet](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Ange porten för varje NodeType-objekt i avsnittet [**Microsoft. ServiceFabric/Clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) ( [resurs typ](../azure-resource-manager/resource-group-authoring-templates.md)).
 
-    Porten som identifieras av parameternamn, reverseProxyEndpointPort.
+    Porten identifieras av parameter namnet reverseProxyEndpointPort.
 
     ```json
     {
@@ -84,7 +84,7 @@ När du har en Resource Manager-mall kan aktivera du den omvända proxyn med fö
         ...
     }
     ```
-3. Om du vill konfigurera SSL-certifikat på porten för omvänd proxy, lägga till certifikatet till den ***reverseProxyCertificate*** -egenskapen i den **Microsoft.ServiceFabric/clusters** [resurs Skriv avsnittet](../resource-group-authoring-templates.md).
+3. Om du vill konfigurera SSL-certifikat på porten för den omvända proxyn lägger du till certifikatet i ***reverseProxyCertificate*** -egenskapen i avsnittet **Microsoft. ServiceFabric/Clusters** ( [resurs typ](../resource-group-authoring-templates.md)).
 
     ```json
     {
@@ -107,8 +107,8 @@ När du har en Resource Manager-mall kan aktivera du den omvända proxyn med fö
     }
     ```
 
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Stöd för ett certifikat för omvänd proxy som skiljer sig från klustercertifikatet
- Om certifikatet för omvänd proxy skiljer sig från det certifikat som skyddar klustret, bör sedan det tidigare angivna certifikatet vara installerad på den virtuella datorn och läggs till åtkomstkontrollistan (ACL) så att Service Fabric kan komma åt den. Detta kan göras den [ **Microsoft.Compute/virtualMachineScaleSets** ](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [typ avsnittet](../resource-group-authoring-templates.md). Lägga till certifikatet i osProfile för installation. Tillägget avsnitt i mallen kan uppdatera certifikatet i Åtkomstkontrollistan.
+### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Stöd för ett reverse proxy-certifikat som skiljer sig från kluster certifikatet
+ Om det omvända proxy-certifikatet skiljer sig från det certifikat som skyddar klustret, ska det tidigare angivna certifikatet installeras på den virtuella datorn och läggas till i åtkomst kontrol listan (ACL) så att Service Fabric kan komma åt det. Detta kan göras i avsnittet [**Microsoft. Compute/virtualMachineScaleSets-** ](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [resurs typ](../resource-group-authoring-templates.md). För installation lägger du till certifikatet i osProfile. Tilläggs avsnittet i mallen kan uppdatera certifikatet i ACL: en.
 
   ```json
   {
@@ -160,15 +160,15 @@ När du har en Resource Manager-mall kan aktivera du den omvända proxyn med fö
     }
   ```
 > [!NOTE]
-> När du använder certifikat som skiljer sig från klustercertifikat för att aktivera omvänd proxy i ett befintligt kluster, installera certifikatet för omvänd proxy och uppdatera ACL i klustret innan du aktiverar omvänd proxy. Slutför den [Azure Resource Manager-mall](service-fabric-cluster-creation-via-arm.md) distribution med hjälp av inställningarna som vi nämnde tidigare innan du startar en distribution för att aktivera omvänd proxy i steg 1 – 3.
+> När du använder certifikat som skiljer sig från kluster certifikatet för att aktivera omvänd proxy i ett befintligt kluster, installerar du det omvända proxy-certifikatet och uppdaterar ACL: en på klustret innan du aktiverar den omvända proxyn. Slutför distributionen av [Azure Resource Manager mallar](service-fabric-cluster-creation-via-arm.md) genom att använda inställningarna ovan innan du påbörjar en distribution för att aktivera omvänd proxy i steg 1-3.
 
 ## <a name="enable-reverse-proxy-on-standalone-clusters"></a>Aktivera omvänd proxy i fristående kluster
 
-Fristående kluster kan aktivera du omvänd proxy i filen ClusterConfig.json. Du kan aktivera omvänd proxy i klustret har skapats eller genom att uppgradera konfigurationen för ett befintligt kluster. Läs mer om de tillgängliga inställningarna i ClusterConfig.json filer i [fristående klusterinställningar](./service-fabric-cluster-manifest.md).
+För fristående kluster aktiverar du omvänd proxy i filen ClusterConfig. JSON. Du kan aktivera omvänd proxy när klustret skapas eller genom att uppgradera konfigurationen för ett befintligt kluster. Mer information om inställningarna som är tillgängliga i ClusterConfig. JSON-filer finns i [Inställningar för fristående kluster](./service-fabric-cluster-manifest.md).
 
-Följande steg visar inställningarna för att använda för att aktivera omvänd proxy och eventuellt att skydda den omvända proxyn med ett X.509-certifikat. 
+Följande steg visar vilka inställningar som ska användas för att aktivera omvänd proxy och eventuellt för att skydda den omvända proxyn med ett X. 509-certifikat. 
 
-1. Om du vill aktivera omvänd proxy, ange den **reverseProxyEndpointPort** värde för nodtypen under **egenskaper** i konfigurationen för klustret. Följande JSON visar att ställa in den omvända proxyn slutpunktsport 19081 för noder med en typ av ”NodeType0”:
+1. Om du vill aktivera omvänd proxy ställer du in värdet **reverseProxyEndpointPort** för nodtypen under **Egenskaper** i kluster konfigurationen. Följande JSON visar inställning av slut punkts porten för omvänd proxy till 19081 för noder med typen "NodeType0":
 
    ```json
        "properties": {
@@ -184,8 +184,8 @@ Följande steg visar inställningarna för att använda för att aktivera omvän
           ...
        }
    ```
-2. (Valfritt) För en säker omvänd proxy, konfigurera ett certifikat i den **security** avsnittet **egenskaper**. 
-   - För en miljö för utveckling eller testning, kan du använda den **ReverseProxyCertificate** inställningen:
+2. Valfritt För en säker omvänd proxy konfigurerar du ett certifikat i avsnittet **säkerhet** under **Egenskaper**. 
+   - För en utvecklings-eller test miljö kan du använda inställningen **ReverseProxyCertificate** :
 
       ```json
           "properties": {
@@ -205,7 +205,7 @@ Följande steg visar inställningarna för att använda för att aktivera omvän
               ...
           }
       ```
-   - För en produktionsmiljö, den **ReverseProxyCertificateCommonNames** inställningen rekommenderas:
+   - För en produktions miljö rekommenderas **ReverseProxyCertificateCommonNames** -inställningen:
 
       ```json
           "properties": {
@@ -229,40 +229,40 @@ Följande steg visar inställningarna för att använda för att aktivera omvän
           }
       ```
 
-   Läs mer om konfigurering och hantering av certifikat för ett fristående kluster, samt mer information om hur du konfigurerar certifikat som används för att skydda omvänd proxy i [X509 certifikatbaserad security](./service-fabric-windows-cluster-x509-security.md).
+   Om du vill veta mer om hur du konfigurerar och hanterar certifikat för ett fristående kluster, samt mer information om hur du konfigurerar certifikat som används för att skydda omvänd proxy, se [X509-certifikatbaserad säkerhet](./service-fabric-windows-cluster-x509-security.md).
 
-När du har ändrat din ClusterConfig.json-fil för att aktivera omvänd proxy, följer du anvisningarna i [uppgradera klusterkonfigurationen](service-fabric-cluster-config-upgrade-windows-server.md) till push-överföra ändringarna till ditt kluster.
+När du har ändrat din ClusterConfig. JSON-fil för att aktivera omvänd proxy, följer du anvisningarna i [uppgradera kluster konfigurationen](service-fabric-cluster-config-upgrade-windows-server.md) för att skicka ändringarna till klustret.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Exponera omvänd proxy på en offentlig port via Azure Load Balancer
 
-Ställ in Azure Load Balancer-regler och en Azure avsökning för omvänd proxy för att åtgärda den omvända proxyn från utanför ett Azure-kluster. De här stegen kan utföras med hjälp av Azure-portalen eller Resource Manager-mallen när som helst när du har skapat klustret. 
+Om du vill åtgärda den omvända proxyn från en plats utanför ett Azure-kluster konfigurerar du Azure Load Balancer-regler och en Azure-hälsoavsökning för porten för omvänd proxy. De här stegen kan utföras med hjälp av Azure Portal eller Resource Manager-mallen när som helst efter att klustret har skapats. 
 
 > [!WARNING]
-> När du konfigurerar den omvända proxyn port i belastningsutjämnaren är alla mikrotjänster i klustret som Exponerar en HTTP-slutpunkt adresserbara från utanför klustret. Det innebär att mikrotjänster ska vara interna kanske kan identifieras av en bestämd skadliga användare. Detta medför potentiellt allvarliga säkerhetsrisker som kan utnyttjas; till exempel:
+> När du konfigurerar porten för omvänd proxy i Load Balancer adresseras alla mikrotjänster i klustret som exponerar en HTTP-slutpunkt utanför klustret. Det innebär att mikrotjänster som är avsedda att vara interna kan identifieras av en bestämd skadlig användare. Detta potentiellt visar allvarliga sårbarheter som kan utnyttjas. exempel:
 >
-> * En obehörig användare kan starta en DoS-angrepp genom att anropa en intern tjänst som inte har en tillräckligt strikta attackyta upprepade gånger.
-> * En obehörig användare kan leverera felaktiga paket till en intern tjänst, vilket resulterar i oönskat beteende.
-> * En tjänst som är avsedd att vara intern kan returnera privat eller känslig information som är inte avsedd att vara exponerat för tjänster utanför klustret, därför exponera känslig information till en obehörig användare. 
+> * En obehörig användare kan starta en denial of service-attack genom att upprepade gånger anropa en intern tjänst som inte har en tillräckligt härdad attack yta.
+> * En obehörig användare kan leverera felaktiga paket till en intern tjänst, vilket resulterar i oavsiktligt beteende.
+> * En tjänst som är avsedd att vara intern kan returnera privat eller känslig information som inte är avsedd att exponeras för tjänster utanför klustret, vilket innebär att denna känsliga information exponeras för en obehörig användare. 
 >
-> Kontrollera att helt förstå och minimera de potentiella aspekterna av säkerhet för ditt kluster och de appar som körs på den, innan du gör omvänd proxy offentliga. 
+> Se till att du fullständigt förstår och minimerar potentiella säkerhets aspekterna för ditt kluster och appar som körs på den, innan du gör den omvända proxy-porten offentlig. 
 >
 
-Om du vill exponera omvänd proxy offentligt för ett fristående kluster på sätt som du gör det beror på system som är värd för klustret och ligger utanför omfånget för den här artikeln. Föregående varningen om att exponera omvänd proxy offentligt, gäller dock fortfarande.
+Om du vill exponera omvänd proxy offentligt för ett fristående kluster, beror det på hur du gör det i systemet som är värd för klustret och ligger utanför den här artikelns omfång. Föregående varning om att exponera omvänd proxy offentligt, gäller dock fortfarande.
 
-### <a name="expose-the-reverse-proxy-using-azure-portal"></a>Exponera den omvända proxyn med hjälp av Azure portal 
+### <a name="expose-the-reverse-proxy-using-azure-portal"></a>Exponera den omvända proxyn med Azure Portal 
 
-1. Klicka på resursgruppen för ditt kluster på Azure-portalen och klicka sedan på belastningsutjämnaren för klustret.
-2. Att lägga till en hälsotillstånd avsökning för omvänd proxy-port i den vänstra rutan i fönstret load balancer under **inställningar**, klickar du på **hälsoavsökningar**. Klicka sedan på **Lägg till** avsökningar fönstret överst på hälsotillståndet och ange information för omvänd proxy och klicka sedan på **OK**. Som standard är omvänd proxy 19081, om du inte ändrat det när du har skapat klustret.
+1. Klicka på resurs gruppen för klustret i Azure Portal och klicka sedan på belastnings utjämning för klustret.
+2. Om du vill lägga till en hälso avsökning för porten för omvänd proxy klickar du på **hälso**avsökningar under **Inställningar**i den vänstra rutan i fönstret belastningsutjämnare. Klicka sedan på **Lägg till** överst i fönstret hälso avsökningar och ange information om porten för omvänd proxy. Klicka sedan på **OK**. Som standard är den omvända proxy-porten 19081, om du inte har ändrat den när du skapade klustret.
 
-   ![Konfigurera omvänd proxy hälsoavsökning](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
-3. Att lägga till en Load Balancer-regel för att exponera porten för omvänd proxy, i den vänstra rutan i fönstret load balancer under **inställningar**, klickar du på **belastningsutjämningsregler**. Klicka sedan på **Lägg till** överst i belastningen belastningsutjämning regler fönstret och ange information för omvänd proxy. Se till att ange den **Port** värdet till den port som du vill att den omvända proxyn exponerad på, den **serverdelsport** värdet till den port som du angav när du har aktiverat omvänd proxy och **hälsoavsökning** värdet till hälsoavsökning som du konfigurerade i föregående steg. Ange andra fält och klicka på **OK**.
+   ![Konfigurera hälso avsökning för omvänd proxy](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
+3. Om du vill lägga till en Load Balancer regel för att exponera den omvända proxy-porten klickar du på belastnings Utjämnings  **regler**i den vänstra rutan i fönstret belastningsutjämnare. Klicka sedan på **Lägg till** överst i fönstret regler för belastnings utjämning och ange information om porten för omvänd proxy. Se till att du anger **Portvärdet** till den port som du vill att den omvända proxyn ska exponeras på, **Server dels port** svärdet för den port som du angav när du aktiverade omvänd proxy och **hälso avsökning** svärdet för den hälso avsökning som du konfigurerade i föregående steg. Ange andra fält som lämpliga och klicka på **OK**.
 
-   ![Konfigurera belastningsutjämningsregeln för omvänd proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
+   ![Konfigurera belastnings Utjämnings regel för omvänd proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Exponera den omvända proxyn via Resource Manager-mallar
 
-Följande JSON refererar till samma mall som används i [aktivera omvänd proxy via Azure Resource Manager-mallar](#enable-reverse-proxy-via-azure-resource-manager-templates). Se avsnittet i dokumentet för information om hur du skapar en Resource Manager-mall eller exportera en mall för ett befintligt kluster.  Ändringar till den [ **Microsoft.Network/loadBalancers** ](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [typ avsnittet](../resource-group-authoring-templates.md).
+Följande JSON refererar till samma mall som används i [Aktivera omvänd proxy via Azure Resource Manager mallar](#enable-reverse-proxy-via-azure-resource-manager-templates). Läs avsnittet i dokumentet om du vill ha information om hur du skapar en Resource Manager-mall eller exporterar en mall för ett befintligt kluster.  Ändringarna görs i avsnittet [**Microsoft. Network/belastningsutjämnare**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [resurs typ](../resource-group-authoring-templates.md).
 
     ```json
     {
@@ -308,11 +308,11 @@ Följande JSON refererar till samma mall som används i [aktivera omvänd proxy 
     ```
 
 
-## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Anpassa omvänd proxy beteende med hjälp av fabric-inställningar
+## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Anpassa beteendet för omvänd proxy med hjälp av infrastruktur inställningar
 
-Du kan anpassa beteendet för omvänd proxy via fabric inställningarna i Resource Manager-mall för kluster som finns i Azure eller i filen ClusterConfig.json för fristående kluster. Inställningar som styr beteendet för omvänd proxy finns i den [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) i avsnittet den **fabricSettings** avsnittet under klustret **egenskaper** avsnittet. 
+Du kan anpassa beteendet för omvänd proxy via infrastruktur inställningarna i Resource Manager-mallen för kluster som finns i Azure eller i ClusterConfig. JSON-filen för fristående kluster. Inställningar som styr beteendet för omvänd proxy finns i avsnittet [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) i avsnittet **fabricSettings** under avsnittet kluster **Egenskaper** . 
 
-Du kan till exempel ange värdet för **DefaultHttpRequestTimeout** att ange timeout för begäranden till omvänd proxy till 180 sekunder som i följande JSON:
+Du kan till exempel ange värdet för **DefaultHttpRequestTimeout** för att ange tids gränsen för begär anden till den omvända proxyn till 180 sekunder som i följande JSON:
 
    ```json
    {
@@ -332,10 +332,10 @@ Du kan till exempel ange värdet för **DefaultHttpRequestTimeout** att ange tim
    }
    ``` 
 
-Mer information om att uppdatera infrastrukturinställningarna för Azure-kluster finns i [Anpassa inställningar för klustret med hjälp av Resource Manager-mallar](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster, se [anpassa klusterinställningarna för fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md). 
+Mer information om hur du uppdaterar infrastruktur inställningar för Azure-kluster finns i [Anpassa kluster inställningar med Resource Manager-mallar](service-fabric-cluster-config-upgrade-azure.md). Information om fristående kluster finns i [Anpassa kluster inställningar för fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Flera infrastrukturinställningarna används för att upprätta säker kommunikation mellan omvänd proxy och tjänster. Detaljerad information om dessa inställningar finns i [Anslut till en säker tjänst med omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md).
+Flera infrastruktur inställningar används för att upprätta säker kommunikation mellan omvänd proxy och tjänster. Detaljerad information om de här inställningarna finns i [ansluta till en säker tjänst med den omvända proxyn](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Konfigurera vidarebefordran till säker HTTP-tjänsten med omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md)
-* Konfigurationsalternativ för omvänd proxy, se [ApplicationGateway/Http-avsnittet i inställningarna för Anpassa Service Fabric-kluster](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+* [Konfigurera vidarebefordran till säker HTTP-tjänst med den omvända proxyn](service-fabric-reverseproxy-configure-secure-communication.md)
+* Konfigurations alternativ för omvänd proxy finns [i avsnittet ApplicationGateway/http i anpassa Service Fabric kluster inställningar](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).

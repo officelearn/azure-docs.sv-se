@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a9629cd14c71a163612c2c4ba3c7b109a52b91ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a6938bd541e316dbe9f333c670c382faab6ad21
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622447"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854268"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Skapa en virtuell dator med DevTest Labs med Azure PowerShell
 Den här artikeln visar hur du skapar en virtuell dator i Azure DevTest Labs med hjälp av Azure PowerShell. Du kan använda PowerShell-skript för att automatisera skapandet av virtuella datorer i ett labb i Azure DevTest Labs. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar:
 
-- [Skapa ett labb](devtest-lab-create-lab.md) om du inte vill använda en befintlig labb för att testa det skript eller kommandon i den här artikeln. 
-- [Installera Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) eller använda Azure Cloud Shell som är integrerat i Azure-portalen. 
+- [Skapa ett labb](devtest-lab-create-lab.md) om du inte vill använda ett befintligt labb för att testa skriptet eller kommandona i den här artikeln. 
+- [Installera Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) eller Använd Azure Cloud Shell som är integrerat i Azure Portal. 
 
 ## <a name="powershell-script"></a>PowerShell-skript
-Exempelskriptet i det här avsnittet använder de [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) cmdlet.  Den här cmdleten tar den testmiljön resurs-ID, namnet på åtgärden som ska utföras (`createEnvironment`), och parametrarna som behövs för att utföra åtgärden. Parametrarna är i en hashtabell som innehåller alla egenskaper för VM-beskrivning. 
+Exempel skriptet i det här avsnittet använder cmdleten [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) .  Denna cmdlet tar Labbets resurs-ID, namnet på den åtgärd som ska utföras (`createEnvironment`) och de parametrar som krävs för att utföra åtgärden. Parametrarna finns i en hash-tabell som innehåller alla egenskaper för den virtuella datorns beskrivning. 
 
 ```powershell
 [CmdletBinding()]
@@ -82,6 +82,7 @@ try {
           "labSubnetName"           = $labSubnetName;
           "notes"                   = "Windows Server 2016 Datacenter";
           "osType"                  = "windows"
+          "expirationDate"          = "2019-12-01"
           "galleryImageReference"   = @{
              "offer"     = "WindowsServer";
              "publisher" = "MicrosoftWindowsServer";
@@ -114,29 +115,29 @@ finally {
 }
 ```
 
-Egenskaperna för den virtuella datorn i skriptet ovan kan vi skapa en virtuell dator med Windows Server 2016 DataCenter som Operativsystemet. De här egenskaperna kan variera för varje typ av virtuell dator. Den [definiera VM](#define-virtual-machine) avsnittet visar hur du avgör vilka egenskaper du vill använda i det här skriptet.
+Egenskaperna för den virtuella datorn i skriptet ovan gör att vi kan skapa en virtuell dator med Windows Server 2016 Data Center som operativ system. För varje typ av virtuell dator är dessa egenskaper något annorlunda. Avsnittet [definiera virtuell dator](#define-virtual-machine) visar hur du avgör vilka egenskaper som ska användas i det här skriptet.
 
-Följande kommando innehåller ett exempel för att köra skriptet som sparats i ett filnamn: Create-LabVirtualMachine.ps1. 
+Följande kommando innehåller ett exempel på hur du kör skriptet som sparats i ett fil namn: Create-LabVirtualMachine.ps1. 
 
 ```powershell
  PS> .\Create-LabVirtualMachine.ps1 -ResourceGroupName 'MyLabResourceGroup' -LabName 'MyLab' -userName 'AdminUser' -password 'Password1!' -VMName 'MyLabVM'
 ```
 
-## <a name="define-virtual-machine"></a>Definiera virtuella datorn
-Det här avsnittet visar hur du hämtar de egenskaper som är specifika för en typ av virtuell dator som du vill skapa. 
+## <a name="define-virtual-machine"></a>Definiera virtuell dator
+I det här avsnittet visas hur du hämtar egenskaperna som är speciella för en typ av virtuell dator som du vill skapa. 
 
 ### <a name="use-azure-portal"></a>Använda Azure-portalen
-Du kan skapa en Azure Resource Manager-mall när du skapar en virtuell dator i Azure-portalen. Du behöver inte slutföra processen att skapa den virtuella datorn. Du kan bara följa stegen tills du ser mallen. Det här är det bästa sättet att få nödvändiga JSON-beskrivning om du inte redan har ett labb som virtuell dator som skapats. 
+Du kan skapa en Azure Resource Manager-mall när du skapar en virtuell dator i Azure Portal. Du behöver inte slutföra processen med att skapa den virtuella datorn. Du följer bara anvisningarna tills du ser mallen. Detta är det bästa sättet att få den nödvändiga JSON-beskrivningen om du inte redan har skapat en virtuell labb dator. 
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
-2. Välj **alla tjänster** på menyn till vänster navigering.
-3. Sök efter och välj **DevTest Labs** från listan över tjänster. 
-4. På den **DevTest Labs** väljer du ditt labb i listan över labs.
-5. På startsidan för labbet, väljer **+ Lägg till** i verktygsfältet. 
-6. Välj en **basavbildningen** för den virtuella datorn. 
-7. Välj **automatiseringsalternativ** längst ned på sidan ovan den **skicka** knappen. 
-8. Du ser den **Azure Resource Manager-mall** för att skapa den virtuella datorn. 
-9. JSON-segmentet i den **resurser** -avsnittet innehåller definitionen för vilken typ av avbildning du valde tidigare. 
+2. Välj **alla tjänster** i den vänstra navigerings menyn.
+3. Sök efter och välj **DevTest Labs** i listan över tjänster. 
+4. På sidan **DevTest Labs** väljer du ditt labb i listan med labb.
+5. På Start sidan för ditt labb väljer du **+ Lägg till** i verktygsfältet. 
+6. Välj en **bas avbildning** för den virtuella datorn. 
+7. Välj **automatiserings alternativ** längst ned på sidan ovanför knappen **Skicka** . 
+8. Du ser **Azure Resource Manager-mallen** för att skapa den virtuella datorn. 
+9. JSON-segmentet i avsnittet  Resources har definitionen för den avbildnings typ som du valde tidigare. 
 
     ```json
     {
@@ -176,19 +177,52 @@ Du kan skapa en Azure Resource Manager-mall när du skapar en virtuell dator i A
     }
     ```
 
-I det här exemplet visas hur du hämtar en definition av en Azure Marketplace-avbildning. Du kan få en definition av en anpassad avbildning, en formel eller en miljö på samma sätt. Lägg till alla artefakter som krävs för den virtuella datorn och ange avancerade inställningar som krävs. När du har angett värden för fälten som krävs och eventuella valfria fält innan att välja den **automatiseringsalternativ** knappen.
+I det här exemplet får du se hur du får en definition av en Azure-avbildning på marknaden. Du kan få en definition av en anpassad avbildning, en formel eller en miljö på samma sätt. Lägg till eventuella artefakter som krävs för den virtuella datorn och ange avancerade inställningar som krävs. När du har angett värden för de obligatoriska fälten, och eventuella valfria fält, innan du väljer knappen **automatiserings alternativ** .
 
 ### <a name="use-azure-rest-api"></a>Använd Azure REST API
-Följande procedur ger dig steg för att hämta egenskaper för en avbildning med hjälp av REST-API: De här stegen fungerar endast för en befintlig virtuell dator i ett labb. 
+Följande procedur visar hur du hämtar egenskaper för en avbildning med hjälp av REST API: De här stegen fungerar bara för en befintlig virtuell dator i ett labb. 
 
-1. Navigera till den [Virtual Machines – lista](/rest/api/dtl/virtualmachines/list) väljer **prova** knappen. 
+1. Gå till sidan [Virtual Machines-lista](/rest/api/dtl/virtualmachines/list) och välj knappen **prova** . 
 2. Välj din **Azure-prenumeration**.
-3. Ange den **resursgrupp för labbet**.
-4. Ange den **namnet labbet**. 
+3. Ange **resurs gruppen för labbet**.
+4. Ange **namnet på labbet**. 
 5. Välj **Kör**.
-6. Du ser den **egenskaper för avbildningen** baserat på den virtuella datorn har skapats. 
+6. Du ser **egenskaperna för den avbildning** som är baserad på vilken den virtuella datorn skapades. 
 
+## <a name="set-expiration-date"></a>Ange förfallo datum
+I scenarier som utbildning, demonstrationer och test versioner kanske du vill skapa virtuella datorer och ta bort dem automatiskt efter en fast varaktighet så att du inte debiteras onödiga kostnader. Du kan ange ett förfallo datum för en virtuell dator när du skapar den med PowerShell, som du ser i avsnittet exempel på [PowerShell-skript](#powershell-script) .
+
+Här är ett exempel på ett PowerShell-skript som anger förfallo datum för alla befintliga virtuella datorer i ett labb:
+
+```powershell
+# Values to change
+$subscriptionId = '<Enter the subscription Id that contains lab>'
+$labResourceGroup = '<Enter the lab resource group>'
+$labName = '<Enter the lab name>'
+$VmName = '<Enter the VmName>'
+$expirationDate = '<Enter the expiration date e.g. 2019-12-16>'
+
+# Log into your Azure account
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+$VmResourceId = "subscriptions/$subscriptionId/resourcegroups/$labResourceGroup/providers/microsoft.devtestlab/labs/$labName/virtualmachines/$VmName"
+
+$vm = Get-AzureRmResource -ResourceId $VmResourceId -ExpandProperties
+
+# Get all the Vm properties
+$VmProperties = $vm.Properties
+
+# Set the expirationDate property
+If ($VmProperties.expirationDate -eq $null) {
+    $VmProperties | Add-Member -MemberType NoteProperty -Name expirationDate -Value $expirationDate
+} Else {
+    $VmProperties.expirationDate = $expirationDate
+}
+
+Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
+```
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande innehåll: [Azure PowerShell-dokumentationen för Azure DevTest Labs](/powershell/module/az.devtestlabs/)
+Se följande innehåll: [Azure PowerShell dokumentation för Azure DevTest Labs](/powershell/module/az.devtestlabs/)

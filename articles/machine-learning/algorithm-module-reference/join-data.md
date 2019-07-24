@@ -1,72 +1,72 @@
 ---
-title: 'Anslut till Data: Modulreferens'
+title: 'Koppla data: Modulreferens'
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder kopplingen koppla samman Data modul i Azure Machine Learning-tjänsten för att slå samman datauppsättningar.
+description: Lär dig hur du använder modulen Anslut till data i Azure Machine Learning-tjänsten för att sammanfoga data uppsättningar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
-ms.author: peterclu
+ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7e814f5ea4bd47ceb0697e860c946039ce39ae1f
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 1022bdc26a340b6b54ad840d1fe47674509fa865
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67518019"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871661"
 ---
 # <a name="join-data"></a>Koppla data
 
-Den här artikeln beskriver hur du använder den **koppla samman Data** modul i Azure Machine Learning-tjänsten visuella gränssnittet att slå samman två datauppsättningar som använder en join-åtgärd för databas-format.  
+Den här artikeln beskriver hur du använder modulen **koppla data** i det visuella gränssnittet i Azure Machine Learning tjänsten för att slå samman två data uppsättningar med en kopplings åtgärd i databas format.  
 
-## <a name="how-to-configure-join-data"></a>Så här konfigurerar du ansluta till Data
+## <a name="how-to-configure-join-data"></a>Så här konfigurerar du kopplings data
 
-Om du vill utföra en koppling på två datauppsättningar, bör de relaterade genom en nyckelkolumn. Sammansatta nycklar med hjälp av flera kolumner stöds också. 
+Om du vill utföra en koppling på två data uppsättningar ska de relateras av en nyckel kolumn. Sammansatta nycklar med flera kolumner stöds också. 
 
-1. Lägg till de datauppsättningar som du vill kombinera och dra sedan den **ansluta Data** modulen i experimentet. 
+1. Lägg till de data uppsättningar som du vill kombinera och dra sedan modulen **koppla data** till experimentet. 
 
-    Du kan hitta modulen i den **Dataomvandling** kategorin under **manipulering av**.
+    Du hittar modulen i kategorin **data omvandling** under **manipulation**.
 
-1. Ansluta datauppsättningarna kan den **ansluta Data** modulen. 
+1. Anslut data uppsättningarna till modulen **koppla data** . 
  
-1. Välj **starta kolumnväljaren** välja viktiga kolumner. Kom ihåg att välja kolumner för både vänster och höger indata.
+1. Välj **Starta kolumn väljaren** för att välja nyckel kolumn (er). Kom ihåg att välja kolumner för både vänster och höger indata.
 
-    För en enda nyckel:
+    För en enskild nyckel:
 
-    Välj en enda nyckelkolumn för både indata.
+    Välj en enskild nyckel kolumn för båda indata.
     
     För en sammansatt nyckel:
 
-    Välj alla nyckelkolumner indata vänstra och högra indatasporten i samma ordning. Den **koppla samman Data** modulen ansluts till tabellerna när alla kolumner matchar. Markera alternativet **tillåter dubbletter och bevara kolumnordning i val av** om kolumnordningen inte är samma som den ursprungliga tabellen. 
+    Välj alla nyckel kolumner från vänster inmatad och höger indatatyp i samma ordning. Modulen **koppla data** kommer att koppla tabellerna när alla nyckel kolumner matchar. Markera alternativet **Tillåt dubbletter och behåll kolumn ordning i markering** om kolumn ordningen inte är densamma som den ursprungliga tabellen. 
 
-    ![column-selector](media/module/join-data-column-selector.png)
+    ![kolumn-väljare](media/module/join-data-column-selector.png)
 
 
-1. Välj den **matcha gemener/versaler** om du vill bevara skiftlägeskänslighet på en kolumn text-koppling. 
+1. Välj alternativet **Matcha gemener/versal** om du vill bevara Skift läges känslighet för en text kolumn koppling. 
    
-1. Använd den **kopplingstyp** lista för att ange hur datauppsättningarna som ska kombineras.  
+1. Använd List rutan **kopplings typ** för att ange hur data uppsättningarna ska kombineras.  
   
-    * **Inre koppling**: En *inre koppling* är den vanligaste join-åtgärden. De kombinerade raderna returneras endast när värdena i nyckelkolumnerna som matchar.  
+    * **Inre koppling**: En *inre koppling* är den vanligaste kopplings åtgärden. Den returnerar de kombinerade raderna endast när värdena för nyckel kolumnerna matchar.  
   
-    * **Vänster yttre koppling**: En *vänster yttre koppling* returnerar ansluten rader för alla rader från den vänstra tabellen. När en rad i den vänstra tabellen har inga matchande rader i den högra tabellen, innehåller den returnerade raden värden som saknas för alla kolumner som kommer från den högra tabellen. Du kan också ange ett ersättningsvärde för värden som saknas.  
+    * **Vänster yttre koppling**: En *vänster yttre koppling* returnerar kopplade rader för alla rader från den vänstra tabellen. När en rad i den vänstra tabellen inte har några matchande rader i den högra tabellen, innehåller den returnerade raden värden som saknas för alla kolumner som kommer från den högra tabellen. Du kan också ange ett ersättnings värde för saknade värden.  
   
-    * **Fullständig yttre koppling**: En *fullständig yttre koppling* returnerar alla rader från den vänstra tabellen (**tabell1**) och i den högra tabellen (**tabell2**).  
+    * **Fullständig yttre koppling**: En *fullständig yttre koppling* returnerar alla rader från den vänstra tabellen (**TABLE1**) och från den högra tabellen (**tabell2**).  
   
-         Resultatet innehåller en rad som innehåller värden som saknas för var och en av de rader i antingen tabellen som innehåller inga matchande rader i den andra.  
+         För varje rad i en tabell som inte har några matchande rader i den andra, innehåller resultatet en rad som innehåller värden som saknas.  
   
-    * **Left semikolonavgränsade Join**: En *left join delvis* returnerar endast värden från den vänstra tabellen när värdena i nyckelkolumnerna som matchar.  
+    * **Vänster halv koppling**: En *vänster halv koppling* returnerar bara värdena från den vänstra tabellen när värdena för nyckel kolumnerna matchar.  
 
-1. För alternativet **Tänk kopplad tabell direkt nyckelkolumner**:
+1. För alternativet **Behåll rätt nyckel kolumner i en sammanfogad tabell**:
 
-    * Välj det här alternativet om du vill visa alla nycklarna från båda tabeller.
-    * Avmarkera att endast returnera nyckelkolumnerna från den vänstra indataporten.
+    * Välj det här alternativet om du vill visa nycklarna från båda ingångs tabellerna.
+    * Avmarkera för att endast returnera nyckel kolumnerna från den vänstra indatatypen.
 
-1. Kör experimentet, eller väljer du modulen koppla samman Data och valt **kör valda** att utföra kopplingen.
+1. Kör experimentet eller Välj modulen koppla data och vald **körning vald** för att utföra kopplingen.
 
-1. Om du vill visa resultatet genom att högerklicka på den **ansluta Data** > **resultat datauppsättning** > **visualisera**.
+1. Om du vill visa resultaten högerklickar du på **data** > **uppsättnings** > visualiseringen kopplings resultat.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [uppsättning moduler som är tillgängliga](module-reference.md) till Azure Machine Learning-tjänsten. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för att Azure Machine Learning-tjänsten. 

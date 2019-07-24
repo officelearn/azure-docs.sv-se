@@ -11,26 +11,26 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24888934d7e89a13b1b07b7138be476575fc306
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7781651536275eba60bfde49e00a450dde6d3e1
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204622"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357040"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudier: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
 
-Som en användare i din organisation är en enhet en core-identitet som du vill skydda. Du kan använda en enhetsidentitet för att skydda dina resurser när som helst och var som helst. Du kan göra det här målet genom att föra enhetsidentiteter och hantera dem i Azure Active Directory (Azure AD) med någon av följande metoder:
+Som en användare i din organisation är en enhet en kärn identitet som du vill skydda. Du kan använda en enhets identitet för att skydda dina resurser när du vill och var som helst. Du kan uppnå det här målet genom att ta med enhets identiteter och hantera dem i Azure Active Directory (Azure AD) med hjälp av någon av följande metoder:
 
 - Azure Active Directory-anslutning
 - Hybrid Azure Active Directory-anslutning
 - Azure Active Directory-registrering
 
-Få ut dina enheter till Azure AD maximerar användarproduktivitet via enkel inloggning (SSO) mellan molnet och lokala resurser. Du kan skydda åtkomst till molnet och lokala resurser med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) på samma gång.
+Genom att överföra dina enheter till Azure AD kan du maximera användar produktiviteten genom enkel inloggning (SSO) i molnet och lokala resurser. Du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) på samma gång.
 
-I den här självstudien får lära du att konfigurera hybrid Azure AD-anslutning för enheter för Active Directory-domänanslutna datorer i en hanterad miljö. 
+I den här självstudien får du lära dig hur du konfigurerar hybrid Azure AD-anslutning för Active Directory domänanslutna datorer enheter i en hanterad miljö. 
 
-En hanterad miljö kan vara distribueras antingen via [lösenordshashsynkronisering (PHS)](../hybrid/whatis-phs.md) eller [direktautentisering (PTA)](../hybrid/how-to-connect-pta.md) med [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md). Dessa scenarier måste inte du konfigurera en federationsserver för autentisering.
+En hanterad miljö kan distribueras antingen via [PHS (Password hash Sync)](../hybrid/whatis-phs.md) eller [direktautentisering (PTA)](../hybrid/how-to-connect-pta.md) med [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md). De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
 
 I den här guiden får du lära dig att:
 
@@ -40,59 +40,59 @@ I den här guiden får du lära dig att:
 > * Verifiera anslutna enheter
 > * Felsöka
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du är bekant med de här artiklarna:
 
-- [Vad är en enhetsidentitet?](overview.md)
-- [Hur du planerar din hybrid Azure AD join-implementering](hybrid-azuread-join-plan.md)
-- [Hur du gör kontrollerad validering av hybrid Azure AD-anslutning](hybrid-azuread-join-control.md)
+- [Vad är en enhets identitet?](overview.md)
+- [Planera din hybrid Azure AD Join-implementering](hybrid-azuread-join-plan.md)
+- [Så här gör du en kontrollerad verifiering av hybrid Azure AD-anslutning](hybrid-azuread-join-control.md)
 
 > [!NOTE]
 > Azure AD stöder inte smartkort eller certifikat i hanterade domäner.
 
-Om du vill konfigurera scenariot i den här artikeln, måste den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 eller senare) installerat.
+Om du vill konfigurera scenariot i den här artikeln behöver du den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 eller senare) installerat.
 
-Kontrollera att Azure AD Connect har synkroniserats datorobjekt av de enheter som du vill ska vara hybrid Azure AD-anslutna till Azure AD. Om datorobjekten tillhör specifika organisationsenheter (OU), måste du också konfigurera organisationsenheter ska synkroniseras i Azure AD Connect. Mer information om hur du synkroniserar datorobjekt med hjälp av Azure AD Connect finns [konfigurera filtrering med hjälp av Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
+Kontrol lera att Azure AD Connect har synkroniserat dator objekt för de enheter som du vill ska vara hybrid Azure AD-anslutna till Azure AD. Om datorns objekt tillhör vissa organisationsenheter (OU) måste du även konfigurera organisationsenheterna för synkronisering i Azure AD Connect. Mer information om hur du synkroniserar dator objekt med hjälp av Azure AD Connect finns i [Konfigurera filtrering med hjälp av Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
-Från och med version 1.1.819.0, innehåller Azure AD Connect en guide som du kan använda för att konfigurera hybrid Azure AD-anslutning. Guiden förenklar avsevärt konfigurationsprocessen. Guiden konfigurerar tjänstanslutningspunkter (SCP) för registrering av enheten.
+Från och med version 1.1.819.0 innehåller Azure AD Connect en guide som du kan använda för att konfigurera hybrid Azure AD-anslutning. Guiden fören klar konfigurations processen avsevärt. Guiden konfigurerar tjänst anslutnings punkter (SCP: r) för enhets registrering.
 
-Konfigurationsstegen i den här artikeln baseras på med hjälp av guiden i Azure AD Connect.
+Konfigurations stegen i den här artikeln baseras på hur du använder guiden i Azure AD Connect.
 
-Hybrid Azure AD-anslutning kräver att enheter ska ha åtkomst till följande Microsoft-resurser från i din organisations nätverk:  
+Hybrid Azure AD-anslutning kräver att enheter har åtkomst till följande Microsoft-resurser inifrån din organisations nätverk:  
 
 - `https://enterpriseregistration.windows.net`
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
-- `https://autologon.microsoftazuread-sso.com` (Om du använder eller planerar att använda sömlös enkel inloggning)
+- `https://autologon.microsoftazuread-sso.com`(Om du använder eller planerar att använda sömlös enkel inloggning)
 
-Om din organisation kräver åtkomst till internet via en utgående proxy, Microsoft rekommenderar [implementera Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) att aktivera Windows 10-datorer för enhetsregistrering med Azure AD. Om det uppstår problem konfigurera och hantera WPAD Se [Felsöka automatisk identifiering](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
+Om din organisation kräver åtkomst till Internet via en utgående proxy rekommenderar Microsoft att [implementera WPAD (Web Proxy Auto-Discovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) för att aktivera Windows 10-datorer för enhets registrering med Azure AD. Om du stöter på problem med att konfigurera och hantera WPAD, se [Felsöka automatisk identifiering](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
-Om du inte använder WPAD och du behöver för att konfigurera proxyinställningarna på datorn, kan du göra det från och med Windows 10 1709. Mer information finns i [konfigurera WinHTTP-inställningar med hjälp av ett grupprincipobjekt (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Om du inte använder WPAD och behöver konfigurera proxyinställningar på datorn kan du göra det från och med Windows 10 1709. Mer information finns i [Konfigurera WinHTTP-inställningar med ett grup princip objekt (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
 > [!NOTE]
-> Om du konfigurerar proxyinställningarna på datorn med hjälp av WinHTTP-inställningarna, att alla datorer som inte kan ansluta till den konfigurerade proxyn kunna ansluta till internet.
+> Om du konfigurerar proxyinställningar på datorn med hjälp av WinHTTP-inställningar kommer alla datorer som inte kan ansluta till den konfigurerade proxyn inte att kunna ansluta till Internet.
 
-Om din organisation kräver åtkomst till internet via en autentiserad proxyserver för utgående, måste du se till att din Windows 10-datorer kan autentisera till utgående proxy. Eftersom Windows 10-datorer kör enhetsregistrering genom att använda datorns kontext, måste du konfigurera utgående proxy-autentisering med hjälp av datorns kontext. Kontrollera konfigurationskraven med leverantören av den utgående proxyn.
+Om din organisation kräver åtkomst till Internet via en autentiserad utgående proxy, måste du se till att dina Windows 10-datorer kan autentiseras mot den utgående proxyn. Eftersom Windows 10-datorer kör enhets registrering med hjälp av dator kontext måste du konfigurera utgående proxyautentisering med hjälp av dator kontext. Kontrollera konfigurationskraven med leverantören av den utgående proxyn.
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Konfigurera Hybrid Azure Active Directory-anslutning
 
 Om du vill konfigurera en Hybrid Azure AD-anslutning med Azure AD Connect behöver du:
 
 - Autentiseringsuppgifterna för en global administratör för din Azure AD-klient
-- Administratörsautentiseringsuppgifterna för var och en av skogarna
+- Autentiseringsuppgifter för företags administratör för varje skog
 
 **Konfigurera en hybrid Azure AD-anslutning med hjälp av Azure AD Connect:**
 
-1. Starta Azure AD Connect och välj sedan **konfigurera**.
+1. Starta Azure AD Connect och välj sedan **Konfigurera**.
 
    ![Välkommen](./media/hybrid-azuread-join-managed-domains/11.png)
 
-1. På den **ytterligare uppgifter** väljer **konfigurera Enhetsalternativ**, och välj sedan **nästa**.
+1. På sidan **Ytterligare aktiviteter** väljer du **Konfigurera enhets alternativ**och väljer sedan **Nästa**.
 
    ![Ytterligare uppgifter](./media/hybrid-azuread-join-managed-domains/12.png)
 
-1. På den **översikt** väljer **nästa**.
+1. På sidan **Översikt** väljer du **Nästa**.
 
    ![Översikt](./media/hybrid-azuread-join-managed-domains/13.png)
 
@@ -100,73 +100,73 @@ Om du vill konfigurera en Hybrid Azure AD-anslutning med Azure AD Connect behöv
 
    ![Anslut till Azure AD](./media/hybrid-azuread-join-managed-domains/14.png)
 
-1. På den **Enhetsalternativ** väljer **konfigurera Hybrid Azure AD-anslutning**, och välj sedan **nästa**.
+1. På sidan **enhets alternativ** väljer du **Konfigurera hybrid Azure AD-anslutning**och väljer sedan **Nästa**.
 
    ![Enhetsalternativ](./media/hybrid-azuread-join-managed-domains/15.png)
 
-1. På den **SCP** för varje skog där du vill att Azure AD Connect för att konfigurera SCP: N, utför följande steg och välj sedan **nästa**:
+1. På sidan **SCP** , för varje skog där du vill Azure AD Connect konfigurera SCP, slutför du följande steg och väljer sedan **Nästa**:
 
-   ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
+   ![Tjänstanslutningspunkt](./media/hybrid-azuread-join-managed-domains/16.png)
 
    1. Välj skogen.
    1. Välj autentiseringstjänst.
-   1. Välj **Lägg till** att ange autentiseringsuppgifterna som företagsadministratör.
+   1. Välj **Lägg till** för att ange autentiseringsuppgifter för företags administratören.
 
-1. På den **enhetsoperativsystem** , markera operativsystem som enheterna med din Active Directory-miljö och välj sedan **nästa**.
+1. På sidan **enhets operativ system** väljer du de operativ system som enheterna i din Active Directory miljö använder och väljer sedan **Nästa**.
 
    ![Enhetsoperativsystem](./media/hybrid-azuread-join-managed-domains/17.png)
 
-1. På den **redo att konfigurera** väljer **konfigurera**.
+1. På sidan **klar att konfigurera** väljer du **Konfigurera**.
 
    ![Klart att konfigurera](./media/hybrid-azuread-join-managed-domains/19.png)
 
-1. På den **Configuration slutföra** väljer **avsluta**.
+1. På sidan **konfigurationen har slutförts** väljer du **Avsluta**.
 
    ![Konfigurationen är klar](./media/hybrid-azuread-join-managed-domains/20.png)
 
-## <a name="enable-windows-downlevel-devices"></a>Aktivera Windows äldre enheter
+## <a name="enable-windows-downlevel-devices"></a>Aktivera äldre Windows-enheter
 
-Om några av dina domänanslutna enheter är Windows äldre enheter, måste du:
+Om några av dina domänanslutna enheter är Windows-enheter med äldre enheter måste du:
 
 - Konfigurera inställningarna för det lokala intranätet för enhetsregistrering
 - Konfigurera sömlös SSO
-- Installera Microsoft Workplace Join för Windows äldre datorer
+- Installera Microsoft Workplace Join för äldre Windows-datorer
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Konfigurera inställningarna för det lokala intranätet för enhetsregistrering
 
-o Slutför hybrid Azure AD join för dina äldre Windows-enheter och för att undvika certifikat när enheter ska autentiseras mot Azure AD kan du skicka en princip till dina domänanslutna enheter att lägga till följande webbadresser i zonen Lokalt intranät i Internet Explorer:
+För att slutföra en fullständig Azure AD-anslutning av dina Windows-enheter med äldre versioner och för att undvika certifikat meddelanden när enheter autentiserar till Azure AD kan du skicka en princip till dina domänanslutna enheter för att lägga till följande URL: er till zonen Lokalt intranät i Internet Utforskarvyn
 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
 
-Du måste också aktivera **tillåta uppdateringar till statusfältet via skript** i användarens lokala intranätzonen.
+Du måste också aktivera **Tillåt uppdateringar av statusfältet via skript** i användarens lokala intranät zon.
 
 ### <a name="configure-seamless-sso"></a>Konfigurera sömlös SSO
 
-För att slutföra hybrid Azure AD join för dina Windows äldre enheter i en hanterad domän använder som [PHS]... /hybrid/whatis-phs.MD) eller [PTA](../hybrid/how-to-connect-pta.md) som autentiseringsmetod din Azure AD-molnet måste också [konfigurerar sömlös SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
+För att kunna slutföra hybrid Azure AD-anslutning av dina Windows-enheter med äldre versioner i en hanterad domän som använder [PHS](../hybrid/whatis-phs.md) eller [PTA](../hybrid/how-to-connect-pta.md) som din Azure AD-molnbaserad autentiseringsmetod, måste du också [Konfigurera sömlös SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
-### <a name="install-microsoft-workplace-join-for-windows-downlevel-computers"></a>Installera Microsoft Workplace Join för Windows äldre datorer
+### <a name="install-microsoft-workplace-join-for-windows-downlevel-computers"></a>Installera Microsoft Workplace Join för äldre Windows-datorer
 
-Om du vill registrera Windows äldre enheter, organisationer måste installera [Microsoft Workplace Join för Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join för Windows 10-datorer är tillgängligt i Microsoft Download Center.
+För att registrera Windows-enheter som är äldre måste organisationer installera [Microsoft Workplace Join för icke-Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join för datorer som inte är Windows 10-datorer finns i Microsoft Download Center.
 
-Du kan distribuera paketet med hjälp av ett system för programvarudistribution som [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Paketet stöder alternativen standard tyst installation med den `quiet` parametern. Den aktuella grenen av Configuration Manager ger fördelar jämfört med tidigare versioner, som möjligheten att spåra slutförda registreringar.
+Du kan distribuera paketet med hjälp av ett program distributions system som [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Paketet stöder vanliga obevakade installations alternativ med `quiet` parametern. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
 
-Installationsprogrammet skapar en schemalagd aktivitet på system som körs i användarkontexten. Aktiviteten utlöses när användaren loggar in på Windows. Uppgiften tyst kopplar ihop enheten med Azure AD med hjälp av autentiseringsuppgifter för användare när den autentiserar med Azure AD.
+Installations programmet skapar en schemalagd aktivitet på det system som körs i användar kontexten. Aktiviteten utlöses när användaren loggar in i Windows. Uppgiften ansluter tyst till enheten med Azure AD med hjälp av användarautentiseringsuppgifterna när den har autentiserats med Azure AD.
 
 ## <a name="verify-the-registration"></a>Verifiera registreringen
 
-Du kan använda för att verifiera enheten registreringstillståndet i din Azure-klient, den **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** cmdlet i den [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+För att verifiera enhetens registrerings tillstånd i din Azure-klient kan du använda cmdleten **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** i [modulen Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
-När du använder den **Get-MSolDevice** cmdlet för att kontrollera service:
+När du använder cmdleten **Get-MSolDevice** för att kontrol lera tjänst informationen:
 
-- Ett objekt med den **enhets-ID** som matchar ID på Windows klient måste finnas.
-- Värdet för **DeviceTrustType** måste vara **Domänansluten**. Den här inställningen motsvarar den **Hybrid Azure AD-ansluten** tillstånd på den **enheter** i Azure AD-portalen.
-- För enheter som används i villkorlig åtkomst måste värdet för **aktiverad** måste vara **SANT** och **DeviceTrustLevel** måste vara **hanterade**.
+- Det måste finnas ett objekt med det **enhets-ID** som matchar ID: t för Windows-klienten.
+- Värdet för **DeviceTrustType** måste vara **Domänansluten**. Den här inställningen motsvarar **hybrid Azure AD-anslutna** tillstånd på sidan **enheter** i Azure AD-portalen.
+- För enheter som används i villkorlig åtkomst måste värdet för Enabled  vara **True** och **DeviceTrustLevel** måste **hanteras**.
 
-**Att kontrollera service**:
+**Så här kontrollerar du tjänst informationen**:
 
 1. Öppna Windows PowerShell som administratör.
-1. Ange `Connect-MsolService` att ansluta till din Azure-klient.  
+1. Ange `Connect-MsolService` för att ansluta till din Azure-klient.  
 1. Ange `get-msoldevice -deviceId <deviceId>`.
 1. Kontrollera att **Aktiverad** är inställd på **SANT**.
 
@@ -174,9 +174,9 @@ När du använder den **Get-MSolDevice** cmdlet för att kontrollera service:
 
 Om du får problem med att slutföra hybrid Azure AD-anslutning för domänanslutna Windows-enheter, se:
 
-- [Felsöka hybrid Azure AD-anslutning för befintliga Windows-enheter](troubleshoot-hybrid-join-windows-current.md)
-- [Felsöka hybrid Azure AD-anslutning för Windows äldre enheter](troubleshoot-hybrid-join-windows-legacy.md)
+- [Felsöka hybrid Azure AD-anslutning för aktuella Windows-enheter](troubleshoot-hybrid-join-windows-current.md)
+- [Felsöka hybrid Azure AD-anslutning för tidigare Windows-enheter](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [hantera enhetsidentiteter med hjälp av Azure portal](device-management-azure-portal.md).
+Lär dig hur du [hanterar enhets identiteter med hjälp av Azure Portal](device-management-azure-portal.md).

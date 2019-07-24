@@ -1,27 +1,28 @@
 ---
 title: Övervaka behållare i Azure Container Instances
-description: Så här övervakar du förbrukningen av beräkningsresurser som CPU och minne genom dina behållare i Azure Container Instances.
+description: Hur du övervakar förbrukningen av beräknings resurser som CPU och minne av dina behållare i Azure Container Instances.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 7b46ea0518038eeb908591b8438acc2a9095242c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c1208d8cbc795e53128df0ccf93e79dc427abad
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570936"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325842"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Övervaka behållarresurser i Azure Container Instances
 
-[Azure Monitor] [ azure-monitoring] ger insikt i de beräkningsresurser som används av containers-instanser. Den här resursanvändningsdata hjälper dig att avgöra bästa resursinställningarna för din behållargrupper. Azure Monitor innehåller också mått som spårar nätverksaktivitet i container instances.
+[Azure Monitor][azure-monitoring] ger inblick i de beräknings resurser som används av dina behållar instanser. Med den här informationen om resursanvändning kan du fastställa de bästa resurs inställningarna för dina behållar grupper. Azure Monitor tillhandahåller också mått som spårar nätverks aktivitet i dina behållar instanser.
 
-Det här dokumentet beskriver samlar in Azure Monitor-mått för container instances med både Azure-portalen och Azure CLI.
+I den här dokument informationen samlas Azure Monitor mått för container instanser med både Azure Portal och Azure CLI.
 
 > [!IMPORTANT]
-> Azure Monitor-mått i Azure Container Instances är för närvarande i förhandsversion och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Azure Monitor mått i Azure Container Instances finns för närvarande i för hands version och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
@@ -29,30 +30,30 @@ Azure Monitor mått är för närvarande endast tillgängliga för Linux-behåll
 
 ## <a name="available-metrics"></a>Tillgängliga mått
 
-Azure Monitor innehåller följande [mätvärden för Azure Container Instances][supported-metrics]. De här måtten är tillgängliga för en behållargrupp och enskilda behållare.
+Azure Monitor tillhandahåller följande [mått för Azure Container instances][supported-metrics]. Dessa mått är tillgängliga för en behållar grupp och enskilda behållare.
 
-* **CPU-användning** – mätt i **millicores**. En millicore är 1/1000th av en CPU-kärna, så 500 millicores (eller 500 m) representerar 50% användning av CPU-kärna. Aggregeras som **genomsnittlig användning** över alla kärnor.
+* **CPU-användning** – mäts i **millicores**. En Millicore är 1/1000th av en processor kärna, så 500 millicores (eller 500 m) representerar 50% användning av en processor kärna. Sammanställd som **genomsnittlig användning** för alla kärnor.
 
-* **Minnesanvändning** – aggregerade som **genomsnittlig byte**.
+* **Minnes användning** – sammanställd som **genomsnittlig byte**.
 
-* **Network mottagna byte Per sekund** och **nätverk byte skickas Per sekund** – aggregerade som **genomsnittlig byte per sekund**. 
+* **Mottagna nätverks byte per sekund** och **överförda nätverks byte per sekund** sammanställt som **Genomsnittligt antal byte per sekund**. 
 
 ## <a name="get-metrics---azure-portal"></a>Hämta mått – Azure Portal
 
-När en containergrupp skapas är Azure Monitor-data tillgängliga i Azure Portal. Om du vill visa mått för en behållargrupp, går du till den **översikt** för behållargruppen. Här kan du visa diagram som skapats i förväg för var och en av de tillgängliga måtten.
+När en containergrupp skapas är Azure Monitor-data tillgängliga i Azure Portal. Om du vill se mått för en behållar grupp går  du till översikts sidan för behållar gruppen. Här kan du se i förväg skapade diagram för vart och ett av de tillgängliga måtten.
 
 ![dubbelt diagram][dual-chart]
 
-I en behållargrupp som innehåller flera behållare använder en [dimension] [ monitor-dimension] att presentera mått av behållare. Utför följande steg för att skapa ett diagram med enskilda containrar:
+Använd en [dimension][monitor-dimension] för att presentera mått per behållare i en behållar grupp som innehåller flera behållare. Utför följande steg för att skapa ett diagram med enskilda containrar:
 
-1. I den **översikt** väljer du något av måttdiagram, till exempel **CPU**. 
-1. Välj den **gäller dela** och välj **behållarnamn**.
+1. På sidan **Översikt** väljer du ett av mått diagram, t. ex. **CPU**. 
+1. Välj knappen **Använd delning** och välj **container namn**.
 
 ![dimension][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Hämta mått – Azure CLI
 
-Mått för container instances kan också samlas in med Azure CLI. Hämta först containergruppens ID med följande kommando. Ersätt `<resource-group>` med resursgruppens namn och `<container-group>` med namnet på containergruppen.
+Mått för container instanser kan också samlas in med hjälp av Azure CLI. Hämta först containergruppens ID med följande kommando. Ersätt `<resource-group>` med resursgruppens namn och `<container-group>` med namnet på containergruppen.
 
 
 ```console
@@ -80,7 +81,7 @@ Timestamp            Name       Average
 2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Ändra värdet för den `--metric` parameter i kommandot för att hämta andra [stöds mått][supported-metrics]. Till exempel använda följande kommando för att hämta **minne** användningsstatistik. 
+Ändra värdet för `--metric` parametern i kommandot för att hämta andra mått som [stöds][supported-metrics]. Använd till exempel följande kommando för att hämta **minnes** användnings mått. 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
@@ -101,7 +102,7 @@ Timestamp            Name          Average
 2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-För en grupp med flera behållare i `containerName` dimensionen kan läggas till att returnera mått per behållare.
+För en grupp `containerName` med flera behållare kan dimensionen läggas till för att returnera mått per behållare.
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
@@ -136,9 +137,9 @@ Timestamp            Name          Containername             Average
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure-övervakning i [översikten över Azure övervakning][azure-monitoring].
+Läs mer om Azure Monitoring i [Översikt över Azure Monitoring][azure-monitoring].
 
-Lär dig hur du skapar [måttaviseringar] [ metric-alert] att få ett meddelande när ett mått för Azure Container Instances överskrider ett tröskelvärde.
+Lär dig hur du skapar [mått aviseringar][metric-alert] för att få ett meddelande när ett mått för Azure Container instances överskrider ett tröskelvärde.
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png

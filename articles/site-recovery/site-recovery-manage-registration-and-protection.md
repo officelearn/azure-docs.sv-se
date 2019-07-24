@@ -1,54 +1,54 @@
 ---
 title: Ta bort servrar och inaktivera skydd | Microsoft Docs
-description: Den här artikeln beskriver hur du avregistrerar servrar från Site Recovery-valvet och inaktivera skydd för virtuella datorer och fysiska servrar.
+description: Den här artikeln beskriver hur du avregistrerar servrar från ett Site Recovery valv och inaktiverar skyddet för virtuella datorer och fysiska servrar.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: rajani-janaki-ram
-ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.author: rajanaki
+ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203404"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875805"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
-Den här artikeln beskrivs hur du avregistrerar servrar från Recovery Services-valvet och hur du inaktiverar skydd för datorer som skyddas av Site Recovery.
+Den här artikeln beskriver hur du avregistrerar servrar från ett Recovery Services valv och hur du inaktiverar skyddet för datorer som skyddas av Site Recovery.
 
 
-## <a name="unregister-a--configuration-server"></a>Avregistrera en konfigurationsserver
+## <a name="unregister-a--configuration-server"></a>Avregistrera en konfigurations Server
 
-Om du replikerar virtuella VMware-datorer eller fysiska Windows/Linux-servrar till Azure kan du avregistrera en konfigurationsserver som är anslutna från ett valv på följande sätt:
+Om du replikerar virtuella VMware-datorer eller Windows/Linux fysiska servrar till Azure, kan du avregistrera en frånkopplad konfigurations Server från ett valv på följande sätt:
 
-1. [Inaktivera skyddet av virtuella datorer](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. [Ta bort koppling till eller ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) replikeringsprinciper.
-3. [Ta bort konfigurationsservern](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
+1. [Inaktivera skydd av virtuella datorer](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
+2. [Ta bort eller ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) principer för replikering.
+3. [Ta bort konfigurations servern](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
-## <a name="unregister-a-vmm-server"></a>Avregistrera en VMM-server
+## <a name="unregister-a-vmm-server"></a>Avregistrera en VMM-Server
 
-1. Stoppa replikering av virtuella datorer i moln på VMM-servern som du vill ta bort.
-2. Ta bort alla nätverksmappningar som används av moln på VMM-servern som du vill ta bort. I **Site Recovery-infrastruktur** > **för System Center VMM** > **nätverksmappning**, högerklicka på nätverksmappningen > **Ta bort**.
-3. Observera ID för VMM-servern.
-4. Kopplingen mellan replikeringsprinciper från moln på VMM-servern som du vill ta bort.  I **Site Recovery-infrastruktur** > **för System Center VMM** >  **replikeringsprinciper**, dubbelklicka på den associerade principen. Högerklicka på molnet > **ta bort association med**.
-5. Ta bort VMM-servern eller den aktiva noden. I **Site Recovery-infrastruktur** > **för System Center VMM** > **VMM-servrar**, högerklicka på servern > **ta bort** .
-6. Om din VMM-server har frånkopplat, ladda ned och kör den [raderingsskript](https://aka.ms/asr-cleanup-script-vmm) på VMM-servern. Öppna PowerShell med den **kör som administratör** alternativet för att ändra körningsprincipen för standardomfattning (LocalMachine). Ange ID för VMM-servern som du vill ta bort i skriptet. Skriptet tar bort registrering och molnlänkningen information från servern.
-5. Kör rensning-skriptet på alla sekundära VMM-servern.
-6. Kör rensning-skriptet på alla andra passiv VMM-klusternoder som har installerat providern.
-7. Avinstallera providern manuellt på VMM-servern. Om du har ett kluster kan du ta bort från alla noder.
-8. Om dina virtuella datorer replikerar till Azure måste du avinstallera Microsoft Recovery Services-agenten från Hyper-V-värdar i de borttagna moln.
+1. Stoppa replikeringen av virtuella datorer i moln på den VMM-server som du vill ta bort.
+2. Ta bort eventuella nätverks mappningar som används av moln på den VMM-server som du vill ta bort. I **Site Recovery infrastruktur** > för**nätverks mappning**i**System Center VMM** > högerklickar du på nätverks mappningen > **ta bort**.
+3. Anteckna ID för VMM-servern.
+4. Ta bort associationen mellan replikeringsprinciper från molnen på den VMM-server som du vill ta bort.  Dubbelklicka på den associerade principen i **Site Recovery infrastruktur** > **för principer för System Center VMM** >  -**replikering**. Högerklicka på molnet > ta **bort koppling**.
+5. Ta bort VMM-servern eller den aktiva noden. I **Site Recovery infrastruktur** > **för System Center VMM** > **VMM-servrar**högerklickar du på servern > **ta bort**.
+6. Om VMM-servern är i frånkopplat tillstånd laddar du ned och kör [rensnings skriptet](https://aka.ms/asr-cleanup-script-vmm) på VMM-servern. Öppna PowerShell med alternativet **Kör som administratör** för att ändra körnings principen för standard-(LocalMachine)-omfånget. I skriptet anger du ID: t för den VMM-server som du vill ta bort. Skriptet tar bort registrerings-och moln länknings information från servern.
+5. Kör rensnings skriptet på valfri sekundär VMM-Server.
+6. Kör rensnings skriptet på alla andra passiva VMM-klusternoder där providern är installerad.
+7. Avinstallera providern manuellt på VMM-servern. Om du har ett kluster tar du bort det från alla noder.
+8. Om dina virtuella datorer replikeras till Azure måste du avinstallera Microsoft Recovery Services-agenten från Hyper-V-värdar i de borttagna molnen.
 
-## <a name="unregister-a-hyper-v-host-in-a-hyper-v-site"></a>Avregistrerar du en Hyper-V-värd på en Hyper-V-plats
+## <a name="unregister-a-hyper-v-host-in-a-hyper-v-site"></a>Avregistrera en Hyper-V-värd på en Hyper-V-plats
 
-Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort en värd i en Hyper-V-plats på följande sätt:
+Hyper-V-värdar som inte hanteras av VMM samlas in i en Hyper-V-plats. Ta bort en värd på en Hyper-V-plats enligt följande:
 
-1. Inaktivera replikering för Hyper-V-datorer som finns på värden.
-2. Kopplingen mellan principer för Hyper-V-platsen. I **Site Recovery-infrastruktur** > **för Hyper-V-platser** >  **replikeringsprinciper**, dubbelklicka på den associerade principen. Högerklicka på platsen > **ta bort association med**.
-3. Ta bort Hyper-V-värdar. I **Site Recovery-infrastruktur** > **för Hyper-V-platser** > **Hyper-V-värdar**, högerklicka på servern > **ta bort** .
-4. Ta bort Hyper-V-platsen när alla värdar har tagits bort från den. I **Site Recovery-infrastruktur** > **för Hyper-V-platser** > **Hyper-V-platser**, högerklicka på platsen > **ta bort** .
-5. Om Hyper-V-värden i en **frånkopplad** tillstånd, och kör sedan följande skript på varje Hyper-V-värd som du har tagit bort. Skriptet rensar inställningarna på servern och Avregistrerar den från valvet.
+1. Inaktivera replikering för virtuella Hyper-V-datorer som finns på värden.
+2. Ta bort associationen mellan principer och Hyper-V-platsen. Dubbelklicka på den associerade principeni **Site Recovery infrastruktur** > **för Hyper-V-platser** >  . Högerklicka på platsen > ta **bort koppling**.
+3. Ta bort Hyper-V-värdar. I **Site Recovery infrastruktur** > **för Hyper-v-platser** > **Hyper-v-värdar**högerklickar du på servern > **ta bort**.
+4. Ta bort Hyper-V-platsen när alla värdar har tagits bort från den. I **Site Recovery infrastruktur** > **för Hyper-v-platser** > **Hyper-v-platser**högerklickar du på platsen > **ta bort**.
+5. Om Hyper-V-värden är i **frånkopplat** tillstånd kör du följande skript på varje Hyper-v-värd som du har tagit bort. Skriptet rensar inställningarna på servern och avregistrerar den från valvet.
 
 
 ```powershell
@@ -141,41 +141,41 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 ```
 
 
-## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>Inaktivera skyddet för en VMware-VM eller fysisk server (VMware till Azure)
+## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>Inaktivera skydd för en virtuell VMware-dator eller fysisk server (VMware till Azure)
 
-1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
-2. I **inaktivera replikering** väljer du något av följande alternativ:
-    - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på konfigurationsservern rensas och Site Recovery-debitering för den här skyddade servern har stoppats. Observera att det här alternativet endast ska användas när konfigurationsservern är i anslutet tillstånd.
-    - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på konfigurationsservern **inte** rensas. 
-
-> [!NOTE]
-> I båda alternativen mobilitetstjänsten inte avinstalleras från de skyddade servrarna, måste du avinstallera den manuellt. Om du planerar att skydda servern igen med samma konfigurationsserver, kan du hoppa över avinstallera mobilitetstjänsten.
+1. I **skyddade objekt** > **replikerade objekt**högerklickar du på datorn > **inaktiverar replikering**.
+2. Välj något av följande alternativ på sidan **inaktivera replikering** :
+    - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet tar bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Replikeringskonfiguration på konfigurations servern har rensats och Site Recovery fakturering för den här skyddade servern har stoppats. Observera att det här alternativet endast kan användas när konfigurations servern är i anslutet tillstånd.
+    - **Ta bort** – det här alternativet ska endast användas om käll miljön tas bort eller inte går att komma åt (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Det **går inte** att rensa konfigurations konfigurationen på konfigurations servern. 
 
 > [!NOTE]
-> Om du redan har misslyckats under en virtuell dator och den körs i Azure, Observera att inaktivera skyddet inte ta bort / påverkar den redundansväxlade virtuella datorn.
-## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Inaktivera skyddet för en Azure virtuell dator (Azure till Azure)
-
--  I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
-> [!NOTE]
-> mobilitetstjänsten avinstalleras inte från de skyddade servrarna och du måste avinstallera den manuellt. Om du planerar att skydda servern igen, kan du hoppa över avinstallera mobilitetstjänsten.
-
-## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Inaktivera skyddet för en Hyper-V virtuell dator (Hyper-V till Azure)
+> I båda alternativen mobilitets tjänsten kommer inte att avinstalleras från de skyddade servrarna. du måste avinstallera den manuellt. Om du planerar att skydda servern igen med samma konfigurations Server kan du hoppa över avinstallationen av mobilitets tjänsten.
 
 > [!NOTE]
-> Använd den här proceduren om du replikerar virtuella Hyper-V-datorer till Azure utan en VMM-servern. Om du replikerar dina virtuella datorer med den **System Center VMM till Azure** scenario kan du följa instruktionerna inaktivera skydd för Hyper-V virtuell dator replikeras med hjälp av System Center VMM till Azure-scenariot
+> Om du redan har växlat över en virtuell dator och den körs i Azure, Tänk på att inaktivera skydd inte tar bort/påverkar den felande virtuella datorn.
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Inaktivera skydd för en virtuell Azure-dator (Azure till Azure)
 
-1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
-2. I **inaktivera replikering**, du kan välja följande alternativ:
-   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn tas bort och Site Recovery-debitering för den här skyddade servern har stoppats.
-   - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. 
+-  I **skyddade objekt** > **replikerade objekt**högerklickar du på datorn > **inaktiverar replikering**.
+> [!NOTE]
+> mobilitets tjänsten kommer inte att avinstalleras från de skyddade servrarna. du måste avinstallera den manuellt. Om du planerar att skydda servern igen kan du hoppa över avinstallationen av mobilitets tjänsten.
+
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Inaktivera skydd för en virtuell Hyper-V-dator (Hyper-V till Azure)
+
+> [!NOTE]
+> Använd den här proceduren om du replikerar virtuella Hyper-V-datorer till Azure utan en VMM-Server. Om du replikerar dina virtuella datorer med hjälp av scenariot **System Center VMM till Azure** , följer du anvisningarna inaktivera skydd för en virtuell Hyper-V-dator som replikeras med System Center VMM till Azure-scenariot
+
+1. I **skyddade objekt** > **replikerade objekt**högerklickar du på datorn > **inaktiverar replikering**.
+2. I **inaktivera replikering**kan du välja följande alternativ:
+   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet tar bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Replikeringskonfiguration på den lokala virtuella datorn kommer att rensas och Site Recovery faktureringen för den här skyddade servern stoppas.
+   - **Ta bort** – det här alternativet ska endast användas om käll miljön tas bort eller inte går att komma åt (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Det **går inte** att rensa konfigurationen på den lokala virtuella datorn. 
 
  > [!NOTE]
-     > Om du väljer den **ta bort** alternativet Kör sedan följande uppsättning skript för att rensa replikeringsinställningarna lokala Hyper-V-servern.
+     > Om du väljer alternativet **ta bort** kör du följande uppsättning skript för att rensa replikeringsinställningarna på den lokala Hyper-V-servern.
 
 > [!NOTE]
-> Om du redan har misslyckats under en virtuell dator och den körs i Azure, Observera att inaktivera skyddet inte ta bort / påverkar den redundansväxlade virtuella datorn.
+> Om du redan har växlat över en virtuell dator och den körs i Azure, Tänk på att inaktivera skydd inte tar bort/påverkar den felande virtuella datorn.
 
-1. På källan Hyper-V-värdservern, ta bort replikering för den virtuella datorn. Ersätt SQLVM1 med namnet på den virtuella datorn och kör skriptet från en administrativ PowerShell
+1. Ta bort replikering för den virtuella datorn på käll-Hyper-V-värdservern. Ersätt SQLVM1 med namnet på den virtuella datorn och kör skriptet från en administrativ PowerShell
 
 ```powershell
     $vmName = "SQLVM1"
@@ -184,21 +184,21 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
     $replicationService.RemoveReplicationRelationship($vm.__PATH)
 ```
 
-## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Inaktivera skyddet för en virtuell dator för Hyper-V som replikerar till Azure med hjälp av System Center VMM till Azure-scenariot
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Inaktivera skydd för en virtuell Hyper-V-dator som replikeras till Azure med scenariot System Center VMM till Azure
 
-1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
-2. I **inaktivera replikering**, Välj något av följande alternativ:
+1. I **skyddade objekt** > **replikerade objekt**högerklickar du på datorn > **inaktiverar replikering**.
+2. I **inaktivera replikering**väljer du något av följande alternativ:
 
-   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn har rensats och Site Recovery-debitering för den här skyddade servern har stoppats.
-   - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. 
+   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet tar bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Replikeringskonfiguration på den lokala virtuella datorn har rensats och Site Recovery fakturering för den här skyddade servern har stoppats.
+   - **Ta bort** – det här alternativet ska endast användas om käll miljön tas bort eller inte går att komma åt (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Det **går inte** att rensa konfigurationen på den lokala virtuella datorn. 
 
      > [!NOTE]
-     > Om du väljer den **ta bort** alternativ, och sedan följande skript för att rensa replikeringsinställningarna tun lokala VMM-servern.
-3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratörsbehörighet krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
+     > Om du väljer alternativet **ta bort** TUN följande skript för att rensa replikeringsinställningarna för den lokala VMM-servern.
+3. Kör det här skriptet på käll-VMM-servern med PowerShell (administratörs behörighet krävs) från VMM-konsolen. Ersätt plats hållaren **SQLVM1** med namnet på den virtuella datorn.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
-4. Stegen ovan Rensa replikeringsinställningarna på VMM-servern. Kör skriptet för att stoppa replikering för den virtuella datorn körs på Hyper-V-värdservern. Ersätt SQLVM1 med namnet på den virtuella datorn och host01.contoso.com med namnet på Hyper-V-värdservern.
+4. Stegen ovan rensar replikeringsinställningarna på VMM-servern. Kör det här skriptet för att stoppa replikeringen för den virtuella datorn som körs på Hyper-V-värdservern. Ersätt SQLVM1 med namnet på din virtuella dator och host01.contoso.com med namnet på Hyper-V-värdservern.
 
 ```powershell
     $vmName = "SQLVM1"
@@ -208,26 +208,26 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
     $replicationService.RemoveReplicationRelationship($vm.__PATH)
 ```
 
-## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>Inaktivera skyddet för en Hyper-V virtuell dator som replikeras till sekundär VMM-servern med System Center VMM till VMM-scenario
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>Inaktivera skydd för en virtuell Hyper-V-dator som replikeras till en sekundär VMM-server med System Center VMM till VMM-scenario
 
-1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
-2. I **inaktivera replikering**, Välj något av följande alternativ:
+1. I **skyddade objekt** > **replikerade objekt**högerklickar du på datorn > **inaktiverar replikering**.
+2. I **inaktivera replikering**väljer du något av följande alternativ:
 
-   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn har rensats och Site Recovery-debitering för den här skyddade servern har stoppats.
-   - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. Kör följande skript för att rensa replikeringen inställningar för lokala virtuella datorer.
+   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet tar bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Replikeringskonfiguration på den lokala virtuella datorn har rensats och Site Recovery fakturering för den här skyddade servern har stoppats.
+   - **Ta bort** – det här alternativet ska endast användas om käll miljön tas bort eller inte går att komma åt (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Det **går inte** att rensa konfigurationen på den lokala virtuella datorn. Kör följande uppsättning skript för att rensa replikeringsinställningarna för lokala virtuella datorer.
      > [!NOTE]
-     > Om du väljer den **ta bort** alternativ, och sedan följande skript för att rensa replikeringsinställningarna tun lokala VMM-servern.
+     > Om du väljer alternativet **ta bort** TUN följande skript för att rensa replikeringsinställningarna för den lokala VMM-servern.
 
-3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratörsbehörighet krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
+3. Kör det här skriptet på käll-VMM-servern med PowerShell (administratörs behörighet krävs) från VMM-konsolen. Ersätt plats hållaren **SQLVM1** med namnet på den virtuella datorn.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
-4. Kör det här skriptet att rensa inställningarna för den sekundära virtuella datorn på den sekundära VMM-servern:
+4. På den sekundära VMM-servern kör du det här skriptet för att rensa inställningarna för den sekundära virtuella datorn:
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Remove-SCVirtualMachine -VM $vm -Force
-5. Uppdatera de virtuella datorerna på Hyper-V-värdserver på den sekundära VMM-servern så att den sekundära virtuella datorn hämtar upptäckte igen i VMM-konsolen.
-6. Stegen ovan Rensa replikeringsinställningarna på VMM-servern. Om du vill stoppa replikering för den virtuella datorn kör följande skript ojsan de primära och sekundära virtuella datorerna. Ersätt SQLVM1 med namnet på den virtuella datorn.
+5. Uppdatera de virtuella datorerna på Hyper-V-värdservern på den sekundära VMM-servern så att den sekundära virtuella datorn identifieras igen i VMM-konsolen.
+6. Stegen ovan rensar replikeringsinställningarna på VMM-servern. Om du vill stoppa replikeringen för den virtuella datorn kör du följande skript och de primära och sekundära virtuella datorerna. Ersätt SQLVM1 med namnet på den virtuella datorn.
 
         Remove-VMReplication –VMName “SQLVM1”
 

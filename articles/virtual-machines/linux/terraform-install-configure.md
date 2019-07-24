@@ -1,6 +1,6 @@
 ---
-title: Installera och konfigurera Terraform för användning med Azure | Microsoft Docs
-description: Lär dig att installera och konfigurera Terraform för att skapa Azure-resurser
+title: Installera och konfigurera terraform för användning med Azure | Microsoft Docs
+description: Lär dig hur du installerar och konfigurerar terraform för att skapa Azure-resurser
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
@@ -14,62 +14,62 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
-ms.author: echuvyrov
-ms.openlocfilehash: 30593bc874e2cd666c0af89336b26a15c944a424
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: gwallace
+ms.openlocfilehash: 14bbbb6581d3e6d00db532e343f8362fc44d0044
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708648"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876343"
 ---
-# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installera och konfigurera Terraform för att etablera virtuella datorer och annan infrastruktur till Azure
+# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installera och konfigurera terraform för att etablera virtuella datorer och annan infrastruktur i Azure
  
-Terraform ger ett enkelt sätt att definiera, förhandsgranska och distribuera moln-infrastruktur med hjälp av en [enkel mall språk](https://www.terraform.io/docs/configuration/syntax.html). Den här artikeln beskriver de steg som krävs för att använda Terraform att etablera resurser i Azure.
+Terraform är ett enkelt sätt att definiera, förhandsgranska och distribuera moln infrastruktur med hjälp av ett [enkelt mall-språk](https://www.terraform.io/docs/configuration/syntax.html). I den här artikeln beskrivs de steg som krävs för att etablera resurser i Azure med hjälp av terraform.
 
-Mer information om hur du använder Terraform med Azure, på den [Terraform Hub](/azure/terraform).
+Om du vill veta mer om hur du använder terraform med Azure kan du gå till [terraform Hub](/azure/terraform).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Terraform installeras som standard i den [Cloud Shell](/azure/terraform/terraform-cloud-shell). Om du väljer att installera Terraform lokalt, utföra nästa steg, Fortsätt annars till [konfigurera Terraform åtkomst till Azure](#set-up-terraform-access-to-azure).
+Terraform installeras som standard i [Cloud Shell](/azure/terraform/terraform-cloud-shell). Om du väljer att installera terraform lokalt slutför du nästa steg, annars fortsätter att [Konfigurera terraform-åtkomst till Azure](#set-up-terraform-access-to-azure).
 
-## <a name="install-terraform"></a>Installera Terraform
+## <a name="install-terraform"></a>Installera terraform
 
-Installera Terraform, [hämta](https://www.terraform.io/downloads.html) lämpligt paket för ditt operativsystem i en separat installationskatalog. Den hämtade filen innehåller en enda körbar fil som ska du också definiera en global sökväg. Anvisningar om hur du anger sökvägen för Linux och Mac finns i [den här webbsidan](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Anvisningar för hur du anger sökvägen för Windows, går du till [den här webbsidan](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
+Om du vill installera terraform [hämtar](https://www.terraform.io/downloads.html) du lämpligt paket för operativ systemet till en separat installations katalog. Hämtningen innehåller en enda körbar fil som du även bör definiera en global sökväg för. Instruktioner för hur du ställer in sökvägen på Linux och Mac finns på [den här webb sidan](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Instruktioner för hur du anger sökvägen för Windows finns på [den här webb sidan](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
 
-Kontrollera sökvägen konfigurationen med den `terraform` kommando. En lista över tillgängliga Terraform alternativ visas som i följande Exempelutdata:
+Verifiera din Sök vägs konfiguration med `terraform` kommandot. En lista över tillgängliga terraform-alternativ visas, som i följande exempel:
 
 ```bash
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
 
-## <a name="set-up-terraform-access-to-azure"></a>Konfigurera Terraform åtkomst till Azure
+## <a name="set-up-terraform-access-to-azure"></a>Konfigurera terraform-åtkomst till Azure
 
-För att aktivera Terraform att etablera resurser i Azure, skapa en [Azure AD-tjänstobjekt](/cli/azure/create-an-azure-service-principal-azure-cli). Tjänstens huvudnamn ger skripten Terraform att etablera resurser i Azure-prenumerationen.
+Om du vill aktivera terraform för att etablera resurser i Azure skapar du ett [tjänst huvud namn för Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). Tjänstens huvud namn ger dina terraform-skript för att etablera resurser i din Azure-prenumeration.
 
-Om du har flera Azure-prenumerationer först fråga ditt konto med [az konto show](/cli/azure/account#az-account-show) att hämta en lista över prenumerations-ID och klient-ID-värden:
+Om du har flera Azure-prenumerationer ska du först fråga ditt konto med [AZ-konto att Visa](/cli/azure/account#az-account-show) en lista över prenumerations-ID och klient-ID-värden:
 
 ```azurecli-interactive
 az account show --query "{subscriptionId:id, tenantId:tenantId}"
 ```
 
-Om du vill använda en vald prenumeration, Ställ in prenumerationen för den här sessionen med [az-kontogrupper](/cli/azure/account#az-account-set). Ange den `SUBSCRIPTION_ID` miljövariabeln för värdet för den returnerade `id` från den prenumeration som du vill använda:
+Om du vill använda en vald prenumeration ställer du in prenumerationen på den här sessionen med [AZ-kontot](/cli/azure/account#az-account-set). Ställ in miljövariabeln så att den innehåller värdet för `id` det returnerade fältet från den prenumeration som du vill använda: `SUBSCRIPTION_ID`
 
 ```azurecli-interactive
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-Nu kan du skapa ett huvudnamn för tjänsten för användning med Terraform. Använd [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac), och ange den *omfång* till din prenumeration på följande sätt:
+Nu kan du skapa ett huvud namn för tjänsten för användning med terraform. Använd [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)och ange omfånget till din prenumeration på följande sätt:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Din `appId`, `password`, `sp_name`, och `tenant` returneras. Anteckna den `appId` och `password`.
+Din `appId`, `password`, `sp_name`och returneras.`tenant` `appId` Anteckna och `password`.
 
-## <a name="configure-terraform-environment-variables"></a>Konfigurera Terraform miljövariabler
+## <a name="configure-terraform-environment-variables"></a>Konfigurera terraform-miljövariabler
 
-Om du vill konfigurera Terraform för att använda AD-tjänstens huvudnamn, ange följande miljövariabler, som sedan används av den [Azure Terraform-moduler](https://registry.terraform.io/modules/Azure). Du kan också ange miljön om du arbetar med en azuremolnet än Azure offentlig.
+Om du vill konfigurera terraform för att använda Azure AD-tjänstens huvud namn anger du följande miljövariabler som sedan används av [Azure terraform](https://registry.terraform.io/modules/Azure)-modulerna. Du kan också ställa in miljön om du arbetar med ett annat Azure-moln än Azure Public.
 
 - `ARM_SUBSCRIPTION_ID`
 - `ARM_CLIENT_ID`
@@ -77,7 +77,7 @@ Om du vill konfigurera Terraform för att använda AD-tjänstens huvudnamn, ange
 - `ARM_TENANT_ID`
 - `ARM_ENVIRONMENT`
 
-Du kan använda följande exempelskript shell för att ange de variablerna:
+Du kan använda följande exempel kommando skript för att ange variablerna:
 
 ```bash
 #!/bin/sh
@@ -91,7 +91,7 @@ export ARM_TENANT_ID=your_tenant_id
 export ARM_ENVIRONMENT=public
 ```
 
-## <a name="run-a-sample-script"></a>Kör ett exempelskript
+## <a name="run-a-sample-script"></a>Kör ett exempel skript
 
 Skapa en fil `test.tf` i en tom katalog och klistra in följande skript.
 
@@ -104,7 +104,7 @@ resource "azurerm_resource_group" "rg" {
 }
 ```
 
-Spara filen och sedan starta Terraform-distributionen. Det här steget laddar du ned Azure-moduler krävs för att skapa en Azure-resursgrupp.
+Spara filen och initiera terraform-distributionen. Det här steget laddar ned de Azure-moduler som krävs för att skapa en Azure-resurs grupp.
 
 ```bash
 terraform init
@@ -118,7 +118,7 @@ Utdata ser ut ungefär så här:
 Terraform has been successfully initialized!
 ```
 
-Du kan förhandsgranska åtgärderna som ska utföras med Terraform-skriptet med `terraform plan`. När du är klar att skapa resursgruppen gäller avtalet Terraform på följande sätt:
+Du kan förhandsgranska de åtgärder som ska utföras av terraform-skriptet `terraform plan`med. När du är redo att skapa resurs gruppen använder du terraform-planen på följande sätt:
 
 ```bash
 terraform apply
@@ -148,7 +148,7 @@ azurerm_resource_group.rg: Creation complete after 1s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du installerat Terraform eller används Cloud Shell för att konfigurera autentiseringsuppgifter för Azure och börja skapa resurser i Azure-prenumerationen. Om du vill skapa en mer komplett Terraform-distribution i Azure finns i följande artikel:
+I den här artikeln installerade du terraform eller använde Cloud Shell för att konfigurera Azure-autentiseringsuppgifter och börja skapa resurser i din Azure-prenumeration. Information om hur du skapar en mer fullständig terraform-distribution i Azure finns i följande artikel:
 
 > [!div class="nextstepaction"]
-> [Skapa en Azure virtuell dator med Terraform](terraform-create-complete-vm.md)
+> [Skapa en virtuell Azure-dator med terraform](terraform-create-complete-vm.md)

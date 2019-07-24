@@ -1,6 +1,6 @@
 ---
-title: Uppgiften som förinställning för Azure Media Indexer
-description: Det här avsnittet ger en översikt över aktivitet förinställning för Azure Media Indexer.
+title: Uppgifts för inställning för Azure Media Indexer
+description: Det här avsnittet innehåller en översikt över uppgifts för inställningar för Azure Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -12,32 +12,31 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: adsolank
-ms.reviewer: juliako
-ms.openlocfilehash: 129694edacb390aa62c061941810b8c98be7e96c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: juliako
+ms.openlocfilehash: a9a47f970f0f934e0953bd5e2d6e5575758a9c1c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619154"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873506"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Uppgiften som förinställning för Azure Media Indexer 
+# <a name="task-preset-for-azure-media-indexer"></a>Uppgifts för inställning för Azure Media Indexer 
 
-Azure Media Indexer är en Mediebearbetare som används för att utföra följande uppgifter: gör mediefiler och innehåll sökbara, generera spårar för dold textning och nyckelord, index-tillgångsfiler som ingår i din tillgång.
+Azure Media Indexer är en medie processor som du använder för att utföra följande uppgifter: gör mediefiler och innehåll sökbart, generera textning för dold textning och nyckelord, index till gångs filer som är en del av din till gång.
 
-Det här avsnittet beskriver aktiviteten förinställda att du måste skicka till ditt indexeringsjobb. Komplett exempel finns i [indexera mediefiler med Azure Media Indexer](media-services-index-content.md).
+I det här avsnittet beskrivs den uppgifts för inställning som du behöver skicka till ditt indexerings jobb. Fullständiga exempel finns i [Indexera mediefiler med Azure Media Indexer](media-services-index-content.md).
 
 ## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer konfigurations-XML
 
-I följande tabell beskriver elementen och attributen i XML-konfiguration.
+I följande tabell beskrivs element och attribut för konfigurations-XML.
 
 |Namn|Kräv|Beskrivning|
 |---|---|---|
-|Indata|true|Tillgången fil(er) som du vill indexera.<br/>Azure Media Indexer stöder följande media format: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Du kan ange namnet på filen (s) i den **namn** eller **lista** attributet för den **inkommande** element (som visas nedan). Om du inte anger vilken tillgångsfil till index plockas den primära filen. Om ingen primär tillgångsfil anges indexeras den första filen i indatatillgången.<br/><br/>För att uttryckligen ange filnamnet tillgången, gör du:<br/>```<input name="TestFile.wmv" />```<br/><br/>Du kan också indexera flera tillgångsfiler på samma gång (upp till 10 filer). Gör så här:<br/>– Skapa en textfil (manifestfilen) och ge den ett .lst-tillägg.<br/>-Lägga till en lista över alla tillgångar filnamn i din inkommande tillgång till den här manifestfilen.<br/>-Lägga till () manifestet uppladdningsfilen till tillgången.<br/>– Ange namnet på manifestfilen i angivna indata-attribut.<br/>```<input list="input.lst">```<br/><br/>**Obs:** Om du lägger till fler än 10 filer att manifestfilen misslyckas indexering jobbet med felkoden 2006.|
-|metadata|false|Metadata för den angivna resursen/filerna.<br/>```<metadata key="..." value="..." />```<br/><br/>Du kan ange värden för fördefinierade nycklar. <br/><br/>För närvarande stöds följande nycklar:<br/><br/>**Rubrik** och **beskrivning** – används för att uppdatera språkmodellen för att förbättra taligenkänningen.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**användarnamn** och **lösenord** – används för autentisering när du laddar ned Internetfiler via http eller https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Värden för användarnamn och lösenord gäller för alla media-URL: er i indata manifestet.|
-|funktioner<br/><br/>Har lagts till i version 1.2. Den enda funktionen som stöds är för närvarande taligenkänning (”ASR”).|false|Funktionen har följande inställningar för nycklar:<br/><br/>Språk:<br/>-Naturligt språk ska identifieras i multimediefilen.<br/>-Engelska, spanska<br/><br/>CaptionFormats:<br/>-en semikolonavgränsad lista över önskade utdata texten formaterar (i förekommande fall)<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB:<br/>-En boolesk flagga som anger huruvida en AIB-fil krävs (för användning med SQL Server och kunden indexeraren IFilter). Mer information finns i använda AIB-filer med Azure Media Indexer och SQL Server.<br/>- True; False<br/><br/>GenerateKeywords:<br/>-En boolesk flagga som anger huruvida en XML-fil med nyckelord måste anges.<br/>- True; False.|
+|Indata|true|Till gångs fil (er) som du vill indexera.<br/>Azure Media Indexer stöder följande medie fil format: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Du kan ange fil namnen i indata-elementets **namn** eller **list** -attribut (  se nedan). Om du inte anger vilken till gångs fil som ska indexeras, kommer den primära filen att plockas. Om ingen primär till gångs fil anges indexeras den första filen i indata till gången.<br/><br/>Om du uttryckligen vill ange namnet på till gångs filen gör du följande:<br/>```<input name="TestFile.wmv" />```<br/><br/>Du kan också indexera flera till gångs filer samtidigt (upp till 10 filer). Gör så här:<br/>– Skapa en textfil (manifest fil) och ge den fil tillägget LST.<br/>– Lägg till en lista över alla till gångs fil namn i din indata till gång till manifest filen.<br/>– Lägg till (överför) manifest filen till till gången.<br/>-Ange namnet på manifest filen i indatans List-attribut.<br/>```<input list="input.lst">```<br/><br/>**Obs:** Om du lägger till fler än 10 filer i manifest filen kommer indexerings jobbet att Miss 2006-felkoden.|
+|metadata|false|Metadata för de angivna till gångs fil (er).<br/>```<metadata key="..." value="..." />```<br/><br/>Du kan ange värden för fördefinierade nycklar. <br/><br/>För närvarande stöds följande nycklar:<br/><br/>**rubrik** och **Beskrivning** – används för att uppdatera språk modellen för att förbättra tal igenkännings precisionen.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**användar namn** och **lösen ord** – används för autentisering vid hämtning av Internet-filer via http eller https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Värdena för användar namn och lösen ord gäller för alla media-URL: er i manifestet för indatamängden.|
+|funktioner<br/><br/>Tillagt i version 1,2. För närvarande är den enda funktionen som stöds tal igenkänning ("ASR").|false|Tal igenkännings funktionen har följande inställnings nycklar:<br/><br/>Språk:<br/>– Det naturliga språk som ska identifieras i multimedie filen.<br/>– Engelska, spanska<br/><br/>CaptionFormats:<br/>– en semikolonavgränsad lista med önskade format för text remsor (om det finns några)<br/>-ttml; samiska; webvtt<br/><br/><br/>GenerateAIB:<br/>-En boolesk flagga som anger om en AIB-fil krävs eller inte (används med SQL Server och kundens Indexer IFilter). Mer information finns i använda AIB-filer med Azure Media Indexer och SQL Server.<br/>Värdet !<br/><br/>GenerateKeywords:<br/>-En boolesk flagga som anger om en nyckelords-XML-fil krävs eller inte.<br/>Värdet !.|
 
-## <a name="azure-media-indexer-configuration-xml-example"></a>Azure Media Indexer configuration XML-exempel
+## <a name="azure-media-indexer-configuration-xml-example"></a>Exempel på XML-Azure Media Indexer konfiguration
 
 ``` 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -65,5 +64,5 @@ I följande tabell beskriver elementen och attributen i XML-konfiguration.
   
 ## <a name="next-steps"></a>Nästa steg
 
-Se [indexera mediefiler med Azure Media Indexer](media-services-index-content.md).
+Se [Indexera mediefiler med Azure Media Indexer](media-services-index-content.md).
 

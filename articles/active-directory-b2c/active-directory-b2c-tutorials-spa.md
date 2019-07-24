@@ -1,21 +1,21 @@
 ---
-title: Självstudiekurs – aktivera autentisering i ett enkelsidigt program – Azure Active Directory B2C
-description: Lär dig hur du använder Azure Active Directory B2C för att tillhandahålla en användarinloggning för en ensidesapp (JavaScript).
+title: Självstudie – aktivera autentisering i ett program med en sida – Azure Active Directory B2C
+description: Lär dig hur du använder Azure Active Directory B2C för att tillhandahålla användar inloggning för ett enda sid program (Java Script).
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/08/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 496cf801a44638af61306b43791abce9466e2cb2
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835673"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369572"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i en ensidesapplikation med hjälp av Azure Active Directory B2C
 
@@ -32,21 +32,21 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver följande Azure AD B2C-resurser på plats innan du fortsätter med stegen i den här självstudien:
+Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
-* [Azure AD B2C-klient](tutorial-create-tenant.md)
-* [Registrerat program](tutorial-register-applications.md) i din klient
-* [Användarflöden skapade](tutorial-create-user-flows.md) i din klient
+* [Azure AD B2C klient](tutorial-create-tenant.md)
+* [Programmet är registrerat](tutorial-register-applications.md) i din klient
+* [Användar flöden som skapats](tutorial-create-user-flows.md) i din klient organisation
 
-Dessutom behöver du följande i din lokala utvecklingsmiljö:
+Dessutom behöver du följande i din lokala utvecklings miljö:
 
-* Code redigeringsprogram, till exempel [Visual Studio Code](https://code.visualstudio.com/) eller [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [.NET core SDK 2.0.0](https://www.microsoft.com/net/core) eller senare
+* Kod redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/) eller [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+* [.NET Core SDK 2,2](https://dotnet.microsoft.com/download) eller senare
 * [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Uppdatera programmet
 
-I den andra självstudien som du har slutfört som en del av förutsättningarna, registrerade du ett webbprogram i Azure AD B2C. För att möjliggöra kommunikation med exemplet i självstudien behöver du lägga till en omdirigerings-URI i programmet i Azure AD B2C.
+I den andra själv studie kursen som du avslutade som en del av förutsättningarna registrerade du ett webb program i Azure AD B2C. För att möjliggöra kommunikation med exemplet i självstudien behöver du lägga till en omdirigerings-URI i programmet i Azure AD B2C.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
@@ -54,11 +54,11 @@ I den andra självstudien som du har slutfört som en del av förutsättningarna
 1. Välj **Program** och därefter programmet *webapp1*.
 1. Under **Svars-URL** lägger du till `http://localhost:6420`.
 1. Välj **Spara**.
-1. På egenskapssidan registrera den **program-ID**. Du kan använda app-ID i ett senare steg när du uppdaterar koden i enkelsidiga webbprogrammet.
+1. På sidan Egenskaper registrerar du **program-ID: t**. Du använder app-ID i ett senare steg när du uppdaterar koden i webb programmet med en sida.
 
 ## <a name="get-the-sample-code"></a>Hämta exempelkoden
 
-I den här självstudien konfigurerar du ett kodexempel som du laddar ned från GitHub. Exemplet visar hur ett enkelsidigt program kan använda Azure AD B2C för registrering och inloggning, och till ett skyddat webb-API-anropet.
+I den här självstudien konfigurerar du ett kod exempel som du hämtar från GitHub. Exemplet visar hur ett program med en enda sida kan använda Azure AD B2C för användarens registrering och inloggning och för att anropa ett skyddat webb-API.
 
 [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona exemplet från GitHub.
 
@@ -68,10 +68,10 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ## <a name="update-the-sample"></a>Uppdatera exemplet
 
-Nu när du har köpt exemplet kan du uppdatera koden med din Azure AD B2C-klientnamn och det program-ID som du antecknade i ett tidigare steg.
+Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient namn och det program-ID som du registrerade i ett tidigare steg.
 
-1. Öppna den `index.html` filen i roten av den exempel-katalogen.
-1. I den `msalConfig` definition, ändra den **clientId** värdet med det program-ID som du antecknade i ett tidigare steg. Därefter uppdaterar den **utfärdare** URI-värdet med namnet på din Azure AD B2C-klientorganisation. Dessutom uppdatera URI: N med namnet på registrerings-registreringen/logga in användarflödet som du skapade i något av kraven (till exempel *B2C_1_signupsignin1*).
+1. `index.html` Öppna filen i roten i exempel katalogen.
+1. I definitionen ändrar du clientId-värdet med det program-ID som du registrerade i ett tidigare steg.  `msalConfig` Uppdatera sedan URI-  värdet för utfärdaren med ditt Azure AD B2C klient namn. Uppdatera även URI: n med namnet på det användar flöde för registrering/inloggning som du skapade i en av kraven (till exempel *B2C_1_signupsignin1*).
 
     ```javascript
     var msalConfig = {
@@ -87,11 +87,11 @@ Nu när du har köpt exemplet kan du uppdatera koden med din Azure AD B2C-klient
     };
     ```
 
-    Namnet på det användarflöde som används i den här självstudien är **B2C_1_signupsignin1**. Om du använder ett annat användarnamn för flödet, anger du det namnet i den `authority` värde.
+    Namnet på det användarflöde som används i den här självstudien är **B2C_1_signupsignin1**. Om du använder ett annat användar flödes namn anger du det namnet i `authority` värdet.
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna ett konsolfönster och ändra till den katalog som innehåller exemplet. Exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Exempel:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -103,41 +103,45 @@ Nu när du har köpt exemplet kan du uppdatera koden med din Azure AD B2C-klient
     node server.js
     ```
 
-    Konsolfönstret visar portnumret för lokalt köra Node.js-server:
+    Konsol fönstret visar port numret för det lokalt använda Node. js-servern:
 
     ```
     Listening on port 6420...
     ```
 
-1. Gå till `http://localhost:6420` i webbläsaren för att visa programmet.
+1. Navigera till `http://localhost:6420` i webbläsaren om du vill visa programmet.
 
 Exempelappen har stöd för registrering, inloggning, redigering av profil och återställning av lösenord. Den här självstudien visar hur en användare registrerar sig med hjälp av en e-postadress.
 
 ### <a name="sign-up-using-an-email-address"></a>Registrera sig med en e-postadress
 
-1. Klicka på **Logga in** för att logga in som användare av programmet. Här används den **B2C_1_signupsignin1** användarflödet som du angav i föregående steg.
-1. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du inte har något konto klickar du på länken **Registrera dig**.
+1. Klicka på **Logga in** för att initiera det *B2C_1_signupsignin1* -användarkonto du angav i ett tidigare steg.
+1. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du ännu inte har ett konto klickar du på länken **Registrera dig nu** .
 1. Arbetsflödet för registrering visar en sida för att samla in och verifiera användarens identitet med en e-postadress. Arbetsflödet för registrering samlar även in användarens lösenord och de attribut som definierats i användarflödet.
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
 
-    ![Registreringssidan som presenteras av logga-i/registrering användarflödet](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Registrerings sidan som visas i användar flödet för inloggning/registrering](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 1. Klicka på **Skapa** och skapa ett lokalt konto i Azure AD B2C-katalogen.
 
-När du klickar på **skapa**, sidan registrera stängs och inloggningssidan visas igen.
+När du klickar på **skapa**stängs sidan Registrera och inloggnings sidan visas igen.
 
-Du kan nu använda din e-postadress och lösenord för att logga in till programmet.
+Du kan nu använda din e-postadress och ditt lösen ord för att logga in i programmet.
 
 ### <a name="error-insufficient-permissions"></a>Fel: otillräcklig behörighet
 
-När du loggar in, appen visar ett fel med otillräckliga behörigheter – det här är **förväntat**:
+När du har loggat in visas ett fel meddelande om otillräcklig behörighet. detta är förväntat:
 
-`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
 
-Du får detta felmeddelande eftersom du försöker komma åt en resurs från den demo-katalogen, men ditt åtkomst-token är endast giltig för Azure AD-katalogen. API-anrop kan därför inte användas.
+Du får det här felet eftersom webb programmet försöker få åtkomst till ett webb-API som skyddas av demo katalogen, *fabrikamb2c*. Eftersom din åtkomsttoken bara är giltig för din Azure AD-katalog är API-anropet därför obehörigt.
 
-Fortsätt med nästa självstudie i serien (se [nästa steg](#next-steps)) att skapa ett skyddat webb-API för din katalog.
+Du kan åtgärda det här felet genom att fortsätta till nästa självstudie i serien (se [Nästa steg](#next-steps)) för att skapa ett skyddat webb-API för din katalog.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -148,7 +152,7 @@ I den här artikeln lärde du dig att:
 > * Konfigurera exemplet för att använda programmet
 > * Registrera dig via användarflödet
 
-Nu gå vidare till nästa självstudie i serien att bevilja åtkomst till ett skyddat webb-API från att SPA: N:
+Gå vidare till nästa självstudie i serien för att bevilja åtkomst till ett skyddat webb-API från SPA:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från ett SPA med Azure AD B2C >](active-directory-b2c-tutorials-spa-webapi.md)

@@ -11,14 +11,14 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: dapine
-ms.openlocfilehash: 604b17bc3d4696ff0bf2be1759a53927a531fe13
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2a9b9ce5109315d940d6dcadf395489612faddec
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296027"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356934"
 ---
-# <a name="configure-text-analytics-docker-containers"></a>Konfigurera textanalys docker-behållare
+# <a name="configure-text-analytics-docker-containers"></a>Konfigurera Textanalys Docker-behållare
 
 Textanalys ger varje behållare med ett gemensamt ramverk för konfiguration, så att du enkelt kan konfigurera och hantera inställningar för lagring, loggning och telemetri och säkerhet för dina behållare.
 
@@ -31,11 +31,11 @@ Textanalys ger varje behållare med ett gemensamt ramverk för konfiguration, s�
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
+Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _textanalys_ resurs som angetts för [`Billing`](#billing-configuration-setting) konfigurations inställningen.
 
-Den här inställningen kan hittas på följande plats:
+Du hittar den här inställningen på följande plats:
 
-* Azure-portalen: **Cognitive Services** resurshantering under **nycklar**
+* Azure-portalen: **Textanalys** resurs hantering under **nycklar**
 
 ## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
 
@@ -43,17 +43,15 @@ Den här inställningen kan hittas på följande plats:
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` inställningen anger URI för den _Cognitive Services_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig slutpunkt URI för ett __Cognitive Services_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
+Inställningen anger slut punkts-URI för den textanalys resursen på Azure som används för att mäta fakturerings information för behållaren.  `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en __textanalys_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
-Den här inställningen kan hittas på följande plats:
+Du hittar den här inställningen på följande plats:
 
-* Azure-portalen: **Cognitive Services** översikt, märkt `Endpoint`
+* Azure-portalen: **Textanalys** Översikt, märkt`Endpoint`
 
-Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI.
-
-|Obligatoriskt| Namn | Datatyp | Beskrivning |
+|Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
+|Ja| `Billing` | Sträng | Den obligatoriska URI för fakturerings slut punkt |
 
 ## <a name="eula-setting"></a>Licensvillkor för inställningen
 
@@ -63,7 +61,7 @@ Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI so
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP-proxyinställningarna för autentiseringsuppgifter
+## <a name="http-proxy-credentials-settings"></a>Inställningar för autentiseringsuppgifter för http-proxy
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -75,84 +73,82 @@ Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI so
 
 Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando.
 
-Text Analytics-behållare använder inte indata eller utdata monterar för att lagra utbildning eller tjänstdata. 
+Textanalys behållare använder inte indata eller utdata monteras för att lagra utbildning eller tjänst data. 
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter. 
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | String | Text Analytics behållare Använd inte detta.|
-|Valfri| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Tillåts inte| `Input` | Sträng | Textanalys behållare använder inte detta.|
+|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
 
 I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon.  När du kör, behållaren fortsätter att köras tills du [stoppa](how-tos/text-analytics-how-to-install-containers.md#stop-the-container) den.
 
-* **Fortsättning på raden tecknet**: Docker-kommandon i följande avsnitt använder det omvända snedstrecket `\`, som en fortsättning tecknet. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
-* **Argumentet order**: Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
-
-Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI.
+* **Rad fortsättnings avstånd**: Docker- `\`kommandona i följande avsnitt använder omvänt snedstreck, som ett fortsättnings streck. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
+* **Argument ordning**: Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
 
 Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{BILLING_KEY} | Slutpunktsnyckeln av den `Cognitive Services` resurs som är tillgängliga på Azure `Cognitive Services` sidan nycklar. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet är tillgänglig på Azure `Cognitive Services` översiktssidan.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|{API_KEY} | Slut punkts nyckeln för `Text Analytics` resursen som är tillgänglig på `Text Analytics` sidan med Azure-nycklar. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+|{ENDPOINT_URI} | Värdet för fakturerings slut punkten är tillgängligt på sidan `Text Analytics` Azure-översikt.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
-> ApiKey-värdet är den **nyckel** från Azure `Cognitive Services` resurssida nycklar. 
+> ApiKey-värdet är **nyckeln** på sidan med Azures `Text Analytics` resurs nycklar. 
 
-## <a name="key-phrase-extraction-container-docker-examples"></a>Diskussionsämne extrahering behållare docker-exempel
+## <a name="key-phrase-extraction-container-docker-examples"></a>Nyckel fras extrahering behållare Docker-exempel
 
-I följande exempel docker är för behållaren för extrahering av diskussionsämne. 
+Följande Docker-exempel är för extraherings behållaren för nyckel fraser. 
 
 ### <a name="basic-example"></a>Grundläggande exempel 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Exempel för loggning 
+### <a name="logging-example"></a>Loggnings exempel 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
-## <a name="language-detection-container-docker-examples"></a>Språk identifiering av behållare, docker exempel
+## <a name="language-detection-container-docker-examples"></a>Docker-exempel för språk identifierings behållare
 
-I följande exempel docker är för behållaren för identifiering av språk. 
+Följande Docker-exempel är för språk identifierings behållaren. 
 
 ### <a name="basic-example"></a>Grundläggande exempel
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Exempel för loggning
+### <a name="logging-example"></a>Loggnings exempel
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
   ```
  
-## <a name="sentiment-analysis-container-docker-examples"></a>Sentiment analysis behållare docker-exempel
+## <a name="sentiment-analysis-container-docker-examples"></a>Docker-exempel för sentiment Analysis container
 
-I följande exempel docker är för behållaren sentiment analys. 
+Följande Docker-exempel är för analys behållaren sentiment. 
 
 ### <a name="basic-example"></a>Grundläggande exempel
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Exempel för loggning
+### <a name="logging-example"></a>Loggnings exempel
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska [hur du installerar och kör behållare](how-tos/text-analytics-how-to-install-containers.md)
-* Använder mer [Cognitive Services-behållare](../cognitive-services-container-support.md)
+* Använd fler [Cognitive Services behållare](../cognitive-services-container-support.md)

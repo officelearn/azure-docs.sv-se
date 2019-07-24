@@ -1,6 +1,6 @@
 ---
-title: Överväganden för Universal Windows Platform (Microsoft Authentication Library för .NET) | Azure
-description: Läs mer om specifika överväganden när du använder universell Windows-plattform med Microsoft Authentication Library för .NET (MSAL.NET).
+title: Universell Windows-plattform överväganden (Microsoft Authentication Library för .NET) | Azure
+description: Lär dig mer om att tänka på när du använder Universell Windows-plattform med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -12,39 +12,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 07/16/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83fb999b0cf66cfd8d96e82d23ed43626352a8aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d78a64ee41e37fe53eba20eab6753c0b6eb8389
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544138"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277907"
 ---
-# <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Universal Windows Platform-specifika överväganden med MSAL.NET
-Det finns flera saker som du måste tänka på när du använder MSAL.NET på Xamarin iOS.
+# <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Universell Windows-plattform-/regionsspecifika överväganden med MSAL.NET
+På UWP finns det flera saker som du måste tänka på när du använder MSAL.NET.
 
 ## <a name="the-usecorporatenetwork-property"></a>Egenskapen UseCorporateNetwork
-I WinRT-plattformen `PublicClientApplication` har följande boolesk egenskap ``UseCorporateNetwork``. Den här egenskapen gör Win8.1 och UWP-program kan dra nytta av integrerad Windows-autentisering (och därför enkel inloggning med användaren loggat in med operativsystemet) om användaren är inloggad med ett konto i en federerad Azure AD-klient. Det utnyttjar Windows Adressbok (Webbautentiseringskoordinatorn). 
+I WinRT- `PublicClientApplication` plattformen har följande booleska egenskap ``UseCorporateNetwork``. Den här egenskapen gör att Win 8.1-och UWP-program kan dra nytta av integrerad Windows-autentisering (och därmed SSO med användaren inloggad med operativ systemet) om användaren är inloggad med ett konto i en federerad Azure AD-klient. När du ställer in den här egenskapen utnyttjar MSAL.NET WAB (Web Authentication Broker).
 
 > [!IMPORTANT]
-> Denna egenskap anges till true förutsätter att programutvecklaren har aktiverat integrerad Windows autentisering (IWA) i programmet. För detta:
-> - I den ``Package.appxmanifest`` för UWP-appen i den **funktioner** fliken måste du aktivera följande funktioner:
+> Om den här egenskapen ställs in på Sant antas att programutvecklaren har aktiverat integrerad Windows-autentisering (IWA) i programmet. För detta:
+> - I UWP för ditt program, på fliken funktioner, aktiverar du följande funktioner:  ``Package.appxmanifest``
 >   - Enterprise-autentisering
->   - Privat nätverk (klient och Server)
->   - Delade användarcertifikat
+>   - Privata nätverk (klient & Server)
+>   - Delat användar certifikat
 
-IWA är inte aktiverad som standard eftersom program som begär Företagsautentisering eller delade användarcertifikat funktioner kräver en högre nivå av kontroll ska godkännas i Windows Store och inte alla utvecklare kanske vill utföra på högre nivå av kontroll. 
+IWA är inte aktiverat som standard eftersom program som efterfrågar funktionerna Enterprise-autentisering eller delade användar certifikat kräver en högre verifierings nivå för att godkännas i Windows Store, och det är inte alla utvecklare som vill utföra den högre kontroll nivå.
 
-Den underliggande implementeringen på UWP-plattformen (Windows Adressbok) fungerar inte korrekt i företagssituationer där villkorlig åtkomst har aktiverats. Problemet är att användaren försöker logga in med Windows hello och planerar att välja ett certifikat, men certifikatet för PIN-koden inte finns eller om användaren väljer den, men aldrig ska uppmanas att PIN-koden. En lösning är att använda en alternativ metod (användarnamn/lösenord + phone autentisering), men upplevelsen är inte bra. 
+Den underliggande implementeringen av UWP Platform (WAB) fungerar inte korrekt i företags scenarier där villkorlig åtkomst har Aktiver ATS. Problemet är att användaren försöker logga in med Windows Hello, och det föreslås att du väljer ett certifikat, men:
+
+- Det gick inte att hitta certifikatet för PIN-koden,
+- eller användaren väljer den, men kommer aldrig att uppmanas att ange PIN-koden.
+
+En lösning är att använda en alternativ metod (username/Password + Phone Authentication), men upplevelsen är inte felfri.
+
+## <a name="troubleshooting"></a>Felsökning
+
+Vissa kunder har rapporterat att i vissa företags miljöer har följande inloggnings fel uppstått:
+
+```Text
+We can't connect to the service you need right now. Check your network connection or try this again later
+```
+
+de vet att de har en Internet anslutning och att det fungerar med ett offentligt nätverk.
+
+En lösning är att se till att WAB (den underliggande Windows-komponenten) tillåter privat nätverk. Det kan du göra genom att ange en register nyckel:
+
+```Text
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
+```
+
+Mer information finns i [Web Authentication Broker-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande exempel:
 
 Exempel | Plattform | Beskrivning 
 |------ | -------- | -----------|
-|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Ett Universal Windows Platform klientprogram som med hjälp av msal.net, åtkomst till Microsoft Graph för att autentisera en användare med Azure AD v2.0-slutpunkten. <br>![Topologi](media/msal-net-uwp-considerations/topology-native-uwp.png)|
-|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | En enkel Xamarin Forms-app som visar hur du använder MSAL för att autentisera MSA och Azure AD via AAD v2.0-slutpunkten och få åtkomst till Microsoft Graph med resulterande token. <br>![Topologi](media/msal-net-uwp-considerations/topology-xamarin-native.png)|
+|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Ett Universell Windows-plattform klient program som använder msal.net för att komma åt Microsoft Graph för en användare som autentiseras med Azure AD v 2.0-slutpunkten. <br>![Topologi](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | En enkel Xamarin Forms-app som demonstrerar hur du använder MSAL för att autentisera MSA och Azure AD via AAD v 2.0-slutpunkten och komma åt Microsoft Graph med den resulterande token. <br>![Topologi](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

@@ -1,6 +1,6 @@
 ---
-title: Anslutningsappar för Azure Logic Apps
-description: Automatisera arbetsflöden med anslutningsappar för Azure Logic Apps, inklusive inbyggda, hanterade, lokala, integrationskonto och enterprise-anslutningsappar
+title: Anslutningar för Azure Logic Apps
+description: Automatisera arbets flöden med kopplingar för Azure Logic Apps, inklusive inbyggt, hanterat, lokalt, integrations konto och företags anslutningar
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -9,196 +9,200 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551869"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277647"
 ---
-# <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
+# <a name="connectors-for-azure-logic-apps"></a>Anslutningar för Azure Logic Apps
 
-Anslutnings appar ger snabb åtkomst från Azure Logic Apps till händelser, data och åtgärder i andra appar, tjänster, system, protokoll och plattformar. Genom att använda anslutningsappar i logic apps kan utöka du funktionerna för molnet och lokala appar du utför uppgifter med de data som du skapar och redan har.
+Anslutningarna ger snabb åtkomst från Azure Logic Apps till händelser, data och åtgärder i andra appar, tjänster, system, protokoll och plattformar. Genom att använda kopplingar i dina Logi Kap par, expanderar du funktionerna för dina moln-och lokala appar för att utföra uppgifter med de data som du skapar och redan har.
 
-Medan Logic Apps-erbjudanden [~ 200 + anslutningsappar](https://docs.microsoft.com/connectors), den här artikeln beskriver populära och vanliga kopplingar som har används av tusentals appar och miljontals körningar för bearbetning av data och information. Du hittar en fullständig lista över kopplingar och referensinformation för varje anslutning, som utlösare, åtgärder och gränser, granska referenssidor för anslutningen under [översikt över Anslutningsappar](https://docs.microsoft.com/connectors). Dessutom lär dig mer om [utlösare och åtgärder](#triggers-actions), [Logikappar prissättningsmodellen](../logic-apps/logic-apps-pricing.md), och [Logic Apps prisinformation](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Även om Logic Apps erbjuder [hundratals kopplingar](https://docs.microsoft.com/connectors), beskriver den här artikeln populära och ofta använda anslutningar som används av tusentals appar och miljoner körningar för bearbetning av data och information. Om du vill hitta en fullständig lista över kopplingar och varje kopplings referensinformation, till exempel utlösare, åtgärder och gränser, granskar du kopplings referens sidorna under [kopplings översikt](https://docs.microsoft.com/connectors). Lär dig även mer om [utlösare och åtgärder](#triggers-actions), [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md)och [Logic Apps pris information](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
-> Om du vill integrera med en tjänst eller ett API som inte har anslutningen, du kan antingen direkt anropa tjänsten via ett protokoll som HTTP eller skapa en [anslutningsapp](#custom).
+> Om du vill integrera med en tjänst eller ett API som inte har någon koppling kan du antingen anropa tjänsten direkt via ett protokoll som HTTP eller skapa en [anpassad anslutning](#custom).
 
-Anslutningsapparna finns antingen som inbyggda utlösare och åtgärder eller hanterade anslutningsappar:
+Kopplingar är tillgängliga antingen som inbyggda utlösare och åtgärder eller som hanterade anslutningar:
 
-* [**Built-INS**](#built-ins): Dessa inbyggda utlösare och åtgärder är ”interna” Azure Logic Apps och hjälper dig att skapa logikappar som körs på anpassade scheman, kommunicera med andra slutpunkter, ta emot och svara på förfrågningar och anropa Azure functions, Azure API Apps (Webbappar), egna API: er hanterade och publicerade med Azure API Management och kapslade logic apps som kan ta emot begäranden. Du kan också använda inbyggda åtgärder som hjälper dig att ordna och styra logikappens arbetsflöde och också arbeta med data.
+<a name="built-in"></a>
+
+* [**Inbyggda program**](#built-ins): Dessa inbyggda utlösare och åtgärder är "interna" för att Azure Logic Apps och hjälpa dig att skapa Logi Kap par som körs på anpassade scheman, kommunicera med andra slut punkter, ta emot och svara på förfrågningar och anropa Azure Functions, Azure API Apps (Web Apps), dina egna API: er hanteras och publiceras med Azure API Management och kapslade Logic-appar som kan ta emot begär Anden. Du kan också använda inbyggda åtgärder som hjälper dig att organisera och kontrol lera din Logic app-arbetsflöde och även arbeta med data.
 
   > [!NOTE]
-  > Logikappar inom en [integreringstjänstmiljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) direkt komma åt resurser i Azure-nätverk.
-  > När du använder en ISE inbyggda utlösare och åtgärder som visas i **Core** etikett som körs i samma ISE som dina logic apps. Logic apps, inbyggda utlösare och inbyggda åtgärder som körs i ISE-användning av en prisplanen skiljer sig från förbrukningsbaserad prisplanen.
+  > Logic Apps i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) kan komma åt resurser direkt i ett virtuellt Azure-nätverk.
+  > När du använder en ISE, inbyggda utlösare och åtgärder som visar **kärn** etiketten körs i samma ISE som dina Logic Apps. Logic Apps, inbyggda utlösare och inbyggda åtgärder som körs i din ISE använder en pris sättnings plan som skiljer sig från den förbruknings pris planen.
   >
-  > Läs mer om hur du skapar ISEs [Anslut till Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
-  > Mer information om priser finns i [Logic Apps prismodellen](../logic-apps/logic-apps-pricing.md).
+  > Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > Mer information om priser finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md).
 
-* **Hanterade anslutningsappar**: Distribueras och hanteras av Microsoft, innehåller dessa anslutningsappar utlösare och åtgärder för att komma åt cloud services, lokala system eller båda, inklusive Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint och mycket mer. Vissa anslutningsappar mer specifikt stöd för scenarier för business-to-business (B2B)-kommunikation och kräver en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som är länkad till din logikapp. Innan du använder vissa kopplingar kan kanske du först skapa anslutningar som hanteras av Azure Logic Apps. 
+<a name="managed-connectors"></a>
 
-  Till exempel om du använder Microsoft BizTalk Server, dina logic apps kan ansluta till och kommunicera med din BizTalk Server med hjälp av den [BizTalk Server lokala anslutningen](#on-premises-connectors). 
-  Du kan utöka eller utföra BizTalk-liknande åtgärder i dina logic apps med hjälp av den [integrationskonton](#integration-account-connectors).
+* **Hanterade anslutningsappar**: De här anslutningarna distribueras och hanteras av Microsoft och ger utlösare och åtgärder för att komma åt moln tjänster, lokala system eller både, inklusive Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint med mera. Vissa anslutningar har specifikt stöd för kommunikation mellan företag och företag (B2B) och kräver ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som är länkat till din Logic app. Innan du använder vissa anslutningar måste du först skapa anslutningar, som hanteras av Azure Logic Apps. 
 
-  Kopplingar klassificeras som Standard eller Enterprise. 
-  [Företagsanslutningarna](#enterprise-connectors) ger åtkomst till företagssystem som SAP, IBM MQ och IBM 3270 mot en extra kostnad. För att avgöra om en anslutning är Standard eller Enterprise, finns i de tekniska detaljerna i varje anslutningsapp-referenssida under [översikt över Anslutningsappar](https://docs.microsoft.com/connectors). 
+  Om du till exempel använder Microsoft BizTalk Server kan dina Logi Kap par ansluta till och kommunicera med dina BizTalk Server med hjälp av den [BizTalk Server lokala anslutningen](#on-premises-connectors). 
+  Du kan sedan utöka eller utföra BizTalk-liknande åtgärder i dina Logi Kap par genom att använda kopplingarna för [integrations konton](#integration-account-connectors).
 
-  Du kan även identifiera kopplingar med hjälp av dessa kategorier, även om vissa anslutningsappar kan passera flera kategorier. 
-  Till exempel är SAP en Enterprise-anslutning och en lokal anslutning:
+  Anslutningarna klassificeras som antingen standard eller Enterprise. 
+  [Företags anslutningar](#enterprise-connectors) ger till gång till företags system som SAP, IBM MQ och IBM 3270 för ytterligare kostnader. För att avgöra om en koppling är standard eller företag, se teknisk information på varje kopplings referens sida under [anslutnings översikt](https://docs.microsoft.com/connectors). 
+
+  Du kan också identifiera anslutningar genom att använda dessa kategorier, även om vissa kopplingar kan korsa flera kategorier. 
+  SAP är till exempel en Enterprise Connector och en lokal anslutning:
 
   |   |   |
   |---|---|
-  | [**Hanterade API-kopplingar**](#managed-api-connectors) | Skapa logikappar som använder tjänster som Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online och många fler. |
-  | [**Lokala anslutningar**](#on-premises-connectors) | När du installerar och konfigurerar den [lokal datagateway][gateway-doc], dessa kopplingar hjälper dina logic apps åtkomst till lokala system, till exempel SQL Server, SharePoint Server, Oracle DB, filresurser och andra. |
-  | [**Integrationskonton**](#integration-account-connectors) | Tillgängliga när du skapar och betala för ett integrationskonto, transformera dessa kopplingar och validera XML, koda och avkoda flata filer och bearbeta business-to-business (B2B) meddelanden med AS2 och EDIFACT X12 protokoll. |
+  | [**Hanterade API-kopplingar**](#managed-api-connectors) | Skapa Logi Kap par som använder tjänster som Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online och många fler. |
+  | [**Lokala anslutningar**](#on-premises-connectors) | När du har installerat och konfigurerat den [lokala][gateway-doc]datagatewayen kan de här anslutningarna hjälpa dina Logi Kap par att komma åt lokala system som SQL Server, SharePoint Server, Oracle DB, fil resurser och andra. |
+  | [**Integrations konto anslutningar**](#integration-account-connectors) | De här kopplingarna är tillgängliga när du skapar och betalar för ett integrations konto, omvandlar och validerar XML, kodar och avkodar flata filer och bearbetar Business-to-Business (B2B)-meddelanden med AS2-, EDIFACT-och X12-protokoll. |
   |||
 
   > [!NOTE]
-  > Logikappar inom en [integreringstjänstmiljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) direkt komma åt resurser i Azure-nätverk. När du använder en ISE, Standard och Enterprise-anslutningsappar som visar den **ISE** etikett som körs i samma ISE som dina logic apps. Kopplingar som inte visar etiketten ISE kör i tjänsten för global Logic Apps.
+  > Logic Apps i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) kan komma åt resurser direkt i ett virtuellt Azure-nätverk. När du använder en ISE, standard-och företags anslutningar som visar **ISE** -etiketten körs i samma ISE som dina Logic Apps. Kopplingar som inte visar ISE-etiketten körs i den globala Logic Appss tjänsten.
   >
-  > För lokala system som är anslutna till ett Azure-nätverk, mata in din ISE i nätverket så att dina logikappar har direkt åtkomst dessa system med hjälp av antingen en anslutning som har en **ISE** etikett, en HTTP-åtgärd eller en [anslutningsapp](#custom). Planera skiljer sig från förbrukningsbaserad prisplanen Logic apps och kopplingar som kör ISE när du använder en prisnivå. 
+  > För lokala system som är anslutna till ett virtuellt Azure-nätverk, injicera du ISE i det nätverket så att dina Logi Kap par kan komma åt dessa system genom att använda antingen en anslutning som har en **ISE** -etikett, en HTTP-åtgärd eller en [anpassad anslutning](#custom). Logic Apps och kopplingar som körs i din ISE använder en pris sättnings plan som skiljer sig från den förbruknings bara pris planen. 
   >
-  > Läs mer om hur du skapar ISEs [Anslut till Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
-  > Mer information om priser finns i [Logic Apps prismodellen](../logic-apps/logic-apps-pricing.md).
+  > Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > Mer information om priser finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md).
 
-  För en fullständig lista över kopplingar och referensinformation för varje anslutning, till exempel åtgärder och utlösare, som definieras av en OpenAPI (tidigare Swagger) beskrivning, plus eventuella gränser du hittar en fullständig lista under den [översikt över Anslutningsappar ](/connectors/). Information om priser finns i [Logikappar prissättningsmodellen](../logic-apps/logic-apps-pricing.md), och [Logic Apps prisinformation](https://azure.microsoft.com/pricing/details/logic-apps/). 
+  För en fullständig lista över kopplingar och varje kopplings referensinformation, till exempel åtgärder och utlösare, som definieras av en OpenAPI (tidigare Swagger), plus eventuella begränsningar, kan du hitta hela listan under [anslutnings översikten](/connectors/). Information om priser finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md)och [Logic Apps pris information](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 <a name="built-ins"></a>
 
-## <a name="built-ins"></a>Built-INS
+## <a name="built-ins"></a>Inbyggda program
 
-Logic Apps tillhandahåller inbyggd utlösare och åtgärder så att du kan skapa schemabaserade arbetsflöden hjälper logikappar kommunicera med andra appar och tjänster, kontroll arbetsflöde genom dina logic apps och hantera eller manipulera data.
-
-|   |   |   |   | 
-|---|---|---|---| 
-| [![API-ikon][schedule-icon]<br/>**schema**][recurrence-doc] | -Köra din logikapp enligt ett angivet schema, allt från grundläggande till avancerade upprepningar med den **upprepning** utlösaren. <p>-Pausa din logikapp under en angiven tid med den **fördröjning** åtgärd. <p>-Pausa logikappen till angivna datum och tid med den **Fördröj tills** åtgärd. | [![API-ikon][http-icon]<br/>**HTTP**][http-doc] | Kommunicera med valfri slutpunkt via HTTP med både utlösare och åtgärder för HTTP, HTTP + Swagger, och HTTP + Webhook. | 
-| [![API-ikon][http-request-icon]<br/>**för begäran**][http-request-doc] | – Skapa din logikapp anropningsbara från andra appar eller tjänster, utlösare på Event Grid resource händelser eller utlösaren för svar på aviseringar i Azure Security Center med den **begära** utlösaren. <p>-Skicka svar till en app eller tjänst med den **svar** åtgärd. | [![API-ikon][batch-icon]<br/>**Batch**][batch-doc] | -Bearbeta meddelanden i batchar med den **Batch meddelanden** utlösaren. <p>-Anropet logikappar som har befintliga batch-utlösare med den **skicka meddelanden till batchen** åtgärd. | 
-| [![API-ikon][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | Anropa Azure-funktioner som kör anpassade fragment (C# eller Node.js) från dina logic apps. | [![API-ikon][azure-api-management-icon]</br>**Azure API Management**][azure-api-management-doc] | Anropa utlösare och åtgärder som definierats av ditt eget API: er som du hanterar och publicera med Azure API Management. | 
-| [![API-ikon][azure-app-services-icon]<br/>**Azure App Services**][azure-app-services-doc] | Anropa Azure API Apps eller Webbappar som körs på Azure App Service. Utlösare och åtgärder som definierats i de här apparna visas som alla andra förstklassig utlösare och åtgärder när Swagger ingår. | [![API-ikon][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | Anropa andra logikappar som börjar med en begäransutlösare. | 
-||||| 
-
-### <a name="control-workflow"></a>Kontrollen arbetsflöde
-
-Logikappar innehåller inbyggda åtgärder för att strukturera och kontrollera åtgärder i logikappens arbetsflöde:
+Logic Apps innehåller inbyggda utlösare och åtgärder så att du kan skapa schemabaserade arbets flöden, hjälpa dina Logi Kap par att kommunicera med andra appar och tjänster, styra arbets flödet via dina Logi Kap par och hantera eller manipulera data.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![Inbyggda ikonen][condition-icon]<br/>**villkor**][condition-doc] | Utvärdera ett villkor och kör olika åtgärder beroende på om villkoret är SANT eller FALSKT. | [![Inbyggda ikonen][for-each-icon]</br>**för varje**][for-each-doc] | Utföra samma åtgärder på alla objekt i en matris. | 
-| [![Inbyggda ikonen][scope-icon]<br/>**omfång**][scope-doc] | Gruppera åtgärder i *scope*, vilket hämta sina egna status när åtgärder i omfånget slutföras. | [![Inbyggda ikonen][switch-icon]</br>**växel**][switch-doc] | Gruppera åtgärder i *fall*, som tilldelas unika värden såvida standard. Kör endast att vars tilldelade värdet matchar resultatet från ett uttryck, objekt eller token. Om det finns inga matchningar, kör du standard fall. | 
-| [![Inbyggda ikonen][terminate-icon]<br/>**avsluta**][terminate-doc] | Stoppa ett aktivt körs logikappens arbetsflöde. | [![Inbyggda ikonen][until-icon]<br/>**tills**][until-doc] | Upprepa åtgärder tills det angivna villkoret är SANT eller vissa tillstånd har ändrats. | 
+| [![**Schema** för][schedule-icon]<br/>API-ikon][recurrence-doc] | – Kör din Logic app enligt ett angivet schema, från grundläggande till komplex upprepning, med **upprepnings** utlösaren. <p>– Pausa din Logic app under en angiven varaktighet med **fördröjnings** åtgärden. <p>– Pausa din Logi Kap par fram till angivet datum och tid med **fördröjningen innan** åtgärden. | [![API-][http-icon]<br/>ikon**http**][http-doc] | Kommunicera med valfri slut punkt via HTTP med både utlösare och åtgärder för HTTP, HTTP + Swagger och HTTP + webhook. | 
+| [![API-][http-request-icon]<br/>**ikon**][http-request-doc] | – Gör ditt Logic app-anrop från andra appar eller tjänster, Utlös på Event Grid resurs händelser eller Utlös på svar till Azure Security Center aviseringar med utlösaren för **begäran** . <p>– Skicka svar till en app eller tjänst med **svars** åtgärden. | [![API-][batch-icon]<br/>ikon**batch**][batch-doc] | – Bearbeta meddelanden i batchar med utlösaren **batch-meddelanden** . <p>– Anropa Logi Kap par som har befintliga batch-utlösare med åtgärden **skicka meddelanden till batch** . | 
+| [![API-][azure-functions-icon]<br/>ikon**Azure Functions**][azure-functions-doc] | Anropa Azure Functions som kör anpassade kod avsnitt (C# eller Node. js) från dina Logic Apps. | [![API-][azure-api-management-icon]</br>ikon**Azure-API Management**][azure-api-management-doc] | Anropa utlösare och åtgärder som definierats av dina egna API: er som du hanterar och publicerar med Azure API Management. | 
+| [![API-][azure-app-services-icon]<br/>ikon**Azure App tjänster**][azure-app-services-doc] | Anropa Azure API Apps eller Web Apps som finns på Azure App Service. Utlösare och åtgärder som definieras av dessa appar visas som alla andra utlösare och åtgärder för första klass när Swagger ingår. | [![API-][azure-logic-apps-icon]<br/>ikon**Azure<br/>-Logic Apps**][nested-logic-app-doc] | Anropa andra Logi Kap par som börjar med en begär ande utlösare. | 
 ||||| 
 
-### <a name="manage-or-manipulate-data"></a>Hantera eller ändra data
+### <a name="control-workflow"></a>Kontroll arbets flöde
 
-Logikappar innehåller inbyggda åtgärder för att arbeta med data utdata och deras format:  
+Logic Apps innehåller inbyggda åtgärder för att strukturera och kontrol lera åtgärder i din Logic Apps-arbets flöde:
+
+|   |   |   |   | 
+|---|---|---|---| 
+| [![**Villkor** för inbyggd ikon][condition-icon]<br/>][condition-doc] | Utvärdera ett villkor och kör olika åtgärder baserat på om villkoret är sant eller falskt. | [![Inbyggd ikon][for-each-icon]</br>**för varje**][for-each-doc] | Utför samma åtgärder på varje objekt i en matris. | 
+| [![Inbyggda ikon][scope-icon]<br/>**omfång**][scope-doc] | Gruppera åtgärder i *omfattningar*, som får sin egen status efter att åtgärderna i omfånget har körts. | [![**Växel** för inbyggd ikon][switch-icon]</br>][switch-doc] | Gruppera åtgärder i *fall*, som tilldelas unika värden förutom standard fallet. Kör bara det fall vars tilldelade värde matchar resultatet från ett uttryck, ett objekt eller en token. Kör standard fallet om inga matchningar finns. | 
+| [![Inbyggd ikon][terminate-icon]<br/>**Avsluta**][terminate-doc] | Stoppa ett aktivt Logic app-arbetsflöde som körs. | [![Inbyggd ikon][until-icon]<br/>**tills**][until-doc] | Upprepa åtgärder tills det angivna villkoret är sant eller så har status ändrats. | 
+||||| 
+
+### <a name="manage-or-manipulate-data"></a>Hantera eller manipulera data
+
+Logic Apps innehåller inbyggda åtgärder för att arbeta med data utdata och deras format:  
 
 |   |   | 
 |---|---| 
-| [![Inbyggda ikonen][data-operations-icon]<br/>**dataåtgärder**][data-operations-doc] | Utför åtgärder med data: <p>- **Compose**: Skapa ett enda utflöde från flera inmatningar med olika typer. <br>- **Skapa CSV tabell**: Skapa en Semikolonavgränsade--värden (CSV) från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: Skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtermatris**: Skapa en matris från objekten i en annan matris som uppfyller dina kriterier. <br>- **Join**: Skapa en sträng från alla objekt i en matris och avgränsa de objekt med angiven avgränsare. <br>- **Parsa JSON**: Skapa användarvänliga token från egenskaperna och deras värden i JSON-innehåll så att du kan använda dessa egenskaper i arbetsflödet. <br>- **Välj**: Skapa en matris med JSON-objekt genom att omvandla objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaperna. | 
-| ![Inbyggda ikon][date-time-icon]<br/>**Datum tid** | Utför åtgärder med tidsstämplar som är: <p>- **Lägg till tid**: Lägga till det angivna antalet enheter till en tidsstämpel. <br>- **Konvertera tidszon**: Konvertera en tidsstämpel från källtidszonen tidszon mål. <br>- **Aktuell tid**: Returnera den aktuella tidsstämpeln som en sträng. <br>- **Hämta framtida tid**: Returnera den aktuella tidsstämpeln plus de angivna tidsenheterna. <br>- **Hämta tidigare tid**: Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tiden**: Ta bort ett antal tidsenheter från en tidsstämpel. |
-| [![Inbyggda ikonen][variables-icon]<br/>**variabler**][variables-doc] | Utför åtgärder med variabler: <p>- **Lägga till en matrisvariabel**: Infoga ett värde som det sista objektet i en matris som lagras av en variabel. <br>- **Lägga till strängvariabeln**: Infoga ett värde som det sista tecknet i en sträng som lagras av en variabel. <br>- **Minska variabel**: Minska en variabel med ett konstant värde. <br>- **Inkrementera variabeln**: Öka en variabel med ett konstant värde. <br>- **Initiera variabel**: Skapa en variabel och deklarera dess datatyp och ursprungligt värde. <br>- **Ange variabel**: Tilldela ett annat värde till en befintlig variabel. |
+| [![Inbyggda ikon][data-operations-icon]<br/>**data åtgärder**][data-operations-doc] | Utför åtgärder med data: <p>- **Skriv**: Skapa en enda utmatning från flera indata med olika typer. <br>- **Skapa CSV-tabell**: Skapa en kommaavgränsad tabell (CSV) från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: Skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtrera matris**: Skapa en matris från objekt i en annan matris som uppfyller dina kriterier. <br>- **Anslut**: Skapa en sträng från alla objekt i en matris och avgränsa dessa objekt med angiven avgränsare. <br>- **Parsa JSON**: Skapa användarvänliga token från egenskaper och deras värden i JSON-innehåll så att du kan använda dessa egenskaper i ditt arbets flöde. <br>- **Välj**: Skapa en matris med JSON-objekt genom att transformera objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaper. | 
+| ![Inbyggd ikon][date-time-icon]<br/>**Datum tid** | Utföra åtgärder med tidsstämplar: <p>- **Lägg till i tid**: Lägg till det angivna antalet enheter i en tidsstämpel. <br>- **Konvertera tidszon**: Konvertera en tidsstämpel från käll tids zonen till mål tids zonen. <br>- **Aktuell tid**: Returnera den aktuella tidstämpeln som en sträng. <br>- **Hämta framtida tid**: Returnera den aktuella tidsstämpeln och de angivna tidsenheterna. <br>- **Hämta tidigare tid**: Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tid**: Subtrahera ett antal tidsenheter från en tidsstämpel. |
+| [![Inbyggda Icon][variables-icon]<br/>-**variabler**][variables-doc] | Utföra åtgärder med variabler: <p>- **Lägg till i mat ris variabel**: Infoga ett värde som det sista objektet i en matris som lagras av en variabel. <br>- **Lägg till i sträng variabel**: Infoga ett värde som det sista specialtecknet i en sträng som lagras av en variabel. <br>- **Minska variabeln**: Minska en variabel med ett konstant värde. <br>- **Increment-variabel**: Öka en variabel med ett konstant värde. <br>- **Initiera variabel**: Skapa en variabel och deklarera dess datatyp och initialt värde. <br>- **Ange variabel**: Tilldela ett annat värde till en befintlig variabel. |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
 
 ## <a name="managed-api-connectors"></a>Hanterade API-kopplingar
 
-Logic Apps tillhandahåller dessa populära Standardanslutningar för att automatisera uppgifter, processer och arbetsflöden med dessa tjänster eller system.
+Logic Apps tillhandahåller de här populära standard anslutningarna för automatisering av uppgifter, processer och arbets flöden med dessa tjänster eller system.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API-ikon][azure-service-bus-icon]<br/>**Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnesprenumerationer med de vanligaste anslutningsappen i Logic Apps. | [![API-ikon][sql-server-icon]<br/>**SQL Server**][sql-server-doc] | Anslut till SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller utföra frågor. | 
-| [![API-ikon][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Anslut till Office 365 e-postkontot så att du kan skapa och hantera e-postmeddelanden, uppgifter, kalenderhändelser och möten, kontakter, begäranden och mycket mer. | [![API-ikon][azure-blob-storage-icon]<br/>**Azure Blob<br/>lagring**][azure-blob-storage-doc] | Anslut till ditt lagringskonto så att du kan skapa och hantera blobbinnehåll. | 
-| [![API-ikon][sftp-icon]<br/>**SFTP**][sftp-doc] | Ansluta till SFTP-servrar som du kan komma åt från internet så att du kan arbeta med filer och mappar. | [![API-ikon][sharepoint-online-icon]<br/>**SharePoint<br/>Online**][sharepoint-online-doc] | Anslut till SharePoint Online så att du kan hantera filer, bifogade filer, mappar och mycket mer. | 
-| [![API-ikon][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Anslut till Dynamics 365-konto så att du kan skapa och hantera poster och objekt. | [![API-ikon][ftp-icon]<br/>**FTP**][ftp-doc] | Ansluta till FTP-servrar som du kan komma åt från internet så att du kan arbeta med filer och mappar. | 
-| [![API-ikon][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Anslut till ditt Salesforce-konto så att du kan skapa och hantera objekt, till exempel poster, jobb, objekt med mera. | [![API-ikon][twitter-icon]<br/>**Twitter**][twitter-doc] | Anslut till ditt Twitter-konto så att du kan hantera tweets, följare, din tidslinje och mer. Spara dina tweets till SQL-, Excel- eller SharePoint. | 
-| [![API-ikon][azure-event-hubs-icon]<br/>**Azure Event Hubs**][azure-event-hubs-doc] | Använda och publicera händelser via en Händelsehubb. Till exempel hämta utdata från din logikapp med Event Hubs och sedan skicka som utdata till en leverantör av realtidsanalys. | [![API-ikon][azure-event-grid-icon]<br/>**Azure Event**</br>**rutnät**][azure-event-grid-doc] | Övervaka händelser som publicerats av en Event Grid, till exempel när ändrar Azure-resurser eller resurser från tredje part. | 
+| [![API-][azure-service-bus-icon]<br/>ikon**Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnes prenumerationer med den oftast använda anslutningen i Logic Apps. | [![API-][sql-server-icon]<br/>ikon**SQL Server**][sql-server-doc] | Anslut till din SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller köra frågor. | 
+| [![API-][office-365-outlook-icon]<br/>ikon**Office<br/>365 Outlook**][office-365-outlook-doc] | Anslut till ditt Office 365-e-postkonto så att du kan skapa och hantera e-post, uppgifter, Kalender händelser och möten, kontakter, förfrågningar och mycket annat. | [![API-][azure-blob-storage-icon]<br/>ikon**Azure<br/>Blob Storage**][azure-blob-storage-doc] | Anslut till ditt lagrings konto så att du kan skapa och hantera BLOB-innehåll. | 
+| [![API-][sftp-icon]<br/>ikon**SFTP**][sftp-doc] | Anslut till SFTP-servrar som du kan komma åt från Internet så att du kan arbeta med dina filer och mappar. | [![API-][sharepoint-online-icon]<br/>ikon**SharePoint<br/>online**][sharepoint-online-doc] | Anslut till SharePoint Online så att du kan hantera filer, bilagor, mappar med mera. | 
+| [![API-][dynamics-365-icon]<br/>ikon**Dynamics<br/>365 CRM Online**][dynamics-365-doc] | Anslut till ditt Dynamics 365-konto så att du kan skapa och hantera poster, artiklar med mera. | [![API-][ftp-icon]<br/>ikon**FTP**][ftp-doc] | Anslut till FTP-servrar som du kan komma åt från Internet så att du kan arbeta med dina filer och mappar. | 
+| [![API-][salesforce-icon]<br/>ikon**Salesforce**][salesforce-doc] | Anslut till ditt Salesforce-konto så att du kan skapa och hantera objekt, till exempel poster, jobb, objekt med mera. | [![API-][twitter-icon]<br/>ikon**Twitter**][twitter-doc] | Anslut till ditt Twitter-konto så att du kan hantera tweets, följare, din tids linje och mer. Spara din tweets i SQL, Excel eller SharePoint. | 
+| [![API-][azure-event-hubs-icon]<br/>ikon**Azure-Event Hubs**][azure-event-hubs-doc] | Använda och publicera händelser via en Event Hub. Du kan till exempel hämta utdata från din Logic app med Event Hubs och sedan skicka utdata till en leverantör av real tids analys. | [![API-][azure-event-grid-icon]<br/>ikon**Azure Event**</br>**Grid**][azure-event-grid-doc] | Övervaka händelser som publicerats av en Event Grid, till exempel när Azure-resurser eller resurser från tredje part ändras. | 
 |||||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>Lokala anslutningsappar 
 
-Här följer några vanliga Standardanslutningar som Logic Apps tillhandahåller för att komma åt data och resurser i lokala system. Innan du kan skapa en anslutning till ett lokalt system, måste du först [hämta, installera och konfigurera en lokal datagateway][gateway-doc]. Den här gatewayen tillhandahåller en säker kommunikationskanal utan att behöva ställa in nödvändiga nätverkets infrastruktur. 
+Här följer några vanliga standard anslutningar som Logic Apps ger åtkomst till data och resurser i lokala system. Innan du kan skapa en anslutning till ett lokalt system måste du först [Ladda ned, installera och konfigurera en lokal datagateway][gateway-doc]. Den här gatewayen tillhandahåller en säker kommunikations kanal utan att behöva konfigurera den nödvändiga nätverks infrastrukturen. 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![API-ikon][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API-ikon][file-system-icon]<br/>**filen</br> System**][file-system-doc] | [![API-ikon][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API-ikon][ibm-informix-icon]<br/>**IBM** </br> **Informix**][ibm-informix-doc] | ![API-ikon][mysql-icon]<br/>**MySQL** | 
-| [![API-ikon][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API-ikon][postgre-sql-icon]<br/>**PostgreSQL** | [![API-ikon][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![API-ikon][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API-ikon][teradata-icon]<br/>**Teradata** | 
+| ![API-ikon][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API-][file-system-icon]<br/>ikon**fil</br> system**][file-system-doc] | [![API-][ibm-db2-icon]<br/>ikon**IBM DB2**][ibm-db2-doc] | [![API-][ibm-informix-icon]<br/>ikon**IBM** </br> **Informix**][ibm-informix-doc] | ![API-ikon][mysql-icon]<br/>**MySQL** | 
+| [![API-][oracle-db-icon]<br/>ikon**Oracle DB**][oracle-db-doc] | ![API-ikon][postgre-sql-icon]<br/>**PostgreSQL** | [![API-][sharepoint-server-icon]<br/>ikon**SharePoint</br> Server**][sharepoint-server-doc] | [![API-][sql-server-icon]<br/>ikon**SQL</br> Server**][sql-server-doc] | ![API-ikon][teradata-icon]<br/>**Teradata** | 
 |||||
 
 <a name="integration-account-connectors"></a>
 
 ## <a name="integration-account-connectors"></a>Anslutningar för integrationskonton
 
-Logic Apps tillhandahåller standardanslutningsappar för att skapa lösningar för business-to-business (B2B) med dina logikappar när du skapar och betala för en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), som är tillgängligt via den Enterprise-Integrationspaket (EIP) i Azure. Med det här kontot kan du skapa och lagra B2B-artefakter, till exempel samarbetspartner, avtal, kartor, scheman, certifikat och så vidare. Om du vill använda dessa artefakter, koppla dina logikappar till ditt integrationskonto. Om du använder BizTalk Server, verka anslutningsapparna välbekanta redan.
+Logic Apps tillhandahåller standard anslutningar för att skapa B2B-lösningar (Business-to-Business) med dina Logi Kap par när du skapar och betalar för ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), som är tillgängligt via Enterprise-INTEGRATIONSPAKET (EIP) i Azure. Med det här kontot kan du skapa och lagra B2B-artefakter som handels partner, avtal, kartor, scheman, certifikat och så vidare. Om du vill använda dessa artefakter associerar du dina Logi Kap par med ditt integrations konto. Om du för närvarande använder BizTalk Server kan dessa anslutningar verka bekant redan.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API-ikon][as2-icon]<br/>**AS2</br> avkodning**][as2-doc] | [![API-ikon][as2-icon]<br/>**AS2</br> kodning**][as2-doc] | [![API-ikon][edifact-icon]<br/>**EDIFACT</br> avkodning**][edifact-decode-doc] | [![API-ikon][edifact-icon]<br/>**EDIFACT</br> kodning**][edifact-encode-doc] | 
-| [![API-ikon][flat-file-decode-icon]<br/>**Flat fil</br> avkodning**][flat-file-decode-doc] | [![API-ikon][flat-file-encode-icon]<br/>**Flat fil</br> kodning**][flat-file-encode-doc] | [![API-ikon][integration-account-icon]<br/>**integrering<br/>konto**][integration-account-doc] | [![API-ikon][liquid-icon]<br/>**flytande**</br>**omvandlar**][json-liquid-transform-doc] | 
-| [![API-ikon][x12-icon]<br/>**X12</br> avkodning**][x12-decode-doc] | [![API-ikon][x12-icon]<br/>**X12</br> kodning**][x12-encode-doc] | [![API-ikon][xml-transform-icon]<br/>**XML**</br>**omvandlar**][xml-transform-doc] | [![API-ikon][xml-validate-icon]<br/>**XML <br/>verifiering**][xml-validate-doc] |  
+| [![API-][as2-icon]<br/>ikon**AS2</br>**  -avkodning][as2-doc] | [![API-][as2-icon]<br/>ikon**AS2</br> -kodning**][as2-doc] | [![API-][edifact-icon]<br/>ikon**EDIFACT</br>**  -avkodning][edifact-decode-doc] | [![API-][edifact-icon]<br/>ikon**EDIFACT</br> -kodning**][edifact-encode-doc] | 
+| [![API-][flat-file-decode-icon]<br/>ikon**Flat</br> fil** -avkodning][flat-file-decode-doc] | [![API-][flat-file-encode-icon]<br/>ikon**Flat</br> fil kodning**][flat-file-encode-doc] | [![API-][integration-account-icon]<br/>ikon**integrations<br/>konto**][integration-account-doc] | [![API-][liquid-icon]<br/>ikon**flytande**</br>**transformeringar**][json-liquid-transform-doc] | 
+| [![API-][x12-icon]<br/>ikon**X12</br>**  -avkodning][x12-decode-doc] | [![API-][x12-icon]<br/>ikon**X12</br> -kodning**][x12-encode-doc] | [![][xml-transform-icon]<br/>**XML-** </br>transformeringar för API-ikon][xml-transform-doc] | [![API-][xml-validate-icon]<br/>ikon **<br/>XML-verifiering**][xml-validate-doc] |  
 ||||| 
 
 <a name="enterprise-connectors"></a>
 
 ## <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
 
-Logic Apps tillhandahåller dessa företagsanslutningsappar för att komma åt företagssystem som SAP och IBM MQ:
+Logic Apps tillhandahåller de här företags anslutningarna för åtkomst till företags system, till exempel SAP och IBM MQ:
 
 |   |   |   | 
 |---|---|---| 
-| [![API-ikon][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API-ikon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API-ikon][sap-icon]<br/>**SAP**][sap-connector-doc] |
+| [![API-][ibm-3270-icon]<br/>ikon**IBM 3270**][ibm-3270-doc] | [![API-][ibm-mq-icon]<br/>ikon**IBM MQ**][ibm-mq-doc] | [![API-][sap-icon]<br/>ikon**SAP**][sap-connector-doc] |
 |||| 
 
 <a name="triggers-actions"></a>
 
 ## <a name="triggers-and-actions---more-info"></a>Utlösare och åtgärder – mer information
 
-Kopplingar kan ge *utlösare*, *åtgärder*, eller båda. En *utlösaren* är det första steget i alla logikappar, vanligtvis att ange den händelse som utlöses utlösaren och börjat köra din logikapp. FTP-anslutningsappen har till exempel en utlösare som startar logikappen ”när en fil läggs till eller ändras”. Vissa utlösare söka regelbundet efter den angivna händelsen eller data och sedan utlöses när de identifierar den angivna händelsen eller data. Andra utlösare vänta men utlöses direkt när en viss händelse inträffar eller när nya data körs. Utlösare även skicka längs alla nödvändiga data till din logikapp. Din logikapp kan läsa och använda dessa data i hela arbetsflödet.
-Twitter-anslutningen har exempelvis en utlösare, ”när en ny tweet publiceras”, som skickar tweeten är innehåll i logikappens arbetsflöde. 
+Kopplingar kan tillhandahålla utlösare, *åtgärder*eller både och. En  utlösare är det första steget i alla logiska appar, vanligt vis genom att ange den händelse som utlöser utlösaren och börjar köra din Logic app. FTP-anslutningen har till exempel en utlösare som startar din Logic app "när en fil läggs till eller ändras". Vissa utlösare söker regelbundet efter den angivna händelsen eller data och utlöses sedan när de identifierar den angivna händelsen eller informationen. Andra utlösare väntar men utlöses direkt när en enskild händelse inträffar eller när nya data är tillgängliga. Utlösare skickas också tillsammans med alla data som krävs till din Logic app. Din Logic app kan läsa och använda dessa data i hela arbets flödet.
+Twitter-anslutningen har exempelvis en utlösare, "när en ny tweet publiceras", som skickar Tweetens innehåll till din Logic app-arbetsflöde. 
 
-När en utlösare utlöses Azure Logic Apps skapar en instans av din logikapp och börjar köras på *åtgärder* i logikappens arbetsflöde. Åtgärder är de steg som följer utlösaren och utför uppgifter i logikappens arbetsflöde. Du kan till exempel skapa en logikapp som hämtar kunddata från en SQL-databas och bearbetar dessa data för senare åtgärder. 
+När en utlösare aktive ras skapar Azure Logic Apps en instans av din Logic app och börjar köra *åtgärderna* i din Logic app-arbetsflöde. Åtgärder är de steg som följer utlösaren och utför uppgifter i din Logic app-arbetsflöde. Du kan till exempel skapa en Logic-app som hämtar kund information från en SQL-databas och bearbetar dessa data i senare åtgärder. 
 
-Här följer de allmänna typerna av utlösare som Azure Logic Apps tillhandahåller:
+Här är de allmänna typerna av utlösare som Azure Logic Apps tillhandahåller:
 
-* *Upprepningsutlösare*: Den här utlösaren körs enligt ett angivet schema och är inte tätt kopplade till en viss tjänst eller ett system.
+* *Upprepnings*utlösare: Den här utlösaren körs enligt ett angivet schema och är inte nära kopplad till en viss tjänst eller ett visst system.
 
-* *Avsökningen utlösaren*: Den här utlösaren söker regelbundet en viss tjänst eller ett system baserat på det angivna schemat, söker efter nya data eller om en specifik händelse har inträffat. Om nya data körs eller specifika händelsen har inträffat, utlösaren skapar och kör en ny instans av logikappen, som nu kan använda de data som skickas som indata.
+* Avsöknings utlösare: Den här utlösaren avsöker regelbundet en specifik tjänst eller ett system baserat på det angivna schemat, söker efter nya data eller om en specifik händelse har inträffat. Om nya data är tillgängliga eller om den här händelsen har inträffat skapar utlösaren och kör en ny instans av din Logic app, som nu kan använda de data som skickas som indata.
 
-* *Push-utlösare*: Den här utlösaren väntar och lyssnar efter nya data eller för en händelse ska inträffa. När nya data körs eller när händelsen inträffar, skapar utlösaren och kör ny instans av logikappen, som nu kan använda de data som skickas som indata.
-
-<a name="custom"></a>
-
-## <a name="connector-configuration"></a>Kopplingskonfiguration
-
-Ange sina egna egenskaper du kan konfigurera varje anslutningsappens utlösare och åtgärder. Många anslutningsappar kräver också att du först skapa en *anslutning* till Måltjänsten eller datorn och lägger till autentiseringsuppgifter eller andra konfigurationsuppgifter innan du kan använda en utlösare eller åtgärder i din logikapp. Till exempel måste du godkänna en anslutning till en Twitter-konto för att komma åt data eller ställa för din räkning. 
-
-För anslutningar som använder OAuth, skapa en anslutning innebär att logga in på tjänsten, till exempel Office 365, Salesforce eller GitHub, där din åtkomsttoken krypteras och lagras på ett säkert sätt i ett Arkiv för hemligheter på Azure. Andra anslutningar, till exempel FTP och SQL, kräver en anslutning med konfigurationsinformation, till exempel serveradress, användarnamn och lösenord. Konfigurationsdetaljerna anslutning även krypteras och lagras på ett säkert sätt. 
-
-Anslutningar kan komma åt Måltjänsten eller system för så länge som den tjänsten eller datorn tillåter. För tjänster som använder Azure Active Directory (AD) OAuth-anslutningar, till exempel Office 365 och Dynamics, uppdaterar Azure Logic Apps-åtkomsttoken på obestämd tid. Andra tjänster kan ha begränsningar för hur länge Azure Logic Apps kan använda en token utan uppdatering. I allmänhet ogiltigförklaras vissa åtgärder alla åtkomsttoken, till exempel ändra ditt lösenord.
+* *Push*-utlösare: Den här utlösaren väntar och lyssnar efter nya data eller för att en händelse ska inträffa. När nya data är tillgängliga eller när händelsen inträffar skapar utlösaren och kör en ny instans av din Logic app, som nu kan använda de data som skickas som indata.
 
 <a name="custom"></a>
 
-## <a name="custom-apis-and-connectors"></a>Anpassade API: er och anslutningsappar
+## <a name="connector-configuration"></a>Anslutnings konfiguration
 
-För att anropa API: er som kör anpassad kod eller som inte är tillgängliga som kopplingar kan du utöka plattformen Logic Apps genom [skapa anpassade API Apps](../logic-apps/logic-apps-create-api-app.md). Du kan också [skapa anpassade anslutningsappar](../logic-apps/custom-connector-overview.md) för *alla* REST eller SOAP-baserat API: er som tillgängliggör dessa API: er för alla logikappar i Azure-prenumerationen.
-Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän användning i Azure, kan du [skicka in anslutningsappar för Microsoft-certifiering](../logic-apps/custom-connector-submit-certification.md).
+Varje kopplings utlösare och åtgärder tillhandahåller egna egenskaper som du kan konfigurera. Många anslutningar kräver också att du först skapar en *anslutning* till mål tjänsten eller systemet och anger autentiseringsuppgifter för autentisering eller annan konfigurations information innan du kan använda en utlösare eller åtgärd i din Logic app. Du måste till exempel auktorisera en anslutning till ett Twitter-konto för att komma åt data eller för att publicera åt dig. 
+
+För anslutningar som använder OAuth innebär en anslutning att du loggar in på tjänsten, till exempel Office 365, Salesforce eller GitHub, där din åtkomsttoken krypteras och lagras på ett säkert sätt i ett Azure-hemligt arkiv. Andra anslutningar, till exempel FTP och SQL, kräver en anslutning som har konfigurations information, till exempel Server adressen, användar namnet och lösen ordet. Dessa anslutnings konfigurations uppgifter krypteras och lagras på ett säkert sätt. 
+
+Anslutningarna kan komma åt mål tjänsten eller systemet så länge tjänsten eller systemet tillåter det. För tjänster som använder Azure Active Directory (AD) OAuth-anslutningar, till exempel Office 365 och Dynamics, Azure Logic Apps uppdaterar åtkomsttoken på obestämd tid. Andra tjänster kan ha gränser för hur länge Azure Logic Apps kan använda en token utan att uppdatera. I allmänhet är vissa åtgärder ogiltiga för alla åtkomsttoken, till exempel att ändra ditt lösen ord.
+
+<a name="custom"></a>
+
+## <a name="custom-apis-and-connectors"></a>Anpassade API: er och anslutningar
+
+Om du vill anropa API: er som kör anpassad kod eller som inte är tillgängliga som kopplingar kan du utöka Logic Apps-plattformen genom att [skapa anpassade API Apps](../logic-apps/logic-apps-create-api-app.md). Du kan också [skapa anpassade anslutningar](../logic-apps/custom-connector-overview.md) för *alla* rest-eller SOAP-baserade API: er som gör dessa API: er tillgängliga för alla Logic-appar i din Azure-prenumeration.
+Om du vill göra anpassade API Apps eller anslutningar offentliga för alla som ska användas i Azure kan du [skicka in anslutningar för Microsoft-certifiering](../logic-apps/custom-connector-submit-certification.md).
 
 > [!NOTE]
-> Logikappar inom en [integreringstjänstmiljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) direkt komma åt resurser i Azure-nätverk.
-> Om du har anpassade anslutningar som kräver en lokal datagateway och du har skapat dessa anslutningar utanför en ISE, kan logic apps i en ISE också använda dessa anslutningar.
+> Logic Apps i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) kan komma åt resurser direkt i ett virtuellt Azure-nätverk.
+> Om du har anpassade anslutningar som kräver den lokala datagatewayen och du har skapat dessa anslutningar utanför en ISE kan Logic Apps i en ISE också använda dessa anslutningar.
 >
-> Anpassade anslutningsappar som skapats i en ISE fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt åtkomst till lokala datakällor som är anslutna till ett Azure-nätverk som är värd för ISE. Därför behöver logic apps i en ISE troligen inte datagateway vid kommunikation med dessa resurser.
+> Anpassade anslutningar som skapats i en ISE fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt komma åt lokala data källor som är anslutna till ett virtuellt Azure-nätverk som är värd för ISE. Därför behöver Logic Apps i en ISE förmodligen inte datagatewayen när de kommunicerar med dessa resurser.
 >
-> Läs mer om hur du skapar ISEs [Anslut till Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+> Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Hitta den [kopplingarnas fullständig lista](https://docs.microsoft.com/connectors)
+* Hitta [kopplingens fullständiga lista](https://docs.microsoft.com/connectors)
 * [Skapa din första logiska app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Skapa anpassade anslutningsappar för logic apps](https://docs.microsoft.com/connectors/custom-connectors/)
+* [Skapa anpassade anslutningar för Logic Apps](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Skapa anpassade API:er för logikappar](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Misc doc links-->
@@ -209,28 +213,28 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Skapa en Azure API Management-tjänstinstans för att hantera och publicera dina API: er"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrera logikappar med App Service API Apps"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Skicka meddelanden från Service Bus-köer och Service Bus-ämnen och ta emot meddelanden från Service Bus-köer och Service Bus-prenumerationer"
-[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Bearbetar meddelanden inom grupper, eller i batchar"
-[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Utvärdera ett villkor och kör olika åtgärder beroende på om villkoret är SANT eller FALSKT"
+[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Bearbeta meddelanden i grupper eller som batchar"
+[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Utvärdera ett villkor och kör olika åtgärder baserat på om villkoret är sant eller falskt"
 [delay-doc]: ./connectors-native-delay.md "Utföra fördröjda åtgärder"
-[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Utföra samma åtgärder på alla objekt i en matris"
+[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Utför samma åtgärder på varje objekt i en matris"
 [http-doc]: ./connectors-native-http.md "Göra HTTP-anrop med HTTP-anslutningsappen"
 [http-request-doc]: ./connectors-native-reqres.md "Lägga till åtgärder för HTTP-begäranden och svar i logikappar"
 [http-response-doc]: ./connectors-native-reqres.md "Lägga till åtgärder för HTTP-begäranden och svar i logikappar"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Göra HTTP-anrop med HTTP + Swagger-anslutningsappen"
-[http-webook-doc]: ./connectors-native-webhook.md "Lägga till http-webhook-åtgärder och utlösare i logikappar"
+[http-webook-doc]: ./connectors-native-webhook.md "Lägg till HTTP webhook-åtgärder och utlösare i Logi Kap par"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrera logikappar med kapslade arbetsflöden"
 [query-doc]: ./connectors-native-query.md "Välja och filtrera matriser med frågeåtgärden"
 [recurrence-doc]:  ./connectors-native-recurrence.md "Utlösa återkommande åtgärder för logikappar"
-[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Ordna åtgärder i grupper som hämta sina egna status efter att åtgärderna i gruppen slutföras" 
-[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Ordna åtgärder i fall som är tilldelade unika värden. Kör bara fallet vars värde matchar resultatet från ett uttryck, objekt eller token. Om det finns inga matchningar, kör du standard-fall"
-[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stoppa eller Avbryt ett arbetsflöde som är aktivt som körs för din logikapp"
-[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Upprepa åtgärder tills det angivna villkoret är SANT eller vissa tillstånd har ändrats"
-[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Utföra åtgärder, till exempel filtrera matriser eller skapar CSV och HTML-tabeller"
-[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Utför åtgärder med variabler, till exempel starta, set, öka, minska, och lägga till i variabeln sträng eller matris"
+[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organisera åtgärder i grupper som får sin egen status efter att åtgärderna i gruppen har körts" 
+[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organisera åtgärder i fall, som tilldelas unika värden. Kör bara det fall vars värde matchar resultatet från ett uttryck, ett objekt eller en token. Om inga matchningar finns kör du standard fallet"
+[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stoppa eller Avbryt ett aktivt pågående arbets flöde för din Logic app"
+[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Upprepa åtgärder tills det angivna villkoret är sant eller så har status ändrats"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Utföra data åtgärder, till exempel för att filtrera matriser eller skapa CSV-och HTML-tabeller"
+[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Utföra åtgärder med variabler, till exempel initiera, ange, öka, minska och lägga till i sträng eller mat ris variabel"
 
 <!--Managed API doc links-->
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Hantera filer i blobcontainern med Azure Blob Storage Connector"
-[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md " Övervaka händelser som publicerats av en Event Grid, till exempel när ändrar Azure-resurser eller resurser från tredje part"
+[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Övervaka händelser som publicerats av en Event Grid, till exempel när Azure-resurser eller resurser från tredje part ändras"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Anslut till Azure Event Hubs. Ta emot och skicka händelser mellan logikappar och händelsehubbar"
 [box-doc]: ./connectors-create-api-box.md "Anslut till Box. Överföra, hämta, ta bort, visa filer och mycket mer "
 [dropbox-doc]: ./connectors-create-api-dropbox.md "Anslut till Dropbox. Överföra, hämta, ta bort, visa filer och mycket mer "
@@ -243,10 +247,10 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Ansluta till Google Drive så att du kan arbeta med dina data"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Anslut till Google Sheets så att du kan ändra dina blad"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Ansluter till Google Tasks så att du kan hantera uppgifter"
-[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Ansluta till 3270 appar på IBM-stordatorer"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Ansluta till 3270-appar i IBM-stordatorer"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Anslut till IBM DB2 i molnet eller lokalt. Uppdatera en rad, hämta en tabell och mycket mer"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Anslut till Informix i molnet eller lokalt. Läsa en rad, lista tabeller och annat"
-[ibm-mq-doc]: ./connectors-create-api-mq.md "Anslut till IBM MQ lokalt eller i Azure för att skicka och ta emot meddelanden"
+[ibm-mq-doc]: ./connectors-create-api-mq.md "Ansluta till IBM MQ lokalt eller i Azure för att skicka och ta emot meddelanden"
 [instagram-doc]: ./connectors-create-api-instagram.md "Anslut till Instagram. Utlösa eller utföra åtgärder vid händelser"
 [mailchimp-doc]: ./connectors-create-api-mailchimp.md "Anslut till ditt MailChimp-konto. Hantera och automatisera e-post"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Ansluta till Mandrill för kommunikation"
@@ -262,14 +266,14 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 [rss-doc]: ./connectors-create-api-rss.md "Publicera och hämta flödesobjekt, utlös åtgärder när ett nytt objekt publiceras på en RSS-feed."
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Anslut till ditt Salesforce-konto. Hantera konton, leads, affärsmöjligheter och mycket mer"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Ansluta till ett lokalt SAP-system"
-[sendgrid-doc]: ./connectors-create-api-sendgrid.md "Anslut till SendGrid. Skicka e-post och hantera mottagarlistor"
+[sendgrid-doc]: ./connectors-create-api-sendgrid.md "Anslut till SendGrid. Skicka e-post och hantera mottagar listor"
 [sftp-doc]: ./connectors-create-api-sftp.md "Anslut till ditt SFTP-konto. Överföra, hämta och ta bort filer med mera"
 [sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Anslut till lokala SharePoint-servrar. Hantera dokument, listobjekt och annat"
 [sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "Anslut till SharePoint Online. Hantera dokument, listobjekt och annat"
 [slack-doc]: ./connectors-create-api-slack.md "Ansluta till Slack och skicka meddelanden till Slack-kanaler"
 [smtp-doc]: ./connectors-create-api-smtp.md "Ansluta till en SMTP-server och skicka e-post med bifogade filer"
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Ansluter till SparkPost för kommunikation"
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Anslut till Azure SQL Database eller SQLServer. Skapa, uppdatera, hämta och ta bort poster i en SQL-databastabell."
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Anslut till Azure SQL Database eller SQL Server. Skapa, uppdatera, hämta och ta bort poster i en SQL-databastabell."
 [trello-doc]: ./connectors-create-api-trello.md "Anslut till Trello. Hantera dina projekt och organisera vad du vill med vem du vill"
 [twilio-doc]: ./connectors-create-api-twilio.md "Anslut till Twilio. Skicka och hämta meddelanden, hämta tillgängliga nummer, hantera inkommande telefonnummer och mycket mer"
 [twitter-doc]: ./connectors-create-api-twitter.md "Anslut till Twitter. Hämta tidslinjer, publicera tweets och mycket mer"

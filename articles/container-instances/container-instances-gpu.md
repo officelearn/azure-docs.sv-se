@@ -1,51 +1,51 @@
 ---
-title: Distribuera GPU-aktiverade Azure container instances
-description: Lär dig hur du distribuerar Azure container instances ska köras på GPU-resurser.
+title: Distribuera GPU-aktiverade Azure Container instances
+description: Lär dig hur du distribuerar Azure Container instances så att de körs på GPU-resurser.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 300e9b82d578663a4d2ada3889a07d8b03051cc5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583849"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325954"
 ---
-# <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållarinstanser som använder GPU-resurser
+# <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållar instanser som använder GPU-resurser
 
-Om du vill köra vissa beräkningsintensiva arbetsbelastningar på Azure Container Instances, distribuera dina [behållargrupper](container-instances-container-groups.md) med *GPU resurser*. Behållarinstanserna i gruppen kan komma åt en eller flera NVIDIA Tesla-grafikprocessorer vid körning av behållararbetsbelastningar som CUDA och deep learning-program.
+Om du vill köra vissa beräknings intensiva arbets belastningar på Azure Container Instances distribuerar du behållar [grupper](container-instances-container-groups.md) med *GPU-resurser*. Behållar instanserna i gruppen kan komma åt en eller flera NVIDIA Tesla-GPU: er när du kör behållar arbets belastningar som CUDA och djup inlärnings program.
 
-Den här artikeln visar hur du lägger till GPU-resurser när du distribuerar en behållargrupp med en [YAML-fil](container-instances-multi-container-yaml.md) eller [Resource Manager-mall](container-instances-multi-container-group.md). Du kan också ange GPU-resurser när du distribuerar en instans i behållaren med hjälp av Azure portal.
+Den här artikeln visar hur du lägger till GPU-resurser när du distribuerar en behållar grupp med hjälp av en [yaml-fil](container-instances-multi-container-yaml.md) eller [Resource Manager-mall](container-instances-multi-container-group.md). Du kan också ange GPU-resurser när du distribuerar en behållar instans med hjälp av Azure Portal.
 
 > [!IMPORTANT]
-> Den här funktionen finns för närvarande i förhandsversion och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen är för närvarande en för hands version och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-I förhandsversion begränsningar gäller följande när du använder GPU-resurser i grupper med behållare. 
+I för hands versionen gäller följande begränsningar när du använder GPU-resurser i behållar grupper. 
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
-Stöd kommer att läggas till för ytterligare regioner över tid.
+Support kommer att läggas till för ytterligare regioner över tid.
 
 **OS-typer som stöds**: Endast Linux
 
-**Ytterligare begränsningar**: GPU-resurser kan inte användas när du distribuerar en behållargrupp i en [virtuellt nätverk](container-instances-vnet.md).
+**Ytterligare begränsningar**: GPU-resurser kan inte användas när du distribuerar en behållar grupp till ett [virtuellt nätverk](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Om GPU-resurser
 
 ### <a name="count-and-sku"></a>Antal och SKU
 
-Om du vill använda GPU: er i en behållarinstans, ange en *GPU resource* med följande information:
+Om du vill använda GPU: er i en behållar instans anger du en *GPU-resurs* med följande information:
 
-* **Antal** -antalet GPU: er: **1**, **2**, eller **4**.
-* **SKU** -GPU-SKU: **K80**, **P100**, eller **V100**. Varje SKU som mappar till NVIDIA Tesla GPU i ett familjerna Azure GPU-aktiverad virtuell dator:
+* **Antal** – antalet GPU: er: **1**, **2**eller **4**.
+* **SKU** – GPU SKU: **K80**, **P100**eller **V100**. Varje SKU mappar till NVIDIA Tesla GPU i en av följande Azure GPU-aktiverade VM-familjer:
 
-  | SKU | VM-serie |
+  | SKU | VM-serien |
   | --- | --- |
   | K80 | [NC](../virtual-machines/linux/sizes-gpu.md#nc-series) |
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
@@ -53,25 +53,25 @@ Om du vill använda GPU: er i en behållarinstans, ange en *GPU resource* med f�
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-När du distribuerar GPU-resurser kan ange du Processorn och minnesresurser passar arbetsbelastningen, upp till de högsta värden som visas i tabellen ovan. Dessa värden är för närvarande är större än processor- och resurserna som är tillgängliga i behållargrupper utan GPU-resurser.  
+När du distribuerar GPU-resurser ställer du in processor-och minnes resurser som är lämpliga för arbets belastningen, upp till de maximala värdena som visas i tabellen ovan. Dessa värden är för närvarande större än de processor-och minnes resurser som är tillgängliga i behållar grupper utan GPU-resurser.  
 
 ### <a name="things-to-know"></a>Saker att känna till
 
-* **Distributionstiden** -skapandet av en behållargrupp som innehåller GPU resurser tar upp till **8 – 10 minuter**. Detta beror på den extra tid att etablera och konfigurera en GPU VM i Azure. 
+* **Distributions tiden** för att skapa en behållar grupp som innehåller GPU-resurser tar upp till **8-10 minuter**. Detta beror på ytterligare tid för att etablera och konfigurera en virtuell GPU-dator i Azure. 
 
-* **Priser** – påminner om behållargrupper utan GPU-resurser, Azure-fakturor för resurser som används över den *varaktighet* för en behållargrupp med GPU-resurser. Varaktigheten beräknas från tidpunkten då att hämta din första behållares avbildning till dess att behållargruppen avslutas. Det inkluderar inte tiden för att distribuera behållargruppen.
+* **Priser** – liknande behållar grupper utan GPU-resurser, fakturerar Azure för resurser  som förbrukas under en behållar grupp med GPU-resurser. Varaktigheten beräknas från tiden för att hämta din första behållares avbildning tills behållar gruppen avslutas. Den omfattar inte tiden för att distribuera behållar gruppen.
 
-  Se [prisinformation](https://azure.microsoft.com/pricing/details/container-instances/).
+  Se [pris information](https://azure.microsoft.com/pricing/details/container-instances/).
 
-* **CUDA drivrutiner** – Container instances med GPU-resurser är företablerade med NVIDIA CUDA-drivrutiner och behållarkörningar, så du kan använda behållaravbildningar som har utvecklats för CUDA-arbetsbelastningar.
+* **CUDA-drivrutiner** – behållar instanser med GPU-resurser är företablerade med NVIDIA CUDA-drivrutiner och behållar körningar, så du kan använda behållar avbildningar som har utvecklats för CUDA-arbetsbelastningar.
 
-  Vi stöder CUDA 9.0 i det här skedet. Du kan exempelvis använda följande Källavbildningen Docker-filen:
+  Vi stöder CUDA 9,0 i det här skedet. Du kan till exempel använda följande bas avbildningar för din Docker-fil:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     
 ## <a name="yaml-example"></a>YAML-exempel
 
-Ett sätt att lägga till GPU-resurser är att distribuera en behållargrupp med en [YAML-fil](container-instances-multi-container-yaml.md). Kopiera följande YAML till en ny fil med namnet *gpu distribuera aci.yaml*, spara filen. Den här YAML skapar en behållargrupp med namnet *gpucontainergroup* att ange en behållarinstans med en K80 GPU. Instansen körs ett CUDA vektor tillägg-exempelprogram. Resursbegäranden är tillräckliga för att köra arbetsbelastningen.
+Ett sätt att lägga till GPU-resurser är att distribuera en behållar grupp med hjälp av en [yaml-fil](container-instances-multi-container-yaml.md). Kopiera följande YAML till en ny fil med namnet *GPU-Deploy-ACI. yaml*och spara sedan filen. Den här YAML skapar en behållar grupp med namnet *gpucontainergroup* som anger en behållar instans med en K80-GPU. Instansen kör ett exempel program för CUDA Vector addition. Resurs begär Anden räcker för att köra arbets belastningen.
 
 ```YAML
 additional_properties: {}
@@ -93,19 +93,19 @@ properties:
   restartPolicy: OnFailure
 ```
 
-Distribuera behållargrupp med den [az container skapa] [ az-container-create] kommando och ange namnet på YAML-filen för den `--file` parametern. Du måste ange namnet på en resursgrupp och en plats för behållargruppen som *eastus* som har stöd för GPU-resurser.  
+Distribuera behållar gruppen med kommandot [AZ container Create][az-container-create] , och ange `--file` parameterns yaml-filnamn. Du måste ange namnet på en resurs grupp och en plats för behållar gruppen, till exempel *öster* som stöder GPU-resurser.  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
 ```
 
-Distributionen tar normalt flera minuter för att slutföras. Sedan behållaren startas och körs en CUDA-vektor additionen. Kör den [az behållarloggarna] [ az-container-logs] kommando för att visa loggutdata:
+Distributionen tar normalt flera minuter för att slutföras. Sedan startar behållaren och kör en CUDA Vector addition-åtgärd. Kör kommandot [AZ container logs][az-container-logs] för att Visa loggens utdata:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
-Utdata:
+Resultat:
 
 ```Console
 [Vector addition of 50000 elements]
@@ -116,9 +116,9 @@ Test PASSED
 Done
 ```
 
-## <a name="resource-manager-template-example"></a>Mallexemplet för Resource Manager
+## <a name="resource-manager-template-example"></a>Exempel på en Resource Manager-mall
 
-Ett annat sätt att distribuera en behållargrupp med GPU-resurser är med hjälp av en [Resource Manager-mall](container-instances-multi-container-group.md). Börja med att skapa en fil med namnet `gpudeploy.json`, kopiera följande JSON till den. Det här exemplet distribuerar en behållarinstans med en V100-GPU som kör en [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) utbildningsjobb mot den [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/). Resursbegäranden är tillräckliga för att köra arbetsbelastningen.
+Ett annat sätt att distribuera en behållar grupp med GPU-resurser är att använda en [Resource Manager-mall](container-instances-multi-container-group.md). Börja med att skapa en fil `gpudeploy.json`med namnet och kopiera sedan följande JSON till den. I det här exemplet distribueras en behållar instans med en V100-GPU som kör ett [TensorFlow](https://www.tensorflow.org/) -tränings jobb mot MNIST-datauppsättningen. Resurs begär Anden räcker för att köra arbets belastningen.
 
 ```JSON
 {
@@ -170,19 +170,19 @@ Ett annat sätt att distribuera en behållargrupp med GPU-resurser är med hjäl
 }
 ```
 
-Distribuera mallen med den [az group deployment skapa] [ az-group-deployment-create] kommando. Du måste ange namnet på en resursgrupp som har skapats i en region som *eastus* som har stöd för GPU-resurser.
+Distribuera mallen med kommandot [AZ Group Deployment Create][az-group-deployment-create] . Du måste ange namnet på en resurs grupp som har skapats i en region, till exempel *öster* som stöder GPU-resurser.
 
 ```azurecli-interactive
 az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
-Distributionen tar normalt flera minuter för att slutföras. Sedan behållaren startas och körs TensorFlow-jobb. Kör den [az behållarloggarna] [ az-container-logs] kommando för att visa loggutdata:
+Distributionen tar normalt flera minuter för att slutföras. Sedan startar behållaren och kör TensorFlow-jobbet. Kör kommandot [AZ container logs][az-container-logs] för att Visa loggens utdata:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
-Utdata:
+Resultat:
 
 ```Console
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
@@ -211,13 +211,13 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Eftersom med GPU-resurser kan vara dyra, kontrollerar du att dina behållare inte kör oväntat under långa perioder. Övervaka behållare i Azure-portalen eller kontrollera status för en behållargrupp med den [az container show] [ az-container-show] kommando. Exempel:
+Eftersom det kan vara kostsamt att använda GPU-resurser, se till att dina behållare inte körs utan förvarning under långa perioder. Övervaka dina behållare i Azure Portal eller kontrol lera statusen för en behållar grupp med kommandot [AZ container show][az-container-show] . Exempel:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table
 ```
 
-När du är klar du arbetar med behållarinstanserna skapade, ta bort dem med följande kommandon:
+När du är klar med de behållar instanser som du har skapat tar du bort dem med följande kommandon:
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name gpucontainergroup -y
@@ -226,8 +226,8 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om hur du distribuerar en behållare med en [YAML-fil](container-instances-multi-container-yaml.md) eller [Resource Manager-mall](container-instances-multi-container-group.md).
-* Läs mer om [GPU för VM-storlekar optimerade](../virtual-machines/linux/sizes-gpu.md) i Azure.
+* Läs mer om hur du distribuerar en behållar grupp med en [yaml-fil](container-instances-multi-container-yaml.md) eller en [Resource Manager-mall](container-instances-multi-container-group.md).
+* Lär dig mer om [GPU-optimerade VM-storlekar](../virtual-machines/linux/sizes-gpu.md) i Azure.
 
 
 <!-- IMAGES -->

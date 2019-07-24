@@ -3,7 +3,7 @@ title: Konfigurera en Windows-utvecklingsmiljö för Azure-mikrotjänster | Micr
 description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: peterpogorski
 manager: chackdan
 editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: aljo
-ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 0302d8950d10d2c606fad0582079ed0c77047fbf
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566047"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295531"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "67566047"
 > 
 > 
 
-Att skapa och köra [Azure Service Fabric-program][1] på en Windows-utvecklingsdator måste du installera Service Fabric runtime, SDK och verktyg. Du måste även [aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK:n.
+Om du vill skapa och köra [Azure Service Fabric-program][1] på Windows Development-datorn installerar du Service Fabric runtime, SDK och verktyg. Du måste även [aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK:n.
 
 ## <a name="prerequisites"></a>Förutsättningar
 ### <a name="supported-operating-system-versions"></a>Operativsystemversioner som stöds
@@ -43,18 +43,18 @@ Följande operativsystemversioner stöds för utveckling:
 
 > [!NOTE]
 > Windows 7-support:
-> - Windows 7 innehåller bara Windows PowerShell 2.0 som standard. Service Fabric PowerShell-cmdletar kräver PowerShell 3.0 eller senare. Du kan [ladda ned Windows PowerShell 5.0][powershell5-download] från Microsoft Download Center.
+> - Windows 7 innehåller bara Windows PowerShell 2.0 som standard. Service Fabric PowerShell-cmdletar kräver PowerShell 3.0 eller senare. Du kan [Hämta Windows PowerShell 5,0][powershell5-download] från Microsoft Download Center.
 > - Service Fabric Reverse Proxy är inte tillgänglig på Windows 7.
 >
 
 ## <a name="install-the-sdk-and-tools"></a>Installera SDK och verktyg
-Webbplattformen (WebPI) är det rekommenderade sättet att installera SDK och verktyg. Om du får körningsfel med installationsprogram för webbplattform, kan du också hitta Direktlänkar till installationsprogram i viktig information för en specifik version av Service Fabric. Viktig information finns i olika lanseringsmeddelanden på den [Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Installations programmet för webb plattformen (WebPI) är det rekommenderade sättet att installera SDK och verktyg. Om du får körnings fel med hjälp av WebPI kan du också hitta direkt länkar till installations programmet i viktig information för en viss Service Fabric-version. Viktig information finns i de olika versions meddelandena på [Service Fabric teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
 > [!NOTE]
-> Lokala klusteruppgradering för Service Fabric-utveckling stöds inte.
+> Uppgraderingar av lokala Service Fabric utvecklings kluster stöds inte.
 
-### <a name="to-use-visual-studio-2017"></a>Använda Visual Studio 2017
-Service Fabric-verktygen är en del av arbetsbelastningen i Azure Development i Visual Studio 2017. Aktivera den här arbetsbelastningen som en del av Visual Studio-installationen.
+### <a name="to-use-visual-studio-2017-or-2019"></a>Använda Visual Studio 2017 eller 2019
+Service Fabrics verktygen är en del av arbets belastningen Azure Development i Visual Studio 2017 och 2019. Aktivera den här arbetsbelastningen som en del av Visual Studio-installationen.
 Du måste också installera Microsoft Azure Service Fabric SDK:n och körmiljön med hjälp av installationsprogrammet för webbplattform.
 
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
@@ -70,14 +70,15 @@ Om du bara behöver SDK kan du installera det här paketet:
 
 De aktuella versionerna är:
 * Service Fabric SDK och verktyg 3.4.641
-* Service Fabric-körningen 6.5.641
-* Service Fabric-verktyg för Visual Studio 2015 2.5.20615.1
-* Visual Studio 2017 15.9 innehåller Service Fabric-verktyg för Visual Studio 2.4.11024.1 
+* Service Fabric runtime-6.5.641
+* Service Fabric verktyg för Visual Studio 2015 2.5.20615.1
+* Visual Studio 2017 15,9 innehåller Service Fabric verktyg för Visual Studio-2.4.11024.1 
+* Visual Studio 2019 16,1 innehåller Service Fabric verktyg för Visual Studio-2.5.20423.3
 
-En lista över versioner som stöds finns i [Service Fabric-versioner](service-fabric-versions.md)
+En lista över versioner som stöds finns i [Service Fabric versioner](service-fabric-versions.md)
 
 > [!NOTE]
-> Enskild dator som kluster (OneBox) inte stöds för programmet eller klustret uppgraderas; ta bort OneBox-klustret och återskapa den om du vill utföra en uppgradering av klustret eller har problem med utför en uppgradering av programmet. 
+> Ett enda dator kluster (Onebox behållaravbildningen) stöds inte för program-eller kluster uppgraderingar. ta bort Onebox behållaravbildningen-klustret och återskapa det om du behöver göra en kluster uppgradering eller om du har problem med att utföra en program uppgradering. 
 
 ## <a name="enable-powershell-script-execution"></a>Aktivera körning av PowerShell-skript
 Service Fabric använder Windows PowerShell-skript för att skapa ett lokalt utvecklingskluster och för att distribuera program från Visual Studio. Som standard blockerar Windows dessa skript så att de inte kan köras. För att aktivera dem måste du ändra PowerShell-körningsprincipen. Öppna PowerShell som administratör och ange följande kommando:
@@ -86,13 +87,13 @@ Service Fabric använder Windows PowerShell-skript för att skapa ett lokalt utv
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 ## <a name="install-docker-optional"></a>Installera Docker (valfritt)
-[Service Fabric är en behållarinitierare](service-fabric-containers-overview.md) för att distribuera mikrotjänster i ett kluster med datorer. Om du vill köra Windows-behållarprogram på det lokala utvecklingsklustret, måste du först installera Docker för Windows. Hämta [Docker CE för Windows (stabil)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta steg krävs för att köra Docker-avbildningar baserade på Windows.
+[Service Fabric är en behållar Orchestrator](service-fabric-containers-overview.md) för att distribuera mikrotjänster i ett kluster med datorer. Om du vill köra Windows-behållar program i ditt lokala utvecklings kluster måste du först installera Docker för Windows. Hämta [Docker CE för Windows (stabilt)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta steg krävs för att köra Docker-avbildningar baserade på Windows.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra appar.
 
-* [Lär dig att skapa, distribuera och hantera program](service-fabric-tutorial-create-dotnet-app.md)
-* [Läs mer om programmeringsmodeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)
+* [Lär dig hur du skapar, distribuerar och hanterar program](service-fabric-tutorial-create-dotnet-app.md)
+* [Lär dig mer om programmerings modeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)
 * [Kolla in Service Fabric-kodexemplen på GitHub](https://aka.ms/servicefabricsamples)
 * [Visualisera ditt kluster med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)

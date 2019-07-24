@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synkronisering: Förstå standardkonfigurationen | Microsoft Docs'
-description: Den här artikeln beskriver standardkonfigurationen i Azure AD Connect-synkronisering.
+title: 'Azure AD Connect synkronisering: Förstå standard konfigurationen | Microsoft Docs'
+description: I den här artikeln beskrivs standard konfigurationen i Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,185 +16,185 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60246071"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227425"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
-Den här artikeln förklarar konfigurationsregler för out-of-box. Det dokument som reglerna och hur de här reglerna påverkar konfigurationen. Vi går också igenom standardkonfigurationen för Azure AD Connect-synkronisering. Målet är att läsaren förstår hur Konfigurationsmodell, med namnet deklarativ etablering fungerar i ett verkliga exempel. Den här artikeln förutsätter att du redan har installerat och konfigurera Azure AD Connect-synkronisering med hjälp av installationsguiden.
+# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect synkronisering: Förstå standardkonfigurationen
+I den här artikeln beskrivs de inbyggda konfigurations reglerna. Den dokumenterar reglerna och hur dessa regler påverkar konfigurationen. Den vägleder dig också genom standard konfigurationen av Azure AD Connect Sync. Målet är att läsaren förstår hur konfigurations modellen, med namnet deklarativ etablering, fungerar i ett verkligt exempel. Den här artikeln förutsätter att du redan har installerat och konfigurerat Azure AD Connect Sync med hjälp av installations guiden.
 
-För att förstå vilka konfigurationsmodellen kan läsa [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
+Mer information om konfigurations modellen finns i [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
 
-## <a name="out-of-box-rules-from-on-premises-to-azure-ad"></a>Out-of-box-regler från en lokal plats till Azure AD
-Följande uttryck kan hittas i out-of-box-konfigurationen.
+## <a name="out-of-box-rules-from-on-premises-to-azure-ad"></a>Välkomst regler från lokala datorer till Azure AD
+Följande uttryck finns i konfigurations rutan.
 
-### <a name="user-out-of-box-rules"></a>Användaren out-of-box-regler
-Dessa regler gäller även för typen av iNetOrgPerson-objekt.
+### <a name="user-out-of-box-rules"></a>Direkt regler för användare
+Dessa regler gäller även för objekt typen iNetOrgPerson.
 
-Ett användarobjekt måste uppfylla följande som ska synkroniseras:
+Ett användar objekt måste uppfylla följande för att kunna synkroniseras:
 
 * Måste ha en sourceAnchor.
-* När objektet har skapats i Azure AD, kan inte sourceAnchor ändra. Om värdet är ändrade lokala, stoppar objektet synkronisera förrän sourceAnchor ändras tillbaka till det tidigare värdet.
-* Attributet accountEnabled (userAccountControl) måste ifyllda. Med en lokal Active Directory är det här attributet alltid finns och är ifyllt.
+* När objektet har skapats i Azure AD kan sourceAnchor inte ändras. Om värdet ändras lokalt stoppas synkroniseringen tills sourceAnchor ändras tillbaka till det tidigare värdet.
+* Attributet accountEnabled (userAccountControl) måste fyllas i. Med en lokal Active Directory är det här attributet alltid tillgängligt och ifyllt.
 
-Följande användarobjekt är **inte** synkroniseras till Azure AD:
+Följande användar objekt synkroniseras **inte** med Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Se till att många out-of-box-objekt i Active Directory, till exempel det inbyggda administratörskontot, är inte synkroniserade.
-* `IsPresent([sAMAccountName]) = False`. Se till att inte synkroniseras användarobjekt med något sAMAccountName-attribut. Det här fallet skulle bara praktiskt taget inträffa i en domän som uppgraderats från NT4.
-* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Synkronisera inte tjänstkontot som används av Azure AD Connect-synkronisering och dess tidigare versioner.
-* Synkronisera inte Exchange-konton som inte skulle fungera i Exchange Online.
+* `IsPresent([isCriticalSystemObject])`. Se till att många färdiga objekt i Active Directory, till exempel det inbyggda administratörs kontot, inte är synkroniserade.
+* `IsPresent([sAMAccountName]) = False`. Se till att användar objekt utan sAMAccountName-attribut inte är synkroniserade. Det här fallet är bara praktiskt taget i en domän som uppgraderats från NT4.
+* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Synkronisera inte det tjänst konto som används av Azure AD Connect Sync och dess tidigare versioner.
+* Synkronisera inte Exchange-konton som inte fungerar i Exchange Online.
   * `[sAMAccountName] = "SUPPORT_388945a0"`
   * `Left([mailNickname], 14) = "SystemMailbox{"`
   * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
-* Synkronisera inte objekt som inte skulle fungera i Exchange Online.
+* Synkronisera inte objekt som inte fungerar i Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-  Den här bitmask (& H21C07000) filtrerar ut följande objekt:
-  * E-postaktiverad offentlig mapp (i förhandsversion från och med version 1.1.524.0)
-  * Överför de system-postlåda
-  * Postlåda databasen postlåda (System-postlåda)
-  * Universell säkerhetsgrupp (inte gäller för en användare, men finns äldre skäl)
-  * Icke-universell grupp (inte gäller för en användare, men finns äldre skäl)
+  Denna bitmask (& H21C07000) filtrerar bort följande objekt:
+  * E-postaktiverad offentlig mapp (i för hands version från och med version 1.1.524.0)
+  * Systemets närvaro post låda
+  * Post lådans databas post låda (system post låda)
+  * Universell säkerhets grupp (gäller inte för en användare, men finns för äldre skäl)
+  * Icke-universell grupp (gäller inte för en användare, men finns för äldre skäl)
   * Plan för postlåda
-  * Identifiering av postlåda
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synkronisera inte eventuella replikering victim-objekt.
+  * Identifierings post låda
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synkronisera inte några drabbade objekt för replikering.
 
-Följande gäller attribut:
+Följande regler för attribut gäller:
 
-* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. Attributet sourceAnchor är inte som tillförts från en länkad postlåda. Det förutsätts att om en länkad postlåda har hittats, det aktuella kontot är ansluten senare.
-* Exchange-relaterade attribut synkroniseras enbart om attributet **mailNickName** har ett värde.
-* När det finns flera skogar, används attribut i följande ordning:
-  1. Attribut som rör inloggning (till exempel userPrincipalName) tillhandahålls från skogen med ett aktiverat konto.
-  2. Attribut som finns i en Exchange-GAL (globala adresslistan) tillhandahålls från skogen med en Exchange-postlåda.
-  3. Om inga postlådan finns, kan dessa attribut kommer från en skog.
-  4. Exchange-relaterade attribut (inte synligt i den globala Adresslistan tekniska attribut) tillhandahålls från skogen där `mailNickname ISNOTNULL`.
-  5. Om det finns flera skogar som skulle uppfylla ett av de här reglerna, används ordningen som skapas (datum/tid) av kopplingar (skog) för att avgöra vilken skog bidrar attribut.
+* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. SourceAnchor-attributet har inte bidragit från en länkad post låda. Det förutsätts att om en länkad post låda har hittats, kopplas det faktiska kontot senare.
+* Exchange-relaterade attribut synkroniseras bara om attributets **smek namn** har ett värde.
+* Om det finns flera skogar används attribut i följande ordning:
+  1. Attribut som är relaterade till inloggning (till exempel userPrincipalName) har bidragit från skogen med ett aktiverat konto.
+  2. Attribut som kan hittas i en Exchange GAL-lista (global adress lista) har bidragit från skogen med en Exchange-postlåda.
+  3. Om det inte går att hitta någon post låda kan dessa attribut komma från vilken skog som helst.
+  4. Exchange-relaterade attribut (tekniska attribut som inte visas i GAL) har bidragit till den skog `mailNickname ISNOTNULL`där.
+  5. Om det finns flera skogar som uppfyller någon av dessa regler, används skapande ordningen (datum/tid) för kopplingarna (skogar) för att avgöra vilken skog som bidrar med attributen. Den första skogen som är ansluten är den första skogen som ska synkroniseras. 
 
-### <a name="contact-out-of-box-rules"></a>Kontakta out-of-box-regler
-Ett kontaktobjekt måste uppfylla följande som ska synkroniseras:
+### <a name="contact-out-of-box-rules"></a>Kontakta färdiga regler
+Ett kontakt objekt måste uppfylla följande för att kunna synkroniseras:
 
-* Kontaktens måste vara e-postaktiverade. Det har verifierats med följande regler:
+* Kontakten måste vara e-postaktiverad. Den verifieras med följande regler:
   * `IsPresent([proxyAddresses]) = True)`. Attributet proxyAddresses måste fyllas i.
-  * En primär e-postadress kan hittas i attributet proxyAddresses eller e-postattributet. Förekomsten av en \@ används för att kontrollera att innehållet är en e-postadress. En av dessa två regler måste utvärderas till SANT.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Det finns en post med ”SMTP”: och om det finns en \@ finns i strängen?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Är e-postattributet fylls och om det är en \@ finns i strängen?
+  * Du kan hitta en primär e-postadress antingen i proxyAddresses-attributet eller e-postattributet. Förekomsten av \@ används för att kontrol lera att innehållet är en e-postadress. En av dessa två regler måste utvärderas till true.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Finns det en post med "SMTP:" och om det finns en \@ sådan kan du hitta i strängen?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Är e-postattributet ifyllt och om det finns kan \@ det finnas i strängen?
 
-Kontakta följande objekt är **inte** synkroniseras till Azure AD:
+Följande kontakt objekt synkroniseras **inte** till Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Se till att inga kontaktobjekt som markerats som kritiskt är synkroniserade. Får inte vara någon med en standardkonfiguration.
+* `IsPresent([isCriticalSystemObject])`. Se till att inga kontakt objekt har marker ATS som kritiska synkroniserade. Får inte vara någon med en standard konfiguration.
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
-* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. De här objekten fungerar inte i Exchange Online.
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synkronisera inte eventuella replikering victim-objekt.
+* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Dessa objekt fungerade inte i Exchange Online.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synkronisera inte några drabbade objekt för replikering.
 
-### <a name="group-out-of-box-rules"></a>Gruppera out-of-box-regler
-Ett gruppobjekt måste uppfylla följande som ska synkroniseras:
+### <a name="group-out-of-box-rules"></a>Grupp färdiga regler
+Ett grupp objekt måste uppfylla följande för att kunna synkroniseras:
 
 * Måste ha färre än 50 000 medlemmar. Det här antalet är antalet medlemmar i den lokala gruppen.
-  * Om den har fler medlemmar innan synkroniseringen startar första gången är gruppen inte synkroniserad.
-  * Om antalet medlemmar växa från när den först skapades, sedan när den når 50 000 medlemmar stoppar synkronisering tills antal programmedlemskap är lägre än 50 000 igen.
-  * Obs! 50 000 medlemskap antal tillämpas också av Azure AD. Det går inte att synkronisera grupper med fler medlemmar, även om du ändrar eller tar bort den här regeln.
-* Om gruppen är en **distributionsgrupp**, måste det också vara e-postaktiverad. Se [kontakta out-of-box regler](#contact-out-of-box-rules) för den här regeln tillämpas.
+  * Om den har fler medlemmar innan synkroniseringen startar första gången, synkroniseras inte gruppen.
+  * Om antalet medlemmar växer från början när det ursprungligen skapades, och när det når 50 000-medlemmar, stoppas synkroniseringen tills antalet medlemskap är lägre än 50 000.
+  * Obs! Antalet 50 000-medlemskap tillämpas också av Azure AD. Du kan inte synkronisera grupper med fler medlemmar även om du ändrar eller tar bort den här regeln.
+* Om gruppen är en **distributions grupp**måste den också vara e-postaktiverad. Se [kontakter färdiga regler](#contact-out-of-box-rules) för den här regeln tillämpas.
 
-Följande gruppobjekt är **inte** synkroniseras till Azure AD:
+Följande grupp objekt synkroniseras **inte** till Azure AD:
 
-* `IsPresent([isCriticalSystemObject])`. Se till att många out-of-box-objekt i Active Directory, till exempel den inbyggda administratörsgruppen, är inte synkroniserade.
+* `IsPresent([isCriticalSystemObject])`. Se till att många färdiga objekt i Active Directory, till exempel den inbyggda gruppen Administratörer, inte är synkroniserade.
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Äldre grupp som används av DirSync.
-* `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Rollgrupp.
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synkronisera inte eventuella replikering victim-objekt.
+* `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Roll grupp.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Synkronisera inte några drabbade objekt för replikering.
 
-### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal out-of-box-regler
-FSP: er som är anslutna till ”alla” (\*) objektet i metaversum. I verkligheten kan sker endast den här kopplingen för användare och säkerhetsgrupper. Den här konfigurationen säkerställer att mellan skogar medlemskap är löst och visas korrekt i Azure AD.
+### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal regler
+FSPs är anslutna till "any" (\*)-objektet i metaversum. I verkligheten sker denna koppling bara för användare och säkerhets grupper. Den här konfigurationen säkerställer att medlemskap i flera skogar löses och visas korrekt i Azure AD.
 
-### <a name="computer-out-of-box-rules"></a>Datorn out-of-box-regler
-Ett objekt måste uppfylla följande som ska synkroniseras:
+### <a name="computer-out-of-box-rules"></a>Direkt regler för dator
+Ett dator objekt måste uppfylla följande för att kunna synkroniseras:
 
-* `userCertificate ISNOTNULL`. Endast Windows 10-datorer fylla i det här attributet. Alla datorobjekt med ett värde i det här attributet är synkroniserade.
+* `userCertificate ISNOTNULL`. Endast Windows 10-datorer fyller i det här attributet. Alla dator objekt med ett värde i det här attributet synkroniseras.
 
-## <a name="understanding-the-out-of-box-rules-scenario"></a>Förstå regler för out-of-box-scenario
-I det här exemplet använder vi en distribution med en kontoskog (A), en resursskog (R) och en Azure AD-katalog.
+## <a name="understanding-the-out-of-box-rules-scenario"></a>Förstå scenariot med direkt regler
+I det här exemplet använder vi en distribution med en konto skog (A), en resurs skog (R) och en Azure AD-katalog.
 
-![Bild med scenariobeskrivning](./media/concept-azure-ad-connect-sync-default-configuration/scenario.png)
+![Bild med scenario beskrivning](./media/concept-azure-ad-connect-sync-default-configuration/scenario.png)
 
-I den här konfigurationen förutsätts det finns ett aktiverat konto i skogen och ett inaktiverat konto i resursskogen med en länkad postlåda.
+I den här konfigurationen antas det att det finns ett aktiverat konto i konto skogen och ett inaktiverat konto i resurs skogen med en länkad post låda.
 
-Vårt mål med standardkonfigurationen är:
+Vårt mål med standard konfigurationen är:
 
-* Attribut som rör inloggning synkroniseras från skogen med aktiverat konto.
-* Attribut som finns i den globala Adresslistan (globala adresslistan) synkroniseras från skogen med postlådan. Om inga postlådan finns, används en annan skog.
-* Om en länkad postlåda hittas, måste det länkade aktiverat kontot hittas för objektet som ska exporteras till Azure AD.
+* Attribut som är relaterade till inloggningen synkroniseras från skogen med det aktiverade kontot.
+* Attribut som finns i GAL-filen (den globala adress listan) synkroniseras från skogen med post lådan. Om det inte går att hitta någon post låda används alla andra skogar.
+* Om en länkad post låda hittas måste det länkade, aktiverade kontot hittas för det objekt som ska exporteras till Azure AD.
 
-### <a name="synchronization-rule-editor"></a>Synchronization Rule Editor
-Konfigurationen kan visas och ändras med verktyget synkronisering regler redigeraren (SRE) och en genväg till den finns i start-menyn.
+### <a name="synchronization-rule-editor"></a>Redigerare för Synkroniseringsregel
+Konfigurationen kan visas och ändras med redigeraren för SRE (Tool) och en genväg till den finns på Start menyn.
 
-![Synkronisering Regelredigeraren ikon](./media/concept-azure-ad-connect-sync-default-configuration/sre.png)
+![Redigeraren för regler för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/sre.png)
 
-SRE är ett verktyg för resource kit och det är installerat med Azure AD Connect-synkronisering. För att kunna starta den, måste du vara medlem i ADSyncAdmins-gruppen. När den startar ser ungefär så här:
+SRE är ett Resource Kit-verktyg som installeras med Azure AD Connect Sync. Du måste vara medlem i gruppen ADSyncAdmins för att kunna starta den. När den startas ser du något som liknar detta:
 
-![Synkroniseringsregler inkommande](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
+![Inkommande regler för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-I det här fönstret kan se du alla Synkroniseringsregler som skapats för din konfiguration. Varje rad i tabellen är en Synkroniseringsregel. Till vänster under regeltyper visas två olika typer: Inkommande och utgående. Inkommande och utgående är från vyn i metaversum. Du kommer främst att fokusera på regler för inkommande trafik i den här översikten. Den aktuella listan över Synkroniseringsregler beror på identifierade schemat i AD. I bilden ovan kontoskog (fabrikamonline.com) har inte några tjänster, till exempel Exchange och Lync, och inga Synkroniseringsregler har skapats för dessa tjänster. Men i resursskogen (res.fabrikamonline.com) finns Synkroniseringsregler för dessa tjänster. Innehållet i reglerna är olika beroende på vilken version som har identifierats. Till exempel i en distribution med Exchange 2013 finns mer attributflöden som har konfigurerats än i Exchange 2010/2007.
+I det här fönstret visas alla regler för synkronisering som skapats för din konfiguration. Varje rad i tabellen är en Synkroniseringsregel. Till vänster under regel typer visas två olika typer: Inkommande och utgående. Inkommande och utgående är från metaversum. Du kommer huvudsakligen att fokusera på reglerna för inkommande trafik i den här översikten. Den faktiska listan över regler för synkronisering beror på det identifierade schemat i AD. I bilden ovan har konto skogen (fabrikamonline.com) inga tjänster, till exempel Exchange och Lync, och inga regler för synkronisering har skapats för dessa tjänster. Men i resurs skogen (res.fabrikamonline.com) hittar du regler för synkronisering av dessa tjänster. Innehållet i reglerna skiljer sig beroende på vilken version som har identifierats. I en distribution med Exchange 2013 finns det till exempel fler attribut som är konfigurerade än i Exchange 2010/2007.
 
 ### <a name="synchronization-rule"></a>Synkroniseringsregel
-En Synkroniseringsregel är ett konfigurationsobjekt med en uppsättning attribut som flödar när ett villkor är uppfyllt. Den används också för att beskriva hur ett objekt i en anslutarplats är kopplad till ett objekt i metaversumet kallas **join** eller **matchar**. De Synkroniseringsregler som har en högre prioritetsvärde som anger hur de relaterar till varandra. En Synkroniseringsregel med ett lägre numeriskt värde har högre prioritet och i ett flöde konflikt attributet högre prioritet wins konfliktlösningen.
+En Synkroniseringsregel är ett konfigurations objekt med en uppsättning attribut som flödar när ett villkor är uppfyllt. Den används också för att beskriva hur ett objekt i ett kopplings utrymme är relaterat till ett objekt i metaversum, som kallas **Join** eller **match**. Reglerna för synkronisering har prioritets värde som anger hur de relaterar till varandra. En Synkroniseringsregel med ett lägre numeriskt värde har en högre prioritet och en konflikt i ett attributarkiv, och högre prioritets konflikt i WINS.
 
-Exempelvis titta på Synkroniseringsregeln **i från AD – användaren AccountEnabled**. Markera den här raden i SRE och välj **redigera**.
+Du kan till exempel titta på synkroniseringsregeln **i från AD – User AccountEnabled**. Markera den här raden i SRE och välj **Redigera**.
 
-Eftersom den här regeln är en regel för out-of-box, får du en varning när du öppnar regeln. Du bör inte göra någon [ändringar av out-of-box regler](how-to-connect-sync-best-practices-changing-default-configuration.md), så att du får din avsikt är. I detta fall använder vill du bara visa regeln. Välj **nr**.
+Eftersom den här regeln är en regel som är inaktuell visas en varning när du öppnar regeln. Du bör inte göra några [ändringar i välkomst regler](how-to-connect-sync-best-practices-changing-default-configuration.md), så du uppmanas att ange vad dina avsikter är. I det här fallet vill du bara Visa regeln. Välj **Nej**.
 
-![Synkronisering regler varning](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
+![Varning om regler för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-En Synkroniseringsregel har fyra konfigurationsavsnitt: Beskrivning, Scoping filter, Join regler och transformeringar.
+En Synkroniseringsregel har fyra konfigurations avsnitt: Beskrivning, omfångs filter, kopplings regler och transformeringar.
 
 #### <a name="description"></a>Beskrivning
-Det första avsnittet innehåller grundläggande information, till exempel namn och beskrivning.
+Det första avsnittet innehåller grundläggande information, till exempel ett namn och en beskrivning.
 
-![Beskrivning av fliken synkroniserade regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Fliken Beskrivning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
-Du hittar även information om vilka anslutna system med den här regeln är relaterad till, vilket objekt av typen i den anslutna system som gäller för och metaversum-objekttyp. Typ av metaversumobjekt är alltid person oavsett när typ av datakällobjekt är en användare, iNetOrgPerson eller kontakt. Typ av metaversumobjekt bör aldrig ändras så att den har skapats som en allmän typ. Länktypen kan ställas in att Join, StickyJoin eller etablera. Den här inställningen fungerar tillsammans med avsnittet ansluta regler och beskrivs senare.
+Du hittar också information om vilka anslutna system som den här regeln är relaterad till, vilken objekt typ i det anslutna system den gäller för och metaversum objekt typ. Objekt typen metaversum är alltid person oavsett om käll objekt typen är användare, iNetOrgPerson eller kontakt. Objekt typen metaversum bör aldrig ändras så att den skapas som en generisk typ. Länk typen kan anges till Join, StickyJoin eller provision. Den här inställningen fungerar tillsammans med avsnittet Join rules och beskrivs senare.
 
-Du kan också se att den här synkroniseringsregel används för synkronisering av lösenord. Om en användare finns i omfattningen för den här regeln för synkronisering, synkroniseras lösenordet från en lokal plats till molnet (förutsatt att du har aktiverat funktionen för synkronisering av lösenord).
+Du kan också se att den här synkroniseringsregeln används för Lösenordssynkronisering. Om en användare finns inom omfånget för den här synkroniseringsregeln, synkroniseras lösen ordet från lokalt till molnet (förutsatt att du har aktiverat funktionen för Lösenordssynkronisering).
 
-#### <a name="scoping-filter"></a>Omfångsfilter
-Avsnittet Omfångsfilter används för att konfigurera en Synkroniseringsregel skall gälla. Eftersom namnet på Synkroniseringsregel som du tittar på indikerar den bör endast användas för aktiverade användare, omfång har konfigurerats så att den AD-attribut **userAccountControl** måste inte har den 2 biten. När Synkroniseringsmotorn hittar en användare i AD, tillämpas den här synkroniseringen regeln när **userAccountControl** har angetts till decimalvärde 512 (aktiverad normal användare). Den gäller inte regeln när användaren har **userAccountControl** inställd 514 (inaktiverad normal användare).
+#### <a name="scoping-filter"></a>Omfångs filter
+Avsnittet omfångs filter används för att konfigurera när en Synkroniseringsregel ska gälla. Eftersom namnet på synkroniseringsregeln som du tittar på visar att det bara ska användas för aktiverade användare, är omfånget konfigurerat så att AD-attributet **UserAccountControl** inte får ha bit 2-uppsättningen. När Synkroniseringsmotorn hittar en användare i AD, tillämpas den här synkroniseringsregeln när värdet för **UserAccountControl** anges till decimal värdet 512 (aktive rad normal användare). Regeln tillämpas inte när användaren har **UserAccountControl** inställt på 514 (inaktive rad normal användare).
 
-![Konfigurera fliken i synkronisering regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Fliken omfattning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
-Omfångsfilter har grupper och villkor som kan vara inkapslade. Alla satser i en grupp måste vara uppfyllda för en Synkroniseringsregel ska tillämpas. När flera grupper har definierats måste i minst en grupp vara uppfyllda för regeln ska gälla. Det vill säga ett logiskt OR utvärderas mellan grupper och en logisk och utvärderas i en grupp. Ett exempel på den här konfigurationen finns i den utgående Synkroniseringsregeln **ut till AAD – grupp ansluta**. Det finns flera filter synkroniseringsgrupper, till exempel en för säkerhetsgrupper (`securityEnabled EQUAL True`) och en för distributionsgrupper (`securityEnabled EQUAL False`).
+Omfångs filtret har grupper och satser som kan kapslas. Alla satser i en grupp måste vara uppfyllda för att en Synkroniseringsregel ska tillämpas. När flera grupper definieras måste minst en grupp vara uppfylld för att regeln ska gälla. Det vill säga ett logiskt eller utvärderas mellan grupper och ett logiskt och utvärderas i en grupp. Ett exempel på den här konfigurationen finns i regeln för utgående synkronisering **ut till AAD – grupp anslutning**. Det finns flera filter för synkronisering, till exempel en för säkerhets grupper (`securityEnabled EQUAL True`) och en för distributions grupper`securityEnabled EQUAL False`().
 
-![Konfigurera fliken i synkronisering regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Fliken omfattning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
-Den här regeln används för att definiera vilka grupper som ska etableras till Azure AD. Distributionsgrupper måste vara e-postaktiverad som ska synkroniseras med Azure AD, men för säkerhetsgrupper ett e-postmeddelande krävs inte.
+Den här regeln används för att definiera vilka grupper som ska tillhandahållas till Azure AD. Distributions grupper måste vara e-postaktiverade för att kunna synkroniseras med Azure AD, men för säkerhets grupper krävs inget e-postmeddelande.
 
-#### <a name="join-rules"></a>Ansluta till regler
-Det tredje avsnittet används för att konfigurera hur objekt i anslutarplatsen som är relaterade till objekt i metaversum. Regeln som du har tittat i tidigare inte har någon konfiguration för regler för att ansluta till istället du ska titta på **i från AD – användare ansluta**.
+#### <a name="join-rules"></a>Anslut till regler
+Det tredje avsnittet används för att konfigurera hur objekt i kopplings utrymmet relaterar till objekt i metaversum. Regeln du har tittat på tidigare har ingen konfiguration för att ansluta till regler, så i stället ska du titta på **i från AD – användar anslutning**.
 
-![Häng med fliken regler i synkronisering regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Fliken Anslut till regler i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
-Innehållet i join-regel beror på de matchande alternativ som valts i installationsguiden. Utvärderingen börjar med ett objekt i anslutarplatsen källa för en regel för inkommande, och varje grupp i join-reglerna utvärderas i ordning. Om ett källobjekt utvärderas för att matcha exakt ett objekt i metaversumet med någon av join-regler och är objekt som anslutna. Om alla regler har utvärderats och det finns ingen matchning, används länktyp på sidan beskrivning. Om den här konfigurationen är inställd på **etablera**, och sedan ett nytt objekt skapas i målet, metaversum. Att etablera ett nytt objekt att metaversum kallas även att **projekt** ett objekt till metaversum.
+Innehållet i kopplings regeln beror på vilket matchande alternativ som valts i installations guiden. För en regel för inkommande trafik börjar utvärderingen med ett objekt i käll kopplings utrymmet och varje grupp i kopplings reglerna utvärderas i följd. Om ett käll objekt utvärderas för att matcha exakt ett objekt i metaversum med någon av kopplings reglerna, är objekten anslutna. Om alla regler har utvärderats och det inte finns någon matchning, används länk typen på sidan beskrivning. Om den här konfigurationen är inställd på att etableras skapas ett nytt objekt i målet, metaversum. Att etablera ett nytt objekt i metaversum kallas även för att **projicera** ett objekt till metaversum.
 
-Join-reglerna utvärderas bara en gång. När en anslutarplatsen och ett metaversumobjekt ansluten, förblir de kopplade så länge som omfattningen för Synkroniseringsregeln är fortfarande nöjd.
+Kopplings reglerna utvärderas bara en gång. När ett kopplings utrymmes objekt och ett metaversum-objekt kopplas, förblir de anslutna så länge omfånget för synkroniseringsregeln fortfarande är uppfyllt.
 
-När du utvärderar Synkroniseringsregler måste endast en regel för synkronisering med definierade join-regler vara i omfånget. Ett fel genereras om det finns flera Synkroniseringsregler med anslutning till regler för ett visst objekt. Därför är det bästa sättet att ha endast en regel för synkronisering med join definieras när flera Synkroniseringsregler är inom omfånget för ett objekt. I out-of-box-konfigurationen för Azure AD Connect-synkronisering dessa regler kan hittas genom att titta på namnet och hitta de med ordet **ansluta** i slutet av namnet. En Synkroniseringsregel utan några definierade join-regler gäller attributflöden när andra Synkroniseringsregler sammankopplade objekten eller etablerat ett nytt objekt i målet.
+När du utvärderar regler för synkronisering måste endast en Synkroniseringsregel med definierade kopplings regler finnas i omfånget. Om flera regler för synkronisering med kopplings regler hittas för ett objekt, genereras ett fel. Av den anledningen är det bästa sättet att ha bara en Synkroniseringsregel med koppling definierad när flera regler för synkronisering är inom omfånget för ett objekt. I den inbyggda konfigurationen för Azure AD Connect Sync kan du hitta dessa regler genom att titta på namnet och hitta dem med ordet **Join** i slutet av namnet. En Synkroniseringsregel utan definierade kopplings regler tillämpar attributet flöden när en annan Synkroniseringsregel sammanfogade objekten eller etablerade ett nytt objekt i målet.
 
-Om du tittar på i bilden ovan, kan du se att regeln försöker ansluta till **objectSID** med **msExchMasterAccountSid** (Exchange) och **msRTCSIP-OriginatorSid** (Lync) vilket är vad vi förväntar oss i en topologi med en skog resursen för lagringskonton. Du hittar samma regeln på alla skogar. Antas att varje skog kan vara ett konto eller en resurs skog. Den här konfigurationen fungerar även om du har konton som bor i en enda skog och behöver inte vara ansluten.
+Om du tittar på bilden ovan kan du se att regeln försöker ansluta till **objectSID** med **msExchMasterAccountSid** (Exchange) och **msRTCSIP-OriginatorSid** (Lync), vilket är vad vi förväntar dig i en skog för konto-resurs. Du hittar samma regel på alla skogar. Antagandet är att varje skog kan vara antingen ett konto eller en resurs skog. Den här konfigurationen fungerar även om du har konton som är aktiva i en enda skog och inte behöver anslutas.
 
 #### <a name="transformations"></a>Transformationer
-Transformationsavsnittet definierar alla attributflöden som gäller för målobjektet när objekten kopplas och Omfångsfilter är uppfyllt. Gå tillbaka till den **i från AD – användaren AccountEnabled** Synkroniseringsregeln du hittar följande omvandlingar:
+Transformerings avsnittet definierar alla attributarkiv som gäller för målobjektet när objekten är anslutna och omfångs filtret är uppfyllt. Om du går tillbaka till **AccountEnabled för AD – User-** , hittar du följande omvandlingar:
 
-![Transformationer fliken synkroniserade regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Fliken omvandlingar i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
-Om du vill placera den här konfigurationen i kontexten i en skog distribution resursen för Lagringskonton förväntas att hitta ett aktiverat konto i kontoskogen och ett inaktiverat konto i resursskogen med inställningar för Exchange och Lync. Synkroniseringsregeln som du tittar på innehåller attributen som krävs för att logga in och dessa attribut ska flöda från skogen där det finns ett aktiverat konto. Alla dessa attributflöden placeras tillsammans i en regel för synkronisering.
+För att kunna använda den här konfigurationen i en skogs distribution av en konto resurs, förväntas du hitta ett aktiverat konto i konto skogen och ett inaktiverat konto i resurs skogen med inställningarna för Exchange och Lync. Synkroniseringsregeln som du tittar på innehåller de attribut som krävs för inloggning och dessa attribut ska flöda från skogen där det finns ett aktiverat konto. Alla dessa attribut flöden placeras tillsammans i en Synkroniseringsregel.
 
-En omvandling kan ha olika typer: Konstant Direct och uttryck.
+En omvandling kan ha olika typer: Konstant, direkt och uttryck.
 
-* Ett konstant flöde flödar alltid en hårdkodad-värde. I fallet anger det alltid värdet **SANT** i metaversum-attribut med namnet **accountEnabled**.
-* Värdet för attributet i källan till Målattributet som flödar alltid i ett direkt flöde-är.
-* Den tredje flow-typen är uttryck och det gör att mer avancerade konfigurationer.
+* Ett konstant flöde flödar alltid ett hårdkodad-värde. I fallet ovan ställer det alltid in värdet **True** i attributet metaversum med namnet **accountEnabled**.
+* Ett direkt flöde flödar alltid värdet för attributet i källan till målattributet som-är.
+* Den tredje flödes typen är ett uttryck och det tillåter mer avancerade konfigurationer.
 
-Uttryck-språket är VBA (Visual Basic for Applications), så personer med erfarenhet av Microsoft Office eller VBScript identifierar formatet. Attribut är inom hakparenteser [attributeName]. Attributnamn och funktionsnamnen är skiftlägeskänsliga, men Synchronization Rules Editor som utvärderar uttrycken och skicka någon varning om uttrycket inte är giltig. Alla uttryck uttrycks på en enda rad med kapslade funktioner. För att visa kraften i configuration-språket, är här flödet för pwdLastSet, men med ytterligare kommentarer infogas:
+Uttrycks språket är VBA (Visual Basic for Applications), så att personer med erfarenhet av Microsoft Office eller VBScript kommer att känna igen formatet. Attribut omges av hakparenteser, [attributeName]. Attributnamn och funktions namn är Skift läges känsliga, men redigeraren för synkroniseringsfunktionen utvärderar uttryck och ger en varning om uttrycket inte är giltigt. Alla uttryck uttrycks på en enda rad med kapslade funktioner. Om du vill visa kraften i konfigurations språket, så är flödet för pwdLastSet, men med ytterligare kommentarer infogade:
 
 ```
 // If-then-else
@@ -208,34 +208,34 @@ NULL
 )
 ```
 
-Se [förstå uttryck för deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) mer information om Uttrycksspråk för attributflöden.
+Mer information om uttrycks språket för attribut flöden finns i förstå definitions [uttryck för deklarativ](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) insikter.
 
 ### <a name="precedence"></a>Prioritet
-Du nu har tittat på vissa enskilda Synkroniseringsregler, men reglerna fungerar tillsammans i konfigurationen. I vissa fall kan bidragit ett attributvärde från flera Synkroniseringsregler till samma Målattributet. I det här fallet används Attributprioritet för att avgöra vilket attribut wins. Exempelvis kan du titta på attributet sourceAnchor. Det här attributet är ett viktigt attribut för att kunna logga in på Azure AD. Du kan hitta ett attributflöde för det här attributet i två olika Synkroniseringsregler, **i från AD – användaren AccountEnabled** och **i från AD – användaren vanliga**. På grund av Synkroniseringsregeln prioritet attributet sourceAnchor är som tillförts från skogen med ett aktiverat konto först när det finns flera objekt som är anslutna till metaversumobjekt. Om det finns inga aktiverade konton Synkroniseringsmotorn och använder sedan den övergripande Synkroniseringsregeln **i från AD – användaren vanliga**. Den här konfigurationen garanterar att även för konton som är inaktiverade, det finns fortfarande ett sourceAnchor.
+Du har nu tittat på några enskilda regler för synkronisering, men reglerna fungerar tillsammans i konfigurationen. I vissa fall bidrogs ett attributvärde från flera regler för synkronisering till samma Target-attribut. I det här fallet används attributets prioritet för att avgöra vilket attribut WINS. Du kan till exempel titta på attributet sourceAnchor. Det här attributet är ett viktigt attribut som kan användas för att logga in på Azure AD. Du kan hitta ett attributarkiv för det här attributet i två olika regler för synkronisering **i från AD – User AccountEnabled** och **i från AD – användare common**. På grund av regel prioriteten för synkroniseringen bidrogs sourceAnchor-attributet från skogen med ett aktiverat konto först när flera objekt är anslutna till metaversum-objektet. Om det inte finns några aktiverade konton använder Synkroniseringsmotorn den catch-all-Synkroniseringsregel **i från AD – användare common**. Den här konfigurationen ser till att även om det finns inaktiverade konton finns det fortfarande en sourceAnchor.
 
-![Synkroniseringsregler inkommande](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
+![Inkommande regler för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-Prioritet för Synkroniseringsregler som anges i grupper med installationsguiden. Alla regler i en grupp har samma namn, men de är anslutna till olika anslutna kataloger. Installationsguiden ger regeln **i från AD – användare ansluta** högsta prioritet och itererar över alla anslutna AD-kataloger. Det fortsätter sedan med nästa grupper av regler i en viss ordning. I en grupp läggs reglerna i den ordning som kopplingarna som har lagts till i guiden. Om en annan koppling har lagts till via guiden, synkroniseringsreglerna sorteras och den nya kopplingen regler infogas senast i varje grupp.
+Prioriteten för regler för synkronisering anges i grupper av installations guiden. Alla regler i en grupp har samma namn, men de är anslutna till olika anslutna kataloger. Installations guiden ger regeln **i från AD – användare ansluter** högst prioritet och upprepas över alla anslutna AD-kataloger. Den fortsätter sedan med nästa grupper av regler i en fördefinierad ordning. I en grupp läggs reglerna till i den ordning som kopplingarna lades till i guiden. Om en annan anslutning läggs till via guiden omorganiseras reglerna för synkronisering och den nya kopplingens regler infogas sist i varje grupp.
 
 ### <a name="putting-it-all-together"></a>Färdigställa allt
-Vi nu vet hur Synkroniseringsregler för att kunna förstå hur konfigurationen fungerar med olika Synkroniseringsregler. Om du tittar på en användare och attribut som har bidragit till metaversum tillämpas reglerna i följande ordning:
+Vi vet nu nog om regler för synkronisering för att kunna förstå hur konfigurationen fungerar med de olika reglerna för synkronisering. Om du tittar på en användare och de attribut som har bidragit till metaversum tillämpas reglerna i följande ordning:
 
 | Namn | Kommentar |
 |:--- |:--- |
-| I från AD-koppling av användare |Regel för att ansluta till utrymme anslutningsobjekt med metaversum. |
-| I från AD-användarkonto är aktiverat |Attribut som krävs för att logga in till Azure AD och Office 365. Vi vill att dessa attribut från aktiverat konto. |
-| I från AD – användaren gemensamma från Exchange |Attribut hittades i den globala adresslistan. Vi förutsätter att datakvaliteten är bäst i skogen där vi har hittat användarens postlåda. |
-| I från AD – vanliga användare |Attribut hittades i den globala adresslistan. Om vi inte kunde hitta en postlåda, kan andra kopplade objekt bidra attributvärdet. |
-| I från AD – användaren Exchange |Finns bara om Exchange har identifierats. Den förs vidare alla infrastruktur Exchange-attribut. |
-| I från AD – användaren Lync |Finns bara om Lync har identifierats. Den förs vidare alla infrastruktur Lync-attribut. |
+| I från AD – användar anslutning |Regel för anslutning av anslutnings utrymmes objekt med metaversum. |
+| I från AD – UserAccount aktiverat |Attribut krävs för inloggning till Azure AD och Office 365. Vi vill ha dessa attribut från det aktiverade kontot. |
+| I från AD – användare common från Exchange |Attribut hittades i den globala adress listan. Vi förutsätter att data kvaliteten är bäst i skogen där vi har hittat användarens post låda. |
+| I från AD – vanlig användare |Attribut hittades i den globala adress listan. Om vi inte hittar någon post låda kan andra anslutna objekt bidra till attributvärdet. |
+| I från AD – användar utbyte |Finns bara om Exchange har identifierats. Den flödar alla Exchange-attribut för infrastrukturen. |
+| I från AD – användare Lync |Finns bara om Lync har identifierats. Alla infrastruktur-Lync-attribut. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om konfigurationsmodellen i [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
-* Läs mer om Uttrycksspråk i [förstå uttryck för deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
-* Fortsätt att läsa hur out-of-box-konfigurationen fungerar i [förstå användare och kontakter](concept-azure-ad-connect-sync-user-and-contacts.md)
-* Se hur du ändrar något praktiskt med deklarativ etablering i [hur du gör en ändring i standardkonfigurationen](how-to-connect-sync-change-the-configuration.md).
+* Läs mer om konfigurations modellen i att [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
+* Läs mer om uttrycks språket i [förstå deklarativ etablerings uttryck](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
+* Fortsätt att läsa hur den inbyggda konfigurationen fungerar i [förstå användare och kontakter](concept-azure-ad-connect-sync-user-and-contacts.md)
+* Se hur du gör en praktisk ändring med deklarativ etablering i [hur du ändrar standard konfigurationen](how-to-connect-sync-change-the-configuration.md).
 
-**Översiktsavsnitt**
+**Översikts avsnitt**
 
 * [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

@@ -256,7 +256,7 @@ Nu när du har en virtuell Hårddisk i den lokala katalogen kan du använda AzCo
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Ett exempel \<Uri > kan vara  ** _”https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”_** . Ett exempel \<FileInfo > kan vara  ** _”C:\path\to\upload.vhd”_** .
+Ett exempel \<Uri > kan vara **_”https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”_** . Ett exempel \<FileInfo > kan vara **_”C:\path\to\upload.vhd”_** .
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Alternativ 2: Använda AzCopy för att ladda upp VHD-filen
 Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det kan ta tid beroende på storleken på de virtuella hårddiskarna. Kom ihåg att kontrollera lagringskontogränser för ingående/utgående trafik när du använder det här alternativet. Se [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md) mer information.

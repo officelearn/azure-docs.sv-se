@@ -1,6 +1,6 @@
 ---
-title: Programkarta i Azure Application Insights | Microsoft Docs
-description: Övervaka komplexa programtopologier med programkartan
+title: Program karta i Azure Application Insights | Microsoft Docs
+description: Övervaka komplexa programtopologier med program kartan
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,90 +13,90 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d69825b947af69a86525a996ed8709472846d9fe
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 73cf6fd1c20f2e4208d1f7c28a756f28a2fad839
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795666"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302578"
 ---
-# <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
+# <a name="application-map-triage-distributed-applications"></a>Program karta: Prioritering distribuerade program
 
-Programavbildning hjälper dig att upptäcka flaskhalsar eller fel-anslutningar för alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en programkomponent eller dess beroenden; och har hälsotillstånd KPI och varnar status. Du kan klicka vidare från valfri komponent till mer detaljerad analys, till exempel Application Insights-händelser. Om appen använder Azure-tjänster kan även klicka vidare till Azure-diagnostik, till exempel SQL Database Advisor-rekommendationer.
+Med program kartan kan du upptäcka Flask halsar i prestanda eller felaktiga hotspots i alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en program komponent eller dess beroenden. och har hälso-KPI och aviserings status. Du kan klicka dig igenom från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster kan du också klicka dig till Azure Diagnostics, till exempel SQL Database Advisor rekommendationer.
 
 ## <a name="what-is-a-component"></a>Vad är en komponent?
 
-Komponenterna är oberoende av varandra distribuerbar delar av programmet distribueras/mikrotjänster. Utvecklare och åtgärder team har kod-nivå eller åtkomst till telemetri som genereras av dessa programkomponenter. 
+Komponenterna är oberoende distributions bara delar av ditt distribuerade/mikrotjänster-program. Utvecklare och drifts grupper har synlighet på kod nivå eller åtkomst till telemetri som genereras av dessa program komponenter. 
 
-* Komponenter skiljer sig från ”observerade” externa beroenden, till exempel SQL, EventHub etc. som ditt team/organisation inte kanske har åtkomst till (kod eller telemetri).
-* Komponenter som körs på valfritt antal instanser av server-rollen-behållare.
-* Komponenterna kan vara olika Application Insights-instrumenteringsnycklar (även om prenumerationer skiljer sig) eller olika roller som rapporterar till en enda Application Insights-instrumenteringsnyckeln. Förhandsgranskningsupplevelsen för kartan visar komponenterna oavsett hur de är konfigurerade.
+* Komponenterna skiljer sig från "observerade" externa beroenden som SQL, EventHub osv. som ditt team/din organisation inte har åtkomst till (kod eller telemetri).
+* Komponenter körs på valfritt antal server-/roll-/container instanser.
+* Komponenter kan vara separata Application Insights Instrumentation-nycklar (även om prenumerationer är olika) eller olika roller som rapporterar till en enda Application Insights Instrumentation-nyckel. I för hands versions kartan visas komponenterna oavsett hur de har kon figurer ATS.
 
-## <a name="composite-application-map"></a>Sammansatt Programkarta
+## <a name="composite-application-map"></a>Sammansatt program karta
 
-Du kan se hela programmets topologi över flera nivåer av relaterade programkomponenter. Komponenterna kan vara olika Application Insights-resurser eller olika roller i en enskild resurs. Programkartan hittar komponenter av följande HTTP-beroendeanrop mellan servrar med Application Insights SDK installerad. 
+Du kan se hela programtopologin över flera nivåer av relaterade program komponenter. Komponenter kan vara olika Application Insights resurser eller olika roller i en och samma resurs. App-kartan hittar komponenter genom att följa de HTTP-beroende anrop som görs mellan servrar med Application Insights SDK installerat. 
 
-Den här upplevelsen börjar med progressiv identifiering av komponenter. När du först läser in programkartan utlöses en uppsättning frågor för att identifiera de komponenter som hör till den här komponenten. En knapp i det övre vänstra hörnet uppdateras med antalet komponenter i ditt program när de upptäcks. 
+Den här upplevelsen börjar med progressiv identifiering av komponenterna. När du först läser in program kartan utlöses en uppsättning frågor för att identifiera de komponenter som är relaterade till den här komponenten. En knapp i det övre vänstra hörnet uppdateras med antalet komponenter i ditt program så att de upptäcks. 
 
-När du klickar på ”Uppdatera kartkomponenter”, uppdateras kartan med alla komponenter som identifieras förrän som pekar. Det kan ta någon minut att läsa in beroende på komplexiteten för ditt program.
+När du klickar på Uppdatera kart komponenter uppdateras kartan med alla komponenter som identifieras tills den punkten. Beroende på hur komplex ditt program är kan det ta en minut att läsa in.
 
-Den här identifieringssteget är inte obligatoriskt om alla komponenter är roller i en enda Application Insights-resurs. Den initiala inläsningen för ett sådant program kommer att ha alla dess komponenter.
+Om alla komponenter är roller inom en enda Application Insights resurs krävs inte det här identifierings steget. Den första belastningen för ett sådant program kommer att ha alla dess komponenter.
 
-![Skärmbild av programmet karta](media/app-map/app-map-001.png)
+![Skärm bild för program karta](media/app-map/app-map-001.png)
 
-En av de viktiga mål med den här upplevelsen är för att kunna visualisera komplexa topologier med hundratals komponenter.
+Ett av de viktigaste målen med den här upplevelsen är att kunna visualisera komplexa topologier med hundratals komponenter.
 
-Klicka på någon komponent för att se relaterade insikter och gå till den prestanda och fel prioritering upplevelse för respektive komponent.
+Klicka på en komponent om du vill se relaterade insikter och gå till prioritering för prestanda och haverihet för den komponenten.
 
-![Utfällt](media/app-map/application-map-002.png)
+![Fällbar](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Undersök fel
+### <a name="investigate-failures"></a>Undersök felen
 
-Välj **Undersök fel** att starta fönstret fel.
+Välj **Undersök haverier** för att starta fönstret problem.
 
-![Skärmbild av undersöka fel-knappen](media/app-map/investigate-failures.png)
+![Skärm bild av knappen Undersök felaktiga](media/app-map/investigate-failures.png)
 
-![Skärmbild av fel-upplevelsen](media/app-map/failures.png)
+![Skärm bild av problem](media/app-map/failures.png)
 
 ### <a name="investigate-performance"></a>Undersök prestanda
 
-Om du vill felsöka prestandaproblem, Välj **Undersök prestanda**.
+Du kan felsöka prestanda problem genom att välja **Undersök prestanda**.
 
-![Skärmbild av Undersök prestanda-knappen](media/app-map/investigate-performance.png)
+![Skärm bild av knappen Undersök prestanda](media/app-map/investigate-performance.png)
 
-![Skärmbild av prestandaupplevelse](media/app-map/performance.png)
+![Skärm bild av prestanda upplevelse](media/app-map/performance.png)
 
-### <a name="go-to-details"></a>Gå till detaljer
+### <a name="go-to-details"></a>Gå till information
 
-Välj **går du till information om** att utforska transaktion slutpunkt till slutpunkt-upplevelsen, vilken kan erbjuda vyer anrop stack-nivå.
+Välj **gå till information** för att utforska den slutliga transaktions upplevelsen, som kan erbjuda vyer nedåt till anrops stacknivå.
 
-![Skärmbild av knappen Gå till information](media/app-map/go-to-details.png)
+![Skärm bild av knappen gå till information](media/app-map/go-to-details.png)
 
-![Skärmbild av transaktionsinformation för slutpunkt till slutpunkt](media/app-map/end-to-end-transaction.png)
+![Skärm bild av transaktions information från slut punkt till slut punkt](media/app-map/end-to-end-transaction.png)
 
 ### <a name="view-in-analytics"></a>Visa i analys
 
-Fråga och undersöka programdata ytterligare genom att klicka på **visa i analys**.
+Om du vill fråga efter och undersöka program data ytterligare klickar du på **Visa i analys**.
 
-![Skärmbild av vyn i knappen analytics](media/app-map/view-in-analytics.png)
+![Skärm bild av knappen Visa i Analytics](media/app-map/view-in-analytics.png)
 
-![Skärmbild av analytics](media/app-map/analytics.png)
+![Skärm bild av analys upplevelse](media/app-map/analytics.png)
 
 ### <a name="alerts"></a>Aviseringar
 
-Om du vill visa aktiva varningar och de underliggande reglerna som orsakar att aviseringarna utlöses, Välj **aviseringar**.
+Om du vill visa aktiva aviseringar och underliggande regler som orsakar att aviseringarna utlöses väljer du aviseringar.
 
-![Skärmbild av knappen för aviseringar](media/app-map/alerts.png)
+![Skärm bild av knappen aviseringar](media/app-map/alerts.png)
 
-![Skärmbild av analytics](media/app-map/alerts-view.png)
+![Skärm bild av analys upplevelse](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Ställ in molnrollnamn
+## <a name="set-cloud-role-name"></a>Ange namn på moln roll
 
-Programavbildning använder den **molnrollnamn** egenskapen att identifiera komponenterna på kartan. Application Insights SDK lägger automatiskt till molnet rollen namnegenskapen telemetri som genereras av komponenter. Till exempel SDK: N kommer lägger till en webbplatsens namn eller tjänstnamnet i roll namnegenskapen för cloud-rollen. Men finns det fall där kan du åsidosätta standardvärdet. Att åsidosätta molnrollnamn och ändra det hämtar visas på kartan för programmet:
+Program kartan använder namn egenskapen för **moln rollen** för att identifiera komponenterna på kartan. Application Insights SDK lägger automatiskt till egenskapen namn för moln roll till den telemetri som avsänts av komponenter. Till exempel kommer SDK att lägga till ett webbplats namn eller tjänst roll namn i egenskapen namn på moln roll. Det finns dock fall där du kanske vill åsidosätta standardvärdet. För att åsidosätta namnet på moln rollen och ändra vad som visas i program kartan:
 
 ### <a name="netnet-core"></a>.NET/.NET Core
 
-**Skriv anpassad TelemetryInitializer enligt nedan.**
+**Skriv anpassade TelemetryInitializer enligt nedan.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -119,9 +119,9 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**ASP.NET-appar: Läsa in initieraren till den aktiva TelemetryConfiguration**
+**ASP.NET appar: Läs in initieraren till den aktiva TelemetryConfiguration**
 
-I ApplicationInsights.config:
+I ApplicationInsights. config:
 
 ```xml
     <ApplicationInsights>
@@ -133,7 +133,7 @@ I ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-En alternativ metod för ASP.NET-webbprogram är att skapa en instans av initierare i kod, till exempel i Global.aspx.cs:
+En alternativ metod för ASP.NET-webbappar är att instansiera initieraren i kod, till exempel i Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -147,11 +147,11 @@ En alternativ metod för ASP.NET-webbprogram är att skapa en instans av initier
 ```
 
 > [!NOTE]
-> Att lägga till initieraren med hjälp av `ApplicationInsights.config` eller med hjälp av `TelemetryConfiguration.Active` är inte giltig för ASP.NET Core-program. 
+> Det går inte att `ApplicationInsights.config` lägga till `TelemetryConfiguration.Active` initieraren med eller använda är ogiltig för ASP.net Core-program. 
 
-**ASP.NET Core-appar: Läsa in initieraren till TelemetryConfiguration**
+**ASP.NET Core appar: Läs in initieraren till TelemetryConfiguration**
 
-För [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) program, att lägga till en ny `TelemetryInitializer` görs genom att lägga till behållaren Beroendeinmatning enligt nedan. Detta görs `ConfigureServices` -metoden för din `Startup.cs` klass.
+Om du vill [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program lägger du `TelemetryInitializer` till en ny genom att lägga till den i behållaren för beroende insprutning, som du ser nedan. Detta görs i `ConfigureServices` -metoden för din `Startup.cs` klass.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -171,7 +171,7 @@ appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
 appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
 ```
 
-### <a name="alternate-method-for-nodejs"></a>Alternativ metod för Node.js
+### <a name="alternate-method-for-nodejs"></a>Alternativ metod för Node. js
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -185,36 +185,36 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
-Om du använder Spring Boot med Application Insights Spring Boot starter är den enda önskade ändringen att ange ditt eget namn för programmet i application.properties-filen.
+Om du använder våren boot med Application Insights våren Boot starter, är den enda nödvändiga ändringen att ange ditt anpassade namn för programmet i filen Application. Properties.
 
 `spring.application.name=<name-of-app>`
 
-Spring Boot starter tilldelas automatiskt molnrollnamn till värdet du anger för egenskapen spring.application.name.
+Våren Boot starter tilldelar automatiskt namnet på moln rollen till det värde som du anger för egenskapen spring.application.name.
 
-Ytterligare information om Java Korrelations- och hur du konfigurerar molnroll namn för icke-SpringBoot program checka ut detta [avsnittet](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) på korrelation.
+Mer information om Java-korrelation och hur du konfigurerar moln roll namn för icke-SpringBoot program checka in det här [avsnittet](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) om korrelation.
 
-### <a name="clientbrowser-side-javascript"></a>Klientens/webbläsaren JavaScript
+### <a name="clientbrowser-side-javascript"></a>Klient-och webb läsar skript
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
 });
 ```
 
-### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Förstå molnrollnamn inom ramen för Programkartan
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Förstå moln roll namn inom kontexten för program kartan
 
-Vad gäller hur du förhåller dig **molnrollnamn**, det kan vara bra att titta på en karta för program som har flera moln rollnamn finns:
+Så långt som möjligt att tänka på **namn på moln rollen**, kan det vara bra att titta på en program karta som har flera namn på moln roller:
 
-![Skärmbild av programmet karta](media/app-map/cloud-rolename.png)
+![Skärm bild för program karta](media/app-map/cloud-rolename.png)
 
-I programavbildning ovan vart och ett av namnen i gröna rutorna är molnet rollen värden för olika aspekter av det aktuella distribuerade programmet. Så för den här appen dess roller består av: `Authentication`, `acmefrontend`, `Inventory Management`, ett `Payment Processing Worker Role`. 
+I program kartan ovanför var och en av namnen i gröna rutor är namn värden för moln roller för olika aspekter av just det distribuerade programmet. Så för den här appen består dess roller av `Authentication`: `acmefrontend`, `Inventory Management`,, `Payment Processing Worker Role`. 
 
-När det gäller den här appen representerar var och en av dessa rollnamn för molnet också en annan unik Application Insights-resurs med sina egna instrumenteringsnycklar. Eftersom ägaren av det här programmet har åtkomst till var och en av de fyra olika Application Insights-resurserna, kan Programkartan en karta över underliggande relationerna sätta ihop.
+När det gäller den här appen representerar var och en av dessa namn på moln rollerna också en annan unik Application Insights resurs med sina egna instrument nycklar. Eftersom ägaren av det här programmet har åtkomst till var och en av dessa fyra olika Application Insights-resurser kan program kartan sammanfoga en karta över de underliggande relationerna.
 
-För den [officiella definitioner](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+För [officiella definitioner](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
 ```
    [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
@@ -226,47 +226,47 @@ För den [officiella definitioner](https://github.com/Microsoft/ApplicationInsig
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Du kan också **molnet rollinstans** kan vara användbart för scenarier där **molnrollnamn** talar om problemet är någonstans i din Webbklient, men du kan köra dina webbklient över flera belastningsutjämnade servrar så att kunna öka detaljnivån i ett lager som är djupare via Kusto-frågor och att känna till om problemet påverkar alla web servrar/klientdelsinstanserna eller bara en kan vara mycket viktigt.
+En **moln roll instans** kan till exempel vara användbart för scenarier där **moln Rolls namnet** visar att problemet ligger någonstans i din webb klient del, men du kanske kör webb klient delen på flera belastningsutjämnade servrar så att du kan gå in på ett lager djupare via Kusto frågor och vet om problemet påverkar alla frontend-servrar/-instanser eller bara ett kan vara mycket viktigt.
 
-Ett scenario där du kanske vill åsidosätta värdet för molnet rollinstans kan vara om din app körs i en miljö med behållare där bara att känna till den enskilda servern kanske inte tillräckligt med information för att hitta ett visst problem.
+Ett scenario där du kanske vill åsidosätta värdet för moln roll instansen kan vara om din app körs i en behållare miljö där det inte finns tillräckligt med information för att hitta ett visst problem.
 
-Mer information om hur du åsidosätter namnegenskapen molnet rollen med telemetri-initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Mer information om hur du åsidosätter egenskapen namn för moln roll med telemetri initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du har problem med att få Programkartan som fungerar som förväntat, kan du prova de här stegen:
+Om du har problem med att få program kartan att fungera som förväntat kan du prova följande steg:
 
 ### <a name="general"></a>Allmänt
 
 1. Kontrollera att du använder en SDK som stöds officiellt. SDK:er som inte stöds eller community-SDK:er har kanske inte stöd för korrelation.
 
-    Referera till denna [artikeln](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) en lista över stödda SDK: erna.
+    I den här [artikeln](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) hittar du en lista över SDK: er som stöds.
 
-2. Uppgradera alla komponenter till den senaste versionen av SDK.
+2. Uppgradera alla komponenter till den senaste SDK-versionen.
 
-3. Om du använder Azure Functions med C#, uppgradera till [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Om du använder Azure Functions med C#uppgraderar du till Functions [v2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Bekräfta [molnrollnamn](#set-cloud-role-name) är korrekt konfigurerad.
+4. Bekräfta att [namnet på moln rollen](#set-cloud-role-name) har kon figurer ATS korrekt.
 
 5. Om du saknar ett beroende kontrollerar du att det finns i listan över [automatiskt insamlade beroenden](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Om inte så kan du ändå spåra det manuellt med ett [beroendespårningsanrop](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
-### <a name="too-many-nodes-on-the-map"></a>För många noderna på kartan
+### <a name="too-many-nodes-on-the-map"></a>För många noder på kartan
 
-Programavbildning skapar en programnod för varje unikt molnrollnamn finns i din begärandetelemetri och en beroendenod för varje unik kombination av typen, mål och molnrollnamn i din telemetri om beroenden. Om det finns fler än 10 000 noder i telemetrin visas Programkartan inte hämta alla noder och länkar, så att kartan är ofullständig. Om det händer visas ett varningsmeddelande när du visar kartan.
+Program kartan konstruerar en programnod för varje unikt moln roll namn som finns i din begäran telemetri och en beroende nod för varje unik kombination av typ, mål och moln roll namn i din beroende telemetri. Om det finns fler än 10 000 noder i din telemetri kommer inte program mappning att kunna hämta alla noder och länkar, så att kartan inte är fullständig. Om detta inträffar visas ett varnings meddelande när kartan visas.
 
-Dessutom Programkartan endast har stöd för upp till 1 000 separat uppdelade noder återges på samma gång. Programavbildning minskar visual komplexiteten genom att gruppera beroenden som har samma typ och anropare, men om din telemetri har för många unika molnet rollnamn eller för många Beroendetyper, gruppen kommer att vara otillräckliga och kartan kommer inte att återge.
+Dessutom stöder program kartan bara upp till 1000 separata uppdelade noder som återges samtidigt. Program kartan minskar den visuella komplexiteten genom att gruppera beroenden som har samma typ och anropare, men om Telemetrin har för många unika moln roll namn eller för många beroende typer är den grupperingen otillräcklig, och kartan kommer inte att kunna återge.
 
-Lös problemet genom måste du ändra din instrumentering för att ange korrekt molnrollnamn, beroendetyp och beroende målfälten.
+För att åtgärda detta måste du ändra Instrumentation till rätt sätt i fälten namn, beroende typ och beroende mål för molnet.
 
-* Beroendemål ska motsvara det logiska namnet för ett beroende. I många fall är det motsvarar servern eller resursnamnet för beroendet. Till exempel är den inställd på värdnamnet för HTTP-beroenden. Det får inte innehålla unika ID: N eller parametrar som ändrar från en begäran till en annan.
+* Beroende mål ska representera det logiska namnet för ett beroende. I många fall motsvarar den server-eller resurs namnet för beroendet. Om till exempel HTTP-beroenden är inställd på värd namnet. Det får inte innehålla unika ID: n eller parametrar som ändras från en begäran till en annan.
 
-* Beroendetyp ska motsvara den logiska typen för ett beroende. Till exempel är HTTP-, SQL- eller Azure Blob typiska Beroendetyper. Det får inte innehålla unika ID: N.
+* Beroende typen ska representera den logiska typen för ett beroende. Till exempel är HTTP, SQL eller Azure Blob typiska beroende typer. Det får inte innehålla unika ID: n.
 
-* Syftet med molnrollnamn beskrivs i den [ovan avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* Syftet med namnet på moln rollen beskrivs i [avsnittet ovan](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
-## <a name="portal-feedback"></a>Portalen feedback
+## <a name="portal-feedback"></a>Portal feedback
 
-Använd alternativet feedback om du vill ge feedback.
+Använd feedback-alternativet för att ge feedback.
 
 ![MapLink-1-bild](./media/app-map/14-updated.png)
 

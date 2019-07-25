@@ -41,6 +41,9 @@
     - name: Hämta resursändringar
       displayName: 'resource, change, history, snapshot, details'
       href: ./how-to/get-resource-changes.md
+- name: Felsöka
+  displayName: 'errors, violation'
+  href: ./troubleshoot/general.md
 - name: Referens
   items:
     - name: Azure CLI

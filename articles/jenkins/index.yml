@@ -11,6 +11,7 @@ metadata:
   ms.author: tarcher
   ms.topic: landing-page
   ms.date: 08/27/2018
+  ms.custom: seo-java-july2019
 abstract:
   description: 'Använd Jenkins-servern med öppen källkod för att skapa dina appar i molnet och distribuera dem till Azure. Lär dig hur du installerar, konfigurerar och skalar Jenkins på Azure samt konfigurerar kontinuerlig integrering (CI) för dina appar med våra snabbstarter, självstudier och exempel på pipeliner.'
   aside:

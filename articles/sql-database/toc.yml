@@ -19,7 +19,7 @@
       href: sql-database-managed-instance-quickstart-guide.md
     - name: Skapa
       items:
-        - name: Enkel databas – portalen
+        - name: Enskild databas
           href: sql-database-single-database-get-started.md
         - name: Enkel databas – mall
           displayName: 'Azure Resource Manager template, ARM'
@@ -87,14 +87,22 @@
           href: sql-database-design-first-database.md
         - name: Utforma en databas med hjälp av .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Singleton-databas
+    - name: Enkel databas
       items:
         - name: Migrera till en enkel databas/pooldatabas med DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+        - name: Lägga till en redundansgrupp
+          href: sql-database-single-database-failover-group-tutorial.md
         - name: Implementera en geo-distribuerad databas
           href: sql-database-implement-geo-distributed-database.md
+        - name: Konfigurera aktiv geo-replikering
+          href: sql-database-active-geo-replication-portal.md
         - name: Konfigurera Azure SQL Data Sync
           href: sql-database-get-started-sql-data-sync.md
+    - name: Elastisk pool
+      items:
+        - name: Lägga till en redundansgrupp
+          href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Managed Instance
       items:
         - name: Migrera online med DMS
@@ -245,8 +253,6 @@
               href: sql-database-active-geo-replication.md
             - name: Automatiska redundansgrupper
               href: sql-database-auto-failover-group.md
-            - name: Konfigurera aktiv geo-replikering – portalen
-              href: sql-database-active-geo-replication-portal.md
             - name: Konfigurera säkerhet för repliker
               href: sql-database-geo-replication-security-config.md
         - name: Alternativ för återställning av databaser
@@ -516,6 +522,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Läs in och flytta data
       items:
+        - name: Flytta en resurs till en ny region
+          href: sql-database-move-resources-across-regions.md
         - name: Kopiera en databas i Azure
           href: sql-database-copy.md
         - name: Importera en databas från en BACPAC-fil

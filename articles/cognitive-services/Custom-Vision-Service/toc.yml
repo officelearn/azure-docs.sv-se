@@ -6,6 +6,12 @@
       href: home.md
 - name: Snabbstarter
   items:
+    - name: Använda webbportalen
+      items:
+        - name: Skapa en klassificerare
+          href: getting-started-build-a-classifier.md
+        - name: Skapa en objektidentifierare
+          href: get-started-build-detector.md
     - name: Använda .NET SDK
       items:
         - name: Bildklassificering
@@ -42,8 +48,6 @@
       href: logo-detector-mobile.md
 - name: Instruktionsguider
   items:
-    - name: Skapa en klassificerare
-      href: getting-started-build-a-classifier.md
     - name: Testa din modell
       href: test-your-model.md
     - name: Förbättra din klassificerare

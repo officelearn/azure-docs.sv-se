@@ -7,18 +7,19 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/20/2019
+ms.date: 07/22/2019
 ms.topic: hub-page
-ms.openlocfilehash: 1e78c31c19bdbc8ea223c504a53f1df73caa5d44
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: ad403b58a0f6aad37e9d8d547d269b9f45566559
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295392"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442825"
 ---
 <div id="main" class="v2">
 <h1>Dokumentation om Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.</p>
+        <p> Varje tjänst har sitt eget <a href="/azure/cognitive-services/language-support">språkstöd</a> och <a href="/azure/cognitive-services/cognitive-services-and-machine-learning#service-requirements-for-the-data-model">datamodellkrav</a>, från en fullständigt tränad modell till en fullständigt anpassningsbar modell. 
 
 
 <h2>API:er för Cognitive Services</h2>
@@ -123,6 +124,25 @@ ms.locfileid: "67295392"
                             <div class="cardText">
                                 <h3>Vad är Cognitive Services?</h3>
                                 <p>Läs mer om Azure Cognitive Services och hur du använder olika API: er för att skapa smarta appar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-and-machine-learning/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services och Machine Learning</h3>
+                                <p>Lär dig hur Azure Cognitive Services passar ihop med andra Azure-erbjudanden för maskininlärning.</p>
                             </div>
                         </div>
                     </div>

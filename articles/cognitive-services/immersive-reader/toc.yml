@@ -13,6 +13,10 @@
   items:
     - name: Starta Avancerad läsare (Node.js)
       href: tutorial.md
+- name: Instruktioner
+  items:
+    - name: Azure Active Directory-autentisering
+      href: azure-active-directory-authentication.md
 - name: Referens
   items:
     - name: SDK-referens

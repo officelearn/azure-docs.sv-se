@@ -58,8 +58,8 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 
 1. Öppna AD FS-hantering.
 2. Välj **Förlitande partsförtroenden** till vänster.
-3. Högerklicka på **Microsoft Office 365-Identitetsplattform** och välj **redigera Anspråksregler... ** 
-    ![ADFS-konsolen – redigera Anspråksregler](./media/howto-mfa-adfs/trustedip1.png)
+3. Högerklicka på **Microsoft Office 365-Identitetsplattform** och välj **redigera Anspråksregler...** 
+   ![ADFS-konsolen – redigera Anspråksregler](./media/howto-mfa-adfs/trustedip1.png)
 4. För utfärdande av Transformeringsregler klickar du på **Lägg till regel.** 
     ![Att lägga till en Anspråksregel](./media/howto-mfa-adfs/trustedip2.png)
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.

@@ -59,7 +59,7 @@ sections:
       - type: paragraph
         text: 'Lär dig hur du konfigurerar, hanterar, bygger och distribuerar en app med Azure Spatial Anchors.'
       - type: list
-        style: ordered
+        style: unordered
         items:
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Dela i Unity.</a>
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Dela i Unity med Azure Cosmos DB.</a>

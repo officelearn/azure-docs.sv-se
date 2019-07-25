@@ -219,7 +219,7 @@ När du kopierar data från Amazon Redshift, används följande mappningar från
 | REAL |Single |
 | SMALLINT |Int16 |
 | TEXT |String |
-| TIDSSTÄMPEL |DateTime |
+| TIMESTAMP |DateTime |
 | VARCHAR |String |
 
 ## <a name="next-steps"></a>Nästa steg

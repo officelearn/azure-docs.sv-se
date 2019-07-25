@@ -98,8 +98,6 @@
           href: sisense.md
     - name: Hantera
       items:
-        - name: Hantera databasbehörigheter
-          href: manage-database-permissions.md
         - name: Kontrollera klusterhälsa
           href: check-cluster-health.md
         - name: Välja kluster-SKU för virtuell dator
@@ -108,6 +106,10 @@
           href: manage-cluster-horizontal-scaling.md
         - name: Hantera vertikal klusterskalning
           href: manage-cluster-vertical-scaling.md
+        - name: Hantera klustersäkerhet
+          href: manage-cluster-security.md
+        - name: Hantera databasbehörigheter
+          href: manage-database-permissions.md
         - name: Ta bort data
           href: delete-data.md
         - name: Hantera duplicerade data

@@ -122,10 +122,12 @@
               href: application-gateway-end-to-end-ssl-powershell.md
         - name: Hantera certifikat
           items:
-            - name: Skapa certifikat för serverdel för lista över tillåtna
+            - name: Certifikat för serverdelen
               href: certificates-for-backend-authentication.md
             - name: Förnya certifikat
               href: renew-certificates.md
+            - name: Skapa självsignerade certifikat
+              href: self-signed-certificates.md
         - name: SSL-princip
           items:
             - name: Konfigurera SSL-princip

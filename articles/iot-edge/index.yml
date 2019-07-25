@@ -1,108 +1,112 @@
 ### YamlMime:Landing
 title: Azure IoT Edge
-summary: 'Azure IoT Edge är en IoT-tjänst (Sakernas Internet) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, det vill säga ”vid gränsen”, i stället för i molnet. När du flyttar delar av din arbetsbelastning till nätverksgränsen går det åt mindre tid till att skicka meddelanden till molnet och dina enheter reagerar snabbare på händelser.'
+summary: Azure IoT Edge är en IoT-tjänst (Sakernas Internet) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, det vill säga ”vid gränsen”, i stället för i molnet. När du flyttar delar av din arbetsbelastning till nätverksgränsen går det åt mindre tid till att skicka meddelanden till molnet och dina enheter reagerar snabbare på händelser.
 metadata:
   ms.topic: landing-page
+  ms.openlocfilehash: 71589d66856b4f6d3a32da50252fadff564373ff
+  ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 07/23/2019
+  ms.locfileid: "68414416"
 landingContent:
-  - title: Utveckla för Linux-enheter
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Distribuera din första IoT Edge-modul till en Linux-enhet
-            url: quickstart-linux.md
-      - linkListType: tutorial
-        links:
-          - text: Utveckla IoT Edge-moduler för Linux-tjänster
-            url: tutorial-develop-for-linux.md
-      - linkListType: how-to-guide
-        links:
-          - text: Använda Visual Studio Code för att utveckla och felsöka moduler
-            url: how-to-vs-code-develop-module.md
-  - title: Utveckla för Windows-enheter
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Distribuera din första IoT Edge-modul till en Windows-enhet
-            url: quickstart.md
-      - linkListType: tutorial
-        links:
-          - text: Utveckla IoT Edge-moduler för Windows-tjänster
-            url: tutorial-develop-for-windows.md
-      - linkListType: how-to-guide
-        links:
-          - text: Använda Visual Studio 2017 för att utveckla och felsöka moduler
-            url: how-to-visual-studio-develop-module.md
-  - title: Etablera IoT Edge-enheter
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Installera IoT Edge på Linux x64
-            url: how-to-install-iot-edge-linux.md
-          - text: Installera IoT Edge på Linux ARM32
-            url: how-to-install-iot-edge-linux-arm.md
-          - text: Installera IoT Edge på Windows x64
-            url: how-to-install-iot-edge-windows.md
-          - text: Etablera Linux-enheter automatiskt
-            url: how-to-auto-provision-simulated-device-linux.md
-          - text: Etablera Windows-enheter automatiskt
-            url: how-to-auto-provision-simulated-device-windows.md
-  - title: Interagera med communityn för öppen källkod
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: IoT Edge-lagringsplats
-            url: 'https://github.com/Azure/iotedge'
-          - text: IoT Edge GitHub-problem
-            url: 'https://github.com/Azure/iotedge/issues'
-          - text: Senaste versionerna och ändringsloggarna
-            url: 'https://github.com/Azure/azure-iotedge/releases'
-  - title: Använda IoT Edge-enheter som gatewayer
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Så kan en IoT Edge-enhet användas som gateway
-            url: iot-edge-as-gateway.md
-      - linkListType: how-to-guide
-        links:
-          - text: Konfigurera en transparent gateway
-            url: how-to-create-transparent-gateway.md
-          - text: Autentisera en underordnad enhet på Azure IoT Hub
-            url: how-to-authenticate-downstream-device.md
-          - text: Ansluta en underordnad enhet till en gateway
-            url: how-to-connect-downstream-device.md
-  - title: Förbereda för produktionsscenarier
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Förstå automatiska distributioner
-            url: module-deployment-monitoring.md
-          - text: Plattformssupport
-            url: support.md
-          - text: Checklista för produktionsdistribution
-            url: production-checklist.md
-          - text: Förstå IoT Edge-certifikatsanvändning
-            url: iot-edge-certs.md
-          - text: Säkerhetsstandarder för IoT Edge
-            url: security.md
-      - linkListType: how-to-guide
-        links:
-          - text: Distribuera och övervaka i stor skala med hjälp av Azure CLI
-            url: how-to-deploy-monitor-cli.md
-          - text: Skapa en CI/CD-pipeline med Azure Pipelines
-            url: how-to-ci-cd.md
-      - linkListType: deploy
-        links:
-          - text: REST-API för IoT Hub
-            url: 'https://docs.microsoft.com/rest/api/iothub/'
-  - title: Distribuera AI till gränsen
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Distribuera Azure Machine Learning som en IoT Edge-modul
-            url: tutorial-deploy-machine-learning.md
-          - text: Utföra bildklassificering på gränsen med Custom Vision Service
-            url: tutorial-deploy-custom-vision.md
-      - linkListType: deploy
-        links:
-          - text: Hitta Azure Cognitive Services-moduler på Azure Marketplace
-            url: 'https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services'
+- title: Utveckla för Linux-enheter
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuera din första IoT Edge-modul till en Linux-enhet
+      url: quickstart-linux.md
+  - linkListType: tutorial
+    links:
+    - text: Utveckla IoT Edge-moduler för Linux-tjänster
+      url: tutorial-develop-for-linux.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Visual Studio Code för att utveckla och felsöka moduler
+      url: how-to-vs-code-develop-module.md
+- title: Utveckla för Windows-enheter
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuera din första IoT Edge-modul till en Windows-enhet
+      url: quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Utveckla IoT Edge-moduler för Windows-tjänster
+      url: tutorial-develop-for-windows.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Visual Studio 2017 för att utveckla och felsöka moduler
+      url: how-to-visual-studio-develop-module.md
+- title: Etablera IoT Edge-enheter
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Installera IoT Edge på Linux
+      url: how-to-install-iot-edge-linux.md
+    - text: Installera IoT Edge på Windows
+      url: how-to-install-iot-edge-windows.md
+    - text: Etablera Linux-enheter automatiskt
+      url: how-to-auto-provision-simulated-device-linux.md
+    - text: Etablera Windows-enheter automatiskt
+      url: how-to-auto-provision-simulated-device-windows.md
+- title: Interagera med communityn för öppen källkod
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: IoT Edge-lagringsplats
+      url: https://github.com/Azure/iotedge
+    - text: IoT Edge GitHub-problem
+      url: https://github.com/Azure/iotedge/issues
+    - text: Senaste versionerna och ändringsloggarna
+      url: https://github.com/Azure/azure-iotedge/releases
+- title: Använda IoT Edge-enheter som gatewayer
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Så kan en IoT Edge-enhet användas som gateway
+      url: iot-edge-as-gateway.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera en transparent gateway
+      url: how-to-create-transparent-gateway.md
+    - text: Autentisera en underordnad enhet på Azure IoT Hub
+      url: how-to-authenticate-downstream-device.md
+    - text: Ansluta en underordnad enhet till en gateway
+      url: how-to-connect-downstream-device.md
+- title: Förbereda för produktionsscenarier
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Förstå automatiska distributioner
+      url: module-deployment-monitoring.md
+    - text: Plattformssupport
+      url: support.md
+    - text: Checklista för produktionsdistribution
+      url: production-checklist.md
+    - text: Förstå IoT Edge-certifikatsanvändning
+      url: iot-edge-certs.md
+    - text: Säkerhetsstandarder för IoT Edge
+      url: security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera och övervaka i stor skala med hjälp av Azure CLI
+      url: how-to-deploy-monitor-cli.md
+    - text: Skapa en CI/CD-pipeline med Azure Pipelines
+      url: how-to-ci-cd.md
+  - linkListType: deploy
+    links:
+    - text: REST-API för IoT Hub
+      url: https://docs.microsoft.com/rest/api/iothub/
+- title: Distribuera AI till gränsen
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuera Azure Machine Learning som en IoT Edge-modul
+      url: tutorial-deploy-machine-learning.md
+    - text: Utföra bildklassificering på gränsen med Custom Vision Service
+      url: tutorial-deploy-custom-vision.md
+  - linkListType: deploy
+    links:
+    - text: Hitta Azure Cognitive Services-moduler på Azure Marketplace
+      url: https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services

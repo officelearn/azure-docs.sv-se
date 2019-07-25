@@ -100,6 +100,8 @@
               href: backup-mabs-unattended-install.md
         - name: Skydda arbetsbelastningar
           items:
+            - name: Säkerhetskopiera virtuella Hyper-V-datorer
+              href: back-up-hyper-v-virtual-machines-mabs.md
             - name: VMware-server
               href: backup-azure-backup-server-vmware.md
             - name: Exchange

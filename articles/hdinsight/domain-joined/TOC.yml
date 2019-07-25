@@ -32,8 +32,14 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Nätverksåtkomst
       items:
-        - name: HDInsight i ett virtuellt Azure-nätverk
-          href: ../hdinsight-extend-hadoop-virtual-network.md
+        - name: Arkitektur för virtuellt HDInsight-nätverk
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Planera virtuella nätverk för HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Skapa virtuella nätverk för HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: IP-adresser som krävs för nätverkssäkerhetsgrupper och användardefinierade vägar
+          href: ../hdinsight-management-ip-addresses.md
         - name: Ansluta HDInsight till det lokala nätverket
           href: ../connect-on-premises-network.md
         - name: Skapa Apache HBase-kluster i ett virtuellt Azure-nätverk

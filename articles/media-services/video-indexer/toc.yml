@@ -21,6 +21,8 @@
       href: compare-video-indexer-with-media-services-presets.md
     - name: Hantera flera klientorganisationer
       href: manage-multiple-tenants.md
+    - name: Språkidentifieringsmodell
+      href: language-identification-model.md
     - name: Anpassa innehållsmodeller
       items:
         - name: Översikt

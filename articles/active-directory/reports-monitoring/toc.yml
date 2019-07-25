@@ -27,6 +27,8 @@
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: Begrepp
   items:
+    - name: Planera en rapporterings- och övervakningsdistribution
+      href: plan-monitoring-and-reporting.md
     - name: Granskningsloggar
       href: concept-audit-logs.md
     - name: Inloggningsloggar

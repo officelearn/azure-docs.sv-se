@@ -193,6 +193,18 @@
                   href: scenario-mobile-overview.md
                 - name: Appregistrering
                   href: scenario-mobile-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-mobile-app-configuration.md
+                - name: Specifik konfiguration för mobila plattformar
+                  items:
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Systemwebbläsare på Android
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: Universell Windows-plattform
+                      href: msal-net-uwp-considerations.md
                 - name: Hämta en token för appen
                   href: scenario-mobile-acquire-token.md
                 - name: Anropa ett webb-API
@@ -255,14 +267,6 @@
                   items:
                     - name: Webbläsare
                       href: msal-net-web-browsers.md
-                    - name: Xamarin Android
-                      href: msal-net-xamarin-android-considerations.md
-                    - name: Systemwebbläsare på Android
-                      href: msal-net-system-browser-android-considerations.md
-                    - name: Xamarin iOS
-                      href: msal-net-xamarin-ios-considerations.md
-                    - name: Universell Windows-plattform
-                      href: msal-net-uwp-considerations.md
                 - name: MSAL.js
                   items:
                     - name: Överväganden vid användning av IE

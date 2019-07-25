@@ -397,7 +397,7 @@
     - name: Företagssäkerhet
       items:
         - name: Översikt
-          href: ../domain-joined/apache-domain-joined-introduction.md
+          href: ../domain-joined/hdinsight-security-overview.md
           maintainContext: true
         - name: Planera för företagssäkerhet
           href: ../domain-joined/apache-domain-joined-architecture.md
@@ -421,11 +421,14 @@
       items:
         - name: Arkitektur för virtuellt HDInsight-nätverk
           href: ../hdinsight-virtual-network-architecture.md
+        - name: Planera virtuella nätverk för HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Skapa virtuella nätverk för HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: IP-adresser som krävs för nätverkssäkerhetsgrupper och användardefinierade vägar
+          href: ../hdinsight-management-ip-addresses.md
         - name: Använda brandväggen för att begränsa utgående trafik
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight i ett virtuellt Azure-nätverk
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Ansluta HDInsight till det lokala nätverket
           href: ../connect-on-premises-network.md
           maintainContext: true

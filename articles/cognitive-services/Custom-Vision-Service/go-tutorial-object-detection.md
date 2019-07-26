@@ -4,22 +4,22 @@ titlesuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna projektet och identifiera objekt med hjälp av Go SDK.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: daauld
-ms.openlocfilehash: 8e31e2c053f7712843e48ebb40fb7280444480c4
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 500a8fcc4d218742b9f39834259e6a7a85ce14c2
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277603"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517214"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision. Go SDK
 
-Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Go för att skapa en objektidentifierarmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta projektets publicerade förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet som mall för att skapa dit eget Go-program.
+Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Go för att skapa en objektidentifierarmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa dit eget Go-program.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -33,7 +33,7 @@ Kör följande kommando i PowerShell för att installera Custom Vision Service S
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-Om du använder `dep`, i ditt lager som kör:
+eller om du använder `dep`i din lagrings platsen kör du:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -222,7 +222,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 
 ### <a name="train-the-project-and-publish"></a>Träna projektet och publicera
 
-Den här koden skapar den första upprepningen i projektet och sedan publicerar den iterationen till slutpunkten för förutsägelse. Namnet på den publicerade iterationen kan användas för att skicka förfrågningar för förutsägelse. En iteration är inte tillgänglig i förutsägelse slutpunkten tills den har publicerats.
+Den här koden skapar den första iterationen i projektet och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
 ```go
 iteration, _ := trainer.TrainProject(ctx, *project.ID)
@@ -239,7 +239,7 @@ for {
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och använda den publicerade iterationen på slutpunkten för förutsägelse
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
 
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 

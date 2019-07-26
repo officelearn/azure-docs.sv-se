@@ -6,7 +6,7 @@ metadata:
   description: Lär dig hur du använder formigenkänning för att extrahera nyckel/värde-data från dina dokument i formuläret på ett intelligent sätt.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na

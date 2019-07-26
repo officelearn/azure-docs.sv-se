@@ -6,7 +6,7 @@ metadata:
   description: 'API:et för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, identifiering av teckenentitet och språkidentifiering.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics

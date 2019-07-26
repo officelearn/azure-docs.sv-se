@@ -6,7 +6,7 @@ metadata:
   description: 'Använd API:et för avvikelseidentifiering för att övervaka data under lång tid och identifiera avvikelser med hjälp av maskininlärning. Få insikter om dina data – oavsett hur stora volymer du har, vilken bransch du arbetar i eller vilket scenario det gäller.'
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

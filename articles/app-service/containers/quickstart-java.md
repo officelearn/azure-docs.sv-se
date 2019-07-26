@@ -1,5 +1,5 @@
 ---
-title: Skapa Java-webbapp i Linux – Azure App Service
+title: Skapa en Java-webbapp på Linux – Azure App Service
 description: I den här snabbstarten distribuerar du din första Java Hello World med Azure App Service i Linux på bara några minuter.
 keywords: Azure, App Service, Web App, Linux, Java, maven, snabb start
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 30689e05a2567646ff541818dc68a90c13da7a56
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.custom: mvc, seo-java-july2019
+ms.openlocfilehash: f42cb361bbef028aa2e9afec87972a907c048a1b
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297246"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68514078"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-app i App Service i Linux
 
@@ -116,7 +116,7 @@ Confirm (Y/N)? : Y
 
 Navigera till `pom.xml` igen om du vill se plugin-konfigurationen har uppdaterats kan du ändra andra konfigurationer för App Service direkt i Pom-filen, om det behövs, är några vanliga i listan nedan:
 
- Egenskap | Krävs | Beskrivning | Version
+ Egenskap | Obligatorisk | Beskrivning | Version
 ---|---|---|---
 `<schemaVersion>` | false | Ange konfigurations schemats version. De värden som stöds `v1`är `v2`:,. | 1.5.2
 `<resourceGroup>` | true | Azure-resurs grupp för din webbapp. | 0.1.0 +

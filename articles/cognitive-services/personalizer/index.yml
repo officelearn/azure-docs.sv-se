@@ -6,7 +6,7 @@ metadata:
   title: 'Personanpassning – självstudier, snabbstarter, API-referens'
   description: Lär dig använda tjänsten för Personanpassning så att ditt program kan välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

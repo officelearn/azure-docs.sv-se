@@ -4,22 +4,22 @@ titlesuffix: Azure Cognitive Services
 description: I de här självstudierna ska du gå igenom en exempelapp som använder Azure Custom Vision som en del av ett scenario för identifiering av logotyper. Lär dig hur Custom Vision ska användas med andra komponenter för att leverera ett program för slutpunkt till slutpunkt.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ab3dc89b90636c90564803c6a91350a75c3181cd
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604026"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517075"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudier: Identifiera Azure-tjänstens logotyper i bilder med kameran
 
-I de här självstudierna utforskar en exempelapp som använder Azure Custom Vision som en del av ett större scenario. Appen AI Visual Provision, en Xamarin.Forms-app för mobila plattformar, analyserar kamerabilder av Azure-tjänstens logotyper och distribuerar sedan de faktiska tjänsterna till användarens Azure-konto. Här lär du dig hur det använder Custom Vision tillsammans med andra komponenter för att leverera ett användbart slutpunkt till slutpunkt-program. Du kan köra hela appen scenariot för dig själv eller du kan slutföra Custom Vision del av installationen och utforska hur appen används.
+I de här självstudierna utforskar en exempelapp som använder Azure Custom Vision som en del av ett större scenario. Appen AI Visual Provision, en Xamarin.Forms-app för mobila plattformar, analyserar kamerabilder av Azure-tjänstens logotyper och distribuerar sedan de faktiska tjänsterna till användarens Azure-konto. Här lär du dig hur det använder Custom Vision tillsammans med andra komponenter för att leverera ett användbart slutpunkt till slutpunkt-program. Du kan köra hela appens scenario själv, eller så kan du bara slutföra Custom Vision delen av installationen och utforska hur appen använder den.
 
 De här självstudierna visar hur du:
 
@@ -51,7 +51,7 @@ Logga in på [Custom Visions webbplats](https://customvision.ai/) och skapa ett 
 
 I nästa steg tränar du algoritmen för logotypidentifiering genom att ladda upp bilder på Azure-tjänstens logotyper och tagga dem manuellt. AIVisualProvision-lagringsplatsen innehåller en uppsättning inlärningsbilder som du kan använda. På webbplatsen väljer du knappen **Lägg till bilder** på fliken **Training Images** (Träningsbilder). Gå till mappen **Documents/Images/Training_DataSet** för databasen. Du måste manuellt tagga logotyperna i varje bild, så om du bara testar det här projektet kan det vara bra att ladda upp endast en delmängd av bilderna. Ladda upp minst 15 instanser av varje tagg som du tänker använda.
 
-När du har laddat upp träningsbilderna väljer du den första på skärmen. De taggning fönstret visas. Rita rutor och tilldela taggar för en logotyp i varje bild. 
+När du har laddat upp träningsbilderna väljer du den första på skärmen. Taggnings fönstret visas. Rita rutor och tilldela taggar för en logotyp i varje bild. 
 
 ![Logotyptaggning på Custom Vision-webbplatsen](media/azure-logo-tutorial/tag-logos.png)
 
@@ -63,13 +63,13 @@ När du har taggat en bild går du till höger för att tagga nästa. Stäng tag
 
 ## <a name="train-the-object-detector"></a>Träna objektidentifieraren
 
-I den vänstra rutan ställer du in reglaget **Taggar** på **Tagged** (Taggad) för att visa bilderna. Välj sedan den gröna knappen överst på sidan för att träna modellen. Algoritmen för att träna att identifiera samma taggar i nya avbildningar. Det testar också modellen på några av dina befintliga bilder för att generera noggrannhetspoäng.
+I den vänstra rutan ställer du in reglaget **Taggar** på **Tagged** (Taggad) för att visa bilderna. Välj sedan den gröna knappen överst på sidan för att träna modellen. Algoritmen kommer att träna att identifiera samma Taggar i nya bilder. Det testar också modellen på några av dina befintliga bilder för att generera noggrannhetspoäng.
 
 ![Custom Vision-webbplatsen, på fliken Training Images (Träningsbilder). I den här skärmbilden är knappen Träna markerad](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>Hämta URL:en för förutsägelse
 
-När din modell har tränats är du redo att integrera den med din app. Du behöver hämta slutpunkts-URL (adressen för din modell, som ska skicka frågor till appen) och nyckeln förutsägelse (för att ge appen åtkomst till förutsägelse begäranden). På fliken **Prestanda** väljer du knappen **Prediction URL** (Förutsägelse-URL) längst upp på sidan.
+När din modell har tränats är du redo att integrera den med din app. Du måste hämta slut punkts-URL: en (adressen till din modell som appen kommer att fråga) och förutsägelse nyckeln (för att ge appen åtkomst till förutsägelse begär Anden). På fliken **Prestanda** väljer du knappen **Prediction URL** (Förutsägelse-URL) längst upp på sidan.
 
 ![Custom Vision-webbplatsen med en förutsägelse-API-skärm som visar en URL-adress och en API-nyckel](media/azure-logo-tutorial/cusvis-endpoint.png)
 
@@ -95,7 +95,7 @@ Custom Vision-delen av självstudien är klar. Om du vill att köra appen måste
 
 Prenumerera på tjänsten Visuellt innehåll för att hämta en nyckel och slutpunkts-URL. Hjälp om det här steget finns i [Skaffa prenumerationsnycklar](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
-![Tjänsten för visuellt innehåll i Azure-portalen med Snabbstart-menyn som valts. En länk för nycklar samt slutpunkts-URL för API är markerade](media/azure-logo-tutorial/comvis-keys.png)
+![Tjänsten Visuellt innehåll i Azure Portal, med snabb starts menyn vald. En länk för nycklar samt slutpunkts-URL för API är markerade](media/azure-logo-tutorial/comvis-keys.png)
 
 Nu öppnar du filen *Source\VisualProvision\AppSettings.cs* och fyller i variablerna `ComputerVisionEndpoint` och `ComputerVisionKey` med rätt värden.
 

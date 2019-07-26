@@ -7,7 +7,7 @@ metadata:
   description: 'Speech Services ger utvecklarna ett enkelt sätt att lägga till kraftfulla talaktiverade funktioner i sina program. Exemplen omfattar styrning av röstkommandon och dialog, konversation med naturligt tal, transkription och diktering av tal samt talöversättning.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: speech-service

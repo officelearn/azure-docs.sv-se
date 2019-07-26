@@ -6,7 +6,7 @@ metadata:
   description: 'Lär dig hur du använder portalen för anpassad Bing-sökning och API:et för att skapa anpassade sökupplevelser'
   services: cognitive-services
   author: v-deken
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

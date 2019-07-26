@@ -6,7 +6,7 @@ metadata:
   title: 'Language Understanding Intelligent Service (LUIS) – självstudier, snabbstarter, API-referens'
   description: Lär dig mer om att använda Language Understanding-tjänsten så att ditt program kan förstå vad en person vill när den använder egna ord.
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

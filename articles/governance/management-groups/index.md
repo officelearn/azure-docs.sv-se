@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237170"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516978"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -98,7 +98,7 @@ Följande diagram visar listan över roller och åtgärder som stöds för hante
 |Läsare                      |        |        |        |        |               |               | X     |
 |MG-läsare*                  |        |        |        |        |               |               | X     |
 |Deltagare för resursprincip |        |        |        |        |               | X             |       |
-|Administratör för användaråtkomst   |        |        |        |        | X             |               |       |
+|Administratör för användaråtkomst   |        |        |        |        | X             | X             |       |
 
 *: MG-deltagare och MG-läsare tillåter endast användare att utföra dessa åtgärder inom hanteringsgruppsomfånget.  
 **: Rolltilldelningar på rothanteringsgruppen krävs inte för att flytta en prenumeration eller hanteringsgrupp till och från den.  Läs [Hantera dina resurser med hanteringsgrupper](manage.md) för mer information om att flytta objekt inom hierarkin.

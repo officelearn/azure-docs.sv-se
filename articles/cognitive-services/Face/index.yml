@@ -6,7 +6,7 @@ metadata:
   description: 'Lär dig hur du använder ansikts-API:et för att upptäcka och identifiera ansikten i bilder och returnera information om dem. Självstudier visar hur du skapar appar som använder API:et.'
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.tgt_pltfrm: na

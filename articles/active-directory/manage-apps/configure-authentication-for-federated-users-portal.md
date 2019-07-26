@@ -1,6 +1,6 @@
 ---
-title: Konfigurera inloggning automatisk acceleration för ett program med en princip för identifiering av startsfär | Microsoft Docs
-description: Lär dig hur du konfigurerar identifiering av startsfär princip för Azure Active Directory-autentisering för federerade användare, inklusive automatisk acceleration och domän.
+title: Konfigurera automatisk inloggnings acceleration med hjälp av princip för identifiering av start sfär | Microsoft Docs
+description: Lär dig hur du konfigurerar identifierings princip för start sfär för Azure Active Directory autentisering för federerade användare, inklusive automatisk acceleration och domän tips.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,96 +15,96 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440376"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477211"
 ---
-# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory-inloggning i beteendet för ett program med hjälp av en princip för identifiering av startsfär
+# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory inloggnings beteende för ett program med hjälp av en princip för identifiering av start sfär
 
-Den här artikeln ger en introduktion till att konfigurera beteendet för Azure Active Directory-autentisering för federerade användare. Den omfattar konfiguration av automatisk acceleration och autentisering begränsningar för användare på federerade domäner.
+Den här artikeln innehåller en introduktion till hur du konfigurerar Azure Active Directory autentisering för federerade användare. Den täcker konfigurationen av automatisk acceleration och autentiseringskrav för användare i federerade domäner.
 
 ## <a name="home-realm-discovery"></a>Upptäckt av hemsfär
-Identifiering av Home startsfär (HRD) är den process som gör att Azure Active Directory (Azure AD) för att avgöra om en användare behöver autentisera på inloggningstid.  När en användare loggar in till en Azure AD-klient till en resurs eller till Azure AD vanliga-inloggningssidan ange de ett användarnamn (UPN). Azure AD använder som för att upptäcka där användarna måste logga in. 
+Start sfär identifiering (HRD) är den process som tillåter Azure Active Directory (Azure AD) för att avgöra var en användare behöver autentisera vid inloggnings tillfället.  När en användare loggar in på en Azure AD-klient för att få åtkomst till en resurs, eller till den vanliga inloggnings sidan för Azure AD, skriver de ett användar namn (UPN). Azure AD använder för att identifiera var användaren behöver logga in. 
 
-Användaren kan behöva åtgärdas till någon av följande platser för att autentiseras:
+Användaren kan behöva vidta någon av följande platser för att autentiseras:
 
-- Startklientorganisation för användaren (kan vara samma klient som den resurs som användaren försöker komma åt). 
+- Användarens hem klient (kan vara samma klient som den resurs som användaren försöker komma åt). 
 
-- Microsoft-konto.  Användaren är gäst i klienten för resursen.
+- Microsoft-konto.  Användaren är en gäst i resurs klienten.
 
--  En lokal identitetsprovider som Active Directory Federation Services (AD FS).
+-  En lokal identitetsprovider som Active Directory Federation Services (AD FS) (AD FS).
 
-- Någon annan identitetsprovider som är federerad med Azure AD-klient.
+- En annan identitetsprovider som är federerad med Azure AD-klienten.
 
-## <a name="auto-acceleration"></a>Auto-acceleration 
-Vissa organisationer konfigurera domäner i sina Azure Active Directory-klient för att federera med en annan IDP: N, till exempel AD FS för autentisering av användare.  
+## <a name="auto-acceleration"></a>Automatisk acceleration 
+Vissa organisationer konfigurerar domäner i sin Azure Active Directory-klient att federera med en annan IdP, till exempel AD FS för användarautentisering.  
 
-När en användare loggar in i ett program, visas de först en Azure AD-inloggningssida. När de har skrivit sina UPN, om de finns i en federerad domän tas de sedan till sidan logga in på IDP: N som betjänar den domänen. Under vissa omständigheter kan administratörer vill dirigera användare till sidan logga in när de loggar in på specifika program. 
+När en användare loggar in på ett program visas de först med en inloggnings sida för Azure AD. När de har skrivit sitt UPN, om de finns i en federerad domän, tas de sedan till inloggnings sidan för IdP som betjänar domänen. Under vissa omständigheter kanske administratörer vill dirigera användare till inloggnings sidan när de loggar in på specifika program. 
 
-Användare kan därmed hoppa över den första sidan i Azure Active Directory. Den här processen kallas ”logga in automatisk acceleration”.
+Det innebär att användare kan hoppa över den första Azure Active Directory sidan. Den här processen kallas för automatisk acceleration av inloggning.
 
-I fall där klienten är federerat till en annan IDP: N för att logga in gör automatisk acceleration användaren logga in mer strömlinjeformad.  Du kan konfigurera automatisk acceleration för enskilda program.
-
->[!NOTE]
->Om du konfigurerar ett program för automatisk acceleration för kan inte gästanvändare logga in. Om du skapar en användare direkt till en federerad IDP: N för autentisering, finns det inget sätt att de kan gå tillbaka till inloggningssidan för Azure Active Directory. Gästanvändare som kan behöva dirigeras till andra klienter eller en extern IDP: N, till exempel ett Microsoft-konto, kan inte logga in till programmet eftersom de hoppar över identifiering av startsfär steg.  
-
-Det finns två sätt att kontrollera automatisk acceleration för till en federerad IDP: N:   
-
-- Använd ett domäntips på begäranden om autentisering för ett program. 
-- Konfigurera en princip för identifiering av startsfär för att aktivera automatisk acceleration.
-
-### <a name="domain-hints"></a>Tips för domänen    
-Tips för domänen är direktiv som ingår i autentiseringsbegäran från ett program. De kan användas för att påskynda användaren till sina federerad IdP-inloggningssida. Eller de kan användas av ett program för flera innehavare för att påskynda användaren direkt till den anpassade Azure AD-inloggningssida för klienten.  
-
-Programmet ”largeapp.com” kan till exempel aktivera sina kunder att komma åt programmet på en anpassad URL ”contoso.largeapp.com”. Appen kan även innehålla ett domäntips på contoso.com i autentiseringsbegäran. 
-
-Domän-tipset syntax varierar beroende på vilket protokoll som används och konfigureras vanligtvis i programmet.
-
-**WS-Federation**: whr=contoso.com i frågesträngen.
-
-**SAML**:  Antingen en SAML-autentisering-begäran som innehåller ett domäntips eller en fråga sträng whr=contoso.com.
-
-**Öppna ID Connect**: En fråga sträng domain_hint=contoso.com. 
-
-Om ett domäntips ingår i autentiseringsbegäran från programmet, och klienten är federerad med domänen, försöker Azure AD omdirigerar logga in till IDP: N som har konfigurerats för domänen. 
-
-Om tips för domänen inte refererar till en verifierad federerad domän, ignoreras och normal identifiering av startsfär anropas.
-
-Mer information om automatisk acceleration med domän-tips som stöds av Azure Active Directory finns i den [Enterprise Mobility + Security-bloggen](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
+I de fall där klienten är federerad till en annan IdP för inloggning, gör automatisk acceleration att användar inloggningen är smidigare.  Du kan konfigurera automatisk acceleration för enskilda program.
 
 >[!NOTE]
->Om ett domäntips ingår i en autentiseringsbegäran, åsidosätter sin närvaro automatisk acceleration som har angetts för programmet i HRD-princip.
+>Gäst användare kan inte logga in om du konfigurerar ett program för automatisk acceleration. Om du tar en användare direkt till en federerad IdP för autentisering, finns det inget sätt att gå tillbaka till Azure Active Directory inloggnings sida. Gäst användare, som kan behöva dirigeras till andra klienter eller en extern IdP, till exempel en Microsoft-konto, kan inte logga in till programmet eftersom de hoppar över steget för identifiering av start sfär.  
 
-### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Home princip för identifiering av startsfär för automatisk acceleration
-Vissa program ger ett sätt att konfigurera de sänder autentiseringsbegäran. I dessa fall kan går det inte att använda domänen tips för att styra automatisk acceleration. Automatisk acceleration kan konfigureras via Grupprincip att uppnå samma beteende.  
+Det finns två sätt att styra automatisk acceleration till en federerad IdP:   
+
+- Använd ett domän tips för autentiseringsbegäranden för ett program. 
+- Konfigurera en identifierings princip för start sfär för att aktivera automatisk acceleration.
+
+### <a name="domain-hints"></a>Domän tips    
+Domän tips är direktiv som ingår i autentiseringsbegäran från ett program. De kan användas för att påskynda användaren till deras federerade IdP-inloggnings sida. Eller så kan de användas av ett program med flera klienter för att påskynda användaren direkt till den anpassade inloggnings sidan för Azure AD för klient organisationen.  
+
+Till exempel kan programmet "largeapp.com" göra det möjligt för sina kunder att komma åt programmet på en anpassad URL "contoso.largeapp.com". Appen kan också innehålla ett domän tips till contoso.com i autentiseringsbegäran. 
+
+Domän tipsets syntax varierar beroende på vilket protokoll som används, och det är vanligt vis konfigurerat i programmet.
+
+**WS-Federation**: wattimmar = contoso. com i frågesträngen.
+
+**SAML**:  Antingen en SAML-autentiseringsbegäran som innehåller ett domän tips eller en frågesträng wattimmar = contoso. com.
+
+**Öppna ID Connect**: En frågesträng domain_hint = contoso. com. 
+
+Om ett domän tips ingår i autentiseringsbegäran från programmet och klienten är federerad med domänen, försöker Azure AD omdirigera inloggningen till IdP som har kon figurer ATS för domänen. 
+
+Om domän tipset inte refererar till en verifierad federerad domän ignoreras den och den normala identifieringen av start sfären anropas.
+
+Mer information om automatisk acceleration med hjälp av de domän tips som stöds av Azure Active Directory finns i [Enterprise Mobility + Security Blogg](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
+
+>[!NOTE]
+>Om ett domän tips ingår i en autentiseringsbegäran, åsidosätter dess närvaro automatisk acceleration som har angetts för programmet i HRD-principen.
+
+### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Identifierings princip för start sfär för automatisk acceleration
+Vissa program har inget sätt att konfigurera autentiseringsbegäranden som de genererar. I dessa fall går det inte att använda domän tips för att kontrol lera automatisk acceleration. Automatisk acceleration kan konfigureras via en princip för att uppnå samma beteende.  
 
 ## <a name="enable-direct-authentication-for-legacy-applications"></a>Aktivera direkt autentisering för äldre program
-Det är bra för program att använda AAD-bibliotek och interaktiv inloggning för att autentisera användare. Biblioteken hand tar om federerad användarflöden.  Ibland äldre program skrivits inte för att förstå federation. De kan utföra inte identifiering av startsfär och samverka inte med rätt federerad slutpunkt för att autentisera en användare. Om du vill kan du använda HRD-princip för att aktivera vissa äldre program som skickar autentiseringsuppgifter att autentisera direkt med Azure Active Directory. Lösenordets Hash-synkronisering måste vara aktiverat. 
+Bästa praxis är att programmen använder AAD-bibliotek och interaktiv inloggning för att autentisera användare. Biblioteken tar hand om de federerade användar flödena.  Ibland är äldre program inte skrivna för att förstå federationen. De utför inte identifiering av start sfär och interagerar inte med rätt federerade slut punkt för att autentisera en användare. Om du väljer till kan du använda HRD-principen för att aktivera vissa äldre program som skickar autentiseringsuppgifter för användar namn/lösen ord för att autentisera direkt med Azure Active Directory. Hash-synkronisering av lösen ord måste vara aktive rad. 
 
 > [!IMPORTANT]
-> Aktivera endast direkt autentisering om du har aktiverat lösenordets Hash-synkronisering och du vet att det är Okej att autentisera det här programmet utan alla principer som implementeras av den lokala IDP: N. Om du inaktiverar Lösenordshashsynkronisering eller stänga av katalogsynkronisering med AD Connect av någon anledning, bör du ta bort den här principen för att eliminera risken för direkt autentisering med hjälp av inaktuella lösenords-hash.
+> Aktivera endast direkt autentisering om du har aktiverat Lösenordssynkronisering och du vet att det går att autentisera programmet utan några principer som implementeras av din lokala IdP. Om du inaktiverar hash-synkronisering av lösen ord eller inaktiverar katalogens synkronisering med AD Connect bör du ta bort den här principen för att förhindra direkt autentisering med en föråldrad lösen ords-hash.
 
 ## <a name="set-hrd-policy"></a>Ange HRD-princip
-Det finns tre steg för att inställningen HRD-princip på ett program för federerad inloggning automatisk acceleration eller direkt molnbaserade program:
+Det finns tre steg för att ställa in HRD-principen på ett program för federerad inloggning för automatisk acceleration eller direkt molnbaserade program:
 
 1. Skapa en HRD-princip.
 
-2. Hitta tjänstens huvudnamn som du vill koppla principen.
+2. Leta reda på tjänstens huvud namn som du vill koppla principen till.
 
-3. Koppla principen till tjänstens huvudnamn. 
+3. Koppla principen till tjänstens huvud namn. 
 
-Principerna börjar inte gälla för ett visst program när de är anslutna till ett huvudnamn för tjänsten. 
+Principer börjar gälla endast för ett bestämt program när de är kopplade till ett huvud namn för tjänsten. 
 
-Endast en HRD-princip kan vara aktiv på ett huvudnamn för tjänsten åt gången.  
+Endast en HRD-princip kan vara aktiv i ett tjänst huvud namn vid en och samma tidpunkt.  
 
-Du kan använda Microsoft Azure Active Directory Graph API direkt eller Azure Active Directory PowerShell-cmdlets för att skapa och hantera HRD-princip.
+Du kan antingen använda Microsoft Azure Active Directory Graph-API: et direkt eller Azure Active Directory PowerShell-cmdletar för att skapa och hantera HRD-principer.
 
-Graph-API som manipulerar princip beskrivs i den [åtgärder i principen](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) artikeln på MSDN.
+Graph API som manipulerar principen beskrivs i artikeln åtgärder i [policyn](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) på MSDN.
 
-Följande är ett exempel HRD principdefinitionen:
+Följande är ett exempel på en HRD princip definition:
     
  ```
    {  
@@ -117,47 +117,47 @@ Följande är ett exempel HRD principdefinitionen:
    }
 ```
 
-Principtypen är ”HomeRealmDiscoveryPolicy”.
+Princip typen är "HomeRealmDiscoveryPolicy".
 
-**AccelerateToFederatedDomain** är valfritt. Om **AccelerateToFederatedDomain** är falsk, principen har ingen effekt på automatisk acceleration. Om **AccelerateToFederatedDomain** är true och det är bara en verifierad och federerad domän i klienten och sedan användarna kommer att tas direkt till federerad IDP: N för inloggning. Om det är SANT och det finns fler än en verifierad domän i klienten, **PreferredDomain** måste anges.
+**AccelerateToFederatedDomain** är valfritt. Om **AccelerateToFederatedDomain** är false har principen ingen påverkan på automatisk acceleration. Om **AccelerateToFederatedDomain** är true och det bara finns en verifierad och federerad domän i klienten, kommer användarna att tas direkt till den federerade IDP för att logga in. Om det är sant och det finns fler än en verifierad domän i klient organisationen måste **PreferredDomain** anges.
 
-**PreferredDomain** är valfritt. **PreferredDomain** ska indikera en domän som du vill påskynda. Det kan utelämnas om klienten har endast en federerad domän.  Om det utelämnas, och det finns fler än en verifierad federerad domän, har principen ingen effekt.
+**PreferredDomain** är valfritt. **PreferredDomain** bör ange en domän som ska påskyndas. Den kan utelämnas om klienten bara har en federerad domän.  Om den utelämnas och det finns fler än en verifierad federerad domän, har principen ingen påverkan.
 
- Om **PreferredDomain** anges, måste den matcha en verifierad, federerad domän för klienten. Alla användare av programmet måste kunna logga in på domänen.
+ Om **PreferredDomain** anges måste den matcha en verifierad, federerad domän för klient organisationen. Alla användare av programmet måste kunna logga in på domänen.
 
-**AllowCloudPasswordValidation** är valfritt. Om **AllowCloudPasswordValidation** är SANT och sedan programmet tillåts att autentisera en federerad användare genom att presentera autentiseringsuppgifter direkt till Azure Active Directory tokenslutpunkten. Detta fungerar bara om lösenordets Hash-synkronisering är aktiverat.
+**AllowCloudPasswordValidation** är valfritt. Om **AllowCloudPasswordValidation** är true kan programmet autentisera en federerad användare genom att Visa autentiseringsuppgifter för användar namn/lösen ord direkt till Azure Active Directory token-slutpunkt. Detta fungerar bara om du har aktiverat hash-synkronisering av lösen ord.
 
-### <a name="priority-and-evaluation-of-hrd-policies"></a>Prioritet och utvärderingen av HRD-principer
-Identifieringen av Startsfären principer skapas och tilldelas till specifika organisationer och tjänstens huvudnamn. Det innebär att det är möjligt för flera principer för ett visst program. Dessa regler: HRD-princip som påverkas
-
-
-- Om ett domäntips finns i autentiseringsbegäran ignoreras alla HRD-princip för automatisk acceleration. Det beteende som anges av tips för domänen används.
-
-- Annars, om en princip är explicit tilldelade till tjänstens huvudnamn, den tillämpas. 
-
-- Om det finns inga tips för domänen och ingen princip uttryckligen har tilldelats till tjänstens huvudnamn, tillämpas en princip som uttryckligen har tilldelats den överordnade organisationen för tjänstens huvudnamn. 
-
-- Om det finns inga tips för domänen och ingen princip har tilldelats till tjänstens huvudnamn eller organisationen, används standardbeteendet för identifieringen av Startsfären.
-
-## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>Självstudie för att ställa in HRD-princip på ett program 
-Vi använder Azure AD PowerShell-cmdletar för att gå igenom några scenarier, inklusive:
+### <a name="priority-and-evaluation-of-hrd-policies"></a>Prioritet och utvärdering av HRD-principer
+HRD-principer kan skapas och tilldelas till särskilda organisationer och tjänst huvud namn. Det innebär att det är möjligt att flera principer tillämpas på ett enskilt program. HRD-principen som börjar gälla följer dessa regler:
 
 
-- Ställa in HRD-princip för att göra automatisk acceleration för ett program i en klient till en federerad domän.
+- Om det finns ett domän tips i autentiseringsbegäran ignoreras eventuell HRD-princip för automatisk acceleration. Det beteende som anges av domän tipset används.
 
-- Ställa in HRD-princip för att göra automatisk acceleration för ett program till en av flera domäner som har verifierats för din klient.
+- Annars, om en princip uttryckligen tilldelas till tjänstens huvud namn, tillämpas. 
 
-- Att konfigurera HRD-princip för ett äldre program att dirigera autentisering med användarnamn/lösenord till Azure Active Directory för en extern användare.
+- Om det inte finns något domän tips, och ingen princip uttryckligen tilldelas till tjänstens huvud namn, tvingas en princip som uttryckligen tilldelas till den överordnade organisationen av tjänstens huvud namn. 
 
-- Visa en lista över de program som en princip har konfigurerats.
+- Om det inte finns något domän tips, och ingen princip har tilldelats till tjänstens huvud namn eller organisationen, används standard beteendet för HRD.
+
+## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>Självstudie för att ställa in HRD-principer på ett program 
+Vi använder Azure AD PowerShell-cmdlets för att gå igenom några scenarier, bland annat:
+
+
+- Konfigurera HRD-principen för automatisk acceleration för ett program i en klient organisation med en enda federerad domän.
+
+- Konfigurera HRD-principen för automatisk acceleration för ett program till en av flera domäner som verifieras för din klient.
+
+- Konfigurera HRD-principen för att aktivera ett äldre program för direkt användar namn/lösenordsautentisering till Azure Active Directory för en federerad användare.
+
+- Visar en lista över de program för vilka en princip har kon figurer ATS.
 
 
 ### <a name="prerequisites"></a>Förutsättningar
-I följande exempel har du skapa, uppdatera, länka och ta bort principer på tjänsthuvudnamn för programmet i Azure AD.
+I följande exempel kan du skapa, uppdatera, länka och ta bort principer för program tjänstens huvud namn i Azure AD.
 
-1.  Börja genom att ladda ned den senaste förhandsversionen av Azure AD PowerShell-cmdlet. 
+1.  Börja med att hämta den senaste för hands versionen av Azure AD PowerShell-cmdleten. 
 
-2.  När du har hämtat Azure AD PowerShell-cmdlets, kör du kommandot Connect för att logga in på Azure AD med ditt administratörskonto:
+2.  När du har hämtat Azure AD PowerShell-cmdletarna kör du kommandot Connect för att logga in på Azure AD med ditt administratörs konto:
 
     ``` powershell
     Connect-AzureAD -Confirm
@@ -168,86 +168,86 @@ I följande exempel har du skapa, uppdatera, länka och ta bort principer på tj
     Get-AzureADPolicy
     ```
 
-Om inget returneras innebär det att du har inga principer som skapats i din klient.
+Om inget returneras innebär det att du inte har några principer som skapats i din klient organisation.
 
 ### <a name="example-set-hrd-policy-for-an-application"></a>Exempel: Ange HRD-princip för ett program 
 
-I det här exemplet skapar du en princip som när den är tilldelad till ett program antingen: 
-- Automatisk accelererar-användare till en AD FS-inloggningsskärmen när de loggar in på ett program när det finns en enda domän i din klient. 
-- Automatisk påskyndar användare till en AD FS-inloggningsskärmen det är mer än en federerad domän i din klient.
-- Gör det möjligt för icke-interaktiv användarnamn/lösenord logga in direkt till Azure Active Directory för federerade användare för de program som principen har tilldelats.
+I det här exemplet skapar du en princip som när den tilldelas till ett program antingen: 
+- Automatiskt påskyndar användare till en AD FS inloggnings skärm när de loggar in på ett program när det finns en enda domän i din klient organisation. 
+- Automatiskt accelererar användare till en AD FS inloggnings skärm det finns fler än en federerad domän i din klient organisation.
+- Möjliggör inloggning med icke-interaktivt användar namn/lösen ord direkt till Azure Active Directory för federerade användare för de program som principen är tilldelad till.
 
 #### <a name="step-1-create-an-hrd-policy"></a>Steg 1: Skapa en HRD-princip
 
-Följande princip accelererar automatisk-användare till en AD FS-inloggningsskärmen när de loggar in på ett program när det finns en enda domän i din klient.
+Följande princip påskyndar automatiskt användare till en AD FS inloggnings skärm när de loggar in på ett program när det finns en enda domän i din klient organisation.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
-Följande princip accelererar automatisk-användare till en AD FS-inloggningsskärmen finns mer än en federerad domän i din klient. Om du har mer än en federerad domän som autentiserar användare för program, måste du ange domänen för att påskynda automatiskt.
+Följande princip påskyndar automatiskt användare till en AD FS inloggnings skärm där det finns fler än en federerad domän i din klient organisation. Om du har mer än en federerad domän som autentiserar användare av program måste du ange domänen för att påskynda snabb start.
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
-Om du vill skapa en princip för att aktivera autentisering med användarnamn/lösenord för federerade användare direkt med Azure Active Directory för vissa program, kör du följande kommando:
+Kör följande kommando för att skapa en princip för att aktivera autentisering av användar namn/lösen ord för federerade användare direkt med Azure Active Directory för vissa program:
 
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 
-Se din nya princip och hämta dess **ObjectID**, kör du följande kommando:
+Kör följande kommando för att se den nya principen och hämta dess **ObjectID**:
 
 ``` powershell
 Get-AzureADPolicy
 ```
 
 
-Om du vill använda HRD-princip när du har skapat den, kan du tilldela den till flera program tjänstens huvudnamn.
+Om du vill tillämpa HRD-principen när du har skapat den kan du tilldela den till flera program tjänstens huvud namn.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Steg 2: Hitta tjänstens huvudnamn som att tilldela principen  
-Du behöver den **ObjectID** service-säkerhetsobjekt som du vill tilldela principen. Det finns flera sätt att hitta den **ObjectID** för tjänstens huvudnamn.    
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Steg 2: Leta reda på tjänstens huvud namn som principen ska tilldelas till  
+Du behöver **ObjectID** för de tjänst huvud namn som du vill tilldela principen till. Det finns flera sätt att hitta **ObjectID** för tjänstens huvud namn.    
 
-Du kan använda portalen eller du kan fråga [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan även gå till den [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto finns i din organisations tjänstens huvudnamn. 
+Du kan använda portalen, eller så kan du fråga [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också gå till [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto för att se alla företagets tjänst huvud namn. 
 
-Du kan använda följande cmdlet för att visa tjänstens huvudnamn och deras ID eftersom du använder PowerShell.
+Eftersom du använder PowerShell kan du använda följande cmdlet för att visa en lista över tjänstens huvud namn och deras ID.
 
 ``` powershell
 Get-AzureADServicePrincipal
 ```
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Steg 3: Tilldela principen till tjänstens huvudnamn  
-När du har den **ObjectID** för tjänstens huvudnamn för programmet som du vill konfigurera automatisk acceleration, kör du följande kommando. Det här kommandot associerar HRD-princip som du skapade i steg 1 med tjänstens huvudnamn som du letade upp i steg 2.
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Steg 3: Tilldela principen till tjänstens huvud namn  
+När du har **ObjectID** för tjänstens huvud namn för det program som du vill konfigurera automatisk acceleration för, kör du följande kommando. Det här kommandot kopplar HRD-principen som du skapade i steg 1 med tjänstens huvud namn som du letade i steg 2.
 
 ``` powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 ```
 
-Du kan upprepa det här kommandot för varje tjänstens huvudnamn som du vill lägga till principen.
+Du kan upprepa det här kommandot för varje huvud namn för tjänsten som du vill lägga till principen för.
 
-I fall där ett program redan har en tilldelad policy för HomeRealmDiscovery du inte lägga till en andra profil.  I så fall ändra definitionen för den princip för identifiering av startsfär som tilldelas till programmet för att lägga till ytterligare parametrar.
+Om ett program redan har tilldelats en HomeRealmDiscovery-princip kan du inte lägga till ytterligare en.  I så fall kan du ändra definitionen av identifierings principen för start sfär som är tilldelad till programmet för att lägga till ytterligare parametrar.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Steg 4: Kontrollera vilka program tjänsthuvudnamn HRD-princip har tilldelats
-Att kontrollera vilka program har konfigurerats HRD-princip kan använda den **Get-AzureADPolicyAppliedObject** cmdlet. Skickar den de **ObjectID** på den princip som du vill kontrollera.
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Steg 4: Kontrol lera vilken program tjänst huvud namn din HRD-princip har tilldelats
+Använd cmdleten **Get-AzureADPolicyAppliedObject** för att kontrol lera vilka program som har HRD-principen konfigurerad. Skicka det till **ObjectID** för den princip som du vill checka in.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>Steg 5: Du är klar!
-Försök att kontrollera att den nya principen fungerar.
+Prova programmet för att kontrol lera att den nya principen fungerar.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exempel: Anger programmen för vilka HRD principen har konfigurerats
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exempel: Lista de program som HRD-principen har kon figurer ATS för
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Steg 1: Lista över alla principer som har skapats i din organisation 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Steg 1: Visa en lista med alla principer som har skapats i din organisation 
 
 ``` powershell
 Get-AzureADPolicy
 ```
 
-Obs den **ObjectID** på den princip som du vill lista tilldelningar för.
+Observera **ObjectID** för den princip som du vill visa tilldelningar för.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 2: Lista över tjänsthuvudnamnen som principen är tilldelad  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 2: Visa en lista med tjänstens huvud namn som principen är tilldelad  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
@@ -255,20 +255,20 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exempel: Ta bort en HRD-princip för ett program
 #### <a name="step-1-get-the-objectid"></a>Steg 1: Hämta ObjectID
-Använd exemplet ovan för att få den **ObjectID** av principen och som program-tjänstens huvudnamn som du vill ta bort den. 
+Använd föregående exempel för att hämta **ObjectID** för principen och det som är det program tjänst objekt som du vill ta bort den från. 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Steg 2: Ta bort principen för program tjänstens huvudnamn  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Steg 2: Ta bort princip tilldelningen från program tjänstens huvud namn  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 3: Kontrollera borttagningen genom att ange tjänsthuvudnamnen som principen är tilldelad 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 3: Kontrol lera borttagningen genom att lista de tjänst huvud namn som principen tilldelas till 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om hur autentisering fungerar i Azure AD finns i [autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md).
-- Mer information om användare enkel inloggning finns i [programåtkomst och enkel inloggning med Azure Active Directory](configure-single-sign-on-portal.md).
-- Gå till den [utvecklarguide för Active Directory](../develop/v1-overview.md) en översikt över alla developer-relaterat innehåll.
+- Mer information om hur autentisering fungerar i Azure AD finns i [autentiserings scenarier för Azure AD](../develop/authentication-scenarios.md).
+- Mer information om enkel inloggning med användare finns i [enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md).
+- Besök [Active Directory Developer ' s guide](../develop/v1-overview.md) för att få en översikt över allt innehåll som hör till utvecklare.

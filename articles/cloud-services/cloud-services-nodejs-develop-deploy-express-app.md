@@ -1,80 +1,75 @@
 ---
-title: Skapa och distribuera en Node.js-Express app till Azure Cloud Services
-description: Skapa och distribuera ett program för Express.js i Node.js i Azure molntjänster
+title: Bygg och distribuera en Node. js Express-app till Azure Cloud Services
+description: Bygg och distribuera ett Express. js-program i Node. js till Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: b3d8e364a982f85ad9df6e48dc4d28da1e8efb40
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60528144"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359065"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Skapa och distribuera en Node.js-webbprogram med Express på en Azure-molntjänster
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Bygg och distribuera ett Node. js-webbprogram med hjälp av Express på en Azure-Cloud Services
 
-Node.js innehåller en minimal uppsättning funktioner i core-runtime.
-Utvecklare använder ofta 3 part moduler för att tillhandahålla ytterligare funktioner när du utvecklar ett Node.js-program. I den här självstudien skapar du ett nytt program med den [Express](https://github.com/expressjs/express) modul som ger ett MVC-ramverk för att skapa Node.js-webbprogram.
+Node. js innehåller en minimal uppsättning funktioner i kärn körningen.
+Utvecklare använder ofta moduler från tredje part för att tillhandahålla ytterligare funktioner när du utvecklar ett Node. js-program. I den här självstudien kommer du att skapa ett nytt program med hjälp av [Express](https://github.com/expressjs/express) -modulen, som innehåller ett MVC-ramverk för att skapa Node. js-webbprogram.
 
-En skärmbild av det färdiga programmet understiger:
+En skärm bild av det färdiga programmet är nedan:
 
 ![En webbläsare som visar Välkommen till Express i Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-## <a name="create-a-cloud-service-project"></a>Skapa ett Molntjänstprojekt
+## <a name="create-a-cloud-service-project"></a>Skapa ett moln tjänst projekt
 [!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-Utför följande steg för att skapa ett nytt molntjänstprojekt med namnet ”expressapp”:
+Utför följande steg för att skapa ett nytt Cloud Service-projekt med namnet "expressapp":
 
-1. Från den **Start-menyn** eller **startskärmen**, Sök efter **Windows PowerShell**. Slutligen, högerklicka på **Windows PowerShell** och välj **kör som administratör**.
+1. Från **Start-menyn** eller **Start skärmen**söker du efter **Windows PowerShell**. Högerklicka slutligen på **Windows PowerShell** och välj **Kör som administratör**.
    
-    ![Azure PowerShell-ikonen](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
-2. Ändra sökvägen till den **c:\\nod** katalog och ange sedan följande kommandon för att skapa en ny lösning med namnet **expressapp** och en webbroll med namnet **WebRole1**:
+    ![Azure PowerShell ikon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
+2. Ändra kataloger till katalogen **c:\\Node** och ange sedan följande kommandon för att skapa en ny lösning med namnet **expressapp** och en webbroll med namnet **WebRole1**:
    
         PS C:\node> New-AzureServiceProject expressapp
         PS C:\Node\expressapp> Add-AzureNodeWebRole
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Som standard **Add-AzureNodeWebRole** använder en äldre version av Node.js. Den **Set-AzureServiceProjectRole** instruktionen ovan instruerar Azure för att använda v0.10.21 för nod.  Observera att parametrarna är skiftlägeskänsliga.  Du kan kontrollera att rätt version av Node.js har valts genom att markera den **motorer** -egenskapen i **WebRole1\package.json**.
+    > Som standard använder **Add-AzureNodeWebRole** en äldre version av Node. js. Satsen **set-AzureServiceProjectRole** ovan instruerar Azure att använda v 0.10.21 of Node.  Observera att parametrarna är Skift läges känsliga.  Du kan kontrol lera att rätt version av Node. js har marker ATS genom att  kontrol lera egenskapen enginess i **WebRole1\package.JSON**.
     > 
     > 
 
 ## <a name="install-express"></a>Installera Express
-1. Installera Express generator genom att följande kommando:
+1. Installera Express generatorn genom att utfärda följande kommando:
    
         PS C:\node\expressapp> npm install express-generator -g
    
-    Npm kommandots utdata bör se ut som nedan resultatet. 
+    Utdata från kommandot NPM bör likna resultatet nedan. 
    
-    ![Windows PowerShell visar utdata från npm installationskommando uttryckliga.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
-2. Ändra sökvägen till den **WebRole1** katalogen och Använd kommandot express för att skapa ett nytt program:
+    ![Windows PowerShell visar utdata från kommandot NPM install Express.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
+2. Ändra kataloger till katalogen **WebRole1** och skapa ett nytt program genom att använda kommandot Express:
    
         PS C:\node\expressapp\WebRole1> express
    
-    Du uppmanas att skriva över tidigare programmet. Ange **y** eller **Ja** att fortsätta. Express genererar app.js-filen och en mappstruktur för att skapa ditt program.
+    Du uppmanas att skriva över det tidigare programmet. Fortsätt genom att ange **y** eller **Ja** . Express genererar app. js-filen och en mappstruktur som används för att skapa programmet.
    
-    ![Utdata från kommandot express](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
-3. Om du vill installera ytterligare beroenden som definierats i package.json-fil, anger du följande kommando:
+    ![Utdata från kommandot Express](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
+3. Om du vill installera ytterligare beroenden som definierats i Package. JSON-filen anger du följande kommando:
    
        PS C:\node\expressapp\WebRole1> npm install
    
-   ![Utdata från npm installationskommando](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
-4. Använd följande kommando för att kopiera den **bin/www** filen till **server.js**. Det här är så att Molntjänsten kan hitta startpunkten för det här programmet.
+   ![Utdata från kommandot NPM install](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
+4. Använd följande kommando för att kopiera **bin-/www-** filen till **Server. js**. Detta är så att moln tjänsten kan hitta start punkten för det här programmet.
    
        PS C:\node\expressapp\WebRole1> copy bin/www server.js
    
-   När det här kommandot har slutförts bör du ha en **server.js** filen i katalogen WebRole1.
-5. Ändra den **server.js** ta bort en av de '.' tecken från följande rad.
+   När det här kommandot har slutförts bör du ha en **Server. js** -fil i WebRole1-katalogen.
+5. Ändra **Server. js** för att ta bort ett av tecknen "." från följande rad.
    
        var app = require('../app');
    
@@ -82,41 +77,41 @@ Utför följande steg för att skapa ett nytt molntjänstprojekt med namnet ”e
    
        var app = require('./app');
    
-   Den här ändringen är obligatoriskt eftersom vi har flyttat filen (tidigare **bin/www**,) till samma katalog som app-filen som krävs. När du har gjort den här ändringen, spara den **server.js** fil.
+   Den här ändringen krävs eftersom vi flyttade filen (tidigare **bin/www**) till samma katalog som app-filen krävs. När du har gjort den här ändringen sparar du filen **Server. js** .
 6. Använd följande kommando för att köra programmet i Azure-emulatorn:
    
        PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
    
-    ![En webbsida som innehåller Välkommen till express.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
+    ![En webb sida som innehåller Välkommen till Express.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
 
 ## <a name="modifying-the-view"></a>Ändra vyn
-Ändra nu för att visa meddelandet ”Välkommen till Express i Azure”.
+Ändra nu vyn så att meddelandet "Välkommen till Express i Azure" visas.
 
-1. Ange följande kommando för att öppna index.jade-filen:
+1. Ange följande kommando för att öppna filen index. Jade:
    
        PS C:\node\expressapp\WebRole1> notepad views/index.jade
    
-   ![Innehållet i index.jade-filen.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
+   ![Innehållet i filen index. Jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Ve jade är standard visningsmotor används av Express-program. Mer information om Jade visningsmotor finns [ http://jade-lang.com ] [ http://jade-lang.com].
-2. Ändra den sista raden i texten genom att lägga till **i Azure**.
+   Jade är standard visnings motorn som används av Express-program. Mer information om Jade-vyns motor finns i [http://jade-lang.com][http://jade-lang.com].
+2. Ändra den sista text raden genom att lägga till **i Azure**.
    
-   ![Läser av den sista raden i filen index.jade: p Välkommen till \#{title} i Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
+   ![Filen index. Jade, den sista raden läser: p Välkommen till \#{title} i Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 3. Spara filen och avsluta Anteckningar.
-4. Uppdatera din webbläsare så ser du dina ändringar.
+4. Uppdatera webbläsaren så att du ser dina ändringar.
    
-   ![Ett webbläsarfönster innehåller sidan Välkommen till Express i Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
+   ![Ett webbläsarfönster, sidan som innehåller Välkommen till Express i Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
-När du testar programmet kan använda den **Stop-AzureEmulator** cmdlet för att stoppa emulatorn.
+När du har testat programmet använder du cmdleten **Stop-AzureEmulator** för att stoppa emulatorn.
 
 ## <a name="publishing-the-application-to-azure"></a>Publicera programmet till Azure
-I Azure PowerShell-fönstret använder den **Publish-AzureServiceProject** cmdlet för att distribuera programmet till en molntjänst
+I fönstret Azure PowerShell använder du cmdleten **Publish-AzureServiceProject** för att distribuera programmet till en moln tjänst
 
     PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "East US" -Launch
 
-När distributionen är klar öppnar webbläsaren och visar sidan.
+När distributions åtgärden har slutförts öppnas och visas webb sidan i webbläsaren.
 
-![En webbläsare som visar sidan Express. URL: en anger finns nu på Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
+![En webbläsare som visar Express-sidan. URL: en anger att den nu finns på Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i [Node.js Developer Center](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).

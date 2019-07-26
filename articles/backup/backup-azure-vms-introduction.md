@@ -1,145 +1,144 @@
 ---
 title: Om Säkerhetskopiering av virtuella Azure-datorer
-description: Läs om säkerhetskopiering av Azure virtuella datorer och Observera några metodtips.
-services: backup
+description: Lär dig om säkerhets kopiering av virtuella Azure-datorer och notera några metod tips.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706828"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465222"
 ---
 # <a name="about-azure-vm-backup"></a>Om Säkerhetskopiering av virtuella Azure-datorer
 
-Den här artikeln beskrivs hur [Azure Backup-tjänsten](backup-introduction-to-azure-backup.md) säkerhetskopierar virtuella Azure-datorer (VM).
+Den här artikeln beskriver hur [tjänsten Azure Backup](backup-introduction-to-azure-backup.md) säkerhetskopierar virtuella datorer i Azure.
 
-## <a name="backup-process"></a>Säkerhetskopieringsprocessen
+## <a name="backup-process"></a>Säkerhets kopierings process
 
-Här är hur Azure Backup är klar en säkerhetskopiering för virtuella Azure-datorer:
+Så här gör Azure Backup slutföra en säkerhets kopiering för virtuella Azure-datorer:
 
-1. För virtuella Azure-datorer som har valts för säkerhetskopiering startar Azure Backup ett säkerhetskopieringsjobb enligt schemat för säkerhetskopiering du anger.
-1. Under den första säkerhetskopieringen installeras en säkerhetskopieringstillägget på den virtuella datorn om Virtuellt datorn körs.
-    - För Windows-datorer i _VMSnapshot_ -tillägget har installerats.
-    - För virtuella Linux-datorer i _VMSnapshotLinux_ -tillägget har installerats.
-1. För Windows-datorer som kör samordnar säkerhetskopiering med Windows Volume Shadow Copy Service (VSS) kan en programkonsekvent ögonblicksbild av den virtuella datorn.
-    - Som standard tar Backup Fullständig VSS-säkerhetskopiering.
-    - Om Backup inte kan dra en programkonsekvent ögonblicksbild, sedan tar det en filkonsekvent ögonblicksbild av det underliggande lagringsutrymmet (eftersom ingen programskrivning du medan Virtuellt datorn stoppas).
-1. Säkerhetskopieringen tar en filkonsekvent säkerhetskopiering för virtuella Linux-datorer. Du måste manuellt anpassa före/efter-skript för appkonsekventa ögonblicksbilder.
-1. När säkerhetskopieringen har tagit ögonblicksbilden överförs data till valvet.
-    - Säkerhetskopieringen optimeras genom att säkerhetskopiera varje VM-disk parallellt.
-    - För varje disk som säkerhetskopieras, Azure Backup läser block på disken och identifierar och överför endast de datablock som har ändrats (delta) sedan föregående säkerhetskopia.
-    - Ögonblicksbilddata kan inte kopieras direkt till valvet. Det kan ta några timmar vid Högbelastningstider. Total tid för säkerhetskopiering för en virtuell dator ska vara mindre än 24 timmar för principer för daglig säkerhetskopiering.
- 1. Ändringar som gjorts i en virtuell Windows-dator när Azure Backup har aktiverats på den finns:
-    -   Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 är installerad på den virtuella datorn
-    -   Starttyp för tjänsten för Volume Shadow Copy (VSS) ändras till automatisk från manuell
-    -   IaaSVmProvider Windows-tjänsten har lagts till
+1. För virtuella Azure-datorer som väljs för säkerhets kopiering startar Azure Backup ett säkerhets kopierings jobb enligt det schema som du anger.
+1. Under den första säkerhets kopieringen installeras ett säkerhets kopierings tillägg på den virtuella datorn om den virtuella datorn körs.
+    - För virtuella Windows-datorer installeras _VMSnapshot_ -tillägget.
+    - För virtuella Linux-datorer är _VMSnapshotLinux_ -tillägget installerat.
+1. För virtuella Windows-datorer som kör, koordineras säkerhets kopiering med Windows tjänsten Volume Shadow Copy (VSS) för att ta en programkonsekvent ögonblicks bild av den virtuella datorn.
+    - Som standard tar säkerhets kopieringen fullständiga VSS-säkerhetskopieringar.
+    - Om säkerhets kopieringen inte kan ta en programkonsekvent ögonblicks bild tar det en filkonsekvent ögonblicks bild av den underliggande lagringen (eftersom ingen program skrivning sker medan den virtuella datorn stoppas).
+1. För virtuella Linux-datorer tar säkerhets kopieringen en filkonsekvent säkerhets kopia. För programkonsekventa ögonblicks bilder måste du manuellt anpassa för-eller-post-skript.
+1. När säkerhets kopieringen tar ögonblicks bilden överförs data till valvet.
+    - Säkerhets kopieringen är optimerad genom att säkerhetskopiera varje virtuell dator disk parallellt.
+    - För varje disk som ska säkerhets kopie ras läser Azure Backup blocken på disken och identifierar och överför endast de data block som har ändrats (delta) sedan den tidigare säkerhets kopieringen.
+    - Ögonblicks bild data kan inte kopieras direkt till valvet. Det kan ta några timmar vid hög belastnings tider. Den totala säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för dagliga säkerhets kopierings principer.
+ 1. Ändringar som görs i en virtuell Windows-dator efter Azure Backup har Aktiver ATS på följande:
+    -   Microsoft Visual C++ 2013 Redistributable (x64)-12.0.40660 har installerats på den virtuella datorn
+    -   Start typen för tjänsten Volume Shadow Copy (VSS) har ändrats till automatisk från manuell
+    -   IaaSVmProvider Windows-tjänst har lagts till
 
-1. När dataöverföringen har slutförts tas ögonblicksbilden bort och en återställningspunkt skapas.
+1. När data överföringen är klar tas ögonblicks bilden bort och en återställnings punkt skapas.
 
-![Arkitektur för säkerhetskopiering av virtuell Azure-dator](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
+![Arkitektur för säkerhets kopiering av virtuella Azure-datorer](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
-## <a name="encryption-of-azure-vm-backups"></a>Kryptering av Virtuella Azure-säkerhetskopieringar
+## <a name="encryption-of-azure-vm-backups"></a>Kryptering av virtuella Azure-säkerhetskopieringar
 
-När du säkerhetskopierar virtuella Azure-datorer med Azure Backup är virtuella datorer krypterade i vila med Storage Service Encryption (SSE). Azure Backup kan säkerhetskopiera virtuella Azure-datorer som är krypterade med hjälp av Azure Disk Encryption.
+När du säkerhetskopierar virtuella Azure-datorer med Azure Backup krypteras de virtuella datorerna i rest med Kryptering för lagringstjänst (SSE). Azure Backup kan också säkerhetskopiera virtuella Azure-datorer som krypteras med hjälp av Azure Disk Encryption.
 
 **Kryptering** | **Detaljer** | **Support**
 --- | --- | ---
-**Azure Disk Encryption** | Azure Disk Encryption krypterar både Operativsystemet och datadiskarna för virtuella Azure-datorer.<br/><br/> Azure Disk Encryption kan integreras med BitLocker-krypteringsnycklar (BEKs), som skyddas i ett nyckelvalv som hemligheter. Azure Disk Encryption är integrerat med Azure Key Vault nyckelkryptering nycklar (KeyExchange-nycklar). | Azure Backup stöder säkerhetskopiering av hanterade och ohanterade virtuella datorer i Azure krypteras endast BEKs eller med BEKs tillsammans med KeyExchange-nycklar.<br/><br/> Både BEKs och KeyExchange-nycklar säkerhetskopieras och krypterad.<br/><br/> Eftersom KeyExchange-nycklar och BEKs som säkerhetskopieras, kan användare med behörighet att återställa nycklar och hemligheter tillbaka till nyckelvalvet om det behövs. Dessa användare även återställa den krypterade virtuella datorn.<br/><br/> Krypterade nycklar och hemligheter kan inte läsas av obehöriga användare eller av Azure.
-**SSE** | Azure Storage erbjuder kryptering i vila med SSE, genom att automatiskt kryptera data innan de lagras. Azure Storage kan du också dekrypterar data innan de hämtas. | Azure Backup använder SSE för vilande kryptering av virtuella Azure-datorer.
+**Azure Disk Encryption** | Azure Disk Encryption krypterar både OS-och data diskar för virtuella Azure-datorer.<br/><br/> Azure Disk Encryption integreras med BitLocker-BEKs (-krypterings nycklar) som skyddas i ett nyckel valv som hemligheter. Azure Disk Encryption integreras också med Azure Key Vault Key Encryption Keys (KeyExchange). | Azure Backup stöder säkerhets kopiering av hanterade och ohanterade virtuella Azure-datorer med endast BEKs, eller med BEKs tillsammans med KeyExchange.<br/><br/> Både BEKs och KeyExchange säkerhets kopie ras och krypteras.<br/><br/> Eftersom KeyExchange och BEKs säkerhets kopie ras kan användare med de behörigheter som krävs återställa nycklar och hemligheter tillbaka till nyckel valvet om det behövs. Dessa användare kan också återställa den krypterade virtuella datorn.<br/><br/> Krypterade nycklar och hemligheter kan inte läsas av obehöriga användare eller av Azure.
+**SSE** | Med SSE ger Azure Storage kryptering i vila genom att automatiskt kryptera data innan de lagras. Azure Storage dekrypterar också data innan de hämtas. | Azure Backup använder SSE för at-rest-kryptering av virtuella Azure-datorer.
 
-Säkerhetskopiering stöder både virtuella datorer som har krypterats med BEKs endast eller virtuella datorer som har krypterats med BEKs tillsammans med KeyExchange-nycklar för hanterade och ohanterade virtuella Azure-datorer.
+För hanterade och ohanterade virtuella Azure-datorer stöder säkerhets kopiering både virtuella datorer som är krypterade med BEKs eller virtuella datorer som har krypterats med BEKs tillsammans med KeyExchange.
 
-Säkerhetskopierade BEKs (hemligheter) och KeyExchange-nycklar (nycklar) krypteras. De kan läsa och används endast när de har återställts till nyckelvalvet av behöriga användare. Varken obehöriga användare eller Azure kan läsa eller använda säkerhetskopierade nycklar eller hemligheter.
+De säkerhetskopierade BEKs (hemligheter) och KeyExchange (nycklar) är krypterade. De kan bara läsas och användas när de återställs tillbaka till nyckel valvet av behöriga användare. Varken obehöriga användare eller Azure kan läsa eller använda säkerhetskopierade nycklar eller hemligheter.
 
-BEKs säkerhetskopieras också. Så om BEKs går förlorade kan kan behöriga användare återställa BEKs till nyckelvalvet och återställa krypterade virtuella datorer. Endast användare med nödvändiga behörighetsnivån kan säkerhetskopiera och återställa krypterade virtuella datorer eller nycklar och hemligheter.
+BEKs säkerhets kopie ras också. Så om BEKs förloras kan behöriga användare återställa BEKs till nyckel valvet och återställa de krypterade virtuella datorerna. Endast användare med nödvändig behörighets nivå kan säkerhetskopiera och återställa krypterade virtuella datorer eller nycklar och hemligheter.
 
-## <a name="snapshot-creation"></a>Skapa en ögonblicksbild
+## <a name="snapshot-creation"></a>Skapa ögonblicks bild
 
-Azure Backup har tagit ögonblicksbilder enligt schemat för säkerhetskopiering.
+Azure Backup tar ögonblicks bilder enligt schema för säkerhets kopiering.
 
-- **Windows-datorer:** För Windows-datorer samordnar Backup-tjänsten med VSS för att ta en programkonsekvent ögonblicksbild av VM-diskarna.
+- **Virtuella Windows-datorer:** För virtuella Windows-datorer koordineras tjänsten för säkerhets kopiering med VSS för att ta en programkonsekvent ögonblicks bild av de virtuella dator diskarna.
 
-  - Som standard tar Azure Backup Fullständig VSS-säkerhetskopiering. [Läs mer](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
-  - Ange följande registernyckel för att ändra inställningen så att Azure Backup har tagit VSS säkerhetskopior från en kommandotolk:
+  - Som standard tar Azure Backup fullständiga VSS-säkerhetskopieringar. [Läs mer](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+  - Om du vill ändra inställningen så att Azure Backup tar säkerhets kopior av VSS-kopiering anger du följande register nyckel från en kommando tolk:
 
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
+    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
 
-- **Virtuella Linux-datorer:** Om du vill ta appkonsekventa ögonblicksbilder av virtuella Linux-datorer använder Linux förskript och efterskript ramverk för att skriva egna skript för att säkerställa konsekvens.
+- **Virtuella Linux-datorer:** Om du vill göra programkonsekventa ögonblicks bilder av virtuella Linux-datorer använder du ramverket för för skript och efter skript för att skriva egna anpassade skript för att säkerställa konsekvens.
 
-  - Azure Backup anropar bara de före/efter-skript som skrivits av dig.
-  - Om förskript och efterskript köras, märker Azure Backup återställningspunkten som programkonsekventa. När du använder anpassade skript, är du dock slutgiltigt ansvariga för konsekvens för programmet.
+  - Azure Backup anropar bara de för hands-skript som skrivs av dig.
+  - Om för skripten och post-skripten körs korrekt, Azure Backup markerar återställnings punkten som programkonsekvent. Men när du använder anpassade skript är du i slut änden ansvarig för programmets konsekvens.
   - [Läs mer](backup-azure-linux-app-consistent.md) om hur du konfigurerar skript.
 
-### <a name="snapshot-consistency"></a>Ögonblicksbild konsekvens
+### <a name="snapshot-consistency"></a>Ögonblicks bilds konsekvens
 
-I följande tabell beskrivs de olika typerna av ögonblicksbild konsekvens:
+I följande tabell förklaras de olika typerna av ögonblicks bilds konsekvens:
 
-**ögonblicksbild** | **Detaljer** | **Recovery** | **Beräkningen**
+**Ögonblicks bild** | **Detaljer** | **Återställning** | **Beaktas**
 --- | --- | --- | ---
-**Programkonsekvent** | Programkonsekvent säkerhetskopiering avbilda minne innehåll och väntande i/o-åtgärder. Appkonsekventa ögonblicksbilder använda VSS-skrivaren (eller före/efter-skript för Linux) för att säkerställa konsekvens AppData innan en säkerhetskopiering sker. | När du återställer en virtuell dator med en programkonsekvent ögonblicksbild, den virtuella datorn startas. Det finns inga skadade data eller dataförlust. Apparna starta i ett konsekvent tillstånd. | Windows: Alla VSS-skrivare har uppdaterats<br/><br/> Linux: Skript är före/efter konfigurerad och lyckades
-**Filsystemkonsekvent** | Programkonsekventa säkerhetskopior för filsystem som tillhandahåller konsekvens genom att ta en ögonblicksbild av alla filer på samma gång.<br/><br/> | När du återställer en virtuell dator med en konsekvent ögonblicksbild filsystemet, den virtuella datorn startas. Det finns inga skadade data eller dataförlust. Appar måste implementera sina egna ”åtgärds-”-mekanism för att se till att återställda data är konsekventa. | Windows: Vissa VSS-skrivarna misslyckades <br/><br/> Linux: Som standard (om före/efter skript inte konfigurerats eller misslyckade)
-**Kraschkonsekvent** | Kraschkonsekventa ögonblicksbilder inträffar vanligtvis om en Azure-dator stängs av vid tidpunkten för säkerhetskopieringen. Endast de data som redan finns på disken vid tidpunkten för säkerhetskopieringen inhämtas och säkerhetskopieras.<br/><br/> En kraschkonsekvent återställningspunkt garantera inte datakonsekvens för operativsystemet eller appen. | Även om det finns inga garantier, startas vanligtvis den virtuella datorn och startar sedan en diskkontroll för att åtgärda skadade data. Alla data i minnet eller skrivåtgärder som inte har överfört till disk innan kraschen går förlorade. Appar implementerar sina egna dataverifieringen. En databas-app kan till exempel använda dess transaktionsloggen för verifiering. Om transaktionsloggen har poster som inte finns i databasen, samlar databasprogrammet transaktioner tillbaka förrän data är konsekventa. | Virtuella datorn är i avstängning
+**Programkonsekvent** | Programkonsekventa säkerhets kopieringar fångar upp minnes innehåll och väntande I/O-åtgärder. I programkonsekventa ögonblicks bilder används en VSS-skrivare (eller pre/post-skript för Linux) för att säkerställa konsekvensen av AppData innan en säkerhets kopiering sker. | När du återställer en virtuell dator med en programkonsekvent ögonblicks bild startas den virtuella datorn. Det finns inga skadade data eller går förlorade. Apparna startar i ett konsekvent tillstånd. | Windows: Alla VSS-skrivare har slutförts<br/><br/> Linux: Skript har kon figurer ATS och genomförts
+**Konsekvent fil system** | Konsekventa säkerhets kopieringar i fil systemet ger konsekvens genom att ta en ögonblicks bild av alla filer på samma gång.<br/><br/> | När du återställer en virtuell dator med en konsekvent fil system ögonblicks bild startas den virtuella datorn. Det finns inga skadade data eller går förlorade. Appar behöver implementera sin egen "Fix"-mekanism för att se till att återställda data är konsekventa. | Windows: Vissa VSS-skrivare misslyckades <br/><br/> Linux: Standard (om pre/post-skript inte har kon figurer ATS eller misslyckats)
+**Krasch-konsekvent** | Krasch-konsekventa ögonblicks bilder inträffar vanligt vis om en virtuell Azure-dator stängs av vid säkerhets kopieringen. Endast de data som redan finns på disken vid tidpunkten för säkerhets kopieringen samlas in och säkerhets kopie ras.<br/><br/> En kraschad återställnings punkt garanterar inte data konsekvens för operativ systemet eller appen. | Även om det inte finns några garantier startar den virtuella datorn vanligt vis och startar sedan en disk kontroll för att åtgärda skadade fel. Alla minnes minnes data eller Skriv åtgärder som inte överfördes till disken innan kraschen förlorades. Appar implementerar sin egen data verifiering. En Database-app kan till exempel använda transaktions loggen för verifiering. Om transaktions loggen har poster som inte finns i databasen, rullar databas programmet tillbaka transaktioner tills data är konsekventa. | Den virtuella datorn är i avstängnings läge
 
-## <a name="backup-and-restore-considerations"></a>Överväganden för säkerhetskopiering och återställning
+## <a name="backup-and-restore-considerations"></a>Överväganden för säkerhets kopiering och återställning
 
-**Beräkningen** | **Detaljer**
+**Beaktas** | **Detaljer**
 --- | ---
-**Disk** | Säkerhetskopiering av VM-diskar är parallell. Till exempel om en virtuell dator har fyra diskar, försöker Backup-tjänsten att säkerhetskopiera alla fyra diskar parallellt. Backup är inkrementell (endast ändrade data).
-**Scheduling** |  Säkerhetskopiera virtuella datorer i olika vid olika tidpunkter på dagen för att minska säkerhetskopieringstrafik och kontrollera att tiderna inte överlappar varandra. Säkerhetskopiera virtuella datorer på samma gång orsakar trafik Sylter.
-**Förbereda säkerhetskopiering** | Tänk på den tid som behövs för att förbereda säkerhetskopieringen. Förberedelsetid innehåller installera eller uppdatera säkerhetskopieringstillägget och utlösa en ögonblicksbild enligt schemat för säkerhetskopiering.
-**Dataöverföring** | Överväg att den tid som behövs för Azure Backup att identifiera de inkrementella ändringarna från tidigare säkerhetskopia.<br/><br/> I en inkrementell säkerhetskopia anger Azure Backup ändringarna beräknar kontrollsumma av blocket. Om ett block ändras måste markeras den för överföring till valvet. Tjänsten analyserar de identifierade blocken att ytterligare minska mängden data du överför. När du har utvärderat de ändrade blocken överför Azure Backup ändringarna till valvet.<br/><br/> Det kan finnas en fördröjning mellan att ta ögonblicksbilden och kopiera den till valvet.<br/><br/> Vid Högbelastningstider, kan det ta upp till åtta timmar för säkerhetskopior som ska bearbetas. Tid för säkerhetskopiering för en virtuell dator ska vara mindre än 24 timmar för daglig säkerhetskopiering.
-**Den första säkerhetskopieringen** | Även om den totala tiden för säkerhetskopieringen för inkrementell säkerhetskopiering är mindre än 24 timmar som inte kanske är fallet för den första säkerhetskopieringen. Den tid som behövs för den första säkerhetskopieringen beror på storleken för data och när säkerhetskopieringen har bearbetats.
-**Återställa kö** | Azure Backup-processer återställa jobb från flera lagringskonton på samma gång och all återställning begäranden i en kö.
-**Återställ kopia** | Under återställningsprocessen kopieras data från valvet till lagringskontot.<br/><br/> Totalt antal återställningstiden beror på i/o-åtgärder per sekund (IOPS) och genomströmning på lagringskontot.<br/><br/> Välj ett lagringskonto som inte lästs in med andra programskrivningar och läsningar för att minska tid som kopia.
+**Disk** | Säkerhets kopiering av virtuella dator diskar är parallell. Om till exempel en virtuell dator har fyra diskar, försöker säkerhets kopierings tjänsten säkerhetskopiera alla fyra diskarna parallellt. Backup är stegvis (endast ändrade data).
+**Tids** |  Du kan minska säkerhets kopierings trafiken genom att säkerhetskopiera olika virtuella datorer vid olika tidpunkter på dagen och se till att tiderna inte överlappar varandra. När du säkerhetskopierar virtuella datorer samtidigt orsakar det att trafiken fastnar.
+**Förbereder säkerhets kopiering** | Tänk på den tid som krävs för att förbereda säkerhets kopieringen. Förberedelse tiden omfattar att installera eller uppdatera säkerhets kopierings tillägget och utlösa en ögonblicks bild enligt schemat för säkerhets kopieringen.
+**Dataöverföring** | Ta reda på hur lång tid det tar för Azure Backup att identifiera de stegvisa ändringarna från den tidigare säkerhets kopian.<br/><br/> I en stegvis säkerhets kopia bestämmer Azure Backup ändringarna genom att beräkna blockets kontroll summa. Om ett block ändras är det markerat för överföring till valvet. Tjänsten analyserar de identifierade blocken för att försöka ytterligare minimera mängden data som ska överföras. När du har utvärderat alla ändrade block överför Azure Backup ändringarna till valvet.<br/><br/> Det kan finnas en fördröjning mellan att ta ögonblicks bilden och kopiera den till valvet.<br/><br/> Vid hög belastnings tider kan det ta upp till åtta timmar innan säkerhets kopieringarna bearbetas. Säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för den dagliga säkerhets kopieringen.
+**Första säkerhets kopiering** | Även om den totala säkerhets kopierings tiden för stegvisa säkerhets kopieringar är mindre än 24 timmar, kan det hända att det inte är fallet för den första säkerhets kopieringen. Tiden som krävs för den första säkerhets kopieringen beror på storleken på data och när säkerhets kopieringen bearbetas.
+**Återställ kö** | Azure Backup bearbetar återställnings jobb från flera lagrings konton samtidigt och placerar återställnings begär anden i en kö.
+**Återställ kopia** | Under återställnings processen kopieras data från valvet till lagrings kontot.<br/><br/> Den totala återställnings tiden beror på i/O-åtgärder per sekund (IOPS) och data flödet för lagrings kontot.<br/><br/> Om du vill minska kopierings tiden väljer du ett lagrings konto som inte har lästs in med andra program skrivningar och läsningar.
 
-### <a name="backup-performance"></a>Prestanda vid säkerhetskopiering
+### <a name="backup-performance"></a>Säkerhets kopierings prestanda
 
-Dessa vanliga scenarier kan påverka den totala tiden för säkerhetskopieringen:
+Dessa vanliga scenarier kan påverka den totala säkerhets kopierings tiden:
 
-- **Lägger till en ny disk till en skyddad virtuell Azure-dator:** Om en virtuell dator används för tillfället inkrementell säkerhetskopia och en ny disk har lagts till, ökar säkerhetskopierades. Total tid för säkerhetskopiering kan vara mer än 24 timmar på grund av den inledande replikeringen av den nya disken, tillsammans med deltareplikering av befintliga diskar.
-- **Fragmenterade diskar:** Säkerhetskopiering är snabbare när diskändringar är sammanhängande. Om ändringarna är utspridd och fragmenterad över en disk, blir säkerhetskopiering långsammare.
-- **Disk omsättning:** Om skyddade diskar som är under inkrementell säkerhetskopiering har en daglig omsättning av fler än 200 GB, säkerhetskopiering kan ta lång tid (fler än åtta timmar) för att slutföra.
-- **Backup-versioner:** Den senaste versionen av säkerhetskopiering (kallas version omedelbar återställning) använder en mer optimerade process än kontrollsumma jämförelse för att identifiera ändringar. Men om du använder omedelbar återställning och har tagit bort en ögonblicksbild, säkerhetskopieringen växlar till kontrollsumma jämförelse. I det här fallet kommer säkerhetskopieringen överstiger 24 timmar (eller misslyckas).
+- **Lägga till en ny disk till en skyddad virtuell Azure-dator:** Om en virtuell dator genomgår en stegvis säkerhets kopiering och en ny disk läggs till ökar säkerhets kopierings tiden. Den totala säkerhets kopierings tiden kan vara längre än 24 timmar på grund av den första replikeringen av den nya disken, tillsammans med delta replikering av befintliga diskar.
+- **Fragmenterade diskar:** Säkerhets kopierings åtgärder går snabbare när disk ändringar är sammanhängande. Om ändringar sprids ut och fragmenteras på en disk går säkerhets kopieringen långsammare.
+- **Disk omsättning:** Om skyddade diskar som genomgår en stegvis säkerhets kopiering har en daglig omsättning på över 200 GB, kan säkerhets kopieringen ta lång tid (mer än åtta timmar) att slutföra.
+- **Säkerhets kopierings versioner:** Den senaste versionen av backup (kallas snabb återställnings version) använder en mer optimerad process än jämförelse av kontroll summa för att identifiera ändringar. Men om du använder omedelbar återställning och har tagit bort en ögonblicks bild av säkerhets kopia växlar säkerhets kopian till jämförelse av kontroll summa. I det här fallet kommer säkerhets kopieringen att överskrida 24 timmar (eller misslyckande).
 
 ## <a name="best-practices"></a>Bästa praxis
 
-När du konfigurerar säkerhetskopior av virtuella datorer, föreslår vi följande dessa metoder:
+När du konfigurerar VM-säkerhetskopieringar föreslår vi följande metoder:
 
-- Ändra schema standardtiderna som anges i en princip. Om standardtid som i principen är 12:00 AM, öka exempelvis tidtagningen av flera minuter så att resurserna används optimalt.
-- För säkerhetskopiering av virtuella datorer som använder premium-lagring, rekommenderar vi kör den senaste versionen av Azure Backup ([omedelbar återställning](backup-instant-restore-capability.md)). Om du inte kör den senaste versionen, allokerar säkerhetskopiering cirka 50 procent av det totala utrymmet. Backup-tjänsten kräver den här utrymme för att kopiera ögonblicksbilden till samma lagringskonto och för att överföra den till valvet.
-- Om du återställa virtuella datorer från ett enda valv, rekommenderar vi att du använder olika [lagringskonton för generell användning v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) så att mål-lagringskontot inte begränsas. Varje virtuell dator måste till exempel ha ett annat lagringskonto. Till exempel om 10 virtuella datorer har återställts måste använda 10 olika lagringskonton.
-- Återställer från en general-purpose v1 lagringsskikt (snapshot) kommer att slutföras på bara några minuter eftersom ögonblicksbilden är i samma lagringskonto. Återställningar från lagringsskikt generell användning v2 (valv) kan ta timmar. I fall där data finns tillgänglig i allmänna v1-lagring, rekommenderar vi att du använder den [omedelbar återställning](backup-instant-restore-capability.md) funktionen för snabbare återställningar. (Om data måste återställas från ett valv, sedan det tar längre tid.)
-- Gränsen för antalet diskar per lagringskonto är i förhållande till hur mycket diskarna används av program som körs på en infrastruktur som en tjänst (IaaS) VM. Som en allmän regel om 5 till 10 diskar eller mer finns på ett enda lagringskonto, en belastningsutjämning genom att flytta vissa diskar för att avgränsa storage-konton.
+- Ändra standard schema tiderna som anges i en princip. Till exempel, om standard tiden i principen är 12:00 AM, ökar du tiden med flera minuter så att resurserna optimalt används.
+- För säkerhets kopiering av virtuella datorer som använder Premium Storage rekommenderar vi att du kör den senaste versionen av Azure Backup ([omedelbar återställning](backup-instant-restore-capability.md)). Om du inte kör den senaste versionen allokerar säkerhets kopieringen cirka 50 procent av det totala lagrings utrymmet. Säkerhets kopierings tjänsten kräver det här utrymmet för att kopiera ögonblicks bilden till samma lagrings konto och för att överföra den till valvet.
+- Om du återställer virtuella datorer från ett enda valv rekommenderar vi starkt att du använder olika [generella v2-lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) för att säkerställa att mål lagrings kontot inte får någon begränsning. Till exempel måste varje virtuell dator ha ett annat lagrings konto. Om till exempel 10 virtuella datorer återställs använder du 10 olika lagrings konton.
+- Restore från ett allmänt lagrings lager (ögonblicks bild) kommer att slutföras på några minuter eftersom ögonblicks bilden finns på samma lagrings konto. Det kan ta flera timmar att återställa från General-Purpose v2-lagrings skiktet (valvet). I de fall där data är tillgängliga i generell användning v1-lagring rekommenderar vi att du använder funktionen för [omedelbar återställning](backup-instant-restore-capability.md) för snabbare återställningar. (Om data måste återställas från ett valv, tar det längre tid.)
+- Gränsen för antalet diskar per lagrings konto är i förhållande till hur mycket diskarna som används av program som körs på en virtuell IaaS-dator (Infrastructure as a Service). Som allmän praxis bör du, om det finns 5 till 10 diskar eller mer på ett enda lagrings konto, utjämna belastningen genom att flytta några diskar till separata lagrings konton.
 
-## <a name="backup-costs"></a>Kostnader för säkerhetskopiering
+## <a name="backup-costs"></a>Kostnader för säkerhets kopiering
 
-Azure virtuella datorer säkerhetskopieras med Azure Backup är föremål för [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+Virtuella Azure-datorer som har säkerhetskopierats med Azure Backup omfattas [Azure Backup prissättning](https://azure.microsoft.com/pricing/details/backup/).
 
-Fakturering startar inte förrän den första framgångsrika säkerhetskopieringen är klar. Nu startar faktureringen för både lagring och skyddade virtuella datorer. Fakturering fortsätter så länge alla säkerhetskopierade data för den virtuella datorn lagras i ett valv. Om du slutar skydda en virtuell dator, men säkerhetskopierade data för den virtuella datorn finns i ett valv, fortsätter fakturering.
+Faktureringen startar inte förrän den första slutförda säkerhets kopieringen har slutförts. I det här läget börjar faktureringen för både lagring och skyddade virtuella datorer. Faktureringen fortsätter så länge som alla säkerhets kopierings data för den virtuella datorn lagras i ett valv. Om du slutar skydda en virtuell dator, men säkerhets kopierings data för den virtuella datorn finns i ett valv, fortsätter faktureringen.
 
-Fakturering för en angiven virtuell dator stoppar endast om skyddet har stoppats och tar bort alla säkerhetskopierade data. När skydd avslutades och det finns inga aktiva säkerhetskopieringsjobb, storleken på den senaste framgångsrika säkerhetskopieringen för virtuell dator blir den storlek på skyddad instans som används för den månatliga fakturan.
+Faktureringen för en angiven virtuell dator stoppar endast om skyddet har stoppats och alla säkerhetskopierade data har tagits bort. När skyddet stoppas och det inte finns några aktiva säkerhets kopierings jobb blir storleken på den senaste virtuella säkerhets kopian den skyddade instans storleken som används för den månatliga fakturan.
 
-Den skyddade instansen beräkningen baseras på den *faktiska* storleken på den virtuella datorn. Den Virtuella datorns storlek är summan av alla data på den virtuella datorn, exklusive tillfällig lagring. Priserna baseras på de faktiska data som har lagrats på datadiskar, inte på maximalt storlek som stöds för varje datadisk som är kopplad till den virtuella datorn.
+Storleken på den skyddade instans storleken baseras på den *faktiska* storleken på den virtuella datorn. Storleken på den virtuella datorn är summan av alla data på den virtuella datorn, förutom den tillfälliga lagringen. Prissättningen baseras på faktiska data som lagras på data diskarna, inte på den högsta storlek som stöds för varje datadisk som är ansluten till den virtuella datorn.
 
-På samma sätt baseras säkerhetskopieringslagring-faktura på mängden data som lagras i Azure Backup, vilket är summan av de faktiska data i varje återställningspunkt.
+På samma sätt baseras reserv lagrings fakturan på den mängd data som lagras i Azure Backup, vilket är summan av faktiska data i varje återställnings punkt.
 
-Till exempel ta en A2-den standardstorlek VM som har två ytterligare datadiskar med en maximal storlek på 4 TB. I följande tabell visas de faktiska data som lagras på var och en av dessa diskar:
+Ta till exempel en a2-standard virtuell dator som har två ytterligare data diskar med en maximal storlek på 4 TB. I följande tabell visas de faktiska data som lagras på var och en av dessa diskar:
 
-**Disk** | **Maxstorlek** | **Faktiska data finns**
+**Disk** | **Max storlek** | **Faktiska data finns**
 --- | --- | ---
 OS-disk | 4 095 GB | 17 GB
-Lokal/temporär disk | 135 GB | 5 GB (ingår inte för säkerhetskopiering)
-Datadisk 1 | 4 095 GB | 30 GB
-Datadisk 2 | 4 095 GB | 0 GB
+Lokal/tillfällig disk | 135 GB | 5 GB (ingår inte i säkerhets kopian)
+Data disk 1 | 4 095 GB | 30 GB
+Data disk 2 | 4 095 GB | 0 GB
 
-Den verkliga storleken hos den virtuella datorn är i det här fallet 17 GB + 30 GB + 0 GB = 47 GB. Den här storleken för skyddade instansen (47 GB) blir grund för månatliga faktura. När mängden data i den virtuella datorn växer kan används den skyddade instans storleken för fakturering ändringar så att de matchar.
+Den faktiska storleken på den virtuella datorn i det här fallet är 17 GB + 30 GB + 0 GB = 47 GB. Den här skyddade instans storleken (47 GB) utgör grunden för månads fakturan. När mängden data i den virtuella datorn växer ökar den skyddade instans storleken som används för fakturerings ändringar som ska matchas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu kan [förbereda för säkerhetskopiering av Azure virtuella datorer](backup-azure-arm-vms-prepare.md).
+[Förbered dig nu för säkerhets kopiering av virtuella Azure-datorer](backup-azure-arm-vms-prepare.md).

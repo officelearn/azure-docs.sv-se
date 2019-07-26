@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: a0cd2952633293bfa1d29bf3a399c67bf092d288
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ad30bd4f77c5f4314956e39f26a30b72d72a208a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318325"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361175"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbered en Windows-VHD eller VHDX som ska överföras till Azure
 
@@ -33,7 +33,7 @@ Information om support policyn för virtuella Azure-datorer finns i [Microsoft S
 > [!NOTE]
 > Anvisningarna i den här artikeln gäller:
 >1. 64-bitars versionen av Windows Server 2008 R2 och senare Windows Server-operativsystem. Information om hur du kör ett 32-bitars operativ system i Azure finns i [stöd för 32-bitars operativ system i virtuella Azure-datorer](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
->2. Om något katastrof återställnings verktyg används för att migrera arbets belastningen som Azure Site Recovery eller Azure Migrate, behöver den här processen fortfarande utföras och följas av gäst operativ systemet för att förbereda avbildningen före migreringen.
+>2. Om något katastrof återställnings verktyg används för att migrera arbets belastningen, t. ex. Azure Site Recovery eller Azure Migrate, måste den här processen fortfarande utföras och följas av gäst operativ systemet för att förbereda avbildningen före migreringen.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Konvertera den virtuella disken till en fast storlek och till VHD
 
@@ -248,7 +248,7 @@ Kontrol lera att följande inställningar är korrekt konfigurerade för fjärr�
    ``` 
 5. Om den virtuella datorn kommer att ingå i en domän kontrollerar du följande Azure AD-principer för att kontrol lera att de tidigare inställningarna inte har återställts. 
 
-    | Mål                                 | Princip                                                                                                                                                  | Värde                                   |
+    | Mål                                 | Princip                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Aktivera profiler för Windows-brandväggen | Datorn konfiguration \ konfiguration Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Skydda alla nätverks anslutningar         |
     | Aktivera RDP                           | Datorn konfiguration \ konfiguration Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Tillåt inkommande fjärr skrivbords undantag |
@@ -347,7 +347,7 @@ Kontrol lera att den virtuella datorn är felfri, säker och RDP-tillgänglig:
 
    - Ansvariga för säkerhets kopiering
 
-   - Grupperna
+   - Alla
 
    - Användare
 

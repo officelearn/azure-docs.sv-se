@@ -1,39 +1,38 @@
 ---
-title: 'Azure Backup: Återställa virtuella Azure-datorer med hjälp av REST API'
-description: Hantera återställningsåtgärder för säkerhetskopiering av Azure virtuella datorer med hjälp av REST API
-services: backup
+title: 'Azure Backup: Återställa virtuella Azure-datorer med REST API'
+description: hantera återställnings åtgärder för säkerhets kopiering av virtuella Azure-datorer med REST API
 author: pvrk
 manager: shivamg
-keywords: 'REST API: ET Azure VM-säkerhetskopiering; Återställning av Azure virtuella datorer;'
+keywords: REST API; Azure VM-säkerhetskopiering; Återställning av Azure VM;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b2e7994fa52e8fcbbd4fa32a6203181ad9735e5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646664"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466750"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
-När säkerhetskopian av en Azure virtuell dator med Azure Backup är klar kan en återställa hela virtuella Azure-datorer eller diskar eller filer från samma säkerhetskopian. Den här artikeln beskriver hur du återställer en Azure-dator eller diskar med hjälp av REST API.
+När säkerhets kopieringen av en virtuell Azure-dator med Azure Backup har slutförts kan en återställa hela virtuella Azure-datorer eller diskar eller filer från samma säkerhets kopia. I den här artikeln beskrivs hur du återställer en virtuell Azure-dator eller diskar med REST API.
 
-För att återställa, en är att identifiera den relevanta återställningspunkten först.
+För alla återställnings åtgärder måste en av dem identifiera den relevanta återställnings punkten först.
 
-## <a name="select-recovery-point"></a>Välj återställningspunkt
+## <a name="select-recovery-point"></a>Välj återställnings punkt
 
-Tillgängliga återställningspunkter för en säkerhetskopieringsobjekt kan anges med hjälp av den [lista återställningspunkt REST API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list). Det är en enkel *hämta* igen med alla relevanta värden.
+Tillgängliga återställnings punkter för ett säkerhets kopierings objekt kan listas med hjälp av [listan återställnings punkt REST API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list). Det är en enkel *Get* -åtgärd med alla relevanta värden.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2016-12-01
 ```
 
-Den `{containerName}` och `{protectedItemName}` som konstruerats [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` är ”Azure”.
+Och är som konstruerade [här.](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1) `{containerName}` `{protectedItemName}` `{fabricName}`är "Azure".
 
-Den *hämta* URI: N har de obligatoriska parametrarna. Det finns inget behov av en ytterligare begärandetexten
+*Hämta* URI har alla nödvändiga parametrar. Det behövs ingen ytterligare brödtext för begäran
 
 ### <a name="responses"></a>Responses
 
@@ -43,7 +42,7 @@ Den *hämta* URI: N har de obligatoriska parametrarna. Det finns inget behov av 
 
 #### <a name="example-response"></a>Exempelsvar
 
-När den *hämta* URI skickas, returneras ett svar med 200 (OK).
+När *hämtnings* -URI: n har skickats returneras ett 200-svar (OK).
 
 ```http
 HTTP/1.1 200 OK
@@ -119,33 +118,33 @@ X-Powered-By: ASP.NET
 ......
 ```
 
-Återställningspunkten har identifierats med den `{name}` i ovanstående svaret.
+Återställnings punkten identifieras med `{name}` fältet i ovanstående svar.
 
-## <a name="restore-disks"></a>Återställ diskar
+## <a name="restore-disks"></a>Återställa diskar
 
-Om det finns ett behov av att anpassa skapandet av en virtuell dator från säkerhetskopierade data, en bara återställa diskar till en valda storage-konto och skapa en virtuell dator från dessa diskar enligt deras krav. Lagringskontot måste vara i samma region som recovery services-valvet och får inte vara zonredundant. Diskarna, samt konfiguration av säkerhetskopierade virtuella datorn (”vmconfig.json”) kommer att lagras i det angivna lagringskontot.
+Om du behöver anpassa skapandet av en virtuell dator från säkerhets kopierings data kan du bara återställa diskarna till ett valt lagrings konto och skapa en virtuell dator från dessa diskar enligt deras krav. Lagrings kontot ska finnas i samma region som Recovery Services-valvet och bör inte vara zoner-redundant. Både diskarna och konfigurationen av den säkerhetskopierade virtuella datorn ("VMConfig. JSON") kommer att lagras i det aktuella lagrings kontot.
 
-Utlöser återställning av diskar är en *POST* begäran. Om du vill veta mer om åtgärden Återställ diskar, referera till den [”aktivera återställning” REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
+Aktivering av återställnings diskar är en *post* -begäran. Om du vill veta mer om åtgärden för att återställa diskar, se ["Utlös återställnings REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
 ```
 
-Den `{containerName}` och `{protectedItemName}` som konstruerats [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` är ”Azure” och `{recoveryPointId}` är den `{name}` fältet för återställningspunkten som nämns [ovan](#example-response).
+Och är som konstruerade [här.](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1) `{containerName}` `{protectedItemName}` `{fabricName}`är "Azure" och `{recoveryPointId}` `{name}` är fältet för den återställnings punkt som anges [ovan](#example-response).
 
-### <a name="create-request-body"></a>Skapa begärandetexten
+### <a name="create-request-body"></a>Skapa brödtext för begäran
 
-Här följer komponenterna i begärandetexten för att utlösa en diskåterställning från en virtuell Azure-säkerhetskopiering.
+Om du vill utlösa en disk återställning från en säkerhets kopia av en virtuell Azure-dator, följer du komponenterna i begär ande texten.
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
-Den fullständiga listan över definitioner av begärandetexten och annan information finns i [utlösa återställa REST API-dokumentet](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+En fullständig lista över definitioner av begär ande texten och annan information finns i [utlös REST API-dokument](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
 
 #### <a name="example-request"></a>Exempelbegäran
 
-Följande begäran definierar egenskaper som krävs för att utlösa en diskåterställning av.
+Följande begär ande text definierar egenskaper som krävs för att utlösa en disk återställning.
 
 ```json
 {
@@ -167,17 +166,17 @@ Följande begäran definierar egenskaper som krävs för att utlösa en diskåte
 
 ### <a name="response"></a>Svar
 
-Utlösningen av en återställning disk är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
+Utlösaren av en återställnings disk är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
-Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
+Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sedan 200 (OK) när åtgärden har slutförts.
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|202-accepterad     |         |     Accepterat    |
+|202 accepterad     |         |     Accepterad    |
 
-#### <a name="example-responses"></a>Exempelsvar
+#### <a name="example-responses"></a>Exempel svar
 
-När du skickar in den *POST* URI för att utlösa Återställ diskar är det första svaret 202 (accepterad) med en platsrubrik eller Azure-async-rubrik.
+När du har skickat *post* -URI: n för att utlösa återställnings diskar är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -197,13 +196,13 @@ Location: https://management.azure.com/subscriptions//subscriptions/00000000-000
 X-Powered-By: ASP.NET
 ```
 
-Spåra resulterande åtgärden med en enkel platsrubrik eller Azure-AsyncOperation rubrik *hämta* kommando.
+Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett enkelt *Get* -kommando.
 
 ```http
 GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2016-12-01
 ```
 
-När åtgärden har slutförts, returnerar 200 (OK) med ID: T för den resulterande återställningsjobbet i svarstexten.
+När åtgärden har slutförts returneras 200 (OK) med ID: t för det resulterande återställnings jobbet i svars texten.
 
 ```http
 HTTP/1.1 200 OK
@@ -233,15 +232,15 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Eftersom jobbet är en tidskrävande åtgärd, den ska spåras enligt beskrivningen i den [övervaka jobb med hjälp av REST API-dokumentet](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd bör det spåras som förklaras i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-När det körs under lång tid jobbet har slutförts, att diskar och konfigurationen av den säkerhetskopierade virtuella datorn (”VMConfig.json”) finnas kvar i det angivna lagringskontot.
+När tids krävande jobb är slutfört finns diskarna och konfigurationen för den säkerhetskopierade virtuella datorn ("VMConfig. JSON") i det aktuella lagrings kontot.
 
-## <a name="restore-as-another-virtual-machine"></a>Återställa som en annan virtuell dator
+## <a name="restore-as-another-virtual-machine"></a>Återställ som en annan virtuell dator
 
-[Välj återställningspunkten](#select-recovery-point) och skapa begärandetexten som anges nedan för att skapa ett annat virtuella Azure-dator med data från återställningspunkten.
+[Välj återställnings punkten](#select-recovery-point) och skapa begär ande texten som anges nedan om du vill skapa en annan virtuell Azure-dator med data från återställnings punkten.
 
-Följande begäran definierar egenskaper som krävs för att utlösa en återställning av virtuell dator.
+Följande begär ande text definierar egenskaper som krävs för att utlösa en återställning av en virtuell dator.
 
 ```json
 {
@@ -277,11 +276,11 @@ Följande begäran definierar egenskaper som krävs för att utlösa en återst�
 }
 ```
 
-Svaret ska hanteras på samma sätt som [förklaras ovan för att återställa diskar](#response).
+Svaret ska hanteras på samma sätt som förklaras [ovan för att återställa diskar](#response).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure Backup REST-API: er finns i följande dokument:
 
-- [Azure Recovery Services-provider REST API](/rest/api/recoveryservices/)
+- [Azure Recovery Services-Provider REST API](/rest/api/recoveryservices/)
 - [Kom igång med Azure REST API](/rest/api/azure/)

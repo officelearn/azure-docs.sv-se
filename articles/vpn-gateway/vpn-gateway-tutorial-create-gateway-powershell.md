@@ -2,18 +2,18 @@
 title: Skapa och hantera Azure VPN-gateway med hjälp av PowerShell | Microsoft Docs
 description: Självstudie – Skapa och hantera en VPN-gateway med Azure PowerShell-modulen
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 02/11/2019
-ms.author: yushwang
+ms.date: 07/23/2019
+ms.author: cherylmc
 ms.custom: mvc
-ms.openlocfilehash: 790a8b74f437fe8fd7b8660c2ac9d208328b487f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c90e61890ee98dc5371faed872d03409aaf31f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457666"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489547"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudier: Skapa och hantera en VPN-gateway med hjälp av PowerShell
 
@@ -37,6 +37,25 @@ Följande diagram visar det virtuella nätverket och den VPN-gateway som skapats
 
 ## <a name="common-network-parameter-values"></a>Gemensamma parametervärden för nätverk
 
+Nedan visas de parameter värden som används för den här självstudien. Variablerna i exemplen översätts till följande:
+
+```
+#$RG1         = The name of the resource group
+#$VNet1       = The name of the virtual network
+#$Location1   = The location region
+#$FESubnet1   = The name of the first subnet
+#$BESubnet1   = The name of the second subnet
+#$VNet1Prefix = The address range for the virtual network
+#$FEPrefix1   = Addresses for the first subnet
+#$BEPrefix1   = Addresses for the second subnet
+#$GwPrefix1   = Addresses for the GatewaySubnet
+#$VNet1ASN    = ASN for the virtual network
+#$DNS1        = The IP address of the DNS server you want to use for name resolution
+#$Gw1         = The name of the virtual network gateway
+#$GwIP1       = The public IP address for the virtual network gateway
+#$GwIPConf1   = The name of the IP configuration
+```
+
 Ändra värdena nedan baserat på din miljö och nätverkskonfiguration. Kopiera och klistra sedan in variablerna för den här självstudien. Om tidsgränsen uppnås för Cloud Shell-sessionen, eller om du måste använda ett annat PowerShell-fönster, kopierar du och klistrar in variablerna i den nya sessionen och fortsätter självstudien.
 
 ```azurepowershell-interactive
@@ -45,7 +64,6 @@ $VNet1       = "VNet1"
 $Location1   = "East US"
 $FESubnet1   = "FrontEnd"
 $BESubnet1   = "Backend"
-$GwSubnet1   = "GatewaySubnet"
 $VNet1Prefix = "10.1.0.0/16"
 $FEPrefix1   = "10.1.0.0/24"
 $BEPrefix1   = "10.1.1.0/24"
@@ -67,12 +85,12 @@ New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Azure VPN-gatewayen ger anslutning mellan olika platser och P2S VPN-serverfunktioner för det virtuella nätverket. Lägg till VPN-gatewayen i ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk och gatewayen. I det här exemplet skapas ett nytt virtuellt nätverk med tre undernät: Frontend, Backend och GatewaySubnet med hjälp av [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) och [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
+Azure VPN-gatewayen ger anslutning mellan olika platser och P2S VPN-serverfunktioner för det virtuella nätverket. Lägg till VPN-gatewayen i ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk och gatewayen. Observera att exemplet anger namnet på Gateway-undernätet specifikt. Du måste alltid ange namnet på Gateway-undernätet som "GatewaySubnet" för att det ska fungera korrekt. I det här exemplet skapas ett nytt virtuellt nätverk med tre undernät: Frontend, Backend och GatewaySubnet med hjälp av [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) och [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
 $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
-$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
+$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -AddressPrefix $GwPrefix1
 $vnet   = New-AzVirtualNetwork `
             -Name $VNet1 `
             -ResourceGroupName $RG1 `
@@ -151,7 +169,7 @@ Mer information finns i [Återställa en VPN-gateway](vpn-gateway-resetgw-classi
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går till [nästa självstudie](vpn-gateway-tutorial-vpnconnection-powershell.md) kan du behålla dessa resurser eftersom de krävs för självstudien.
+Om du går [vidare till nästa självstudie](vpn-gateway-tutorial-vpnconnection-powershell.md)ska du behålla dessa resurser eftersom de är nödvändiga.
 
 Men om gatewayen ingår i en prototyp-, ett test- eller en Proof of Concept-distribution, kan du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) till att ta bort resursgruppen, VPN-gatewayen och alla relaterade resurser.
 

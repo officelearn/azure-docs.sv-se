@@ -1,33 +1,27 @@
 ---
-title: Samla in om prestandaräknare i Azure-molntjänster | Microsoft Docs
-description: Lär dig hur du identifierar, använda och skapa prestandaräknare i Cloud Services med Azure Diagnostics och Application Insights.
+title: Samla in prestanda räknare i Azure Cloud Services | Microsoft Docs
+description: Lär dig hur du identifierar, använder och skapar prestanda räknare i Cloud Services med Azure-diagnostik och Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: ''
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/02/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653747"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358947"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Samla in prestandaräknare för din Azure-molntjänst
+# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Samla in prestanda räknare för Azure Cloud service
 
-Prestandaräknare är ett sätt att spåra hur bra och värden för dina program fungerar. Windows Server tillhandahåller många olika prestandaräknare som rör maskinvara, program, operativsystemet och mer. Genom att samla in och skicka prestandaräknare till Azure kan analysera du den här informationen för att fatta bättre beslut. 
+Prestanda räknare gör det möjligt för dig att spåra hur väl ditt program och värden presterar. Windows Server tillhandahåller många olika prestanda räknare relaterade till maskin vara, program, operativ systemet och mycket annat. Genom att samla in och skicka prestanda räknare till Azure kan du analysera den här informationen för att hjälpa dig att fatta bättre beslut. 
 
 ## <a name="discover-available-counters"></a>Identifiera tillgängliga räknare
 
-En prestandaräknare består av två delar, en set-name (även kallat en kategori) och en eller flera räknare. Du kan använda PowerShell för att hämta en lista över tillgängliga prestandaräknare:
+En prestanda räknare består av två delar, ett uppsättnings namn (kallas även en kategori) och en eller flera räknare. Du kan använda PowerShell för att hämta en lista över tillgängliga prestanda räknare:
 
 ```powershell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
@@ -52,9 +46,9 @@ Authorization Manager Applications              {\Authorization Manager Appl...
 #... results cut to save space ...
 ```
 
-Den `CounterSetName` egenskapen representerar en uppsättning (eller kategori) och är en bra indikator på prestandaräknarna är relaterade till. Den `Paths` egenskap representerar en uppsättning räknare för en uppsättning. Du kan också få den `Description` -egenskapen för mer information om uppsättningen med räknare.
+`CounterSetName` Egenskapen representerar en uppsättning (eller kategori) och är en bra indikator på vad prestanda räknarna är relaterade till. `Paths` Egenskapen representerar en uppsättning räknare för en mängd. Du kan också hämta `Description` egenskapen för mer information om räknar uppsättningen.
 
-Hämta alla räknare för en uppsättning med de `CounterSetName` värde och expandera den `Paths` samling. Varje sökväg-objekt är en räknare som du kan fråga. Till exempel för att hämta tillgängliga räknare för den `Processor` ange, expandera den `Paths` samling:
+Om du vill hämta alla räknare för en uppsättning använder du `CounterSetName` värdet och `Paths` expanderar samlingen. Varje Sök vägs objekt är en räknare som du kan fråga. Om du till exempel vill hämta tillgängliga räknare som är relaterade `Processor` till uppsättningen expanderar `Paths` du samlingen:
 
 ```powershell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
@@ -76,17 +70,17 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Dessa enskilda räknare sökvägar kan läggas till ramverk för Nätverksdiagnostik använder för din molntjänst. Mer information om hur en sökväg till prestandaräknaren är uppbyggd finns i [att ange en räknarsökvägen](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+Dessa enskilda räknar Sök vägar kan läggas till i det diagnostik-ramverk som moln tjänsten använder. Mer information om hur en prestanda räknar Sök väg skapas finns i [Ange en räknar Sök väg](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
 
-## <a name="collect-a-performance-counter"></a>Samla in en prestandaräknare
+## <a name="collect-a-performance-counter"></a>Samla in en prestanda räknare
 
-En prestandaräknare kan läggas till din molntjänst för Azure Diagnostics och Application Insights.
+Du kan lägga till en prestanda räknare i moln tjänsten för antingen Azure-diagnostik eller Application Insights.
 
 ### <a name="application-insights"></a>Application Insights
 
-Azure Application Insights för Cloud Services kan du ange vilka prestandaräknare som du vill samla in. När du [Lägg till Application Insights i projektet](../azure-monitor/app/cloudservices.md#sdk), en konfigurationsfil med namnet **ApplicationInsights.config** läggs till i Visual Studio-projektet. Den här konfigurationsfilen definierar vilken typ av information Application Insights samlar in och skickar till Azure.
+Azure Application insikter för Cloud Services gör att du kan ange vilka prestanda räknare som du vill samla in. När du har [lagt till Application Insights i projektet](../azure-monitor/app/cloudservices.md#sdk)läggs en konfigurations fil med namnet **ApplicationInsights. config** till i Visual Studio-projektet. I den här konfigurations filen definieras vilken typ av information Application Insights samlas in och skickas till Azure.
 
-Öppna den **ApplicationInsights.config** och leta reda på **ApplicationInsights** > **TelemetryModules** element. Varje `<Add>` underordnat element definierar en typ av telemetri för att samla in, tillsammans med dess konfiguration. Modultyp för prestandaräknaren telemetri är `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Om det här elementet har redan definierats, Lägg inte till den en gång. Varje prestandaräknare för att samla in definieras under en nod med namnet `<Counters>`. Här är ett exempel som samlar in prestandaräknare för enheten:
+Öppna filen **ApplicationInsights. config** och leta upp elementet **ApplicationInsights** > **TelemetryModules** . Varje `<Add>` underordnat element definierar en typ av telemetri som ska samlas in, tillsammans med dess konfiguration. Modulen för telemetri av prestanda räknare är `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Om det här elementet redan har definierats ska du inte lägga till det en andra gång. Varje prestanda räknare som ska samlas in definieras under en nod `<Counters>`med namnet. Här är ett exempel som samlar in enhets prestanda räknare:
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -105,9 +99,9 @@ Azure Application Insights för Cloud Services kan du ange vilka prestandaräkna
 <!-- ... cut to save space ... -->
 ```
 
-Varje prestandaräknare representeras som en `<Add>` elementet under `<Counters>`. Den `PerformanceCounter` attribut definierar vilka prestandaräknare vill samla in. Den `ReportAs` attributet är det namn som ska visas i Azure-portalen för prestandaräknaren. Alla prestandaräknare som du samlar in placeras i en kategori som heter **anpassade** i portalen. Till skillnad från Azure-diagnostik kan ange du inte intervall dessa prestandaräknare som samlas in och skickas till Azure. Med Application Insights är prestandaräknare som samlas in och skickas varje minut. 
+Varje prestanda räknare visas som ett `<Add>` element under. `<Counters>` `PerformanceCounter` Attributet definierar vilken prestanda räknare som ska samlas in. `ReportAs` Attributet är den rubrik som ska visas i Azure Portal för prestanda räknaren. Alla prestanda räknare som du samlar in placeras i en kategori med namnet **Custom** i portalen. Till skillnad från Azure-diagnostik kan du inte ange intervallet som de här prestanda räknarna samlas in och skickas till Azure. Med Application Insights samlas prestanda räknare och skickas varje minut. 
 
-Application Insights samlar automatiskt in följande prestandaräknare:
+Application Insights samlar automatiskt in följande prestanda räknare:
 
 * \Process(??APP_WIN32_PROC??)\% Processortid
 * \Memory\Tillgängliga byte
@@ -116,22 +110,22 @@ Application Insights samlar automatiskt in följande prestandaräknare:
 * \Process(??APP_WIN32_PROC??)\Byte i I/O-data per sekund
 * \Processor(_Total)\% processortid
 
-Mer information finns i [systemprestandaräknare i Application Insights](../azure-monitor/app/performance-counters.md) och [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
+Mer information finns i [system prestanda räknare i Application Insights](../azure-monitor/app/performance-counters.md) och [Application Insights för Azure-Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 > [!IMPORTANT]
-> Även om dessa data slås samman till lagringskontot på portalen gör **inte** är ett enhetligt sätt att diagrammets data. Vi rekommenderar starkt att du integrerar en annan Diagnostiktjänst, till exempel Application Insights i ditt program.
+> Även om alla dessa data sammanställs i lagrings kontot, ger portalen **inget** inbyggt sätt att skapa diagram över data. Vi rekommenderar starkt att du integrerar en annan diagnostisk tjänst, t. ex. Application Insights, i ditt program.
 
-Azure Diagnostics-tillägget för Cloud Services kan du ange vilka prestandaräknare som du vill samla in. Om du vill konfigurera Azure Diagnostics Se [Cloud Service övervakning-översikt](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
+Med Azure-diagnostik tillägget för Cloud Services kan du ange vilka prestanda räknare som du vill samla in. Information om hur du konfigurerar Azure-diagnostik finns i [Översikt över Cloud Service Monitoring](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-Prestandaräknare som du vill samla in definieras i den **diagnostics.wadcfgx** fil. Öppna den här filen (det definieras per roll) i Visual Studio och Sök efter den **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Lägga till en ny **PerformanceCounterConfiguration** elementet som en underordnad. Det här elementet har två attribut: `counterSpecifier` och `sampleRate`. Den `counterSpecifier` attribut definierar vilka systemprestanda räknaren ange (beskrivs i föregående avsnitt) att samla in. Den `sampleRate` värdet anger hur ofta detta värde ska avsökas. Tillsammans gör alla prestandaräknare överförs till Azure enligt överordnat `PerformanceCounters` elementets `scheduledTransferPeriod` attributvärde.
+De prestanda räknare som du vill samla in definieras i filen **Diagnostics. wadcfgx** . Öppna den här filen (den definieras per roll) i Visual Studio och hitta **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration**  >  **PerformanceCounters** -element. Lägg till ett nytt **PerformanceCounterConfiguration** -element som underordnat. Det här elementet har två attribut `counterSpecifier` : `sampleRate`och. `counterSpecifier` Attributet definierar vilken system prestanda räknare som angetts (beskrivs i föregående avsnitt) för att samla in. `sampleRate` Värdet anger hur ofta det värdet ska avsökas. Som helhet överförs alla prestanda räknare till Azure enligt det överordnade `PerformanceCounters` `scheduledTransferPeriod` elementets attributvärde.
 
-Mer information om den `PerformanceCounters` schemaelement, finns i den [Azure Diagnostics Schema](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
+Mer information om `PerformanceCounters` schema elementet finns i [Azure-diagnostik schemat](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
 
-Den tid som anges av den `sampleRate` attributet använder XML-varaktighet datatypen för att ange hur ofta prestandaräknaren ska avsökas. I exemplet nedan visas överföringshastighet anges till `PT3M`, vilket innebär att `[P]eriod[T]ime[3][M]inutes`: var tredje minut.
+Den period som definieras av `sampleRate` attributet använder data typen XML-varaktighet för att ange hur ofta prestanda räknaren ska avsökas. I exemplet nedan är frekvensen inställd på, vilket `PT3M`innebär `[P]eriod[T]ime[3][M]inutes`att: var tredje minut.
 
-Mer information om hur `sampleRate` och `scheduledTransferPeriod` är definierade, finns i den **varaktighet datatypen** i avsnittet den [W3 XML datum- och datum](https://www.w3schools.com/XML/schema_dtypes_date.asp) självstudien.
+Mer information om `sampleRate` hur och `scheduledTransferPeriod` är definierade finns i avsnittet varaktighets **data typ** i självstudierna [w3 XML datum-och tid datum typer](https://www.w3schools.com/XML/schema_dtypes_date.asp) .
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -167,9 +161,9 @@ Mer information om hur `sampleRate` och `scheduledTransferPeriod` är definierad
 
 ## <a name="create-a-new-perf-counter"></a>Skapa en ny perf-räknare
 
-En ny prestandaräknare kan skapas och används av din kod. Din kod som skapar en ny prestandaräknare måste köra upphöjas, annars misslyckas. Din molntjänst `OnStart` startkoden kan skapa prestandaräknaren, kräver att du kör rollen i en upphöjd kontext. Eller så kan du skapa en startåtgärd som kör upphöjd och skapar prestandaräknaren. Mer information om startåtgärder finns [hur du konfigurerar och köra startåtgärder för en molntjänst](cloud-services-startup-tasks.md).
+En ny prestanda räknare kan skapas och användas av din kod. Din kod som skapar en ny prestanda räknare måste köra förhöjt, annars kommer den att Miss det. Din moln tjänst `OnStart` start kod kan skapa prestanda räknaren som kräver att du kör rollen i en upphöjd kontext. Eller så kan du skapa en start aktivitet som körs med förhöjd behörighet och skapar prestanda räknaren. Mer information om start åtgärder finns i [så här konfigurerar och kör du Start åtgärder för en moln tjänst](cloud-services-startup-tasks.md).
 
-Om du vill konfigurera rollen kör upphöjd, lägger du till en `<Runtime>` elementet så att den [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) fil.
+Om du vill konfigurera att rollen ska köras med förhöjt tillägg lägger du till ett `<Runtime>` -element i [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) -filen.
 
 ```xml
 <ServiceDefinition name="CloudServiceLoadTesting" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -187,7 +181,7 @@ Om du vill konfigurera rollen kör upphöjd, lägger du till en `<Runtime>` elem
 </ServiceDefinition>
 ```
 
-Du kan skapa och registrera en ny prestandaräknare med några få kodrader. Använd den `System.Diagnostics.PerformanceCounterCategory.Create` metoden överlagring som skapar både kategorin och räknaren. Följande kod kontrollerar först om den finns, och om det saknas, skapar både kategorin och räknaren.
+Du kan skapa och registrera en ny prestanda räknare med några rader kod. `System.Diagnostics.PerformanceCounterCategory.Create` Använd metoden överlagring som skapar både kategorin och räknaren. Följande kod kontrollerar först om kategorin finns, och om den saknas skapas både kategorin och räknaren.
 
 ```csharp
 using System.Diagnostics;
@@ -230,19 +224,19 @@ namespace WorkerRoleWithSBQueue1
 }
 ```
 
-När du vill använda räknaren anropar den `Increment` eller `IncrementBy` metod.
+När du vill använda räknaren anropar `Increment` du-eller `IncrementBy` -metoden.
 
 ```csharp
 // Increase the counter by 1
 counterServiceUsed.Increment();
 ```
 
-Nu när ditt program använder din anpassad räknare, måste du konfigurera Azure Diagnostics eller Application Insights för att spåra räknaren.
+Nu när ditt program använder din anpassade räknare måste du konfigurera Azure-diagnostik eller Application Insights för att spåra räknaren.
 
 
 ### <a name="application-insights"></a>Application Insights
 
-Som tidigare nämnts, prestandaräknarna för Application Insights har definierats i den **ApplicationInsights.config** fil. Öppna **ApplicationInsights.config** och hitta den **ApplicationInsights** > **TelemetryModules** > **Lägg till**  >  **Räknare** element. Skapa en `<Add>` underordnat element och ange den `PerformanceCounter` attributet kategori och namnet på prestandaräknare som du skapade i din kod. Ange den `ReportAs` attributet till ett eget namn som du vill se i portalen.
+Som tidigare angetts definieras prestanda räknare för Application Insights i filen **ApplicationInsights. config** . Öppna **ApplicationInsights. config** och leta upp elementet **ApplicationInsights** > **TelemetryModules** > **Add** > **Counters** . Skapa ett `<Add>` underordnat element och `PerformanceCounter` ange attributet till kategori och namn för den prestanda räknare som du skapade i din kod. `ReportAs` Ange attributet till ett eget namn som du vill ska visas i portalen.
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -265,7 +259,7 @@ Som tidigare nämnts, prestandaräknarna för Application Insights har definiera
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-Som tidigare beskrivits prestandaräknare som du vill samla in definieras i den **diagnostics.wadcfgx** fil. Öppna den här filen (det definieras per roll) i Visual Studio och Sök efter den **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Lägga till en ny **PerformanceCounterConfiguration** elementet som en underordnad. Ange den `counterSpecifier` attributet kategori och namnet på prestandaräknare som du skapade i din kod. 
+Som tidigare angavs definieras de prestanda räknare som du vill samla in i filen **Diagnostics. wadcfgx** . Öppna den här filen (den definieras per roll) i Visual Studio och hitta **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration**  >  **PerformanceCounters** -element. Lägg till ett nytt **PerformanceCounterConfiguration** -element som underordnat. `counterSpecifier` Ange attributet till kategori och namn för den prestanda räknare som du skapade i din kod. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -295,6 +289,6 @@ Som tidigare beskrivits prestandaräknare som du vill samla in definieras i den 
 ## <a name="more-information"></a>Mer information
 
 - [Application Insights för Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
-- [Systemprestandaräknare i Application Insights](../azure-monitor/app/performance-counters.md)
-- [Ange en räknarsökvägen](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Schema för Azure Diagnostics - prestandaräknare](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+- [System prestanda räknare i Application Insights](../azure-monitor/app/performance-counters.md)
+- [Ange en räknar Sök väg](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Azure-diagnostik schema – prestanda räknare](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

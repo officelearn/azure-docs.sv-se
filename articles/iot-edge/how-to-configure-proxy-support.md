@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1bf66fdb18398aaf233980ee7f2fd45fe1cc543b
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 47d3018015d05d0587e841c216a5eb89f2a0ae20
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260499"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414563"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver
 
@@ -64,7 +64,7 @@ Oavsett om din IoT Edge-enhet körs på Windows eller Linux måste du komma åt 
 
 ### <a name="linux"></a>Linux
 
-Om du installerar IoT Edge-körningen på en Linux-enhet, konfigurera package manager att gå igenom din proxyserver för att komma åt installationspaketet. Till exempel [konfigurera apt-get för att använda en http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). När du har konfigurerat din Pakethanteraren, följer du anvisningarna i [installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) eller [installera Azure IoT Edge-körningen på Linux (x64)](how-to-install-iot-edge-linux.md) som vanligt.
+Om du installerar IoT Edge-körningen på en Linux-enhet, konfigurera package manager att gå igenom din proxyserver för att komma åt installationspaketet. Till exempel [konfigurera apt-get för att använda en http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). När paket hanteraren har kon figurer ATS följer du anvisningarna i [installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md) som vanligt.
 
 ### <a name="windows"></a>Windows
 

@@ -1,6 +1,6 @@
 ---
-title: Problem med anslutningen och nätverk för vanliga frågor om Microsoft Azure Cloud Services | Microsoft Docs
-description: Den här artikeln innehåller vanliga frågor om anslutningar och nätverk för Microsoft Azure Cloud Services.
+title: Problem med anslutning och nätverk för Microsoft Azure Cloud Services vanliga frågor och svar | Microsoft Docs
+description: Den här artikeln innehåller vanliga frågor och svar om anslutningar och nätverk för Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -15,64 +15,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 513803adec71e0e2c9578d762c5f4c110ed7086f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432967"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384492"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutning och nätverk problem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutnings-och nätverks problem för Azure-Cloud Services: Vanliga frågor och svar
 
-Den här artikeln innehåller vanliga frågor om problem med anslutningen och nätverk för [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Storleksinformation finns i den [Cloud Services VM sida](cloud-services-sizes-specs.md).
+Den här artikeln innehåller vanliga frågor om anslutnings-och nätverks problem för [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Storleks information finns på [sidan Cloud Services storlek på virtuell dator](cloud-services-sizes-specs.md).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="i-cant-reserve-an-ip-in-a-multi-vip-cloud-service"></a>Jag kan inte reservera en IP-adress i en multi-VIP-molntjänst.
-Kontrollera först att den virtuella datorinstansen som försök att reservera IP-Adressen för är aktiverad. Kontrollera dessutom att du använder reserverade IP-adresser för mellanlagrings-och produktionsdistributionerna. *Inte* ändra inställningarna när distributionen är att uppgradera.
+## <a name="i-cant-reserve-an-ip-in-a-multi-vip-cloud-service"></a>Jag kan inte reservera en IP-adress i en moln tjänst med flera VIP.
+Se först till att den virtuella dator instans som du försöker reservera IP-adressen för är påslagen. Sedan kontrollerar du att du använder reserverade IP-adresser för både mellanlagrings-och produktions distributionerna. Ändra *inte* inställningarna när distributionen uppgraderas.
 
-## <a name="how-do-i-use-remote-desktop-when-i-have-an-nsg"></a>Hur använder jag Fjärrskrivbord när jag har en NSG?
-Lägga till regler i NSG som tillåter trafik på portarna **3389** och **20000**. Fjärrskrivbord är port **3389**. Cloud service-instanser är belastningsutjämnad, så du inte kan styra vilken instans som ska ansluta till direkt. Den *RemoteForwarder* och *RemoteAccess* agenter hantera Remote Desktop Protocol (RDP) trafik och tillåta att klienten kan skicka en RDP-cookie och ange en enskild instans att ansluta till. Den *RemoteForwarder* och *RemoteAccess* agenter kräver port **20000** för att öppna måste kan blockeras om du har en NSG.
+## <a name="how-do-i-use-remote-desktop-when-i-have-an-nsg"></a>Hur gör jag för att använda fjärr skrivbord när jag har en NSG?
+Lägg till regler i NSG som tillåter trafik på portarna **3389** och **20000**. Fjärr skrivbord använder port **3389**. Moln tjänst instanser är belastningsutjämnade, så du kan inte styra vilken instans som ska anslutas direkt. *RemoteForwarder* -och *RemoteAccess* -agenterna hanterar Remote Desktop Protocol-trafik (RDP) och gör att klienten kan skicka en RDP-cookie och ange en enskild instans att ansluta till. *RemoteForwarder* -och *RemoteAccess* -agenterna kräver att port **20000** är öppen, vilket kan blockeras om du har en NSG.
 
-## <a name="can-i-ping-a-cloud-service"></a>Kan jag pinga en molntjänst?
+## <a name="can-i-ping-a-cloud-service"></a>Kan jag pinga en moln tjänst?
 
-Nej, inte med normal ”pinga” / ICMP-protokollet. ICMP-protokollet är inte tillåtet via Azure-belastningsutjämnaren.
+Nej, inte med det normala "ping"/ICMP-protokollet. ICMP-protokollet tillåts inte via Azure Load Balancer.
 
-Om du vill testa anslutningen, rekommenderar vi att du gör en port-ping. Ping.exe använder ICMP, men du kan använda andra verktyg, till exempel PSPing, Nmap och telnet, för att testa anslutningen till en specifik TCP-port.
+För att testa anslutningen rekommenderar vi att du gör ett port-ping. Medan ping. exe använder ICMP kan du använda andra verktyg, till exempel PSPing, nmap och Telnet, för att testa anslutningen till en angiven TCP-port.
 
-Mer information finns i [använder port pingar i stället ICMP för att testa anslutningen för Azure VM](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
+Mer information finns i [använda ping i Port i stället för ICMP för att testa Azure VM-anslutning](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
 
-## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>Hur förhindrar jag att som tar emot tusentals träffar från okänd IP-adresser som kan indikera skadlig kod till Molntjänsten?
-Azure implementerar en multilayer nätverkssäkerhet för att skydda dess plattformstjänster mot distribuerade denial of service DDoS-attacker. Azure DDoS defense system är en del av Azures kontinuerlig övervakning processen, vilket förbättras kontinuerligt via penetrationstester. Det här systemet för DDoS-skydd är utformade för att klara inte bara attacker från utsidan utan också från andra Azure-klienter. Mer information finns i [Azure-nätverkssäkerhet](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
+## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>Hur gör jag för att inte ta emot tusentals träffar från okända IP-adresser som kan tyda på en skadlig attack till moln tjänsten?
+Azure implementerar en Multilayer nätverks säkerhet för att skydda dess plattforms tjänster mot distribuerade DDoS-attacker (Denial-of-Service). Azure DDoS försvar-systemet är en del av Azures kontinuerliga övervaknings process, som kontinuerligt förbättras genom inträngande tester. Det här DDoSt försvars systemet är utformat för att motstå inte bara angrepp från utsidan utan även från andra Azure-klienter. Mer information finns i [säkerhet för Azure-nätverk](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
 
-Du kan också skapa en startåtgärd för att selektivt blockera vissa specifika IP-adresser. Mer information finns i [blockera en specifik IP-adress](cloud-services-startup-tasks-common.md#block-a-specific-ip-address).
+Du kan också skapa en start aktivitet för att selektivt blockera vissa angivna IP-adresser. Mer information finns i [blockera en speciell IP-adress](cloud-services-startup-tasks-common.md#block-a-specific-ip-address).
 
-## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>När jag försöker RDP till min molntjänstinstans visas meddelandet ”användarkontot har gått ut”.
-Du kan få felmeddelandet ”det här användarkontot har upphört att gälla” när du kringgå förfallodatumet som konfigureras i inställningarna för RDP. Du kan ändra utgångsdatumet från portalen genom att följa dessa steg:
+## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>När jag försöker RDP till min moln tjänst instans visas meddelandet "användar kontot har upphört att gälla".
+Du kan få fel meddelandet "det här användar kontot har upphört att gälla" när du hoppar över det förfallo datum som har kon figurer ATS i RDP-inställningarna. Du kan ändra utgångs datumet från portalen genom att följa dessa steg:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), gå till din molntjänst och välj den **fjärrskrivbord** fliken.
+1. Logga in på [Azure Portal](https://portal.azure.com), gå till din moln tjänst och välj fliken **fjärr skrivbord** .
 
-2. Välj den **produktion** eller **mellanlagring** distributionsplats.
+2. Välj distributions plats för **produktion** eller mellanlagring.
 
-3. Ändra den **upphör att gälla på** datum och spara konfigurationen.
+3. Ändra förfallo datumen **för** datumet och spara sedan konfigurationen.
 
-Du nu ska kunna använda RDP till din dator.
+Du bör nu kunna använda RDP till din dator.
 
-## <a name="why-is-azure-load-balancer-not-balancing-traffic-equally"></a>Varför är Azure Load Balancer balanserar inte trafiken jämnt?
-Information om hur en intern belastningsutjämnare fungerar finns i [Azure Load Balancer nya Distributionsläge](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode/).
+## <a name="why-is-azure-load-balancer-not-balancing-traffic-equally"></a>Varför är Azure Load Balancer inte att balansera trafiken lika?
+Information om hur en intern belastningsutjämnare fungerar finns [Azure Load Balancer nytt distributions läge](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode/).
 
-Distribution-algoritm som används är en 5-tuppel (käll-IP, källport, mål-IP, målport och protokolltyp) hash att mappa trafik till tillgängliga servrar. Det ger varaktighet endast inom en transportsession. Paket i samma TCP eller UDP-session dirigeras till samma datacenter IP (DIP) instans bakom Utjämning av nätverksbelastning-slutpunkten. När klienten stänger och sedan öppnar anslutningen igen eller startar en ny session från samma käll-IP, källport ändras och gör trafik att gå till en annan DIP-slutpunkt.
+Den distributionsmapp som används är en 5-tupel (käll-IP, källport, mål-IP, målport och protokoll typ) för att mappa trafik till tillgängliga servrar. Den ger endast varaktighet inom en transport-session. Paket i samma TCP-eller UDP-session dirigeras till samma data Center IP (DIP)-instans bakom den belastningsutjämnade slut punkten. När klienten stänger och öppnar anslutningen på nytt eller startar en ny session från samma käll-IP, ändras käll porten och gör att trafiken går till en annan DIP-slutpunkt.
 
-## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Hur kan jag för att dirigera inkommande trafik till-URL: Standardwebbadressen för min molntjänst till en anpassad URL?
+## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Hur kan jag omdirigera inkommande trafik till standard-URL: en för min moln tjänst till en anpassad URL?
 
-Den URL-modulen för omarbetning av IIS som kan användas för att omdirigera trafik som kommer till-URL: Standardadressen för Molntjänsten (till exempel \*. cloudapp.net) till vissa anpassade namn/URL. Eftersom modulen URL-Omskrivningsregler är aktiverat på web-roller som standard och dess regler har konfigurerats i programmets web.config, är det alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningen. Mer information finns i:
+URL-modulen för att skriva över IIS kan användas för att omdirigera trafik som kommer till standard-URL: en för moln tjänsten (till \*exempel. cloudapp.net) till en viss anpassad namn/URL. Eftersom modulen URL-omskrivning är aktive rad på webb roller som standard och dess regler har kon figurer ATS i programmets Web. config, är den alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningar. Mer information finns i:
 
-- [Skapa omskrivningsregler för modulen URL-Omskrivningsregler](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
-- [Ta bort en standardlänk](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
+- [Skapa omskrivnings regler för modulen för att skriva över URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [Ta bort en standard länk](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
-## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Hur kan jag blockera/inaktivera inkommande trafik till-URL: Standardwebbadressen för min molntjänst?
+## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Hur kan jag blockera/inaktivera inkommande trafik till standard-URL: en för min moln tjänst?
 
-Du kan förhindra att inkommande trafik till standard-URL/namnet på Molntjänsten (till exempel \*. cloudapp.net). Ange ett anpassat DNS-namn (till exempel www.MyCloudService.com) värdhuvudet under bindningen platskonfiguration i molnet (*.csdef) tjänstdefinitionsfilen, som anges:
+Du kan förhindra inkommande trafik till standard-URL: en/namnet på din moln tjänst (till \*exempel. cloudapp.net). Ange värd rubriken till ett anpassat DNS-namn (t. ex.\.www-MyCloudService.com) under plats bindnings konfigurationen i moln tjänst definitions filen (*. csdef), enligt beskrivningen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -95,27 +95,27 @@ Du kan förhindra att inkommande trafik till standard-URL/namnet på Molntjänst
 </ServiceDefinition>
 ```
 
-Eftersom den här värden huvud-bindningen är påtvingad igenom filen csdef, är tjänsten tillgänglig endast via anpassade namnet ”www.MyCloudService.com”. Alla inkommande begäranden till den ”*. cloudapp.net” domain alltid att misslyckas. Om du använder en anpassad avsökning för SLB eller en intern belastningsutjämnare i tjänsten, kan blockerar standard URL/namnet på tjänsten påverka beteendet sökning.
+Eftersom den här bindningen för värd huvudet tillämpas via csdef-filen är tjänsten endast tillgänglig via det anpassade namnet "www.MyCloudService.com". Alla inkommande begär anden till domänen "*. cloudapp.net" fungerar alltid. Om du använder en anpassad SLB-avsökning eller en intern belastningsutjämnare i tjänsten kan blockering av standard-URL: en eller-namnet för tjänsten störa funktions sättet.
 
-## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Hur kan jag kontrollera att den offentliga IP-adressen för en molntjänst ändras aldrig?
+## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Hur kan jag se till att den offentliga IP-adressen för en moln tjänst aldrig förändras?
 
-Om du vill se till att den offentliga IP-adressen för din molntjänst (även kallat en VIP) aldrig ändras så att det kan vara certifikatutfärdarinfrastruktur godkänd av några specifika klienter, rekommenderar vi att du har en reserverad IP-adress som är associerade med den. I annat fall har den virtuella IP-Adressen som tillhandahålls av Azure frigjorts från din prenumeration om du tar bort distributionen. För lyckad VIP-växlingen behöver du enskilda reserverade IP-adresser för både produktions- och mellanlagringsplatser. Utan att de misslyckas växlingen. För att reservera en IP-adress och koppla den till din molntjänst måste du läsa följande artiklar:
+För att se till att den offentliga IP-adressen för din moln tjänst (även kallat VIP) inte ändras så att den kan vit listas av några olika klienter, rekommenderar vi att du har en reserverad IP-adress som är kopplad till den. Annars frigörs den virtuella IP-adress som tillhandahålls av Azure från din prenumeration om du tar bort distributionen. För att utföra VIP-växling måste du ha enskilda reserverade IP: er för både produktions-och mellanlagrings platser. Utan de kan växlings åtgärden Miss lyckas. Om du vill reservera en IP-adress och associera den med din moln tjänst kan du läsa följande artiklar:
 
-- [Reserverad IP-adressen för en befintlig molntjänst](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [Associera en reserverad IP-adress till en molntjänst med hjälp av en tjänstkonfigurationsfil](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+- [Reservera IP-adressen för en befintlig moln tjänst](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+- [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Om du har fler än en instans för dina roller bör inte kopplar RIP till din molntjänst orsakar några driftstopp. Du kan också vitlista IP-intervallet för din Azure-datacenter. Du kan hitta alla Azure-IP-intervall på den [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Om du har fler än en instans för dina roller bör du inte göra något avbrott om du kopplar RIP till moln tjänsten. Du kan också vitlista IP-intervallet för ditt Azure-datacenter. Du kan hitta alla Azure IP-intervall på [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
-Den här filen innehåller de IP-adressintervall (inklusive compute, SQL och storage-intervall) används i Azure-datacenter. En uppdaterad fil publiceras varje vecka som visar aktuella intervall och eventuella kommande ändringar till IP-adressintervall. De nya intervall som visas i filen används inte i datacenter för minst en vecka. Hämta den nya XML-filen varje vecka och gör nödvändiga ändringar på din plats för att kunna identifiera vilka tjänster som körs i Azure. Azure ExpressRoute-användare kan Observera att den här filen används för att uppdatera BGP-annonser Azure utrymme i den första veckan varje månad.
+Den här filen innehåller IP-adressintervall (inklusive beräknings-, SQL-och lagrings intervall) som används i Azure-datacenter. En uppdaterad fil publiceras varje vecka som visar de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Nya intervall som visas i filen används inte i Data Center i minst en vecka. Hämta den nya XML-filen varje vecka och genomför de nödvändiga ändringarna på webbplatsen för att identifiera tjänster som körs i Azure korrekt. Azure ExpressRoute-användare kan vara medveten om att den här filen används för att uppdatera BGP-annonsen för Azure Space under den första veckan i varje månad.
 
-## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Hur kan jag använda Azure Resource Manager-nätverk med cloud services?
+## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Hur kan jag använda Azure Resource Manager virtuella nätverk med moln tjänster?
 
-Molntjänster kan inte placeras i Azure Resource Manager-nätverk. Virtuella nätverk i Resource Manager och klassiska virtuella nätverk kan anslutas via peering. Mer information finns i [peerkoppling av virtuella nätverk](../virtual-network/virtual-network-peering-overview.md).
+Det går inte att placera moln tjänster i Azure Resource Manager virtuella nätverk. Virtuella nätverk i Resource Manager och virtuella nätverk för klassisk distribution kan anslutas via peering. Mer information finns i peering för [virtuella nätverk](../virtual-network/virtual-network-peering-overview.md).
 
 
-## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Hur hittar jag listan över offentliga IP-adresser som används av min molntjänster?
+## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Hur kan jag hämta en lista över offentliga IP-adresser som används av mina Cloud Services?
 
-Du kan använda följande PS-skriptet för att hämta listan över offentliga IP-adresser för molntjänster i din prenumeration
+Du kan använda följande PS-skript för att hämta en lista över offentliga IP-adresser för Cloud Services under din prenumeration
 
 ```powershell
 $services = Get-AzureService  | Group-Object -Property ServiceName

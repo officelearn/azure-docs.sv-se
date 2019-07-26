@@ -1,5 +1,5 @@
 ---
-title: 'QoS-krav - ExpressRoute: Azure | Microsoft Docs'
+title: 'QoS-krav – ExpressRoute: Azure | Microsoft Docs'
 description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera QoS. Skype för företag/rösttjänster behandlas.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eed6113442b4080341ff08b3983880f3afe66c00
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712324"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385134"
 ---
 # <a name="expressroute-qos-requirements"></a>QoS-krav för ExpressRoute
 Skype för företag har olika arbetsbelastningar som kräver särskild QoS-behandling. Om du tänker använda rösttjänster via ExpressRoute bör du följa kraven som beskrivs nedan.
@@ -29,14 +29,14 @@ Följande tabell innehåller en lista över DSCP-markeringar som används av Mic
 
 | **Trafikklass** | **Behandling (DSCP-markering)** | **Microsoft Teams och Skype för företag-arbetsbelastningar** |
 | --- | --- | --- |
-| **Röst** |EF (46) |Skype-/Lync-röst |
+| **Röst** |EF (46) |Skype/Microsoft Teams/Lync röst |
 | **Interaktiv** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |Appdelning | 
 | **Standard** |AF11 (10) |Filöverföring |
 | |CS0 (0) |Annat |
 
 * Du bör klassificera arbetsbelastningarna och markera rätt DSCP-värden. Följ riktlinjerna [här](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) om hur du anger DSCP-markeringar i nätverket.
-* Du bör konfigurera och ge stöd för flera QoS-köer i nätverket. Röst måste vara en fristående klass och få den EF-behandling som anges i [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt). 
+* Du bör konfigurera och ge stöd för flera QoS-köer i nätverket. Rösten måste vara en fristående klass och ta emot den EF-behandling som anges i [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt). 
 * Du kan bestämma kömekanism, princip för överbelastningsidentifiering samt bandbreddsallokering per trafikklass. Men DSCP-markeringen för arbetsbelastningar i Skype för företag måste bevaras. Om du använder DSCP-markeringar som inte visas ovan, t.ex. AF31 (26), måste du skriva DSCP-värdet som 0 innan paketet skickas till Microsoft. Microsoft skickar endast paket som har markerats med DSCP-värdet i ovanstående tabellen. 
 
 ## <a name="next-steps"></a>Nästa steg

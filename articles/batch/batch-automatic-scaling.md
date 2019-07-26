@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 489a3935605432b485f7b0866668f6dbfaac686b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 431212b2b0ac7bba209130e511e3510e3008a6c4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323757"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500026"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en formel för automatisk skalning för skalning av Compute-noder i en batch-pool
 
@@ -40,7 +40,7 @@ I den här artikeln beskrivs de olika entiteter som utgör formler för autoskal
 >
 
 ## <a name="automatic-scaling-formulas"></a>Automatiska skalnings formler
-En formel för automatisk skalning är ett sträng värde som du definierar som innehåller en eller flera instruktioner. Den automatiska skalnings formeln tilldelas till en Pools [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] -egenskap (batch .net). Batch-tjänsten använder din formel för att fastställa mål antalet för datornoderna i poolen för nästa bearbetnings intervall. Formel strängen får inte överstiga 8 KB, kan innehålla upp till 100 uttryck som avgränsas med semikolon, och kan innehålla rad brytningar och kommentarer.
+En formel för automatisk skalning är ett sträng värde som du definierar som innehåller en eller flera instruktioner. Den automatiska skalnings formeln tilldelas till en Pools [autoScaleFormula][rest_autoscaleformula] -element (batch rest) eller [CloudPool. autoScaleFormula][net_cloudpool_autoscaleformula] -egenskapen (batch .net). Batch-tjänsten använder din formel för att fastställa mål antalet för datornoderna i poolen för nästa bearbetnings intervall. Formel strängen får inte överstiga 8 KB, kan innehålla upp till 100 uttryck som avgränsas med semikolon, och kan innehålla rad brytningar och kommentarer.
 
 Du kan tänka på automatiska skalnings formler som ett språk för autoskalning av batch. Formel uttryck är kostnads fria uttryck som kan innehålla både tjänstedefinierade variabler (variabler som definieras av batch-tjänsten) och användardefinierade variabler (variabler som du definierar). De kan utföra olika åtgärder på dessa värden genom att använda inbyggda typer, operatorer och funktioner. En instruktion kan till exempel ha följande format:
 
@@ -132,7 +132,7 @@ Du kan hämta värdet för de här tjänstedefinierade variablerna för att gör
 >
 >
 
-## <a name="types"></a>Nodtyper
+## <a name="types"></a>Typer
 Dessa typer stöds i en formel:
 
 * double
@@ -185,7 +185,7 @@ De här åtgärderna tillåts för de typer som anges i föregående avsnitt.
 
 När du testar ett dubbelt värde med en ternär`double ? statement1 : statement2`operator (), är noll **Sant**och noll är **falskt**.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 Dessa fördefinierade **funktioner** är tillgängliga som du kan använda för att definiera en formel för automatisk skalning.
 
 | Funktion | Returtyp | Beskrivning |
@@ -364,15 +364,19 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-net"></a>Skapa en pool med autoskalning som är aktive rad med .NET
+## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Skapa en pool med autoskalning som är aktive rad med batch SDK: er
+
+Automatisk skalning av pooler kan konfigureras med någon av [batch SDK: erna](batch-apis-tools.md#azure-accounts-for-batch-development), [batch-REST API](https://docs.microsoft.com/rest/api/batchservice/) [batch PowerShell](batch-powershell-cmdlets-get-started.md)-cmdletar och [batch CLI](batch-cli-get-started.md). I det här avsnittet kan du se exempel för både .NET och python.
+
+### <a name="net"></a>.NET
 
 Följ dessa steg om du vill skapa en pool med autoskalning aktiverat i .NET:
 
 1. Skapa poolen med [metoden batchclient. PoolOperations. CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-2. Ange egenskapen [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) till `true`.
-3. Ange egenskapen [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) med formeln för autoskalning.
-4. Valfritt Ange egenskapen [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (Standardvärdet är 15 minuter).
-5. Genomför poolen med [CloudPool. commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) eller [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Ange egenskapen [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) till `true`.
+1. Ange egenskapen [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) med formeln för autoskalning.
+1. Valfritt Ange egenskapen [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (Standardvärdet är 15 minuter).
+1. Genomför poolen med [CloudPool. commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) eller [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 Följande kodfragment skapar en pool med autoskalning som är aktive rad i .NET. Poolens formel för autoskalning anger mål antalet dedikerade noder till 5 på måndagar och 1 på varannan dag i veckan. [Intervallet för automatisk skalning](#automatic-scaling-interval) är inställt på 30 minuter. I det här och de C# andra kodfragmenten i den här `myBatchClient` artikeln är en korrekt initierad instans av klassen [metoden batchclient][net_batchclient] .
 
@@ -392,10 +396,8 @@ await pool.CommitAsync();
 >
 >
 
-Förutom batch .NET kan du använda någon av de andra [batch SDK: erna](batch-apis-tools.md#azure-accounts-for-batch-development), [batch rest](https://docs.microsoft.com/rest/api/batchservice/), [batch PowerShell](batch-powershell-cmdlets-get-started.md)-cmdletar och [batch CLI](batch-cli-get-started.md) för att konfigurera autoskalning.
+#### <a name="automatic-scaling-interval"></a>Intervall för automatisk skalning
 
-
-### <a name="automatic-scaling-interval"></a>Intervall för automatisk skalning
 Som standard justerar batch-tjänsten en Pools storlek enligt dess autoskalning-formel var 15: e minut. Intervallet kan konfigureras med följande egenskaper för poolen:
 
 * [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (batch .net)
@@ -405,6 +407,50 @@ Det minsta intervallet är fem minuter och det maximala värdet är 168 timmar. 
 
 > [!NOTE]
 > Autoskalning är för närvarande inte avsett att svara på ändringar på mindre än en minut, men är i stället avsett att justera storleken på poolen gradvis när du kör en arbets belastning.
+>
+>
+
+### <a name="python"></a>Python
+
+På samma sätt kan du skapa en pool med automatiska skalnings funktioner med python SDK genom att:
+
+1. Skapa en pool och ange dess konfiguration.
+1. Lägg till poolen till tjänst klienten.
+1. Aktivera autoskalning på poolen med en formel som du skriver.
+
+```python
+# Create a pool; specify configuration
+new_pool = batch.models.PoolAddParameter(
+    id="autoscale-enabled-pool",
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+          publisher="Canonical",
+          offer="UbuntuServer",
+          sku="18.04-LTS",
+          version="latest"
+            ),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
+    vm_size="STANDARD_D1_v2",
+    target_dedicated_nodes=0,
+    target_low_priority_nodes=0
+)
+batch_service_client.pool.add(new_pool) # Add the pool to the service client
+
+formula = """$curTime = time();
+             $workHours = $curTime.hour >= 8 && $curTime.hour < 18; 
+             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5; 
+             $isWorkingWeekdayHour = $workHours && $isWeekday; 
+             $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
+
+# Enable autoscale; specify the formula
+response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
+                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10), 
+                                            pool_enable_auto_scale_options=None, 
+                                            custom_headers=None, raw=False)
+```
+
+> [!TIP]
+> Fler exempel på hur du använder python SDK finns i [batch python-snabb starts databasen](https://github.com/Azure-Samples/batch-python-quickstart) på GitHub.
 >
 >
 

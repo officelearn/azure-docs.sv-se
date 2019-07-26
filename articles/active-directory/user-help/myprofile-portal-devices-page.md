@@ -1,6 +1,6 @@
 ---
-title: Hantera dina anslutna enheter från min profil (förhandsgranskning)-portal – Azure Active Directory | Microsoft Docs
-description: En översikt om sidan enheter i min profil-portalen.
+title: Hantera dina anslutna enheter från portalen min profil (för hands version) – Azure Active Directory | Microsoft Docs
+description: En översikt på hög nivå om sidan enheter i min profil Portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,41 +12,44 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9035d68e95798eb238c1836e617e485c39194c4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475875"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383030"
 ---
-# <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Hantera dina anslutna enheter från min profil (förhandsgranskning)-portalen
-Du kan hantera enheter som du är ansluten till ditt arbets- eller skolkonto konto inaktiverar alla som du äger inte längre, från den **enheter** för den **min profil** portal.
+# <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Hantera dina anslutna enheter från portalen min profil (för hands version)
+
+Du kan hantera de enheter som du är ansluten till med ditt arbets-eller skol konto, vilket inaktiverar att du inte längre äger från sidan **enheter** i **min profil** Portal.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-connected-devices"></a>Visa dina anslutna enheter
-1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
 
-2. Välj **enheter** från den vänstra navigeringsfönstret eller Välj den **hantera enheter** länka från den **enheter** block.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
 
-    ![Min profilsida som visar den markerade enheter länkar](media/myprofile-portal/myprofile-portal-devices.png)
+2. Välj **enheter** i det vänstra navigerings fönstret eller Välj länken **Hantera enheter** från enhets  blocket.
 
-3. Granska informationen för dina anslutna enheter, vilket gör att du känner igen alla. 
+    ![Sidan min profil, som visar markerade enheter länkar](media/myprofile-portal/myprofile-portal-devices.png)
 
-    ![Enhetens sida, som visar anslutna enheter](media/myprofile-portal/myprofile-portal-devices-page.png)
+3. Granska informationen för dina anslutna enheter och se till att du känner igen dem. 
+
+    ![Sidan enhet, visar anslutna enheter](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Inaktivera en enhet
-Du kan inaktivera några av dina anslutna enheter när som helst. Detta är särskilt viktigt om en enhet inte är bekant med, eller om en enhet blir borttappad eller stulen. När du inaktiverar en enhet inte längre kan autentiseras av din organisation och går inte att få åtkomst till någon av din organisations resurser.
+
+Du kan när som helst inaktivera alla anslutna enheter. Detta är särskilt viktigt om en enhet inte är bekant för dig eller om en enhet tappas bort eller blir stulen. När du har inaktiverat en enhet kan den inte längre autentiseras av din organisation och kommer inte att kunna komma åt någon av organisationens resurser.
 
 >[!Important]
->Om du inaktiverar en enhet av misstag, går det inte att ångra åtgärden. Du måste kontakta organisationens administratör för att lägga till enheten igen.
+>Om du inaktiverar en enhet av misstag finns det inget sätt att ångra den. Du måste kontakta din organisations administratör för att lägga till enheten igen.
 
 1. Välj **inaktivera** från den enhet som du vill ta bort.
 
-    ![Enhetens sida med markerade inaktivera länk](media/myprofile-portal/myprofile-portal-devices-disable.png)
+    ![Sidan enhet med markerad inaktivera länk](media/myprofile-portal/myprofile-portal-devices-disable.png)
 
-2. Välj **Ja** att bekräfta att du vill inaktivera enheten.
+2. Välj **Ja** för att bekräfta att du vill inaktivera enheten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du visar dina anslutna enheter kan du välja att visa eller hantera din [säkerhetsinformation](user-help-security-info-overview.md), din [organisationer](myprofile-portal-organizations-page.md), eller visa hur din organisation [använder dina data](myprofile-portal-privacy-page.md).
+- När du har tittat på dina anslutna enheter kan du välja att visa eller hantera din [säkerhets information](user-help-security-info-overview.md), dina [organisationer](myprofile-portal-organizations-page.md)eller se hur din organisation [använder dina data](myprofile-portal-privacy-page.md).

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60420323"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422929"
 ---
 # <a name="what-is-azure-relay"></a>Vad är Azure Relay?
 Med Azure Relay-tjänsten kan du på ett säkert sätt visa tjänster som körs i företagets nätverk för det offentliga molnet. Du kan göra det utan att behöva öppna en port i brandväggen eller göra störande ändringar i företagets nätverksinfrastruktur. 
@@ -55,13 +55,13 @@ Mer information om protokollet för Hybridanslutningar finns i [guiden om protok
 > [!NOTE]
 > Hybridanslutningar i Azure Relay ersätter den gamla hybridanslutningsfunktionen i BizTalk Services. Funktionen för Hybridanslutningar i BizTalk Services skapades på Azure Service Bus WCF Relay. Funktionen för Hybridanslutningar i Azure Relay kompletterar den befintliga WCF Relay-funktionen. De här två tjänstfunktionerna (WCF Relay och Hybridanslutningar) finns sida vid sida i Azure Relay-tjänsten. De delar en gemensam gateway, men är i övrigt olika implementeringar.
 
-## <a name="wcf-relay"></a>WCF-relä
-WCF Relay fungerar med det fullständiga .NET Framework (NETFX) och för WCF. Du skapar en anslutning mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till nya transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet. Mer information finns i [Komma igång med WCF Relay](relay-wcf-dotnet-get-started.md).
+## <a name="wcf-relay"></a>WCF Relay
+WCF Relay fungerar med det fullständiga .NET Framework (NETFX) och för WCF. Du skapar en anslutning mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till nya transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet. Mer information finns i [Komma igång med WCF Relay](service-bus-relay-tutorial.md).
 
-## <a name="hybrid-connections-vs-wcf-relay"></a>Hybridanslutningar kontra WCF-relä
+## <a name="hybrid-connections-vs-wcf-relay"></a>Hybridanslutningar kontra WCF Relay
 Både Hybridanslutningar och WCF Relay tillhandahåller säker anslutning till resurser som finns i ett företagsnätverk. Användning av det ena eller andra beror på dina specifika behov, baserat på informationen i följande tabell:
 
-|  | WCF-relä | Hybridanslutningar |
+|  | WCF Relay | Hybridanslutningar |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
@@ -82,7 +82,7 @@ Följande diagram visar hur inkommande reläbegäranden hanteras av Azure Relay-
 5. Gatewayen vidarebefordrar anslutningsbegäran till rätt gateway som nämns i gatewayarkivet. 
 6. Gatewayen skickar en begäran till den lyssnande klienten om att skapa en tillfällig kanal till den gatewaynod som är närmast den skickande klienten. 
 7. Den lyssnande klienten skapar en tillfällig kanal till den gateway som är närmast den skickande klienten. Nu när anslutningen har upprättats mellan klienter via en gateway kan klienterna utbyta meddelanden med varandra. 
-8. Gatewayen vidarebefordrar meddelanden från den lyssnande klienten skickar klienten. 
+8. Gatewayen vidarebefordrar alla meddelanden från lyssnings klienten till den sändande klienten. 
 9. Gatewayen vidarebefordrar alla meddelanden från den skickande klienten till den lyssnande klienten.  
 
 ## <a name="next-steps"></a>Nästa steg

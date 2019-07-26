@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera Azure-datorer med C# | Microsoft Docs
-description: Använda C# och Azure Resource Manager för att distribuera en virtuell dator och alla dess resurser.
+title: Skapa och hantera en virtuell Azure-dator C# med | Microsoft Docs
+description: Använd C# och Azure Resource Manager för att distribuera en virtuell dator och alla dess stöd resurser.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,40 +15,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 2bc7eef9c4633b6064f2be251bc436c103f4e4a0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: b88bade886bf8cf22387e8733b8710414c944988
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718697"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361131"
 ---
-# <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera Windows virtuella datorer i Azure med C# #
+# <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp avC# #
 
-En [Azure-dator](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) måste flera stödjande Azure-resurser. Den här artikeln beskriver skapa, hantera och ta bort VM-resurser med C#. Lär dig att:
+En [virtuell Azure-dator](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) behöver flera stöd för Azure-resurser. Den här artikeln beskriver hur du skapar, hanterar och tar bort C#VM-resurser med hjälp av. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Visual Studio-projekt
 > * Installera paketet
 > * Skapa autentiseringsuppgifter
 > * Skapa resurser
-> * Utföra administrativa uppgifter
+> * Utföra hanterings uppgifter
 > * Ta bort resurser
 > * Köra programmet
 
-Det tar cirka 20 minuter för att utföra de här stegen.
+Det tar ungefär 20 minuter att utföra dessa steg.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.NET-skrivbordsutveckling** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis ska du se att **utvecklingsverktyg för .NET Framework 4 4.6** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen i Visual Studio-starta.
+1. Om du inte redan har gjort det installerar du [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.net Desktop Development** på sidan arbets belastningar och klicka sedan på **Installera**. I sammanfattningen kan du se att **.NET Framework 4-4,6 utvecklingsverktyg** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen med hjälp av Visual Studio Launcher.
 2. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
-3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)** , ange *myDotnetProject* för namnet på den projektet, välj platsen för projektet och klicka sedan på **OK**.
+3. I **mallar** >   **, Välj konsol program (.NET Framework), ange myDotnetProject som namn på projektet, Välj platsen för projektet och klicka sedan på C#**  **OK**.
 
 ## <a name="install-the-package"></a>Installera paketet
 
-NuGet-paket är det enklaste sättet att installera de bibliotek som du måste slutföra de här stegen. För att få de bibliotek som du behöver i Visual Studio, gör du följande:
+NuGet-paket är det enklaste sättet att installera de bibliotek som du behöver för att slutföra de här stegen. Gör så här för att hämta de bibliotek som du behöver i Visual Studio:
 
-1. Klicka på **verktyg** > **Nuget-Pakethanteraren**, och klicka sedan på **Pakethanterarkonsolen**.
-2. Ange följande kommando i konsolen:
+1. Klicka på **verktyg** > **NuGet Package Manager**och klicka sedan på **Package Manager-konsolen**.
+2. Skriv det här kommandot i-konsolen:
 
     ```
     Install-Package Microsoft.Azure.Management.Fluent
@@ -56,12 +56,12 @@ NuGet-paket är det enklaste sättet att installera de bibliotek som du måste s
 
 ## <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-Innan du startar det här steget, se till att du har åtkomst till en [Active Directory-tjänstobjekt](../../active-directory/develop/howto-create-service-principal-portal.md). Du bör anteckna program-ID och autentiseringsnyckel klient-ID som du behöver i ett senare steg.
+Innan du startar det här steget ska du kontrol lera att du har åtkomst till ett [Active Directory tjänstens huvud namn](../../active-directory/develop/howto-create-service-principal-portal.md). Du bör också registrera program-ID, autentiseringsnyckel och klient-ID som du behöver i ett senare steg.
 
-### <a name="create-the-authorization-file"></a>Skapa auktoriseringsfilen
+### <a name="create-the-authorization-file"></a>Skapa verifierings filen
 
-1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth.properties*, och klicka sedan på **Lägg till**.
-2. Lägg till de här egenskaperna för auktorisering:
+1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**och väljer sedan **textfil** i  *C# visuella objekt*. Ge filen namnet *azureauth. Properties*och klicka sedan på **Lägg till**.
+2. Lägg till följande egenskaper för auktorisering:
 
     ```
     subscription=<subscription-id>
@@ -74,20 +74,20 @@ Innan du startar det här steget, se till att du har åtkomst till en [Active Di
     graphURL=https://graph.windows.net/
     ```
 
-    Ersätt **&lt;prenumerations-id&gt;** med ditt prenumerations-ID **&lt;program-id&gt;** med Active Directory-program identifierare **&lt;autentiseringsnyckeln&gt;** med programnyckel och **&lt;klient-id&gt;** med klient-ID.
+    **&lt;&gt;** Ersätt  **&lt;prenumerations-&gt; ID** med prenumerations-ID, program-ID med Active Directory-program-ID, **&lt;autentisering-nyckel med&gt;** program nyckeln och  **&lt;&gt; klient-ID** med klient-ID: t.
 
-3. Spara filen azureauth.properties. 
-4. Ange en miljövariabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade. Till exempel kan följande PowerShell-kommando användas:
+3. Spara filen azureauth. Properties. 
+4. Ange en miljö variabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till den auktoriserade filen som du skapade. Du kan till exempel använda följande PowerShell-kommando:
 
     ```
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
-### <a name="create-the-management-client"></a>Skapa management-klienten
+### <a name="create-the-management-client"></a>Skapa hanterings klienten
 
-1. Öppna filen Program.cs för projektet som du skapade. Lägg sedan till dessa using-satser till de befintliga-instruktionerna överst i filen:
+1. Öppna Program.cs-filen för det projekt som du har skapat. Lägg sedan till dessa med-instruktioner till de befintliga instruktionerna överst i filen:
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -95,9 +95,9 @@ Innan du startar det här steget, se till att du har åtkomst till en [Active Di
     using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
     ```
 
-2. Lägg till den här kod till Main-metoden för att skapa management-klienten:
+2. Lägg till den här koden i huvud metoden för att skapa hanterings klienten:
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -112,11 +112,11 @@ Innan du startar det här steget, se till att du har åtkomst till en [Active Di
 
 ### <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Alla resurser måste finnas i en [resursgrupp](../../azure-resource-manager/resource-group-overview.md).
+Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/resource-group-overview.md).
 
-Lägg till den här kod till Main-metoden för att ange värden för programmet och skapa resursgruppen:
+Om du vill ange värden för programmet och skapa resurs gruppen lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var vmName = "myVM";
 var location = Region.USWest;
@@ -127,13 +127,13 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-### <a name="create-the-availability-set"></a>Skapa tillgänglighetsuppsättning
+### <a name="create-the-availability-set"></a>Skapa tillgänglighets uppsättningen
 
-[Tillgänglighetsuppsättningar](tutorial-availability-sets.md) gör det enklare att underhålla de virtuella datorerna som används av ditt program.
+[Tillgänglighets uppsättningar](tutorial-availability-sets.md) gör det enklare för dig att underhålla de virtuella datorer som används av ditt program.
 
-Lägg till den här koden i Main-metoden för att skapa tillgänglighetsuppsättningen:
+Om du vill skapa tillgänglighets uppsättningen lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 Console.WriteLine("Creating availability set...");
 var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
     .WithRegion(location)
@@ -142,13 +142,13 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
     .Create();
 ```
 
-### <a name="create-the-public-ip-address"></a>Skapa offentlig IP-adress
+### <a name="create-the-public-ip-address"></a>Skapa den offentliga IP-adressen
 
-En [offentliga IP-adressen](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) krävs för att kommunicera med den virtuella datorn.
+En [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) krävs för att kommunicera med den virtuella datorn.
 
-Lägg till den här koden i Main-metoden för att skapa den offentliga IP-adressen för den virtuella datorn:
+Om du vill skapa den offentliga IP-adressen för den virtuella datorn lägger du till den här koden i huvud metoden:
    
-```
+```csharp
 Console.WriteLine("Creating public IP address...");
 var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
     .WithRegion(location)
@@ -159,11 +159,11 @@ var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
-En virtuell dator måste vara i ett undernät för ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
+En virtuell dator måste finnas i ett undernät för ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
 
-Lägg till den här koden i Main-metoden för att skapa ett undernät och ett virtuellt nätverk:
+Om du vill skapa ett undernät och ett virtuellt nätverk lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 Console.WriteLine("Creating virtual network...");
 var network = azure.Networks.Define("myVNet")
     .WithRegion(location)
@@ -173,13 +173,13 @@ var network = azure.Networks.Define("myVNet")
     .Create();
 ```
 
-### <a name="create-the-network-interface"></a>Skapa nätverksgränssnittet
+### <a name="create-the-network-interface"></a>Skapa nätverks gränssnittet
 
-En virtuell dator behöver ett nätverksgränssnitt ska kunna kommunicera på det virtuella nätverket.
+En virtuell dator behöver ett nätverks gränssnitt för att kommunicera med det virtuella nätverket.
 
-Lägg till den här koden i Main-metoden för att skapa ett nätverksgränssnitt:
+Om du vill skapa ett nätverks gränssnitt lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 Console.WriteLine("Creating network interface...");
 var networkInterface = azure.NetworkInterfaces.Define("myNIC")
     .WithRegion(location)
@@ -193,11 +193,11 @@ var networkInterface = azure.NetworkInterfaces.Define("myNIC")
 
 ### <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 
-Nu när du har skapat alla stödresurser, kan du skapa en virtuell dator.
+Nu när du har skapat alla stöd resurser kan du skapa en virtuell dator.
 
-Lägg till den här koden i Main-metoden för att skapa den virtuella datorn:
+Lägg till den här koden i huvud metoden för att skapa den virtuella datorn:
 
-```
+```csharp
 Console.WriteLine("Creating virtual machine...");
 azure.VirtualMachines.Define(vmName)
     .WithRegion(location)
@@ -213,13 +213,13 @@ azure.VirtualMachines.Define(vmName)
 ```
 
 > [!NOTE]
-> Den här självstudiekursen skapar en virtuell dator som kör en version av operativsystemet Windows Server. Läs mer om att välja andra bilder i [analysera och välja avbildningar av virtuella datorer med Windows PowerShell och Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Den här självstudien skapar en virtuell dator som kör en version av operativ systemet Windows Server. Mer information om hur du väljer andra bilder finns i [navigera och välja avbildningar av virtuella Azure-datorer med Windows PowerShell och Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 >
 
-Om du vill använda en befintlig disk i stället för en marketplace-avbildning, använder du den här koden:
+Använd den här koden om du vill använda en befintlig disk i stället för en Marketplace-avbildning:
 
-```
+```csharp
 var managedDisk = azure.Disks.Define("myosdisk")
     .WithRegion(location)
     .WithExistingResourceGroup(groupName)
@@ -238,21 +238,21 @@ azure.VirtualMachines.Define("myVM")
     .Create();
 ```
 
-## <a name="perform-management-tasks"></a>Utföra administrativa uppgifter
+## <a name="perform-management-tasks"></a>Utföra hanterings uppgifter
 
-Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kan du skapa kod för att automatisera repetitiva eller komplicerade uppgifter.
+Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa kod för att automatisera repetitiva eller komplexa uppgifter.
 
-När du behöver göra något med den virtuella datorn, måste du hämta en instans av den:
+När du behöver göra något med den virtuella datorn måste du skaffa en instans av den:
 
-```
+```csharp
 var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 ```
 
-### <a name="get-information-about-the-vm"></a>Få information om den virtuella datorn
+### <a name="get-information-about-the-vm"></a>Hämta information om den virtuella datorn
 
-Lägg till den här koden i Main-metoden för att få information om den virtuella datorn:
+Om du vill hämta information om den virtuella datorn lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 Console.WriteLine("Getting information about the virtual machine...");
 Console.WriteLine("hardwareProfile");
 Console.WriteLine("   vmSize: " + vm.Size);
@@ -320,28 +320,28 @@ Console.ReadLine();
 
 ### <a name="stop-the-vm"></a>Stoppa den virtuella datorn
 
-Du kan stoppa en virtuell dator och behålla alla dess inställningar, men fortsätter att debiteras för den eller stoppa en virtuell dator och frigör den. När en virtuell dator har frigjorts är alla resurser som är associerade med den också frigörs och faktureringssupport upphör för den.
+Du kan stoppa en virtuell dator och behålla alla inställningar, men fortsätta att debiteras för den, eller så kan du stoppa en virtuell dator och frigöra den. När en virtuell dator frigörs frigörs även alla resurser som är kopplade till den och faktureringen upphör.
 
-Lägg till den här koden i Main-metoden för att stoppa den virtuella datorn utan att de frigörs den:
+Om du vill stoppa den virtuella datorn utan att ta bort tilldelningen, lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 Console.WriteLine("Stopping vm...");
 vm.PowerOff();
 Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
 ```
 
-Om du vill frigöra den virtuella datorn, ändrar du avstängningsläge anropet till den här koden:
+Om du vill frigöra den virtuella datorn ändrar du avstängnings läge-anropet till den här koden:
 
-```
+```csharp
 vm.Deallocate();
 ```
 
 ### <a name="start-the-vm"></a>Starta den virtuella datorn
 
-Lägg till den här koden i Main-metoden för att starta den virtuella datorn:
+För att starta den virtuella datorn lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 Console.WriteLine("Starting vm...");
 vm.Start();
 Console.WriteLine("Press enter to continue...");
@@ -350,11 +350,11 @@ Console.ReadLine();
 
 ### <a name="resize-the-vm"></a>Ändra storlek på den virtuella datorn
 
-Många aspekter av distributionen bör övervägas när du bestämmer dig en storlek för den virtuella datorn. Mer information finns i [VM-storlekar](sizes.md).  
+Många aspekter av distributionen bör övervägas när du bestämmer dig för en storlek på den virtuella datorn. Mer information finns i [VM-storlekar](sizes.md).  
 
-Lägg till den här koden i Main-metoden om du vill ändra storleken på den virtuella datorn:
+Om du vill ändra storleken på den virtuella datorn lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 Console.WriteLine("Resizing vm...");
 vm.Update()
     .WithSize(VirtualMachineSizeTypes.StandardDS2) 
@@ -363,11 +363,11 @@ Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
 ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Lägga till en datadisk till den virtuella datorn
+### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk till den virtuella datorn
 
-Lägg till den här koden i Main-metoden för att lägga till en datadisk till den virtuella datorn. Det här exemplet lägger till en datadisk som är 2 GB i storlek, han en LUN 0 och en typ av cachelagring av ReadWrite:
+Lägg till den här koden i Main-metoden för att lägga till en datadisk till den virtuella datorn. Det här exemplet lägger till en datadisk som är 2 GB i storlek, han eller hon är en LUN på 0 och en typ av ReadWrite:
 
-```
+```csharp
 Console.WriteLine("Adding data disk to vm...");
 vm.Update()
     .WithNewDataDisk(2, 0, CachingTypes.ReadWrite) 
@@ -378,23 +378,22 @@ Console.ReadLine();
 
 ## <a name="delete-resources"></a>Ta bort resurser
 
-Eftersom du debiteras för resurser som används i Azure, men det är alltid bra att ta bort resurser som inte längre behövs. Om du vill ta bort de virtuella datorerna och alla stödresurser är allt du behöver göra ta bort resursgruppen.
+Eftersom du debiteras för resurser som används i Azure är det alltid en bra idé att ta bort resurser som inte längre behövs. Om du vill ta bort de virtuella datorerna och alla stödda resurser måste du ta bort resurs gruppen.
 
-Ta bort resursgruppen genom att lägga till den här koden till Main-metoden:
+Om du vill ta bort resurs gruppen lägger du till den här koden i huvud metoden:
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Det bör ta ungefär fem minuter för den här konsolprogram för att köra helt från början till slut. 
+Det bör ta ungefär fem minuter för konsol programmet att köras helt från början till slut. 
 
-1. För att köra konsolprogrammet, klickar du på **starta**.
+1. Kör konsol programmet genom att klicka på **Start**.
 
-2. Innan du trycker på **RETUR** om du vill börja ta bort resurser, du kan ta några minuter för att verifiera att skapa resurser i Azure-portalen. Klicka på distributionsstatusen för att visa information om hur du distribuerar.
+2. Innan du trycker på **RETUR** för att börja ta bort resurser kan det ta några minuter innan du verifierar att resurserna har skapats i Azure Portal. Klicka på distributions status om du vill se information om distributionen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Dra nytta av att använda en mall för att skapa en virtuell dator med hjälp av informationen i [distribuera en Azure-dator med C# och Resource Manager-mall](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Läs mer om hur du använder den [Azure libraries för .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
-
+* Dra nytta av att använda en mall för att skapa en virtuell dator med hjälp av informationen i [distribuera en virtuell Azure C# -dator med hjälp av och en Resource Manager-mall](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Lär dig mer om att använda [Azure-biblioteken för .net](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).

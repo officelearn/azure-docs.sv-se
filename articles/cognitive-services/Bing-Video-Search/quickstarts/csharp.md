@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Sök efter videor med REST API för videosökning i Bing och C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med C#.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 06f01875b6173c2b1188c2179b9bc4b3f67c714c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 9ba2027641ef6cc9a86044850e8996f986992bf8
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275903"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500191"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Snabbstart: Sök efter videor med REST API för videosökning i Bing och C#
 
@@ -23,8 +23,8 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) tillsammans med ytterligare kommentarer om hantering av fel, funktioner och kodanteckningar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-* En utgåva av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+## <a name="prerequisites"></a>Förutsättningar
+* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 

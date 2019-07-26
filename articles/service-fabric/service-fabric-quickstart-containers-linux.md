@@ -12,15 +12,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/30/2019
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5d0c8b458f11076ea87d74eae3eecd72fb37eb40
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 979c94e0c577c2a7dbcb11434ac5544e4dd1df64
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621527"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385139"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snabbstart: Distribuera Linux-containrar till Service Fabric
 
@@ -179,7 +179,7 @@ Använd avinstallationsskriptet (uninstall.sh) som medföljer mallen för att ta
 
 Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen.
 
-Logga in på Azure och välj prenumerations-ID som du vill ta bort klustret. Du hittar ditt prenumerations-ID när du loggar in på Azure-portalen. Ta bort resursgruppen och alla klusterresurser med [kommandot az group delete](/cli/azure/group?view=azure-cli-latest).
+Logga in på Azure och välj det prenumerations-ID som du vill ta bort klustret med. Du hittar ditt prenumerations-ID när du loggar in på Azure-portalen. Ta bort resursgruppen och alla klusterresurser med [kommandot az group delete](/cli/azure/group?view=azure-cli-latest).
 
 ```azurecli
 az login

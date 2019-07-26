@@ -1,10 +1,10 @@
 ---
-title: Självstudie – skapa din första åtkomst-paket i Azure AD-rättigheten hantering (förhandsversion) – Azure Active Directory
-description: Stegvisa självstudier för hur du skapar ditt första åtkomst-paket i Azure Active Directory rättigheten hantering (förhandsversion).
+title: Självstudie – Skapa ditt första Access-paket i Azure AD-hantering (för hands version) – Azure Active Directory
+description: Stegvis själv studie kurs om hur du skapar ditt första Access-paket i Azure Active Directory hantering av rättigheter (för hands version).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,316 +12,316 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/27/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 354af736d5896214848205f41e429d9bf2c49863
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873484"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489172"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Självstudier: Skapa ditt första åtkomst-paket i Azure AD rättigheten hantering (förhandsversion)
+# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Självstudier: Skapa ditt första Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) rättigheten management är för närvarande i offentlig förhandsversion.
+> Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Hantera åtkomst till alla resurser anställda behovet av, till exempel grupper, program och webbplatser, är en viktig funktion för organisationer. Du vill ge anställda rätt åtkomstnivå som de behöver för att vara produktiva och deras åtkomst tas bort när den inte längre behövs.
+Att hantera åtkomst till alla resurser som krävs av de anställda, till exempel grupper, program och platser, är en viktig funktion för organisationer. Du vill ge anställda den rätta åtkomst nivån som de behöver för att vara produktiv och ta bort deras åtkomst när den inte längre behövs.
 
-I den här självstudien får arbeta du för Woodgrove Bank som IT-administratör. Du har blivit ombedd att skapa ett paket av resurser för ett webbprojekt som interna användare kan själva begäran. Begäranden som kräver godkännande och användarens åtkomst upphör att gälla efter 30 dagar. Projektet webbresurser är bara medlemskap i en grupp i den här självstudien, men det kan vara en uppsättning grupper, program eller SharePoint Online-platser.
+I den här självstudien arbetar du för Sparbanken-bank som IT-administratör. Du har blivit ombedd att skapa ett paket med resurser för ett webb projekt som interna användare kan själv betjäna. Begär Anden kräver godkännande och användarens åtkomst upphör att gälla efter 30 dagar. I den här självstudien är webb projekt resurserna bara medlemmar i en enda grupp, men det kan vara en samling av grupper, program eller SharePoint Online-webbplatser.
 
 ![Scenarioöversikt](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en access-paket med en grupp som en resurs
-> * Välja en godkännare
-> * Visa hur en intern användare kan begära åtkomst-paketet
-> * Godkänn åtkomstbegäran om
+> * Skapa ett Access-paket med en grupp som en resurs
+> * Utse en god kännare
+> * Visa hur en intern användare kan begära åtkomst paketet
+> * Godkänn åtkomstbegäran
 
-Om du inte har en Azure AD Premium P2 eller Enterprise Mobility + Security E5-licens kan du skapa en kostnadsfri [Enterprise Mobility + Security E5-utvärderingen](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
+Om du inte har en Azure AD Premium P2-eller Enterprise Mobility + Security E5-licens skapar du en kostnads fri [Enterprise Mobility + Security E5-utvärderings version](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda Azure AD rättigheten hantering (förhandsversion), måste du ha en av följande licenser:
+Om du vill använda Azure AD-hantering (för hands version) måste du ha en av följande licenser:
 
 - Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
+- Enterprise Mobility + Security (EMS) E5-licens
 
-## <a name="step-1-set-up-users-and-group"></a>Steg 1: Konfigurera användare och grupper
+## <a name="step-1-set-up-users-and-group"></a>Steg 1: Konfigurera användare och grupp
 
-En katalog i resursen har en eller flera resurser för att dela. I det här steget skapar du en grupp med namnet **Ingenjörsgruppen** i Woodgrove Bank-katalogen som är målresursen för berättigande management. Du också konfigurera en intern begärande.
+En resurs katalog har en eller flera resurser att dela. I det här steget skapar du en grupp som heter **tekniker grupp** i katalogen Sparbanken som är mål resursen för hantering av rättigheter. Du skapar också en intern begär Ande.
 
-**Nödvändiga roll:** Global administratör eller Användaradministratör
+**Nödvändig roll:** Global administratör eller användar administratör
 
 ![Skapa användare och grupper](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som en Global administratör eller Användaradministratör.  
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör eller användar administratör.  
 
-1. I det vänstra navigeringsfönstret klickar du på **Azure Active Directory**.
+1. Klicka på **Azure Active Directory**i det vänstra navigerings fältet.
 
-1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller ett annat namn. **Admin1** kan vara du för närvarande är inloggad som användaren.
+1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller olika namn. **Admin1** kan vara den användare som du för närvarande är inloggad som.
 
     | Namn | Katalogroll | Beskrivning |
     | --- | --- | --- |
-    | **Admin1** | Global administratör<br/>ELLER<br/>Begränsad administratör (Användaradministratör) | Administratörs- och godkännare |
-    | **Requestor1** | Användare | Intern begärande |
+    | **Admin1** | Global administratör<br/>ELLER<br/>Begränsad administratör (användar administratör) | Administratör och god kännare |
+    | **Requestor1** | Användare | Intern begär Ande |
 
-    Den här självstudien administratör och godkännare är samma person, men du vanligtvis ange en eller flera personer ska vara godkännare.
+    I den här självstudien är administratören och god kännaren samma person, men du väljer vanligt vis en eller flera personer som god kännare.
 
-1. Skapa en Azure AD-säkerhetsgrupp grupp med namnet **Ingenjörsgruppen** med en medlemskapstypen för **tilldelad**.
+1. Skapa en Azure AD-säkerhetsgrupp med namnet **tekniker grupp** med en tilldelad medlemskaps typ.
 
-    Den här gruppen kommer att målresursen för berättigande management. Gruppen ska vara tom för medlemmar att starta.
+    Den här gruppen är mål resursen för hantering av rättigheter. Gruppen ska vara tom för medlemmar att starta.
 
-## <a name="step-2-create-an-access-package"></a>Steg 2: Skapa en access-paket
+## <a name="step-2-create-an-access-package"></a>Steg 2: Skapa ett Access-paket
 
-En *åtkomst paketet* är ett paket med alla resurser som en användare behöver för att arbeta med ett projekt eller utföra sitt arbete. Åtkomst-paket har definierats i behållare som kallas *kataloger*. I det här steget skapar du en **webbpaket projekt åtkomst** i den **Allmänt** katalogen.
+Ett *Access-paket* är ett paket med alla resurser som en användare behöver för att arbeta med ett projekt eller utföra sitt arbete. Åtkomst paket definieras i behållare som kallas *kataloger*. I det här steget skapar du ett **webb projekt åtkomst paket** i den **allmänna** katalogen.
 
-**Nödvändiga roll:** Global administratör eller Användaradministratör
+**Nödvändig roll:** Global administratör eller användar administratör
 
-![Skapa en access-paket](./media/entitlement-management-access-package-first/elm-access-package.png)
+![Skapa ett Access-paket](./media/entitlement-management-access-package-first/elm-access-package.png)
 
-1. I Azure-portalen i det vänstra navigeringsfönstret klickar du på **Azure Active Directory**.
+1. Klicka på **Azure Active Directory**i Azure Portal i det vänstra navigerings fältet.
 
-1. I den vänstra menyn klickar du på **Identitetsstyrning**
+1. På den vänstra menyn klickar du på **identitets styrning**
 
-1. I den vänstra menyn klickar du på **åt paket**.  Om du ser **åtkomst nekad**, kontrollera att en Azure AD Premium P2-licens finns i den katalogen.
+1. Klicka på **åtkomst paket**på den vänstra menyn.  Om du ser **nekad åtkomst**kontrollerar du att det finns en Azure AD Premium P2-licens i katalogen.
 
-1. Klicka på **nya åtkomst paketet**.
+1. Klicka på **nytt Access-paket**.
 
-    ![Berättigande hantering i Azure portal](./media/entitlement-management-access-package-first/access-packages-list.png)
+    ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-access-package-first/access-packages-list.png)
 
-1. På den **grunderna** Skriv namnet **webbpaket projekt åtkomst** och en beskrivning **åtkomst-paketet för webbprojektet Engineering**.
+1. På fliken **grundläggande** anger du namnet på **webb projekt åtkomst paketet** och beskrivningen **för det tekniska webb projektet**.
 
-1. Lämna den **Catalog** listrutan inställd **Allmänt**.
+1. Lämna List rutan **katalog** inställd på **Allmänt**.
 
-    ![Nytt åtkomst-paket - grunderna fliken](./media/entitlement-management-access-package-first/basics.png)
+    ![Nytt åtkomst paket – fliken grunder](./media/entitlement-management-access-package-first/basics.png)
 
-1. Klicka på **nästa** att öppna den **resursroller** fliken.
+1. Klicka på **Nästa** för att öppna fliken **resurs roller** .
 
-    På den här fliken kan välja du behörigheterna som ska ingå i åtkomst-paketet.
+    På den här fliken väljer du de behörigheter som ska tas med i åtkomst paketet.
 
 1. Klicka på **grupper**.
 
-1. I fönstret Välj grupper att söka efter och välja den **Ingenjörsgruppen** grupp som du skapade tidigare.
+1. I fönstret Välj grupper letar du reda på och väljer den **ingenjörs grupp** som du skapade tidigare.
 
-    Som standard kan du se grupper i och utanför den **Allmänt** katalogen. När du väljer en grupp utanför den **Allmänt** katalogen, läggs den till den **Allmänt** katalogen.
+    Som standard visas grupper i och utanför den **allmänna** katalogen. När du väljer en grupp utanför den **allmänna** katalogen kommer den att läggas till i den **allmänna** katalogen.
 
-    ![Nytt åtkomst-paket – fliken för resurs-roller](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Nytt Access-paket – fliken resurs roller](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. Klicka på **Välj** att lägga till gruppen i listan.
+1. Klicka på **Välj** för att lägga till gruppen i listan.
 
-1. I den **rollen** listrutan, väljer **medlem**.
+1. I list rutan **roll** väljer du **medlem**.
 
-    ![Nytt åtkomst-paket – fliken för resurs-roller](./media/entitlement-management-access-package-first/resource-roles.png)
+    ![Nytt Access-paket – fliken resurs roller](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Klicka på **nästa** att öppna den **princip** fliken.
+1. Klicka på **Nästa** för att öppna fliken **princip** .
 
-1. Ange den **skapa första princip** växla till **senare**.
+1. Ange den **första principen** för att växla till **senare**.
 
-    Du skapar principen i nästa avsnitt.
+    Du kommer att skapa principen i nästa avsnitt.
 
-    ![Nytt åtkomst-paket - fliken](./media/entitlement-management-access-package-first/policy.png)
+    ![Nytt åtkomst paket – fliken princip](./media/entitlement-management-access-package-first/policy.png)
 
-1. Klicka på **nästa** att öppna den **granska + skapa** fliken.
+1. Klicka på **Nästa** för att öppna fliken **Granska + skapa** .
 
-    ![Nytt åtkomst-paket – granska + skapa flik](./media/entitlement-management-access-package-first/review-create.png)
+    ![Nytt åtkomst paket – Granska + fliken Skapa](./media/entitlement-management-access-package-first/review-create.png)
 
-1. Granska åtkomstinställningar för paketet och klicka sedan på **skapa**.
+1. Granska inställningarna för åtkomst paket och klicka sedan på **skapa**.
 
-    Du kan se ett meddelande om att åtkomst paketet inte synligt för användarna eftersom katalogen inte har aktiverats.
+    Du kan se ett meddelande om att åtkomst paketet inte är synligt för användarna eftersom katalogen inte har Aktiver ATS än.
 
-    ![Nytt åtkomst-paket - syns inte meddelande](./media/entitlement-management-access-package-first/not-visible.png)
+    ![Nytt åtkomst paket – inte synligt meddelande](./media/entitlement-management-access-package-first/not-visible.png)
 
 1. Klicka på **OK**.
 
-    Efter en liten stund bör du se ett meddelande om att åtkomst-paketet har skapats.
+    Efter en liten stund bör du se ett meddelande om att Access-paketet har skapats.
 
 ## <a name="step-3-create-a-policy"></a>Steg 3: Skapa en princip
 
-En *princip* definierar regler eller guardrails att komma åt ett åtkomst-paket. I det här steget skapar du en princip som tillåter en viss användare i katalogen resurs att begära åtkomst till paketet. Du kan ange att begäranden måste godkännas och som kommer att godkännaren.
+En *princip* definierar regler eller guardrails för åtkomst till ett Access-paket. I det här steget skapar du en princip som tillåter en speciell användare i resurs katalogen att begära åtkomst paketet. Du anger också att begär Anden måste godkännas och vem som ska bli god kännare.
 
-![Skapa en åtkomstprincip för paketet](./media/entitlement-management-access-package-first/elm-access-package-policy.png)
+![Skapa en princip för åtkomst paket](./media/entitlement-management-access-package-first/elm-access-package-policy.png)
 
-**Nödvändiga roll:** Global administratör eller Användaradministratör
+**Nödvändig roll:** Global administratör eller användar administratör
 
-1. I den **webbpaket projekt åtkomst**, i den vänstra menyn klickar du på **principer**.
+1. I **webb projekt åtkomst paketet**går du till menyn till vänster och klickar på **principer**.
 
-    ![Principer för åtkomst paketlistan](./media/entitlement-management-access-package-first/policies-list.png)
+    ![Åtkomst till paket princip listan](./media/entitlement-management-access-package-first/policies-list.png)
 
-1. Klicka på **Lägg till princip** att öppna skapa princip.
+1. Klicka på **Lägg till princip** för att öppna skapa princip.
 
-1. Skriv namnet **interna begärande princip** och en beskrivning **låter användare i den här katalogen för att begära åtkomst till projektet webbresurser**.
+1. Ange namnet på den **interna förfrågnings principen** och beskrivningen **tillåter användare i den här katalogen att begära åtkomst till webb projekt resurser**.
 
-1. I den **användare som kan begära åtkomst** klickar du på **för användare i katalogen**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare i din katalog**.
 
     ![Skapa princip](./media/entitlement-management-access-package-first/policy-create.png)
 
-1. Rulla ned till den **Välj användare och grupper** och klicka **lägga till användare och grupper**.
+1. Rulla ned till avsnittet **Välj användare och grupper** och klicka på **Lägg till användare och grupper**.
 
-1. I Välj användare och grupper fönstret, Välj den **Requestor1** användare som du skapade tidigare och klicka sedan på **Välj**.
+1. I fönstret Välj användare och grupper väljer du den **Requestor1** -användare som du skapade tidigare och klickar sedan på **Välj**.
 
-1. I den **begära** anger **kräver godkännande** till **Ja**.
+1. I avsnittet **begäran** anger du **Kräv godkännande** till **Ja**.
 
-1. I den **Välj godkännare** klickar du på **Lägg till godkännare**.
+1. I avsnittet **Välj god kännare** klickar du på **Lägg till god kännare**.
 
-1. I fönstret Välj godkännare väljer du den **Admin1** du skapade tidigare och klicka sedan på **Välj**.
+1. I fönstret Välj god kännare väljer du den **admin1** som du skapade tidigare och klickar sedan på **Välj**.
 
-    Den här självstudien administratör och godkännare är samma person, men du kan ange en annan person som godkännare.
+    I den här självstudien är administratören och god kännaren samma person, men du kan ange en annan person som god kännare.
 
-1. I den **upphör att gälla** anger **åtkomst paketet upphör att gälla** till **antalet dagar**.
+1. I avsnittet **förfallo datum** går det att ange **åtkomst paket** till **antal dagar**.
 
-1. Ange **åtkomst upphör att gälla efter** till **30** dagar.
+1. Ange att **åtkomst upphör att gälla efter** **30** dagar.
 
-1. För **aktiverar principen**, klickar du på **Ja**.
+1. Klicka på **Ja**för **att aktivera princip**.
 
-    ![Skapa principinställningar](./media/entitlement-management-access-package-first/policy-create-settings.png)
+    ![Skapa princip inställningar](./media/entitlement-management-access-package-first/policy-create-settings.png)
 
-1. Klicka på **skapa** att skapa den **interna begärande princip**.
+1. Klicka på **skapa** för att skapa den **interna förfrågnings principen**.
 
-1. I vänstra webbpaket projekt åtkomst-menyn klickar du på **översikt**.
+1. Klicka på **Översikt**i vänster meny i webb projektets åtkomst paket.
 
-1. Kopiera den **portalen Mina åtkomstlänk**.
+1. Kopiera **länken till min åtkomst Portal**.
 
-    Du använder den här länken för nästa steg.
+    Du kommer att använda den här länken för nästa steg.
 
-    ![Översikt över åtkomst paketet - portal Mina åtkomst-länk](./media/entitlement-management-shared/my-access-portal-link.png)
+    ![Översikt över åtkomst paket – länken min åtkomst Portal](./media/entitlement-management-shared/my-access-portal-link.png)
 
 ## <a name="step-4-request-access"></a>Steg 4: Begär åtkomst
 
-I det här steget ska du utföra stegen som den **interna begärande** och begära åtkomst till access-paketet. Beställare skicka sina begäranden med hjälp av en plats som heter min åtkomst-portalen. Mina åtkomst-portalen kan beställare att skicka en begäran om åtkomst paket finns i åtkomst-paket som de redan har åtkomst till och visa deras historik över ändringsförfrågningar.
+I det här steget utför du stegen som den **interna begär ande** och begär åtkomst till åtkomst paketet. Begär Anden skickar sina förfrågningar med hjälp av en plats som kallas min åtkomst Portal. På portalen My Access kan du skicka begär Anden om åtkomst till paket, se de åtkomst paket som de redan har åtkomst till och visa sin begär ande historik.
 
-**Nödvändiga roll:** Intern begärande
+**Nödvändig roll:** Intern begär Ande
 
-1. Logga ut från Azure-portalen.
+1. Logga ut från Azure Portal.
 
-1. Gå till Mina åtkomst portal länken som du kopierade i föregående steg i ett nytt webbläsarfönster.
+1. I ett nytt webbläsarfönster navigerar du till länken min åtkomst portal som du kopierade i föregående steg.
 
-1. Logga in på portalen för Mina åtkomst som **Requestor1**.
+1. Logga in på portalen My Access som **Requestor1**.
 
-    Du bör se den **webbpaket projekt åtkomst**.
+    Du bör se **Access-paketet för webb projekt**.
 
-1. Om det behövs i den **beskrivning** kolumnen, klickar du på pilen för att visa information om åtkomst-paketet.
+1. Om det behövs klickar du på pilen i kolumnen **Beskrivning** för att visa information om Access-paketet.
 
-    ![Min åtkomstportalen - paket för åtkomst](./media/entitlement-management-shared/my-access-access-packages.png)
+    ![Åtkomst till Portal – åtkomst paket](./media/entitlement-management-shared/my-access-access-packages.png)
 
-1. Klicka på bockmarkeringen för att välja paketet.
+1. Klicka på bock markeringen för att välja paketet.
 
-1. Klicka på **begär åtkomst** att öppna fönstret begäran om åtkomst.
+1. Klicka på **begär åtkomst** för att öppna fönstret begär åtkomst.
 
-1. I den **motivering** skriver anledningen **arbetar webbprojekt**.
+1. I rutan **affärs justering** anger du den motivering som används **för webb projekt**.
 
-1. Ange den **begäran för specifika perioden** växla till **Ja**.
+1. Ställ in **begäran för en viss period** växla till **Ja**.
 
-1. Ange den **startdatum** till idag och **slutdatum** till imorgon.
+1. Ange **Start datumet** till dagens datum och  slutdatumet till imorgon.
 
-    ![Min åtkomst portal – begär åtkomst](./media/entitlement-management-shared/my-access-request-access.png)
+    ![Min åtkomst Portal – begär åtkomst](./media/entitlement-management-shared/my-access-request-access.png)
 
 1. Klicka på **Skicka**.
 
-1. I den vänstra menyn klickar du på **Förfrågningshistorik** att verifiera att din begäran har skickats.
+1. På den vänstra menyn klickar du på **begär ande historik** för att kontrol lera att din begäran har skickats.
 
-## <a name="step-5-approve-access-request"></a>Steg 5: Godkänn åtkomstbegäran om
+## <a name="step-5-approve-access-request"></a>Steg 5: Godkänn åtkomstbegäran
 
-I det här steget ska du logga in som den **godkännaren** användaren och godkänna förfrågan för den interna begäranden. Godkännare använda samma Mina åtkomstportalen beställare att skicka begäran om hjälp. Med hjälp av Mina åtkomst-portal godkännare Visa väntande godkännanden och godkänna eller neka förfrågningar.
+I det här steget loggar du in som **god kännare** -användare och godkänner åtkomstbegäran för den interna begär Ande. God kännare använder samma åtkomst portal som begär Anden som används för att skicka förfrågningar. Med hjälp av min åtkomst Portal kan god kännare Visa väntande godkännanden och godkänna eller Neka förfrågningar.
 
-**Nödvändiga roll:** Godkännare
+**Nödvändig roll:** Godkännare
 
-1. Logga ut från portalen Mina åtkomst.
+1. Logga ut från min åtkomst Portal.
 
-1. Logga in på den [Mina åtkomstportalen](https://myaccess.microsoft.com) som **Admin1**.
+1. Logga in på [portalen My Access](https://myaccess.microsoft.com) som **admin1**.
 
-1. I den vänstra menyn klickar du på **godkännanden**.
+1. Klicka på godkännanden på den vänstra menyn.
 
-1. På den **väntande** fliken, hitta **Requestor1**.
+1. På fliken **väntande** söker du efter **Requestor1**.
 
-    Om du inte ser begäran från Requestor1, Vänta några minuter och försök igen.
+    Om du inte ser begäran från Requestor1 väntar du några minuter och försöker igen.
 
-1. Klicka på den **visa** länk för att öppna fönstret för åtkomst-begäran.
+1. Klicka på länken **Visa** för att öppna fönstret åtkomstbegäran.
 
-1. Klicka på **godkänna**.
+1. Klicka på **Godkänn**.
 
-1. I den **orsak** skriver orsaken **godkänd åtkomst för webbprojekt**.
+1. Skriv orsaken till att du har **godkänt åtkomst för webb projekt**i rutan **orsak** .
 
-    ![Min åtkomstportalen - förfrågan](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![Min åtkomst Portal – åtkomstbegäran](./media/entitlement-management-shared/my-access-approve-request.png)
 
-1. Klicka på **skicka** att skicka ditt beslut.
+1. Klicka på **Skicka** för att skicka in ditt beslut.
 
-    Du bör se ett meddelande om att det har har godkänts.
+    Du bör se ett meddelande om att det har godkänts.
 
 ## <a name="step-6-validate-that-access-has-been-assigned"></a>Steg 6: Verifiera att åtkomst har tilldelats
 
-Nu när du har godkänt förfrågan, i det här steget ska du bekräfta att den **interna begärande** har tilldelats åtkomst paketet och att de nu är medlem i den **Ingenjörsgruppen** grupp.
+Nu när du har godkänt åtkomst förfrågan i det här steget bekräftar du att den **interna** beställaren har tilldelat åtkomst paketet och att de nu är medlem i gruppen **teknik grupp** .
 
-**Nödvändiga roll:** Global administratör eller Användaradministratör
+**Nödvändig roll:** Global administratör eller användar administratör
 
-1. Logga ut från portalen Mina åtkomst.
+1. Logga ut från min åtkomst Portal.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som den **Admin1**.
+1. Logga in på [Azure Portal](https://portal.azure.com) som **admin1**.
 
-1. Klicka på **Azure Active Directory** och klicka sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
-1. I den vänstra menyn klickar du på **åt paket**.
+1. Klicka på **åtkomst paket**på den vänstra menyn.
 
-1. Hitta och klickar på **webbpaket projekt åtkomst**.
+1. Leta upp och klicka på **webb projekt åtkomst paket**.
 
-1. I den vänstra menyn klickar du på **begäranden**.
+1. I den vänstra menyn klickar du på **begär Anden**.
 
-    Du bör se Requestor1 och interna begärande-princip med statusen **levererade**.
+    Du bör se Requestor1 och den interna begär ande principen med statusen levererad .
 
-1. Klicka på begäran för att se mer information.
+1. Klicka på begäran om du vill visa information om begäran.
 
-    ![Paket för åtkomst - information om begäran](./media/entitlement-management-access-package-first/request-details.png)
+    ![Åtkomst paket – information om begäran](./media/entitlement-management-access-package-first/request-details.png)
 
-1. I det vänstra navigeringsfönstret klickar du på **Azure Active Directory**.
+1. Klicka på **Azure Active Directory**i det vänstra navigerings fältet.
 
-1. Klicka på **grupper** och öppna den **Ingenjörsgruppen** grupp.
+1. Klicka på **grupper** och öppna gruppen **ingenjör** .
 
 1. Klicka på **medlemmar**.
 
-    Du bör se **Requestor1** visas som en medlem.
+    Du bör se **Requestor1** som visas som en medlem.
 
-    ![Tekniker gruppmedlemmar](./media/entitlement-management-access-package-first/group-members.png)
+    ![Teknik grupps medlemmar](./media/entitlement-management-access-package-first/group-members.png)
 
 ## <a name="step-7-clean-up-resources"></a>Steg 7: Rensa resurser
 
-I det här steget ska du ta bort de ändringar du gjort och ta bort den **webbpaket projekt åtkomst** åtkomst paketet.
+I det här steget ska du ta bort de ändringar du har gjort och ta bort åtkomst paketet för **åtkomst paket för webb projekt** .
 
-**Nödvändiga roll:**  Global administratör eller Användaradministratör
+**Nödvändig roll:**  Global administratör eller användar administratör
 
-1. I Azure-portalen klickar du på **Azure Active Directory** och klicka sedan på **Identitetsstyrning**.
+1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
-1. Öppna **webbpaket projekt åtkomst**.
+1. Öppna **Access-paket för webb projekt**.
 
-1. Klicka på **tilldelningar**.
+1. Klicka på tilldelningar.
 
-1. För **Requestor1**, klicka på ellipsen (**...** ) och klicka sedan på **ta bort åtkomst**.
+1. För **Requestor1**klickar du på ellipsen ( **...** ) och klickar sedan på **ta bort åtkomst**.
 
-    Status ändras från levererade till har upphört att gälla.
+    Statusen kommer att ändras från levererat till upphör Ande.
 
 1. Klicka på **principer**.
 
-1. För **interna begärande princip**, klicka på ellipsen (**...** ) och klicka sedan på **ta bort**.
+1. Klicka på ellipsen ( **...** ) och sedan på **ta bort**för en **intern princip för begär ande**.
 
-1. Klicka på **resursroller**.
+1. Klicka på **resurs roller**.
 
-1. För **Ingenjörsgruppen**, klicka på ellipsen (**...** ) och klicka sedan på **ta bort resursrollen**.
+1. För **teknisk grupp**klickar du på ellipsen ( **...** ) och klickar sedan på **ta bort resurs roll**.
 
-1. Öppna listan över åtkomst paket.
+1. Öppna listan med åtkomst paket.
 
-1. För **webbprojekt projekt åtkomst**, klicka på ellipsen (**...** ) och klicka sedan på **ta bort**.
+1. För **Project Access-projekt**klickar du på ellipsen ( **...** ) och sedan på **ta bort**.
 
-1. Ta bort alla användare som du skapade till exempel i Azure Active Directory, **Requestor1** och **Admin1**.
+1. I Azure Active Directory tar du bort alla användare som du har skapat, till exempel **Requestor1** och **admin1**.
 
-1. Ta bort den **Ingenjörsgruppen** grupp.
+1. Ta bort **teknik grupps** gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa artikel om du vill veta mer om vanliga scenariot steg i rätt management.
+Gå vidare till nästa artikel och lär dig mer om vanliga scenario steg i hantering av rättigheter.
 > [!div class="nextstepaction"]
 > [Vanliga scenarier](entitlement-management-scenarios.md)

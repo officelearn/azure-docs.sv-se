@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 00e4e9d5a1fc63dd73fe5a4dba7e1f1416cd08bc
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 852190f7b66c0d2c527d1784c72f963e11620064
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868875"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371102"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
@@ -46,17 +46,19 @@ Skapa AmlCompute-målet på din arbets yta`ws`() om det inte redan finns.
 from azureml.core.compute import AmlCompute
 from azureml.core.compute import ComputeTarget
 
-amlcompute_cluster_name = "automlcl" #Name your cluster
-provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2",
+amlcompute_cluster_name = "automlcl"  # Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
                                                             # for GPU, use "STANDARD_NC6"
-                                                            #vm_priority = 'lowpriority', # optional
-                                                            max_nodes = 6)
+                                                            # vm_priority = 'lowpriority', # optional
+                                                            max_nodes=6)
 
-compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
+compute_target = ComputeTarget.create(
+    ws, amlcompute_cluster_name, provisioning_config)
 
 # Can poll for a minimum number of nodes and for a specific timeout.
 # If no min_node_count is provided, it will use the scale settings for the cluster.
-compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
+compute_target.wait_for_completion(
+    show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 Du kan nu använda den `compute_target` -objektet som den fjärranslutna beräkningsmål.
@@ -109,7 +111,8 @@ run_config.target = compute_target
 run_config.environment.docker.enabled = True
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
 
-dependencies = CondaDependencies.create(pip_packages=["scikit-learn", "scipy", "numpy"])
+dependencies = CondaDependencies.create(
+    pip_packages=["scikit-learn", "scipy", "numpy"])
 run_config.environment.python.conda_dependencies = dependencies
 ```
 
@@ -142,7 +145,7 @@ automl_config = AutoMLConfig(task='classification',
                              run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
-                            )
+                             )
 ```
 
 ### <a name="enable-model-explanations"></a>Aktivera modellen förklaringar
@@ -153,13 +156,13 @@ Ange den valfria `model_explainability` parametern i den `AutoMLConfig` konstruk
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = compute_target,
+                             compute_target=compute_target,
                              run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
-                             X_valid = X_test
-                            )
+                             X_valid=X_test
+                             )
 ```
 
 ## <a name="submit-training-experiment"></a>Skicka träningsexperiment
@@ -208,24 +211,33 @@ Du ser utdata som liknar följande exempel:
 
 ## <a name="explore-results"></a>Utforska resultat
 
-Du kan använda samma Jupyter widgeten som den i [utbildning självstudien](tutorial-auto-train-models.md#explore-the-results) att se ett diagram och en tabell med resultat.
+Du kan använda samma [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) som visas i [övnings](tutorial-auto-train-models.md#explore-the-results) självstudien för att se ett diagram och en tabell med resultat.
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
+
 Här är en statisk bild av widgeten.  Du kan klicka på någon av staplarna i tabell för att visa egenskaper för körning och utdataloggar för som körs i anteckningsboken.   Du kan också använda listrutan ovanför diagrammet för att visa ett diagram över alla tillgängliga mått för varje iteration.
 
 ![widgettabell](./media/how-to-auto-train-remote/table.png)
 ![widgetdiagram](./media/how-to-auto-train-remote/plot.png)
 
-Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körningsinformation.
+Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körningsinformation.  
+
+Om du inte använder en Jupyter-anteckningsbok kan du Visa URL: en från själva köra:
+
+```
+remote_run.get_portal_url()
+```
+
+Samma information finns på arbets ytan.  Mer information om de här resultaten finns i [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 
 ### <a name="view-logs"></a>Visa loggar
 
 Finns det loggar på DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
-## <a name="best-model-explanation"></a>Den bästa modellen förklaring
+## <a name="explain"></a>Förklaring av bästa modell
 
 Hämtning av modellen förklaring data kan du se detaljerad information om modeller för att öka transparens för program som körs på serverdelen. I det här exemplet kör du modellen förklaringar endast för den bästa anpassa modellen. Om du kör för alla modeller i pipelinen, resulterar det i betydande körningstid. Förklaring modellinformation innehåller:
 

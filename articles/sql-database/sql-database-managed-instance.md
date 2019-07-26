@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: 028b3b2287e9d37a87ae2caf828c8855be331a1f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f4dc00623694fa1fd218f43e7bbd19edef48dec4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327029"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348122"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -28,7 +28,7 @@ Hanterad instans är ett nytt distributions alternativ för Azure SQL Database, 
 
 Följande diagram beskriver viktiga funktioner i hanterade instanser:
 
-![Viktiga funktioner](./media/sql-database-managed-instance/key-features.png)
+![viktiga funktioner](./media/sql-database-managed-instance/key-features.png)
 
 Distributions modellen för hanterade instanser är utformad för kunder som vill migrera ett stort antal appar från lokala eller IaaS, självbyggda eller ISV-baserade miljöer till fullständigt hanterad PaaS-moln miljö, med så liten migrering som möjligt. Med hjälp av den helt automatiserade [tjänsten för data migration (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure kan kunderna lyfta och byta lokala SQL Server till en hanterad instans som erbjuder kompatibilitet med SQL Server lokala och fullständiga isolering av kund instanser med inbyggt VNet-stöd.  Med Software Assurance kan du byta ut befintliga licenser för rabatterade priser på en hanterad instans med hjälp av [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  En hanterad instans är det bästa migrerings målet i molnet för SQL Server instanser som kräver hög säkerhet och en omfattande programmerings yta.
 
@@ -148,7 +148,7 @@ Dessutom kan hantering av instanser också innehålla en av åtgärderna på vä
 
 I följande tabell sammanfattas åtgärder och typiska övergripande varaktigheter:
 
-|Category  |Åtgärd  |Tids krävande segment  |Beräknad varaktighet  |
+|Category  |Åtgärd  |Tids krävande segment  |Uppskattad varaktighet  |
 |---------|---------|---------|---------|
 |**Distribution** |Första instansen i ett tomt undernät|Skapa virtuellt kluster|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Första instansen av en annan maskin varu generation i ett undernät som inte är tomt (till exempel första generation 5-instansen i ett undernät med generation 4 instanser)|Skapa virtuellt kluster *|90% av åtgärderna har slutförts på 4 timmar|
@@ -159,7 +159,7 @@ I följande tabell sammanfattas åtgärder och typiska övergripande varaktighet
 |Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar|
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
-|Uppdatera |Instans skala ned till 4 virtuella kärnor (Generell användning)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Bifoga databasfiler|90% av åtgärderna har slutförts i 4 till 5 min * *|
+|Uppdatera |Instans skala ned till 4 virtuella kärnor (Generell användning)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Bifoga databasfiler|90% av åtgärderna har slutförts på 4 timmar 5 min * *|
 |Uppdatera |Instans skala ned till 4 virtuella kärnor (Generell användning)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts på 4 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |**Redundanstestning**|Borttagning av instans|Logg säkerhets kopiering för alla databaser|90% åtgärder har slutförts på upp till 1 minut.<br>OBS! om den sista instansen i under nätet tas bort, kommer den här åtgärden att schemalägga borttagning av virtuellt kluster efter 12 timmar * * *|
@@ -198,7 +198,7 @@ En hanterad instans ger ytterligare säkerhets isolering från andra klienter i 
 
 I följande diagram beskrivs olika anslutnings alternativ för dina program:
 
-![Hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+![hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
 Om du vill veta mer om VNet-integrering och nätverks princip tillämpning på under näts nivån, se [VNet-arkitektur för hanterade instanser](sql-database-managed-instance-connectivity-architecture.md) och [Anslut ditt program till en hanterad instans](sql-database-managed-instance-connect-app.md).
 
@@ -269,7 +269,7 @@ Distributions alternativet för hanterade instanser stöder bakåtkompatibilitet
   
 Följande diagram visar kompatibiliteten för Surface Area i den hanterade instansen:  
 
-![Migreringsarkivet](./media/sql-database-managed-instance/migration.png)
+![migreringsarkivet](./media/sql-database-managed-instance/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Viktiga skillnader mellan SQL Server lokalt och i en hanterad instans
 
@@ -293,7 +293,7 @@ Med distributions alternativet för hanterade instanser kan system administratö
 
 I följande tabell visas flera egenskaper, som är tillgängliga via Transact SQL, som du kan använda för att identifiera att programmet fungerar med en hanterad instans och hämta viktiga egenskaper.
 
-|Egenskap|Value|Kommentar|
+|Egenskap|Värde|Kommentar|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) – 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Värdet är samma som i SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Värdet är samma som i SQL Database.|

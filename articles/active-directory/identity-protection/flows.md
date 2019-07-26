@@ -1,114 +1,109 @@
 ---
-title: Logga in som inträffar med Azure AD Identity Protection | Microsoft Docs
-description: Innehåller en översikt över användarens upplevelse när Identity Protection har minimerats eller åtgärdad en användare eller när multifaktorautentisering krävs av en princip.
+title: Inloggnings upplevelser med Azure AD Identity Protection | Microsoft Docs
+description: Ger en översikt över användar upplevelsen när identitets skydd har minimerat eller reparerat en användare eller när Multi-Factor Authentication krävs av en princip.
 services: active-directory
-keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e513027eed44ec7649f41f8786882aed8511bc6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295353"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335491"
 ---
-# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Logga in upplevelser med Azure AD Identity Protection
+# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Inloggnings upplevelser med Azure AD Identity Protection
+
 Med Azure Active Directory Identity Protection kan du:
 
-* Kräv att användare att registrera sig för multifaktorautentisering
-* Hantera riskfyllda inloggningar och komprometterade användare
+* Kräv att användare registrerar sig för Multi-Factor Authentication
+* hantera riskfyllda inloggningar och komprometterade användare
 
-Svaret hos systemet till de här problemen påverkar på en användares inloggning eftersom direkt logga in genom att ange ett användarnamn och lösenord går inte längre. Ytterligare steg krävs för att hämta en användare på ett säkert sätt tillbaka till företag.
+Svar på systemet för dessa problem har en inverkan på användarens inloggnings upplevelse, eftersom inloggningen av ett användar namn och lösen ord inte längre är möjlig. Ytterligare steg krävs för att få en användare att vara säker på verksamheten.
 
-Den här artikeln ger en översikt över en användares inloggning för samtliga fall som kan uppstå.
+Den här artikeln ger en översikt över en användares inloggnings upplevelse för alla fall som kan uppstå.
 
 **Multi-Factor Authentication**
 
-* Registrering för multifaktorautentisering
+* Multi-Factor Authentication-registrering
 
-**Logga in i fara**
+**Inloggning i risk**
 
-* Riskfylld inloggning återställning
+* Återställning av riskfyllda inloggningar
 * Riskfylld inloggning blockerad
-* Registrering av multifaktorautentisering under en riskfylld inloggning
+* Registrering av Multi-Factor Authentication under en riskfylld inloggning
 
-**Användare i farozonen**
+**Användare i risk**
 
-* Komprometterat kontoåterställning
-* Komprometterade kontot har spärrats
+* Komprometterad konto återställning
+* Komprometterat konto blockerat
 
-## <a name="multi-factor-authentication-registration"></a>Registrering för multifaktorautentisering
-Den bästa användarupplevelsen för både komprometterat konto recovery flödet och riskfyllda inloggningen-flödet är när användaren kan själv återställa. Om användarna har registrerats för multifaktorautentisering, har de redan ett telefonnummer som är associerad med ett konto som kan användas för att skicka säkerhetsutmaningar. Ingen hjälp supportavdelningen eller administratören inblandning behövs för att återställa från kontot kompromettering. Vi rekommenderar därför starkt att ge användarna som har registrerats för multifaktorautentisering. 
+## <a name="multi-factor-authentication-registration"></a>Multi-Factor Authentication-registrering
+Den bästa användar upplevelsen för båda, det komprometterade konto återställnings flödet och det riskfyllda inloggnings flödet, är när användaren kan återställa sig själv. Om användare har registrerats för Multi-Factor Authentication har de redan ett telefonnummer som är kopplat till sitt konto som kan användas för att klara säkerhets utmaningar. Ingen support-eller administratörs inblandning krävs för att återställa mot konto kompromisser. Därför rekommenderar vi starkt att du får dina användare registrerade för Multi-Factor Authentication. 
 
-Administratörer kan ange en princip som kräver att användare skapar sina konton för ytterligare säkerhetsverifiering. Den här principen kan du hoppa över registrering för multifaktorautentisering i upp till 14 dagar. 14 dagars respitperiod kan inte konfigureras.
+Administratörer kan ange en princip som kräver att användare konfigurerar sina konton för ytterligare säkerhets verifiering. Med den här principen kan användarna hoppa över Multi-Factor Authentication-registreringen i upp till 14 dagar. Det går inte att konfigurera den 14 dagariga Grace-perioden.
 
-**Registrering av multifaktorautentisering har tre steg:**
+**Multi-Factor Authentication-registreringen har tre steg:**
 
-1. I det första steget är att användaren får ett meddelande om kravet på att ange kontot för multifaktorautentisering. 
+1. I det första steget får användaren ett meddelande om kravet att ställa in kontot för Multi-Factor Authentication. 
    
-    ![Reparation](./media/flows/140.png "reparation")
-2. Om du vill konfigurera multifaktorautentisering behöver så att systemet vet hur du vill bli kontaktad.
+    ![Reparation](./media/flows/140.png "Reparation")
+2. Om du vill konfigurera Multi-Factor Authentication måste du låta systemet veta hur du vill kontaktas.
    
-    ![Reparation](./media/flows/141.png "reparation")
-3. Systemet skickar en utmaning att du och du måste svara.
+    ![Reparation](./media/flows/141.png "Reparation")
+3. Systemet skickar en utmaning till dig och du måste svara.
    
-    ![Reparation](./media/flows/142.png "reparation")
+    ![Reparation](./media/flows/142.png "Reparation")
 
-## <a name="risky-sign-in-recovery"></a>Riskfylld inloggning återställning
-När en administratör har konfigurerat en princip för inloggning risker, meddelas de berörda användarna när de försöker logga in. 
+## <a name="risky-sign-in-recovery"></a>Återställning av riskfyllda inloggningar
+När en administratör har konfigurerat en princip för inloggnings risker, meddelas de berörda användarna när de försöker logga in. 
 
-**Flödet för riskfyllda inloggningen har två steg:** 
+**Det riskfyllda inloggnings flödet har två steg:** 
 
-1. Användaren informeras om att något annorlunda har identifierats om deras inloggning, till exempel loggar in från en ny plats, enhet eller app. 
+1. Användaren informeras om att något ovanlig upptäcktes om deras inloggning, till exempel att logga in från en ny plats, enhet eller app. 
    
-    ![Reparation](./media/flows/120.png "reparation")
-2. Användaren måste bekräfta sin identitet med att lösa en säkerhetskontroll. Om användaren har registrerats för multifaktorautentisering som de behöver för att avrunda utlösas en säkerhetskod till sina telefonnummer. Eftersom det är bara en riskfyllda inloggningar och inte ett komprometterat konto inte användaren att ändra lösenordet i det här flödet. 
+    ![Reparation](./media/flows/120.png "Reparation")
+2. Användaren måste bevisa sin identitet genom att lösa en säkerhets utmaning. Om användaren är registrerad för Multi-Factor Authentication måste de avrunda en säkerhets kod till sitt telefonnummer. Eftersom detta bara är en riskfylld inloggning och inte ett komprometterat konto behöver användaren inte ändra lösen ordet i det här flödet. 
    
-    ![Reparation](./media/flows/121.png "reparation")
+    ![Reparation](./media/flows/121.png "Reparation")
 
 ## <a name="risky-sign-in-blocked"></a>Riskfylld inloggning blockerad
-Administratörer kan också välja att skapa en princip för Inloggningsrisk att blockera användare vid inloggning beroende på risknivån. För att få blockerad, måste slutanvändarna kontakta en administratör eller supporten eller de kan logga in från en bekant plats eller enhet. Automatisk återställning av lösa multifaktorautentisering är inte ett alternativ i det här fallet.
+Administratörer kan också välja att ange en inloggnings risk princip för att blockera användare vid inloggning, beroende på risk nivån. Slutanvändare måste kontakta en administratör eller supportavdelningen, annars kan de försöka logga in från en välbekant plats eller enhet. Att lösa genom att lösa Multi-Factor Authentication är inte ett alternativ i det här fallet.
 
-![Reparation](./media/flows/200.png "reparation")
+![Reparation](./media/flows/200.png "Reparation")
 
-## <a name="compromised-account-recovery"></a>Komprometterat kontoåterställning
-När en riskprincip har konfigurerats kan användare som uppfyller användaren risknivå anges i principen (och därför antas komprometteras) måste gå igenom användarflödet kompromettering recovery innan de kan logga in. 
+## <a name="compromised-account-recovery"></a>Komprometterad konto återställning
+När en säkerhets princip för en användar risk har kon figurer ATS måste användare som uppfyller användar risk nivån som anges i principen (och därför anses komprometterade) gå igenom användarens komprometterade återställnings flöde innan de kan logga in. 
 
-**Användarflödet kompromettering recovery har tre steg:**
+**Användarens komprometterade återställnings flöde har tre steg:**
 
-1. Användaren informeras om att deras kontosäkerhet finns det risk på grund av misstänkt aktivitet eller läcka ut autentiseringsuppgifter.
+1. Användaren informeras om att deras konto säkerhet är utsatt för risk på grund av misstänkt aktivitet eller läcka autentiseringsuppgifter.
    
-    ![Reparation](./media/flows/101.png "reparation")
-2. Användaren måste bekräfta sin identitet med att lösa en säkerhetskontroll. Om användaren har registrerats för multifaktorautentisering kan de själva återställa från äventyras. Användaren uppmanas att avrunda sätta en säkerhetskod till sina telefonnummer. 
+    ![Reparation](./media/flows/101.png "Reparation")
+2. Användaren måste bevisa sin identitet genom att lösa en säkerhets utmaning. Om användaren är registrerad för Multi-Factor Authentication kan de själv återställas. De måste avrunda en säkerhets kod till sitt telefonnummer. 
    
-   ![Reparation](./media/flows/110.png "reparation")
-3. Slutligen, om användaren tvingas att ändra sina lösenord eftersom någon annan kan ha haft åtkomst till sitt konto. 
-   Skärmbilder för den här finns nedan.
+   ![Reparation](./media/flows/110.png "Reparation")
+3. Användaren måste slutligen ändra sitt lösen ord eftersom någon annan kan ha haft åtkomst till sitt konto. 
+   Skärm dum par av den här upplevelsen finns nedan.
    
-   ![Reparation](./media/flows/111.png "reparation")
+   ![Reparation](./media/flows/111.png "Reparation")
 
-## <a name="compromised-account-blocked"></a>Komprometterade kontot har spärrats
-För att få en användare som har blockerats av en riskprincip avblockerad, måste du kontakta administratören eller supportavdelningen. Automatisk återställning av lösa multifaktorautentisering är inte ett alternativ i det här fallet.
+## <a name="compromised-account-blocked"></a>Komprometterat konto blockerat
+Användaren måste kontakta en administratör eller supportavdelningen för att få en användare som blockerats av en säkerhets princip för användare som har avblockerats. Att lösa genom att lösa Multi-Factor Authentication är inte ett alternativ i det här fallet.
 
-![Reparation](./media/flows/104.png "reparation")
+![Reparation](./media/flows/104.png "Reparation")
 
 ## <a name="reset-password"></a>Återställ lösenord
-Om komprometterade användare blockeras från att logga in, kan en administratör skapa ett tillfälligt lösenord för dessa. Användarna måste ändra sina lösenord under en nästa inloggning.
+Om komprometterade användare blockeras från att logga in kan en administratör generera ett tillfälligt lösen ord för dem. Användarna måste ändra sina lösen ord vid nästa inloggning.
 
-![Reparation](./media/flows/160.png "reparation")
+![Reparation](./media/flows/160.png "Reparation")
 
 ## <a name="see-also"></a>Se också
-* [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md) 
 
+* [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md) 

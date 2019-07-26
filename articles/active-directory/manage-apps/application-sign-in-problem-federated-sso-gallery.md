@@ -1,6 +1,6 @@
 ---
-title: Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning | Microsoft Docs
-description: Riktlinjer för de specifika felen när du loggar in i ett program som du har konfigurerat för SAML-baserad federerad enkel inloggning med Azure AD
+title: Problem med att logga in till en federerad Galleri app för enkel inloggning | Microsoft Docs
+description: Vägledning för de specifika felen vid inloggning till ett program som du har konfigurerat för SAML-baserad federerad enkel inloggning med Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,84 +16,84 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32f3b2f45a808ebfa71f456c015de3dd59d60bd9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825195"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381362"
 ---
-# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning
+# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem med att logga in till ett galleri program som kon figurer ATS för federerad enkel inloggning
 
-Om du vill felsöka de problem med användarinloggning nedan, rekommenderar vi att du följer dessa förslag för att få bättre diagnostik och automatisera Lösningssteg:
+För att felsöka inloggnings problemen nedan rekommenderar vi att du följer dessa förslag för att få bättre diagnos och automatisera lösnings stegen:
 
-- Installera den [Mina appar säkra webbläsartillägget](access-panel-extension-problem-installing.md) för att Azure Active Directory (AD Azure) att ge bättre diagnoser och lösningar när du använder testning upplevelse i Azure-portalen.
-- Återskapa felet med hjälp av belastningstester experience i app-konfigurationssidan i Azure-portalen. Läs mer på [felsöka SAML-baserad enkel inloggning för program](../develop/howto-v1-debug-saml-sso-issues.md)
-
-
-## <a name="application-not-found-in-directory"></a>Program som inte finns i katalogen
-
-*Fel AADSTS70001: Program med identifierare ' https:\//contoso.com' hittades inte i katalogen*.
-
-**Möjlig orsak**
-
-Den `Issuer` attribut som skickas från programmet till Azure AD i SAML-begäran matchar inte ID-värde som är konfigurerad för program i Azure AD.
-
-**Lösning**
-
-Se till att den `Issuer` attribut i SAML-begäran matchar identifierarvärde som konfigurerats i Azure AD. Om du använder den [testning upplevelse](../develop/howto-v1-debug-saml-sso-issues.md) i Azure-portalen med Mina appar säker webbläsartillägget behöver du inte manuellt följer du dessa steg.
-
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **medadministratör**.
-
-1.  Öppna den **Azure Active Directory-tillägget** genom att välja **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
-
-1.  Typ **”Azure Active Directory”** i filtret sökrutan och välj den **Azure Active Directory** objekt.
-
-1.  Välj **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
-
-1.  Välj **alla program** att visa en lista över alla dina program.
-
-    Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program**.
-
-1.  Välj det program som du vill konfigurera för enkel inloggning.
-
-1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Kontrollera att värdet i textrutan identifierare som matchar värdet för ID-värde som visas i felet.
+- Installera [tillägget Mina appar säker webbläsare](access-panel-extension-problem-installing.md) för att hjälpa Azure Active Directory (Azure AD) för att ge bättre diagnos och lösningar när du använder test miljön i Azure Portal.
+- Återskapa felet med hjälp av test upplevelsen på sidan konfiguration av app i Azure Portal. Läs mer om [Debug SAML-baserade enkla inloggnings program](../develop/howto-v1-debug-saml-sso-issues.md)
 
 
+## <a name="application-not-found-in-directory"></a>Programmet hittades inte i katalogen
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Svarsadressen matchar inte svars-adresser som har konfigurerats för programmet
-
-*Fel AADSTS50011: Svarsadressen ' https:\//contoso.com' matchar inte svars-adresser som har konfigurerats för programmet*
+*Fel AADSTS70001: Det gick inte att hitta programmet\/med ID: t https:/contoso.com i*katalogen.
 
 **Möjlig orsak**
 
-Den `AssertionConsumerServiceURL` värdet i SAML-begäran matchar inte den svars-URL-värde eller mönster som konfigurerats i Azure AD. Den `AssertionConsumerServiceURL` värdet i SAML-begäran är den URL som visas i felet.
+`Issuer` Attributet som skickas från programmet till Azure AD i SAML-begäran matchar inte det ID-värde som har kon figurer ATS för programmet i Azure AD.
 
 **Lösning**
 
-Se till att den `AssertionConsumerServiceURL` värdet i SAML-begäran matchar svars-URL-värdet som konfigurerats i Azure AD. Om du använder den [testning upplevelse](../develop/howto-v1-debug-saml-sso-issues.md) i Azure-portalen med Mina appar säker webbläsartillägget behöver du inte manuellt följer du dessa steg.
+Kontrol lera att `Issuer` attributet i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../develop/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **medadministratör**.
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör .
 
-1.  Öppna den **Azure Active Directory-tillägget** genom att välja **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+1.  Öppna **tillägget Azure Active Directory** genom att välja **alla tjänster** överst i huvud menyn till vänster.
 
-1.  Typ **”Azure Active Directory”** i filtret sökrutan och välj den **Azure Active Directory** objekt.
+1.  Skriv **"Azure Active Directory"** i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-1.  Välj **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+1.  Välj **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-1.  Välj **alla program** att visa en lista över alla dina program.
+1.  Välj **alla program** om du vill visa en lista över alla dina program.
 
-    Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program**.
+    Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program**.
 
 1.  Välj det program som du vill konfigurera för enkel inloggning.
 
-1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Kontrollera eller uppdatera värdet i textrutan svars-URL så att den matchar den `AssertionConsumerServiceURL` värdet i SAML-begäran.    
+1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Kontrol lera att värdet i text rutan identifierare matchar värdet för det ID-värde som visas i fel meddelandet.
+
+
+
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Svarsadressen matchar inte de svarsadresser som har konfigurerats för programmet
+
+*Fel AADSTS50011: Svars adressen "https:\//contoso.com" matchar inte svars adresserna som har kon figurer ATS för programmet*
+
+**Möjlig orsak**
+
+`AssertionConsumerServiceURL` Värdet i SAML-begäran matchar inte svars-URL-värdet eller det mönster som kon figurer ATS i Azure AD. `AssertionConsumerServiceURL` Värdet i SAML-begäran är den URL som visas i fel meddelandet.
+
+**Lösning**
+
+Se till att `AssertionConsumerServiceURL` värdet i SAML-begäran matchar svars-URL-värdet som kon figurer ATS i Azure AD. Om du använder [test miljön](../develop/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
+
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör .
+
+1.  Öppna **tillägget Azure Active Directory** genom att välja **alla tjänster** överst i huvud menyn till vänster.
+
+1.  Skriv **"Azure Active Directory"** i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+
+1.  Välj **företags program** från Azure Active Directory vänstra navigerings menyn.
+
+1.  Välj **alla program** om du vill visa en lista över alla dina program.
+
+    Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program**.
+
+1.  Välj det program som du vill konfigurera för enkel inloggning.
+
+1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Verifiera eller uppdatera värdet i text rutan svars-URL så att `AssertionConsumerServiceURL` det matchar värdet i SAML-begäran.    
     
-När du har uppdaterat svars-URL-värdet i Azure AD och den matchar det värde som skickas av programmet i SAML-begäran, bör du kunna logga in till programmet.
+När du har uppdaterat svars-URL-värdet i Azure AD och det matchar värdet som skickas av programmet i SAML-begäran, bör du kunna logga in på programmet.
 
-## <a name="user-not-assigned-a-role"></a>Användare som inte har tilldelats en roll
+## <a name="user-not-assigned-a-role"></a>Användaren har inte tilldelats någon roll
 
-*Fel AADSTS50105: Den inloggade användaren ' brian\@contoso.com ”har inte tilldelats en roll för programmet*.
+*Fel AADSTS50105: Den inloggade användaren Brian\@contoso.com har inte tilldelats någon roll för programmet.*
 
 **Möjlig orsak**
 
@@ -101,174 +101,174 @@ Användaren har inte beviljats åtkomst till programmet i Azure AD.
 
 **Lösning**
 
-Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt. Om du använder den [testning upplevelse](../develop/howto-v1-debug-saml-sso-issues.md) i Azure-portalen med Mina appar säker webbläsartillägget behöver du inte manuellt följer du dessa steg.
+Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt. Om du använder [test miljön](../develop/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör**.
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör**.
 
-1.  Öppna den **Azure Active Directory-tillägget** genom att välja **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+1.  Öppna **tillägget Azure Active Directory** genom att välja **alla tjänster** överst i huvud menyn till vänster.
 
-1.  Typ **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+1.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-1.  Välj **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+1.  Välj **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-1.  Välj **alla program** att visa en lista över alla dina program.
+1.  Välj **alla program** om du vill visa en lista över alla dina program.
 
-    Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program**.
+    Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program**.
 
-1.  Välj det som du vill tilldela en användare från listan med program.
+1.  I listan med program väljer du det som du vill tilldela en användare till.
 
-1.  När programmet har lästs in väljer **användare och grupper** från programmets vänstra navigeringsmenyn.
+1.  När programmet har lästs in väljer **du användare och grupper** från programmets vänstra navigerings meny.
 
 1.  Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** listan för att öppna den **Lägg till tilldelning** fönstret.
 
-1.  Välj den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
+1.  Välj Välj **användare och grupper** i fönstret **Lägg till tilldelning** .
 
 1. I sökrutan **Sök efter namn eller e-postadress** skriver du det fullständiga namnet eller e-postadressen för användaren du vill lägga till.
 
-1. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till användare i den **valda** lista.
+1. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryss rutan bredvid användarens profil bild eller logo typ för att lägga till användaren i den **markerade** listan.
 
-1. **Valfritt:** Om du vill **lägga till flera användare**, ange ett annat fullständiga namn eller e-postadress i den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till användaren i **valda**  lista.
+1. **Valfritt:** Om du vill **lägga till fler än en användare**skriver du ett nytt fullständigt namn eller e-postadress till sökrutan **Sök efter namn eller e-postadress** och klickar sedan på kryss rutan för att lägga till användaren i den **markerade** listan.
 
-1. När du är klar att välja användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
+1. När du är klar med att välja användare klickar du på knappen **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
-1. **Valfritt:** Klicka på den **Välj roll** väljare i den **Lägg till tilldelning** fönstret för att välja en roll att tilldela till användare som du har valt.
+1. **Valfritt:** Klicka på **Välj roll** väljare i fönstret **Lägg till tilldelning** för att välja en roll att tilldela de användare som du har valt.
 
 1. Klicka på den **tilldela** knappen för att tilldela programmet till de valda användarna.
 
-De användare som du har valt kommer att kunna starta dessa program med hjälp av metoderna som beskrivs i avsnittet lösning beskrivning efter en kort tidsperiod.
+Efter en kort tids period kommer de användare du har valt att kunna starta programmen med de metoder som beskrivs i avsnittet lösnings beskrivning.
 
 ## <a name="not-a-valid-saml-request"></a>Inte en giltig SAML-begäran
 
-*Fel AADSTS75005: Begäran är inte ett giltigt Saml2-protokollmeddelande.*
+*Fel AADSTS75005: Begäran är inte ett giltigt Saml2-protokoll meddelande.*
 
 **Möjlig orsak**
 
 Azure AD stöder inte SAML-begäran som skickas av programmet för enkel inloggning. Några vanliga problem är:
 
--   Saknar obligatoriska fält i SAML-begäran
+-   Obligatoriska fält saknas i SAML-begäran
 -   SAML-begäranskodad metod
 
 **Lösning**
 
-1. Avbilda SAML-begäran. Följ självstudien [Felsök SAML-baserad enkel inloggning till program i Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) och lär dig att samla in SAML-begäran.
+1. Avbilda SAML-begäran. Följ självstudien [för att FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) för att lära dig hur du samlar in SAML-begäran.
 
 1. Kontakta programvaruleverantören och dela följande information:
 
    -   SAML-begäran
 
-   -   [Azure AD enkel inloggning SAML-protokollkrav](../develop/single-sign-on-saml-protocol.md)
+   -   [Krav för SAML-protokoll för enkel inloggning i Azure AD](../develop/single-sign-on-saml-protocol.md)
 
-Programvaruleverantören bör verifiera att de stöder Azure AD SAML-implementering för enkel inloggning.
+Program leverantören bör kontrol lera att de stöder Azure AD SAML-implementering för enkel inloggning.
 
-## <a name="misconfigured-application"></a>Felkonfigurerad program
+## <a name="misconfigured-application"></a>Felkonfigurerat program
 
-*Fel AADSTS650056: Felkonfigurerad program. Detta kan bero på något av följande: Klienten har inte finns några behörigheter för 'AAD Graph' begärda behörigheter i klientens programregistrering. Eller administratören har inte godkänt i klienten. Eller Kontrollera program-ID i begäran för att se till att den matchar den konfigurerade klient-ID för programmet. Kontakta din administratör om du vill åtgärda konfigurationen eller ge samtycke åt klienten.* .
+*Fel AADSTS650056: Felkonfigurerat program. Detta kan bero på något av följande: Klienten har inte listat några behörigheter för AAD-diagrammet i de begärda behörigheterna i klientens program registrering. Eller så har administratören inte samtyckt i klient organisationen. Eller kontrol lera program identifieraren i begäran för att se till att den matchar den konfigurerade klient program identifieraren. Kontakta din administratör för att åtgärda konfigurationen eller medgivande för klientens räkning.* .
 
 **Möjlig orsak**
 
-Den `Issuer` attribut som skickas från programmet till Azure AD i SAML-begäran matchar inte det identifierarvärde som konfigurerats för programmet i Azure AD.
+`Issuer` Attributet som skickas från programmet till Azure AD i SAML-begäran matchar inte det ID-värde som har kon figurer ATS för programmet i Azure AD.
 
 **Lösning**
 
-Se till att den `Issuer` attribut i SAML-begäran matchar identifierarvärde som konfigurerats i Azure AD. Om du använder den [testning upplevelse](../develop/howto-v1-debug-saml-sso-issues.md) i Azure-portalen med Mina appar säker webbläsartillägget behöver du inte manuellt följer du dessa steg:
+Kontrol lera att `Issuer` attributet i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../develop/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte manuellt följa dessa steg:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **medadministratör**.
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör .
 
-1.  Öppna den **Azure Active Directory-tillägget** genom att välja **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+1.  Öppna **tillägget Azure Active Directory** genom att välja **alla tjänster** överst i huvud menyn till vänster.
 
-1.  Typ **”Azure Active Directory”** i filtret sökrutan och välj den **Azure Active Directory** objekt.
+1.  Skriv **"Azure Active Directory"** i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-1.  Välj **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+1.  Välj **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-1.  Välj **alla program** att visa en lista över alla dina program.
+1.  Välj **alla program** om du vill visa en lista över alla dina program.
 
-    Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program**.
+    Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program**.
 
 1.  Välj det program som du vill konfigurera för enkel inloggning.
 
-1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Kontrollera att värdet i textrutan identifierare som matchar värdet för ID-värde som visas i felet.
+1.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Kontrol lera att värdet i text rutan identifierare matchar värdet för det ID-värde som visas i fel meddelandet.
 
 
-## <a name="certificate-or-key-not-configured"></a>Certifikat eller nyckel har inte angetts
+## <a name="certificate-or-key-not-configured"></a>Certifikatet eller nyckeln har inte kon figurer ATS
 
-*Fel AADSTS50003: Inga signeringsnyckel som konfigurerats.*
+*Fel AADSTS50003: Ingen signerings nyckel har kon figurer ATS.*
 
 **Möjlig orsak**
 
-Programobjektet är skadad och Azure AD kan identifiera inte certifikatet som konfigurerats för programmet.
+Programobjektet är skadat och Azure AD känner inte igen det certifikat som har kon figurer ATS för programmet.
 
 **Lösning**
 
-Ta bort och skapa ett nytt certifikat genom att följa stegen nedan:
+Följ stegen nedan om du vill ta bort och skapa ett nytt certifikat:
 
-1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **medadministratör**.
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör .
 
-1. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+1. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
-1. Typ **”Azure Active Directory”** i filtret sökrutan och välj den **Azure Active Directory** objekt.
+1. Skriv **"Azure Active Directory"** i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-1. Välj **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+1. Välj **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-1. Välj **alla program** att visa en lista över alla dina program.
+1. Välj **alla program** om du vill visa en lista över alla dina program.
 
-    Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program**.
+    Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program**.
 
 1. Välj det program som du vill konfigurera enkel inloggning
 
-1. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+1. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
 
-1. Välj **Skapa nytt certifikat** under den **SAML-signeringscertifikat** avsnittet.
+1. Välj **Skapa nytt certifikat** under avsnittet **SAML-signerings certifikat** .
 
-1. Välj utgångsdatum och klicka sedan på **spara**.
+1. Välj förfallo datum och klicka sedan på **Spara**.
 
-1. Kontrollera **gör nytt certifikat aktivt** att åsidosätta det aktiva certifikatet. Klicka sedan på **Spara** överst i fönstret och acceptera för att aktivera förnyelsecertifikatet.
+1. Kontrol lera att det **nya certifikatet är aktivt** för att åsidosätta det aktiva certifikatet. Klicka sedan på **Spara** överst i fönstret och acceptera för att aktivera förnyelsecertifikatet.
 
-1. Under den **SAML-signeringscertifikat** klickar du på **ta bort** att ta bort den **används inte** certifikat.
+1. Under avsnittet **SAML-signerings certifikat** klickar du på **ta bort** för att ta bort det **oanvända** certifikatet.
 
-## <a name="saml-request-not-present-in-the-request"></a>SAML-begäran finns inte i begäran
+## <a name="saml-request-not-present-in-the-request"></a>SAML-begäran saknas i begäran
 
-*Fel AADSTS750054: SAMLRequest eller SAMLResponse måste vara närvarande enligt fråga strängparametrar i HTTP-begäran för SAML omdirigera bindning.*
+*Fel AADSTS750054: SAMLRequest eller SAMLResponse måste finnas som frågeparametrar i HTTP-begäran för SAML-omdirigerings bindning.*
 
 **Möjlig orsak**
 
-Azure AD inte kan identifiera SAML-begäran i URL-parametrar i HTTP-begäran. Detta kan inträffa om programmet inte använder HTTP-omdirigering bindning när du skickar SAML-begäran till Azure AD.
+Azure AD kunde inte identifiera SAML-begäran inom URL-parametrarna i HTTP-begäran. Detta kan inträffa om programmet inte använder HTTP-omdirigering när SAML-begäran skickas till Azure AD.
 
 **Lösning**
 
-Programmet måste skicka SAML-begäranskodad i location-huvudet med HTTP omdirigera bindning. Mer information om hur du implementerar det finns i avsnittet om HTTP-omdirigeringsbindning i [dokumentet om SAML-protokollets specifikationer](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+Programmet måste skicka SAML-begäran kodad till plats rubriken med hjälp av HTTP-omdirigering. Mer information om hur du implementerar det finns i avsnittet om HTTP-omdirigeringsbindning i [dokumentet om SAML-protokollets specifikationer](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
-## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD skickar token till en felaktig slutpunkt
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD skickar token till en felaktig slut punkt
 
 **Möjlig orsak**
 
-Om inloggning-begäran inte innehåller en explicit svars-URL (försäkran URL för Konsumenttjänst) och sedan Azure AD väljer någon av de konfigurerade under enkel inloggning, använder du URL: er för programmet. Även om programmet har en explicit svars-URL har konfigurerats kan användaren kan vara att omdirigeras https://127.0.0.1:444. 
+Om inloggnings förfrågan inte innehåller en explicit svars-URL (intygs-URL) under enkel inloggning, kommer Azure AD att välja någon av de konfigurerade förlitande URL: erna för programmet. Även om programmet har en explicit svars-URL konfigurerad, kan användaren vara Omdirigerad https://127.0.0.1:444. 
 
 När programmet lades till som en icke-galleriapp skapade Azure Active Directory den här svars-URL:en som ett standardvärde. Det här beteendet har ändrats och Azure Active Directory lägger inte längre till den här URL:en som standard. 
 
 **Lösning**
 
-Ta bort oanvända svars-URL som konfigurerats för programmet.
+Ta bort de oanvända svars-URL: erna som kon figurer ATS för programmet.
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **medadministratör**.
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör .
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att välja **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att välja **alla tjänster** överst i huvud menyn till vänster.
 
-3.  Typ **”Azure Active Directory”** i filtret sökrutan och välj den **Azure Active Directory** objekt.
+3.  Skriv **"Azure Active Directory"** i rutan filtrera sökning och välj **Azure Active Directory** objektet.
 
-4.  Välj **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4.  Välj **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5.  Välj **alla program** att visa en lista över alla dina program.
+5.  Välj **alla program** om du vill visa en lista över alla dina program.
 
-    Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program**.
+    Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program**.
 
 6.  Välj det program som du vill konfigurera för enkel inloggning.
 
-7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. I den **svars-URL (försäkran URL för Konsumenttjänst)** , ta bort oanvända eller standard svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
+7.  När programmet läses in öppnar du **Grundläggande SAML-konfiguration**. Ta bort oanvända eller vanliga svars-URL: er som skapats av systemet i **svars-URL: en (intygad konsument tjänst-URL)** . Till exempel `https://127.0.0.1:444/applications/default.aspx`.
 
-## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem när du anpassar SAML-anspråk som skickas till ett program
+## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem vid anpassning av SAML-anspråk som skickas till ett program
 
-Läs hur du anpassar SAML attributet anspråk som skickas till programmet i [Anspråksmappning i Azure Active Directory](../develop/active-directory-claims-mapping.md).
+Information om hur du anpassar SAML-attributets anspråk som skickas till programmet finns i anspråks [mappning i Azure Active Directory](../develop/active-directory-claims-mapping.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Så här felsöker du SAML-baserad enkel inloggning till program i Azure AD](../develop/howto-v1-debug-saml-sso-issues.md)
+[Felsöka SAML-baserad enkel inloggning till program i Azure AD](../develop/howto-v1-debug-saml-sso-issues.md)

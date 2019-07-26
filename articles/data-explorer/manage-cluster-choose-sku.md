@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 0239111ca56dfe431a00eee83c79eedccc66c927
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: HT
+ms.openlocfilehash: b0cf6eab86b0b932e44b6824305c23df01f35808
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226140"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383815"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Välj rätt VM-SKU för ditt Azure Datautforskaren-kluster 
 
@@ -39,11 +39,11 @@ Azure Datautforskaren erbjuder två typer av kluster:
 
 När du skapar ett Azure Datautforskaren-kluster väljer  du den optimala VM-SKU: n för den planerade arbets belastningen. Azure Datautforskaren har två SKU-familjer som du kan välja mellan:
 
-* **D_V2**: **D** -SKU: n beräknas som optimerad och tillhandahålls i två varianter.
+* **D_V2**: D-SKU: n beräknas som optimerad och tillhandahålls i två varianter.
     * Själva datorn
     * Virtuell dator med Premium Storage-diskar
 
-* **LS**: **L** -SKU: n är optimerad för lagring. Den har en mycket större SSD-storlek än den liknande **prisbaserade** SKU: n.
+* **LS**: L-SKU: n är optimerad för lagring. Den har en mycket större SSD-storlek än den liknande **prisbaserade** SKU: n.
 
 Följande tabell innehåller viktiga skillnader mellan tillgängliga SKU-typer:
  

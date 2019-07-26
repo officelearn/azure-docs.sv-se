@@ -1,8 +1,8 @@
 ---
-title: Resurser för utveckling av ett informationslager i Azure | Microsoft Docs
-description: Koncept för utveckling, designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse.
+title: Resurser för att utveckla ett informations lager i Azure | Microsoft Docs
+description: Utvecklings begrepp, design beslut, rekommendationer och kodnings tekniker för SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,43 +10,43 @@ ms.subservice: development
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 613bcb05dab993989a2ae00b71fef95794953ab8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a78d78618a4cd9bf8d2aaebbd0c0da13697549bc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850739"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479477"
 ---
-# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Designbeslut och kodning tekniker för SQL Data Warehouse
-Ta en titt på dessa utvecklingsartiklarna att bättre förstå viktiga designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse.
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Design beslut och kod metoder för SQL Data Warehouse
+Ta en titt på dessa utvecklings artiklar för att få bättre förståelse för viktiga design beslut, rekommendationer och kodnings metoder för SQL Data Warehouse.
 
-## <a name="key-design-decisions"></a>Viktiga designbeslut
-I följande artiklar Markera begrepp och designbeslut för att utveckla ett distribuerade data warehouse med SQL Data Warehouse:
+## <a name="key-design-decisions"></a>Viktiga design beslut
+Följande artiklar fokuserar på begrepp och design beslut för att utveckla ett distribuerat informations lager med hjälp av SQL Data Warehouse:
 
-* [Anslutningar][connections]
+* [anslutning][connections]
 * [samtidighet][concurrency]
-* [Transaktioner][transactions]
+* [transaktioner][transactions]
 * [användardefinierade scheman][user-defined schemas]
-* [tabelldistribution][table distribution]
-* [Tabellindex][table indexes]
-* [Tabellpartitioner][table partitions]
+* [tabell distribution][table distribution]
+* [tabell index][table indexes]
+* [Table-partitioner][table partitions]
 * [CTAS][CTAS]
 * [statistik][statistics]
 
-## <a name="development-recommendations-and-coding-techniques"></a>Rekommendationer för utveckling och kodning tekniker
-Artiklarna innehåller specifika tekniker för kodning, tips och rekommendationer för att utveckla ditt SQL Data Warehouse:
+## <a name="development-recommendations-and-coding-techniques"></a>Utvecklings rekommendationer och kodnings metoder
+De här artiklarna fokuserar på olika kodnings tekniker, tips och rekommendationer för att utveckla SQL Data Warehouse:
 
-* [Lagrade procedurer][stored procedures]
-* [etiketter][labels]
-* [Vyer][views]
-* [Temporära tabeller][temporary tables]
+* [lagrade procedurer][stored procedures]
+* [Etiketter][labels]
+* [vyer][views]
+* [temporära tabeller][temporary tables]
 * [dynamisk SQL][dynamic SQL]
-* [slingor][looping]
+* [loopning][looping]
 * [Gruppera efter alternativ][group by options]
-* [variabeltilldelning][variable assignment]
+* [variabel tilldelning][variable assignment]
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information, finns i [SQL Data Warehouse T-SQL-uttryck](sql-data-warehouse-reference-tsql-statements.md).
+Mer referensinformation finns i [SQL Data Warehouse T-SQL-uttryck](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: Ta bort och exportera personliga data från Azure DevTest Labs | Microsoft Docs
-description: Lär dig ta bort och exportera personliga data från tjänsten Azure DevLast Labs för att stödja dina skyldigheter under den allmänna Dataskyddsförordningen GDPR (Data Protection).
+title: Så här tar du bort och exporterar personliga data från Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du tar bort och exporterar personliga data från Azure DevLast Labs-tjänsten för att stödja dina skyldigheter enligt allmän dataskyddsförordning (GDPR).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,69 +10,207 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 07/19/2019
 ms.author: spelluru
-ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395007"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371167"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportera eller ta bort personliga data från Azure DevTest Labs
-Den här artikeln innehåller steg för att ta bort och exportera personliga data från tjänsten Azure DevTest Labs. 
+Den här artikeln innehåller anvisningar för att ta bort och exportera personliga data från Azure DevTest Labss tjänsten. 
 
-## <a name="what-personal-data-does-devtest-labs-collect"></a>Vilka personliga data samlar DevTest Labs?
-DevTest Labs samlar in de två viktigaste delarna av personliga data från användaren. De är: användares e-postadress och användarobjekts-ID. Den här informationen är viktigt för tjänsten för att ange av funktioner lab administratörer och labbanvändare.
+## <a name="what-personal-data-does-devtest-labs-collect"></a>Vilka person uppgifter samlar in DevTest Labs?
+DevTest Labs samlar in två huvud delar av person uppgifter från användaren. De är: användarens e-postadress och ID för användar objekt. Den här informationen är viktig för tjänsten för att tillhandahålla funktioner i tjänsten för labb administratörer och labb användare.
 
-### <a name="user-email-address"></a>Användares e-postadress
-DevTest Labs använder användarens e-postadress för att skicka e-postmeddelanden för automatisk avstängning till labbanvändare. E-postmeddelandet meddelar användare av deras datorn stängts ned. Användarna kan skjuta upp eller hoppa över avstängningen om de vill göra detta. Du kan konfigurera e-postadress på labb eller på VM-nivå.
+### <a name="user-email-address"></a>Användarens e-postadress
+DevTest Labs använder användarens e-postadress för att skicka e-postmeddelanden för automatisk avstängning till labb användare. E-postmeddelandet meddelar användare av datorn att de stängs av. Användarna kan antingen skjuta upp eller hoppa över avstängningen om de vill göra det. Du konfigurerar e-postadressen på labb nivån eller på VM-nivå.
 
-**Ange e-post i labbet:**
+**Ställa in e-post i labbet:**
 
-![Ange e-post på nivån lab](./media/personal-data-delete-export/lab-user-email.png)
+![Ställa in e-post på labb nivån](./media/personal-data-delete-export/lab-user-email.png)
 
-**Ange e-post på den virtuella datorn:**
+**Ställer in e-post på den virtuella datorn:**
 
-![Ange e-post på VM-nivå](./media/personal-data-delete-export/vm-user-email.png)
+![Ställa in e-post på VM-nivå](./media/personal-data-delete-export/vm-user-email.png)
 
-### <a name="user-object-id"></a>Användarens objekt-ID
-DevTest Labs använder objekt-ID för användaren för att visa månad för månad kostnadstrender och kostnad genom resursinformation till lab administratörer. Det gör att de kan spåra kostnader och hantera tröskelvärden för sina labb. 
+### <a name="user-object-id"></a>Användar objekt-ID
+DevTest Labs använder user Object ID för att Visa månads månads kostnads trender och kostnad per resurs information till labb administratörer. Det gör det möjligt för dem att spåra kostnader och hantera tröskelvärden för deras labb. 
 
-**Beräknad kostnad trenden för den aktuella kalendermånaden:** 
-![uppskattad kostnad trenden för den aktuella kalendermånaden](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
+**Uppskattad kostnads trend för den aktuella kalender månaden:** 
+![uppskattad kostnads trend för den aktuella kalender månaden](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Beräknad kostnad för månad hittills efter resurs:** 
-![beräknad kostnad för månad hittills efter resurs](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
+**Beräknad månad till dags kostnad per resurs:** 
+![Beräknad månad till dags kostnad per resurs](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
 ## <a name="why-do-we-need-this-personal-data"></a>Varför behöver vi dessa personliga data?
-DevTest Labs-tjänsten använder personliga data för operativa åtgärder. Dessa data är viktigt för tjänsten att leverera viktiga funktioner. Om du anger en bevarandeprincip för användarens e-postadress får inte labbanvändare tid automatisk avstängning av e-postmeddelanden när e-postadressen har tagits bort från vårt system. På samma sätt kan kan inte administratören lab Visa månad månad trender och kostnaden per resurs för datorer i sina labs om användarobjektet ID: N tas bort baserat på en bevarandeprincip. Därför måste dessa data sparas så länge användarens resursen är aktiv i laboratoriet.
+DevTest Labs-tjänsten använder personliga data i drift syfte. Dessa data är viktiga för att tjänsten ska tillhandahålla viktiga funktioner. Om du anger en bevarande princip för användarens e-postadress får Lab-användare inte tid för automatisk avstängning av e-postmeddelanden när deras e-postadress tas bort från systemet. På samma sätt kan inte labb administratören Visa månads månads kostnads trender och kostnad per resurs för datorer i sina labb om användar objekt-ID: n tas bort baserat på en bevarande princip. Dessa data måste därför behållas så länge som användarens resurs är aktiv i labbet.
 
-## <a name="how-can-i-have-the-system-to-forget-my-personal-data"></a>Hur kan jag ha systemet att glömma min personliga data?
-Som en lab-användare om du vill ha dessa personliga data tas bort, kan du göra det genom att ta bort motsvarande resurs i labbet. Tjänsten DevTest Labs anonymiseras har tagits bort personliga data 30 dagar efter att den tas bort av användaren.
+## <a name="how-can-i-have-the-system-to-forget-my-personal-data"></a>Hur kan jag glömma att systemet glömmer mina personliga data?
+Om du vill ha dessa personliga data borttagna som labb användare kan du göra det genom att ta bort motsvarande resurs i labbet. DevTest Labs-tjänsten anonymiseras uppgifterna den borttagna personliga informationen 30 dagar efter att den tagits bort av användaren.
 
-Exempel: Om du tar bort den virtuella datorn eller ta bort din e-postadress, tjänsten DevTest Labs anonymiseras dessa data 30 dagar när resursen har tagits bort. 30-dagars bevarandeprincipen när borttagningen är att se till att vi ger en rättvisande månad för månad kostnadsprognoser labb-administratören.
+Om du till exempel tar bort din virtuella dator eller tar bort din e-postadress, anonymiseras uppgifterna DevTest Labs-tjänsten dessa data 30 dagar efter att resursen har tagits bort. Lagrings principen på 30 dagar efter borttagningen är att se till att vi tillhandahåller en riktig kostnads projektion månads månad för labb administratören.
 
-## <a name="how-can-i-request-an-export-on-my-personal-data"></a>Hur kan jag begära en export med min personliga data?
-Som en lab-användare kan du begära en export på dina personliga data som lagras i DevTest Labs. Om du vill begära för en export, navigera till den **personuppgifter** alternativet på den **översikt** sidan över ditt labb. Välj den **begära export** knappen startar skapandet av en nedladdningsbar excel-fil i labb-administratörens storage-konto. Du kan kontakta labb-administratören om du vill visa dessa data.
+## <a name="how-can-i-request-an-export-on-my-personal-data"></a>Hur kan jag begära en export av mina personliga data?
+Du kan exportera personliga och labb användnings data med hjälp av Azure Portal eller PowerShell. Data exporteras som två olika CSV-filer:
 
-1. Välj **personuppgifter** på den vänstra menyn. 
+- **disks. csv** – innehåller information om de diskar som används av de olika virtuella datorerna
+- **virtualmachines. csv** – innehåller information om de virtuella datorerna i labbet.
 
-    ![Sidan för personliga data](./media/personal-data-delete-export/personal-data-page.png)
-2. Välj den **resursgrupp** som innehåller labbet.
+### <a name="azure-portal"></a>Azure Portal
+Som labb användare kan du begära en export av de personliga data som DevTest Labs-tjänsten lagrar. Om du vill begära en export navigerar du till alternativet **personliga data** på sidan **Översikt** i labbet. Om du väljer knappen för att **Exportera** filer på din labb administratörs lagrings konto. Du kan sedan kontakta din labb administratör för att visa dessa data.
 
-    ![Välj resursgrupp](./media/personal-data-delete-export/select-resource-group.png)
-3. Välj den **lagringskonto** i resursgruppen.
-4. På den **lagringskonto** väljer **Blobar**.
+1. Välj **personliga data** på den vänstra menyn. 
 
-    ![Välj Blobar panel](./media/personal-data-delete-export/select-blobs-tile.png)
+    ![Sidan personliga data](./media/personal-data-delete-export/personal-data-page.png)
+2. Välj den **resurs grupp** som innehåller labbet.
+
+    ![Välj en resursgrupp](./media/personal-data-delete-export/select-resource-group.png)
+3. Välj **lagrings kontot** i resurs gruppen.
+4. På sidan **lagrings konto** väljer du **blobbar**.
+
+    ![Panelen Välj blobbar](./media/personal-data-delete-export/select-blobs-tile.png)
 5. Välj behållaren med namnet **labresourceusage** i listan över behållare.
 
-    ![Välj blob-behållare](./media/personal-data-delete-export/select-blob-container.png)
-6. Välj den **mappen** namnges efter ditt labb. Du hittar **csv** filer för **diskar** och **virtuella datorer** i labbet i den här mappen. Du kan hämta dessa csv-filer, filtrera innehåll för övningen användaren begär en åtkomst och dela den med dem.
+    ![Välj blobcontainer](./media/personal-data-delete-export/select-blob-container.png)
+6. Välj **mappen** som heter efter ditt labb. Du hittar **CSV** -filer för **diskar** och **virtuella datorer** i labbet i den här mappen. Du kan hämta dessa CSV-filer, filtrera innehållet för labb användaren som begär en åtkomst och dela den med dem.
 
-    ![Hämta CSV-fil](./media/personal-data-delete-export/download-csv-file.png)
+    ![Ladda ned CSV-fil](./media/personal-data-delete-export/download-csv-file.png)
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+Param (
+    [Parameter (Mandatory=$true, HelpMessage="The storage account name where to store usage data")]
+    [string] $storageAccountName,
+
+    [Parameter (Mandatory=$true, HelpMessage="The storage account key")]
+    [string] $storageKey,
+
+    [Parameter (Mandatory=$true, HelpMessage="The DevTest Lab name to get usage data from")]
+    [string] $labName,
+
+    [Parameter (Mandatory=$true, HelpMessage="The DevTest Lab subscription")]
+    [string] $labSubscription
+    )
+
+#Login
+Login-AzureRmAccount
+
+# Set the subscription for the lab
+Get-AzureRmSubscription -SubscriptionId $labSubscription  | Select-AzureRmSubscription
+
+# DTL will create this container in the storage when invoking the action, cannot be changed currently
+$containerName = "labresourceusage"
+
+# Get the storage context
+$Ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey 
+$SasToken = New-AzureStorageAccountSASToken -Service Blob, File -ResourceType Container, Service, Object -Permission rwdlacup -Protocol HttpsOnly -Context $Ctx
+
+# Generate the storage blob uri
+$blobUri = $Ctx.BlobEndPoint + $SasToken
+
+# blobStorageAbsoluteSasUri and usageStartDate are required
+$actionParameters = @{
+    'blobStorageAbsoluteSasUri' = $blobUri    
+}
+
+$startdate = (Get-Date).AddDays(-7)
+
+$actionParameters.Add('usageStartDate', $startdate.Date.ToString())
+
+# Get the lab resource group
+$resourceGroupName = (Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $labName}).ResourceGroupName
+    
+# Create the lab resource id
+$resourceId = "/subscriptions/" + $labSubscription + "/resourceGroups/" + $resourceGroupName + "/providers/Microsoft.DevTestLab/labs/" + $labName + "/"
+
+# !!!!!!! this is the new resource action to get the usage data.
+$result = Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
+ 
+# Finish up cleanly
+if ($result.Status -eq "Succeeded") {
+    Write-Output "Telemetry successfully downloaded for " $labName
+    return 0
+}
+else
+{
+    Write-Output "Failed to download lab: " + $labName
+    Write-Error $result.toString()
+    return -1
+}
+```
+
+Huvud komponenterna i exemplet ovan är:
+
+- Kommandot Invoke-AzureRmResourceAction.
+   
+    ```
+    Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
+    ```
+- Två åtgärds parametrar
+    - **blobStorageAbsoluteSasUri** – lagrings kontots URI med SAS-token (signatur för delad åtkomst). I PowerShell-skriptet kan det här värdet skickas i stället för lagrings nyckeln.
+    - **usageStartDate** – start datum för hämtning av data, med slutdatumet det aktuella datumet då åtgärden körs. Granularitet är på dags nivå, så även om du lägger till tidsinformation kommer den att ignoreras.
+
+### <a name="exported-data---a-closer-look"></a>Exporterade data – ett närmare utseende
+Nu ska vi ta en närmare titt på exporterade data. Som tidigare nämnts kommer det att finnas två CSV-filer när data har exporter ATS. 
+
+**Virtualmachines. csv** innehåller följande data kolumner:
+
+| Kolumnnamn | Beskrivning |
+| ----------- | ----------- | 
+| SubscriptionId | Prenumerations-ID: n som labbet finns i. |
+| LabUId | Unikt GUID-ID för labbet. |
+| LabName | Labbets namn. |
+| LabResourceId | Fullständigt kvalificerat labb resurs-ID. |
+| ResourceGroupName | Namnet på den resurs grupp som innehåller den virtuella datorn | 
+| ResourceId | Fullständigt kvalificerat resurs-ID för den virtuella datorn. |
+| ResourceUId | GUID för den virtuella datorn |
+| Namn | Namn på virtuell dator. |
+| CreatedTime | Datum/tid då den virtuella datorn skapades. |
+| DeletedDate | Datum/tid då den virtuella datorn togs bort. Om den är tom har borttagningen ännu inte skett. |
+| ResourceOwner | Den virtuella datorns ägare. Om värdet är tomt, är det antingen en virtuell dator som kan ha skapats eller skapats av ett huvud namn för tjänsten. |
+| PricingTier | Den virtuella datorns pris nivå |
+| ResourceStatus | Tillgänglighets status för den virtuella datorn. Aktiv, om den virtuella datorn har tagits bort, om den fortfarande finns eller är inaktiv. |
+| ComputeResourceId | Fullständigt kvalificerat resurs-ID för beräkning av virtuella datorer. |
+| Ledig | Ange som sant om den virtuella datorn är en virtuell dator med anspråk | 
+| EnvironmentId | Den miljö resurs identifierare inom vilken den virtuella datorn skapades. Den är tom när den virtuella datorn inte skapades som en del av en miljö resurs. |
+| ExpirationDate | Förfallo datum för den virtuella datorn. Den har angetts till Tom, om ett förfallo datum inte har angetts.
+| GalleryImageReferenceVersion |  Version av bas avbildningen för virtuella datorer. |
+| GalleryImageReferenceOffer | Erbjudande för bas avbildningen för virtuella datorer. |
+| GalleryImageReferencePublisher | Utgivare av bas avbildningen för virtuella datorer. |
+| GalleryImageReferenceSku | SKU för den virtuella datorns bas avbildning |
+| GalleryImageReferenceOsType | OS-typ för bas avbildningen för virtuella datorer |
+| CustomImageId | Fullständigt kvalificerat ID för den anpassade VM-avbildningen. |
+
+De data kolumner som finns i **disks. csv** visas nedan:
+
+| Kolumnnamn | Beskrivning | 
+| ----------- | ----------- | 
+| SubscriptionId | ID för den prenumeration som innehåller labbet |
+| LabUId | GUID för labbet |
+| LabName | Labbets namn | 
+| LabResourceId | Fullständigt kvalificerat resurs-ID för labbet | 
+| ResourceGroupName | Namnet på den resurs grupp som innehåller labbet | 
+| ResourceId | Fullständigt kvalificerat resurs-ID för den virtuella datorn. |
+| ResourceUId | GUID för den virtuella datorn |
+ |Namn | Namnet på den anslutna disken |
+| CreatedTime |Datum och tid då data disken skapades. |
+| DeletedDate | Datum och tid då data disken togs bort. |
+| ResourceStatus | Status för resursen. Aktiv, om resursen finns. Inaktiv, vid borttagning. |
+| DiskBlobName | BLOB-namn för data disken. |
+| DiskSizeGB | Data diskens storlek. |
+| DiskType | Typ av datadisk. 0 för standard 1 för Premium. |
+| LeasedByVmId | Resurs-ID för den virtuella dator som data disken har kopplats till. |
+
+
+> [!NOTE]
+> Om du hanterar flera labb och vill hämta allmän information, är de två nyckel kolumnerna **LabUID** och **ResourceUId**, som är unika ID: n för prenumerationer.
+
+Exporterade data kan manipuleras och visualiseras med hjälp av verktyg som SQL Server, Power BI osv. Den här funktionen är särskilt användbar när du vill rapportera användningen av ditt labb till hanterings teamet som kanske inte använder samma Azure-prenumeration som du gör.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar: 

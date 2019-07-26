@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT Hub moln-till-enhet-meddelanden | Microsoft Docs
-description: Den här utvecklarguide beskrivs hur du använder molnet till enhet-meddelanden med IoT-hubben. Den innehåller information om livscykeln för meddelande- och konfigurationsalternativ.
+title: Förstå Azure IoT Hub meddelanden från molnet till enheten | Microsoft Docs
+description: Den här guiden beskriver hur du använder meddelanden från molnet till enheten med IoT Hub. Den innehåller information om meddelandets livs cykel och konfigurations alternativ.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,102 +8,102 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 0fc1b65a4ba1c8a3d76b48206d6a4703035e05bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055327"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335727"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Skicka meddelanden från moln till enhet från en IoT-hubb
 
-Om du vill skicka enkelriktade meddelanden till en enhet från lösningens backend-servrar måste du skicka meddelanden från moln till enhet från IoT hub till din enhet. En beskrivning av andra alternativ för moln-till-enhet som stöds av Azure IoT Hub finns i [moln till enhet kommunikation vägledning](iot-hub-devguide-c2d-guidance.md).
+Skicka meddelanden från moln till enhet från din IoT Hub till din enhet om du vill skicka enkelriktade meddelanden till en enhets app från Server delen i lösningen. En beskrivning av andra moln-till-enhet-alternativ som stöds av Azure IoT Hub finns i [rikt linjer för kommunikation mellan moln och enheter](iot-hub-devguide-c2d-guidance.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Du skickar meddelanden från molnet till enheten via en tjänst-riktade slutpunkt, */meddelanden/devicebound*. En enhet sedan ta emot meddelanden via en enhetsspecifik slutpunkt, */devices/ {deviceId} / meddelanden/devicebound*.
+Du skickar meddelanden från molnet till enheten via en */Messages/devicebound*-slutpunkt. En enhet tar sedan emot meddelandena via en enhets bestämd slut punkt, */Devices/{deviceId}/Messages/devicebound*.
 
-Om du vill anpassa varje moln-till-enhet-meddelande vid en enskild enhet, din IoT-hubb anger den **till** egenskap */devices/ {deviceId} / meddelanden/devicebound*.
+För att rikta in varje moln-till-enhet-meddelande på en enskild enhet ställer IoT Hub in på **-egenskapen till** */Devices/{deviceId}/Messages/devicebound*.
 
-Varje enhet kön innehåller högst 50 meddelanden från molnet till enheten. Att skicka fler meddelanden till samma enhet resulterar i ett fel.
+Varje enhets kön innehåller högst 50 meddelanden från molnet till enheten. För att försöka skicka fler meddelanden till samma enhet resulterar det i ett fel.
 
-## <a name="the-cloud-to-device-message-life-cycle"></a>Livscykel för moln till enhet-meddelande
+## <a name="the-cloud-to-device-message-life-cycle"></a>Livs cykeln för meddelande från moln till enhet
 
-Håller kvar meddelanden från molnet till enheten i enhetsspecifika köer för att garantera på minst en gång meddelandeleverans, IoT-hubben. För IoT-hubben att ta bort meddelanden från kön enheterna måste uttryckligen godkänna *slutförande*. Den här metoden garanterar skydd mot anslutning och vid fel.
+För att garantera att meddelandet skickas minst en gång, är din IoT-hubb kvar meddelanden från molnet till enheten i köer för varje enhet. För att IoT-hubben ska ta bort meddelanden från kön måste enheterna uttryckligen bekräfta att de är *klara*. Den här metoden garanterar återhämtning mot anslutnings-och enhets problem.
 
-Livscykeln tillstånd diagrammet visas i följande diagram:
+Diagrammet livs cykel tillstånd visas i följande diagram:
 
-![Livscykel för moln till enhet-meddelande](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
+![Livs cykel för meddelande från moln till enhet](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-När IoT hub-tjänsten skickar ett meddelande till en enhet, tjänsten anger Meddelandetillstånd till *i kö*. När en enhet försöker *får* ett meddelande, IoT-hubben *Lås* meddelandet genom att ställa in tillståndet *osynliga*. Det här tillståndet kan andra trådar på enheten för att börja ta emot andra meddelanden. När en enhet tråd slutförs bearbetningen av ett meddelande skickas ett meddelande till IoT-hubben genom *slutföra* meddelandet. IoT-hubben anger sedan statusen till *slutförd*.
+När tjänsten IoT Hub skickar ett meddelande till en enhet, ställer tjänsten in meddelandets tillstånd i *kö*. När en enhet vill *ta emot* ett meddelande *låser* IoT-hubben meddelandet genom att ställa in läget på *osynligt*. Det här läget tillåter att andra trådar på enheten börjar ta emot andra meddelanden. När en enhets tråd slutför bearbetningen av ett meddelande, meddelas IoT-hubben genom att *slutföra* meddelandet. IoT Hub anger sedan statusen till slutförd .
 
 En enhet kan också:
 
-* *Avvisa* meddelandet, vilket gör att IoT hub för att den *död lettered* tillstånd. Enheter som ansluter via protokollet Message Queuing Telemetry Transport (MQTT) kan inte avvisa meddelanden från molnet till enheten.
+* *Avvisa* meddelandet, vilket leder till att IoT-hubben anger det som status för *obeställbara meddelanden* . Enheter som ansluter via MQTT-protokollet (Message Queuing telemetri transport) kan inte förkasta meddelanden från molnet till enheten.
 
-* *Lämna* meddelandet, vilket gör att IoT hub att placera meddelandet i kön, med statusen inställd på *i kö*. Enheter som ansluter via MQTT-protokollet kan inte lämna meddelanden från molnet till enheten.
+* *Överge* meddelandet, vilket gör att IoT-hubben kan placera meddelandet i kön igen, med tillstånds inställningen placerad i *kö*. Enheter som ansluter via MQTT-protokollet kan inte överge meddelanden från molnet till enheten.
 
-En tråd kan misslyckas med att bearbeta ett meddelande utan att meddela IoT-hubben. I det här fallet meddelanden automatiskt övergång från den *osynliga* tillstånd tillbaka till den *i kö* tillstånd efter en *synlighet* timeout (eller *Lås* timeout). Standardvärdet för timeout är en minut.
+En tråd kunde inte bearbeta ett meddelande utan att meddela IoT-hubben. I det här fallet övergår meddelanden automatiskt från  det osynliga läget tillbaka till läget i *kö* efter en *Synlighets* -timeout (eller *låsnings* -timeout). Värdet för denna timeout är en minut och kan inte ändras.
 
-Den **max antal leveranser** egenskapen på IoT-hubben avgör hur många gånger ett meddelande kan överföras mellan den *i kö* och *osynliga* tillstånd. Efter det antalet övergångar, IoT-hubben ställer in tillståndet för meddelandet att *död lettered*. På samma sätt, IoT-hubben anger tillståndet för ett meddelande till *död lettered* efter dess förfallotid. Mer information finns i [livslängd](#message-expiration-time-to-live).
+Egenskapen **Max Delivery Count** i IoT Hub avgör det maximala antalet gånger som ett meddelande kan övergå mellan tillståndet i *kö* och osynligt. Efter det antalet över gångar anger IoT-hubben status för meddelandet till *död brev*. På samma sätt anger IoT Hub statusen för ett meddelande till *obeställbara meddelanden* efter förfallo tiden. Mer information finns i [Time to Live](#message-expiration-time-to-live).
 
-Den [hur du skickar meddelanden från molnet till enheten med IoT Hub](iot-hub-csharp-csharp-c2d.md) artikeln visar hur du skickar meddelanden från moln till enhet från molnet och tar emot dem på en enhet.
+Avsnittet [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-csharp-csharp-c2d.md) visar hur du skickar meddelanden från moln till enhet från molnet och tar emot dem på en enhet.
 
-En enhet fyller normalt ett moln-till-enhet-meddelande när förlusten av meddelandet inte påverkar programlogiken. Ett exempel på detta kan vara när enheten har sparat meddelandeinnehåll lokalt eller har kört en åtgärd. Meddelandet kan också innehålla tillfälliga uppgifter, vars dataförlust skulle påverka funktionaliteten i programmet. För långvariga aktiviteter kan du ibland:
+En enhet kompletterar vanligt vis ett meddelande från molnet till enheten när meddelandets förlust inte påverkar program logiken. Ett exempel på detta kan vara när enheten har sparat meddelande innehållet lokalt eller har genomfört en åtgärd. Meddelandet kan också innehålla övergående information, vars förlust inte påverkar programmets funktioner. Ibland kan du för långvariga uppgifter:
 
-* Komplettera meddelandet moln-till-enhet när enheten har sparat uppgiftsbeskrivning i lokal lagring.
+* Slutför meddelandet från molnet till enheten när enheten har sparat aktivitets beskrivningen i den lokala lagringen.
 
-* Meddela lösningens backend-server med en eller flera meddelanden från enheten till molnet i olika faser av förloppet för uppgiften.
+* Meddela lösningens Server del med ett eller flera meddelanden från enheten till molnet i olika stadier av aktiviteten.
 
-## <a name="message-expiration-time-to-live"></a>Förfallodatum för meddelanden (tid till live)
+## <a name="message-expiration-time-to-live"></a>Förfallo datum för meddelande (Time to Live)
 
-Alla moln-till-enhet-meddelanden har en förfallotid. Den här tiden anges med någon av följande:
+Varje meddelande från moln till enhet har en förfallo tid. Den här tiden anges av något av följande:
 
-* Den **ExpiryTimeUtc** -egenskapen i tjänsten
-* IoT-hubben med hjälp av standard *livslängd* som har angetts som en IoT hub-egenskap
+* Egenskapen **ExpiryTimeUtc** i tjänsten
+* IoT Hub, genom att använda standard *tiden till Live* som har angetts som en IoT Hub-egenskap
 
-Se [moln till enhet konfigurationsalternativ](#cloud-to-device-configuration-options).
+Se [konfigurations alternativ för moln till enhet](#cloud-to-device-configuration-options).
 
-Ett vanligt sätt att dra nytta av ett förfallodatum för meddelanden och för att undvika att skicka meddelanden till frånkopplade enheter är att ställa in kort *livslängd* värden. Den här metoden ger samma resultat som upprätthålla anslutningen enhetstillstånd, men det är mer effektivt. När du begär meddelande bekräftelser meddelar vilka enheter som är i IoT hub:
+Ett vanligt sätt att dra nytta av förfallo datum för meddelanden och undvika att skicka meddelanden till frånkopplade enheter är att ställa in kort *tid till Live* -värden. Den här metoden ger samma resultat som att bibehålla enhetens anslutnings tillstånd, men det är mer effektivt. När du begär meddelande bekräftelser, meddelar IoT-hubben vilka enheter som är:
 
-* Det går att ta emot meddelanden.
-* Inte är online eller har misslyckats.
+* Kan ta emot meddelanden.
+* Är inte online eller har misslyckats.
 
-## <a name="message-feedback"></a>Meddelande-feedback
+## <a name="message-feedback"></a>Feedback om meddelande
 
-När du skickar ett moln-till-enhet-meddelande, kan tjänsten begära leveransen av per meddelande feedback om sluttillstånd i meddelandet. Du gör detta genom att ange den **iothub-ack** programegenskap i moln-till-enhet-meddelande som skickas till någon av följande fyra värden:
+När du skickar ett meddelande från molnet till enheten kan tjänsten begära leverans av feedback per meddelande om det slutliga status meddelandet. Du gör detta genom att ange egenskapen **iothub-ack-** program i meddelandet från molnet till enheten som skickas till något av följande fyra värden:
 
-| Ack-egenskapsvärdet | Beteende |
+| Bekräftelse egenskaps värde | Beteende |
 | ------------ | -------- |
-| Ingen     | IoT hub generera inte ett feedback-meddelande (standardinställning). |
-| positivt | Om moln-till-enhet-meddelande når den *slutförd* tillstånd, IoT-hubben genererar ett feedback-meddelande. |
-| negativt | Om moln-till-enhet-meddelande når den *död lettered* tillstånd, IoT-hubben genererar ett feedback-meddelande. |
-| fullständig     | IoT-hubben genererar ett feedback-meddelande i båda fallen. |
+| inga     | IoT Hub genererar inget feedback-meddelande (standard beteende). |
+| positivt | Om meddelandet från molnet till enheten når statusen *slutfört* , genererar IoT Hub ett feedback-meddelande. |
+| påverka | Om meddelandet från molnet till enheten når status för *obeställbara meddelanden* genererar IoT Hub ett feedback-meddelande. |
+| fullständig     | IoT Hub genererar ett feedback-meddelande i båda fallen. |
 
-Om den **Ack** värdet är *fullständig*, och du inte får ett meddelande om feedback, betyder det att feedback meddelandet har gått ut. Tjänsten kan inte vet vad hände med det ursprungliga meddelandet. En tjänst bör i praktiken, se till att den kan bearbeta feedback innan den upphör. Den maximala förfallotiden två dagar, vilket lämnar tid att hämta tjänsten körs igen om ett fel inträffar.
+Om **ack** -värdet är *fullt*och du inte får något feedback-meddelande, innebär det att feedback-meddelandet har upphört att gälla. Tjänsten vet inte vad som hände med det ursprungliga meddelandet. I praktiken bör en tjänst se till att den kan bearbeta feedbacken innan den upphör att gälla. Den längsta förfallo tiden är två dagar, vilket lämnar tid för att få tjänsten att köras igen om ett fel uppstår.
 
-Enligt beskrivningen i [slutpunkter](iot-hub-devguide-endpoints.md), IoT-hubb levererar feedback via en tjänst-riktade slutpunkt, */messages/servicebound/feedback*, som meddelanden. Semantik för att ta emot feedback är desamma som för meddelanden från molnet till enheten. När det är möjligt batchar meddelande feedback i ett enda meddelande med följande format:
+Som förklaras i [slut punkter](iot-hub-devguide-endpoints.md)ger IoT Hub feedback via en tjänsteriktad slut punkt, */Messages/servicebound/feedback*, som meddelanden. Semantiken för att ta emot feedback är samma som för meddelanden från moln till enhet. När så är möjligt, är meddelandets feedback batch i ett enda meddelande med följande format:
 
 | Egenskap     | Beskrivning |
 | ------------ | ----------- |
-| EnqueuedTime | En tidsstämpel som anger när feedback-meddelande togs emot av hubben |
-| Användar-ID       | `{iot hub name}` |
-| contentType  | `application/vnd.microsoft.iothub.feedback.json` |
+| EnqueuedTime | En tidsstämpel som anger när feedback-meddelandet togs emot av hubben |
+| UserId       | `{iot hub name}` |
+| ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
-Brödtexten är en JSON-serialiserat matris med poster, var och en med följande egenskaper:
+Texten är en JSON-serialiserad matris med poster, var och en med följande egenskaper:
 
 | Egenskap           | Beskrivning |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | En tidsstämpel som anger när resultatet av meddelandet har inträffat (till exempel hubben fick meddelandet feedback eller det ursprungliga meddelandet har gått ut) |
-| OriginalMessageId  | Den *MessageId* meddelandets moln-till-enhet som den här informationen för feedback avser |
-| StatusCode         | En obligatorisk sträng som används i meddelanden som genereras av IoT hub: <br/> *Lyckades* <br/> *Har upphört att gälla* <br/> *DeliveryCountExceeded* <br/> *Avvisade* <br/> *Rensas* |
+| EnqueuedTimeUtc    | En tidsstämpel som visar när resultatet av meddelandet har inträffat (till exempel när hubben fick feedback-meddelandet eller att det ursprungliga meddelandet upphör att gälla) |
+| OriginalMessageId  | *Messageid* för det meddelande från molnet till enheten som den här feedback-informationen avser |
+| StatusCode         | En obligatorisk sträng som används i feedback-meddelanden som genereras av IoT Hub: <br/> *Resultatet* <br/> *Gäller* <br/> *DeliveryCountExceeded* <br/> *Slagit* <br/> *Rensas* |
 | Beskrivning        | Sträng värden för *StatusCode* |
-| DeviceId           | Den *DeviceId* målenhetens meddelandets moln-till-enhet som den här typ av feedback avser |
-| DeviceGenerationId | Den *DeviceGenerationId* målenhetens meddelandets moln-till-enhet som den här typ av feedback avser |
+| DeviceId           | *DeviceID* för mål enheten för det meddelande från molnet till enheten som den här återkopplingen avser |
+| DeviceGenerationId | *DeviceGenerationId* för mål enheten för det moln-till-enhet-meddelande som den här återkopplingen avser |
 
-För moln-till-enhet-meddelande att korrelera dess feedback med det ursprungliga meddelandet tjänsten måste ange en *MessageId*.
+För att ett meddelande från moln till enhet ska korreleras med det ursprungliga meddelandet måste tjänsten ange ett *messageid*.
 
-Texten i ett feedback-meddelande visas i följande kod:
+Bröd texten i ett feedback-meddelande visas i följande kod:
 
 ```json
 [
@@ -122,21 +122,21 @@ Texten i ett feedback-meddelande visas i följande kod:
 ]
 ```
 
-## <a name="cloud-to-device-configuration-options"></a>Konfigurationsalternativ för moln-till-enhet
+## <a name="cloud-to-device-configuration-options"></a>Konfigurations alternativ för moln till enhet
 
-Varje IoT-hubb exponerar följande konfigurationsalternativ för moln-till-enhet-meddelanden:
+Varje IoT-hubb exponerar följande konfigurations alternativ för meddelanden från molnet till enheten:
 
-| Egenskap                  | Beskrivning | Intervall- och standard |
+| Egenskap                  | Beskrivning | Intervall och standard |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | Standard-TTL för meddelanden från moln till enhet | ISO_8601 intervall upp till två dagar (minst 1 minut); standard: 1 timme |
-| maxDeliveryCount          | Maximalt antal leveranser för moln-till-enhet per enhet köer | 1 till 100; standard: 10 |
-| feedback.ttlAsIso8601     | Kvarhållning för service-bunden meddelanden | ISO_8601 intervall upp till två dagar (minst 1 minut); standard: 1 timme |
-| feedback.maxDeliveryCount | Maximalt antal leveranser för kön feedback | 1 till 100; standard: 100 |
+| defaultTtlAsIso8601       | Standard-TTL för meddelanden från moln till enhet | ISO_8601-intervall upp till två dagar (minst 1 minut); objekt 1 timme |
+| maxDeliveryCount          | Maximalt antal leveranser för köer för moln-till-enhet per enhet | 1 till 100; objekt 10 |
+| feedback.ttlAsIso8601     | Kvarhållning för service-kopplade e-postmeddelanden | ISO_8601-intervall upp till två dagar (minst 1 minut); objekt 1 timme |
+| feedback.maxDeliveryCount | Maximalt antal leveranser för feedback-kön | 1 till 100; objekt 100 |
 
-Mer information om hur du anger dessa konfigurationsalternativ finns i [skapa IoT-hubbar](iot-hub-create-through-portal.md).
+Mer information om hur du anger dessa konfigurations alternativ finns i [skapa IoT](iot-hub-create-through-portal.md)-hubbar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om SDK: er som du kan använda för att ta emot meddelanden från moln till enhet finns i [Azure IoT SDK: er](iot-hub-devguide-sdks.md).
+Information om de SDK: er som du kan använda för att ta emot meddelanden från molnet till enheten finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-Om du vill prova ta emot meddelanden från moln till enhet finns i den [skicka moln till enhet](iot-hub-csharp-csharp-c2d.md) självstudien.
+Om du vill prova att ta emot meddelanden från molnet till enheten läser du själv studie kursen [Skicka moln till enhet](iot-hub-csharp-csharp-c2d.md) .

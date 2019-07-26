@@ -1,6 +1,6 @@
 ---
-title: Undersöka aviseringar med Azure Sentinel-förhandsgranskning | Microsoft Docs
-description: Använd den här självstudiekursen om du vill lära dig hur du undersöker aviseringar med Azure Sentinel.
+title: Undersök aviseringar med Azure Sentinel Preview | Microsoft Docs
+description: Använd den här självstudien för att lära dig att undersöka aviseringar med Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,48 +13,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e20f6fc0dc8dbe02b09490f62ce84af12aa31b87
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621240"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370704"
 ---
-# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Självstudier: Identifiera hot med Azure Sentinel-förhandsgranskning
+# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Självstudier: Identifiera hot med Azure Sentinel Preview
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-När du [anslutna datakällor](quickstart-onboard.md) Azure Sentinel du vill meddelas när misstänkta något händer. Så att du kan göra detta, avancerade Sentinel-Azure kan du skapa aviseringsregler som genererar ärenden som du kan tilldela och använda djupt undersöka avvikelser och hot i din miljö. 
+När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta kan du använda Azure Sentinel för att skapa avancerade aviserings regler, som genererar ärenden som du kan tilldela och använda för att skapa en djup undersökning av avvikelser och hot i din miljö. 
 
-Den här kursen hjälper dig att identifiera hot med Azure Sentinel.
+Den här självstudien hjälper dig att identifiera hot med Azure Sentinel.
 > [!div class="checklist"]
-> * Skapa regler för identifiering
-> * Reagera på hot
+> * Skapa identifierings regler
+> * Automatisera hot svar
 
-## <a name="create-detection-rules"></a>Skapa regler för identifiering
+## <a name="create-detection-rules"></a>Skapa identifierings regler
 
-Om du vill undersöka fall måste du först skapa regler för identifiering. 
+Om du vill undersöka ärenden måste du först skapa identifierings regler. 
 
 > [!NOTE]
-> Aviseringar som genereras i Azure Sentinel är tillgängliga via [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Referera till den [Microsoft Graph säkerhetsvarningar dokumentation](https://aka.ms/graphsecurityreferencebetadocs) för ytterligare information och integreringspartners.
+> Aviseringar som genereras i Azure Sentinel är tillgängliga via [Microsoft Graph säkerhet](https://aka.ms/securitygraphdocs). Mer information och integrerings partner finns i [dokumentationen om Microsoft Graph säkerhets aviseringar](https://aka.ms/graphsecurityreferencebetadocs) .
 
-Regler för identifiering baseras på de typer av hot och avvikelser som kan vara misstänkta i din miljö som du vill veta om utan att se till att de visas, undersökas och åtgärdas. 
+Identifierings regler baseras på de typer av hot och avvikelser som kan vara misstänkta i din miljö som du vill veta mer om direkt, vilket säkerställer att de är på plats, undersökas och åtgärdas. 
 
-1. I Azure-portalen under Azure Sentinel väljer **Analytics**.
+1. I Azure Portal under Azure Sentinel väljer du **analys**.
 
    ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
 
-2. I den övre menyraden klickar du på **+ Lägg till**.  
+2. Klicka på **+ Lägg till**i den översta meny raden.  
 
    ![Skapa aviseringsregel](./media/tutorial-detect-threats/create-alert-rule.png)
 
-3. Under **skapa varningsregel**, ange ett beskrivande namn och ange den **allvarlighetsgrad** efter behov. 
+3. Under **skapa aviserings regel**anger du ett beskrivande namn och anger **allvarlighets graden** vid behov. 
 
-4. Skapa frågan i Log Analytics och klistra in den i den **Set varningsregel** fält. Här är en exempelfråga som skulle varnar dig när en avvikande antal resurser skapas i Azure-aktivitet.
+4. Skapa frågan i Log Analytics och klistra in den i fältet **Ange aviserings regel** . Här är en exempel fråga som varnar dig när ett avvikande antal resurser skapas i Azure Activity.
 
         AzureActivity
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
@@ -62,42 +62,52 @@ Regler för identifiering baseras på de typer av hot och avvikelser som kan var
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
 
    > [!NOTE]
-   > Fråga längden ska vara mellan 1 till 10 000 tecken och får inte innehålla ”Sök *” och ”union *”.
+   > Frågans längd ska vara mellan 1 och 10000 tecken och får inte innehålla "search *" och "union *".
 
 
-5. I den **Entitetsmappning** använder fälten under **entitetstypen** att mappa kolumnerna i frågan till entitetsfält som identifieras av Azure Sentinel. Mappa relevant kolumn i frågan som du skapade i Log Analytics till lämplig entitetsfält för varje fält. Välj relevant kolumnnamnet under den **egenskapen**. Varje entitet innehåller flera fält, till exempel SID, GUID, osv. Du kan mappa entiteten enligt något av fälten, inte bara den övre nivån entiteten.
+5. I avsnittet **entitets mappning** använder du fälten under **entitetstyp** för att mappa kolumnerna i din fråga till entitetsfält som identifieras av Azure Sentinel. För varje fält mappar du relevant kolumn i frågan som du skapade i Log Analytics till lämpligt entitetsfält. Välj det relevanta kolumn namnet under **egenskapen**. Varje entitet innehåller flera fält, till exempel SID, GUID, osv. Du kan mappa entiteten enligt något av fälten, inte bara entiteten på den översta nivån.
 
-6. Definiera villkor för aviseringsutlösare **aviseringsutlösare**. Detta definierar villkoren som utlöser aviseringen. 
+6. Definiera villkor för aviserings Utlös under aviserings utlösare. Detta definierar de villkor som utlöser aviseringen. 
 
-7. Ange den **frekvens** för hur ofta frågan ska köras - som ofta som var femte minut eller sällan en gång om dagen. 
+7. Ange **frekvensen** för hur ofta frågan ska köras – så ofta som var femte minut eller som sällan som en gång om dagen. 
 
-8. Ange den **Period** för att styra tidsperioden för hur mycket data som frågan körs på – till exempel det kan köras varje timme över 60 minuters data.
+8. Ange **perioden** för att kontrol lera tidsfönstret för hur mycket data frågan körs på, till exempel kan den köras varje timme i 60 minuter med data.
 
-9. Du kan också ange den **Undertryckning**. Undertryckning är användbart när du vill stoppa dubbla aviseringar från utlöses för samma incident. På så sätt kan stoppa du aviseringar från utlöses under en viss period. Detta kan hjälpa dig att undvika dubbla aviseringar för samma incident och gör att du kan utelämna på varandra följande aviseringar för en viss tidsperiod. Till exempel om den **Avisera schemaläggning** **frekvens** har angetts till 60 minuter, och **Avisera schemaläggning Period** är inställd på två timmar, och resultatet av frågan omvandlingsjobbet det definierade Tröskelvärde för den utlöser en avisering två gånger, när när först har identifierats under de senaste 60 minuterna och igen när den är i de första 60 minuterna 2 timmars data håller på att samplas. Vi rekommenderar att Undertryckning ska vara den mängd tid som anges i aviseringen perioden om en avisering utlöses. I vårt exempel kanske du vill ange Undertryckning i 60 minuter så att aktiveras aviseringar endast händelser som inträffade under den senaste timmen.
+9. Du kan också ställa in undertrycket. Under tryckning är användbart när du vill förhindra att dubbla aviseringar utlöses för samma incident. På så sätt kan du förhindra att aviseringar utlöses under en viss period. Detta kan hjälpa dig att undvika dubbla aviseringar för samma incident och gör att du kan ignorera aviseringar i följd under en viss tids period. Om till exempel frekvensen för **aviserings schemaläggning**  är inställt på 60 minuter och tids gränsen för **aviserings perioden** är inställd på två timmar och frågeresultaten överskrider det definierade tröskelvärdet utlöses en avisering två gånger, en gång när den identifieras första gången under de senaste 60 minuterna och igen när det är inom de första 60 minuterna av de 2 timmars data som samplas. Vi rekommenderar att om en avisering utlöses bör under tryckningen vara för den mängd tid som anges i aviserings perioden. I vårt exempel kanske du vill ställa in Undertryckning i 60 minuter, så att aviseringar endast utlöses för händelser som har inträffat under den senaste timmen.
 
-8. När du klistrar in frågan i den **Set varningsregel** fältet kan du direkt se en simulering av aviseringen under **alert Logic-simulering** så att du kan få förståelse av hur mycket data kommer att genererade under ett visst tidsintervall för aviseringen som du skapade. Detta beror på vad du har angett för **frekvens** och **tröskelvärdet**. Om du ser att i genomsnitt aviseringen utlöses för ofta, kommer du att ange hur många resultat som är högre så att den är över din genomsnittliga baslinje.
+8. När du har klistrat in frågan i fältet **Ange aviserings regel** kan du direkt se en simulering av aviseringen under **logik aviserings simulering** så att du kan få reda på hur mycket data som genereras under ett angivet tidsintervall för aviseringen du har skapat. Detta beror på vad du anger för **frekvens** och **tröskel**. Om du ser detta i genomsnitt utlöses aviseringen för ofta, du vill ange antalet resultat högre så att det är högre än den genomsnittliga bas linjen.
 
-9. Klicka på **skapa** att initiera dina varningsregeln. När aviseringen har skapats skapas ett ärende som innehåller aviseringen. Du kan se de definierade identifieringsreglerna som rader i den **säkerhetsanalyser** fliken. Du kan också se antalet matchningar för varje regel - aviseringar som har utlösts. I den här listan kan du aktivera, inaktivera eller ta bort varje regel. Du kan också höger-Välj ellipsen (...) i slutet av raden för varje avisering redigera, inaktivera, klona, visa matchningar eller ta bort en regel. Den **Analytics** är ett galleri med alla aktiva Varningsregler, inklusive mallar du aktiverar och aviseringsregler skapas från mallar.
+9. Klicka på **skapa** för att initiera aviserings regeln. När aviseringen har skapats skapas ett ärende som innehåller aviseringen. Du kan se de definierade identifierings reglerna som rader på fliken **säkerhets analys** . Du kan också se antalet matchningar för varje regel – aviseringarna utlöses. I den här listan kan du aktivera, inaktivera eller ta bort varje regel. Du kan också högerklicka på ellipsen (...) i slutet av raden för varje avisering för att redigera, inaktivera, klona, Visa matchningar eller ta bort en regel. **Analytics** -sidan är ett galleri med alla aktiva aviserings regler, inklusive mallar som du aktiverar och aviserings regler som du skapar baserat på mallar.
 
-1. Resultatet av varningsreglerna kan ses i den **fall** sidan där du kan sortera, [undersöka fall](tutorial-investigate-cases.md), och åtgärda hoten.
+1. Resultaten av aviserings reglerna kan visas på sidan **ärenden** där du kan prioritering, [undersöka ärenden](tutorial-investigate-cases.md)och åtgärda hot.
 
 
 
-## <a name="respond-to-threats"></a>Reagera på hot
+## <a name="automate-threat-responses"></a>Automatisera hot svar
 
-Azure Sentinel ger dig två huvudsakliga alternativ för att svara på hot med hjälp av spelböcker. Du kan ange en spelbok ska köras automatiskt när en avisering utlöses eller du kan köra en spelbok manuellt som svar på en avisering.
+SIEM/SOC-team kan vara översvämmas med regelbundna säkerhets aviseringar. Volymen av de aviseringar som genereras är så stor att de tillgängliga säkerhets administratörerna är överbelastade. Detta resulterar i en alltför ofta i situationer där många aviseringar inte kan undersökas, vilket gör att organisationen blir sårbar för attacker som går förlorade. 
 
-- Ange en spelbok ska köras automatiskt när en avisering utlöses när du konfigurerar spelboken. 
+Många, om inte de flesta, av dessa aviseringar följer återkommande mönster som kan åtgärdas med hjälp av bestämda och definierade reparations åtgärder. Med Azure Sentinel kan du definiera din reparation i spel böcker. Det är också möjligt att ställa in real tids automatisering som en del av din Spelbok-definition så att du fullständigt kan automatisera ett definierat svar på specifika säkerhets aviseringar. Genom att använda real tids automatisering kan svars grupper avsevärt minska sin arbets belastning genom att helt automatisera de rutinmässiga svaren på återkommande typer av aviseringar, så att du kan koncentrera dig på unika aviseringar, analysera mönster, Hot jakt och mycket annat.
 
-- Kör en spelbok från inuti aviseringen manuellt genom att klicka på **visa spelböcker** och sedan välja en spelbok ska köras.
+Automatisera svar:
 
+1. Välj den avisering som du vill automatisera svaret för.
+1. Från navigerings menyn i Azure Sentinel-arbetsytan väljer du **analys**.
+1. Välj den avisering som du vill automatisera. 
+1. På sidan **Redigera aviserings regel** under **real tids automatisering**väljer du den **Utlös ande Spelbok** som du vill köra när den här varnings regeln matchas.
+1. Välj **Spara**.
+
+   ![Real tids automatisering](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+Du kan dessutom manuellt reparera en avisering genom att köra en Spelbok inifrån aviseringen genom att klicka på **Visa spel böcker** och sedan välja en Spelbok som ska köras. Information om hur du skapar en ny Spelbok eller redigerar en befintlig finns i [arbeta med spel böcker i Azure Sentinel](tutorial-respond-threats-playbook.md).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lärde du dig att komma igång med att identifiera hot med hjälp av Azure Sentinel. 
+I den här självstudien har du lärt dig hur du kommer igång med att identifiera hot med Azure Sentinel. 
 
-Lär dig hur du kan automatisera dina svar på hot genom [hur du svarar på hot med hjälp av automatiserade spelböcker](tutorial-respond-threats-playbook.md).
+Information om hur du automatiserar dina svar på hot, [hur du svarar på hot med automatiserade spel böcker](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
-> [Svara på hot](tutorial-respond-threats-playbook.md) att automatisera dina svar på hot.
+> [Svara på hot](tutorial-respond-threats-playbook.md) för att automatisera dina svar på hot.
 

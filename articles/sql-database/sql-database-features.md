@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 7f5b4cfa8b61259987fc7a6d1f1556af52160519
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5bdbd9bebfb819ae18de884a014c574e12c53ebf
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261036"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371706"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQL Server
 
@@ -48,21 +48,21 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Inbyggda funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se enskilda funktioner | Ja – se [lagrade procedurer, funktioner, utlösa skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) | 
 | [BULK INSERTs instruktion](https://docs.microsoft.com/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Ja, men precis från Azure Blob Storage som källa. | Ja, men precis från Azure Blob Storage som källa – se [skillnader](sql-database-managed-instance-transact-sql-information.md#bulk-insert--openrowset). |
 | [Certifikat och asymmetriska nycklar](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Ja, utan åtkomst till fil systemet för `BACKUP` och `CREATE` -åtgärder. | Ja, utan åtkomst till fil system för `BACKUP` och `CREATE` -åtgärder – se [certifikat skillnader](sql-database-managed-instance-transact-sql-information.md#certificates). | 
-| [Registrering av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nej | Ja |
+| [Registrering av ändrings data – CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nej | Ja |
 | [Spårning av ändringar](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Sortering – databas](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Ja | Ja |
 | [Sortering-Server/instans](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nej, standard sorteringen `SQL_Latin1_General_CP1_CI_AS` av logisk server används alltid. | Ja, kan ställas in när [instansen skapas](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) och kan inte uppdateras senare. |
 | [Columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja – [Premium-nivå, standard nivå – S3 och över, generell användning nivå och affärskritisk nivåer](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
-| [CLR (Common Language Runtime)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nej | Ja, men utan åtkomst till fil systemet i `CREATE ASSEMBLY` instruktionen – se [CLR-skillnader](sql-database-managed-instance-transact-sql-information.md#clr) |
+| [CLR (Common Language Runtime) – CLR](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nej | Ja, men utan åtkomst till fil systemet i `CREATE ASSEMBLY` instruktionen – se [CLR-skillnader](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Det finns för närvarande inget [fel i återställning, inklusive återställning av tidpunkt](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database). Detta är ett fel som kommer att åtgärdas snart. |
 | [Inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Ja | Ja |
 | [Kontroll över nyckelord för flödes språk](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Ja | Ja |
 | [Autentiseringsuppgifter](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | Ja, men endast [databasens begränsade autentiseringsuppgifter](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Ja, men endast **Azure Key Vault** och `SHARED ACCESS SIGNATURE` stöds se [information](sql-database-managed-instance-transact-sql-information.md#credential) |
-| [Frågor mellan databaser](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Inga – se [elastiska frågor](sql-database-elastic-query-overview.md) | Ja, plus [elastiska frågor](sql-database-elastic-query-overview.md) |
+| [Namn frågor mellan databaser/tre delar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Inga – se [elastiska frågor](sql-database-elastic-query-overview.md) | Ja, plus [elastiska frågor](sql-database-elastic-query-overview.md) |
 | [Transaktioner över flera databaser](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Nej | Ja, inom instansen. Se [skillnader i länkad server](sql-database-managed-instance-transact-sql-information.md#linked-servers) för frågor över olika instanser. |
 | [Markörer](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Ja |Ja |
 | [Data komprimering](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Ja |Ja |
-| [Database mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Nej | Ja |
+| [Database mail – DbMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Nej | Ja |
 | [Databas spegling](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | Nej | [Nej](sql-database-managed-instance-transact-sql-information.md#database-mirroring) |
 | [Konfigurations inställningar för databas](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) | Ja | Ja |
 | [Databas ögonblicks bilder](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | Nej | Nej |
@@ -78,11 +78,11 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Ja](sql-database-dynamic-data-masking-get-started.md)| [Ja](sql-database-dynamic-data-masking-get-started.md) |
 | [Händelseaviseringar](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Inga-se [aviseringar](sql-database-insights-alerts-portal.md) | Nej |
 | [Uttryck](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja | Ja |
-| [Utökade händelser](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Några-se [utökade händelser i SQL Database](sql-database-xevent-db-diff-from-svr.md) | Ja – Visa [skillnader i utökade händelser](sql-database-managed-instance-transact-sql-information.md#extended-events) |
+| [Utökade händelser (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Några-se [utökade händelser i SQL Database](sql-database-xevent-db-diff-from-svr.md) | Ja – Visa [skillnader i utökade händelser](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nej | Nej |
 | [Filer och fil grupper](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Endast primär fil grupp | Ja. Fil Sök vägar tilldelas automatiskt och fil platsen kan inte anges i `ALTER DATABASE ADD FILE` [instruktionen](sql-database-managed-instance-transact-sql-information.md#alter-database-statement).  |
 | [-](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nej | [Nej](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
-| [Full texts ökning](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Ja, men ord separatorer från tredje part stöds inte | Ja, men [ord separatorer från tredje part stöds inte](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
+| [Full texts ökning (FT: er)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Ja, men ord separatorer från tredje part stöds inte | Ja, men [ord separatorer från tredje part stöds inte](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
 | [Funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se enskilda funktioner | Ja – se [lagrade procedurer, funktioner, utlösa skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Diagram bearbetning](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
 | [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja – [endast Premium-och affärskritisk nivåer](sql-database-in-memory.md) | Ja – [endast affärskritisk nivå](sql-database-managed-instance.md) |
@@ -111,7 +111,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Resurs styrning](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nej | Ja |
 | [Restore-instruktioner](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nej | Ja, med obligatoriska `FROM URL` alternativ för de säkerhets kopierings filer som placerats på Azure Blob Storage. Se [återställnings skillnader](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Återställ databasen från en säkerhets kopia](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Från automatiska säkerhets kopieringar – se [SQL Database återställning](sql-database-recovery-using-backups.md) | Från automatiska säkerhets kopieringar – se [SQL Database återställning](sql-database-recovery-using-backups.md) och fullständiga säkerhets kopior som finns på Azure Blob Storage – se [skillnader i säkerhets kopiering](sql-database-managed-instance-transact-sql-information.md#backup) |
-| [Återställ databasen till SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Nej. | Nej, eftersom SQL Server databas motor som används i hanterade instanser har högre version än en RTM-version av SQL Server som används lokalt. |
+| [Återställ databasen till SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Nej. Använd BACPAC eller BCP i stället för intern återställning. | Nej, eftersom SQL Server databas motor som används i hanterade instanser har högre version än en RTM-version av SQL Server som används lokalt. Använd BACPAC, BCP eller transaktionell replikering i stället. |
 | [Säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Ja | Ja |
 | [Semantisk sökning](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | Nej | Nej |
 | [Serie nummer](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) | Ja | Ja |
@@ -148,11 +148,9 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [Automatiska redundansgrupper](sql-database-auto-failover-group.md) | Ja – alla tjänst nivåer förutom storskalig | Ja, i [offentlig för hands version](sql-database-auto-failover-group.md)|
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | Ja | Nej |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Ja | Ja |
-| [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Nej | Nej |
 | [Geo-återställning](sql-database-recovery-using-backups.md#geo-restore) | Ja – alla tjänst nivåer förutom storskalig | Ja – använder [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Skalnings arkitektur](sql-database-service-tier-hyperscale.md) | Ja | Nej |
 | [Långsiktig kvarhållning av säkerhets kopior – LTR](sql-database-long-term-retention.md) | Ja, Behåll automatiskt säkerhets kopieringar upp till 10 år. | Inte ännu. Använd `COPY_ONLY` [manuella säkerhets kopieringar](sql-database-managed-instance-transact-sql-information.md#backup) som en tillfällig lösning. |
-| [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nej | Nej |
 | [Principbaserad hantering](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Nej | Nej |
 | Resurspooler | Ja, som [elastiska pooler](sql-database-elastic-pool.md) | Den inbyggda-en enda hanterade instansen kan ha flera databaser som delar samma resurspool |
 | Skala upp eller ned (online) | Ja, du kan antingen ändra DTU eller reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. | Ja, du kan ändra reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. | 
@@ -165,7 +163,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av Azure SQL Database och körs på Azure SSIS Integration Runtime (IR), se [Skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Information om hur du jämför SSIS-funktionerna i SQL Database Server och en hanterad instans finns i [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av hanterade instanser och körs på Azure SSIS Integration Runtime (IR), se [Skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Om du vill jämföra SSIS-funktionerna i SQL Database och hanterade instanser, se [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No- [se Power BI](https://docs.microsoft.com/power-bi/) | No- [se Power BI](https://docs.microsoft.com/power-bi/) |
-| [Query Performance Insights](sql-database-query-performance.md) | Ja | Nej. Använd inbyggda rapporter i SQL Server Management Studio och Azure Data Studio. |
+| [Fråga prestanda insikter (QPI)](sql-database-query-performance.md) | Ja | Nej. Använd inbyggda rapporter i SQL Server Management Studio och Azure Data Studio. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | Delvis, den ger begränsad åtkomst med [VNet](sql-database-vnet-service-endpoint-rule-overview.md) -slutpunkter | Ja, den hanterade instansen matas in i kundens VNet. Se [undernät](sql-database-managed-instance-transact-sql-information.md#subnet) och [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
 
 ## <a name="tools"></a>Verktyg
@@ -176,10 +174,12 @@ Azure SQL Database har stöd för olika data verktyg som kan hjälpa uou att han
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Ja | Ja |
 | [BACPAC-fil (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Ja – se [SQL Database export](sql-database-export.md) | Ja – se [SQL Database export](sql-database-export.md) |
 | [BACPAC-fil (importera)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Ja – se [SQL Database import](sql-database-import.md) | Ja – se [SQL Database import](sql-database-import.md) |
+| [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Nej | Nej |
+| [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nej | Nej |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja [version 18,0 och högre](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Inga – se [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |
-| [System Center – Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) | [Ja](https://www.microsoft.com/download/details.aspx?id=38829) | Nej |
+| [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Ja](https://www.microsoft.com/download/details.aspx?id=38829) | Nej |
 
 ## <a name="next-steps"></a>Nästa steg
 

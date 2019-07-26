@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90687d0229d3ad74c287bb4aff4885dc26932e40
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: HT
+ms.openlocfilehash: be9e6374d92fbb7bb1c4b5a2a9e154119c5baf87
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227277"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377490"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuera en säker, Azure-hanterad arbets Station
 
@@ -28,7 +28,7 @@ Du måste välja en profil innan du kan distribuera lösningen. Du kan använda 
 > [!NOTE]
 > Använd någon av profilerna efter behov. Du kan flytta till en annan profil genom att tilldela den i Intune.
 
-| Profil | Låg | Optimerad | Hög | Specialiserade | Ordentligt | Isolerad |
+| Profil | Låg | Optimerad | Hög | Specialiserade | Säkrad | Isolerad |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Användare i Azure AD | Ja | Ja | Ja | Ja | Ja | Ja |
 | Intune-hanterad | Ja | Ja | Ja | Ja | Ja | Ja |
@@ -134,7 +134,7 @@ Så här konfigurerar du villkorlig åtkomst från Azure Portal:
        * Inkludera- **användare och grupper** – Välj gruppen **skydda arbets Stations användare** som skapades tidigare.
        * Exkludera – **användare och grupper** – välj din organisations konto för nöd åtkomst.
      * **Molnappar** – inkludera **alla molnappar**.
-    * Åtkomst kontroller
+    * Åtkomstkontroller
       * **Grant** -Välj alternativ knappen **bevilja åtkomst** .
         * **Kräv Multi-Factor Authentication**.
         * **Kräv att enheten ska markeras som kompatibel**.
@@ -229,14 +229,14 @@ Mer information finns i [Windows Defender Avancerat skydd](https://docs.microsof
 
 Slutför lösningen genom att ladda ned och köra lämpligt skript. Hitta nedladdnings länkarna för önskad **profil nivå**:
 
-| Profil | Hämtnings plats | Sökväg |
+| Profil | Hämtningsplats | Filnamn |
 | --- | --- | --- |
 | Låg säkerhet | Gäller inte |  Gäller inte |
 | Förbättrad säkerhet | https://aka.ms/securedworkstationgit | Enhanced-Workstation-windows10-(1809). ps1 |
 | Hög säkerhet  | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809).ps1 |
 | Specialiserade | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-windows10 (1803) SecurityBaseline. ps1 |
 | Specialiserad kompatibilitet * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
-| Ordentligt | https://aka.ms/securedworkstationgit | Secure-Workstation-windows10-(1809)-SecurityBaseline. ps1 |
+| Säkrad | https://aka.ms/securedworkstationgit | Secure-Workstation-windows10-(1809)-SecurityBaseline. ps1 |
 
 \*Specialiserad kompatibilitet är ett skript som tillämpar den specialiserade konfigurationen i NCSC windows10 SecurityBaseline.
 
@@ -245,7 +245,7 @@ När skriptet har körts kan du göra uppdateringar av profiler och principer i 
 * Här kan du hitta de enhets konfigurations profiler för Intune som skapats av skripten: **Azure Portal** **Microsoft Intune**enhetskonfigurations > profiler. >  > 
 * Här kan du hitta efterlevnadsprinciper för Intune-enheter som skapats av skripten: **Azure Portal** **Microsoft Intune**enhetensefterlevnadsprinciper > . >  > 
 
-Om du vill granska ändringar som gjorts av skripten kan du exportera profilerna. På så sätt kan du bestämma ytterligare härdningar som kan krävas enligt beskrivningen i SECCON-dokumentationen.
+Om du vill granska ändringar som gjorts av skripten kan du exportera profilerna. På så sätt kan du bestämma ytterligare härdningar som kan krävas enligt beskrivningen i SECCON- [dokumentationen](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Kör Intune-skriptet `DeviceConfiguration_Export.ps1` för data export från [DeviceConfiguration GiuHub-lagringsplatsen](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) för att exportera alla aktuella Intune-profiler.
 

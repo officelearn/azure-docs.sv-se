@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/10/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 642f63966533416be7b86bae362d24cd286706b3
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: c4c9476f4b29e004fba4bc5f754d6dbfa1f3a195
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68306135"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444239"
 ---
 ## <a name="preventative"></a>Förebyggande
 
@@ -30,7 +30,7 @@ ms.locfileid: "68306135"
 | Stöd för nätverks isolering och brand vägg| Ja |  |
 | Stöd för Tvingad tunnel trafik| Ja | Se [Konfigurera Tvingad tunnel trafik med Azure Resource Manager distributions modell](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|

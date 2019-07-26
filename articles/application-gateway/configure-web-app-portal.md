@@ -1,87 +1,105 @@
 ---
-title: Hantera trafik till appar för flera klienter, till exempel App service web apps med Azure Application Gateway – Portal
-description: Den här artikeln innehåller råd om hur du konfigurerar Azure App service-webbappar som medlemmar i serverdelspool på en befintlig eller ny Programgateway.
+title: Hantera trafik till appar för flera klienter, till exempel App Service Web Apps med Azure Application Gateway – Portal
+description: Den här artikeln innehåller rikt linjer för hur du konfigurerar Azure App tjänst webbappar som medlemmar i backend-poolen på en befintlig eller ny Programgateway.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/11/2019
 ms.author: absha
-ms.openlocfilehash: 4dae04c14f9132c54dcc0575ccb2841a4742a626
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dee4859c57172a703517848510a31b70ff1f24cd
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831221"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370423"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurera App Service med Application Gateway
 
-Application gateway kan du ha en Azure App service-webapp eller andra tjänster med flera innehavare som en medlem i serverdelspoolen. 
+Eftersom App Service är en tjänst för flera innehavare i stället för en dedikera distribution använder den värd rubriken i den inkommande begäran för att lösa begäran till rätt app service-slutpunkt. DNS-namnet på programmet, som i sin tur är det DNS-namn som är associerat med programgatewayen fram till App Service, skiljer sig vanligt vis från domän namnet för Server delens app service. Därför är värd rubriken i den ursprungliga begäran som togs emot av Application Gateway inte samma som värd namnet för backend-tjänsten. På grund av detta, om inte värd huvudet i begäran från programgatewayen till Server delen ändras till Server dels tjänstens värdnamn, kan inte Server delen för flera klient organisationer lösa begäran till rätt slut punkt.
+
+Application Gateway innehåller en växel som `Pick host name from backend address` anropar och som åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen. Den här funktionen aktiverar stöd för Server delar för flera klient organisationer, till exempel Azure App service och API Management. 
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 >
-> - Skapa en serverdelspool och Lägg till en App Service
-> - Skapa HTTP-inställningar och anpassad avsökning med ”Välj värdnamnet” växlar aktiverat
+> - Skapa en backend-pool och Lägg till en App Service
+> - Skapa HTTP-inställningar och anpassad avsökning med växeln Välj värdnamn aktiverat
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Application gateway: Om du inte har en befintlig application gateway kan du läsa hur du [skapar en application gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-- Apptjänst: Om du inte har en befintlig App service kan du läsa [dokumentationen till App service](https://docs.microsoft.com/azure/app-service/).
+- Application Gateway: Om du inte har en befintlig Application Gateway, se How to [Create a Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- App Service: Om du inte har en befintlig app service, se [dokumentationen för App Service](https://docs.microsoft.com/azure/app-service/).
 
-## <a name="add-app-service-as-backend-pool"></a>Lägg till App service som backend-pool
+## <a name="add-app-service-as-backend-pool"></a>Lägg till App Service som backend-pool
 
-1. Öppna Konfigurationsvy för application gateway i Azure-portalen.
+1. Öppna konfigurations visningen av Application Gateway i Azure Portal.
 
-2. Under **serverdelspooler**, klicka på **Lägg till** att skapa en ny serverdelspool.
+2. Under **backend-pooler**klickar du på **Lägg till** för att skapa en ny backend-pool.
 
-3. Ange ett lämpligt namn till i serverdelspoolen. 
+3. Ange ett lämpligt namn för backend-poolen. 
 
-4. Under **mål**, klickar du på listrutan och välj **Apptjänster** som alternativ.
+4. Under **mål**klickar du på list rutan och väljer **app Services** som alternativ.
 
-5. En listruta som nedanför den **mål** listrutan visas som innehåller en lista med din App Services. Välj App Service som du vill lägga till backend-pool och klicka på Lägg till den här listrutan.
+5. En listruta direkt under List rutan **mål** visas som innehåller en lista över dina app Services. I den här List rutan väljer du App Service som du vill lägga till som medlem i en server del och klickar på Lägg till.
 
-   ![App service-serverdelen](./media/configure-web-app-portal/backendpool.png)
+   ![App Service-backend](./media/configure-web-app-portal/backendpool.png)
+   
+   > [!NOTE]
+   > List rutan fyller bara i de app-tjänster som finns i samma prenumeration som din Application Gateway. Om du vill använda en app-tjänst som finns i en annan prenumeration än den som Application Gateway är i stället för att välja **app Services** i list rutan **mål** väljer du **IP-adress eller värdnamn** och anger värdnamn (exempel. azurewebsites.net) för App Service.
 
-## <a name="create-http-settings-for-app-service"></a>Skapa HTTP-inställningar för App service
+## <a name="create-http-settings-for-app-service"></a>Skapa HTTP-inställningar för App Service
 
-1. Under **HTTP-inställningar**, klickar du på **Lägg till** att skapa en ny HTTP-inställning.
+1. Under **http-inställningar**klickar du på **Lägg till** för att skapa en ny http-inställning.
 
-2. Ange ett namn för HTTP-inställning och du kan aktivera eller inaktivera Cookie-baserad tillhörighet enligt dina behov.
+2. Ange ett namn för HTTP-inställningen och du kan aktivera eller inaktivera cookie-baserad tillhörighet enligt ditt krav.
 
-3. Välj protokollet som HTTP eller HTTPS enligt ditt användningsområde. 
+3. Välj protokollet som HTTP eller HTTPS enligt ditt användnings fall. 
 
-4. Markera kryssrutan för **för App Service** och det så aktiveras den **skapa en avsökning med Välj värdnamnet från serverdelsadressen** och **Välj värdnamnet från serverdelsadressen** alternativ. Det här alternativet kommer också automatiskt skapa en avsökning med växeln aktiverad och koppla den till den här HTTP-inställning.
+   > [!NOTE]
+   > Om du väljer HTTPS behöver du inte ladda upp något autentiseringscertifikat eller ett betrott rot certifikat för att vitlista App Service-Dataservern eftersom App Service är en betrodd Azure-tjänst.
 
-5. Klicka på **OK** att skapa HTTP-inställning.
+4. Markera kryss rutan om du vill **använda App Service** . Observera att växlarna `Create a probe with pick host name from backend address` och `Pick host name from backend address` kommer automatiskt att aktive ras.`Pick host name from backend address` åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen.  
+
+   `Create a probe with pick host name from backend address`kommer automatiskt att skapa en hälso avsökning och koppla den till den här HTTP-inställningen. Du behöver inte skapa någon annan hälso avsökning för den här HTTP-inställningen. Du kan kontrol lera att en ny avsökning med <HTTP Setting name> namnet <Unique GUID> har lagts till i listan över hälso avsökningar och att den redan har `Pick host name from backend http settings enabled`växeln.
+
+   Om du redan har en eller flera http-inställningar som används för app service och om dessa http-inställningar använder samma protokoll som det du använder i den som du skapar, så får du en listruta i stället för `Create a probe with pick host name from backend address` växeln. Välj en av c anpassade avsökningar. Detta beror på att eftersom det redan finns en HTTP-inställning med App Service, och därför finns det också en hälso avsökning som har `Pick host name from backend http settings enabled` växeln. Välj anpassad avsökning i list rutan.
+
+5. Klicka på **OK** för att skapa http-inställningen.
 
    ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
 
    ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
 
-## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>Skapa regel för att knyta lyssnaren och Serverdelspoolen HTTP-inställning
 
-1. Under **regler**, klickar du på **grundläggande** att skapa en ny grundläggande regel.
 
-2. Ange ett lämpligt namn och välj den lyssnare som kommer att acceptera inkommande begäranden för App service.
+## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>Skapa regel för att knyta lyssnare, backend-pool och HTTP-inställning
 
-3. I den **serverdelspool** listrutan Välj serverdelen programpool du skapade ovan.
+1. Under **regler**klickar du på **grundläggande** för att skapa en ny grundläggande regel.
 
-4. I den **HTTP-inställning** listrutan Välj HTTP ställningen du skapade ovan.
+2. Ange ett lämpligt namn och välj den lyssnare som ska acceptera inkommande begär Anden för App Service.
 
-5. Klicka på **OK** att spara den här regeln.
+3. I list rutan **backend-pool** väljer du den backend-pool som du skapade ovan.
+
+4. I list rutan **http-inställningar** väljer du den http-inställning som du skapade ovan.
+
+5. Spara regeln genom att klicka på **OK** .
 
    ![Regel](./media/configure-web-app-portal/rule.png)
 
+## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Ytterligare konfiguration i händelse av omdirigering till app Services relativa sökväg
+
+När App Service skickar ett svar för omdirigering till klienten för att omdirigera till dess relativa sökväg (till exempel en omdirigering från contoso.azurewebsites.net/path1 till contoso.azurewebsites.net/path2), använder den samma värdnamn i plats rubriken för sitt svar som det i den begäran som den fått från Application Gateway. Klienten kommer därför att göra begäran direkt till contoso.azurewebsites.net/path2 i stället för att gå igenom Application Gateway (contoso.com/path2). Att kringgå Application Gateway är inte önskvärt.
+
+Om du är i ditt användnings fall finns det scenarier där App Service måste skicka ett svar på omdirigering till klienten, utföra de [ytterligare stegen för att skriva om plats rubriken](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
+
 ## <a name="restrict-access"></a>Begränsa åtkomst
 
-Webbprogram som distribueras i de här exemplen använder offentliga IP-adresser som kan nås direkt från Internet. Detta hjälper med felsökning när du lär dig om en ny funktion och försök nya saker. Men om du planerar att distribuera en funktion i produktion, ska du lägga till fler begränsningar.
+Webbapparna som distribueras i de här exemplen använder offentliga IP-adresser som kan nås direkt från Internet. Detta hjälper till med fel sökning när du lär dig mer om en ny funktion och testar nya saker. Men om du planerar att distribuera en funktion till produktion, vill du lägga till fler begränsningar.
 
-Ett sätt som du kan begränsa åtkomsten till dina webbprogram är att använda [Azure App Service statiska IP-adressbegränsningar](../app-service/app-service-ip-restrictions.md). Du kan till exempel begränsa webbappen så att den endast tar emot trafik från programgatewayen. Använd funktionen app service IP-begränsning visa en lista över application gateway VIP som den enda adressen med åtkomst.
+Ett sätt som du kan begränsa åtkomsten till dina webbappar är att använda [Azure App Service statiska IP-begränsningar](../app-service/app-service-ip-restrictions.md). Du kan till exempel begränsa webbappen så att den bara tar emot trafik från Application Gateway. Använd funktionen för IP-begränsning i App Service för att Visa programgatewayens VIP som den enda adressen med åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om App service och andra stöd för flera klienter med application gateway i [multiklienttjänst support med application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
-
-Om svaret från din App service omdirigera till App service-URL, se hur du [felsöka omdirigering till App service-URL problemet](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Mer information om app service och andra stöd för flera innehavare med Application Gateway finns i [service support för flera innehavare med Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).

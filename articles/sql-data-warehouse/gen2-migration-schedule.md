@@ -1,6 +1,6 @@
 ---
 title: Migrera din befintliga Azure SQL Data Warehouse till Gen2 | Microsoft Docs
-description: Anvisningar för att migrera ett befintligt informationslager Gen2 och migreringen schemalägga per region.
+description: Instruktioner för att migrera ett befintligt informations lager till Gen2 och schemat för migrering per region.
 services: sql-data-warehouse
 author: mlee3gsd
 ms.author: anjangsh
@@ -9,151 +9,152 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.date: 07/22/2019
+ms.openlocfilehash: d4724672510d6ccbbc819691d621400cb00d8c9a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839664"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405454"
 ---
-# <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
+# <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informations lager till Gen2
 
-Microsoft hjälper sänka på ingångsnivå kostnaden för att köra ett data warehouse.  Compute lägre nivåer kan hantera krävande frågor är nu tillgängliga för Azure SQL Data Warehouse. Läs hela tillkännagivandet [lägre compute nivå av support för Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Nytt erbjudande är tillgängligt i de regioner som anges i tabellen nedan. För regioner som stöds, kan befintliga Gen1 informationslager uppgraderas till Gen2 via antingen:
+Microsoft hjälper till att öka kostnaden på ingångs nivå för att köra ett informations lager.  Lägre beräknings nivåer som kan hantera krävande frågor är nu tillgängliga för Azure SQL Data Warehouse. Läs hela meddelandet [lägre beräknings nivå stöd för Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Det nya erbjudandet är tillgängligt i de regioner som anges i tabellen nedan. För regioner som stöds kan befintliga gen1-datalager uppgraderas till Gen2 via antingen:
 
-- **Automatiska uppgraderingen:** Automatiska uppgraderingar starta inte så snart som tjänsten är tillgänglig i en region.  När automatiska uppgraderingar startar i en viss region, ska enskilda DW-uppgraderingar äga rum under ditt valda underhållsschema.
-- [**Lokal uppgradera till Gen2:** ](#self-upgrade-to-gen2) Du kan styra när du ska uppgradera genom att göra en lokal uppgradera till Gen2. Om din region inte stöds ännu, kan du återställa från en återställningspunkt direkt till en Gen2-instans i en region som stöds.
+- **Den automatiska uppgraderings processen:** Automatiska uppgraderingar startar inte så fort tjänsten är tillgänglig i en region.  När automatiska uppgraderingar startar i en viss region kommer enskilda DW-uppgraderingar att äga rum under det valda underhålls schemat.
+- [**Själv uppgradering till Gen2:** ](#self-upgrade-to-gen2) Du kan styra när du ska uppgradera genom att göra en själv uppgradering till Gen2. Om din region ännu inte stöds, kan du återställa från en återställnings punkt direkt till en Gen2-instans i en region som stöds.
 
-## <a name="automated-schedule-and-region-availability-table"></a>Automatiserad schema och tabellen för Region tillgänglighet
+## <a name="automated-schedule-and-region-availability-table"></a>Automatiserad schema-och region tillgänglighets tabell
 
-I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån är tillgänglig och när automatiska uppgraderingar startar. Datumen kan ändras. Kontrollera tillbaka när din region blir tillgänglig.
+I följande tabell sammanfattas efter region när den nedre Gen2 beräknings nivån är tillgänglig och när automatiska uppgraderingar startar. Datumen kan komma att ändras. Kom tillbaka till se när din region blir tillgänglig.
 
-\* Anger ett visst schema för regionen är inte tillgänglig för tillfället.
+\*anger att ett angivet schema för regionen inte är tillgängligt för tillfället.
 
-| **Region** | **Lägre Gen2 som är tillgängliga** | **Automatiska uppgraderingar börjar** |
+| **Region** | **Lägre tillgängliga Gen2** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
-| Östra Australien |Tillgängligt |Den 1 juni 2019 |
-| Sydöstra Australien |Tillgängligt |Den 1 maj 2019 |
-| Södra Brasilien |Tillgängligt |Den 1 juni 2019 |
-| Centrala Kanada |Tillgängligt |Den 1 juni 2019 |
-| Östra Kanada |\* |\* |
-| Centrala USA |Tillgängligt |Den 1 juni 2019 |
-| Östra Kina |\* |\* |
-| Kina, östra 2 |Tillgängligt |Endast Gen2 |
-| Norra Kina |\* |\* |
-| Kina, norra 2 |Tillgängligt |Endast Gen2 |
-| Östasien |Tillgängligt |Den 1 juni 2019 |
-| East US |Tillgängligt |Den 1 juni 2019 |
-| USA, östra 2 |Tillgängligt |Den 1 juni 2019 |
-| Frankrike, centrala |Tillgängligt |Den 1 juni 2019 |
-| Centrala Tyskland |\* |\* |
-| Tyskland, västra centrala |Den 1 september 2019|Den 2 januari 2020 |
-| Centrala Indien |Tillgängligt |Den 1 juni 2019 |
-| Södra Indien |Tillgängligt |Den 1 juni 2019 |
-| Östra Japan |Tillgängligt |Den 1 juni 2019 |
-| Västra Japan |Tillgängligt |Den 1 maj 2019 |
-| Sydkorea, centrala |Tillgängligt |Den 1 juni 2019 |
-| Sydkorea, södra |Tillgängligt |Den 1 maj 2019 |
-| Norra centrala USA |Tillgängligt |Den 1 maj 2019 |
-| Norra Europa |Tillgängligt |Den 1 juni 2019 |
-| Sydafrika, norra |12 juli 2019 |Endast Gen2 |
-| Södra centrala USA |Tillgängligt |Den 1 juni 2019 |
-| Sydostasien |Tillgängligt |Den 1 juni 2019 |
-| Förenade Arabemiraten, norra |20 juli 2019 |Endast Gen2 |
-| Storbritannien, södra |Tillgängligt |Den 1 juni 2019 |
-| Storbritannien, västra |Tillgängligt |Endast Gen2 |
-| Västra centrala USA |2 september 2019 |Den 2 januari 2020|
-| Västra Europa |Tillgängligt |Den 1 juni 2019 |
-| Västra USA |Tillgängligt |Den 1 juni 2019 |
-| Västra USA 2 |Tillgängligt |Den 1 juni 2019 |
+| Östra Australien |Tillgängligt |Slutfört |
+| Sydöstra Australien |Tillgängligt |Slutfört |
+| Södra Brasilien |Tillgängligt |Slutfört |
+| Centrala Kanada |Tillgängligt |Slutfört |
+| Östra Kanada |Den 1 juni 2020 |Den 1 juli 2020 |
+| Centrala USA |Tillgängligt |Slutfört |
+| Kina, östra |\* |\* |
+| Kina, östra 2 |Tillgängligt |Slutfört |
+| Kina, norra |\* |\* |
+| Kina, norra 2 |Tillgängligt |Slutfört |
+| Östasien |Tillgängligt |Slutfört |
+| East US |Tillgängligt |Slutfört |
+| USA, östra 2 |Tillgängligt |Slutfört |
+| Frankrike, centrala |Tillgängligt |Pågår |
+| Tyskland, centrala |\* |\* |
+| Tyskland, västra centrala |1 september 2019|1 oktober 2019 |
+| Centrala Indien |Tillgängligt |Slutfört |
+| Södra Indien |Tillgängligt |Slutfört |
+| Västra Indien |Den 1 juli 2019 |Pågår |
+| Östra Japan |Tillgängligt |Slutfört |
+| Västra Japan |Tillgängligt |Slutfört |
+| Sydkorea, centrala |Tillgängligt |Slutfört |
+| Sydkorea, södra |Tillgängligt |Slutfört |
+| Norra centrala USA |Tillgängligt |Slutfört |
+| Norra Europa |Tillgängligt |Slutfört |
+| Sydafrika, norra |12 juli 2019 |Slutfört |
+| Södra centrala USA |Tillgängligt |Slutfört |
+| Sydostasien |Tillgängligt |Slutfört |
+| Förenade Arabemiraten, norra |20 juli 2019 |Slutfört |
+| Storbritannien, södra |Tillgängligt |Pågår |
+| Storbritannien, västra |Tillgängligt |Pågår |
+| Västra centrala USA |1 september 2019 |1 oktober 2019|
+| Västra Europa |Tillgängligt |Slutfört |
+| Västra USA |Tillgängligt |Slutfört |
+| Västra USA 2 |Tillgängligt |Slutfört |
 
-## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocessen
+## <a name="automatic-upgrade-process"></a>Automatisk uppgraderings process
 
-Baserat på Tillgänglighetsdiagrammet ovan kan kommer vi att schemalägga automatiska uppgraderingar för Gen1-instanser. För att undvika oväntade avbrott på tillgängligheten för datalagret, schemaläggs automatiserade uppgraderingar under ditt underhållsschema. Möjligheten att skapa en ny instans av Gen1 inaktiveras i regioner som håller på att automatiskt uppgraderas till Gen2. Gen1 upphör att gälla när de automatiska uppgraderingarna har slutförts. Mer information om scheman finns [visa ett underhållsschema](viewing-maintenance-schedule.md)
+Baserat på tillgänglighets diagrammet ovan kommer vi att schemalägga automatiska uppgraderingar för dina gen1-instanser. För att undvika oväntade avbrott när tillgängligheten för data lagret är tillgänglig schemaläggs de automatiska uppgraderingarna under ditt underhålls schema. Möjligheten att skapa en ny gen1-instans kommer att inaktive ras i regioner som genomgår automatisk uppgradering till Gen2. Gen1 kommer att bli inaktuell när de automatiska uppgraderingarna har slutförts. Mer information om scheman finns i [Visa ett underhålls schema](viewing-maintenance-schedule.md)
 
-Uppgraderingen kommer att omfatta en kort minskning i anslutningen (cirka 5 minuter) som vi starta om ditt informationslager.  När ditt informationslager har startats om, kommer det att helt tillgängliga för användning. Försämrade prestanda kan dock uppstå medan uppgraderingen fortsätter att uppgradera datafiler i bakgrunden. Den totala tiden för försämrade prestanda varierar beroende på storleken på dina filer.
+Uppgraderings processen innebär en kort nedrullningsbar anslutning (cirka 5 min) när vi startar om data lagret.  När data lagret har startats om är det helt tillgängligt för användning. Det kan dock uppstå sämre prestanda när uppgraderings processen fortsätter att uppgradera datafilerna i bakgrunden. Hur länge prestandaförsämringen pågår beror på storleken på dina filer.
 
-Du kan också påskynda uppgraderingsprocessen för data-filen genom att köra [Alter Index rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller med hjälp av en större SLO och resurs klass efter omstarten.
-
-> [!NOTE]
-> ALTER Index rebuild är en offline-åtgärd och tabellerna är inte tillgängliga förrän återskapandet har slutförts.
-
-## <a name="self-upgrade-to-gen2"></a>Lokal uppgradera till Gen2
-
-Du kan välja att uppgradera själv genom att följa dessa steg på ett befintligt Gen1-informationslager. Om du väljer att själva uppgradera måste du slutföra den innan den automatiska uppgraderingen påbörjas i din region. På så sätt kan du undvika att risk för automatiska uppgraderingar som orsakar en konflikt.
-
-Det finns två alternativ när du utför en lokal uppgradering.  Du kan antingen uppgradera din aktuella data warehouse på plats eller du kan återställa ett informationslager för Gen1 till en Gen2-instans.
-
-- [Uppgradera på plats](upgrade-to-latest-generation.md) – det här alternativet kommer att uppgradera befintliga Gen1 informationslagret till Gen2. Uppgraderingen kommer att omfatta en kort minskning i anslutningen (cirka 5 minuter) som vi starta om ditt informationslager.  När ditt informationslager har startats om, kommer det att helt tillgängliga för användning. Om det uppstår problem under uppgraderingen kan du öppna en [supportförfrågan](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) och referera till ”Gen2 uppgraderingen” som möjlig orsak.
-- [Uppgradera från återställningspunkt](sql-data-warehouse-restore.md) – skapa en användardefinierad återställningspunkt i aktuella Gen1 data warehouse och Återställ sedan direkt till en Gen2-instans. Befintliga Gen1 datalagret förblir på plats. När återställningen har slutförts, blir informationslager Gen2 fullt tillgänglig för användning.  När du har kört alla processer för testning och validering på den återställda Gen2-instansen, kan den ursprungliga Gen1 instansen tas bort.
-
-   - Steg 1: Från Azure-portalen [skapa en återställningspunkt för en användardefinierad](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
-   - Steg 2: När du återställer från en användardefinierad återställningspunkt genom att ange ”prestanda nivån” Gen2 önskad nivå.
-
-Medan uppgraderingen fortsätter att uppgradera datafiler i bakgrunden kan det uppstå en tidsperiod försämrade prestanda. Den totala tiden för försämrade prestanda varierar beroende på storleken på dina filer.
-
-Om du vill påskynda bakgrundsprocess för migrering av data, kan du omedelbart tvinga dataförflyttning genom att köra [Alter Index rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller du skulle köras mot en större SLO och resurs-klass.
+Du kan också påskynda uppgraderings processen för data filen genom att köra [Alter index Rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller med ett större service nivå mål och en resurs klass efter omstarten.
 
 > [!NOTE]
-> ALTER Index rebuild är en offline-åtgärd och tabellerna är inte tillgängliga förrän återskapandet har slutförts.
+> Alter index Rebuild är en offline-åtgärd och tabellerna kommer inte att vara tillgängliga förrän återställningen har slutförts.
 
-Om du får problem med ditt data warehouse, skapa en [supportförfrågan](sql-data-warehouse-get-started-create-support-ticket.md) och referera till ”Gen2 uppgraderingen” som möjlig orsak.
+## <a name="self-upgrade-to-gen2"></a>Själv uppgradering till Gen2
 
-Mer information finns i [uppgradera till Gen2](upgrade-to-latest-generation.md).
+Du kan välja att själv uppgradera genom att följa dessa steg på ett befintligt gen1 data lager. Om du väljer att själv uppgradera måste du slutföra den innan den automatiska uppgraderings processen börjar i din region. På så sätt ser du till att du undviker en risk för automatiska uppgraderingar som orsakar en konflikt.
 
-## <a name="migration-frequently-asked-questions"></a>Vanliga och frågor svar om migrering
+Det finns två alternativ när du utför en själv uppgradering.  Du kan antingen uppgradera det aktuella data lagret på plats eller återställa ett gen1 data lager till en Gen2-instans.
 
-**F: Kostar Gen2 identiskt Gen1?**
+- [Uppgradera på plats – med](upgrade-to-latest-generation.md) det här alternativet uppgraderas ditt befintliga gen1-datalager till Gen2. Uppgraderings processen innebär en kort nedrullningsbar anslutning (cirka 5 min) när vi startar om data lagret.  När data lagret har startats om är det helt tillgängligt för användning. Om det uppstår problem under uppgraderingen öppnar du en [support förfrågan](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) och en referens "Gen2 uppgradering" som möjlig orsak.
+- [Uppgradera från återställnings punkt](sql-data-warehouse-restore.md) – skapa en användardefinierad återställnings punkt på det aktuella gen1 data lagret och återställ sedan direkt till en Gen2-instans. Det befintliga gen1-datalagret förblir på plats. När återställningen har slutförts kommer ditt Gen2 data lager att vara fullständigt tillgängligt för användning.  När du har kört alla testnings-och validerings processer på den återställda Gen2-instansen kan den ursprungliga gen1-instansen tas bort.
+
+   - Steg 1: [Skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal)från Azure Portal.
+   - Steg 2: När du återställer från en användardefinierad återställnings punkt ställer du in "prestanda nivå" på din önskade Gen2-nivå.
+
+Det kan uppstå en prestandaförsämring när datafilerna uppgraderas i bakgrunden. Hur länge prestandaförsämringen pågår beror på storleken på dina filer.
+
+Om du vill påskynda migreringen av bakgrunds data kan du omedelbart framtvinga data förflyttning genom att köra [Alter index Rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller som du frågar efter en större service nivå mål och resurs klass.
+
+> [!NOTE]
+> Alter index Rebuild är en offline-åtgärd och tabellerna kommer inte att vara tillgängliga förrän återställningen har slutförts.
+
+Om du stöter på problem med ditt informations lager kan du skapa en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) och en referens "Gen2 uppgradering" som möjlig orsak.
+
+Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
+
+## <a name="migration-frequently-asked-questions"></a>Vanliga frågor och svar om migrering
+
+**F: Kostar Gen2 samma som gen1?**
 
 - S: Ja.
 
-**F: Hur påverkar uppgraderingarna Mina automatiserade skript?**
+**F: Hur påverkar uppgraderingar mina Automation-skript?**
 
-- S: Alla automationsskript som refererar till ett servicenivåmål ska ändras så att de motsvarar Gen2-motsvarighet.  Se information [här](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- S: Alla Automation-skript som refererar till ett service nivå mål ska ändras så att de motsvarar Gen2 motsvarande.  Se information [här](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**F: Hur lång tid en lokal uppgradera normalt tar?**
+**F: Hur lång tid tar en själv uppgradering normalt?**
 
-- S: Du kan uppgradera på plats eller uppgradera från en återställningspunkt.  
-   - Uppgradering på plats innebär ditt informationslager att pausa och återuppta under ett ögonblick.  En bakgrundsprocess fortsätter medan datalagret är online.  
-   - Det tar längre tid om du uppgraderar via en återställningspunkt eftersom uppgraderingen går igenom processen fullständig återställning.
+- S: Du kan uppgradera på plats eller uppgradera från en återställnings punkt.  
+   - Om du uppgraderar på plats kommer ditt informations lager att bli tillfälligt pausat och återuppta.  En bakgrunds process kommer att fortsätta när data lagret är online.  
+   - Det tar längre tid om du uppgraderar via en återställnings punkt, eftersom uppgraderingen går igenom hela återställnings processen.
 
-**F: Hur lång tid tar automatiskt uppgraderingen?**
+**F: Hur lång tid tar det att uppgradera automatiskt?**
 
-- S: Den faktiska stilleståndstiden för uppgraderingen är bara den tid det tar att pausa och återuppta tjänsten, som är mellan 5-10 minuter. Efter det kort driftstopp körs bakgrunden en lagringsmigrering. Hur lång tid för bakgrundsprocessen beror på storleken på ditt informationslager.
+- S: Den faktiska stilleståndstiden som uppgraderingen medför är bara den tid det tar att pausa och återuppta tjänsten, vilket tar mellan 5–10 minuter. Efter det korta driftstoppet körs en lagringsmigrering i en bakgrundsprocess. Hur lång tid bakgrundsprocessen tar beror på storleken på ditt informationslager.
 
-**F: När den här automatiska uppgraderingen sker?**
+**F: När sker den här automatiska uppgraderingen?**
 
-- S: Under ditt underhållsschema. Utnyttja ditt valda underhållsschema minimerar avbrott för din verksamhet.
+- S: Under ditt underhålls schema. Genom att dra nytta av det valda underhålls schemat minimeras störningar i verksamheten.
 
-**F: Vad gör jag om min bakgrund uppgraderingsprocessen verkar ha fastnat?**
+**F: Vad ska jag göra om min bakgrunds uppgraderings process verkar vara fastnad?**
 
- - S: Starta en reindex av Columnstore-tabeller. Observera att omindexering i tabellen kommer vara offline under den här åtgärden.
+ - S: Starta en Omindexering av dina columnstore-tabeller. Observera att Omindexering av tabellen kommer att vara offline under den här åtgärden.
 
-**F: Vad händer om Gen2 har inte den servicenivåmål jag har på Gen1?**
-- S: Om du kör en DW600 eller DW1200 på Gen1, är det bäst att använda DW500c eller DW1000c respektive eftersom Gen2 ger mer minne, resurser och högre prestanda än Gen1.
+**F: Vad händer om Gen2 inte har service nivå målet på gen1?**
+- S: Om du kör en DW600 eller DW1200 på gen1, rekommenderar vi att du använder DW500c eller DW1000c eftersom Gen2 ger mer minne, resurser och högre prestanda än gen1.
 
 **F: Kan jag inaktivera geo-säkerhetskopiering?**
-- S: Nej. GEO-säkerhetskopiering är en företagsfunktion att bevara dina data warehouse tillgänglighet om en region blir otillgänglig. Öppna en [supportförfrågan](sql-data-warehouse-get-started-create-support-ticket.md) om du har fler frågor.
+- S: Nej. Geo-Backup är en företags funktion som bevarar tillgängligheten för informations lagret i händelse av att en region blir otillgänglig. Öppna en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) om du har ytterligare frågor.
 
-**F: Finns det någon skillnad i T-SQL-syntaxen mellan Gen1 och Gen2?**
+**F: Finns det en skillnad i T-SQL-syntaxen mellan gen1 och Gen2?**
 
-- S: Det finns ingen ändring i syntaxen T-SQL-språk från Gen1 till Gen2.
+- S: Det finns ingen ändring i språkvarianten T-SQL från gen1 till Gen2.
 
-**F: Stöder Gen2 Underhåll Windows?**
+**F: Stöder Gen2 underhålls fönster?**
 
 - S: Ja.
 
-**F: Kommer jag att kunna skapa en ny instans för Gen1 när du har uppgraderat min region?**
+**F: Kommer jag att kunna skapa en ny gen1-instans när min region har uppgraderats?**
 
-- S: Nej. När du har uppgraderat en region kommer skapandet av nya Gen1 instanser att inaktiveras.
+- S: Nej. När en region har uppgraderats kommer skapandet av nya gen1-instanser att inaktive ras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppgraderingssteg](upgrade-to-latest-generation.md)
-- [Underhållsperioder](maintenance-scheduling.md)
-- [Övervakare för hälsa för resursen](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Uppgraderings steg](upgrade-to-latest-generation.md)
+- [Underhålls fönster](maintenance-scheduling.md)
+- [Övervakaren resurs hälsa](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Granska innan du påbörjar en migrering](upgrade-to-latest-generation.md#before-you-begin)
-- [Uppgradera på plats och uppgradera från en återställningspunkt](upgrade-to-latest-generation.md)
-- [Skapa en användardefinierad återställningspunkt](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
+- [Uppgradera på plats och uppgradera från en återställnings punkt](upgrade-to-latest-generation.md)
+- [Skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
 - [Lär dig hur du återställer till Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
-- [Öppna en supportbegäran för SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Öppna en SQL Data Warehouse support förfrågan](https://go.microsoft.com/fwlink/?linkid=857950)

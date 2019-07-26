@@ -1,6 +1,6 @@
 ---
 title: Simulera fel i Azure Service Fabric-appar | Microsoft Docs
-description: Hur du kan skydda dina tjänster mot korrekt och okontrollerad fel.
+description: Hur du kan förstärka dina tjänster mot ett smidigt och haveri fel.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb89b66231c949627c7ffbf99ebe9b5dd379ca2
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60865280"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348716"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulera fel under tjänstarbetsbelastningar
-Testningsscenarier i Azure Service Fabric kan utvecklare oroa dig inte om hantering av enskilda fel. Det finns scenarier, men där en explicit interleaving av klienten arbetsbelastning och fel kan behövas. Interleaving av klienten arbetsbelastning och fel ser du till att tjänsten faktiskt utför en åtgärd när fel inträffar. Beroende kontrollnivå som ger möjlighet att testa kan det vara vid en viss arbetsbelastning körningen exakt. Den här induktion av fel på olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
+Med testnings scenarier i Azure Service Fabric kan utvecklare inte bekymra sig om att hantera enskilda fel. Det finns dock scenarier där det kan krävas en uttrycklig överta klient arbets belastning och-haverier. Genom att överlåta klientens arbets belastning och fel ser du till att tjänsten faktiskt utför en åtgärd när fel inträffar. På grund av den kontroll nivå som testare tillhandahåller kan detta vara en exakt punkt för arbets belastnings körningen. Denna induktion av fel i olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
 
-## <a name="sample-custom-scenario"></a>Anpassade Exempelscenario
-Det här testet visas ett scenario som interleaves arbetsbelastningen i företag med [fel korrekt och okontrollerad](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Fel bör orsakas i mitten av tjänståtgärder eller beräkning för bästa resultat.
+## <a name="sample-custom-scenario"></a>Exempel på anpassat scenario
+Det här testet visar ett scenario som överlåter affärs arbets belastningen med ett [korrekt och haveri avbrott](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Felen bör induceras i mitten av tjänst åtgärder eller beräkning för bästa resultat.
 
-Låt oss gå igenom ett exempel på en tjänst som exponerar fyra arbetsbelastningar: A, B, C och D. Varje motsvarar en uppsättning av arbetsflöden och kan beräkning, lagring, eller en blandning. För enkelhetens skull, kommer vi abstrahera ut arbetsbelastningarna i vårt exempel. De olika fel som körs i det här exemplet är:
+Låt oss gå igenom ett exempel på en tjänst som visar fyra arbets belastningar: A, B, C och D. Var och en motsvarar en uppsättning arbets flöden och kan vara beräkning, lagring eller en blandning. För enkelhetens skull kommer vi att sammansluta arbets belastningarna i vårt exempel. De olika felen som körs i det här exemplet är:
 
-* RestartNode: Okontrollerad fel att simulera en omstart av datorn.
-* RestartDeployedCodePackage: Okontrollerad fel att simulera värdprocess för tjänsten kraschar.
-* RemoveReplica: Korrekt fel att simulera repliken tas bort.
-* MovePrimary: Korrekt fel att simulera repliken flyttar utlöstes av Service Fabric-belastningsutjämnare.
+* RestartNode: Det går inte att simulera en omstart av datorn.
+* RestartDeployedCodePackage: Ett fel som inte går att simulera tjänstens värd process kraschar.
+* RemoveReplica: Fel vid simulering av replik borttagning.
+* En moveprimary Fel som gör det möjligt att simulera replik flyttningar som utlöses av Service Fabric belastningsutjämnare.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -116,7 +116,7 @@ class Test
             // Run the selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
             // Validate the health and stability of the service.
-            await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
+            await fabricClient.TestManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
             // Wait for the workload to finish successfully.
             await workloadTask;
@@ -128,16 +128,16 @@ class Test
         switch (fault)
         {
             case ServiceFabricFaults.RestartNode:
-                await client.ClusterManager.RestartNodeAsync(selector, CompletionMode.Verify);
+                await client.FaultManager.RestartNodeAsync(selector, CompletionMode.Verify);
                 break;
             case ServiceFabricFaults.RestartCodePackage:
-                await client.ApplicationManager.RestartDeployedCodePackageAsync(applicationName, selector, CompletionMode.Verify);
+                await client.FaultManager.RestartDeployedCodePackageAsync(applicationName, selector, CompletionMode.Verify);
                 break;
             case ServiceFabricFaults.RemoveReplica:
-                await client.ServiceManager.RemoveReplicaAsync(selector, CompletionMode.Verify, false);
+                await client.FaultManager.RemoveReplicaAsync(selector, CompletionMode.Verify, false);
                 break;
             case ServiceFabricFaults.MovePrimary:
-                await client.ServiceManager.MovePrimaryAsync(selector.PartitionSelector);
+                await client.FaultManager.MovePrimaryAsync(selector.PartitionSelector);
                 break;
         }
     }

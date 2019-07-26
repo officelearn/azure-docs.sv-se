@@ -1,94 +1,79 @@
 ---
-title: Vanliga frågor och kända problem med identity protection (uppdateras) i Azure Active Directory | Microsoft Docs
-description: Vanliga frågor och kända problem med identity protection (uppdateras) i Azure Active Directory.
+title: Vanliga frågor och svar med identitets skydd (uppdaterat) i Azure Active Directory | Microsoft Docs
+description: Vanliga frågor och svar och kända problem med identitets skydd (uppdateras) i Azure Active Directory.
 services: active-directory
-keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/24/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452694"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333900"
 ---
-# <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Vanliga frågor och kända problem med identity protection (uppdateras) i Azure Active Directory
+# <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Vanliga frågor och svar med identitets skydd (uppdaterat) i Azure Active Directory
 
+## <a name="dismiss-user-risk-known-issues"></a>Ignorera kända problem med användar risker
 
-## <a name="dismiss-user-risk-known-issues"></a>Stäng användarrisk kända problem
+**Ignorera användar risk** i klassiskt identitets skydd anger aktören i användarens risk historik i identitets skydd (uppdaterat) till **Azure AD**.
 
-**Stäng användarrisk** i klassisk Identity Protection anger aktören i användarens Riskhistorik i Identity Protection (uppdateras) till **Azure AD**.
+**Ignorera användar risk** i identitets skydd (uppdateras) ställer in aktören i användarens risk historik i Identity Protection (uppdaterad) till  **\<administratörens namn med en hyperlänk som pekar på användarens blad\>** .
 
+Det finns ett aktuellt känt problem som orsakar fördröjning i det avstängda användar risk flödet. Om du har en "användar risk princip" slutar den här principen att gälla för avstängda användare i minuter att klicka på "Stäng användar risk". Det finns dock kända fördröjningar med UXen som uppdaterar "risk tillstånd" för avstängda användare. Som en lösning kan du uppdatera sidan på webb läsar nivån för att se den senaste användaren "risk status".
 
-**Stäng användarrisk** i Identity Protection (uppdateras) anger aktören i användarens Riskhistorik i Identity Protection (uppdateras) till **\<administratörens namn med en hyperlänk som pekar på användarens blad\>** .
+## <a name="risky-users-report-known-issues"></a>Riskfyllda användare rapportera kända problem
 
-Det finns en aktuell känt problem som orsakar fördröjningar i användarflödet risk avsked. Om du har en ”användarprincip” sluta den här principen att använda avvisade användare inom minuter efter att klicka på ”Stäng användarrisk”. Men finns det kända förseningar med UX uppdaterar ”Risk statusen” Avvisade användare. Uppdatera sidan på nivå webbläsare om du vill se senaste användare ”risktillstånd” som en lösning.
+Frågor i fältet **username** är Skift läges känsliga, medan frågor i fältet **namn** är Case-oberoende.
 
+Om du omväxlar **visas datum som** döljer den **senaste uppdaterade** kolumnen. Om du vill läsa kolumnen klickar du på **kolumner** överst på bladet riskfyllda användare.
 
-## <a name="risky-users-report-known-issues"></a>Riskfylld användare rapporterar kända problem
+**Ignorera alla händelser** i klassiskt identitets skydd anger statusen för risk händelserna till **stängd (löst)** .
 
-Frågar på den **användarnamn** fält är skiftlägeskänsliga, vid frågor om den **namn** fält är fallet-oberoende.
+## <a name="risky-sign-ins-report-known-issues"></a>Kända problem med riskfyllda inloggnings rapporter
 
-Växla **visa datum som** döljer den **risken SENAST UPPDATERADES** kolumn. Att readd kolumnen Klicka **kolumner** överst på bladet riskfylld användare.
-
-**Stäng alla händelser** i klassisk Identity Protection anger statusen för riskhändelser till **stängd (löst)** .
-
-
-## <a name="risky-sign-ins-report-known-issues"></a>Rapporten om riskfyllda inloggningar kända problem
-
-**Lösa** på en risk händelsen anger statusen till **användare skickas MFA som styrs av en princip för riskbaserad**.
-
+**Lösa** på en risk händelse anger statusen till **användare som godkände MFA med en riskfylld princip**.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-event"></a>Varför kan jag in min egen risknivåer för varje riskhändelsen?
+### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-event"></a>Varför kan jag inte ange egna risk nivåer för varje risk händelse?
 
-Risknivåer i Identity Protection baseras på precisionen för identifieringen och drivs av våra övervakade machine learning. Om du vill anpassa användarnas upplevelse presenteras administratör kan inkludera/exkludera vissa användare/grupper från Användarrisk och logga In principer för Åtkomstrisk.
+Risk nivåer i identitets skydd baseras på precisionen för identifiering och drivs av vår övervakade maskin inlärning. För att anpassa vad som händer med användare kan administratören ta med/undanta vissa användare/grupper från användar risken och inloggnings risk principerna.
 
+### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Varför matchar inte platsen för en inloggning var användaren verkligen är inloggad?
 
-### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Varför platsen för en inloggning inte matchar där användaren verkligen loggat in från?
+Mappning av IP-geolokalisering är en utmaning i hela branschen. Om du tycker att den plats som visas i inloggnings rapporten inte matchar den faktiska platsen kan du kontakta supporten. 
 
-IP-geoplats mappningen är en branschomfattande utmaning. Om du anser att den plats som anges i rapporten inloggningar inte matchar den faktiska platsen, kontaktar du support. 
+### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Hur fungerar återkopplings metoderna i identitets skydd?
 
+**Bekräfta komprometterat** (på inloggning) – informerar Azure AD Identity Protection att inloggningen inte har utförts av identitets ägaren och indikerar ett problem.
 
-### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Hur fungerar återkopplingsmekanismerna i Identity Protection?
+- När du får den här feedbacken flyttar vi inloggnings-och användar risk tillstånd till **bekräftat komprometterad** och risk nivå till **hög**.
 
-**Bekräfta komprometteras** (på en inloggning) – informerar Azure AD Identity Protection som inloggningen inte utförs av identitet ägare och anger en kompromiss.
-
-- Vid mottagning av denna feedback kan vi flytta risktillstånd inloggning och användare till **bekräftat komprometteras** och risknivå till **hög**.
-
-- Dessutom ger vi informationen till vår machine learning-system för framtida förbättringar i riskbedömning.
+- Dessutom tillhandahåller vi informationen till våra Machine Learning-system för framtida förbättringar av riskbedömning.
 
     > [!NOTE]
-    > Om användaren redan har åtgärdats inte klickar du på **bekräfta komprometteras** eftersom flyttas risktillstånd inloggning och användare till **bekräftat komprometteras** och risknivå till **hög**.
+    > Om användaren redan har reparerats klickar du inte på **Bekräfta komprometterad** eftersom den flyttar in inloggnings-och användar risk tillstånd till **bekräftat komprometterad** och risk nivå till **hög**.
 
-**Bekräfta säker** (på en inloggning) – informerar du Azure AD Identity Protection att inloggningen har utförts av ägaren identitet och anger inte en kompromettering.
+**Bekräfta säker** (på inloggning) – informerar Azure AD Identity Protection att inloggningen har utförts av identitets ägaren och inte tyder på en kompromiss.
 
-- Vid mottagning av denna feedback kan vi flytta inloggning (inte användare) riskerar tillstånd att **bekräftat safe** och risknivå till **-** .
+- När du får den här feedbacken flyttar vi inloggnings läget (inte användarens) risk tillstånd till **bekräftat säkert** och risk nivån till **-** .
 
-- Dessutom ger vi informationen till vår machine learning-system för framtida förbättringar i riskbedömning.
+- Dessutom tillhandahåller vi informationen till våra Machine Learning-system för framtida förbättringar av riskbedömning.
 
     > [!NOTE]
-    > Om du tror att användaren inte komprometteras, kan du använda **stänga användarrisk** på användarnivå istället för att använda **bekräftat safe** på nivån för inloggning. En **stänga användarrisk** nivå på användaren stänger risken för användaren och alla föregående riskfyllda inloggningar och riskhändelser.
+    > Om du tror att användaren inte har komprometterats kan du använda **Ignorera användar risk** på användar nivå i stället för att använda **bekräftad säkerhet** på inloggnings nivå. En avstängnings **risk** på användar nivå stänger användar risken och alla tidigare riskfyllda inloggningar och risk händelser.
 
+### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Varför ser jag en användare med låg (eller högre) risk poäng, även om inga riskfyllda inloggningar eller risk händelser visas i Identity Protection?
 
+Med tanke på att användar risken är kumulativ och inte upphör att gälla, kan en användare ha risk för låg eller högre, även om det inte finns några senaste riskfyllda inloggningar eller risk händelser som visas i identitets skyddet. Detta kan inträffa om den enda skadliga aktiviteten på en användare ägde rum efter den tidsram för vilken vi lagrar information om riskfyllda inloggningar och risk händelser. Vi upphör inte att gälla för användar risken eftersom dåliga aktörer har varit kända i kundernas miljö över 140 dagar bakom en komprometterad identitet innan de ökar sin attack. Kunder kan granska användarens risk tids linje för att ta reda på varför en användare riskerar att gå till:`Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
-### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Varför ser jag en användare med låg (eller senare) riskpoäng, även om inga riskfyllda inloggningar eller riskhändelser visas i Identity Protection?
+### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Varför har en inloggning en "inloggnings risk (agg regering)" på hög nivå när de identifieringar som är associerade med den är av låg eller medelhög risk?
 
-Får användaren risk är kumulativ sin natur och inte upphör att gälla, en användare kan ha en användarrisk för låg eller ovan även om det finns inga senaste riskfyllda inloggningar eller riskhändelser som visas i Identity Protection. Detta kan inträffa om endast skadlig aktivitet för en användare som är drabbad, utöver en mer specifik tidsram som vi lagrar information om riskfyllda inloggningar och riskhändelser. Vi inte upphör att gälla användarrisk eftersom illvilliga aktörer har rapporterats vara i kundens miljö över 140 dagar bakom en komprometterad identitet innan av dig attacken. Kunder kan granska användarens risk tidslinje för att förstå varför en användare är i fara genom att gå till: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
-
-### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Varför en inloggning har en ”logga in (aggregering)” riskpoäng på hög när identifieringar som är associerade med det är för låg eller medelhög risk?
-
-Hög sammanställd riskpoäng kan baseras på andra funktioner i inloggningen eller det faktum att mer än en identifiering utlöses för att logga in. Och omvänt, loggar in kan ha en inloggningsrisk (mängdfunktioner) medium även om identifieringar som är associerade med inloggningen är av hög risk. 
+Hög mängd risk poängen kan baseras på andra funktioner i inloggningen eller det faktum att fler än en identifiering har Aktiver ATS för den inloggningen. En inloggning kan dessutom ha en inloggnings risk (agg regering) av medel, även om identifieringarna som är associerade med inloggningen är av hög risk. 

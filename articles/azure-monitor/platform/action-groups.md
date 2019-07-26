@@ -1,122 +1,122 @@
 ---
-title: Skapa och hantera åtgärdsgrupper i Azure portal
-description: Lär dig hur du skapar och hanterar åtgärdsgrupper i Azure-portalen.
+title: Skapa och hantera åtgärds grupper i Azure Portal
+description: Lär dig hur du skapar och hanterar åtgärds grupper i Azure Portal.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/08/2019
+ms.date: 7/22/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 842965aa49ae4cd546fe9c107107d2a2ceebebbb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 52d7b84fe6210d8a4d46814ad6749bed0463478e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705259"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405644"
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
-En åtgärdsgrupp är en samling av aviseringsinställningarna som definieras av ägaren av en Azure-prenumeration. Azure Monitor och Service Health-aviseringar använda åtgärdsgrupper för att meddela användare att en avisering har utlösts. Olika typer av aviseringar kan använda samma åtgärdsgruppen eller annan åtgärdsgrupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärdsgrupper i en prenumeration.
+# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
+En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
 
-Du kan konfigurera en åtgärd för att meddela en person med e-post eller SMS, de får en bekräftelse som anger de har lagts till i åtgärdsgruppen.
+Du konfigurerar en åtgärd för att meddela en person via e-post eller SMS, och de får en bekräftelse som anger att de har lagts till i åtgärds gruppen.
 
-Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-portalen.
+Den här artikeln visar hur du skapar och hanterar åtgärds grupper i Azure Portal.
 
 Varje åtgärd består av följande egenskaper:
 
-* **Namn på**: En unik identifierare i åtgärdsgruppen.  
-* **Åtgärdstyp**: Utföra åtgärden. Exempel är att skicka en röst-anrop, SMS, e-postmeddelandet, eller utlösa olika typer av automatiska åtgärder. Se typer senare i den här artikeln.
-* **Information om**: Den motsvarande information som varierar beroende på *åtgärdstyp*.
+* **Namn på**: En unik identifierare i åtgärds gruppen.  
+* **Åtgärds typ**: Åtgärden utfördes. Exempel på detta är att skicka ett röst samtal, SMS, e-post; eller utlöser olika typer av automatiserade åtgärder. Se typer längre fram i den här artikeln.
+* **Information**: Motsvarande information som varierar beroende på *Åtgärds typ*.
 
-Information om hur du använder Azure Resource Manager-mallar för att konfigurera åtgärdsgrupper finns i [åtgärd grupp Resource Manager-mallar](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Information om hur du använder Azure Resource Manager mallar för att konfigurera åtgärds grupper finns i [Åtgärds grupp Resource Manager-mallar](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-## <a name="create-an-action-group-by-using-the-azure-portal"></a>Skapa en grupp med hjälp av Azure-portalen
+## <a name="create-an-action-group-by-using-the-azure-portal"></a>Skapa en åtgärds grupp med hjälp av Azure Portal
 
-1. I den [Azure-portalen](https://portal.azure.com)väljer **övervakaren**. Den **övervakaren** fönstret konsoliderar alla dina övervakningsinställningar och -data i en vy.
+1. I [Azure Portal](https://portal.azure.com)väljer du **övervaka**. I **övervaknings** fönstret samlas alla övervaknings inställningar och data i en vy.
 
-    ![”Övervakningstjänsten”](./media/action-groups/home-monitor.png)
+    ![Tjänsten "Monitor"](./media/action-groups/home-monitor.png)
     
-1. Välj **aviseringar** därefter **hanterar åtgärder**.
+1. Välj **aviseringar** och välj sedan **Hantera åtgärder**.
 
-    ![Hantera åtgärder knappen](./media/action-groups/manage-action-groups.png)
+    ![Knappen hantera åtgärder](./media/action-groups/manage-action-groups.png)
     
-1. Välj **Lägg till åtgärdsgrupp**, och Fyll i fälten.
+1. Välj **Lägg till åtgärds grupp**och fyll i fälten.
 
-    ![Kommandot ”Lägg till åtgärdsgrupp”](./media/action-groups/add-action-group.png)
+    ![Kommandot Lägg till åtgärds grupp](./media/action-groups/add-action-group.png)
     
-1. Ange ett namn i den **namn på åtgärdsgrupp** och ange ett namn i den **kortnamnet** box. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+1. Ange ett namn i rutan **Åtgärds grupp namn** och ange ett namn i rutan **kort namn** . Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
-      ![Dialogrutan Lägg till åtgärdsgrupp ”](./media/action-groups/action-group-define.png)
+      ![Dialog rutan Lägg till åtgärds grupp](./media/action-groups/action-group-define.png)
 
-1. Den **prenumeration** rutan autofills med din aktuella prenumeration. Den här prenumerationen är där åtgärdsgruppen sparas.
+1. **Prenumerations** rutan fylls med den aktuella prenumerationen. Den här prenumerationen är den som åtgärds gruppen sparas i.
 
-1. Välj den **resursgrupp** i åtgärdsgruppen har sparats.
+1. Välj den **resurs grupp** som åtgärds gruppen ska sparas i.
 
 1. Definiera en lista med åtgärder. Ange följande för varje åtgärd:
 
     1. **Namn på**: Ange en unik identifierare för den här åtgärden.
 
-    1. **Åtgärdstyp**: Välj e-post/SMS/Push/röst, Logikapp, Webhook, ITSM eller Automation-Runbook.
+    1. **Åtgärds typ**: Välj e-post/SMS/push/röst, Logic app, webhook, ITSM eller Automation Runbook.
 
-    1. **Information om**: Baserat på typen av, ange ett telefonnummer, e-postadress, webhook URI, Azure-app, ITSM-anslutningen eller Automation-runbook. För ITSM-åtgärden dessutom ange **arbetsobjekt** och kräver att andra fält ITSM-verktyg.
+    1. **Information**: Baserat på åtgärds typ anger du ett telefonnummer, en e-postadress, en webhook-URI, en Azure-app, en ITSM-anslutning eller en Automation-Runbook. För ITSM-åtgärd anger du även **arbets objekt** och andra fält som ditt ITSM-verktyg kräver.
     
-    1. **Gemensamma avisering schemat**: Du kan välja att aktivera den [gemensamma avisering schemat](https://aka.ms/commonAlertSchemaDocs), som innehåller fördelen att en enda extensible och enhetlig avisering nyttolast över alla aviseringen tjänster i Azure Monitor.
+    1. **Gemensamt aviserings schema**: Du kan välja att aktivera det [gemensamma aviserings schemat](https://aka.ms/commonAlertSchemaDocs), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
 
-1. Välj **OK** skapa åtgärdsgruppen.
+1. Välj **OK** för att skapa åtgärds gruppen.
 
-## <a name="manage-your-action-groups"></a>Hantera din åtgärdsgrupper
+## <a name="manage-your-action-groups"></a>Hantera dina åtgärds grupper
 
-När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen av den **övervakaren** fönstret. Välj åtgärdsgrupp som du vill hantera att:
+När du har skapat en åtgärds grupp visas den i avsnittet **Åtgärds grupper** i **övervaknings** fönstret. Välj den åtgärds grupp som du vill hantera för att:
 
-* Lägga till, redigera eller ta bort åtgärder.
-* Ta bort åtgärdsgruppen.
+* Lägg till, redigera eller ta bort åtgärder.
+* Ta bort åtgärds gruppen.
 
-## <a name="action-specific-information"></a>Information om specifika
+## <a name="action-specific-information"></a>Åtgärds information
 
 > [!NOTE]
-> Se [prenumerationstjänsten för övervakning](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) för numeriska gränser för vart och ett av objekten nedan.  
+> Se [begränsningar för prenumerations tjänsten för övervakning](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) av numeriska gränser för varje objekt nedan.  
 
-### <a name="azure-app-push-notifications"></a>Azure-app Push-meddelanden
-Du kan ha ett begränsat antal åtgärder för Azure i en åtgärdsgrupp.
+### <a name="azure-app-push-notifications"></a>Push-meddelanden för Azure-appar
+Du kan ha ett begränsat antal Azure App-åtgärder i en åtgärds grupp.
 
 ### <a name="email"></a>Email
-E-postmeddelanden skickas från följande e-postadresser. Kontrollera att din e-filtrering har konfigurerats på rätt sätt
+E-postmeddelanden kommer att skickas från följande e-postadresser. Kontrol lera att e-postfiltreringen är korrekt konfigurerad
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-Du kan ha ett begränsat antal e poståtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikeln.
+Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 ### <a name="itsm"></a>ITSM
-ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../../azure-monitor/platform/itsmc-overview.md).
+ITSM-åtgärden kräver en ITSM-anslutning. Lär dig hur du skapar en [ITSM-anslutning](../../azure-monitor/platform/itsmc-overview.md).
 
-Du kan ha ett begränsat antal ITSM-åtgärder i en åtgärdsgrupp. 
+Du kan ha ett begränsat antal ITSM-åtgärder i en åtgärds grupp. 
 
 ### <a name="logic-app"></a>Logikapp
-Du kan ha ett begränsat antal Logic App-åtgärder i en åtgärdsgrupp.
+Du kan ha ett begränsat antal Logic app-åtgärder i en åtgärds grupp.
 
 ### <a name="function"></a>Funktion
-Funktionstangenterna för Funktionsappar som har konfigurerats som åtgärder är skrivskyddade via API-funktioner, som för närvarande kräver v2 funktionsappar att konfigurera appinställningen ”AzureWebJobsSecretStorageType” till ”filer”. Mer information finns i [ändras till hantering av nycklar i Functions V2]( https://aka.ms/funcsecrets).
+Funktions tangenterna för Function-appar som kon figurer ATS som åtgärder läses via Functions-API: t, som för närvarande krävs v2-funktions program för att konfigurera app-inställningen "AzureWebJobsSecretStorageType" till "Files". Mer information finns i [ändringar av nyckel hantering i functions v2]( https://aka.ms/funcsecrets).
 
-Du kan ha ett begränsat antal funktionen åtgärder i en åtgärdsgrupp.
+Du kan ha ett begränsat antal funktions åtgärder i en åtgärds grupp.
 
-### <a name="automation-runbook"></a>Automation-Runbook
-Referera till den [Azure-prenumerationstjänsten](../../azure-subscription-service-limits.md) för gränser för Runbook-nyttolaster.
+### <a name="automation-runbook"></a>Automation Runbook
+Se begränsningar för [Azure-prenumerations tjänsten](../../azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster.
 
-Du kan ha ett begränsat antal Runbook-åtgärder i en åtgärdsgrupp. 
+Du kan ha ett begränsat antal Runbook-åtgärder i en åtgärds grupp. 
 
 ### <a name="sms"></a>SMS
-Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) och [SMS Avisera beteende](../../azure-monitor/platform/alerts-sms-behavior.md) ytterligare viktig information.
+Mer viktig information finns i [frekvens begränsa information](./../../azure-monitor/platform/alerts-rate-limiting.md) och [SMS](../../azure-monitor/platform/alerts-sms-behavior.md) -aviseringar.
 
-Du kan ha ett begränsat antal SMS åtgärder i en åtgärdsgrupp.  
+Du kan ha ett begränsat antal SMS-åtgärder i en åtgärds grupp.  
 
 ### <a name="voice"></a>Röst
-Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikeln.
+Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-Du kan ha ett begränsat antal röst åtgärder i en åtgärdsgrupp.
+Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
 
 ### <a name="webhook"></a>Webhook
-Webhooks görs med hjälp av följande regler. Webhook-anrop görs ett nytt högst 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504, eller om HTTP-slutpunkten inte svarar. Det första återförsöket görs efter 10 sekunder. Andra återförsök sker efter 100 sekunder. Efter två fel anropar inga åtgärdsgrupp slutpunkten i 30 minuter. 
+Webhook-försök görs med följande regler. Webhook-anropet görs om högst 2 gånger när följande HTTP-status koder returneras: 408, 429, 503, 504, eller om HTTP-slutpunkten inte svarar. Det första återförsöket görs efter 10 sekunder. Det andra återförsöket sker efter 100 sekunder. Efter två haveri anropar ingen åtgärds grupp slut punkten i 30 minuter. 
 
 Käll-IP-adressintervall
  - 13.72.19.232
@@ -126,6 +126,7 @@ Käll-IP-adressintervall
  - 13.106.38.142
  - 13.106.38.148
  - 13.106.57.196
+ - 13.106.57.197
  - 52.244.68.117
  - 52.244.65.137
  - 52.183.31.0
@@ -134,33 +135,33 @@ Käll-IP-adressintervall
  - 51.5.148.86
  - 51.5.149.19
 
-För att få uppdateringar om ändringar av dessa IP-adresser, rekommenderar vi att du konfigurerar en avisering för Tjänsthälsa som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
+Om du vill ta emot uppdateringar om ändringar av dessa IP-adresser rekommenderar vi att du konfigurerar en Service Health avisering, som övervakar informations meddelanden om tjänsten åtgärds grupper.
 
-Du kan ha ett begränsat antal Webhook-åtgärder i en åtgärdsgrupp.
+Du kan ha ett begränsat antal webhook-åtgärder i en åtgärds grupp.
 
-#### <a name="secure-webhook"></a>Säker Webhook
-**Skydda Webhook-funktionen finns för närvarande i förhandsversion.**
+#### <a name="secure-webhook"></a>Säker webhook
+**Den säkra webhook-funktionen är för närvarande en för hands version.**
 
-Åtgärden grupper Webhook-åtgärd kan du dra nytta av Azure Active Directory för säker anslutning mellan din åtgärdsgrupp och din skyddade webb-API (webhook-slutpunkt). Det totala arbetsflödet för att utnyttja den här funktionen beskrivs nedan. En översikt över Azure AD-program och tjänstens huvudnamn finns i [översikt över Microsoft identity-plattformen (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Med åtgärden åtgärds grupper webhook kan du dra nytta av Azure Active Directory för att skydda anslutningen mellan din åtgärds grupp och din skyddade webb-API (webhook-slutpunkt). Det övergripande arbets flödet för att dra nytta av den här funktionen beskrivs nedan. En översikt över Azure AD-program och tjänst huvud namn finns i [Översikt över Microsoft Identity Platform (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
-1. Skapa ett Azure AD-program för dina skyddade webb-API. Se https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
-    - Konfigurera din skyddade API anropas av en daemon-app.
+1. Skapa ett Azure AD-program för ditt skyddade webb-API. Se https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+    - Konfigurera ditt skyddade API så att det anropas av en daemon-app.
     
-1. Aktivera åtgärdsgrupper för att använda ditt Azure AD-program.
+1. Aktivera åtgärds grupper för att använda Azure AD-programmet.
 
     > [!NOTE]
-    > Du måste vara medlem i den [administratörsrollen för Azure AD Application](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) att köra det här skriptet.
+    > Du måste vara medlem i [rollen Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) -programadministratör för att köra det här skriptet.
     
-    - Ändra PowerShell-skriptet Connect-AzureAD anrop för att använda Azure AD-klient-ID.
-    - Ändra PowerShell-skriptet variabeln $myAzureADApplicationObjectId om du vill använda objekt-ID för din Azure AD-program
+    - Ändra PowerShell-skriptets Connect-AzureAD-anrop för att använda ditt Azure AD-klient-ID.
+    - Ändra PowerShell-skriptets variabel $myAzureADApplicationObjectId att använda objekt-ID: t för ditt Azure AD-program
     - Kör det ändrade skriptet.
     
-1. Konfigurera åtgärden grupp Webhook-åtgärd.
-    - Kopiera värdet $myApp.ObjectId från skriptet och Skriv in den i fältet programobjekt-ID i definitionen för Webhook-åtgärd.
+1. Konfigurera åtgärds gruppens webhook-åtgärd.
+    - Kopiera värdet $myApp. ObjectId från skriptet och ange det i fältet program objekt-ID i definition av webhook-åtgärd.
     
-    ![Säker Webhook-åtgärd](./media/action-groups/action-groups-secure-webhook.png)
+    ![Säker webhook-åtgärd](./media/action-groups/action-groups-secure-webhook.png)
 
-##### <a name="secure-webhook-powershell-script"></a>Skydda Webhook PowerShell-skript
+##### <a name="secure-webhook-powershell-script"></a>Secure webhook PowerShell-skript
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
@@ -231,9 +232,9 @@ Write-Host $myApp.AppRoles
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [SMS Avisera beteende](../../azure-monitor/platform/alerts-sms-behavior.md).  
-* Få en [förståelse för avisering webhook för aktivitetslogg](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
+* Lär dig mer om [SMS-aviserings beteende](../../azure-monitor/platform/alerts-sms-behavior.md).  
+* Få en [förståelse för aktivitets logg aviseringens webhook-schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Läs mer om [ITSM-anslutningsprogram](../../azure-monitor/platform/itsmc-overview.md)
-* Läs mer om [hastighetsbegränsning](../../azure-monitor/platform/alerts-rate-limiting.md) på aviseringar.
-* Hämta en [översikt över aktivitetsloggaviseringar](../../azure-monitor/platform/alerts-overview.md), och lär dig hur du får aviseringar.  
-* Lär dig hur du [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Läs mer om [hastighets begränsning](../../azure-monitor/platform/alerts-rate-limiting.md) av aviseringar.
+* Få en [Översikt över aktivitets logg aviseringar](../../azure-monitor/platform/alerts-overview.md)och lär dig hur du tar emot aviseringar.  
+* Lär dig hur du [konfigurerar aviseringar när ett meddelande om tjänst hälsa har publicerats](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

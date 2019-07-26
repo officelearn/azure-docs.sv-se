@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 38359858d16a20f73cf845fa547899bdc5ee7fd3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326233"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333698"
 ---
 # <a name="status-monitor-v2"></a>Statusövervakare v2
 
@@ -33,7 +33,7 @@ Statusövervakare v2 finns här: https://www.powershellgallery.com/packages/Az.A
 ![PowerShell-galleriet](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
-## <a name="instructions"></a>Instruktioner
+## <a name="instructions"></a>Anvisningar
 - Se [komma igång-instruktionerna](status-monitor-v2-get-started.md) för att få en start med kortfattade kod exempel.
 - Se de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md) för att få en djup introduktion till hur du kommer igång.
 
@@ -62,13 +62,13 @@ Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](statu
   
 - Hur gör jag för att verifiera att aktiveringen lyckades?
 
-   Det finns ingen cmdlet för att verifiera Aktiveringen lyckades.
-Vi rekommenderar att du använder [Live-mått](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) för att snabbt avgöra om din app skickar telemetri.
+  - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) -cmdlet: en kan användas för att kontrol lera att aktiveringen har slutförts.
+  - Vi rekommenderar att du använder [Live-mått](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) för att snabbt avgöra om din app skickar telemetri.
 
-   Du kan också använda [Log Analytics](../log-query/get-started-portal.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri:
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - Du kan också använda [Log Analytics](../log-query/get-started-portal.md) för att visa en lista över alla moln roller som för närvarande skickar telemetri:
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## <a name="next-steps"></a>Nästa steg
 

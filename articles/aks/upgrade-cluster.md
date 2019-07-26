@@ -1,43 +1,46 @@
 ---
-title: Uppgradera ett kluster i Azure Kubernetes Service (AKS)
-description: Lär dig att uppgradera ett kluster i Azure Kubernetes Service (AKS)
+title: Uppgradera ett Azure Kubernetes service-kluster (AKS)
+description: Lär dig hur du uppgraderar ett Azure Kubernetes service-kluster (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: dd88b5a044fe495da374178be8774f45bdd30f61
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 2ed58846b9e7816092f0fc0787204921071d75e9
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614052"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498562"
 ---
-# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett kluster i Azure Kubernetes Service (AKS)
+# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett Azure Kubernetes service-kluster (AKS)
 
-Som en del av livscykeln för ett AKS-kluster behöver du ofta uppgradera till den senaste versionen av Kubernetes. Det är viktigt att du använder de senaste Kubernetes security versionerna eller uppgradera för att få de senaste funktionerna. Den här artikeln visar hur du uppgraderar huvudkomponenter eller en enskild nod standardadresspool i ett AKS-kluster.
+Som en del av livs cykeln för ett AKS-kluster måste du ofta uppgradera till den senaste versionen av Kubernetes. Det är viktigt att du tillämpar de senaste Kubernetes säkerhets versionerna eller uppgraderar för att få de senaste funktionerna. Den här artikeln visar hur du uppgraderar huvud komponenterna eller en enskild standardnode-pool i ett AKS-kluster.
 
-AKS-kluster som använder flera nodpooler eller Windows Server-noder (både för närvarande i förhandsversion i AKS) finns i [uppgradera en nodpool i AKS][nodepool-upgrade].
+Information om AKS-kluster som använder flera resurspooler eller Windows Server-noder (som för närvarande finns i för hands version i AKS) finns i [uppgradera en Node-pool i AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln kräver att du kör Azure CLI version 2.0.65 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här artikeln kräver att du kör Azure CLI-version 2.0.65 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
-## <a name="check-for-available-aks-cluster-upgrades"></a>Sök efter tillgängliga uppgraderingar för AKS-kluster
+> [!WARNING]
+> En AKS kluster uppgradering utlöser en Cordon och tömmer dina noder. Om du har en låg beräknings kvot som är tillgänglig kan uppgraderingen Miss lyckas.  Mer information finns i [öka kvoterna](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) .
 
-Du kan kontrollera vilka Kubernetes-versioner är tillgängliga för ditt kluster genom att använda den [az aks get-uppgraderingar][az-aks-get-upgrades] kommando. I följande exempel söker efter tillgängliga uppgraderingar till klustret med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*:
+## <a name="check-for-available-aks-cluster-upgrades"></a>Sök efter tillgängliga AKS-kluster uppgraderingar
+
+Om du vill kontrol lera vilka Kubernetes-versioner som är tillgängliga för klustret använder du kommandot [AZ AKS get-uppgraderingar][az-aks-get-upgrades] . Följande exempel söker efter tillgängliga uppgraderingar till klustret med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 > [!NOTE]
-> När du uppgraderar ett AKS-kluster kan inte Kubernetes delversioner hoppas över. Till exempel uppgraderar mellan *1.11.x* -> *1.12.x* eller *1.12.x* -> *1.13.x* tillåts, men *1.11.x* -> *1.13.x* är inte.
+> När du uppgraderar ett AKS-kluster kan Kubernetes minor-versioner inte hoppas över. Till exempel tillåts uppgraderingar mellan *1.11. x* -> *1.12. x* eller *1.12. x* -> *1.13. x* , men *1.11.*  -> x*1.13. x* är inte.
 >
-> Så här uppgraderar du, från *1.11.x* -> *1.13.x*, första uppgradera från *1.11.x* -> *1.12.x*, sedan uppgradera från *1.12.x* -> *1.13.x*.
+> Uppgradera från *1.11. x* -> *1.13. x*genom att -> först uppgradera från *1.11.* x*1.12. x*och sedan uppgradera från *1.12. x* -> *1.13. x*.
 
-Följande Exempelutdata visar att klustret kan uppgraderas till version *1.12.7* eller *1.12.8*:
+Följande exempel på utdata visar att klustret kan uppgraderas till version *1.12.7* eller *1.12.8*:
 
 ```console
 Name     ResourceGroup    MasterVersion  NodePoolVersion  Upgrades
@@ -47,23 +50,23 @@ default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
 
 ## <a name="upgrade-an-aks-cluster"></a>Uppgradera ett AKS-kluster
 
-Med en lista över tillgängliga versioner för AKS-kluster, använda den [az aks uppgradera][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] en av de gamla noderna för att minimera störningar i program som körs. När den nya noden har bekräftats som kör programmet poddar tas gamla noden bort. Den här processen upprepas tills alla noder i klustret har uppgraderats.
+Med en lista över tillgängliga versioner för ditt AKS-kluster använder du kommandot [AZ AKS Upgrade][az-aks-upgrade] för att uppgradera. Under uppgraderings processen lägger AKS till en ny nod i klustret som kör den angivna Kubernetes-versionen, därefter noga [Cordon och tömmer][kubernetes-drain] en av de gamla noderna för att minimera störningar i program som körs. När den nya noden bekräftas som att köra Application poddar tas den gamla noden bort. Den här processen upprepas tills alla noder i klustret har uppgraderats.
 
-I följande exempel uppgraderar ett kluster till version *1.12.8*:
+I följande exempel uppgraderas ett kluster till version *1.12.8*:
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.12.8
 ```
 
-Det tar några minuter att uppgradera klustret, beroende på hur många noder som du har.
+Det tar några minuter att uppgradera klustret, beroende på hur många noder du har.
 
-Kontrollera att uppgraderingen lyckades genom att använda den [az aks show][az-aks-show] kommando:
+För att bekräfta att uppgraderingen har slutförts använder du kommandot [AZ AKS show][az-aks-show] :
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Följande Exempelutdata visar att klustret körs *1.12.8*:
+Följande exempel på utdata visar att klustret nu kör *1.12.8*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
@@ -73,10 +76,10 @@ myAKSCluster  eastus      myResourceGroup  1.12.8               Succeeded       
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln visade hur du uppgraderar ett befintligt AKS-kluster. Mer information om att distribuera och hantera AKS-kluster finns uppsättning självstudier.
+Den här artikeln visar hur du uppgraderar ett befintligt AKS-kluster. Mer information om hur du distribuerar och hanterar AKS-kluster finns i självstudierna.
 
 > [!div class="nextstepaction"]
-> [Självstudier om AKS][aks-tutorial-prepare-app]
+> [AKS-självstudier][aks-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

@@ -1,7 +1,6 @@
 ---
 title: Azure Snabbstart – Säkerhetskopiera en virtuell dator med Azure Portal
 description: Lär dig hur du säkerhetskopierar virtuella datorer med Azure Portal
-services: backup
 author: saurabhsensharma
 manager: shivamg
 tags: azure-resource-manager, virtual-machine-backup
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 926859ffbeaf429df60e8f478e15e41ca70e23a6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781348"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467187"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
 Du kan skapa Azure-säkerhetskopior via Azure Portal. Med den här metoden får du ett webbläsarbaserat användargränssnitt för att skapa och konfigurera Azure-säkerhetskopior och alla relaterade resurser. Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som kan lagras i geo-redundanta återställningsvalv. Den här artikeln beskriver hur du säkerhetskopierar en virtuell dator med Azure Portal. 
@@ -79,7 +78,7 @@ Om du tänker gå vidare till en säkerhetskopieringskurs som förklarar hur du 
 
 3. Välj **Ta bort säkerhetskopieringsdata** på den nedrullningsbara menyn.
 
-4. Ange namnet på den virtuella datorn, till exempel *myVM*, i dialogrutan **Type the name of the Backup item** (Skriv namnet på säkerhetskopieringsobjektet). Välj **stoppa säkerhetskopiering**.
+4. Ange namnet på den virtuella datorn, till exempel *myVM*, i dialogrutan **Type the name of the Backup item** (Skriv namnet på säkerhetskopieringsobjektet). Välj **stoppa säkerhets kopiering**.
 
     När säkerhetskopieringen av den virtuella datorn har avbrutits och återställningspunkterna har tagits bort, kan du ta bort resursgruppen. Om du använde en befintlig virtuell dator kanske du vill ha kvar resursgruppen och den virtuella datorn.
 

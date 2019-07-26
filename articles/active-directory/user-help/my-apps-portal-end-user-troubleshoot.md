@@ -1,5 +1,5 @@
 ---
-title: Få hjälp med Mina appar-portal – Azure Active Directory | Microsoft Docs
+title: Få hjälp med portalen Mina appar – Azure Active Directory | Microsoft Docs
 description: Få hjälp med att logga in på och utföra vanliga uppgifter i portalen Mina appar.
 services: active-directory
 author: eross-msft
@@ -13,73 +13,83 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475035"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383074"
 ---
-# <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Felsöka problem med portalen Mina appar
-Om du upplever problem med att logga in på eller använda den **Mina appar** portal, försök med dessa felsökningstips innan du kontaktar supportavdelningen eller administratören om du behöver hjälp.
+# <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Felsök problem med portalen för Mina appar
 
-## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Jag har problem med att installera den Mina appar skyddat Inloggningstillägg
-Om du har problem med att installera den Mina appar skyddat Inloggningstillägg:
+Om du har problem med att logga in på eller använda **Mina Apps** -portalen kan du prova följande fel söknings tips innan du kontaktar supportavdelningen eller administratören för hjälp.
 
-- Kontrollera att du använder en webbläsare som stöds, inklusive:
+## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Jag har problem med att installera tillägget Mina appar säker inloggning
 
-    - **Microsoft Edge.** Körs på Windows 10 Anniversary Edition eller senare.
-    - **Google Chrome.** Körs på Windows 7 eller senare, och i Mac OS X eller senare.
-    - **Mozilla Firefox 26.0 eller senare.** Körs på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
+Om du har problem med att installera säkra inloggnings tillägg för Mina appar:
+
+- Kontrol lera att du använder en webbläsare som stöds, inklusive:
+
+    - **Microsoft Edge.** Körs på Windows 10-jubileums version eller senare.
+
+    - **Google Chrome.** Körs på Windows 7 eller senare och på Mac OS X eller senare.
+
+    - **Mozilla Firefox 26,0 eller senare.** Körs på Windows XP SP2 eller senare och på Mac OS X 10,6 eller senare.
+
     - **Internet Explorer 11.** Körs på Windows 7 eller senare (begränsat stöd).
 
-- Kontrollera att dina webbläsarinställningar för tillägget är aktiverade.
+- Kontrol lera att inställningarna för webb läsar tillägget är aktiverade.
 
-- Försök att starta om webbläsaren och logga in på den **Mina appar** portalen igen.
+- Försök att starta om webbläsaren och logga in på portalen **Mina appar** igen.
 
-- Försöka ta bort cookies i webbläsaren, och sedan starta om och logga in på den **Mina appar** portalen igen.
+- Försök att rensa webbläsarens cookies och starta sedan om och logga in på portalen **Mina appar** igen.
 
-## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Jag kan inte logga in till den **Mina appar** portal
-Om du har problem med att logga in på den **Mina appar** portal, kan du försöka med följande:
+## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Jag kan inte logga in på **min Apps** -Portal
 
-- Kontrollera att du använder rätt URL. Det bör vara https://myapps.microsoft.com eller en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
+Om du har problem med att logga in på portalen för **Mina appar** kan du prova följande:
 
-- Kontrollera att lösenordet är korrekt och inte har gått ut. Mer information finns i [återställa lösenordet för arbets- eller skolkonto](active-directory-passwords-update-your-own-password.md).
+- Kontrol lera att du använder rätt URL. Den bör vara https://myapps.microsoft.com eller en anpassad sida för din organisation, https://myapps.microsoft.com/contoso.com till exempel.
 
-- Kontrollera att din information för verifiering är aktuell och korrekt. Mer information finns i [vad Azure Multi-Factor Authentication innebär för mig?](multi-factor-authentication-end-user.md) eller [ändrar säkerhetsmetoder för information och information](security-info-add-update-methods-overview.md).
+- Kontrol lera att lösen ordet är rätt och att det inte har gått ut. Mer information finns i [återställa lösen ordet för ditt arbets-eller skol](active-directory-passwords-update-your-own-password.md)konto.
 
-- Lägg till den **mitt program** portal URL: en till den **Internetegenskaper > Säkerhet > betrodda platser** inställningen.
+- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad innebär Azure Multi-Factor Authentication för mig?](multi-factor-authentication-end-user.md) eller [ändra dina metoder och information om säkerhets information](security-info-add-update-methods-overview.md).
 
-- Rensa webbläsarens cacheminne och försök att logga in igen.
+- Lägg till **min app** portal-URL till inställningen **Internet egenskaper > säkerhets > betrodda platser** .
 
-## <a name="my-password-isnt-working"></a>Mitt lösenord fungerar inte
-Om du har glömt ditt lösenord, aldrig fått något från din organisation, är utelåst från ditt konto eller vill du ändra ditt lösenord, se [hjälp, jag har glömt mitt Azure AD-lösenord](active-directory-passwords-update-your-own-password.md).
+- Rensa webbläsarens cache och försök att logga in igen.
 
-## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Jag vill kunna återställa mitt eget lösenord
-Om du vill kunna återställa ditt eget lösenord administratören måste aktivera funktionen för din organisation och sedan du måste uppdatera och verifiera dina krävs verifieringsmetoder. Läs mer om hur du uppdaterar din verifieringsmetoder [registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
+## <a name="my-password-isnt-working"></a>Mitt lösen ord fungerar inte
 
-## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Jag får ett meddelande om nekad åtkomst när jag påbörjar en app
-Om du får en **åtkomst nekad** meddelande när du startar en app från den **mitt program** portal, kan du försöka med följande:
+Om du har glömt ditt lösen ord, aldrig har fått ett från din organisation, är utelåst från ditt konto eller vill ändra ditt lösen ord, se [hjälp, jag har glömt mitt Azure AD-lösenord](active-directory-passwords-update-your-own-password.md).
 
-- Kontrollera att du har installerat den [Mina appar skyddat Inloggningstillägg](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) och att du använder en [webbläsare som stöds](my-apps-portal-end-user-access.md#supported-browsers).
+## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Jag vill kunna återställa mitt eget lösen ord
 
-- Kontrollera att du använder rätt URL för appen och att URL: en är på din **Internetegenskaper > Säkerhet > betrodda platser** lista.
+För att kunna återställa ditt eget lösen ord måste administratören först aktivera funktionen för din organisation, och sedan måste du uppdatera och verifiera dina nödvändiga verifierings metoder. Mer information om hur du uppdaterar dina verifierings metoder finns i [Registrera för lösen ords återställning](active-directory-passwords-reset-register.md)via självbetjäning.
 
-- Kontrollera att lösenordet är korrekt och inte har gått ut. Mer information finns i [återställa lösenordet för arbets- eller skolkonto](active-directory-passwords-update-your-own-password.md).
+## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Jag får ett meddelande om nekad åtkomst när jag startar en app
 
-- Kontrollera att din information för verifiering är aktuell och korrekt. Mer information finns i [vad Azure Multi-Factor Authentication innebär för mig?](multi-factor-authentication-end-user.md) eller [ändrar säkerhetsmetoder för information och information](security-info-add-update-methods-overview.md).
+Om du får ett meddelande om **nekad åtkomst** efter att du har startat en app från **min app** -Portal kan du prova följande:
 
-- Rensa webbläsarens cacheminne och försök att logga in igen.
+- Kontrol lera att du har installerat det [säkra inloggnings tillägget för Mina appar](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) och att du använder en [webbläsare som stöds](my-apps-portal-end-user-access.md#supported-browsers).
 
-Om när du har försökt dessa saker du fortfarande inte komma åt din app, måste du kontakta organisationens supportavdelning om du behöver hjälp.
+- Kontrol lera att du använder rätt URL för appen och att URL: en finns på **Internet egenskaper > säkerhets > listan över betrodda platser** .
+
+- Kontrol lera att lösen ordet är rätt och att det inte har gått ut. Mer information finns i [återställa lösen ordet för ditt arbets-eller skol](active-directory-passwords-update-your-own-password.md)konto.
+
+- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad innebär Azure Multi-Factor Authentication för mig?](multi-factor-authentication-end-user.md) eller [ändra dina metoder och information om säkerhets information](security-info-add-update-methods-overview.md).
+
+- Rensa webbläsarens cache och försök att logga in igen.
+
+Om du efter att ha försökt med de här åtgärderna fortfarande inte kan komma åt din app, måste du kontakta din organisations supportavdelning om du behöver hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
-När du loggar in på den **Mina appar** portal, kan du även uppdatera din profil och kontoinformation, din gruppinformation och åtkomst granska information (om du har behörighet).
 
-- [Komma åt och använda appar på portalen Mina appar](my-apps-portal-end-user-access.md).
+När du har loggat in på **Mina Apps** -portalen kan du också uppdatera din profil-och konto information, din grupp information och åtkomst gransknings information (om du har behörighet).
 
-- [Ändra profilinformationen](my-apps-portal-end-user-update-profile.md).
+- [Få åtkomst till och använda appar på Mina appar-portalen](my-apps-portal-end-user-access.md).
 
-- [Visa och uppdatera dina grupper-relaterad information](my-apps-portal-end-user-groups.md).
+- [Ändra din profil information](my-apps-portal-end-user-update-profile.md).
 
-- [Utföra egna åtkomstgranskningar](my-apps-portal-end-user-access-reviews.md).
+- [Visa och uppdatera dina grupper – relaterad information](my-apps-portal-end-user-groups.md).
+
+- [Utför dina egna åtkomst granskningar](my-apps-portal-end-user-access-reviews.md).

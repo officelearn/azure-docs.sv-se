@@ -1,5 +1,5 @@
 ---
-title: Anpassa anspråk som har avsänts i token för en särskild app i en Azure AD-klient (offentlig för hands version)
+title: Anpassa anspråk för en app i en Azure AD-klient (offentlig för hands version)
 description: Den här sidan beskriver Azure Active Directory anspråks mappning.
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e923cde3cfcffe594226f6b8b665053d1fc584f6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324996"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381061"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Anvisningar: Anpassa anspråk som har avsänts i token för en angiven app i en klient (för hands version)
 
@@ -304,7 +304,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | post nummer | Postnummer |
 | Användare | preferredlanguange | Önskat språk |
 | Användare | onpremisesuserprincipalname | Lokalt UPN |
-| Användare | MailNickName | E-postsmek namn |
+| Användare | MailNickName | Smeknamn för e-post |
 | Användare | extensionattribute1 | Attribut 1 för tillägg |
 | Användare | extensionattribute2 | Attribut för tillägg 2 |
 | Användare | extensionattribute3 | Attribut för tillägg 3 |
@@ -321,15 +321,15 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | extensionattribute14 | Attribut för tillägg 14 |
 | Användare | extensionattribute15 | Attribut för tillägg 15 |
 | Användare | othermail | Annan e-post |
-| Användare | Ursprungslandet | Country |
+| Användare | ursprungslandet | Country |
 | Användare | city | City |
 | Användare | state | Tillstånd |
-| Användare | befattning | Befattning |
-| Användare | EmployeeID | Medarbetar-ID |
+| Användare | befattning | Jobbtitel |
+| Användare | EmployeeID | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
 | program, resurs, mål grupp | displayName | Visningsnamn |
 | program, resurs, mål grupp | inobjekt | ObjectID |
-| program, resurs, mål grupp | tags | Tjänstens huvud namns etikett |
+| program, resurs, mål grupp | taggar | Tjänstens huvud namns etikett |
 | Företagets | tenantcountry | Innehavarens land |
 
 **TransformationID:** TransformationID-elementet får bara anges om käll elementet har angetts till "Transformation".
@@ -391,7 +391,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|Användarens huvudnamn|
 | Användare | egna namnet onpremisessamaccountname|Namn på lokal SAM-konto|
-| Användare | EmployeeID|Medarbetar-ID|
+| Användare | EmployeeID|Anställnings-ID|
 | Användare | extensionattribute1 | Attribut 1 för tillägg |
 | Användare | extensionattribute2 | Attribut för tillägg 2 |
 | Användare | extensionattribute3 | Attribut för tillägg 3 |

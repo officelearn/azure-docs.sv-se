@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services Video Indexer viktig information | Microsoft Docs
-description: Om du vill hålla dig uppdaterad med den senaste utvecklingen, ger dig med de senaste uppdateringarna på Azure Media Services Video Indexer i den här artikeln.
+title: Viktig information om Azure Media Services Video Indexer | Microsoft Docs
+description: Den här artikeln innehåller de senaste uppdateringarna på Azure Media Services Video Indexer för att hålla dig uppdaterad med den senaste utvecklingen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: f1c5f43316292f17547b84d970a0f03a1a2c366f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fd67e867b5eac58838551ac29e1fca5e860b15ff
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454027"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414224"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -28,39 +28,39 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 * Felkorrigeringar
 * Inaktuell funktion
 
-## <a name="june-2019"></a>Juni 2019
+## <a name="june-2019"></a>2019 juni
 
-### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer som distribuerats till östra Japan
+### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer distribuerad till Japan, öst
 
-Du kan nu skapa en Video Indexer betald konto i regionen Japan, östra.
+Nu kan du skapa ett Video Indexer betalt konto i regionen Japan, östra.
 
-### <a name="create-and-repair-account-api-preview"></a>Skapa och reparera konto API (förhandsversion)
+### <a name="create-and-repair-account-api-preview"></a>Skapa och reparera konto-API (för hands version)
 
-Lagt till ett nytt API som gör det möjligt att [uppdatera Azure Media Service-anslutningsslutpunkten eller nyckeln](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
+Lade till ett nytt API som gör att du kan [Uppdatera Azure Media service-anslutningens slut punkt eller nyckel](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
 
-### <a name="improve-error-handling-on-upload"></a>Förbättra felhantering vid överföring 
+### <a name="improve-error-handling-on-upload"></a>Förbättra fel hanteringen vid uppladdning 
 
-Ett beskrivande meddelande returneras vid felaktig konfiguration av det underliggande Azure Media Services-kontot.
+Ett beskrivande meddelande returneras om det underliggande Azure Media Services kontot felkonfigureras.
 
-### <a name="player-timeline-keyframes-preview"></a>Player tidslinje nyckelrutor förhandsversion 
+### <a name="player-timeline-keyframes-preview"></a>För hands versionen av nyckel rutor för Player-tidslinje 
 
-Du kan nu se en förhandsvisning för varje gång på spelarens tidslinje.
+Nu kan du se en förhands granskning av bilden för varje gång på spelarens tids linje.
 
-### <a name="editor-semi-select"></a>Redigeraren för halvval
+### <a name="editor-semi-select"></a>Redigeraren, halv markering
 
-Du kan nu se en förhandsgranskning av de insikter som är markerade på grund av att välja en viss insikt tidsram i redigeraren.
+Nu kan du se en förhands granskning av alla insikter som valts till följd av att du väljer en viss Insight-tidsram i redigeraren.
 
 ## <a name="may-2019"></a>Maj 2019
 
-### <a name="update-custom-language-model-from-closed-caption-file"></a>Uppdatera anpassad språkmodell från undertextfil
+### <a name="update-custom-language-model-from-closed-caption-file"></a>Uppdatera anpassad språk modell från fil med dold textning
 
-[Skapa anpassad språkmodell](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) och [uppdatera anpassade språkmodeller](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) API: er stöder nu VTT SRT, och TTML filformat som indata för språkmodeller.
+[Skapa anpassad språk modell](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) och [uppdatera anpassade språk](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) modells-API: er stöder nu VTT-, SRT-och ttml-filformat som indata för språk modeller.
 
-När du anropar den [uppdatering Video-avskrift API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), avskriften läggs till automatiskt. Utbildningsmodell som är associerade med en video är uppdateras automatiskt. Information om hur du anpassar och träna din språkmodeller finns [anpassa en språkmodell med Video Indexer](customize-language-model-overview.md).
+När du anropar uppdaterings video avskrifts- [API: t](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript)läggs avskriften till automatiskt. Den utbildnings modell som är associerad med videon uppdateras också automatiskt. Information om hur du anpassar och tränar dina språk modeller finns i [Anpassa en språk modell med video Indexer](customize-language-model-overview.md).
 
-### <a name="new-download-transcript-formats--txt-and-csv"></a>Nya download avskrift-format – TXT och CSV
+### <a name="new-download-transcript-formats--txt-and-csv"></a>Nya format för att ladda ned avskrifter – TXT och CSV
 
-Förutom dold textning formatet stöds redan (SRT VTT och TTML) stöder Video Indexer nu ladda ned avskriften i TXT- och CSV-format.
+Förutom formatet för dold textning som redan stöds (SRT, VTT och TTML) stöder nu Video Indexer att ladda ned avskriften i TXT-och CSV-format.
 
 ## <a name="next-steps"></a>Nästa steg
 

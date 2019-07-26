@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797005"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479156"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 
@@ -24,14 +24,14 @@ ms.locfileid: "67797005"
 ### <a name="what-is-an-event-hubs-namespace"></a>Vad är ett namnområde för Event Hubs?
 Ett namnområde är en gemensam behållare för Event Hub/Kafka-ämnen. Då får du ett unikt [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Ett namnområde fungerar som en programbehållare som kan innehålla flera Event Hub/Kafka-ämnen. 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>När jag skapar ett nytt namnområde eller Använd ett befintligt namnområde?
-Kapacitet-allokeringar ([dataflödesenheter (Dataflödesenheter)](#throughput-units)), faktureras på namnområdesnivå. Ett namnområde är även associerat med en region.
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>När skapar jag ett nytt namn område eller använder ett befintligt namn område?
+Kapacitets tilldelningar ([data flödes enheter (antal)](#throughput-units)) debiteras på namn områdes nivå. En namnrymd är också kopplad till en region.
 
-Du kanske vill skapa ett nytt namnområde istället för att använda en i en befintlig av följande scenarier: 
+Du kanske vill skapa ett nytt namn område i stället för att använda ett befintligt i något av följande scenarier: 
 
-- Du behöver en Event Hub som är associerade med en ny region.
-- Du behöver en Event Hub som är associerade med en annan prenumeration.
-- Du behöver en Händelsehubb med en distinkt kapacitetstilldelning (det vill säga kapaciteten måste för namnområdet med har lagts till händelsehubben skulle överskrida 40 Dataflödesenheter tröskelvärdet och du inte vill få dedicated-kluster)  
+- Du behöver en Event Hub som är associerad med en ny region.
+- Du behöver en Event Hub som är associerad med en annan prenumeration.
+- Du behöver en Event Hub med en distinkt kapacitets fördelning (det vill säga att kapacitets behovet för namn området med den tillagda händelsehubben skulle överskrida tröskelvärdet på 40 data flödes enheter och du inte vill gå till det dedikerade klustret)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Vad är skillnaden mellan Event Hubs Basic och Standard-nivån?
 
@@ -60,46 +60,46 @@ Event Hubs Standard-nivån stöder för närvarande en högsta kvarhållningsper
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Hur övervakar jag min Event Hubs?
 Händelsehubbar genererar uttömmande mått som anger tillståndet för dina resurser till [Azure Monitor](../azure-monitor/overview.md). De också kan du utvärdera den övergripande hälsan för Event Hubs-tjänsten inte bara på namnområdesnivå utan även på enhetsnivå. Läs om vilka övervakning erbjuds för [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar behöver jag att öppna i brandväggen? 
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar måste jag öppna i brand väggen? 
 Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
 
-- Avancerade Message Queuing Protocol (AMQP)
+- Advanced Message Queueing Protocol (AMQP)
 - HTTP
 - Apache Kafka
 
-Se tabellen nedan för de utgående portar som du behöver öppna om du vill använda dessa protokoll ska kunna kommunicera med Azure Event Hubs. 
+Se följande tabell för utgående portar som du måste öppna för att kunna använda dessa protokoll för att kommunicera med Azure Event Hubs. 
 
 | Protocol | Portar | Information | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 och 5672 | Se [AMQP-protokollguide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 och 5672 | Se [AMQP-protokoll guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | Se [använda Event Hubs från Kafka-program](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Vilka IP-adresser behöver jag godkänna?
-Följ dessa steg för att hitta rätt IP-adresser till vitlista för dina anslutningar:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Vilka IP-adresser behöver jag för att vitlista?
+Följ dessa steg om du vill hitta rätt IP-adresser till den vita listan för dina anslutningar:
 
-1. Kör följande kommando från en kommandotolk: 
+1. Kör följande kommando från en kommando tolk: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anteckna den IP-adressen som returneras i `Non-authoritative answer`. Den enda tidpunkt den skulle ändras är om du återställer namnområde till ett annat kluster.
+2. Anteckna IP-adressen som returnerades `Non-authoritative answer`i. Den enda tidpunkt då den skulle ändras är om du återställer namn området på ett annat kluster.
 
-Om du använder redundansen för ditt namnområde kan behöva du göra några ytterligare steg: 
+Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
 
-1. Först måste köra du nslookup på namnområdet.
+1. Först kör du nslookup i namn området.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Skriv ned namnet i den **icke-auktoritativt svar** avsnittet, vilket är i något av följande format: 
+2. Anteckna namnet i avsnittet **icke-auktoritativt svar** , vilket är i något av följande format: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Köra nslookup för vart och ett med suffix s1, s2 och s3 att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighetszoner 
+3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka-integrering
 
@@ -115,7 +115,7 @@ Exempel:
 
 bootstrap.Servers=dummynamespace.servicebus.Windows.NET:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule krävs användarnamn = ”$ ConnectionString ”password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ”;
 
-Obs! Hitta de konfigurationer som används för att ange SASL-användarnamn och lösenord och använda dem i stället om sasl.jaas.config inte är en konfiguration som stöds i ditt ramverk. Ange användarnamnet till $ConnectionString och lösenord för att anslutningssträngen för Event Hubs.
+Anteckning: Om sasl. jaas. config inte är en konfiguration som stöds i ramverket hittar du de konfigurationer som används för att ange SASL användar namn och lösen ord och använder dem i stället. Ange användarnamnet till $ConnectionString och lösenord för att anslutningssträngen för Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Vad är meddelandehändelse/storleken för Kafka-aktiverade Event Hubs?
 Den maximala tillåtna storleken för Kafka-aktiverade Händelsehubbar är 1MB.
@@ -185,8 +185,9 @@ Du skapar en Event Hubs dedicated-kluster genom att skicka in en [supportförfr�
 ## <a name="best-practices"></a>Bästa praxis
 
 ### <a name="how-many-partitions-do-i-need"></a>Hur många partitioner behöver jag?
+Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Eftersom det inte går att ändra antalet partitioner bör du tänka på hur många partitioner som kommer att behövas på längre sikt när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Mer information om partitioner finns i [partitioner](event-hubs-features.md#partitions).
 
-Antalet partitioner i en händelsehubb kan inte ändras efter installationen. Det är viktigt att tänka om hur många partitioner som du behöver för att komma igång med det i åtanke. 
+Du kanske vill ange att den ska vara det högsta möjliga värdet, vilket är 32 vid tidpunkten för skapandet. Kom ihåg att om du har mer än en partition resulterar det i händelser som skickas till flera partitioner utan att behållas i ordningen, om du inte konfigurerar avsändare till att bara skicka till en enda partition av 32 som lämnar de återstående 31 partitionerna överflödiga. I det förra fallet måste du läsa händelser över alla 32-partitioner. I det senare fallet finns det ingen uppenbar ytterligare kostnad utöver den extra konfiguration som du måste göra på händelse bearbetnings värden.
 
 Event Hubs har utformats så att en enskild partition läsare per konsumentgrupp. I de flesta användningar räcker standardinställningen för fyra partitioner. Om du vill skala ditt händelsebearbetning är kan du överväga att lägga till ytterligare partitioner. Det finns ingen dataflödesgräns för specifika på en partition, men den sammanlagda genomströmningen i namnområdet begränsas av antalet dataflödesenheter. När du ökar antalet dataflödesenheter i namnområdet, kan du ytterligare partitioner så att samtidiga läsare att uppnå sina egna maximalt dataflöde.
 
@@ -232,8 +233,8 @@ En lista över alla Event Hubs-kvoter finns i [kvoter](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte att skapa ett namnområde efter tas bort från en annan prenumeration? 
-När du tar bort ett namnområde från en prenumeration kan du vänta i 4 timmar innan du återskapa den med samma namn i en annan prenumeration. I annat fall kan du få följande felmeddelande visas: `Namespace already exists`. 
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte skapa ett namn område efter att ha tagit bort det från en annan prenumeration? 
+När du tar bort ett namn område från en prenumeration väntar du i fyra timmar innan du skapar det igen med samma namn i en annan prenumeration. Annars kan du få följande fel meddelande: `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Vilka är några av undantagen som genereras av Event Hubs och föreslagna åtgärder?
 

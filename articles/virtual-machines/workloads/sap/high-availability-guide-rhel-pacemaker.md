@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: dc703f02ecf5dbaf5eb69e8e20918415e76ba469
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: cd56df8e88a84f52933e5ee43fecd598252ba6c0
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228382"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479760"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -209,7 +209,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Skapa en anpassad roll för agenten avgränsningstecken
 
-Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvudnamn behörigheter att starta och stoppa (frigöra) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen, kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att starta och stoppa (stänga av) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen, kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 Använd följande innehåll för indatafilen. Du måste anpassa innehåll till dina prenumerationer som är, Ersätt c276fc76-9cd4-44c9-99a7-4fd71546436e och e91d47c4-76f3-4271-a796-21b4ecfe3624 med ID: N för din prenumeration. Om du bara har en prenumeration kan du ta bort den andra posten i AssignableScopes.
 
@@ -218,10 +218,10 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehåll till d
   "Name": "Linux Fence Agent Role",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows to deallocate and start virtual machines",
+  "Description": "Allows to power-off and start virtual machines",
   "Actions": [
     "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/deallocate/action",
+    "Microsoft.Compute/virtualMachines/powerOff/action",
     "Microsoft.Compute/virtualMachines/start/action"
   ],
   "NotActions": [

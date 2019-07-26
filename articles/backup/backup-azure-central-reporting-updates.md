@@ -1,38 +1,37 @@
 ---
-title: Uppdatera Azure Backup centrala reporting Innehållspaketet
-description: Information om uppdateringar av innehållet i Azure Backup-paket i Power BI
-services: backup
+title: Uppdatera innehålls paketet Azure Backup Central repor ting repor ting
+description: Information om uppdateringar av Azure Backups innehålls paketet i Power BI
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 984f87a514aa55fc18a92c6912145bc65cf21f4c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641965"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466591"
 ---
-# <a name="update-the-azure-backup-central-reporting-content-pack"></a>Uppdatera Azure Backup centrala reporting Innehållspaketet 
+# <a name="update-the-azure-backup-central-reporting-content-pack"></a>Uppdatera innehålls paketet Azure Backup Central repor ting repor ting 
 
-Den [Azure Backup-Innehållspaketet](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) kan användas för att visa rapporter om central säkerhetskopiering. Innehållspaketet uppdateras regelbundet för att lägga till fler funktioner och åtgärda buggar. Den här artikeln visar hur du uppdaterar Innehållspaketet. Du får också information du hur du skjuta upp uppdateringen och se uppdateringar som görs över tid.
+[Azure Backup innehålls paketet](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) kan användas för att visa rapporter om Central säkerhets kopiering. Innehålls paketet uppdateras regelbundet för att lägga till fler funktioner och åtgärda buggar. Den här artikeln beskriver hur du uppdaterar innehålls paketet. Du får också information om hur du skjuter upp uppdateringen och ser de uppdateringar som gjorts över tid.
 
-## <a name="get-updates-to-the-content-pack"></a>Hämta uppdateringar till Innehållspaketet
+## <a name="get-updates-to-the-content-pack"></a>Hämta uppdateringar av innehålls paketet
 
-### <a name="get-the-updated-content-pack"></a>Hämta det uppdaterade Innehållspaketet
-Om du inte har gjort några ändringar i din kopia av Innehållspaketet, uppdateras automatiskt. När Innehållspaketet ändras får du ett meddelande i Power BI och ett e-postmeddelande. Du kan välja att få det uppdaterade Innehållspaketet vid behov. 
+### <a name="get-the-updated-content-pack"></a>Hämta det uppdaterade innehålls paketet
+Om du inte har gjort några ändringar i din kopia av innehålls paketet uppdateras det automatiskt. När innehålls paketet ändras får du ett meddelande i Power BI och ett e-postmeddelande. Du kan välja att få det uppdaterade innehålls paketet när du vill. 
 
-### <a name="postpone-the-update"></a>Skjut upp uppdateringen
-Det bästa sättet är att importera Innehållspaketet till en [anpassade arbetsytan](https://youtu.be/26zyOtyHPJM?t=1m57s). Du kan nu redigera rapporterna.
-Som tidigare nämnts, om Innehållspaketet ändras kan se du ett meddelande i Power BI. Du kan välja att hämta Innehållspaketet senare. 
+### <a name="postpone-the-update"></a>Senarelägg uppdateringen
+Det bästa sättet är att importera innehålls paketet till en [anpassad arbets yta](https://youtu.be/26zyOtyHPJM?t=1m57s). Nu kan du redigera rapporterna.
+Som tidigare nämnts visas ett meddelande i Power BI om innehålls paketet ändras. Du kan välja att hämta innehålls paketet senare. 
 
 ## <a name="coming-soon"></a>Kommer snart
    
-Azure Backup-innehållspaket har uppdaterats för att stödja flera arbetsbelastningar. Arbetsbelastningar är Azure SQL Database för IaaS VM-säkerhetskopiering och System Center Data Protection Manager. Det här stödet lägger till det aktuella stödet för Azure backup och Virtuella Azure-säkerhetskopieringar. Det här stödet innebär att du kan visa och analysera dina säkerhetskopierade data på en central plats. [Rapporterna kan också kan anpassas](https://youtu.be/26zyOtyHPJM) som passar organisationens behov.
+Azure Backup innehålls paketet har uppdaterats för att stödja fler arbets belastningar. Arbets belastningar omfattar Azure SQL Database för IaaS VM backup och System Center Data Protection Manager. Det här stödet lägger till det aktuella stödet för Azure Backup och virtuella Azure-säkerhetskopieringar. Det här stödet innebär att du kan visa och analysera alla dina säkerhets kopierings data på en central plats. [Rapporter kan också anpassas](https://youtu.be/26zyOtyHPJM) efter organisationens behov.
 
-De förkonfigurerade rapporter som levereras med Azure Backup-Innehållspaketet ändras. Ändringarna gör rapporter mer meningsfulla i arbetsbelastningar. En förhandstitt på kommande uppsättning rapporter finns här.
+De förkonfigurerade rapporter som medföljer Azure Backup innehålls paketet ändras. Ändringarna gör rapporterna mer meningsfulla över arbets belastningarna. En förhandstitt på den kommande uppsättningen rapporter finns här.
 
 ### <a name="summary"></a>Sammanfattning
    

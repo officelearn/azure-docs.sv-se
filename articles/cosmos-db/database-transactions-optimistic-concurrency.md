@@ -1,67 +1,67 @@
 ---
-title: Databastransaktioner och optimistisk samtidighetskontroll i Azure Cosmos DB
-description: Den här artikeln beskriver databastransaktioner och optimistisk samtidighetskontroll i Azure Cosmos DB
+title: Databas transaktioner och optimistisk concurrency-kontroll i Azure Cosmos DB
+description: I den här artikeln beskrivs databas transaktioner och optimistisk concurrency-kontroll i Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b58255aa471fe78c84b5f6a7432c0f3d402f0875
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978995"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467908"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Kontroll över transaktioner och optimistisk samtidighet
 
-Databastransaktioner ger en säker och förutsägbar programmeringsmodell utan samtidiga ändringar av data. Traditionella relationsdatabaser som SQL Server, kan du skriva affärslogik med lagrade procedurer och/eller utlösare, skicka den till servern för körning direkt i databasmotorn. Med traditionella relationsdatabaser du krävs för att hantera två olika programmeringsspråk (icke-transaktionell) programmet programmeringsspråk, till exempel JavaScript, Python, C#, Java, etc. och transaktionella programming språk ( till exempel T-SQL) som internt körs av databasen.
+Databas transaktioner tillhandahåller en säker och förutsägbar programmerings modell för att hantera samtidiga ändringar av data. Traditionella Relations databaser, som SQL Server, låter dig skriva affärs logik med lagrade procedurer och/eller utlösare, skicka den till servern för körning direkt i databas motorn. Med traditionella Relations databaser måste du hantera två olika programmeringsspråk (icke-transaktionell) programprogrammeringsspråk som Java Script, python, C#, Java osv. och transaktions programmerings språket ( till exempel T-SQL) som körs internt av databasen.
 
-Databasmotorn i Azure Cosmos DB stöder fullständig ACID (Atomicitet, konsekvens, isolering, varaktighet) kompatibla transaktioner med ögonblicksbildisolering. Alla databasåtgärderna inom omfånget för en behållare [logisk partition](partition-data.md) Verkställ inom databasmotorn som är värd för repliken av partitionen. Dessa åtgärder omfattar både Skriv (uppdaterar ett eller flera objekt i logisk partition) och läs-och skrivåtgärder. I följande tabell visas olika åtgärder och transaktionstyper:
+Databas motorn i Azure Cosmos DB har stöd för fullständiga syror (atomiska, konsekvens, isolering, hållbarhet)-kompatibla transaktioner med ögonblicks bild isolering. Alla databas åtgärder inom omfånget för en behållares [logiska partition](partition-data.md) är transaktionella exekverade i databas motorn som är värd för partitionens replik. Dessa åtgärder omfattar både skrivning (uppdatering av ett eller flera objekt i den logiska partitionen) och Läs åtgärder. I följande tabell visas olika åtgärder och transaktions typer:
 
-| **Åtgärd**  | **Åtgärdstyp** | **Enda eller flera objekt transaktionen** |
+| **Åtgärd**  | **Åtgärds typ** | **Transaktion för enkel eller flera objekt** |
 |---------|---------|---------|
-| Infoga (utan en före/efter-utlösare) | Skriva | Enskilt objekt transaktion |
-| Infoga (med en utlösare för före/efter) | Skriv- och läsåtgärder | Flera objekt transaktion |
-| Ersätt (utan en före/efter-utlösare) | Skriva | Enskilt objekt transaktion |
-| Ersätt (med en utlösare för före/efter) | Skriv- och läsåtgärder | Flera objekt transaktion |
-| Upsert (utan en före/efter-utlösare) | Skriva | Enskilt objekt transaktion |
-| Upsert (med en utlösare för före/efter) | Skriv- och läsåtgärder | Flera objekt transaktion |
-| Ta bort (utan en före/efter-utlösare) | Skriva | Enskilt objekt transaktion |
-| Ta bort (med en utlösare för före/efter) | Skriv- och läsåtgärder | Flera objekt transaktion |
-| Kör lagrad procedur | Skriv- och läsåtgärder | Flera objekt transaktion |
-| System initierade körningen av en merge-procedur | Skriva | Flera objekt transaktion |
-| System initierade körning av att ta bort objekt baserat på upphör att gälla (TTL) för ett objekt | Skriva | Flera objekt transaktion |
-| Läsa | Läsa | Single-item transaktion |
-| Ändringsflöde | Läsa | Flera objekt transaktion |
-| Sidnumrerade Läs | Läsa | Flera objekt transaktion |
-| Sidnumrerade fråga | Läsa | Flera objekt transaktion |
-| Köra UDF som en del av sidnumrerade frågan | Läsa | Flera objekt transaktion |
+| Infoga (utan en utlösare före/efter) | Skriva | Transaktion för enskilt objekt |
+| Infoga (med en utlösare före/efter) | Skriv och Läs | Transaktion med flera objekt |
+| Ersätt (utan en utlösare före/efter) | Skriva | Transaktion för enskilt objekt |
+| Ersätt (med en utlösare före/efter) | Skriv och Läs | Transaktion med flera objekt |
+| Upsert (utan en utlösare före/efter) | Skriva | Transaktion för enskilt objekt |
+| Upsert (med en utlösare före/efter) | Skriv och Läs | Transaktion med flera objekt |
+| Ta bort (utan en utlösare före/efter) | Skriva | Transaktion för enskilt objekt |
+| Ta bort (med en utlösare före/efter) | Skriv och Läs | Transaktion med flera objekt |
+| Kör lagrad procedur | Skriv och Läs | Transaktion med flera objekt |
+| Systemet initierade körningen av en sammanfognings procedur | Skriva | Transaktion med flera objekt |
+| Systemet har initierat körningen av borttagning av objekt baserat på ett objekts förfallo datum (TTL) | Skriva | Transaktion med flera objekt |
+| Läsa | Läsa | Transaktion med enskilt objekt |
+| Ändringsflöde | Läsa | Transaktion med flera objekt |
+| Sid läsning | Läsa | Transaktion med flera objekt |
+| Sid brytnings fråga | Läsa | Transaktion med flera objekt |
+| Kör UDF som en del av den sid brytnings fråga | Läsa | Transaktion med flera objekt |
 
-## <a name="multi-item-transactions"></a>Flera objekt transaktioner
+## <a name="multi-item-transactions"></a>Transaktioner med flera objekt
 
-Azure Cosmos DB kan du skriva [lagrade procedurer, före/efter utlösare-användardefinierade-funktioner (UDF)](stored-procedures-triggers-udfs.md) och slå samman procedurer i JavaScript. Azure Cosmos DB stöd har inbyggt för JavaScript-körning i dess databasmotorn. Du kan registrera lagrade procedurer, före/efter utlösare, -användardefinierade-funktioner (UDF) och sammanfoga procedurer i en behållare och senare köra dem transaktionellt i Azure Cosmos-databasmotorn. Skriva programlogiken i JavaScript kan naturlig implementering av Kontrollflöde, variabel omfång, tilldelning och integrering av undantagshantering primitiver i databastransaktioner direkt på språket som JavaScript.
+Med Azure Cosmos DB kan du skriva [lagrade procedurer, pre/post-utlösare, användardefinierade funktioner (UDF: er)](stored-procedures-triggers-udfs.md) och sammanfognings procedurer i Java Script. Azure Cosmos DB inbyggt stöder JavaScript-körning i sin databas motor. Du kan registrera lagrade procedurer, för-/post-utlösare, användardefinierade funktioner (UDF: er) och sammanfognings procedurer på en behållare och senare köra dem med transaktion i Azure Cosmos Database Engine. Genom att skriva program logik i Java Script kan du använda naturliga uttryck för kontroll flöde, variabel omfattning, tilldelning och integrering av undantags hanterings primitiver i databas transaktionerna direkt i JavaScript-språket.
 
-JavaScript-baserade lagrade procedurer, utlösare, UDF: er och sammanslagning procedurer är omslutna inom en omgivande ACID-transaktion med ögonblicksbildisolering över alla objekt i logisk partition. Under körningen, om programmet JavaScript genererar ett undantag hela transaktionen avbryts och återställas tillbaka. Den resulterande programmeringsmodellen är enkla men ändå kraftfull. JavaScript-utvecklare få en hållbar programmeringsmodell medan du fortfarande använder sitt välbekanta språk konstruerar och biblioteket primitiver.
+JavaScript-baserade lagrade procedurer, utlösare, UDF: er och sammanfognings procedurer omsluts till en post i en omgivande syra med ögonblicks bild isolering för alla objekt i den logiska partitionen. Om JavaScript-programmet genererar ett undantag under körningen avbryts hela transaktionen och återställs. Den resulterande programmerings modellen är enkel men kraftfull. JavaScript-utvecklare får en hållbar programmerings modell och använder fortfarande välbekanta språk konstruktioner och biblioteks primitiver.
 
-Möjligheten att köra JavaScript direkt i databasmotorn ger prestanda och transaktionell körning av databasåtgärder mot objekten i en behållare. Eftersom Azure Cosmos-databasmotorn har inbyggt stöd för JSON och JavaScript, finns det inga impedans matchningsfel mellan system som typ av ett program och databasen.
+Möjligheten att köra Java Script direkt i databas motorn ger prestanda och transaktionell körning av databas åtgärder mot objekt i en behållare. Eftersom Azure Cosmos Database Engine har inbyggt stöd för JSON och Java Script, finns det dessutom inget hinder mellan typ systemen i ett program och databasen.
 
-## <a name="optimistic-concurrency-control"></a>Optimistisk samtidighetskontroll 
+## <a name="optimistic-concurrency-control"></a>Optimistisk concurrency-kontroll 
 
-Optimistisk samtidighetskontroll kan du förhindra att förlorade uppdateringar och tar bort. Samtidiga, motstridiga operationer genomgår regelbundna pessimistisk låsning av databasmotorn som värd för logisk partition som äger objektet. När två samtidiga åtgärder försöker uppdatera den senaste versionen av ett objekt i en logisk partition, en av dem ska ha och den andra misslyckas. Men om en eller två åtgärder försöker uppdatera samma objekt samtidigt hade tidigare läst en äldre värdet för objektet, databasen inte vet om det tidigare läsa värdet av ett eller båda motstridiga åtgärder var verkligen det senaste värdet för objektet. Som tur är kan den här situationen kan identifieras med den **Optimistisk samtidighet kontroll (OCC)** innan så att de två åtgärderna ange transaktionen gränsen i databasmotorn. OCC skyddar dina data oavsiktligt skriver över ändringar som gjorts av andra. Det förhindrar också andra skrivs över dina egna ändringar av misstag.
+Med optimistisk concurrency-kontroll kan du förhindra förlorade uppdateringar och borttagningar. Samtidiga är att motstridiga åtgärder har den vanliga pessimistiska låsningen av databas motorn som är värd för den logiska partition som äger objektet. När två samtidiga åtgärder försöker uppdatera den senaste versionen av ett objekt i en logisk partition, kommer en av dem att vinna och det andra Miss lyckas. Men om en eller två åtgärder som försöker uppdatera samma objekt tidigare hade läst ett äldre värde av objektet, vet inte databasen om det tidigare läsning svärdet av antingen eller båda de motstridiga åtgärderna faktiskt var det senaste värdet för objektet. I tur och miljö kan den här situationen identifieras med **optimistisk Samtidighets kontroll (OCC)** innan de två åtgärderna anges i databas motorn. OCC skyddar dina data från att oavsiktligt skriva över ändringar som har gjorts av andra. Det förhindrar också andra från att av misstag skriva över dina egna ändringar.
 
-Samtidiga uppdateringar av ett objekt har utsatts för OCC av Azure Cosmos DB-protokollet kommunikationslagret. Azure Cosmos-databasen garanterar att klientsidan-versionen av objektet som du uppdaterar (eller tar bort) är samma som versionen av objektet i Azure Cosmos-behållaren. Detta garanterar att dina skrivåtgärder skyddas från att av misstag skrivas över av skrivningar andra och vice versa. I en miljö med flera användare skyddar dig mot råkar ta bort eller uppdatera fel version av ett objekt i kontrollen Optimistisk samtidighet. Därför är objekt skyddade mot ökända ”förlorad update” eller ”förlorad delete” problem.
+Samtidiga uppdateringar av ett objekt underkastas OCC av protokoll skiktet för Azure Cosmos DB. Azure Cosmos Database säkerställer att versions versionen av det objekt som du uppdaterar (eller tar bort) är samma som versionen av objektet i Azure Cosmos-behållaren. Detta garanterar att dina skrivningar är skyddade från att skrivas över av misstag av andras skrivningar och tvärtom. I en miljö med flera användare skyddar den optimistisk samtidighets kontrollen dig från att oavsiktligt ta bort eller uppdatera fel version av ett objekt. Därför skyddas objekt mot Infamous "förlorad uppdatering" eller "förlorad borttagning".
 
-Varje objekt som lagras i en Azure Cosmos-behållare har ett system som definierats `_etag` egenskapen. Värdet för den `_etag` genereras och uppdateras av servern varje gång objektet uppdateras automatiskt. `_etag` kan användas tillsammans med klienten som angetts `if-match` huvudet i begäran så att servern för att avgöra om ett objekt kan uppdateras villkorligt. Värdet för den `if-match` rubrik matchar värdet för den `_etag` på servern, uppdateras sedan objektet. Om värdet för den `if-match` huvudet i begäran är inte längre aktuellt, avvisar servern igen med ett ”HTTP 412 Förutsättningsfel” svarsmeddelande. Klienten kan sedan nytt hämta objektet för att hämta den aktuella versionen av artikeln på servern eller åsidosätta versionen av objektet i servern med sin egen `_etag` värdet för objektet. Dessutom `_etag` kan användas med den `if-none-match` huvudet för att avgöra om en återigen hämta en resurs är nödvändigt. 
+Alla objekt som lagras i en Azure Cosmos-behållare har en `_etag` systemdefinierad egenskap. Värdet för `_etag` genereras automatiskt och uppdateras av servern varje gång objektet uppdateras. `_etag`kan användas med klientens `if-match` begär ande huvud för att tillåta att servern bestämmer om ett objekt kan uppdateras villkorligt. Värdet för `if-match` rubriken matchar värdet `_etag` på på servern, objektet uppdateras sedan. Om värdet för `if-match` begär ande rubriken inte längre är aktuellt, avvisar servern åtgärden med svarsmeddelandet "http 412-förhands fel". Klienten kan sedan återskapa objektet för att hämta den aktuella versionen av objektet på servern eller åsidosätta versionen av objektet på servern med ett eget `_etag` värde för objektet. `_etag` Kan dessutom användas `if-none-match` med rubriken för att avgöra om en återhämtning av en resurs behövs. 
 
-Objektets `_etag` värdet ändras varje gång objektet uppdateras. För Ersätt objekt, `if-match` uttryckligen måste uttryckas som en del av begäran alternativen. Ett exempel finns i exempelkoden i [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag` värden kontrolleras implicit för alla skriftliga objekt som berörs av den lagrade proceduren. Om eventuella konflikter identifieras, kommer den lagrade proceduren Återställ transaktionen och utlöser ett undantag. Med den här metoden tillämpas alla eller inga skrivningar i den lagrade proceduren atomiskt. Det här är en signal till programmet att tillämpa uppdateringar och gör om den ursprungliga klientbegäran.
+Objektets `_etag` värde ändras varje gång objektet uppdateras. För att ersätta objekt åtgärder `if-match` måste uttryckligen uttryckas som en del av begär ande alternativen. Ett exempel finns i exempel koden i [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag`värden kontrol leras implicit för alla skrivna objekt som vidrörs av den lagrade proceduren. Om en konflikt upptäcks återställer den lagrade proceduren transaktionen och genererar ett undantag. Med den här metoden tillämpas alla eller inga skrivningar inom den lagrade proceduren på ett atomict sätt. Detta är en signal till programmet att tillämpa uppdateringar på nytt och försöka utföra den ursprungliga klientbegäran igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om databastransaktioner och optimistisk samtidighetskontroll i följande artiklar:
+Läs mer om databas transaktioner och optimistisk concurrency-kontroll i följande artiklar:
 
 - [Arbeta med Azure Cosmos-databaser, behållare och objekt](databases-containers-items.md)
-- [Konsekvensnivåer](consistency-levels.md)
-- [Konflikt typer och principer för lösning](conflict-resolution-policies.md)
+- [Konsekvens nivåer](consistency-levels.md)
+- [Konflikt typer och lösnings principer](conflict-resolution-policies.md)
 - [Lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md)

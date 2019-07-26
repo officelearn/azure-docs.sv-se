@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 766208c01f27d2024025b7a202bc3724b4fc9fff
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311840"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501255"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v3
 
@@ -110,28 +110,6 @@ Ofta kunder har investerat i en licens-servergrupp i sina egna Datacenter eller 
 
 * STS måste utfärda token som accepteras och kan verifieras av licens-servergruppen. Widevine-licens-servrar som tillhandahålls av Axinom kräver till exempel en specifik JWT som innehåller rätt meddelanden. Därför måste ha en STS att utfärda en sådan JWT. 
 * Du behöver inte längre konfigurera licensleveranstjänst i Media Services. Du måste ange licensen förvärv URL: er (för PlayReady, Widevine och FairPlay) när du konfigurerar ContentKeyPolicies.
-
-### <a name="what-if-i-want-to-use-a-custom-sts"></a>Vad händer om jag vill använda en anpassad STS?
-
-En kund kan välja att använda en anpassad STS för att tillhandahålla JWTs. Orsaker är:
-
-* IDP: N som används av kunden stöder inte STS. I det här fallet kan en anpassad STS vara ett alternativ.
-* Kunden kan behöver flexibla eller bättre kontroll att integrera STS med kundens prenumerant faktureringssystem. Exempelvis kan operatören MVPD erbjuder flera OTT-prenumerant paket, som till exempel premium och basic-, och sport. Operatorn vilja matchar anspråk i en token med en prenumerant paketet så att bara innehållet i ett visst paket är tillgängliga. I det här fallet innehåller en anpassad STS nödvändiga flexibilitet och kontroll.
-
-När du använder en anpassad STS måste två ändras:
-
-* När du konfigurerar licensleveranstjänst för en tillgång kan behöva du ange säkerhetsnyckeln används för verifiering av anpassade STS i stället för den aktuella nyckeln från Azure AD. (Mer information följer.) 
-* När en JTW-token genereras en säkerhetsnyckel har angetts i stället för den privata nyckeln för den aktuella X509 certifikat i Azure AD.
-
-Det finns två typer av säkerhetsnycklar:
-
-* Symmetrisk nyckel: Samma nyckel används för att generera och verifiera en JWT.
-* Asymmetrisk nyckel: Ett offentligt privat nyckel par i ett X509-certifikat används med en privat nyckel för att kryptera/generera en JWT och med den offentliga nyckeln för att verifiera token.
-
-> [!NOTE]
-> Om du använder .NET Framework / C# som din utvecklingsplattform, X509 certifikatet som används för en asymmetrisk säkerhetsnyckel måste ha en nyckellängd på minst 2 048. Det här är ett krav för System.IdentityModel.Tokens.X509AsymmetricSecurityKey i .NET Framework-klassen. Annars genereras följande undantag:
-> 
-> IDX10630: System. IdentityModel. tokens. X509AsymmetricSecurityKey för signering får inte vara mindre än 2048 bitar.
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2 vs v3 
 

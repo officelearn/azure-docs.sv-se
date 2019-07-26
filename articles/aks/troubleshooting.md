@@ -1,132 +1,132 @@
 ---
-title: Felsöka vanliga problem med Azure Kubernetes Service
-description: Lär dig att felsöka och lösa vanliga problem när du använder Azure Kubernetes Service (AKS)
+title: Felsök vanliga problem med Azure Kubernetes-tjänsten
+description: Lär dig hur du felsöker och löser vanliga problem när du använder Azure Kubernetes service (AKS)
 services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966391"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381959"
 ---
-# <a name="aks-troubleshooting"></a>AKS felsökning
+# <a name="aks-troubleshooting"></a>AKS-felsökning
 
-När du skapar eller hantera kluster i Azure Kubernetes Service (AKS), kan det ibland uppstå problem. Den här artikeln beskriver några vanliga problem och felsökning.
+När du skapar eller hanterar AKS-kluster (Azure Kubernetes service) kan du ibland stöta på problem. I den här artikeln beskrivs några vanliga problem och fel söknings steg.
 
-## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>I allmänhet var hittar jag information om hur du felsöker problem med Kubernetes?
+## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>I allmänhet hittar jag information om fel sökning av Kubernetes-problem?
 
-Prova den [officiella guiden för att felsöka Kubernetes-kluster](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
-Det finns också en [felsökningsguide](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md)publicerade av en Microsoft-tekniker för att felsöka poddar, noder, kluster och andra funktioner.
+Testa den [officiella guiden för att felsöka Kubernetes-kluster](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
+Det finns också en [fel söknings guide](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md)som publicerats av en Microsoft-tekniker för att felsöka poddar, noder, kluster och andra funktioner.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Jag får ett ”kvoten har överskridits”-fel under generering och uppgradering. Vad ska jag göra? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Jag får ett fel meddelande om att kvoten överskreds vid skapandet eller uppgraderingen. Vad ska jag göra? 
 
-Du behöver [begär kärnor](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Du måste [begära kärnor](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Vad är den maximala poddar per nod-inställningen för AKS?
+## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Vad är den maximala inställningen för poddar per nod för AKS?
 
-Den maximala poddar per nod-inställningen är 30 som standard om du distribuerar ett AKS-kluster i Azure-portalen.
-Den maximala poddar per nod-inställningen är 110 som standard om du distribuerar ett AKS-kluster i Azure CLI. (Kontrollera att du använder den senaste versionen av Azure CLI). Den här standardinställningen kan ändras med hjälp av den `–-max-pods` flagga i den `az aks create` kommando.
+Den maximala inställningen för poddar per nod är 30 som standard om du distribuerar ett AKS-kluster i Azure Portal.
+Den maximala inställningen för poddar per nod är 110 som standard om du distribuerar ett AKS-kluster i Azure CLI. (Kontrol lera att du använder den senaste versionen av Azure CLI). Den här standardinställningen kan ändras med hjälp `–-max-pods` av flaggan `az aks create` i kommandot.
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när du distribuerar ett AKS-kluster med avancerade nätverk. Vad ska jag göra?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när jag distribuerar ett AKS-kluster med avancerade nätverksfunktioner. Vad ska jag göra?
 
-Om du använder Azure CNI (Avancerat nätverk), AKS preallocates IP-adresserna baserat på ”max-poddarna” per nod som har konfigurerats. Antalet noder i ett AKS-kluster kan finnas var som helst mellan 1 och 110. Baserat på de konfigurerade maximala poddarna per nod, ska storleken på undernätet vara större än ”produkten av antalet noder och max pod per nod”. Följande grundläggande beräkning beskrivs detta:
+Om Azure CNI (avancerade nätverk) används, allokerar AKS IP-adresser baserat på "Max-poddar" per nod som kon figurer ATS. Antalet noder i ett AKS-kluster kan vara överallt mellan 1 och 110. Under näts storleken måste vara större än den konfigurerade Max poddar per nod än "produkten av antalet noder och Max Pod per nod". Följande grundläggande ekvation beskriver detta:
 
-Undernätets storlek > Antal noder i klustret (ta hänsyn till kraven för framtida skalning) * max poddar per nod.
+Under näts storlek > antalet noder i klustret (beakta framtida skalnings krav) * Max poddar per nod.
 
-Mer information finns i [Planera IP-adresser för ditt kluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+Mer information finns i [planera IP-adresser för klustret](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Min pod har fastnat i CrashLoopBackOff läge. Vad ska jag göra?
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mitt Pod fastnar i CrashLoopBackOff-läge. Vad ska jag göra?
 
-Det kan finnas olika anledningar för pod som fastnat i detta läge. Du kan se ut till:
+Det kan finnas olika orsaker till att Pod har fastnat i det läget. Du kan titta på:
 
-* Pod, med hjälp av `kubectl describe pod <pod-name>`.
-* Loggar med hjälp av `kubectl log <pod-name>`.
+* Själva pod, med hjälp `kubectl describe pod <pod-name>`av.
+* Loggarna med hjälp `kubectl log <pod-name>`av.
 
-Läs mer om hur du felsöker problem med pod [felsöka program](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+Mer information om hur du felsöker Pod-problem finns i [Felsöka program](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera RBAC på ett befintligt kluster. Hur gör jag för att?
+## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera RBAC i ett befintligt kluster. Hur kan jag göra det?
 
-Tyvärr stöds aktiverar rollbaserad åtkomstkontroll (RBAC) på befintliga kluster inte just nu. Du måste uttryckligen skapa nya kluster. Om du använder CLI är RBAC aktiverad som standard. Om du använder AKS-portalen, är en växlingsknapp för att aktivera RBAC tillgänglig i skapa arbetsflödet.
+Det går tyvärr inte att aktivera rollbaserad åtkomst kontroll (RBAC) i befintliga kluster för tillfället. Du måste uttryckligen skapa nya kluster. Om du använder CLI är RBAC aktiverat som standard. Om du använder AKS-portalen är en växlings knapp för att aktivera RBAC tillgänglig i arbets flödet för skapande.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag har skapat ett kluster med RBAC aktiverat med hjälp av Azure-CLI med standardinställningarna eller Azure portal och nu många varningar visas på Kubernetes-instrumentpanelen. Instrumentpanelen som används för att fungera utan alla varningar. Vad ska jag göra?
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med RBAC aktiverat genom att antingen använda Azure CLI med standardinställningar eller Azure Portal, och nu kan jag se många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad ska jag göra?
 
-Orsaken till varningar på instrumentpanelen är att klustret har nu aktiverats med RBAC och åtkomst till den har inaktiverats som standard. I allmänhet är den här metoden bra eftersom standard exponering av instrumentpanelen för alla användare av klustret kan leda till säkerhetshot. Om du vill aktivera instrumentpanelen följer du stegen i [det här blogginlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+Orsaken till varningarna på instrument panelen är att klustret nu är aktiverat med RBAC och till gång till det har inaktiverats som standard. I allmänhet är den här metoden en bra idé eftersom standard exponeringen för instrument panelen för alla användare av klustret kan leda till säkerhetshot. Om du fortfarande vill aktivera instrument panelen följer du stegen i [det här blogg inlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Jag kan inte ansluta till instrumentpanelen. Vad ska jag göra?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Jag kan inte ansluta till instrument panelen. Vad ska jag göra?
 
-Det enklaste sättet att komma åt tjänsten utanför klustret är att köra `kubectl proxy`, vilka proxyservrar förfrågningar som skickas till din localhost port 8001 till Kubernetes API-servern. Därifrån kan API-servern kan proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+Det enklaste sättet att komma åt din tjänst utanför klustret är att köra `kubectl proxy`, vilka proxyservrar som begär att skickas till din localhost port 8001 till Kubernetes-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-Om du inte ser Kubernetes-instrumentpanelen, kontrollera om den `kube-proxy` pod körs i den `kube-system` namnområde. Om den inte körs, ta bort en pod och kommer att startas om.
+Om du inte ser Kubernetes-instrumentpanelen kontrollerar du om `kube-proxy` Pod körs `kube-system` i namn området. Om den inte är i ett körnings tillstånd tar du bort Pod så att den startas om.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggarna genom att använda kubectl loggar eller jag kan inte ansluta till API-servern. Jag får ”fel från servern: fel uppringning backend: Ring tcp...”. Vad ska jag göra?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggar med kubectl-loggar eller så kan jag inte ansluta till API-servern. Jag får "fel från servern: fel vid uppringning av Server del: slå TCP...". Vad ska jag göra?
 
-Se till att nätverkssäkerhetsgruppen som standard inte ändrats och att port 22 är öppen för anslutning till API-servern. Kontrollera om den `tunnelfront` pod körs i den *kube system* namnområde med hjälp av den `kubectl get pods --namespace kube-system` kommando. Framtvinga borttagning av en pod och den startas om det inte finns.
+Kontrol lera att standard nätverks säkerhets gruppen inte har ändrats och att både port 22 och 9000 är öppna för anslutning till API-servern. Kontrol lera om `tunnelfront` Pod körs i *Kube-systemets* namnrymd med `kubectl get pods --namespace kube-system` kommandot. Om den inte är det, kan du framtvinga borttagning av Pod och startas om.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får en ”meddelande: Är inte tillåtet att ändra egenskapen 'imageReference' ”fel. Hur kan jag åtgärda det här problemet?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får ett meddelande: Det går inte att ändra egenskapen "imageReference". Hur gör jag för att åtgärda det här problemet?
 
-Du kanske får felet eftersom du har ändrat taggar i agentnoder i AKS-klustret. Ändra och ta bort taggar och andra egenskaper för resurser i resursgruppen MC_ * kan leda till oväntade resultat. Ändra resurser under den MC_ *-gruppen i AKS delar kluster mål för servicenivå (SLO).
+Du kan få det här felet eftersom du har ändrat taggarna i agent-noderna i AKS-klustret. Att ändra och ta bort taggar och andra egenskaper för resurser i resurs gruppen MC_ * kan leda till oväntade resultat. Om du ändrar resurserna under gruppen MC_ * i AKS-klustret bryts service nivå målet (service nivå målet).
 
-## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Jag får fel som mitt kluster är i felaktigt tillstånd och uppgradera eller skalning fungerar inte förrän den har lösts
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Jag får fel meddelanden om att mitt kluster är i felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS
 
-*Den här hjälp med felsökning dirigeras från https://aka.ms/aks-cluster-failed*
+*Den här fel söknings hjälpen riktas mot https://aka.ms/aks-cluster-failed*
 
-Det här felet uppstår när kluster anger ett felaktigt tillstånd av flera skäl. Följ stegen nedan för att lösa dina misslyckades klustertillstånd innan du försöker tidigare misslyckade igen:
+Felet uppstår när kluster anger ett felaktigt tillstånd av flera orsaker. Följ stegen nedan för att lösa ett tillstånd för misslyckad kluster innan du försöker igen den tidigare misslyckade åtgärden:
 
-1. Tills klustret har inget `failed` tillstånd, `upgrade` och `scale` åtgärder inte lyckas. Vanliga rotorsaker problem och lösningar omfattar:
-    * Skala med **otillräcklig beräkningskvot (CRP)** . För att lösa måste du först skala ditt kluster tillbaka till en stabil målstatusen inom kvoten. Följ dessa [steg för att begära en compute-kvoten öka](../azure-supportability/resource-manager-core-quotas-request.md) innan du försöker att skala upp igen utanför som inledande kvotgränser.
-    * Skala ett kluster med avancerade nätverk och **otillräcklig (nätverk) undernätverksresurser**. För att lösa måste du först skala ditt kluster tillbaka till en stabil målstatusen inom kvoten. Följ [dessa steg för att begära en resurskvot öka](../azure-resource-manager/resource-manager-quota-errors.md#solution) innan du försöker att skala upp igen utanför som inledande kvotgränser.
-2. När den underliggande orsaken till uppgraderingen skulle misslyckas har lösts måste klustret vara i slutfört läge. När ett lyckat tillstånd har verifierats, gör om den ursprungliga åtgärden.
+1. Tills klustret är i ett `failed` `upgrade` tillstånd `scale` där det inte går att utföra åtgärder. Vanliga problem och lösningar för roten är:
+    * Skalning med **otillräcklig beräknings kvot (CRP)** . För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan de här [stegen för att begära en ökad beräknings kvot](../azure-supportability/resource-manager-core-quotas-request.md) innan du försöker skala upp igen utöver de inledande kvot gränserna.
+    * Skala ett kluster med avancerade nätverk och **otillräckliga undernät (nätverks resurser)** . För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan [de här stegen för att begära en resurs kvot ökning](../azure-resource-manager/resource-manager-quota-errors.md#solution) innan du försöker skala upp igen utöver de inledande kvot gränserna.
+2. När den underliggande orsaken till uppgraderings felet har lösts bör klustret ha statusen klar. När en lyckad status har verifierats kan du försöka utföra den ursprungliga åtgärden igen.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Jag får fel när du försöker uppgradera och skala som tillstånd mitt kluster håller för närvarande att uppgraderas eller uppgraderingen misslyckades
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Jag får fel meddelanden när jag försöker uppgradera eller skala det tillstånd mitt kluster håller på att uppgraderas eller har inte uppgraderats
 
-*Den här hjälp med felsökning dirigeras från https://aka.ms/aks-pending-upgrade*
+*Den här fel söknings hjälpen riktas mot https://aka.ms/aks-pending-upgrade*
 
-Klusteråtgärder begränsas när aktiva åtgärder för uppgradering sker eller en uppgradering har försökt, men senare misslyckades. Diagnostisera problemet kör `az aks show -g myResourceGroup -n myAKSCluster -o table` att hämta detaljerad status för ditt kluster. Baserat på resultatet:
+Kluster åtgärder är begränsade när aktiva uppgraderings åtgärder inträffar eller om en uppgradering görs, men senare misslyckades. För att diagnostisera problemet, kör `az aks show -g myResourceGroup -n myAKSCluster -o table` för att hämta detaljerad status för klustret. Baserat på resultatet:
 
-* Om klustret aktivt uppgraderar, vänta tills åtgärden avslutas. Om den lyckades försök misslyckats tidigare igen.
-* Om klustret har misslyckad uppgradering, följer du stegen som beskrivs ovan
+* Om klustret aktivt uppgraderas väntar du tills åtgärden avslutas. Om den är klar kan du försöka med den tidigare misslyckade åtgärden igen.
+* Om uppgraderingen av klustret Miss lyckas följer du stegen som beskrivs ovan
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kan jag flytta mitt kluster till en annan prenumeration eller min prenumeration med mitt kluster till en ny klient?
 
-Om du har flyttat AKS-klustret till en annan prenumeration eller klustret som äger prenumerationen till en ny klient, förlorar klustret funktionalitet på grund av att förlora rolltilldelningar och tjänstens huvudnamn rättigheter. **AKS har inte stöd för glidande kluster över prenumerationer eller klienter** på grund av den här begränsningen.
+Om du har flyttat AKS-klustret till en annan prenumeration eller klustrets ägande prenumeration till en ny klient, kommer klustret att förlora funktioner på grund av förlorade roll tilldelningar och tjänst huvud namns rättigheter. **AKS har inte stöd för att flytta kluster mellan prenumerationer eller klienter** på grund av den här begränsningen.
 
-## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Jag får fel som försöker använda funktioner som kräver VM-skalningsuppsättningar
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Jag får fel meddelanden vid försök att använda funktioner som kräver skalnings uppsättningar för virtuella datorer
 
-*Den här hjälp med felsökning dirigeras från aka.ms/aks-vmss-aktivering*
+*Den här fel söknings hjälpen dirigeras från aka.ms/aks-vmss-enablement*
 
-Du får fel som indikerar AKS-klustret inte finns på en skalningsuppsättning för virtuell dator, till exempel i följande exempel:
+Du kan få fel som indikerar att ditt AKS-kluster inte finns på en skal uppsättning för virtuella datorer, till exempel följande exempel:
 
-**AgentPool 'agentpool' har ställt in automatisk skalning som aktiverad men finns inte på Virtual Machine Scale Sets**
+**Agentpoolegenskap ' agentpoolegenskap ' har ställt in automatisk skalning som aktive rad men inte på Virtual Machine Scale Sets**
 
-Använda funktioner, till exempel autoskalningen kluster eller flera noden pooler, AKS-kluster måste skapas med VM-skalningsuppsättningar. Fel returneras om du försöker använda funktioner som är beroende av VM-skalningsuppsättningar och du rikta en regelbundna, icke-VM scale set AKS-kluster. Stöd virtuella datorn är för närvarande i förhandsversion i AKS.
+Om du vill använda funktioner som till exempel kluster autoskalning eller flera noder i pooler måste AKS-kluster skapas som använder skalnings uppsättningar för virtuella datorer. Fel returneras om du försöker använda funktioner som är beroende av den virtuella datorns skalnings uppsättningar och du riktar in ett vanligt AKS-kluster för skalnings uppsättningar som inte är virtuella datorer. Stöd för virtuell dators skalnings uppsättning är för närvarande en för hands version i AKS.
 
-Följ den *innan du börjar* stegen i lämplig webbplatsen för att registrera korrekt för VM-skalningsuppsättningen funktionen Förhandsgranska och skapa ett AKS-kluster:
+Följ stegen *innan du börjar* med att registrera dig för för hands versionen av den virtuella datorns skalnings uppsättning och skapa ett AKS-kluster:
 
-* [Använda kluster autoskalningen](cluster-autoscaler.md)
-* [Skapa och använda flera nodpooler](use-multiple-node-pools.md)
+* [Använd kluster autoskalning](cluster-autoscaler.md)
+* [Skapa och Använd flera noder i pooler](use-multiple-node-pools.md)
  
-## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Vilka namngivningsbegränsningar upprätthålls för AKS-resurser och parametrar?
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Vilka namngivnings begränsningar tillämpas för AKS-resurser och parametrar?
 
-*Den här hjälp med felsökning dirigeras från aka.ms/aks-namngivning-regler*
+*Den här fel söknings hjälpen dirigeras från aka.ms/aks-naming-rules*
 
-Namngivningsbegränsningar implementeras av både Azure-plattformen och AKS. Om ett Resursnamn eller parametern skadar något av dessa begränsningar, returneras ett fel som ombeds du ange en annan indata. Följande vanliga riktlinjerna för namngivning gäller:
+Namngivnings begränsningar implementeras av både Azure-plattformen och AKS. Om ett resurs namn eller en parameter delar någon av dessa begränsningar returneras ett fel som uppmanar dig att ange en annan Indatatyp. Följande rikt linjer gäller för namngivning:
 
-* AKS *MC_* resursgruppens namn kombinerar resursgruppens namn och resursnamn. Den automatisk genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på din resursgruppens namn eller ett AKS-klusternamnet.
-* Den *dnsPrefix* måste börja och sluta med alfanumeriska värden. Giltiga tecken är alfanumeriska värden och bindestreck (-). Den *dnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).
+* AKS *MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen `MC_resourceGroupName_resourceName_AzureRegion` för får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn.
+* *DnsPrefix* måste börja och sluta med alfanumeriska värden. Giltiga tecken är alfanumeriska värden och bindestreck (-). *DnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Jag får fel vid försök att skapa, uppdatera, skala, ta bort eller uppgradera kluster som åtgärden inte är tillåten eftersom en annan åtgärd pågår.
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Jag får fel meddelanden när jag försöker skapa, uppdatera, skala, ta bort eller uppgradera kluster, den åtgärden är inte tillåten eftersom en annan åtgärd pågår.
 
-*Den här hjälp med felsökning dirigeras från aka.ms/aks-väntande-åtgärd*
+*Den här fel söknings hjälpen dirigeras från aka.ms/aks-pending-operation*
 
-Klusteråtgärder begränsas när en tidigare åtgärd pågår fortfarande. Använd för att hämta detaljerad statusinformation för klustret, den `az aks show -g myResourceGroup -n myAKSCluster -o table` kommando. Använda en egen resursgrupp och AKS-klusternamnet vid behov.
+Kluster åtgärder är begränsade när en tidigare åtgärd fortfarande pågår. Om du vill hämta en detaljerad status för klustret använder du `az aks show -g myResourceGroup -n myAKSCluster -o table` kommandot. Använd din egen resurs grupp och AKS kluster namn efter behov.
 
-Baserat på resultatet av klusterstatusen:
+Baserat på utdata från klustrets status:
 
-* Om klustret har alla Etableringsstatus än *lyckades* eller *misslyckades*, vänta tills åtgärden (*uppgradera / uppdatera / skapa / skalning / ta bort / migrerar*) avslutas. När den föregående åtgärden har slutförts, försök igen din senaste klusteråtgärden.
+* Om klustret är i ett annat etablerings tillstånd än lyckat  eller *misslyckat*väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) avslutas. Försök att utföra den senaste kluster åtgärden igen när den tidigare åtgärden har slutförts.
 
-* Om klustret har en misslyckad uppgradering, följer du stegen som [jag får fel som mitt kluster är i felaktigt tillstånd och uppgraderar eller skalning fungerar inte förrän den har lösts](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+* Om det finns en misslyckad uppgradering av klustret följer du stegen som beskrivs [i avsnittet Jag får fel meddelanden om att mitt kluster är i ett felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

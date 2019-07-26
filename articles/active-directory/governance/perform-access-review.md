@@ -1,9 +1,9 @@
 ---
-title: Granska åtkomst till grupper eller program i åtkomstgranskningar - Azure Active Directory | Microsoft Docs
-description: Lär dig hur du granskar åtkomst av medlemmar i gruppen eller programmet åtkomst i Azure Active Directory-åtkomstgranskningar.
+title: Granska åtkomst till grupper eller program i åtkomst granskningar – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du granskar åtkomsten till grupp medlemmar eller program åtkomst i Azure Active Directory åtkomst granskningar.
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/21/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3be5d6eb443d90d3413510576a9609fe43df7caa
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471829"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499620"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper eller program i Azure AD-åtkomstgranskningar
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper eller program i åtkomst granskningar för Azure AD
 
-Azure Active Directory (Azure AD) förenklar hur företag hantera åtkomst till grupper och program i Azure AD och andra Microsoft Online Services med en funktion som kallas åtkomst till Azure AD-åtkomstgranskningar.
+Azure Active Directory (Azure AD) gör det enklare för företag att hantera åtkomst till grupper och program i Azure AD och andra Microsoft Online Services med en funktion som kallas Azure AD-åtkomst granskningar.
 
-Den här artikeln beskrivs hur en avsedda granskare utför en åtkomstgranskning för medlemmar i en grupp eller användare med åtkomst till ett program.
+Den här artikeln beskriver hur en angiven granskare utför en åtkomst granskning för medlemmar i en grupp eller användare som har åtkomst till ett program.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,82 +34,82 @@ Den här artikeln beskrivs hur en avsedda granskare utför en åtkomstgranskning
 
 Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
 
-## <a name="open-the-access-review"></a>Öppna åtkomstgranskningen
+## <a name="open-the-access-review"></a>Öppna åtkomst granskningen
 
-Det första steget för att utföra en åtkomstgranskning är att leta upp och öppna åtkomstgranskningen.
+Det första steget för att utföra en åtkomst granskning är att hitta och öppna åtkomst granskningen.
 
-1. Leta efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Här är ett e-postmeddelande med exempel för att granska åtkomsten för en grupp.
+1. Sök efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Här är ett exempel på ett e-postmeddelande för att granska åtkomsten för en grupp.
 
-    ![Exempel e-post från Microsoft för att granska åtkomst till en grupp](./media/perform-access-review/access-review-email.png)
+    ![Exempel på e-post från Microsoft för att kontrol lera åtkomsten till en grupp](./media/perform-access-review/access-review-email.png)
 
-1. Klicka på den **börja granska** länk för att öppna åtkomstgranskningen.
+1. Klicka på länken **Starta granskning** för att öppna åtkomst granskningen.
 
-Du kan hitta din väntande åtkomstgranskningar genom att följa dessa steg om du inte har e-postmeddelandet.
+Om du inte har e-postmeddelandet kan du hitta dina väntande åtkomst granskningar genom att följa dessa steg.
 
-1. Logga in på MyApps-portalen på [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Logga in på webbplatsen för Mina appar på [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![Visa en lista över appar som du har behörighet att MyApps-portalen](./media/perform-access-review/myapps-access-panel.png)
+    ![Appar för portalen som visar appar som du har behörighet att](./media/perform-access-review/myapps-access-panel.png)
 
 1. I det övre högra hörnet på sidan klickar du på användarsymbolen, som visar ditt namn och standardorganisationen. Om mer än en organisation visas väljer du den organisation som begärde en åtkomstgranskning.
 
-1. Klicka på den **Åtkomstgranskningar** ikonen för att visa en lista över väntande åtkomstgranskningar.
+1. Klicka på panelen **åtkomst granskningar** om du vill se en lista över väntande åtkomst granskningar.
 
     Om panelen inte är synlig finns det inga åtkomstgranskningar att utföra för den organisationen, och ingen åtgärd krävs just nu.
 
-    ![Väntande granskningar åtkomstlista för appar och grupper](./media/perform-access-review/access-reviews-list.png)
+    ![Lista över väntande åtkomst granskningar för appar och grupper](./media/perform-access-review/access-reviews-list.png)
 
-1. Klicka på den **påbörja granskning** länk för åtkomstgranskning som du vill utföra.
+1. Klicka på länken **Starta granskning** för den åtkomst granskning som du vill utföra.
 
-## <a name="perform-the-access-review"></a>Utför åtkomstgranskningen
+## <a name="perform-the-access-review"></a>Utför åtkomst granskningen
 
-När du har öppnat åtkomstgranskningen kan se du namnen på användare som behöver granskas.
+När du har öppnat åtkomst granskningen visas namnen på de användare som behöver granskas.
 
-Om begäran är att granska dina egna åtkomst, ser sidan annorlunda. Mer information finns i [granska åtkomst själv till grupper eller program](review-your-access.md).
+Om begäran är att granska din egen åtkomst kommer sidan att se annorlunda ut. Mer information finns i [Granska åtkomst för dig själv till grupper eller program](review-your-access.md).
 
-![Öppna åtkomstgranskning lista de användare som behöver granskas](./media/perform-access-review/perform-access-review.png)
+![Öppna åtkomst granskning visar en lista över de användare som behöver granskas](./media/perform-access-review/perform-access-review.png)
 
-Det finns två sätt att du kan godkänna eller neka åtkomst:
+Du kan godkänna eller neka åtkomst på två sätt:
 
 - Du kan godkänna eller neka åtkomst för en eller flera användare, eller
-- Du kan acceptera system-rekommendationer, vilket är det enklaste och snabbaste sättet.
+- Du kan acceptera system rekommendationer, vilket är det enklaste och snabbaste sättet.
 
 ### <a name="approve-or-deny-access-for-one-or-more-users"></a>Godkänn eller neka åtkomst för en eller flera användare
 
-1. Granska listan över användare att bestämma om du vill godkänna eller neka fortsatt åtkomst.
+1. Granska listan med användare och bestäm om du vill godkänna eller neka fortsatt åtkomst.
 
-1. För att godkänna eller neka åtkomst för en enskild användare, klickar du på raden för att öppna ett fönster för att ange åtgärden som ska vidtas. Lägg till markerade användare för att godkänna eller neka åtkomst för flera användare, och klicka sedan på den **granska X användare** knappen för att öppna ett fönster för att ange åtgärden som ska vidtas.
+1. Om du vill godkänna eller neka åtkomst för en enskild användare klickar du på raden för att öppna ett fönster för att ange vilken åtgärd som ska vidtas. Om du vill godkänna eller neka åtkomst för flera användare, så Lägg till kryss markeringar bredvid användarna och klicka sedan på knappen **Granska X-användare** för att öppna ett fönster för att ange vilken åtgärd som ska vidtas.
 
-1. Klicka på **godkänna** eller **neka**. Om du är osäker kan du klicka på **vet inte**. Detta leder till användaren upprätthålla åtkomsten, men markeringen visas i granskningsloggarna.
+1. Klicka på **Godkänn** eller **neka**. Om du är osäker kan du klicka på **vet inte**. Detta leder till att användaren behåller åtkomsten, men att valet visas i gransknings loggarna.
 
-    ![Åtgärd-fönstret som innehåller Godkänn neka, och inte känner till alternativ](./media/perform-access-review/approve-deny.png)
+    ![Åtgärds fönster som innehåller alternativen Godkänn, neka och vet inte](./media/perform-access-review/approve-deny.png)
 
-1. Om det behövs kan du ange en orsak i den **orsak** box.
+1. Ange en orsak i rutan **orsak** vid behov.
 
-    Administratören för åtkomstgranskningen kan kräva att du anger en orsak för godkännande av fortsatt åtkomst och gruppmedlemskap.
+    Administratören för åtkomst granskningen kan kräva att du anger en orsak till godkännande av fortsatt åtkomst eller grupp medlemskap.
 
-1. När du har angett åtgärden som ska vidtas, klickar du på **spara**.
+1. När du har angett vilken åtgärd som ska utföras klickar du på **Spara**.
 
-    Om du vill ändra ditt svar, Välj raden och uppdatera svaret. Du kan till exempel godkänna en tidigare nekade användare eller neka en tidigare godkända användare. Du kan ändra ditt svar när som helst tills åtkomstgranskningen har avslutats.
+    Om du vill ändra ditt svar väljer du raden och uppdaterar svaret. Du kan till exempel godkänna en tidigare nekad användare eller neka en tidigare godkänd användare. Du kan ändra ditt svar när du vill tills åtkomst granskningen har slutförts.
 
-    Om det finns flera granskare, registreras senaste skickade svaret. Tar ett exempel där en administratör anger två granskare – Alice och Bob. Alice öppnas åtkomstgranskningen först och godkänner åtkomst. Innan granskningen är klar öppnas åtkomstgranskningen Bob och nekar åtkomst. Senaste neka svaret är det registreras.
+    Om det finns flera granskare registreras det senast skickade svaret. Överväg ett exempel där en administratör betecknar två granskare – Alice och Bob. Alice öppnar först åtkomst granskningen och godkänner åtkomst. Innan granskningen avslutas öppnar Bob åtkomst granskningen och nekar åtkomst. Det senaste neka-svaret är det som registreras.
 
     > [!NOTE]
-    > Om en användare nekas åtkomst, de tas inte bort direkt. De tas bort när granskningen har slutförts eller när en administratör slutar granskningen.
+    > Om en användare nekas åtkomst tas de inte bort direkt. De tas bort när granskningen har slutförts eller när en administratör stoppar granskningen.
 
-### <a name="approve-or-deny-access-based-on-recommendations"></a>Godkänna eller neka åtkomst baserat på rekommendationer
+### <a name="approve-or-deny-access-based-on-recommendations"></a>Godkänn eller neka åtkomst baserat på rekommendationer
 
-Om du vill göra åtkomstgranskningar enklare och snabbare för dig, erbjuder vi även rekommendationer som du kan acceptera för med ett enda klick. Rekommendationerna genereras baserat på användarens inloggningsaktivitet.
+För att få åtkomst granskningar enklare och snabbare ger vi även rekommendationer som du kan acceptera med ett enda klick. Rekommendationerna genereras baserat på användarens inloggnings aktivitet.
 
-1. I det blå fältet längst ned på sidan, klickar du på **acceptera rekommendationer**.
+1. Klicka på **Godkänn rekommendationer**i det blå fältet längst ned på sidan.
 
-    ![Öppna åtkomstgranskning lista som visar knappen Acceptera rekommendationer](./media/perform-access-review/accept-recommendations.png)
+    ![Öppna listan med åtkomst granskningar som visar knappen Godkänn rekommendationer](./media/perform-access-review/accept-recommendations.png)
 
     Du ser en sammanfattning av de rekommenderade åtgärderna.
 
-    ![Fönstret som visar en sammanfattning av de rekommenderade åtgärderna](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Fönster som visar en sammanfattning av de rekommenderade åtgärderna](./media/perform-access-review/accept-recommendations-summary.png)
 
-1. Klicka på **Ok** att acceptera rekommendationer.
+1. Klicka på **OK** för att godkänna rekommendationerna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Slutför en åtkomstgranskning av grupper eller program](complete-access-review.md)
+- [Slutför en åtkomst granskning av grupper eller program](complete-access-review.md)

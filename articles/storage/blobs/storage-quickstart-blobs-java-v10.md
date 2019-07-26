@@ -1,20 +1,20 @@
 ---
-title: 'Azure snabb start: Skapa en BLOB i objekt lagring med hjälp av Java Storage SDK-v10 | Microsoft Docs'
+title: 'Snabbstart: Använd Java Storage SDK för att skapa en BLOB'
 description: I den här snabbstarten skapar du en container i objektlagring (Azure Blob), laddar upp en fil, visar en lista med objekt och laddar ned med hjälp av Java Storage SDK.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 2aa004ffa98730341c8de105f16feea6e3931a86
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 96da1f8903896f932fa63aa8497eaff69f893559
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326690"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489666"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK-v10
 

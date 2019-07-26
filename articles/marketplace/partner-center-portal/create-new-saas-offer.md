@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cea763416f36abd80b1d22b4414cc2454bc30c66
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
-ms.translationtype: HT
+ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868731"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501313"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -114,10 +114,13 @@ Marknadsför ditt företag med Microsoft genom att skapa en Marketplace-lista. O
 - **Hur vill du att potentiella kunder ska kunna interagera med det här registrerings erbjudandet?**
 
 ##### <a name="get-it-now-free"></a>Hämta nu (kostnads fritt)
-Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig URL (från och med http eller https) där de kan komma åt din app.  Exempel: `https://contoso.com/saas-app`
+Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan komma åt din app.  Exempel: `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>Kostnads fri utvärderings version (lista)
-Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig URL (från och med http eller https) där de kan komma åt din app.  Till exempel: `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
+Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig URL (från och med *http* eller *https*), där de kan få en utvärdering genom att [använda Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Till exempel: `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
+
+> [!NOTE]
+> De token som programmet tar emot via din utvärderings länk kan bara användas för att hämta användar information via Azure AD för att automatisera skapandet av konton i din app. Microsoft-konton (MSA) stöds inte för autentisering med denna token.
 
 ##### <a name="contact-me"></a>Kontakta mig
 Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [Anslut lead management](#connect-lead-management). 
@@ -220,6 +223,92 @@ Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns 
 - **Sök efter nyckelord**: Ange upp till tre sökord som kunder kan använda för att hitta ditt erbjudande i Marketplace.
 - **Komma igång-instruktioner** (krävs): Förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet. 
 
+#### <a name="description"></a>**Beskrivning**
+
+Det här är ett obligatoriskt fält. Objekt som ska tas med i beskrivningen: 
+
+* Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen.  
+* Tänk på att de första meningarna kan visas i Sök motorns resultat.  
+* Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar.  
+* Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt. 
+
+Kärn komponenterna i dina värde förslag bör innehålla följande information: 
+
+* Beskrivning av produkten. 
+* Typ av användare som fördelar från produkten. 
+* Kunden behöver eller målar produkten om produkt adressen. 
+
+Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML-taggar för att formatera beskrivningen. 
+
+1. Om du vill skapa stycken lägger du till `<p>` i begging i texten och lägger till `</p>` i slutet.
+
+    **Exempel**: 
+
+    `<p>`Detta är mitt första stycke. `</p>` <br>
+    `<p>`Det här är mitt andra stycke. `</p>` <br>
+
+    Ovanstående skulle se ut så här:
+
+    <p> Detta är mitt första stycke. </p>
+    <p> Det här är mitt andra stycke. </p>
+
+1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>` taggarna nedan. Du kan kopiera och klistra in fler punkt objekt `<li>` (objekt mellan taggarna och `</li>` ) i `<ul>` taggarna `</ul>` och. Se till att du lägger `<ul></ul>`till. 
+
+    **Exempel**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    Ovanstående skulle se ut så här:
+    <ul> 
+        <li>Lägg till text här</li> 
+        <li> Lägg till text här </li> 
+        <li> Lägg till text här </li> 
+    </ul> 
+
+1. Till **fetstil** , Lägg till `<b>` i början av den text som du vill använda fetstil och Lägg `</b>` till i slutet av den text som du vill använda fetstil. 
+
+    **Exempel**: `<b>`KOSTNADS FRI UTVÄRDERING`</b>`
+    
+    Ovanstående skulle medföra att den kostnads fria utvärderings versionen är fet i beskrivningen av erbjudandet i butik. 
+
+    **KOSTNADS FRI UTVÄRDERING**
+
+1. Om du vill lägga till **rad brytningar** mellan `<br>` innehållet lägger du till före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet börjar på en ny rad lägger `<br><br>` du till före innehållet. 
+
+    **Exempel**:
+
+    Detta är en textrad. `<br>`Detta är en text rad som börjar på en ny rad. `<br><br>`Det här är en rad som kommer att starta två rader nedan. 
+
+    Ovanstående skulle se ut så här:
+
+    Detta är en textrad. <br> Detta är en text rad som börjar på en ny rad. <br><br> Det här är en rad som kommer att starta två rader nedan. 
+
+1. Om du vill **öka storleken på texten**väljer du först hur stor du vill att texten ska vara. Använd exemplen nedan. När du har valt textens storlek lägger du till motsvarande `<H*></H*>` Taggar i början och slutet av texten. 
+
+    **Exempel**:
+
+    `<h1>`Detta är rubrik 1`</h1>` <br>
+    `<h2>`Detta är rubrik 2`</h2>` <br>
+    `<h3>`Detta är rubrik 3`</h3>` <br>
+    `<h4>`Detta är rubrik 4`</h4>` <br>
+    `<h5>`Detta är rubrik 5`</h5>` <br>
+    `<h6>`Detta är rubrik 6`</h6>` 
+
+    Ovanstående skulle se ut så här:
+
+    <h1>Detta är rubrik 1</h1> 
+    <h2>Detta är rubrik 2</h2> 
+    <h3>Detta är rubrik 3</h3> 
+    <h4>Detta är rubrik 4</h4> 
+    <h5>Detta är rubrik 5</h5> 
+    <h6>Detta är rubrik 6</h6> 
+
 #### <a name="links"></a>Länkar
 
 - **Sekretess policy** (krävs): Länk till din organisations sekretess policy. Du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy
@@ -259,7 +348,7 @@ På fliken förhands **granskning** kan du definiera en begränsad förhands **g
 
 - **Definiera en förhands gransknings mål grupp: Lägg till ett enda AAD/MSA-konto per rad, tillsammans med en valfri beskrivning.**
 
-Lägg till upp till tio (10) e-postadresser manuellt, eller 20 (20) om du överför en CSV-fil för befintliga Microsoft-MSA-eller Azure Active Directory-konton (AAD) för att hjälpa till med att verifiera ditt erbjudande innan du publicerar Live. Genom att lägga till dessa konton definierar du en mål grupp som ska få för hands versions åtkomst till ditt erbjudande innan den publiceras på Marketplace (s). Om erbjudandet redan är Live kan du fortfarande definiera en förhands gransknings grupp för att testa ändringar eller uppdateringar av ditt erbjudande.
+Lägg till upp till tio (10) e-postadresser manuellt, eller 20 (20) om du överför en CSV-fil, för befintligt Microsoft-konto (MSA) eller Azure Active Directory-konton som hjälper dig att verifiera ditt erbjudande innan du publicerar Live. Genom att lägga till dessa konton definierar du en mål grupp som ska få för hands versions åtkomst till ditt erbjudande innan den publiceras på Marketplace (s). Om erbjudandet redan är Live kan du fortfarande definiera en förhands gransknings grupp för att testa ändringar eller uppdateringar av ditt erbjudande.
 
 > [!NOTE]
 > Förhands gransknings publiken skiljer sig från en privat publik. En förhands gransknings mål grupp har åtkomst till ditt erbjudande _innan_ de publiceras Live på Marketplace. Du kan också välja att skapa en plan och bara göra den tillgänglig för en privat publik. På fliken **plan lista** kan du definiera en privat mål grupp med kryss rutan för **privat plan** . Du kan sedan definiera en privat mål grupp med upp till 20 000 kunder med hjälp av Azure klient-ID.
@@ -292,7 +381,7 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 **Skapa ny plan** (minst en plan för de som väljer att sälja via Microsoft)
 
 - **Plan-ID:** Skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Observera att ID: t inte kan ändras när du har valt skapa.
-- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Namn på erbjudande: Windows Server; utgå Windows Server 2016, Windows Server 2019).
+- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Erbjudandenamn: Windows Server; utgå Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Plan lista
 

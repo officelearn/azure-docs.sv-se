@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: ad66e2b2cab9d5e70e8c403781514ba9c5434e10
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: c738b2d44c5faca1ef95b2da8fd1f90a1b3af919
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309462"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371023"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Snabbstart: Bygg en .NET-konsol-app för att hantera Azure Cosmos DB SQL API-resurser
 
@@ -126,9 +126,25 @@ Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att aut
 
 När du har kopierat **URI: n** och **primär nyckeln** för ditt konto sparar du dem i en ny miljö variabel på den lokala datorn som kör programmet. Ange miljövariabeln genom att öppna ett konsol fönster och köra följande kommando. Se till att ersätta `<Your_Azure_Cosmos_account_URI>` och `<Your_Azure_Cosmos_account_PRIMARY_KEY>` värden.
 
+**Windows**
+
 ```console
-setx EndpointUrl <Your_Azure_Cosmos_account_URI>
-setx PrimaryKey <Your_Azure_Cosmos_account_PRIMARY_KEY>
+setx EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+```
+
+**Linux**
+
+```bash
+export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+```
+
+**MacOS**
+
+```bash
+export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
  ## <a id="object-model"></a>Objekt modell
@@ -142,7 +158,7 @@ Innan du börjar skapa programmet ska vi titta närmare på hierarkin över resu
 
 Mer information om hierarkin för olika entiteter finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](databases-containers-items.md) artikel. Du kommer att använda följande .NET-klasser för att interagera med dessa resurser:
 
-* [CosmosClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) – den här klassen tillhandahåller en logisk representation på klient sidan för Azure Cosmos DBS tjänsten. Klient objekt används för att konfigurera och köra begär Anden mot tjänsten.
+* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) – den här klassen tillhandahåller en logisk representation på klient sidan för Azure Cosmos DBS tjänsten. Klient objekt används för att konfigurera och köra begär Anden mot tjänsten.
 
 * [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) – den här metoden skapar (om den inte finns) eller hämtar (om redan finns) en databas resurs som en asynkron åtgärd. 
 

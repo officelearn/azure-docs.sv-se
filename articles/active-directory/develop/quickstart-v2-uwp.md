@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9955ea434f7a0e48f2d1f81d2a1f57cc3cd67dcb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 0b89bd3992bd6249e0acd576fee7e1556968ad65
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277888"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334176"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
@@ -93,7 +93,7 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > > [!TIP]
 > > Du hittar värdet för *program-ID*genom att gå till **översikts** avsnittet i portalen
 
-#### <a name="step-4-run-your-application"></a>Steg 4: Köra ditt program
+#### <a name="step-4-run-your-application"></a>Steg 4: Kör programmet
 
 Om du vill prova snabb starten på din Windows-dator:
 
@@ -179,3 +179,8 @@ Prova att använda självstudien om Windows-skrivbordet för en komplett stegvis
 
 > [!div class="nextstepaction"]
 > [UWP – Självstudie om att anropa Graph API](tutorial-v2-windows-uwp.md)
+
+Hjälp oss att förbättra Microsoft Identity Platform. Berätta för oss vad du tycker genom att slutföra en kort enkät med två frågor.
+
+> [!div class="nextstepaction"]
+> [Microsoft Identity Platform-undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

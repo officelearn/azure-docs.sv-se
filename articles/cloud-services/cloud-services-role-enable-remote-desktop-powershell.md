@@ -1,64 +1,58 @@
 ---
-title: Aktivera anslutning till fjärrskrivbordet för en roll i Azure Cloud Services med hjälp av PowerShell
-description: Hur du konfigurerar ditt tjänstprogram för azure-molnet som använder PowerShell för att tillåta anslutningar till fjärrskrivbord
+title: Aktivera Anslutning till fjärrskrivbord för en roll i Azure Cloud Services med PowerShell
+description: Så här konfigurerar du Azure Cloud Service-programmet med PowerShell för att tillåta fjärr skrivbords anslutningar
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: bf2f70a4-20dc-4302-a91a-38cd7a2baa62
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 43ccc8e53c30219630ad10ee66a4db38656818e6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: b466cb866889edcdc2bd02373a5567a7b53ae18d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525381"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358987"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Aktivera anslutning till fjärrskrivbordet för en roll i Azure Cloud Services med hjälp av PowerShell
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Aktivera Anslutning till fjärrskrivbord för en roll i Azure Cloud Services med PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-Fjärrskrivbord kan du komma åt skrivbordet för en roll som körs i Azure. Du kan använda en anslutning till fjärrskrivbord för att felsöka och diagnostisera problem med ditt program när den körs.
+Med fjärr skrivbord kan du komma åt Skriv bordet för en roll som körs i Azure. Du kan använda en anslutning till fjärr skrivbord för att felsöka och diagnostisera problem med programmet medan det körs.
 
-Den här artikeln beskriver hur du aktiverar fjärrskrivbord på dina Molntjänstroller med hjälp av PowerShell. Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för kraven för den här artikeln. PowerShell använder Remote Desktop-tillägget så att du kan aktivera Fjärrskrivbord när programmet har distribuerats.
+I den här artikeln beskrivs hur du aktiverar fjärr skrivbord i moln tjänst roller med hjälp av PowerShell. Se [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för de krav som krävs för den här artikeln. PowerShell använder fjärr skrivbords tillägget så att du kan aktivera fjärr skrivbord när programmet har distribuerats.
 
-## <a name="configure-remote-desktop-from-powershell"></a>Konfigurera fjärrskrivbord från PowerShell
-Den [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet kan du aktivera Fjärrskrivbord på angivna roller eller alla roller i molndistributionen för tjänsten. Cmdlet: en kan du ange användarnamnet och lösenordet för fjärrskrivbordsanvändare via den *Credential* parameter som accepterar ett PSCredential-objekt.
+## <a name="configure-remote-desktop-from-powershell"></a>Konfigurera fjärr skrivbord från PowerShell
+Med cmdleten [set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) kan du aktivera fjärr skrivbord på angivna roller eller alla roller i moln tjänst distributionen. Med cmdleten kan du ange användar namn och lösen ord för fjärr skrivbords användaren via den *Credential* -parameter som accepterar ett PSCredential-objekt.
 
-Om du använder PowerShell interaktivt kan du enkelt skapa PSCredential-objekt genom att anropa den [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+Om du använder PowerShell interaktivt kan du enkelt ange PSCredential-objektet genom att anropa cmdleten [Get-credentials](https://technet.microsoft.com/library/hh849815.aspx) .
 
 ```powershell
 $remoteusercredentials = Get-Credential
 ```
 
-Det här kommandot visar en dialogruta så att du kan ange användarnamn och lösenord för användaren på ett säkert sätt.
+Det här kommandot visar en dialog ruta där du kan ange användar namn och lösen ord för fjärran vändaren på ett säkert sätt.
 
-Eftersom PowerShell hjälper i automatiseringsscenarier, du kan också ställa in den **PSCredential** objekt på ett sätt som inte kräver interaktion från användaren. Först behöver du ställa in ett säkert lösenord. Du börjar med att ange ett lösenord i oformaterad text konvertera den till en säker sträng med hjälp av [ConvertTo SecureString](https://technet.microsoft.com/library/hh849818.aspx). Sedan måste du konvertera den här säker sträng till en krypterad sträng som standard med hjälp av [ConvertFrom SecureString](https://technet.microsoft.com/library/hh849814.aspx). Nu kan du spara den här krypterade vanlig sträng i en fil med hjälp av [Set-innehåll](https://technet.microsoft.com/library/ee176959.aspx).
+Eftersom PowerShell bidrar till automatiserings scenarier kan du också konfigurera **PSCredential** -objektet på ett sätt som inte kräver användar interaktion. Först måste du konfigurera ett säkert lösen ord. Du börjar med att ange ett lösen ord för oformaterad text för att konvertera det till en säker sträng med hjälp av [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Därefter måste du konvertera den här säkra strängen till en krypterad standard sträng med [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Nu kan du spara den här krypterade standard strängen i en fil med hjälp av [set-Content](https://technet.microsoft.com/library/ee176959.aspx).
 
-Du kan också skapa ett säkert lösenord-fil så att du inte anger du lösenordet varje gång. En fil för säkert lösenord är dessutom bättre än en oformaterad textfil. Använd följande PowerShell för att skapa en fil för säkert lösenord:
+Du kan också skapa en säker lösen ords fil så att du inte behöver skriva in lösen ordet varje gång. Dessutom är en säker lösen ords fil bättre än en fil med oformaterad text. Använd följande PowerShell för att skapa en säker lösen ords fil:
 
 ```powershell
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
 > [!IMPORTANT]
-> När du anger lösenordet, se till att du uppfyller de [komplexitetskrav](https://technet.microsoft.com/library/cc786468.aspx).
+> När du anger lösen ordet kontrollerar du att du uppfyller [komplexitets kraven](https://technet.microsoft.com/library/cc786468.aspx).
 
-För att skapa autentiseringsobjektet från filen säkert lösenord, måste du läsa igenom filen och konvertera dem till en säker sträng med hjälp av [ConvertTo SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Om du vill skapa Credential-objektet från den säkra lösen ords filen måste du läsa filens innehåll och konvertera tillbaka dem till en säker sträng med [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-Den [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) -cmdlet accepterar också en *upphör att gälla* parametern, som anger en **DateTime** vid som användarkontot upphör att gälla. Du kan till exempel ange kontot som ska upphöra att gälla några få dagar från aktuellt datum och tid.
+Cmdlet: en [set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) accepterar också en *förfallo* parameter som anger ett **datum/tid** -värde då användar kontot upphör att gälla. Du kan till exempel ange att kontot ska förfalla några dagar från aktuellt datum och aktuell tid.
 
-Det här PowerShell-exemplet visar hur du anger Remote Desktop-tillägget för en tjänst i molnet:
+Det här PowerShell-exemplet visar hur du ställer in fjärr skrivbords tillägget på en moln tjänst:
 
 ```powershell
 $servicename = "cloudservice"
@@ -68,40 +62,40 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry
 ```
-Du kan även ange den distributionsplats och roller som du vill aktivera Fjärrskrivbord på. Om dessa parametrar inte anges kommer cmdleten gör att Fjärrskrivbord på alla roller i den **produktion** distributionsplats.
+Du kan också ange den distributions plats och de roller som du vill aktivera fjärr skrivbord på. Om dessa parametrar inte anges aktiverar cmdleten fjärr skrivbord på alla roller på **produktions** distributions platsen.
 
-Remote Desktop-tillägget är associerad med en distribution. Om du skapar en ny distribution för tjänsten kan behöva du aktivera Fjärrskrivbord på distributionen. Om du alltid vill ha fjärrskrivbord aktiverat bör du överväga integrera PowerShell-skript i ditt arbetsflöde för distribution.
+Fjärr skrivbords tillägget är associerat med en distribution. Om du skapar en ny distribution för tjänsten måste du aktivera fjärr skrivbord för distributionen. Om du alltid vill att fjärr skrivbord ska vara aktiverat, bör du överväga att integrera PowerShell-skripten i distributions arbets flödet.
 
-## <a name="remote-desktop-into-a-role-instance"></a>Fjärrskrivbord till en rollinstans
+## <a name="remote-desktop-into-a-role-instance"></a>Fjärr skrivbord till en roll instans
 
-Den [Get-AzureRemoteDesktopFile](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet är van vid remote desktop till en viss roll-instans för din molntjänst. Du kan använda den *LocalPath* parametern för att ladda ned RDP-filen lokalt. Du kan också använda den *starta* parametern för att starta dialogrutan anslutning till fjärrskrivbord för att komma åt instansen av molntjänstroll direkt.
+Cmdlet: en [Get-AzureRemoteDesktopFile](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) används för fjärr skrivbord i en speciell roll instans av moln tjänsten. Du kan använda parametern *localPath* för att ladda ned RDP-filen lokalt. Du kan också använda *Start* parametern för att direkt starta dialog rutan anslutning till fjärrskrivbord för att få åtkomst till moln tjänst Rolls instansen.
 
 ```powershell
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
-## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Kontrollera om tillägget för fjärrskrivbord är aktiverat på en tjänst
+## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Kontrol lera om fjärr skrivbords tillägget är aktiverat på en tjänst
 
-Den [Get-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet visar som fjärrskrivbord är aktiverat eller inaktiverat på en tjänstdistribution. Cmdleten returnerar användarnamnet för användaren av fjärrskrivbord och de roller som remote desktop tillägget har aktiverats för. Som standard det händer på distributionsplatsen och du kan välja att använda mellanlagringsplatsen i stället.
+Cmdleten [Get-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) visar att fjärr skrivbord är aktiverat eller inaktiverat i en tjänst distribution. Cmdleten returnerar användar namnet för fjärr skrivbords användaren och de roller som fjärr skrivbords tillägget är aktiverat för. Detta sker som standard på distributions platsen och du kan välja att använda mellanlagringsplatsen i stället.
 
 ```powershell
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
-## <a name="remove-remote-desktop-extension-from-a-service"></a>Ta bort tillägget för fjärrskrivbord från en tjänst
+## <a name="remove-remote-desktop-extension-from-a-service"></a>Ta bort fjärr skrivbords tillägget från en tjänst
 
-Om du redan har aktiverat tillägget för remote desktop på en distribution och uppdatera inställningarna för fjärrskrivbordet, du först ta bort tillägget. Och aktivera det igen med de nya inställningarna. Exempel: Om du vill ange ett nytt lösenord för användarkontot eller kontot har upphört att gälla. Detta krävs på befintliga distributioner som har tillägget remote desktop aktiverat. För nya distributioner lägga du helt enkelt till tillägget direkt.
+Om du redan har aktiverat tillägget för fjärr skrivbord på en distribution och behöver uppdatera inställningarna för fjärr skrivbord tar du först bort tillägget. Och aktiverar det igen med de nya inställningarna. Om du till exempel vill ange ett nytt lösen ord för fjärranvändarkontot eller om kontot har upphört att gälla. Detta krävs för befintliga distributioner där fjärr skrivbords tillägget är aktiverat. För nya distributioner kan du helt enkelt tillämpa tillägget direkt.
 
-Om du vill ta bort tillägget för remote desktop från distributionen, kan du använda den [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet. Du kan även ange den distributionsplats och roll som du vill ta bort tillägget för remote desktop.
+Om du vill ta bort fjärr skrivbords tillägget från distributionen kan du använda cmdleten [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) . Du kan också ange den distributions plats och den roll som du vill ta bort fjärr skrivbords tillägget från.
 
 ```powershell
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
 > [!NOTE]
-> Om du vill ta bort tilläggets konfiguration, bör du anropa den *ta bort* cmdlet med den **UninstallConfiguration** parametern.
+> Om du vill ta bort tilläggs konfigurationen fullständigt bör du anropa *Remove* -cmdleten med parametern **UninstallConfiguration** .
 >
-> Den **UninstallConfiguration** parametern avinstallerar alla tilläggskonfigurationen som tillämpas på tjänsten. Varje tilläggskonfigurationen är associerad med tjänstens konfiguration. Anropa den *ta bort* cmdleten utan **UninstallConfiguration** tas den <mark>distribution</mark> tilläggskonfigurationen, vilket effektivt tar bort den tillägg. Tilläggskonfigurationen är dock fortfarande kopplad till tjänsten.
+> **UninstallConfiguration** -parametern avinstallerar all tilläggs konfiguration som tillämpas på tjänsten. Varje tilläggs konfiguration är associerad med tjänst konfigurationen. Om du anropar *Remove* -cmdleten utan **UninstallConfiguration** avassocieras <mark>distributionen</mark> från tilläggs konfigurationen, och därför tas tillägget bort effektivt. Tilläggs konfigurationen förblir dock associerad med tjänsten.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

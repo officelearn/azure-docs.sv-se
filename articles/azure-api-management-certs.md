@@ -1,59 +1,55 @@
 ---
-title: Överföra ett Hanteringscertifikat för Azure-tjänsten | Microsoft Docs
-description: Lär dig hur du överför Service Management-certifikat för Azure-portalen.
+title: Ladda upp ett Azure Service Management-certifikat | Microsoft Docs
+description: Lär dig hur du överför service management-certifikatet för Azure Portal.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
+author: georgewallace
+manager: carmonm
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 5ce96796cbfdcefbaf5568ff199cba6a87f65e05
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60742976"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359873"
 ---
-# <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett certifikat för Azure Service Management
-Hanteringscertifikat kan du autentisera med den klassiska distributionsmodellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) kan du använda dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 
+# <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett Azure Service Management-certifikat
+Med hanterings certifikat kan du autentisera med den klassiska distributions modellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) använder dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 
 
 > [!WARNING]
-> Var försiktig! Dessa typer av certifikat kan vem som helst som autentiserar med dem för att hantera de är associerade med prenumerationen.
+> Var försiktig! Med dessa typer av certifikat kan alla som autentiserar med dem hantera den prenumeration de är associerade med.
 >
 >
 
-Om du vill ha mer information om Azure-certifikat (inklusive att skapa ett självsignerat certifikat), se [Certifikatöversikt för Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Om du vill ha mer information om Azure-certifikat (inklusive att skapa ett självsignerat certifikat), se [certifikat översikt för azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-Du kan också använda [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) att autentisera klientkod för automation.
+Du kan också använda [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) för att autentisera klient koden för automatiserings syfte.
 
-**Obs:** Du måste vara en medadministratör för prenumerationen för att utföra åtgärder under Hanteringscertifikat. [Läs mer](https://go.microsoft.com/fwlink/?linkid=849300) om hur du Lägg till eller ta bort Medadministratörer från den nya Azure Portal 
+**Obs:** Du måste vara en medadministratör för prenumerationen för att utföra åtgärder under hanterings certifikat. [Läs mer](https://go.microsoft.com/fwlink/?linkid=849300) om hur du lägger till eller tar bort medadministratörer från nya Azure Portal 
 
-## <a name="upload-a-management-certificate"></a>Överföra ett hanteringscertifikat
-När du har ett hanteringscertifikat som skapade, (CER-fil med endast den offentliga nyckeln) kan du överföra den till portalen. Om certifikatet är tillgänglig i portalen, kan vem som helst med ett matchande certifikat (privat nyckel) ansluta via API Management och komma åt resurser för samma prenumeration.
+## <a name="upload-a-management-certificate"></a>Ladda upp ett hanterings certifikat
+När du har skapat ett hanterings certifikat (. cer-fil med bara den offentliga nyckeln) kan du ladda upp det till portalen. När certifikatet är tillgängligt i portalen kan alla med ett matchande certifikat (privat nyckel) ansluta via hanterings-API: et och få åtkomst till resurserna för den associerade prenumerationen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **alla tjänster** på listan längst ned Azure-tjänsten väljer **prenumerationer** i den _Allmänt_ gruppen för dataåtkomsttjänst.
+2. Klicka på **alla tjänster** längst ned i listan över Azure-tjänster och välj sedan **prenumerationer** i gruppen _allmän_ tjänst.
 
-    ![Menyn för prenumeration](./media/azure-api-management-certs/subscriptions_menu.png)
+    ![Menyn prenumeration](./media/azure-api-management-certs/subscriptions_menu.png)
 
 3. Se till att välja rätt prenumeration som du vill associera med certifikatet.     
-4. När du har valt rätt prenumeration, trycker du **hanteringscertifikat** i den _inställningar_ grupp.
+4. När du har valt rätt prenumeration trycker du på **hanterings certifikat** i gruppen _Inställningar_ .
 
     ![Inställningar](./media/azure-api-management-certs/mgmtcerts_menu.png)
 
-5. Tryck på den **överför** knappen.
+5. Tryck på knappen **överför** .
 
-    ![Ladda upp på sidan certifikat](./media/azure-api-management-certs/certificates_page.png)
-6. Fyll i dialogrutan information och tryck på **överför**.
+    ![Sidan Ladda upp på certifikat](./media/azure-api-management-certs/certificates_page.png)
+6. Fyll i dialog informationen och tryck på **Ladda upp**.
 
     ![Inställningar](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har ett certifikat som är associerade med en prenumeration kan du (när du har installerat det matchande certifikatet lokalt) via programmering ansluta till den [klassiska distributionsmodellen REST API](/azure/#pivot=sdkstools) och automatisera den olika Azure-resurser som också är associerade med den aktuella prenumerationen.
+Nu när du har ett hanterings certifikat som är associerat med en prenumeration kan du (när du har installerat det matchande certifikatet lokalt) program mässigt ansluta till den [klassiska distributions modellen REST API](/azure/#pivot=sdkstools) och automatisera de olika Azure-resurserna som också är associerade med den prenumerationen.

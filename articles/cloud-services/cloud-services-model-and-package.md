@@ -1,45 +1,38 @@
 ---
-title: Vad är en tjänst i molnet och paketet | Microsoft Docs
-description: Beskriver cloud tjänstmodellen (.csdef, .cscfg) och paketet (.cspkg) i Azure
+title: Vad är en moln tjänst modell och paket | Microsoft Docs
+description: Beskriver moln tjänst modellen (. csdef,. cscfg) och paket (. cspkg) i Azure
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080759"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359551"
 ---
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är Cloud Service-modellen och hur jag paketera den?
-En molnbaserad tjänst har skapats från tre komponenter, tjänstdefinitionen *(.csdef)* , service-config *(.cscfg)* , och inget tjänstepaket *(.cspkg)* . Både den **ServiceDefinition.csdef** och **ServiceConfig.cscfg** filer är XML-baserade och beskriver strukturen för Molntjänsten och hur den är konfigurerad; kallade modellen. Den **ServicePackage.cspkg** är en zip-fil som skapas från den **ServiceDefinition.csdef** och bland annat innehåller alla nödvändiga binary-baserade beroenden. Azure skapar en molnbaserad tjänst från både den **ServicePackage.cspkg** och **ServiceConfig.cscfg**.
+# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är moln tjänst modellen och hur kan jag paketera den?
+En moln tjänst skapas från tre komponenter, tjänst definitionen *(. csdef)* , tjänst konfigurationen *(. cscfg)* och ett service paket *(. cspkg)* . Både **service definition. csdef** -och **ServiceConfig. cscfg** -filerna är XML-baserade och beskriver moln tjänst strukturen och hur den är konfigurerad. gemensamt kallat modellen. Filen **servicepack. cspkg** är en zip-fil som genereras från **service definition. csdef** och bland annat, och innehåller alla nödvändiga binära-baserade beroenden. Azure skapar en moln tjänst från både **servicepack. cspkg** och **ServiceConfig. cscfg**.
 
-När Molntjänsten körs i Azure kan du konfigurera den via den **ServiceConfig.cscfg** filen, men du kan inte ändra definitionen.
+När moln tjänsten körs i Azure kan du konfigurera om den via filen **ServiceConfig. cscfg** , men du kan inte ändra definitionen.
 
 ## <a name="what-would-you-like-to-know-more-about"></a>Vad vill du veta mer om?
-* Jag vill veta mer om den [ServiceDefinition.csdef](#csdef) och [ServiceConfig.cscfg](#cscfg) filer.
-* Jag redan vet om det, ge mig [några exempel](#next-steps) på vad jag kan konfigurera.
-* Jag vill skapa den [ServicePackage.cspkg](#cspkg).
+* Jag vill veta mer om filerna [service definition. csdef](#csdef) och [ServiceConfig. cscfg](#cscfg) .
+* Jag vet redan om det, ge mig [några exempel](#next-steps) på vad jag kan konfigurera.
+* Jag vill skapa filen [servicepack. cspkg](#cspkg).
 * Jag använder Visual Studio och jag vill...
-  * [Skapa en molntjänst][vs_create]
-  * [Konfigurera om en befintlig molntjänst][vs_reconfigure]
-  * [Distribuera en Cloud Service-projekt][vs_deploy]
-  * [Fjärrskrivbord i en molntjänstinstans][remotedesktop]
+  * [Skapa en moln tjänst][vs_create]
+  * [Konfigurera om en befintlig moln tjänst][vs_reconfigure]
+  * [Distribuera ett moln tjänst projekt][vs_deploy]
+  * [Fjärr skrivbord till en moln tjänst instans][remotedesktop]
 
 <a name="csdef"></a>
 
 ## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
-Den **ServiceDefinition.csdef** filen anger de inställningar som används av Azure för att konfigurera en molntjänst. Den [Azure Tjänstdefinitionsschemat (.csdef-filen)](/previous-versions/azure/reference/ee758711(v=azure.100)) innehåller tillåten formatet för en tjänstdefinitionsfilen. I följande exempel visas de inställningar som kan definieras för webb- och Worker-roller:
+Filen **service definition. csdef** anger de inställningar som används av Azure för att konfigurera en moln tjänst. [Azure-tjänstens definitions schema (. csdef-fil)](/previous-versions/azure/reference/ee758711(v=azure.100)) innehåller det tillåtna formatet för en tjänst definitions fil. I följande exempel visas de inställningar som kan definieras för webb-och arbets roller:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,38 +83,38 @@ Den **ServiceDefinition.csdef** filen anger de inställningar som används av Az
 </ServiceDefinition>
 ```
 
-Du kan referera till den [Tjänstdefinitionsschemat](/previous-versions/azure/reference/ee758711(v=azure.100)) för en bättre förståelse för XML-schema används här, men här är en snabb förklaring av vissa element:
+Du kan referera till [tjänst definitions schemat](/previous-versions/azure/reference/ee758711(v=azure.100)) för en bättre förståelse för det XML-schema som används här, men det här är en snabb förklaring av några av elementen:
 
-**Platser**  
-Innehåller definitioner för webbplatser eller webbprogram program som finns i IIS7.
+**Stationer**  
+Innehåller definitionerna för webbplatser eller webb program som finns i IIS7.
 
 **InputEndpoints**  
-Innehåller definitioner för slutpunkter som används för att kontakta Molntjänsten.
+Innehåller definitionerna för slut punkter som används för att kontakta moln tjänsten.
 
 **InternalEndpoints**  
-Innehåller definitioner för slutpunkter som används av rollinstanser för att kommunicera med varandra.
+Innehåller definitionerna för slut punkter som används av roll instanser för att kommunicera med varandra.
 
 **ConfigurationSettings**  
-Innehåller inställningen definitionerna för funktioner för en viss roll.
+Innehåller inställnings definitioner för funktioner i en speciell roll.
 
 **Certifikat**  
-Innehåller definitioner för certifikat som behövs för en roll. Det förra exemplet visar ett certifikat som används för konfigurationen av Azure Connect.
+Innehåller definitionerna för certifikat som behövs för en roll. I föregående kod exempel visas ett certifikat som används för konfigurationen av Azure Connect.
 
 **LocalResources**  
-Innehåller definitioner för lokala lagringsresurser. En resurs för lokal lagring är en reserverad katalog i filsystemet för den virtuella datorn som kör en instans av en roll.
+Innehåller definitionerna för lokala lagrings resurser. En lokal lagrings resurs är en reserverad katalog på fil systemet på den virtuella datorn där en instans av en roll körs.
 
-**Import**  
-Innehåller definitioner för importerade moduler. Det förra exemplet visar moduler för anslutning till fjärrskrivbord och Azure Connect.
+**Kina**  
+Innehåller definitionerna för importerade moduler. I föregående kod exempel visas modulerna för Anslutning till fjärrskrivbord och Azure Connect.
 
-**Start**  
-Innehåller uppgifter som körs när rollen startar. Uppgifterna har definierats i en .cmd eller en körbar fil.
+**Startade**  
+Innehåller aktiviteter som körs när rollen startas. Aktiviteterna definieras i en. cmd-eller körbar fil.
 
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-Konfigurationen av inställningarna för din molntjänst fastställs av värdena i den **ServiceConfiguration.cscfg** fil. Du kan ange antalet instanser som du vill distribuera för varje roll i den här filen. Värdena för de konfigurationsinställningar som du definierade i tjänstdefinitionsfilen läggs till i tjänstekonfigurationsfilen. Tumavtryck för av hanteringscertifikat som är associerade med Molntjänsten läggs också till filen. Den [Azure-Tjänstkonfigurationens Schema (.cscfg-filen)](/previous-versions/azure/reference/ee758710(v=azure.100)) innehåller tillåten formatet för en tjänstkonfigurationsfil.
+Konfigurationen av inställningarna för din moln tjänst bestäms av värdena i **ServiceConfiguration. cscfg** -filen. Du anger antalet instanser som du vill distribuera för varje roll i den här filen. Värdena för de konfigurations inställningar som du definierade i tjänst definitions filen läggs till i tjänst konfigurations filen. Tumavtrycken för alla hanterings certifikat som är associerade med moln tjänsten läggs också till i filen. [Konfigurations schema för Azure-tjänsten (. cscfg-filen)](/previous-versions/azure/reference/ee758710(v=azure.100)) innehåller det tillåtna formatet för en tjänst konfigurations fil.
 
-Tjänstkonfigurationsfilen levereras inte med programmet, men har överförts till Azure som en separat fil och används för att konfigurera Molntjänsten. Du kan ladda upp en ny konfigurationsfil för tjänsten utan att omdistribuera din molntjänst. Konfigurationsvärden för Molntjänsten kan ändras när Molntjänsten körs. I följande exempel visas de konfigurationsinställningar som kan definieras för webb- och Worker-roller:
+Tjänst konfigurations filen paketeras inte med programmet, men överförs till Azure som en separat fil och används för att konfigurera moln tjänsten. Du kan ladda upp en ny tjänst konfigurations fil utan att distribuera om moln tjänsten. Konfigurations värden för moln tjänsten kan ändras när moln tjänsten körs. I följande exempel visas de konfigurations inställningar som kan definieras för webb-och arbets roller:
 
 ```xml
 <?xml version="1.0"?>
@@ -141,28 +134,28 @@ Tjänstkonfigurationsfilen levereras inte med programmet, men har överförts ti
 </ServiceConfiguration>
 ```
 
-Du kan referera till den [Tjänstkonfigurationens Schema](/previous-versions/azure/reference/ee758710(v=azure.100)) för bättre förstå XML-schema används här, men här är en snabb förklaring av element:
+Du kan referera till [tjänstens konfigurations schema](/previous-versions/azure/reference/ee758710(v=azure.100)) för bättre förståelse av det XML-schema som används här, men det här är en snabb förklaring av elementen:
 
-**instanser**  
-Konfigurerar antalet instanser för rollen som körs. Om du vill förhindra att din molntjänst potentiellt blir otillgänglig under uppgraderingar, bör du distribuera fler än en instans av webbservergrupper web-roller. Genom att distribuera fler än en instans, du följa riktlinjerna i den [Azure Compute serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/), som garanterar 99,95% extern anslutning för Internet-riktade roller när två eller fler rollinstanser distribueras för en tjänst.
+**Pipe**  
+Konfigurerar antalet instanser som körs för rollen. För att förhindra att moln tjänsten kan bli otillgänglig under uppgraderingar, rekommenderar vi att du distribuerar fler än en instans av dina webbaserade roller. Genom att distribuera fler än en instans följer du rikt linjerna i [Azure compute serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/), som garanterar 99,95% extern anslutning för roller som riktas mot Internet när två eller fler roll instanser distribueras för en tjänst .
 
 **ConfigurationSettings**  
-Konfigurerar inställningar för instanser som körs för en roll. Namnet på den `<Setting>` element måste matcha inställningen definitionerna i tjänstdefinitionsfilen.
+Konfigurerar inställningarna för de instanser som körs för en roll. Namnet på `<Setting>` elementen måste matcha inställnings definitionerna i tjänst definitions filen.
 
 **Certifikat**  
-Konfigurerar de certifikat som används av tjänsten. Det förra exemplet visar hur du definierar certifikat för fjärråtkomst-modulen. Värdet för den *tumavtryck* attributet måste anges till tumavtrycket för certifikatet som du använder.
+Konfigurerar de certifikat som används av tjänsten. I föregående kod exempel visas hur du definierar certifikatet för RemoteAccess-modulen. Värdet för attributet *tumavtryck* måste anges till tumavtrycket för det certifikat som ska användas.
 
 <p/>
 
 > [!NOTE]
-> Tumavtrycket för certifikatet kan läggas till konfigurationsfilen med hjälp av en textredigerare. Eller värdet kan läggas till på den **certifikat** fliken den **egenskaper** sidan av rollen i Visual Studio.
+> Du kan lägga till tumavtrycket för certifikatet i konfigurations filen med hjälp av en text redigerare. Du kan också lägga till värdet på fliken **certifikat** på egenskaps sidan  för rollen i Visual Studio.
 > 
 > 
 
-## <a name="defining-ports-for-role-instances"></a>Definiera portar för rollinstanser
-Azure kan bara en startpunkt för en webbroll. Vilket innebär att all trafik sker via en IP-adress. Du kan konfigurera dina webbplatser för att dela en port genom att konfigurera värdhuvud för att dirigera begäran till rätt plats. Du kan också konfigurera dina program för att lyssna på välkända portar på IP-adress.
+## <a name="defining-ports-for-role-instances"></a>Definiera portar för roll instanser
+Azure tillåter endast en start punkt till en webb roll. Innebär att all trafik sker via en IP-adress. Du kan konfigurera dina webbplatser så att de delar en port genom att konfigurera värd rubriken för att dirigera begäran till rätt plats. Du kan också konfigurera dina program så att de lyssnar på välkända portar på IP-adressen.
 
-I följande exempel visar konfigurationen för en webbroll med ett webbplatsen och program. Webbplatsen är konfigurerad som standardplatsen för posten på port 80 och webbprogram som är konfigurerade för att ta emot förfrågningar från en rubrik av alternativa värden som kallas ”mail.mysite.cloudapp.net”.
+I följande exempel visas konfigurationen för en webb roll med en webbplats och ett webb program. Webbplatsen konfigureras som standard plats för inmatnings platsen på port 80 och webb programmen konfigureras för att ta emot begär Anden från ett alternativt värd huvud som kallas "mail.mysite.cloudapp.net".
 
 ```xml
 <WebRole>
@@ -198,54 +191,54 @@ I följande exempel visar konfigurationen för en webbroll med ett webbplatsen o
 
 
 ## <a name="changing-the-configuration-of-a-role"></a>Ändra konfigurationen för en roll
-Du kan uppdatera konfigurationen för din molntjänst när den körs i Azure, utan att koppla tjänsten. Om du vill ändra konfigurationsinformation du antingen ladda upp en ny konfigurationsfil eller redigera konfigurationsfilen på plats och tillämpa den på din tjänsten som körs. Följande ändringar kan göras i konfigurationen av en tjänst:
+Du kan uppdatera konfigurationen av moln tjänsten medan den körs i Azure, utan att ta tjänsten offline. Om du vill ändra konfigurations information kan du antingen ladda upp en ny konfigurations fil eller redigera konfigurations filen på plats och tillämpa den på tjänsten som körs. Följande ändringar kan göras i konfigurationen av en tjänst:
 
-* **Ändring av värdena för konfigurationsinställningar**  
-  När en konfigurationsinställning ändringar, en rollinstans kan välja att tillämpa ändringen medan instansen är online, eller om du vill återanvända instansen smidigt och tillämpa ändringen när instansen är offline.
-* **Ändra tjänst-topologi rollinstanser**  
-  Ändringar i nätverkstopologin påverkar inte instanser som körs, utom där en instans tas bort. Alla återstående instanser i allmänhet behöver inte återvinnas; Du kan dock välja att återvinna rollinstanser som svar på en topologiändring.
-* **Ändra certifikatets tumavtryck**  
-  Du kan bara uppdatera ett certifikat när en rollinstans är offline. Om ett certifikat läggs till, ta bort eller ändra när en rollinstans är online, tar Azure smidigt instansen offline och uppdatera certifikatet som du kan ta den online igen när ändringen har gjorts.
+* **Ändra värdena för konfigurations inställningar**  
+  När en konfigurations inställning ändras kan en roll instans välja att tillämpa ändringen medan instansen är online, eller för att återvinna instansen korrekt och tillämpa ändringen när instansen är offline.
+* **Ändra tjänst sto pol Ogin för roll instanser**  
+  Ändringar i topologin påverkar inte instanser som körs, förutom var en instans tas bort. Alla återstående instanser behöver vanligt vis inte återvinnas. Du kan dock välja att återvinna roll instanser som svar på en ändring i topologin.
+* **Ändra tumavtryck för certifikatet**  
+  Du kan bara uppdatera ett certifikat när en roll instans är offline. Om ett certifikat läggs till, tas bort eller ändras när en roll instans är online, tar Azure på ett smidigt sätt instansen offline för att uppdatera certifikatet och ta tillbaka det igen när ändringen har slutförts.
 
-### <a name="handling-configuration-changes-with-service-runtime-events"></a>Hantering av ändringar i konfigurationen med körning av tjänsten-händelser
-Den [Azure Runtime Library](/previous-versions/azure/reference/mt419365(v=azure.100)) innehåller den [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) namnområde som innehåller klasser för att interagera med Azure-miljön från en roll. Den [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) definierar följande händelser som har skapats före och efter en konfigurationsändring i klassen:
+### <a name="handling-configuration-changes-with-service-runtime-events"></a>Hantera konfigurations ändringar med service runtime-händelser
+[Azure runtime-biblioteket](/previous-versions/azure/reference/mt419365(v=azure.100)) innehåller namn området [Microsoft. windowsazure. ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) , som innehåller klasser för att interagera med Azure-miljön från en roll. [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) -klassen definierar följande händelser som aktive ras före och efter en konfigurations ändring:
 
-* **[Ändra](/previous-versions/azure/reference/ee758134(v=azure.100)) händelse**  
-  Detta inträffar innan konfigurationsändringen tillämpas på en angiven instans av en roll som ger dig möjlighet att ta bort rollinstanserna om det behövs.
-* **[Ändra](/previous-versions/azure/reference/ee758129(v=azure.100)) händelse**  
-  Inträffar när konfigurationsändringen används på en angiven instans av en roll.
+* **Händelsen [ändring](/previous-versions/azure/reference/ee758134(v=azure.100))**  
+  Detta inträffar innan konfigurations ändringen tillämpas på en angiven instans av en roll, vilket ger dig möjlighet att ta bort roll instanserna vid behov.
+* **[Ändrings](/previous-versions/azure/reference/ee758129(v=azure.100)) händelse**  
+  Inträffar efter att konfigurations ändringen har tillämpats på en angiven instans av en roll.
 
 > [!NOTE]
-> Eftersom certifikatändringar tar alltid instanser av en roll som är offline, öka de inte RoleEnvironment.Changing eller RoleEnvironment.Changed händelser.
+> Eftersom certifikat ändringar alltid tar instanser av en roll offline, ökar de inte RoleEnvironment. ändrar eller RoleEnvironment. ändrade händelser.
 > 
 > 
 
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
-Om du vill distribuera ett program som en molntjänst i Azure måste du först paketera programmet i rätt format. Du kan använda den **CSPack** kommandoradsverktyget (installeras med den [Azure SDK](https://azure.microsoft.com/downloads/)) att skapa paketfilen som ett alternativ till Visual Studio.
+Om du vill distribuera ett program som en moln tjänst i Azure måste du först paketera programmet i rätt format. Du kan använda kommando rads verktyget **CSPack** (installerat med [Azure SDK](https://azure.microsoft.com/downloads/)) för att skapa paket filen som ett alternativ till Visual Studio.
 
-**CSPack** används innehållet i tjänstdefinitionsfilen och konfigurationsfilen för tjänsten för att definiera innehållet i paketet. **CSPack** genererar en programpaketfil (.cspkg) som du kan överföra till Azure med hjälp av den [Azure-portalen](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Som standard heter paketet `[ServiceDefinitionFileName].cspkg`, men du kan ange ett annat namn med hjälp av den `/out` möjlighet att **CSPack**.
+**CSPack** använder innehållet i tjänst definitions filen och tjänst konfigurations filen för att definiera paketets innehåll. **CSPack** genererar en programpaket fil (. cspkg) som du kan överföra till Azure med hjälp av [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Som standard heter `[ServiceDefinitionFileName].cspkg`paketet, men du kan ange ett annat namn genom att `/out` använda alternativet för **CSPack**.
 
-**CSPack** finns i  
+**CSPack** finns på  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
-> CSPack.exe (på windows) är tillgänglig genom att köra den **Kommandotolken för Microsoft Azure** genväg som installeras med SDK: N.  
+> CSPack. exe (i Windows) är tillgänglig genom att köra genvägen **Microsoft Azure kommando tolken** som installeras med SDK: n.  
 > 
-> Kör programmet CSPack.exe ensamt finns i dokumentationen om alla möjliga växlar och kommandon.
+> Kör programmet CSPack. exe separat för att se dokumentation om alla möjliga växlar och kommandon.
 > 
 > 
 
 <p />
 
 > [!TIP]
-> Kör din molntjänst lokalt i den **Microsoft Azure Compute Emulator**, använda den **/copyonly** alternativet. Det här alternativet kopierar de binära filerna för programmet till en katalog layout där de kan köras i compute-emulatorn.
+> Kör din moln tjänst lokalt i **Microsoft Azure Compute**-emulatorn, Använd alternativet **/copyonly** . Med det här alternativet kopieras binärfilerna för programmet till en katalog-layout som de kan köras från i beräknings-emulatorn.
 > 
 > 
 
-### <a name="example-command-to-package-a-cloud-service"></a>Exempelkommando för att paketera en molntjänst
-I följande exempel skapas ett programpaket som innehåller information för en webbroll. Kommandot anger tjänstdefinitionsfilen att använda den katalog där binära filer kan hittas, och namnet på paketfilen.
+### <a name="example-command-to-package-a-cloud-service"></a>Exempel kommando för att paketera en moln tjänst
+I följande exempel skapas ett programpaket som innehåller informationen för en webb roll. Kommandot anger vilken tjänst definitions fil som ska användas, katalogen där de binära filerna kan hittas och namnet på paket filen.
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -254,7 +247,7 @@ cspack [DirectoryName]\[ServiceDefinition]
        /out:[OutputFileName]
 ```
 
-Om programmet innehåller både en webbroll och en arbetsroll, används följande kommando:
+Om programmet innehåller både en webb roll och en arbets roll används följande kommando:
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -264,31 +257,31 @@ cspack [DirectoryName]\[ServiceDefinition]
        /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
 ```
 
-Där variablerna definieras enligt följande:
+Var variablerna definieras enligt följande:
 
 | Variabel | Värde |
 | --- | --- |
-| \[DirectoryName\] |Underkatalog under projektets rotkatalog som innehåller den .csdef-filen för Azure-projekt. |
-| \[ServiceDefinition\] |Namnet på tjänstdefinitionsfilen. Som standard heter den här filen ServiceDefinition.csdef. |
-| \[OutputFileName\] |Namnet på den genererade paketfilen. Detta är normalt inställt på namnet på programmet. Om inget filnamn har angetts, skapas programpaketet som \[ApplicationName\].cspkg. |
-| \[RoleName\] |Namnet på rollen som definierats i tjänstdefinitionsfilen. |
-| \[RoleBinariesDirectory] |Platsen för binärfilerna för rollen. |
-| \[VirtualPath\] |Fysiska kataloger för varje virtuell sökväg som definierats i avsnittet platser i tjänstdefinitionen. |
-| \[PhysicalPath\] |Innehållet för varje virtuell sökväg som definierats i platsnoden i tjänstdefinitionen fysiska kataloger. |
+| \[DirectoryName\] |Under katalogen under rot projekt katalogen som innehåller. csdef-filen för Azure-projektet. |
+| \[ServiceDefinition\] |Namnet på tjänst definitions filen. Som standard heter filen service definition. csdef. |
+| \[OutputFileName\] |Namnet på den genererade paket filen. Detta är vanligt vis inställt på namnet på programmet. Om inget fil namn anges skapas programpaketet som \[ApplicationName\]. cspkg. |
+| \[RoleName\] |Namnet på rollen som det definieras i tjänst definitions filen. |
+| \[RoleBinariesDirectory] |Platsen för de binära filerna för rollen. |
+| \[VirtualPath\] |De fysiska katalogerna för varje virtuell sökväg som definieras i avsnittet platser i tjänst definitionen. |
+| \[PhysicalPath\] |Fysiska kataloger för innehållet för varje virtuell sökväg som definierats i noden plats i tjänst definitionen. |
 | \[RoleAssemblyName\] |Namnet på den binära filen för rollen. |
 
 ## <a name="next-steps"></a>Nästa steg
-Jag skapar ett molntjänstpaket och jag vill...
+Jag skapar ett moln tjänst paket och jag vill...
 
-* [Konfigurera Fjärrskrivbord för en molntjänstinstans][remotedesktop]
-* [Distribuera en Cloud Service-projekt][deploy]
+* [Konfigurera fjärr skrivbord för en moln tjänst instans][remotedesktop]
+* [Distribuera ett moln tjänst projekt][deploy]
 
 Jag använder Visual Studio och jag vill...
 
-* [Skapa en ny molntjänst][vs_create]
-* [Konfigurera om en befintlig molntjänst][vs_reconfigure]
-* [Distribuera en Cloud Service-projekt][vs_deploy]
-* [Konfigurera Fjärrskrivbord för en molntjänstinstans][vs_remote]
+* [Skapa en ny moln tjänst][vs_create]
+* [Konfigurera om en befintlig moln tjänst][vs_reconfigure]
+* [Distribuera ett moln tjänst projekt][vs_deploy]
+* [Konfigurera fjärr skrivbord för en moln tjänst instans][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md

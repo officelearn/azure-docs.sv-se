@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 4de8f68e0384742cea4ce50ccd23a7455b186893
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827161"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360229"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Snabbstart: Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
 
@@ -20,7 +20,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 Den här snabbstarten är också tillgänglig som en [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En e-postadress för ett organisationskonto som är medlem i Azure Active Directory (AAD)
 
@@ -62,13 +62,14 @@ Klient-ID är i det här fallet `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Ange vä
 ```python
 AAD_TENANT_ID = "<TenantId>"
 KUSTO_CLUSTER = "https://help.kusto.windows.net/"
-KUSTO_DATABASE  = "Samples"
+KUSTO_DATABASE = "Samples"
 ```
 
 Nu kan du skapa anslutningssträngen. I det här exemplet används enhetsautentisering för åtkomst till klustret. Du kan också använda ett [AAD-programcertifikat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [en AAD-programnyckel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) och [användare och lösenord för AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
-KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
+KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_CLUSTER)
 KCSB.authority_id = AAD_TENANT_ID
 ```
 
@@ -77,8 +78,8 @@ KCSB.authority_id = AAD_TENANT_ID
 Kör en fråga mot klustret och lagra utdata i en dataram. När den här koden körs returneras ett meddelande som liknar följande: *För att logga in använder du en webbläsare för att öppna sidan https://microsoft.com/devicelogin och anger sedan koden F3W4VWZDM för att autentisera dig*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock.
 
 ```python
-KUSTO_CLIENT  = KustoClient(KCSB)
-KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
+KUSTO_CLIENT = KustoClient(KCSB)
+KUSTO_QUERY = "StormEvents | sort by StartTime desc | take 10"
 
 RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```

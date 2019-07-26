@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.openlocfilehash: fe92d36eca05b47f928f6644053fb9b0149d6db9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.date: 07/24/2019
+ms.openlocfilehash: cd611918b755ac3d5b6088ec6abe1711962921c7
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326804"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423180"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -23,6 +23,9 @@ För scenarier där dina Logi Kap par och integrations konton behöver åtkomst 
 När du skapar en ISE, *injicerar* Azure som ISE i ditt virtuella Azure-nätverk, som sedan distribuerar tjänsten Logic Apps till ditt virtuella nätverk. När du skapar en Logic app eller ett integrations konto väljer du din ISE som plats. Din Logic app-eller integrations konto kan sedan få direkt åtkomst till resurser, till exempel virtuella datorer, servrar, system och tjänster, i ditt virtuella nätverk.
 
 ![Välj integrerings tjänst miljö](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
+
+> [!IMPORTANT]
+> För att Logic Apps och integrations konton ska fungera tillsammans i en ISE måste båda använda *samma ISE* som plats.
 
 En ISE har ökat gränserna för körnings tid, lagrings kvarhållning, data flöde, timeout för HTTP-begäran och svar, meddelande storlekar och anpassade anslutnings begär Anden. Mer information finns i [gränser och konfiguration för Azure Logic Apps](logic-apps-limits-and-config.md). Mer information om ISEs finns i [åtkomst till Azure Virtual Network-resurser från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
@@ -43,9 +46,9 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
-* Ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du läsa om hur du [skapar ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). 
+* Ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du läsa om hur du [skapar ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md).
 
-  * Ditt virtuella nätverk måste ha fyra *tomma* undernät för att skapa och distribuera resurser i din ISE. Du kan skapa dessa undernät i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma tid. Läs mer om [krav för undernät](#create-subnet). 
+  * Ditt virtuella nätverk måste ha fyra *tomma* undernät för att skapa och distribuera resurser i din ISE. Du kan skapa dessa undernät i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma tid. Läs mer om [krav för undernät](#create-subnet).
   
     > [!NOTE]
     > Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som tillhandahåller en privat anslutning till Microsofts moln tjänster, måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell som har följande väg och länka tabellen till varje undernät som används av din ISE:
@@ -73,7 +76,7 @@ Dessa tabeller beskriver de portar i ditt virtuella nätverk som används av ISE
 > [!IMPORTANT]
 > För intern kommunikation i dina undernät kräver ISE att du öppnar alla portar i dessa undernät.
 
-| Syfte | Direction | Portar | Käll tjänst tag gen | Måltjänsttagg | Anteckningar |
+| Syfte | Direction | Portar | Källtjänsttagg | Måltjänsttagg | Anteckningar |
 |---------|-----------|-------|--------------------|-------------------------|-------|
 | Kommunikation från Azure Logic Apps | Utgående | 80 & 443 | VirtualNetwork | Internet | Porten är beroende av den externa tjänst som Logic Apps tjänsten kommunicerar med |
 | Azure Active Directory | Utgående | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
@@ -114,7 +117,7 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    ![Ange miljö information](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Egenskap | Krävs | Value | Beskrivning |
+   | Egenskap | Obligatorisk | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumerationen som ska användas för din miljö |
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Den Azure-resurs grupp där du vill skapa din miljö |
@@ -130,14 +133,13 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    **Skapa undernät**
 
-   För att skapa och distribuera resurser i din miljö behöver din ISE fyra *tomma* undernät som inte har delegerats till någon tjänst. 
-   Du *kan inte* ändra dessa under näts adresser när du har skapat din miljö. Varje undernät måste uppfylla följande kriterier:
+   För att skapa och distribuera resurser i din miljö behöver din ISE fyra *tomma* undernät som inte har delegerats till någon tjänst. Du *kan inte* ändra dessa under näts adresser när du har skapat din miljö. Varje undernät måste uppfylla följande kriterier:
 
    * Har ett namn som börjar med ett alfabetiskt tecken eller ett under streck, och som inte har följande tecken `<`: `>`, `%`, `&` `\\` `?`,,,,`/`
 
    * Använder [CIDR-format (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och ett klass B-adressutrymme.
 
-   * Använder minst ett `/27` i adress utrymmet eftersom varje undernät måste ha 32 adresser som *minimum*. Exempel:
+   * Använder minst ett `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som *minst.* Exempel:
 
      * `10.0.0.0/27`har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32.
 
@@ -155,11 +157,11 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    1. I listan **undernät** väljer du **Hantera under näts konfiguration**.
 
-      ![Hantera under näts konfiguration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![Hantera konfiguration av undernät](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
 
    1. I fönstret **undernät** väljer du **undernät**.
 
-      ![Lägga till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Lägg till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
    1. Ange den här informationen i fönstret **Lägg till undernät** .
 
@@ -179,22 +181,22 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    ![När verifieringen är klar väljer du "skapa"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure börjar distribuera din miljö, men det *kan* ta upp till två timmar innan processen har slutförts. 
-   För att kontrol lera distributions status går du till Azure-verktygsfältet och väljer aviserings ikonen, som öppnar fönstret meddelanden.
+   Azure börjar distribuera din miljö, men det *kan* ta upp till två timmar innan processen har slutförts. För att kontrol lera distributions status går du till Azure-verktygsfältet och väljer aviserings ikonen, som öppnar fönstret meddelanden.
 
    ![Kontrol lera distributions status](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
    Om distributionen har slutförts visas följande meddelande i Azure:
 
-   ![Distributionen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Distribueringen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    Annars följer du Azure Portal anvisningarna för fel sökning av distribution.
 
    > [!NOTE]
-   > Om distributionen Miss lyckas eller om du tar bort din ISE kan Azure ta upp till en timme innan du släpper upp dina undernät. Den här fördröjningen innebär att du kan behöva vänta innan du återanvänder dessa undernät i en annan ISE. 
+   > Om distributionen Miss lyckas eller om du tar bort din ISE kan Azure ta upp till en timme innan du släpper upp dina undernät. Den här fördröjningen innebär att du kan behöva vänta innan du återanvänder dessa undernät i en annan ISE.
    >
    > Om du tar bort det virtuella nätverket tar Azure vanligt vis upp till två timmar innan du frigör dina undernät, men den här åtgärden kan ta längre tid. 
-   > Se till att inga resurser fortfarande är anslutna när du tar bort virtuella nätverk. Se [ta bort virtuellt nätverk](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
+   > Se till att inga resurser fortfarande är anslutna när du tar bort virtuella nätverk. 
+   > Se [ta bort virtuellt nätverk](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 1. Om du vill visa din miljö väljer du **gå till resurs** om Azure inte automatiskt går till din miljö när distributionen är klar.  
 
@@ -204,9 +206,26 @@ Mer information om hur du skapar undernät finns i [lägga till ett undernät f�
 
 ## <a name="create-logic-app---ise"></a>Skapa Logic app-ISE
 
-Skapa Logi Kap par som körs i integrerings tjänst miljön (ISE) genom att [skapa dina](../logic-apps/quickstart-create-first-logic-app-workflow.md) Logi Kap par, förutom när du anger egenskapen **location** , väljer du ISE i avsnittet integrerings **tjänst miljöer** för exempel
+Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst miljön (ISE):
 
-  ![Välj integrerings tjänst miljö](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
+1. Leta upp och öppna din ISE, om den inte redan är öppen. Från menyn ISE, under **Inställningar**, väljer du **Logic Apps** > **Lägg till**.
+
+   ![Lägg till ny Logic app i ISE](./media/connect-virtual-network-vnet-isolated-environment/add-logic-app-to-ise.png)
+
+   ELLER
+
+   Från huvud menyn i Azure väljer du **skapa en** > app för resurs**integrerings** > **logik**.
+
+1. Ange namnet, Azure-prenumerationen och Azure-resurs gruppen (ny eller befintlig) som ska användas för din Logic app.
+
+1. I listan **plats** går du till avsnittet **integrerings tjänst miljöer** och väljer din ISE, till exempel:
+
+   ![Välj integrerings tjänst miljö](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-ise.png)
+
+   > [!IMPORTANT]
+   > Om du vill använda dina Logi Kap par med ett integrations konto måste dessa Logic Apps och integrations kontot använda samma ISE.
+
+1. Fortsätt [att skapa din Logic app på vanligt sätt](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 Information om skillnader i hur utlösare och åtgärder fungerar och hur de märks när du använder en ISE jämfört med den globala Logic Apps tjänsten finns i [isolerade kontra globala i ISE](connect-virtual-network-vnet-isolated-environment-overview.md#difference)-översikten.
 
@@ -214,11 +233,26 @@ Information om skillnader i hur utlösare och åtgärder fungerar och hur de mä
 
 ## <a name="create-integration-account---ise"></a>Skapa integrations konto – ISE
 
-Om du vill använda ett integrations konto med logi Kap par i en integrerings tjänst miljö (ISE) måste det integrations kontot använda *samma miljö* som Logic Apps. Logic Apps i en ISE kan endast referera till integrations konton i samma ISE. Utifrån den [ISE-SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) som valts vid skapandet, innehåller din ISE en viss integrerings konto användning utan extra kostnad. Information om hur priser och fakturering fungerar för integrations konton med ISEs finns i [prissättnings modellen för Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/).
+Utifrån den [ISE-SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) som valts vid skapandet, innehåller din ISE en viss integrerings konto användning utan extra kostnad. Logi Kap par som finns i en integrerings tjänst miljö (ISE) kan endast referera till integrations konton som finns i samma ISE. För att ett integrations konto ska fungera med logi Kap par i en ISE måste både integrations kontot och Logic Apps använda *samma miljö* som platsen. Mer information om integrations konton och ISEs finns i [integrations konton med](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
+)ISE.
 
-Skapa ett integrations konto som använder en ISE genom att [skapa integrations kontot på vanligt sätt](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , förutom när du anger egenskapen **location** , väljer du ISE i avsnittet **integrerings tjänst miljöer** , till exempel:
+Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
-![Välj integrerings tjänst miljö](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
+1. Leta upp och öppna din ISE, om den inte redan är öppen. Från menyn ISE, under **Inställningar**, väljer du **integrerings konton** > **Lägg till**.
+
+   ![Lägg till nytt integrations konto i ISE](./media/connect-virtual-network-vnet-isolated-environment/add-integration-account-to-ise.png)
+
+   ELLER
+
+   Välj **skapa ett** > **integrations konto**för resurs**integration** > på huvud menyn i Azure.
+
+1. Ange namn, Azure-prenumeration, Azure-resurs grupp (ny eller befintlig) och pris nivå som ska användas för ditt integrations konto.
+
+1. I listan **plats** i avsnittet integrerings **tjänst miljöer** väljer du samma ISE som din Logi Kap par använder, till exempel:
+
+   ![Välj integrerings tjänst miljö](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
+
+1. Fortsätt [att skapa integrations kontot på vanligt sätt](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 <a name="add-capacity"></a>
 

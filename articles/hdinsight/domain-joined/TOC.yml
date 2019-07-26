@@ -2,8 +2,8 @@
   href: /azure/hdinsight
 - name: Översikt
   items:
-    - name: Vad är Enterprise Security Package i HDInsight?
-      href: apache-domain-joined-introduction.md
+    - name: Vad är företagssäkerhet i HDInsight?
+      href: hdinsight-security-overview.md
 - name: Självstudier
   items:
     - name: Apache HBase RBAC med Apache Ranger

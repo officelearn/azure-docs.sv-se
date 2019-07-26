@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c61d54fc49ddd0a8a9ac5063c1a2a3edea66a899
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326215"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424096"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Felsöka Statusövervakare v2
 
@@ -78,11 +78,13 @@ När du har kört kommandot Aktivera slutför du följande steg:
 
 ### <a name="iis-nested-applications"></a>IIS-kapslade program
 
-Vi har inte instrumentat några kapslade program i IIS i version 1,0 vi spårar det här problemet [här](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
+Vi instrumenterar inte kapslade program i IIS i version 1,0.
+Vi håller på att spåra det [här problemet.](https://github.com/microsoft/ApplicationInsights-Home/issues/369)
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>Avancerad SDK-konfiguration är inte tillgänglig.
 
-SDK-konfigurationen visas inte för slutanvändaren i version 1,0 vi spårar det här problemet [här](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
+SDK-konfigurationen visas inte för slutanvändaren i version 1,0.
+Vi håller på att spåra det [här problemet.](https://github.com/microsoft/ApplicationInsights-Home/issues/375)
 
     
     
@@ -116,7 +118,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>Fastställ den aktuella versionen av modulen Statusövervakare v2
-`Get-ApplicationInsightsMonitoringStatus` Kör kommandot för att visa följande information om modulen:
+`Get-ApplicationInsightsMonitoringStatus -PowerShellModule` Kör kommandot för att visa följande information om modulen:
    - Version av PowerShell-modul
    - Application Insights SDK-version
    - Fil Sök vägar för PowerShell-modulen
@@ -148,7 +150,7 @@ Se [API](status-monitor-v2-api-get-status.md) -referensen för en detaljerad bes
 5. Ange följande **ytterligare providers**:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
-#### <a name="collecting-logs"></a>Samlar in loggar
+#### <a name="collecting-logs"></a>Samla in loggar
 
 1. I en kommando konsol med administratörs behörighet kör du `iisreset /stop` kommandot för att stänga av IIS och alla webbappar.
 2. I PerfView väljer du **starta insamling**.

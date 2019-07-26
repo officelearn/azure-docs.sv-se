@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågemönster i Azure Stream Analytics
-description: Den här artikeln beskriver ett antal vanliga frågemönster och -designer som är användbara i Azure Stream Analytics-jobb.
+title: Vanliga fråge mönster i Azure Stream Analytics
+description: Den här artikeln beskriver ett antal vanliga fråge mönster och design som är användbara i Azure Stream Analytics-jobb.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,32 +8,32 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620809"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413365"
 ---
-# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
+# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråge exempel för vanliga Stream Analytics användnings mönster
 
-Frågor i Azure Stream Analytics uttrycks i ett SQL-liknande frågespråk. Språkkonstruktioner finns dokumenterade i den [frågespråksreferens för Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference) guide. 
+Frågor i Azure Stream Analytics uttrycks i ett SQL-liknande frågespråk. Språk konstruktionerna dokumenteras i referens hand boken för [Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference) . 
 
-Frågans design kan uttrycka enkel direkt logik för att flytta händelsedata från en Indataströmmen till ett datalager med utdata eller den kan utföra omfattande mönstret matchande och temporala analyser för att beräkna aggregeringar över olika tidsfönster som i den [skapa en IoT lösning med hjälp av Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md) guide. Du kan ansluta till data från flera inmatningar att kombinera direktuppspelning av händelser och du kan göra sökningar mot statiska referensdata att utöka de händelse-värdena. Du kan också skriva data till flera utdata.
+Frågans design kan uttrycka enkel direkt sändnings logik för att flytta händelse data från en indataströmmen till ett utgående data lager, eller så kan den utföra omfattande mönster matchning och temporal analys för att beräkna mängder över olika tidsfönster som i [skapa en IoT-lösning med använda Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md) guide. Du kan koppla data från flera indata till att kombinera strömmande händelser och du kan göra sökningar mot statiska referens data för att utöka händelse värden. Du kan också skriva data till flera utdata.
 
-Den här artikeln beskrivs lösningar på flera vanliga frågemönster utifrån verkliga scenarier.
+Den här artikeln beskriver lösningar på flera vanliga fråge mönster baserade på verkliga scenarier.
 
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>Arbeta med komplexa datatyper i JSON och AVRO
 
-Azure Stream Analytics har stöd för bearbetning av händelser i CSV, JSON och Avro dataformat.
+Azure Stream Analytics stöder bearbetning av händelser i CSV-, JSON-och Avro data format.
 
-JSON- och Avro kan innehålla komplexa typer, till exempel kapslade objekt (poster) eller matriser. Mer information om hur du arbetar med dessa komplexa datatyper i den [parsa JSON-och AVRO](stream-analytics-parsing-json.md) artikeln.
+Både JSON och Avro kan innehålla komplexa typer som kapslade objekt (poster) eller matriser. Mer information om hur du arbetar med dessa komplexa data typer finns i artikeln [parsa JSON och Avro data](stream-analytics-parsing-json.md) .
 
-## <a name="query-example-convert-data-types"></a>Exempel på sökfråga: Konvertera-datatyper
+## <a name="query-example-convert-data-types"></a>Exempel på frågor: Konvertera data typer
 
-**Beskrivning**: Ange vilka typer av egenskaper på Indataströmmen. Till exempel bil vikten kommer på Indataströmmen som strängar och behöver konverteras till **INT** att utföra **SUMMAN**.
+**Beskrivning**: Definiera typer av egenskaper i indataströmmen. Exempelvis kommer bilens vikt att skickas till indataströmmen som strängar och måste konverteras till **heltal** för att utföra **Sum**.
 
-**Indata**:
+Inmatade:
 
 | Skapa | Time | Vikt |
 | --- | --- | --- |
@@ -46,7 +46,7 @@ JSON- och Avro kan innehålla komplexa typer, till exempel kapslade objekt (post
 | --- | --- |
 | Honda |3000 |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT
@@ -59,14 +59,14 @@ JSON- och Avro kan innehålla komplexa typer, till exempel kapslade objekt (post
         TumblingWindow(second, 10)
 ```
 
-**Förklaring**: Använd en **CAST** instruktionen i det **vikt** fältet för att ange dess datatyp. Se en lista över vilka datatyper i [datatyper (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
+**Förklaring**: Använd en **Cast** -instruktion i fältet **vikt** för att ange dess datatyp. Se listan över data typer som stöds i [data typer (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Exempel på sökfråga: Använd LIKE/NOT som om du vill mönstret matchar
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Exempel på frågor: Använd LIKE/inte gilla-mönster matchning
 
-**Beskrivning**: Kontrollera att ett fältvärde på händelsen matchar ett visst mönster.
-Till exempel kontrollera att resultatet returnerar licens nivåer som börjar på A och sluta med 9.
+**Beskrivning**: Kontrol lera att ett fält värde i händelsen matchar ett visst mönster.
+Kontrol lera till exempel att resultatet returnerar licens plattor som börjar med A och slutar med 9.
 
-**Indata**:
+Inmatade:
 
 | Skapa | LicensePlate | Time |
 | --- | --- | --- |
@@ -81,7 +81,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT
@@ -92,13 +92,13 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
         LicensePlate LIKE 'A%9'
 ```
 
-**Förklaring**: Använd den **som** -uttrycket för att kontrollera den **LicensePlate** fältet värde. Det måste börja med bokstaven A, och sedan har noll eller flera teckensträng och sedan avslutas med talet 9. 
+**Förklaring**: Använd **like** -instruktionen för att kontrol lera värdet för fältet **LicensePlate** . Den ska börja med bokstaven A, sedan ha en sträng på noll eller flera tecken och sedan sluta med siffran 9. 
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Exempel på sökfråga: Ange logik för olika fall/värden (CASE-utdrag)
+## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Exempel på frågor: Ange logik för olika fall/värden (CASE-instruktioner)
 
-**Beskrivning**: Ange en annan beräkning för ett fält baserat på ett visst kriterium. Till exempel ange en sträng beskrivning för hur många bilar av samma gör skickas med ett specialfall för 1.
+**Beskrivning**: Ange en annan beräkning för ett fält baserat på ett visst kriterium. Du kan till exempel ange en sträng beskrivning för hur många bilar av samma som skickas, med ett specialfall för 1.
 
-**Indata**:
+Inmatade:
 
 | Skapa | Time |
 | --- | --- |
@@ -113,7 +113,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT
@@ -121,7 +121,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp() AS Time
+        System.TimeStamp() AS AsaTime
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -129,13 +129,13 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
         TumblingWindow(second, 10)
 ```
 
-**Förklaring**: Den **FALLET** uttrycket jämför ett uttryck som en uppsättning enkla uttryck för att fastställa resultatet. I det här exemplet gör vehicle och det antal 1 returneras en beskrivning av annan sträng än vehicle gör med ett antal än 1.
+**Förklaring**: **Case** -uttrycket jämför ett uttryck med en uppsättning enkla uttryck för att fastställa resultatet. I det här exemplet gör fordonet med ett antal 1 returnerat en annan sträng beskrivning än vehikeln med ett annat antal än 1.
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Exempel på sökfråga: Skicka data till flera utdata
+## <a name="query-example-send-data-to-multiple-outputs"></a>Exempel på frågor: Skicka data till flera utdata
 
-**Beskrivning**: Skicka data till flera mål i utdata från ett enskilt jobb. Till exempel analysera data för en avisering om tröskelbaserade och arkivera alla händelser till blob storage.
+**Beskrivning**: Skicka data till flera utgående mål från ett enda jobb. Analysera till exempel data för en tröskel-baserad avisering och arkivera alla händelser till Blob Storage.
 
-**Indata**:
+Inmatade:
 
 | Skapa | Time |
 | --- | --- |
@@ -161,7 +161,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT
@@ -173,7 +173,7 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
 
     SELECT
         Make,
-        System.TimeStamp() AS Time,
+        System.TimeStamp() AS AsaTime,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -186,9 +186,9 @@ Till exempel kontrollera att resultatet returnerar licens nivåer som börjar p�
         [Count] >= 3
 ```
 
-**Förklaring**: Den **INTO** satsen talar om Stream Analytics som utdata att skriva data till från den här instruktionen. Den första frågan är en anslutningsfråga data som tas emot att utdata med namnet **ArchiveOutput**. Den andra frågan har en enkel aggregering och filtrering och skickar resultatet till en underordnad aviseringssystemet **AlertOutput**.
+**Förklaring**: **Into** -satsen visar Stream Analytics vilka utdata som data ska skrivas till från den här instruktionen. Den första frågan är en direkt uppspelning av de data som tagits emot till utdata med namnet **ArchiveOutput**. Den andra frågan gör viss enkel agg regering och filtrering, och skickar resultatet till ett underordnat varnings system, **AlertOutput**.
 
-Obs Du kan även återanvända resultatet av de vanliga tabelluttryck (cte-referenser) (till exempel **WITH** uttryck) i flera instruktioner i utdata. Det här alternativet har den ytterligare fördelen med att öppna färre läsare till Indatakällan.
+Observera att du också kan återanvända resultatet av de vanliga tabell uttrycken (CTE) (till exempel **with** -instruktioner) i flera output-uttryck. Det här alternativet har extra fördelen att öppna färre läsare till Indatakällan.
 
 Exempel: 
 
@@ -205,11 +205,11 @@ Exempel:
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 ```
 
-## <a name="query-example-count-unique-values"></a>Exempel på sökfråga: Antal unika värden
+## <a name="query-example-count-unique-values"></a>Exempel på frågor: Räkna unika värden
 
-**Beskrivning**: Räkna antalet unika fältvärden som visas i strömmen inom ett tidsintervall. Gör till exempel hur många unika av bilar som skickas via avgift monter i fönster 2 sekunder?
+**Beskrivning**: Räkna antalet unika fält värden som visas i data strömmen i ett tids fönster. Till exempel hur många unika bilar som skickas via avgiftsbelagt monter i ett 2-sekunders fönster?
 
-**Indata**:
+Inmatade:
 
 | Skapa | Time |
 | --- | --- |
@@ -226,12 +226,12 @@ Exempel:
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
 
-**Lösning:**
+**Lösa**
 
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP() AS TIME
+     System.TIMESTAMP() AS AsaTIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -239,13 +239,13 @@ GROUP BY
 
 
 **Förklaring:** 
-**antal (DISTINKTA Kontrollera)** returnerar antalet distinkta värden i den **gör** kolumnen inom ett tidsintervall.
+**Count (DISTINCT fabrikat)** returnerar antalet distinkta värden i kolumnen **skapa** i ett tids fönster.
 
-## <a name="query-example-determine-if-a-value-has-changed"></a>Exempel på sökfråga: Fastställa om ett värde har ändrats
+## <a name="query-example-determine-if-a-value-has-changed"></a>Exempel på frågor: Avgöra om ett värde har ändrats
 
-**Beskrivning**: Titta på en tidigare värde för att bestämma om det skiljer sig från det aktuella värdet. Till exempel är föregående bil på vägen avgift samma Kontrollera som den aktuella bilen?
+**Beskrivning**: Titta på ett tidigare värde för att avgöra om det skiljer sig från det aktuella värdet. Är till exempel föregående bil på väg vägen samma sak som den nuvarande bilen?
 
-**Indata**:
+Inmatade:
 
 | Skapa | Time |
 | --- | --- |
@@ -258,7 +258,7 @@ GROUP BY
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT
@@ -270,18 +270,18 @@ GROUP BY
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 ```
 
-**Förklaring**: Använd **FÖRDRÖJNING** att granska i Indataströmmen en händelsen tillbaka och få den **gör** värde. Jämför dem med den **gör** -värdet på den aktuella händelsen och utdata händelsen om de är olika.
+**Förklaring**: Använd **fördröjning** för att titta på indata strömmar en händelse tillbaka och få **fram värdet.** Jämför det sedan med värdet **gör** i den aktuella händelsen och mata ut händelsen om de skiljer sig åt.
 
-## <a name="query-example-find-the-first-event-in-a-window"></a>Exempel på sökfråga: Hitta den första händelsen i ett fönster
+## <a name="query-example-find-the-first-event-in-a-window"></a>Exempel på frågor: Hitta den första händelsen i ett fönster
 
-**Beskrivning**: Hitta den första bil i varje 10 minuters intervall.
+**Beskrivning**: Hitta den första bilen under varje 10-minuters intervall.
 
-**Indata**:
+Inmatade:
 
 | LicensePlate | Skapa | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
 | RMV 8282 |Honda |2015-07-27T00:05:01.0000000Z |
 | YHN 6970 |Toyota |2015-07-27T00:06:00.0000000Z |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
@@ -295,7 +295,7 @@ GROUP BY
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT 
@@ -308,17 +308,17 @@ GROUP BY
         IsFirst(minute, 10) = 1
 ```
 
-Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i varje 10 minuters intervall.
+Nu ska vi ändra problemet och hitta den första bilen i ett visst intervall under 10 minuter.
 
 | LicensePlate | Skapa | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
 | YHN 6970 |Toyota |2015-07-27T00:06:00.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT 
@@ -331,16 +331,16 @@ Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 ```
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>Exempel på sökfråga: Hitta den sista händelsen i ett fönster
+## <a name="query-example-find-the-last-event-in-a-window"></a>Exempel på frågor: Hitta den sista händelsen i ett fönster
 
-**Beskrivning**: Hitta den senaste bilen i varje 10 minuters intervall.
+**Beskrivning**: Hitta den sista bilen under varje 10-minuters intervall.
 
-**Indata**:
+Inmatade:
 
 | LicensePlate | Skapa | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
+| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
 | RMV 8282 |Honda |2015-07-27T00:05:01.0000000Z |
 | YHN 6970 |Toyota |2015-07-27T00:06:00.0000000Z |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
@@ -354,7 +354,7 @@ Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     WITH LastInWindow AS
@@ -377,14 +377,13 @@ Nu ska vi ändra problemet och hitta den första bil för en viss kontrollerar i
         AND Input.Time = LastInWindow.LastEventTime
 ```
 
-**Förklaring**: Det finns två steg i frågan. Den första som söker efter senaste tidsstämpeln i windows 10: e minut. Det andra steget kopplar ihop resultaten av den första frågan med ursprungliga direkt för att hitta händelser som matchar de senaste tidsstämplarna i varje fönster. 
+**Förklaring**: Det finns två steg i frågan. Den första, hittar den senaste tidsstämpeln i 10 minuters fönster. I det andra steget kopplas resultatet från den första frågan med den ursprungliga data strömmen för att hitta de händelser som matchar de senaste tidsstämplar i varje fönster. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Exempel på sökfråga: Identifiera avsaknad av händelser
+## <a name="query-example-locate-correlated-events-in-a-stream"></a>Exempel på frågor: Hitta korrelerade händelser i en ström
 
-**Beskrivning**: Kontrollera att en dataström har inget värde som matchar ett visst villkor.
-Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de senaste 90 sekunderna?
+**Beskrivning**: Hitta korrelerade händelser i en data ström. Du kan till exempel ha två på varandra följande bilar från samma fabrikat som du angav på väg inom de senaste 90 sekunderna?
 
-**Indata**:
+Inmatade:
 
 | Skapa | LicensePlate | Time |
 | --- | --- | --- |
@@ -399,7 +398,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT
@@ -414,13 +413,13 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 ```
 
-**Förklaring**: Använd **FÖRDRÖJNING** att granska i Indataströmmen en händelsen tillbaka och få den **gör** värde. Jämför dem med den **gör** värde i den aktuella händelsen och sedan mata ut händelsen om de är likadana. Du kan också använda **FÖRDRÖJNING** och hämta data om den tidigare bilen.
+**Förklaring**: Använd **fördröjning** för att titta på indata strömmar en händelse tillbaka och få **fram värdet.** Jämför det med värdet **gör** i den aktuella händelsen och mata sedan ut händelsen om de är samma. Du kan också använda en **fördröjning** för att hämta data om föregående bil.
 
-## <a name="query-example-detect-the-duration-between-events"></a>Exempel på sökfråga: Identifiera varaktigheten mellan händelser
+## <a name="query-example-detect-the-duration-between-events"></a>Exempel på frågor: Identifiera varaktigheten mellan händelser
 
-**Beskrivning**: Hitta varaktigheten för en given händelse. Till exempel med en web-klickströmdata kan fastställa den tid som krävs för en funktion.
+**Beskrivning**: Hitta varaktigheten för en specifik händelse. Om du till exempel har en webb-klick Ströms bestämmer du hur lång tid en funktion får ta.
 
-**Indata**:  
+Inmatade:  
 
 | Användare | Funktion | Händelse | Time |
 | --- | --- | --- | --- |
@@ -433,7 +432,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT
@@ -448,13 +447,13 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
         Event = 'end'
 ```
 
-**Förklaring**: Använd den **senaste** funktionen för att hämta senaste **tid** värde när händelsetyp var **starta**. Den **senaste** använder **PARTITION BY [user]** att indikera att resultatet beräknas per unika användare. Frågan har 1 timme maxgränsen för tidsskillnaden mellan **starta** och **stoppa** händelser, men kan konfigureras vid behov **(GRÄNSEN DURATION(hour, 1)** .
+**Förklaring**: Använd den **sista** funktionen för att hämta det senaste **tids** värdet när händelse typen **startades**. Den **sista** funktionen använder **partition av [användare]** för att indikera att resultatet beräknas per unik användare. Frågan har ett maximalt 1 timmes tröskelvärde för tids skillnaden mellan **Start** -och **stopp** händelser, men kan konfigureras efter behov **(gräns längd (timme, 1)** .
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>Exempel på sökfråga: Identifiera varaktigheten för ett villkor
-**Beskrivning**: Ta reda på hur lång tid en tillstånd inträffade.
-Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (över 20 000 pund) och varaktigheten för den buggen måste beräknas.
+## <a name="query-example-detect-the-duration-of-a-condition"></a>Exempel på frågor: Identifiera varaktigheten för ett villkor
+**Beskrivning**: Ta reda på hur länge ett villkor inträffat.
+Anta till exempel att en bugg ledde till att alla bilar har en felaktig vikt (över 20 000 kg) och varaktigheten för denna bugg måste beräknas.
 
-**Indata**:
+Inmatade:
 
 | Skapa | Time | Vikt |
 | --- | --- | --- |
@@ -473,7 +472,7 @@ Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (ö
 | --- | --- |
 | 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     WITH SelectPreviousEvent AS
@@ -494,13 +493,13 @@ Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (ö
         AND previousWeight > 20000
 ```
 
-**Förklaring**: Använd **FÖRDRÖJNING** att visa Indataströmmen i 24 timmar och leta efter instanser var **StartFault** och **StopFault** omfattas av vikt < 20000.
+**Förklaring**: Använd **fördröjning** för att Visa indataströmmen i 24 timmar och leta efter instanser där **StartFault** och **StopFault** sträcker sig över vikt < 20000.
 
-## <a name="query-example-fill-missing-values"></a>Exempel på sökfråga: Fyll värden som saknas
+## <a name="query-example-fill-missing-values"></a>Exempel på frågor: Fyll värden som saknas
 
-**Beskrivning**: Generera en dataström med händelser med jämna mellanrum för dataströmmen av händelser som har värden som saknas. Till exempel generera en händelse var femte sekund som rapporterar den nyligen upptäckta datapunkten.
+**Beskrivning**: För en data ström med händelser som saknar värden skapar du en ström med händelser med regelbundna intervall. Du kan till exempel generera en händelse var femte sekund som rapporterar den senast visade data punkten.
 
-**Indata**:
+Inmatade:
 
 | t | value |
 | --- | --- |
@@ -513,20 +512,20 @@ Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (ö
 
 **Utdata (första 10 raderna)** :
 
-| windowend | lastevent.t | lastevent.value |
+| windowend | lastevent. t | lastevent. Value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
-| 2014-01-01T14:01:10.000Z |2014-01-01T14:01:10.000Z |3 |
-| 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
+| 2014-01-01T14:01:10 000 Z |2014-01-01T14:01:10 000 Z |3 |
+| 2014-01-01T14:01:15.000 Z |2014-01-01T14:01:15.000 Z |4 |
+| 2014-01-01T14:01:20.000 Z |2014-01-01T14:01:15.000 Z |4 |
+| 2014-01-01T14:01:25.000 Z |2014-01-01T14:01:15.000 Z |4 |
 | 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
 | 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:40.000 Z |2014-01-01T14:01:35.000Z |6 |
 | 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
     SELECT
@@ -537,43 +536,43 @@ Anta exempelvis att en bugg resulterade i alla bilar att ha en felaktig vikt (ö
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**Förklaring**: Den här frågan genererar händelser var femte sekund och matar ut den senaste händelsen togs emot tidigare. Den [Hopping fönstret](/stream-analytics-query/hopping-window-azure-stream-analytics) varaktighet som anger hur långt tillbaka frågan ser ut för att hitta den senaste händelsen (300 sekunder i det här exemplet).
+**Förklaring**: Den här frågan genererar händelser var femte sekund och matar ut den senaste händelsen som togs emot tidigare. [Hoppande](/stream-analytics-query/hopping-window-azure-stream-analytics) -fönstrets varaktighet avgör hur långt tillbaka frågan söker efter den senaste händelsen (300 sekunder i det här exemplet).
 
 
-## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exempel på sökfråga: Korrelera två händelsetyper inom samma dataström
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exempel på frågor: Korrelera två händelse typer inom samma data ström
 
-**Beskrivning**: Aviseringar behöver ibland genereras baserat på flera händelsetyper som inträffat under ett visst tidsintervall. Till exempel i en IoT-scenario för home ugnar en avisering måste aktiveras när temperaturen fläkt är mindre än 40 och högsta effekt under de senaste 3 minuterna är mindre än 10.
+**Beskrivning**: Ibland måste aviseringar genereras baserat på flera händelse typer som har inträffat under ett visst tidsintervall. I ett IoT-scenario för hem ugnar måste en avisering till exempel genereras när fläkt temperaturen är mindre än 40 och den högsta kraften under de senaste 3 minuterna är mindre än 10.
 
-**Indata**:
+Inmatade:
 
 | time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
-| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
-| "2018-01-01T16:01:00" | "Oven1" | ”power” |15 |
-| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
-| "2018-01-01T16:02:00" | "Oven1" | ”power” |15 |
-| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
-| "2018-01-01T16:03:00" | "Oven1" | ”power” |15 |
-| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
-| "2018-01-01T16:04:00" | "Oven1" | ”power” |15 |
-| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
-| "2018-01-01T16:05:00" | "Oven1" | ”power” |8 |
-| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
-| "2018-01-01T16:06:00" | "Oven1" | ”power” |8 |
-| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
-| "2018-01-01T16:07:00" | "Oven1" | ”power” |8 |
-| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
-| "2018-01-01T16:08:00" | "Oven1" | ”power” |8 |
+| "2018-01-01T16:01:00" | "Oven1" | styr |120 |
+| "2018-01-01T16:01:00" | "Oven1" | befogenhet |15 |
+| "2018-01-01T16:02:00" | "Oven1" | styr |100 |
+| "2018-01-01T16:02:00" | "Oven1" | befogenhet |15 |
+| "2018-01-01T16:03:00" | "Oven1" | styr |70 |
+| "2018-01-01T16:03:00" | "Oven1" | befogenhet |15 |
+| "2018-01-01T16:04:00" | "Oven1" | styr |50 |
+| "2018-01-01T16:04:00" | "Oven1" | befogenhet |15 |
+| "2018-01-01T16:05:00" | "Oven1" | styr |30 |
+| "2018-01-01T16:05:00" | "Oven1" | befogenhet |8 |
+| "2018-01-01T16:06:00" | "Oven1" | styr |20 |
+| "2018-01-01T16:06:00" | "Oven1" | befogenhet |8 |
+| "2018-01-01T16:07:00" | "Oven1" | styr |20 |
+| "2018-01-01T16:07:00" | "Oven1" | befogenhet |8 |
+| "2018-01-01T16:08:00" | "Oven1" | styr |20 |
+| "2018-01-01T16:08:00" | "Oven1" | befogenhet |8 |
 
 **Utdata**:
 
-| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
+| eventTime | deviceId | styr | Alertmessage som | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
-| "2018-01-01T16:05:00" | "Oven1" |30 | ”Kort krets uppvärmning element” |15 |
-| "2018-01-01T16:06:00" | "Oven1" |20 | ”Kort krets uppvärmning element” |15 |
-| "2018-01-01T16:07:00" | "Oven1" |20 | ”Kort krets uppvärmning element” |15 |
+| "2018-01-01T16:05:00" | "Oven1" |30 | "" Korts matnings element " |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | "" Korts matnings element " |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | "" Korts matnings element " |15 |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
 WITH max_power_during_last_3_mins AS (
@@ -611,13 +610,13 @@ WHERE
     AND t2.maxPower > 10
 ```
 
-**Förklaring**: Den första frågan `max_power_during_last_3_mins`, använder den [glidande fönstret](/stream-analytics-query/sliding-window-azure-stream-analytics) att hitta maxvärdet för power sensorn för varje enhet under de senaste 3 minuterna. Den andra frågan är ansluten till den första frågan att hitta power-värdet i fönstret senaste relevanta för det aktuella. Och sedan, om villkoren är uppfyllda, en varning ska genereras för enheten.
+**Förklaring**: Den första frågan `max_power_during_last_3_mins`använder [glidande fönster](/stream-analytics-query/sliding-window-azure-stream-analytics) för att hitta det högsta värdet för ström sensorn för varje enhet under de senaste 3 minuterna. Den andra frågan är kopplad till den första frågan för att hitta det energi värde i det senaste fönstret som är relevant för den aktuella händelsen. Under förutsättning att villkoren uppfylls genereras en avisering för enheten.
 
-## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exempel på sökfråga: Bearbeta händelser som är oberoende av enheten klockan förskjuta (underströmmar)
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exempel på frågor: Bearbeta händelser oberoende av enhetens klock skevning (under strömmar)
 
-**Beskrivning**: Händelser kan kommer sent eller oordnade följd av klockavvikelser mellan händelseproducenter, klockan snedställer mellan partitioner eller Nätverksfördröjningen. I följande exempel enhetens klocka för TollID 2 är fem sekunder bakom TollID 1 och enhetens klocka för TollID 3 är tio sekunder bakom TollID 1. 
+**Beskrivning**: Händelser kan komma in i försenat eller ur ordning på grund av fördröjningar mellan evenemangs producenter, klockor mellan partitioner eller nätverks fördröjning. I följande exempel är enhets klockan för TollID 2 fem sekunder bakom TollID 1 och enhets klockan för TollID 3 är tio sekunder bakom TollID 1. 
 
-**Indata**:
+Inmatade:
 
 | LicensePlate | Skapa | Time | TollID |
 | --- | --- | --- | --- |
@@ -625,7 +624,7 @@ WHERE
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
 | QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
 | GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
-| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000 Z | 1 |
 | RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
 | MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
@@ -641,7 +640,7 @@ WHERE
 | 2 | 1 |
 | 3 | 1 |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
 SELECT
@@ -652,13 +651,13 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-**Förklaring**: Den [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) satsen tittar på varje enhet tidslinje separat enligt våra underströmmar. Utdata-händelser för varje TollID genereras som de beräknade, vilket innebär att händelserna är i ordning med avseende på varje TollID i stället för som ordnas om som om alla enheter som fanns på samma klockan.
+**Förklaring**: Timestamp by-satsen söker på varje enhets tids linje separat med hjälp av [under](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) strömmar. Utmatnings händelserna för varje TollID genereras när de beräknas, vilket innebär att händelserna är i ordning för varje TollID i stället för att omordnas som om alla enheter var på samma klocka.
 
-## <a name="query-example-remove-duplicate-events-in-a-window"></a>Exempel på sökfråga: Ta bort dubbla händelser i ett fönster
+## <a name="query-example-remove-duplicate-events-in-a-window"></a>Exempel på frågor: Ta bort duplicerade händelser i ett fönster
 
-**Beskrivning**: När du utför en åtgärd till exempel beräkna genomsnitt över händelser under en viss tidsperiod, ska dubbla händelserna filtreras. I följande exempel visas är den andra händelsen en dubblett av först.
+**Beskrivning**: När du utför en åtgärd, till exempel beräkning av genomsnitt över händelser inom ett angivet tidsintervall, ska duplicerade händelser filtreras. I följande exempel är den andra händelsen en dubblett av den första.
 
-**Indata**:  
+Inmatade:  
 
 | DeviceId | Time | Attribut | Value |
 | --- | --- | --- | --- |
@@ -667,7 +666,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 | 2 |2018-07-27T00:00:01.0000000Z |Temperatur |40 |
 | 1 |2018-07-27T00:00:05.0000000Z |Temperatur |60 |
 | 2 |2018-07-27T00:00:05.0000000Z |Temperatur |50 |
-| 1 |2018-07-27T00:00:10.0000000Z |Temperatur |100 |
+| 1 |2018-07-27T00:00:10.0000000 Z |Temperatur |100 |
 
 **Utdata**:  
 
@@ -676,7 +675,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 | 70 | 1 |
 |45 | 2 |
 
-**Lösningen**:
+**Lösning**:
 
 ```SQL
 With Temp AS (
@@ -699,16 +698,16 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Förklaring**: [Antal (DISTINKTA tid)](/stream-analytics-query/count-azure-stream-analytics) returnerar antalet distinkta värden i kolumnen tid inom ett tidsintervall. Du kan sedan använda utdata från det här steget för att beräkna genomsnitt per enhet genom att ta bort dubbletter.
+**Förklaring**: [Count (distinkt tid)](/stream-analytics-query/count-azure-stream-analytics) returnerar antalet distinkta värden i kolumnen Time i ett tids fönster. Du kan sedan använda utdata från det här steget för att beräkna genomsnitt per enhet genom att ta bort dubbletter.
 
-## <a name="geofencing-and-geospatial-queries"></a>Geofencing och geospatiala frågor
-Azure Stream Analytics har inbyggda geospatiala funktioner som kan användas för att implementera scenarier, t.ex hantering av vagnpark, trampa delning, anslutna bilar och spårning av tillgångar. Geospatiala data samlas in i GeoJSON eller WELL-KNOWN format som en del av händelseström eller refererar till data. Mer information finns i den [Geofencing och geospatiala aggregering scenarier med Azure Stream Analytics](geospatial-scenarios.md) artikeln.
+## <a name="geofencing-and-geospatial-queries"></a>Polystaket och geospatiala frågor
+Azure Stream Analytics innehåller inbyggda geospatiala funktioner som kan användas för att implementera scenarier som hantering av flottan, delning av delning, anslutna bilar och till gångs spårning. Geospatiala data kan matas in i antingen interjson-eller well-format som en del av händelse data strömmen eller referens data. Mer information finns i avsnittet om avgränsnings- [och geospatiala agg regerings scenarier med Azure Stream Analytics](geospatial-scenarios.md) artikel.
 
-## <a name="language-extensibility-through-javascript-and-c"></a>Språk-utökningsbarhet via JavaScript ochC#
-Azure Stream Ananlytics fråga langugae kan utökas med anpassade funktioner som är skrivna i JavaScript eller C# språk. Mer information finns i foolowing artiklar:
+## <a name="language-extensibility-through-javascript-and-c"></a>Språk utökning via Java Script ochC#
+Azure Stream ananlytics Query langugae kan utökas med anpassade funktioner skrivna i Java Script C# eller språk. Mer information finns i foolowing-artiklarna:
 * [Azure Stream Analytics JavaScript-användardefinierade funktioner](stream-analytics-javascript-user-defined-functions.md)
-* [Azure Stream Analytics JavaScript-användardefinierade aggregeringar](stream-analytics-javascript-user-defined-aggregates.md)
-* [Utveckla .NET Standard användardefinierade funktioner för Azure Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf-methods.md)
+* [Azure Stream Analytics användardefinierade JavaScript-mängder](stream-analytics-javascript-user-defined-aggregates.md)
+* [Utveckla .NET standard-användardefinierade funktioner för Azure Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>Få hjälp
 

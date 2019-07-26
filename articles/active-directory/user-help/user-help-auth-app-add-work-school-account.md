@@ -1,6 +1,6 @@
 ---
-title: Lägg till ditt arbets- eller skolkonto till Microsoft Authenticator-appen – Azure Active Directory | Microsoft Docs
-description: Hur du lägger till arbets-eller skolkonto för Microsoft Authenticator-appen för verifiering av två faktorer.
+title: Lägg till ditt arbets-eller skol konto i Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+description: Så här lägger du till ditt arbets-eller skol konto i Microsoft Authenticator-appen för tvåstegsverifiering.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,45 +12,46 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a73500d17a0dd5d55e60700f7c0b6dbe92a3f96b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473879"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382526"
 ---
-# <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets- eller skolkonto
-Om din organisation använder två faktorer verifiering, kan du ställa in ditt arbets- eller skolkonto konto att använda Microsoft Authenticator-appen som en av verifieringsmetoderna.
+# <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets-eller skol konto
+
+Om din organisation använder tvåstegsverifiering kan du konfigurera ditt arbets-eller skol konto för att använda Microsoft Authenticator-appen som en av verifierings metoderna.
 
 >[!Important]
->Innan du kan lägga till ditt konto, måste du hämta och installera Microsoft Authenticator-appen. Om du inte har gjort det ännu, följer du stegen i den [ladda ned och installera appen](user-help-auth-app-download-install.md) artikeln.
+>Innan du kan lägga till ditt konto måste du ladda ned och installera Microsoft Authenticator-appen. Om du inte har gjort det än följer du stegen i artikeln [Hämta och installera appen](user-help-auth-app-download-install.md) .
 
-## <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets- eller skolkonto
+## <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets-eller skol konto
 
-1. På din dator, går du till den [ytterligare säkerhetsverifiering](https://aka.ms/mfasetup) sidan.
-
-    >[!Note]
-    >Om du inte ser den **ytterligare säkerhetsverifiering** sidan, är det möjligt att din administratör har aktiverat säkerhetsupplevelse för info (förhandsversion). Om så är fallet ska du följa anvisningarna i den [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md) avsnittet. Om detta inte är fallet behöver du kontakta organisationens supportavdelning om du behöver hjälp. Läs mer om säkerhetsinformation [info (förhandsversion) Säkerhetsöversikt](user-help-security-info-overview.md).
-
-2. Markera kryssrutan bredvid **autentiseringsapp**, och välj sedan **konfigurera**.
-
-    Den **konfigurera mobilappen** visas.
-    
-    ![Skärmen som tillhandahåller QR-kod](./media/user-help-auth-app-download-install/auth-app-barcode.png)
-
-3. Öppna Microsoft Authenticator-appen, Välj **Lägg till konto** från den **anpassa och kontroll** ikonen i det övre högra hörnet, och välj sedan **arbets- eller skolkonto**.
-
-4. Använd enhetens kamera för att skanna QR-kod från den **konfigurera mobilappen** skärmen på datorn och välj sedan **klar**.
+1. På datorn går du till sidan [ytterligare säkerhets verifiering](https://aka.ms/mfasetup) .
 
     >[!Note]
-    >Om din kamera inte att samla in QR-koden kan du manuellt lägga till din kontoinformation till Microsoft Authenticator-appen för verifiering av två faktorer. Mer information och hur du gör det, finns i [manuellt lägga till ditt konto](user-help-auth-app-add-account-manual.md).
+    >Om du inte ser sidan **ytterligare säkerhets verifiering** är det möjligt att administratören har aktiverat säkerhets information (för hands versionen). Om så är fallet bör du följa anvisningarna i avsnittet [Konfigurera säkerhets information för att använda en Authenticator-app](security-info-setup-auth-app.md) . Om så inte är fallet måste du kontakta din organisations supportavdelning om du behöver hjälp. Mer information om säkerhets information finns i [Översikt över säkerhets information (för hands version)](user-help-security-info-overview.md).
 
-5. Granska den **konton** skärmen i appen på enheten, för att se till att ditt konto är rätt och att det finns en tillhörande sexsiffrig Verifieringskod. För ytterligare säkerhet ändrar verifieringskoden med 30 sekunders mellanrum hindra någon från och med en kod flera gånger.
+2. Markera kryss rutan bredvid **Authenticator-app**och välj sedan **Konfigurera**.
 
-    ![skärmen konton](./media/user-help-auth-app-download-install/auth-app-accounts.png)
+    Sidan **Konfigurera mobilapp** visas.
+
+    ![Skärm som tillhandahåller QR-koden](./media/user-help-auth-app-download-install/auth-app-barcode.png)
+
+3. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger och välj sedan arbets- **eller skol konto**.
+
+4. Använd enhetens kamera för att skanna QR-koden från skärmen **Konfigurera mobilappen** på datorn och välj sedan **Slutför**.
+
+    >[!Note]
+    >Om kameran inte kan avbilda QR-koden kan du manuellt lägga till din konto information i Microsoft Authenticator-appen för tvåstegsverifiering. Mer information och hur du gör det finns i [Lägg till ditt konto manuellt](user-help-auth-app-add-account-manual.md).
+
+5. Granska skärmen **konton** i appen på din enhet för att se till att ditt konto är rätt och att det finns en tillhör ande sexsiffriga verifierings kod. För ytterligare säkerhet ändras verifierings koden var 30: e sekund som hindrar någon från att använda en kod flera gånger.
+
+    ![Skärmen konton](./media/user-help-auth-app-download-install/auth-app-accounts.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du har lagt till dina konton till appen, kan du logga in med Authenticator-appen på din enhet. Mer information finns i [logga in med appen](user-help-auth-app-sign-in.md).
+- När du har lagt till dina konton i appen kan du logga in med Authenticator-appen på din enhet. Mer information finns i [Logga in med appen](user-help-auth-app-sign-in.md).
 
-- För enheter som kör iOS, du kan även säkerhetskopiera dina autentiseringsuppgifter och appinställningar, till exempel ordningen på dina konton, som rör molnet. Mer information finns i [säkerhetskopiering och återställning med Microsoft Authenticator-appen](user-help-auth-app-backup-recovery.md).
+- För enheter som kör iOS kan du också säkerhetskopiera dina kontoautentiseringsuppgifter och relaterade appinställningar, till exempel ordningen på dina konton, i molnet. Mer information finns i [säkerhets kopiering och återställning med Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).

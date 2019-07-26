@@ -5,18 +5,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/1/2019
+ms.date: 07/20/2019
 ms.author: victorh
-ms.openlocfilehash: d60c756fcf0b527731b8a1f31a8d93f108c91665
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3064def2eac0aaee5c04f7ab736cf539ae372cb4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146234"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359896"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Hantera webbtrafik med en programgateway som använder Azure CLI
 
-Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure CLI för att skapa en [programgatewayen](overview.md) som använder en [virtual machine scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller två instanser av virtuella datorer i skalningsuppsättningen. Skalningsuppsättningen har lagts till Standardpool för serverdelen för programgatewayen.
+Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) som använder en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller skalnings uppsättningen två instanser av virtuella datorer. Skalnings uppsättningen läggs till i standard server delen för programgatewayen.
 
 I den här artikeln kan du se hur du:
 
@@ -25,13 +25,13 @@ I den här artikeln kan du se hur du:
 > * Skapa en programgateway
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste den här snabbstarten måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -64,7 +64,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
@@ -79,7 +81,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -87,7 +89,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- Det kan ta flera minuter att skapa programgatewayen. När application gateway har skapats, visas de här nya funktionerna:
+ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har skapats visas följande nya funktioner:
 
 - *appGatewayBackendPool* – en programgateway måste ha minst en serverdelsadresspool.
 - *appGatewayBackendHttpSettings* – anger att port 80 och ett HTTP-protokoll används för kommunikation.

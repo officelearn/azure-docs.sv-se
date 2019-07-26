@@ -1,0 +1,169 @@
+---
+title: Konfigurera säkerhets information för att använda en säkerhets nyckel (för hands version) – Azure Active Directory | Microsoft Docs
+description: Konfigurera din säkerhets information för att verifiera din identitet med hjälp av en snabb identitet Online (FIDO2) säkerhets nyckel.
+services: active-directory
+author: eross-msft
+manager: daveba
+ms.reviewer: librown
+ms.service: active-directory
+ms.workload: identity
+ms.subservice: user-help
+ms.topic: conceptual
+ms.date: 07/18/2019
+ms.author: lizross
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9d2f06b054e433c0320019548c56539d102beaad
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386504"
+---
+# <a name="set-up-security-info-to-use-a-security-key-preview"></a>Konfigurera säkerhets information för att använda en säkerhets nyckel (förhands granskning)
+
+Du kan använda säkerhets nycklar som en lösen ords avskriven inloggnings metod i din organisation. En säkerhets nyckel är en fysisk enhet som används med en unik PIN-kod för att logga in på ditt arbets-eller skol konto. Eftersom säkerhets nycklar kräver att du har den fysiska enheten och något som du bara känner till, betraktas det som en starkare autentiseringsmetod än användar namn och lösen ord.
+
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
+
+>[!Important]
+>Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
+## <a name="what-is-a-security-key"></a>Vad är en säkerhets nyckel?
+
+Vi stöder för närvarande flera konstruktioner och providrar för säkerhets nycklar med hjälp av [Fido-metoden (snabb identitet Online)](https://fidoalliance.org/fido2/) (FIDO2). Med den här metoden kan du logga in på ditt arbets-eller skol konto en gång för att få åtkomst till alla molnbaserade resurser och webbläsare som stöds.
+
+Din administratör eller din organisation får en säkerhets nyckel om de kräver det för ditt arbets-eller skol konto. Det finns olika typer av säkerhets nycklar som du kan använda, till exempel en USB-nyckel som du ansluter till din enhet eller en NFC-nyckel som du trycker på en NFC-läsare. Du kan få mer information om din säkerhets nyckel, inklusive vilken typ det är, från tillverkarens dokumentation.
+
+> [!Note]
+> Om du inte kan använda en säkerhets nyckel för FIDO2 kan du använda andra metoder för lösen ords kryptering som du kan använda som Microsoft Authenticator app eller Windows Hello. Mer information om Microsoft Authenticator-appen finns i [Vad är Microsoft Authenticator-appen?](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). Mer information om Windows Hello finns i [Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello).
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Innan du börjar registrera din säkerhets nyckel måste du kontrol lera att:
+
+- Din administratör har aktiverat den här funktionen för användning i din organisation.
+
+- Du befinner dig på en enhet som kör minst Windows 10, version 1903 och använder Microsoft Edge-webbläsaren.
+
+- Du har fått en fysisk säkerhets nyckel från din administratör eller din organisation. Din säkerhets nyckel måste vara både FIDO2 och Microsoft-kompatibel. Om du har frågor om din säkerhets nyckel och om den är kompatibel kontaktar du din organisations supportavdelning.
+
+## <a name="register-your-security-key"></a>Registrera din säkerhetsnyckel
+
+Du måste förbereda din säkerhets nyckel för att arbeta med Windows och en unik PIN-kod innan du kan logga in på ditt arbets-eller skol konto med hjälp av nyckeln.
+
+1. Gå till sidan **min profil** i https://myprofile.microsoft.com och logga in om du inte redan har gjort det.
+
+2. Välj **säkerhets information**, Välj **Lägg till metod**och välj sedan **säkerhets nyckel** i list rutan **Lägg till en metod** .
+
+    ![Rutan Lägg till metod med säkerhets nyckeln vald](media/security-info/security-info-security-key-add-method.png)
+
+3. Välj **Lägg till**och välj sedan den typ av säkerhets nyckel du har, antingen **USB-enhet** eller **NFC-enhet**.
+
+    ![Välj om du har en USB-eller NFC-typ för säkerhets nyckel](media/security-info/security-info-security-key-choose-type.png)
+
+    > [!Note]
+    > Om du inte är säker på vilken typ av säkerhets nyckel du har kan du läsa tillverkarens dokumentation. Om du inte är säker på tillverkaren kan du kontakta supportavdelningen för att få hjälp.
+
+4. Ha din säkerhets nyckel fysiskt tillgänglig och välj sedan **Nästa**i rutan **säkerhets nyckel** .
+
+    ![Start registrerings ruta för säkerhets nyckel](media/security-info/security-info-security-key-start-setup.png)
+
+    En ny ruta visas för att hjälpa dig att konfigurera din nya inloggnings metod.
+
+5. I rutan konfigurera **din nya inloggnings metod väljer du** **Nästa**och sedan:
+
+    - Om din säkerhets nyckel är en USB-enhet sätter du in din säkerhets nyckel i USB-porten på enheten.
+
+    - Om din säkerhets nyckel är en NFC-enhet trycker du på din säkerhets nyckel i läsaren.
+
+6. Skriv din unika säkerhets nyckel för PIN-kod i rutan **Windows-säkerhet** och välj sedan **OK**.
+
+    Du kommer tillbaka till rutan **Konfigurera din nya inloggnings metod** .
+
+7. Välj **Nästa**.
+
+8. Gå tillbaka till sidan **säkerhets information** , ange ett namn som du känner igen senare för din nya säkerhets nyckel och välj sedan **Nästa**.
+
+    ![Sidan säkerhets information, namnge din säkerhets nyckel](media/security-info/security-info-security-key-name.png)
+
+    Din säkerhets nyckel är registrerad och redo att användas för att logga in på ditt arbets-eller skol konto.
+
+9. Välj **slutfört** för att stänga rutan **säkerhets nyckel** .
+
+    Sidan **säkerhets information** uppdateras med din säkerhets nyckel information.
+
+    ![Sidan säkerhets information där alla registrerade metoder visas](media/security-info/security-info-security-key-configured.png)
+
+## <a name="delete-a-security-key-from-your-security-info"></a>Ta bort en säkerhets nyckel från din säkerhets information
+
+Om du inte längre vill använda din säkerhets nyckel kan du ta bort nyckeln från din säkerhets information. Även om detta förhindrar att säkerhets nyckeln används med ditt arbets-eller skol konto, fortsätter säkerhets nyckeln att lagra information om dina data och autentiseringsuppgifter. Om du vill ta bort informationen om dina data och autentiseringsuppgifter från själva säkerhets nyckeln måste du följa anvisningarna i avsnittet [återställa en Microsoft-kompatibel säkerhets nyckel](#reset-your-security-key) i den här artikeln.
+
+1. Välj länken **ta bort** från säkerhets nyckeln som ska tas bort.
+
+2. Välj **OK** i rutan **ta bort säkerhets nyckel** .
+
+    Din säkerhets nyckel tas bort och du kommer inte längre att kunna använda den för att logga in på ditt arbets-eller skol konto.
+
+>[!Important]
+>Om du har tagit bort den här säkerhets nyckeln av misstag måste du registrera den igen med hjälp av anvisningarna i avsnittet [så här registrerar du säkerhets nyckeln](#register-your-security-key) i den här artikeln.
+
+## <a name="manage-your-security-key-settings-from-windows-settings"></a>Hantera dina säkerhets nyckel inställningar från Windows-inställningar
+
+Du kan hantera säkerhets nyckel inställningarna från appen **Windows-inställningar** , inklusive återställa din säkerhets nyckel och skapa en ny PIN-kod för säkerhets nyckeln.
+
+### <a name="reset-your-security-key"></a>Återställa din säkerhets nyckel
+
+Om du vill ta bort all konto information som lagras i din fysiska säkerhets nyckel, måste du återställa nyckeln till fabriks inställningarna igen. Om du återställer din säkerhets nyckel tas allt från nyckeln bort, så att du kan börja om.
+
+>[!IMPORTANT]
+>Om du återställer säkerhets nyckeln raderas allt från nyckeln och återställs till fabriks inställningarna.
+>
+> **Alla data och autentiseringsuppgifter raderas.**
+
+#### <a name="to-reset-your-security-key"></a>Återställa din säkerhets nyckel
+
+1. Öppna appen Windows-inställningar, Välj **konton**, Välj **inloggnings alternativ**, Välj **säkerhets nyckel**och välj sedan **Hantera**.
+
+2. Sätt i din säkerhets nyckel i USB-porten eller tryck på din NFC-läsare för att verifiera din identitet.
+
+3. Följ anvisningarna på skärmen, baserat på din aktuella tillverkare av säkerhets nyckel. Om din nyckel tillverkare inte visas i anvisningarna på skärmen kan du läsa mer i tillverkarens webbplats.
+
+4. Välj **Stäng** för att stänga skärmen **Hantera** .
+
+### <a name="create-a-new-security-key-pin"></a>Skapa en ny PIN-kod för säkerhets nyckeln
+
+Du kan skapa en ny PIN-kod för säkerhets nyckeln för din säkerhets nyckel.
+
+#### <a name="to-create-a-new-security-key-pin"></a>Så här skapar du en ny PIN-kod för säkerhets nyckeln
+
+1. Öppna appen Windows-inställningar, Välj **konton**, Välj **inloggnings alternativ**, Välj **säkerhets nyckel**och välj sedan **Hantera**.
+
+2. Infoga din säkerhets nyckel i USB-porten eller tryck på din NFC-läsare för att verifiera din identitet. 5
+3. Välj **Lägg till** från rutan **PIN-kod för säkerhets nyckel** , skriv och bekräfta din nya PIN-kod för säkerhets nyckeln och välj sedan **OK**.
+
+    Säkerhets nyckeln uppdateras med den nya säkerhets nyckeln PIN-kod för användning med ditt arbets-eller skol konto. Om du bestämmer dig för att ändra din PIN-kod igen, kan du välja knappen **ändra** . 6
+4. Välj **Stäng** för att stänga skärmen **Hantera** .
+
+## <a name="additional-security-info-methods"></a>Ytterligare metoder för säkerhets information
+
+Du har ytterligare alternativ för hur din organisation kontaktar dig för att verifiera din identitet, baserat på vad som you're försöker göra. Följande alternativ är tillgängliga:
+
+- **Authenticator-app.** Hämta och Använd en Authenticator-app för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännande kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner om hur du konfigurerar och använder Microsoft Authenticator-appen finns i [Konfigurera säkerhets information så att en autentiserare används](security-info-setup-auth-app.md).
+
+- **Mobil enhets text.** Ange ditt mobila enhets nummer och få en text kod som du kan använda för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett textmeddelande (SMS) finns i [Konfigurera säkerhets information för att använda SMS (text messaging)](security-info-setup-text-msg.md).
+
+- **Mobil enhets-eller arbets telefon samtal.** Ange ditt mobila enhets nummer och få ett telefonsamtal för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett telefonnummer finns i [Konfigurera säkerhets information så att telefonsamtal används](security-info-setup-phone-number.md).
+
+- **E-postadress.** Ange din e-postadress till arbetet eller skolan för att få ett e-postmeddelande om lösen ords återställning. Det här alternativet är inte tillgängligt för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar din e-post finns i [Konfigurera säkerhets information för att använda e-post](security-info-setup-email.md).
+
+- **Säkerhets frågor.** Svara på vissa säkerhets frågor som har skapats av administratören för din organisation. Det här alternativet är bara tillgängligt för lösen ords återställning och inte för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar dina säkerhets frågor finns i artikeln [Konfigurera säkerhets information för att använda säkerhets frågor](security-info-setup-questions.md) .
+
+## <a name="next-steps"></a>Nästa steg
+
+- Mer information om metoder för lösen ords skydds metoder finns i [Microsofts Azure AD påbörjar en offentlig för hands version av FIDO2-säkerhetsnycklar, aktiverar](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blogg inloggnings blogg eller läser [Vad är Microsoft Authenticator-appen?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) [ Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello) -artiklar.
+
+- Mer detaljerad information om [Microsoft-kompatibla säkerhets nycklar](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+
+- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md).
+
+- Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -1,6 +1,6 @@
 ---
-title: Vanliga security attribut för Azure Linux-datorer – Linux
-description: En lista med vanliga security attribut för att utvärdera Azure Linux-datorer
+title: Säkerhetsattribut för Azure Virtuella Linux-datorer – Linux
+description: En check lista över säkerhetsattribut för utvärdering av Azure-Virtuella Linux-datorer
 services: virtual-machines
 ms.service: virtual-machines
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 87311ca45145eb3d04a1a40b0e9210cbe1e37f9a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 611717f3c8ce23daa653885e90c0c30e6fbe8a2c
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800294"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444233"
 ---
-# <a name="common-security-attributes-for-linux--virtual-machines"></a>Vanliga security attribut för Linux-datorer
+# <a name="security-attributes-for-linux-virtual-machines"></a>Säkerhetsattribut för Virtuella Linux-datorer
 
-Den här artikeln beskrivs vanliga security attribut som skapats i Linux-datorer.
+I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Virtuella Linux-datorer.
 
 [!INCLUDE [Security attributes header](../../../includes/security-attributes-header.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Kom igång med enhetshantering i Azure IoT Hub (Java) | Microsoft Docs
-description: Hur du använder Azure IoT Hub-enhetshantering för att initiera en fjärransluten enhet omstart. Du kan använda Azure IoT-enhetens SDK för Java för att implementera en simulerad enhetsapp som innehåller en direkt metod och tjänsten Azure IoT SDK för Java för att implementera en service-app som anropar direktmetoden.
+title: Kom igång med Azure IoT Hub Device Management (Java) | Microsoft Docs
+description: Använda Azure-IoT Hub enhets hantering för att starta en fjärrstyrd enhet. Du använder Azure IoT-enhetens SDK för Java för att implementera en simulerad enhets app som innehåller en direkt metod och Azure IoT service SDK för Java för att implementera en tjänst-app som anropar den direkta metoden.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,87 +9,89 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8528ac81f2248e417d7d25d0f3c2650845c3d7d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596013"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404303"
 ---
-# <a name="get-started-with-device-management-java"></a>Kom igång med enhetshantering (Java)
+# <a name="get-started-with-device-management-java"></a>Kom igång med enhets hantering (Java)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Använda Azure-portalen för att skapa en IoT Hub och skapa en enhetsidentitet i IoT hub.
+* Använd Azure Portal för att skapa en IoT Hub och skapa en enhets identitet i din IoT-hubb.
 
-* Skapa en simulerad enhetsapp som implementerar en direkt metod om du vill starta om enheten. Direkta metoder anropas från molnet.
+* Skapa en simulerad enhets app som implementerar en direkt metod för att starta om enheten. Direkta metoder anropas från molnet.
 
-* Skapa en app som anropar metoden omstart direkt i den simulerade enhetsappen via din IoT-hubb. Den här appen övervakar sedan de rapporterade egenskaperna från enheten för att se när omstart åtgärden har slutförts.
+* Skapa en app som anropar metoden starta om direkt i den simulerade Device-appen via din IoT Hub. Den här appen övervakar sedan de rapporterade egenskaperna från enheten för att se när åtgärden starta om har slutförts.
 
-I slutet av den här självstudien har du två Java-konsolappar:
+I slutet av den här självstudien har du två Java-konsol program:
 
-**simulated-device**. Den här appen:
+**simulerad enhet**. Den här appen:
 
-* Ansluter till din IoT-hubb med enhetsidentiteten som skapades tidigare.
+* Ansluter till din IoT Hub med enhets identiteten som skapades tidigare.
 
-* Tar emot ett samtal för omstart direkt metod.
+* Tar emot ett direkt metod anrop för omstart.
 
 * Simulerar en fysisk omstart.
 
-* Rapporterar tidpunkten för den senaste omstarten via en rapporterad egenskap.
+* Rapporterar tiden för den senaste omstarten via en rapporterad egenskap.
 
-**trigger-reboot**. Den här appen:
+**Utlös – omstart**. Den här appen:
 
-* Anropar en direkt metod i den simulerade enhetsappen.
+* Anropar en direkt metod i den simulerade Device-appen.
 
-* Visar svaret till anropet direkt metod som skickas av den simulerade enheten.
+* Visar svaret på det direkta metod anropet som skickas av den simulerade enheten.
 
-* Visar det uppdaterade rapporterade egenskaper.
+* Visar uppdaterade rapporterade egenskaper.
 
 > [!NOTE]
-> Information om SDK: er som du kan använda för att skapa program som körs på enheter och lösningens backend-servrar finns i [Azure IoT SDK: er](iot-hub-devguide-sdks.md).
+> Information om SDK: er som du kan använda för att skapa program som ska köras på enheter och Server delen av lösningen finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
 För att slutföra den här kursen behöver du:
 
-* Java SE 8. <br/> [Förbereda utvecklingsmiljön](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) beskriver hur du installerar Java för den här självstudiekursen i Windows eller Linux.
+* Java SE 8. <br/> [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) beskriver hur du installerar Java för den här själv studie kursen på antingen Windows eller Linux.
 
-* Maven 3.  <br/> [Förbereda utvecklingsmiljön](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) beskriver hur du installerar [Maven](https://maven.apache.org/what-is-maven.html) för den här självstudiekursen i Windows eller Linux.
+* Maven 3.  <br/> [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) beskriver hur du installerar [maven](https://maven.apache.org/what-is-maven.html) för den här själv studie kursen på antingen Windows eller Linux.
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Utlösa en fjärromstart på enheten med en direkt metod
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-I det här avsnittet skapar du en Java-konsolapp som:
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
-1. Anropar metoden omstart direkt i den simulerade enhetsappen.
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Utlösa en fjärran sluten omstart på enheten med en direkt metod
+
+I det här avsnittet ska du skapa en Java-konsol-app som:
+
+1. Anropar metoden starta om direkt i den simulerade Device-appen.
 
 2. Visar svaret.
 
-3. Polls – de rapporterade egenskaperna som skickas från enheten för att avgöra när omstarten är klar.
+3. Avsöker de rapporterade egenskaper som skickas från enheten för att fastställa när omstarten är klar.
 
-Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta metoden och läsa rapporterade egenskaper.
+Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och läsa de rapporterade egenskaperna.
 
-1. Skapa en tom mapp med namnet dm-get-started.
+1. Skapa en tom mapp med namnet DM-get-started.
 
-2. I mappen dm-get-started skapar du ett Maven-projekt som heter **utlösaren omstart** med följande kommando i Kommandotolken. Nedan visas ett enda långt kommando:
+2. I mappen DM-get-started skapar du ett Maven-projekt med namnet **trigger-reboot** med hjälp av följande kommando i kommando tolken. Nedan visas ett enda, långt kommando:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-3. I Kommandotolken, navigerar du till mappen utlösare omstart.
+3. I kommando tolken navigerar du till mappen trigger-Reboot.
 
-4. Använd en textredigerare och öppna filen pom.xml i mappen utlösare omstart och Lägg till följande beroende till den **beroenden** noden. Det här beroendet gör att du kan använda iot-service-client-paketet i din app för att kommunicera med IoT-hubben:
+4. Använd en text redigerare och öppna filen Pom. xml i mappen trigger-reboot och Lägg till följande beroende till noden beroenden. Detta beroende gör att du kan använda IoT-service-client-paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -101,9 +103,9 @@ Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta meto
     ```
 
     > [!NOTE]
-    > Du kan söka efter den senaste versionen av **iot-service-client** med [Maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Du kan söka efter den senaste versionen av **IoT-service-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-5. Lägg till följande **skapa** noden efter den **beroenden** noden. Den här konfigurationen instruerar Maven du använder Java 1.8 för att skapa programmet:
+5. Lägg till följande **build** -nod efter  noden beroenden. Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
 
     ```xml
     <build>
@@ -123,7 +125,7 @@ Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta meto
 
 6. Spara och stäng filen pom.xml.
 
-7. Använd en textredigerare och öppna källfilen trigger-reboot\src\main\java\com\mycompany\app\App.java.
+7. Öppna käll filen trigger-reboot\src\main\java\com\mycompany\app\App.java i en text redigerare.
 
 8. Lägg till följande **Import**-instruktioner i filen:
 
@@ -140,7 +142,7 @@ Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta meto
     import java.util.concurrent.ExecutorService;
     ```
 
-9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubconnectionstring}` med din IoT hub-anslutningssträngen som du antecknade i den *skapar en IoT Hub* avsnittet:
+9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubconnectionstring}` med IoT Hub anslutnings sträng som du tidigare kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -151,7 +153,7 @@ Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta meto
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-10. För att implementera en tråd som läser de rapporterade egenskaperna från enhetstvillingen var tionde sekund, lägger du till följande kapslade klassen för att den **App** klass:
+10. Om du vill implementera en tråd som läser de rapporterade egenskaperna från enheten, måste du lägga till följande kapslade klass i klassen **app** :
 
     ```java
     private static class ShowReportedProperties implements Runnable {
@@ -172,13 +174,13 @@ Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta meto
     }
     ```
 
-11. Ändra signaturen för den **huvudsakliga** metod för att följande undantag:
+11. Ändra signaturen för **main** -metoden för att utlösa följande undantag:
 
     ```java
     public static void main(String[] args) throws IOException
     ```
 
-12. Lägg till följande kod för att anropa metoden omstart direkt på den simulerade enheten på **huvudsakliga** metoden:
+12. För att anropa metoden reboot Direct på den simulerade enheten lägger du till följande kod i **main** -metoden:
 
     ```java
     System.out.println("Starting sample...");
@@ -203,7 +205,7 @@ Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta meto
     }
     ```
 
-13. Lägg till följande kod för att starta tråd för att avsöka de rapporterade egenskaperna från den simulerade enheten genom den **huvudsakliga** metoden:
+13. Om du vill starta tråden för att avsöka de rapporterade egenskaperna från den simulerade enheten lägger du till följande kod i **main** -metoden:
 
     ```java
     ShowReportedProperties showReportedProperties = new ShowReportedProperties();
@@ -211,7 +213,7 @@ Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta meto
     executor.execute(showReportedProperties);
     ```
 
-14. Lägg till följande kod så att du kan stoppa appen, den **huvudsakliga** metoden:
+14. Du kan stoppa appen genom att lägga till följande kod i **main** -metoden:
 
     ```java
     System.out.println("Press ENTER to exit.");
@@ -220,23 +222,23 @@ Den här konsolappen ansluter till din IoT-hubb för att anropa den direkta meto
     System.out.println("Shutting down sample...");
     ```
 
-15. Spara och stäng filen trigger-reboot\src\main\java\com\mycompany\app\App.java.
+15. Spara och Stäng filen trigger-reboot\src\main\java\com\mycompany\app\App.java.
 
-16. Skapa den **utlösaren omstart** serverdelsapp och korrigera eventuella fel. I Kommandotolken, navigera till mappen utlösare omstart och kör följande kommando:
+16. Bygg in server för utlösare och **starta om** Server delen och korrigera eventuella fel. I kommando tolken navigerar du till mappen trigger-reboot och kör följande kommando:
 
     `mvn clean package -DskipTests`
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 
-I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lyssnar efter omstarten dirigera metodanrop från IoT hub och omedelbart svarar på anropet. Appen sedan vilar på ett tag att simulera omstarten processen innan den använder en rapporterad egenskap för att meddela den **utlösaren omstart** serverdelsappen att omstarten har slutförts.
+I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen lyssnar efter anropet för att starta om direkt från IoT-hubben och svarar omedelbart på det anropet. Appen försätts sedan i vilo läge för en stund att simulera omstarten innan den använder en rapporterad egenskap för att meddela utlösaren **-Starta** om backend-appen att omstarten har slutförts.
 
-1. I mappen dm-get-started skapar du ett Maven-projekt som heter **simulated-device** med följande kommando i Kommandotolken. Följande är ett enda långt kommando:
+1. I mappen DM-get-started skapar du ett Maven-projekt med namnet **simulerad enhet** med hjälp av följande kommando i kommando tolken. Följande är ett enda, långt kommando:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
 2. Gå till mappen simulated-device i Kommandotolken.
 
-3. Använd en textredigerare och öppna filen pom.xml i mappen simulated-device och Lägg till följande beroende till den **beroenden** noden. Det här beroendet gör att du kan använda iot-service-client-paketet i din app för att kommunicera med IoT-hubben:
+3. Använd en text redigerare och öppna filen Pom. xml i mappen simulerad enhet och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda IoT-service-client-paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -247,9 +249,9 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     ```
 
     > [!NOTE]
-    > Du kan söka efter den senaste versionen av **iot-device-client** med [Maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Du kan söka efter den senaste versionen av **IoT-Device-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Lägg till följande **skapa** noden efter den **beroenden** noden. Den här konfigurationen instruerar Maven du använder Java 1.8 för att skapa programmet:
+4. Lägg till följande **build** -nod efter  noden beroenden. Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
 
     ```xml
     <build>
@@ -269,7 +271,7 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
 
 5. Spara och stäng filen pom.xml.
 
-6. Använd en textredigerare och öppna filen simulated-device\src\main\java\com\mycompany\app\App.java källa.
+6. Öppna käll filen simulated-device\src\main\java\com\mycompany\app\App.java i en text redigerare.
 
 7. Lägg till följande **Import**-instruktioner i filen:
 
@@ -285,7 +287,7 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     import java.util.HashSet;
     ```
 
-7. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{yourdeviceconnectionstring}` med enhetens anslutningssträng som du antecknade i den *skapa en enhetsidentitet* avsnittet:
+7. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{yourdeviceconnectionstring}` med enhets anslutnings strängen som du antecknade i avsnittet *skapa en enhets identitet* :
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -296,7 +298,7 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     private static DeviceClient client;
     ```
 
-8. För att implementera en motringningshanterare för direkt metod statushändelser, lägger du till följande kapslade klassen för att den **App** klass:
+8. Om du vill implementera en callback-hanterare för status händelser för direkta metoder lägger du till följande kapslade klass i klassen **app** :
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -308,7 +310,7 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     }
     ```
 
-9. För att implementera en motringningshanterare för enhetshändelser twin status, lägger du till följande kapslade klassen för att den **App** klass:
+9. Om du vill implementera en callback-hanterare för enhetens dubbla status händelser lägger du till följande kapslade klass i klassen **app** :
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -320,7 +322,7 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     }
     ```
 
-10. För att implementera en motringningshanterare för egenskapen händelser, lägger du till följande kapslade klassen för att den **App** klass:
+10. Om du vill implementera en callback-hanterare för egenskaps händelser lägger du till följande kapslade klass i klassen **app** :
 
     ```java
     protected static class PropertyCallback implements PropertyCallBack<String, String>
@@ -333,7 +335,7 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     }
     ```
 
-11. För att implementera en tråd för att simulera enheten omstart, lägger du till följande kapslade klassen för att den **App** klass. Tråden vilar i fem sekunder och ställer sedan den **lastReboot** rapporterade egenskap:
+11. Om du vill implementera en tråd för att simulera omstart av enheten lägger du till följande kapslade klass i klassen **app** . Tråden är i vilo läge i fem sekunder och anger sedan **lastReboot** -rapporterad egenskap:
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -354,7 +356,7 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     }
     ```
 
-12. Om du vill implementera direkt metod på enheten, lägger du till följande kapslade klassen för att den **App** klass. När simulerade appen tar emot ett anrop till den **omstart** direkt metod den returnerar en bekräftelse till anroparen och startar sedan en tråd för att bearbeta omstarten:
+12. Om du vill implementera den direkta metoden på enheten lägger du till följande kapslade klass i klassen **app** . När den simulerade appen tar emot ett anrop till den direkta metoden för **omstart** , returnerar den en bekräftelse till anroparen och startar sedan en tråd för att bearbeta omstarten:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -386,20 +388,20 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     }
     ```
 
-13. Ändra signaturen för den **huvudsakliga** metoden utlöser följande undantag:
+13. Ändra signaturen för **main** -metoden för att utlösa följande undantag:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-14. Att skapa en instans av en **DeviceClient**, Lägg till följande kod till den **huvudsakliga** metoden:
+14. Om du vill instansiera en **DeviceClient**lägger du till följande kod i **main** -metoden:
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-15. Om du vill påbörja avlyssning för direkt metod-anrop, lägger du till följande kod till den **huvudsakliga** metoden:
+15. Du börjar lyssna efter direkta metod anrop genom att lägga till följande kod i **main** -metoden:
 
     ```java
     try
@@ -417,7 +419,7 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     }
     ```
 
-16. Om du vill stänga av enhetssimulatorn lägger du till följande kod till den **huvudsakliga** metoden:
+16. Om du vill stänga av enhets simulatorn lägger du till följande kod i **main** -metoden:
 
     ```java
     System.out.println("Press any key to exit...");
@@ -428,9 +430,9 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
     System.out.println("Shutting down...");
     ```
 
-17. Spara och stäng filen simulated-device\src\main\java\com\mycompany\app\App.java i.
+17. Spara och Stäng filen simulated-device\src\main\java\com\mycompany\app\App.java.
 
-18. Skapa den **simulated-device** serverdelsapp och korrigera eventuella fel. Navigera till mappen simulated-device i Kommandotolken, och kör följande kommando:
+18. Bygg den **simulerade enhetens** backend-app och korrigera eventuella fel. I kommando tolken navigerar du till mappen simulerad enhet och kör följande kommando:
 
     `mvn clean package -DskipTests`
 
@@ -438,20 +440,20 @@ I det här avsnittet skapar du en Java-konsolapp som simulerar en enhet. App-lys
 
 Nu är det dags att köra apparna.
 
-1. Kör följande kommando för att börja lyssna efter omstart metodanrop från IoT hub i en kommandotolk i mappen simulated-device:
+1. I en kommando tolk i mappen simulerad enhet kör du följande kommando för att börja lyssna efter anrop för metoden starta om från IoT Hub:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Java IoT Hub simulerad enhetsapp för att lyssna efter omstart direkt metodanrop](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
+    ![Java-IoT Hub simulerade Device-appar för att lyssna efter omstart Direct-metod anrop](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-2. I Kommandotolken i mappen utlösare omstart, kör du följande kommando för att anropa metoden omstart på din simulerade enhet från IoT hub:
+2. Kör följande kommando i kommando tolken i mappen trigger-reboot och anropa metoden reboot på den simulerade enheten från din IoT Hub:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Java IoT Hub-tjänstapp för att anropa metoden omstart direkt](./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png)
+    ![Java IoT Hub service-app för att anropa Direct-metoden för omstart](./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png)
 
-3. Den simulerade enheten svarar på anropet direkt metod för omstart:
+3. Den simulerade enheten svarar på anropet till Direct-metoden för omstart:
 
-    ![Java IoT Hub-simulerad enhetsapp som svarar på metodanropet direkt](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
+    ![Java IoT Hub simulerade enhets appar svarar på direkt metod anrop](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

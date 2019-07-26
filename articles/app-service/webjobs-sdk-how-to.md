@@ -1,6 +1,6 @@
 ---
-title: Hur du använder WebJobs-SDK - Azure
-description: Läs mer om hur du skriver kod för WebJobs SDK. Skapa en händelsedriven bakgrund bearbetar jobb som har åtkomst till data i Azure-tjänster och tjänster från tredje part.
+title: Använda WebJobs SDK – Azure
+description: Läs mer om hur du skriver kod för WebJobs SDK. Skapa händelse drivna bakgrunds bearbetnings jobb som har åtkomst till data i Azure-tjänster och tjänster från tredje part.
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -13,46 +13,46 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ba8a8e5922c012b93ab19a5859aab5c31d35b2b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831800"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424164"
 ---
-# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Använda Azure WebJobs SDK för händelse driven bakgrunds bearbetning
 
-Den här artikeln innehåller råd om hur du arbetar med Azure WebJobs SDK. Kom igång med WebJobs direkt, se [Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning](webjobs-sdk-get-started.md). 
+Den här artikeln innehåller rikt linjer för hur du arbetar med Azure WebJobs SDK. Om du vill komma igång med WebJobs direkt läser du [Kom igång med Azure WEBJOBS SDK för händelse driven bakgrunds bearbetning](webjobs-sdk-get-started.md). 
 
 ## <a name="webjobs-sdk-versions"></a>WebJobs SDK-versioner
 
-Dessa är de viktigaste skillnaderna mellan version 3. *x* och version 2. *x* av WebJobs SDK:
+Detta är de viktigaste skillnaderna mellan version 3. *x* och version 2. *x* av WebJobs-SDK:
 
-* Version 3. *x* lägger till stöd för .NET Core.
-* I version 3. *x*, måste du uttryckligen installera Storage bindningstillägget krävs av WebJobs SDK. I version 2. *x*, Storage-bindningar ingår i SDK.
-* Visual Studio-verktyg för .NET Core (3. *x*) projekt skiljer sig från Verktyg för .NET Framework (2. *x*) projekt. Mer information finns i [utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service](webjobs-dotnet-deploy-vs.md).
+* Version 3. *x* lägger till stöd för .net Core.
+* I version 3. *x*måste du uttryckligen installera lagrings bindnings tillägget som krävs av WebJobs SDK. I version 2. *x*inkluderades lagrings bindningarna i SDK.
+* Visual Studio-verktyg för .NET Core (3). *x*)-projekt skiljer sig från verktyg för .NET Framework (2. *x*)-projekt. Mer information finns i [utveckla och distribuera WebJobs med Visual Studio-Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-Om det är möjligt finns exempel för både version 3. *x* och version 2. *x*.
+När det är möjligt finns exempel exempel för både version 3. *x* och version 2. *x*.
 
 > [!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) bygger på WebJobs-SDK och den här artikeln innehåller länkar till Azure Functions-dokumentationen för vissa ämnen. Observera skillnaderna mellan Functions och WebJobs-SDK:
-> * Azure Functions-version 2. *x* motsvarar WebJobs SDK version 3. *x*, och Azure Functions 1. *x* motsvarar WebJobs SDK 2. *x*. Källa för kodförråd använda WebJobs-SDK numrering.
-> * Exempelkoden för Azure Functions C# klassbibliotek liknar WebJobs SDK-kod, förutom att du inte behöver en `FunctionName` attribut i ett projekt med WebJobs SDK.
-> * Vissa bindningstyper av stöds bara i funktioner, t.ex. HTTP (Webhooks) och Event Grid (som baseras på HTTP).
+> [Azure Functions](../azure-functions/functions-overview.md) bygger på WebJobs SDK och den här artikeln innehåller länkar till Azure Functions dokumentation för vissa ämnen. Observera skillnaderna mellan Functions och WebJobs SDK:
+> * Azure Functions version 2. *x* motsvarar WebJobs SDK version 3. *x*och Azure Functions 1. *x* motsvarar WebJobs SDK 2. *x*. Käll kods databaser använder WebJobs SDK-numrering.
+> * Exempel kod för Azure Functions C# klass bibliotek är som WebJobs SDK-kod, förutom att du inte `FunctionName` behöver ett attribut i ett WebJobs SDK-projekt.
+> * Vissa bindnings typer stöds bara i functions, t. ex. HTTP (Webhooks) och Event Grid (som baseras på HTTP).
 >
-> Mer information finns i [jämföra Azure Functions och WebJobs SDK](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
+> Mer information finns i [jämföra WebJobs SDK och Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
 ## <a name="webjobs-host"></a>WebJobs-värd
 
-Värden är en körningsbehållare för funktioner.  Den lyssnar efter utlösare och-anrop. I version 3. *x*, värden är en implementering av `IHost`. I version 2. *x*, du använder den `JobHost` objekt. Du skapar en värdinstans i din kod och skriva kod för att anpassa sitt beteende.
+Värden är en runtime-behållare för functions.  Den lyssnar efter utlösare och anropar funktioner. I version 3. *x*är värden en implementering av `IHost`. I version 2. *x*, använder `JobHost` du objektet. Du skapar en värd instans i koden och skriver kod för att anpassa dess beteende.
 
-Det här är en viktig skillnad mellan med hjälp av WebJobs SDK direkt och använda den indirekt via Azure Functions. Tjänsten styr värden i Azure Functions, och du inte kan anpassa värden genom att skriva kod. Azure Functions kan du anpassa värden beteende via inställningarna i filen host.json. Dessa inställningar är strängar, inte kod, och detta begränsar typerna av anpassningar som du kan göra.
+Detta är en viktig skillnad mellan att använda WebJobs SDK direkt och använda den indirekt via Azure Functions. I Azure Functions kontrollerar tjänsten värden och du kan inte anpassa värden genom att skriva kod. Med Azure Functions kan du anpassa värd beteendet via inställningar i Host. JSON-filen. Dessa inställningar är strängar, inte kod, och detta begränsar de typer av anpassningar som du kan göra.
 
-### <a name="host-connection-strings"></a>Anslutningssträngar för värd
+### <a name="host-connection-strings"></a>Värd anslutnings strängar
 
-WebJobs SDK söker efter Azure Storage och Azure Service Bus-anslutningssträngar i filen local.settings.json när du kör lokalt eller i Webbjobbet miljö när du kör i Azure. Som standard en lagringsanslutning sträng inställning med namnet `AzureWebJobsStorage` krävs.  
+WebJobs-SDK: n letar efter Azure Storage och Azure Service Bus anslutnings strängar i den lokala. Settings. JSON-filen när du kör lokalt eller i miljön för webb jobbet när du kör i Azure. Som standard krävs en lagrings anslutnings sträng inställning `AzureWebJobsStorage` som heter.  
 
-Version 2. *x* av SDK kan du använda ditt eget namn för dessa anslutningssträngar eller lagra dem på andra ställen. Du kan ange namnen i kod med hjälp av den [ `JobHostConfiguration` ]enligt nedan:
+Version 2. *x* i SDK kan du använda dina egna namn för dessa anslutnings strängar eller lagra dem på en annan plats. Du kan ange namn i kod med hjälp [`JobHostConfiguration`]av, som du ser här:
 
 ```cs
 static void Main(string[] args)
@@ -72,23 +72,23 @@ static void Main(string[] args)
 }
 ```
 
-Eftersom version 3. *x* använder standardkonfigurationen för .NET Core API: er, det finns inga API för att ändra anslutningsnamnen sträng.
+Eftersom version 3. *x* använder standard Konfigurations-API: er för .net Core. det finns inget API för att ändra namn på anslutnings strängar.
 
-### <a name="host-development-settings"></a>Värdinställningar för utveckling
+### <a name="host-development-settings"></a>Inställningar för värd utveckling
 
-Du kan köra värden i utvecklingsläge att effektivisera lokal utveckling. Här är några av de inställningar som ändras när du kör i utvecklingsläge:
+Du kan köra värden i utvecklings läge för att göra den lokala utvecklingen mer effektiv. Här följer några av de inställningar som ändras när du kör i utvecklings läge:
 
-| Egenskap | Inställningen för utveckling |
+| Egenskap | Utvecklings inställning |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` Maximera loggutdata. |
-| `Queues.MaxPollingInterval`  | Ett lågt värde så kö metoder utlöses omedelbart.  |
-| `Singleton.ListenerLockPeriod` | 15 sekunder att underlätta snabb iterativ utveckling. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose`för att maximera logg resultatet. |
+| `Queues.MaxPollingInterval`  | Ett lågt värde för att se till att köa metoder utlöses omedelbart.  |
+| `Singleton.ListenerLockPeriod` | 15 sekunder för att hjälpa till med snabb iterativ utveckling. |
 
-Processen för att aktivera utvecklingsläge beror på vilken SDK-version. 
+Processen för att aktivera utvecklings läget beror på SDK-versionen. 
 
 #### <a name="version-3x"></a>Version 3.*x*
 
-Version 3. *x* använder standard ASP.NET Core API: erna. Anropa den [ `UseEnvironment` ](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) metoden på den [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instans. Skicka en sträng med namnet `development`, som i det här exemplet:
+Version 3. *x* använder standard-ASP.net Core-API: er. [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) Anropa metoden [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) på instansen. Skicka en sträng med `development`namnet, som i det här exemplet:
 
 ```cs
 static void Main()
@@ -109,7 +109,7 @@ static void Main()
 
 #### <a name="version-2x"></a>Version 2.*x*
 
-Den `JobHostConfiguration` klassen har en `UseDevelopmentSettings` metoden som gör att utvecklingsläge.  I följande exempel visar hur du använder inställningar för webbprogramutveckling. Att göra `config.IsDevelopment` returnera `true` när den körs lokalt, ange en lokal miljövariabeln `AzureWebJobsEnv` med värdet `Development`.
+Klassen har en `UseDevelopmentSettings` metod som aktiverar utvecklings läge. `JobHostConfiguration`  I följande exempel visas hur du använder utvecklings inställningar. Om du `config.IsDevelopment` vill `true` göra en återgång när den körs lokalt anger du en lokal `AzureWebJobsEnv` miljö variabel med `Development`namnet med värdet.
 
 ```cs
 static void Main()
@@ -128,17 +128,17 @@ static void Main()
 
 ### <a name="jobhost-servicepointmanager-settings"></a>Hantera samtidiga anslutningar (version 2. *x*)
 
-I version 3. *x*, anslutningsgränsen som standard oändlig anslutningar. Om du av någon anledning som du vill ändra den här gränsen kan du använda den [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) egenskapen för den [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) klass.
+I version 3. *x*, anslutnings gränsen som standard är oändlig anslutning. Om du av någon anledning behöver ändra den här gränsen kan du använda [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) egenskapen [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) för klassen.
 
-I version 2. *x*, du styr antalet samtidiga anslutningar till en värd med den [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. I 2. *x*, bör du öka det här värdet från standardvärdet 2 innan du börjar din WebJobs-värd.
+I version 2. *x*styr du antalet samtidiga anslutningar till en värd med hjälp av [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) -API: et. I 2. *x*ska du öka värdet från standardvärdet 2 innan du startar dina WebJobs-värden.
 
-Alla utgående HTTP-begäranden som du gör en funktion med hjälp av `HttpClient` flödar genom `ServicePointManager`. När du når värdet i `DefaultConnectionLimit`, `ServicePointManager` startar jobbköer begäranden innan de skickas. Anta att dina `DefaultConnectionLimit` anges till 2 och din kod gör 1 000 HTTP-begäranden. Först har tillåts bara två begäranden via Operativsystemet. De andra 998 köas tills det finns plats för dessa. Det innebär att din `HttpClient` kan tidsgräns eftersom den verkar ha gjorde begäran, men förfrågan skickades aldrig av Operativsystemet till målservern. Så att du kan se beteende som inte verkar vara meningsfullt: lokalt `HttpClient` tar 10 sekunder att slutföra en begäran, men tjänsten returnerar varje begäran på 200 ms. 
+Alla utgående HTTP-begäranden som du gör från en funktion med `HttpClient` hjälp av `ServicePointManager`Flow. När du har nått värdet i `DefaultConnectionLimit` `ServicePointManager` börjar du köa förfrågningar innan du skickar dem. Anta att `DefaultConnectionLimit` du har angett till 2 och att din kod gör 1 000 HTTP-begäranden. Inlednings vis tillåts bara två begär anden till operativ systemet. Övriga 998 placeras i kö tills det finns utrymme för dem. Det innebär att `HttpClient` din tid kan ta slut eftersom det verkar som om begäran har gjorts, men begäran aldrig skickades av operativ systemet till mål servern. Det kan hända att du ser ett beteende som inte verkar vara meningsfullt `HttpClient` : din lokala tar 10 sekunder på sig att slutföra en begäran, men din tjänst returnerar varje begäran i 200 MS. 
 
-Standardvärdet för ASP.NET-program är `Int32.MaxValue`, och som sannolikt kommer att fungera bra WebJobs körs i en grundläggande eller högre App Service-Plan. WebJobs vanligtvis måste alltid på inställningen och som stöds endast av grundläggande och högre App Service-planer.
+Standardvärdet för ASP.NET-program `Int32.MaxValue`är, och det är sannolikt att fungerar bra för WebJobs som körs i en Basic-eller högre App Service-plan. WebJobs kräver vanligt vis inställningen Always on och stöds endast av Basic-och högre App Services planer.
 
-Om ditt WebJob körs i en kostnadsfri eller delad App Service-Plan, ditt program är begränsad av App Service-sandboxen som för närvarande har en [anslutning på högst 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). Med en anslutningsgräns som har delats upp i `ServicePointManager`, det är troligare att tröskelvärdet för sandbox-anslutningen ska nås och platsen stängs. I så fall kan ställa in `DefaultConnectionLimit` till något lägre som 50 eller 100, kan förhindra att detta inträffar och fortfarande tillåter tillräckligt dataflöde.
+Om ditt webb jobb körs i en kostnads fri eller delad App Service plan begränsas ditt program av App Service sandbox, som för närvarande har en [anslutnings gräns på 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). Med en obunden anslutnings gräns i `ServicePointManager`är det troligt att tröskelvärdet för sand Box anslutning nås och att platsen stängs av. I så fall kan inställningen `DefaultConnectionLimit` för något lägre, till exempel 50 eller 100, förhindra att detta sker och fortfarande tillåta tillräckligt med data flöde.
 
-Inställningen måste konfigureras innan alla HTTP-begäranden som görs. Därför bör inte WebJobs värden justera inställningen automatiskt. Det kan vara HTTP-begäranden som görs innan startar värd, vilket kan leda till oväntade resultat. Det bästa sättet är att ange ett värde direkt i din `Main` sättet innan initiering av `JobHost`enligt nedan:
+Inställningen måste konfigureras innan en HTTP-begäran görs. Därför bör WebJobs-värden inte justera inställningen automatiskt. Det kan finnas HTTP-begäranden som inträffar innan värden startar, vilket kan leda till oväntat beteende. Den bästa metoden är att ange värdet direkt i din `Main` metod innan du `JobHost`initierar, som du ser här:
 
 ```csharp
 static void Main(string[] args)
@@ -153,11 +153,11 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>Utlösare
 
-Funktioner måste vara offentliga metoderna och måste ha ett utlösarattribut eller [ `NoAutomaticTrigger` ](#manual-triggers) attribut.
+Functions måste vara offentliga metoder och måste ha ett trigger-attribut [`NoAutomaticTrigger`](#manual-triggers) eller-attribut.
 
-### <a name="automatic-triggers"></a>Automatisk utlösare
+### <a name="automatic-triggers"></a>Automatiska utlösare
 
-Automatisk utlösare anropar en funktion som svar på en händelse. Överväg det här exemplet på en funktion som utlöses av ett meddelande som har lagts till i Azure Queue storage. Den svarar genom att läsa en blob från Azure Blob storage:
+Automatiska utlösare anropar en funktion som svar på en händelse. Överväg det här exemplet på en funktion som utlöses av ett meddelande som lagts till i Azure Queue Storage. Den svarar genom att läsa en BLOB från Azure Blob Storage:
 
 ```cs
 public static void Run(
@@ -169,12 +169,13 @@ public static void Run(
 }
 ```
 
-Den `QueueTrigger` attributet anger körning för att anropa funktionen när ett kömeddelande som visas i den `myqueue-items` kö. Den `Blob` attributet anger att körningen kan använda kömeddelandet för att läsa en blob i den *exempel-workitems* behållare. Innehållet i kö-meddelandet skickades till funktionen i den `myQueueItem` parametern är namnet på blobben.
+Attributet talar om för körningen att anropa funktionen när ett Queue-meddelande visas `myqueue-items` i kön. `QueueTrigger` Attributet instruerar körningen att använda Queue-meddelandet för att läsa en BLOB i *WorkItems-behållaren.* `Blob` Innehållet i Queue-meddelandet, som skickades till funktionen i `myQueueItem` parametern, är namnet på blobben.
 
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="manual-triggers"></a>Manuella utlösare
 
-Utlös en funktion manuellt genom att använda den `NoAutomaticTrigger` attributet som visas här:
+Om du vill utlösa en funktion manuellt använder `NoAutomaticTrigger` du attributet, som du ser här:
 
 ```cs
 [NoAutomaticTrigger]
@@ -188,7 +189,7 @@ string value,
 }
 ```
 
-Processen för att manuellt utlösa funktionen är beroende av SDK-version.
+Processen för att utlösa funktionen manuellt beror på SDK-versionen.
 
 #### <a name="version-3x"></a>Version 3.*x*
 
@@ -227,19 +228,19 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="input-and-output-bindings"></a>Indata och utdata bindningar
+## <a name="input-and-output-bindings"></a>Bindningar för indata och utdata
 
-Indatabindningar tillhandahåller en deklarativ metod för att göra data från Azure eller tjänster från tredje part tillgängliga för din kod. Utdatabindningar är ett sätt att uppdatera data. Den [börjar](webjobs-sdk-get-started.md) artikeln visar ett exempel på var och en.
+Med indata-bindningar får du ett deklarativ sätt att göra data från Azure eller tjänster från tredje part tillgängliga för din kod. Utgående bindningar ger ett sätt att uppdatera data. I artikeln [komma igång](webjobs-sdk-get-started.md) visas ett exempel på var och en.
 
-Du kan använda metoden returvärdet för en utdatabindning genom att använda attributet returvärdet för metoden. Se exemplet i [med hjälp av Azure Function returvärde](../azure-functions/functions-bindings-return-value.md).
+Du kan använda ett metod retur värde för en utgående bindning genom att tillämpa attributet på metodens retur värde. Se exemplet i [använda Azure Function-returvärdet](../azure-functions/functions-bindings-return-value.md).
 
-## <a name="binding-types"></a>Bindningstyper
+## <a name="binding-types"></a>Bindnings typer
 
-Processen för att installera och hantera bindningstyper beror på om du använder version 3. *x* eller version 2. *x* av SDK. Du kan hitta att uppdateringen ska installeras för en viss bindningstypen i avsnittet ”Packages” i den bindningstypen Azure Functions [referensartikeln](#binding-reference-information). Ett undantag är utlösaren filer och bindningen (för det lokala filsystemet), som inte stöds av Azure Functions.
+Processen för att installera och hantera bindnings typer beror på om du använder version 3. *x* eller version 2. *x* i SDK. Du hittar paketet att installera för en viss bindnings typ i avsnittet "paket" i bindnings typens Azure Functions [referens artikel](#binding-reference-information). Ett undantag är filernas utlösare och bindning (för det lokala fil systemet), som inte stöds av Azure Functions.
 
 #### <a name="version-3x"></a>Version 3.*x*
 
-I version 3. *x*, storage-bindningar som ingår i den `Microsoft.Azure.WebJobs.Extensions.Storage` paketet. Anropa den `AddAzureStorage` tilläggsmetod i den `ConfigureWebJobs` metod, som visas här:
+I version 3. *x*, ingår lagrings bindningarna i `Microsoft.Azure.WebJobs.Extensions.Storage` paketet. Anropa tilläggs metoden `ConfigureWebJobs` i metoden, som visas här: `AddAzureStorage`
 
 ```cs
 static void Main()
@@ -258,7 +259,7 @@ static void Main()
 }
 ```
 
-Om du vill använda andra utlösare och bindningstyper, installera NuGet-paketet som innehåller dem och anropa den `Add<binding>` tilläggsmetod som implementerats i tillägget. Om du vill använda en Azure Cosmos DB-bindning till exempel installera `Microsoft.Azure.WebJobs.Extensions.CosmosDB` och anropa `AddCosmosDB`, så här:
+Om du vill använda andra typer av utlösare och bindningar installerar du NuGet-paketet `Add<binding>` som innehåller dem och anropar tilläggs metoden som implementeras i tillägget. Om du till exempel vill använda en Azure Cosmos DB-bindning, installerar `Microsoft.Azure.WebJobs.Extensions.CosmosDB` och anropar `AddCosmosDB`du så här:
 
 ```cs
 static void Main()
@@ -277,17 +278,17 @@ static void Main()
 }
 ```
 
-Att använda den Timer som utlösaren eller filerna bindning, som är en del av grundläggande tjänster, anropa den `AddTimers` eller `AddFiles` tilläggsmetoder, respektive.
+Om du vill använda timer-utlösaren eller fil bindningen, som är en del av `AddTimers` kärn `AddFiles` tjänsterna, anropar du respektive tilläggs metoder.
 
 #### <a name="version-2x"></a>Version 2.*x*
 
-Dessa typer av utlösare och bindning som ingår i version 2. *x* av den `Microsoft.Azure.WebJobs` paketet:
+Dessa utlösare och bindnings typer ingår i version 2. *x* i `Microsoft.Azure.WebJobs` paketet:
 
 * Blob Storage
 * Queue Storage
-* Table Storage
+* Tabellagring
 
-Om du vill använda andra utlösare och bindningstyper, installera NuGet-paketet som innehåller dem och anropa en `Use<binding>` metoden på den `JobHostConfiguration` objekt. Till exempel om du vill använda en Timer som utlösare installera `Microsoft.Azure.WebJobs.Extensions` och anropa `UseTimers` i den `Main` metod, som visas här:
+Om du vill använda andra typer av utlösare och bindningar installerar du NuGet-paketet `Use<binding>` som innehåller dem `JobHostConfiguration` och anropar en metod på objektet. Om du till exempel vill använda en timer-utlösare, `Microsoft.Azure.WebJobs.Extensions` installerar och `UseTimers` anropar `Main` du metoden, som du ser här:
 
 ```cs
 static void Main()
@@ -299,11 +300,11 @@ static void Main()
 }
 ```
 
-att använda filerna bindning, installera `Microsoft.Azure.WebJobs.Extensions` och anropa `UseFiles`.
+Installera `Microsoft.Azure.WebJobs.Extensions` och anropa `UseFiles`för att använda fil bindningen.
 
 ### <a name="executioncontext"></a>ExecutionContext
 
-WebJobs kan du binda till en [ `ExecutionContext` ]. Med den här bindningen kan du komma åt den [ `ExecutionContext` ] som en parameter i funktionssignaturen. Följande kod använder till exempel context-objektet för att komma åt anrops-ID som du kan använda för att korrelera alla loggar som producerats av en viss funktionsanrop.  
+Med WebJobs kan du binda till [`ExecutionContext`]en. Med den här bindningen får du åtkomst [`ExecutionContext`] till som en parameter i funktions under skriften. I följande kod används till exempel objektet Context för att få åtkomst till anrops-ID: t, som du kan använda för att korrelera alla loggar som skapats av ett angivet funktions anrop.  
 
 ```cs
 public class Functions
@@ -317,11 +318,11 @@ public class Functions
 }
 ```
 
-Processen för bindningen till den [ `ExecutionContext` ] beror på din SDK-version.
+Processen för bindning till [`ExecutionContext`] beror på din SDK-version.
 
 #### <a name="version-3x"></a>Version 3.*x*
 
-Anropa den `AddExecutionContextBinding` tilläggsmetod i den `ConfigureWebJobs` metod, som visas här:
+Anropa tilläggs metoden `ConfigureWebJobs` i metoden, som visas här: `AddExecutionContextBinding`
 
 ```cs
 static void Main()
@@ -342,7 +343,7 @@ static void Main()
 
 #### <a name="version-2x"></a>Version 2.*x*
 
-Den `Microsoft.Azure.WebJobs.Extensions` paket som tidigare nämnts innehåller också en särskild bindningstyp som du kan registrera genom att anropa den `UseCore` metoden. Den här bindningen kan du definiera en [ `ExecutionContext` ] parametern i funktionen signaturen, som är aktiverad så här:
+Det `Microsoft.Azure.WebJobs.Extensions` paket som nämns ovan tillhandahåller också en särskild bindnings typ som du kan registrera genom `UseCore` att anropa-metoden. Med den här bindningen kan [`ExecutionContext`] du definiera en parameter i funktions under skriften, som är aktive rad så här:
 
 ```cs
 class Program
@@ -357,26 +358,26 @@ class Program
 }
 ```
 
-## <a name="binding-configuration"></a>Bindningen konfiguration
+## <a name="binding-configuration"></a>Bindnings konfiguration
 
-Du kan konfigurera beteendet för vissa utlösare och bindningar. Processen för att konfigurera dem beror på vilken SDK-version.
+Du kan konfigurera beteendet för vissa utlösare och bindningar. Processen för att konfigurera dem beror på SDK-versionen.
 
-* **Version 3.*x*:** Ange konfiguration när den `Add<Binding>` metoden anropas `ConfigureWebJobs`.
-* **Version 2.*x*:** Ange konfiguration genom att ange egenskaper i ett konfigurationsobjekt som du anger för att `JobHost`.
+* **Version 3.*x*:** Ange konfiguration när `Add<Binding>` metoden anropas i `ConfigureWebJobs`.
+* **Version 2.*x*:** Ange konfiguration genom att ange egenskaper i ett konfigurations objekt som du skickar `JobHost`in till.
 
-Dessa bindning-specifika inställningar som är likvärdiga med inställningarna i den [host.json projektfilen](../azure-functions/functions-host-json.md) i Azure Functions.
+Dessa bindande inställningar motsvarar inställningarna i [Host. JSON-projektfilen](../azure-functions/functions-host-json.md) i Azure Functions.
 
-Du kan konfigurera bindningarna som följande:
+Du kan konfigurera följande bindningar:
 
-* [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
-* [Event Hubs-utlösare](#event-hubs-trigger-configuration-version-3x)
-* Queue storage-utlösare
+* [Azure CosmosDB-utlösare](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Event Hubs utlösare](#event-hubs-trigger-configuration-version-3x)
+* [Kö Storage-utlösare](#queue-storage-trigger-configuration)
 * [SendGrid-bindning](#sendgrid-binding-configuration-version-3x)
-* [Service Bus-utlösare](#service-bus-trigger-configuration-version-3x)
+* [Service Bus utlösare](#service-bus-trigger-configuration-version-3x)
 
-### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Konfiguration av Azure cosmos DB-utlösare (version 3. *x*)
+### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Konfiguration av Azure CosmosDB-utlösare (version 3. *x*)
 
-Det här exemplet visar hur du konfigurerar Azure Cosmos DB-utlösare:
+Det här exemplet visar hur du konfigurerar Azure Cosmos DB-utlösaren:
 
 ```cs
 static void Main()
@@ -402,11 +403,11 @@ static void Main()
 }
 ```
 
-Mer information finns i den [Azure CosmosDB bindning](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) artikeln.
+Mer information finns i artikeln om [bindning för Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) .
 
-### <a name="event-hubs-trigger-configuration-version-3x"></a>Händelsehubbar utlösa konfiguration (version 3. *x*)
+### <a name="event-hubs-trigger-configuration-version-3x"></a>Event Hubs utlösarens konfiguration (version 3. *x*)
 
-Det här exemplet visar hur du konfigurerar Event Hubs-utlösare:
+Det här exemplet visar hur du konfigurerar Event Hubs-utlösaren:
 
 ```cs
 static void Main()
@@ -431,11 +432,11 @@ static void Main()
 }
 ```
 
-Mer information finns i den [Händelsehubbar bindning](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) artikeln.
+Mer information finns i artikeln [Event Hubs bindning](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) .
 
-### <a name="queue-storage-trigger-configuration"></a>Queue storage utlösarkonfiguration
+### <a name="queue-storage-trigger-configuration"></a>Konfiguration av kö Storage-utlösare
 
-De här exemplen visar hur du konfigurerar Queue storage-utlösare:
+Följande exempel visar hur du konfigurerar utlösaren för kön Storage:
 
 #### <a name="version-3x"></a>Version 3.*x*
 
@@ -462,7 +463,7 @@ static void Main()
 }
 ```
 
-Mer information finns i den [kö lagringsbindningen](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings) artikeln.
+Mer information finns i artikeln om [kö Storage-bindning](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings) .
 
 #### <a name="version-2x"></a>Version 2.*x*
 
@@ -479,11 +480,11 @@ static void Main(string[] args)
 }
 ```
 
-Mer information finns i den [referens för host.json v1.x](../azure-functions/functions-host-json-v1.md#queues).
+Mer information finns i referensen [Host. JSON v1. x](../azure-functions/functions-host-json-v1.md#queues).
 
-### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid-bindning konfiguration (version 3. *x*)
+### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid bindnings konfiguration (version 3. *x*)
 
-Det här exemplet visar hur du konfigurerar SendGrid-utdatabindning:
+Det här exemplet visar hur du konfigurerar SendGrid utgående bindning:
 
 ```cs
 static void Main()
@@ -507,11 +508,11 @@ static void Main()
 }
 ```
 
-Mer information finns i den [SendGrid bindning](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings) artikeln.
+Mer information finns i artikeln om [SendGrid-bindning](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings) .
 
-### <a name="service-bus-trigger-configuration-version-3x"></a>Konfiguration av Service Bus-utlösare (version 3. *x*)
+### <a name="service-bus-trigger-configuration-version-3x"></a>Service Bus utlösarens konfiguration (version 3. *x*)
 
-Det här exemplet visar hur du konfigurerar Service Bus-utlösare:
+Det här exemplet visar hur du konfigurerar Service Bus-utlösaren:
 
 ```cs
 static void Main()
@@ -535,11 +536,11 @@ static void Main()
 }
 ```
 
-Mer information finns i den [Service Bus-bindning](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) artikeln.
+Mer information finns i artikeln [Service Bus bindning](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) .
 
-### <a name="configuration-for-other-bindings"></a>Konfiguration för andar bindningar
+### <a name="configuration-for-other-bindings"></a>Konfiguration för andra bindningar
 
-Vissa typer av utlösare och bindningen definiera sina egna anpassade konfigurationerna. Till exempel kan utlösaren fil du ange rotsökvägen ska övervakas, som i följande exempel:
+Vissa typer av utlösare och bindningar definierar sina egna anpassade konfigurations typer. Med fil utlösaren kan du till exempel ange rot Sök vägen som ska övervakas, som i följande exempel:
 
 #### <a name="version-3x"></a>Version 3.*x*
 
@@ -577,9 +578,9 @@ static void Main()
 }
 ```
 
-## <a name="binding-expressions"></a>Uttryck för bindning
+## <a name="binding-expressions"></a>Bindnings uttryck
 
-Du kan använda uttryck som matchas till värden från olika källor i attributet konstruktor parametrar. Till exempel i följande kod, sökvägen för den `BlobTrigger` attributet skapar ett uttryck med namnet `filename`. När den används för utdata-bindning `filename` matchar namnet på den utlösande blobben.
+I parametrar för attributet konstruktor kan du använda uttryck som matchar värden från olika källor. I följande kod skapar exempelvis sökvägen för `BlobTrigger` attributet ett uttryck med namnet. `filename` När den används för utgående bindning, `filename` matchas namnet på den Utlös ande blobben.
 
 ```cs
 public static void CreateThumbnail(
@@ -593,13 +594,13 @@ public static void CreateThumbnail(
 }
 ```
 
-Läs mer om bindning uttryck [bindning uttryck och mönster](../azure-functions/functions-bindings-expressions-patterns.md) i Azure Functions-dokumentationen.
+Mer information om bindnings uttryck finns i avsnittet om [bindnings uttryck och mönster](../azure-functions/functions-bindings-expressions-patterns.md) i Azure Functions-dokumentationen.
 
-### <a name="custom-binding-expressions"></a>Anpassade bindningen uttryck
+### <a name="custom-binding-expressions"></a>Anpassade bindnings uttryck
 
-Ibland vill du ange en kö, ett blobbnamn behållare eller ett tabellnamn i kod i stället för att hårdkoda den. Du kanske exempelvis vill ange namnet på kön för den `QueueTrigger` attributet i en konfiguration av fil- eller miljö variabel.
+Ibland vill du ange ett könamn, ett BLOB-namn eller behållare, eller ett tabell namn i kod i stället för att hårdkoda det. Du kanske till exempel vill ange köns namn för `QueueTrigger` attributet i en konfigurations fil eller en miljö variabel.
 
-Du kan göra det genom att skicka en `NameResolver` objekt i att den `JobHostConfiguration` objekt. Du inkluderar platshållare i utlösaren eller bindande attributet konstruktor parametrar och din `NameResolver` kod innehåller de faktiska värdena som ska användas i stället för platshållarna. Du kan identifiera platshållare om de med procent (%) loggar som visas här:
+Du kan göra det genom att skicka `NameResolver` ett objekt `JobHostConfiguration` till objektet. Du inkluderar plats hållare i parametrarna trigger eller binding Attribute, och din `NameResolver` kod tillhandahåller de faktiska värdena som ska användas i stället för dessa plats hållare. Du identifierar plats hållarna genom att omge dem med procent (%) tecken, som du ser här:
 
 ```cs
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
@@ -608,11 +609,11 @@ public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 }
 ```
 
-Den här koden kan du använda en kö med namnet `logqueuetest` i testmiljön och en med namnet `logqueueprod` i produktion. I stället för ett hårdkodat könamn du anger namnet på en post i den `appSettings` samling.
+Med den här koden kan du använda en `logqueuetest` kö med namnet i test miljön och `logqueueprod` en som heter i produktion. I stället för ett hårdkodat könamn anger du namnet på en post i `appSettings` samlingen.
 
-Det finns en standard `NameResolver` som träder i kraft om du inte anger en anpassad. Standard hämtar värden från appen inställningar eller miljövariabler.
+Det finns ett standardvärde `NameResolver` som börjar gälla om du inte anger någon anpassad. Standardvärdet hämtar värden från appinställningar eller miljövariabler.
 
-Din `NameResolver` klass hämtar könamn från `appSettings`enligt nedan:
+Klassen hämtar könamnet från `appSettings`, som visas här: `NameResolver`
 
 ```cs
 public class CustomNameResolver : INameResolver
@@ -626,13 +627,13 @@ public class CustomNameResolver : INameResolver
 
 #### <a name="version-3x"></a>Version 3.*x*
 
-Du kan konfigurera matcharen med hjälp av beroendeinmatning. De här exemplen kräver följande `using` instruktionen:
+Du konfigurerar matcharen genom att använda beroende inmatning. Dessa exempel kräver följande `using` instruktion:
 
 ```cs
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-Du lägger till matcharen genom att anropa den [ `ConfigureServices` ] tilläggsmetod på [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder), som i det här exemplet:
+Du lägger till matcharen genom att [`ConfigureServices`] anropa tilläggs metoden på [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder), som i det här exemplet:
 
 ```cs
 static async Task Main(string[] args)
@@ -654,7 +655,7 @@ static async Task Main(string[] args)
 
 #### <a name="version-2x"></a>Version 2.*x*
 
-Skicka din `NameResolver` klassen i till den `JobHost` objekt, som visas här:
+Skicka din `NameResolver` klass `JobHost` till objektet, som du ser här:
 
 ```cs
  static void Main(string[] args)
@@ -666,13 +667,13 @@ Skicka din `NameResolver` klassen i till den `JobHost` objekt, som visas här:
 }
 ```
 
-Azure Functions implementerar `INameResolver` att hämta värden från appen inställningar, som visas i exemplet. När du använder WebJobs SDK direkt, kan du skriva en anpassad implementering platshållaren ersättningsvärden hämtas från den källa som du föredrar.
+Azure Functions implementerar `INameResolver` för att hämta värden från appinställningar, som du ser i exemplet. När du använder WebJobs-SDK: n direkt kan du skriva en anpassad implementering som hämtar plats hållarens ersättnings värden från vilken källa du föredrar.
 
-## <a name="binding-at-runtime"></a>Bindningen vid körning
+## <a name="binding-at-runtime"></a>Bindning vid körning
 
-Om du vill göra en del arbete i din funktion innan du använder attributet bindning som `Queue`, `Blob`, eller `Table`, du kan använda den `IBinder` gränssnitt.
+Om du behöver göra en del arbete i din funktion innan du använder ett binding-attribut `Queue`som `Blob`, eller `Table`, kan du använda `IBinder` gränssnittet.
 
-I följande exempel tar ett inkommande kö-meddelande och skapar ett nytt meddelande med samma innehåll i en utgående kö. Könamn utdata har angetts av kod i brödtexten till funktionen.
+I följande exempel visas ett meddelande om indatakö och ett nytt meddelande skapas med samma innehåll i en utgående kö. Namnet på utdataporten anges med kod i bröd texten i funktionen.
 
 ```cs
 public static void CreateQueueMessage(
@@ -688,23 +689,23 @@ public static void CreateQueueMessage(
 
 Mer information finns i [bindning vid körning](../azure-functions/functions-dotnet-class-library.md#binding-at-runtime) i Azure Functions-dokumentationen.
 
-## <a name="binding-reference-information"></a>Referensinformation för bindning
+## <a name="binding-reference-information"></a>Information om bindnings referensinformation
 
-Azure Functions-dokumentationen innehåller information om varje bindningstyp av. Du hittar följande information i varje referensartikeln för bindningen. (Det här exemplet är baserad på Storage-kö.)
+Azure Functions-dokumentationen innehåller referensinformation om varje bindnings typ. Du hittar följande information i varje bindnings referens artikel. (Det här exemplet baseras på lagrings kön.)
 
-* [Paket](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). Det paket som du måste installera för att inkludera stöd för bindningen i ett projekt med WebJobs SDK.
-* [Exempel](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Kodexempel. Den C# class library exempel gäller för WebJobs SDK. Utelämna bara den `FunctionName` attribut.
-* [Attribut](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). Attribut för bindningstypen.
-* [Konfiguration av](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Förklaringar av de attributegenskaper och konstruktor parametrar.
-* [Användning](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Du kan binda till typer och information om hur bindningen fungerar. Till exempel: avsökning algoritmen, poison kö bearbetning.
+* [Paket](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). Paketet du måste installera för att inkludera stöd för bindningen i ett WebJobs SDK-projekt.
+* [Exempel](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Kod exempel. Exempel C# på klass bibliotek gäller för WebJobs SDK. Utelämna `FunctionName` bara attributet.
+* [Attribut](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). De attribut som ska användas för bindnings typen.
+* [Konfiguration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Förklaringar av attributets egenskaper och parametrar för konstruktorn.
+* [Användning](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Typerna som du kan binda till och information om hur bindningen fungerar. Exempel: avsöknings algoritm, bearbetning av Poison-köer.
   
-En lista över bindning referensartiklar, finns i ”stöds bindningar” i den [utlösare och bindningar](../azure-functions/functions-triggers-bindings.md#supported-bindings) artikel för Azure Functions. I listan stöds HTTP och Webhooks Event Grid-bindningar endast av Azure Functions, inte av WebJobs SDK.
+En lista över bindnings referens artiklar finns i "bindningar som stöds" i artikeln utlösare [och bindningar](../azure-functions/functions-triggers-bindings.md#supported-bindings) för Azure Functions. I den här listan stöds HTTP-, webhook-och Event Grid-bindningar bara av Azure Functions, inte av WebJobs SDK.
 
 ## <a name="disable-attribute"></a>Inaktivera attribut 
 
-Den [ `Disable` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attributet låter dig kontrollera om en funktion som kan utlösas. 
+Med [`Disable`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attributet kan du kontrol lera om en funktion kan utlösas. 
 
-I följande exempel, om appinställningen `Disable_TestJob` har värdet `1` eller `True` (skiftlägesokänsligt), funktionen inte körs. I så fall körningen skapar ett loggmeddelande *funktionen ”Functions.TestJob” är inaktiverad*.
+I följande exempel, om app-inställningen `Disable_TestJob` har `1` värdet eller `True` (inte Skift läges känsligt), körs inte funktionen. I så fall skapar körningen en logg meddelande *funktion "Functions. TestJob" som är inaktive rad*.
 
 ```cs
 [Disable("Disable_TestJob")]
@@ -714,13 +715,13 @@ public static void TestJob([QueueTrigger("testqueue2")] string message)
 }
 ```
 
-När du ändrar app inställningsvärden i Azure-portalen, Webbjobbet startas om för att hämta upp den nya inställningen.
+När du ändrar inställnings värden för appen i Azure Portal startas Start programmet om för att hämta den nya inställningen.
 
-Attributet kan deklareras på parametern, metoden eller klassnivå. Inställningens namn kan också innehålla bindning uttryck.
+Attributet kan deklareras på parameter-, metod-eller klass nivå. Inställnings namnet kan också innehålla bindnings uttryck.
 
-## <a name="timeout-attribute"></a>Timeout-attributet
+## <a name="timeout-attribute"></a>Timeout-attribut
 
-Den [ `Timeout` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) -attributet skapar en funktion som ska avbrytas om den inte slutförs inom en angiven tidsperiod. I följande exempel körs funktionen under en dag utan Timeout-attributet. Timeout gör att funktionen som ska avbrytas efter 15 sekunder.
+[`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) Attributet gör att en funktion avbryts om den inte slutförs inom en angiven tids period. I följande exempel körs funktionen en dag utan attributet timeout. Timeout gör att funktionen avbryts efter 15 sekunder.
 
 ```cs
 [Timeout("00:00:15")]
@@ -735,13 +736,13 @@ public static async Task TimeoutJob(
 }
 ```
 
-Du kan tillämpa Timeout-attributet på nivån klass eller metod och du kan ange en global timeout med hjälp av `JobHostConfiguration.FunctionTimeout`. Klass- eller metoden nivå tidsgränser åsidosätta globala tidsgränser.
+Du kan använda attributet timeout på klass-eller metod nivå och du kan ange en global tids gräns med hjälp `JobHostConfiguration.FunctionTimeout`av. Tids gränser på klass-eller metod nivå åsidosätter globala tids gränser.
 
 ## <a name="singleton-attribute"></a>Singleton-attribut
 
-Den [ `Singleton` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attributet säkerställer att endast en instans av en funktion körs, även om det finns flera instanser av webbappen värden. Detta sker med hjälp av [distribuerade låsning](#viewing-lease-blobs).
+[`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) Attributet säkerställer att endast en instans av en funktion körs, även om det finns flera instanser av värd-webbappen. Detta görs med hjälp av [distribuerad låsning](#viewing-lease-blobs).
 
-I det här exemplet, endast en instans av den `ProcessImage` funktionen körs vid en given tidpunkt:
+I det här exemplet körs bara en enda instans av `ProcessImage` funktionen vid en viss tidpunkt:
 
 ```cs
 [Singleton]
@@ -753,17 +754,17 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 
 ### <a name="singletonmodelistener"></a>SingletonMode.Listener
 
-Vissa utlösare har inbyggt stöd för hantering av samtidighet:
+Vissa utlösare har inbyggt stöd för samtidig hantering:
 
 * **QueueTrigger**. Ange `JobHostConfiguration.Queues.BatchSize` till `1`.
 * **ServiceBusTrigger**. Ange `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` till `1`.
 * **FileTrigger**. Ange `FileProcessor.MaxDegreeOfParallelism` till `1`.
 
-Du kan använda de här inställningarna för att säkerställa att din funktion körs som en singleton på en enda instans. För att säkerställa att endast en instans av funktionen körs när appen skalas ut till flera instanser, lägga till en lyssnare på servernivå singleton-lås på funktionen (`[Singleton(Mode = SingletonMode.Listener)]`). Lyssnaren Lås är upptagna när JobHost startar. Om tre utskalade instanser alla startar på samma gång, endast en av instanserna hämtar Lås och endast en lyssnare börjar.
+Du kan använda de här inställningarna för att se till att funktionen körs som en singleton-instans på en enda instans. För att se till att endast en enda instans av funktionen körs när webbappen skalar ut till flera instanser, ska du använda ett singleton-lås på lyssnar-nivå i funktionen`[Singleton(Mode = SingletonMode.Listener)]`(). Lyssnar lås förvärvas när JobHost startar. Om tre utskalade instanser startar samtidigt, kommer bara en av instanserna att förvärva låset och bara en lyssnare startar.
 
-### <a name="scope-values"></a>Områdesvärden
+### <a name="scope-values"></a>Omfattnings värden
 
-Du kan ange en *omfånguttrycksvärdet/* på en singleton. Uttrycksvärdet/säkerställer att alla körningar för funktionen i ett visst omfång ska serialiseras. Implementera mer detaljerade låsning på så vis kan tillåta för viss grad av parallellitet för funktionen vid serialisering av andra anrop enligt dina krav. Till exempel i följande kod, scope-uttrycket Binder till den `Region` värdet för det inkommande meddelandet. När kön innehåller tre meddelanden i regionerna östra, östra och västra respektive, medan de meddelanden som har region Öst körs seriellt meddelandet med region Väst körs parallellt med de i östra.
+Du kan ange ett *omfattnings uttryck/-värde* på en singleton. Uttrycket/värdet säkerställer att alla körningar av funktionen i en speciell omfattning serialiseras. Genom att implementera mer detaljerad låsning på det här sättet kan du tillåta en viss nivå av parallellitet för din funktion samtidigt som du serialiserar andra anrop som styrs av dina krav. I följande kod binder till exempel omfångs uttrycket till `Region` värdet för det inkommande meddelandet. När kön innehåller tre meddelanden i regionerna öst, öst och väst, körs meddelanden som har region Öst i serie medan meddelandet med regionen Väst körs parallellt med dem i öst.
 
 ```csharp
 [Singleton("{Region}")]
@@ -781,9 +782,9 @@ public class WorkItem
 }
 ```
 
-### <a name="singletonscopehost"></a>SingletonScope.Host
+### <a name="singletonscopehost"></a>SingletonScope. Host
 
-Standardomfattning för ett lås är `SingletonScope.Function`, vilket innebär att låsomfattningen (blob lease sökväg) är knuten till fullständigt kvalificerade funktionsnamnet. Om du vill låsa över funktioner, ange `SingletonScope.Host` och använda ett scope-ID-namn som är samma för alla funktioner som du inte vill ska köras samtidigt. I följande exempel visas endast en instans av `AddItem` eller `RemoveItem` körs vid ett tillfälle:
+Standard omfånget för ett lås `SingletonScope.Function`är, vilket innebär att Lås omfånget (BLOB-lånets sökväg) är kopplat till det fullständigt kvalificerade funktions namnet. Om du vill låsa mellan funktioner `SingletonScope.Host` anger du och använder ett scope-ID-namn som är samma för alla funktioner som du inte vill köra samtidigt. I följande exempel är endast en instans av `AddItem` eller `RemoveItem` körs i taget:
 
 ```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
@@ -799,39 +800,39 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 }
 ```
 
-### <a name="viewing-lease-blobs"></a>Visa lånet blobar
+### <a name="viewing-lease-blobs"></a>Visa leasing-blobar
 
-WebJobs-SDK använder [Azure blob-lån](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) under försättsbladen att implementera distribuerade låsning. Lån-blobar som används av Singleton finns i den `azure-webjobs-host` behållaren i den `AzureWebJobsStorage` storage-konto under sökvägen ”Lås”. Till exempel den lån blob sökvägen för först `ProcessImage` exempel som visades tidigare kan vara `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Alla sökvägar med JobHost-ID i det här fallet 061851c758f04938a4426aa9ab3869c0.
+WebJobs-SDK: n använder [Azure Blob-lån](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) under försättsblad för att implementera distribuerad låsning. De leasing-blobbar som används av singleton finns i `azure-webjobs-host` behållaren `AzureWebJobsStorage` i lagrings kontot under sökvägen "lås". Till exempel kan låne-BLOB-sökvägen för det `ProcessImage` första exemplet som visas tidigare `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`vara. Alla sökvägar inkluderar JobHost-ID, i det här fallet 061851c758f04938a4426aa9ab3869c0.
 
-## <a name="async-functions"></a>Async-funktioner
+## <a name="async-functions"></a>Asynkrona funktioner
 
-Information om hur du kod async funktioner finns i den [Azure Functions-dokumentationen](../azure-functions/functions-dotnet-class-library.md#async).
+Information om hur du kodar asynkrona funktioner finns i [Azure Functions-dokumentationen](../azure-functions/functions-dotnet-class-library.md#async).
 
-## <a name="cancellation-tokens"></a>Annulleringstoken
+## <a name="cancellation-tokens"></a>Token för avbrytande
 
-Information om hur du hanterar annulleringstoken finns i Azure Functions-dokumentationen på [annulleringstoken och avslutning](../azure-functions/functions-dotnet-class-library.md#cancellation-tokens).
+Information om hur du hanterar inställda token finns i Azure Functions-dokumentationen om [avbrutna token och korrekt avstängning](../azure-functions/functions-dotnet-class-library.md#cancellation-tokens).
 
 ## <a name="multiple-instances"></a>Flera instanser
 
-Om din webbapp körs på flera instanser, ett kontinuerligt Webbjobb som körs på varje instans kan lyssna efter utlösare och anropa funktioner. De olika utlösare-bindningarna är utformade för att dela effektivt arbets samarbeta över instanser, kan så att skala ut till fler instanser du hantera mer belastning.
+Om din webbapp körs på flera instanser körs ett kontinuerligt webbjobb på varje instans och lyssnar efter utlösare och anropar funktioner. De olika utlösnings bindningarna är utformade för att effektivt dela arbete som är kollektivt över flera instanser, så att du kan hantera mer belastning genom att skala ut till fler instanser.
 
-Kö- och blob-utlösare automatiskt förhindra att en funktion som bearbetar ett meddelande i kö eller blob mer än en gång. Functions behöver vara idempotenta.
+Kö-och blob-utlösare förhindrar automatiskt en funktion från att bearbeta ett köat meddelande eller BLOB mer än en gång. funktionerna behöver inte vara idempotenta.
 
-Timer som utlösare säkerställer att endast en instans av timer-körningar automatiskt så att du inte får mer än en funktion-instans som körs vid en given schemalagda tidpunkt.
+Timer-utlösaren säkerställer automatiskt att endast en instans av timern körs, så att du inte får fler än en funktions instans som körs vid en specifik schemalagd tid.
 
-Om du vill se till att endast en instans av en funktion körs även om det finns flera instanser av webbappen värd kan du använda den [ `Singleton` ](#singleton-attribute) attribut.
+Om du vill se till att endast en instans av en funktion körs även om det finns flera instanser av värd webb programmet kan du använda [`Singleton`](#singleton-attribute) -attributet.
 
 ## <a name="filters"></a>Filter
 
-Funktionen filter (förhandsversion) är ett sätt att anpassa WebJobs körningspipeline med egen logik. Filter liknar [ASP.NET Core filtrerar](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). Du kan implementera dem som deklarativ attribut som tillämpas på dina funktioner eller klasser. Mer information finns i [funktionen filter](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
+Funktions filter (för hands version) ger dig ett sätt att anpassa WebJobs-körningens pipeline med din egen logik. Filter liknar [ASP.net Core filter](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). Du kan implementera dem som deklarativ attribut som tillämpas på dina funktioner eller klasser. Mer information finns i [funktions filter](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-Vi rekommenderar vilket loggningsramverk som har utvecklats specifikt för ASP.NET. Den [börjar](webjobs-sdk-get-started.md) artikeln visar hur du använder den. 
+Vi rekommenderar loggnings ramverket som har utvecklats för ASP.NET. Artikeln [Kom igång](webjobs-sdk-get-started.md) visar hur du använder den. 
 
-### <a name="log-filtering"></a>Log filtrering
+### <a name="log-filtering"></a>Logg filtrering
 
-Varje log som skapats av en `ILogger` -instansen har en associerad `Category` och `Level`. [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) en uppräkning och koden för heltal anger relativa prioriteten:
+Varje logg som skapats av `ILogger` en instans har en `Category` associerad `Level`och. [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)är en uppräkning och heltals koden indikerar relativ prioritet:
 
 |LogLevel    |Kod|
 |------------|---|
@@ -841,21 +842,21 @@ Varje log som skapats av en `ILogger` -instansen har en associerad `Category` oc
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritiskt    | 5 |
-|Ingen        | 6 |
+|Inga        | 6 |
 
-Du kan filtrera varje kategori till en viss oberoende [ `LogLevel` ](/dotnet/api/microsoft.extensions.logging.loglevel). Exempel: du kan se alla loggar för blob utlösare men endast bearbeta `Error` och högre för allt annat.
+Du kan filtrera varje kategori separat till en viss [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel). Du kanske till exempel vill se alla loggar för bearbetning av BLOB-utlösare `Error` , men endast och högre för allt annat.
 
 #### <a name="version-3x"></a>Version 3.*x*
 
-Version 3. *x* av SDK är beroende av filtrering inbyggt i .NET Core. Den `LogCategories` klassen kan du definiera enhetskategorier för specifika funktioner, utlösare eller användare. Den definierar även filter för specifika värden tillstånd som `Startup` och `Results`. På så sätt kan du finjustera loggning utdata. Om ingen matchning hittas inom de angivna kategorierna filtret faller tillbaka till den `Default` värdet när du bestämmer om du vill filtrera meddelandet.
+Version 3. *x* av SDK är beroende av filtreringen som är inbyggd i .net Core. Med `LogCategories` klassen kan du definiera kategorier för vissa funktioner, utlösare eller användare. Den definierar också filter för vissa värd tillstånd, t `Startup` . `Results`ex. och. På så sätt kan du finjustera loggnings resultatet. Om ingen matchning hittas inom de definierade kategorierna går filtret tillbaka till `Default` värdet när du bestämmer om meddelandet ska filtreras.
 
-`LogCategories` kräver följande med instruktionen:
+`LogCategories`kräver följande användnings instruktion:
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 
 ```
 
-I följande exempel skapas ett filter som filtrerar alla loggar på som standard den `Warning` nivå. Den `Function` och `results` kategorier (motsvarar `Host.Results` i version 2. *x*) filtreras på den `Error` nivå. Filtret jämför den aktuella kategorin till alla registrerade nivåer i den `LogCategories` instans och väljer den längsta matchningen. Detta innebär att den `Debug` nivå som har registrerats för `Host.Triggers` matchar `Host.Triggers.Queue` eller `Host.Triggers.Blob`. På så sätt kan du styra bredare kategorier utan att behöva lägga till var och en.
+I följande exempel skapas ett filter som som standard filtrerar alla loggar på `Warning` nivån. Kategorierna `Function` och `results` ( motsvarar`Host.Results` i version 2. *x*) filtreras på `Error` nivån. Filtret jämför den aktuella kategorin med alla registrerade nivåer i `LogCategories` instansen och väljer den längsta matchningen. `Debug` Det innebär att nivån som registrerats `Host.Triggers` för `Host.Triggers.Queue` matchningar eller `Host.Triggers.Blob`. På så sätt kan du styra bredare kategorier utan att behöva lägga till var och en.
 
 ```cs
 static async Task Main(string[] args)
@@ -884,11 +885,11 @@ static async Task Main(string[] args)
 
 #### <a name="version-2x"></a>Version 2.*x*
 
-I version 2. *x* av SDK som, du använder den `LogCategoryFilter` klassen för att styra filtrering. Den `LogCategoryFilter` har en `Default` egenskap med ett startvärde för `Information`, vilket innebär att alla meddelanden i den `Information`, `Warning`, `Error`, eller `Critical` nivåer är inloggad, men meddelanden på den `Debug` eller `Trace` nivåer har filtrerats bort.
+I version 2. *x* i SDK använder `LogCategoryFilter` du klassen för att styra filtreringen. `Warning` `Debug` `Information` `Critical` Har en `Default` egenskap medett`Error`initialt värde ,vilketinnebärattallameddelandenpånivåerna,,ellerärloggade,menallameddelandenpå`Information` `LogCategoryFilter` eller `Trace` -nivåer filtreras bort.
 
-Precis som med `LogCategories` i version 3. *x*, `CategoryLevels` egenskap kan du ange loggningsnivåerna för specifika kategorier så att du kan finjustera loggning utdata. Om ingen matchning hittas i den `CategoryLevels` ordboken, filtret faller tillbaka till den `Default` värdet när du bestämmer om du vill filtrera meddelandet.
+`LogCategories` Som i version 3. *x*kan du med egenskapenangeloggnivåerförvissakategoriersåattdukanfinjusteraloggningsresultatet.`CategoryLevels` Om ingen matchning hittas i `CategoryLevels` ord listan går filtret tillbaka `Default` till värdet när du bestämmer om meddelandet ska filtreras.
 
-I följande exempel skapas ett filter som standard filtreras alla loggar på den `Warning` nivå. Den `Function` och `Host.Results` kategorier filtreras på den `Error` nivå. Den `LogCategoryFilter` jämför den aktuella kategorin för alla registrerade `CategoryLevels` och väljer den längsta matchningen. Så `Debug` nivå som har registrerats för `Host.Triggers` matchar `Host.Triggers.Queue` eller `Host.Triggers.Blob`. På så sätt kan du styra bredare kategorier utan att behöva lägga till var och en.
+I följande exempel skapas ett filter som som standard filtrerar alla loggar på `Warning` nivån. Kategorierna och `Host.Results`filtreraspånivån. `Error` `Function` Den `LogCategoryFilter` aktuella kategorin jämförs med alla registrerade `CategoryLevels` och väljer den längsta matchningen. Den `Debug` nivå som registrerats `Host.Triggers` för kommer `Host.Triggers.Queue` att `Host.Triggers.Blob`matcha eller. På så sätt kan du styra bredare kategorier utan att behöva lägga till var och en.
 
 ```csharp
 var filter = new LogCategoryFilter();
@@ -904,18 +905,18 @@ config.LoggerFactory = new LoggerFactory()
 
 ### <a name="custom-telemetry-for-application-insights"></a>Anpassad telemetri för Application Insights
 
-Processen för att implementera anpassad telemetri för [Application Insights](../azure-monitor/app/app-insights-overview.md) beror på vilken SDK-version. Läs hur du konfigurerar Application Insights i [Lägg till Application Insights-loggning](webjobs-sdk-get-started.md#add-application-insights-logging).
+Processen för att implementera anpassad telemetri för [Application Insights](../azure-monitor/app/app-insights-overview.md) beror på SDK-versionen. Information om hur du konfigurerar Application Insights finns i [Lägg till Application Insights loggning](webjobs-sdk-get-started.md#add-application-insights-logging).
 
 #### <a name="version-3x"></a>Version 3.*x*
 
-Eftersom version 3. *x* av WebJobs SDK är beroende av .NET Core allmän värd, en anpassad telemetri-fabrik finns inte längre. Men du kan lägga till anpassad telemetri till pipelinen genom att använda beroendeinmatning. Exemplen i det här avsnittet kräver följande `using` instruktioner:
+Eftersom version 3. *x* av WebJobs SDK är beroende av den generiska .net Core-värden, en anpassad telemetri fabrik tillhandahålls inte längre. Men du kan lägga till anpassad telemetri till pipelinen med hjälp av beroende inmatning. I exemplen i det här avsnittet krävs `using` följande instruktioner:
 
 ```cs
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Channel;
 ```
 
-Följande anpassade implementeringen av [ `ITelemetryInitializer` ] låter dig lägga till egna [ `ITelemetry` ](/dotnet/api/microsoft.applicationinsights.channel.itelemetry) standardvärdet [ `TelemetryConfiguration` ].
+Med följande anpassade implementering av [`ITelemetryInitializer`] kan du lägga till egna [`ITelemetry`](/dotnet/api/microsoft.applicationinsights.channel.itelemetry) i standardvärdet [`TelemetryConfiguration`].
 
 ```cs
 internal class CustomTelemetryInitializer : ITelemetryInitializer
@@ -927,7 +928,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 }
 ```
 
-Anropa [ `ConfigureServices` ] i builder att lägga till dina anpassade [ `ITelemetryInitializer` ] till pipelinen.
+Anropa [`ConfigureServices`] i verktyget för att lägga till din [`ITelemetryInitializer`] anpassade i pipelinen.
 
 ```cs
 static void Main()
@@ -963,17 +964,17 @@ static void Main()
 }
 ```
 
-När den [ `TelemetryConfiguration` ] skapas, alla registrerade typer av [ `ITelemetryInitializer` ] ingår. Mer information finns i [Application Insights API för anpassade händelser och mått](../azure-monitor/app/api-custom-events-metrics.md).
+När är konstruerad inkluderas alla registrerade [`ITelemetryInitializer`] typer. [`TelemetryConfiguration`] Läs mer i [Application Insights API för anpassade händelser och mått](../azure-monitor/app/api-custom-events-metrics.md).
 
-I version 3. *x*, du behöver inte längre att tömma den [ `TelemetryClient` ] när värden avslutades. .NET Core beroende inmatning systemet tar automatiskt bort av det registrerade `ApplicationInsightsLoggerProvider`, vilka rensar den [ `TelemetryClient` ].
+I version 3. *x*behöver du inte längre rensa [`TelemetryClient`] när värden stoppas. .Net Core-beroende inmatnings systemet tas automatiskt bort från den registrerade `ApplicationInsightsLoggerProvider`, vilket tömmer. [`TelemetryClient`]
 
 #### <a name="version-2x"></a>Version 2.*x*
 
-I version 2. *x*, [ `TelemetryClient` ] skapats internt av Application Insights-providern för WebJobs-SDK använder [ `ServerTelemetryChannel` ](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). När Application Insights-slutpunkten är inte tillgänglig eller begränsa inkommande begäranden, den här kanalen [sparar begäranden i webbappens filsystemet och skickar dem senare](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+I version 2. *x*, [`TelemetryClient`] som skapats internt av Application Insights-providern för WebJobs SDK använder [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). När Application Insights-slutpunkten är otillgänglig eller begränsa inkommande begär Anden, sparar den här kanalen [begär anden i webbappens fil system och skickar dem igen senare](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
-Den [ `TelemetryClient` ] har skapats av en klass som implementerar `ITelemetryClientFactory`. Som standard är detta den [ `DefaultTelemetryClientFactory` ](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
+Skapas av en klass som `ITelemetryClientFactory`implementerar. [`TelemetryClient`] Som standard är [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs)detta.
 
-Om du vill ändra någon del av din pipeline för Application Insights kan du ange egna `ITelemetryClientFactory`, och värden kommer att använda klassen för att konstruera ett [ `TelemetryClient` ]. Exempelvis kan den här koden åsidosätter `DefaultTelemetryClientFactory` att ändra en egenskap för `ServerTelemetryChannel`:
+Om du vill ändra någon del av Application Insights pipeline kan du ange din egen `ITelemetryClientFactory`och värden använder klassen för att skapa en. [`TelemetryClient`] Den här koden åsidosätter `DefaultTelemetryClientFactory` exempelvis för att ändra en egenskap för: `ServerTelemetryChannel`
 
 ```csharp
 private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
@@ -995,9 +996,9 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-Den `SamplingPercentageEstimatorSettings` objekt konfigurerar [Adaptiv sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling). Det innebär att i vissa scenarier med hög volym program Insights skickar en valda delmängd av dessa data till servern.
+Objektet konfigurerar [adaptiv sampling.](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) `SamplingPercentageEstimatorSettings` Det innebär att program insikter skickar en vald delmängd av telemetridata till-servern i vissa hög volym scenarier.
 
-När du har skapat telemetri fabriken kan ange du i till Application Insights loggningsprovider:
+När du har skapat telemetri fabriken skickar du den till Application Insights Logging-providern:
 
 ```csharp
 var clientFactory = new CustomTelemetryClientFactory(instrumentationKey, filter.Filter);
@@ -1008,7 +1009,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ## <a id="nextsteps"></a>Nästa steg
 
-Den här artikeln har tillhandahållit kodavsnitt som visar hur du hanterar vanliga scenarier för att arbeta med WebJobs SDK. Komplett exempel finns [azure webjobs-sdk-exempel](https://github.com/Azure/azure-webjobs-sdk-samples).
+Den här artikeln innehåller kodfragment som visar hur du hanterar vanliga scenarier för att arbeta med WebJobs SDK. Fullständiga exempel finns i [Azure-WebJobs-SDK-samples](https://github.com/Azure/azure-webjobs-sdk-samples).
 
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient

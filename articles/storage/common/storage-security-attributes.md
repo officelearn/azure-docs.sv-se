@@ -1,6 +1,6 @@
 ---
-title: Vanliga säkerhetsattribut för Azure Storage
-description: En lista med vanliga security attribut för att utvärdera Azure Storage
+title: Säkerhetsattribut för Azure Storage
+description: En check lista över säkerhetsattribut för utvärdering av Azure Storage
 services: storage
 documentationcenter: ''
 author: msmbaldwin
@@ -9,61 +9,61 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16ec2757955b53a8bfa73ba724100f7fa61d2867
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001465"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444307"
 ---
-# <a name="security-attributes-for-azure-storage"></a>Security attribut för Azure Storage
+# <a name="security-attributes-for-azure-storage"></a>Säkerhetsattribut för Azure Storage
 
-Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Storage. 
+I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Azure Storage. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
 ## <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja |  |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | Stöd för standardmetoder HTTPS/TLS.  Användare kan också kryptera data innan de skickas till tjänsten. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Se [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte |  |
-| API-anrop som är krypterad| Ja |  |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner)| Ja |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Stöd för standard-HTTPS/TLS-mekanismer.  Användare kan också kryptera data innan de skickas till tjänsten. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Ja | Se [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte |  |
+| Krypterade API-anrop| Ja |  |
 
-## <a name="network-segmentation"></a>Nätverkssegmentering
+## <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja |  |
-| VNet-stöd för inmatning| Gäller inte |  |
-| Isolering av nätverk och brandväggsfunktioner support| Ja | |
-| Tvingad tunneltrafik support| Gäller inte |  |
+| Stöd för tjänst slut punkt| Ja |  |
+| Stöd för VNet-injektering| Gäller inte |  |
+| Stöd för nätverks isolering och brand vägg| Ja | |
+| Stöd för Tvingad tunnel trafik| Gäller inte |  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Azure Monitor Metrics som är tillgängliga nu loggar från förhandsversion |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Azure Monitor tillgängliga mått nu, loggar startar för hands version |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Azure Active Directory delad nyckel, delad åtkomst-token. |
-| Auktorisering| Ja | Stöd för auktorisering via RBAC, POSIX-ACL: er och SAS-token |
+| Authentication| Ja | Azure Active Directory, delad nyckel, delad åtkomsttoken. |
+| Authorization| Ja | Stöd för auktorisering via RBAC, POSIX ACL: er och SAS-token |
 
 
-## <a name="audit-trail"></a>Granskningslogg
+## <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning | Ja | Azure Resource Manager-aktivitetslogg |
-| Data plan loggning och granskning| Ja | Diagnostikloggar för tjänsten och Azure Monitor-loggning från förhandsversion  |
+| Loggning och granskning av kontroll-och hanterings plan | Ja | Azure Resource Manager aktivitets logg |
+| Loggning och granskning av data planet| Ja | Loggar för tjänsten Diagnostic och Azure Monitor loggning starta för hands version  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | Stöd för versionshantering Resource Provider via Azure Resource Manager API: er |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Stöd för Resource Provider-versioner via Azure Resource Manager API: er |

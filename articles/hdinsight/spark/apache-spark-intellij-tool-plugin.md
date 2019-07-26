@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: a2b6cdf9fbdb27372b089a29c1a3c5d0f1c629c9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 32f5ff2ebc9d938b1936d7f2929af83d552a543d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442113"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489868"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Självstudier: Använd Azure Toolkit for IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -171,7 +171,7 @@ Användaren kan antingen [Logga in i Azure](#sign-in-to-your-azure-subscription)
 
 ### <a name="link-a-cluster"></a>Länka ett kluster
 
-Du kan länka ett HDInsight-kluster med hjälp av Apache Ambari Managed användar namn. På samma sätt kan du länka med hjälp av domänen och användar namnet, till exempel user1@contoso.com, för ett domänanslutet HDInsight-kluster. Du kan också länka livy service-kluster.
+Du kan länka ett HDInsight-kluster med hjälp av Apache Ambari Managed användar namn. På samma sätt kan du länka med hjälp av domänen och användar namnet, till exempel `user1@contoso.com`, för ett domänanslutet HDInsight-kluster. Du kan också länka livy service-kluster.
 
 1. Gå till **Visa** > -**verktyget Windows** > **Azure Explorer**från meny raden.
 
@@ -183,7 +183,7 @@ Du kan länka ett HDInsight-kluster med hjälp av Apache Ambari Managed använda
 
     * **HDInsight-kluster**  
   
-        |Egenskap |Value |
+        |Egenskap |Värde |
         |----|----|
         |Länka resurs typ|Välj **HDInsight-kluster** i den nedrullningsbara listan.|
         |Kluster namn/URL| Ange kluster namn.|
@@ -312,7 +312,7 @@ Se till att du har uppfyllt WINUTILS. EXE-krav.
 
 4. Ange följande värden och välj sedan **OK**:
 
-    |Egenskap |Värde |
+    |Egenskap |Value |
     |----|----|
     |Jobbets huvud klass|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen ( **...** )  och välja en annan klass.|
     |Miljövariabler|Se till att värdet för HADOOP_HOME är korrekt.|

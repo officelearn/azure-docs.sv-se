@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860482"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478464"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Självstudier: Ansluta till tjänsten Textanalys med hjälp av Anslutna tjänster i Visual Studio
 
 Genom att använda textanalystjänsten kan du extrahera information att kategorisera och bearbeta visuella data, utföra datorstödd moderering av bilder som hjälper dig att moderera dina tjänster.
 
-Den här artikeln, och andra med den sammanhängande artiklar, innehåller information om hur man använder Visual Studio Connected Service-funktionen för textanalystjänsten. Funktionen är tillgänglig i både Visual Studio-2019 eller senare, med Cognitive Services-tillägget installerat.
+Den här artikeln, och andra med den sammanhängande artiklar, innehåller information om hur man använder Visual Studio Connected Service-funktionen för textanalystjänsten. Funktionen är tillgänglig i både Visual Studio 2019 eller senare, med Cognitive Services tillägget installerat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2019, med arbetsbelastningen webbutveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 med arbets belastningen webb utveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Lägger till stöd i ditt projekt för textanalystjänsten
 
-1. Skapa ett nytt webbprojekt i ASP.NET Core kallat TextAnalyticsDemo. Använd projektmallen för webbprogram (Model-View-Controller) med samtliga standardinställningar. Det är viktigt att ge projektet namnet MyWebApplication, så namnrymden matchar när du kopierar kod till projektet.  Exemplet i den här artikeln använder MVC, men du kan använda Text Analytics Connected Service med valfri typ av ASP.NET-projekt.
+1. Skapa ett nytt webbprojekt i ASP.NET Core kallat TextAnalyticsDemo. Använd projektmallen för webbprogram (Model-View-Controller) med samtliga standardinställningar. Det är viktigt att ge projektet namnet MyWebApplication, så namnrymden matchar när du kopierar kod till projektet.  Exemplet i den här artikeln använder MVC, men du kan använda den Textanalys anslutna tjänsten med valfri ASP.NET-projekt typ.
 
 1. Dubbelklicka på objektet **Ansluten tjänst**  i **Solution Explorer**.
    Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
@@ -54,7 +54,7 @@ Den här artikeln, och andra med den sammanhängande artiklar, innehåller infor
    Följ länken om du vill ha mer information om prisnivåer.
 
 1. Välj **Lägg till** om du vill lägga till sådana stöd för den anslutna tjänsten.
-   Visual Studio ändrar ditt projekt för att lägga till NuGet-paketen, konfigurationsfilsposter och andra ändringar till stöd för en anslutning till textanalystjänsten. **Utdatafönstret** innehåller en logg över vad som händer i projektet. Det ser ut ungefär så här:
+   Visual Studio ändrar ditt projekt för att lägga till NuGet-paketen, konfigurationsfilsposter och andra ändringar till stöd för en anslutning till textanalystjänsten. **Utdatafönstret** innehåller en logg över vad som händer i projektet. Dina utdata bör se ut så här:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -90,7 +90,7 @@ Den här artikeln, och andra med den sammanhängande artiklar, innehåller infor
       }
    ```
 
-1. Lägg till en klassfil i kontrollantmappen som kallas DemoTextAnalyzeController och ersätt dess innehåll med följande kod:
+1. Lägg till en klass fil i  mappen kontrollanter `DemoTextAnalyzeController` som kallas och ersätt dess innehåll med följande kod:
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ Den här artikeln, och andra med den sammanhängande artiklar, innehåller infor
     }
     ```
     
-    Koden innehåller GetTextAnalyzeClient för att kunna hämta det klientobjekt som du kan använda för att anropa API:et för textanalys och en begäranshanterare som anropar DetectLanguage i en angiven text.
+    Koden inkluderar `GetTextAnalyzeClient` för att hämta klient objekt för att ringa till API för textanalys och en begär ande hanterare som anropar DetectLanguage på en specifik text.
 
 1. Lägg till den MyHandler-hjälpklass som används av föregående kod.
 
@@ -171,7 +171,7 @@ Den här artikeln, och andra med den sammanhängande artiklar, innehåller infor
         }
     ```
 
-1. Lägg till en klass för modellen i modellmappen.
+1. Lägg till en klass för modellen i mappen *modeller* .
 
     ```csharp
     using System;

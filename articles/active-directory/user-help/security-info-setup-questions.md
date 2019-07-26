@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhetsinformation (förhandsversion) för att använda dina säkerhetsfrågor - Azure Active Directory | Microsoft Docs
-description: Hur du ställer in din säkerhetsinformation för att verifiera din identitet med hjälp av fördefinierade säkerhetsfrågor.
+title: Konfigurera säkerhets information (för hands version) för att använda dina säkerhets frågor – Azure Active Directory | Microsoft Docs
+description: Konfigurera din säkerhets information för att verifiera din identitet med hjälp av fördefinierade säkerhets frågor.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,79 +12,85 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1c375b64d93662ec50923078549c4f2153fba0a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474639"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382823"
 ---
-# <a name="set-up-security-info-preview-to-use-security-questions"></a>Konfigurera säkerhetsinformation (förhandsversion) kan använda säkerhetsfrågor
-Du kan följa stegen nedan för att lägga till metoden för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
+# <a name="set-up-security-info-preview-to-use-security-questions"></a>Konfigurera säkerhets information (för hands version) för att använda säkerhets frågor
 
-När du har konfigurerat metoden för återställning av lösenord, du måste också ställa in din tvåfaktorsautentisering verifieringsmetod, med hjälp av en [autentiseringsapp](security-info-setup-auth-app.md), [textmeddelanden](security-info-setup-text-msg.md), eller en [telefonsamtal](security-info-setup-phone-number.md).
+Du kan följa de här stegen för att lägga till din metod för lösen ords återställning. När du har konfigurerat den första gången kan du gå tillbaka till sidan **säkerhets** information för att lägga till, uppdatera eller ta bort din säkerhets information.
+
+När du har ställt in din metod för lösen ords återställning måste du också ställa in en tvåfaktorautentisering med hjälp av en [Authenticator-app](security-info-setup-auth-app.md), [SMS](security-info-setup-text-msg.md)eller ett [telefonsamtal](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Konfigurera dina säkerhetsfrågor från sidan säkerhetsinformation
-Beroende på inställningarna för din organisation kanske du kan välja och svara på några säkerhetsfrågor som en av din information säkerhetsmetoder. Administratören anger antalet säkerhetsfrågor som du blir ombedd att välja och svara på.
+## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Konfigurera dina säkerhets frågor från sidan säkerhets information
 
-Om du använder säkerhetsfrågor, bör du använda dem tillsammans med en annan metod. Säkerhetsfrågor kan vara mindre säkert än andra metoder, eftersom vissa kanske vet svaren på dina frågor.
+Beroende på din organisations inställningar kanske du kan välja och svara på några säkerhets frågor som en av dina säkerhets metoder. Administratören ställer in antalet säkerhets frågor som du måste välja och svara på.
+
+Om du använder säkerhets frågor rekommenderar vi att du använder dem tillsammans med en annan metod. Säkerhets frågor kan vara mindre säkra än andra metoder eftersom vissa personer kanske känner till svaren på dina frågor.
 
 > [!Note]
-> Säkerhetsfrågor lagras säkert och privat på ett användarobjekt i katalogen och kan endast besvaras av dig under registreringen. Det går inte för administratören att läsa eller ändra din frågorna och svaren.
-> 
-> Om du inte ser säkerhetsalternativ för frågor, är det möjligt att din organisation tillåter inte att du kan använda säkerhetsfrågor för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
-> 
-> Administratörskonton får inte använda säkerhetsfrågor som en metod för lösenordsåterställning. Om du är inloggad som ett administratörskonto för nivån visas inte dessa alternativ.
+> Säkerhets frågor lagras privat och säkert på ett användar objekt i katalogen och kan bara besvaras av dig under registreringen. Det finns inget sätt för administratören att läsa eller ändra dina frågor eller svar.
+>
+> Om du inte ser alternativet säkerhets frågor är det möjligt att din organisation inte tillåter att du använder säkerhets frågor för verifiering. Om så är fallet måste du välja en annan metod eller kontakta administratören om du vill ha mer hjälp.
+>
+> Administratörs konton får inte använda säkerhets frågor som en metod för lösen ords återställning. Om du är inloggad som ett konto på administratörs nivå visas inte dessa alternativ.
 
-### <a name="to-set-up-your-security-questions"></a>Du ställer in dina säkerhetsfrågor
+### <a name="to-set-up-your-security-questions"></a>Konfigurera dina säkerhets frågor
 
-1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
 
-    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile-page.png)
+    ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 
-2. Välj **säkerhetsinformation** från det vänstra navigeringsfönstret eller från länken i den **säkerhetsinformation** blockera och sedan välja **tilläggsmetod** från den **säkerhetsinformation**  sidan.
+2. Välj **säkerhets information** i det vänstra navigerings fönstret eller från länken i **säkerhets informations** blocket och välj sedan **Lägg till metod** på sidan **säkerhets information** .
 
-    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Sidan säkerhets information med markerat Lägg till metod-alternativ](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. På den **Lägg till en metod** väljer **säkerhetsfrågor** från listrutan och välj sedan **Lägg till**.
+3. På sidan **Lägg till en metod** väljer du **säkerhets frågor** i list rutan och väljer sedan **Lägg till**.
 
-    ![Lägg till metoden rutan med säkerhetsfrågor valda](media/security-info/securityinfo-myprofile-addquestions.png)
+    ![Rutan Lägg till metod med säkerhets frågor valda](media/security-info/securityinfo-myprofile-addquestions.png)
 
-4. På den **säkerhetsfrågor** sidan, välja och besvara dina säkerhetsfrågor och välj sedan **spara**.
+4. På sidan **säkerhets frågor** väljer du och svarar på dina säkerhets frågor och väljer sedan **Spara**.
 
     ![Lägg till telefonnummer och välj telefonsamtal](media/security-info/securityinfo-myprofile-securityquestions.png)
 
-    Din säkerhetsinformation uppdateras och du kan använda dina säkerhetsfrågor för att verifiera din identitet när du använder återställning av lösenord.
+    Din säkerhets information uppdateras och du kan använda dina säkerhets frågor för att verifiera din identitet när du använder lösen ords återställning.
 
-## <a name="delete-security-questions-from-your-security-info-methods"></a>Ta bort säkerhetsfrågor från din info säkerhetsmetoder
-Om du inte längre vill använda dina säkerhetsfrågor som en säkerhetsmetod information du kan ta bort dem från den **säkerhetsinformation** sidan.
+## <a name="delete-security-questions-from-your-security-info-methods"></a>Ta bort säkerhets frågor från dina metoder för säkerhets information
+
+Om du inte längre vill använda dina säkerhets frågor som säkerhets information kan du ta bort dem från sidan **säkerhets information** .
 
 >[!Important]
->Om du tar bort dina säkerhetsfrågor av misstag, går det inte att ångra åtgärden. Du måste lägga till metoden igen, följa stegen i den [ställa in dina säkerhetsfrågor](#set-up-your-security-questions-from-the-security-info-page) i den här artikeln.
+>Om du tar bort dina säkerhets frågor av misstag finns det inget sätt att ångra det. Du måste lägga till metoden igen enligt stegen i avsnittet [Konfigurera dina säkerhets frågor](#set-up-your-security-questions-from-the-security-info-page) i den här artikeln.
 
-### <a name="to-delete-your-security-questions"></a>Att ta bort dina säkerhetsfrågor
+### <a name="to-delete-your-security-questions"></a>Ta bort dina säkerhets frågor
 
-1. På den **säkerhetsinformation** väljer den **ta bort** länka bredvid den **säkerhetsfrågor** alternativet.
+1. På sidan **säkerhets information** väljer du länken **ta bort** bredvid alternativet **säkerhets frågor** .
 
-    ![Länk för att ta bort metoden phone från säkerhetsinformation](media/security-info/securityinfo-myprofile-questionsdelete.png)
+    ![Länk för att ta bort telefon metoden från säkerhets information](media/security-info/securityinfo-myprofile-questionsdelete.png)
 
-2. Välj **Ja** från dialogrutan Bekräfta att ta bort din **säkerhetsfrågor**. När dina säkerhetsfrågor har tagits bort, metoden tas bort från din säkerhetsinformation och försvinner den från den **säkerhetsinformation** sidan.
+2. Välj **Ja** i bekräftelse rutan om du vill ta bort dina **säkerhets frågor**. När dina säkerhets frågor har tagits bort tas metoden bort från din säkerhets information och försvinner från sidan **säkerhets information** .
 
-## <a name="additional-security-info-methods"></a>Ytterligare information om säkerhetsmetoder
-Du har ytterligare alternativ för hur din organisation kontakter du verifiera din identitet, baserat på vad är du försöker göra. Följande alternativ är tillgängliga:
+## <a name="additional-security-info-methods"></a>Ytterligare metoder för säkerhets information
 
-- **Authenticator-appen.** Ladda ned och använda en autentiseringsapp för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännandekod för återställning av tvåstegsverifiering verifiering eller lösenord. Stegvisa instruktioner om hur du skapar och använder Microsoft Authenticator-appen finns i [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md).
+Du har ytterligare alternativ för hur din organisation kontaktar dig för att verifiera din identitet, baserat på vad som you're försöker göra. Följande alternativ är tillgängliga:
 
-- **Text för mobila enheter.** Ange enhetsnumret till din mobila och få ett textmeddelande när en kod som du använder för tvåstegsverifiering eller lösenord återställa. Stegvisa instruktioner om hur du verifierar din identitet med hjälp av ett textmeddelande (SMS) finns i [konfigurera säkerhetsinformation för att använda textmeddelanden (SMS)](security-info-setup-text-msg.md).
+- **Authenticator-app.** Hämta och Använd en Authenticator-app för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännande kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner om hur du konfigurerar och använder Microsoft Authenticator-appen finns i [Konfigurera säkerhets information så att en autentiserare används](security-info-setup-auth-app.md).
 
-- **Mobil enhet eller arbete telefonsamtal.** Ange enhetsnumret till din mobila och få ett telefonsamtal för verifiering eller lösenord återställning av två steg. Stegvisa instruktioner om hur du verifierar din identitet med ett telefonnummer finns i [konfigurera säkerhetsinformation för att använda telefonsamtal](security-info-setup-phone-number.md).
+- **Mobil enhets text.** Ange ditt mobila enhets nummer och få en text kod som du kan använda för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett textmeddelande (SMS) finns i [Konfigurera säkerhets information för att använda SMS (text messaging)](security-info-setup-text-msg.md).
 
-- **E-postadress.** Ange företagets eller skolans e-postadress för att få ett e-postmeddelande för återställning av lösenord. Det här alternativet är inte tillgängligt för tvåstegsverifiering. Stegvisa instruktioner om hur du ställer in din e-post finns i [konfigurera säkerhetsinformation för att använda e-post](security-info-setup-email.md).
-   
+- **Mobil enhets-eller arbets telefon samtal.** Ange ditt mobila enhets nummer och få ett telefonsamtal för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett telefonnummer finns i [Konfigurera säkerhets information så att telefonsamtal används](security-info-setup-phone-number.md).
+
+- **Säkerhets nyckel.** Registrera din Microsoft-kompatibla säkerhets nyckel och Använd den tillsammans med en PIN-kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med en säkerhets nyckel finns i [Konfigurera säkerhets information för att använda en säkerhets nyckel](security-info-setup-security-key.md).
+
+- **E-postadress.** Ange din e-postadress till arbetet eller skolan för att få ett e-postmeddelande om lösen ords återställning. Det här alternativet är inte tillgängligt för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar din e-post finns i [Konfigurera säkerhets information för att använda e-post](security-info-setup-email.md).
+
     >[!Note]
-    >Om vissa av dessa alternativ saknas, är det mest sannolika eftersom din organisation inte tillåter dessa metoder. Om så är fallet, måste du välja en tillgänglig metod eller kontakta administratören för mer hjälp.
+    >Om några av dessa alternativ saknas beror det förmodligen på att din organisation inte tillåter dessa metoder. Om så är fallet måste du välja en tillgänglig metod eller kontakta administratören om du vill ha mer hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
 

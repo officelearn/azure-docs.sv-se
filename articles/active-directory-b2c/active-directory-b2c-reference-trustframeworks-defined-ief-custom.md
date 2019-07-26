@@ -1,6 +1,6 @@
 ---
 title: Referens – förtroende ramverk i Azure Active Directory B2C | Microsoft Docs
-description: Ett avsnitt om Azure Active Directory B2C anpassade principer och den Identitetsramverk.
+description: Ett avsnitt om Azure Active Directory B2C anpassade principer och ramverket för identitets upplevelse.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,118 +10,118 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508808"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500016"
 ---
-# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definiera förtroende ramverk med Azure AD B2C för Identitetsupplevelse
+# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definiera förtroende ramverk med Azure AD B2C Identity Experience Framework
 
-Azure Active Directory B2C (Azure AD B2C) anpassade principer som använder den Identitetsramverk ge organisationen en centraliserad tjänst. Den här tjänsten minskar komplexiteten med identitetsfederation i många av intresse. Komplexiteten minskar till en enda förtroenderelation och en enkel metadata-exchange.
+Azure Active Directory B2C (Azure AD B2C) anpassade principer som använder identitets miljö ramverket ger din organisation en centraliserad tjänst. Den här tjänsten minskar komplexiteten i identitets federationen i en stor grupp av intresse. Komplexiteten minskas till en enda förtroende relation och ett utbyte av en enda metadata.
 
-Azure AD B2C anpassade principer som använder den Identitetsramverk att besvara följande frågor:
+I Azure AD B2C anpassade principer används identitets miljö ramverket för att ge dig svar på följande frågor:
 
-- Vad är juridisk information, säkerhet, sekretess och principerna för dataskydd som ska efterföljas?
-- Vem är kontakter och vilka är processerna för att bli en auktoriserad deltagare?
-- Vilka är de ackrediterade information identitetsleverantörer (även kallat ”Anspråksproviders”) och vad de?
-- Vilka är de ackrediterade förlitande parterna (och du kan också vad de behöver)?
-- Vilka är tekniska ”på kabeln” samverkanskrav för deltagare?
-- Vilka är de operativa ”runtime”-regler som måste tillämpas för utbyte av digitala ID-information?
+- Vilka är de juridiska, säkerhets-, sekretess-och data skydds principer som måste följas?
+- Vilka är kontakterna och vilka är processerna för att bli en ackrediterad deltagare?
+- Vilka är ackrediterade identitets informations leverantörer (kallas även "anspråks leverantörer") och vad erbjuder de?
+- Vilka är de ackrediterade förlitande parterna (och eventuellt vad krävs)?
+- Vilka är de tekniska kraven på samverkans krav för deltagare?
+- Vilka är drift körnings regler som måste framtvingas för utbyte av digital identitets information?
 
-För att besvara dessa frågor, skapa anpassade Azure AD B2C-principer som använder Identitetsramverk förtroende Framework (TF). Anta att du har den här konstruktion och vad det gör.
+Om du vill besvara alla dessa frågor, Azure AD B2C anpassade principer som använder sig av identitets miljö ramverket, använder du konstruktionen Trust Framework (TF). Nu ska vi ta en titt på den här konstruktionen och vad den erbjuder.
 
-## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Förstå åtkomsthanteringen förtroende Framework och federation
+## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Förstå Trust Framework och Federation Management Foundation
 
-Förtroende-ramverket är en skriftliga specifikation av identitet, säkerhet, sekretess och principerna för dataskydd som deltagare i en grupp av intresse måste överensstämma.
+Trust Framework är en skriftlig specifikation av identitet, säkerhet, sekretess och data skydds principer som deltagarna i en gemenskap av intresse måste uppfylla.
 
-Federerad identitet ger en grund för att uppnå slutanvändarens identitet assurance vid internetskalning. Genom att delegera Identitetshantering till tredje part kan kan en enda digitala identitet för en slutanvändare återanvändas med flera förlitande parter.  
+Federerade identiteter ger en grund för att uppnå identitets garanti för slutanvändare i Internet. Genom att delegera identitets hantering till tredje part kan en enda digital identitet för en slutanvändare återanvändas med flera förlitande parter.  
 
-Identitet assurance kräver att Identitetsproviders (IDP: er) och attributet providers (AtPs) följer specifika säkerhet, sekretess, och operativa riktlinjer och metoder.  Om de inte kan utföra direkt inspektioner, måste förlitande part (RPs) Utveckla förtroenderelationer med IDP: er och AtPs de väljer att arbeta med.  
+Identitets garantier kräver att identitets leverantörer (IDP: er) och AtPs (Attribute providers) följer vissa principer och metoder för säkerhet, sekretess och drift.  Om de inte kan utföra direkta kontroller måste förlitande parter (RPs) utveckla förtroende relationer med IDP: er och AtPs de väljer att arbeta med.  
 
-När antalet konsumenter och leverantörer av digitala ID-information växer, är det svårt att fortsätta pairwise hanteringen av dessa förtroenderelationer eller även pairwise utbyte av teknisk metadata som krävs för nätverksanslutning.  Federation hubs har uppnått endast begränsad lyckades lösa dessa problem.
+Eftersom antalet konsumenter och leverantörer av Digital Identity-information växer, är det svårt att fortsätta använda den för att hantera dessa förtroende relationer, eller till och med det bislagna utbytet av de tekniska metadata som krävs för nätverks anslutningen.  Federations nav har uppnått begränsad framgång för att lösa dessa problem.
 
-### <a name="what-a-trust-framework-specification-defines"></a>Definierar vad en förtroende Framework-specifikation
-TFs är linchpins av den öppna identitet Exchange (OIX) lita Framework-modellen, där varje SNMP-grupp intressanta styrs av en viss TF-specifikation. En sådan TF-specifikation definierar:
+### <a name="what-a-trust-framework-specification-defines"></a>Vad en Trust Framework-specifikation definierar
+TFs är linchpins för ramverket med öppen Identity Exchange (OIX) för förtroende Framework, där varje gemenskap av intresse regleras av en viss TF-specifikation. En sådan TF-specifikation definierar:
 
-- **Säkerhet och sekretess mått för community i närheten med definitionen av:**
-    - De försäkringsnivåer (Kompilera) som erbjuds/krävs av deltagare. till exempel en ordnad uppsättning förtroende klassificeringar för de digitala ID-information.
-    - De skyddsnivåer (LOP) som erbjuds/krävs av deltagare. till exempel en ordnad uppsättning förtroende klassificeringar för skydd av digitala ID-information som hanteras av deltagare i diskussionsgruppen av intresse.
+- **Mått för säkerhet och sekretess för gemenskapen av intresse med definitionen av:**
+    - Nivåerna av säkerhet (LOA) som erbjuds/krävs av deltagarna, till exempel en ordnad uppsättning förtroende klassificering för äktheten av digital identitets information.
+    - De skydds nivåer (LOP) som erbjuds/krävs av deltagarna. till exempel en ordnad uppsättning förtroende klassificeringar för skydd av digital identitets information som hanteras av deltagare i intresse samhället.
 
-- **Beskrivning av digitala ID-information som har erbjuds/krävs av deltagare**.
+- **Beskrivningen av den digitala identitets information som erbjuds/krävs av deltagare**.
 
-- **De tekniska principerna för produktion och förbrukning av digitala ID-information och därmed för att mäta Kompilera och LOP. Dessa skriftliga principer omfattar vanligtvis följande typer av principer:**
-    - Identitet språkverktyg principer, till exempel: *Hur starkt är en persons identitetsinformation som du vet att dess?*
-    - Säkerhetsprinciper, till exempel: *Hur starkt skyddas information och sekretess?*
-    - Sekretessprinciper, till exempel: *Vilka kontroll en användare har över personligt identifierbar information (PII)* ?
-    - Överlevnads principer, till exempel: *Om en provider upphör åtgärder, hur fungerar och skydd av personligt identifierbar information funktion?*
+- **De tekniska principerna för produktion och konsumtion av digital identitets information och därmed för att mäta LOA och LOP. De här skrivna principerna omfattar vanligt vis följande typer av principer:**
+    - Principer för identitets kontroll, till exempel: *Hur starkt är en persons identitets information testats?*
+    - Säkerhets principer, till exempel: *Hur starkt är informations integritet och sekretess skyddad?*
+    - Sekretess principer, till exempel: *Vilken kontroll har en användare via personligt identifierbar information (PII)* ?
+    - Principer för efterlevande, till exempel: *Om en provider upphör med åtgärder, hur fungerar kontinuitet och skydd av funktionen PII?*
 
-- **Tekniska profiler för produktion och förbrukning av digitala ID-information. Dessa profiler innehåller:**
-    - Scope-gränssnitt som digitala ID-information är tillgänglig på en angiven Kompilera.
-    - Tekniska krav för samverkan ledare.
+- **De tekniska profilerna för produktion och konsumtion av digital identitets information. De här profilerna är:**
+    - Omfattnings gränssnitt för vilka Digital identitets information är tillgänglig vid en angiven LOA.
+    - Tekniska krav för samverkan med högsta möjliga samverkan.
 
-- **Beskrivningar av de olika roller som deltagare i gruppen kan utföra och kvalifikationerna som krävs för att uppfylla dessa roller.**
+- **Beskrivningarna av de olika rollerna som deltagarna i communityn kan utföra och de kvalifikationer som krävs för att uppfylla dessa roller.**
 
-Därför en TF-specifikation reglerar hur identitetsinformation utbyts mellan deltagarna i diskussionsgruppen intressanta: förlitande parter, identitet och attributet leverantörer och verifiering av attribut.
+En TF-specifikation styr alltså hur identitets information utbyts mellan deltagarna i intresset: förlitande parter, identitets-och attribut-providers och attribut verifierare.
 
-En TF-specifikation som ett eller flera dokument som fungerar som en referens för styrning av communityn av intresse som reglerar kontrollen och förbrukning av digitala ID-information inom gruppen. Det är en dokumenterad uppsättning principer och procedurer som utformats för att upprätta ett förtroende för de digitala identiteter som används för onlinetransaktioner mellan medlemmarna i en grupp av intresse.  
+En TF-specifikation är ett eller flera dokument som fungerar som en referens för styrning av den intresse grupp som reglerar ansvars kontrollen och konsumtionen av digital identitets information i communityn. Det är en dokumenterad uppsättning principer och procedurer som utformats för att upprätta förtroende i de digitala identiteter som används för onlinetransaktioner mellan medlemmar i en community av intresse.  
 
-Med andra ord definierar en TF-specifikation reglerna för att skapa ett genomförbart federerad identitet ekosystem för en grupp.
+Med andra ord definierar en TF-specifikation reglerna för att skapa ett livskraftigt eko system med federerade identiteter för en community.
 
-Det finns för närvarande utökas avtalet om fördelen av en sådan metod. Det är säkert att förtroende framework specifikationer underlätta utvecklingen av digitala identitets-ekosystem med verifierbart egenskaper för säkerhet, säkerhet och sekretess, vilket innebär att de kan återanvändas i flera grupper av intresse.
+För närvarande finns det omfattande avtal om fördelarna med en sådan metod. Det finns inget tvivel om att Trust Framework-specifikationer fören klar utvecklingen av digitala identitets eko system med verifierbar säkerhet, säkerhet och sekretess, vilket innebär att de kan återanvändas i flera intresse grupper.
 
-För som använder orsak, Azure AD B2C anpassade principer som använder den Identitetsramverk specifikationen som bas för dess datarepresentation för en TF för att underlätta samverkan.  
+Av den anledningen använder Azure AD B2C anpassade principer som använder sig av identitets Miljös ramverket specifikationen som grund för data representationen för att göra det lättare att samverka.  
 
-Azure AD B2C anpassade principer som utnyttjar den Identitetsramverk representerar en TF-specifikation som en blandning av data och människor. Vissa delar av den här modellen (vanligtvis avsnitten som är mer riktade mot styrning) representeras som referenser till publicerade säkerhet och sekretess dokumentation om policy tillsammans med följande relaterade (om sådan finns). Andra avsnitt som beskrivs i detalj metadata och runtime konfigurationsregler som underlättar operativa automation.
+Azure AD B2C anpassade principer som utnyttjar identitets miljö ramverket representerar en TF-specifikation som en blandning av mänsklig och maskinläsbar data. Vissa avsnitt i den här modellen (vanligt vis avsnitt som är mer orienterade mot styrning) representeras som referenser till publicerade säkerhets-och sekretess principer, tillsammans med relaterade procedurer (om sådana finns). Andra avsnitt beskriver i detalj vilka konfigurations-och körnings regler som underlättar drift automatisering.
 
-## <a name="understand-trust-framework-policies"></a>Förstå förtroende Framework principer
+## <a name="understand-trust-framework-policies"></a>Förstå principer för förtroende ramverk
 
-Vad gäller implementering består TF-specifikationen av en uppsättning principer som tillåter fullständig kontroll över identitet beteende och upplevelser.  Azure AD B2C anpassade principer som utnyttjar den Identitetsramverk kan du redigera och skapa dina egna TF via deklarativa principer som kan definiera och konfigurera:
+Vid implementering består specifikationen av en uppsättning principer som ger fullständig kontroll över identitets beteenden och upplevelser.  Azure AD B2C anpassade principer som utnyttjar identitets miljö ramverket kan du skapa och skapa egna TF genom sådana deklarativ principer som kan definiera och konfigurera:
 
-- Dokumentreferens för eller referenser som definierar federerad identitet ekosystem med communityn som relaterar till TF. De är länkar till TF-dokumentationen. (Fördefinierade) operativa ”runtime”-regler eller de körningar som användare att automatisera och/eller kontrollera exchange och användningen av anspråk. Dessa användare transporter är associerade med en Kompilera (och en LOP). En princip kan därför ha användare resor med olika LOAs (och LOPs).
+- Dokument referensen eller referenserna som definierar eko systemet med federerade identiteter för den community som relaterar till TF. De är länkar till TF-dokumentationen. De (fördefinierade) operativa "runtime"-reglerna eller användaren befärdar som automatiserar och/eller styr Exchange och användning av anspråken. Dessa användar resor är associerade med en LOA (och en LOP). En princip kan därför ha användar transporter med varierande LOAs (och LOPs).
 
-- Identitets- och attributet-leverantörer eller Anspråksproviders i communityn Orienteringspunkter och de tekniska profiler som de stöder tillsammans med (out-of-band) Kompilera/LOP ackreditering som relaterar till dem.
+- Providern för identitet och attribut, eller anspråks leverantörer, i gemenskapen av intresse och de tekniska profiler som de stöder tillsammans med den (out-of-band) LOA/LOP-ackreditering som är relaterad till dem.
 
-- Integrering med verifiering av attributet eller Anspråksproviders.
+- Integrering med attribut som verifierare eller anspråks leverantörer.
 
-- Förlitande parter i gemenskapen (av inferens).
+- De förlitande parterna i communityn (efter härledning).
 
-- Metadata för att upprätta kommunikation mellan deltagare. Dessa metadata tillsammans med tekniska profiler används under en transaktion för att ställa in ”på kabeln” samverkan mellan den förlitande parten och andra community-deltagare.
+- Metadata för att upprätta nätverkskommunikation mellan deltagare. Dessa metadata, tillsammans med de tekniska profilerna, används under en transaktion för att ansluta till "på kabel"-samverkan mellan den förlitande parten och andra Community-deltagare.
 
-- Protokollet konverteringen eventuellt (till exempel SAML 2.0, OAuth2, WS-Federation och OpenID Connect).
+- Protokoll konverteringen om några (till exempel SAML 2,0, OAuth2, WS-Federation och OpenID Connect).
 
 - Autentiseringskrav.
 
-- Multifaktor orchestration eventuellt.
+- Multifakta-Orchestration om det finns någon.
 
-- Ett delat schema för alla anspråk som är tillgängliga och mappningar till deltagare i en grupp av intresse.
+- Ett delat schema för alla anspråk som är tillgängliga och mappar till deltagare i en community av intresse.
 
-- Alla anspråksomvandlingar, tillsammans med möjliga data minimering i den här kontexten för hantering av exchange och användning av anspråk.
+- Alla anspråks omvandlingar, tillsammans med möjliga data minimering i detta sammanhang, för att bibehålla utbytet och användningen av anspråken.
 
-- Bindnings- och kryptering.
+- Bindning och kryptering.
 
-- Anspråk-lagring.
+- Anspråks lagringen.
 
 ### <a name="understand-claims"></a>Förstå anspråk
 
 > [!NOTE]
-> Vi gemensamt refererar till alla möjliga typer av identitetsinformation som kan utväxlas som ”anspråk”: anspråk om en slutanvändare autentiseringsbehörighet, identity veta, kommunikationsenhet, fysisk placering, personligt identifieringsattribut, och så vidare.  
+> Vi kan samla in alla möjliga typer av identitets information som kan bytas ut mot "anspråk": anspråk på en slutanvändares autentiseringsuppgifter för autentisering, identitet först konsumentsajter, kommunikations enhet, fysisk plats, personligt identifierande attribut, och så vidare.  
 >
-> Vi använder termen ”anspråk”--i stället för ”attribut”--eftersom online transaktioner dessa data artefakter inte fakta som kan verifieras direkt av den förlitande parten. De är i stället intyg eller anspråk om fakta som måste den förlitande parten utveckla tillräcklig trygghet för att bevilja slutanvändarens transaktions.  
+> Vi använder termen "anspråk", i stället för "attribut", eftersom dessa data artefakter inte är fakta som kan verifieras direkt av den förlitande parten i onlinetransaktioner. De är hellre, eller anspråk, om fakta som den förlitande parten måste utveckla tillräckligt trygg för att ge slutanvändarens begärda transaktion.  
 >
-> Vi använder också termen ”anspråk” eftersom Azure AD B2C anpassade principer som använder den Identitetsramverk är utformade för att förenkla utbyte av alla typer av digitala ID-information på ett konsekvent sätt oavsett om det underliggande protokollet är definierats för användaren autentisering eller attributet hämtning.  På samma sätt kan vi använder termen ”Anspråksproviders” att sammantaget referera till identitetsleverantörer, attribut-providers och verifiering av attribut när vi inte vill skilja mellan funktionerna.   
+> Vi använder också termen "anspråk" eftersom Azure AD B2C anpassade principer som använder sig av identitets miljö ramverket är utformade för att förenkla utbytet av alla typer av digital identitets information på ett konsekvent sätt oavsett om det underliggande protokollet är definierad för användarautentisering eller hämtning av attribut.  På samma sätt använder vi termen "anspråks leverantörer" för att se identitets leverantörer, attribut leverantörer och attribut verifierare när vi inte vill skilja mellan sina olika funktioner.   
 
-Därför styr de hur identitetsinformation utbyts mellan en förlitande part, identitet och attributet leverantörer och verifiering av attribut. De kontrollerar vilken identitet och attributet providers krävs för en förlitande part autentisering. De bör betraktas som ett domänspecifika språk (DSL), det vill säga ett datorspråk som har specialiserats för en specifik programdomän med arv, *om* instruktioner, polymorfism.
+De styr därför hur identitets information utbyts mellan en förlitande part, identitet och attribut-providers och attribut verifierare. De styr vilka identitets-och attribut leverantörer som krävs för en förlitande parts autentisering. De bör betraktas som ett domänbaserat språk (DSL), det vill säga ett dator språk som är specialiserat för en viss program domän med arv, *om* -instruktioner, polymorfism.
 
-Dessa principer utgör maskinläsbara delen av TF-konstruktion i Azure AD B2C anpassade principer för att utnyttja den Identitetsramverk. De omfattar alla operativa information, inklusive Anspråksproviders metadata och tekniska profiler, anspråk schemadefinitioner, funktioner för omvandling av anspråk och användaren utbildning som fylls i för att underlätta operativa orkestrering och automatisering.  
+Dessa principer utgör den maskinläsbara delen av TF-konstruktionen i Azure AD B2C anpassade principer som använder sig av identitets miljö ramverket. De innehåller all drift information, inklusive anspråks leverantörers metadata och tekniska profiler, anspråk schema definitioner, anspråks omvandlings funktioner och användar resor som är fyllda för att under lätta drifts dirigering och automatisering.  
 
-Antas vara *levande dokument* eftersom det finns en bra möjlighet att deras innehåll kommer att ändras över tid om aktiva deltagare som har deklarerats i principerna. Det finns också risk att de allmänna villkoren för att du är en deltagare som kan ändras.  
+De antas vara *levande dokument* eftersom det är en chans att deras innehåll ändras med tiden för de aktiva deltagare som har deklarerats i principerna. Det är också möjligt att villkoren för att bli deltagare kan ändras.  
 
-Federation-konfiguration och underhåll avsevärt förenklad av avskärmning förlitande parter från pågående förtroende och anslutning reconfigurations som olika anspråk providers/verifiering gå med i eller lämna (community som representeras av) uppsättning principer.
+Federations installation och underhåll är avsevärt förenklat av skärmade förlitande parter från pågående förtroende och anslutnings omkonfigurationer som olika anspråks leverantörer/verifierare, JOIN eller tjänstledighet (communityn representeras av) uppsättningen med principer.
 
-Samverkan är en annan stor utmaning. Vara måste integrerade ytterligare anspråk providers/verifiering eftersom förlitande parter inte är troligt att stödja alla nödvändiga protokoll. Azure AD B2C anpassade principer lösa detta problem genom att stödja branschstandardprotokollen och genom att använda specifika användare utbildning för att transponera begäranden när förlitande parter och leverantörer av attributet inte stöder samma protokoll.  
+Samverkan är en annan viktig utmaning. Ytterligare anspråks leverantörer/verifierare måste integreras eftersom förlitande parter inte stöder alla nödvändiga protokoll. Azure AD B2C anpassade principer löser problemet genom att stödja bransch standard protokoll och genom att använda vissa användar resor för att transponera begär anden när förlitande parter och attribut för attribut inte stöder samma protokoll.  
 
-Användaren resor är protokoll-profiler och metadata som används för att ställa in ”på kabeln” samverkan mellan den förlitande parten och andra deltagare. Det finns också operativa runtime-regler som tillämpas på identitet information exchange begäranden/svarsmeddelanden för att genomdriva efterlevnad av de publicerade principer som en del av TF-specifikationen. Uppfattning om användaren resor är nyckeln till anpassning av kundupplevelsen. Den också belyses hur systemet fungerar på protokollnivån.
+Användar resan inkluderar protokoll profiler och metadata som används för att ansluta "på kabel" mellan den förlitande parten och andra deltagare. Det finns också operativa körnings regler som tillämpas på identitets information Exchange-begäran/svarsmeddelanden för tvingande av efterlevnad med publicerade principer som en del av TF-specifikationen. Idén med användar resan är en nyckel till anpassningen av kund upplevelsen. Den försätter också ljuset av hur systemet fungerar på protokoll nivå.
 
-På grundval kan, förlitande partsprogram och portaler beroende på deras kontext anropa Azure AD B2C anpassade principer som utnyttjar Identitetsramverk skicka namnet på en specifik princip och få exakt beteende och informationsutbyte de vill utan helst, krångel eller risk.
+På detta sätt kan förlitande part-program och portaler, beroende på deras kontext, anropa Azure AD B2C anpassade principer som använder sig av identitets miljö ramverket som skickar namnet på en princip och ger exakt beteende och informations utbyte de vill ha utan någon Muss, en eller en risk.

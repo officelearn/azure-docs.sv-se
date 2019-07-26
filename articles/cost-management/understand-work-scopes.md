@@ -1,6 +1,6 @@
 ---
-title: Förstå och arbeta med Azure Cost Management scope | Microsoft Docs
-description: 'Den här artikeln hjälper dig att förstå fakturerings- och resource management omfång som är tillgängliga i Azure och hur du använder scope i Cost Management och API: er.'
+title: Förstå och arbeta med Azure Cost Management omfattningar | Microsoft Docs
+description: 'Den här artikeln hjälper dig att förstå omfattningarna för fakturering och resurs hantering i Azure och hur du använder omfattningarna i Cost Management och API: er.'
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -10,215 +10,227 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 66bad9c9c647fe87fdcf6b99a8d17f319b1ef9fc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490116"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479987"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
-Den här artikeln hjälper dig att förstå fakturerings- och resource management omfång som är tillgängliga i Azure och hur du använder scope i Cost Management och API: er.
+Den här artikeln hjälper dig att förstå omfattningarna för fakturering och resurs hantering i Azure och hur du använder omfattningarna i Cost Management och API: er.
 
-## <a name="scopes"></a>Omfattningar
+## <a name="scopes"></a>Scope
 
-En _omfång_ är en nod i Azure-resurs-hierarki där Azure AD-användare komma åt och hantera tjänster. De flesta Azure-resurser skapas och distribueras till resursgrupper, vilket är en del av prenumerationer. Microsoft erbjuder även två hierarkier ovan Azure-prenumerationer som har specialiserat roller för att hantera faktureringsinformation:
-- Faktureringsdata, till exempel betalningar och fakturor
-- Molntjänster, till exempel kostnaden och princip
+Ett _omfång_ är en nod i Azure-hierarkistrukturen där Azure AD-användare får åtkomst till och hanterar tjänster. De flesta Azure-resurser skapas och distribueras till resurs grupper som ingår i prenumerationer. Microsoft erbjuder även två hierarkier över Azure-prenumerationer som har specialiserade roller för att hantera fakturerings data:
+- Fakturerings data, till exempel betalningar och fakturor
+- Moln tjänster, till exempel kostnads-och princip styrning
 
-Scope är där du hantera faktureringsinformation, har rollerna som är specifika för betalningar, visa fakturor och utför allmänna kontohantering. Fakturerings- och roller som hanteras separat från de som används för resurshantering, som använder [Azure RBAC](../role-based-access-control/overview.md). För att tydligt skilja syftet med separata scope, inklusive åtkomstkontroll skillnader, dessa kallas _fakturering scope_ och _RBAC scope_respektive.
+Med omfattningar kan du hantera fakturerings data, ha roller som är begränsade till betalningar, Visa fakturor och utföra allmän konto hantering. Fakturerings-och konto roller hanteras separat från de som används för resurs hantering, som använder [Azure RBAC](../role-based-access-control/overview.md). För att tydligt särskilja syftet med de separata omfattningarna, inklusive åtkomst kontroll skillnaderna, kallas dessa för _fakturerings omfång_ respektive _RBAC-omfång_.
 
 ## <a name="how-cost-management-uses-scopes"></a>Hur Cost Management använder omfång
 
-Cost Management fungerar på alla scope ovan resurser kan användas att hantera kostnaderna på nivån som de har åtkomst, oavsett om det är hela faktureringskonto eller en enskild resursgrupp. Fakturering scope variera beroende på ditt Microsoft-avtal (prenumerationstyp), RBAC-scope inte.
+Cost Management fungerar i alla omfattningar över resurser så att organisationer kan hantera kostnader på den nivå där de har åtkomst, oavsett om det är hela fakturerings kontot eller en enda resurs grupp. Även om fakturerings omfång skiljer sig beroende på ditt Microsoft-avtal (prenumerations typ) gör inte RBAC-omfattningarna det.
 
-## <a name="azure-rbac-scopes"></a>Azure RBAC-scope
+## <a name="azure-rbac-scopes"></a>Azure RBAC-omfång
 
-Azure stöder tre omfång för resurshantering. Varje område stöder hantera åtkomst och styrning, inklusive men inte begränsat till, kostnadshantering.
+Azure stöder tre områden för resurs hantering. Varje omfattning stöder hantering av åtkomst och styrning, inklusive men inte begränsat till, kostnads hantering.
 
-- [**Hanteringsgrupper** ](../governance/management-groups/index.md) -hierarkisk behållare, upp till åtta nivåer att organisera Azure-prenumerationer.
+- [**Hanterings grupper**](../governance/management-groups/index.md) – hierarkiska behållare, upp till åtta nivåer, för att organisera Azure-prenumerationer.
 
-    Resurstyp: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Resurs typ: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
-- **Prenumerationer** -primära behållare för Azure-resurser.
+- **Prenumerationer** – primära behållare för Azure-resurser.
 
-    Resurstyp: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
+    Resurs typ: [Microsoft. Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Resursgrupper** ](../azure-resource-manager/resource-group-overview.md#resource-groups) -logiska grupperingar av relaterade resurser för en Azure-lösning som delar samma livscykel. Till exempel resurser som distribueras och tas bort tillsammans.
+- [**Resurs grupper**](../azure-resource-manager/resource-group-overview.md#resource-groups) – logiska grupperingar av relaterade resurser för en Azure-lösning som delar samma livs cykel. Till exempel resurser som distribueras och tas bort tillsammans.
 
-    Resurstyp: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
+    Resurs typ: [Microsoft. Resources/Subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
-Hanteringsgrupper kan du ordna prenumerationer till en hierarki. Du kan till exempel skapa en logisk organisationshierarki med hjälp av hanteringsgrupper. Sedan kan ge teamen prenumerationer för produktion och dev/test-arbetsbelastningar. Och sedan skapa resursgrupper i prenumerationer att hantera varje undersystem eller komponent.
+Med hanterings grupper kan du organisera prenumerationer i en hierarki. Du kan till exempel skapa en logisk organisationshierarki med hjälp av hanterings grupper. Sedan ger du team prenumerationer för produktions-och dev/test-arbetsbelastningar. Och skapa sedan resurs grupper i prenumerationerna för att hantera varje del system eller komponent.
 
-Skapa en organisationshierarki tillåter kostnad och principefterlevnad samlad OUI. Varje ledare kan sedan visa och analysera sina nuvarande kostnader. Och de kan sedan skapa budgetar för att bekämpa felaktiga utgiftsgränsen mönster och optimera kostnader med Advisor-rekommendationer på den lägsta nivån.
+Genom att skapa en organisationshierarki kan du samla in kostnader och principer för efterlevnad av principer. Sedan kan varje ledare Visa och analysera sina aktuella kostnader. De kan sedan skapa budgetar för att göra dåliga utgifter och optimera kostnaderna med rådgivarens rekommendationer på den lägsta nivån.
 
-Bevilja åtkomst om du vill visa kostnaderna och du kan också hantera kostnaden konfiguration, till exempel budgetar och exporterar, utförs på styrning scope med hjälp av Azure RBAC. Du använder Azure RBAC för att bevilja Azure AD-användare och grupper åtkomst till om du vill utföra en fördefinierad uppsättning åtgärder som definierats i en roll på ett specifikt område och nedan. Exempelvis kan ger en roll som tilldelats till en grupp hanteringsomfång även samma behörigheter för att kapslade prenumerationer och resursgrupper.
+Att bevilja åtkomst till att Visa kostnader och eventuellt hantera kostnads konfiguration, till exempel budgetar och exporter, utförs på styrnings omfattningar med Azure RBAC. Du använder Azure RBAC för att ge Azure AD-användare och-grupper åtkomst för att utföra en fördefinierad uppsättning åtgärder som definieras i en roll i en viss omfattning och nedan. En roll som tilldelas till en hanterings grupps omfattning ger till exempel även samma behörigheter till kapslade prenumerationer och resurs grupper.
 
-Kostnadshantering stöder följande inbyggda roller för var och en av följande områden:
+Cost Management stöder följande inbyggda roller för var och en av följande omfattningar:
 
-- [**Ägare** ](../role-based-access-control/built-in-roles.md#owner) – Visa kostnader och hantera allt, inklusive kostnaden konfiguration.
-- [**Deltagare** ](../role-based-access-control/built-in-roles.md#contributor) – Visa kostnader och hantera allt, inklusive kostnaden konfiguration, men exklusive åtkomstkontroll.
-- [**Läsare** ](../role-based-access-control/built-in-roles.md#reader) – kan visa allt, inklusive kostnadsdata och konfiguration, men inte göra några ändringar.
-- [**Cost Management deltagare** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – kan visa kostnader, hantera kostnader, konfiguration och visa rekommendationer.
-- [**Cost Management läsare** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – kan visa kostnadsdata, kostnad konfiguration, och visa rekommendationer.
+- [**Owner**](../role-based-access-control/built-in-roles.md#owner) – kan visa kostnader och hantera allt, inklusive kostnads konfiguration.
+- [**Deltagare**](../role-based-access-control/built-in-roles.md#contributor) – kan visa kostnader och hantera allt, inklusive kostnads konfiguration, men exklusive åtkomst kontroll.
+- [**Reader**](../role-based-access-control/built-in-roles.md#reader) – kan visa allt, inklusive kostnads data och konfiguration, men kan inte göra några ändringar.
+- [**Cost Management Contributor**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – kan visa kostnader, hantera kostnads konfiguration och Visa rekommendationer.
+- [**Cost Management läsare**](../role-based-access-control/built-in-roles.md#cost-management-reader) – kan visa kostnads data, kostnads konfiguration och Visa rekommendationer.
 
-Cost Management-deltagare är den rekommenderade lägsta behörighet-rollen. Den låter personer behörighet att skapa och hantera budgetar och exporterar till mer effektivt, övervaka och rapportera om kostnaderna. Management kostnadsfaktorer kan också kräva ytterligare roller för scenarier för hantering av kostnaden för slutpunkt till slutpunkt. Tänk på följande scenarier:
+Cost Management Contributor är den rekommenderade rollen för minsta behörighet. Det ger användare åtkomst till att skapa och hantera budgetar och export till mer effektiv övervakning och rapportering om kostnader. Cost Managements deltagare kan också kräva ytterligare roller för att stödja scenarier från slut punkt till slut punkt för kostnads hantering. Överväg följande scenarier:
 
-- **Agerar vid budgetar överskrids** – Management kostnadsfaktorer också ha tillgång till skapa och/eller hantera åtgärdsgrupper för att automatiskt ta hänsyn till överförbrukning. Överväg att bevilja [övervakning deltagare](../role-based-access-control/built-in-roles.md#monitoring-contributor) till en resursgrupp som innehåller åtgärdsgruppen ska användas när budget tröskelvärden överskrids. Automatisera specifika åtgärder kräver ytterligare roller för de specifika tjänster som används, till exempel Automation och Azure Functions.
-- **Schema kostnad dataexport** – Cost Management deltagare behöver också åtkomst till att hantera lagringskonton för att schemalägga en export kopiera data till ett lagringskonto. Överväg att bevilja [Lagringskontodeltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor) konto där kostnadsdata exporteras till en resursgrupp som innehåller lagringen.
-- **Visa kostnadsbesparande rekommendationer** – har åtkomst till Cost Management läsare och hantering av kostnadsfaktorer *visa* kostnad rekommendationer som standard. Åtkomst till agera utifrån kostnadsrekommendationer kräver dock åtkomst till enskilda resurser. Överväg att bevilja en [roll tjänstspecifik](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) om du vill arbeta med en kostnadsbaserad rekommendation.
+- **Agera när budgetar överskrids** – Cost Management deltagare måste också ha åtkomst till skapa och/eller hantera åtgärds grupper för att automatiskt reagera på överförbrukning. Överväg att bevilja [övervaknings deltagare](../role-based-access-control/built-in-roles.md#monitoring-contributor) till en resurs grupp som innehåller den åtgärds grupp som ska användas när budget trösklar överskrids. Att automatisera vissa åtgärder kräver ytterligare roller för de tjänster som används, till exempel Automation och Azure Functions.
+- **Schema för kostnads data export** – Cost Management deltagare måste också ha åtkomst till hantera lagrings konton för att schemalägga en export för att kopiera data till ett lagrings konto. Överväg att bevilja [lagrings konto deltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor) till en resurs grupp som innehåller det lagrings konto där kostnads data exporteras.
+- **Visa kostnads besparingar** – Cost Management läsare och Cost Management deltagare har till gång *till kostnads rekommendationer* som standard. Åtkomst till att agera på kostnads rekommendationer kräver dock åtkomst till enskilda resurser. Överväg att bevilja en [tjänstebestämd roll](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) om du vill agera med en kostnads baserad rekommendation.
 
-## <a name="enterprise-agreement-scopes"></a>Enterprise Agreement-scope
+## <a name="enterprise-agreement-scopes"></a>Enterprise-avtal omfattningar
 
-Enterprise Agreement (EA) fakturering konton, även kallat registreringar, har följande områden:
+Enterprise-avtal (EA) fakturerings konton, som även kallas registreringar, har följande omfång:
 
-- [**Faktureringskonto** ](../billing/billing-view-all-accounts.md) -representerar en EA-registrering. Fakturor genereras i den här omfattningen. Köp som inte är baserat på användning, till exempel Marketplace och -reservationer är endast tillgängliga i den här omfattningen. De visas inte i avdelningar eller registreringskonton.
+- [**Fakturerings konto**](../billing/billing-view-all-accounts.md) – representerar EA-registrering. Fakturor skapas i det här omfånget. Köp som inte används, till exempel Marketplace och reservationer, är bara tillgängliga i det här omfånget. De representeras inte på avdelningar eller registrerings konton.
 
-    Resurstyp: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
-- **Avdelning** – valfritt gruppering av registreringskonton.
+    Resurs typ:`Microsoft.Billing/billingAccounts (accountType = Enrollment)`
+- **Avdelning** – valfri gruppering av registrerings konton.
 
-    Resurstyp: `Billing/billingAccounts/departments`
+    Resurs typ:`Billing/billingAccounts/departments`
 
-- **Konto för enhetsregistreringshanterare** -representerar en enskild ägare. Stöder inte bevilja åtkomst till flera personer.
+- **Registrerings konto** – representerar en enda konto ägare. Har inte stöd för att bevilja åtkomst till flera personer.
 
-    Resurstyp: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
+    Resurs typ:`Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
-Även om styrning scope är bundna till en enskild katalog, EA fakturering scope finns inte. Ett EA-faktureringskonto kan ha prenumerationer över flera Azure AD-kataloger.
+Även om styrnings omfattningar är bundna till en enda katalog är EA-fakturerings omfattningar inte. Ett EA-fakturerings konto kan ha prenumerationer i valfritt antal Azure AD-kataloger.
 
-EA fakturering scope stöd för följande roller:
+EA-fakturerings omfattningar stöder följande roller:
 
-- **Företagsadministratör** – kan hantera fakturering kontoinställningar och kan visa alla kostnader och kan hantera kostnaden konfiguration. Till exempel budget och exporterar. I funktionen EA fakturering omfånget är samma som [Cost Management deltagare Azure RBAC-roll](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Enterprise skrivskyddade användaren** – kan visa fakturering kontoinställningar, kostnadsdata och kostnaden konfiguration. Till exempel budget och exporterar. I funktionen EA fakturering omfånget är samma som den [Cost Management läsare Azure RBAC-roll](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Avdelning admin** – kan hantera avdelning inställningar, till exempel kostnadsställe, och kan komma åt, visa alla kostnader och hantera kostnaden konfiguration. Till exempel budget och exporterar.  Den **DA visa debiteringar** fakturering kontoinställningen måste vara aktiverat för avdelning administratörer och skrivskyddade användare att se kostnaderna. Om **DA visa debiteringar** är inaktiverad, avdelning användarna kan inte se kostnaderna när som helst, även om de är ägare konto eller prenumeration.
-- **Avdelning skrivskyddade användaren** – kan visa inställningar för avdelning, kostnadsdata och kostnaden konfiguration. Till exempel budget och exporterar. Om **DA visa debiteringar** är inaktiverad, avdelning användarna kan inte se kostnaderna när som helst, även om de är ägare konto eller prenumeration.
-- **Kontoinnehavare** – kan hantera registrering kontoinställningar (till exempel kostnadsställe), visa alla kostnader och hantera kostnaden konfigurationen (till exempel budgetar och exporterar) för registreringskontot. Den **AO visa debiteringar** fakturering kontoinställningen måste vara aktiverat för kontoinnehavare och RBAC-användare att se kostnaderna.
+- **Företags administratör** – kan hantera inställningar för fakturerings konton och åtkomst, kan visa alla kostnader och kan hantera kostnads konfiguration. Till exempel budgetar och export. I funktion är EA-fakturerings omfånget detsamma som [Cost Management Contributor-rollen Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Användare med Läs** behörighet för företag – kan visa inställningar för fakturerings konto, kostnads data och kostnads konfiguration. Till exempel budgetar och export. I funktion är EA-fakturerings omfånget samma som [Cost Management Reader Azure RBAC-rollen](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Avdelnings administratör** – kan hantera avdelnings inställningar, till exempel kostnads ställe, och kan komma åt, Visa alla kostnader och hantera kostnads konfigurationen. Till exempel budgetar och export.  Debiterings konto inställningen för **da View** måste vara aktive rad för avdelnings administratörer och skrivskyddade användare för att se kostnaderna. Om **Visa avgifter för da** är inaktiverat kan inte avdelnings användare se kostnader på någon nivå, även om de är ett konto eller en prenumerations ägare.
+- **Läs** behörighet för avdelning – kan visa avdelnings inställningar, kostnads data och kostnads konfiguration. Till exempel budgetar och export. Om **Visa avgifter för da** är inaktiverat kan inte avdelnings användare se kostnader på någon nivå, även om de är ett konto eller en prenumerations ägare.
+- **Konto ägare** – kan hantera inställningar för registrerings kontot (till exempel kostnads ställe), Visa alla kostnader och hantera kostnads konfigurationen (till exempel budgetar och export) för registrerings kontot. Fakturerings konto inställningen för **Ao View** måste vara aktive rad för konto ägare och RBAC-användare för att se kostnaderna.
 
-Fakturering EA-kontoanvändare har inte direkt åtkomst till fakturor. Fakturor är tillgängliga från ett externt system för volymlicensiering.
+Användare av EA-fakturerings konto har inte direkt åtkomst till fakturor. Fakturor är tillgängliga från ett externt volym licensierings system.
 
-Azure-prenumerationer kapslas under registreringskonton. Fakturering användare har åtkomst till cost data för prenumerationer och resursgrupper som omfattas av deras respektive scope. De har inte åtkomst att visa eller hantera resurser i Azure-portalen. Fakturering användare kan visa kostnader genom att gå till **kostnadshantering + fakturering** i Azure portal listan över tjänster. De kan sedan filtrera kostnader som specifika prenumerationer och resursgrupper som de behöver för att rapportera om.
+Azure-prenumerationer kapslas under registrerings konton. Fakturerings användare har till gång till kostnads data för prenumerationer och resurs grupper som tillhör respektive omfång. De har inte åtkomst att se eller hantera resurser i Azure Portal. Fakturerings användare kan visa kostnader genom att gå till **Cost Management + fakturering** i Azure Portal listan över tjänster. Sedan kan de filtrera kostnader till de olika prenumerationer och resurs grupper som de behöver för att rapportera om.
 
-Fakturering användare har inte åtkomst till hanteringsgrupper uttryckligen inte faller under en viss faktureringskonto. Åtkomst måste uttryckligen beviljas till hanteringsgrupper. -Hanteringsgrupper samlad kostnaderna från alla kapslade prenumerationer. Men innehåller de endast användningsbaserad inköp. De omfattar inte inköp, till exempel reservationer och Marketplace-erbjudanden från tredje part. Du kan visa dessa kostnader med faktureringskonto för EA.
+Fakturerings användare har inte åtkomst till hanterings grupper eftersom de inte uttryckligen faller under ett specifikt fakturerings konto. Åtkomst måste beviljas till hanterings grupper explicit. Sammanslagnings kostnader för hanterings grupper från alla kapslade prenumerationer. De omfattar dock bara användnings inköp. De omfattar inte köp som reservationer och Marketplace-erbjudanden från tredje part. Om du vill visa dessa kostnader använder du kontot för EA-fakturering.
 
-## <a name="individual-agreement-scopes"></a>Enskilda avtal scope
+## <a name="individual-agreement-scopes"></a>Enskilda avtals områden
 
-Azure-prenumerationer som skapas från enskilda erbjudanden som betalar per användning och relaterade typer som kostnadsfri utvärderingsversion och utveckling och testning, inte har en explicit omfattning för fakturering konto. I stället har varje prenumeration en ägare eller kontoadministratören som EA ägare.
+Azure-prenumerationer som skapats från enskilda erbjudanden som betala per användning och relaterade typer, till exempel kostnads fria utvärderings versioner och utveckling/testning, har ingen explicit fakturerings konto omfattning. I stället har varje prenumeration en konto ägare eller konto administratör, till exempel EA-kontots ägare.
 
-- [**Faktureringskonto** ](../billing/billing-view-all-accounts.md) -representerar en enskild ägare för en eller flera Azure-prenumerationer. Det stöder för närvarande inte bevilja åtkomst till flera personer eller åtkomst till aggregerad kostnaden vyer.
+- [**Fakturerings konto**](../billing/billing-view-all-accounts.md) – representerar en enda konto ägare för en eller flera Azure-prenumerationer. Den har för närvarande inte stöd för att bevilja åtkomst till flera personer eller åtkomst till sammanställda kostnads vyer.
 
-    Resurstyp: Inte tillämpligt
+    Resurs typ: Inte tillämpligt
 
-Enskild Azure-prenumeration kontoadministratörer kan visa och hantera faktureringen data, till exempel fakturor och betalningar, från den [Azure Kontocenter](https://account.azure.com/subscriptions). Men kan inte de visa kostnadsdata eller hantera resurser i Azure-portalen. Om du vill bevilja åtkomst till kontoadministratören, använda Cost Management-roller som tidigare nämnts.
+Enskilda Azure-prenumerations konto administratörer kan visa och hantera fakturerings data, till exempel fakturor och betalningar, från [Azure-kontocenter](https://account.azure.com/subscriptions). De kan dock inte visa kostnads data eller hantera resurser i Azure Portal. Om du vill bevilja åtkomst till konto administratören använder du Cost Management roller som nämns ovan.
 
-Till skillnad från EA, kan individuell Azure-prenumeration kontoadministratörer se sina fakturor i Azure-portalen. Tänk på att Cost Management läsare och deltagare i Cost Management inte ger åtkomst till fakturor. Mer information finns i [hur du ger åtkomst till fakturor](../billing/billing-manage-access.md##give-read-only-access-to-billing).
+Till skillnad från EA kan enskilda Azure-prenumerations konto administratörer se sina fakturor i Azure Portal. Tänk på att Cost Management läsare och Cost Management deltagar roller inte ger åtkomst till fakturor. Mer information finns i [så här beviljar du åtkomst till fakturor](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## <a name="microsoft-customer-agreement-scopes"></a>Microsoft kundavtal scope
+## <a name="microsoft-customer-agreement-scopes"></a>Microsofts kund avtals områden
 
-Fakturering kundavtal för Microsoft-konton har följande områden:
+Fakturerings konton för Microsofts kund avtal har följande omfång:
 
-- **Faktureringskonto** -representerar en kundavtal för flera Microsoft-produkter och tjänster. Fakturering kundkonton för avtal är inte samma funktioner samma som EA-avtal. EA-avtal är närmare justerade fakturering profiler.
+- **Fakturerings konto** – representerar ett kund avtal för flera produkter och tjänster från Microsoft. Fakturerings konton för kund avtal fungerar inte på samma sätt som EA-registreringar. EA-registreringar är mer noggrant justerade för fakturerings profiler.
 
-    Resurstyp: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+    Resurs typ:`Microsoft.Billing/billingAccounts (accountType = Organization)`
 
-- **Fakturering profil** -definierar de prenumerationer som ingår i en faktura. Fakturering profiler är den funktionella motsvarigheten till en EA-registrering, eftersom det är den omfattning som fakturor genereras vid. På samma sätt är inköp som inte är användningsbaserad (till exempel Marketplace och reservationer) bara tillgängliga i den här omfattningen. De ingår inte i faktura avsnitt.
+- **Fakturerings profil** – definierar de prenumerationer som ingår i en faktura. Fakturerings profiler är den funktionella motsvarigheten till en EA-registrering, eftersom det är det omfång som fakturor genereras på. På samma sätt är inköp som inte används (till exempel Marketplace och reservationer) bara tillgängliga i det här omfånget. De ingår inte i faktura avsnitten.
 
-    Resurstyp: `Microsoft.Billing/billingAccounts/billingProfiles`
+    Resurs typ:`Microsoft.Billing/billingAccounts/billingProfiles`
 
-- **Fakturera avsnittet** -representerar en grupp med prenumerationer i en faktura eller profilen för fakturering. Faktura avsnitt liknar avdelningar – flera personer kan ha åtkomst till en faktura-avsnittet.
+- **Avsnittet faktura** – representerar en grupp prenumerationer i en faktura eller fakturerings profil. Faktura avsnitt är som avdelningar – flera personer kan ha åtkomst till avsnittet faktura.
 
-    Resurstyp: `Microsoft.Billing/billingAccounts/invoiceSections`
+    Resurs typ:`Microsoft.Billing/billingAccounts/invoiceSections`
 
-Till skillnad från EA fakturering scope, kundavtal fakturering konton _är_ bunden till en enskild katalog och kan inte ha prenumerationer över flera Azure AD-kataloger.
+Till skillnad från EA-fakturerings omfattningar _är_ kund avtals fakturerings konton kopplade till en enda katalog och kan inte ha prenumerationer i flera Azure AD-kataloger.
 
-Kundens avtal fakturering scope stöd för följande roller:
+Fakturerings omfattningar för kund avtal har stöd för följande roller:
 
-- **Ägare** – kan hantera inställningar för fakturering och åtkomst, visa alla kostnader och hantera kostnaden konfiguration. Till exempel budget och exporterar. I funktionen, den här kundavtal fakturering omfånget är samma som den [Cost Management deltagare Azure RBAC-roll](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Deltagare** – kan hantera fakturering inställningar förutom åtkomst, visa alla kostnader och hantera kostnaden konfiguration. Till exempel budget och exporterar. I funktionen, den här kundavtal fakturering omfånget är samma som den [Cost Management deltagare Azure RBAC-roll](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Läsare** – kan visa inställningar för fakturering, kostnadsdata och kostnaden konfiguration. Till exempel budget och exporterar. I funktionen, den här kundavtal fakturering omfånget är samma som den [Cost Management läsare Azure RBAC-roll](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Faktura manager** – kan visa och betala fakturor och kan visa data och konfiguration. Till exempel budget och exporterar. I funktionen, den här kundavtal fakturering omfånget är samma som den [Cost Management läsare Azure RBAC-roll](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Azure-prenumeration skapare** – kan skapa Azure-prenumerationer, visa kostnader och hantera kostnaden konfiguration. Till exempel budget och exporterar. I funktion är standardomfattning kundavtal fakturering samma som rollen ägare konto för EA-registrering.
+- **Owner** – kan hantera fakturerings inställningar och åtkomst, Visa alla kostnader och hantera kostnads konfiguration. Till exempel budgetar och export. I funktion är detta fakturerings omfång för kund avtal detsamma som [rollen Cost Management Contributor Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Deltagare** – kan hantera fakturerings inställningar förutom åtkomst, Visa alla kostnader och hantera kostnads konfiguration. Till exempel budgetar och export. I funktion är detta fakturerings omfång för kund avtal detsamma som [rollen Cost Management Contributor Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Reader** – kan visa fakturerings inställningar, kostnads data och kostnads konfiguration. Till exempel budgetar och export. I funktion är detta fakturerings omfång för kund avtal detsamma som [Cost Management Reader Azure RBAC-rollen](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Faktura ansvarig** – kan visa och betala fakturor och kan visa kostnads data och konfiguration. Till exempel budgetar och export. I funktion är detta fakturerings omfång för kund avtal detsamma som [Cost Management Reader Azure RBAC-rollen](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Azure-prenumerations skapare** – kan skapa Azure-prenumerationer, Visa kostnader och hantera kostnads konfiguration. Till exempel budgetar och export. I funktion är detta fakturerings omfång för kund avtal detsamma som ägar rollen EA-registrerings konto.
 
-Azure-prenumerationer kapslas under faktura avsnitt, t.ex. hur de är under konton för EA-registrering. Fakturering användare har åtkomst till cost data för prenumerationer och resursgrupper som ligger under deras respektive scope. De har dock inte åtkomst till se eller hantera resurser i Azure-portalen. Fakturering användare kan visa kostnader genom att gå till **kostnadshantering + fakturering** i Azure portal listan över tjänster. Sedan kan filtrera kostnader som specifika prenumerationer och resursgrupper som de behöver för att rapportera om.
+Azure-prenumerationer kapslas under faktura avsnitt, t. ex. hur de är under EA-registrerings konton. Fakturerings användare har till gång till kostnads data för prenumerationer och resurs grupper som tillhör respektive omfång. De har dock inte åtkomst att se eller hantera resurser i Azure Portal. Fakturerings användare kan visa kostnader genom att gå till **Cost Management + fakturering** i Azure Portal listan över tjänster. Filtrera sedan kostnaderna till de olika prenumerationer och resurs grupper som de måste rapportera om.
 
-Fakturering användare har inte åtkomst till hanteringsgrupper eftersom de inte uttryckligen omfattas av faktureringskontot. Men när hanteringsgrupper har aktiverats för organisationen, alla prenumerationskostnader är samlade till faktureringskontot och till rot-hanteringsgruppen eftersom de är båda begränsade till en enda katalog. Hanteringsgrupper kan bara innehålla inköp som baseras på användning. Köp som reservationer och Marketplace-erbjudanden från tredje part inte finns med i hanteringsgrupperna. Fakturering konto och rot hanteringsgruppen kan därför rapporterar olika summor. Du kan visa dessa kostnader med faktureringskonto eller respektive fakturering profilen.
+Fakturerings användare har inte åtkomst till hanterings grupper eftersom de inte uttryckligen faller under fakturerings kontot. Men när hanterings grupper aktive ras för organisationen, samlas alla prenumerations kostnader upp till fakturerings kontot och till rot hanterings gruppen eftersom de båda är begränsade till en enda katalog. Hanterings grupper innehåller endast inköp som är användnings. Köp som reservationer och tredje parts Marketplace-erbjudanden ingår inte i hanterings grupper. Därför kan fakturerings kontot och rot hanterings gruppen rapportera olika summor. Om du vill visa dessa kostnader använder du fakturerings kontot eller respektive fakturerings profil.
 
-## <a name="cloud-solution-provider-csp-scopes"></a>Omfång för cloud Solution Provider (CSP)
+## <a name="aws-scopes"></a>AWS-omfång
 
-Partner för cloud Solution Provider (CSP) stöds inte i Cost Management idag. Använd i stället [Partnercenter](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+När AWS-integreringen är klar kan du läsa mer i [Konfigurera och konfigurera AWS-integrering](aws-integration-set-up-configure.md). Följande omfattningar är tillgängliga:
 
-## <a name="switch-between-scopes-in-cost-management"></a>Växla mellan scope i Cost Management
+- **Externt fakturerings konto** – representerar ett kund avtal med en tredjepartsleverantör. Det liknar fakturerings kontot för EA.
 
-Alla Cost Management-vyer i Azure-portalen innehåller en **omfång** val av pill längst upp till vänster i vyn. Du kan använda den för att snabbt ändra omfång. Klicka på den **omfång** pill att öppna omfattningsväljaren. Den visar fakturering konton, rot-hanteringsgruppen och prenumerationer som inte är kapslat under rot-hanteringsgruppen. För att välja ett omfång, klickar du på bakgrunden för att markera den och klicka sedan på **Välj** längst ned på sidan. Om du vill gå in på kapslade omfång som resursgrupper i en prenumeration, klickar du på länken omfång namn. Klicka för att välja den överordnade omfattningen när som helst kapslade **Välj det här &lt;omfång&gt;**  överst i omfattningsväljaren.
+    Resurs typ:`Microsoft.CostManagement/externalBillingAccounts`
+    
+- **Extern prenumeration** – representerar ett kund drifts konto med en tredjepartsleverantör. Det liknar en Azure-prenumeration.
+
+    Resurs typ:`Microsoft.CostManagement/externalSubscriptions`
+
+## <a name="cloud-solution-provider-csp-scopes"></a>Omfattningar för Cloud Solution Provider (CSP)
+
+Leverantörer av moln lösningar (CSP) stöds inte i Cost Management idag. I stället kan du använda [partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+
+## <a name="switch-between-scopes-in-cost-management"></a>Växla mellan omfattningar i Cost Management
+
+Alla Cost Management vyer i Azure Portal innehåller en **omfattnings** markerings Pill längst upp till vänster i vyn. Använd den för att snabbt ändra omfattningen. Öppna omfattnings väljaren genom att klicka på **området** Pill. Det visar fakturerings konton, rot hanterings gruppen och eventuella prenumerationer som inte är kapslade under rot hanterings gruppen. Om du vill välja ett omfång klickar du på bakgrunden för att markera den och klickar sedan på **Välj** längst ned. Om du vill öka detalj nivån till kapslade omfattningar, t. ex. resurs grupper i en prenumeration, klickar du på länken omfångs namn. Om du vill välja ett överordnat omfång på en kapslad nivå klickar du på **Välj det här &lt;&gt; området** överst i omfattnings väljaren.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identifiera resurs-ID för ett omfång
 
-Att veta omfånget är viktigt när du arbetar med Cost Management API: er. Använd följande information för att skapa rätt omfattning URI för Cost Management API: er.
+När du arbetar med Cost Management-API: er är det viktigt att känna till omfattningen. Använd följande information för att bygga rätt omfattnings-URI för Cost Management API: er.
 
-### <a name="billing-accounts"></a>Fakturering konton
+### <a name="billing-accounts"></a>Faktureringskonton
 
-1. Öppna Azure-portalen och gå sedan till **kostnadshantering + fakturering** i listan över tjänster.
-2. Välj **egenskaper** i fakturering kontomenyn.
-3. Kopiera fakturering konto-ID.
-4. Din omfattning är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
+1. Öppna Azure Portal och gå sedan till **Cost Management + fakturering** i listan över tjänster.
+2. Välj **Egenskaper** på menyn fakturerings konto.
+3. Kopiera ID för fakturerings konto.
+4. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
 
-### <a name="billing-profiles"></a>Fakturering profiler
+### <a name="billing-profiles"></a>Faktureringsprofiler
 
-1. Öppna Azure-portalen och gå sedan till **kostnadshantering + fakturering** i listan över tjänster.
-2. Välj **fakturering profiler** i fakturering kontomenyn.
-3. Klicka på namnet på den önskade fakturering profilen.
-4. Välj **egenskaper** på profilmenyn fakturering.
-5. Kopiera faktureringskontot och fakturering profil-ID: N.
-6. Din omfattning är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
+1. Öppna Azure Portal och gå sedan till **Cost Management + fakturering** i listan över tjänster.
+2. Välj **fakturerings profiler** på menyn fakturerings konto.
+3. Klicka på namnet på önskad fakturerings profil.
+4. Välj **Egenskaper** på menyn fakturerings profil.
+5. Kopiera ID för fakturerings konto och fakturerings profil.
+6. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
-### <a name="invoice-sections"></a>Faktura-avsnitt
+### <a name="invoice-sections"></a>Fakturaavsnitt
 
-1. Öppna Azure-portalen och gå sedan till **kostnadshantering + fakturering** i listan över tjänster.
-2. Välj **faktura avsnitt** i fakturering kontomenyn.
-3. Klicka på namnet på det önskade faktura-avsnittet.
-4. Välj **egenskaper** på menyn för faktura-avsnittet.
-5. Kopiera faktureringskontot och fakturera avsnittet ID: N.
-6. Din omfattning är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
+1. Öppna Azure Portal och gå sedan till **Cost Management + fakturering** i listan över tjänster.
+2. Välj **faktura avsnitt** på menyn fakturerings konto.
+3. Klicka på namnet på det önskade faktura avsnittet.
+4. Välj **Egenskaper** på menyn faktura avsnitt.
+5. Kopiera ID för fakturerings konto och faktura avsnitt.
+6. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
 
 ### <a name="ea-departments"></a>EA-avdelningar
 
-1. Öppna Azure-portalen och gå sedan till **kostnadshantering + fakturering** i listan över tjänster.
-2. Välj **avdelningar** i fakturering kontomenyn.
+1. Öppna Azure Portal och gå sedan till **Cost Management + fakturering** i listan över tjänster.
+2. Välj **avdelningar** på menyn fakturerings konto.
 3. Klicka på namnet på den önskade avdelningen.
-4. Välj **egenskaper** på menyn avdelning.
-5. Kopiera fakturering-ID-konto och avdelning.
-6. Din omfattning är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
+4. Välj **Egenskaper** på avdelnings menyn.
+5. Kopiera fakturerings kontot och avdelnings-ID: n.
+6. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
 
-### <a name="ea-enrollment-account"></a>Konto för EA-registrering
+### <a name="ea-enrollment-account"></a>EA-registrerings konto
 
-1. Öppna Azure portal och gå till **kostnadshantering + fakturering** i listan över tjänster.
-2. Välj **registreringskonton** i fakturering kontomenyn.
-3. Klicka på namnet på den önskade registreringskontot.
-4. Välj **egenskaper** i kontomenyn registrering.
-5. Kopiera faktureringskonto och registreringskontot ID: N.
-6. Din omfattning är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
+1. Öppna Azure Portal och gå till **Cost Management + fakturering** i listan över tjänster.
+2. Välj **registrerings konton** på menyn fakturerings konto.
+3. Klicka på namnet på det önskade registrerings kontot.
+4. Välj **Egenskaper** på menyn registrerings konto.
+5. Kopiera fakturerings kontot och ID för registrerings kontot.
+6. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
 
 ### <a name="management-group"></a>Hanteringsgrupp
 
-1. Öppna Azure portal och gå till **hanteringsgrupper** i listan över tjänster.
-2. Navigera till den önskade hanteringsgruppen.
-3. Kopiera hantering av grupp-ID från tabellen.
-4. Din omfattning är: `"/providers/Microsoft.Management/managementGroups/{id}"`
+1. Öppna Azure Portal och gå till **hanterings grupper** i listan över tjänster.
+2. Navigera till önskad hanterings grupp.
+3. Kopiera hanterings gruppens ID från tabellen.
+4. Ditt omfång är:`"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>Prenumeration
+### <a name="subscription"></a>Subscription
 
-1. Öppna Azure portal och gå till **prenumerationer** i listan över tjänster.
-2. Kopiera prenumerations-ID från tabellen.
-3. Din omfattning är: `"/subscriptions/{id}"`
+1. Öppna Azure Portal och navigera till **prenumerationer** i listan över tjänster.
+2. Kopiera prenumerations-ID: t från tabellen.
+3. Ditt omfång är:`"/subscriptions/{id}"`
 
 ### <a name="resource-groups"></a>Resursgrupper
 
-1. Öppna Azure portal och gå till **resursgrupper** i listan över tjänster.
-2. Klicka på namnet på resursgruppen som önskade.
-3. Välj **egenskaper** i resursgruppmenyn.
-4. Kopiera värdet i resurs-ID: T.
-5. Din omfattning är: `"/subscriptions/{id}/resourceGroups/{name}"`
+1. Öppna Azure Portal och navigera till **resurs grupper** i listan över tjänster.
+2. Klicka på namnet på den önskade resurs gruppen.
+3. Välj **Egenskaper** på menyn resurs grupp.
+4. Kopiera värdet för resurs-ID-fältet.
+5. Ditt omfång är:`"/subscriptions/{id}/resourceGroups/{name}"`
 
-Kostnadshantering stöds för närvarande i [Azure Global](https://management.azure.com) och [Azure Government](https://management.usgovcloudapi.net). Läs mer om Azure Government, [Azure Global och Government API-slutpunkter](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
+Cost Management stöds för närvarande i [Azure Global](https://management.azure.com) och [Azure Government](https://management.usgovcloudapi.net). Mer information om Azure Government finns i [Azures globala och offentliga API](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)-slutpunkter _._
 
 ## <a name="next-steps"></a>Nästa steg
 

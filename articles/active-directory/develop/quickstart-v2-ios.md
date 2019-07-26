@@ -17,12 +17,12 @@ ms.author: brandwe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99fb7fad3e36ecee62bee404268525d4319b4f48
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: bfb136529c606cafa235a525fcbe6e03b1d583d0
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324386"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335590"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en iOS-app
 
@@ -256,3 +256,8 @@ Prova iOS-självstudien om du vill ha en fullständig steg-för-steg-guide om hu
 > [Självstudie om att anropa Graph API för iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Hjälp oss att förbättra Microsoft Identity Platform. Berätta för oss vad du tycker genom att slutföra en kort enkät med två frågor.
+
+> [!div class="nextstepaction"]
+> [Microsoft Identity Platform-undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

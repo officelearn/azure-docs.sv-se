@@ -1,6 +1,6 @@
 ---
-title: Skyddade webb-API - konfiguration av kod | Azure Active Directory
-description: Lär dig hur du skapar ett skyddat webb-API och konfigurera din programkod.
+title: Skyddad Web API – kod konfiguration för app | Azure Active Directory
+description: Lär dig hur du skapar ett skyddat webb-API och konfigurerar programmets kod.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,24 +16,30 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ff03316a1f9409d4d6e4b7ddf52d0c8cc7a909
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: b249b99faa62e73b9aa3247f71f88767fca96f01
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551546"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488842"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>Skyddade webb-API: Att lägga till auktorisering i ditt API
+# <a name="protected-web-api-adding-authorization-to-your-api"></a>Skyddat webb-API: Lägger till auktorisering till ditt API
 
-Den här artikeln beskrivs hur du kan lägga till auktorisering till dina webb-API. Det här skyddet säkerställer att API: et anropas endast av:
+I den här artikeln beskrivs hur du kan lägga till auktorisering i ditt webb-API. Det här skyddet säkerställer att API: et endast anropas av:
 
-- Program för användare som har rätt scope.
-- Daemon-appar som har rätt programroller.
+- Program åt användare som har rätt omfång.
+- Daemon-appar som har rätt program roller.
 
-Om du vill skydda en ASP.NET/ASP.NET Core webb-API, måste du lägga till den `[Authorize]` attributet på något av följande:
+> [!NOTE]
+> Kodfragmenten från den här artikeln extraheras från följande exempel, som är fullt funktionella
+>
+> - [ASP.net Core stegvis självstudie för webb-API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) på GitHub
+> - [ASP.NET-webb-API-exempel](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
 
-- Kontrollanten själva, om du vill att alla åtgärder för kontrollenheten som ska skyddas
-- Enskilda controller-åtgärden för ditt API
+För att skydda ett ASP.net/ASP.net Core webb-API måste du lägga till `[Authorize]` attributet på något av följande:
+
+- Själva kontrollanten, om du vill att alla åtgärder för kontrollanten ska skyddas
+- Åtgärden individuell kontrollant för ditt API
 
 ```CSharp
     [Authorize]
@@ -43,14 +49,14 @@ Om du vill skydda en ASP.NET/ASP.NET Core webb-API, måste du lägga till den `[
     }
 ```
 
-Men det räcker inte med det här skyddet. Det garanterar endast att ASP.NET/ASP.NET Core verifierar token. Din API behöver att verifiera att den token som används för att anropa ditt webb-API som begärdes med anspråk det förväntar sig, särskilt:
+Men det här skyddet räcker inte. Det garanterar bara att ASP.NET/ASP.NET-kärnan validerar token. Ditt API måste verifiera att token som används för att anropa ditt webb-API begärdes med de anspråk som det förväntar sig, särskilt:
 
-- Den *scope*, om API: et anropas för en användares räkning.
-- Den *approller*om API: et kan anropas från en daemon-app.
+- *Omfattningarna*, om API: t anropas för en användares räkning.
+- *App*-rollerna, om API: et kan anropas från en daemon-app.
 
-## <a name="verifying-scopes-in-apis-called-on-behalf-of-users"></a>Verifiera scope i API: er som kallas för användare
+## <a name="verifying-scopes-in-apis-called-on-behalf-of-users"></a>Verifierar omfång i API: er som anropas för användarnas räkning
 
-Om ditt API anropas av en klientapp för en användares räkning, måste det att begära en ägartoken som har specifika omfattningar för API: et. (Se [kod configuration | Ägartoken](scenario-protected-web-api-app-configuration.md#bearer-token).)
+Om ditt API anropas av en klient app för en användares räkning måste den begära en Bearer-token som har vissa omfång för API: et. (Se [kod konfiguration | Bearer](scenario-protected-web-api-app-configuration.md#bearer-token)-token.)
 
 ```CSharp
 [Authorize]
@@ -74,10 +80,10 @@ public class TodoListController : Controller
 }
 ```
 
-Den `VerifyUserHasAnyAcceptedScope` metoden skulle göra något som liknar följande:
+`VerifyUserHasAnyAcceptedScope` Metoden skulle göra något som liknar följande:
 
-- Kontrollera att det finns ett anspråk med namnet `http://schemas.microsoft.com/identity/claims/scope` eller `scp`.
-- Kontrollera att anspråket har ett värde som innehåller den omfattning som förväntas av API: et.
+- Kontrol lera att det finns ett anspråk `http://schemas.microsoft.com/identity/claims/scope` med `scp`namnet eller.
+- Kontrol lera att anspråket har ett värde som innehåller omfånget som förväntas av API: et.
 
 ```CSharp
     /// <summary>
@@ -107,12 +113,12 @@ Den `VerifyUserHasAnyAcceptedScope` metoden skulle göra något som liknar följ
     }
 ```
 
-Det här exemplet är för ASP.NET Core. Ersätt bara för ASP.NET, `HttpContext.User` med `ClaimsPrincipal.Current`, och Ersätt Anspråkstypen `"http://schemas.microsoft.com/identity/claims/scope"` med `"scp"`. (Se även kodfragmentet nedan.)
+Den här [exempel koden](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47) är för ASP.net Core. För ASP.net ersätter `HttpContext.User` du bara med `ClaimsPrincipal.Current`och ersätter anspråks typen `"http://schemas.microsoft.com/identity/claims/scope"` med `"scp"`. (Se även kodfragmentet senare i den här artikeln.)
 
-## <a name="verifying-app-roles-in-apis-called-by-daemon-apps"></a>Verifiera roller i API: er som anropas av daemon-appar
+## <a name="verifying-app-roles-in-apis-called-by-daemon-apps"></a>Verifiera app-roller i API: er som anropas av daemon-appar
 
-Om ditt webb-API anropas av en [daemon app](scenario-daemon-overview.md), appen kräver ett program behörighet att ditt webb-API. Vi har sett i [exponera programbehörigheter (roller)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) att ditt API exponerar sådan behörighet (till exempel den `access_as_application` app rollen).
-Nu måste du ha dina API: er som du kontrollera att den token som togs emot innehåller den `roles` anspråk och att det här anspråket har värdet för det förväntar sig. Den kod som gör den här kontrollen som liknar den kod som verifierar delegerade behörigheter, förutom den, i stället för att testa för `scopes`, domänkontrollant-åtgärden kommer att testa för `roles`:
+Om ditt webb-API anropas av en [daemon-app](scenario-daemon-overview.md), bör appen kräva en program behörighet för ditt webb-API. Vi har sett i att visa [program behörigheter (app-roller)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) som ditt API visar sådana behörigheter (till exempel `access_as_application` app-rollen).
+Du måste nu ha dina API: er verifiera att den token som tas `roles` emot innehåller anspråk och att detta anspråk har det värde som förväntas. Den här verifieringens kod liknar den kod som verifierar delegerade behörigheter, förutom att, i stället för att testa `scopes`, så kommer din kontroll enhet att testa för: `roles`
 
 ```CSharp
 [Authorize]
@@ -125,7 +131,7 @@ public class TodoListController : ApiController
     }
 ```
 
-Den `ValidateAppRole()` metoden kan vara ungefär så här:
+`ValidateAppRole()` Metoden kan vara något som liknar detta:
 
 ```CSharp
 private void ValidateAppRole(string appRole)
@@ -146,21 +152,21 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-Det här exemplet är för ASP.NET. Ersätt bara för ASP.NET Core `ClaimsPrincipal.Current` med `HttpContext.User`, och Ersätt den `"roles"` anspråk namn med `"http://schemas.microsoft.com/identity/claims/roles"`. (Se även kodfragmentet tidigare i den här artikeln.)
+Den här gången är kodfragmentet för ASP.NET. För ASP.net Core ersätter `ClaimsPrincipal.Current` du bara med `HttpContext.User`och ersätter `"roles"` anspråks namnet med `"http://schemas.microsoft.com/identity/claims/roles"`. (Se även kodfragmentet tidigare i den här artikeln.)
 
-### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>Accepterar endast app-token om webb-API ska anropas bara av daemon-appar
+### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>Accepterar endast app-token om webb-API: t endast ska anropas av daemon-appar
 
-Den `roles` anspråk används också för användare i användarmönster för tilldelning. (Se [så här: Lägg till roller i ditt program och tar emot dem i token](howto-add-app-roles-in-azure-ad-apps.md).) Så här kommer bara kontrollerar roller tillåter program att logga in som användare och tvärtom, om rollerna som tilldelas till båda. Vi rekommenderar att du deklarera olika roller för användare och appar att förhindra att den här förvirring.
+`roles` Anspråket används också för användare i användar tilldelnings mönster. (Mer [information finns i så här gör du: Lägg till app-roller i programmet och ta emot dem i](howto-add-app-roles-in-azure-ad-apps.md)token.) För att bara kontrol lera roller kan appar logga in som användare och det andra sättet, om rollerna kan tilldelas båda. Vi rekommenderar att du deklarerar olika roller för användare och appar för att förhindra denna förvirring.
 
-Om du vill att endast tillåta daemon appar att anropa ditt webb-API, Lägg till ett villkor, när du validerar rollen app att token är en appspecifika-token:
+Om du bara vill tillåta att daemon-appar anropar webb-API: et lägger du till ett villkor när du validerar app-rollen, att token är en app-only-token:
 
 ```CSharp
-string oid = ClaimsPrincipal.Current.FindFirst("oid");
-string sub = ClaimsPrincipal.Current.FindFirst("sub");
+string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
+string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
 bool isAppOnlyToken = oid == sub;
 ```
 
-Kontrollerar inverterade villkoret kan endast appar som loggar in en användare att anropa ditt API.
+Genom att kontrol lera det inverterade villkoret kan endast appar som loggar in en användare anropa ditt API.
 
 ## <a name="next-steps"></a>Nästa steg
 

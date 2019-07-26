@@ -1,119 +1,118 @@
 ---
-title: Säkerhetsfunktioner som hjälper att skydda hybridsäkerhetskopieringar som använder Azure Backup
-description: Lär dig hur du använder funktioner för säkerhet i Azure Backup kan skydda säkerhetskopior
-services: backup
+title: Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
+description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare
 author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: utraghuv
-ms.openlocfilehash: eaa0c0dc45b37491cd55033b49e2f78d219d416b
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 1e643e74f35b381dfb329453d81615bc69785ed7
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565721"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465406"
 ---
-# <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper att skydda hybridsäkerhetskopieringar som använder Azure Backup
-Frågor om säkerhetsproblem, t.ex. skadlig kod, utpressningstrojaner och intrång, ökar. Dessa säkerhetsproblem kan vara kostsamma när det gäller både pengar och data. För att skydda mot sådana attacker, ger Azure Backup nu säkerhetsfunktioner för att skydda hybridsäkerhetskopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av ett Azure Recovery Services-agenten och Azure Backup Server. Dessa funktioner omfattar:
+# <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
+Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara och intrång, ökar. De här säkerhets problemen kan vara dyra, i termer av både Money och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av en Azure Recovery Services-agent och Azure Backup Server. Dessa funktioner omfattar:
 
-- **Förebyggande**. Ett extra lager av autentisering har lagts till när en kritisk åtgärd som ändrar en lösenfras utförs. Den här verifieringen är att säkerställa att sådana åtgärder kan bara utföras av användare som har giltiga autentiseringsuppgifter för Azure.
-- **Aviseringar**. Ett e-postmeddelande skickas till administratören för prenumeration när en kritisk åtgärd som tar bort säkerhetskopierade data utförs. Det här e-garanterar att användaren ska snabbt meddelas om sådana åtgärder.
-- **Recovery**. Borttagna bevaras säkerhetskopior för ytterligare 14 dagar från datumet då borttagningen. Detta säkerställer informationen kan återställas inom en viss tidsperiod, så det finns inga data går förlorade även om en attack inträffar. Dessutom bevaras ett större antal minsta återställningspunkter som skydd mot skadade data.
-
-> [!NOTE]
-> Säkerhetsfunktioner bör inte aktiveras om du använder infrastruktur som en tjänst (IaaS)-säkerhetskopiering. De här funktionerna finns ännu inte för IaaS VM-säkerhetskopiering, så att aktivera dem inte har någon effekt. Säkerhetsfunktioner ska aktiveras bara om du använder: <br/>
->  * **Azure Backup-agenten**. Minst agentversion 2.0.9052. När du har aktiverat dessa funktioner, bör du uppgradera till den agentversionen som ska utföra kritiska åtgärder. <br/>
->  * **Azure Backup Server**. Minsta Azure Backup-agentversionen 2.0.9052 med Azure Backup Server uppdatering 1. <br/>
->  * **System Center Data Protection Manager**. Minsta Azure Backup-agentversionen 2.0.9052 med Data Protection Manager 2012 R2 UR12 eller Data Protection Manager 2016 UR2. <br/>
-
+- **Förebyggande**. Ytterligare ett lager med autentisering läggs till när en kritisk åtgärd som att ändra en lösen fras utförs. Den här verifieringen är till för att säkerställa att sådana åtgärder bara kan utföras av användare som har giltiga autentiseringsuppgifter för Azure.
+- **Aviseringar**. Ett e-postmeddelande skickas till prenumerations administratören när en kritisk åtgärd som att ta bort säkerhetskopierade data utförs. Det här e-postmeddelandet garanterar att användaren snabbt meddelas om sådana åtgärder.
+- **Återställning**. Borttagna säkerhets kopierings data behålls under ytterligare 14 dagar från datumet för borttagningen. Detta säkerställer återhämtning av data inom en viss tids period, så det finns ingen data förlust även om ett angrepp sker. Dessutom behålls ett större antal lägsta återställnings punkter för att skydda mot skadade data.
 
 > [!NOTE]
-> Dessa funktioner är endast tillgänglig för Recovery Services-valvet. Alla nyligen skapade Recovery Services-valv har dessa funktioner aktiverade som standard. För befintliga Recovery Services-valv aktivera användare dessa funktioner med hjälp av stegen som beskrivs i följande avsnitt. När funktionerna som är aktiverade, de gäller för alla Recovery Services-agentdatorer, Azure Backup Server-instanser och Data Protection Manager-servrar som är registrerade med valvet. Om du aktiverar den här inställningen är en engångsåtgärd och du kan inte inaktivera dessa funktioner när du har aktiverat dem.
+> Säkerhetsfunktioner bör inte aktive ras om du använder IaaS (Infrastructure as a Service) för säkerhets kopiering av virtuella datorer. Dessa funktioner är ännu inte tillgängliga för IaaS VM-säkerhetskopiering, så att de inte påverkar några konsekvenser. Säkerhetsfunktioner ska bara aktive ras om du använder: <br/>
+>  * **Azure Backup Agent**. Lägsta agent version 2.0.9052. När du har aktiverat de här funktionerna bör du uppgradera till den här agent versionen för att utföra kritiska åtgärder. <br/>
+>  * **Azure Backup Server**. Lägsta Azure Backups agent version 2.0.9052 med Azure Backup Server uppdatering 1. <br/>
+>  * **System Center-Data Protection Manager**. Lägsta Azure Backups agent version 2.0.9052 med Data Protection Manager 2012 R2 UR12 eller Data Protection Manager 2016 UR2. <br/>
+
+
+> [!NOTE]
+> Dessa funktioner är endast tillgängliga för Recovery Services Vault. Alla nyligen skapade Recovery Services-valv har dessa funktioner aktiverade som standard. För befintliga Recovery Services-valv aktiverar användarna dessa funktioner med hjälp av de steg som beskrivs i följande avsnitt. När funktionerna har Aktiver ATS gäller de för alla Recovery Services agent-datorer, Azure Backup Server instanser och Data Protection Manager servrar som är registrerade med valvet. Att aktivera den här inställningen är en engångs åtgärd och du kan inte inaktivera dessa funktioner när du har aktiverat dem.
 >
 
 ## <a name="enable-security-features"></a>Aktivera säkerhetsfunktioner
-Om du skapar ett Recovery Services-valv, kan du använda alla säkerhetsfunktioner. Om du arbetar med ett befintligt valv, kan du aktivera funktioner för säkerhet genom att följa dessa steg:
+Om du skapar ett Recovery Services valv kan du använda alla säkerhetsfunktioner. Om du arbetar med ett befintligt valv aktiverar du säkerhetsfunktioner genom att följa dessa steg:
 
-1. Logga in på Azure-portalen med dina autentiseringsuppgifter för Azure.
-2. Välj **Bläddra**, och skriv **återställningstjänster**.
+1. Logga in på Azure Portal med dina Azure-autentiseringsuppgifter.
+2. Välj **Bläddra**och skriv **Recovery Services**.
 
-    ![Skärmbild av Azure portal bläddringsalternativet](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
+    ![Skärm bild av Azure Portal Browse-alternativ](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    Listan över Recovery Services-valv visas. Välj ett valv i den här listan. Instrumentpanelen för det valda valvet öppnas.
-3. I listan med objekt som visas under valvet under **inställningar**, klickar du på **egenskaper**.
+    Listan över Recovery Services-valv visas. Välj ett valv i listan. Instrumentpanelen för det valda valvet öppnas.
+3. I listan över objekt som visas under valvet klickar du på **Egenskaper**under **Inställningar**.
 
-    ![Skärmbild av Recovery Services-valv alternativ](./media/backup-azure-security-feature/vault-list-properties.png)
-4. Under **säkerhetsinställningar**, klickar du på **uppdatering**.
+    ![Skärm bild av Recovery Services valv alternativ](./media/backup-azure-security-feature/vault-list-properties.png)
+4. Under **säkerhets inställningar**klickar du på **Uppdatera**.
 
-    ![Skärmbild av Recovery Services-valvegenskaper](./media/backup-azure-security-feature/security-settings-update.png)
+    ![Skärm bild av Recovery Services valv egenskaper](./media/backup-azure-security-feature/security-settings-update.png)
 
-    Uppdateringslänken öppnas den **säkerhetsinställningar** blad som innehåller en sammanfattning av funktionerna och du kan aktivera dem.
-5. Från den nedrullningsbara listan **har du konfigurerat Azure Multi-Factor Authentication?** , Välj ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Om den är aktiverad, uppmanas du att autentisera från en annan enhet (till exempel en mobiltelefon) när du loggar in på Azure Portal.
+    Uppdaterings länken öppnar bladet **säkerhets inställningar** , som innehåller en sammanfattning av funktionerna och gör att du kan aktivera dem.
+5. I list rutan **har du konfigurerat Azure Multi-Factor Authentication?** , Välj ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Om den är aktive rad, uppmanas du att autentisera från en annan enhet (till exempel en mobil telefon) när du loggar in på Azure Portal.
 
-   Du måste ange en säkerhetskod, tillgängliga på Azure portal när du utför kritiska åtgärder i säkerhetskopian. Aktivera Azure Multi-Factor Authentication lägger till ett lager av säkerhet. Endast behöriga användare med giltiga autentiseringsuppgifter för Azure och autentiseras från en andra enhet kan komma åt Azure-portalen.
-6. Välj för att spara säkerhetsinställningar **aktivera** och klicka på **spara**. Du kan välja **aktivera** bara när du har valt ett värde från den **har du konfigurerat Azure Multi-Factor Authentication?** lista i föregående steg.
+   När du utför kritiska åtgärder i säkerhets kopiering måste du ange en säkerhets kod som är tillgänglig på Azure Portal. Aktivering av Azure Multi-Factor Authentication lägger till ett säkerhets lager. Endast auktoriserade användare med giltiga autentiseringsuppgifter för Azure och autentiserade från en andra enhet kan komma åt Azure Portal.
+6. Om du vill spara säkerhets inställningar väljer du **Aktivera** och klickar på **Spara**. Du kan bara välja **Aktivera** när du har valt ett värde i listan **har du konfigurerat Azure Multi-Factor Authentication?** i föregående steg.
 
-    ![Skärmbild av säkerhetsinställningar](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
+    ![Skärm bild av säkerhets inställningar](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
-## <a name="recover-deleted-backup-data"></a>Återställa borttagna säkerhetskopierade data
-Säkerhetskopiering behåller raderade säkerhetskopieringsdata för ytterligare 14 dagar och ta inte bort omedelbart om det **Avbryt säkerhetskopiering med ta bort säkerhetskopieringsdata** åtgärden utförs. Om du vill återställa dessa data i 14 dagars perioden, gör du följande, beroende på vad du använder:
+## <a name="recover-deleted-backup-data"></a>Återställa borttagna säkerhets kopierings data
+Säkerhets kopieringen behåller borttagna säkerhets kopierings data under ytterligare 14 dagar, och tar inte bort den omedelbart om åtgärden **stoppa säkerhets kopiering med ta bort säkerhetskopierade data** utförs. För att återställa dessa data under 14-dagars period, utför följande steg, beroende på vad du använder:
 
-För **Azure Recovery Services-agenten** användare:
+För **Azure Recovery Services agent** -användare:
 
-1. Om datorn där säkerhetskopior händer är fortfarande tillgänglig, skydda borttagna datakällorna igen och använder den [återställa data på samma dator](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) i Azure Recovery Services att komma tillrätta med de gamla återställningspunkterna.
-2. Om den här datorn inte är tillgänglig använder [Återställ till en annan dator](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) du använder en annan Azure Recovery Services-dator för att hämta dessa data.
+1. Om den dator där säkerhets kopiorna skedde fortfarande är tillgänglig, skyddar du de borttagna data källorna igen och använder återställnings [data till samma dator](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) i Azure Recovery Services för att återställa från alla gamla återställnings punkter.
+2. Om den här datorn inte är tillgänglig använder du [Återställ till en annan dator](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) för att använda en annan Azure Recovery Services dator för att hämta dessa data.
 
 För **Azure Backup Server** användare:
 
-1. Om servern där säkerhetskopior händer är fortfarande tillgänglig, skydda igen borttagna datakällorna och använder den **Återställ Data** funktionen för att återställa från de gamla återställningspunkterna.
-2. Om den här servern inte är tillgänglig, använda [återställa data från en annan Azure Backup Server](backup-azure-alternate-dpm-server.md) du använder en annan Azure Backup Server-instans för att hämta dessa data.
+1. Om den server där säkerhets kopiorna skedde fortfarande är tillgänglig, skyddar du de borttagna data källorna igen och använder funktionen **Återställ data** för att återställa från alla gamla återställnings punkter.
+2. Om den här servern inte är tillgänglig använder du [Återställ data från en annan Azure Backup Server](backup-azure-alternate-dpm-server.md) för att hämta dessa data med en annan Azure Backup Server instans.
 
 För **Data Protection Manager** användare:
 
-1. Om servern där säkerhetskopior händer är fortfarande tillgänglig, skydda igen borttagna datakällorna och använder den **Återställ Data** funktionen för att återställa från de gamla återställningspunkterna.
-2. Om den här servern inte är tillgänglig, använda [Lägg till extern DPM](backup-azure-alternate-dpm-server.md) du använder en annan Data Protection Manager-server för att hämta dessa data.
+1. Om den server där säkerhets kopiorna skedde fortfarande är tillgänglig, skyddar du de borttagna data källorna igen och använder funktionen **Återställ data** för att återställa från alla gamla återställnings punkter.
+2. Om den här servern inte är tillgänglig använder du [Lägg till extern DPM](backup-azure-alternate-dpm-server.md) för att använda en annan Data Protection Manager Server för att hämta dessa data.
 
 ## <a name="prevent-attacks"></a>Förhindra attacker
-Kontroller har lagts till att se till att endast giltiga användare kan utföra olika åtgärder. Dessa omfattar att lägga till ett extra lager av autentisering och underhålla en minsta Kvarhållningsintervall för återställningen.
+Checkar har lagts till för att se till att endast giltiga användare kan utföra olika åtgärder. Detta omfattar att lägga till ett extra lager av autentisering och upprätthålla ett minsta kvarhållningsintervall för återställnings syfte.
 
 ### <a name="authentication-to-perform-critical-operations"></a>Autentisering för att utföra kritiska åtgärder
-Som en del av att lägga till ett extra lager av autentisering för kritiska åtgärder kan du uppmanas att ange en säkerhetskod när du utför **stoppa skydd med borttagningsdata** och **ändra lösenfras** åtgärder.
+Som en del av att lägga till ett extra lager av autentisering för kritiska åtgärder uppmanas du att ange en säkerhets-PIN-kod när du **stoppar skyddet med ta bort data** och **ändra lösen Frass** åtgärder.
 
 > [!NOTE]
 > 
-> För närvarande säkerhetskoden stöds inte för **stoppa skydd med borttagningsdata** för DPM och MABS.
+> För närvarande stöds inte säkerhets kod för att **stoppa skyddet med ta bort data** för DPM och Mabs.
 
-Att ta emot den här PIN-kod:
+För att ta emot den här PIN-koden:
 
 1. Logga in på Azure Portal.
-2. Bläddra till **Recovery Services-valv** > **inställningar** > **egenskaper**.
-3. Under **SÄKERHETSKODEN**, klickar du på **generera**. Då öppnas ett blad som innehåller PIN-kod anges i användargränssnittet för Azure Recovery Services-agenten.
-    Den här PIN-kod är giltig i fem minuter och den hämtar genererat automatiskt efter den perioden.
+2. Bläddra till **Recovery Services** > **Egenskaper**för valv**Inställningar** > .
+3. Klicka på **generera**under **säkerhets-PIN**. Då öppnas ett blad som innehåller PIN-koden som ska anges i användar gränssnittet för Azure Recovery Services-agenten.
+    Den här PIN-koden är bara giltig i fem minuter och genereras automatiskt efter den perioden.
 
-### <a name="maintain-a-minimum-retention-range"></a>Underhålla en minsta Kvarhållningsintervall
-Följande kontroller har lagts till för att säkerställa att det finns alltid ett giltigt antal återställningspunkter:
+### <a name="maintain-a-minimum-retention-range"></a>Behåll ett minsta kvarhållningsintervall
+Följande kontroller har lagts till för att säkerställa att det alltid finns ett giltigt antal tillgängliga återställnings punkter:
 
-- För bevarande varje dag, minst **sju** dagars kvarhållning ska göras.
-- För kvarhållning av veckovis, minst **fyra** veckors kvarhållning ska göras.
-- För kvarhållning av månatlig, minst **tre** månaders kvarhållning ska göras.
-- För kvarhållning av årlig, minst **en** års kvarhållning ska göras.
+- För daglig kvarhållning bör minst **sju** dagars kvarhållning göras.
+- För veckovis kvarhållning bör minst **fyra** veckor för kvarhållning göras.
+- För månatlig kvarhållning bör minst **tre** månaders kvarhållning göras.
+- För årlig kvarhållning bör minst **ett års** kvarhållning göras.
 
 ## <a name="notifications-for-critical-operations"></a>Meddelanden om kritiska åtgärder
-När en kritisk åtgärd utförs vanligtvis skickas administratören för prenumeration ett e-postmeddelande med information om åtgärden. Du kan konfigurera ytterligare e-postmottagare för dessa meddelanden med hjälp av Azure portal.
+När en kritisk åtgärd utförs, skickas vanligt vis prenumerations administratören till ett e-postmeddelande med information om åtgärden. Du kan konfigurera ytterligare e-postmottagare för dessa aviseringar med hjälp av Azure Portal.
 
-Säkerhetsfunktioner som nämns i den här artikeln har funktioner för skydd mot riktade attacker. Viktigast av allt, om en attack inträffar kan ger de här funktionerna dig möjlighet att återställa dina data.
+Säkerhetsfunktionerna som nämns i den här artikeln ger skydds metoder mot riktade attacker. Det är viktigt att du kan återställa dina data om ett angrepp sker.
 
 ## <a name="troubleshooting-errors"></a>Felsöka fel
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Ändring av |Det gick inte att ändra säkerhetskopieringsprincipen. Fel: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak:**<br/>Det här felet är när säkerhetsinställningar har aktiverats, försök att minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du har en version som inte stöds (versioner som stöds anges i första anteckna den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ange kvarhållningsperiod ovanför den minsta Kvarhållningsintervall angiven tidsperiod (sju dagar för varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) relaterade uppdateringar att fortsätta med principen. Du kan också är önskad metod att uppdatera backup-agenten, Azure Backup Server och/eller DPM UR utnyttja alla säkerhetsuppdateringar. |
-| Ändra lösenfras |Säkerhetskoden är felaktig. (ID: 100130) Ange rätt SÄKERHETSKOD för att slutföra åtgärden. |**Orsak:**<br/> Det här felet kommer när du anger ogiltiga eller utgångna SÄKERHETSKODEN under kritiska åtgärd (t.ex. Ändra lösenfras). <br/>**Rekommenderad åtgärd:**<br/> Du måste ange giltiga SÄKERHETSKODEN för att slutföra åtgärden. PIN-koden får logga in på Azure-portalen och gå till Recovery Services-valvet > Inställningar > Egenskaper > Skapa SÄKERHETSKOD. Använd den här PIN-kod för att ändra lösenfras. |
-| Ändra lösenfras |Åtgärden misslyckades. ID: 120002 |**Orsak:**<br/>Det här felet kommer när säkerhetsinställningar har aktiverats, försök att ändra lösenfras och du har en version som inte stöds (giltigt versioner som anges i första anteckna den här artikeln).<br/>**Rekommenderad åtgärd:**<br/> Om du vill ändra lösenfras måste du först uppdatera backup-agenten till minimiversion minsta 2.0.9052, Azure Backup server till minsta update 1, och/eller att DPM ska minsta DPM 2012 R2 UR12 eller DPM 2016 UR2 (download länkarna nedan), och ange sedan giltig säkerhets-PIN. PIN-koden får logga in på Azure-portalen och gå till Recovery Services-valvet > Inställningar > Egenskaper > Skapa SÄKERHETSKOD. Använd den här PIN-kod för att ändra lösenfras. |
+| Princip ändring |Det gick inte att ändra säkerhets kopierings principen. Fel: Den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du är på en version som inte stöds (versioner som stöds anges i den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ställa in kvarhållningsperioden över den minsta kvarhållningsperioden som har angetts (sju dagar i varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) för att fortsätta med princip relaterade uppdateringar. Du kan också välja önskad metod för att uppdatera säkerhets kopierings agenten, Azure Backup Server och/eller DPM-UR för att utnyttja alla säkerhets uppdateringar. |
+| Ändra lösen fras |Den angivna säkerhets koden är felaktig. (ID: 100130) ange rätt säkerhets kod för att slutföra den här åtgärden. |**Orsak**<br/> Det här felet uppstår när du anger en ogiltig eller utgången säkerhets kod när du utför en kritisk åtgärd (t. ex. ändrings fras). <br/>**Rekommenderad åtgärd:**<br/> Du måste ange en giltig säkerhets kod för att slutföra åtgärden. För att få PIN-koden loggar du in på Azure Portal och navigerar till Recovery Services valv > Inställningar > Egenskaper > Skapa säkerhets kod. Använd den här PIN-koden för att ändra lösen fras. |
+| Ändra lösen fras |Åtgärden kunde inte utföras. ID: 120002 |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker ändra lösen fras och du är på en version som inte stöds (giltiga versioner som anges i den här artikeln).<br/>**Rekommenderad åtgärd:**<br/> Om du vill ändra lösen frasen måste du först uppdatera säkerhets kopierings agenten till lägsta möjliga version 2.0.9052, Azure Backup server till minst uppdatering 1 och/eller DPM för att minst DPM 2012 R2 UR12 eller DPM 2016 UR2 (hämta länkar nedan). Ange sedan en giltig PIN-kod för säkerhet. För att få PIN-koden loggar du in på Azure Portal och navigerar till Recovery Services valv > Inställningar > Egenskaper > Skapa säkerhets kod. Använd den här PIN-koden för att ändra lösen fras. |
 
 ## <a name="next-steps"></a>Nästa steg
-* [Kom igång med Azure Recovery Services-valv](backup-azure-vms-first-look-arm.md) att aktivera dessa funktioner.
-* [Hämta den senaste Azure Recovery Services-agenten](https://aka.ms/azurebackup_agent) för att skydda Windows-datorer och skydda dina säkerhetskopierade data mot attacker.
-* [Ladda ned den senaste Azure Backup Server](https://aka.ms/latest_azurebackupserver) för att skydda arbetsbelastningar och skydda dina säkerhetskopierade data mot attacker.
-* [Ladda ned UR12 för System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) eller [hämta UR2 för System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) för att skydda arbetsbelastningar och skydda dina säkerhetskopierade data mot attacker.
+* [Kom igång med Azure Recovery Services Vault](backup-azure-vms-first-look-arm.md) för att aktivera dessa funktioner.
+* [Hämta den senaste Azure Recovery Services](https://aka.ms/azurebackup_agent) -agenten för att skydda Windows-datorer och skydda dina säkerhets kopierings data mot attacker.
+* [Hämta den senaste Azure Backup Server](https://aka.ms/latest_azurebackupserver) för att skydda arbets belastningar och skydda dina säkerhets kopierings data mot attacker.
+* [Hämta UR12 för system center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) eller [Hämta UR2 för system Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) för att skydda arbets belastningar och skydda dina säkerhets kopierings data mot attacker.

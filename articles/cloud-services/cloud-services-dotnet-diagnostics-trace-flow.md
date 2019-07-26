@@ -1,46 +1,41 @@
 ---
-title: Spåra flödet i en Cloud Services-program med Azure Diagnostics | Microsoft Docs
-description: Lägga till spårning av meddelanden till ett Azure-program för att felsökning, mäta prestanda, övervakning, analysen av nätverkstrafik med mera.
+title: Spåra flödet i ett Cloud Services program med Azure-diagnostik | Microsoft Docs
+description: Lägg till spårnings meddelanden i ett Azure-program för att felsöka, mäta prestanda, övervaka, trafik analys med mera.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 09934772-cc07-4fd2-ba88-b224ca192f8e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: jeconnoc
-ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: e3e34ff9b5ce1c3a7b45468d22faddddf0c9a913
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336872"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359146"
 ---
-# <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Spåra flödet för en Cloud Services-program med Azure Diagnostics
-Spårning är ett sätt för dig att övervaka körning av ditt program när den körs. Du kan använda den [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), och [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) klasser för att samla in information om fel och program som körs i loggar, textfiler och andra enheter för senare analys. Läs mer om spårning av [spårning och instrumentering av program](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
+# <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Spåra flödet av ett Cloud Services program med Azure-diagnostik
+Spårning är ett sätt för dig att övervaka körningen av programmet medan den körs. Du kan använda klasserna [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace), [system. Diagnostics. debug](/dotnet/api/system.diagnostics.debug)och [system. Diagnostics. TraceSource](/dotnet/api/system.diagnostics.tracesource) för att registrera information om fel och program körning i loggar, textfiler eller andra enheter för senare analys. Mer information om spårning finns i spårnings- [och Instrumentation-program](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
 
-## <a name="use-trace-statements-and-trace-switches"></a>Använd spårningsinstruktioner och spåra växlar
-Implementera spårning i Cloud Services-program genom att lägga till den [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) programkonfigurationen och anrop till System.Diagnostics.Trace eller System.Diagnostics.Debug i din programkod. Använda konfigurationsfilen *app.config* för worker-roller och *web.config* för web-roller. När du skapar en ny värdbaserad tjänst med hjälp av en mall för Visual Studio, Azure Diagnostics läggs automatiskt till projektet och DiagnosticMonitorTraceListener läggs till i lämpliga konfigurationsfilen för de roller som du lägger till.
+## <a name="use-trace-statements-and-trace-switches"></a>Använda spårnings-och spårnings växlar
+Implementera spårning i Cloud Services programmet genom att lägga till [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) i program konfigurationen och göra anrop till system. Diagnostics. trace eller system. Diagnostics. debug i din program kod. Använd konfigurations filen *app. config* för Worker-roller och *Web. config* för webb roller. När du skapar en ny värdbaserad tjänst med hjälp av en Visual Studio-mall läggs Azure-diagnostik automatiskt till i projektet och DiagnosticMonitorTraceListener läggs till i rätt konfigurations fil för de roller som du lägger till.
 
-Information om placera spårningsinstruktioner som finns i [så här: Lägga till Trace-satser i programkoden](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+Information om hur du placerar spårnings instruktioner [finns i How to: Lägg till spårnings instruktioner till](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)program koden.
 
-Genom att placera [Trace växlar](/dotnet/framework/debug-trace-profile/trace-switches) i din kod, du kan styra om spårning av sker och hur omfattande som den är. På så sätt kan du övervaka status för ditt program i en produktionsmiljö. Detta är särskilt viktigt i ett affärsprogram som använder flera komponenter som körs på flera datorer. Mer information finns i [Gör så här: Konfigurera spårning växlar](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
+Genom att placera [spårnings växlar](/dotnet/framework/debug-trace-profile/trace-switches) i din kod kan du kontrol lera om spårning sker och hur omfattande det är. På så sätt kan du övervaka programmets status i en produktions miljö. Detta är särskilt viktigt i ett affärs program som använder flera komponenter som körs på flera datorer. Mer information finns i [så här: Konfigurera spårnings](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches)växlar.
 
-## <a name="configure-the-trace-listener-in-an-azure-application"></a>Konfigurera spårning-lyssnare i Azure-program
-Spårning, felsökning och TraceSource, måste du ställa in ”lyssnare” för att samla in och registrera de meddelanden som skickas. Lyssnare samla in, lagra och dirigera spårning av meddelanden. De direkta spårningsdata till en lämplig mål, till exempel en logg, fönster eller textfil. Azure-diagnostik använder den [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) klass.
+## <a name="configure-the-trace-listener-in-an-azure-application"></a>Konfigurera spårnings lyssnaren i ett Azure-program
+Trace, debug och TraceSource kräver att du konfigurerar "lyssnare" för att samla in och registrera meddelanden som skickas. Lyssnare samlar in, lagrar och dirigerar spårnings meddelanden. De dirigerar spårnings resultatet till ett lämpligt mål, till exempel en logg, ett fönster eller en textfil. Azure-diagnostik använder klassen [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) .
 
-Innan du slutför följande procedur måste du initiera Azure diagnostikövervakare. För att göra detta, se [aktiverar diagnostik i Microsoft Azure](cloud-services-dotnet-diagnostics.md).
+Innan du slutför följande procedur måste du initiera Azure Diagnostic Monitor. Information om hur du gör detta finns [i Aktivera diagnostik i Microsoft Azure](cloud-services-dotnet-diagnostics.md).
 
-Observera att om du använder mallar som tillhandahålls av Visual Studio, konfigurationen av lyssnaren har lagts till automatiskt åt dig.
+Observera att om du använder mallarna som tillhandahålls av Visual Studio läggs konfigurationen av lyssnaren till automatiskt åt dig.
 
-### <a name="add-a-trace-listener"></a>Lägg till en trace-lyssnare
-1. Öppna filen web.config eller app.config för din roll.
-2. Lägg till följande kod i filen. Ändra Versionsattributet om du vill använda det lägre versionsnumret för den sammansättning som du refererar till. Sammansättningsversionen ändras inte nödvändigtvis med varje Azure SDK-version om det finns uppdateringar till den.
+### <a name="add-a-trace-listener"></a>Lägg till en spårnings lyssnare
+1. Öppna filen Web. config eller app. config för din roll.
+2. Lägg till följande kod i filen. Ändra versions-attributet så att det använder versions numret för den sammansättning som du refererar till. Sammansättnings versionen ändras inte nödvändigt vis med varje Azure SDK-utgåva om det inte finns några uppdateringar.
    
     ```
     <system.diagnostics>
@@ -59,21 +54,21 @@ Observera att om du använder mallar som tillhandahålls av Visual Studio, konfi
     </system.diagnostics>
     ```
    > [!IMPORTANT]
-   > Kontrollera att du har en projektreferens till sammansättningen Microsoft.WindowsAzure.Diagnostics. Uppdatera versionsnumret i xml ovan för att matcha versionen av den refererade sammansättningen Microsoft.WindowsAzure.Diagnostics.
+   > Se till att du har en projekt referens till sammansättningen Microsoft. WindowsAzure. Diagnostics. Uppdatera versions numret i XML-koden ovan för att matcha versionen för den refererade sammansättningen av Microsoft. WindowsAzure. Diagnostics.
    > 
    > 
-3. Spara konfigurationsfilen.
+3. Spara konfigurations filen.
 
-Läs mer om lyssnare [Trace lyssnare](/dotnet/framework/debug-trace-profile/trace-listeners).
+Mer information om lyssnare finns i [spåra lyssnare](/dotnet/framework/debug-trace-profile/trace-listeners).
 
-När du har slutfört stegen för att lägga till lyssnaren kan du lägga till spårningsinstruktioner som din kod.
+När du har slutfört stegen för att lägga till lyssnaren kan du lägga till spårnings uttryck i koden.
 
-### <a name="to-add-trace-statement-to-your-code"></a>Att lägga till spårningsinstruktionen i din kod
-1. Öppna en källfil för programmet. Till exempel den \<RoleName > .cs fil för web-roll eller worker-roll.
-2. Lägg till följande med instruktionen om den inte redan har lagts:
+### <a name="to-add-trace-statement-to-your-code"></a>Lägga till en spårnings instruktion i koden
+1. Öppna en källfil för programmet. Till exempel \<rolename-filen >. cs för arbets rollen eller webb rollen.
+2. Lägg till följande using-instruktion om den inte redan har lagts till:
     ```
         using System.Diagnostics;
     ```
-3. Lägg till spårningsinstruktioner som där du vill samla in information om tillståndet för ditt program. Du kan använda olika metoder för att formatera utdata från spårningsinstruktionen. Mer information finns i [Gör så här: Lägga till Trace-satser i programkoden](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
-4. Spara källfilen.
+3. Lägg till spårnings instruktioner där du vill samla in information om appens tillstånd. Du kan använda olika metoder för att formatera utdata från trace-instruktionen. Mer information finns i [så här: Lägg till spårnings instruktioner till](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)program koden.
+4. Spara käll filen.
 

@@ -1,7 +1,7 @@
 ---
 title: Hantera roller i en Azure Machine Learning-arbetsyta
 titleSuffix: Azure Machine Learning service
-description: Lär dig mer om att få åtkomst till en arbetsyta för Azure Machine Learning-tjänsten som använder rollbaserad åtkomstkontroll (RBAC).
+description: Lär dig hur du kommer åt en Azure Machine Learning service-arbetsyta med rollbaserad åtkomst kontroll (RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,48 +11,48 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4a5723b2ffbd34fd7cf022bf747b4504b3bdac53
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 0f28397717d5c89e5a5bcd5e7bdc17b4feb49577
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797663"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467980"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
-I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Machine Learning-arbetsyta. [Rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/overview) används för att hantera åtkomst till Azure-resurser. Användare i Azure Active Directory tilldelas för specifika roller som beviljar åtkomst till resurser. Azure tillhandahåller både inbyggda roller och möjligheten att skapa anpassade roller.
+I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Machine Learning-arbetsyta. [Rollbaserad åtkomst kontroll (RBAC)](/azure/role-based-access-control/overview) används för att hantera åtkomst till Azure-resurser. Användare i Azure Active Directory tilldelas vissa roller som ger åtkomst till resurser. Azure tillhandahåller både inbyggda roller och möjligheten att skapa anpassade roller.
 
-## <a name="default-roles"></a>Standardroller
+## <a name="default-roles"></a>Standard roller
 
-En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machine Learning-arbetsytan har skapats som andra Azure-resurser kommer med tre standardroller. Du kan lägga till användare till arbetsytan och tilldela dem till någon av dessa inbyggda roller.
+En Azure Machine Learning-arbetsyta är en Azure-resurs. Precis som andra Azure-resurser, och när en ny Azure Machine Learning arbets yta skapas, levereras den med tre standard roller. Du kan lägga till användare i arbets ytan och tilldela dem till någon av dessa inbyggda roller.
 
 | Role | Åtkomstnivå |
 | --- | --- |
-| **Läsare** | Skrivskyddade åtgärder på arbetsytan. Läsare kan listan och visa tillgångar i en arbetsyta, men det går inte att skapa eller uppdatera dessa tillgångar. |
-| **Deltagare** | Visa, skapa, redigera eller ta bort (om tillämpligt) tillgångar i en arbetsyta. Till exempel kan deltagare skapa ett experiment, skapa eller koppla ett beräkningskluster, skicka en körning och distribuera en webbtjänst. |
-| **Ägare** | Fullständig åtkomst till arbetsytan, inklusive möjligheten att visa, skapa, redigera eller ta bort (om tillämpligt) tillgångar i en arbetsyta. Du kan dessutom ändra rolltilldelningar. |
+| **Läsare** | Skrivskyddade åtgärder på arbets ytan. Läsarna kan visa och Visa till gångar i en arbets yta, men kan inte skapa eller uppdatera dessa till gångar. |
+| **Deltagare** | Visa, skapa, redigera eller ta bort (om det är tillämpligt) till gångar i en arbets yta. Deltagare kan till exempel skapa ett experiment, skapa eller ansluta ett beräknings kluster, skicka in en körning och distribuera en webb tjänst. |
+| **Ägare** | Fullständig åtkomst till arbets ytan, inklusive möjligheten att visa, skapa, redigera eller ta bort (om tillämpligt) till gångar i en arbets yta. Dessutom kan du ändra roll tilldelningar. |
 
 > [!IMPORTANT]
-> Rollåtkomst kan begränsas till flera nivåer i Azure. Någon med ägaråtkomst till en arbetsyta kan till exempel inte ha ägaråtkomst till resursgruppen som innehåller arbetsytan. Mer information finns i [hur RBAC fungerar](/azure/role-based-access-control/overview#how-rbac-works).
+> Roll åtkomsten kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägar åtkomst till en arbets yta saknar ägar åtkomst till den resurs grupp som innehåller arbets ytan. Mer information finns i [hur RBAC fungerar](/azure/role-based-access-control/overview#how-rbac-works).
 
-Mer information om specifika inbyggda roller finns i [inbyggda roller för Azure](/azure/role-based-access-control/built-in-roles).
+Mer information om de inbyggda rollerna finns i [inbyggda roller för Azure](/azure/role-based-access-control/built-in-roles).
 
-## <a name="manage-workspace-access"></a>Hantera åtkomst till arbetsytan
+## <a name="manage-workspace-access"></a>Hantera åtkomst till arbets ytan
 
-Om du är ägare till en arbetsyta kan du lägga till och ta bort roller för arbetsytan. Du kan också tilldela roller till användare. Använd följande länkar för att se hur du hanterar åtkomst:
-- [Azure-portalens användargränssnitt](/azure/role-based-access-control/role-assignments-portal)
+Om du är ägare till en arbets yta kan du lägga till och ta bort roller för arbets ytan. Du kan också tilldela roller till användare. Använd följande länkar för att identifiera hur du hanterar åtkomst:
+- [Azure Portal användar gränssnitt](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST-API](/azure/role-based-access-control/role-assignments-rest)
-- [Azure Resource Manager-mallar](/azure/role-based-access-control/role-assignments-template)
+- [Azure Resource Manager mallar](/azure/role-based-access-control/role-assignments-template)
 
-Om du har installerat den [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), du kan också använda en CLI-kommando för att tilldela roller till användare.
+Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du också använda ett CLI-kommando för att tilldela roller till användare.
 
 ```azurecli-interactive 
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-Den `user` fältet är den e-postadressen för en befintlig användare instans av Azure Active Directory var den överordnade prenumerationen för arbetsytan finns. Här är ett exempel på hur du använder det här kommandot:
+`user` Fältet är e-postadressen till en befintlig användare i instansen av Azure Active Directory där arbets ytans överordnade prenumeration finns. Här är ett exempel på hur du använder det här kommandot:
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -60,12 +60,12 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="create-custom-role"></a>Skapa anpassad roll
 
-Om det finns inte tillräckligt med inbyggda roller, kan du skapa anpassade roller. Anpassade roller kan ha läsa, skriva, ta bort och compute resursbehörighet på arbetsytan. Du kan göra rollen på en viss arbetsyta-nivå, en specifik resursgruppsnivå eller en specifik prenumerationsnivå.
+Om de inbyggda rollerna är otillräckliga kan du skapa anpassade roller. Anpassade roller kan ha behörigheterna läsa, skriva, ta bort och beräkna resurs på arbets ytan. Du kan göra rollen tillgänglig på en speciell arbets yta, en bestämd resurs grupps nivå eller en speciell prenumerations nivå.
 
 > [!NOTE]
-> Du måste vara ägare av resursen på den nivån för att skapa anpassade roller i den här resursen.
+> Du måste vara ägare till resursen på den nivån för att skapa anpassade roller i resursen.
 
-Om du vill skapa en anpassad roll, skapa först en roll definition JSON-fil som anger behörighet och omfång för rollen. I följande exempel definierar en anpassad roll med namnet ”dataexpert” omfång på en viss arbetsyta-nivå:
+Skapa en anpassad roll genom att skapa en JSON-fil för roll definition som anger behörigheten och omfånget för rollen. I följande exempel definieras en anpassad roll med namnet "data expert" på en speciell arbets ytans nivå:
 
 `data_scientist_role.json` :
 ```json
@@ -86,25 +86,25 @@ Om du vill skapa en anpassad roll, skapa först en roll definition JSON-fil som 
 }
 ```
 
-Du kan ändra den `AssignableScopes` fält för att ange omfånget för den här anpassade rollen på prenumerationsnivån, resursgruppsnivå eller en viss arbetsyta.
+Du kan ändra `AssignableScopes` fältet för att ange omfånget för den här anpassade rollen på prenumerations nivå, resurs grupp nivå eller en speciell arbets ytans nivå.
 
-Den här anpassade rollen kan göra allt i arbetsytan förutom följande åtgärder:
+Den här anpassade rollen kan göra allt på arbets ytan, förutom följande åtgärder:
 
-- Det går inte att skapa eller uppdatera en beräkningsresurs.
-- Det går inte att ta bort en beräkningsresurs.
-- Det går inte att lägga till, ta bort eller ändra rolltilldelningar.
-- Det går inte att ta bort arbetsytan.
+- Det går inte att skapa eller uppdatera en beräknings resurs.
+- Det går inte att ta bort en beräknings resurs.
+- Det går inte att lägga till, ta bort eller ändra roll tilldelningar.
+- Det går inte att ta bort arbets ytan.
 
-Om du vill distribuera den här anpassade rollen, använder du följande Azure CLI-kommando:
+Använd följande Azure CLI-kommando för att distribuera den här anpassade rollen:
 
 ```azurecli-interactive 
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Efter distributionen kan blir den här rollen tillgänglig i den angivna arbetsytan. Du kan nu lägga till och tilldela den här rollen i Azure-portalen. Eller så kan du tilldela den här rollen till en användare med hjälp av den `az ml workspace share` CLI-kommando:
+Efter distributionen blir den här rollen tillgänglig på den angivna arbets ytan. Nu kan du lägga till och tilldela den här rollen i Azure Portal. Du kan också tilldela rollen till en användare med hjälp `az ml workspace share` av CLI-kommandot:
 
 ```azurecli-interactive
-az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
 
@@ -112,6 +112,6 @@ Mer information finns i [anpassade roller för Azure-resurser](/azure/role-based
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Enterprise-säkerhet](concept-enterprise-security.md)
-- [Kör säkert experiment och inferens/poäng i ett virtuellt nätverk](how-to-enable-virtual-network.md)
-- [Självstudier: Skapa modeller](tutorial-train-models-with-aml.md)
+- [Översikt över företags säkerhet](concept-enterprise-security.md)
+- [Köra experiment och härledning/Poäng i ett virtuellt nätverk på ett säkert sätt](how-to-enable-virtual-network.md)
+- [Självstudier: Träna modeller](tutorial-train-models-with-aml.md)

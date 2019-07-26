@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/07/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: f44cb90beb7c1c544cb135f277fc12f724769b65
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 819b0f94f2dc8742b658dbd3aaa87108f204d2a7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846982"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406083"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för replikering av virtuella Azure-datorer från en region till en annan
 
@@ -48,7 +48,7 @@ Du kan replikera och återställa virtuella datorer mellan två regioner i samma
 -- | --
 Vägnar | Östra Kanada, centrala Kanada, södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2, centrala USA, norra centrala USA
 Europa | Storbritannien, västra, Storbritannien, södra, Nord Europa, Västeuropa, västra Frankrike, södra Frankrike, västra Sydafrika, norra Sydafrika
-Asien | Södra Indien, centrala Indien, Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Korea
+Asien | Södra Indien, centrala Indien, västra Indien, Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Korea, centrala Förenade Arabemiraten Central, Förenade Arabemiraten Nord
 Australien   | Australien, östra, Australien, sydöstra, Australien, centrala, Australien, centrala 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, USA DOD öst, USA DOD Central 
 Tyskland | Tyskland, centrala, Tyskland nordöstra
@@ -64,7 +64,7 @@ Kina | Kina, östra, Kina, norra, Kina North2, Kina östra
 
 
 
-## <a name="cache-storage"></a>Cache Storage
+## <a name="cache-storage"></a>Cachelagring
 
 I den här tabellen sammanfattas stödet för cache Storage-kontot som används av Site Recovery under replikeringen.
 
@@ -155,7 +155,7 @@ Size | Valfri storlek på virtuella Azure-datorer med minst 2 processor kärnor 
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standard alternativen skapas en tillgänglighets uppsättning automatiskt, baserat på käll regions inställningarna. Du kan ändra de här inställningarna.
 Tillgänglighetszoner | Stöds |
 Hybrid användnings förmånen (hubb) | Stöds | Om den virtuella käll datorn har en nav-licens aktive rad, används även HUB-licensen i en redundanstest eller redundansväxling av den virtuella datorn.
-Skalningsuppsättning för virtuella datorer | Stöds inte |
+VM-skalningsuppsättningar | Stöds inte |
 Azure Gallery-bilder – Microsoft publicerat | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Azure Gallery-avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Anpassade avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
@@ -182,7 +182,7 @@ Den här tabellen sammanfattade stödet för den virtuella Azure OS-disken, data
 --- | --- | ---
 Maximal storlek för OS-disk | 2048 GB | [Läs mer](../virtual-machines/windows/managed-disks-overview.md) om VM-diskar.
 Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från replikering.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/managed-disks-overview.md).
-Maximal storlek för data disk | 4 095 GB |
+Maximal storlek för data disk | 8192 GB för Managed disks<br></br>4095 GB för ohanterade diskar|
 Minsta storlek för data disk | Ingen begränsning för ohanterade diskar. 2 GB för hanterade diskar | 
 Högsta antal data diskar | Upp till 64, i enlighet med stöd för en speciell storlek på virtuell Azure-dator | [Läs mer](../virtual-machines/windows/sizes.md) om storlekar på virtuella datorer.
 Ändrings takt för data disk | Högst 10 MBps per disk för Premium Storage. Högst 2 Mbit/s per disk för standard lagring. | Om genomsnitts data ändrings takten på disken kontinuerligt är högre än det högsta antalet kommer replikering inte att fångas upp.<br/><br/>  Men om det maximala värdet överskrids sporadisk, kan replikeringen fångas upp, men du kan se något fördröjda återställnings punkter.
@@ -234,7 +234,7 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per di
 ## <a name="replicated-machines---networking"></a>Replikerade datorer – nätverk
 **Inställning** | **Support** | **Detaljer**
 --- | --- | ---
-NIC | Maximalt antal som stöds för en angiven storlek på virtuell Azure-dator | Nätverkskort skapas när den virtuella datorn skapas under redundansväxling.<br/><br/> Antalet nätverkskort på den virtuella redundansväxlingen är beroende av antalet nätverkskort på den virtuella käll datorn när replikering har Aktiver ATS. Om du lägger till eller tar bort ett nätverkskort efter att ha aktiverat replikering, påverkar det inte antalet nätverkskort på den replikerade virtuella datorn efter redundansväxlingen. Observera också att ordningen på nätverkskort efter redundansväxlingen inte garanterat är densamma som den ursprungliga ordningen.
+Nätverkskort | Maximalt antal som stöds för en angiven storlek på virtuell Azure-dator | Nätverkskort skapas när den virtuella datorn skapas under redundansväxling.<br/><br/> Antalet nätverkskort på den virtuella redundansväxlingen är beroende av antalet nätverkskort på den virtuella käll datorn när replikering har Aktiver ATS. Om du lägger till eller tar bort ett nätverkskort efter att ha aktiverat replikering, påverkar det inte antalet nätverkskort på den replikerade virtuella datorn efter redundansväxlingen. Observera också att ordningen på nätverkskort efter redundansväxlingen inte garanterat är densamma som den ursprungliga ordningen.
 Internet-lastbalanserare | Stöds | Koppla den förkonfigurerade belastningsutjämnaren med hjälp av ett Azure Automation-skript i en återställnings plan.
 Intern belastningsutjämnare | Stöds | Koppla den förkonfigurerade belastningsutjämnaren med hjälp av ett Azure Automation-skript i en återställnings plan.
 Offentlig IP-adress | Stöds | Koppla en befintlig offentlig IP-adress till NÄTVERKSKORTet. Du kan också skapa en offentlig IP-adress och associera den med NÄTVERKSKORTet med hjälp av ett Azure Automation-skript i en återställnings plan.
@@ -251,7 +251,7 @@ Autentiserad proxy | Stöds inte | Om den virtuella datorn använder en autentis
 VPN plats-till-plats-anslutning till lokal plats<br/><br/>(med eller utan ExpressRoute)| Stöds | Se till att UDR och NSG: er har kon figurer ATS på ett sådant sätt att den Site Recovery trafiken inte dirigeras till lokalt. [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET-till-VNET-anslutning | Stöds | [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)  
 Tjänstslutpunkter för virtuellt nätverk | Stöds | Om du begränsar det virtuella nätverkets åtkomst till lagrings konton måste du se till att de betrodda Microsoft-tjänsterna har åtkomst till lagrings kontot.
-Snabbare nätverk | Stöds | Accelererat nätverk måste vara aktiverat på den virtuella käll datorn. [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Accelererat nätverk | Stöds | Accelererat nätverk måste vara aktiverat på den virtuella käll datorn. [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

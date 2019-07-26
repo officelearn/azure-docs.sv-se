@@ -1,97 +1,78 @@
 ---
-title: Azure Active Directory Identity Protection risk-händelser | Microsoft Docs
-description: Referera till Azure Active Directory Identity Protection riskhändelser.
+title: Referens för Azure Active Directory Identity Protection risk händelser | Microsoft Docs
+description: Referens för Azure Active Directory Identity Protection risk händelser.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/25/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08e27052c3583ddea7a2fb6fe96fa6b48cd6c372
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65191529"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333878"
 ---
-# <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referera till Azure Active Directory Identity Protection riskhändelser
+# <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referens för Azure Active Directory Identity Protection risk händelser
 
-Merparten av säkerhetsbrott sker när angripare får tillgång till en miljö genom att stjäla en användares identitet. Identifiera komprometterade identiteter är ingen enkelt uppgift. Azure Active Directory använder anpassningsbara maskininlärningsalgoritmer och heuristik för att identifiera misstänkta åtgärder relaterade till dina användarkonton. Varje identifierad misstänkt åtgärd lagras i en post kallas riskhändelse.
-
+De flesta säkerhets överträdelser sker när angripare får åtkomst till en miljö genom att stjäla en användares identitet. Det är ingen enkel uppgift att identifiera komprometterade identiteter. Azure Active Directory använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje identifierad misstänkt åtgärd lagras i en post som kallas risk händelse.
 
 ## <a name="anonymous-ip-address"></a>Anonym IP-adress
 
-**Identifieringstyp av:** I realtid  
-**Gammalt namn:** Inloggningar från anonyma IP-adress
+**Identifierings typ:** Realtid  
+**Gammalt namn:** Inloggningar från anonym IP-adress
 
+Den här typen av risk händelse indikerar inloggningar från en anonym IP-adress (till exempel Tor webbläsare, Anonymizer VPN).
+Dessa IP-adresser används vanligt vis av aktörer som vill dölja sin login telemetri (IP-adress, plats, enhet osv.) för potentiellt skadliga avsikter.
 
-Den här riskhändelsetyp anger inloggningar från en anonym IP-adress (exempel: Tor webbläsare, anonymizer VPN).
-Dessa IP-adresser som vanligtvis används av aktörer som vill dölja sina inloggningen telemetri (IP-adress, plats, enhet o.s.v.) för potentiellt skadliga avsikter.
+## <a name="atypical-travel"></a>Ovanlig resa
 
+**Identifierings typ:** Offline  
+**Gammalt namn:** Omöjligt att resa till ovanliga platser
 
-## <a name="atypical-travel"></a>Ovanliga resa
+Den här typen av risk händelser identifierar två inloggningar som härstammar från geografiskt avlägsna platser, där minst en av platserna också kan vara ovanlig för användaren, med hänsyn till tidigare beteende. Bland flera andra faktorer tar den här Machine Learning-algoritmen hänsyn till tiden mellan de två inloggningarna och den tid det skulle ha tagit för användaren att resa från den första platsen till den andra, vilket indikerar att en annan användare använder samma klientautentiseringsuppgifter.
 
-**Identifieringstyp av:** Offline  
-**Gammalt namn:** Omöjliga resor till ovanliga platser
+Algoritmen ignorerar uppenbara "falska positiva identifieringar" som bidrar till de omöjliga rese villkoren, till exempel VPN och platser som regelbundet används av andra användare i organisationen. Systemet har en inledande inlärnings period på tidigast 14 dagar eller 10 inloggningar, under vilken den lär sig en ny användares inloggnings beteende.
 
+## <a name="leaked-credentials"></a>Läckta autentiseringsuppgifter
 
-Den här riskhändelsetyp identifierar två inloggningar från geografiskt avlägsna platser, där kanske minst en av platserna som också är ovanlig för användaren, får de senaste beteende. Bland flera andra faktorer tar den här maskininlärningsalgoritmen hänsyn till tiden mellan två inloggningar och hur lång tid det skulle ha tagit för användaren att färdas från den första platsen till den andra, som anger att en annan användare använder samma autentiseringsuppgifter.
+**Identifierings typ:** Offline  
+**Gammalt namn:** Används med läckta autentiseringsuppgifter
 
-Algoritmen ignorerar uppenbara ”FALSKT positiva resultat” bidrar till omöjlig resa villkor, till exempel virtuella privata nätverk och platser som ofta används av andra användare i organisationen. Systemet har en inledande inlärningsperiod på det tidigaste på 14 dagar eller 10 inloggningar, då den lär sig en ny användare logga in beteende.
-
-
-## <a name="leaked-credentials"></a>Läcka ut autentiseringsuppgifter
-
-**Identifieringstyp av:** Offline  
-**Gammalt namn:** Användare med läckta autentiseringsuppgifter
-
-
-Den här riskhändelsetyp anger att användarens giltiga autentiseringsuppgifter har läckts.
-När andra nätkriminella kompromettering giltig lösenorden för behöriga användare, dela kriminella ofta dessa autentiseringsuppgifter. Detta görs normalt genom att publicera dem offentligt på mörk webb- eller klistra in platser eller av handel eller sälja autentiseringsuppgifter på svarta marknaden. Microsofts läcka ut autentiseringsuppgifter tjänsten hämtar användarnamn / lösenord kombinationer genom att övervaka offentliga och mörka webbplatser och genom att arbeta med:
+Den här risk händelse typen indikerar att användarens giltiga autentiseringsuppgifter har läckts.
+När cyberbrottslingar kompromettera giltiga lösen ord för legitima användare delar cyberbrottslingarna ofta dessa autentiseringsuppgifter. Detta görs vanligt vis genom att publicera dem offentligt på de mörka webb-eller Inklistrings platserna eller genom handel eller sälja de autentiseringsuppgifter som finns på den svarta marknaden. Tjänsten Microsoft läcker autentiseringsuppgifter hämtar användar namn/lösen ord genom att övervaka offentliga och mörka webbplatser och genom att arbeta med:
 
 - Forskare
-
-- Brottsbekämpande myndigheter
-
-- Security Team på Microsoft
-
+- Juridisk tillämpning
+- Säkerhets team på Microsoft
 - Andra betrodda källor
 
-När tjänsten skaffar användarens autentiseringsuppgifter från mörka Internet, klistra in platser eller ovan källor kan kontrolleras de mot Azure AD användarnas aktuella giltiga autentiseringsuppgifter att hitta giltig matchningar.
+När tjänsten hämtar autentiseringsuppgifter från den mörka webben, klistrar in webbplatser eller ovanstående källor, kontrol leras de mot Azure AD-användares aktuella giltiga autentiseringsuppgifter för att hitta giltiga matchningar.
 
+## <a name="malware-linked-ip-address"></a>IP-adress länkad till skadlig kod
 
-## <a name="malware-linked-ip-address"></a>Skadlig kod länkad IP-adress
-
-**Identifieringstyp av:** Offline  
+**Identifierings typ:** Offline  
 **Gammalt namn:** Inloggningar från angripna enheter
 
+Den här typen av risk händelse indikerar inloggningar från IP-adresser som är infekterade med skadlig kod som är kända för att kommunicera med en bot-Server. Detta bestäms genom att IP-adresserna för användarens enhet korreleras mot IP-adresser som var i kontakt med en bot-server medan bot-servern var aktiv.
 
-Den här riskhändelsetyp anger inloggningar från IP-adresser som smittats av skadlig kod som du känner till aktivt kommunicera med en bot-server. Detta fastställs genom att IP-adresserna för användarens enhet mot IP-adresser som fanns i kontakt med en bot-server när bot-servern var aktiv.
+## <a name="unfamiliar-sign-in-properties"></a>Obekanta inloggningsegenskaper
 
-
-## <a name="unfamiliar-sign-in-properties"></a>Okänd inloggning egenskaper
-
-**Identifieringstyp av:** I realtid  
+**Identifierings typ:** Realtid  
 **Gammalt namn:** Inloggningar från okända platser
 
+Den här risk händelse typen tar hänsyn till tidigare inloggnings historik (IP, latitud/longitud och ASN) för att söka efter avvikande inloggningar. Systemet lagrar information om tidigare platser som används av en användare och betraktar dessa "välkända" platser. Risk händelsen utlöses när inloggningen sker från en plats som inte redan finns i listan över välkända platser. Nyligen skapade användare är i "inlärnings läge" under en tids period då okända inloggnings egenskaper risk händelser inaktive ras medan algoritmerna lär sig användarens beteende. Varaktigheten för utbildnings läge är dynamisk och beror på hur lång tid det tar för algoritmen att samla in tillräckligt med information om användarens inloggnings mönster. Den minsta varaktigheten är fem dagar. En användare kan gå tillbaka till inlärnings läget efter en lång tids inaktivitet. Systemet ignorerar också inloggningar från välbekanta enheter och platser som är geografiskt nära en bekant plats. 
 
-Den här riskhändelsetyp tar hänsyn till tidigare inloggningshistorik (IP, latitud / longitud och ASN) att leta efter avvikande inloggningar. Systemet lagrar information om tidigare platser som används av en användare och så att platserna ”välbekanta”. Riskhändelsen utlöses när inloggningen sker från en plats som inte redan finns i listan med välbekanta platser. Nya användare att i ”inlärningsläget” för en viss tidsperiod i bekant inloggning egenskaperna riskhändelser kommer att inaktiveras när våra algoritmer Läs användarens beteenden. Utbildningsresurser läge varaktighet är dynamisk och beror på hur lång tid det tar att samla in tillräckligt med information om användarens inloggningsmönster algoritmen. Minsta varaktighet är fem dagar. En användare kan gå tillbaka till inlärningsläge efter en lång tids inaktivitet. Systemet ignorerar också inloggningar från välbekanta enheter och platser som ligger geografiskt nära en bekant plats. 
+Vi kör även den här identifieringen för grundläggande autentisering (eller äldre protokoll). Eftersom dessa protokoll inte har moderna egenskaper, t. ex. klient-ID, finns det begränsad telemetri för att minska antalet falska positiva identifieringar. Vi rekommenderar våra kunder att gå över till modern autentisering.
 
-Vi kan också köra den här identifieringen för grundläggande autentisering (eller äldre protokoll). Eftersom dessa protokoll inte har modern egenskaper, till exempel klient-ID, finns det begränsad telemetri för att minska falska positiva identifieringar. Vi rekommenderar våra kunder att flytta till modern autentisering.
+## <a name="azure-ad-threat-intelligence"></a>Azure AD hotinformation
 
+**Identifierings typ:** Offline <br>
+**Gammalt namn:** Den här identifieringen visas i de äldre Azure AD Identity Protections rapporterna (användare som har flaggats för risk, risk händelser) som "användare med läckta autentiseringsuppgifter"
 
-## <a name="azure-ad-threat-intelligence"></a>Azure AD-hotinformation
-
-**Identifieringstyp av:** Offline <br>
-**Gammalt namn:** Den här identifieringen kommer att visas i de äldre Azure AD Identity Protection rapporter (användare som har flaggats för risk, riskhändelser) som ”användare med läckta autentiseringsuppgifter”
-
-Den här riskhändelsetyp anger användaraktivitet som annorlunda för den angivna användaren eller följer kända angreppsmönster baserat på Microsofts interna och externa hot intelligenskällor.
+Den här typen av risk händelse indikerar användar aktivitet som är ovanlig för den aktuella användaren eller som är konsekvent med kända angrepps mönster baserade på Microsofts interna och externa hot informations källor.

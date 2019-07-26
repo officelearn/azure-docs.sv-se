@@ -1,99 +1,93 @@
 ---
-title: Hur du skapar och distribuerar en tjänst i molnet | Microsoft Docs
-description: Lär dig hur du skapar och distribuerar en tjänst i molnet med Azure portal.
+title: Så här skapar och distribuerar du en moln tjänst | Microsoft Docs
+description: Lär dig hur du skapar och distribuerar en moln tjänst med hjälp av Azure Portal.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 3d5b3f291eb42edc1f7999f33cf6c0879c33bcf4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433783"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359124"
 ---
-# <a name="how-to-create-and-deploy-a-cloud-service"></a>Skapa och distribuera en molntjänst
-Azure-portalen ger dig två sätt att skapa och distribuera en tjänst i molnet: *Snabbregistrering* och *skapa anpassade*.
+# <a name="how-to-create-and-deploy-a-cloud-service"></a>Skapa och distribuera en moln tjänst
+I Azure Portal kan du skapa och distribuera en moln tjänst på två sätt: *Snabb registrering* och *anpassad skapande*.
 
-Den här artikeln förklarar hur du använder Snabbregistrering för att skapa en ny molntjänst och sedan använda **överför** att ladda upp och distribuera ett molntjänstpaket i Azure. När du använder den här metoden gör tillgängliga lättillgängliga länkar för att slutföra alla krav när du går i Azure-portalen. Om du är redo att distribuera din molntjänst när du skapar den, kan du göra både på samma gång med att skapa anpassade.
+Den här artikeln förklarar hur du använder metoden snabb registrering för att skapa en ny moln tjänst och sedan använder du **upload** för att ladda upp och distribuera ett moln tjänst paket i Azure. När du använder den här metoden gör Azure Portal tillgängliga praktiska länkar för att slutföra alla krav när du går. Om du är redo att distribuera moln tjänsten när du skapar den kan du göra båda samtidigt med hjälp av anpassade skapa.
 
 > [!NOTE]
-> Om du planerar att publicera din molntjänst från Azure DevOps, Använd Snabbregistrering och sedan ställa in Azure DevOps-publicering från Azure-Snabbstart eller instrumentpanelen. Mer information finns i [kontinuerlig leverans till Azure med hjälp av Azure DevOps][TFSTutorialForCloudService], eller se hjälp för den **Snabbstart** sidan.
+> Om du planerar att publicera moln tjänsten från Azure DevOps använder du Quick Create och konfigurerar sedan Azure DevOps Publishing från Azure snabb start eller instrument panelen. Mer information finns i [kontinuerlig leverans till Azure med hjälp av Azure DevOps][TFSTutorialForCloudService], eller mer information finns på sidan **Snabbstart** .
 >
 >
 
 ## <a name="concepts"></a>Begrepp
-Tre komponenter krävs för att distribuera ett program som en molntjänst i Azure:
+Det krävs tre komponenter för att distribuera ett program som en moln tjänst i Azure:
 
-* **Tjänstdefinition**  
-  Molnet tjänstdefinitionsfilen (.csdef) definierar tjänstmodellen, inklusive antalet roller.
-* **Tjänstkonfiguration**  
-  Molntjänstkonfigurationsfilen (.cscfg) innehåller konfigurationsinställningarna för molnet tjänsten och enskilda roller, inklusive antalet rollinstanser.
-* **Tjänstpaket**  
-  Service-paketet (.cspkg) innehåller programkoden och konfigurationer och tjänstdefinitionsfilen.
+* **Tjänst definition**  
+  I moln tjänst definitions filen (. csdef) definieras tjänst modellen, inklusive antalet roller.
+* **Tjänst konfiguration**  
+  Moln tjänst konfigurations filen (. cscfg) innehåller konfigurations inställningar för moln tjänsten och enskilda roller, inklusive antalet roll instanser.
+* **Tjänst paket**  
+  Tjänst paketet (. cspkg) innehåller program koden och konfigurationerna och tjänst definitions filen.
 
-Du kan lära dig mer om de här och hur du skapar ett paket [här](cloud-services-model-and-package.md).
+Du kan lära dig mer om dessa och hur du skapar ett paket [här](cloud-services-model-and-package.md).
 
-## <a name="prepare-your-app"></a>Förbereda din app
-Innan du kan distribuera en tjänst i molnet, måste du skapa molntjänstpaketet (.cspkg) från din programkod och en molntjänstkonfigurationsfilen (.cscfg). Azure SDK innehåller verktyg för att förbereda filerna nödvändig distribution. Du kan installera SDK: N från den [Azure hämtar](https://azure.microsoft.com/downloads/) sidan på det språk som du föredrar att utveckla din programkod.
+## <a name="prepare-your-app"></a>Förbered din app
+Innan du kan distribuera en moln tjänst måste du skapa moln tjänst paketet (. cspkg) från din program kod och en moln tjänst konfigurations fil (. cscfg). Azure SDK innehåller verktyg för att förbereda de nödvändiga distributions filerna. Du kan installera SDK från sidan [Azure-nedladdningar](https://azure.microsoft.com/downloads/) på det språk som du vill utveckla din program kod på.
 
-Tre cloud service-funktioner kräver särskilda konfigurationer innan du exporterar ett tjänstpaket:
+Tre moln tjänst funktioner kräver särskilda konfigurationer innan du exporterar ett service paket:
 
-* Om du vill distribuera en molntjänst som använder Secure Sockets Layer (SSL) för kryptering av data, [konfigurerar programmet](cloud-services-configure-ssl-certificate-portal.md#modify) för SSL.
-* Om du vill konfigurera fjärrskrivbordsanslutningar till rollinstanser, [konfigurera rollerna](cloud-services-role-enable-remote-desktop-new-portal.md) för fjärrskrivbord.
-* Om du vill konfigurera utförlig övervakning för cloud Services, aktiverar du Azure Diagnostics för Molntjänsten. *Minimal övervakning* (standard övervakning nivå) använder prestandaräknare som samlats in från värdoperativsystem för rollinstanser (virtuella datorer). *Utförlig övervakning* samlar in ytterligare mått baserat på prestandadata i rollinstanser för att aktivera närmare analys av problem som uppstår under bearbetningen av programmet. Om du vill veta hur du aktiverar Azure Diagnostics [aktivera diagnostik i Azure](cloud-services-dotnet-diagnostics.md).
+* Om du vill distribuera en moln tjänst som använder Secure Sockets Layer (SSL) för data kryptering [konfigurerar du ditt program](cloud-services-configure-ssl-certificate-portal.md#modify) för SSL.
+* Om du vill konfigurera fjärr skrivbords anslutningar till roll instanser [konfigurerar du rollerna](cloud-services-role-enable-remote-desktop-new-portal.md) för fjärr skrivbord.
+* Aktivera Azure-diagnostik för moln tjänsten om du vill konfigurera utförlig övervakning för din moln tjänst. *Minimal övervakning* (standard övervaknings nivån) använder prestanda räknare som samlats in från värd operativ systemen för roll instanser (virtuella datorer). *Utförlig övervakning* samlar in ytterligare mått baserat på prestanda data i roll instanserna för att möjliggöra en närmare analys av problem som uppstår under program bearbetningen. Information om hur du aktiverar Azure-diagnostik finns i [Aktivera diagnostik i Azure](cloud-services-dotnet-diagnostics.md).
 
-Om du vill skapa en molntjänst med distributioner av web-roller eller worker-roller måste du [skapa tjänstpaketet](cloud-services-model-and-package.md#servicepackagecspkg).
+Om du vill skapa en moln tjänst med distributioner av webb roller eller arbets roller måste du [skapa tjänst paketet](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## <a name="before-you-begin"></a>Innan du börjar
-* Om du inte har installerat Azure SDK, klickar du på **installera Azure SDK** att öppna den [Azure hämtar sidan](https://azure.microsoft.com/downloads/), och sedan ladda ned SDK för det språk som du föredrar att utveckla din kod. (Har du möjlighet att göra det senare.)
-* Om alla rollinstanser kräver ett certifikat, skapa certifikat. Molntjänster kräver en .pfx-fil med en privat nyckel. Du kan ladda upp certifikat till Azure när du skapar och distribuerar Molntjänsten.
+* Om du inte har installerat Azure SDK klickar du på **Installera Azure SDK** för att öppna [sidan Azure-nedladdningar](https://azure.microsoft.com/downloads/)och laddar sedan ned SDK för det språk som du vill utveckla din kod för. (Du kommer att ha möjlighet att göra detta senare.)
+* Om några roll instanser kräver ett certifikat skapar du certifikaten. Cloud Services kräver en. pfx-fil med en privat nyckel. Du kan ladda upp certifikaten till Azure när du skapar och distribuerar moln tjänsten.
 
 ## <a name="create-and-deploy"></a>Skapa och distribuera
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **skapa en resurs > Compute**, och bläddra till och klickar på **molntjänst**.
+2. Klicka på **skapa en resurs > Compute**och bläddra sedan ned till och klicka på **moln tjänst**.
 
-    ![Publicera din molntjänst](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. I den nya **molntjänst** rutan Ange ett värde för den **DNS-namnet**.
-4. Skapa en ny **resursgrupp** eller välj en befintlig.
+    ![Publicera din moln tjänst](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+3. I fönstret ny **moln tjänst** anger du ett värde för **DNS-namnet**.
+4. Skapa en ny **resurs grupp** eller Välj en befintlig.
 5. Välj en **Plats**.
-6. Klicka på **paketet**. Då öppnas det **överföra ett paket** fönstret. Fyll i fälten som krävs. Om någon av dina roller innehåller en enda instans, se till att **distribuera även om en eller flera roller innehåller en enda instans** har valts.
-7. Se till att **starta distribution** har valts.
-8. Klicka på **OK** som stängs den **överföra ett paket** fönstret.
-9. Om du inte har några certifikat för att lägga till, klickar du på **skapa**.
+6. Klicka på **paket**. Då öppnas fönstret **Ladda upp ett paket** . Fyll i de obligatoriska fälten. Om någon av dina roller innehåller en enda instans, se till att **distribuera även om en eller flera roller innehåller en enda instans** har valts.
+7. Kontrol lera att **Starta distribution** är markerat.
+8. Klicka på **OK** för att stänga fönstret **Ladda upp ett paket** .
+9. Om du inte har några certifikat att lägga till klickar du på **skapa**.
 
-    ![Publicera din molntjänst](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![Publicera din moln tjänst](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>Ladda upp ett certifikat
-Om distributionspaket var [konfigurerad för att använda certifikat](cloud-services-configure-ssl-certificate-portal.md#modify), du kan ladda upp certifikatet nu.
+Om distributions paketet har [kon figurer ATS för att använda certifikat](cloud-services-configure-ssl-certificate-portal.md#modify)kan du ladda upp certifikatet nu.
 
-1. Välj **certifikat**, och på den **lägga till certifikat** fönstret Välj filen SSL certificate .pfx och ange sedan den **lösenord** för certifikatet
-2. Klicka på **bifoga certifikat**, och klicka sedan på **OK** på den **lägga till certifikat** fönstret.
-3. Klicka på **skapa** på den **molntjänst** fönstret. När distributionen har nått den **redo** status, kan du fortsätta till nästa steg.
+1. Välj **certifikat**och i fönstret **Lägg till certifikat** väljer du filen SSL Certificate. pfx och anger sedan **lösen ordet** för certifikatet.
+2. Klicka på **bifoga certifikat**och sedan på **OK** i fönstret **Lägg till certifikat** .
+3. Klicka på **skapa** i fönstret **moln tjänst** . När distributionen har nått statusen **klar** kan du fortsätta till nästa steg.
 
-    ![Publicera din molntjänst](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Publicera din moln tjänst](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
-## <a name="verify-your-deployment-completed-successfully"></a>Kontrollera distributionen har slutförts
-1. Klicka på molntjänstinstans.
+## <a name="verify-your-deployment-completed-successfully"></a>Verifiera att distributionen har slutförts
+1. Klicka på moln tjänst instansen.
 
-    Statusen ska visa att tjänsten är **kör**.
-2. Under **Essentials**, klickar du på den **webbplatsens URL** att öppna din molntjänst i en webbläsare.
+    Statusen bör visa att tjänsten **körs**.
+2. Under **Essentials**klickar du på webbplatsens **URL** för att öppna moln tjänsten i en webbläsare.
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 [TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
 
 ## <a name="next-steps"></a>Nästa steg
-* [Allmän konfiguration för din molntjänst](cloud-services-how-to-configure-portal.md).
-* Konfigurera en [domännamn](cloud-services-custom-domain-name-portal.md).
-* [Hantera din molntjänst](cloud-services-how-to-manage-portal.md).
-* Konfigurera [ssl-certifikat](cloud-services-configure-ssl-certificate-portal.md).
+* [Allmän konfiguration av din moln tjänst](cloud-services-how-to-configure-portal.md).
+* Konfigurera ett [anpassat domän namn](cloud-services-custom-domain-name-portal.md).
+* [Hantera din moln tjänst](cloud-services-how-to-manage-portal.md).
+* Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).

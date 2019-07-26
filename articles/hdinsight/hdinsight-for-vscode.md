@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 31f6c34089c1825eca21283b01eae181c8112216
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: da5cdd36e70166d274d50fcb093c0889cf534172
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312176"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489020"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
 
@@ -83,9 +83,9 @@ Innan du kan skicka skript till dina kluster från Visual Studio Code måste du 
 
 ## <a name="link-a-cluster"></a>Länka ett kluster
 
-### <a name="link-azure-hdinsight"></a>Operationsföljdslänkkod Azure HDInsight
+### <a name="link-azure-hdinsight"></a>Länk: Azure HDInsight
 
-Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https://ambari.apache.org/) -hanterat användar namn eller länka ett skyddat Hadoop-kluster i Enterprise Security-paketet genom att user1@contoso.comanvända ett domän användar namn (t. ex.:).
+Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https://ambari.apache.org/) -hanterat användar namn eller länka ett skyddat Hadoop-kluster i Enterprise Security-paketet genom att `user1@contoso.com`använda ett domän användar namn (t. ex.:).
 
 1. Från meny raden navigerar du till **Visa** > **kommando paletten...** och **anger Spark/Hive: Länka ett kluster**.
 
@@ -109,7 +109,7 @@ Du kan länka ett vanligt kluster genom att använda ett [Apache Ambari](https:/
    > Det länkade användar namnet och lösen ordet används om klustret både är inloggat i Azure-prenumerationen och länkat ett kluster.  
 
 
-### <a name="link-generic-livy-endpoint"></a>Operationsföljdslänkkod Allmän livy-slutpunkt
+### <a name="link-generic-livy-endpoint"></a>Länk: Allmän livy-slutpunkt
 
 1. Från meny raden navigerar du till **Visa** > **kommando paletten...** och **anger Spark/Hive: Länka ett kluster**.
 
@@ -208,7 +208,7 @@ Du kan skicka interaktiva PySpark-frågor genom att följa stegen nedan:
 
    ![pyspark interaktiva python-fönster](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
 
-7. Ange **%% info**och tryck sedan på **SKIFT + RETUR** för att visa jobb information. Valfritt
+7. Ange **%% info**och tryck sedan på **SKIFT + RETUR** för att visa jobb information. (Valfritt)
 
    ![Visa jobb information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -288,7 +288,7 @@ Skicka in en fil, Lägg märke till att mappen. VSCode automatiskt läggs till i
 + Livy-konfigurationer som stöds:   
 
     **PUBLICERA/batches**   
-    Begärandetext
+    Brödtext i förfrågan
 
     | name | description | type | 
     | :- | :- | :- | 
@@ -309,7 +309,7 @@ Skicka in en fil, Lägg märke till att mappen. VSCode automatiskt läggs till i
     | name | Namnet på den här sessionen | sträng |
     | medför | Konfigurations egenskaper för Spark | Karta över nyckel = val |
 
-    Svars text   
+    Svarstext   
     Det skapade batch-objektet.
 
     | name | description | type | 

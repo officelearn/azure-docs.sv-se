@@ -1,6 +1,6 @@
 ---
-title: Övervaka och hantera Hadoop med Ambari REST-API – Azure HDInsight
-description: Lär dig mer om att använda Ambari och övervaka och hantera Hadoop-kluster i Azure HDInsight. I detta dokument kan lära du dig att använda Ambari REST API som ingår i HDInsight-kluster.
+title: Övervaka och hantera Hadoop med Ambari REST API – Azure HDInsight
+description: Lär dig hur du använder Ambari för att övervaka och hantera Hadoop-kluster i Azure HDInsight. I det här dokumentet får du lära dig hur du använder Ambari-REST API som ingår i HDInsight-kluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,48 +8,48 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4ab30f5f737b0f5188958c4686f82a0084c3ac35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 301ad4f940e6bd4eedb3a4df64e4740d29effe03
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059358"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406236"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Lär dig hur du använder Apache Ambari REST API för att hantera och övervaka Apache Hadoop-kluster i Azure HDInsight.
+Lär dig hur du använder Apache Ambari-REST API för att hantera och övervaka Apache Hadoop kluster i Azure HDInsight.
 
 ## <a id="whatis"></a>Vad är Apache Ambari
 
-[Apache Ambari](https://ambari.apache.org) förenklar hantering och övervakning av Hadoop-kluster genom att tillhandahålla en lättanvänd webbgränssnittet backas upp av dess [REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari är som standard med Linux-baserade HDInsight-kluster.
+[Apache Ambari](https://ambari.apache.org) fören klar hanteringen och övervakningen av Hadoop-kluster genom att tillhandahålla ett LÄTTANVÄNT webb gränssnitt som stöds av dess [REST-API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari tillhandahålls som standard med Linux-baserade HDInsight-kluster.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* **Ett Hadoop-kluster på HDInsight**. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Ett Hadoop-kluster i HDInsight**. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Bash på Ubuntu på Windows 10**.  Exemplen i den här artikeln använder Bash-gränssnittet i Windows 10. Se [Windows-undersystem for Linux Installation Guide för Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installationssteg.  Andra [Unix gränssnitt](https://www.gnu.org/software/bash/) fungerar också.  Exempel, med några små ändringar kan arbeta i en kommandotolk i Windows.  Du kan också använda Windows PowerShell.
+* **Bash på Ubuntu i Windows 10**.  I exemplen i den här artikeln används bash-gränssnittet i Windows 10. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Andra [UNIX-gränssnitt](https://www.gnu.org/software/bash/) fungerar också.  Exempel, med vissa små ändringar, kan fungera i en kommando tolk i Windows.  Du kan också använda Windows PowerShell.
 
-* **jq**, en kommandorad JSON-processor.  Se [ https://stedolan.github.io/jq/ ](https://stedolan.github.io/jq/).
+* **JQ**, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-* **Windows PowerShell**.  Du kan också använda [Bash](https://www.gnu.org/software/bash/).
+* **Windows PowerShell**.  Du kan också använda [bash](https://www.gnu.org/software/bash/).
 
-## <a name="base-uri-for-ambari-rest-api"></a>Bas-URI för Ambari Rest API
+## <a name="base-uri-for-ambari-rest-api"></a>Bas-URI för Ambari REST API
 
- Den grundläggande identifierare URI (Uniform Resource) för Ambari REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, där `CLUSTERNAME` är namnet på klustret.  Klustrets namn i URI: er är **skiftlägeskänsliga**.  När klustrets namn i den fullständigt kvalificerade namn (FQDN) delen av URI: N (`CLUSTERNAME.azurehdinsight.net`) är skiftlägeskänslig andra förekomster i URI: N är skiftlägeskänsliga.
+ Bas Uniform Resource Identifier (URI) för Ambari REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga**.  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n (`CLUSTERNAME.azurehdinsight.net`) är Skift läges okänsligt, men andra förekomster i URI: n är Skift läges känsliga.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
-Ansluta till Ambari på HDInsight kräver HTTPS. Använda admin-kontonamn (standardvärdet är **admin**) och lösenord som du angav när klustret skapas.
+För att ansluta till Ambari i HDInsight krävs HTTPS. Använd administratörs konto namnet (standard är **administratör**) och lösen ord som du angav när du skapade klustret.
 
 ## <a name="examples"></a>Exempel
 
-### <a name="setup-preserve-credentials"></a>Installationsprogrammet (Preserve autentiseringsuppgifter)
-Bevara dina autentiseringsuppgifter för att undvika att behöva skriva in dem för varje exempel.  Klustrets namn kommer att bevaras i ett separat steg.
+### <a name="setup-preserve-credentials"></a>Installations program (bevara autentiseringsuppgifter)
+Behåll dina autentiseringsuppgifter för att undvika att behöva ange dem igen för varje exempel.  Kluster namnet kommer att bevaras i ett separat steg.
 
 **EN. Bash**  
-Redigera skriptet nedan genom att ersätta `PASSWORD` med det faktiska lösenordet.  Ange sedan kommandot.
+Redigera skriptet nedan genom att ersätta `PASSWORD` med det faktiska lösen ordet.  Ange sedan kommandot.
 
 ```bash
 export password='PASSWORD'
@@ -61,10 +61,10 @@ export password='PASSWORD'
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
-### <a name="identify-correctly-cased-cluster-name"></a>Identifiera korrekt alltid i klustrets namn
-Faktiska versaler och gemener i klustrets namn kan skilja sig än förväntat, beroende på hur klustret har skapats.  De här stegen visar faktiska gemener och versaler och sedan lagra den i en variabel för alla efterföljande exemplen.
+### <a name="identify-correctly-cased-cluster-name"></a>Identifiera korrekt bokstäver-kluster namn
+Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades.  Stegen här visar det faktiska Skift läget och lagrar det sedan i en variabel för alla efterföljande exempel.
 
-Redigera skripten nedan och Ersätt `CLUSTERNAME` med klusternamnet på ditt. Ange sedan kommandot. (Klusternamnet FQDN-namn är inte skiftlägeskänsligt.)
+Redigera skripten nedan och Ersätt `CLUSTERNAME` med ditt kluster namn. Ange sedan kommandot. (Kluster namnet för FQDN är inte Skift läges känsligt.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -81,9 +81,9 @@ $clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
 $clusterName
 ```
 
-### <a name="parsing-json-data"></a>Parsa JSON-data
+### <a name="parsing-json-data"></a>Parsar JSON-data
 
-I följande exempel används [jq](https://stedolan.github.io/jq/) eller [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) att parsa JSON-svar dokumentet och visa endast de `health_report` information från resultaten.
+I följande exempel används [JQ](https://stedolan.github.io/jq/) eller [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) för att parsa JSON Response-dokumentet och `health_report` bara visa informationen från resultaten.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -97,9 +97,9 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-### <a name="example-get-the-fqdn-of-cluster-nodes"></a> Hämta det fullständiga Domännamnet för klusternoder
+### <a name="example-get-the-fqdn-of-cluster-nodes"></a>Hämta FQDN för klusternoder
 
-När du arbetar med HDInsight kan behöva du veta det fullständigt kvalificerade domännamnet (FQDN) på en klusternod. Du kan enkelt hämta det fullständiga Domännamnet för de olika noderna i klustret med följande exempel:
+När du arbetar med HDInsight kan du behöva känna till det fullständigt kvalificerade domän namnet (FQDN) för en klusternod. Du kan enkelt hämta FQDN för de olika noderna i klustret med hjälp av följande exempel:
 
 **Alla noder**  
 
@@ -157,13 +157,13 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-### <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a> Hämta interna IP-adressen för klusternoder
+### <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Hämta den interna IP-adressen för klusternoder
 
-IP-adresser som returneras av exemplen i det här avsnittet är inte direkt åtkomliga via internet. De är bara tillgängliga i Azure virtuella nätverk som innehåller HDInsight-kluster.
+De IP-adresser som returneras av exemplen i det här avsnittet är inte direkt tillgängliga via Internet. De är bara tillgängliga i Azure-Virtual Network som innehåller HDInsight-klustret.
 
-Mer information om hur du arbetar med HDInsight och virtuella nätverk finns i [utöka HDInsight-funktioner med hjälp av en anpassad Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Mer information om hur du arbetar med HDInsight och virtuella nätverk finns i [planera ett virtuellt nätverk för HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
-För att hitta IP-adress, måste du veta det interna fullständigt kvalificerade domännamnet (FQDN) av klusternoderna. När du har det fullständiga Domännamnet kan kan du hämta IP-adressen för värden. I följande exempel kan du först fråga Ambari efter det fullständiga Domännamnet för alla värdnoder och sedan fråga Ambari efter IP-adressen för varje värd.
+Du måste känna till det interna fullständigt kvalificerade domän namnet (FQDN) för klusternoderna för att hitta IP-adressen. När du har FQDN kan du hämta IP-adressen för värden. I följande exempel frågar Ambari efter FQDN för alla noder, sedan frågar Ambari efter IP-adressen för varje värd.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" | jq -r '.items[].Hosts.host_name')
@@ -187,11 +187,11 @@ foreach($item in $respObj.items) {
 }
 ```
 
-### <a name="get-the-default-storage"></a>Hämta standardlagring
+### <a name="get-the-default-storage"></a>Hämta standard lagringen
 
-När du skapar ett HDInsight-kluster måste du använda ett Azure Storage-konto eller Data Lake Storage som standardlagring för klustret. Du kan använda Ambari för att hämta den här informationen när klustret har skapats. Exempel: Om du vill läsa/skriva data till behållaren utanför HDInsight.
+När du skapar ett HDInsight-kluster måste du använda ett Azure Storage konto eller Data Lake Storage som standard lagring för klustret. Du kan använda Ambari för att hämta den här informationen när klustret har skapats. Om du till exempel vill läsa/skriva data till behållaren utanför HDInsight.
 
-I följande exempel hämtar standardkonfigurationen för lagring från klustret:
+I följande exempel hämtas standard lagrings konfigurationen från klustret:
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -206,17 +206,17 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
 > [!IMPORTANT]  
-> De här exemplen returnera den första konfigurationen tillämpas på servern (`service_config_version=1`) som innehåller den här informationen. Om du hämtar ett värde som har ändrats när klustret har skapats, kan du behöva listan konfigurationsversionerna och hämtar den senaste.
+> Dessa exempel returnerar den första konfigurationen som tillämpas på servern (`service_config_version=1`) som innehåller den här informationen. Om du hämtar ett värde som har ändrats efter att klustret har skapats kan du behöva lista konfigurations versionerna och hämta det senaste.
 
-Det returnera värdet är av följande exempel:
+Returvärdet liknar något av följande exempel:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` – Det här värdet anger att klustret använder ett Azure Storage-konto för standardlagring. Den `ACCOUNTNAME` värdet är namnet på lagringskontot. Den `CONTAINER` delen är namnet på blob-behållare i lagringskontot. Behållaren är roten för HDFS kompatibla lagringsutrymmet för klustret.
+* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`– Det här värdet anger att klustret använder ett Azure Storage konto för standard lagring. `ACCOUNTNAME` Värdet är namnet på lagrings kontot. `CONTAINER` Delen är namnet på BLOB-behållaren i lagrings kontot. Behållaren är roten till den HDFS-kompatibla lagringen för klustret.
 
-* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` – Det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standardlagring. Den `ACCOUNTNAME` och `CONTAINER` värden ha innebörden som är samma som för Azure Storage som tidigare nämnts.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net`– Det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standard lagring. Värdena `ACCOUNTNAME` och`CONTAINER` har samma betydelser som för Azure Storage tidigare nämnts.
 
-* `adl://home` – Det här värdet anger att klustret använder Azure Data Lake Storage Gen1 för standardlagring.
+* `adl://home`– Det här värdet anger att klustret använder Azure Data Lake Storage Gen1 för standard lagring.
 
-    Använd följande exempel för att hitta namnet på Data Lake Storage-kontot:
+    Använd följande exempel för att hitta Data Lake Storage konto namn:
 
     ```bash
     curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -230,9 +230,9 @@ Det returnera värdet är av följande exempel:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    Det returnera värdet liknar `ACCOUNTNAME.azuredatalakestore.net`, där `ACCOUNTNAME` är namnet på Data Lake Storage-konto.
+    Det returnerade värdet liknar `ACCOUNTNAME.azuredatalakestore.net`, där `ACCOUNTNAME` är namnet på det data Lake Storage kontot.
 
-    Använd följande exempel för att hitta katalogen i Data Lake Storage som innehåller lagringsutrymme för klustret:
+    Använd följande exempel för att hitta katalogen i Data Lake Storage som innehåller lagringen för klustret:
 
     ```bash
     curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -246,14 +246,14 @@ Det returnera värdet är av följande exempel:
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    Det returnera värdet liknar `/clusters/CLUSTERNAME/`. Det här värdet är en sökväg i Data Lake Storage-konto. Den här sökvägen är roten för HDFS-kompatibla filsystemets för klustret.  
+    Returvärdet liknar `/clusters/CLUSTERNAME/`. Det här värdet är en sökväg i Data Lake Storage-kontot. Den här sökvägen är roten i det HDFS-kompatibla fil systemet för klustret.  
 
 > [!NOTE]  
-> Den [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet som tillhandahålls av [Azure PowerShell](/powershell/azure/overview) också returnerar i informationen för klustret.
+> Cmdleten [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) som tillhandahålls av [Azure PowerShell](/powershell/azure/overview) även returnera lagrings informationen för klustret.
 
-### <a name="get-all-configurations"></a> Hämta alla konfigurationer
+### <a name="get-all-configurations"></a>Hämta alla konfigurationer
 
-Få de konfigurationer som är tillgängliga för ditt kluster.
+Hämta de konfigurationer som är tillgängliga för klustret.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName?fields=Clusters/desired_configs"
@@ -265,7 +265,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v
 $respObj.Content
 ```
 
-Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konfigurationen (identifieras av den *taggen* värde) för de komponenter som installeras i klustret. I följande exempel är ett utdrag från de data som returneras från en typ av Spark-kluster.
+Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konfigurationen (identifieras av *taggnamnet* ) för de komponenter som är installerade i klustret. Följande exempel är ett utdrag från data som returneras från en Spark-kluster typ.
 
 ```json
 "jupyter-site" : {
@@ -282,9 +282,9 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
 },
 ```
 
-### <a name="get-configuration-for-specific-component"></a>Hämta konfiguration för en viss komponent
+### <a name="get-configuration-for-specific-component"></a>Hämta konfiguration för en enskild komponent
 
-Hämta konfigurationen för den komponent som du är intresserad av. I följande exempel ersätter `INITIAL` med Taggvärdet returnerades från föregående begäran.
+Hämta konfigurationen för den komponent som du är intresse rad av. I följande exempel ersätter `INITIAL` du med det tagg värde som returnerades från föregående begäran.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL"
@@ -296,15 +296,15 @@ $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/c
 $resp.Content
 ```
 
-Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konfigurationen för den `livy2-conf` komponent.
+Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella `livy2-conf` konfigurationen för komponenten.
 
 ### <a name="update-configuration"></a>Uppdatera konfiguration
 
 1. Skapa `newconfig.json`.  
-   Ändra och sedan ange nedanstående kommandon:
+   Ändra och ange sedan följande kommandon:
 
-   * Ersätt `livy2-conf` med önskad-komponenten.
-   * Ersätt `INITIAL` med faktiskt värde hämtades för `tag` från [hämta alla konfigurationer](#get-all-configurations).
+   * Ersätt `livy2-conf` med den önskade komponenten.
+   * Ersätt `INITIAL` med det faktiska värdet som `tag` hämtades för från [Hämta alla konfigurationer](#get-all-configurations).
 
      **EN. Bash**  
      ```bash
@@ -313,7 +313,7 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
      ```
 
      **B. PowerShell**  
-     PowerShell-skript använder [jq](https://stedolan.github.io/jq/).  Redigera `C:\HD\jq\jq-win64` nedan för att återspegla din faktiska sökvägen och versionen av [jq](https://stedolan.github.io/jq/).
+     PowerShell-skriptet använder [JQ](https://stedolan.github.io/jq/).  Redigera `C:\HD\jq\jq-win64` nedan om du vill visa din faktiska sökväg och version av [JQ](https://stedolan.github.io/jq/).
 
      ```powershell
      $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
@@ -324,19 +324,19 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
      $resp.Content | C:\HD\jq\jq-win64 --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
-     Jq används för att aktivera data som hämtats från HDInsight till en ny konfigurationsmall för. De här exemplen utföra mer specifikt kan följande åtgärder:
+     JQ används för att omvandla data som hämtats från HDInsight till en ny konfigurations mall. Mer specifikt utför de här exemplen följande åtgärder:
 
-   * Skapar ett unikt värde som innehåller strängen ”version” och datum, som lagras i `newtag`.
+   * Skapar ett unikt värde som innehåller strängen "version" och datumet, som lagras i `newtag`.
 
-   * Skapar ett rot-dokument för den nya önskade konfigurationen.
+   * Skapar ett rot dokument för den nya önskade konfigurationen.
 
-   * Hämtar innehållet i den `.items[]` matris och lägger till den under den **desired_config** element.
+   * Hämtar innehållet i `.items[]` matrisen och lägger till det under **desired_config** -elementet.
 
-   * Tar bort den `href`, `version`, och `Config` element, som de här elementen krävs inte för att skicka en ny konfiguration.
+   * Tar bort elementen `version` `Config` , och, eftersom dessa element inte behövs för att skicka en ny konfiguration. `href`
 
-   * Lägger till en `tag` element med ett värde av `version#################`. Den numeriska delen är baserad på det aktuella datumet. Varje konfiguration måste ha en unik tagg.
+   * Lägger till `tag` ett-element med `version#################`värdet. Den numeriska delen baseras på det aktuella datumet. Varje konfiguration måste ha en unik tagg.
 
-     Slutligen data sparas på den `newconfig.json` dokumentet. Dokumentstrukturen bör se ut ungefär så här:
+     Slutligen sparas data i `newconfig.json` dokumentet. Dokument strukturen bör se ut ungefär som i följande exempel:
 
      ```json
      {
@@ -357,11 +357,11 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
      ```
 
 2. Redigera `newconfig.json`.  
-   Öppna den `newconfig.json` dokumentet och ändra/lägga till värden i den `properties` objekt. I följande exempel ändras värdet för `"livy.server.csrf_protection.enabled"` från `"true"` till `"false"`.
+   Öppna dokumentet och ändra/Lägg till värden `properties` i objektet. `newconfig.json` I följande exempel ändras värdet `"livy.server.csrf_protection.enabled"` från `"true"` till `"false"`.
 
         "livy.server.csrf_protection.enabled": "false",
 
-    Spara filen när du är klar ändringar.
+    Spara filen när du är klar med ändringarna.
 
 3. Skicka `newconfig.json`.  
    Använd följande kommandon för att skicka den uppdaterade konfigurationen till Ambari.
@@ -380,13 +380,13 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
     $resp.Content
     ```  
 
-    De här kommandona skicka innehållet i den **newconfig.json** till klustret som ny önskad konfiguration. Begäran returnerar ett JSON-dokument. Den **versionTag** element i det här dokumentet måste matcha den version som du skickat och **peeringkonfigurationer** objektet innehåller de konfigurationsändringar du begärt.
+    De här kommandona skickar innehållet i filen **newconfig. JSON** till klustret som den nya önskade konfigurationen. Begäran returnerar ett JSON-dokument. **VersionTag** -elementet i det här dokumentet måste matcha den version du skickade, och  objektet configs innehåller de konfigurations ändringar som du har begärt.
 
-### <a name="restart-a-service-component"></a>Starta om en tjänstkomponent
+### <a name="restart-a-service-component"></a>Starta om en tjänst komponent
 
-Du tittar på Ambari-webbgränssnittet, visar Spark-tjänst nu att den behöver startas om innan den nya konfigurationen börjar gälla. Använd följande steg för att starta om tjänsten.
+Om du i det här läget tittar på Ambari webb gränssnitt indikerar Spark-tjänsten att den måste startas om innan den nya konfigurationen kan börja gälla. Använd följande steg för att starta om tjänsten.
 
-1. Använd följande för att aktivera underhållsläget för tjänsten Spark2:
+1. Använd följande för att aktivera underhålls läget för Spark2-tjänsten:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -402,9 +402,9 @@ Du tittar på Ambari-webbgränssnittet, visar Spark-tjänst nu att den behöver 
         -Body '{"RequestInfo": {"context": "turning on maintenance mode for SPARK2"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}'
     ```
 
-2. Kontrollera underhållsläge  
+2. Verifiera underhålls läge  
 
-    De här kommandona Skicka ett JSON-dokument till den server som aktiverar underhållsläge. Du kan verifiera att tjänsten är nu i underhållsläge med följande begäran:
+    De här kommandona skickar ett JSON-dokument till servern som aktiverar underhålls läge. Du kan kontrol lera att tjänsten nu är i underhålls läge med följande begäran:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -419,9 +419,9 @@ Du tittar på Ambari-webbgränssnittet, visar Spark-tjänst nu att den behöver 
     $respObj.ServiceInfo.maintenance_state
     ```
 
-    Det returnera värdet är `ON`.
+    Returvärdet är `ON`.
 
-3. Använd följande för att stänga av tjänsten Spark2:
+3. Använd sedan följande för att stänga av Spark2-tjänsten:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -451,10 +451,10 @@ Du tittar på Ambari-webbgränssnittet, visar Spark-tjänst nu att den behöver 
     ```
 
     > [!IMPORTANT]  
-    > Den `href` värdet som returneras av den här URI: N använder den interna IP-adressen för klusternoden. Om du vill använda den från utanför klustret, den `10.0.0.18:8080` delen med FQDN för klustret.  
+    > `href` Värdet som returneras av denna URI använder den interna IP-adressen för klusternoden. Om du vill använda den utanför klustret, ersätter `10.0.0.18:8080` du delen med FQDN för klustret.  
 
-4. Kontrollera begäran.  
-    Redigera kommandot nedan genom att ersätta `29` med det faktiska värdet för `id` returnerades från föregående steg.  Följande kommandon för att hämta status för begäran:
+4. Verifiera begäran.  
+    Redigera kommandot nedan genom att ersätta `29` med det faktiska värdet som `id` returnerades från föregående steg.  Följande kommandon hämtar status för begäran:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -469,9 +469,9 @@ Du tittar på Ambari-webbgränssnittet, visar Spark-tjänst nu att den behöver 
     $respObj.Requests.request_status
     ```
 
-    Svaret `COMPLETED` betyder det att begäran har slutförts.
+    Ett svar på `COMPLETED` indikerar att begäran har avslut ATS.
 
-5. När den tidigare begäran har slutförts kan du använda följande för att starta tjänsten Spark2.
+5. När den tidigare begäran har slutförts använder du följande för att starta Spark2-tjänsten.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -488,9 +488,9 @@ Du tittar på Ambari-webbgränssnittet, visar Spark-tjänst nu att den behöver 
     $resp.Content
     ```
 
-    Tjänsten använder den nya konfigurationen.
+    Tjänsten använder nu den nya konfigurationen.
 
-6. Slutligen kan du använda följande för att inaktivera underhållsläge.
+6. Använd slutligen följande för att inaktivera underhålls läget.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -508,4 +508,4 @@ Du tittar på Ambari-webbgränssnittet, visar Spark-tjänst nu att den behöver 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En fullständig referens för REST API finns i [Apache Ambari API-referens V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+En fullständig referens till REST API finns i [Apache AMBARI API Reference v1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).

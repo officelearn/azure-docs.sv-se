@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: dcd1ef5c54885b758ac9a301616d79a163999bc9
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 2d26d9e145030e5972289c224dc2f76078d67527
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509634"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498491"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Självstudie: Skapa en Java EE- och Postgres-webbapp i Azure
 
-Den här självstudien visar hur du skapar en webbapp i Java Enterprise Edition (EE) på Azure App Service och ansluter den till en Postgres-databas. När du är klar har du en [WildFly](https://www.wildfly.org/about/)-app som lagrar data i [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) och körs på Azure [App Service på Linux](app-service-linux-intro.md).
+Den här självstudien visar hur du skapar en Java Enterprise Edition-webbapp (EE) på Azure App Service och ansluter den till en postgres-databas. När du är klar har du en [WildFly](https://www.wildfly.org/about/)-app som lagrar data i [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) och körs på Azure [App Service på Linux](app-service-linux-intro.md).
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="clone-and-edit-the-sample-app"></a>Klona och redigera exempelappen
 
-I det här steget ska du klona exempelprogrammet och konfigurera Maven-projekt Object Model (POM eller *pom.xml*) för distribution.
+I det här steget ska du klona exempel programmet och konfigurera maven-projektets modell (POM eller *Pom. XML*) för distribution.
 
 ### <a name="clone-the-sample"></a>Klona exemplet
 
@@ -104,7 +104,7 @@ Programmet använder nu en minnesintern H2-databas. Klicka på ”admin” i nav
 
 ## <a name="provision-a-postgres-database"></a>Etablera en Postgres-databas
 
-Öppna en terminal för att etablera en Postgres-databasserver, och Använd den [az postgres server skapa](https://docs.microsoft.com/cli/azure/postgres/server) kommandot, som visas i följande exempel. Ersätt platshållarna (inklusive hakparenteser) med värden som du väljer, med hjälp av samma resurs gruppen som du angav tidigare för din App Service-instans. De autentiseringsuppgifter du anger att ge framtida åtkomst, så var noga med att hålla ned dem för senare användning.
+Om du vill etablera en postgres Database-Server öppnar du en Terminal och använder kommandot [AZ postgres Server Create](https://docs.microsoft.com/cli/azure/postgres/server) , som du ser i följande exempel. Ersätt plats hållarna (inklusive vinkelparenteser) med värden som du väljer genom att använda samma resurs grupp som du angav tidigare för din App Service-instans. De administratörsautentiseringsuppgifter som du anger kommer att aktivera framtida åtkomst, så se till att hålla en anteckning om dem för senare användning.
 
 ```bash
 az postgres server create \
@@ -116,7 +116,7 @@ az postgres server create \
     --admin-password <administrator password> \
 ```
 
-När du har kört det här kommandot Bläddra till Azure-portalen och gå till Postgres-databasen. När bladet är igång kopierar du värdena för ”Servernamn” och ”Inloggningsnamn för serveradministratör”, för du behöver dem senare.
+När du har kört det här kommandot bläddrar du till Azure Portal och navigerar till postgres-databasen. När bladet är igång kopierar du värdena för ”Servernamn” och ”Inloggningsnamn för serveradministratör”, för du behöver dem senare.
 
 ### <a name="allow-access-to-azure-services"></a>Tillåt åtkomst till Azure-tjänster
 
@@ -163,26 +163,26 @@ Därefter behöver vi redigera vår API för JPA-konfiguration för Java-transak
 
 ## <a name="configure-the-wildfly-application-server"></a>Konfigurera programservern WildFly
 
-Innan du distribuerar vårt omkonfigurerade program måste vi uppdatera programservern WildFly med Postgres-modulen och dess beroenden. Mer konfigurationsinformation finns på [konfigurera WildFly server](configure-language-java.md#configure-java-ee-wildfly).
+Innan du distribuerar vårt omkonfigurerade program måste vi uppdatera programservern WildFly med Postgres-modulen och dess beroenden. Mer konfigurations information finns på [Konfigurera WildFly-Server](configure-language-java.md#configure-java-ee-wildfly).
 
-För att konfigurera servern, måste vi fyra filerna i den *wildfly_config /* directory:
+För att konfigurera servern behöver vi de fyra filerna i katalogen *wildfly_config/* Directory:
 
 - **postgresql-42.2.5.jar**: Den här JAR-filen är JDBC-drivrutinen för Postgres. Mer information finns på den [officiella webbplatsen](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: Den här XML-filen deklarerar ett namn för Postgres-modulen (org.postgres). Den anger också de resurser och beroenden som krävs för att modulen ska användas.
-- **jboss_cli_commands.cl**: Den här filen innehåller konfigurationskommandon som körs av JBoss CLI. Kommandona lägger till Postgres-modulen till WildFly-programservern, anger autentiseringsuppgifterna, deklarerar ett JNDI-namn, anger tröskelvärde för timeout osv. Om du inte känner till JBoss CLI finns i den [officiella dokumentationen](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.sh**: Slutligen körs detta gränssnittsskript när din App Service-instans startas. Skriptet utför endast en funktion: skicka kommandon i *jboss_cli_commands.cli* till JBoss CLI.
+- **jboss_cli_commands. CLI**: Den här filen innehåller konfigurationskommandon som körs av JBoss CLI. Kommandona lägger till Postgres-modulen till WildFly-programservern, anger autentiseringsuppgifterna, deklarerar ett JNDI-namn, anger tröskelvärde för timeout osv. Om du inte känner till JBoss CLI finns i den [officiella dokumentationen](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **startup_script.sh**: Slutligen körs detta gränssnittsskript när din App Service-instans startas. Skriptet utför bara en funktion: dirigerar kommandona i *jboss_cli_commands. CLI* till JBoss cli.
 
 Vi rekommenderar starkt att du läser innehållet i filerna, särskilt *jboss_cli_commands.cli*.
 
 ### <a name="ftp-the-configuration-files"></a>FTP-konfigurationsfiler
 
-Vi kommer att behöva FTP-innehållet i *wildfly_config /* till vår App Service-instans. För att få dina FTP-autentiseringsuppgifter klickar du på knappen **Hämta publiceringsprofil** på App Service-bladet i Azure-portalen. FTP-användarnamnet och -lösenordet finns i det nedladdade XML-dokumentet. Mer information om publiceringsprofilen finns i [det här dokumentet](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+Vi kommer att behöva FTP-innehållet i *wildfly_config/* till vår App Service-instans. För att få dina FTP-autentiseringsuppgifter klickar du på knappen **Hämta publiceringsprofil** på App Service-bladet i Azure-portalen. FTP-användarnamnet och -lösenordet finns i det nedladdade XML-dokumentet. Mer information om publiceringsprofilen finns i [det här dokumentet](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
-Med hjälp av en FTP-verktyg som helst, överföra fyra filer i *wildfly_config /* till */home/site/distribution/tools/* . (Observera att du inte överför katalogen, bara själva filerna.)
+Använd ett valfritt FTP-verktyg och överför de fyra filerna i *wildfly_config/* to */Home/site/Deployments/tools/* . (Observera att du inte överför katalogen, bara själva filerna.)
 
 ### <a name="finalize-app-service"></a>Slutföra App Service
 
-Gå till panelen ”Programinställningar” på App Service-bladet. Under ”körning”, ange fältet ”startfil” till */home/site/deployments/tools/startup_script.sh*. Det säkerställer att kommandoskriptet körs efter att App Service-instansen har skapats, men innan WildFly-servern startar.
+Gå till panelen ”Programinställningar” på App Service-bladet. Under "runtime" ställer du in fältet "Startup File" på */Home/site/Deployments/tools/startup_script.sh*. Det säkerställer att kommandoskriptet körs efter att App Service-instansen har skapats, men innan WildFly-servern startar.
 
 Slutligen startar du om din App Service. Knappen finns i panelen ”Översikt”.
 
@@ -194,7 +194,7 @@ Slutligen startar du om din App Service. Knappen finns i panelen ”Översikt”
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-Grattis! Programmet använder nu en Postgres-databas och alla poster som skapats i programmet kommer att lagras i Postgres i stället för den föregående H3 InMemory-databasen. För att bekräfta detta kan du göra en post och starta om App Service. Posterna kommer dock att finnas kvar när programmet startas om.
+Grattis! Ditt program använder nu en postgres-databas och alla poster som skapats i programmet kommer att lagras i postgres, i stället för den tidigare H2-InMemory-databasen. För att bekräfta detta kan du göra en post och starta om App Service. Posterna kommer dock att finnas kvar när programmet startas om.
 
 ## <a name="clean-up"></a>Rensa
 
@@ -218,9 +218,9 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Självstudier: Mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
 
-Eller titta på andra resurser:
+Eller kolla ut andra resurser:
 
 > [!div class="nextstepaction"]
-> [Konfigurera Java-app](configure-language-java.md)
+> [Konfigurera java-app](configure-language-java.md)

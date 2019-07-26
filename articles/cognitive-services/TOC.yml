@@ -5,6 +5,8 @@
   items:
     - name: Vad är Cognitive Services?
       href: Welcome.md
+    - name: Anpassade underdomäner för Cognitive Services
+      href: cognitive-services-custom-subdomains.md
     - name: Cognitive Services och Machine Learning
       href: cognitive-services-and-machine-learning.md
     - name: Stöd för språk

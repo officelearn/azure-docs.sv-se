@@ -1,6 +1,6 @@
 ---
-title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight - motivation och fördelar
-description: Lär dig motivation och förmåner för migrera lokala Hadoop-kluster till Azure HDInsight.
+title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight – motivation och fördelar
+description: Lär dig motivation och fördelarna med att migrera lokala Hadoop-kluster till Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -8,20 +8,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f886cb71d4dbc191dae317e8ea72d8c896f37c03
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058559"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442080"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - motivation och fördelar
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – motivation och fördelar
 
-Den här artikeln är den första i en serie på Metodtips för att migrera lokala distributioner av Apache Hadoop-ekosystemet till Azure HDInsight. Den här artikelserien är för personer som ansvarar för design, distributionen och migreringen av Apache Hadoop-lösningar i Azure HDInsight. De roller som kan ha nytta av de här artiklarna innehåller molnarkitekter, Hadoop-administratörer och DevOps-tekniker. Programutvecklare, dataingenjörer och datatekniker bör också dra nytta av förklaring av hur olika typer av kluster arbete i molnet.
+Den här artikeln är den första i en serie med bästa praxis för migrering av lokala Apache Hadoop eko system distributioner till Azure HDInsight. Den här artikel serien är till för personer som är ansvariga för design, distribution och migrering av Apache Hadoop lösningar i Azure HDInsight. De roller som kan dra nytta av dessa artiklar är Cloud Architects, Hadoop-administratörer och DevOps-tekniker. Programutvecklare, data tekniker och data experter bör också dra nytta av förklaringen av hur olika typer av kluster fungerar i molnet.
 
-## <a name="why-to-migrate-to-azure-hdinsight"></a>Varför ska man migrera till Azure HDInsight
+## <a name="why-to-migrate-to-azure-hdinsight"></a>Varför du ska migrera till Azure HDInsight
 
-Azure HDInsight är en molndistribution av Hadoop-komponenter. Med Azure HDInsight kan du bearbeta stora mängder data på ett enkelt, snabbt och kostnadseffektivt sätt. HDInsight omfattar de populäraste ramverken med öppen källkod som:
+Azure HDInsight är en moln distribution av Hadoop-komponenter. Med Azure HDInsight kan du bearbeta stora mängder data på ett enkelt, snabbt och kostnadseffektivt sätt. HDInsight innehåller de mest populära ramverken med öppen källkod, till exempel:
 
 - Apache Hadoop
 - Apache Spark
@@ -31,31 +31,31 @@ Azure HDInsight är en molndistribution av Hadoop-komponenter. Med Azure HDInsig
 - Apache HBase
 - R
 
-## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Azure HDInsight fördelar jämfört med lokala Hadoop-
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Fördelar med Azure HDInsight över lokala Hadoop
 
-- **Låg kostnad** -kan minska kostnaderna genom att [Skapa kluster på begäran](../hdinsight-hadoop-create-linux-clusters-adf.md) och endast betala för det du använder. Fristående beräkning och lagring ger flexibilitet genom att hålla datavolymen oberoende av klusterstorleken.
+- Med **låga** kostnader kan du minska kostnaderna genom att [skapa kluster på begäran](../hdinsight-hadoop-create-linux-clusters-adf.md) och bara betala för det du använder. Frikopplad beräkning och lagring ger flexibilitet genom att hålla data volymen oberoende av kluster storleken.
 
-- **Automatiserad klustergenerering** – automatisk klustergenerering kräver minimal installation och konfiguration. Automation kan användas för kluster på begäran.
+- **Automatisk skapande av kluster** – automatisk generering av kluster kräver minimal konfiguration och konfiguration. Automation kan användas för kluster på begäran.
 
-- **Hanterade maskinvara och konfiguration** -behöver inte bekymra dig om fysisk maskinvara eller infrastruktur med ett HDInsight-kluster. Ange bara konfigurationen för klustret och Azure ställer den in.
+- **Hanterad maskin vara och konfiguration** – du behöver inte bekymra dig om den fysiska maskin varan eller infrastrukturen med ett HDInsight-kluster. Ange bara konfigurationen för klustret så konfigurerar Azure det.
 
-- **Lätt att skala** -HDInsight kan du [skala](../hdinsight-administer-use-portal-linux.md) upp eller ned arbetsbelastningar. Azure hand tar om vidaredistribution av data och arbetsbelastningen ombalansering utan att avbryta jobb för databehandling.
+- **Enkelt skalbara** – HDInsight gör att du kan [skala](../hdinsight-administer-use-portal-linux.md) upp eller ned arbets belastningar. Azure tar hand om data omdistribution och ombalansering av arbets belastning utan att avbryta data bearbetnings jobb.
 
-- **Global tillgänglighet** -HDInsight är tillgängligt i fler [regioner](https://azure.microsoft.com/regions/services/) än alla andra erbjudande för stordataanalys. Azure HDInsight är också tillgängligt i Azure Government, Kina och Tyskland så att du kan uppfylla företagets behov i viktiga områden.
+- **Global tillgänglighet** – HDInsight är tillgängligt i fler [regioner](https://azure.microsoft.com/regions/services/) än något annat erbjudande för stor data analys. Azure HDInsight är också tillgängligt i Azure Government, Kina och Tyskland så att du kan uppfylla företagets behov i viktiga områden.
 
-- **Säker och kompatibel** -HDInsight kan du skydda företagets datatillgångar med [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), [kryptering](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), och integrering med [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight uppfyller också de populäraste bransch- och myndighetsstandarderna [efterlevnadsstandarder](https://azure.microsoft.com/overview/trusted-cloud).
+- **Säkert och kompatibelt** – HDInsight gör att du kan skydda företagets data till gångar med [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [kryptering](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)och integrering med [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight uppfyller även de mest populära bransch-och myndighets [normerna för efterlevnad](https://azure.microsoft.com/overview/trusted-cloud).
 
-- **Förenklad versionshantering** -Azure HDInsight hanterar versionen av Hadoop-ekosystemet komponenter och håller dem uppdaterade. Programuppdateringar är vanligtvis en komplicerad process för lokala distributioner.
+- **Förenklad versions hantering** – Azure HDInsight hanterar versionen av Hadoop-miljö-system komponenter och håller dem uppdaterad. Program uppdateringar är vanligt vis en komplex process för lokala distributioner.
 
-- **Mindre kluster som optimerats för specifika arbetsbelastningar med färre beroenden mellan komponenter** – en typisk lokala Hadoop-installationen använder ett enda kluster som har många användningsområden. Med Azure HDInsight kan du skapa belastningsspecifikt kluster. Skapa kluster för specifika arbetsbelastningar tar bort komplexiteten i att underhålla ett enda kluster med växande komplexitet.
+- **Mindre kluster som är optimerade för vissa arbets belastningar med färre beroenden mellan komponenter** – en typisk lokal Hadoop-installation använder ett enda kluster som hanterar många ändamål. Med Azure HDInsight kan du skapa arbets belastnings bara kluster. Om du skapar kluster för vissa arbets belastningar tar du bort komplexiteten med att underhålla ett enda kluster med ökande komplexitet.
 
-- **Produktivitet** – du kan använda olika verktyg för Hadoop och Spark i din utvecklingsmiljö du föredrar.
+- **Produktivitet** – du kan använda olika verktyg för Hadoop och spark i din önskade utvecklings miljö.
 
-- **Utökningsbarhet med anpassade verktyg eller program från tredje part** -HDInsight-kluster kan utökas genom att installera komponenter och kan även integreras med andra lösningar för stordata med hjälp av [klick](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)  distributioner från Azure Marketplace.
+- **Utöknings barhet med anpassade verktyg eller program från tredje part** – HDInsight-kluster kan utökas med installerade komponenter och kan också integreras med de andra Big data-lösningarna genom att använda distributioner med [en enda klickning](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) från Azure-marknads plats.
 
-- **Enkel hantering, administration och övervakning** -Azure HDInsight kan integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) som ett enda gränssnitt som du kan övervaka alla dina kluster.
+- **Enkel hantering, administration och övervakning** – Azure HDInsight integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) för att tillhandahålla ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.
 
-- **Integrering med andra Azure-tjänster** -HDInsight kan enkelt integreras med andra populära Azure-tjänster, till exempel följande:
+- **Integrering med andra Azure-tjänster** – HDInsight kan enkelt integreras med andra populära Azure-tjänster, till exempel följande:
 
     - Azure Data Factory (ADF)
     - Azure Blob Storage
@@ -64,143 +64,143 @@ Azure HDInsight är en molndistribution av Hadoop-komponenter. Med Azure HDInsig
     - Azure SQL Database
     - Azure Analysis Services
 
-- **Självåterställning processer och komponenter** -HDInsight ständigt kontrollerar de infrastruktur och öppen källkod-komponenter med hjälp av en egen övervakade infrastrukturen. Den återställer automatiskt allvarliga fel, till exempel otillgänglig komponenter med öppen källkod och noder. Aviseringar har utlösts i Ambari om någon komponent OSS misslyckades.
+- Själv återställnings **processer och-komponenter** – HDInsight kontrollerar ständigt infrastrukturen och komponenter med öppen källkod med hjälp av en egen övervaknings infrastruktur. Den återställer också kritiska problem som inte är tillgängliga för komponenter och noder med öppen källkod. Aviseringar utlöses i Ambari om några OSS-komponenter Miss lyckas.
 
-Mer information finns i artikeln [vad är Azure HDInsight och Apache Hadoop-teknikstacken](../hadoop/apache-hadoop-introduction.md).
+Mer information finns i artikeln [Vad är Azure HDInsight och Apache Hadoop Technology stack](../hadoop/apache-hadoop-introduction.md).
 
-## <a name="migration-planning-process"></a>Planeringsprocess för migrering
+## <a name="migration-planning-process"></a>Planerings process för migrering
 
-Följande steg rekommenderas för att planera en migrering av lokala Hadoop-kluster till Azure HDInsight:
+Följande steg rekommenderas för att planera migrering av lokala Hadoop-kluster till Azure HDInsight:
 
-1. Förstå aktuella lokal distribution och topologier.
-2. Förstå aktuella projektets omfattning, tidslinjer och team expertis.
+1. Förstå den aktuella lokala distributionen och topologierna.
+2. Förstå aktuell projekt omfattning, tids linjer och team kunskaper.
 3. Förstå Azure-kraven.
-4. Bygga ut en detaljerad plan baserat på bästa praxis.
+4. Bygg ut en detaljerad plan utifrån metod tips.
 
-## <a name="gathering-details-to-prepare-for-a-migration"></a>Samlar in information om att förbereda för migrering
+## <a name="gathering-details-to-prepare-for-a-migration"></a>Samla in information för att förbereda för migrering
 
-Det här avsnittet innehåller mallen enkäter för att samla in viktig information om:
+Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att samla in viktig information om:
 
 - Lokal distribution
 - Projektinformation
 - Krav för Azure
 
-### <a name="on-premises-deployment-questionnaire"></a>En lokal distribution enkäten
+### <a name="on-premises-deployment-questionnaire"></a>Lokalt distributions fråge formulär
 
-| **Fråga** | **Exempel** | **Svar** |
+| **Ifrågasätta** | **Exempel** | **Svarsfilen** |
 |---|---|---|
-|**avsnittet**: **Miljö**|||
-|Klusterversion för Distribution|HDP 2.6.5, CDH 5.7|
-|Big Data-ekosystemet-komponenter|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Klustertyper|Hadoop, Spark, konfluenta Kafka, Storm, Solr|
-|Antalet kluster|4|
-|Antalet överordnade noder|2|
-|Antalet arbetsnoder|100|
-|Antal kantnoder| 5|
-|Totalt diskutrymme|100 TB|
-|Master nodkonfiguration|m/y, cpu, disk, osv.|
-|Konfiguration för noder|m/y, cpu, disk, osv.|
-|Edge-noder konfiguration|m/y, cpu, disk, osv.|
-|HDFS kryptering?|Ja|
-|Hög tillgänglighet|HDFS hög tillgänglighet, Metaarkiv hög tillgänglighet|
-|Katastrofåterställning / säkerhetskopiera|Backup-kluster?|  
+|**Ämne**: **Miljö**|||
+|Kluster distributions version|HDP 2.6.5, CDH 5,7|
+|Big data miljö – system komponenter|HDFS, garn, Hive, LLAP, Impala, kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
+|Kluster typer|Hadoop, Spark, Kafka, Storm, solr|
+|Antal kluster|4|
+|Antal huvudnoder|2|
+|Antal arbetsnoder|100|
+|Antal Edge-noder| 5|
+|Totalt disk utrymme|100 TB|
+|Konfiguration av huvud nod|d/y, CPU, disk osv.|
+|Konfiguration av datanoder|d/y, CPU, disk osv.|
+|Konfiguration av Edge-noder|d/y, CPU, disk osv.|
+|HDFS-kryptering|Ja|
+|Hög tillgänglighet|HDFS HA, Metaarkiv HA|
+|Haveri beredskap/säkerhets kopiering|Säkerhetskopiera kluster?|  
 |System som är beroende av kluster|SQL Server, Teradata, Power BI, MongoDB|
-|Tredjeparts-integreringar|Tableau GridGain, Qubole, Informatica, Splunk|
-|**avsnittet**: **Säkerhet**|||
-|Perimetersäkerhet|Brandväggar|
-|Kluster-autentisering och auktorisering|Active Directory, Ambari, Cloudera-hanteraren, ingen autentisering|
-|HDFS-åtkomstkontroll|  Manuell, ssh användare|
-|Hive-autentisering och auktorisering|Sentry, LDAP, AD med Kerberos, Ranger|
+|Integration från tredje part|Tableau, GridGain, Qubole, Informatica, Splunk|
+|**Ämne**: **Bullet**|||
+|Perimeter-säkerhet|Brandväggar|
+|Auktorisering av &-autentisering i kluster|Active Directory, Ambari, Cloudera Manager, ingen autentisering|
+|HDFS-Access Control|  Manuellt, SSH-användare|
+|Auktorisering av Hive-autentisering &|Sentry, LDAP, AD med Kerberos, Ranger|
 |Granskning|Ambari, Cloudera Navigator, Ranger|
-|Övervakning|Grafit, insamlade, statsd, Telegraf, InfluxDB|
+|Övervakning|Grafsystem, insamling, statistik, teleympkvistar, InfluxDB|
 |Aviseringar|Kapacitor, Prometheus, Datadog|
-|Data Retention duration| 3 år, 5 år|
-|Klusteradministratörer|En administratör kan flera administratörer|
+|Varaktighet för datakvarhållning| 3 år, 5 år|
+|Kluster administratörer|Enskild administratör, flera administratörer|
 
-### <a name="project-details-questionnaire"></a>Projektet information enkäten
+### <a name="project-details-questionnaire"></a>Projekt informations enkät
 
-|**Fråga**|**Exempel**|**Svar**|
+|**Ifrågasätta**|**Exempel**|**Svarsfilen**|
 |---|---|---|
-|**avsnittet**: **Arbetsbelastningar och frekvens**|||
+|**Ämne**: **Arbets belastningar och frekvens**|||
 |MapReduce-jobb|10 jobb – två gånger per dag||
 |Hive-jobb|100 jobb – varje timme||
 |Spark batch-jobb|50 jobb – var 15: e minut||
-|Spark Streaming jobb|5 jobb – var 3: e minut||
-|Strukturerad direktuppspelning jobb|5 jobb – varje minut||
-|ML-modell upplärningsjobb|2 jobb – en gång under en vecka||
+|Spark streaming-jobb|5 jobb – var 3: e minut||
+|Strukturerade strömmande jobb|5 jobb – varje minut||
+|ML modell utbildnings jobb|2 jobb – en gång i veckan||
 |Programmeringsspråk|Python, Scala, Java||
-|Skript|Shell, Python||
-|**avsnittet**: **Data**|||
-|Datakällor|Flat files, Json, Kafka, RDBMS||
-|Dataorkestrering|Oozie arbetsflöden, luftflöde||
-|I minnet sökningar|Apache Ignite, Redis||
-|Datamål|HDFS, RDBMS, Kafka, MPP ||
-|**avsnittet**: **Metadata**|||
-|Hive DB-typ|Mysql, Postgres||
-|Nej. av metastores för Hive|2||
-|Nej. Hive-tabeller|100||
-|Nej. för Ranger-principer|20||
-|Nej. för Oozie-arbetsflöden|100||
-|**avsnittet**: **Skalning**|||
-|Datavolym, inklusive replikering|100 TB||
-|Daglig inmatning volym|50 GB||
-|Tillväxttakt för data|10% per år||
-|Tillväxttakt för kluster-noder|5% per år
-|**avsnittet**: **Klusteranvändning**|||
-|Den genomsnittliga CPU % använt|60%||
-|Genomsnittligt minne-% använt|75%||
+|Skript|Shell, python||
+|**Ämne**: **Data**|||
+|Datakällor|Flata filer, JSON, Kafka, RDBMS||
+|Dataorkestrering|Oozie-arbetsflöden, luft flöde||
+|I minnes sökningar|Apache antändning, Redis||
+|Data destinationer|HDFS, RDBMS, Kafka, MPP ||
+|**Ämne**: **Metadata**|||
+|Hive DB-typ|MySQL, postgres||
+|Nej. Hive-metastores|2||
+|Nej. av Hive-tabeller|100||
+|Nej. av Ranger-principer|20||
+|Nej. av Oozie-arbetsflöden|100||
+|**Ämne**: **Skalning**|||
+|Data volym, inklusive replikering|100 TB||
+|Daglig inmatnings volym|50 GB||
+|Data tillväxt takt|10% per år||
+|Kluster noders tillväxt takt|5% per år
+|**Ämne**: **Kluster användning**|||
+|Genomsnittlig CPU% som används|60%||
+|Genomsnittligt minne% använt|75%||
 |Använt diskutrymme|75%||
-|Den genomsnittliga nätverk % använt|25 %
-|**avsnittet**: **Staff**|||
-|Nej. för administratörer|2||
-|Nej. för utvecklare|10||
+|Genomsnittligt nätverk% använt|25 %
+|**Ämne**: **Bilda**|||
+|Nej. av administratörer|2||
+|Nej. av utvecklare|10||
 |Nej. för slutanvändare|100||
-|Kunskaper|Hadoop, Spark||
-|Nej. tillgängliga resurser för migrering arbete|2||
-|**avsnittet**: **Begränsningar**|||
-|Aktuella begränsningar|Svarstiden är hög||
-|Aktuella utmaningar|Samtidighet problemet||
+|Färdigheter|Hadoop, Spark||
+|Nej. tillgängliga resurser för migrerings aktiviteter|2||
+|**Ämne**: **Begränsningar**|||
+|Aktuella begränsningar|Svars tiden är hög||
+|Aktuella utmaningar|Samtidiga problem||
 
-### <a name="azure-requirements-questionnaire"></a>Krav för Azure enkäten
+### <a name="azure-requirements-questionnaire"></a>Enkät för Azure-krav
 
-|**avsnittet**: **Infrastruktur** |||
+|**Ämne**: **Infrastruktur** |||
 |---|---|---|
-|**Fråga**|**Exempel**|**Svar**|
-| Önskad Region|USA, Östra||
-|Virtuellt nätverk rekommenderas?|Ja||
-|HA / DR behövs?|Ja||
-|Integrering med andra molntjänster?|ADF, CosmosDB||
-|**avsnittet**:   **Dataförflyttning**  |||
-|Första inställningar|DistCp, Data går du till rutan ADF, WANDisco||
-|Delta för överföring av data|DistCp, AzCopy||
-|Pågående inkrementella dataöverföring|DistCp, Sqoop||
-|**avsnittet**:   **Övervakning och avisering** |||
-|Använda Azure övervakning och avisering Vs integrera övervakning från tredje part|Använd Azure övervakning och avisering||
-|**avsnittet**:   **Skyddsinställningar** |||
-|Privata och skyddade datapipeline?|Ja||
-|Domänen anslutits kluster (ESP)?|     Ja||
-|Den lokala AD Sync till molnet?|     Ja||
-|Nej. AD-användare att synkronisera?|          100||
-|OK för att synkronisera lösenord till molnet?|    Ja||
-|Endast användare i molnet?|                 Ja||
+|**Ifrågasätta**|**Exempel**|**Svarsfilen**|
+| Önskad region|USA, östra||
+|Virtuellt nätverk?|Ja||
+|Krävs/DR?|Ja||
+|Integrering med andra moln tjänster?|ADF, CosmosDB||
+|**Ämne**:   **Data förflyttning**  |||
+|Första inläsnings inställning|DistCp, data Box, ADF, WANDisco||
+|Data överförings delta|DistCp, AzCopy||
+|Kontinuerlig stegvis data överföring|DistCp, Sqoop||
+|**Ämne**:   **Övervaka & avisering** |||
+|Använda Azure Monitoring & varningar vs integrera övervakning från tredje part|Använda Azure Monitoring &-avisering||
+|**Ämne**:   **Säkerhets inställningar** |||
+|Privat och skyddad datapipeline?|Ja||
+|Domänanslutna kluster (ESP)?|     Ja||
+|Lokalt AD Sync till molnet?|     Ja||
+|Nej. för AD-användare att synkronisera?|          100||
+|OK för att synkronisera lösen ord till molnet?|    Ja||
+|Endast moln användare?|                 Ja||
 |MFA krävs?|                       Nej|| 
-|Krav för auktorisering av data?|  Ja||
-|Rollbaserad åtkomstkontroll?|        Ja||
-|Granskning behövs?|                  Ja||
-|Datakryptering i vila?|          Ja||
-|Datakryptering under överföring?|       Ja||
-|**avsnittet**:   **Inställningar för RE-arkitektur** |||
-|Kluster vs specifika klustertyper|Specifika klustertyper||
-|Samordnade lagring jämfört med Fjärrlagring?|Fjärrlagring||
-|Mindre klusterstorlek som data lagras via fjärranslutning?|Mindre klusterstorlek||
-|Använda flera mindre kluster i stället för ett stort kluster?|Använda flera mindre kluster||
-|Använda en fjärransluten metaarkiv?|Ja||
-|Dela metastores mellan olika kluster?|Ja||
-|Bryta arbetsbelastningar?|Ersätt Hive-jobb med Spark-jobb||
-|Använda ADF för datadirigering?|Nej||
+|Krav för data auktorisation?|  Ja||
+|Rollbaserad Access Control?|        Ja||
+|Krävs granskning?|                  Ja||
+|Data kryptering i vila?|          Ja||
+|Data kryptering under överföring?|       Ja||
+|**Ämne**:   **Åter arkitektur inställningar** |||
+|Enstaka kluster och vissa kluster typer|Vissa kluster typer||
+|Samplacerad lagring jämfört med Fjärrlagring?|Fjärrlagring||
+|Mindre kluster storlek när data lagras via fjärr anslutning?|Mindre kluster storlek||
+|Använd flera mindre kluster i stället för ett enda stort kluster?|Använd flera mindre kluster||
+|Använd en fjärran sluten metaarkiv?|Ja||
+|Vill du dela metastores mellan olika kluster?|Ja||
+|Vill du skapa arbets belastningar?|Ersätt Hive-jobb med Spark-jobb||
+|Använd ADF för data dirigering?|Nej||
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs nästa artikel i den här serien:
 
-- [Arkitektur för bästa praxis för lokalt till Azure HDInsight Hadoop-migrering](apache-hadoop-on-premises-migration-best-practices-architecture.md)
+- [Metod tips för arkitektur för lokal att Azure HDInsight Hadoop migrering](apache-hadoop-on-premises-migration-best-practices-architecture.md)

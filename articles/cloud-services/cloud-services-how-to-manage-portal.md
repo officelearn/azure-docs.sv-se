@@ -1,132 +1,126 @@
 ---
-title: Vanliga molntjänsthantering | Microsoft Docs
-description: Lär dig hantera molntjänster i Azure-portalen. De här exemplen använder Azure portal.
+title: Vanliga hanterings uppgifter för moln tjänster | Microsoft Docs
+description: Lär dig hur du hanterar Cloud Services i Azure Portal. I de här exemplen används Azure Portal.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433964"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359610"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Hantera molntjänster i Azure portal
-I den **molntjänster** område i Azure-portalen kan du:
+# <a name="manage-cloud-services-in-the-azure-portal"></a>Hantera Cloud Services i Azure Portal
+I **Cloud Servicess** delen av Azure Portal kan du:
 
-* Uppdatera en tjänstroll eller en distribution.
-* Flytta upp en stegvis distribution till produktion.
-* Länka resurser i din molntjänst så att du kan se resursberoenden och skala resurser tillsammans.
-* Ta bort en molntjänst eller en distribution.
+* Uppdatera en tjänst roll eller en distribution.
+* Höj upp en mellanlagrad distribution till produktion.
+* Länka resurser till moln tjänsten så att du kan se resurs beroenden och skala resurserna tillsammans.
+* Ta bort en moln tjänst eller en distribution.
 
-Läs mer om hur du skala Molntjänsten [konfigurera automatisk skalning för en molntjänst i portalen](cloud-services-how-to-scale-portal.md).
+Mer information om hur du skalar moln tjänsten finns i [Konfigurera automatisk skalning för en moln tjänst i portalen](cloud-services-how-to-scale-portal.md).
 
-## <a name="update-a-cloud-service-role-or-deployment"></a>Uppdatera en molntjänstroll eller distribution
-Om du vill uppdatera programkod för din molntjänst kan du använda **uppdatera** på bladet cloud service. Du kan uppdatera en roll eller alla roller. Om du vill uppdatera, kan du ladda upp ett nytt tjänstpaket eller tjänstkonfigurationsfilen.
+## <a name="update-a-cloud-service-role-or-deployment"></a>Uppdatera en moln tjänst roll eller distribution
+Om du behöver uppdatera program koden för moln tjänsten använder du **Uppdatera** på bladet moln tjänst. Du kan uppdatera en enskild roll eller alla roller. Om du vill uppdatera kan du ladda upp ett nytt tjänst paket eller en tjänst konfigurations fil.
 
-1. I den [Azure-portalen][Azure portal], den molntjänst som du vill uppdatera. Det här steget öppnas bladet cloud service-instans.
+1. I [Azure Portal][Azure portal]väljer du den moln tjänst som du vill uppdatera. Det här steget öppnar bladet moln tjänst instans.
 
-2. På bladet välj **uppdatering**.
+2. På bladet väljer du **Uppdatera**.
 
     ![Knappen Uppdatera](./media/cloud-services-how-to-manage-portal/update-button.png)
 
-3. Uppdatera distributionen med en ny tjänsten paketfil (.cspkg) och tjänstkonfigurationsfilen (.cscfg).
+3. Uppdatera distributionen med en ny Service Pack-fil (. cspkg) och tjänst konfigurations fil (. cscfg).
 
     ![UpdateDeployment](./media/cloud-services-how-to-manage-portal/update-blade.png)
 
-4. Du kan också uppdatera lagringskontot och distributionsetiketten.
+4. Du kan också uppdatera lagrings kontot och distributions etiketten.
 
-5. Om några roller har endast en rollinstans, väljer du den **distribuera även om en eller flera roller innehåller en enda instans** kryssrutan för att aktivera uppgraderingen kan fortsätta.
+5. Om några roller bara har en roll instans markerar du kryss rutan **distribuera även om en eller flera roller innehåller en enda instans** för att aktivera uppgraderingen för att fortsätta.
 
-    Azure kan garantera endast serviceavtal på 99,95% tjänstens tillgänglighet under en cloud service-uppdatering om varje roll har minst två rollinstanser (virtuella datorer). Med två rollinstanser bearbetar klientbegäranden av en virtuell dator medan den andra har uppdaterats.
+    Azure kan endast garantera 99,95 procents tillgänglighet för tjänster under en moln tjänst uppdatering om varje roll har minst två roll instanser (virtuella datorer). Med två roll instanser bearbetar en virtuell dator klient begär Anden medan den andra uppdateras.
 
-6. Välj den **starta distribution** kryssrutan för att installera uppdateringen efter överföringen av paketet har slutförts.
+6. Markera kryss rutan **Starta distribution** om du vill tillämpa uppdateringen när paketet har laddats upp är klart.
 
-7. Välj **OK** att börja uppdatera tjänsten.
+7. Välj **OK** för att börja uppdatera tjänsten.
 
-## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Växla distributioner för att flytta upp en stegvis distribution till produktion
-När du vill distribuera en ny version av en tjänst i molnet, steg och testa din nya version i din cloud service mellanlagrings environment. Använd **växla** växla URL: er som de båda distributionerna behandlas och flytta upp en ny version till produktion.
+## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Växla distributioner för att befordra en mellanlagrad distribution till produktion
+När du bestämmer dig för att distribuera en ny version av en moln tjänst kan du mellanlagra och testa din nya version i moln tjänstens utvecklings miljö. Använd **Växla** för att växla de URL: er som de två distributionerna riktas mot och befordra en ny version till produktion.
 
-Du kan växla distributioner från den **molntjänster** sida eller instrumentpanelen.
+Du kan växla distributioner från **Cloud Services** sidan eller instrument panelen.
 
-1. I den [Azure-portalen][Azure portal], den molntjänst som du vill uppdatera. Det här steget öppnas bladet cloud service-instans.
+1. I [Azure Portal][Azure portal]väljer du den moln tjänst som du vill uppdatera. Det här steget öppnar bladet moln tjänst instans.
 
-2. På bladet välj **växla**.
+2. På bladet väljer du **Växla**.
 
-    ![Cloud Services växla knappen](./media/cloud-services-how-to-manage-portal/swap-button.png)
+    ![Knapp för Cloud Services växling](./media/cloud-services-how-to-manage-portal/swap-button.png)
 
-3. Följande bekräftelsefråga öppnas:
+3. Följande bekräftelse meddelande öppnas:
 
-    ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+    ![Cloud Services växling](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
-4. När du har kontrollerat distributionsinformationen Välj **OK** växlar distributioner.
+4. När du har kontrollerat distributions informationen väljer du **OK** för att växla distributioner.
 
-    Distribution av växlingen sker snabbt eftersom det enda som ändras är de virtuella IP-adresserna (VIP) för distributioner.
+    Distributions växlingen sker snabbt eftersom det enda som ändras är de virtuella IP-adresserna (VIP) för distributionerna.
 
-    Du kan ta bort tillfälliga distributionen när du har kontrollerat att din Produktionsdistribution fungerar som förväntat för att spara beräkningskostnader.
+    För att spara beräknings kostnader kan du ta bort mellanlagrings distributionen när du har kontrollerat att produktions distributionen fungerar som förväntat.
 
-### <a name="common-questions-about-swapping-deployments"></a>Vanliga frågor om växlar distributioner
+### <a name="common-questions-about-swapping-deployments"></a>Vanliga frågor om hur du byter distributioner
 
-**Vilka är kraven för växlar distributioner?**
+**Vilka är kraven för att byta distribution?**
 
-Det finns två viktiga förutsättningar för en lyckad distribution växling:
+Det finns två viktiga krav för en lyckad distributions växling:
 
-- Om du vill använda en statisk IP-adress för din produktionsplatsen kan reservera du en för din mellanlagringsplatsen. Annars misslyckas växlingen.
+- Om du vill använda en statisk IP-adress för din produktions plats måste du även reservera en för mellanlagringsplatsen. Annars Miss lyckas växlingen.
 
-- Alla instanser av dina roller måste köras innan du kan utföra växlingen. Du kan kontrollera status för dina instanser på den **översikt** -bladet i Azure-portalen. Du kan också använda den [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) i Windows PowerShell.
+- Alla instanser av dina roller måste köras innan du kan utföra växlingen. Du kan kontrol lera status för dina instanser på bladet **Översikt** i Azure Portal. Du kan också använda kommandot [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) i Windows PowerShell.
 
-Observera att uppdateringar av gäst-OS och tjänsten återställning operations också orsaka distribution växlingar misslyckas. Mer information finns i [Felsök distributionsproblem med cloud service](cloud-services-troubleshoot-deployment-problems.md).
+Observera att gäst operativ system uppdateringar och tjänst återställnings åtgärder också kan orsaka att distributions växlingar inte fungerar. Mer information finns i [Felsöka problem med distribution av moln tjänster](cloud-services-troubleshoot-deployment-problems.md).
 
-**Medför en växling på grund av mitt program? Hur ska jag hantera den?**
+**Uppstår avbrott för mitt program i byte? Hur ska jag hantera det?**
 
-Enligt beskrivningen i föregående avsnitt, är en distribution växling vanligtvis snabbt eftersom det är bara en konfigurationsändring i Azure-belastningsutjämnaren. I vissa fall kan ta det 10 eller fler sekunder och resultatet i tillfälliga anslutningsfel. Om du vill begränsa påverkan på dina kunder att överväga att implementera [logik för omprövning av klienten](../best-practices-retry-general.md).
+Som det beskrivs i föregående avsnitt är en distributions växling vanligt vis snabb eftersom det bara är en konfigurations ändring i Azure Load Balancer. I vissa fall kan det ta 10 sekunder och leda till tillfälliga anslutnings problem. Om du vill begränsa påverkan till dina kunder kan du överväga att implementera logik för omprövning av [klienter](../best-practices-retry-general.md).
 
-## <a name="delete-deployments-and-a-cloud-service"></a>Ta bort distributioner och en tjänst i molnet
-Innan du kan ta bort en tjänst i molnet, måste du ta bort varje befintlig distribution.
+## <a name="delete-deployments-and-a-cloud-service"></a>Ta bort distributioner och en moln tjänst
+Innan du kan ta bort en moln tjänst måste du ta bort varje befintlig distribution.
 
-Du kan ta bort tillfälliga distributionen när du har kontrollerat att din Produktionsdistribution fungerar som förväntat för att spara beräkningskostnader. Du debiteras för beräkningskostnaderna för distribuerade rollinstanser som inte är igång.
+För att spara beräknings kostnader kan du ta bort mellanlagrings distributionen när du har kontrollerat att produktions distributionen fungerar som förväntat. Du debiteras för beräknings kostnader för distribuerade roll instanser som har stoppats.
 
-Använd följande procedur för att ta bort en distribution eller Molntjänsten.
+Använd följande procedur för att ta bort en distribution eller din moln tjänst.
 
-1. I den [Azure-portalen][Azure portal], den molntjänst som du vill ta bort. Det här steget öppnas bladet cloud service-instans.
+1. I [Azure Portal][Azure portal]väljer du den moln tjänst som du vill ta bort. Det här steget öppnar bladet moln tjänst instans.
 
-2. På bladet välj **ta bort**.
+2. Välj **ta bort**på bladet.
 
-    ![Cloud Services ta bort-knappen](./media/cloud-services-how-to-manage-portal/delete-button.png)
+    ![Knappen Cloud Services ta bort](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
-3. Om du vill ta bort hela Molntjänsten, Välj den **Cloud service och dess distributioner** markerar du kryssrutan. Eller så kan du välja antingen den **Produktionsdistribution** eller **mellanlagringsdistribution** markerar du kryssrutan.
+3. Om du vill ta bort hela moln tjänsten markerar du kryss rutan **moln tjänst och dess distributioner** . Eller så kan du välja antingen kryss rutan **produktions distribution** eller mellanlagrings **distribution** .
 
-    ![Cloud Services Delete](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+    ![Cloud Services ta bort](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
-4. Välj **ta bort** längst ned på sidan.
+4. Välj **ta bort** längst ned.
 
-5. Om du vill ta bort Molntjänsten, Välj **ta bort molntjänst**. Vid bekräftelse, Välj **Ja**.
+5. Om du vill ta bort moln tjänsten väljer du **ta bort moln tjänst**. Sedan väljer du **Ja**i bekräftelse meddelandet.
 
 > [!NOTE]
-> När en molntjänst tas bort och utförlig övervakning är konfigurerad, måste du ta bort data manuellt från ditt lagringskonto. Information om var du hittar mått-tabeller finns i [introduktion till molnbaserad tjänstövervakning](cloud-services-how-to-monitor.md).
+> När en moln tjänst tas bort och utförlig övervakning har kon figurer ATS måste du ta bort data manuellt från ditt lagrings konto. Information om var du hittar mått tabeller finns i [Introduktion till moln tjänst övervakning](cloud-services-how-to-monitor.md).
 
 
-## <a name="find-more-information-about-failed-deployments"></a>Mer information om misslyckade distributioner
-Den **översikt** bladet har ett statusfält överst. När du väljer fältet, ett nytt blad öppnas och visar den felinformation. Om distributionen inte innehåller några fel, är bladet information tomt.
+## <a name="find-more-information-about-failed-deployments"></a>Hitta mer information om misslyckade distributioner
+Bladet **Översikt** har ett statusfält överst. När du väljer stapeln öppnas ett nytt blad och visar eventuell fel information. Om distributionen inte innehåller några fel är informations bladet tomt.
 
-![Översikt över cloud Services](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Översikt över Cloud Services](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Nästa steg
-* [Allmän konfiguration för din molntjänst](cloud-services-how-to-configure-portal.md).
-* Lär dig hur du [distribuera en molntjänst](cloud-services-how-to-create-deploy-portal.md).
-* Konfigurera en [domännamn](cloud-services-custom-domain-name-portal.md).
+* [Allmän konfiguration av din moln tjänst](cloud-services-how-to-configure-portal.md).
+* Lär dig hur du [distribuerar en moln tjänst](cloud-services-how-to-create-deploy-portal.md).
+* Konfigurera ett [anpassat domän namn](cloud-services-custom-domain-name-portal.md).
 * Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).

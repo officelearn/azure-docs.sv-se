@@ -101,6 +101,8 @@
           href: container-registry-tasks-scheduled.md
         - name: Uppgifter i flera steg
           href: container-registry-tasks-multi-step.md
+        - name: Skapa en avbildning med Buildpacks (förhandsversion)
+          href: container-registry-tasks-pack-build.md
         - name: Använda med hanterad identitet
           href: container-registry-tasks-authentication-managed-identity.md
     - name: Register och andra Azure-tjänster

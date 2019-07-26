@@ -63,6 +63,8 @@
           href: how-vs-code-works-with-dev-spaces.md
     - name: Gör så här för att
       items:
+        - name: Installera Azure Dev Spaces
+          href: how-to/install-dev-spaces.md
         - name: Skapa ett Kubernetes-kluster med Azure Cloud Shell
           href: how-to/create-cluster-cloud-shell.md
         - name: Dela Azure Dev Spaces
@@ -81,5 +83,7 @@
           href: ../jenkins/tutorial-jenkins-dev-spaces.md
         - name: Affärskontinuitet och haveriberedskap för Azure Dev Spaces
           href: how-to/dev-spaces-business-continuity.md
+        - name: Interagera med Windows-containrar
+          href: how-to/run-dev-spaces-windows-containers.md
     - name: Felsökning
       href: troubleshooting.md

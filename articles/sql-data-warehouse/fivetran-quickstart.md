@@ -80,5 +80,5 @@ Ange de autentiseringsuppgifter som används för att få åtkomst till SQL Data
 * Värd (namnet på servern).
 * Port.
 * Databas.
-* Användare (användarnamnet ska vara **fivetran\@_server_name_** där *server_name* är en del av din Azure-värd URI: ***server_name*. Database.Windows.NET**).
+* Användare (användarnamnet ska vara **fivetran\@_server_name_** där *server_name* är en del av din Azure-värd URI:  ***server_name*. Database.Windows.NET**).
 * Lösenordet.

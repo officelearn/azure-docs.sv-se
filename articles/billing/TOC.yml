@@ -87,11 +87,11 @@
               href: billing-reservation-discount-app-service-isolated-stamp.md
             - name: Programvaruplaner för Azure
               href: billing-understand-suse-reservation-charges.md
-        - name: Programvarukostnader som inte ingår
+        - name: Windows- och SQL-kostnader ingår inte
           href: billing-reserved-instance-windows-software-costs.md
-        - name: Användning för enskilda prenumerationer
+        - name: Användningsdata för enskilda prenumerationer
           href: billing-understand-reserved-instance-usage.md
-        - name: Användning för Enterprise
+        - name: Användningsdata för Enterprise-kunder
           href: billing-understand-reserved-instance-usage-ea.md
         - name: Utbyten och återbetalningar för reservationer
           href: billing-azure-reservations-self-service-exchange-and-refund.md

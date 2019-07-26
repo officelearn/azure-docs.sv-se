@@ -1,5 +1,10 @@
 - name: Dokumentation till säker utveckling
   href: index.yml
+- name: Exempelappar
+  expanded: true
+  items:
+    - name: Webbapp i en Linux-container
+      href: secure-web-app.md
 - name: Begrepp
   expanded: true
   items:

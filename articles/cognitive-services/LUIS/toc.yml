@@ -321,6 +321,18 @@
     - name: Fördefinierad domänreferens
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
+    - name: Anpassad entitetsreferens
+      items:
+        - name: Sammansatt entitet
+          href: reference-entity-composite.md
+        - name: Lista entitet
+          href: reference-entity-list.md
+        - name: Entiteten Pattern.any
+          href: reference-entity-pattern-any.md
+        - name: Entitet för reguljära uttryck
+          href: reference-entity-regular-expression.md
+        - name: Enkel entitet
+          href: reference-entity-simple.md
     - name: Azure CLI
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell

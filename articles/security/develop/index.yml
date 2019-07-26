@@ -28,12 +28,19 @@ sections:
             html: <p>Utveckla ett säkert webbprogram i Azure</p>
             image:
               src: /media/common/i_get-started.svg
-            title: Kom igång
+            title: Komma igång
           - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
             html: <p>De fem främsta säkerhetsobjekten för webbappar</p>
             image:
               src: /media/common/i_learn-about.svg
             title: Utveckla dina färdigheter med Microsoft Learn
+  - title: Säkra exempelappar
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-web-app">Webbapp i en Linux-container</a>
   - title: Begrepp
     items:
       - type: list

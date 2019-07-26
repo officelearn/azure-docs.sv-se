@@ -408,8 +408,9 @@
                   href: app/telemetry-channels.md
                 - name: TelemetryProcessors
                   displayname: 'processors, filtering, telemetry filtering, telemetry processor'
-                - name: Telemetrikorrelation
                   href: app/api-filtering-sampling.md
+                - name: Telemetrikorrelation
+                  href: app/correlation.md
                 - name: Spåra anpassade åtgärder i .NET SDK
                   href: app/custom-operations-tracking.md
                 - name: Anpassade e-postrapporter
@@ -603,6 +604,8 @@
                       href: insights/vminsights-enable-at-scale-powershell.md
                     - name: Aktivera för hybridmiljö
                       href: insights/vminsights-enable-hybrid-cloud.md
+                    - name: Integration med Operations Manager
+                      href: insights/service-map-scom.md
                 - name: Övervaka hälsa
                   href: insights/vminsights-health.md
                 - name: Mappa beroenden
@@ -621,14 +624,8 @@
               href: insights/vmware.md
             - name: Wire Data-lösning
               href: insights/wire-data.md
-            - name: Tjänstkarta
-              items:
-                - name: Användning
-                  href: insights/service-map.md
-                - name: Konfigurera
-                  href: insights/service-map-configure.md
-                - name: Integration med Operations Manager
-                  href: insights/service-map-scom.md
+            - name: Lösningen Tjänstkarta
+              href: insights/service-map.md
             - name: Datorgrupper
               href: platform/computer-groups.md
             - name: Configuration Manager

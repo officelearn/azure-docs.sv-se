@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med anpassningsbar insikter | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och anpassningsbar insikter.
+title: 'Självstudier: Azure Active Directory integrering med anpassningsbara insikter | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och anpassningsbara insikter.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -9,251 +9,205 @@ ms.reviewer: barbkess
 ms.assetid: 13af9d00-116a-41b8-8ca0-4870b31e224c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/17/2019
+ms.date: 07/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c217663c5752907e0b3d6372d4522f6aba982b3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 599b0c8f45f91f9ecff210264a813e302f18059e
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107395"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488880"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Självstudier: Azure Active Directory-integrering med anpassningsbar insikter
+# <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Självstudier: Integrera anpassningsbara insikter med Azure Active Directory
 
-Lär dig hur du integrerar anpassningsbar insikter med Azure Active Directory (AD Azure) i den här självstudien.
-Integrera anpassningsbar insikter med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar anpassningsbara insikter med Azure Active Directory (Azure AD). När du integrerar anpassningsbara insikter med Azure AD kan du:
 
-* Du kan styra i Azure AD som har tillgång till anpassningsbara insikter.
-* Du kan aktivera användarna att vara automatiskt inloggad till anpassningsbar Insights (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har till gång till anpassningsbara insikter.
+* Gör det möjligt för användarna att logga in automatiskt till anpassningsbara insikter med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med anpassningsbar insikter, behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Anpassningsbar insikter med enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Anpassad insikts aktive rad prenumeration med enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Anpassningsbar Insights stöder **IDP** -initierad SSO
+* Anpassningsbara insikter stöder **IDP** -INITIERAd SSO
 
-## <a name="adding-adaptive-insights-from-the-gallery"></a>Lägga till anpassad Insights från galleriet
+## <a name="adding-adaptive-insights-from-the-gallery"></a>Lägga till anpassningsbara insikter från galleriet
 
-Om du vill konfigurera integreringen av anpassningsbar insikter om Azure AD, som du behöver lägga till anpassningsbar insikter från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrering av anpassningsbara insikter i Azure AD måste du lägga till anpassningsbara insikter från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till anpassad insikter från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Skriv adaptiva insikter i sökrutan  i avsnittet **Lägg till från galleriet** .
+1. Välj **adaptiva** insikter från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
-
-    ![Azure Active Directory-knappen](common/select-azuread.png)
-
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. I sökrutan skriver **anpassningsbar Insights**väljer **anpassningsbar Insights** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
-     ![Anpassningsbar insikter i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med anpassningsbar insikter utifrån en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i anpassningsbar Insights upprättas.
+Konfigurera och testa Azure AD SSO med anpassningsbara insikter med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i anpassningsbara insikter.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med anpassningsbar Insights, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med anpassningsbara insikter slutför du följande Bygg stenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera anpassningsbar insikter enkel inloggning](#configure-adaptive-insights-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa anpassningsbar insikter testanvändare](#create-adaptive-insights-test-user)**  – du har en motsvarighet för Britta Simon i anpassningsbar insikter som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera adaptiv Insights SSO](#configure-adaptive-insights-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+5. **[Skapa anpassningsbara](#create-adaptive-insights-test-user)** insikter-test för att få en motsvarighet till B. Simon i anpassningsbara insikter som är länkade till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med anpassningsbar Insights:
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för anpassningsbara insikter-program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **anpassningsbar Insights** application integration markerar **enkel inloggning**.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
-
-    ![Anpassningsbar insikter domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+1. I avsnittet **grundläggande SAML-konfiguration** utför du följande steg:
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     > [!NOTE]
-    > Du kan hämta identifierare (entitets-ID) och svars-URL-värden från de anpassningsbara insikter **SAML SSO-inställningar** sidan.
+    > Du kan hämta identifierare (enhets-ID) och svars-URL-värden från sidan med **Inställningar för SAML SSO-inställningar** för adaptiva insikter.
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-6. På den **ställa in anpassningsbar insikter** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera anpassningsbara** insikter kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+### <a name="configure-adaptive-insights-sso"></a>Konfigurera adaptiv Insights SSO
 
-    b. Microsoft Azure Active Directory-identifierare
+1. Logga in på din anpassade Insights-företags webbplats som administratör i ett annat webbläsarfönster.
 
-    c. Utloggnings-URL
-
-### <a name="configure-adaptive-insights-single-sign-on"></a>Konfigurera anpassningsbar insikter enkel inloggning
-
-1. I ett annat webbläsarfönster, loggar du in din anpassningsbar insikter företagets webbplats som administratör.
-
-2. Gå till **Admin**.
+2. Gå till **Administration**.
 
     ![Admin](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
-3. I den **användare och roller** klickar du på **hantera inställningar för SAML SSO**.
+3. I avsnittet **användare och roller** klickar du på **Inställningar för SAML SSO**.
 
-    ![Hantera inställningar för enkel inloggning SAML](./media/adaptivesuite-tutorial/ic805645.png "hantera SAML SSO-inställningar")
+    ![Hantera inställningar för SAML SSO](./media/adaptivesuite-tutorial/ic805645.png "Hantera inställningar för SAML SSO")
 
-4. På den **SAML SSO-inställningar** utför följande steg:
+4. Utför följande steg på sidan **Inställningar för SAML SSO** :
 
-    ![Inställningar för enkel inloggning SAML](./media/adaptivesuite-tutorial/ic805646.png "SAML SSO-inställningar")
+    ![Inställningar för SAML SSO](./media/adaptivesuite-tutorial/ic805646.png "Inställningar för SAML SSO")
 
-    a. I den **namn på identitetsprovider** textrutan anger du ett namn för din konfiguration.
+    a. I text rutan **namn på identitetsprovider** anger du ett namn för din konfiguration.
 
-    b. Klistra in den **Azure Ad-identifierare** värdet som har kopierats från Azure-portalen till den **identitetsprovider entitets-ID** textrutan.
+    b. Klistra in värdet för **Azure AD** -identifieraren som kopierats från Azure Portal till text rutan för **entitets-ID för identitetsprovider** .
 
-    c. Klistra in den **inloggnings-URL** värdet som har kopierats från Azure-portalen till den **identitetsprovider SSO URL** textrutan.
+    c. Klistra in värdet för inloggnings- **URL:** en som kopierats från Azure Portal i text rutan för **URL: en för autentiseringsprovider**
 
-    d. Klistra in den **URL för utloggning** värdet som har kopierats från Azure-portalen till den **anpassad URL för utloggning** textrutan.
+    d. Klistra in **URL** -värdet för utloggning som kopierats från Azure Portal till text rutan för anpassad utloggnings- **URL** .
 
-    e. Om du vill ladda upp din hämtade certifikatet klickar du på **Välj fil**.
+    e. Överför ditt hämtade certifikat genom att klicka på **Välj fil**.
 
-    f. Välj följande, för:
+    f. Välj följande för:
 
-     * **Användar-id för SAML**väljer **användarens anpassningsbar information användarnamn**.
+     * **SAML-användar-ID**, Välj användarens anpassade insikter- **användar namn**.
 
-     * **SAML-id Användarplats**väljer **användar-id i NameID ämne**.
+     * **SAML-användarens ID-plats**, Välj **användar-ID i NameID för ämnet**.
 
-     * **SAML NameID-format**väljer **e-postadress**.
+     * **SAML NameID-format**, Välj **e-postadress**.
 
-     * **Aktivera SAML**väljer **Tillåt SAML SSO och anpassningsbar Insights direktinloggning**.
+     * **Aktivera SAML**, Välj **Tillåt SAML SSO och Direct adaptiv Insights-inloggning**.
 
-    g. Kopiera **anpassningsbar Insights SSO-URL** och klistra in i den **identifierare (entitets-ID)** och **svars-URL** textrutor i den **anpassningsbar insikter domän och URL: er** avsnitt i Azure-portalen.
+    g. Kopiera **URL: en för adaptiv** insikter och klistra in i text rutorna **identifiera (enhets-ID)** och svars- **URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
     h. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp 'brittasimon@yourcompanydomain.extension. Till exempel BrittaSimon@contoso.com.
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till anpassningsbar insikter.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till anpassningsbara insikter.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **anpassningsbar insikter**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **adaptiva**insikter.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **anpassningsbar insikter**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Länken anpassningsbar insikter i listan med program](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+### <a name="create-adaptive-insights-test-user"></a>Skapa anpassningsbara insikter-test användare
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-adaptive-insights-test-user"></a>Skapa anpassningsbar insikter testanvändare
-
-Om du vill aktivera Azure AD-användare att logga in på anpassningsbar insikter, måste de etableras till anpassningsbar insikter. När det gäller anpassningsbar insikter är etablering en manuell aktivitet.
+Om du vill att Azure AD-användare ska kunna logga in på anpassningsbara insikter måste de vara etablerade i anpassningsbara insikter. Vid anpassningsbara insikter är etableringen en manuell uppgift.
 
 **Utför följande steg för att konfigurera användarförsörjning:**
 
-1. Logga in på din **anpassningsbar insikter** företagets plats som administratör.
+1. Logga in på din **anpassade Insights** företags webbplats som administratör.
 
-2. Gå till **Admin**.
+2. Gå till **Administration**.
 
    ![Admin](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
-3. I den **användare och roller** klickar du på **Lägg till användare**.
+3. I avsnittet **användare och roller** klickar du på **användare**.
 
    ![Lägg till användare](./media/adaptivesuite-tutorial/IC805648.png "Lägg till användare")
 
-4. I den **ny användare** avsnittet, utför följande steg:
+4. I avsnittet **ny användare** utför du följande steg:
 
-   ![Skicka](./media/adaptivesuite-tutorial/IC805649.png "skicka")
+   ![Skicka in](./media/adaptivesuite-tutorial/IC805649.png "Skicka in")
 
-   a. Typen i **namn**, **inloggning**, **e-post**, **lösenord** av en giltig Azure Active Directory-användare du vill etablera i den relaterade textrutor.
+   a. Ange **namn**, **användar namn**, **e-postadress**och **lösen ord** för en giltig Azure Active Directory användare som du vill etablera i de relaterade text rutorna.
 
-   b. Välj en **rollen**.
+   b. Välj en **roll**.
 
    c. Klicka på **Skicka**.
 
 > [!NOTE]
-> Du kan använda anpassningsbar insikter användaren-konto skapas verktyg från någon annan eller API: er som tillhandahålls av anpassningsbar insikter att etablera AAD-användarkonton.
+> Du kan använda andra verktyg för anpassade insikter för att skapa användar konton eller API: er som tillhandahålls av anpassningsbara insikter för att etablera AAD-användarkonton.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen anpassningsbar insikter i åtkomstpanelen, bör det vara loggas in automatiskt till de anpassningsbara insikter som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen adaptiva insikter på åtkomst panelen, bör du loggas in automatiskt på de anpassningsbara insikter som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

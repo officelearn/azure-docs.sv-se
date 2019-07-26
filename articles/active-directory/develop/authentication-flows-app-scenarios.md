@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2019
+ms.date: 07/25/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d50019e8de1daf3d69342dcaf9eeecfba493a83
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: c3d9f96f0b61129a0f881c8fe8676bd5df7376ad
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302457"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494570"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 
@@ -80,6 +80,14 @@ Säkerhetstoken kan hämtas från ett antal program typer. Program tenderar att 
 
 Slut punkten för Microsoft Identity Platform stöder autentisering för en rad olika app-arkitekturer: appar med en sida, webbappar, webb-API: er, mobila och inbyggda appar samt daemon och appar på Server sidan.  Programmen använder olika autentiserings flöden för att logga in användare och hämta token för att anropa skyddade API: er.
 
+### <a name="single-page-application"></a>Enkelsidig app
+
+Många moderna webb program är skapade för program på klient sidan som skrivits med hjälp av Java Script eller ett SPA-ramverk, till exempel vinkel, Vue. js och reagerar. js. Dessa program körs i en webbläsare och har olika egenskaper för autentisering än traditionella webb program på Server sidan. Microsoft Identity Platform gör det möjligt för program på en sida att logga in användare och hämta token för att få åtkomst till backend-tjänster eller webb-API: er.
+
+![Enkelsidig app](media/scenarios/spa-app.svg)
+
+Mer information finns i [program med en enda sida](scenario-spa-overview.md).
+
 ### <a name="web-application-signing-in-a-user"></a>Webb programs signering – i en användare
 
 ![Webbapp loggar in användare](media/scenarios/scenario-webapp-signs-in-users.svg)
@@ -90,51 +98,54 @@ Om du vill **skydda en webbapp** (logga in användaren) använder du:
 
 - Om du utvecklar i Node. js använder du Passport. js.
 
-Mer information finns i [webb program som loggar in användare](scenario-web-app-sign-user-overview.md)
+Mer information hittar du i [webbapp som loggar in användare](scenario-web-app-sign-user-overview.md).
 
 ### <a name="web-application-signing-in-a-user-and-calling-a-web-api-on-behalf-of-the-user"></a>Webb programs signering – en användare och anropar ett webb-API för användarens räkning
 
 ![Webb program anropar webb-API: er](media/scenarios/web-app.svg)
 
-Du använder MSAL `ConfidentialClientApplication`för att **anropa webb-API: et** för användarens räkning från webbappen. Du använder Flow-flödet för att lagra den hämtade token i token-cachen. Sedan kommer kontrollanten att hämta token tyst från cachen vid behov. MSAL uppdaterar token vid behov.
+Använd MSAL `ConfidentialClientApplication`i webbappen för att **anropa webb-API: et** för användarens räkning. Du använder Flow-flödet för att lagra den hämtade token i token-cachen. Sedan kommer kontrollanten att hämta token tyst från cachen vid behov. MSAL uppdaterar token vid behov.
 
-Mer information finns i [webb program anropar webb-API: er](scenario-web-app-call-api-overview.md)
+Mer information hittar du i [webb-API: er för webb program](scenario-web-app-call-api-overview.md).
 
 ### <a name="desktop-application-calling-a-web-api-on-behalf-of-the-signed-in-user"></a>Skriv bords program som anropar ett webb-API å den inloggade användarens vägnar
 
-Om du vill anropa ett webb-API från ett Skriv bords program som loggar in användare använder du MSAL PublicClientApplication's metoder för interaktiv token-hämtning. Med dessa interaktiva metoder kan du styra inloggnings GRÄNSSNITTs upplevelsen. För att aktivera den här interaktionen utnyttjar MSAL en webbläsare
+Om du vill anropa ett webb-API från ett Skriv bords program som loggar in användare använder du MSAL PublicClientApplication's metoder för interaktiv token-hämtning. Med dessa interaktiva metoder kan du styra inloggnings GRÄNSSNITTs upplevelsen. För att aktivera den här interaktionen utnyttjar MSAL en webbläsare.
 
 ![Skrivbord](media/scenarios/desktop-app.svg)
 
-För Windows-värdbaserade program som körs på datorer som är anslutna till en Windows-domän eller AAD-ansluten finns det en annan möjlighet. De kan hämta en token tyst med hjälp av [integrerad Windows-autentisering](https://aka.ms/msal-net-iwa)
+För Windows-värdbaserade program som körs på datorer som är anslutna till en Windows-domän eller AAD-ansluten finns det en annan möjlighet. Dessa program kan hämta en token tyst med hjälp av [integrerad Windows-autentisering](https://aka.ms/msal-net-iwa).
 
 Program som körs på en enhet utan webbläsare kommer fortfarande att kunna anropa ett API för en användares räkning. Användaren måste logga in på en annan enhet som har en webbläsare för att autentiseringen ska kunna autentiseras. Om du vill aktivera det här scenariot måste du använda [enhets kod flödet](https://aka.ms/msal-net-device-code-flow)
 
-![Enhets kod flöde](media/scenarios/device-code-flow-app.svg)
+![Enhetskodflöde](media/scenarios/device-code-flow-app.svg)
 
-Slutligen, och även om det inte rekommenderas, kan du använda [användar namn/lösen ord](https://aka.ms/msal-net-up) i offentliga klient program. Det här flödet behövs fortfarande i vissa scenarier (t. ex. DevOps), men tänk på att använda det för att införa begränsningar i ditt program. Till exempel kommer appar som använder det här flödet inte att kunna logga in användare som behöver utföra Multi Factor Authentication (villkorlig åtkomst). Det gör inte att ditt program kan dra nytta av enkel inloggning. Det är också mot principerna för modern autentisering och tillhandahålls endast av tidigare skäl.
+Slutligen, även om det inte rekommenderas, kan du använda [användar namn/lösen ord](https://aka.ms/msal-net-up) i offentliga klient program. Det här flödet behövs fortfarande i vissa scenarier (t. ex. DevOps), men tänk på att använda det för att införa begränsningar i ditt program. Till exempel kan appar som använder det här flödet inte logga in en användare som behöver utföra Multi-Factor Authentication (villkorlig åtkomst). Det gör inte att ditt program kan dra nytta av enkel inloggning. Autentisering med användar namn/lösen ord går mot principerna för modern autentisering och tillhandahålls endast av tidigare skäl.
 
 Om du vill att token cache ska vara beständig i Skriv bords program bör du [Anpassa cachelagringen av token](https://aka.ms/msal-net-token-cache-serialization). Du kan även aktivera omvänd och vidarebefordra kompatibla token-cacheminnen med tidigare generationer av autentiseringspaket (ADAL.NET 3. x och 4. x) genom att implementera [serialisering av cachelagring med dubbla token](https://aka.ms/msal-net-dual-cache-serialization).
 
-Se [Desktop-appen som anropar webb-API: er](scenario-desktop-overview.md) för mer information
+Mer information finns i [Skriv bords program som anropar webb-API: er](scenario-desktop-overview.md).
 
 ### <a name="mobile-application-calling-a-web-api-on-behalf-of-the-user-whos-signed-in-interactively"></a>Mobil program som anropar ett webb-API åt användaren som är inloggad interaktivt
 
+På liknande sätt som Skriv bords program använder ett mobil program MSAL PublicClientApplication's-metoder för interaktiv token för att hämta en token för att anropa ett webb-API.
+
 ![mobila](media/scenarios/mobile-app.svg)
 
-Precis som för Skriv bords program använder ett mobilt program MSAL PublicClientApplication's interaktiva metoder för att hämta en token för att anropa ett webb-API. På iOS och Android använder MSAL som standard system webbläsare. Men du kan dirigera den till att använda den inbäddade webbvy. Det finns olika information beroende på den mobila plattformen: (UWP, iOS, Android).
+MSAL iOS och MSAL Android använder som standard system webbläsare. Du kan dock också dirigera den till att använda den inbäddade webbvy. Det finns olika information beroende på den mobila plattformen: (UWP, iOS, Android).
+
 Vissa scenarier, med villkorlig åtkomst som rör enhets-ID: t eller en enhet som registreras kräver att en [Broker](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) installeras på en enhet. Exempel på utjämnare är Microsofts företags portal (på Android), Microsoft Authenticator (Android och iOS). MSAL kan nu interagera med utjämnare.
 
 > [!NOTE]
 > Din mobilapp (med MSAL. iOS, MSAL. Android eller MSAL.NET/Xamarin) kan ha skydds principer för appar tillämpade på den (till exempel förhindra att användaren kopierar viss skyddad text). Detta [hanteras av Intune](https://docs.microsoft.com/intune/app-sdk) och identifieras av Intune som en hanterad app. [INTUNE SDK](https://docs.microsoft.com/intune/app-sdk-get-started) är skilt från MSAL-bibliotek och den pratar med AAD på egen hand.
 
-Se [mobilapp som anropar webb-API: er](scenario-mobile-overview.md) för mer information
+Mer information hittar du i [mobilapp som anropar webb-API: er](scenario-mobile-overview.md).
 
 ### <a name="protected-web-api"></a>Skyddat webb-API
 
 Du kan använda Microsoft Identity Platform-slutpunkten för att skydda webb tjänster, till exempel appens RESTful-webb-API. Ett skyddat webb-API anropas med en åtkomsttoken för att skydda dess data och för att autentisera inkommande begär Anden. Anroparen för ett webb-API lägger till en åtkomsttoken i Authorization-huvudet för en HTTP-begäran. Om du vill skydda dig ASP.NET eller ASP.NET Core webb-API måste du verifiera åtkomsttoken. För det här använder du ASP.NET JWT mellanprogram. Verifieringen görs under huven av IdentityModel-tilläggen [för .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) -biblioteket, inte MSAL.net
 
-Mer information finns i avsnittet om [skyddat webb-API](scenario-protected-web-api-overview.md)
+Mer information finns i avsnittet om [skyddad webb-API](scenario-protected-web-api-overview.md).
 
 ### <a name="web-api-calling-another-downstream-web-api-on-behalf-of-the-user-for-whom-it-was-called"></a>Webb-API som anropar ett annat underordnat webb-API för den användares räkning som det kallades
 
@@ -143,14 +154,16 @@ Webb-API: er som anropar andra webb-API: er måste också tillhandahålla en anp
 
   ![Webb-API](media/scenarios/web-api.svg)
 
-Se [webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md) för information
+Mer information hittar du i [webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md).
 
 ### <a name="desktopservice-or-web-daemon-application-calling-web-api-without-a-user-in-its-own-name"></a>Skriv bord/tjänst eller webbdaemon-program anropar webb-API utan användare (i eget namn)
 
-Appar som har tids krävande processer eller som fungerar utan interaktion med en användare behöver också ett sätt att komma åt säkra webb-API: er. Dessa appar kan autentisera och hämta token genom att använda appens identitet i stället för en användares delegerade identitet. De visar sin identitet med hjälp av en klient hemlighet eller ett certifikat.
+Appar som har långvariga processer eller som fungerar utan användar interaktion behöver också ett sätt att komma åt säkra webb-API: er. Dessa appar kan autentisera och hämta token genom att använda appens identitet i stället för en användares delegerade identitet. De visar sin identitet med hjälp av en klient hemlighet eller ett certifikat.
 Du kan skriva sådana appar (daemon-appen) som hämtar en token för appen överst med MSAL ConfidentialClientApplication's- [klientens autentiseringsuppgifter](https://aka.ms/msal-net-client-credentials) förvärvs metoder. Detta förutsätter att appen tidigare har registrerat en hemlighet (program lösen ord eller certifikat eller klient kontroll) med Azure AD, som den sedan delar med det här anropet.
 
 ![Daemon-app](media/scenarios/daemon-app.svg)
+
+Mer information finns i [daemon-programmet som anropar webb-API: er](scenario-daemon-overview.md).
 
 ## <a name="scenarios-and-supported-authentication-flows"></a>Scenarier och stödda autentiserings flöden
 
@@ -164,7 +177,7 @@ Scenarier som innefattar att förvärva token mappas också till OAuth 2,0-auten
 | [![Stationär app som anropar webb-API: er](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) | [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md)| Interaktiv ([auktoriseringskod](v2-oauth2-auth-code-flow.md) med PKCE) | Arbets-eller skol konton och personliga konton, B2C |
 | | | Integrerade Windows | Arbets-eller skol konton |
 | | | [Resurs ägar lösen ord](v2-oauth-ropc.md)  | Arbets-eller skol konton, B2C |
-| ![Enhets kod flöde](media/scenarios/device-code-flow-app.svg)| [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md) | [Enhets kod](v2-oauth2-device-code.md)  | Arbets-eller skol konton * |
+| ![Enhetskodflöde](media/scenarios/device-code-flow-app.svg)| [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md) | [Enhets kod](v2-oauth2-device-code.md)  | Arbets-eller skol konton * |
 | [![Mobilapp som anropar webb-API: er](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | [Mobilapp som anropar webb-API: er](scenario-mobile-overview.md) | Interaktiv ([auktoriseringskod](v2-oauth2-auth-code-flow.md) med PKCE)  |   Arbets-eller skol konton och personliga konton, B2C
 | | | Resurs ägar lösen ord  | Arbets-eller skol konton, B2C |
 | [![Daemon-app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | [Daemon-app](scenario-daemon-overview.md) | [Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)  |   Endast app-behörigheter (ingen användare) i AAD-organisationer
@@ -183,6 +196,8 @@ Alla program typer är inte tillgängliga på alla plattformar. Du kan också an
 | [Mobilapp som anropar webb-API: er](scenario-mobile-overview.md) <br/> [![Mobilapp som anropar webb-API: er](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/logo_xamarin.png) MSAL.NET | | | ![iOS/mål C eller Swift](media/sample-v2-code/logo_iOS.png) MSAL. iOS | ![Android](media/sample-v2-code/logo_Android.png) MSAL. Android
 | [Daemon-app](scenario-daemon-overview.md) <br/> [![Daemon-app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python
 | [Webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md) <br/> [![Webb-API som anropar webb-API: er](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) <br/> ASP.NET + MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core + MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core + MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png)<br/> ASP.NET Core + MSAL.NET
+
+Se även [Microsoft-bibliotek som stöds av OS/språk](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [grundläggande autentisering](authentication-scenarios.md) och [åtkomst](access-tokens.md)-token.

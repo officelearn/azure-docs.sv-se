@@ -1,6 +1,6 @@
 ---
-title: Python UDF med Apache Hive och Apache Pig - Azure HDInsight
-description: Lär dig hur du använder Python användaren användardefinierade funktioner (UDF) från Apache Hive och Apache Pig i HDInsight, Apache Hadoop-teknikstacken på Azure.
+title: Python UDF med Apache Hive och Apache gris – Azure HDInsight
+description: Lär dig hur du använder python-användardefinierade funktioner (UDF) från Apache Hive och Apache gris i HDInsight, Apache Hadoop Technology stack på Azure.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,52 +8,52 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d74c40264e8ed535d250e938487885a848ba6b47
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 49fd69c124ff9053f3934aefd349e039b437df0d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484203"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68354969"
 ---
-# <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Använd användardefinierade Python funktioner (UDF) med Apache Hive och Apache Pig i HDInsight
+# <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Använda python-användardefinierade funktioner (UDF) med Apache Hive och Apache-gris i HDInsight
 
-Lär dig hur du använder Python användardefinierade funktioner (UDF) med Apache Hive och Apache Pig i Apache Hadoop på Azure HDInsight.
+Lär dig hur du använder python-användardefinierade funktioner (UDF) med Apache Hive och Apache gris i Apache Hadoop på Azure HDInsight.
 
 ## <a name="python"></a>Python på HDInsight
 
-Python2.7 installeras som standard på HDInsight 3.0 och senare. Apache Hive kan användas med den här versionen av Python för bearbetning av dataströmmen. Stream bearbetning använder STDOUT- och STDIN för att överföra data mellan Hive och en användardefinierad funktion.
+Python 2.7 installeras som standard på HDInsight 3,0 och senare. Apache Hive kan användas med den här versionen av python för bearbetning av data strömmar. Stream-bearbetningen använder STDOUT och STDIN för att skicka data mellan Hive och UDF.
 
-HDInsight omfattar även Jython, vilket är en Python-implementering skriven i Java. Jython körs direkt på Java Virtual Machine och används inte för direktuppspelning. Jython är den rekommenderade Python-tolken när du använder Python med Pig.
+HDInsight innehåller även jython, som är en python-implementering som skrivits i Java. Jython körs direkt på Java Virtual Machine och använder inte direkt uppspelning. Jython är den rekommenderade python-tolken när du använder python med gris.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Ett Hadoop-kluster på HDInsight**. Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Ett Hadoop-kluster i HDInsight**. Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* Den [URI-schema](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för ditt kluster primär lagring. Detta skulle vara wasb: / / för Azure Storage, abfs: / / för Azure Data Lake Storage Gen2 eller adl: / / för Azure Data Lake Storage Gen1. Om säker överföring har aktiverats för Azure Storage eller Data Lake Storage Gen2, URI: N blir wasbs: / / eller abfss: / /, respektive Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
-* **Möjliga ändring lagringskonfiguration.**  Se [lagringskonfiguration](#storage-configuration) om du använder storage-kontotyp `BlobStorage`.
-* Valfri.  Om du tänker använda PowerShell, måste den [AZ modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installerad.
+* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta skulle vara wasb://för Azure Storage, abfs://för Azure Data Lake Storage Gen2 eller adl://för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Azure Storage eller Data Lake Storage Gen2, skulle URI: n vara wasbs://eller abfss://, se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
+* **Möjlig ändring av lagrings konfigurationen.**  Se [lagrings konfiguration](#storage-configuration) om du använder typ `BlobStorage`av lagrings konto.
+* Valfri.  Om du planerar att använda PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installerad.
 
 > [!NOTE]  
-> Lagringskontot som används i den här artikeln har Azure Storage med [säker överföring](../../storage/common/storage-require-secure-transfer.md) aktiverad och därmed `wasbs` används i hela artikeln.
+> Lagrings kontot som används i den här artikeln var Azure Storage med [säker överföring](../../storage/common/storage-require-secure-transfer.md) aktiverat `wasbs` och används därför i hela artikeln.
 
 ## <a name="storage-configuration"></a>Storage-konfiguration
-Ingen åtgärd krävs om lagringskontot som används är av typen `Storage (general purpose v1)` eller `StorageV2 (general purpose v2)`.  Processen i den här artikeln resultat till minst `/tezstaging`.  Innehåller en standardkonfiguration för hadoop `/tezstaging` i den `fs.azure.page.blob.dir` configuration variabel i `core-site.xml` för tjänsten `HDFS`.  Den här konfigurationen leder till utdata till katalogen är sidblobbar, som inte stöds för storage-kontotyp `BlobStorage`.  Att använda `BlobStorage` i den här artikeln tar du bort `/tezstaging` från den `fs.azure.page.blob.dir` configuration variabeln.  Konfigurationen kan nås från den [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  I annat fall visas ett felmeddelande: `Page blob is not supported for this account type.`
+Ingen åtgärd krävs om det lagrings konto som används är av `Storage (general purpose v1)` typen `StorageV2 (general purpose v2)`eller.  Processen i den här artikeln kommer att generera utdata till minst `/tezstaging`.  En standard-Hadoop-konfiguration `/tezstaging` kommer att `fs.azure.page.blob.dir` innehålla i konfigurations variabeln `core-site.xml` för-tjänsten `HDFS`.  Den här konfigurationen innebär att utdata till katalogen är sid-blobbar som inte stöds för lagrings konto typen `BlobStorage`.  Ta bort `BlobStorage` `/tezstaging` från`fs.azure.page.blob.dir` konfigurations variabeln för att använda den här artikeln.  Konfigurationen kan nås från [Ambari-användargränssnittet](../hdinsight-hadoop-manage-ambari.md).  Annars visas fel meddelandet:`Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > Stegen i det här dokumentet gör följande antaganden:  
 >
-> * Du kan skapa Python-skript på din lokala utvecklingsmiljö.
-> * Du överför skript till HDInsight med antingen den `scp` kommandot eller skriptet i PowerShell.
+> * Du skapar python-skripten i din lokala utvecklings miljö.
+> * Du överför skripten till HDInsight med antingen `scp` kommandot eller det angivna PowerShell-skriptet.
 >
-> Om du vill använda den [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) för att fungera med HDInsight, måste du:
+> Om du vill använda [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) för att arbeta med HDInsight måste du:
 >
-> * Skapa skript i cloud shell-miljön.
-> * Använd `scp` att ladda upp filer från cloudshell till HDInsight.
-> * Använd `ssh` från cloudshell för att ansluta till HDInsight och köra exemplen.
+> * Skapa skripten i Cloud Shell-miljön.
+> * Används `scp` för att ladda upp filerna från Cloud Shell till HDInsight.
+> * Använd `ssh` från Cloud Shell för att ansluta till HDInsight och kör exemplen.
 
 ## <a name="hivepython"></a>Apache Hive UDF
 
-Python kan användas som en UDF från Hive via HiveQL `TRANSFORM` instruktionen. Till exempel följande HiveQL anropar den `hiveudf.py` -fil som lagras i Azure Storage-kontot för klustret.
+Python kan användas som UDF från Hive via HiveQL `TRANSFORM` -instruktionen. Följande HiveQL anropar till exempel den `hiveudf.py` fil som lagras i standard Azure Storages kontot för klustret.
 
 ```hiveql
 add file wasbs:///hiveudf.py;
@@ -65,17 +65,17 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-Här är vad som gör det här exemplet:
+Det här exemplet gör:
 
-1. Den `add file` instruktion i början av filen lägger till den `hiveudf.py` filen till distribuerad cache, så är den tillgänglig för alla noder i klustret.
-2. Den `SELECT TRANSFORM ... USING` instruktionen väljer data från den `hivesampletable`. Den skickar även värden för clientid, devicemake och devicemodel till den `hiveudf.py` skript.
-3. Den `AS` satsen beskriver de fält som returneras från `hiveudf.py`.
+1. Instruktionen i början av filen `hiveudf.py` lägger till filen i den distribuerade cachen så att den är tillgänglig för alla noder i klustret. `add file`
+2. Instruktionen väljer data `hivesampletable`från. `SELECT TRANSFORM ... USING` Den skickar även ClientID-, devicemake-och devicemodel-värdena till `hiveudf.py` skriptet.
+3. Satsen beskriver fälten som returneras från `hiveudf.py`. `AS`
 
 <a name="streamingpy"></a>
 
 ### <a name="create-file"></a>Skapa fil
 
-Skapa en textfil med namnet på din utvecklingsmiljö `hiveudf.py`. Använd följande kod som innehållet i filen:
+Skapa en textfil med namnet `hiveudf.py`i utvecklings miljön. Använd följande kod som filens innehåll:
 
 ```python
 #!/usr/bin/env python
@@ -97,45 +97,45 @@ while True:
 Det här skriptet utför följande åtgärder:
 
 1. Läser en rad med data från STDIN.
-2. Avslutande radmatningstecken tas bort med hjälp av `string.strip(line, "\n ")`.
-3. När du gör för strömbearbetning innehåller alla värden med ett tabbtecken mellan varje värde i en enda rad. Så `string.split(line, "\t")` kan användas för att dela upp inmatningen vid varje flik, returnerar enbart fält.
-4. När bearbetningen är klar, måste utdata skrivas till STDOUT som en enda rad med en flik mellan varje fält. Till exempel `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
-5. Den `while` loopen upprepas tills Nej `line` läses.
+2. Det avslutande rad matnings tecknet tas `string.strip(line, "\n ")`bort med hjälp av.
+3. Vid data bearbetning innehåller en enskild rad alla värden med ett tabbtecken mellan varje värde. Du `string.split(line, "\t")` kan använda den för att dela upp inmatade värden på varje flik och bara returnera fälten.
+4. När bearbetningen är klar måste utdata skrivas till STDOUT som en enskild linje, med en flik mellan varje fält. Till exempel `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+5. Loopen upprepas tills ingen `line` läses. `while`
 
-Utdata från skriptet är en sammansättning av indatavärden för `devicemake` och `devicemodel`, och en hash av sammansatt värde.
+Skriptets utdata är en sammanfogning av indatavärdena för `devicemake` och `devicemodel`, och en hash av det sammanfogade värdet.
 
-### <a name="upload-file-shell"></a>Ladda upp fil (shell)
-I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det är olika.  Ersätt `mycluster` med faktiska klustrets namn.  Kontrollera att arbetskatalogen är där filen finns.
+### <a name="upload-file-shell"></a>Ladda upp fil (Shell)
+I kommandona nedan ersätter `sshuser` du med det faktiska användar namnet om det skiljer sig.  Ersätt `mycluster` med det faktiska kluster namnet.  Se till att din arbets katalog är där filen finns.
 
-1. Använd `scp` att kopiera filer till ditt HDInsight-kluster. Redigera och ange kommandot nedan:
+1. Används `scp` för att kopiera filerna till ditt HDInsight-kluster. Redigera och ange kommandot nedan:
 
     ```cmd
     scp hiveudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Använda SSH för att ansluta till klustret.  Redigera och ange kommandot nedan:
+2. Använd SSH för att ansluta till klustret.  Redigera och ange kommandot nedan:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. Lägg till python-filer som laddats upp tidigare till lagring för klustret från SSH-sessionen.
+3. Från SSH-sessionen lägger du till de python-filer som överfördes tidigare till lagrings utrymmet för klustret.
 
     ```bash
     hdfs dfs -put hiveudf.py /hiveudf.py
     ```
 
-### <a name="use-hive-udf-shell"></a>Använda Hive UDF (shell)
+### <a name="use-hive-udf-shell"></a>Använd Hive UDF (Shell)
 
-1. Om du vill ansluta till Hive, använder du följande kommando från öppna SSH-sessionen:
+1. Om du vill ansluta till Hive använder du följande kommando från den öppna SSH-sessionen:
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
 
-    Detta kommando startar Beeline-klienten.
+    Det här kommandot startar Beeline-klienten.
 
-2. Ange följande fråga i den `0: jdbc:hive2://headnodehost:10001/>` prompten:
+2. Ange följande fråga i `0: jdbc:hive2://headnodehost:10001/>` prompten:
 
    ```hive
    add file wasbs:///hiveudf.py;
@@ -146,7 +146,7 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
    ORDER BY clientid LIMIT 50;
    ```
 
-3. När du har angett den sista raden ska jobbet starta. När jobbet har slutförts, returnerar den utdata som liknar följande exempel:
+3. När du har angett den sista raden ska jobbet starta. När jobbet har slutförts returneras utdata som liknar följande exempel:
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -154,7 +154,7 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-4. Om du vill avsluta Beeline, anger du följande kommando:
+4. Om du vill avsluta Beeline anger du följande kommando:
 
     ```hive
     !q
@@ -162,7 +162,7 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
 
 ### <a name="upload-file-powershell"></a>Ladda upp fil (PowerShell)
 
-PowerShell kan också användas för att köra Hive-frågor via en fjärranslutning. Se till att arbetskatalogen är där `hiveudf.py` finns.  Använd följande PowerShell-skript för att köra en Hive-fråga som använder den `hiveudf.py` skript:
+PowerShell kan också användas för att fjärrköra Hive-frågor. Se till att din arbets katalog `hiveudf.py` finns.  Använd följande PowerShell-skript för att köra en Hive-fråga som `hiveudf.py` använder skriptet:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -200,7 +200,7 @@ Set-AzStorageBlobContent `
 ```
 
 > [!NOTE]  
-> Mer information om överföringen av filer finns i den [överföra data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md) dokumentet.
+> Mer information om hur du laddar upp filer finns i [överföra data för Apache Hadoop jobb i HDInsight](../hdinsight-upload-data.md) -dokument.
 
 
 #### <a name="use-hive-udf"></a>Använd Hive UDF
@@ -273,7 +273,7 @@ Get-AzHDInsightJobOutput `
     -HttpCredential $creds
 ```
 
-Utdata för den **Hive** jobb bör se ut ungefär så här:
+Utdata för **Hive** -jobbet bör se ut ungefär som i följande exempel:
 
     100041    RIM 9650    d476f3687700442549a83fac4560c51c
     100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -284,20 +284,20 @@ Utdata för den **Hive** jobb bör se ut ungefär så här:
 
 ## <a name="pigpython"></a>Apache Pig UDF
 
-Ett Python-skript som kan användas som en UDF från Pig via den `GENERATE` instruktionen. Du kan köra skriptet med Jython eller C Python.
+Ett Python-skript kan användas som ett UDF-skript från gris `GENERATE` -instruktionen. Du kan köra skriptet med antingen jython eller C python.
 
-* Jython körs på JVM och internt kan anropas från Pig.
-* C Python är en extern process så att data från Pig på JVM skickas ut till det skript som körs i en Python-process. Utdata från Python-skriptet skickas tillbaka till Pig.
+* Jython körs på JVM och kan internt anropas från gris.
+* C python är en extern process, så data från gris på JVM skickas till skriptet som körs i en python-process. Utdata från python-skriptet skickas tillbaka till gris.
 
-Om du vill ange Python-tolk använda `register` när du refererar till Python-skriptet. I följande exempel registrera skript med Pig som `myfuncs`:
+Om du vill ange python-tolken `register` använder du när du refererar till python-skriptet. I följande exempel registreras skript med gris som `myfuncs`:
 
-* **Att använda Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Du använder C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Så här använder du jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Använda C python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
-> När du använder Jython, sökvägen till filen pig_jython kan vara antingen en lokal sökväg eller en WASBS: / / sökväg. När du använder C Python, måste du referera en fil på det lokala filsystemet för noden som du använder för att skicka Pig-jobbet.
+> När du använder jython kan sökvägen till pig_jython-filen vara antingen en lokal sökväg eller en WASBS://-sökväg. Men när du använder C python måste du referera till en fil i det lokala fil systemet på den nod som du använder för att skicka gris-jobbet.
 
-En gång tidigare registreringen Pig Latin för det här exemplet är samma för både:
+När du har registrerat det här exemplet är det samma som för båda:
 
 ```pig
 LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -306,22 +306,23 @@ DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
 DUMP DETAILS;
 ```
 
-Här är vad som gör det här exemplet:
+Det här exemplet gör:
 
-1. Den första raden läser in Exempeldatafilen, `sample.log` till `LOGS`. Den definierar även varje post som en `chararray`.
-2. Nästa rad filtrerar ut några null-värden som lagrar resultatet av åtgärden i `LOG`.
-3. Därefter den itererar över poster i `LOG` och använder `GENERATE` att anropa den `create_structure` metod i Python/Jython-skript som läses in som `myfuncs`. `LINE` används för att skicka den aktuella posten till funktionen.
-4. Slutligen utdata dumpas STDOUT med hjälp av den `DUMP` kommando. Det här kommandot visar resultat när åtgärden har slutförts.
+1. Den första raden läser in exempel data filen `sample.log` i. `LOGS` Den definierar även varje post som en `chararray`.
+2. Nästa rad filtrerar bort alla null-värden och lagrar resultatet av åtgärden i `LOG`.
+3. `LOG` Därefter itererar den över posterna i och använder `GENERATE` för att anropa `create_structure` metoden i python/jython-skriptet som läses in som `myfuncs`. `LINE`används för att skicka den aktuella posten till funktionen.
+4. Slutligen dumpas utdata till stdout med hjälp av `DUMP` kommandot. Det här kommandot visar resultatet när åtgärden har slutförts.
 
 ### <a name="create-file"></a>Skapa fil
 
-Skapa en textfil med namnet på din utvecklingsmiljö `pigudf.py`. Använd följande kod som innehållet i filen:
+Skapa en textfil med namnet `pigudf.py`i utvecklings miljön. Använd följande kod som filens innehåll:
 
 <a name="streamingpy"></a>
 
 ```python
 # Uncomment the following if using C Python
 #from pig_util import outputSchema
+
 
 @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
 def create_structure(input):
@@ -331,60 +332,60 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-I exemplet Pig Latin i `LINE` indata har definierats som en chararray eftersom det finns inget konsekvent schema för indata. Python-skriptet som omvandlar data till ett konsekvent schema för utdata.
+I det latinska exemplet `LINE` i gris definieras indatamängden som en chararray eftersom det inte finns något konsekvent schema för indatamängden. Python-skriptet omvandlar data till ett konsekvent schema för utdata.
 
-1. Den `@outputSchema` instruktionen definierar formatet på de data som returneras till Pig. I det här fallet den har en **data egenskapsuppsättning**, vilket är en typ av Pig. Uppsättningen innehåller följande fält som alla är chararray (strängar):
+1. `@outputSchema` Instruktionen definierar formatet på de data som returneras till gris. I det här fallet är det en **data uppsättning**, som är en data typ av gris. Säcken innehåller följande fält, som alla är chararray (strängar):
 
-   * datum – datumet loggposten skapades
-   * tid - format som logg har skapats
-   * ClassName - klassnamnet posten skapades för
-   * nivå - loggningsnivån
-   * detaljer - utförlig information för logg
+   * Datum – datum då logg posten skapades
+   * tid – tiden då logg posten skapades
+   * className – klass namnet som posten skapades för
+   * nivå – logg nivån
+   * information – utförlig information för logg posten
 
-2. Därefter den `def create_structure(input)` definierar vilken funktion som Pig skickar radobjekt till.
+2. `def create_structure(input)` Därefter definierar funktionen som gris skickar rad objekt till.
 
-3. Exempeldata, `sample.log`, främst överensstämmer med datum, tid, classname, nivå, och detaljerat schema. Men den innehåller några rader som börjar med `*java.lang.Exception*`. Dessa rader måste ändras så att den matchar schemat. Den `if` instruktion söker efter dem och sedan massages indata att flytta den `*java.lang.Exception*` sträng till slutet, föra på data i-raden med det förväntade utdataschemat.
+3. Exempel data, `sample.log`som huvudsakligen följer schemat för datum, tid, className, nivå och detaljer. Det innehåller dock några rader som börjar med `*java.lang.Exception*`. Dessa rader måste ändras för att matcha schemat. Instruktionen söker efter dem och massages sedan indata för att `*java.lang.Exception*` flytta strängen till slutet, och data tas i rad med det förväntade schemat. `if`
 
-4. Därefter den `split` används för att dela data på de första tecknen i fyra utrymme. Utdata har tilldelats till `date`, `time`, `classname`, `level`, och `detail`.
+4. Sedan används kommandot för att dela upp data vid de första fyra blank stegs tecknen. `split` `date`Utdata tilldelas `time` ,`level`,, och`detail`. `classname`
 
-5. Slutligen returneras värdena till Pig.
+5. Slutligen returneras värdena till gris.
 
-När data returneras till Pig, har ett konsekvent schema som definierats i den `@outputSchema` instruktionen.
+När data returneras till gris, har den ett konsekvent schema som definieras i `@outputSchema` instruktionen.
 
 
 
-### <a name="upload-file-shell"></a>Ladda upp fil (shell)
+### <a name="upload-file-shell"></a>Ladda upp fil (Shell)
 
-I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det är olika.  Ersätt `mycluster` med faktiska klustrets namn.  Kontrollera att arbetskatalogen är där filen finns.
+I kommandona nedan ersätter `sshuser` du med det faktiska användar namnet om det skiljer sig.  Ersätt `mycluster` med det faktiska kluster namnet.  Se till att din arbets katalog är där filen finns.
 
-1. Använd `scp` att kopiera filer till ditt HDInsight-kluster. Redigera och ange kommandot nedan:
+1. Används `scp` för att kopiera filerna till ditt HDInsight-kluster. Redigera och ange kommandot nedan:
 
     ```cmd
     scp pigudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Använda SSH för att ansluta till klustret.  Redigera och ange kommandot nedan:
+2. Använd SSH för att ansluta till klustret.  Redigera och ange kommandot nedan:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. Lägg till python-filer som laddats upp tidigare till lagring för klustret från SSH-sessionen.
+3. Från SSH-sessionen lägger du till de python-filer som överfördes tidigare till lagrings utrymmet för klustret.
 
     ```bash
     hdfs dfs -put pigudf.py /pigudf.py
     ```
 
 
-### <a name="use-pig-udf-shell"></a>Använda Pig UDF (shell)
+### <a name="use-pig-udf-shell"></a>Använda UDF UDF (Shell)
 
-1. Om du vill ansluta till pig, använder du följande kommando från öppna SSH-sessionen:
+1. Om du vill ansluta till gris använder du följande kommando från den öppna SSH-sessionen:
 
     ```bash
     pig
     ```
 
-2. Ange följande instruktioner i den `grunt>` prompten:
+2. Ange följande instruktioner i `grunt>` prompten:
 
    ```pig
    Register wasbs:///pigudf.py using jython as myfuncs;
@@ -394,7 +395,7 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
    DUMP DETAILS;
    ```
 
-3. När du har angett följande rad ska jobbet starta. När jobbet har slutförts, returnerar den utdata som liknar följande data:
+3. När du har angett följande rad bör jobbet starta. När jobbet har slutförts returneras utdata som liknar följande data:
 
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
         ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -402,21 +403,21 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
         ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-4. Använd `quit` att lämna Grunt-gränssnittet och Använd sedan följande för att redigera filen pigudf.py på det lokala filsystemet:
+4. Använd `quit` för att avsluta grunt-gränssnittet och Använd sedan följande för att redigera pigudf.py-filen i det lokala fil systemet:
 
     ```bash
     nano pigudf.py
     ```
 
-5. En gång i redigeraren, ta bort följande raden genom att ta bort den `#` tecknet från början av raden:
+5. Ta bort kommentaren till följande rad i redigeraren genom att ta `#` bort det från början av raden:
 
     ```bash
     #from pig_util import outputSchema
     ```
 
-    Den här raden ändrar Python-skriptet för att arbeta med C Python i stället för Jython. När ändringen har gjorts, använder **Ctrl + X** att avsluta redigeraren. Välj **Y**, och sedan **RETUR** att spara ändringarna.
+    Den här raden ändrar python-skriptet så att det fungerar med C python i stället för jython. När ändringen har gjorts använder du **CTRL + X** för att avsluta redigeraren. Välj **Y**och sedan **RETUR** för att spara ändringarna.
 
-6. Använd den `pig` kommando för att starta gränssnittet igen. När du är på den `grunt>` uppmanar, Använd följande för att köra Python-skriptet med C Python-tolk.
+6. `pig` Använd kommandot för att starta gränssnittet igen. När du är i `grunt>` kommando tolken använder du följande för att köra python-skriptet med hjälp av C python-tolken.
 
    ```pig
    Register 'pigudf.py' using streaming_python as myfuncs;
@@ -426,12 +427,12 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
    DUMP DETAILS;
    ```
 
-    När det här jobbet har slutförts bör du se samma utdata som tidigare när du körde skriptet med Jython.
+    När jobbet har slutförts bör du se samma utdata som när du tidigare körde skriptet med jython.
 
 
 ### <a name="upload-file-powershell"></a>Ladda upp fil (PowerShell)
 
-PowerShell kan också användas för att köra Hive-frågor via en fjärranslutning. Se till att arbetskatalogen är där `pigudf.py` finns.  Använd följande PowerShell-skript för att köra en Hive-fråga som använder den `pigudf.py` skript:
+PowerShell kan också användas för att fjärrköra Hive-frågor. Se till att din arbets katalog `pigudf.py` finns.  Använd följande PowerShell-skript för att köra en Hive-fråga som `pigudf.py` använder skriptet:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -469,12 +470,12 @@ Set-AzStorageBlobContent `
     -Context $context
 ```
 
-### <a name="use-pig-udf-powershell"></a>Använda Pig UDF (PowerShell)
+### <a name="use-pig-udf-powershell"></a>Använd gris UDF (PowerShell)
 
 > [!NOTE]  
-> När du skickar in ett jobb med hjälp av PowerShell via fjärranslutning, går det inte att använda C Python som vilken tolk.
+> När du skickar ett jobb från en fjärrdator med hjälp av PowerShell går det inte att använda C python som tolk.
 
-PowerShell kan också användas för att köra Pig Latin-jobb. Att köra ett Pig Latin-jobb som använder den `pigudf.py` skript, Använd följande PowerShell-skript:
+PowerShell kan också användas för att köra latinska jobb i gris. Använd följande PowerShell-skript om du vill köra `pigudf.py` ett gris-latinskt jobb som använder skriptet:
 
 ```PowerShell
 # Script should stop on failures
@@ -542,7 +543,7 @@ Get-AzHDInsightJobOutput `
     -HttpCredential $creds
 ```
 
-Utdata för den **Pig** jobb bör likna följande data:
+Utdata för jobbet **gris** bör se ut ungefär så här:
 
     ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
     ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -552,37 +553,37 @@ Utdata för den **Pig** jobb bör likna följande data:
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="errors-when-running-jobs"></a>Fel när du kör jobb
+### <a name="errors-when-running-jobs"></a>Fel vid körning av jobb
 
-När du kör hive-jobb, kan det uppstå ett fel som liknar följande text:
+När du kör Hive-jobbet kan du stöta på ett fel som liknar följande text:
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 
-Det här problemet kan ha orsakats av radbrytningar i Python-filen. Många Windows-redigerare som standard använder CRLF som raden slutar, men Linux-program vanligtvis förväntar sig LF.
+Det här problemet kan bero på att raden slutar i python-filen. Många Windows-redigerare använder som standard CRLF som linje slut, men Linux-program förväntar sig vanligt vis LF.
 
-Du kan använda följande PowerShell-uttryck för att ta bort CR tecken innan du laddar upp filen till HDInsight:
+Du kan använda följande PowerShell-uttryck för att ta bort CR-tecknen innan du laddar upp filen till HDInsight:
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
 
 ### <a name="powershell-scripts"></a>PowerShell-skript
 
-Båda exempel PowerShell-skript som används för att köra exemplen innehåller en kommenterade rad som visar Felutdata för jobbet. Om du inte ser utdata som förväntas för jobbet, avkommenterar följande rad och se om information om felet tyder på problem.
+Båda de PowerShell-skript som används för att köra exemplen innehåller en kommenterad linje som visar fel utdata för jobbet. Om du inte ser förväntat utdata för jobbet kan du ta bort kommentaren till följande rad och se om fel informationen indikerar ett problem.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
-Information om felet (STDERR) och resultatet av jobbet (STDOUT) loggas också din HDInsight-lagring.
+Fel informationen (STDERR) och resultatet av jobbet (STDOUT) loggas också i HDInsight-lagringen.
 
-| För det här jobbet... | Titta på de här filerna i blob-behållaren |
+| För det här jobbet... | Titta på de här filerna i BLOB-behållaren |
 | --- | --- |
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
 ## <a name="next"></a>Nästa steg
 
-Om du vill läsa in Python-moduler som inte tillhandahålls som standard kan se [hur du distribuerar en modul till Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+Om du behöver läsa in Python-moduler som inte tillhandahålls som standard, se [så här distribuerar du en modul till Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
 
-Andra sätt att använda Apache Pig, Hive, och Läs om hur du använder MapReduce i följande dokument:
+Andra sätt att använda gris, Hive och lära dig mer om hur du använder MapReduce finns i följande dokument:
 
 * [Använda Apache Hive med HDInsight](hdinsight-use-hive.md)
-* [Använda Apache Pig med HDInsight](hdinsight-use-pig.md)
+* [Använda Apache gris med HDInsight](hdinsight-use-pig.md)
 * [Använda MapReduce med HDInsight](hdinsight-use-mapreduce.md)

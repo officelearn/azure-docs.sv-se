@@ -1,6 +1,6 @@
 ---
-title: Granska Azure-prenumeration faktureringsdata med REST API | Microsoft Docs
-description: 'Lär dig hur du använder Azure REST API: er för att granska fakturainformationen för prenumerationen.'
+title: Granska fakturerings data för Azure-prenumerationen med REST API | Microsoft Docs
+description: 'Lär dig hur du använder Azure REST API: er för att granska fakturerings information för prenumerationen.'
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: 8cfa429b18fb282f5c1f85d2fd1637704653b855
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192136"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443039"
 ---
-# <a name="review-subscription-billing-using-rest-apis"></a>Granska prenumerationsärenden med hjälp av REST API: er
+# <a name="review-subscription-billing-using-rest-apis"></a>Granska prenumerations fakturering med hjälp av REST API: er
 
-Azure Reporting API: er hjälper dig att granska och hantera dina Azure-kostnader.
+Azure repor ting-API: er hjälper dig att granska och hantera dina Azure-kostnader.
 
-Filter att anpassa resultatet för att uppfylla dina behov.
+Filter hjälper dig att anpassa resultaten efter dina behov.
 
-Här kan du lära dig att använda ett REST-API för att returnera fakturainformationen för prenumerationen för ett visst datumintervall.
+Här lär du dig att använda en REST API för att returnera fakturerings information om prenumerationen för ett visst datum intervall.
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
@@ -37,22 +37,22 @@ Authorization: Bearer
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Den `{subscriptionID}` parametern krävs och identifierar målprenumerationen.
+`{subscriptionID}` Parametern är obligatorisk och identifierar mål prenumerationen.
 
-Den `{billingPeriod}` parametern krävs och anger en aktuell [faktureringsperioden](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+Parametern är obligatorisk och anger en aktuell [fakturerings period.](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) `{billingPeriod}`
 
-Den `${startDate}` och `${endDate}` parametrar är obligatoriskt i det här exemplet, men valfria för slutpunkten. De ange datumintervallet som strängar i formatet ÅÅÅÅ-MM-DD (exempel: `'20180501'` och `'20180615'`).
+Parametrarna `${startDate}` och`${endDate}` måste anges för det här exemplet, men det är valfritt för slut punkten. De anger datum intervallet som strängar i formatet åååå-mm-dd (exempel: `'20180501'` och `'20180615'`).
 
-Följande huvuden krävs:
+Följande rubriker krävs:
 
-|Begärandehuvud|Beskrivning|
+|Begär ande huvud|Beskrivning|
 |--------------------|-----------------|
-|*Content-Type:*|Krävs. Ange `application/json`.|
-|*Authorization:*|Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Innehålls typ:*|Obligatoriskt. Ange till `application/json`.|
+|*Authorization:*|Obligatoriskt. Ange en giltig `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 ## <a name="response"></a>Svar
 
-Statuskod 200 returneras (OK) för ett lyckat svar som innehåller en lista med detaljerade kostnader för ditt konto.
+Status koden 200 (OK) returneras för ett lyckat svar som innehåller en lista med detaljerade kostnader för ditt konto.
 
 ``` json
 {
@@ -79,22 +79,22 @@ Statuskod 200 returneras (OK) för ett lyckat svar som innehåller en lista med 
 }
 ```
 
-Varje objekt i **värdet** representerar ett information om användningen av en tjänst:
+Varje objekt i **värde** representerar en information om användningen av en tjänst:
 
-|Egenskapen svar|Beskrivning|
+|Svars egenskap|Beskrivning|
 |----------------|----------|
 |**subscriptionGuid** | Globalt unikt ID för prenumerationen. |
-|**startDate** | Datum användning igång. |
-|**endDate** | Datum användning avslutades. |
+|**/SD** | Datum då användningen startades. |
+|**endDate** | Datum då användningen avslutades. |
 |**useageQuantity** | Använd kvantitet. |
 |**billableQuantity** | Kvantitet som faktiskt faktureras. |
-|**pretaxCost** | Kostnad fakturerade innan tillämpliga skatter. |
-|**meterDetails** | Detaljerad information om hur du använder. |
-|**nextLink**| När värdet anger en URL för nästa ”page” av information. Tom när sidan är den sista. |
+|**pretaxCost** | Fakturerade kostnader före tillämpliga skatter. |
+|**meterDetails** | Detaljerad information om användningen. |
+|**nextLink**| Anger en URL för nästa sida av information när den anges. Tomt när sidan är den sista. |
 
-Det här exemplet är förkortas; Se [lista användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) för en fullständig beskrivning av varje svarsfält.
+Det här exemplet är förkortat; Se [lista användnings information](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) för en fullständig beskrivning av varje svars fält.
 
-Andra statuskoder indikerar fel. I dessa fall kan förklarar objektet response varför begäran misslyckades.
+Andra status koder indikerar fel villkor. I dessa fall förklarar Response-objektet varför begäran misslyckades.
 
 ``` json
 {
@@ -108,6 +108,6 @@ Andra statuskoder indikerar fel. I dessa fall kan förklarar objektet response v
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Granska [Enterprise rapporteringsöversikt](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Undersöka [Enterprise fakturering REST-API](https://docs.microsoft.com/rest/api/billing/)
+- Granska [Översikt över företags rapportering](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
+- Undersök [företagets fakturerings REST API](https://docs.microsoft.com/rest/api/billing/)
 - [Kom igång med Azure REST API](https://docs.microsoft.com/rest/api/azure/)

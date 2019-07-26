@@ -1,6 +1,6 @@
 ---
-title: Vanliga security attribut för Azure Resource Manager
-description: En lista med vanliga security attribut för att utvärdera Azure Resource Manager
+title: Säkerhetsattribut för Azure Resource Manager
+description: En check lista över säkerhetsattribut för utvärdering av Azure Resource Manager
 services: azure-resource-manager
 author: msmbaldwin
 manager: barbkess
@@ -8,61 +8,61 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3bfb79c54ff57adfa947f2dd0100f6c05c7af9f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002265"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444153"
 ---
-# <a name="security-attributes-for-azure-resource-manager"></a>Security attribut för Azure Resource Manager
+# <a name="security-attributes-for-azure-resource-manager"></a>Säkerhetsattribut för Azure Resource Manager
 
-Den här artikeln dokumenteras security-attribut som skapats i Azure Resource Manager.
+I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Azure Resource Manager.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 ## <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja |  |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | HTTPS/TLS. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Gäller inte | Azure Resource Manager lagrar endast kontrolldata inget kund-innehåll. |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Ja | |
-| API-anrop som är krypterad| Ja | |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner)| Ja |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | HTTPS/TLS. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Gäller inte | Azure Resource Manager lagrar inget kund innehåll, endast kontroll data. |
+| Kryptering på kolumn nivå (Azure Data Services)| Ja | |
+| Krypterade API-anrop| Ja | |
 
-## <a name="network-segmentation"></a>Nätverkssegmentering
+## <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Nej | |
-| VNet-stöd för inmatning| Ja | |
-| Isolering av nätverk och brandväggsfunktioner support| Nej |  |
-| Tvingad tunneltrafik support| Nej |  |
+| Stöd för tjänst slut punkt| Nej | |
+| Stöd för VNet-injektering| Ja | |
+| Stöd för nätverks isolering och brand vägg| Nej |  |
+| Stöd för Tvingad tunnel trafik| Nej |  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Nej | |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Nej | |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | [Azure Active Directory](/azure/active-directory) baserat.|
-| Auktorisering| Ja | |
+| Authentication| Ja | [Azure Active Directory](/azure/active-directory) baserad.|
+| Authorization| Ja | |
 
 
-## <a name="audit-trail"></a>Granskningslogg
+## <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Aktivitetsloggar exponerar alla skrivåtgärder (PUT, POST, ta bort) utförs på dina resurser. Se [visa aktivitetsloggar till granska åtgärder på resurser](resource-group-audit.md). |
-| Data plan loggning och granskning| Gäller inte | |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Aktivitets loggar visar alla Skriv åtgärder (placering, POST, DELETE) som utförs på resurserna. Se [Visa aktivitets loggar för att granska åtgärder på resurser](resource-group-audit.md). |
+| Loggning och granskning av data planet| Gäller inte | |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja |  |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja |  |

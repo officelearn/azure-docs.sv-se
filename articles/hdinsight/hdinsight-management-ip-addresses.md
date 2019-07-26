@@ -1,0 +1,86 @@
+---
+title: Azure HDInsight-hantering IP-adresser
+description: Lär dig vilka IP-adresser du måste tillåta inkommande trafik från, för att kunna konfigurera nätverks säkerhets grupper och användardefinierade vägar för virtuella nätverk med Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 07/19/2019
+ms.openlocfilehash: 0a41d1d57257db8f88481766e65eb8ee7569da87
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479192"
+---
+# <a name="hdinsight-management-ip-addresses"></a>Hanterings-IP-adresser för HDInsight
+
+Om du använder nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar (UDR) för att styra inkommande trafik till ditt HDInsight-kluster, måste du se till att klustret kan kommunicera med viktiga Azure-tjänster för hälso tillstånd och hantering.  Några av IP-adresserna för dessa tjänster är regions information och vissa av dem gäller för alla Azure-regioner. Du kan också behöva tillåta trafik från Azure DNSs tjänsten om du inte använder anpassad DNS.
+
+I följande avsnitt beskrivs de olika IP-adresser som måste vara tillåtna.
+
+## <a name="azure-dns-service"></a>Azure DNS tjänst
+
+Om du använder den Azure-angivna DNS-tjänsten ger du åtkomst från __168.63.129.16__ på port 53. Mer information finns i dokumentet [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Hoppa över det här steget om du använder anpassad DNS.
+
+## <a name="health-and-management-services-all-regions"></a>Hälso-och hanterings tjänster: Alla regioner
+
+Tillåt trafik från följande IP-adresser för Azure HDInsight-hälso-och hanterings tjänster som gäller för alla Azure-regioner:
+
+| IP-källadress | Mål  | Direction |
+| ---- | ----- | ----- |
+| 168.61.49.99 | \*:443 | Inkommande |
+| 23.99.5.239 | \*:443 | Inkommande |
+| 168.61.48.131 | \*:443 | Inkommande |
+| 138.91.141.162 | \*:443 | Inkommande |
+
+## <a name="health-and-management-services-specific-regions"></a>Hälso-och hanterings tjänster: Vissa regioner
+
+Tillåt trafik från IP-adresserna som anges för Azure HDInsight-hälso-och hanterings tjänsterna i den Azure-region där dina resurser finns:
+
+> [!IMPORTANT]  
+> Om den Azure-region som du använder inte visas i listan ska du bara använda de fyra IP-adresserna från föregående avsnitt.
+
+| Country | Region | Tillåtna käll-IP-adresser | Tillåtet mål | Direction |
+| ---- | ---- | ---- | ---- | ----- |
+| Asien | Östasien | 23.102.235.122</br>52.175.38.134 | \*:443 | Inkommande |
+| &nbsp; | Sydostasien | 13.76.245.160</br>13.76.136.249 | \*:443 | Inkommande |
+| Australien | Östra Australien | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkommande |
+| &nbsp; | Sydöstra Australien | 13.77.2.56</br>13.77.2.94 | \*:443 | Inkommande |
+| Brasilien | Södra Brasilien | 191.235.84.104</br>191.235.87.113 | \*:443 | Inkommande |
+| Kanada | Östra Kanada | 52.229.127.96</br>52.229.123.172 | \*:443 | Inkommande |
+| &nbsp; | Centrala Kanada | 52.228.37.66</br>52.228.45.222 |\*: 443 | Inkommande |
+| Kina | Kina, norra | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Inkommande |
+| &nbsp; | Kina, östra | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Inkommande |
+| &nbsp; | Kina, norra 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Inkommande |
+| &nbsp; | Kina, östra 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Inkommande |
+| Europa | Norra Europa | 52.164.210.96</br>13.74.153.132 | \*:443 | Inkommande |
+| &nbsp; | Västra Europa| 52.166.243.90</br>52.174.36.244 | \*:443 | Inkommande |
+| Frankrike | Frankrike, centrala| 20.188.39.64</br>40.89.157.135 | \*:443 | Inkommande |
+| Tyskland | Tyskland, centrala | 51.4.146.68</br>51.4.146.80 | \*:443 | Inkommande |
+| &nbsp; | Tyskland, nordöstra | 51.5.150.132</br>51.5.144.101 | \*:443 | Inkommande |
+| Indien | Indien, centrala | 52.172.153.209</br>52.172.152.49 | \*:443 | Inkommande |
+| &nbsp; | Indien, södra | 104.211.223.67<br/>104.211.216.210 | \*:443 | Inkommande |
+| Japan | Östra Japan | 13.78.125.90</br>13.78.89.60 | \*:443 | Inkommande |
+| &nbsp; | Västra Japan | 40.74.125.69</br>138.91.29.150 | \*:443 | Inkommande |
+| Korea | Sydkorea, centrala | 52.231.39.142</br>52.231.36.209 | \*:443 | Inkommande |
+| &nbsp; | Sydkorea, södra | 52.231.203.16</br>52.231.205.214 | \*:443 | Inkommande
+| Storbritannien och Nordirland | Storbritannien, västra | 51.141.13.110</br>51.141.7.20 | \*:443 | Inkommande |
+| &nbsp; | Storbritannien, södra | 51.140.47.39</br>51.140.52.16 | \*:443 | Inkommande |
+| USA | Centrala USA | 13.89.171.122</br>13.89.171.124 | \*:443 | Inkommande |
+| &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Inkommande |
+| &nbsp; | Norra centrala USA | 157.56.8.38</br>157.55.213.99 | \*:443 | Inkommande |
+| &nbsp; | Västra centrala USA | 52.161.23.15</br>52.161.10.167 | \*:443 | Inkommande |
+| &nbsp; | Västra USA | 13.64.254.98</br>23.101.196.19 | \*:443 | Inkommande |
+| &nbsp; | Västra USA 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Inkommande |
+
+Information om vilka IP-adresser som ska användas för Azure Government finns i dokumentet [Azure Government information + analys](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) .
+
+Mer information finns i avsnittet [styra nätverks trafik](hdinsight-plan-virtual-network-deployment.md#networktraffic) .
+
+Om du använder användardefinierade vägar (UDR) ska du ange en väg och tillåta utgående trafik från VNET till ovanstående IP-adresser med nästa hopp inställt på "Internet".
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md)

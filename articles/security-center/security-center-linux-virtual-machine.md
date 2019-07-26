@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: af9b1ef64944e72a24d76cc555e51841e75401ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75b46ead4d5efe15a423bddea6473f619f1bc91b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60909442"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501400"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Security Center och Azure Virtual Machines med Linux
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -42,7 +42,7 @@ Utöver att skydda virtuella datorer i Azure tillhandahåller även Security Cen
 > 
 > 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att komma igång med Azure Security Center måste du veta och tänka på följande:
 
 * Du måste ha en prenumeration på Microsoft Azure. Läs [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) (Priser för Security Center) för att få mer information om kostnadsfria nivåer och standardnivåer i Security Center.
@@ -68,10 +68,10 @@ När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för r
 | Rekommendation | Beskrivning |
 | --- | --- |
 | [Aktivera insamling av data för prenumerationer](security-center-enable-data-collection.md) |Rekommenderar att du aktiverar datainsamling i säkerhetsprincipen för var och en av dina prenumerationer och alla virtuella datorer (VM) i dina prenumerationer. |
-| [Åtgärda sårbarheter i operativsystem](security-center-remediate-os-vulnerabilities.md) |Rekommenderar att du konfigurerar operativsystem enligt rekommenderade konfigurationsregler, t.ex. att inte spara lösenord. |
+| Åtgärda sårbarheter i operativsystem|Rekommenderar att du konfigurerar operativsystem enligt rekommenderade konfigurationsregler, t.ex. att inte spara lösenord. |
 | [Tillämpa systemuppdateringar](security-center-apply-system-updates.md) |Rekommenderar att du distribuerar systemsäkerhet och viktiga uppdateringar för virtuella datorer som saknas. |
 | [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates) |Rekommenderar att du startar om en virtuell dator för att slutföra processen med att tillämpa uppdateringar. |
-| [Aktivera VM-Agent](security-center-enable-vm-agent.md) |Du kan se vilka virtuella datorer som kräver VM-agenten. VM-agenten måste installeras på virtuella datorer för att etablera korrigeringsgenomsökning, baslinjegenomsökning och program mot skadlig kod. VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Artikeln [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (VM-agenter och tillägg – del 2) innehåller information om hur VM-agenten ska installeras. |
+| Aktivera virtuell datoragent|Du kan se vilka virtuella datorer som kräver VM-agenten. VM-agenten måste installeras på virtuella datorer för att etablera korrigeringsgenomsökning, baslinjegenomsökning och program mot skadlig kod. VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Artikeln [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (VM-agenter och tillägg – del 2) innehåller information om hur VM-agenten ska installeras. |
 | [Tillämpa diskkryptering](security-center-apply-disk-encryption.md) |Rekommenderar att krypterar dina VM-diskar med Azure Disk Encryption (virtuella Windows- och Linux-datorer). Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn. |
 
 
@@ -87,7 +87,7 @@ När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för re
 ## <a name="manage-and-respond-to-security-alerts"></a>Hantera och åtgärda säkerhetsaviseringar
 Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar (som brandväggs- och slutpunktsskyddslösningar) för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. Genom att leverera olika sammanställningar av [identifieringsfunktioner](security-center-detection-capabilities.md) kan Security Center skapa prioriterade säkerhetsvarningar som hjälper dig att snabbt undersöka problemet och tillhandahålla rekommendationer för hur du ska åtgärda eventuella attacker.
 
-![Säkerhetsaviseringar](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
+![Säkerhetsvarningar](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
 Om du klickar på en säkerhetsavisering får du se vad det var som utlöste aviseringen och om det finns något du kan göra för att stoppa ett pågående angrepp. Säkerhetsaviseringarna är indelade i grupper efter [typ](security-center-alerts-type.md) och datum.
 

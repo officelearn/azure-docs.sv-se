@@ -1,7 +1,7 @@
 ---
-title: Ändra åtkomstnycklar för lagringskontot
+title: Ändra åtkomst nycklar för lagrings kontot
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du ändrar åtkomstnycklarna för Azure Storage-kontot som används av din arbetsyta. Azure Machine Learning-tjänsten använder ett Azure Storage-konto för att lagra data och modeller. När du återskapar åtkomstnyckeln för lagringskontot måste du uppdatera Azure Machine Learning-tjänsten om du vill använda de nya nycklarna.
+description: Lär dig hur du ändrar åtkomst nycklarna för det Azure Storage konto som används av din arbets yta. Azure Machine Learning tjänsten använder ett Azure Storage konto för att lagra data och modeller. När du återskapar åtkomst nyckeln för lagrings kontot måste du uppdatera Azure Machine Learning-tjänsten för att använda de nya nycklarna.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,37 +10,37 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 0721542811709e9b938fea3f31bc2a0a28ecdc74
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543830"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358769"
 ---
-# <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomstnycklar för lagringskontot
+# <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 
-Lär dig hur du ändrar åtkomstnycklarna för Azure Storage-konton som används av Azure Machine Learning-tjänsten. Azure Machine Learning kan använda storage-konton för att lagra data eller anpassade modeller.
+Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som används av Azure Machine Learnings tjänsten. Azure Machine Learning kan använda lagrings konton för att lagra data eller utbildade modeller.
 
-Av säkerhetsskäl kan du behöva ändra åtkomstnycklarna för ett Azure Storage-konto. När du återskapar åtkomstnyckeln måste du uppdatera Azure Machine Learning för att använda den nya nyckeln. Azure Machine Learning kanske använder storage-konto för båda modell-lagring och som ett datalager.
+Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure Storage-konto. När du återskapar åtkomst nyckeln måste Azure Machine Learning uppdateras för att använda den nya nyckeln. Azure Machine Learning kan använda lagrings kontot för både modell lagring och som ett data lager.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i den [skapa en arbetsyta](setup-create-workspace.md) artikeln.
+* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i artikeln [skapa en arbets yta](setup-create-workspace.md) .
 
-* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* Den [Azure Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md).
+* [Azure Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md).
 
 <a id="whattoupdate"></a> 
 
-## <a name="what-needs-to-be-updated"></a>Vad behöver uppdateras
+## <a name="what-needs-to-be-updated"></a>Vad som behöver uppdateras
 
-Storage-konton kan användas av arbetsytan Azure Machine Learning-tjänsten (lagra loggar, modeller, ögonblicksbilder, etc.) och som ett datalager. Processen för att uppdatera arbetsytan är en enda Azure CLI-kommando och kan vara kördes när du har uppdaterat lagringsnyckeln. Processen för att uppdatera datalager komplicerad mer och kräver att identifiera vilka datalager för närvarande använder storage-konto och registrera dem igen.
+Lagrings konton kan användas av Azure Machine Learning service-arbetsytan (lagrings loggar, modeller, ögonblicks bilder osv.) och som ett data lager. Processen för att uppdatera arbets ytan är ett enda Azure CLI-kommando och kan köras efter uppdatering av lagrings nyckeln. Processen för att uppdatera data lager är mer involverad och du måste identifiera vilka data lager som för närvarande använder lagrings kontot och sedan registrera dem på nytt.
 
 > [!IMPORTANT]
-> Uppdatera arbetsytan med Azure CLI och datalagringen med hjälp av Python, på samma gång. Uppdaterar ena eller den andra räcker inte och kan orsaka fel förrän båda har uppdaterats.
+> Uppdatera arbets ytan med hjälp av Azure CLI och data lagret med python, på samma tidpunkt. Uppdatering av endast en eller flera är inte tillräckligt och kan orsaka fel tills båda uppdateras.
 
-För att identifiera de lagringskonton som används av ditt datalager, använder du följande kod:
+Använd följande kod för att identifiera de lagrings konton som används av dina data lager:
 
 ```python
 import azureml.core
@@ -49,54 +49,56 @@ from azureml.core import Workspace, Datastore
 ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
-print("Default datstore: " + default_ds.name + ", storage account name: " + default_ds.account_name + ", container name: " + ds.container_name)
+print("Default datstore: " + default_ds.name + ", storage account name: " +
+      default_ds.account_name + ", container name: " + ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
     if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
+        print("datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
 ```
 
-Den här koden söker efter alla registrerade datalagringarna som använder Azure Storage och visar följande information:
+Den här koden söker efter registrerade data lager som använder Azure Storage och visar följande information:
 
-* Namn på datalager: Namnet på databasen som storage-kontot är registrerat under.
-* Lagringskontots namn: Namnet på Azure Storage-kontot.
-* Behållare: Behållare i lagringskontot som används av denna registrering.
+* Data lager namn: Namnet på det data lager som lagrings kontot är registrerat under.
+* Lagringskontots namn: Namnet på Azure Storage kontot.
+* Fönster Den behållare i lagrings kontot som används vid registreringen.
 
-Om det finns en post för det lagringskonto som du planerar att återskapa åtkomstnycklarna för, spara datalager, lagringskontonamn och namn på behållare.
+Om det finns en post för det lagrings konto som du planerar att återskapa åtkomst nycklar för, sparar du data lagrings namnet, lagrings kontots namn och behållar namnet.
 
-## <a name="update-the-access-key"></a>Uppdatera åtkomstnyckeln
+## <a name="update-the-access-key"></a>Uppdatera åtkomst nyckeln
 
-Använd följande steg för att uppdatera Azure Machine Learning-tjänsten så att den nya nyckeln:
+Använd följande steg för att uppdatera Azure Machine Learning-tjänsten för att använda den nya nyckeln:
 
 > [!IMPORTANT]
-> Utföra alla steg som uppdaterar både arbetsytan med CLI och datalager med hjälp av Python. Kan orsaka fel om du uppdaterar ena eller den andra förrän båda har uppdaterats.
+> Utför alla steg, uppdatera både arbets ytan med hjälp av CLI och data lager med python. Uppdatering av bara en av dem kan orsaka fel tills båda uppdateras.
 
-1. Återskapa nyckeln. Information om en åtkomstnyckeln finns i den [hantera ett lagringskonto](/azure/storage/common/storage-account-manage#access-keys) artikeln. Spara den nya nyckeln.
+1. Återskapa nyckeln. Information om hur du återskapar en åtkomst nyckel finns i artikeln [hantera ett lagrings konto](/azure/storage/common/storage-account-manage#access-keys) . Spara den nya nyckeln.
 
-1. Använd följande steg för att uppdatera arbetsytan om du vill använda den nya nyckeln:
+1. Använd följande steg för att uppdatera arbets ytan till att använda den nya nyckeln:
 
-    1. Logga in på Azure-prenumerationen som innehåller din arbetsyta med hjälp av följande Azure CLI-kommando:
+    1. Logga in på Azure-prenumerationen som innehåller arbets ytan med hjälp av följande Azure CLI-kommando:
 
         ```azurecli-interactive
         az login
         ```
 
-    1. Om du vill installera tillägget Azure Machine Learning, använder du följande kommando:
+    1. Om du vill installera Azure Machine Learning-tillägget använder du följande kommando:
 
         ```azurecli-interactive
         az extension add -n azure-cli-ml 
         ```
 
-    1. Använd följande kommando för att uppdatera arbetsytan om du vill använda den nya nyckeln. Ersätt `myworkspace` med namnet för Azure Machine Learning-arbetsytan och Ersätt `myresourcegroup` med namnet på Azure-resursgrupp som innehåller arbetsytan.
+    1. Använd följande kommando för att uppdatera arbets ytan för att använda den nya nyckeln. Ersätt `myworkspace` med namnet på din Azure Machine Learning arbets yta och `myresourcegroup` Ersätt med namnet på den Azure-resurs grupp som innehåller arbets ytan.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
 
-        Det här kommandot synkroniseras automatiskt nya nycklar för Azure storage-kontot som används av arbetsytan.
+        Det här kommandot synkroniserar automatiskt de nya nycklarna för Azure Storage-kontot som används av arbets ytan.
 
-1. Om du vill Omregistrera datalagrets som använder storage-konto, använder du värden från den [vad som behöver uppdateras](#whattoupdate) avsnittet och nyckeln från steg 1 med följande kod:
+1. Om du vill registrera data lager på nytt som använder lagrings kontot använder du värdena från avsnittet [vad som behöver uppdateras](#whattoupdate) och nyckeln från steg 1 med följande kod:
 
     ```python
     ds = Datastore.register_azure_blob_container(workspace=ws, 
@@ -107,8 +109,8 @@ Använd följande steg för att uppdatera Azure Machine Learning-tjänsten så a
                                               overwrite=True)
     ```
 
-    Eftersom `overwrite=True` anges den här koden skriver över den befintliga registreringen och uppdaterar den om du vill använda den nya nyckeln.
+    Eftersom `overwrite=True` har angetts skriver den här koden över den befintliga registreringen och uppdaterar den för att använda den nya nyckeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du registrerar datalager finns i den [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klassen referens.
+Mer information om hur du registrerar data lager finns i [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klass referensen.

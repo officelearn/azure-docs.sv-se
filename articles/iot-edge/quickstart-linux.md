@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e4b2f9eaa243c0cbef66f88544be769481dd6722
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: a3d2b51824f4293dc790979ca2513d011b60fd9c
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798646"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414437"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux-enhet
 
@@ -55,7 +55,7 @@ Molnresurser:
 
 IoT Edge-enhet:
 
-* En Linux-enhet eller en virtuell dator som ska fungera som din IoT Edge-enhet. Du bör använda den Microsoft tillhandahåller [Azure IoT Edge på Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) virtuell dator som förinstallerar allt du behöver för att köra IoT Edge på en enhet. Godkänn användningsvillkoren och skapa den virtuella datorn med hjälp av följande kommandon:
+* En Linux-enhet eller en virtuell dator som ska fungera som din IoT Edge-enhet. Du bör använda Microsoft-tillhandahållen [Azure IoT Edge på](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) den virtuella datorn Ubuntu, vilket förinstallerar allt du behöver för att köra IoT Edge på en enhet. Godkänn användnings villkoren och skapa den här virtuella datorn med följande kommandon:
 
    ```azurecli-interactive
    az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
@@ -66,7 +66,7 @@ IoT Edge-enhet:
 
    När du skapar en ny virtuell dator noterar du **publicIpAddress**, som anges som en del av utdata från kommandot för att skapa. Du använder den här offentliga IP-adressen för att ansluta till den virtuella datorn senare i snabbstarten.
 
-* Om du vill köra Azure IoT Edge-körningen på din egna enhet följer du anvisningarna i [Installera Azure IoT Edge-körningen på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+* Om du föredrar att köra Azure IoT Edge runtime på din egen enhet följer du anvisningarna i [installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md).
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -124,13 +124,13 @@ Under körningskonfigurationen anger du en enhetsanslutningssträng. Använd den
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>Ange anslutningssträngen på IoT Edge-enheten
 
-Om du använder Azure IoT Edge på Ubuntu-dator som beskrivs i förutsättningarna, har enheten redan installerat IoT Edge-körningen. Du behöver bara konfigurera din enhet med enhetens anslutningssträng som du hämtade i föregående avsnitt. Du kan göra det här på distans utan att behöva ansluta till den virtuella datorn. Kör följande kommando och byt ut **{device_connection_string}** med din egen sträng.
+Om du använder Azure IoT Edge på den virtuella datorn Ubuntu enligt beskrivningen i kraven, har enheten redan IoT Edge Runtime installerat. Du behöver bara konfigurera din enhet med enhetens anslutningssträng som du hämtade i föregående avsnitt. Du kan göra det här på distans utan att behöva ansluta till den virtuella datorn. Kör följande kommando och byt ut **{device_connection_string}** med din egen sträng.
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
-Om du kör IoT Edge på din lokala dator eller en ARM32-enhet så måste du installera IoT Edge-körningen och dess förhandskrav på din enhet. Följ anvisningarna i [Installera Azure IoT Edge-körningen på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) och kom sedan tillbaka till den här snabbstarten.
+Om du kör IoT Edge på den lokala datorn eller på en ARM32-eller ARM64-enhet måste du installera IoT Edge Runtime och dess krav på enheten. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)och gå sedan tillbaka till den här snabb starten.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visa status för IoT Edge-körningen
 
@@ -145,13 +145,13 @@ Verifiera att körningen har installerats och konfigurerats korrekt på din IoT 
 >[!TIP]
 >Förhöjd behörighet krävs för att köra `iotedge`-kommandon. När du loggar ut från datorn och sedan loggar in igen för första gången efter installationen av IoT Edge-körningen, så uppdateras dina behörigheter automatiskt. Tills dess kan du använda **sudo** framför kommandona.
 
-1. Kontrollera att IoT Edge security-daemon körs som en systemtjänst.
+1. Kontrol lera att IoT Edge Security Daemon körs som en system tjänst.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![Se den IoT Edge-daemon körs som en systemtjänst](./media/quickstart-linux/iotedged-running.png)
+   ![Se IoT Edge daemon som körs som en system tjänst](./media/quickstart-linux/iotedged-running.png)
 
 2. Hämta tjänstloggar om du behöver felsöka tjänsten.
 
@@ -205,7 +205,7 @@ Du kan även se när meddelandena tas emot av din IoT-hubb med hjälp av [Azure 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. I annat fall kan du ta bort Azure-resurser som du skapade för att undvika avgifter.
+Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. Annars kan du ta bort de Azure-resurser som du har skapat för att undvika avgifter.
 
 Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Kontrollera att det inte finns något du vill behålla i innehållet i resursgruppen. Om du inte vill ta bort hela gruppen kan du ta bort enskilda resurser i stället.
 
@@ -220,7 +220,7 @@ az group delete --name IoTEdgeResources
 
 I den här snabbstarten skapade du en IoT Edge-enhet och använde molngränssnittet i Azure IoT Edge för att distribuera kod till enheten. Nu har du en testenhet som genererar rådata för sin miljö.
 
-Nästa steg är att ställa in din lokala utvecklingsmiljö så att du kan börja skapa IoT Edge-moduler som kör din affärslogik. 
+Nästa steg är att konfigurera din lokala utvecklings miljö så att du kan börja skapa IoT Edge moduler som kör din affärs logik. 
 
 > [!div class="nextstepaction"]
-> [Börja utveckla IoT Edge-moduler för Linux-enheter](tutorial-develop-for-linux.md)
+> [Börja utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md)

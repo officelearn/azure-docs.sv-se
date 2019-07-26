@@ -1,6 +1,6 @@
 ---
-title: Azure File Sync lokala brandvägg och proxyinställningar | Microsoft Docs
-description: Azure File Sync lokala nätverkskonfiguration
+title: Azure File Sync inställningar för lokal brand vägg och proxy | Microsoft Docs
+description: Azure File Sync lokal nätverks konfiguration
 services: storage
 author: roygara
 ms.service: storage
@@ -8,54 +8,51 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c828f616d0be1611770c8673f9884e0ee50dba19
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 33d5be20682c8341932a2a0021ccda27583775bd
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625584"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335965"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
-Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
+Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
 
-Den här artikeln ger insyn i specifika krav och tillgängliga alternativ för att kunna och på ett säkert sätt ansluta servern till Azure File Sync.
-
-> [!Important]
-> Azure File Sync stöder ännu inte brandväggar och virtuella nätverk för ett lagringskonto.
+I den här artikeln får du information om särskilda krav och alternativ som är tillgängliga för att ansluta servern till Azure File Sync på ett säkert sätt.
 
 ## <a name="overview"></a>Översikt
-Azure File Sync fungerar som en tjänst för samordning mellan Windows Server, Azure-filresursen och flera andra Azure-tjänster för att synkronisera data enligt beskrivningen i dina synkroniseringsgruppen. Du behöver för Azure File Sync ska fungera korrekt, att konfigurera dina servrar att kommunicera med följande Azure-tjänster:
+Azure File Sync fungerar som en Orchestration-tjänst mellan Windows Server, Azure-filresursen och flera andra Azure-tjänster för att synkronisera data som beskrivs i din Sync-grupp. För att Azure File Sync ska fungera korrekt måste du konfigurera servrarna så att de kommunicerar med följande Azure-tjänster:
 
 - Azure Storage
 - Azure File Sync
 - Azure Resource Manager
-- Autentiseringstjänster
+- Authentication Services
 
 > [!Note]  
-> Azure File Sync-agenten på Windows Server initierar alla förfrågningar till molntjänster, vilket leder till att bara behöva tänka på utgående trafik från ett perspektiv för brandväggen. <br /> Inga Azure-tjänsten initierar en anslutning till Azure File Sync-agenten.
+> Azure File Sync agenten på Windows Server initierar alla förfrågningar till moln tjänster, vilket resulterar i att endast ta hänsyn till utgående trafik från ett brand Väggs perspektiv. <br /> Ingen Azure-tjänst initierar en anslutning till Azure File Sync agenten.
 
 ## <a name="ports"></a>Portar
-Azure File Sync flyttar data från filer och metadata exklusivt över HTTPS och kräver att port 443 till att öppna utgående.
-Därmed är all trafik krypterad.
+Azure File Sync flyttar fildata och metadata exklusivt över HTTPS och kräver att port 443 är öppen för utgående data.
+Det innebär att all trafik krypteras.
 
 ## <a name="networks-and-special-connections-to-azure"></a>Nätverk och särskilda anslutningar till Azure
-Azure File Sync-agenten har inga krav angående särskilda kanaler som [ExpressRoute](../../expressroute/expressroute-introduction.md), etc. till Azure.
+Azure File Sync agenten har inga krav avseende särskilda kanaler som [ExpressRoute](../../expressroute/expressroute-introduction.md)osv. till Azure.
 
-Azure File Sync fungerar på alla sätt att nå Azure automatiskt om anpassning till olika Nätverksegenskaper som bandbredd och latens samtidigt som den ger administratörskontroll för att finjustera. Inte alla funktioner är tillgängliga just nu. Om du vill konfigurera specifika beteende, berätta för oss [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
+Azure File Sync kommer att fungera på något sätt som ger till gång till Azure, automatisk anpassning till olika nätverks egenskaper, t. ex. bandbredd, latens och administrations kontroll för fin justering. Alla funktioner är inte tillgängliga för tillfället. Om du vill konfigurera ett speciellt beteende kan du meddela oss via [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## <a name="proxy"></a>Proxy
-Azure File Sync stöder appspecifika och datoromfattande proxy-inställningar.
+Azure File Sync har stöd för app-/regionsspecifika och datorövergripande proxyinställningar.
 
-**Appspecifika proxyinställningar** tillåter konfiguration av proxy specifikt för Azure File Sync-trafik. Appspecifika proxyinställningar stöds på agentversion 4.0.1.0 eller nyare och kan konfigureras under agentinstallationen av eller med hjälp av cmdleten Set-StorageSyncProxyConfiguration PowerShell.
+**Appar-specifika proxyinställningar** tillåter konfiguration av en proxy specifikt för Azure File Sync trafik. Programspecificerade proxyinställningar stöds på agent version 4.0.1.0 eller senare och kan konfigureras under Agent installationen eller med hjälp av cmdleten Set-StorageSyncProxyConfiguration PowerShell.
 
-PowerShell-kommandon för att konfigurera proxyinställningar för appspecifika:
+PowerShell-kommandon för att konfigurera app-Specific proxy-inställningar:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
-**Datoromfattande proxy-inställningar** är transparent för Azure File Sync-agenten som hela trafiken på servern dirigeras via proxy.
+De **datorövergripande proxyinställningarna** är transparenta för Azure File Sync agenten eftersom hela trafiken på servern dirigeras via proxyservern.
 
-Följ stegen nedan om du vill konfigurera datoromfattande proxy-inställningar: 
+Följ stegen nedan om du vill konfigurera inställningar för datorövergripande proxy: 
 
 1. Konfigurera proxyinställningar för .NET-program 
 
@@ -63,7 +60,7 @@ Följ stegen nedan om du vill konfigurera datoromfattande proxy-inställningar:
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - Lägg till avsnittet < system.net > i machine.config-filer (under avsnittet < system.serviceModel >).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
+   - Lägg till avsnittet < system. net > i Machine. config-filerna (under avsnittet < system. serviceModel >).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -72,51 +69,51 @@ Följ stegen nedan om du vill konfigurera datoromfattande proxy-inställningar:
       </system.net>
      ```
 
-2. Ange WinHTTP-proxyinställningar 
+2. Ange inställningar för WinHTTP-proxy 
 
-   - Kör följande kommando från en upphöjd kommandotolk eller PowerShell för att visa befintliga Proxyinställningen:   
+   - Kör följande kommando från en upphöjd kommando tolk eller PowerShell för att se den befintliga inställningen för proxy:   
 
-     Netsh winhttp show proxy
+     Netsh WinHTTP show proxy
 
-   - Kör följande kommando från en upphöjd kommandotolk eller PowerShell för att ange Proxyinställningen (ändra 127.0.01:8888 till IP-adressen och porten för proxyservern):  
+   - Kör följande kommando från en upphöjd kommando tolk eller PowerShell för att ange proxyinställningar (Change 127.0.01:8888 till IP-adressen och porten för proxyservern):  
 
-     Netsh winhttp ange proxy 127.0.0.1:8888
+     Netsh WinHTTP set proxy 127.0.0.1:8888
 
-3. Starta om tjänsten Storage Sync-agenten genom att köra följande kommando från en upphöjd kommandotolk eller PowerShell: 
+3. Starta om tjänsten Storage Sync agent genom att köra följande kommando från en upphöjd kommando tolk eller PowerShell: 
 
-      net stop filesyncsvc
+      net stop-filesyncsvc
 
-      Obs! Storage Sync-agenten (filesyncsvc)-tjänsten ska starta automatiskt när den stoppats.
+      Anteckning: Tjänsten Storage Sync agent (filesyncsvc) startar automatiskt när den har stoppats.
 
 ## <a name="firewall"></a>Brandvägg
-Port 443 måste vara öppna utgående som nämns i föregående avsnitt. Baserat på principer i ditt datacenter, gren eller din region kan kan ytterligare begränsa trafik via den här porten till vissa domäner vara önskade eller krävs.
+Som anges i föregående avsnitt måste port 443 vara öppen för utgående trafik. Baserat på principer i ditt data Center, din gren eller region, kan ytterligare begränsa trafik via den här porten till vissa domäner eller obligatoriskt.
 
-I följande tabell beskrivs domänerna som krävs för kommunikation:
+I följande tabell beskrivs de domäner som krävs för kommunikation:
 
-| Tjänsten | Offentliga molnslutpunkt | Azure Government-slutpunkt | Användning |
+| Tjänsten | Offentlig moln slut punkt | Azure Government slut punkt | Användning |
 |---------|----------------|---------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Ett anrop för användaren (till exempel PowerShell) går till/igenom den här URL: en, inklusive inledande server registrering anropet. |
-| **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Azure Resource Manager-anrop måste göras av en autentiserad användare. Ska lyckas, används den här URL: en för autentisering av användare. |
-| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Som en del av att distribuera Azure File Sync, skapas ett huvudnamn för tjänsten i prenumerationens Azure Active Directory. Den här URL: en används för detta. Den här huvudnamn används för att delegera en minimal uppsättning rättigheter till Azure File Sync-tjänsten. Användaren som utför installationen av Azure File Sync måste vara en autentiserad användare med behörighet för ägare av prenumerationen. |
-| **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | När servern hämtar en fil, utför servern sedan den dataförflyttning mer effektivt när man talar direkt till Azure-filresursen i Lagringskontot. Servern har en SAS-nyckel som endast tillåter för åtkomst till resursen för filen. |
-| **Azure File Sync** | &ast;.one.microsoft.com | &ast;.afs.azure.us | Efter den inledande serverregistrering servern tar emot en regional URL för Azure File Sync-tjänstinstansen i den regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt med hantering av dess sync-instans. |
-| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | När Azure File Sync-agenten har installerats, används PKI-URL: en för att ladda ned mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresurs. OCSP-URL: en används för att kontrollera status för ett certifikat. |
+| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Alla användar anrop (som PowerShell) går till/via denna URL, inklusive det första server registrerings anropet. |
+| **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Azure Resource Manager-anrop måste göras av en autentiserad användare. För att lyckas används den här URL: en för användarautentisering. |
+| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Som en del av distributionen Azure File Sync skapas ett huvud namn för tjänsten i prenumerationens Azure Active Directory. Den här URL: en används för det. Den här huvud gruppen används för att delegera en minimal uppsättning rättigheter till tjänsten Azure File Sync. Användaren som utför den första installationen av Azure File Sync måste vara en autentiserad användare med prenumerations ägarens behörigheter. |
+| **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | När servern laddar ned en fil utför servern den data flyttningen mer effektivt när den pratar direkt till Azure-filresursen i lagrings kontot. Servern har en SAS-nyckel som endast tillåter åtkomst till riktad fil resurs. |
+| **Azure File Sync** | &ast;.one.microsoft.com | &ast;.afs.azure.us | Efter den första server registreringen får servern en regional URL för den Azure File Sync tjänst instansen i den regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt med den instans som hanterar synkroniseringen. |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | När Azure File Sync-agenten har installerats används PKI-URL: en för att hämta mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresursen. OCSP-URL: en används för att kontrol lera status för ett certifikat. |
 
 > [!Important]
-> När så att trafik kan &ast;. one.microsoft.com, trafik till mer än bara synkroniseringstjänsten går från servern. Det finns många fler Microsoft-tjänster som är tillgängliga under underdomäner.
+> När trafik till &ast;. One.Microsoft.com tillåts kan trafik till mer än bara synkroniseringstjänsten vara möjlig från-servern. Det finns många fler Microsoft-tjänster som är tillgängliga under under domäner.
 
-Om &ast;. one.microsoft.com är för breda, du kan begränsa serverns kommunikation genom att tillåta kommunikation till endast explicit regionala instanser av Azure Files Sync-tjänsten. Vilka instanser att välja beror på regionen som den lagringssynkroniseringstjänst som du har distribuerat och registrerat servern till. Regionen kallas ”primär slutpunkts-URL” i tabellen nedan.
+Om &ast;. One.Microsoft.com är för bred kan du begränsa serverns kommunikation genom att tillåta kommunikation enbart till explicita regionala instanser av Azure Files Sync-tjänsten. Vilken eller vilka instanser som ska väljas beror på den region i lagrings tjänsten för synkronisering som du har distribuerat och registrerat servern på. Regionen kallas "primär slut punkts-URL" i tabellen nedan.
 
-För affärskontinuitet och disaster recovery (BCDR) orsaker har du angett din Azure-filresurser i ett globalt redundant lagringskonto (GRS). Om så är fallet, kommer sedan Azure-filresurser växlar över till den parade regionen i händelse av ett bestående regionalt strömavbrott. Azure File Sync använder samma regionala par som lagring. Så om du använder GRS-lagringskonton kan behöva du aktivera ytterligare URL: er så att din server kan kommunicera med den parade regionen för Azure File Sync. Tabellen nedan anropar den här ”Paired region”. Det finns också en traffic manager-URL som måste aktiveras också. Detta garanterar nätverkstrafik sömlöst igen dirigeras till den parade regionen i händelse av en redundansväxling och kallas ”identifiering URL” i tabellen nedan.
+För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filresurser i ett globalt redundant (GRS) lagrings konto. Om så är fallet växlar Azure-filresurserna över till den kopplade regionen vid ett varaktigt regionalt avbrott. Azure File Sync använder samma regionala par som lagring. Så om du använder GRS lagrings konton måste du aktivera ytterligare URL: er så att servern kan kommunicera med den kopplade regionen för Azure File Sync. Tabellen nedan anropar denna "parad region". Det finns dessutom en Traffic Manager-profils-URL som måste aktive ras. Detta säkerställer att nätverks trafiken kan dirigeras sömlöst till den kopplade regionen i händelse av redundans och kallas "identifierings-URL" i tabellen nedan.
 
-| Molnet  | Region | Primär slutpunkts-URL | Länkad region | Identifierings-URL |
+| Molnet  | Region | Primär slut punkts-URL | Länkad region | Identifierings-URL |
 |--------|--------|----------------------|---------------|---------------|
 | Offentligt |Östra Australien | https:\//kailani-aue.one.microsoft.com | Sydöstra Australien | https:\//tm-kailani-aue.one.microsoft.com |
 | Offentligt |Sydöstra Australien | https:\//kailani-aus.one.microsoft.com | Östra Australien | https:\//tm-kailani-aus.one.microsoft.com |
 | Offentligt | Södra Brasilien | https:\//brazilsouth01.afs.azure.net | Södra centrala USA | https:\//tm-brazilsouth01.afs.azure.net |
-| Offentligt | Centrala Kanada | https:\//kailani-cac.one.microsoft.com | Östra Kanada | https:\//tm-kailani-cac.one.microsoft.com |
+| Offentligt | Centrala Kanada | https:\//Kailani-CAC.One.Microsoft.com | Östra Kanada | https:\//tm-kailani-cac.one.microsoft.com |
 | Offentligt | Östra Kanada | https:\//kailani-cae.one.microsoft.com | Centrala Kanada | https:\//tm-kailani.cae.one.microsoft.com |
-| Offentligt | Indien, centrala | https:\//kailani-cin.one.microsoft.com | Södra Indien | https:\//tm-kailani-cin.one.microsoft.com |
+| Offentligt | Indien, centrala | https:\//kailani-cin.one.microsoft.com | Indien, södra | https:\//tm-kailani-cin.one.microsoft.com |
 | Offentligt | Centrala USA | https:\//kailani-cus.one.microsoft.com | USA, östra 2 | https:\//tm-kailani-cus.one.microsoft.com |
 | Offentligt | Östasien | https:\//kailani11.one.microsoft.com | Sydostasien | https:\//tm-kailani11.one.microsoft.com |
 | Offentligt | East US | https:\//kailani1.one.microsoft.com | Västra USA | https:\//tm-kailani1.one.microsoft.com |
@@ -128,7 +125,7 @@ För affärskontinuitet och disaster recovery (BCDR) orsaker har du angett din A
 | Offentligt | Norra centrala USA | https:\//northcentralus01.afs.azure.net | Södra centrala USA | https:\//tm-northcentralus01.afs.azure.net |
 | Offentligt | Norra Europa | https:\//kailani7.one.microsoft.com | Västra Europa | https:\//tm-kailani7.one.microsoft.com |
 | Offentligt | Södra centrala USA | https:\//southcentralus01.afs.azure.net | Norra centrala USA | https:\//tm-southcentralus01.afs.azure.net |
-| Offentligt | Södra Indien | https:\//kailani-sin.one.microsoft.com | Indien, centrala | https:\//tm-kailani-sin.one.microsoft.com |
+| Offentligt | Indien, södra | https:\//kailani-sin.one.microsoft.com | Indien, centrala | https:\//tm-kailani-sin.one.microsoft.com |
 | Offentligt | Sydostasien | https:\//kailani10.one.microsoft.com | Östasien | https:\//tm-kailani10.one.microsoft.com |
 | Offentligt | Storbritannien, södra | https:\//kailani-uks.one.microsoft.com | Storbritannien, västra | https:\//tm-kailani-uks.one.microsoft.com |
 | Offentligt | Storbritannien, västra | https:\//kailani-ukw.one.microsoft.com | Storbritannien, södra | https:\//tm-kailani-ukw.one.microsoft.com |
@@ -136,23 +133,23 @@ För affärskontinuitet och disaster recovery (BCDR) orsaker har du angett din A
 | Offentligt | Västra Europa | https:\//kailani6.one.microsoft.com | Norra Europa | https:\//tm-kailani6.one.microsoft.com |
 | Offentligt | Västra USA | https:\//kailani.one.microsoft.com | East US | https:\//tm-kailani.one.microsoft.com |
 | Offentligt | Västra USA 2 | https:\//westus201.afs.azure.net | Västra centrala USA | https:\//tm-westus201.afs.azure.net |
-| Government | Arizona (USA-förvaltad region) | https:\//usgovarizona01.afs.azure.us | Texas (USA-förvaltad region) | https:\//tm-usgovarizona01.afs.azure.us |
-| Government | Texas (USA-förvaltad region) | https:\//usgovtexas01.afs.azure.us | Arizona (USA-förvaltad region) | https:\//tm-usgovtexas01.afs.azure.us |
+| Myndigheter | Arizona (USA-förvaltad region) | https:\//usgovarizona01.afs.azure.us | Texas (USA-förvaltad region) | https:\//tm-usgovarizona01.afs.azure.us |
+| Myndigheter | Texas (USA-förvaltad region) | https:\//usgovtexas01.afs.azure.us | Arizona (USA-förvaltad region) | https:\//tm-usgovtexas01.afs.azure.us |
 
-- Om du använder lokalt redundant (LRS) eller zonen redundant (ZRS)-lagringskonton, behöver du bara aktivera den URL som visas under ”primär slutpunkts-URL”.
+- Om du använder lokalt redundant (LRS) eller zon redundant lagrings konto (ZRS) behöver du bara aktivera URL: en som anges under "primär slut punkts-URL".
 
-- Om du använder globalt redundant (GRS)-lagringskonton kan du aktivera tre URL: er.
+- Om du använder globalt redundanta lagrings konton (GRS) aktiverar du tre URL: er.
 
-**Exempel:** Du distribuerar en tjänst för lagringssynkronisering i `"West US"` och registrera servern med den. URL: er så att servern kan kommunicera till för det här fallet är:
+**Exempel:** Du distribuerar en tjänst för synkronisering av `"West US"` lagring i och registrerar servern med den. URL: erna som gör att servern kan kommunicera till för det här fallet är:
 
-> - https:\//kailani.one.microsoft.com (primära slutpunkten: Västra USA)
-> - https:\//kailani1.one.microsoft.com (parad region för redundans: Östra USA)
-> - https:\//tm-kailani.one.microsoft.com (identifierings-URL för den primära regionen)
+> - https:\//Kailani.One.Microsoft.com (primär slut punkt: USA, västra)
+> - https:\//kailani1.One.Microsoft.com (parad failover-över region: USA, östra)
+> - https:\//TM-Kailani.One.Microsoft.com (identifierings-URL för den primära regionen)
 
 ## <a name="summary-and-risk-limitation"></a>Sammanfattning och risk begränsning
-Listorna tidigare i det här dokumentet innehåller URL: er med Azure File Sync för närvarande kommunicerar med. Brandväggar måste kunna tillåta trafik utgående trafik till dessa domäner. Microsoft strävar efter att den här listan har uppdaterats.
+Listorna ovan i det här dokumentet innehåller de URL: er Azure File Sync som för närvarande kommunicerar med. Brand väggar måste kunna tillåta utgående trafik till dessa domäner. Microsoft strävar efter att hålla listan uppdaterad.
 
-Konfigurera domänen att begränsa brandväggsregler kan vara ett mått för att förbättra säkerheten. Om dessa brandväggskonfigurationer används, måste en Tänk på att URL: er kommer att läggas till och även kan ändras över tid. Kontrollera den här artikeln regelbundet.
+Det kan vara ett mått för att förbättra säkerheten för att konfigurera domän begränsning av brand Väggs regler. Om dessa brand Väggs konfigurationer används måste en vara i åtanke att URL: er läggs till och kan ändras med tiden. Läs den här artikeln regelbundet.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

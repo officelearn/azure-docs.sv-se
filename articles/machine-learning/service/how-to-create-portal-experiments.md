@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 5eb3e94ff65e8a8b74f357a4cb8a517fd3837c5a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
-ms.translationtype: HT
+ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871819"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358839"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Skapa och utforska automatiserade maskin inlärnings experiment i Azure Portal (för hands version)
 
@@ -60,7 +60,7 @@ Klicka på knappen Skapa experiment för att fylla i följande formulär.
 
     Fält|Beskrivning
     ---|---
-    Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
+    Namn på Machine Learning-beräkning| Ange ett unikt namn som identifierar din beräknings kontext.
     Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
     Ytterligare inställningar| *Min nod*: Ange det minsta antalet noder för din beräkning. Det minsta antalet noder för AML-beräkning är 0. Om du vill aktivera data profilering måste du ha 1 eller flera noder. <br> *Högsta nod*: Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
 
@@ -180,7 +180,7 @@ Utbildnings jobb kan ta en stund för varje pipeline att slutföras.
 
 ### <a name="view-training-run-details"></a>Visa information om tränings körningar
 
-Öka detalj nivån för någon av utmatnings modellerna för att se information om utbildnings körning, till exempel prestanda mått och distributions diagram. [Lär dig mer om diagram](how-to-track-experiments.md#understanding-automated-ml-charts).
+Öka detalj nivån för någon av utmatnings modellerna för att se information om utbildnings körning, till exempel prestanda mått och distributions diagram. [Lär dig mer om diagram](how-to-understand-automated-ml.md).
 
 ![Upprepnings information](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -213,7 +213,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
     Du kan identifiera modellen med hjälp av en beskrivning, som innehåller körnings-ID, upprepnings nummer, i följande format: *< Run_ID > _ < Iteration_number > _Model*
 
-    ![Modellerna Skapa avbildning](media/how-to-create-portal-experiments/model-create-image.png)
+    ![Modeller: Skapa avbildning](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. Ange ett namn för avbildningen. 
 1. Klicka på knappen **Bläddra** bredvid rutan "bedömnings fil" för att överföra bedömnings filen (scoring.py) som du tidigare har laddat ned.
@@ -243,4 +243,5 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md) och Azure Machine Learning.
+* [Förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 * [Lär dig hur du använder en webb tjänst](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

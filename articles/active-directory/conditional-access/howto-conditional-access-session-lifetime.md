@@ -1,6 +1,6 @@
 ---
-title: Konfigurera sessionshantering för autentisering med Azure Active Directory villkorsstyrd åtkomst
-description: Anpassa Azure AD authentication sessionskonfiguration inklusive användarinloggning i persistence för frekvens och webbläsare.
+title: Konfigurera hantering av autentisering med Azure Active Directory villkorlig åtkomst
+description: Anpassa konfigurationen av Azure AD-autentisering för autentisering inklusive användarens inloggnings frekvens och beständighet för webbläsarsessionen.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,97 +11,97 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05c93c9fe2b34ae3b87c44608cc5c5c8947ecc73
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112326"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499841"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentisering sessionshantering med villkorlig åtkomst
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera hantering av autentisering med villkorlig åtkomst
 
-I distributioner, kan organisationer har ett behov av att begränsa autentisering sessioner. Vissa scenarier kan innehålla:
+I komplexa distributioner kan organisationer ha behov av att begränsa sessionerna för autentisering. Vissa scenarier kan vara:
 
-* Åtkomst till resurser från en ohanterad eller delad enhet
+* Resurs åtkomst från en ohanterad eller delad enhet
 * Åtkomst till känslig information från ett externt nätverk
-* Stor effekt användare
-* Verksamhetskritiska program
+* Användare med hög påverkan
+* Kritiska företags program
 
-Kontrollerna för villkorlig åtkomst kan du skapa principer som är riktade mot specifika användningsfall i din organisation utan att påverka alla användare.
+Med villkorliga åtkomst kontroller kan du skapa principer som riktar sig mot specifika användnings fall i organisationen utan att påverka alla användare.
 
-Innan du börjar information om hur du konfigurerar principen, låt oss nu undersöka standardkonfigurationen.
+Innan du simhopp till information om hur du konfigurerar principen ska vi kontrol lera standard konfigurationen.
 
-## <a name="user-sign-in-frequency"></a>Användaren loggar in frekvens
+## <a name="user-sign-in-frequency"></a>Användar inloggnings frekvens
 
-Logga in frekvensen definierar hur lång tid innan en användare uppmanas att logga in igen när du försöker komma åt en resurs.
+Inloggnings frekvensen definierar den tids period innan en användare uppmanas att logga in igen vid försök att komma åt en resurs.
 
-Standardkonfigurationen för Azure Active Directory (Azure AD) för användarinloggning i frekvens är ett rullande fönster 90 dagar. Be användarens autentiseringsuppgifter ofta ser ut som en användningstyperna du ska göra, men det kan straffpoängen: användare som har tränats anger sina autentiseringsuppgifter utan att tänka kan oavsiktligt skicka till skadliga autentiseringsuppgifter.
+Standard konfigurationen av Azure Active Directory (Azure AD) för användar inloggnings frekvens är ett rullande fönster på 90 dagar. Att be användare om autentiseringsuppgifter verkar ofta vara lämpligat att göra, men det kan vara refire: användare som har tränats att ange sina autentiseringsuppgifter utan att fundera på att oavsiktligt ange dem till en fråga om obehöriga autentiseringsuppgifter.
 
-Det kanske låter oroväckande inte be en användare kan logga in i 90 dagar i verkligheten varje överträdelse av IT-principer då återkallas sessionen. Några exempel omfattar (men är inte begränsad till) en lösenordsändring, över enheter eller inaktivera-konto. Du kan också uttryckligen [återkalla användarnas sessioner med hjälp av PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Standardkonfigurationen för Azure AD handlar om att ”fråga inte användare att ange sina autentiseringsuppgifter om säkerhetspositionen för sina sessioner inte har ändrats”.
+Det kan hända att en användare inte uppmanas att logga in igen om 90 dagar, i verkligheten att en överträdelse av IT-principerna återkallar sessionen. Några exempel är (men är inte begränsade till) en lösen ords ändring, en inkompatibel enhet eller inaktivt konto. Du kan även uttryckligen [återkalla användarnas sessioner med hjälp av PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Standard konfigurationen för Azure AD kommer inte att be användarna att ange sina autentiseringsuppgifter om säkerhets position inte har ändrats i sina sessioner.
 
-Logga in frekvensen inställningen fungerar med appar som har implementerat OATH2 eller OIDC-protokoll enligt standarderna. De flesta Microsoft inbyggda appar för Windows, Mac och mobil kompatibel med inställningen.
+Inställningen för inloggnings frekvens fungerar med appar som har implementerat OAUTH2-eller OIDC-protokoll enligt standarderna. De flesta inbyggda Microsoft-appar för Windows, Mac och Mobile följer inställningen.
 
-## <a name="persistence-of-browsing-sessions"></a>Persistence för surfningssessioner
+## <a name="persistence-of-browsing-sessions"></a>Persistence för att bläddra i sessioner
 
-En beständig webbläsarsession kan användarna förbli inloggade när du stänger och sedan öppna sina webbläsarfönster.
+Med en beständig webbläsarsession kan användarna vara inloggade när de har stängt och öppnat sina webbläsarfönster igen.
 
-Azure AD-standarden för persistence för webbläsare kan användare på personliga enheter för att välja om du vill spara sessionen genom att visa en ”Håll dig inloggad”? frågar efter en lyckad autentisering. Om webbläsaren persistence har konfigurerats i AD FS med hjälp av vägledningen i artikeln [AD FS Sign-On inställningar för enkel](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-), kommer vi att följa principen och spara Azure AD-session. Du kan också konfigurera om användare i din klient finns i ”vilande inloggad”? fråga genom att ändra en inställning i fönstret i Azure-portalen genom att följa vägledningen i artikeln för företagsanpassning [anpassa din Azure AD-inloggningssida](../fundamentals/customize-branding.md).
+Med Azure AD-beständighet för webbläsarsessionen kan användare på personliga enheter välja om de vill spara sessionen genom att visa en "förbli inloggad?" prompt efter slutförd autentisering. Om webb läsar persisten har kon figurer ATS i AD FS med [hjälp av vägledningen i artikeln](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+)AD FS inställningar för enkel inloggning, kommer vi att följa principen och även behålla Azure AD-sessionen. Du kan också konfigurera om användare i din klient organisation ska se "förbli inloggad?" genom att ändra lämplig inställning i rutan för företags anpassning i Azure Portal att använda vägledningen i artikeln [Anpassa din inloggnings sida för Azure AD](../fundamentals/customize-branding.md).
 
-## <a name="configuring-authentication-session-controls"></a>Konfigurera autentisering sessionskontroller
+## <a name="configuring-authentication-session-controls"></a>Konfigurera kontroller för autentisering av sessionen
 
-Villkorlig åtkomst är en Azure AD Premium-funktion som kräver en premiumlicens. Om du vill veta mer om villkorlig åtkomst, se [vad är villkorlig åtkomst i Azure Active Directory?](overview.md#license-requirements)
+Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-licens. Om du vill veta mer om villkorlig åtkomst, se [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Om du använder den [konfigurerbara livslängd för uppdateringstoken](../develop/active-directory-configurable-token-lifetimes.md) funktion för närvarande i offentlig förhandsversion, Observera att vi inte stöder skapandet av två olika principer för samma kombination av användare eller app: en med den här funktionen och en annan med konfigurerbara livslängd för token-funktionen. Microsoft planerar att inaktivera funktionen konfigurerbara livslängd för token på 1 November och Ersätt den med funktionen för villkorlig åtkomst autentisering session hantering.  
+> Observera att vi inte har stöd för att skapa två olika principer för samma användar-eller app-kombination om du använder den [konfigurerbara livs längden](../develop/active-directory-configurable-token-lifetimes.md) för token i en offentlig för hands version. en med den här funktionen och en annan med konfigurerbar token livs längds funktion. Microsoft planerar att dra tillbaka den konfigurerbara livs längden för token den 1 november och ersätta den med funktionen för hantering av autentisering med villkorlig åtkomst.  
 
-### <a name="policy-1-sign-in-frequency-control"></a>Principen 1: Logga in frekvensen kontroll
+### <a name="policy-1-sign-in-frequency-control"></a>Princip 1: Kontroll av inloggnings frekvens
 
 1. Skapa ny princip
-1. Välj alla nödvändiga villkor för kundens miljö, inklusive mål moln-appar.
+1. Välj alla nödvändiga villkor för kundens miljö, inklusive mål molnappar.
 
    > [!NOTE]
-   > Det rekommenderas att ställa in lika autentisering fråga frekvens för viktiga Microsoft Office-appar som Exchange Online och SharePoint Online för bästa användarupplevelsen.
+   > Vi rekommenderar att du anger samma frekvens för autentiserings-och körnings frekvensen för viktiga Microsoft Office appar som Exchange Online och SharePoint Online för bästa möjliga användar upplevelse.
 
-1. Gå till **åtkomstkontroller** > **Session** och klicka på **inloggning frekvens**
-1. Ange det obligatoriska värdet i dagar och tider i den första textrutan
-1. Välj ett värde på **timmar** eller **dagar** listrutan
+1. Gå till **Access Controls** > -**sessionen** och klicka på **inloggnings frekvens**
+1. Ange det obligatoriska värdet för dagar och timmar i den första text rutan
+1. Välj ett värde för **timmar** eller **dagar** från List rutan
 1. Spara principen
 
-![Princip för villkorlig åtkomst har konfigurerats för inloggning i frekvens](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Princip för villkorlig åtkomst har kon figurer ATS för inloggnings frekvens](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-Registrerade Windows-enheter logga in på enheten anses vara en uppmaning i Azure AD. Om du har konfigurerat tecknet i säkerhetskopieringsfrekvens till 24 timmar för Office-appar, registrerad användare på Azure AD Windows enheter att uppfylla inloggningen frekvens princip genom att logga in på enheten och inte uppmanas igen när du öppnar Office-appar.
+På Azure AD-registrerade Windows-enheter loggar du in på enheten som en uppfråga. Om du till exempel har konfigurerat inloggnings frekvensen till 24 timmar för Office-appar, så uppfyller användare i Azure AD-registrerade Windows-enheter inloggnings frekvens principen genom att logga in på enheten och kommer inte att tillfrågas igen när Office-appar öppnas.
 
-Om du har konfigurerat annan inloggning frekvens för olika web apps som körs i samma webbläsarsession tillämpas striktaste principen på båda apparna eftersom alla appar som körs i samma webbläsarsession delar en enda session-token.
+Om du har konfigurerat olika inloggnings frekvenser för olika webbappar som körs i samma webbläsarsession, kommer den striktaste principen att tillämpas på båda apparna eftersom alla appar som körs i samma webbläsarsession delar en token för en session.
 
-### <a name="policy-2-persistent-browser-session"></a>Princip för 2: Beständiga webbläsarsession
+### <a name="policy-2-persistent-browser-session"></a>Princip 2: Beständig webbläsarsession
 
 1. Skapa ny princip
-1. Välj alla nödvändiga villkor.
+1. Välj alla obligatoriska villkor.
 
    > [!NOTE]
-   > Observera att den här kontrollen kräver för att välja ”alla Molnappar” som ett villkor. Webbläsaren sessionernas beständighet styrs av Autentiseringstoken för sessionen. Alla flikar i en webbläsarsession dela en enda session-token och därför alla måste dela permanent tillstånd.
+   > Observera att den här kontrollen kräver att du väljer alla molnappar som ett villkor. Persistence för webbläsarsessionen styrs av autentiseringstoken för autentisering. Alla flikar i en webbläsarsession delar en token för en session och därför måste alla dela beständiga tillstånd.
 
-1. Gå till **åtkomstkontroller** > **Session** och klicka på **beständiga webbläsarsession**
-1. Välj ett värde från listrutan
-1. Spara princip
+1. Gå till **Access Controls** > -**sessionen** och klicka på **beständig** webbläsarsession
+1. Välj ett värde i list rutan
+1. Spara principen
 
-![Princip för villkorlig åtkomst har konfigurerats för beständiga webbläsare](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![Princip för villkorlig åtkomst har kon figurer ATS för beständig webbläsare](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
-> Beständiga webbläsarsession konfiguration i Azure AD villkorlig åtkomst kommer att skriva över den ”Håll dig inloggad”? Ange i fönstret i Azure-portalen för samma användare för företagsanpassning, om du har konfigurerat båda principerna.
+> Beständig konfiguration av webbläsarsessionen i Azure AD villkorlig åtkomst kommer skriva över "förbli inloggad?" inställningen i rutan för företags anpassning i Azure Portal för samma användare om du har konfigurerat båda principerna.
 
 ## <a name="validation"></a>Validering
 
-Verktyget hypotetiska används för att simulera en inloggning från användaren till målprogrammet och andra villkor baserat på hur du konfigurerat din princip. Sessionen management-kontroller för autentisering som visas i resultatet av verktyget.
+Använd verktyget för att simulera en inloggning från användaren till mål programmet och andra villkor baserat på hur du har konfigurerat principen. Kontrollerna för hantering av autentisering visas i resultatet av verktyget.
 
-![Resultat av villkorlig åtkomst What If-verktyget](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Resultat för What If verktyget för villkorlig åtkomst](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
-## <a name="policy-deployment"></a>Distribution av princip
+## <a name="policy-deployment"></a>Princip distribution
 
-För att säkerställa att din princip fungerar som förväntat, är rutin att testa den innan du distribuerar det till produktion. Använd helst en test-klient för att kontrollera om den nya principen fungerar som avsett. Mer information finns i artikeln [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md).
+För att se till att principen fungerar som förväntat, är den rekommenderade rekommenderade metoden att testa den innan den distribueras till produktion. Vi rekommenderar att du använder en test klient för att kontrol lera om den nya principen fungerar som den ska. Mer information finns i [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns i artikeln [kräver MFA för specifika appar med Azure Active Directory villkorsstyrd åtkomst](app-based-mfa.md).
-* Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa artikeln [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md).
+* Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst kan du läsa artikeln [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
+* Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa artikeln [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md).

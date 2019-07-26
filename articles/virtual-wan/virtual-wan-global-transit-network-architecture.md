@@ -1,110 +1,109 @@
 ---
-title: Azure virtuellt WAN-nätverk globala överföring nätverksarkitektur | Microsoft Docs
-description: Läs mer om global överföring nätverksarkitektur för virtuellt WAN-nätverk
+title: Azure Virtual WAN global-överföring av nätverks arkitektur | Microsoft Docs
+description: Lär dig mer om global transit nätverks arkitektur för virtuellt WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965978"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421426"
 ---
-# <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring nätverksarkitektur och virtuellt WAN-nätverk
+# <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring av nätverks arkitektur och virtuellt WAN
 
-Global överföring nätverksarkitektur antas av företag att konsolidera, Anslut och styr molnet-centric moderna företag IT-fotavtrycket. I en modern cloud-centric företag behöver nätverkstrafik inte vara backhauled till HQ. Global överföring nätverksarkitektur baseras på både välbekanta nätverksrelaterade begrepp och nya begrepp som är unika för moln- och molnbaserade arkitekturer.
+Global transit nätverks arkitektur antas av företag för att konsolidera, ansluta och kontrol lera det molnbaserade moderna företags IT-företaget. I ett modernt, molnbaserad företags nätverk behöver inte nätverks trafik vara pådragna till HQ. Global överförings nätverks arkitektur baseras på både välkända nätverks koncept och nya koncept som är unika för moln-och molnbaserade arkitekturer.
 
 ![Arkitektur](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
 
-**Bild 1: Global övergångsnätverket med virtuellt WAN-nätverk**
+**Bild 1: Globalt överförings nätverk med virtuellt WAN**
 
-Moderna företag kräver allt vanligare anslutning mellan hyper distribuerade program, data och användare både i molnet och lokalt. Azure virtuellt WAN-nätverk kan en global överföring nätverksarkitektur genom att aktivera allt vanligare, alla-till-alla anslutningar mellan globalt distribuerade uppsättningar av virtuella nätverk, webbplatser, program och användare. Azure virtuellt WAN-nätverk är en Microsoft-hanterad tjänst. Alla nätverkskomponenter som den här tjänsten består av hyst och hanterad av Microsoft. Mer information om virtuellt WAN-nätverk finns i den [virtuella WAN-översikt](virtual-wan-about.md) artikeln.
+Moderna företag kräver allmänt förekommande-anslutning mellan Hyper-distribuerade program, data och användare i hela molnet och lokalt. Azure Virtual WAN möjliggör en global överförings nätverks arkitektur genom att aktivera allmänt förekommande, alla anslutningar mellan globalt distribuerade uppsättningar av virtuella nätverk, webbplatser, program och användare. Azure Virtual WAN är en Microsoft-hanterad tjänst. Alla nätverks komponenter som den här tjänsten består av är värdbaserade och hanteras av Microsoft. Mer information om virtuellt WAN finns i artikeln [Översikt över virtuella WAN-nätverk](virtual-wan-about.md) .
 
-Azure-regioner fungerar som hubbar som du kan välja att ansluta dina grenar i Azure virtuella WAN-arkitekturen. När grenarna är ansluten, kan du utnyttja Azures stamnät för att upprätta gren-till-VNet och eventuellt gren till grenen anslutning.
+I Azure Virtual WAN-arkitekturen fungerar Azure-regioner som hubbar som du kan välja att ansluta dina grenar till. När grenarna är anslutna kan du utnyttja Azure-stamnätet för att upprätta gren-till-VNet-anslutningar och, om du vill, gren-till-gren-anslutning.
 
-Du kan skapa ett virtuellt WAN-nätverk genom att skapa en enda virtuella WAN-hubb i den region som har det största antalet ekrar (grenar, virtuella nätverk, användare) och sedan ansluta ekrarna som finns i andra regioner till hubben. Om ekrar är utspridda geografiskt, kan du också skapa en instans av regionala hubbar och sammankoppling i hubs. Hubbarna alla som ingår i samma virtuella WAN, men de kan vara associerade med olika regionala principer.
+Du kan upprätta ett virtuellt WAN-nätverk genom att skapa en enda virtuell WAN-hubb i den region som har det största antalet ekrar (grenar, virtuella nätverk, användare) och sedan ansluta de ekrar som finns i andra regioner till hubben. Alternativt, om ekrar är geografiskt distribuerade, kan du även instansiera regionala hubbar och koppla hubbarna. Hubbarna är alla delar av samma virtuella WAN-nätverk, men de kan kopplas till olika regionala principer.
 
 ## <a name="hub"></a>NAV-och-eker-överföring
 
-Nätverksarkitektur globala överföringen baseras på en modell för klassiska NAV och eker anslutning där molnvärd nätverket ”hub' möjliggör transitiva anslutningar mellan slutpunkter som kan distribueras över olika typer av 'ekrar'.
+Den globala överförings nätverks arkitekturen baseras på en klassisk nav-och-eker-nätverksanslutning där det molnbaserade nätverkets hubb möjliggör transitiv anslutning mellan slut punkter som kan fördelas mellan olika typer av ekrar.
   
-I den här modellen kan en eker vara:
+I den här modellen kan ekrar vara:
 
-* Virtuellt nätverk (Vnet)
-* Fysiska gren plats
+* Virtuellt nätverk (virtuella nätverk)
+* Fysisk gren plats
 * Fjärranvändare
 * Internet
 
-![NAV och ekrar globala överföring diagram](./media/virtual-wan-global-transit-network-architecture/architecture.png)
+![globalt överförings diagram för nav och eker](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 
-**Bild 2: Hub-and-spoke**
+**Bild 2: Hubb och eker**
 
-Bild 2 visar logisk vy för globala nätverk där geografiskt distribuerade användare, fysiska platser och virtuella nätverk är sammankopplade via nätverk hub finns i molnet. Den här arkitekturen möjliggör logiska ett hopp överföring anslutning mellan slutpunkter i nätverk. Ekrarna är anslutna till hubben med olika Azure nätverkstjänster, till exempel ExpressRoute eller plats-till plats-VPN för fysiska grenar, VNet-peering för virtuella nätverk och punkt-till-plats-VPN för fjärranslutna användare.
+Bild 2 visar den logiska vyn av det globala nätverket där geografiskt distribuerade användare, fysiska platser och virtuella nätverk är sammankopplade via en nätverks hubb som finns i molnet. Den här arkitekturen möjliggör logisk överföring av ett hopp mellan nätverks slut punkterna. Ekrarna är anslutna till hubben av olika Azure-nätverkstjänster som ExpressRoute eller plats-till-plats-VPN för fysiska grenar, VNet-peering för virtuella nätverk och punkt-till-plats-VPN för fjärran vändare.
 
-## <a name="crossregion"></a>Anslutningen mellan regioner
+## <a name="crossregion"></a>Anslutning mellan regioner
 
-För ett företag följer en molntjänster vanligtvis fysiska storleken. De flesta företag åtkomst till molnet från en region som är närmast deras fysiska plats och användare. En av viktiga huvudkonton av globala nätverksarkitektur är att aktivera interregionala anslutning mellan nätverksentiteter och slutpunkter. En molntjänster kan sträcka sig över flera regioner. Det innebär att trafik från en gren som är anslutna till molnet i en region kan nå en annan gren eller ett virtuellt nätverk i en annan region med hjälp av hub-till-hub-anslutning som för närvarande finns som förhandsversion.
+För ett företag följer en moln storlek normalt den fysiska storleken. De flesta företag får åtkomst till molnet från en region som är närmast deras fysiska plats och användare. En av huvud kontona för global nätverks arkitektur är att aktivera anslutning mellan olika regioner mellan nätverks enheter och slut punkter. En moln storlek kan sträcka sig över flera regioner. Det innebär att trafik från en gren som är ansluten till molnet i en region kan komma åt en annan gren eller ett VNet i en annan region med nav-till-hubb-anslutning, som för närvarande finns i vår översikt.
 
-## <a name="any"></a>Alla-till-alla anslutningar
+## <a name="any"></a>Alla-till-alla-anslutningar
 
-Gör att globala överföring nätverksarkitektur *alla-till-alla anslutningar* via hub centrala nätverket. Den här arkitekturen eliminerar eller minskar behovet av helt nät eller partiella nät anslutningsmodeller som är mer komplexa för att bygga och underhålla. Dessutom är Routning kontroll i NAV och eker kontra nät nätverk enklare att konfigurera och underhålla.
+Global överförings nätverks arkitektur möjliggör *alla-till-alla anslutningar* via en central nätverks hubb. Den här arkitekturen eliminerar eller minskar behovet av att använda kompletta nät eller partiella nät anslutnings modeller som är mer komplexa för att bygga och underhålla. Dessutom är routnings kontroll i nav-och-eker vs. nät nätverk enklare att konfigurera och underhålla.
 
-Alla-till-alla anslutningar kan i samband med en global arkitektur företag med globalt distribuerade användare, grenar, Datacenter, virtuella nätverk och program för att ansluta till varandra via överföring hub. Överföring navet fungerar som globala överföring.
+Alla-till-alla-anslutningar, i kontexten för en global arkitektur, gör det möjligt för företag med globalt distribuerade användare, grenar, data Center, virtuella nätverk och program att ansluta till varandra via överförings navet. Överförings navet fungerar som globalt system för överföring.
 
-![trafiksökvägar](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
+![trafik Sök vägar](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
 
-**Bild 3: Virtuella WAN-trafiksökvägar**
+**Bild 3: Vägar för virtuella WAN-trafik**
 
-Azure virtuellt WAN-nätverk stöder följande globala överföring anslutning sökvägar. Bokstäver inom parentes mappar till bild 3.
+Azure Virtual WAN stöder följande anslutnings vägar för global överföring. Bokstäverna i parenteser mappas till bild 3.
 
 * Branch-till-VNet (a)  
-* Branch-gren (b)
-* Fjärranslutna användare-till-VNet (c)
-* Användare-till-fjärrgren (d)
-* Med hjälp av VNet peering (e) VNet-till-VNet
-* ExpressRoute Global räckvidd 
+* Gren-till-gren (b)
+* Fjärran vändare till VNet (c)
+* Fjärran sluten användare-till-gren (d)
+* VNet-till-VNet med VNet-peering (e)
+* ExpressRoute Global Reach 
 
-### <a name="branchvnet"></a>Branch-to-VNet
+### <a name="branchvnet"></a>Branch-till-VNet
 
-Branch-till-VNet är den primära sökvägen som stöds av Azure virtuellt WAN-nätverk. Den här sökvägen kan du ansluta grenar till Azure IAAS-företagsarbetsbelastningar som har distribuerats i virtuella Azure-nätverk. Grenar kan anslutas till den virtuella WAN-nätverk via ExpressRoute eller VPN för plats-till-plats. Eltransit för trafik till virtuella nätverk som är anslutna till de virtuella WAN hubs via VNet-anslutningar.
+Branch-till-VNet är den primära sökvägen som stöds av Azure Virtual WAN. Med den här sökvägen kan du ansluta grenar till Azure IAAS Enterprise-arbetsbelastningar som har distribuerats i Azure virtuella nätverk. Grenar kan anslutas till det virtuella WAN-nätverket via ExpressRoute eller VPN för plats till plats. Trafik överföringarna till virtuella nätverk som är anslutna till de virtuella WAN-hubbarna via VNet-anslutningar.
 
-### <a name="branchbranch"></a>Branch-to-branch
+### <a name="branchbranch"></a>Gren-till-gren
 
-Grenar kan anslutas till en Azure virtuellt WAN-hubb med ExpressRoute-kretsar och/eller plats-till-plats VPN-anslutningar. Du kan ansluta grenarna till den virtuella WAN-hubb som är i regionen närmast grenen.
+Grenar kan anslutas till ett virtuellt Azure-nav med ExpressRoute-kretsar och/eller plats-till-plats-VPN-anslutningar. Du kan ansluta grenar till det virtuella WAN-hubben i den region som ligger närmast grenen.
 
-Det här alternativet kan företag utnyttja Azures stamnät för att ansluta grenar. Även om den här funktionen är tillgänglig, måste du väga fördelarna med att ansluta grenar via Azure virtuellt WAN-nätverk och att använda ett privat WAN.
+Med det här alternativet kan företag utnyttja Azures stamnät för att ansluta grenar. Men även om den här funktionen är tillgänglig bör du väga fördelarna med att ansluta grenar över Azure Virtual WAN jämfört med ett privat WAN.
 
-### <a name="usertovnet"></a>Fjärranslutna användare-till-VNet
+### <a name="usertovnet"></a>Fjärran sluten användare-till-VNet
 
-Du kan aktivera direkt, säker fjärråtkomst till Azure med hjälp av punkt-till-plats-anslutningar från en fjärranvändare klient till ett virtuellt WAN. Enterprise fjärranslutna användare behöver inte längre hairpin till molnet med en företagets VPN-anslutning.
+Du kan aktivera direkt säker fjärråtkomst till Azure med punkt-till-plats-anslutningar från en fjärran sluten användar klient till ett virtuellt WAN. Företags-fjärran vändare behöver inte längre hairpin till molnet med hjälp av ett företags-VPN.
 
-### <a name="usertobranch"></a>Fjärranslutna användare att avdelningskontor
+### <a name="usertobranch"></a>Fjärran sluten användare-till-gren
 
-Fjärranslutna användare att avdelningskontor sökvägen kan fjärranslutna användare som använder en punkt-till-plats-anslutning till Azure åtkomst lokala arbetsbelastningar och program genom att transporteras via molnet. Den här sökvägen kan fjärranslutna användare för åtkomst-arbetsbelastningar som är både distribuerade i Azure och lokalt. Företag kan aktivera centrala molnbaserade säker fjärråtkomst-tjänsten i Azure virtuellt WAN-nätverk.
+Med sökvägen för fjärran sluten användare kan fjärran vändare som använder en punkt-till-plats-anslutning till Azure komma åt lokala arbets belastningar och program genom att använda molnet. Den här sökvägen ger fjärran vändare möjlighet att komma åt arbets belastningar som båda är distribuerade i Azure och lokalt. Företag kan aktivera central molnbaserad säker fjärråtkomst i Azure Virtual WAN.
 
 ### <a name="vnetvnet"></a>VNet-till-VNet-överföring med VNet-peering
 
-Anslut virtuella nätverk till varandra för att stödja flernivåprogram som implementeras över flera virtuella nätverk genom att använda VNet-peering. Ett scenario för överföring av VNet-till-VNet via Azure virtuellt WAN-nätverk stöds inte för närvarande, men är på Azure-översikten. Ansluta virtuella nätverk via VNet-Peering är rekommenderad lösning för virtuella nätverk som måste vara anslutna till varandra. [Gatewayöverföring](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (i samband med VNet-peering) krävs inte för virtuellt WAN-nätverk eftersom virtuellt WAN-nätverk automatiskt kan gateway-överföring.
+Använd VNet-peering för att ansluta virtuella nätverk till varandra för att stödja program med flera nivåer som implementeras i flera virtuella nätverk. Ett VNet-till-VNet-överförings scenario via Azure Virtual WAN stöds inte för närvarande, men det finns i Azure-översikten. Anslutning av virtuella nätverk via VNet-peering är den rekommenderade lösningen för virtuella nätverk som måste vara anslutna till varandra. [Gateway-överföring](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (i kontexten för VNet-peering) krävs inte för virtuellt WAN-nätverk eftersom virtuella WAN automatiskt aktiverar Gateway-överföring.
 
-### <a name="globalreach"></a>ExpressRoute Global räckvidd
+### <a name="globalreach"></a>ExpressRoute Global Reach
 
-ExpressRoute är en privat och flexibel sätt att ansluta ditt lokala nätverk till Microsoft Cloud. Global räckvidd i ExpressRoute är en tilläggsfunktion för ExpressRoute. Du kan länka ExpressRoute-kretsar tillsammans för att göra ett privat nätverk mellan ditt lokala nätverk med Global räckvidd. Grenar som är anslutna till Azure virtuellt WAN-nätverk med hjälp av ExpressRoute kräver den ExpressRoute Global räckvidd att kommunicera med varandra.
+ExpressRoute är ett privat och flexibelt sätt att ansluta dina lokala nätverk till Microsoft Cloud. ExpressRoute Global Reach är en tilläggs funktion för ExpressRoute. Med Global Reach kan du länka ExpressRoute-kretsar tillsammans för att skapa ett privat nätverk mellan dina lokala nätverk. Grenar som är anslutna till Azure Virtual WAN med ExpressRoute kräver att ExpressRoute-Global Reach kommunicerar med varandra.
 
-Varje gren som är ansluten till virtuella WAN-hubb med ExpressRoute kan ansluta till virtuella nätverk med hjälp av gren-till-VNet-sökvägen i den här modellen. Gren till grenen trafik överföra inte hubben eftersom ExpressRoute Global räckvidd tillåter en mer optimala sökväg via WAN till Azure.
+I den här modellen kan varje gren som är ansluten till den virtuella WAN-hubben med ExpressRoute ansluta till virtuella nätverk med hjälp av gren-till-VNet-sökvägen. Gren-till-gren-trafik översätter inte navet eftersom ExpressRoute Global Reach ger en mer optimal sökväg över Azure WAN.
 
-## <a name="security"></a>Kontroll av säkerhet och principer
+## <a name="security"></a>Säkerhet och princip kontroll
 
-Virtuellt nätverk hubben sammanbinder och ser potentiellt alla överföringstrafik. Det kan vara lämpligt att värden centrala nätverk funktioner och tjänster, till exempel sådana en cloud routning, nätverkspolicy och säkerhet och åtkomstkontroll för Internet.
+Det virtuella nätverkets hubb samansluter och kan se all överförings trafik. Det kan vara den plats som fungerar som värd för centrala nätverksfunktioner och tjänster, till exempel en moln cirkulation, nätverks policy och säkerhet samt Internet åtkomst kontroll.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa en anslutning med hjälp av virtuellt WAN-nätverk.
+Skapa en anslutning med Virtual WAN.
 
-* [Plats-till-plats-anslutningar som använder virtuellt WAN-nätverk](virtual-wan-site-to-site-portal.md)
-* [Punkt-till-plats-anslutningar som använder virtuellt WAN-nätverk](virtual-wan-point-to-site-portal.md)
-* [ExpressRoute-anslutningar med hjälp av virtuellt WAN-nätverk](virtual-wan-expressroute-portal.md)
+* [Plats-till-plats-anslutningar med hjälp av virtuellt WAN](virtual-wan-site-to-site-portal.md)
+* [ExpressRoute-anslutningar med hjälp av virtuellt WAN](virtual-wan-expressroute-portal.md)

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1b0ea2f808c982a587392edbe57eb75c532ee2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324708"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477062"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -49,6 +49,8 @@ Den här artikeln visar hur du visar en lista över ett program i Azure AD-progr
 - För inloggning med lösen ord kontrollerar du att ditt program stöder formulärautentisering så att lösen ords valvet kan utföras för att få enkel inloggning som förväntat.
 
 - För automatisk etablering av användare ska programmet visas i galleriet med funktionen för enkel inloggning aktiverat med SAML 2.0/WS-utfodras. Du kan begära SSO och användar etablering tillsammans på portalen, om den inte redan finns med i listan.
+
+- Behöver ett permanent konto för testning med minst 2 användare registrerade.
 
 >[!NOTE]
 >Vi kör med ett stort antal SCIM anslutnings begär Anden, så vi har slutat ta nya förfrågningar på vår portal. Vänta på dina begär anden tills vidare meddelande. Vi beklagar för den här fördröjningen och eventuella besvär detta kan ha orsakat.
@@ -123,7 +125,7 @@ Nedan visas de program som krävs av kunden,
 
 ![Visar flödet för efterfrågade appar för kund](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Tids linjer
+## <a name="timelines"></a>Tidslinjer
 
 Tids linjen för processen med att lista ett SAML 2,0-eller WS-utfodras program i galleriet är 7-10 arbets dagar.
 

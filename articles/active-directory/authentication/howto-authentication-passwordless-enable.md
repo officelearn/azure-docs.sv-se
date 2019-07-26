@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f5eba18e34f65f7bc8a625babca92b86e06b4c
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867337"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499940"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>Aktivera lösen ords utan lösen ord för Azure AD (för hands version)
 
 ## <a name="requirements"></a>Krav
 
 * Azure Multi-Factor Authentication
-* För hands version av kombinerad registrering
+* Kombinerad förhands granskning med användare aktiverade för SSPR
 * För hands versionen av FIDO2 för säkerhets nyckel krävs kompatibla FIDO2 säkerhets nycklar
 * Webauthn kräver Microsoft Edge på Windows 10 version 1809 eller senare
 * FIDO2-baserad Windows-inloggning kräver Azure AD-ansluten Windows 10 version 1809 eller senare
@@ -171,7 +171,7 @@ Information om hur du loggar in med Microsoft Authenticator-appen finns i artike
 
 Administratörs etablering och avetablering av säkerhets nycklar är inte tillgängligt i den offentliga för hands versionen.
 
-#### <a name="hybrid-azure-ad-join"></a>Hybrid Azure Active Directory-anslutning
+#### <a name="hybrid-azure-ad-join"></a>Hybrid Azure AD-anslutning
 
 Användare som förlitar sig på WIA SSO som använder hanterade autentiseringsuppgifter som FIDO2 säkerhets nycklar eller lösen ords lös inloggning med Microsoft Authenticator appen behöver hybrid anslutning på Windows 10 för att få fördelarna med SSO. Säkerhets nycklar fungerar dock bara för Azure Active Directory anslutna datorer för tillfället. Vi rekommenderar att du bara provar FIDO2-säkerhetsnycklar för Windows Lås skärmen på rena Azure Active Directory anslutna datorer. Den här begränsningen gäller inte för webben.
 

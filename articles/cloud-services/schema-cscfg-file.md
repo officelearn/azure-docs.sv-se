@@ -1,36 +1,31 @@
 ---
-title: Azure Cloud Services-Definitionsschema (.cscfg-filen) | Microsoft Docs
+title: Definitions schema för Azure-Cloud Services (. cscfg-fil) | Microsoft Docs
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
 caps.latest.revision: 35
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 424381e2c243420cc2a68dc776d249cb17574f98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: 0009f843f8de31b92817dc86ccd718fa5eeeb1ba
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130321"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358921"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services, Config Schema (.cscfg-fil)
-Tjänstkonfigurationsfilen anger antalet rollinstanser ska distribueras för varje roll i tjänsten, värdena för alla konfigurationsinställningar och tumavtryck för certifikat som är associerade med en roll. Om tjänsten är en del av ett virtuellt nätverk, måste konfigurationsinformation för det virtuella nätverket anges i tjänstekonfigurationsfilen och i virtuella nätverk konfigurationsfilen. Standardfilnamnstillägget för tjänstkonfigurationsfilen är .cscfg.
+# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services config-schema (. cscfg-fil)
+Tjänst konfigurations filen anger antalet roll instanser som ska distribueras för varje roll i tjänsten, värdena för alla konfigurations inställningar och tumavtrycken för alla certifikat som är associerade med en roll. Om tjänsten är en del av en Virtual Network måste konfigurations information för nätverket anges i tjänst konfigurations filen, samt i konfigurations filen för det virtuella nätverket. Standard tillägget för tjänst konfigurations filen är. cscfg.
 
-Tjänstmodellen beskrivs i den [molntjänst (klassisk)-Definitionsschema](schema-csdef-file.md).
+Tjänst modellen beskrivs av det [klassiska definitions schemat för moln tjänsten](schema-csdef-file.md).
 
-Som standard installeras Azure Diagnostics schema konfigurationsfilen till den `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` directory. Ersätt `<version>` med den installerade versionen av den [Azure SDK](https://azure.microsoft.com/downloads/).
+Som standard installeras den Azure-diagnostik konfigurations schema filen i `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` katalogen. Ersätt `<version>` med den installerade versionen av [Azure SDK](https://azure.microsoft.com/downloads/).
 
-Läs mer om hur du konfigurerar roller i en tjänst, [vad är Cloud Service-modellen](cloud-services-model-and-package.md).
+Mer information om hur du konfigurerar roller i en tjänst finns i [Vad är moln tjänst modellen](cloud-services-model-and-package.md).
 
-## <a name="basic-service-configuration-schema"></a>Grundläggande Tjänstkonfigurationens Schema
-Det grundläggande formatet för tjänstkonfigurationsfilen är som följer.
+## <a name="basic-service-configuration-schema"></a>Grundläggande tjänst konfigurations schema
+Det grundläggande formatet för tjänst konfigurations filen är följande.
 
 ```xml
 <ServiceConfiguration serviceName="<service-name>" osFamily="<osfamily-number>" osVersion="<os-version>" schemaVersion="<schema-version>">
@@ -46,25 +41,25 @@ Det grundläggande formatet för tjänstkonfigurationsfilen är som följer.
 </ServiceConfiguration>
 ```
 
-## <a name="schema-definitions"></a>Schemadefinitioner
-I följande avsnitt beskrivs schemat för den `ServiceConfiguration` element:
+## <a name="schema-definitions"></a>Schema definitioner
+I följande avsnitt beskrivs schemat för `ServiceConfiguration` elementet:
 
 - [Rollschema](schema-cscfg-role.md)
 - [NetworkConfiguration-schema](schema-cscfg-networkconfiguration.md)
 
-## <a name="service-configuration-namespace"></a>Service Configuration Namespace
-XML-namnområdet för tjänstkonfigurationsfilen är: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
+## <a name="service-configuration-namespace"></a>Namn område för tjänst konfiguration
+XML-namnområdet för tjänst konfigurations filen är `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`:.
 
-##  <a name="ServiceConfiguration"></a> ServiceConfiguration Element
-Den `ServiceConfiguration` elementet har det översta elementet i tjänstekonfigurationsfilen.
+##  <a name="ServiceConfiguration"></a>ServiceConfiguration-element
+`ServiceConfiguration` Elementet är det översta elementet i tjänst konfigurations filen.
 
-I följande tabell beskrivs attributen för den `ServiceConfiguration` element. Alla attribut värden är strängtyper.
+I följande tabell beskrivs attributen för `ServiceConfiguration` -elementet. Alla attributvärden är sträng typer.
 
 | Attribut | Beskrivning |
 | --------- | ----------- |
-|serviceName|Krävs. Namnet på Molntjänsten. Det här namnet måste matcha namnet i tjänstdefinitionsfilen.|
-|osFamily|Valfri. Anger det Gästoperativsystem som ska köras på rollinstanser i Molntjänsten. Information om stöds gäst-OS-versioner finns i [Azure Guest OS-versionerna och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md).<br /><br /> Om du inte använder en `osFamily` värde och du inte har angett den `osVersion` -attribut till en viss gäst-OS-version, standardvärdet 1.|
-|osVersion|Valfri. Anger vilken version av det Gästoperativsystem som ska köras på rollinstanser i Molntjänsten. Läs mer om gäst-OS-versioner, [Azure Gästoperativsystemversioner och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md).<br /><br /> Du kan ange att gäst-OS bör uppgraderas automatiskt till den senaste versionen. Gör detta genom att ange värdet för den `osVersion` attributet `*`. När värdet `*`, rollinstanserna distribueras med den senaste versionen av Gästoperativsystemet för den angivna OS-familjen och uppgraderas automatiskt när nya versioner av gäst-OS släpps.<br /><br /> Ange en specifik version manuellt genom att använda den `Configuration String` från tabellen i den **framtiden, aktuellt och övergående gäst-OS-versioner** delen av [Azure Gästoperativsystemversioner och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md) .<br /><br /> Standardvärdet för den `osVersion` attributet är `*`.|
-|schemaVersion|Valfri. Anger vilken version av tjänstkonfiguration schemat. Schemaversion kan Visual Studio för att de rätt SDK-verktyg som ska användas för schemavalideringen om mer än en version av SDK: N installeras sida-vid-sida. Läs mer om schema- och version kompatibilitet [Azure Gästoperativsystemversioner och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md)|
+|serviceName|Obligatoriskt. Namnet på moln tjänsten. Namnet som anges här måste matcha det namn som anges i tjänst definitions filen.|
+|osFamily|Valfri. Anger det gäst operativ system som ska köras på roll instanser i moln tjänsten. Information om vilka gäst operativ system som stöds finns i [Azure gäst operativ system utgåvor och SDK-kompatibilitet](cloud-services-guestos-update-matrix.md).<br /><br /> Om du inte inkluderar ett `osFamily` värde och du inte har `osVersion` angett attributet till en angiven gäst operativ system version, används standardvärdet 1.|
+|osVersion|Valfri. Anger den version av gäst operativ systemet som ska köras på roll instanser i moln tjänsten. Mer information om gäst operativ system versioner finns i [Azure gäst operativ system versioner och SDK-kompatibilitet matris](cloud-services-guestos-update-matrix.md).<br /><br /> Du kan ange att gäst operativ systemet ska uppgraderas automatiskt till den senaste versionen. Det gör du genom att ange värdet för `osVersion` attributet till. `*` När det är `*`inställt på, distribueras roll instanserna med den senaste versionen av gäst operativ systemet för den angivna OS-familjen och uppgraderas automatiskt när nya versioner av gäst operativ systemet släpps.<br /><br /> Om du vill ange en version manuellt, använder `Configuration String` du tabellen i avsnittet **framtida, aktuella och över gångs gäst operativ system versioner** i [Azure gäst operativ system versioner och SDK-kompatibel matris](cloud-services-guestos-update-matrix.md).<br /><br /> Standardvärdet för `osVersion` attributet är `*`.|
+|schemaVersion|Valfri. Anger versionen för tjänst konfigurations schema. Med schema versionen kan Visual Studio välja rätt SDK-verktyg som ska användas för schema validering om fler än en version av SDK: n installeras sida vid sida. Mer information om kompatibilitet för scheman och versioner finns i [Azure gäst operativ system utgåvor och SDK-kompatibilitet mat ris](cloud-services-guestos-update-matrix.md)|
 
-Tjänstkonfigurationsfilen måste innehålla ett `ServiceConfiguration` element. Den `ServiceConfiguration` element kan innehålla valfritt antal `Role` element och noll eller 1 `NetworkConfiguration` element.
+Tjänst konfigurations filen måste innehålla ett `ServiceConfiguration` -element. Elementet kan innehålla valfritt `Role` antal element och noll eller 1 `NetworkConfiguration` element. `ServiceConfiguration`

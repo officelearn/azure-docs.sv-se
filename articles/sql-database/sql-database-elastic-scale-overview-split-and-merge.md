@@ -1,6 +1,6 @@
 ---
-title: Flytta data mellan utskalade molndatabaser | Microsoft Docs
-description: 'Beskriver hur du manipulera fragment och flytta data via en lokal tjänst med elastisk databas API: er.'
+title: Flytta data mellan utskalade moln databaser | Microsoft Docs
+description: 'Förklarar hur du hanterar Shards och flyttar data via en lokal tjänst med hjälp av Elastic Database-API: er.'
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 506847b436eeb3e1f612a17bf1182359a0e00947
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123345"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348422"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
 
-Om du är en programvara som en tjänst-utvecklare och plötsligt enorma begäran görs i din app, måste du hantera tillväxt. Så får du lägga till flera databaser (fragment). Hur du för att distribuera om data till de nya databaserna utan att störa dataintegriteten? Använd den **dela / sammanslå verktyget** att flytta data från databaser som är begränsad till de nya databaserna.  
+Om du är en program vara som tjänst utvecklare och plötsligt din app är fantastisk efter frågan, måste du anpassa tillväxten. Lägg till fler databaser (Shards). Hur distribuerar du om data till nya databaser utan att störa data integriteten? Använd **verktyget Dela och slå samman** för att flytta data från begränsade databaser till nya databaser.  
 
-Dela / sammanslå verktyget körs som en Azure-webbtjänst. En administratör eller utvecklare använder du verktyget för att flytta shardletar (data från en shard) mellan olika databaser (fragment). Verktyget använder fragmentkarthantering för att upprätthålla tjänstens metadata-databasen och säkerställa konsekvent mappningar.
+Verktyget Dela och slå samman körs som en Azure-webbtjänst. En administratör eller utvecklare använder verktyget för att flytta shardletar (data från en Shard) mellan olika databaser (Shards). Verktyget använder Shard Map-hantering för att underhålla databasens metadata och säkerställa konsekventa mappningar.
 
 ![Översikt][1]
 
@@ -33,75 +33,75 @@ Dela / sammanslå verktyget körs som en Azure-webbtjänst. En administratör el
 
 ## <a name="documentation"></a>Dokumentation
 
-1. [Elastiska databaser dela och slå samman verktyget självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [Dela / Sammanslå säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md)
-3. [Säkerhetsöverväganden för dela / sammanslå](sql-database-elastic-scale-split-merge-security-configuration.md)
+1. [Själv studie kurs om Split-sammanslagnings verktyg i Elastic Database](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+2. [Säkerhets konfiguration för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md)
+3. [Säkerhets överväganden för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Karthantering för shard](sql-database-elastic-scale-shard-map-management.md)
 5. [Migrera befintliga databaser för att skala ut](sql-database-elastic-convert-to-use-elastic-tools.md)
-6. [Verktyg för elastiska databaser](sql-database-elastic-scale-introduction.md)
-7. [Ordlista för verktyg för elastiska databaser](sql-database-elastic-scale-glossary.md)
+6. [Elastic Database-verktyg](sql-database-elastic-scale-introduction.md)
+7. [Ord lista för Elastic Database tools](sql-database-elastic-scale-glossary.md)
 
-## <a name="why-use-the-split-merge-tool"></a>Varför ska man använda verktyget för dela / sammanslå
+## <a name="why-use-the-split-merge-tool"></a>Varför ska jag använda verktyget Dela/slå samman
 
-- **Flexibilitet**
+- **Enkelt**
 
-  Program behöva stretch flexibelt längre än till en enskild Azure SQL DB-databas. Använd verktyget för att flytta data som behövs för att nya databaser samtidigt som du behåller integritet.
+  Programmen måste sträckas ut flexibelt över gränserna för en enskild Azure SQL DB-databas. Använd verktyget för att flytta data efter behov till nya databaser och behålla integriteten.
 
-- **Dela att växa**
+- **Dela till tillväxt**
 
-  Skapa ytterligare kapacitet med horisontell partitionering data för att öka totala kapaciteten att hantera explosiv tillväxt och genom att distribuera den över stegvis fler databaser tills kapacitetsbehov är uppfyllda. Det här är ett typiskt exempel av den **dela** funktionen.
+  Om du vill öka den övergripande kapaciteten för att hantera explosiv tillväxt skapar du ytterligare kapacitet genom att horisontell partitionering data och genom att distribuera dem i stegvisa fler databaser tills kapacitets behoven är uppfyllda. Detta är ett primtal exempel på **delnings** funktionen.
 
-- **Slå samman för att minska**
+- **Sammanfoga till Krymp**
 
-  Kapacitet behöver krympa på grund av ett företag säsongsbetonad. Verktyget kan du skala ned till färre skalningsenheter när företag saktar. Funktionen ”dokument” i tjänsten elastisk skalning dela / sammanslå täcker det här kravet.
+  Kapaciteten behöver krympa på grund av säsongs typen för ett företag. Med verktyget kan du skala ned till färre skalnings enheter när verksamheten är långsam. Funktionen merge i tjänsten för delad sammanslagning i elastisk skala täcker detta krav.
 
-- **Hantera anslutningar genom att flytta shardletar**
+- **Hantera hotspots genom att flytta shardletar**
 
-  Med flera innehavare per databas, kan fördelningen av shardletar till shards leda till kapacitet flaskhalsar på vissa fragment. Detta kräver omfördelning av shardletar eller för att flytta upptagen shardletar till nya eller mindre utnyttjade shards.
+  Med flera klienter per databas kan fördelningen av shardletar till Shards leda till kapacitets Flask halsar på vissa Shards. Detta kräver omtilldelning av shardletar eller att flytta upptagen shardletar till nya eller mindre använda Shards.
 
-## <a name="concepts--key-features"></a>Koncept och viktiga funktioner
+## <a name="concepts--key-features"></a>Begrepp & viktiga funktioner
 
-- **Kund-baserade tjänster**
+- **Kund värd tjänster**
 
-  Dela / sammanslå levereras som en tjänst som värd för kunden. Du måste distribuera och hantera tjänsten i din Microsoft Azure-prenumeration. Paketet du ladda ned från NuGet innehåller en konfigurationsmall för att slutföra med information för din specifika distribution. Se den [dela / sammanslå självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md) mer information. Eftersom tjänsten körs i Azure-prenumerationen kan du styra och konfigurera de flesta säkerhetsaspekter i tjänsten. Standardmallen innehåller alternativ för att konfigurera SSL, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS-skydd och IP-begränsningar. Du hittar mer information om säkerhetsaspekterna i följande dokument [dela / sammanslå säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md).
+  Delnings sammanslagningen levereras som en kund värd tjänst. Du måste distribuera och vara värd för tjänsten i Microsoft Azure prenumerationen. Paketet som du hämtar från NuGet innehåller en konfigurations mal len som du kan använda för att slutföra informationen för din aktuella distribution. Mer information finns i självstudierna [dela och slå samman](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Eftersom tjänsten körs i din Azure-prenumeration kan du kontrol lera och konfigurera de flesta säkerhets aspekter av tjänsten. Standard mal len innehåller alternativ för att konfigurera SSL, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS-skydd och IP-begränsningar. Du hittar mer information om säkerhets aspekterna i följande dokument [delnings-och säkerhets konfiguration för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-  Standard distribuerat service körs med en arbetare och en webbroll. Var och en använder A1 VM-storlek i Azure Cloud Services. Du inte kan ändra dessa inställningar när du distribuerar paketet, kan du ändra dem efter en lyckad distribution i körs Molntjänsten (via Azure portal). Observera att arbetsrollen inte måste konfigureras i mer än en enda instans av tekniska skäl.
+  Den distribuerade standard tjänsten körs med en anställd och en webb roll. Varje använder storleken på den virtuella a1-datorn i Azure Cloud Services. Du kan inte ändra de här inställningarna när du distribuerar paketet, men du kan ändra dem efter en lyckad distribution i moln tjänsten som körs (via Azure Portal). Observera att arbets rollen inte får konfigureras för mer än en enskild instans av tekniska skäl.
 
-- **Shard kartan integration**
+- **Integrering av Shard-karta**
 
-  Dela / sammanslå tjänsten samverkar med fragmentkartan för programmet. När du använder tjänsten dela / sammanslå dela eller slå samman intervall eller för att flytta shardletar mellan shards, håller tjänsten automatiskt fragmentkartan aktuella. Om du vill göra det tjänsten ansluter till databasen av programmet och underhåller intervall och mappningar som pågår för dela/sammanslå/flytta begäranden. Detta säkerställer att fragmentkartan alltid anger aktuell när du ska dela / sammanslå åtgärder. Dela upp, implementeras sammanfoga och shardlet dataflyttsåtgärderna genom att flytta en batch med shardletar från källan shard till mål-fragment. Under åtgärden shardlet förflyttning shardletar omfattas av den aktuella batchen markeras som offline i fragmentkartan och är inte tillgängliga för databeroende routning-anslutningar som använder den **OpenConnectionForKey** API.
+  Tjänsten för delad sammanslagning interagerar med Shard-kartan för programmet. När du använder tjänsten för delad sammanslagning för att dela eller slå samman intervall eller för att flytta shardletar mellan Shards, behåller tjänsten automatiskt Shard-mappningen uppdaterad. För att göra det ansluter tjänsten till Shard Map Manager-databasen i programmet och behåller intervall och mappningar som förlopp för delning/sammanfogning/flyttning. Detta säkerställer att Shard-kartan alltid presenterar en uppdaterad vy när delade sammanslagnings åtgärder pågår. Åtgärder för att dela, slå samman och shardlet rörelse implementeras genom att flytta en batch med shardletar från källan Shard till mål-Shard. Under shardlet rörelse åtgärd markeras shardletar som omfattas av den aktuella batchen som offline i Shard-mappningen och är inte tillgängliga för data beroende routnings anslutningar med hjälp av **OpenConnectionForKey** -API: et.
 
-- **Konsekvent shardlet anslutningar**
+- **Konsekventa shardlet-anslutningar**
 
-  Dataförflyttning att starta en ny grupp med shardletar, tillhandahålls alla fragmentkartan databeroende routning anslutningar till fragment som lagrar shardlet har avslutats och efterföljande anslutningar från fragmentkartan API: er till shardletar blockeras medan dataförflyttning pågår för att undvika inkonsekvenser. Anslutningar till andra shardletar på samma fragment också få avslutas, men lyckas igen omedelbart på försök igen. När batchen flyttas shardletar markeras online igen för mål-fragment och källdata tas bort från käll-fragment. Tjänsten går igenom de här stegen för varje batch tills alla shardletar har flyttats. Detta leder till flera anslutningsåtgärder kill under loppet av dela/sammanslå/flytta kompletteringsåtgärden.  
+  När data förflyttningen påbörjas för en ny batch med shardletar, stoppas alla Shard-mappningar som är beroende av data beroenden till Shard som lagrar shardlet och efterföljande anslutningar från API: erna för Shard-kartor till shardletar blockeras medan data förflyttningen är pågår för att undvika inkonsekvenser. Anslutningar till andra shardletar på samma Shard kommer också att stoppas, men kommer att lyckas igen omedelbart vid nya försök. När gruppen har flyttats markeras shardletar igen för mål Shard och källdata tas bort från källan Shard. Tjänsten genomgår de här stegen för varje batch tills alla shardletar har flyttats. Detta leder till flera stopp åtgärder för anslutningar under hela åtgärden dela/slå samman/flytta.  
 
-- **Hantera shardlet tillgänglighet**
+- **Hantera shardlet-tillgänglighet**
 
-  Begränsa anslutningen avslutar den aktuella gruppen med shardletar som beskrivs ovan begränsar omfattningen för otillgänglighet till en batch med shardletar i taget. Detta är att föredra över en metod där det fullständiga fragmentet skulle vara offline för alla shardletar under loppet av en delad tunnel eller merge-åtgärd. Storleken på en batch definieras som antalet distinkta shardletar att flytta samtidigt, är en konfigurationsparameter. Det kan definieras för varje dela och slå samman åtgärd beroende på programmets tillgänglighet och prestanda behov. Observera att det adressintervall som håller på att låsas i fragmentkartan kan vara större än den angivna batchstorleken. Det beror på att tjänsten hämtar intervallet storlek så att det faktiska antalet nyckelvärden för horisontell partitionering i data matchar cirka batchstorleken. Detta är viktigt att komma ihåg särskilt för sparsamt ifyllda horisontell partitionering nycklar.
+  Att begränsa anslutningen till den aktuella batchen av shardletar enligt beskrivningen ovan begränsar omfånget till en batch med shardletar i taget. Detta föredras över en metod där hela Shard skulle vara offline för alla dess shardletar under en split-eller sammanslagnings åtgärd. En grupps storlek, definierad som antalet distinkta shardletar som ska flyttas i taget, är en konfigurations parameter. Den kan definieras för varje delnings-och sammanslagnings åtgärd beroende på programmets tillgänglighets-och prestanda behov. Observera att intervallet som låses i Shard-kartan kan vara större än den angivna batchstorleken. Detta beror på att tjänsten väljer intervall storlek, så att det faktiska antalet horisontell partitionering-nyckel värden i data ungefär matchar batchstorleken. Detta är viktigt att komma ihåg särskilt för glest fyllda horisontell partitionering-nycklar.
 
-- **Lagring för metadata**
+- **Metadata-lagring**
 
-  Dela / sammanslå-tjänsten använder en databas att upprätthålla dess status och att hålla loggar under bearbetning av begäran. Du skapar den här databasen i sin prenumeration samt anslutningssträngen för den i konfigurationsfilen för service-distributionen. Administratörer från användarens organisation kan också ansluta till den här databasen att granska begäran om förlopp och undersöka detaljerad information om potentiella fel.
+  Tjänsten för delad sammanslagning använder en databas för att underhålla dess status och för att spara loggar under bearbetning av begär Anden. Användaren skapar den här databasen i sin prenumeration och tillhandahåller anslutnings strängen för den i konfigurations filen för tjänst distributionen. Administratörer från användarens organisation kan också ansluta till den här databasen för att granska begär ande förloppet och undersöka detaljerad information om potentiella problem.
 
 - **Sharding-awareness**
 
-  Dela / sammanslå tjänsten skiljer mellan (1) shardade tabeller, (2) referenstabeller och (3) vanliga tabeller. Semantiken för en åtgärd för dela/sammanslå/flytta beror på vilken typ av tabellen används och definieras enligt följande:
+  Tjänsten för delad sammanslagning skiljer sig mellan (1) shardade-tabeller, (2) referens tabeller och (3) normala tabeller. Semantiken för en delnings-/sammanfognings-/flyttnings åtgärd beror på vilken typ av tabell som används och definieras enligt följande:
 
-  - **Shardade tabeller**
+  - **Shardade-tabeller**
 
-    Dela, slå samman och flytta operations flytta shardletar från källa till mål-fragment. När installationen har slutförts för övergripande begäran finns dessa shardletar inte längre på källan. Observera att måltabeller måste finnas på mål-fragment och får inte innehålla data i målområde innan bearbetningen av åtgärden.
+    Delnings-, sammanfognings-och flyttnings åtgärder flyttar shardletar från källa till mål Shard. När den övergripande begäran har slutförts är dessa shardletar inte längre tillgängliga på källan. Observera att mål tabellerna måste finnas på mål-Shard och får inte innehålla data i mål intervallet före bearbetningen av åtgärden.
 
-  - **Referenstabeller**
+  - **Referens tabeller**
 
-    För referenstabeller, delning, slå samman och flytta operations kopiera data från källan till målet fragment. Observera att inga ändringar inträffar på mål-fragment för en viss tabell om det finns redan en rad i den här tabellen på målet. Tabellen måste vara tom för valfri referens tabell kopieringen ska bearbetas.
+    För referens tabeller kopierar åtgärderna dela, sammanfoga och flytta data från källan till mål-Shard. Observera dock att inga ändringar sker på mål-Shard för en specifik tabell om det redan finns en rad i den här tabellen på målet. Tabellen måste vara tom för att det ska gå att bearbeta en referens tabell kopierings åtgärd.
 
   - **Andra tabeller**
 
-    Andra tabeller kan finnas på källan eller målet för en dela och slå samman åtgärd. Dela / sammanslå service ignorerar tabellerna för dataförflyttning och kopieringsåtgärder. Observera dock att de stör dessa åtgärder vid begränsningar.
+    Andra tabeller kan finnas antingen på källan eller målet för en delnings-och sammanslagnings åtgärd. Tjänsten för delad sammanslagning ignorerar de här tabellerna för data förflyttning eller kopierings åtgärder. Observera dock att de kan störa dessa åtgärder i händelse av begränsningar.
 
-    Information om referens jämfört med delat tabeller kommer från den `SchemaInfo` API: er på fragmentkartan. I följande exempel illustrerar användningen av dessa API: er på ett visst fragment kartan manager-objekt:
+    Informationen om referens vs. shardade-tabeller tillhandahålls av `SchemaInfo` API: erna på Shard-kartan. Följande exempel illustrerar användningen av dessa API: er på ett angivet Shard Map Manager-objekt:
 
-    ```c#
+    ```csharp
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
@@ -116,87 +116,87 @@ Dela / sammanslå verktyget körs som en Azure-webbtjänst. En administratör el
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
-    Tabeller ”region” och ”nation” definieras som referenstabeller och kommer att kopieras med dela/sammanslå/flytta åtgärder. ”kund” och ”order” definieras i sin tur som shardade tabeller. `C_CUSTKEY` och `O_CUSTKEY` fungerar som nyckeln för horisontell partitionering.
+    Tabellerna region och nation definieras som referens tabeller och kopieras med åtgärder för att dela/sammanfoga/flytta. "kund" och "order" i sin tur definieras som shardade-tabeller. `C_CUSTKEY`och `O_CUSTKEY` fungerar som horisontell partitionering-nyckel.
 
-- **Referensintegritet**
+- **Referens integritet**
 
-  Dela / sammanslå tjänsten analyserar alla beroenden mellan tabeller och använder nyckel-primära sekundärnyckelrelationer för att mellanlagra åtgärder för att flytta referenstabeller och shardletar. I allmänhet kopieras referenstabeller först i beroendeordningen, och sedan shardletar kopieras i ordning beroenden inom varje grupp. Detta är nödvändigt för att FK PK-begränsningar i mål-fragment respekteras när nya data anländer.
+  Tjänsten för delad sammanslagning analyserar beroenden mellan tabeller och använder sekundär nyckel-Primary Key-relationer för att mellanlagra åtgärder för att flytta referens tabeller och shardletar. I allmänhet kopieras referens tabeller först i beroende ordning och sedan kopieras shardletar i varje grupps beroende ordning. Detta är nödvändigt så att sekundär-och Shard-begränsningar på mål-respekteras när nya data kommer in.
 
-- **Shard kartan konsekvens och eventuell slutförande**
+- **Shard Map-konsekvens och eventuell slut för ande**
 
-  Om det förekommer fel, dela och slå samman tjänsten återupptar åtgärder efter eventuella avbrott och syftar till att slutföra i förloppet begäranden. Men det kan finnas ett oåterkalleligt situationer, t.ex. när mål-fragment tappas bort eller komprometteras inte repareras. Under dessa omständigheter fortsätta vissa shardletar som skulle flyttas att finnas på käll-fragment. Tjänsten säkerställer shardlet mappningar uppdateras bara när nödvändiga data har har kopierats till målet. Shardletar endast tas bort på källan när alla data har kopierats till målet och de motsvarande mappningarna har uppdaterats. Borttagningen sker i bakgrunden medan intervallet är redan online på mål-fragment. Dela / sammanslå tjänsten garanterar alltid är korrekt mappning som lagras i fragmentkartan.
+  I närvaro av problem återupptar tjänsten för delad sammanslagning åtgärder efter avbrott och syfte att slutföra pågående begär Anden. Det kan dock finnas återställnings bara situationer, t. ex. När mål-Shard tappas bort eller komprometteras utanför reparationen. Under dessa omständigheter kan vissa shardletar som skulle flyttas fortsätta att finnas på käll-Shard. Tjänsten säkerställer att shardlet-mappningar bara uppdateras när nödvändiga data har kopierats till målet. Shardletar tas bara bort från källan när alla data har kopierats till målet och motsvarande mappningar har uppdaterats. Borttagnings åtgärden sker i bakgrunden medan intervallet redan är online på mål-Shard. Tjänsten för delad sammanslagning garanterar alltid att mappningar som lagras i Shard-kartan är korrekta.
 
-## <a name="the-split-merge-user-interface"></a>Användargränssnittet för dela / sammanslå
+## <a name="the-split-merge-user-interface"></a>Användar gränssnittet för delad sammanslagning
 
-Dela / sammanslå service-paketet innehåller en arbetsroll och en webbroll. Webbrollen används för att skicka förfrågningar om dela och slå samman i ett interaktivt sätt. Huvudkomponenterna i användargränssnittet är följande:
+Det delade sammanslagnings tjänst paketet innehåller en arbets roll och en webb roll. Webb rollen används för att skicka förfrågningar om att dela kopplingar på ett interaktivt sätt. Huvud komponenterna i användar gränssnittet är följande:
 
-- **Åtgärdstyp**
+- **Åtgärds typ**
 
-  Typ av åtgärd är en alternativknapp som styr vilken typ av åtgärd som utförs av tjänsten för den här begäran. Du kan välja mellan delning, slå samman och flytta scenarier. Du kan också avbryta en tidigare har skickats. Du kan använda dela, slå samman och flytta begäranden för intervallet fragmentkartor. Lista shardkartor endast stöd för flyttåtgärder.
+  Åtgärds typen är en alternativ knapp som styr vilken typ av åtgärd som utförs av tjänsten för den här begäran. Du kan välja mellan scenarierna dela, slå samman och flytta. Du kan också avbryta en tidigare skickad åtgärd. Du kan använda delnings-, sammanfognings-och flyttnings begär Anden för intervall Shard Maps. List Shard Maps stöder bara flytt åtgärder.
 
-- **Fragmentkartan**
+- **Shard-karta**
 
-  Nästa avsnitt av parametrarna som innehåller information om fragmentkartan och databasen som är värd för din fragmentkartan. I synnerhet måste du ange namnet på Azure SQL Database-servern och databasen som är värd shardmap, autentiseringsuppgifter för att ansluta till fragment kartan databasen och slutligen på namnet på fragmentkartan. Åtgärden accepterar för närvarande endast en enda uppsättning autentiseringsuppgifter. Dessa autentiseringsuppgifter måste ha tillräcklig behörighet för att utföra ändringar i fragmentkartan samt att användardata på shards.
+  Nästa avsnitt i parametrarna för begäran täcker information om Shard-mappningen och databasen som är värd för din Shard-karta. I synnerhet måste du ange namnet på Azure SQL Database-servern och databasen som är värd för shardmap, autentiseringsuppgifter för att ansluta till Shard Map-databasen och slutligen namnet på Shard-kartan. För närvarande accepterar åtgärden endast en enda uppsättning autentiseringsuppgifter. Autentiseringsuppgifterna måste ha tillräcklig behörighet för att utföra ändringar i Shard-mappningen samt för användar data på Shards.
 
-- **Käll-intervall (dela och slå samman)**
+- **Käll intervall (dela och slå samman)**
 
-  En åtgärd med dela och slå samman bearbetar ett intervall med hjälp av dess låga och höga nyckel. Om du vill ange en åtgärd med ett obundna hög nyckelvärde, markera kryssrutan ”övre nyckel är max” och lämnar hög nyckelfältet tom. Intervallet nyckelvärden som du anger måste inte exakt matcha en mappning och dess gränser i din fragmentkartan. Om du inte anger någon adressintervallsgränser alls kommer tjänsten härleda närmaste intervallet åt dig automatiskt. Du kan använda GetMappings.ps1 PowerShell-skript för att hämta de aktuella mappningarna i en viss fragmentkartan.
+  En delnings-och sammanfognings åtgärd bearbetar ett intervall med hjälp av dess låga och höga nyckel. Om du vill ange en åtgärd med ett obundet högt nyckel värde markerar du kryss rutan "hög nyckel är max" och lämnar fältet för hög nyckel tomt. De intervall nyckel värden som du anger behöver inte exakt matcha en mappning och dess gränser i Shard-kartan. Om du inte anger några intervall gränser på alla tjänster kommer du att härleda det närmaste intervallet åt dig automatiskt. Du kan använda PowerShell-skriptet GetMappings. ps1 för att hämta de aktuella mappningarna i en specifik Shard-karta.
 
-- **Dela källa beteende (delad)**
+- **Beteende för delad källa (dela)**
 
-  Definiera punkt om du vill dela käll-intervallet för dela-åtgärder. Du kan göra detta genom att tillhandahålla shardingnyckel där du vill att delning ska ske. Använd knappen Ange om du vill den nedre delen av intervallet (förutom den delade nyckeln) för att flytta eller om du vill att den övre delen att flytta (inklusive den delade nyckeln).
+  För delnings åtgärder definierar du punkten för att dela käll intervallet. Du gör detta genom att ange horisontell partitionering-nyckeln där du vill att delningen ska ske. Använd alternativ knappen för att ange om du vill att den nedre delen av intervallet (exklusive delnings nyckeln) ska flyttas, eller om du vill att den övre delen ska flyttas (inklusive delnings nyckeln).
 
-- **Källan Shardlet (flytta)**
+- **Shardlet för källa (flytta)**
 
-  Flytta skiljer sig från dela eller merge-åtgärder eftersom de inte kräver ett intervall för att beskriva källan. En källa för flytt identifieras bara med horisontell partitionering nyckelvärdet som du planerar att flytta.
+  Flyttnings åtgärder skiljer sig från delnings-eller sammanslagnings åtgärder eftersom de inte kräver ett intervall för att beskriva källan. En källa för flytt identifieras helt enkelt med det horisontell partitionering-nyckel värde som du planerar att flytta.
 
-- **Mål-fragment (delad)**
+- **Mål Shard (dela)**
 
-  När du har angett informationen på källan för split-åtgärden, måste du definiera där du vill att data ska kopieras till genom att ange Azure SQL Db-server och databasnamnet för målet.
+  När du har angett informationen om källan till delnings åtgärden, måste du definiera var du vill att data ska kopieras till genom att ange Azure SQL DB-servern och databas namnet för målet.
 
-- **Målområde (merge)**
+- **Mål intervall (sammanslagning)**
 
-  Sammanfoga operations flytta shardletar till en befintlig shard. Du kan identifiera det befintliga fragmentet genom att tillhandahålla adressintervallsgränser för befintliga intervallet som du vill sammanfoga med.
+  Sammanfoga åtgärder flytta shardletar till en befintlig Shard. Du kan identifiera den befintliga Shard genom att ange intervall gränserna för det befintliga intervallet som du vill sammanfoga med.
 
-- **Batch Size**
+- **Batchstorlek**
 
-  Batchstorleken styr antalet shardletar går offline i taget under dataförflyttning. Det här är ett heltalsvärde där du kan använda lägre värden när du är känsliga för långa stilleståndsperioder för shardletar. Högre värden ökar den tid som en viss shardlet är offline men kan du förbättra prestandan.
+  Batchstorleken styr antalet shardletar som försätts i offlineläge vid en tidpunkt under data flytten. Detta är ett heltals värde där du kan använda mindre värden när du är känslig för långa tids perioder för shardletar. Större värden ökar den tid som en specifik shardlet är offline men kan förbättra prestandan.
 
 - **Åtgärds-ID (Avbryt)**
 
-  Om du har en pågående åtgärd som inte längre behövs kan avbryta du åtgärden genom att ange dess åtgärds-ID i det här fältet. Du kan hämta åtgärds-ID från statustabellen för begäran (se avsnittet 8.1) eller från utdata i webbläsaren där du skickade begäran.
+  Om du har en pågående åtgärd som inte längre behövs kan du avbryta åtgärden genom att ange dess åtgärds-ID i det här fältet. Du kan hämta åtgärds-ID: t från tabellen status för begäran (se avsnitt 8,1) eller från utdata i webbläsaren där du skickade begäran.
 
 ## <a name="requirements-and-limitations"></a>Krav och begränsningar
 
-Den aktuella implementationen av tjänsten dela / sammanslå lyder under följande krav och begränsningar:
+Den aktuella implementeringen av tjänsten för delad sammanslagning omfattas av följande krav och begränsningar:
 
-- Shards måste finnas och vara registrerade i fragmentkartan innan en åtgärd för dela / sammanslå i dessa fragment kan utföras.
-- Tjänsten skapar inte tabeller eller andra databasobjekt automatiskt som en del av driften. Det innebär att schemat för alla shardade tabeller och referenstabeller måste finnas på mål-fragment före alla åtgärder för dela/sammanslå/flytta. Shardade tabeller måste i synnerhet vara tomt i intervallet där nya shardletar ska läggas till av en åtgärd för dela/sammanslå/flytta. I annat fall misslyckas åtgärden första konsekvenskontrollen för mål-fragment. Tänk också på den referens som data kopieras bara om referensen tabellen är tom och att det finns inga konsekvensgarantier avseende andra samtidiga skrivningsåtgärder på referenstabeller. Vi rekommenderar detta: när du kör dela/sammanslå åtgärder kan inga andra skrivåtgärder göra ändringar i tabellerna referens.
-- Tjänsten är beroende av rad-identiteten som etablerats med ett unikt index eller nyckeln som innehåller nyckeln för horisontell partitionering för att förbättra prestanda och tillförlitlighet för stora shardletar. På så sätt kan tjänsten för att flytta data på en ännu finare granularitet än bara nyckelvärdet horisontell partitionering. Detta hjälper till att minska den maximala mängden loggutrymmet och lås som krävs under åtgärden. Överväg att skapa ett unikt index eller primärnyckel inklusive shardingnyckel i en viss tabell om du vill använda tabellen med dela/sammanslå/flytta begäranden. Av prestandaskäl bör nyckeln för horisontell partitionering vara den ledande kolumnen i nyckeln eller index.
-- Under bearbetning av begäran kanske vissa shardlet data som finns både på käll- och mål-fragment. Detta är nödvändigt att skydda mot fel under shardlet flödet. Integreringen av dela och slå samman med fragmentkartan säkerställer att anslutningar via en databeroende routning API: er med hjälp av den **OpenConnectionForKey** -metoden i fragmentkartan inte ser alla mellanliggande inkonsekvent tillstånd. Men när du ansluter till källan eller målet shards utan att använda den **OpenConnectionForKey** metoden inkonsekvent mellanliggande tillstånd kan vara synliga när du ska dela/sammanslå/flytta begäranden. Dessa anslutningar kan visa partiell eller dubbla resultat beroende på tidpunkten eller fragment underliggande anslutningen. Den här begränsningen innehåller för närvarande anslutningar av Elastic Scale Multi-Factor-Shard-frågor.
-- Metadata-databasen för dela / sammanslå tjänsten delas inte mellan olika roller. Till exempel måste en roll för dela / sammanslå tjänsten som körs i Förproduktion peka på en annan metadata-databasen än rollen produktion.
+- Shards måste finnas och registreras i Shard-kartan innan en delnings sammanslagnings åtgärd på dessa Shards kan utföras.
+- Tjänsten skapar inte tabeller eller andra databas objekt automatiskt som en del av dess åtgärder. Det innebär att schemat för alla shardade-tabeller och referens tabeller måste finnas på mål-Shard före alla åtgärder för att dela/slå samman/flytta. Shardade-tabeller måste särskilt vara tomma i intervallet där nya shardletar ska läggas till med åtgärden dela/sammanfoga/flytta. Annars Miss söker åtgärden den inledande konsekvens kontrollen på mål-Shard. Observera också att referens data bara kopieras om referens tabellen är tom och att det inte finns några konsekvens garantier avseende andra samtidiga Skriv åtgärder i referens tabellerna. Vi rekommenderar detta: när du kör delnings-/sammanfognings åtgärder gör inga andra Skriv åtgärder ändringar i referens tabellerna.
+- Tjänsten förlitar sig på rad identitet som upprättats av ett unikt index eller en nyckel som innehåller nyckeln horisontell partitionering för att förbättra prestanda och tillförlitlighet för stora shardletar. Detta gör att tjänsten kan flytta data till en ännu bättre granularitet än bara värdet för horisontell partitionering. Detta bidrar till att minska den maximala mängden logg utrymme och lås som krävs under åtgärden. Överväg att skapa ett unikt index eller en primär nyckel inklusive horisontell partitionering-nyckeln i en specifik tabell om du vill använda tabellen med delnings-/sammanfognings-/flyttnings begär Anden. Av prestanda skäl ska horisontell partitionering-nyckeln vara den inledande kolumnen i nyckeln eller indexet.
+- Under bearbetningen av begär Anden kan vissa shardlet-data finnas både på käll-och mål-Shard. Detta är nödvändigt för att skydda mot haverier under shardlet-flyttningen. Integreringen av Split-Merge med Shard-kartan säkerställer att anslutningar via API: er för data beroende routning med metoden **OpenConnectionForKey** på Shard-kartan inte ser några inkonsekventa mellanliggande tillstånd. Men när du ansluter till käll-eller mål-Shards utan att använda **OpenConnectionForKey** -metoden kan inkonsekventa mellanliggande tillstånd visas när begär Anden om att dela/slå samman/flytta används. De här anslutningarna kan visa delvis eller duplicerade resultat beroende på tids inställningen eller Shard underliggande anslutningen. Den här begränsningen omfattar för närvarande de anslutningar som görs av elastisk skalning multi-Shard-frågor.
+- Metadata-databasen för tjänsten för delad sammanslagning får inte delas mellan olika roller. En roll i den delade sammanslagnings tjänsten som körs vid mellanlagring måste till exempel peka på en annan metadata-databas än produktions rollen.
 
 ## <a name="billing"></a>Fakturering
 
-Dela / sammanslå-tjänsten körs som en molntjänst i Microsoft Azure-prenumerationen. Därför gäller avgifter för cloud services för din instans av tjänsten. Såvida inte du ofta utföra åtgärder för dela/sammanslå/flytta, rekommenderar vi du tar bort dela / sammanslå Molntjänsten. Som sparar kostnader för att köra eller distribueras cloud service-instanser. Du kan distribuera och starta lätt att köra flödet konfigurationen när du behöver att utföra delad tunnel eller merge-åtgärder.
+Tjänsten för delad sammanslagning körs som en moln tjänst i din Microsoft Azure prenumeration. Avgifter för moln tjänster gäller därför för din instans av tjänsten. Om du inte ofta utför åtgärderna dela/sammanfoga/flytta rekommenderar vi att du tar bort din moln tjänst för delad sammanslagning. Det sparar kostnader för att köra eller distribuerade moln tjänst instanser. Du kan distribuera om och starta din körbara konfiguration när du behöver utföra delnings-eller sammanslagnings åtgärder.
 
 ## <a name="monitoring"></a>Övervakning
 
-### <a name="status-tables"></a>Status för tabeller
+### <a name="status-tables"></a>Status tabeller
 
-Dela / sammanslå Service tillhandahåller den **RequestStatus** tabellen i store metadatabasen för övervakning av färdiga och pågående begäranden. Tabellen innehåller en rad för varje begäran för dela / sammanslå som har skickats till den här instansen av tjänsten dela och slå samman. Det ger följande information för varje begäran:
+Tjänsten för delad sammanslagning innehåller tabellen **RequestStatus** i databasen för metadatalagret för övervakning av slutförda och pågående begär Anden. Tabellen innehåller en rad för varje begäran om delad sammanslagning som har skickats till den här instansen av tjänsten för delad sammanslagning. Den innehåller följande information för varje begäran:
 
 - **Tidsstämpel**
 
-  Tid och datum när begäran startade.
+  Tid och datum då begäran startades.
 
 - **OperationId**
 
-  Ett GUID som unikt identifierar begäran. Den här förfrågan kan också användas för att avbryta åtgärden medan det pågår fortfarande.
+  Ett GUID som unikt identifierar begäran. Den här begäran kan också användas för att avbryta åtgärden medan den fortfarande pågår.
 
 - **Status**
 
-  Det aktuella tillståndet för begäran. För förfrågningar om pågående visas även aktuell fas där begäran är.
+  Aktuell status för begäran. För pågående begär Anden visas även den aktuella fasen i vilken begäran är.
 
 - **CancelRequest**
 
@@ -204,23 +204,23 @@ Dela / sammanslå Service tillhandahåller den **RequestStatus** tabellen i stor
 
 - **Pågår**
 
-  En procentandel uppskattning av åtgärden har slutförts. Ett värde på 50 anger att åtgärden är klar ungefär 50%.
+  En procentuell uppskattning av slut för ande för åtgärden. Värdet 50 anger att åtgärden är cirka 50% slutfört.
 
 - **Detaljer**
 
-  Ett XML-värde som ger en mer detaljerad rapport. Förloppet-rapporten uppdateras regelbundet när uppsättningar med rader kopieras från källan till målet. Den här kolumnen innehåller också mer detaljerad information om felet vid fel eller undantag.
+  Ett XML-värde som innehåller en mer detaljerad förlopps rapport. Förlopps rapporten uppdateras regelbundet när rad uppsättningar kopieras från källa till mål. I händelse av fel eller undantag innehåller den här kolumnen också mer detaljerad information om felet.
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-Dela / sammanslå-tjänsten använder Azure Diagnostics baserat på Azure SDK 2.5 för övervakning och diagnostik. Du kan styra diagnostikkonfigurationen som beskrivs här: [Aktivera diagnostik i Azure-molntjänster och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md). Det nedladdade paketet innehåller två diagnostikkonfigurationer – en för webbrollen och en för arbetsrollen. Den innehåller definitioner för att logga prestandaräknare, IIS-loggar, händelseloggar i Windows och händelseloggar för dela / sammanslå program.
+Tjänsten för delad sammanslagning använder Azure-diagnostik som baseras på Azure SDK 2,5 för övervakning och diagnostik. Du styr den diagnostiska konfigurationen som beskrivs här: [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). Hämtnings paketet innehåller två diagnostiska konfigurationer – en för webb rollen och en för arbets rollen. Den innehåller definitionerna för att logga prestanda räknare, IIS-loggar, Windows-händelseloggen och händelse loggar för att dela sammanslagna program.
 
 ## <a name="deploy-diagnostics"></a>Distribuera diagnostik
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-Om du vill aktivera övervakning och diagnostik med diagnostik-konfiguration för webb- och worker-roller som tillhandahålls av NuGet-paketet, kör du följande kommandon med hjälp av Azure PowerShell:
+Om du vill aktivera övervakning och diagnostik med diagnostisk konfiguration för webb-och arbets roller som tillhandahålls av NuGet-paketet kör du följande kommandon med hjälp av Azure PowerShell:
 
 ```powershell
     $storage_name = "<YourAzureStorageAccount>"
@@ -234,42 +234,42 @@ Om du vill aktivera övervakning och diagnostik med diagnostik-konfiguration fö
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-Du hittar mer information om hur du konfigurerar och distribuerar diagnostikinställningar här: [Aktivera diagnostik i Azure-molntjänster och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Du hittar mer information om hur du konfigurerar och distribuerar diagnostikinställningar här: [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Hämta diagnostik
 
-Du kan enkelt komma åt dina diagnostikdata från Visual Studio Server Explorer i Azure del i Server Explorer-trädet. Öppna Visual Studio-instansen och i menyraden klickar du på Visa och Server Explorer. Klicka på ikonen Azure för att ansluta till din Azure-prenumeration. Gå sedan till Azure Storage -> -> `<your storage account>` -> tabeller -> WADLogsTable. Mer information finns i [Server Explorer](https://msdn.microsoft.com/library/x603htbk.aspx).
+Du kan enkelt komma åt diagnostiken från Visual Studio-Server Explorer i Azure-delen av Server Explorers trädet. Öppna en Visual Studio-instans och klicka på Visa i meny raden och Server Explorer. Klicka på Azure-ikonen för att ansluta till din Azure-prenumeration. Gå sedan till Azure-> lagrings- `<your storage account>` >->-tabeller – > WADLogsTable. Mer information finns i [Server Explorer](https://msdn.microsoft.com/library/x603htbk.aspx).
 
 ![WADLogsTable][2]
 
-WADLogsTable markerat i bilden ovan innehåller detaljerade händelser från programloggen för dela / sammanslå-tjänsten. Observera att standardkonfigurationen av det Hämta paketet riktar sig till en Produktionsdistribution. Därför är den period då loggar och räknare hämtas från tjänstinstanser stora (5 minuter). Lägre intervallet för testning och utveckling genom att justera inställningarna för startdiagnostik för webb- eller worker-roll efter dina behov. Högerklicka på rollen i Visual Studio Server Explorer (se ovan) och justera sedan överföra perioden i dialogrutan för konfigurationsinställningar för diagnostik:
+WADLogsTable som marker ATS i bilden ovan innehåller detaljerade händelser från program loggen för den delade sammanslagnings tjänsten. Observera att standard konfigurationen av det hämtade paketet är riktad mot en produktions distribution. Därför är intervallet för loggar och räknare som hämtas från tjänst instanserna stora (5 minuter). För testning och utveckling sänker du intervallet genom att justera diagnostikinställningar för webbplatsens eller arbets rollens inställningar efter behov. Högerklicka på rollen i Visual Studio-Server Explorer (se ovan) och justera sedan överförings perioden i dialog rutan för konfigurations inställningarna för diagnostik:
 
 ![Konfiguration][3]
 
 ## <a name="performance"></a>Prestanda
 
-I allmänhet är bättre prestanda kan förväntas från desto högre mer högpresterande tjänstnivåer i Azure SQL Database. Högre i/o, processor och minne allokeringar för högre tjänstnivåerna dra Masskopieringen och ta bort åtgärder som använder tjänsten dela och slå samman. Därför att öka tjänstnivån för dessa databaser för en definierad, begränsad tidsperiod.
+I allmänhet är bättre prestanda förväntas från de högre, mer presterande tjänst nivåerna i Azure SQL Database. Högre IO-, processor-och minnes tilldelningar för högre tjänst nivåer förbrukar Mass kopierings-och borttagnings åtgärder som används i tjänsten för delad sammanslagning. Av den anledningen ökar du tjänst nivån precis för dessa databaser under en angiven begränsad tids period.
 
-Tjänsten utför även verifiering frågor som en del av dess normal drift. Frågorna verifiering kontrollera om oväntat finns data i intervallet mål och se till att alla åtgärder för dela/sammanslå/flytta startar från ett konsekvent tillstånd. De här frågorna som alla fungerar över horisontell partitionering nyckelintervall definieras av omfattningen av åtgärden och batchstorlek som tillhandahålls som en del av definitionen för förfrågningen. De här frågorna gör bäst ifrån sig när ett index finns som har shardingnyckel som ledande kolumn.
+Tjänsten utför även verifierings frågor som en del av dess normala åtgärder. De här verifierings frågorna söker efter oväntade förekomster av data i mål intervallet och ser till att alla åtgärder för att dela/sammanfoga/flytta startar från ett konsekvent tillstånd. Dessa frågor omfattar alla horisontell partitionering nyckel intervall som definieras av åtgärdens omfattning och batchstorleken som anges som en del av definitionen av begäran. Dessa frågor fungerar bäst när det finns ett index som har horisontell partitionering-nyckeln som den inledande kolumnen.
 
-Dessutom kan kan en egenskap för unikhet med shardingnyckel som ledande kolumn tjänsten du använder en optimerad metod som begränsar resursförbrukning när det gäller loggutrymmet och minne. Den här egenskapen för unikhet krävs för att flytta stora datamängder (vanligtvis över 1GB).
+Dessutom tillåter en unikhets egenskap med horisontell partitionering-nyckeln som den inledande kolumnen att tjänsten använder en optimerad metod som begränsar resurs förbrukningen i termer av logg utrymme och minne. Den här egenskapen unikhet krävs för att flytta stora data storlekar (vanligt vis över 1 GB).
 
 ## <a name="how-to-upgrade"></a>Så här uppgraderar du
 
-1. Följ stegen i [distribuerar du en tjänst för dela / sammanslå](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-2. Ändra din molntjänstkonfigurationsfilen för dela / sammanslå distributionen så att de nya konfigurationsparametrarna. En ny obligatorisk parameter är information om certifikatet som används för kryptering. Ett enkelt sätt att göra detta är att jämföra den nya mall för konfigurationsfilen från nedladdningen mot din befintliga konfiguration. Kontrollera att du lägger till inställningarna för ”DataEncryptionPrimaryCertificateThumbprint” och ”DataEncryptionPrimary” för både webb- och worker-roll.
-3. Se till att alla som körs dela / sammanslå åtgärder har slutförts innan du distribuerar uppdateringen till Azure. Du kan enkelt göra detta genom att fråga tabellerna RequestStatus och PendingWorkflows i dela / sammanslå metadata-databasen för pågående begäranden.
-4. Uppdatera dina befintliga molntjänstdistribution för dela / sammanslå i Azure-prenumerationen med det nya paketet och uppdaterade konfigurationsfilen.
+1. Följ stegen i [distribuera en tjänst för delad sammanslagning](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+2. Ändra din moln tjänst konfigurations fil för den delade sammanslagnings distributionen så att den återspeglar de nya konfigurations parametrarna. En ny obligatorisk parameter är information om certifikatet som används för kryptering. Ett enkelt sätt att göra detta är att jämföra den nya konfigurations mal len från nedladdningen mot den befintliga konfigurationen. Se till att du lägger till inställningarna för "DataEncryptionPrimaryCertificateThumbprint" och "DataEncryptionPrimary" för både webb-och arbets rollen.
+3. Innan du distribuerar uppdateringen till Azure måste du kontrol lera att alla aktiviteter som körs har delats för tillfället har avslut ATS. Du kan enkelt göra detta genom att fråga RequestStatus-och PendingWorkflows-tabellerna i databasen för den delade sammanslagningen av metadata för pågående begär Anden.
+4. Uppdatera din befintliga moln tjänst distribution för delad sammanslagning i din Azure-prenumeration med det nya paketet och den uppdaterade tjänst konfigurations filen.
 
-Du behöver inte etablera en ny databas för metadata för dela / sammanslå att uppgradera. Den nya versionen kommer automatiskt att uppgradera den befintliga metadata-databasen till den nya versionen.
+Du behöver inte tillhandahålla en ny metadata-databas för att dela upp och uppgradera. Den nya versionen kommer automatiskt att uppgradera den befintliga metadata-databasen till den nya versionen.
 
-## <a name="best-practices--troubleshooting"></a>Bästa metoder och felsökning
+## <a name="best-practices--troubleshooting"></a>Metod tips & fel sökning
 
-- Definiera en test-klient och arbeta med dina viktigaste dela/sammanslå/flytta åtgärder med testklienten över flera shard. Se till att alla metadata har definierats korrekt i din fragmentkartan och att åtgärderna inte bryter mot begränsningarna eller främmande nycklar.
-- Behåll testklienten datastorlek ovanför den maximala datastorleken för största klienten för att se till att det inte uppstår några datastorlek-relaterade problem. Detta hjälper dig att utvärdera en övre gräns på den tid det tar för att flytta en enda klient.
-- Kontrollera att ditt schema tillåter borttagningar. Dela / sammanslå-tjänsten kräver möjligheten att ta bort data från källan shard när data har har kopierats till målet. Till exempel **ta bort utlösare** kan förhindra att tjänsten från att ta bort data på källan och kan orsaka åtgärder misslyckas.
-- Nyckeln för horisontell partitionering bör vara den ledande kolumnen i primärnyckeln eller unik indexdefinitionen. Som ger högsta prestanda för frågor som delad tunnel eller merge-verifiering och för faktiska data förflyttning och borttagning av åtgärder som använder alltid nyckelintervall för horisontell partitionering.
-- Samordna dela / sammanslå tjänsten i regionen och data center där databasen finns.
+- Definiera en test klient och utöva de viktigaste åtgärderna för att dela/slå samman/flytta med test klienten över flera Shards. Se till att alla metadata är korrekt definierade i Shard-kartan och att åtgärderna inte bryter mot begränsningar eller sekundär nycklar.
+- Behåll klientens data storlek ovanför den maximala data storleken för den största klienten för att se till att du inte stöter på problem med data storlek. Detta hjälper dig att utvärdera en övre gräns på den tid det tar att flytta en enskild klient organisation.
+- Se till att schemat tillåter borttagningar. Tjänsten för delad sammanslagning kräver möjlighet att ta bort data från käll-Shard när data har kopierats till målet. **Ta bort** utlösare kan till exempel förhindra att tjänsten tar bort data på källan och kan leda till att åtgärder Miss lyckas.
+- Horisontell partitionering-nyckeln bör vara den inledande kolumnen i primär nyckeln eller en unik index definition. Det säkerställer bästa prestanda för delnings-eller sammanfognings frågorna och för den faktiska data flytten och de borttagnings åtgärder som alltid fungerar i horisontell partitionering nyckel intervall.
+- Samordna tjänsten för delnings sammanslagning i regionen och data centret där databaserna finns.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

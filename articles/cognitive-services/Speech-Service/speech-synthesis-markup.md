@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: dd535f96c60a3f9259a108f3e8aff643eed1870d
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414707"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501155"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -285,7 +285,7 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| röst | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>Börjar</li><li>medel</li><li>Högt</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfritt |
+| röst | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>börjar</li><li>medel</li><li>högt</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfritt |
 | höjd | Kontur stöds inte för neurala-röster. Kontur representerar ändringar i bredden för tal innehåll som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch`). | Valfritt |
 | intervall  | Ett värde som representerar text områdets avstånd. Du kan uttrycka `range` använda samma absoluta värden, relativa värden eller uppräknings värden som används för att `pitch`beskriva. | Valfritt |
 | antal  | Anger textens tal hastighet. Du kan uttrycka `rate` som:<ul><li>Ett relativt värde, uttryckt som ett tal som fungerar som en multiplikator för standardvärdet. Värdet *1* resulterar till exempel i ingen ändring av hastigheten. Värdet *0,5* resulterar i en halving av hastigheten. Värdet *3* resulterar i en rese frekvens.</li><li>Ett konstant värde:<ul><li>x – långsam</li><li>långsam</li><li>medel</li><li>snabbväxande</li><li>x-fast</li><li>standard</li></ul></li></ul> | Valfritt |
@@ -351,6 +351,78 @@ Du kan ändra bredden på standard-röster på ord-eller menings nivå. Föränd
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
         </prosody>
+    </voice>
+</speak>
+```
+
+## <a name="add-recorded-audio"></a>Lägg till inspelat ljud
+
+`audio`är ett valfritt element som gör att du kan infoga MP3-ljud i ett SSML-dokument. Bröd texten i ljud elementet kan innehålla oformaterad text eller SSML som talas om ljud filen inte är tillgänglig eller kan spelas upp. `p` `s` `audio` `break` `phoneme` Dessutomkanelementetinnehålla`prosody`text och följande element:,, `sub`,,, ,och.`say-as` `audio`
+
+Alla ljud som ingår i SSML-dokumentet måste uppfylla följande krav:
+
+* MP3-filen måste vara värd för en HTTPS-slutpunkt som är tillgänglig för Internet. HTTPS krävs och den domän som är värd för MP3-filen måste presentera ett giltigt, betrott SSL-certifikat.
+* MP3-filen måste vara en giltig MP3-fil (MPEG v2).
+* Bit hastigheten måste vara 48 kbit/s.
+* Samplings frekvensen måste vara 16000 Hz.
+* Den sammanlagda tiden för alla text-och ljudfiler i ett enskilt svar får inte överstiga 90 (90) sekunder.
+* MP3-filen får inte innehålla kundspecifik eller annan känslig information.
+
+**Syntax**
+
+```xml
+<audio src="string"/></audio>
+```
+
+**Dokumentattribut**
+
+| Attribut | Beskrivning | Obligatoriskt / valfritt |
+|-----------|-------------|---------------------|
+| src | Anger ljud filens plats/URL. | Krävs om du använder ljud elementet i ditt SSML-dokument. |
+
+**Exempel**
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <p>
+        <audio src="https://contoso.com/opinionprompt.wav"/>
+        Thanks for offering your opinion. Please begin speaking after the beep.
+        <audio src="https://contoso.com/beep.wav">
+        Could not play the beep, please voice your opinion now. </audio>
+    </p>
+</speak>
+```
+
+## <a name="add-background-audio"></a>Lägg till bakgrunds ljud
+
+Med `mstts:backgroundaudio` -elementet kan du lägga till bakgrunds ljud till dina SSML-dokument (eller blanda en ljudfil med text till tal). Med `mstts:backgroundaudio` kan du repetera en ljudfil i bakgrunden, tona in i början av text till tal och tona ut i slutet av text till tal.
+
+Om bakgrunds ljudet som tillhandahålls är kortare än text-till-tal-eller övertoningen, kommer den att upprepas. Om det är längre än text till tal, stoppas det när toningen är färdig.
+
+Endast en bakgrunds ljud fil tillåts per SSML-dokument. Du kan dock blanda `audio` Taggar `voice` i elementet för att lägga till ytterligare ljud till ditt SSML-dokument.
+
+**Syntax**
+
+```XML
+<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
+```
+
+**Dokumentattribut**
+
+| Attribut | Beskrivning | Obligatoriskt / valfritt |
+|-----------|-------------|---------------------|
+| src | Anger plats/URL för bakgrunds ljud filen. | Krävs om du använder bakgrunds ljud i ditt SSML-dokument. |
+| volym | Anger bakgrunds ljud filens volym. **Godkända värden**: `0` till `100` inklusiv. Standardvärdet är `1`. | Valfritt |
+| tona in | Anger varaktigheten för bakgrunds ljudet tonar in. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
+| tona bort | Anger hur länge bakgrunds ljudet tonas ut. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
+
+**Exempel**
+
+```xml
+<speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
+    <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)">
+        The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/25/2019
 ms.author: aahi
-ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d2c1ca439dbbbd79ddabd2ea7a4eb5298d1071a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344128"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500972"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Java
 
@@ -27,7 +27,7 @@ Vill du se koden på en gång? [Exemplen med SDK för Webbsökning i Bing för J
 
 Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
@@ -35,9 +35,9 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 * [Apache Maven](https://maven.apache.org/download.cgi) eller valfritt verktyg för versionsautomatisering
 * En prenumerationsnyckel
 
-## <a name="create-a-project-and-set-up-your-pom-file"></a>Skapa ett projekt och konfigurera POM-filen
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Skapa ett projekt och konfigurera din POM-fil
 
-Skapa ett nytt Java-projekt med hjälp av Maven eller valfritt verktyg för versionsautomatisering. Om vi antar att du använder Maven lägger du till följande rader till din [projekt Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) fil. Ersätt alla förekomster av `mainClass` med ditt program.
+Skapa ett nytt Java-projekt med hjälp av Maven eller valfritt verktyg för versionsautomatisering. Under förutsättning att du använder maven lägger du till följande rader i [Pom-filen (Project Object Model)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) . Ersätt alla förekomster av `mainClass` med ditt program.
 
 ```xml
 <build>
@@ -300,4 +300,4 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 
 ## <a name="see-also"></a>Se också
 
-* [Azure Java SDK-referens](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
+* [Azure Java SDK-referens](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

@@ -1,6 +1,6 @@
 ---
-title: Skicka eller ta emot händelser med hjälp av Python – Azure Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller en genomgång för att skapa ett Python-program som skickar händelser till Azure Event Hubs.
+title: Skicka eller ta emot händelser med python-Azure Event Hubs | Microsoft Docs
+description: Den här artikeln innehåller en genom gång av hur du skapar ett python-program som skickar händelser till Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,18 +9,18 @@ ms.workload: core
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 6a8f0ddcfe6de904219059c6e761ead4c004732d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9018df73c85486f5ffc9b16c1dbb70d4d99fcc65
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461458"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360184"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Skicka händelser till eller ta emot händelser från Event Hubs med hjälp av Python
+# <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Skicka händelser till eller ta emot händelser från Event Hubs med python
 
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-Den här självstudien beskrivs hur du skapar Python-program att skicka händelser till eller ta emot händelser från en event hub. 
+I den här självstudien beskrivs hur du skapar python-program för att skicka händelser till eller ta emot händelser från en händelsehubben. 
 
 > [!NOTE]
 > Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
@@ -31,7 +31,7 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python 3.4 och senare.
-- Använd den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde av typen Event Hubs och hämta autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md). Hämta sedan värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
+- Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md). Hämta sedan värdet för åtkomst nyckeln för händelsehubben genom att följa anvisningarna i artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckel namnet är: **RootManageSharedAccessKey**.
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 
@@ -47,7 +47,7 @@ pip install azure-eventhub
 
 Skapa sedan ett Python-program som skickar händelser till en händelsehubb:
 
-1. Öppna din favoritredigerare i Python som [Visual Studio Code](https://code.visualstudio.com/)
+1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 2. Skapa ett skript som heter **send.py**. Det här skriptet skickar 100 händelser till din event hub.
 3. Klistra in följande kod i send.py, där du ersätter värdena adress-, ANVÄNDAR- och NYCKELN med de värden som du fick från Azure-portalen i föregående avsnitt: 
 
@@ -113,7 +113,7 @@ Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 Skapa sedan ett Python-program som tar emot händelser från en händelsehubb:
 
-1. Öppna din favoritredigerare i Python som [Visual Studio Code](https://code.visualstudio.com/)
+1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 2. Skapa ett skript som heter **recv.py**.
 3. Klistra in följande kod i recv.py, där du ersätter värdena adress-, ANVÄNDAR- och NYCKELN med de värden som du fick från Azure-portalen i föregående avsnitt: 
 
@@ -144,7 +144,8 @@ last_sn = -1
 last_offset = "-1"
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 try:
-    receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+    receiver = client.add_receiver(
+        CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
     client.run()
     start_time = time.time()
     for event_data in receiver.receive(timeout=100):
@@ -176,6 +177,6 @@ start python recv.py
 Läs följande artiklar:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funktionerna och terminologin i Azure Event Hubs](event-hubs-features.md)
+- [Funktioner och terminologi i Azure Event Hubs](event-hubs-features.md)
 - [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 

@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 07/24/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2cf0093d08c37c0941e86f9fc82b864aea14ebfe
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b4df5f58fc91d30c734800e531e4bd7c129d58b2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327087"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489575"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync transformerar Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -22,7 +22,7 @@ Den här artikeln är utformad för att hjälpa dig att felsöka och lösa probl
 
 1. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
+3. Microsoft-supporten. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Jag har problem med Azure File Sync på min server (synkronisering, moln nivå osv.). Bör jag ta bort och återskapa min server slut punkt?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -42,13 +42,22 @@ Om du försöker installera Sync-agenten på en Active Directory domänkontrolla
 
 Du löser problemet genom att överföra PDC-rollen till en annan domänkontrollant som kör Windows Server 2012 R2 eller senare och sedan installera Sync.
 
-<a id="server-registration-missing"></a>**Servern visas inte under registrerade servrar i Azure Portal**  
-Om en server inte visas under **registrerade servrar** för en tjänst för synkronisering av lagring:
-1. Logga in på den server som du vill registrera.
-2. Öppna Utforskaren och gå sedan till installations katalogen för Storage Sync-agenten (standard platsen är C:\Program Files\Azure\StorageSyncAgent). 
+<a id="server-registration-prerequisites"></a>**Server registrering visar följande meddelande: "Krav saknas"**
+
+Det här meddelandet visas om AZ eller AzureRM PowerShell-modulen inte är installerad på PowerShell 5,1. 
+
+> [!Note]  
+> ServerRegistration. exe stöder inte PowerShell 6. x. Du kan registrera servern med hjälp av cmdleten register-AzStorageSyncServer på PowerShell 6. x.
+
+Utför följande steg för att installera AZ-eller AzureRM-modulen på PowerShell 5,1:
+
+1. Skriv **PowerShell** från en upphöjd kommando tolk och tryck på RETUR.
+2. Installera den senaste AZ-eller AzureRM-modulen genom att följa dokumentationen:
+    - [AZ-modul (kräver .NET-4.7.2)](https://go.microsoft.com/fwlink/?linkid=2062890)
+    - [AzureRM-modul]( https://go.microsoft.com/fwlink/?linkid=856959)
 3. Kör ServerRegistration. exe och Slutför guiden för att registrera servern med en tjänst för synkronisering av lagring.
 
-<a id="server-already-registered"></a>**Server registreringen visar följande meddelande under Azure File Sync agent installation: "Den här servern har redan registrerats"** 
+<a id="server-already-registered"></a>**Server registrering visar följande meddelande: "Den här servern har redan registrerats"** 
 
 ![En skärm bild av dialog rutan för Server registrering med fel meddelandet "servern har redan registrerats"](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -66,6 +75,12 @@ Reset-StorageSyncServer
 
 <a id="web-site-not-trusted"></a>**När jag registrerar en server ser jag flera svar på en webbplats som inte är betrodd. Varför?**  
 Det här problemet uppstår när den **förbättrade säkerhets principen i Internet Explorer** aktive ras under Server registrering. Mer information om hur du inaktiverar den **förbättrade säkerhets principen i Internet Explorer** finns i [förbereda Windows Server för användning med Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) och [hur du distribuerar Azure File Sync](storage-sync-files-deployment-guide.md).
+
+<a id="server-registration-missing"></a>**Servern visas inte under registrerade servrar i Azure Portal**  
+Om en server inte visas under **registrerade servrar** för en tjänst för synkronisering av lagring:
+1. Logga in på den server som du vill registrera.
+2. Öppna Utforskaren och gå sedan till installations katalogen för Storage Sync-agenten (standard platsen är C:\Program Files\Azure\StorageSyncAgent). 
+3. Kör ServerRegistration. exe och Slutför guiden för att registrera servern med en tjänst för synkronisering av lagring.
 
 ## <a name="sync-group-management"></a>Synkronisera grupp hantering
 <a id="cloud-endpoint-using-share"></a>**Det gick inte att skapa moln slut punkten, med det här felet: ”Angiven Azure FileShare används redan av en annan CloudEndpoint”**  
@@ -85,9 +100,9 @@ Det här problemet uppstår om ditt användar konto inte har behörighet att ska
 
 Ditt användar konto måste ha följande Microsoft-behörighet för att skapa en moln slut punkt:  
 * Läs Hämta rolldefinition
-* Skriv Skapa eller uppdatera anpassad roll definition
+* Skriv Skapa eller uppdatera anpassad rolldefinition
 * Läs Hämta rolltilldelning
-* Skriv Skapa roll tilldelning
+* Skriv Skapa rolltilldelning
 
 Följande inbyggda roller har de nödvändiga Microsoft Authorization-behörigheterna:  
 * Ägare
@@ -153,7 +168,7 @@ En server slut punkt kan inte logga synkroniseringsåtgärden av följande anled
 > [!Note]  
 > Om Server tillståndet på bladet registrerade servrar är "verkar offline", så har de steg som dokumenterats i [Server slut punkten statusen "ingen aktivitet" eller "väntande" och Server tillståndet på bladet registrerade servrar "visas offline"](#server-endpoint-noactivity) .
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Synkronisera
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresurs via SMB eller via portalen, hur lång tid tar det för filen att synkroniseras med servrar i den synkroniserade gruppen?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -251,9 +266,10 @@ Om du vill se de här felen kör du PowerShell-skriptet **FileSyncErrorsReport. 
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | En fil har ändrats, men ändringen har ännu inte identifierats vid synkronisering. Synkroniseringen återställs efter att den här ändringen har upptäckts. | Ingen åtgärd krävs. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Det går inte att synkronisera filen eftersom gränsen för Azure-filresursen har nåtts. | Information om [hur du](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) löser det här problemet finns i avsnittet lagrings gräns för Azure-filresurs i fel söknings guiden. |
 | 0x80c8027C | – 2134375812 | ECS_E_ACCESS_DENIED_EFS | Filen krypteras av en lösning som inte stöds (t. ex. NTFS EFS). | Dekryptera filen och Använd en krypterings lösning som stöds. En lista över support lösningar finns i avsnittet [krypterings lösningar](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) i planerings guiden. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Det här felet kan inträffa av följande orsaker: Filen har statusen borttagning väntar eller så finns filen i en skrivskyddad DFS-R-replikmapp. | Om filen är i ett väntetillstånd som väntar, tas filen bort när alla öppna fil handtag är stängda. Om filen finns i en skrivskyddad DFS-R-replikmapp Azure Files Sync inte stöd för Server slut punkter i mappar för skrivskyddad DFS-R-replikering. Mer information finns i [planerings guiden](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) . |
+| 0x80c80283 | – 2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | Filen finns i en skrivskyddad DFS-R-replikmapp. | Filen finns i en skrivskyddad DFS-R-replikmapp. Azure Files Sync stöder inte Server slut punkter i mappar för skrivskyddad DFS-R-replikering. Mer information finns i [planerings guiden](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) . |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Filen har statusen borttagning väntar | Filen tas bort när alla öppna fil referenser är stängda. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen, så den måste synkroniseras igen. | Ingen åtgärd krävs. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen och måste därför synkroniseras igen. | Ingen åtgärd krävs. |
 
 
 #### <a name="handling-unsupported-characters"></a>Hantera tecken som inte stöds
@@ -326,7 +342,7 @@ Ingen åtgärd krävs. När en fil-eller fil resurs (moln slut punkt) återstäl
 Det här felet beror på att Azure File Sync-agenten inte kan komma åt Azure-filresursen, vilket kan bero på att Azure-filresursen eller lagrings kontot som är värd för den inte längre finns. Du kan felsöka det här felet genom att gå igenom följande steg:
 
 1. [Kontrol lera att lagrings kontot finns.](#troubleshoot-storage-account)
-2. [Kontrol lera att lagrings kontot inte innehåller några nätverks regler.](#troubleshoot-network-rules)
+2. [Kontrol lera att inställningarna för brand vägg och virtuellt nätverk på lagrings kontot är korrekt konfigurerade (om de är aktiverade)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 3. [Se till att Azure-filresursen finns.](#troubleshoot-azure-file-share)
 4. [Se till att Azure File Sync har åtkomst till lagrings kontot.](#troubleshoot-rbac)
 
@@ -345,7 +361,7 @@ Det här felet beror på att Azure File Sync-agenten inte kan komma åt Azure-fi
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Kontrol lera att lagrings kontot finns.](#troubleshoot-storage-account)
-3. [Kontrol lera att lagrings kontot inte innehåller några nätverks regler.](#troubleshoot-network-rules)
+3. [Kontrol lera att inställningarna för brand vägg och virtuellt nätverk på lagrings kontot är korrekt konfigurerade (om de är aktiverade)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**Synkroniseringen misslyckades på grund av ett problem med Sync-databasen.**  
 
@@ -431,12 +447,7 @@ Felet uppstår när Azure-prenumerationen har pausats. Synkroniseringen aktive r
 | **Fel sträng** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
 | **Reparation krävs** | Ja |
 
-Felet uppstår när Azure-filresursen inte kan nås på grund av en brand vägg för lagrings konto eller eftersom lagrings kontot tillhör ett virtuellt nätverk. Azure File Sync har ännu inte stöd för den här funktionen. Så här felsöker du:
-
-1. [Kontrol lera att lagrings kontot finns.](#troubleshoot-storage-account)
-2. [Kontrol lera att lagrings kontot inte innehåller några nätverks regler.](#troubleshoot-network-rules)
-
-Ta bort de här reglerna för att åtgärda problemet. 
+Felet uppstår när Azure-filresursen inte kan nås på grund av en brand vägg för lagrings konto eller eftersom lagrings kontot tillhör ett virtuellt nätverk. Kontrol lera att inställningarna för brand vägg och virtuellt nätverk på lagrings kontot är korrekt konfigurerade. Mer information finns i [Konfigurera inställningar för brand vägg och virtuellt nätverk](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
 
 <a id="-2134375911"></a>**Synkroniseringen misslyckades på grund av ett problem med Sync-databasen.**  
 
@@ -477,7 +488,7 @@ Det här felet kan inträffa om din organisation använder en SSL-avslutande pro
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Genom att ange det här registervärdet accepterar Azure File Sync-agenten alla lokalt betrodda SSL-certifikat när data överförs mellan servern och moln tjänsten.
+När det här registervärdet har angetts godkänner Azure File Sync-agenten alla lokalt betrodda SSL-certifikat vid överföring av data mellan servern och molntjänsten.
 
 <a id="-2147012894"></a>**Det gick inte att upprätta en anslutning till tjänsten.**  
 
@@ -502,7 +513,7 @@ Genom att ange det här registervärdet accepterar Azure File Sync-agenten alla 
 Felet kan bero på följande:
 
 - Server tiden är felaktig
-- Det gick inte att ta bort Server slut punkten
+- Borttagningen av serverslutpunkten misslyckades
 - Certifikatet som används för autentisering har upphört att gälla. 
     Gör så här för att kontrol lera om certifikatet har upphört att gälla:  
     1. Öppna MMC-snapin-modulen certifikat, Välj dator konto och gå till certifikat (lokal dator) \Personal\Certificates.
@@ -579,7 +590,7 @@ Om det finns många fel vid synkronisering av filer kan det hända att Sync-sess
 | **Fel sträng** | ECS_E_SYNC_INVALID_PATH |
 | **Reparation krävs** | Ja |
 
-Se till att sökvägen finns på en lokal NTFS-volym och inte är en referens punkt eller en befintlig server slut punkt.
+Se till att sökvägen finns, är på en lokal NTFS-volym och att den inte är en referenspunkt eller befintlig serverslutpunkt.
 
 <a id="-2134375817"></a>**Det gick inte att synkronisera eftersom filter driv Rutinens version inte är kompatibel med agent versionen**  
 
@@ -613,6 +624,33 @@ Felet beror på att tjänsten Azure File Sync inte är tillgänglig. Det här fe
 | **Reparation krävs** | Nej |
 
 Det här felet uppstår på grund av ett internt problem med Sync-databasen. Det här felet löses automatiskt när Azure File Sync när synkroniseringen försöker igen. Om felet fortsätter under en längre tid kan du skapa en supportbegäran så kontaktar vi dig för att hjälpa dig att lösa problemet.
+
+<a id="-2134364024"></a>**Synkroniseringen misslyckades på grund av ändringar i Azure Active Directory klient organisationen**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83088 |
+| **HRESULT (decimal)** | – 2134364024 | 
+| **Fel sträng** | ECS_E_INVALID_AAD_TENANT |
+| **Reparation krävs** | Ja |
+
+Felet beror på att Azure File Sync för närvarande inte stöder flytt av prenumerationen till en annan Azure Active Directory-klient.
+ 
+Lös problemet genom att utföra något av följande alternativ:
+
+- Alternativ 1 (rekommenderas): Flytta tillbaka prenumerationen till den ursprungliga Azure Active Directory klienten
+- Alternativ 2: Ta bort och återskapa den aktuella Sync-gruppen. Om moln skiktning har Aktiver ATS på Server slut punkten tar du bort synkroniseringsresursen och utför sedan stegen som dokumenteras i [avsnittet Cloud tierion]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) för att ta bort de överblivna filernas filer innan du skapar Sync-grupperna på samma nivå. 
+
+<a id="-2134364010"></a>**Det gick inte att synkronisera eftersom brand väggen och inget virtuellt nätverks undantag har kon figurer ATS**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83096 |
+| **HRESULT (decimal)** | – 2134364010 | 
+| **Fel sträng** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
+| **Reparation krävs** | Ja |
+
+Det här felet uppstår om inställningarna för brand vägg och virtuellt nätverk är aktiverade på lagrings kontot och undantaget "Tillåt betrodda Microsoft-tjänster för att komma åt det här lagrings kontot" inte är markerat. Lös problemet genom att följa stegen som beskrivs i avsnittet [Konfigurera brand vägg och inställningar för virtuella nätverk](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) i distributions guiden.
 
 ### <a name="common-troubleshooting-steps"></a>Vanliga fel söknings steg
 <a id="troubleshoot-storage-account"></a>**Kontrol lera att lagrings kontot finns.**  
@@ -694,22 +732,6 @@ $storageAccount = Get-AzStorageAccount | Where-Object {
 
 if ($storageAccount -eq $null) {
     throw [System.Exception]::new("The storage account referenced in the cloud endpoint does not exist.")
-}
-```
----
-
-<a id="troubleshoot-network-rules"></a>**Kontrol lera att lagrings kontot inte innehåller några nätverks regler.**  
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-1. I lagrings kontot väljer du **brand väggar och virtuella nätverk** på den vänstra sidan av lagrings kontot.
-2. I lagrings kontot bör alternativ knappen **Tillåt åtkomst från alla nätverk** väljas.
-    ![En skärm bild som visar lagrings kontots brand vägg och nätverks regler inaktiverade.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-```powershell
-if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
-    [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
-    throw [System.Exception]::new("The storage account referenced contains network " + `
-        "rules which are not currently supported by Azure File Sync.")
 }
 ```
 ---

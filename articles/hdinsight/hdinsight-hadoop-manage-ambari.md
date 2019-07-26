@@ -1,6 +1,6 @@
 ---
-title: Övervaka och hantera Azure HDInsight med hjälp av Ambari-Webbgränssnittet
-description: Lär dig mer om att använda Ambari och övervaka och hantera Linux-baserade HDInsight-kluster. I detta dokument kan du lära dig hur du använder Ambari-Webbgränssnittet som medföljer HDInsight-kluster.
+title: Övervaka och hantera Azure HDInsight med Ambari-webbgränssnitt
+description: Lär dig hur du använder Ambari för att övervaka och hantera Linux-baserade HDInsight-kluster. I det här dokumentet får du lära dig hur du använder Ambari-webbgränssnittet som ingår i HDInsight-kluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,211 +8,211 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258009"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442060"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av webbgränssnittet Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari förenklar hantering och övervakning av ett Apache Hadoop-kluster genom att tillhandahålla ett enkelt sätt att använda webbgränssnittet och REST API. Ambari ingår i HDInsight-kluster och används för att övervaka klustret och gör ändringar i konfigurationen.
+Apache Ambari fören klar hanteringen och övervakningen av ett Apache Hadoop kluster genom att tillhandahålla ett enkelt sätt att använda webb gränssnitt och REST API. Ambari ingår i HDInsight-kluster och används för att övervaka klustret och göra konfigurations ändringar.
 
-Lär dig hur du använder Ambari-Webbgränssnittet med ett HDInsight-kluster i det här dokumentet.
+I det här dokumentet får du lära dig hur du använder Ambari-webbgränssnittet med ett HDInsight-kluster.
 
 ## <a id="whatis"></a>Vad är Apache Ambari?
 
-[Apache Ambari](https://ambari.apache.org) förenklar Hadoop-hanteringen genom att tillhandahålla en enkel att använda webbgränssnittet. Du kan använda Ambari för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera de här funktionerna i sina program med hjälp av den [Ambari REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) fören klar Hadoop-hanteringen genom att tillhandahålla ett LÄTTANVÄNT webb gränssnitt. Du kan använda Ambari för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera dessa funktioner i sina program med hjälp av [AMBARI REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningar
 
-Ambari-Webbgränssnittet finns i ditt HDInsight-kluster på `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+Ambari-webbgränssnittet är tillgängligt i ditt HDInsight- `https://CLUSTERNAME.azurehdinsight.net`kluster på `CLUSTERNAME` , där är namnet på klustret.
 
 > [!IMPORTANT]  
-> Ansluta till Ambari på HDInsight kräver HTTPS. När du uppmanas att autentisera, använda namnet på administratörskontot och lösenordet du angav när klustret har skapats.
+> För att ansluta till Ambari i HDInsight krävs HTTPS. När du tillfrågas om autentisering använder du det administratörs konto namn och lösen ord som du angav när klustret skapades.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH-tunnel (proxy)
 
-Ambari för ditt kluster är tillgängliga direkt via Internet, visas inte vissa länkar från Ambari-Webbgränssnittet (till exempel JobTracker) på internet. För att komma åt dessa tjänster måste du skapa en SSH-tunnel. Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
+Medan Ambari för klustret kan nås direkt via Internet, visas inte vissa länkar från Ambari-webbgränssnittet (till exempel till JobTracker) på Internet. För att få åtkomst till dessa tjänster måste du skapa en SSH-tunnel. Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="ambari-web-ui"></a>Ambari-webbgränssnittet
+## <a name="ambari-web-ui"></a>Ambari webb gränssnitt
 
 > [!WARNING]  
-> Inte alla funktioner i Ambari-Webbgränssnittet stöds i HDInsight. Mer information finns i den [stöds inte operations](#unsupported-operations) i det här dokumentet.
+> Det finns inte stöd för alla funktioner i Ambari-webbgränssnittet i HDInsight. Mer information finns i avsnittet [åtgärder som inte stöds](#unsupported-operations) i det här dokumentet.
 
-När du ansluter till Ambari-Webbgränssnittet, uppmanas du att autentisera till sidan. Använd kluster administratörsanvändare (standard administratör) och lösenordet som du använde när klustret skapas.
+När du ansluter till Ambari-webbgränssnittet uppmanas du att autentisera till sidan. Använd administratörs användaren för kluster (standard administratör) och lösen ord som du använde när du skapade klustret.
 
-När du öppnar sidan Observera fältet högst upp. Det här fältet innehåller följande information och kontroller:
+När sidan öppnas noterar du fältet överst. Det här fältet innehåller följande information och kontroller:
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
 |Objekt |Beskrivning |
 |---|---|
-|Ambari-logotyp|Öppnas instrumentpanelen, som kan användas för att övervaka klustret.|
-|Namnet # ops-kluster|Visar antalet pågående Ambari-åtgärder. Att välja klusternamnet eller **# ops** visar en lista över bakgrundsåtgärder.|
-|# aviseringar|Visar varningar eller kritiska varningar för klustret.|
-|Instrumentpanel|Visar instrumentpanelen.|
-|Tjänster|Information om och konfiguration inställningar för tjänster i klustret.|
-|Värdar|Inställningar och konfigurationsinformation för noder i klustret.|
-|Aviseringar|En logg över information, varningar och kritiska aviseringar.|
-|Admin|Stack/Programvarutjänster som är installerade på klustret, tjänstens kontoinformation och Kerberos-säkerhet.|
-|Admin-knappen|Ambari-hantering, användarinställningar och logga ut.|
+|Ambari-logotyp|Öppnar instrument panelen som kan användas för att övervaka klustret.|
+|Kluster namn # OPS|Visar antalet pågående Ambari-åtgärder. Om du väljer kluster namnet eller **# Ops** visas en lista över bakgrunds åtgärder.|
+|antal aviseringar|Visar eventuella varningar eller kritiska aviseringar för klustret.|
+|Instrumentpanel|Visar instrument panelen.|
+|Tjänster|Information och konfigurations inställningar för tjänsterna i klustret.|
+|Värdar|Information och konfigurations inställningar för noderna i klustret.|
+|Aviseringar|En logg med information, varningar och viktiga aviseringar.|
+|Admin|Program varu stack/tjänster som är installerade i klustret, tjänst konto information och Kerberos-säkerhet.|
+|Knappen administratör|Hantering av Ambari, användar inställningar och utloggning.|
 
 ## <a name="monitoring"></a>Övervakning
 
 ### <a name="alerts"></a>Aviseringar
 
-I följande lista innehåller vanliga avisering statusar som används av Ambari:
+Följande lista innehåller de vanliga aviserings statusarna som används av Ambari:
 
 * **OK**
-* **Varning**
-* **CRITICAL**
-* **UNKNOWN**
+* **Honom**
+* **MINDRE**
+* **OKÄND**
 
-Aviseringar än **OK** orsaka den **# aviseringar** överst på sidan för att visa antalet aviseringar. Om du väljer den här posten visas aviseringarna och deras status.
+Andra aviseringar än **OK** leder till posten **# Alerts** överst på sidan för att visa antalet aviseringar. Om du väljer den här posten visas aviseringarna och deras status.
 
-Aviseringar är uppdelade i flera standardgrupper som kan visas från den **aviseringar** sidan.
+Aviseringar organiseras i flera standard grupper som kan visas från sidan **aviseringar** .
 
-![Sidan varningar](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![Sidan aviseringar](./media/hdinsight-hadoop-manage-ambari/alerts.png)
 
-Du kan hantera grupperna med hjälp av den **åtgärder** menyn och välja **Hantera aviseringar grupper**.
+Du kan hantera grupper med hjälp av **åtgärder** -menyn och välja **Hantera aviserings grupper**.
 
-![Hantera aviseringar grupper dialogrutan](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
+![dialog rutan hantera aviserings grupper](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
 
-Du kan också hantera aviseringar metoder och skapa en avisering från den **åtgärder** menyn genom att välja __hantera avisering meddelanden__. Alla aktuella meddelanden visas. Du kan också skapa aviseringar här. Meddelanden kan skickas **e-post** eller **SNMP** när specifika/allvarlighetsgraden för aviseringen kombinationer inträffar. Du kan till exempel skicka ett e-postmeddelande när någon av aviseringar i den **YARN standard** gruppen angetts till **kritisk**.
+Du kan också hantera aviserings metoder och skapa aviserings meddelanden från menyn **åtgärder** genom att välja __Hantera aviserings meddelanden__. Alla aktuella meddelanden visas. Du kan också skapa meddelanden härifrån. Aviseringar kan skickas via **e-post** eller **SNMP** när vissa kombinationer av aviseringar/allvarlighets grader inträffar. Du kan till exempel skicka ett e-postmeddelande när någon av aviseringarna i **standard gruppen garn** är inställd på **kritisk**.
 
-![Skapa varningsruta](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
+![Dialog rutan skapa avisering](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-Slutligen väljer __Hantera aviseringsinställningar__ från den __åtgärder__ menyn kan du ange hur många gånger som en avisering måste inträffa innan ett meddelande har skickats. Den här inställningen kan användas för att förhindra att meddelanden för tillfälliga fel.
+Slutligen kan du välja __Hantera aviserings inställningar__ på menyn __åtgärder__ för att ange hur många gånger en avisering måste inträffa innan ett meddelande skickas. Den här inställningen kan användas för att förhindra meddelanden om tillfälliga fel.
 
 ### <a name="cluster"></a>Kluster
 
-Den **mått** fliken instrumentpanelen innehåller en serie widgetar som gör det enkelt att övervaka status för ditt kluster på ett ögonblick. Flera widgetar som **CPU-användning**, ger ytterligare information när du klickar på.
+Fliken **mått** på instrument panelen innehåller en serie med widgetar som gör det enkelt att snabbt övervaka status för klustret. Flera widgetar, till exempel **processor användning**, ger ytterligare information när du klickar på den.
 
-![instrumentpanel med mått](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![instrument panel med mått](./media/hdinsight-hadoop-manage-ambari/metrics.png)
 
-Den **termiska kartor** fliken visar mått som färgade termiska kartor, kommer från grön till röd.
+Fliken **termiska kartor** visar mått som färgad termiska kartor, från grönt till rött.
 
-![instrumentpanel med termiska kartor](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![instrument panel med termiska kartor](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
 
-För mer information om noder i klustret, väljer **värdar**. Välj sedan den specifika noden som du är intresserad av.
+Om du vill ha mer information om noderna i klustret väljer du **värdar**. Välj sedan den angivna noden som du är intresse rad av.
 
-![värd-information](./media/hdinsight-hadoop-manage-ambari/host-details.png)
+![värd information](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
 ### <a name="services"></a>Tjänster
 
-Den **Services** sidopanelen på instrumentpanelen ger snabb inblick i status för de tjänster som körs i klustret. Olika ikoner används för att ange status eller åtgärder som ska vidtas. Till exempel visas en gul återvinning symbol om en tjänst behöver återvinnas.
+Sid panelen **tjänster** på instrument panelen ger snabb insyn i statusen för de tjänster som körs i klustret. Olika ikoner används för att indikera status eller åtgärder som ska vidtas. Till exempel visas en gul åter användnings symbol om en tjänst behöver återvinnas.
 
-![tjänster sidofältet](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
+![tjänstens sid List](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
 > [!NOTE]  
-> De tjänster som visas skiljer sig åt mellan HDInsight-klustertyper och versioner. De tjänster som visas här kan skilja sig från de tjänster som visas för ditt kluster.
+> De tjänster som visas skiljer sig mellan olika typer av HDInsight-kluster och-versioner. De tjänster som visas här kan skilja sig från de tjänster som visas för klustret.
 
-Att välja en tjänst visar mer detaljerad information om tjänsten.
+Om du väljer en tjänst visas mer detaljerad information om tjänsten.
 
-![sammanfattningsinformation för tjänsten](./media/hdinsight-hadoop-manage-ambari/service-details.png)
+![tjänst sammanfattnings information](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
 #### <a name="quick-links"></a>Snabblänkar
 
-Vissa tjänster visas en **snabblänkar** länken längst upp på sidan. Detta kan användas för att komma åt tjänstspecifika web UIs, som:
+Vissa tjänster visar länken **länkar** överst på sidan. Detta kan användas för att få åtkomst till tjänstspecifika webb-UIs, till exempel:
 
-* **Jobbhistorik** -MapReduce jobbets historik.
-* **Resource Manager** -YARN ResourceManager UI.
-* **NameNode** -Hadoop Distributed File System (HDFS) NameNode Användargränssnittet.
-* **Oozie webbgränssnittet** -Oozie-Användargränssnittet.
+* **Jobb historik** – jobb historik för MapReduce.
+* **Resource Manager** -garn-RESOURCEMANAGER-gränssnitt.
+* NameNode-gränssnitt för **NameNode** -HADOOP DISTRIBUTED File System (HDFS).
+* **Oozie Web UI** – Oozie UI.
 
 Om du väljer någon av dessa länkar öppnas en ny flik i webbläsaren som visar den valda sidan.
 
 > [!NOTE]  
-> Att välja den **snabblänkar** post för en tjänst kan returnera ett ”det gick inte att hitta” serverfel. Om felet uppstår, måste du använda en SSH-tunnel när du använder den **snabblänkar** posten för den här tjänsten. Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
+> Om du väljer posten **snabb länkar** för en tjänst kan du returnera felet "servern hittades inte". Om det här felet uppstår måste du använda en SSH-tunnel när du använder posten **snabb länkar** för den här tjänsten. Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>Hantering
 
-### <a name="ambari-users-groups-and-permissions"></a>Ambari-användare, grupper och behörigheter
+### <a name="ambari-users-groups-and-permissions"></a>Ambari användare, grupper och behörigheter
 
-Arbeta med användare, grupper och behörigheter kan användas med en [domänanslutna](./domain-joined/apache-domain-joined-introduction.md) HDInsight-kluster. Information om hur du använder Ambari Management UI på ett domänanslutet kluster finns i [hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md).
+Att arbeta med användare, grupper och behörigheter stöds när du [använder ett domänanslutna](./domain-joined/hdinsight-security-overview.md) HDInsight-kluster. Information om hur du använder gränssnittet för hantering av Ambari på ett domänanslutet kluster finns i [Hantera domänanslutna HDInsight-kluster](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
-> Ändra inte lösenordet för Ambari-watchdog (hdinsightwatchdog) på Linux-baserade HDInsight-klustret. Ändra lösenordet delar möjligheten att använda skriptåtgärder eller utföra skalningsåtgärder med klustret.
+> Ändra inte lösen ordet för Ambari-hdinsightwatchdog () på ditt Linux-baserade HDInsight-kluster. Om du ändrar lösen ordet bryts möjligheten att använda skript åtgärder eller utföra skalnings åtgärder med klustret.
 
 ### <a name="hosts"></a>Värdar
 
-Den **värdar** sidan listar alla värdar i klustret. Följ dessa steg för att hantera värdar.
+Sidan **värdar** visar alla värdar i klustret. Följ dessa steg om du vill hantera värdar.
 
-![sidan för värdar](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![Sidan värdar](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
 > [!NOTE]  
-> Lägga till, ta ur drift och recommissioning en värd bör inte användas med HDInsight-kluster.
+> Det ska inte användas med HDInsight-kluster för att lägga till, ta bort och ställa av en värd.
 
 1. Välj den värd som du vill hantera.
 
-2. Använd den **åtgärder** menyn för att markera den åtgärd som du vill utföra:
+2. Använd menyn **åtgärder** för att välja den åtgärd som du vill utföra:
 
     |Objekt |Beskrivning |
     |---|---|
     |Starta alla komponenter|Starta alla komponenter på värden.|
     |Stoppa alla komponenter|Stoppa alla komponenter på värden.|
     |Starta om alla komponenter|Stoppa och starta alla komponenter på värden.|
-    |Aktivera underhållsläget|Undertrycker aviseringar för värden. Det här läget måste vara aktiverad om du utför åtgärder som genererar aviseringar. Exempel: stoppa och starta en tjänst.|
-    |Inaktivera underhållsläge|Returnerar värden till normal aviseringar.|
-    |Stoppa|Stoppar DataNode eller NodeManagers på värden.|
-    |Start|Startar DataNode eller NodeManagers på värden.|
-    |Starta om|Stoppar och startar DataNode eller NodeManagers på värden.|
+    |Aktivera underhålls läge|Ignorerar aviseringar för värden. Det här läget bör vara aktiverat om du utför åtgärder som genererar aviseringar. Till exempel stoppa och starta en tjänst.|
+    |Inaktivera underhålls läge|Returnerar värden till normal avisering.|
+    |Stoppa|Stoppar DataNode eller) Nodemanagers på värden.|
+    |Start|Startar DataNode eller) Nodemanagers på värden.|
+    |Starta om|Stoppar och startar DataNode eller) Nodemanagers på värden.|
     |Inaktivera|Tar bort en värd från klustret. **Använd inte den här åtgärden på HDInsight-kluster.**|
-    |Recommission|Lägger till en tidigare inaktiverade värd i klustret. **Använd inte den här åtgärden på HDInsight-kluster.**|
+    |Reprovision|Lägger till en tidigare inaktive rad värd i klustret. **Använd inte den här åtgärden på HDInsight-kluster.**|
 
-### <a id="service"></a>Tjänster
+### <a id="service"></a>Terminal
 
-Från den **instrumentpanelen** eller **Services** kan du använda den **åtgärder** knappen längst ned i listan över tjänster att stoppa och starta alla tjänster.
+På sidan **instrument panel** eller **tjänster** använder du knappen **åtgärder** längst ned i listan över tjänster för att stoppa och starta alla tjänster.
 
-![tjänståtgärder](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
+![tjänst åtgärder](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
 > [!WARNING]  
-> Medan **Lägg till tjänst** visas i den här menyn den bör inte användas för att lägga till tjänster i HDInsight-klustret. Nya tjänster ska läggas till med en skriptåtgärd under klusteretablering. Mer information om hur du använder skriptåtgärder finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+> När du **lägger till tjänsten** i listan i den här menyn bör den inte användas för att lägga till tjänster i HDInsight-klustret. Nya tjänster ska läggas till med en skript åtgärd under kluster etableringen. Mer information om hur du använder skript åtgärder finns i [Anpassa HDInsight-kluster med hjälp av skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
-Medan den **åtgärder** knappen kan starta om alla tjänster, ofta du vill starta, stoppa eller starta om en specifik tjänst. Använd följande steg för att utföra åtgärder på en enskild tjänst:
+Medan knappen **åtgärder** kan starta om alla tjänster, ofta vill du starta, stoppa eller starta om en speciell tjänst. Använd följande steg för att utföra åtgärder på en enskild tjänst:
 
-1. Från den **instrumentpanelen** eller **Services** väljer du en tjänst.
+1. På sidan **instrument panel** eller **tjänster** väljer du en tjänst.
 
-2. Högst upp på den **sammanfattning** fliken den **tjänståtgärder** och välj åtgärden som ska vidtas. Detta startar om tjänsten på alla noder.
+2. Överst på fliken **Sammanfattning** använder du knappen **service åtgärder** och väljer den åtgärd som ska vidtas. Detta startar om tjänsten på alla noder.
 
-    ![tjänsteåtgärd](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
-
-   > [!NOTE]  
-   > Starta om vissa tjänster medan klustret är igång kan generera aviseringar. Om du vill undvika aviseringar kan du använda den **tjänståtgärder** knappen för att aktivera **underhållsläge** för tjänsten innan du utför omstarten.
-
-3. När en åtgärd har valts, den **# op** post överst på sidan steg att visa att en bakgrundsåtgärden sker. Om konfigurerat för att visa visas listan över bakgrundsåtgärder.
+    ![tjänst åtgärd](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
    > [!NOTE]  
-   > Om du har aktiverat **underhållsläge** för tjänsten, Kom ihåg att inaktivera den genom att använda den **tjänståtgärder** knappen när åtgärden har slutförts.
+   > Att starta om vissa tjänster medan klustret körs kan generera aviseringar. För att undvika aviseringar kan du använda knappen **service åtgärder** för att aktivera **underhålls läget** för tjänsten innan du utför omstarten.
 
-Om du vill konfigurera en tjänst, använder du följande steg:
+3. När en åtgärd har valts visas posten **# op** överst på sidan för att visa att en bakgrunds åtgärd inträffar. Om den är konfigurerad att Visa visas listan över bakgrunds åtgärder.
 
-1. Från den **instrumentpanelen** eller **Services** väljer du en tjänst.
+   > [!NOTE]  
+   > Om du har aktiverat **underhålls läge** för tjänsten måste du komma ihåg att inaktivera det genom att använda knappen för **tjänst åtgärder** när åtgärden har slutförts.
+
+Använd följande steg för att konfigurera en tjänst:
+
+1. På sidan **instrument panel** eller **tjänster** väljer du en tjänst.
 
 2. Välj den **Peeringkonfigurationer** fliken. Den aktuella konfigurationen visas. En lista över tidigare konfigurationer visas också.
 
-    ![Konfigurationer](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+    ![konfigurationer](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
-3. Använd de fält som visas för att ändra konfigurationen och välj sedan **spara**. Eller välj en tidigare konfiguration och välj sedan **gör aktuell** att återställa de tidigare inställningarna.
+3. Använd fälten som visas för att ändra konfigurationen och välj sedan **Spara**. Eller Välj en tidigare konfiguration och välj sedan **gör aktuell** för att återställa till föregående inställningar.
 
 ## <a name="ambari-views"></a>Ambari-vyer
 
-Ambari-vyer kan utvecklare plugin-UI-element i Ambari-Webbgränssnittet med den [Apache Ambari-vyer Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight innehåller följande vyer med Hadoop-klustertyper:
+Med Ambari vyer kan utvecklare koppla GRÄNSSNITTs element till Ambari-webbgränssnittet med [Apache Ambari views](https://cwiki.apache.org/confluence/display/AMBARI/Views)-ramverket. HDInsight tillhandahåller följande vyer med Hadoop-kluster typer:
 
-* Hive-vyn: Hive-vyn kan du köra Hive-frågor direkt från din webbläsare. Du kan spara frågor, visa resultat, spara resultaten för klusterlagring eller hämta resultaten till din lokala dator. Mer information om hur du använder Hive-vyer finns i [använda Apache Hive-vyer med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
+* Hive-vy: I Hive-vyn kan du köra Hive-frågor direkt från webbläsaren. Du kan spara frågor, Visa resultat, Spara resultat i kluster lagringen eller ladda ned resultat till det lokala systemet. Mer information om hur du använder Hive-vyer finns i [använda Apache Hive vyer med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
-* Tez vy: Tez-vy kan du bättre förstå och optimera jobb. Du kan visa information om hur Tez-jobb körs och vilka resurser som används.
+* Tez vy: Med vyn Tez kan du bättre förstå och optimera jobb. Du kan visa information om hur Tez-jobb körs och vilka resurser som används.
 
 ## <a name="unsupported-operations"></a>Åtgärder som inte stöds
 
-Följande Ambari-åtgärder stöds inte på HDInsight:
+Följande Ambari-åtgärder stöds inte i HDInsight:
 
-* __Flytta mått Collector-tjänsten__. När du visar information på mått Collector-tjänsten är en av åtgärderna som är tillgängliga på menyn tjänståtgärder __flytta mått insamlaren__. Detta stöds inte med HDInsight.
+* __Flyttar mått insamlings tjänsten__. När du visar information på mått insamlings tjänsten, flyttas en av de åtgärder som är tillgängliga från menyn tjänst åtgärder till __mått__insamlaren. Detta stöds inte med HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder den [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) med HDInsight.
+Lär dig hur du använder [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) med HDInsight.

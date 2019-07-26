@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: e121568ce4841e884dddc7c5adff89830a883e93
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377463"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489810"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudier: Bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
 
@@ -44,11 +44,11 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
 
 1. Ange följande värden:
 
-    |Egenskap |Value |
+    |Egenskap |Värde |
     |---|---|
     |Namn|Ange program namnet. Det värde som används för den här självstudien är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.|
     |Beskrivning|Ange en kort beskrivning av programmet. Det värde som används för den här självstudien är **ett enkelt program för HDInsight Spark-direktuppspelning**.|
-    |Webbplats|Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Det värde som används för den här självstudien är **http:\//www.contoso.com**.|
+    |Webbplats|Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Det värde som används för den här `http://www.contoso.com`självstudien är.|
     |Motringnings-URL|Du kan lämna det tomt.|
 
 1. Välj **Ja, jag har läst och samtycker till Twitter Developer Agreement**och välj sedan **skapa ditt Twitter-program**.

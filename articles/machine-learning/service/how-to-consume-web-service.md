@@ -1,7 +1,7 @@
 ---
-title: Skapa klient för att använda distribuerade webbtjänsten
+title: Skapa en klient för att använda distribuerad webb tjänst
 titleSuffix: Azure Machine Learning service
-description: Lär dig mer om att använda en webbtjänst som genererades när en modell har distribuerats med Azure Machine Learning-modell. Webbtjänsten visar ett REST-API. Skapa klienter för detta API med vilket språk du önskar.
+description: Lär dig hur du använder en webb tjänst som genererades när en modell distribuerades med Azure Machine Learning modell. Webb tjänsten exponerar en REST API. Skapa klienter för detta API genom att använda valfritt programmeringsspråk.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 376be43a57783f537df81f0e97f005e2c46a710e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797621"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361011"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
-Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för webbtjänsten med hjälp av C#, Go, Java och Python.
+Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för webb tjänsten med C#hjälp av, go, Java och python.
 
-Du kan skapa en webbtjänst när du distribuerar en avbildning till Azure Container Instances, Azure Kubernetes Service eller fält-programmable gate matriser (FPGA). Du kan skapa avbildningar från registrerade modeller och bedömningsfilerna. Du kan hämta den URI som används för åtkomst till en webbtjänst med hjälp av den [Azure Machine Learning SDK](https://aka.ms/aml-sdk). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
+Du skapar en webb tjänst när du distribuerar en avbildning till Azure Container Instances, Azure Kubernetes service eller Field-programmerbara grind mat ris (FPGA). Du skapar bilder från registrerade modeller och poängsättnings-filer. Du hämtar den URI som används för att få åtkomst till en webb tjänst med hjälp av [Azure Machine Learning SDK](https://aka.ms/aml-sdk). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
 
-Det allmänna arbetsflödet för att skapa en klient som använder en machine learning-webbtjänsten är:
+Det allmänna arbets flödet för att skapa en klient som använder en Machine Learning-webbtjänst är:
 
-1. Använda SDK för att hitta anslutningsinformation.
-1. Bestäm vilken typ av om begärandedata som används av modellen.
-1. Skapa ett program som anropar webbtjänsten.
+1. Hämta anslutnings informationen med hjälp av SDK.
+1. Bestäm vilken typ av begär ande data som används av modellen.
+1. Skapa ett program som anropar webb tjänsten.
 
 ## <a name="connection-information"></a>Anslutningsinformation
 
 > [!NOTE]
-> Använd SDK: N för Azure Machine Learning för att få informationen om webbtjänster. Det här är en Python-SDK. Du kan använda valfritt språk för att skapa en klient för tjänsten.
+> Använd Azure Machine Learning SDK för att hämta information om webb tjänsten. Det här är en Python-SDK. Du kan använda valfritt språk för att skapa en klient för tjänsten.
 
-Den [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller den information du behöver att skapa en klient. Följande `Webservice` egenskaper är användbara för att skapa ett klientprogram:
+[Azureml. Core. WebService-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller den information du behöver för att skapa en-klient. Följande `Webservice` egenskaper är användbara när du skapar ett klient program:
 
 * `auth_enabled` – Om autentisering har aktiverats, `True`, annars `False`.
 * `scoring_uri` – REST API-adress.
@@ -53,14 +53,14 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     print(service.scoring_uri)
     ```
 
-* Du kan använda `Webservice.list` att hämta en lista över distribuerade webbtjänster för modeller i din arbetsyta. Du kan lägga till filter för att begränsa listan med information som returneras. Mer information om vad du kan filtrera på, finns i den [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) referensdokumentation.
+* Du kan använda `Webservice.list` att hämta en lista över distribuerade webbtjänster för modeller i din arbetsyta. Du kan lägga till filter för att begränsa listan med information som returneras. Mer information om vad som kan filtreras finns i referens dokumentationen för [WebService. list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) .
 
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
     ```
 
-* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice`, och ange namnet på arbetsytan och tjänsten som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
+* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice`och ange arbets ytan och tjänstens namn som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -69,12 +69,12 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
 
 ### <a name="authentication-key"></a>Autentiseringsnyckel
 
-När du aktiverar autentisering för en distribution kan skapa du automatiskt autentiseringsnycklar.
+När du aktiverar autentisering för en distribution skapar du automatiskt nycklar för autentisering.
 
-* Autentisering är aktiverad som standard när du distribuerar till Azure Kubernetes Service.
-* Autentisering är inaktiverad som standard när du distribuerar till Azure Container Instances.
+* Autentisering aktive ras som standard när du distribuerar till Azure Kubernetes-tjänsten.
+* Autentisering inaktive ras som standard när du distribuerar till Azure Container Instances.
 
-För att styra autentisering, använder de `auth_enabled` parameter när du skapar eller uppdaterar en distribution.
+Om du vill kontrol lera autentiseringen använder `auth_enabled` du parametern när du skapar eller uppdaterar en distribution.
 
 Om autentisering har aktiverats, kan du använda den `get_keys` metod för att hämta en primära och sekundära autentiseringsnyckel:
 
@@ -102,7 +102,7 @@ REST API: et förväntar sig att brödtexten i begäran är ett JSON-dokument me
 > [!IMPORTANT]
 > Strukturen för data måste matcha vilka bedömnings skript och modell i tjänsten expect. Bedömningsskriptet kan ändra data innan det skickas till modellen.
 
-Till exempel modellen i den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exempel förväntar sig en matris med 10 tal. Bedömningsskriptet i det här exemplet skapar en Numpy matris från förfrågan och skickar dem till modellen. I följande exempel visas de data som den här tjänsten förväntas:
+Till exempel modellen i den [träna i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exempel förväntar sig en matris med 10 tal. Bedömnings skriptet för det här exemplet skapar en numpy-matris från begäran och skickar den till modellen. I följande exempel visas de data som den här tjänsten förväntas:
 
 ```json
 {
@@ -130,12 +130,14 @@ Webbtjänsten kan acceptera flera uppsättningar av data i en begäran. Den retu
 
 Om din modell accepterar binära data, till exempel en avbildning måste du ändra den `score.py` filen användes för distributionen för att godkänna raw HTTP-förfrågningar. Här är ett exempel på en `score.py` som accepterar binära data:
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
+
 
 @rawhttp
 def run(request):
@@ -147,9 +149,9 @@ def run(request):
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
+        # For a real world solution, you would load the data from reqBody
         # and send to the model. Then return the response.
-        
+
         # For demonstration purposes, this example just returns the posted data as the response.
         return AMLResponse(reqBody, 200)
     else:
@@ -157,9 +159,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> Den `azureml.contrib` namnområde ändras ofta, när vi arbetar för att förbättra tjänsten. Därför ska någonting i det här namnområdet räknas som en förhandsversion, och stöds inte fullt ut av Microsoft.
+> `azureml.contrib` Namn området ändras ofta, eftersom vi arbetar för att förbättra tjänsten. Därför bör allt i det här namn området betraktas som en för hands version och stöds inte fullt ut av Microsoft.
 >
-> Om du vill testa detta på din lokala utvecklingsmiljö kan du installera komponenterna i den `contrib` namnområde med hjälp av följande kommando:
+> Om du behöver testa detta i din lokala utvecklings miljö kan du installera komponenterna i `contrib` namn området med hjälp av följande kommando:
 > 
 > ```shell
 > pip install azureml-contrib-services
@@ -440,45 +442,44 @@ scoring_uri = '<your web service URI>'
 key = '<your key>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 Resultatet som returneras liknar följande JSON-dokument:
@@ -489,8 +490,8 @@ Resultatet som returneras liknar följande JSON-dokument:
 
 ## <a name="consume-the-service-from-power-bi"></a>Använda tjänsten från Power BI
 
-Powerbi stöder användning av Azure Machine Learning-webbtjänster kan utöka data i Power BI med förutsägelser. 
+Power BI stöder användning av Azure Machine Learning webb tjänster för att utöka data i Power BI med förutsägelser. 
 
-Om du vill generera en webbtjänst som stöds för användning i Power BI, måste schemat stödja det format som krävs av Power BI. [Lär dig att skapa ett schema som stöds av Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
+Om du vill generera en webb tjänst som stöds för användning i Power BI måste schemat ha stöd för det format som krävs av Power BI. [Lär dig hur du skapar ett schema som stöds av Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
-När webbtjänsten har distribuerats är det använda från Power BI dataflöden. [Lär dig hur du använder en Azure Machine Learning-webbtjänst från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+När webb tjänsten har distribuerats kan den förbrukas från Power BI data flöden. [Lär dig hur du använder en Azure Machine Learning-webb tjänst från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

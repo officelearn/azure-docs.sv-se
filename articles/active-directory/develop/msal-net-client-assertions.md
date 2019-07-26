@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a938f85b2047ea5cceada98df6adba2c560c1a1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278673"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442496"
 ---
 # <a name="confidential-client-assertions"></a>Konfidentiell klient kontroll
 För att bevisa sin identitet utbyter konfidentiella klient program en hemlighet med Azure AD. Hemligheten kan vara:
@@ -34,7 +34,7 @@ Den här hemligheten kan också vara en signerad kontroll direkt.
 MSAL.NET har fyra metoder för att ange autentiseringsuppgifter eller intyg för den konfidentiella klient appen:
 - `.WithClientSecret()`
 - `.WithCertificate()`
-- `.WithSignedAssertion()`
+- `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 ### <a name="signed-assertions"></a>Signerade kontroller

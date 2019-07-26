@@ -1,6 +1,6 @@
 ---
-title: Skapa schema för klassrum labb i Azure Lab Services | Microsoft Docs
-description: Lär dig mer om att skapa scheman för klassrum labb i Azure Lab Services så att virtuella datorer i labs starta och stänga av en viss tid.
+title: Skapa ett schema för klass rums labb i Azure Lab Services | Microsoft Docs
+description: Lär dig hur du skapar scheman för klass rums labb i Azure Lab Services så att virtuella datorer i labbet startar och stängs ned vid en viss tidpunkt.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,73 +13,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60696040"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385597"
 ---
-# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Skapa och hantera scheman för klassrum labb i Azure Lab Services 
-Scheman kan du konfigurera ett klassrumslabb så att virtuella datorer i labbet automatiskt starta och stänga av en viss tid. Du kan definiera en engångsschema eller ett återkommande schema. Följande procedurer ger dig steg för att skapa och hantera scheman för ett klassrumslabb: 
+# <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Skapa och hantera scheman för klass rums labb i Azure Lab Services 
+Med scheman kan du konfigurera ett klass rums labb så att virtuella datorer i labbet startar och stängs av automatiskt vid en viss tidpunkt. Du kan definiera ett eng ång slö schema eller ett återkommande schema. Följande procedurer ger dig anvisningar om hur du skapar och hanterar scheman för ett klass rums labb: 
 
 > [!IMPORTANT]
-> Schemalagda körningstiden för virtuella datorer räknas inte mot den [kvot som har tilldelats till en användare](how-to-configure-student-usage.md#set-quotas-per-user). Kvoten är tiden utanför Schemalägg timmar som en student tillbringar på virtuella datorer. 
+> Den schemalagda körningen av virtuella datorer räknas inte mot den [kvot som tilldelats till en användare](how-to-configure-student-usage.md#set-quotas-for-users). Kvoten är för tiden utanför de schema timmar som en student tillbringar på virtuella datorer. 
 
 ## <a name="add-a-schedule-once"></a>Lägg till ett schema (en gång)
 
-1. Växla till den **scheman** och välj **Lägg till schema** i verktygsfältet. 
+1. Växla till sidan **scheman** och välj **Lägg till schema** i verktygsfältet. 
 
-    ![Lägg till schemaknapp på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
-2. På den **Lägg till schema** bekräftar som **när** alternativet är markerat längst upp. Om du inte väljer **när**. 
-3. För **schemalägga datum (krävs)** , ange ett datum eller välja kalenderikonen för att välja ett datum. 
-4. För **starttid**, väljer du den tid när du vill att de virtuella datorerna startas. Starttiden är obligatorisk om sluttid har angetts. Välj **Remove Starthändelse** om du vill ange endast sluttid. Om den **starttid** är inaktiverat, Välj **Lägg till Starthändelse** bredvid listrutan så att den. 
-5. För **stopptid**, väljer du den tid när du vill att de virtuella datorerna ska stängas. Sluttid krävs om starttiden inte anges. Välj **händelsen för ta bort stoppa** om du vill ange endast starttid. Om den **stopptid** är inaktiverat, Välj **Lägg till Stoppa händelse** bredvid listrutan så att den.
-6. För **tidszon (krävs)** , Välj tidszon för start och stopptider som du har angett. 
-7. För **anteckningar**, ange en beskrivning av eller anteckningar för schemat. 
+    ![Knappen Lägg till schema på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
+2. På sidan **Lägg till schema** bekräftar du att alternativet **när** är markerat längst upp. Om den inte är det väljer du **en gång**. 
+3. För **schema datum (obligatoriskt)** anger du datumet eller väljer Kalender ikonen för att välja ett datum. 
+4. För **Start tid**väljer du den tid då du vill att de virtuella datorerna ska starta. Start tiden måste anges om stopp tiden inte har angetts. Välj **ta bort start händelse** om du bara vill ange stopp tiden. Om **Start tiden** är inaktive rad väljer du **Lägg till Start händelse** bredvid den nedrullningsbara listan för att aktivera det. 
+5. För **stopp tid**väljer du den tid då du vill att de virtuella datorerna ska stängas av. Stopp tiden måste anges om start tiden inte har angetts. Välj **ta bort stopp händelse** om du bara vill ange start tiden. Om **stopp tiden** är inaktive rad väljer du **Lägg till stopp händelse** bredvid List rutan för att aktivera det.
+6. För **tidszon (krävs)** väljer du tids zonen för start-och stopp tider som du har angett. 
+7. För **anteckningar**anger du en beskrivning eller information om schemat. 
 8. Välj **Spara**. 
 
-    ![Onetime schema](../media/how-to-create-schedules/add-schedule-page.png)
+    ![Databasmigrering-schema](../media/how-to-create-schedules/add-schedule-page.png)
 
-## <a name="add-a-recurring-schedule-weekly"></a>Lägg till ett återkommande schema (varje vecka)
+## <a name="add-a-recurring-schedule-weekly"></a>Lägg till ett återkommande schema (veckovis)
 
-1. Växla till den **scheman** och välj **Lägg till schema** i verktygsfältet. 
+1. Växla till sidan **scheman** och välj **Lägg till schema** i verktygsfältet. 
 
-    ![Lägg till schemaknapp på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
-2. På den **Lägg till schema** växlar du till **veckovisa** högst upp. 
-3. För **schemalägga dagar (obligatoriskt)** , Välj de dagar som du vill att schemat ska börja gälla. I följande exempel, har måndag – fredag valts. 
-4. För den **från** fältet, anger du den **schemalägga startdatum** eller välj ett datum genom att välja den **kalender** knappen. Det här fältet är obligatoriskt. 
-5. För **det schemalagda slutdatumet**anger eller väljer ett slutdatum där de virtuella datorerna är stängs av. 
-6. För **starttid**, väljer du den tid då du vill att de virtuella datorerna startas. Starttiden är obligatorisk om sluttid har angetts. Välj **Remove Starthändelse** om du vill ange endast sluttid. Om den **starttid** är inaktiverat, Välj **Lägg till Starthändelse** bredvid listrutan så att den. 
-7. För **stopptid**, väljer du den tid då du vill att de virtuella datorerna ska stängas. Sluttid krävs om starttiden inte anges. Välj **händelsen för ta bort stoppa** om du vill ange endast starttid. Om den **stopptid** är inaktiverat, Välj **Lägg till Stoppa händelse** bredvid listrutan så att den.
-8. För **tidszon (krävs)** , Välj tidszon för start och stopptider som du har angett.  
-9. För **anteckningar**, ange en beskrivning av eller anteckningar för schemat. 
+    ![Knappen Lägg till schema på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
+2. På sidan **Lägg till schema** växlar du till **veckovis** överst. 
+3. I **schema dagar (obligatoriskt)** väljer du de dagar som du vill att schemat ska börja gälla. I följande exempel är måndag-fredag markerat. 
+4. I fältet **från** anger du schemats **start datum** eller väljer ett datum genom att välja knappen **kalender** . Det här fältet är obligatoriskt. 
+5. För **schema slutdatum**anger eller väljer du ett slutdatum som de virtuella datorerna ska stängas av. 
+6. För **Start tid**väljer du den tid då du vill att de virtuella datorerna ska startas. Start tiden måste anges om stopp tiden inte har angetts. Välj **ta bort start händelse** om du bara vill ange stopp tiden. Om **Start tiden** är inaktive rad väljer du **Lägg till Start händelse** bredvid den nedrullningsbara listan för att aktivera det. 
+7. För **stopp tid**väljer du den tid då du vill att de virtuella datorerna ska stängas av. Stopp tiden måste anges om start tiden inte har angetts. Välj **ta bort stopp händelse** om du bara vill ange start tiden. Om **stopp tiden** är inaktive rad väljer du **Lägg till stopp händelse** bredvid List rutan för att aktivera det.
+8. För **tidszon (krävs)** väljer du tids zonen för start-och stopp tider som du har angett.  
+9. För **anteckningar**anger du en beskrivning eller information om schemat. 
 10. Välj **Spara**. 
 
-    ![Schema för veckovis](../media/how-to-create-schedules/add-schedule-page-weekly.png)
+    ![Vecko schema](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
-## <a name="view-schedules-in-calendar"></a>Visa scheman i kalender
-Du kan se schemalagda datum och tider som markerats i kalendervyn, enligt följande bild:
+## <a name="view-schedules-in-calendar"></a>Visa scheman i kalendern
+Du kan se schemalagda datum och tider som marker ATS i vyn Kalender enligt följande bild:
 
-![Scheman i kalendervyn](../media/how-to-create-schedules/schedules-in-calendar.png)
+![Scheman i vyn Kalender](../media/how-to-create-schedules/schedules-in-calendar.png)
 
-Välj den **idag** i det övre högra hörnet att växla till aktuellt datum i kalendern. Välj **VÄNSTERPIL** att växla till föregående vecka och **högerpilen** att växla till nästa vecka i kalendern. 
+Välj knappen **idag** i det övre högra hörnet för att växla till det aktuella datumet i kalendern. Välj **vänsterpilen** för att växla till föregående **vecka och HÖGERPIL** för att växla till nästa vecka i kalendern. 
 
 ## <a name="edit-a-schedule"></a>Redigera ett schema
-När du dubbelklickar på enligt ett schema som är markerade i kalendern eller Välj den **penna** knappen i verktygsfältet, visas den **Redigera schema** sidan. Uppdaterar inställningarna på den här sidan är samma som uppdaterar inställningarna i den **Lägg till schema** sidan enligt beskrivningen i den [lägga till ett återkommande schema](#add-a-recurring-schedule-weekly) avsnittet. 
+När du dubbelklickar på ett markerat schema i kalendern eller väljer **Penn** knappen i verktygsfältet visas sidan **Redigera schema** . Att uppdatera inställningarna på den här sidan är samma som att uppdatera inställningarna på sidan **Lägg till schema** enligt beskrivningen i avsnittet [Lägg till ett återkommande schema](#add-a-recurring-schedule-weekly) . 
 
-![Redigera schemasidan](../media/how-to-create-schedules/edit-schedule-page.png)
+![Sidan Redigera schema](../media/how-to-create-schedules/edit-schedule-page.png)
 
 ## <a name="delete-a-schedule"></a>Ta bort ett schema
 
-1. Välj Papperskorgen om du vill ta bort ett schema (ta bort) i verktygsfältet, enligt följande bild:
+1. Om du vill ta bort ett schema väljer du knappen pappers korg (ta bort) i verktygsfältet, som du ser i följande bild:
 
-    ![Ta bort i verktygsfältet](../media/how-to-create-schedules/delete-schedule-button.png)
+    ![Knappen Ta bort i verktygsfältet](../media/how-to-create-schedules/delete-schedule-button.png)
 
-    Du kan använda knappen Ta bort för alla schemalagda datum och tider i kalendern och välj **ta bort**. 
-2. På den **ta bort scheman** väljer **Ja**.
+    Du kan använda knappen Ta bort för schemalagda datum och tider i kalendern och välja **ta bort**. 
+2. På sidan **ta bort scheman** väljer du **Ja**.
 
-    ![Ta bort scheman bekräftelse](../media/how-to-create-schedules/delete-schedules-confirmation.png)
+    ![Bekräftelse av borttagnings scheman](../media/how-to-create-schedules/delete-schedules-confirmation.png)
 
 
 
@@ -90,4 +90,4 @@ Se följande artiklar:
 - [Skapa och hantera labbkonton som administratör](how-to-manage-lab-accounts.md)
 - [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
 - [Konfigurera och kontroller användning av ett labb som labbägare](how-to-configure-student-usage.md)
-- [Som en lab-användare åtkomst till labb för klassrum](how-to-use-classroom-lab.md)
+- [Som labb användare, åtkomst till klass rum labb](how-to-use-classroom-lab.md)

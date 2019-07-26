@@ -1,59 +1,53 @@
 ---
 title: Vad är Azure Cloud Services | Microsoft Docs
-description: Veta mer om Azure Cloud Services.
+description: Lär dig mer om vad Azure Cloud Services är.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
+author: georgewallace
 ms.service: multiple
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 61369d51056607d8176d301afa945c7c77895b12
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337532"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359702"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Översikt över Azure Cloud Services
-Azure Cloud Services är ett exempel på en [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Som [Azure App Service](../app-service/overview.md), den här tekniken är utformad för att stödja program som är skalbara, tillförlitliga och billiga att hantera. På samma sätt som att App Service finns på virtuella datorer (VM), så är för Azure Cloud Services. Du kan dock mer kontroll över de virtuella datorerna. Du kan installera din egen programvara på virtuella datorer som använder Azure Cloud Services och du kan komma åt dem via en fjärranslutning.
+Azure Cloud Services är ett exempel på en [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Precis som [Azure App Service](../app-service/overview.md)är den här tekniken utformad för att stödja program som är skalbara, tillförlitliga och billiga att fungera. På samma sätt som App Service finns på virtuella datorer (VM: ar) så är det också för Azure Cloud Services. Men du har större kontroll över de virtuella datorerna. Du kan installera din egen program vara på virtuella datorer som använder Azure Cloud Services och du kan komma åt dem via en fjärr anslutning.
 
 ![Azure Cloud Services-diagram](./media/cloud-services-choose-me/diagram.png)
 
-Mer kontroll innebär även mindre användarvänlighet. Om du inte behöver alternativ för ytterligare kontroll, det är normalt snabbare och enklare att få ett webbprogram och som körs i Web Apps-funktionen i App Service jämfört med Azure molntjänster.
+Mer kontroll innebär också mindre enkel användning. Om du inte behöver de ytterligare kontroll alternativen är det vanligt vis snabbare och enklare att komma igång med ett webb program i Web Apps funktionen i App Service jämfört med Azure Cloud Services.
 
 Det finns två typer av Azure Cloud Services-roller. Den enda skillnaden mellan två är hur din roll finns på de virtuella datorerna:
 
-* **Webbroll**: Distribuerar och är värd för din app via IIS automatiskt.
+* **Webb roll**: Distribuerar och är värd för din app automatiskt via IIS.
 
-* **Arbetsroll**: Använder inte IIS och kör din app fristående.
+* **Arbets roll**: Använder inte IIS och kör fristående app.
 
-Ett enkelt program kan exempelvis använda bara en enda web-roll, som en webbplats. Ett mer komplext program kan använda en webbroll för att hantera inkommande begäranden från användare och skicka dessa begäranden till en arbetsroll för bearbetning. (Den här kommunikationen kan använda [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) eller [Azure Queue storage](../storage/common/storage-introduction.md).)
+Ett enkelt program kan till exempel bara använda en enda webb roll som betjänar en webbplats. Ett mer komplext program kan använda en webb roll för att hantera inkommande begär Anden från användare och sedan skicka dessa förfrågningar till en arbets roll för bearbetning. (Den här kommunikationen kan använda [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) eller [Azure Queue Storage](../storage/common/storage-introduction.md).)
 
-Som bilden ovan antyder kör alla virtuella datorer i ett enda program i samma molntjänst. Användare åtkomst till programmet via en enda offentlig IP-adress med begäranden läsa in balanserade över programmets virtuella datorer. Plattformen [kan skalas och distribuerar](cloud-services-how-to-scale-portal.md) de virtuella datorerna i ett Azure Cloud Services-program på ett sätt som förhindrar en enskild felpunkt maskinvara.
+Som föregående bild föreslår alla virtuella datorer i ett enda program i samma moln tjänst. Användare får åtkomst till programmet via en enskild offentlig IP-adress, med begär Anden som automatiskt belastnings utjämning i programmets virtuella datorer. Plattformen [skalar och distribuerar](cloud-services-how-to-scale-portal.md) de virtuella datorerna i ett Azure Cloud Services-program på ett sätt som gör det möjligt att undvika en enskild maskin varu krasch.
 
-Trots att program körs i virtuella datorer, är det viktigt att förstå att Azure molntjänster erbjuder PaaS, inte infrastruktur som en tjänst (IaaS). Här är ett sätt att tänka på den. Med IaaS, till exempel Azure Virtual Machines kan du först skapa och konfigurera ditt program körs i miljön. Sedan distribuerar du programmet till den här miljön. Du är ansvarig för att hantera mycket av den här världen genom att göra sådant som att distribuera nya mest uppdaterade versioner av operativsystemet på varje virtuell dator. I PaaS är det däremot som om miljön redan finns. Allt du behöver göra är att distribuera ditt program. Hantering av plattformen den körs på, inklusive distribution av nya versioner av operativsystemet, hanteras åt dig.
+Även om program körs på virtuella datorer är det viktigt att förstå att Azure Cloud Services tillhandahåller PaaS, inte infrastruktur som en tjänst (IaaS). Här är ett sätt att tänka på det. Med IaaS, till exempel Azure Virtual Machines, skapar du först och konfigurerar miljön som programmet körs i. Sedan distribuerar du ditt program till den här miljön. Du ansvarar för att hantera mycket av den här världen, genom att göra saker som att distribuera nya versioner av operativ systemet i varje virtuell dator. I PaaS är det däremot som om miljön redan finns. Allt du behöver göra är att distribuera ditt program. Hantering av den plattform som den körs på, inklusive distribution av nya versioner av operativ systemet, hanteras åt dig.
 
 ## <a name="scaling-and-management"></a>Skalning och hantering
-Med Azure Cloud Services, kan du inte skapa virtuella datorer. Istället tillhandahåller du en konfigurationsfil som meddelar Azure hur många av var du vill, till exempel ”den tre webbrollinstanserna” och ”två arbetsrollinstanser”. Plattformen skapar sedan dem åt dig. Du fortfarande välja [vilken storlek](cloud-services-sizes-specs.md) de säkerhetskopiering av virtuella datorer ska vara, men du inte uttryckligen skapa dem själv. Om programmet behöver för att hantera ett större belastning, kan du be fler virtuella datorer och Azure skapar dessa instanser. Om belastningen minskar, kan du stänga av dessa instanser och stoppa betala för dem.
+Med Azure Cloud Services skapar du inte virtuella datorer. I stället kan du ange en konfigurations fil som talar om för Azure hur många av vart som helst, till exempel "tre webb Rolls instanser" och "två arbets Rolls instanser". Plattformen skapar sedan dem åt dig. Du kan fortfarande välja [vilken storlek](cloud-services-sizes-specs.md) som de virtuella datorerna ska vara, men du behöver inte uttryckligen skapa dem själv. Om ditt program behöver hantera en större belastning kan du be om fler virtuella datorer och Azure skapar dessa instanser. Om belastningen minskar kan du stänga av instanserna och sluta betala för dem.
 
-Ett Azure Cloud Services-program är vanligtvis göras tillgängliga för användare via en tvåstegsprocess. En utvecklare första [laddar upp programmet](cloud-services-how-to-create-deploy-portal.md) till plattformens mellanlagringsområde. När utvecklaren kan se programmet live, de använder Azure-portalen för att växla mellan mellanlagring med produktion. Detta [växlar du mellan mellanlagring och produktion](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production) kan göras utan avbrott, vilket gör att ett program som körs uppgraderas till en ny version utan att störa dess användare.
+Ett Azure Cloud Services-program görs vanligt vis tillgängligt för användare via en två stegs process. En utvecklare [överför först programmet](cloud-services-how-to-create-deploy-portal.md) till plattformens mellanlagringsområde. När utvecklaren är redo att göra programmet Live använder de Azure Portal för att växla mellan mellanlagring med produktion. Den här [växeln mellan mellanlagring och produktion](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production) kan göras utan avbrott, vilket gör att ett program som körs kan uppgraderas till en ny version utan att användarna störs.
 
 ## <a name="monitoring"></a>Övervakning
-Azure Cloud Services tillhandahåller också övervakning. Precis som virtuella datorer, den identifierar en fysisk server som inte och startar om de virtuella datorer som kördes på servern på en ny dator. Men Azure Cloud Services identifierar också misslyckade virtuella datorer och program, inte bara maskinvarufel. Den har en agent i varje webb- och worker-roll till skillnad från virtuella datorer, och det är därför starta nya virtuella datorer och instanser av programmet när fel uppstår.
+Azure Cloud Services tillhandahåller också övervakning. Precis som Virtual Machines identifierar den en felaktig fysisk server och startar om de virtuella datorer som kördes på den servern på en ny dator. Men Azure Cloud Services identifierar även misslyckade virtuella datorer och program, inte bara maskin varu fel. Till skillnad från Virtual Machines har den en agent i varje webb-och arbets roll och kan därför starta nya virtuella datorer och program instanser när fel inträffar.
 
-PaaS-typen av Azure Cloud Services har för andra effekter. En av de viktigaste är att program som bygger på den här tekniken ska skrivas till fungerar korrekt när alla web- eller worker-rollinstans misslyckas. För att uppnå detta bör inte ett Azure Cloud Services-program har tillstånd i filsystemet för dess egna virtuella datorer. Till skillnad från virtuella datorer som skapas med virtuella datorer, inte skrivningar som görs till virtuella datorer i Azure Cloud Services är permanent. Det är något som en datadisk för virtuella datorer. I stället ett Azure Cloud Services-program bör uttryckligen att skriva alla tillstånd till Azure SQL Database, blobbar, tabeller eller andra extern lagring. Att skapa program på så sätt blir det enklare att skala och mer motståndskraftiga mot fel som är både viktiga mål för Azure Cloud Services.
+PaaS-karaktären hos Azure Cloud Services har också andra konsekvenser. En av de viktigaste är att program som bygger på den här tekniken skrivs för att köras korrekt när en webb-eller arbets roll instans Miss lyckas. För att uppnå detta bör ett Azure Cloud Services-program inte behålla tillstånd i fil systemet på sina egna virtuella datorer. Till skillnad från virtuella datorer som har skapats med Virtual Machines, är skrivningar som gjorts till Azure Cloud Services VM: ar inte permanenta. Det finns inget som Virtual Machines data disk. I stället bör ett Azure Cloud Services-program explicit skriva alla tillstånd till Azure SQL Database, blobbar, tabeller eller någon annan extern lagrings plats. Genom att skapa program på det här sättet blir det enklare att skala och mer motstånds kraft mot haverier, som är både viktiga mål för Azure Cloud Services.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa en molntjänstapp i .NET](cloud-services-dotnet-get-started.md) 
-* [Skapa en molntjänstapp i Node.js](cloud-services-nodejs-develop-deploy-app.md) 
-* [Skapa en molntjänstapp i PHP](../cloud-services-php-create-web-role.md) 
-* [Skapa en molntjänstapp i Python](cloud-services-python-ptvs.md)
+* [Skapa en Cloud Service-app i .NET](cloud-services-dotnet-get-started.md) 
+* [Skapa en Cloud Service-app i Node. js](cloud-services-nodejs-develop-deploy-app.md) 
+* [Skapa en Cloud Service-app i PHP](../cloud-services-php-create-web-role.md) 
+* [Skapa en Cloud Service-app i python](cloud-services-python-ptvs.md)
 
 
 

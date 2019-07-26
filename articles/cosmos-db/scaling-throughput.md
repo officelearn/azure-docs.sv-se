@@ -1,44 +1,44 @@
 ---
-title: Skalning av dataflöden i Azure Cosmos DB
-description: Den här artikeln beskriver hur Azure Cosmos DB kan skalas dataflöde Elastiskt
+title: Skala data flöde i Azure Cosmos DB
+description: I den här artikeln beskrivs hur Azure Cosmos DB skalar data flödet elastiskt
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f930b5c478cc880952b4559be4c6647b260efcf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29a92f04a1d36004fa082bfafe2310f9e0e3e5c6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243496"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467608"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Skala etablerat dataflöde globalt 
 
-I Azure Cosmos DB, etablerat dataflöde representeras som begäran begärandeenheter/sekund (RU/s eller pluralform ru: er). RU: er mäta kostnaden för både läs- och skrivåtgärder mot din Cosmos-behållare som du ser i följande bild:
+I Azure Cosmos DB representeras det etablerade data flödet som begär ande enheter per sekund (RU/s eller plural form ru: er). Ru: er mäter kostnaden för både Läs-och skriv åtgärder mot din Cosmos-behållare som visas i följande bild:
 
-![Enheter för programbegäran](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
+![Begäransenheter](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
-Du kan etablera ru: er i en Cosmos-behållare eller en Cosmos-databas. RU som etableras i en behållare är endast tillgängligt för de åtgärder som utförs på den behållaren. RU som etableras för en databas delas mellan alla behållare i databasen (förutom för alla behållare som exklusivt tilldelade ru: er).
+Du kan etablera ru: er på en Cosmos-behållare eller en Cosmos-databas. Ru: er som har allokerats på en behållare är exklusivt tillgängliga för de åtgärder som utförs på behållaren. Ru: er som har allokerats på en databas delas av alla behållare i databasen (utom för behållare med exklusivt tilldelade ru: er).
 
-För att skala Elastiskt dataflöde, kan du öka eller minska etablerade RU/s när som helst. Mer information finns i [How-to etablera dataflöde](set-throughput.md) och för att skala Cosmos-behållare och databaser. Globalt skalning av dataflöde, kan du lägga till eller ta bort regioner från ditt Cosmos-konto när som helst. Mer information finns i [Lägg till/ta bort regioner från ditt databaskonto](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associera flera regioner med ett Cosmos-konto är viktigt i många scenarier – få kort svarstid och [hög tillgänglighet](high-availability.md) runt om i världen.
+För elastisk skalning av allokerat data flöde kan du när som helst öka eller minska de etablerade RU/s. Mer information finns i [How-to-](set-throughput.md) Restore data flöde och för elastisk skalning av Cosmos-behållare och databaser. För globalt skalnings data flöde kan du när som helst lägga till eller ta bort regioner från ditt Cosmos-konto. Mer information finns i [Lägg till/ta bort regioner från ditt databas konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Att associera flera regioner med ett Cosmos-konto är viktigt i många scenarion – för att uppnå låg latens och [hög tillgänglighet](high-availability.md) runtom i världen.
 
-## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>hur etablerade dataflödet som distribueras i flera regioner
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Hur det etablerade data flödet distribueras mellan regioner
 
-Om du etablerar *”R”* ru: er på en Cosmos-behållare (eller databas), Cosmos DB garanterar att *”R”* ru: er är tillgängliga i *varje* region som är associerade med ditt Cosmos-konto. Varje gång du lägger till en ny region till ditt konto, Cosmos DB automatiskt etablerar *”R”* ru: er i regionen nyligen tillagda. De åtgärder som utförs mot din Cosmos-behållare är garanterade att hämta *”R”* ru: er i varje region. Du kan inte selektivt tilldela ru: er i en specifik region. RU som etableras i en Cosmos-behållare (eller databas) har etablerats i alla regioner som är associerat med ditt Cosmos-konto.
+Om du etablerar *r* -ru: er på en Cosmos-behållare (eller databas) säkerställer Cosmos DB att *R* -ru: er är tillgängliga i *varje* region som är kopplad till ditt Cosmos-konto. Varje gången du lägger till en ny region i ditt konto, Cosmos DB automatiskt *"R"* -ru: er i den nyligen tillagda regionen. De åtgärder som utförs mot din Cosmos-behållare garanterar att du kan hämta *R* -ru: er i varje region. Du kan inte selektivt tilldela ru: er till en speciell region. Ru: er som har tillhandahållits på en Cosmos-behållare (eller databas) är etablerade i alla regioner som är kopplade till ditt Cosmos-konto.
 
-Om vi antar att en Cosmos-behållare har konfigurerats med *”R”* ru: er och det finns *n* regioner som associeras med Cosmos-kontot, sedan:
+Förutsatt att en Cosmos-behållare har kon figurer ATS med *"R"* -ru: er och det finns *' N '* regioner kopplade till Cosmos-kontot, så:
 
-- Om Cosmos-konto har konfigurerats med en enda skrivregionen, totalt antal ru globalt på behållaren = *R* x *N*.
+- Om Cosmos-kontot har kon figurer ATS med en enda Skriv region, är det totala ru: er tillgängligt globalt på behållaren = *R* x *N*.
 
-- Om Cosmos-konto har konfigurerats med flera Skriv-regioner, totalt antal ru globalt på behållaren = *R* x (*N*+ 1). De ytterligare *R* ru: er som automatiskt tilldelas processen Uppdateringskonflikter och anti entropi trafik över regionerna.
+- Om Cosmos-kontot har kon figurer ATS med flera Skriv regioner, är den totala ru: er tillgänglig globalt på behållaren = *R* x (*N*+ 1). Ytterligare *R* -ru: er tillhandahålls automatiskt för att bearbeta uppdaterings konflikter och trafikentropi trafik i regionerna.
 
-Ditt val av [konsekvensmodell](consistency-levels.md) påverkar också dataflödet. Du kan få cirka 2 x läsningsgenomströmning som är mindre konsekvensnivåer (t.ex. *session*, *konsekvent prefix* och *slutlig* konsekvens) jämfört med starkare konsekvensnivåer (t.ex. *begränsad föråldring* eller *stark* konsekvens).
+Ditt val av [konsekvens modell](consistency-levels.md) påverkar också data flödet. Du kan hämta ungefär 2x-lästa data flöden för mer avslappnad konsekvens nivåer (t. ex. *session*, *konsekvent prefix* och *eventuell* konsekvens) jämfört med starkare konsekvens nivåer (t. ex. avgränsad föråldrad eller   *stark* konsekvens).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter kan du lära dig hur du konfigurerar dataflöde på en behållare eller databasen:
+Härnäst kan du lära dig hur du konfigurerar data flödet på en behållare eller databas:
 
-* [Hämta och ange dataflöde för behållare och databaser](set-throughput.md) 
+* [Hämta och ange data flöde för behållare och databaser](set-throughput.md) 
 

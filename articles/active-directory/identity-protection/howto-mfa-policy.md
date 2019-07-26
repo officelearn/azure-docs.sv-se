@@ -1,69 +1,73 @@
 ---
-title: Så här konfigurerar du registreringsprincip för multi-Factor authentication i Azure Active Directory Identity Protection | Microsoft Docs
-description: Lär dig hur du konfigurerar registreringsprincip för multifaktorautentisering i Azure AD Identity Protection.
+title: Så här konfigurerar du principen för Multi-Factor Authentication-registrering i Azure Active Directory Identity Protection | Microsoft Docs
+description: Lär dig hur du konfigurerar registrerings principen för Azure AD Identity Protection Multi-Factor Authentication.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2019
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 434d07163713a139b42a5dbe1664f81dafc2a1ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108942"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499565"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instruktioner: Konfigurera Azure Multi-Factor Authentication-registreringsprincip
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instruktioner: Konfigurera registrerings principen för Azure Multi-Factor Authentication
 
-Azure AD Identity Protection hjälper dig att hantera lansering av registrering för multifaktorautentisering (MFA) genom att konfigurera en princip för villkorlig åtkomst för att kräva MFA-registrering oavsett vilken app du loggar in på. Den här artikeln förklarar vad principen kan användas för och hur du konfigurerar den.
+Azure AD Identity Protection hjälper dig att hantera distributionen av Multi-Factor Authentication-registrering (MFA) genom att konfigurera en princip för villkorlig åtkomst för att kräva MFA-registrering oavsett vilken modern app för autentisering som du loggar in på. Den här artikeln förklarar vad principen kan användas för och hur du konfigurerar den.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Vad är Azure Multi-Factor Authentication-registreringsprincip?
 
-Azure Multi-Factor Authentication ger ett sätt att verifiera vem du använder mer än bara ett användarnamn och lösenord. Det ger ett andra säkerhetslager till användarinloggningar. För att användare ska kunna svara på förfrågningar för MFA, måste de först registrera för Azure Multi-Factor Authentication.
 
-Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användarinloggningar eftersom den:
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Vad är en registrerings princip för Azure Multi-Factor Authentication?
 
-- Du får stark autentisering med en rad enkla verifieringsalternativ
-- Spelar en viktig roll i att förbereda din organisation för att skydda och återställa från riskhändelser på Identity Protection
+Med Azure Multi-Factor Authentication kan du verifiera vem du använder mer än bara ett användar namn och lösen ord. Det innehåller ett andra säkerhets lager för användar inloggningar. För att användarna ska kunna svara på MFA-prompter måste de först registrera sig för Azure Multi-Factor Authentication.
 
-Mer information om MFA finns i [vad är Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
+Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användar inloggningar eftersom det:
 
-## <a name="how-do-i-access-the-registration-policy"></a>Hur kommer jag åt registrering?
+- Ger stark autentisering med en rad enkla verifierings alternativ
+- Spelar en viktig roll i förbereda din organisation för att skydda och återställa från risk händelser i identitets skydd
 
-MFA-registreringsprincip finns i den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+Mer information om MFA finns i [Vad är Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
-![MFA-principen](./media/howto-mfa-policy/1014.png)
+## <a name="how-do-i-access-the-registration-policy"></a>Hur gör jag för att åtkomst till registrerings principen?
+
+Principen för MFA-registreringen finns i avsnittet **Konfigurera** på [sidan Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+
+![MFA-princip](./media/howto-mfa-policy/1014.png)
 
 ## <a name="policy-settings"></a>Principinställningar
 
-När du konfigurerar MFA-registreringsprincip, måste du göra följande ändringar i konfigurationen:
+När du konfigurerar MFA-registrerings principen måste du göra följande ändringar i konfigurationen:
 
-- Användare och grupper som principen gäller för. Kom ihåg att undanta organisationens [för åtkomst vid akutfall](../users-groups-roles/directory-emergency-access.md).
+- De användare och grupper som principen gäller för. Kom ihåg att undanta din organisations [konto för nöd åtkomst](../users-groups-roles/directory-emergency-access.md).
 
     ![Användare och grupper](./media/howto-mfa-policy/11.png)
 
-- Den kontroll som du vill framtvinga - **kräver Azure MFA-registrering**
+- Den kontroll som du vill genomdriva – **kräver Azure MFA-registrering**
 
-    ![Access](./media/howto-mfa-policy/12.png)
+    ![Åtkomst](./media/howto-mfa-policy/12.png)
 
-- Framtvinga princip ska vara inställd på **på**.
+- Tvinga fram princip ska vara inställt **på on**.
 
     ![Tillämpa princip](./media/howto-mfa-policy/14.png)
 
-- **Spara** din princip
+- **Spara** principen
 
 ## <a name="user-experience"></a>Användarupplevelse
 
-En översikt över relaterade användarupplevelsen finns:
+Azure Active Directory Identity Protection uppmanas användarna att registrera sig nästa gången de loggar in interaktivt.
 
-- [Flöde för registrering av multifaktorautentisering](flows.md#multi-factor-authentication-registration).  
-- [Logga in som inträffar med Azure AD Identity Protection](flows.md).  
+En översikt över den relaterade användar upplevelsen finns i:
+
+- [Registrerings flöde för Multi-Factor Authentication](flows.md#multi-factor-authentication-registration).  
+- [Inloggnings upplevelser med Azure AD Identity Protection](flows.md).  
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att få en översikt över Azure AD Identity Protection kan se den [översikt över Azure AD Identity Protection](overview.md).
+För att få en översikt över Azure AD Identity Protection, se [Översikt över Azure AD Identity Protection](overview.md).

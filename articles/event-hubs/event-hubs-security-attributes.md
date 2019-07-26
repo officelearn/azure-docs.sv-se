@@ -1,6 +1,6 @@
 ---
-title: Vanliga säkerhetsattribut för Azure Event Hubs
-description: En lista med vanliga security attribut för att utvärdera Azure Event Hubs
+title: Säkerhetsattribut för Azure Event Hubs
+description: En check lista över säkerhetsattribut för utvärdering av Azure-Event Hubs
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -9,61 +9,61 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50f19d50f211972c2042c69a1e3177ffb4a47624
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2262609de774eb2b1334215bf46968b5554ed691
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247206"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442457"
 ---
-# <a name="common-security-attributes-for-azure-event-hubs"></a>Vanliga säkerhetsattribut för Azure Event Hubs
+# <a name="security-attributes-for-azure-event-hubs"></a>Säkerhetsattribut för Azure Event Hubs
 
-Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Event Hubs.
+I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Azure Event Hubs.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 ## <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>|  Ja | |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Nej |  |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
-| API-anrop som är krypterad| Ja |  |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner)|  Ja | |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja |  |
 
-## <a name="network-segmentation"></a>Nätverkssegmentering
+## <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja |  |
-| vNET-stöd för inmatning| Nej | |
-| Isolering av nätverk och brandväggsfunktioner support| Ja |  |
-| Tvingad tunneltrafik support| Nej |  |
+| Stöd för tjänst slut punkt| Ja |  |
+| Stöd för VNet-injektering| Nej | |
+| Stöd för nätverks isolering och brand vägg| Ja |  |
+| Stöd för Tvingad tunnel trafik| Nej |  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | |
-| Auktorisering|  Ja | |
+| Authentication| Ja | |
+| Authorization|  Ja | |
 
 
-## <a name="audit-trail"></a>Granskningslogg
+## <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja |  |
-| Data plan loggning och granskning| Ja |   |
+| Loggning och granskning av kontroll-och hanterings plan| Ja |  |
+| Loggning och granskning av data planet| Ja |   |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | |

@@ -1,64 +1,61 @@
 ---
-title: Hur du avblockerar användare med Azure Active Directory Identity Protection | Microsoft Docs
-description: Lär dig hur avblockera användare som har blockerats av en Azure Active Directory Identity Protection-princip.
+title: Så här avblockerar du användare med Azure Active Directory Identity Protection | Microsoft Docs
+description: Lär dig hur du avblockerar användare som blockerats av en Azure Active Directory Identity Protection-princip.
 services: active-directory
-keywords: Azure active directory identity protection kan avblockera användare
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294435"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335373"
 ---
 # <a name="how-to-unblock-users"></a>Instruktioner: Avblockera användare
 
-Med Azure Active Directory Identity Protection kan konfigurera du principer för att blockera användare om de angivna villkoren är uppfyllda. Vanligtvis en blockerad användare kontakter supportavdelningen att bli avblockerad. Den här artikeln beskrivs de steg som du kan utföra för att låsa upp en blockerad användare.
+Med Azure Active Directory Identity Protection kan du konfigurera principer för att blockera användare om de konfigurerade villkoren är uppfyllda. Vanligt vis kan en blockerad användare Kontakta supportavdelningen för att bli avblockerad. I den här artikeln beskrivs de steg du kan utföra för att avblockera en blockerad användare.
 
-## <a name="determine-the-reason-for-blocking"></a>Ta reda på varför för blockering
-Som ett första steg för att avblockera en användare, måste du bestämmer vilken typ av princip som har blockerats användaren eftersom nästa steg är beroende av den.
-Med Azure Active Directory Identity Protection, kan en användare antingen blockeras av en princip för inloggninsrisk- eller en princip för användarrisk.
+## <a name="determine-the-reason-for-blocking"></a>Ta reda på orsaken till blockeringen
 
-Du kan få typ av princip som har blockerat en användare från rubriken i den dialogruta som angavs för användaren under en inloggningsförsök:
+Som ett första steg för att avblockera en användare måste du bestämma vilken typ av princip som har blockerat användaren, eftersom nästa steg är beroende av den.
+Med Azure Active Directory Identity Protection kan en användare antingen blockeras av en inloggnings risk princip eller en användar risk princip.
 
-| Princip | Användardialogrutan |
+Du kan hämta den typ av princip som har blockerat en användare från rubriken i dialog rutan som visas för användaren under ett inloggnings försök:
+
+| Princip | Användar dialog ruta |
 | --- | --- |
-| Inloggningsrisk |![Blockerade inloggning](./media/howto-unblock-user/02.png) |
-| Användarrisk |![Blockerade konto](./media/howto-unblock-user/104.png) |
+| Inloggningsrisk |![Blockerad inloggning](./media/howto-unblock-user/02.png) |
+| Användarrisk |![Blockerat konto](./media/howto-unblock-user/104.png) |
 
-En användare som har blockerats av:
+En användare som blockeras av:
 
-* En princip för inloggningsrisk är även känd som misstänkt inloggning
-* En princip för användarrisk kallas även för ett konto i fara
+* En inloggnings risk princip kallas även misstänkt inloggning
+* En användar risk princip kallas även ett konto vid risk
 
 ## <a name="unblocking-suspicious-sign-ins"></a>Avblockera misstänkta inloggningar
-För att låsa upp en misstänkt inloggning, har du följande alternativ:
 
-1. **Logga in från en bekant plats eller enhet** – en vanlig orsak till blockerade misstänkta inloggningar är inloggningsförsök från okända platser eller enheter. Användarna kan snabbt se om detta är orsaken till blockerar genom att logga in från en bekant plats eller enhet.
-2. **Undanta från principen** – om du tror att den aktuella konfigurationen av din inloggningsprincip orsakar problem för specifika användare, du kan undanta användare från den. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-3. **Inaktivera principen** – om du tycker att din principkonfiguration orsakar problem för alla användare kan du inaktivera principen. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Om du vill avblockera en misstänkt inloggning har du följande alternativ:
 
-## <a name="unblocking-accounts-at-risk"></a>Avblockera konton i risk
-För att låsa upp ett konto i fara, har du följande alternativ:
+1. **Logga in från en välbekant plats eller enhet** – en vanlig orsak till blockerade misstänkta inloggningar är inloggnings försök från okända platser eller enheter. Användarna kan snabbt avgöra om detta är den spärrnings orsaken genom att försöka logga in från en välbekant plats eller enhet.
+2. **Exkludera från princip** – om du tror att den aktuella konfigurationen av din inloggnings princip orsakar problem för specifika användare kan du undanta användarna från den. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+3. **Inaktivera princip** – om du tror att princip konfigurationen orsakar problem för alla dina användare kan du inaktivera principen. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
-1. **Återställ lösenord** – du kan återställa användarens lösenord. 
-2. **Stäng alla riskhändelser** – användaren risk principen blockerar en användare om den konfigurerade användaren risknivå för blockering av åtkomst har uppnåtts. Du kan minska en användare är risknivå manuellt stänger rapporterade riskhändelser. 
-3. **Undanta från principen** – om du tror att den aktuella konfigurationen av din inloggningsprincip orsakar problem för specifika användare, du kan undanta användare från den. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-4. **Inaktivera principen** – om du tycker att din principkonfiguration orsakar problem för alla användare kan du inaktivera principen. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+## <a name="unblocking-accounts-at-risk"></a>Avblockera konton i risk zonen
+
+Om du vill avblockera ett konto med risk har du följande alternativ:
+
+1. **Återställ lösen ord** – du kan återställa användarens lösen ord. 
+2. **Ignorera alla risk händelser** – användar risk principen blockerar en användare om den konfigurerade användar risk nivån för blockerad åtkomst har nåtts. Du kan minska risk nivån för en användare genom att manuellt stänga rapporterade risk händelser. 
+3. **Exkludera från princip** – om du tror att den aktuella konfigurationen av din inloggnings princip orsakar problem för specifika användare kan du undanta användarna från den. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+4. **Inaktivera princip** – om du tror att princip konfigurationen orsakar problem för alla dina användare kan du inaktivera principen. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="next-steps"></a>Nästa steg
  
-Vill du veta mer om Azure AD Identity Protection? Kolla in [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Vill du veta mer om Azure AD Identity Protection? Kolla [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).

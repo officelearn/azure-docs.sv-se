@@ -1,67 +1,66 @@
 ---
-title: 'Azure Backup: Övervaka Azure Backup skyddade arbetsbelastningar'
-description: Övervaka Azure Backup-arbetsbelastningar med hjälp av Azure portal
-services: backup
+title: 'Azure Backup: Övervaka Azure Backup skyddade arbets belastningar'
+description: Övervaka Azure Backup arbets belastningar med Azure Portal
 author: pvrk
 manager: shivamg
-keywords: Azure Backup; Aviseringar;
+keywords: Azure Backup; Aviseringar
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b41b32943aa0113a7653c8d2eb74fd04afb2e080
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236448"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465838"
 ---
-# <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup-arbetsbelastningar
+# <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup arbets belastningar
 
-Azure Backup innehåller flera lösningar för säkerhetskopiering baserat på säkerhetskopiering krav och infrastruktur topologin (lokalt eller Azure). Alla säkerhetskopierade användaren eller administratören bör se vad som händer i alla lösningar och förväntas bli meddelad i viktiga scenarier. Den här artikeln beskriver övervakning och avisering funktionerna i Azure Backup-tjänsten.
+Azure Backup innehåller flera säkerhets kopierings lösningar baserade på säkerhets kopierings kravet och infrastruktur sto pol Ogin (lokalt vs Azure). Alla säkerhets kopierings användare och administratörer bör se vad som händer på alla lösningar och som förväntas bli aviserad i viktiga scenarier. Den här artikeln beskriver de övervaknings-och aviserings funktioner som tillhandahålls av Azure Backups tjänsten.
 
-## <a name="backup-jobs-in-recovery-services-vault"></a>Säkerhetskopieringsjobb i Recovery Services-valv
+## <a name="backup-jobs-in-recovery-services-vault"></a>Säkerhets kopierings jobb i Recovery Services valvet
 
-Azure Backup innehåller inbyggd övervakning och aviseringsfunktioner för arbetsbelastningar som skyddas av Azure Backup. I Recovery Services-valv inställningar, den **övervakning** avsnittet innehåller inbyggd jobb och aviseringar.
+Azure Backup tillhandahåller inbyggda övervaknings-och aviserings funktioner för arbets belastningar som skyddas av Azure Backup. I inställningarna för Recovery Services valvet tillhandahåller **övervaknings** avsnittet inbyggda jobb och aviseringar.
 
-![RS valv inbyggd övervakning](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
+![Inbyggd RS-valv övervakning](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
 
-Jobb skapas när utförs åtgärder som till exempel konfigurera säkerhetskopiering, säkerhetskopiering, återställning, ta bort säkerhetskopia och så vidare.
+Jobb skapas när åtgärder som att konfigurera säkerhets kopiering, säkerhets kopiering, återställning, borttagning av säkerhets kopiering och så vidare utförs.
 
-Jobb från följande Azure Backup-lösningar visas här:
+Jobb från följande Azure Backup lösningar visas här:
 
   - Säkerhetskopiering av virtuell Azure-dator
-  - Azure säkerhetskopiering av filer
-  - Arbetsbelastning i Azure backup, till exempel SQL
+  - Säkerhets kopiering av Azure-filer
+  - Azures arbets belastnings säkerhets kopiering, till exempel SQL
   - Azure Backup-agent (MAB)
 
 Jobb från System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) visas inte.
 
 > [!NOTE]
-> Azure-arbetsbelastningar, till exempel SQL-säkerhetskopior i Azure virtuella datorer har stort antal säkerhetskopieringsjobb. Loggsäkerhetskopior kan till exempel köra för var 15: e minut. För sådana DB-arbetsbelastningar, därför visas bara utlöses användaråtgärder. Schemalagda säkerhetskopieringsåtgärder visas inte.
+> Azure-arbetsbelastningar som SQL-säkerhetskopieringar i virtuella Azure-datorer har ett stort antal säkerhets kopierings jobb. Logg säkerhets kopior kan till exempel köras under var 15: e minut. För sådana databas arbets belastningar visas därför bara åtgärder som utlöses av användaren. Schemalagda säkerhets kopierings åtgärder visas inte.
 
-## <a name="backup-alerts-in-recovery-services-vault"></a>Aviseringar om säkerhetskopiering i Recovery Services-valv
+## <a name="backup-alerts-in-recovery-services-vault"></a>Säkerhets kopierings aviseringar i Recovery Services valv
 
-Aviseringar är främst scenarier där användarna får en avisering så att de kan vidta relevanta åtgärder. Den **säkerhetskopiering aviseringar** visar aviseringar som genereras av Azure Backup-tjänsten. Dessa aviseringar definieras av tjänsten och användare kan inte anpassade skapa några aviseringar.
+Aviseringar är främst scenarier där användare meddelas så att de kan vidta relevanta åtgärder. Avsnittet om **säkerhets kopierings aviseringar** visar aviseringar som genererats av tjänsten Azure Backup. De här aviseringarna definieras av tjänsten och användaren kan inte anpassa skapandet av aviseringar.
 
-### <a name="alert-scenarios"></a>Scenarier för avisering
-Följande scenarier definieras av tjänsten som kanske scenarier.
+### <a name="alert-scenarios"></a>Aviserings scenarier
+Följande scenarier definieras av service som aviserings bara scenarier.
 
   - Fel vid säkerhetskopiering/återställning
   - Säkerhetskopieringen slutfördes med varningar för Azure Backup Agent (MAB)
-  - Avbryt skyddet med Behåll data/Avbryt skyddet med ta borttagningsdata
+  - Stoppa skyddet med Behåll data/stoppa skydd med ta bort data
 
-### <a name="exceptions-when-an-alert-is-not-raised"></a>Undantag när en avisering inte aktiveras
-Det finns få undantag när en avisering inte aktiveras på ett fel, de är:
+### <a name="exceptions-when-an-alert-is-not-raised"></a>Undantag när en avisering inte höjs
+Det finns några undantag när en avisering inte utlöses vid ett fel:
 
-  - Användaren avbröt uttryckligen det pågående jobbet
-  - Jobbet misslyckas eftersom en annan säkerhetskopiering pågår (ingenting att agera på här eftersom vi bara behöver vänta på föregående jobbet är slutfört)
-  - VM-säkerhetskopiering misslyckas eftersom den virtuella datorn Azure säkerhetskopieras inte längre finns
+  - Användaren avbröt ett jobb som körs uttryckligen
+  - Det går inte att utföra jobbet eftersom en annan säkerhets kopiering pågår (inget att agera här eftersom vi bara behöver vänta tills det tidigare jobbet har slutförts)
+  - Den virtuella datorns säkerhets kopierings jobb Miss lyckas eftersom den säkerhetskopierade virtuella Azure-datorn inte längre finns
 
-Undantagen ovan är utformade från uppfattningen att resultatet av dessa åtgärder (främst användare som utlöste) visas direkt på portalen/PS/CLI-klienter. Därför kan användaren känner direkt och behöver inte ett meddelande.
+Ovanstående undantag är utformade från förståelsen av att resultatet av dessa åtgärder (främst användare som utlöses) visas direkt på Portal/PS/CLI-klienter. Därför är användaren omedelbart medveten och behöver ingen avisering.
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aviseringar från följande Azure Backup-lösningar visas här:
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aviseringar från följande Azure Backup lösningar visas här:
 
   - Säkerhetskopior av virtuella Azure-datorer
   - Säkerhetskopior av Azure-fil
@@ -72,30 +71,30 @@ Undantagen ovan är utformade från uppfattningen att resultatet av dessa åtgä
 > Aviseringar från System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) visas inte här.
 
 ### <a name="alert-types"></a>Aviseringstyper
-Baserat på allvarlighetsgrad för avisering, kan aviseringar definieras i tre typer:
+Utifrån aviseringens allvarlighets grad kan aviseringar definieras i tre typer:
 
-  - **Kritiska**: I princip, alla säkerhetskopiering eller återställning fel (schemalagt eller användare som utlöste) skulle leda till generering av en avisering och skulle visas som en kritisk varning och destruktiva åtgärder, till exempel ta bort säkerhetskopiering.
-  - **Varning**: Om säkerhetskopieringen lyckas men med några varningar, de listas som varningar.
-  - **Endast i informationssyfte**: Från och med dagens datum genereras inga informationsavisering av Azure Backup-tjänsten.
+  - **Kritisk**: I princip skulle eventuella säkerhets kopierings-eller återställnings problem (schemalagda eller användare som utlöses) leda till generering av en avisering och visas som en kritisk varning och även destruktiva åtgärder som att ta bort säkerhets kopiering.
+  - **Varning**: Om säkerhets kopieringen lyckas men med få varningar visas de som varnings aviseringar.
+  - **Information**: Från och med idag genereras ingen informations avisering av Azure Backup tjänsten.
 
-## <a name="notification-for-backup-alerts"></a>Meddelande för Säkerhetskopieringsaviseringar
+## <a name="notification-for-backup-alerts"></a>Meddelande om säkerhets kopierings aviseringar
 
 > [!NOTE]
-> Konfiguration av meddelande som kan göras endast via Azure-portalen. PS/CLI/REST API/Azure Resource Manager-mall support stöds inte.
+> Konfiguration av aviseringar kan bara göras via Azure Portal. Stöd för PS/CLI/REST API/Azure Resource Manager-mall stöds inte.
 
-Användarna meddelas när en avisering genereras. Azure Backup innehåller en inbyggd meddelande via e-post. En kan ange enskilda e-postadresser eller distributionslistor vill meddelas när en avisering genereras. Du kan också välja om du vill få information för varje enskild varning eller gruppera dem i en sammanställning per timme och sedan få ett meddelande.
+När en avisering har Aktiver ATS meddelas användarna. Azure Backup tillhandahåller en inbyggd meddelande funktion via e-post. En kan ange enskilda e-postadresser eller distributions listor som ska meddelas när en avisering genereras. Du kan också välja om du vill bli meddelad om varje enskild avisering eller gruppera dem i en Tim sammandrag och sedan få ett meddelande.
 
-![RS Vault inbyggda e-postavisering](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
+![Inbyggt e-postmeddelande för RS Vault](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
-När meddelandet har konfigurerats, får du ett e-postmeddelande med Välkommen eller inledande. Detta bekräftar att Azure Backup kan skicka e-postmeddelanden till dessa adresser när en avisering genereras.<br>
+När ett meddelande har kon figurer ATS kommer du att få ett välkomst eller inledande e-postmeddelande. Detta bekräftar att Azure Backup kan skicka e-post till dessa adresser när en avisering utlöses.<br>
 
-Om frekvensen ställdes in på en sammanställning per timme och en avisering har ut och löses inom en timme, kommer det inte vara en del av den kommande sammanställning per timme.
+Om frekvensen har angetts till en Tim sammandrag och en avisering har genererats och lösts inom en timme, kommer den inte att ingå i den kommande Tim sammandrag.
 
 > [!NOTE]
 >
-> * Om en destruktiv åtgärd som **stoppa skyddet med borttagningsdata** är utförs, en avisering genereras och ett e-postmeddelande skickas till prenumerationsägare, administratörer och medadministratörer även om meddelanden inte är konfigurerade för återställa tjänsten valvet.
-> * Konfigurera meddelande för lyckade jobb använder [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> * Om en destruktiv åtgärd, till exempel **stoppa skydd med ta bort data** , görs, aktive ras en avisering och ett e-postmeddelande skickas till prenumerations ägare, administratörer och medadministratörer även om aviseringar inte har kon figurer ATS för tjänsten för återställning av tjänst.
+> * Om du vill konfigurera meddelanden för lyckade jobb använder [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Övervaka Azure backup-arbetsbelastningar med Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+[Övervaka arbets belastningar för Azure Backup med Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

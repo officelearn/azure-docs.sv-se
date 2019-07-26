@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Python'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
 author: aahill
@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: e74cc01d9104ed4f26d857f3a99eb21e312a7f59
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 90d026c12007d74de176d222e11b48d15c174855
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389735"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500987"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Python
 
 Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Python-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Python [3.x](https://www.python.org)
 
@@ -52,7 +52,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     data = {'text': example_text}
     ```
 
-2. Lägg till parametrarna för begäran. Lägg till marknaden koden efter `mkt=`. Koden marknad är det land som du gör begäran från. Dessutom lägga till din stavningskontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta/stavning och grammatik-fel) eller `spell` (fångar de flesta stavning men inte så många grammatikfel).
+2. Lägg till parametrarna för begäran. Lägg till din marknads kod `mkt=`efter. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läget är antingen `proof` (fångar de flesta stavnings-och grammatikfel) `spell` eller (fångar de flesta stavfel men inte lika många grammatiska fel).
 
     ```python
     params = {

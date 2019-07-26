@@ -6,28 +6,32 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2d190edfac71705590135988b64ed043784125ec
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: a9c38d82c4b460564077690d3cddd731ec6c2b89
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305564"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414500"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
 Du kan aktivera din affärslogik-moduler för Azure IoT Edge. Den här artikeln visar hur du använder Visual Studio Code som huvud verktyg för att utveckla och felsöka moduler.
 
+För moduler som skrivits C#i Node. js eller Java finns det två sätt att felsöka modulen i Visual Studio Code: Du kan antingen koppla en process i en modul-behållare eller starta modulens kod i fel söknings läge. För moduler som skrivits i python eller C kan de bara felsökas genom att koppla till en process i Linux amd64-behållare.
+
+Om du inte är bekant med fel söknings funktionerna i Visual Studio Code läser du om [fel sökning](https://code.visualstudio.com/Docs/editor/debugging).
+
+Den här artikeln innehåller instruktioner för att utveckla och felsöka moduler på flera språk för flera arkitekturer. För närvarande ger Visual Studio Code stöd för moduler som skrivits C#i, C, python, Node. js och Java. De enhets arkitekturer som stöds är x64 och ARM32. Mer information om operativ system, språk och arkitekturer som stöds finns i [stöd för språk och arkitektur](module-development.md#language-and-architecture-support).
+
+>[!NOTE]
+>Att utveckla och felsöka stöd för Linux ARM64-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer information finns i [utveckla och FELSÖKA ARM64 IoT Edge moduler i Visual Studio Code (för hands version)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du kan använda en dator eller en virtuell dator som kör Windows, macOS eller Linux som utvecklings dator. En IoT Edge enhet kan vara en annan fysisk enhet.
-
-För moduler som skrivits C#i Node. js eller Java finns det två sätt att felsöka modulen i Visual Studio Code: Du kan antingen koppla en process i en modul-behållare eller starta modulens kod i fel söknings läge. För moduler som skrivits i python eller C kan de bara felsökas genom att koppla till en process i Linux amd64-behållare.
-
-> [!TIP]
-> Om du inte är bekant med fel söknings funktionerna i Visual Studio Code läser du om [fel sökning](https://code.visualstudio.com/Docs/editor/debugging).
 
 Installera [Visual Studio Code](https://code.visualstudio.com/) först och Lägg sedan till följande tillägg:
 
@@ -66,8 +70,7 @@ Om du inte utvecklar modulen i C behöver du även det python-baserade [Azure Io
 > [!NOTE]
 > Om du har flera python-versioner, inklusive förinstallerad python 2,7 (till exempel på Ubuntu eller MacOS), kontrollerar du att du använder `pip` rätt `pip3` eller installerar **iotedgehubdev**
 
-> [!NOTE]
-> Om du vill testa modulen på en enhet behöver du en aktiv IoT-hubb med minst en IoT Edge enhet. Om du vill använda datorn som en IoT Edge enhet följer du stegen i snabb starten för [Linux](quickstart-linux.md) eller [Windows](quickstart.md). Om du kör IoT Edge daemon på din utvecklings dator kan du behöva stoppa EdgeHub och EdgeAgent innan du går vidare till nästa steg.
+Om du vill testa modulen på en enhet behöver du en aktiv IoT-hubb med minst en IoT Edge enhet. Om du vill använda datorn som en IoT Edge enhet följer du stegen i snabb starten för [Linux](quickstart-linux.md) eller [Windows](quickstart.md). Om du kör IoT Edge daemon på din utvecklings dator kan du behöva stoppa EdgeHub och EdgeAgent innan du går vidare till nästa steg.
 
 ## <a name="create-a-new-solution-template"></a>Skapa en ny lösnings mall
 

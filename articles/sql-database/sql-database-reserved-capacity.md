@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/15/2019
-ms.openlocfilehash: fa64177dfa5bfadad5db4116224b94ffac2fadc0
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.date: 07/19/2019
+ms.openlocfilehash: 1cc8828f5a936b130480c2c7516d00b8bee6760f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233057"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357275"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Förskotts betalning för SQL Database beräknings resurser med Azure SQL Database reserverad kapacitet
 
@@ -55,10 +55,10 @@ I följande tabell beskrivs obligatoriska fält.
 |Subscription|Prenumerationen som används för att betala för den SQL Database reserverade kapacitets reservationen. Betalnings metoden för prenumerationen debiteras mot startkostnader för den SQL Database reserverade kapacitets reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en enskild prenumeration med priset betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.|
 |Omfång       |VCore-reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <br/><br/>**Delad**, reservations rabatten för vCore tillämpas på SQL Database instanser som körs i en prenumeration i din fakturerings kontext. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning är det delade omfånget alla prenumerationer enligt principen betala per användning som har skapats av konto administratören.<br/><br/>**Enskild prenumeration**tillämpas reservations rabatten för vCore på SQL Database instanser i den här prenumerationen. <br/><br/>**En enda resurs grupp**, reservations rabatten tillämpas på SQL Database instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen.|
 |Region      |Den Azure-region som omfattas av reservationen SQL Database reserverad kapacitet.|
-|Distributions typ|Den SQL-resurs typ som du vill köpa reservationen för.|
+|Distributionstyp|Den SQL-resurs typ som du vill köpa reservationen för.|
 |Prestandanivå|Tjänst nivån för SQL Database instanser.
 |Term        |Ett år eller tre år.|
-|Kvantitet    |Mängden data bearbetnings resurser som köps i SQL Database reserverade kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra SQL Database instanser med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, skulle du ange kvantitet som 16 för att maximera förmånen för alla instanser. |
+|Antal    |Mängden data bearbetnings resurser som köps i SQL Database reserverade kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra SQL Database instanser med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, skulle du ange kvantitet som 16 för att maximera förmånen för alla instanser. |
 
 1. Granska kostnaden för den SQL Database reserverade kapacitets reservationen i avsnittet **kostnader** .
 1. Välj **Köp**.
@@ -66,9 +66,9 @@ I följande tabell beskrivs obligatoriska fält.
 
 ## <a name="cancellations-and-exchanges"></a>Avbokningar och byten
 
-Om du behöver avbryta din SQL Database reservation av reserverad kapacitet kan det finnas 12% tidig uppsägnings avgift. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill begära en annullering går du till reservationen i Azure Portal och väljer **åter betalning** för att skapa en supportbegäran.
+Om du behöver avbryta din SQL Database reservation av reserverad kapacitet kan det finnas 12% tidig uppsägnings avgift. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill avbryta går du till reservationen i Azure Portal och väljer **åter betalning**.
 
-Om du behöver ändra din reservation av SQL Database-reserverad kapacitet till en annan region, distributionstyp, prestandanivå eller period kan du byta till en annan reservation med samma eller högre värde. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Perioden på 1 eller 3 år startar när du skapar den nya reservationen. Om du vill begära ett utbyte går du till reservationen i Azure Portal och väljer **Exchange** för att skapa en support förfrågan.
+Om du behöver ändra din reservation av SQL Database-reserverad kapacitet till en annan region, distributionstyp, prestandanivå eller period kan du byta till en annan reservation med samma eller högre värde. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Perioden på 1 eller 3 år startar när du skapar den nya reservationen. Till Exchange går du till reservationen i Azure Portal och väljer **Exchange**.
 
 Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 

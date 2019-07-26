@@ -1,6 +1,6 @@
 ---
-title: Skillnader mellan MSAL.js och ADAL.js | Azure
-description: Läs mer om skillnaderna mellan Microsoft Authentication Library för JavaScript (MSAL.js) och Azure AD Authentication Library för JavaScript (ADAL.js) och hur du väljer att använda.
+title: Skillnader mellan MSAL. js och ADAL. js | Azure
+description: Lär dig mer om skillnaderna mellan Microsoft Authentication Library för Java Script (MSAL. js) och Azure AD Authentication Library för Java Script (ADAL. js) och hur du väljer vilket som ska användas.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,55 +17,55 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 328db116cebda5eb288f04cc89e2c85550c38083
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121963"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421186"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Skillnader mellan MSAL JS och ADAL JS
 
-Både Microsoft Authentication Library för JavaScript (MSAL.js) och Azure AD Authentication Library för JavaScript (ADAL.js) används för att autentisera Azure AD-entiteter och begära token från Azure AD. Fram tills nu, har de flesta utvecklare arbetat med Azure AD för utvecklare (v1.0) för att autentisera Azure AD-identiteter (arbets- och skolkonton konton) genom att begära token med hjälp av ADAL. Nu kan använder MSAL.js, du autentisera en bredare uppsättning Microsoft-identiteter (Azure AD-identiteter och Microsoft-konton och sociala och lokala konton via Azure AD B2C) via Microsoft identity-plattformen (v2.0).
+Både Microsoft Authentication Library för Java Script (MSAL. js) och Azure AD Authentication Library för Java Script (ADAL. js) används för att autentisera Azure AD-entiteter och begära token från Azure AD. Fram till nu har de flesta utvecklare arbetat med Azure AD för utvecklare (v 1.0) för att autentisera Azure AD-identiteter (arbets-och skol konton) genom att begära token med hjälp av ADAL. Nu kan du med hjälp av MSAL. js autentisera en bredare uppsättning Microsoft-identiteter (Azure AD-identiteter och Microsoft-konton, och sociala och lokala konton via Azure AD B2C) via Microsoft Identity Platform (v 2.0).
 
-Den här artikeln beskriver hur du väljer mellan Microsoft Authentication Library för JavaScript (MSAL.js) och Azure AD Authentication Library för JavaScript (ADAL.js) och jämför de två biblioteken.
+Den här artikeln beskriver hur du väljer mellan Microsoft Authentication Library för Java Script (MSAL. js) och Azure AD Authentication Library för Java Script (ADAL. js) och jämför de två biblioteken.
 
-## <a name="choosing-between-adaljs-and-msaljs"></a>Välja mellan ADAL.js och MSAL.js
+## <a name="choosing-between-adaljs-and-msaljs"></a>Välja mellan ADAL. js och MSAL. js
 
-I de flesta fall som du vill använda Microsoft identity-plattformen och MSAL.js, vilket är den senaste generationen av Microsoft authentication Library. Med MSAL.js kan du hämta token för användare som loggar in på ditt program med Azure AD (arbets- och skolkonton konton), Microsoft (personlig)-konton (MSA) eller Azure AD B2C.
+I de flesta fall vill du använda Microsoft Identity Platform och MSAL. js, som är den senaste generationen av Microsoft Authentication Libraries. Med hjälp av MSAL. js får du token för användare som loggar in till ditt program med Azure AD (arbets-och skol konton), Microsoft (personliga) konton (MSA) eller Azure AD B2C.
 
-Om du redan är bekant med v1.0 slutpunkt (och ADAL.js) kanske du vill läsa [vad är skillnaden mellan v2.0-slutpunkten?](active-directory-v2-compare.md).
+Om du redan är bekant med v 1.0-slutpunkten (och ADAL. js) kanske du vill läsa [vad som är annorlunda om v 2.0](active-directory-v2-compare.md)-slutpunkten?.
 
-Du behöver dock fortfarande använda ADAL.js om programmet behöver för att logga in användare med tidigare versioner av [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services).
+Du måste dock fortfarande använda ADAL. js om ditt program behöver logga in användare med tidigare versioner av [Active Directory Federation Services (AD FS) (ADFS)](/windows-server/identity/active-directory-federation-services).
 
-## <a name="key-differences-in-authentication-with-msaljs"></a>Viktiga skillnader i autentisering med MSAL.js
+## <a name="key-differences-in-authentication-with-msaljs"></a>Viktiga skillnader i autentisering med MSAL. js
 
 ### <a name="core-api"></a>Core API
 
-* ADAL.js använder [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) som en representation av en instans av ditt programs anslutning till auktoriseringsservern eller identitetsprovider via en URL som utfärdare. Däremot MSAL.js API är utformad kring användaren agent-klientprogram (en form av offentliga klientprogram som klientkoden körs i en användaragent till exempel en webbläsare). Det ger den `UserAgentApplication` klass som representerar en instans av programmets autentiseringskontext med auktoriseringsservern. Mer information finns i [initieras med hjälp av MSAL.js](msal-js-initializing-client-applications.md).
+* ADAL. js använder [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) som representation av en instans av programmets anslutning till auktoriseringsservern eller identitets leverantören via en auktoritets-URL. På motsatsen är MSAL. js-API: et utformat för användar agent klient program (en form av ett offentligt klient program där klient koden körs i en användar agent, till exempel en webbläsare). Den ger `UserAgentApplication` klassen en instans av programmets autentiserings kontext med auktoriseringsservern. Mer information finns i [initiera med MSAL. js](msal-js-initializing-client-applications.md).
 
-* I ADAL.js, metoder för att hämta token är associerade med en enda utfärdaren har angetts den `AuthenticationContext`. I MSAL.js, hämta tokenbegäranden kan ha olika utfärdare värden än vad som anges i den `UserAgentApplication`. På så sätt kan MSAL.js hämta och cachelagra token separat för flera klienter och användarkonton i samma program.
+* I ADAL. js är metoderna för att hämta tokens kopplade till en enda utfärdare som anges i `AuthenticationContext`. I MSAL. js kan begär Anden om Hämta token ta olika auktoritets värden än vad som anges `UserAgentApplication`i. Detta gör att MSAL. js kan förvärva och cachelagra tokens separat för flera klienter och användar konton i samma program.
 
-* Metoden för att hämta och förnya token tyst utan att fråga användare heter `acquireToken` i ADAL.js. I MSAL.js, den här metoden heter `acquireTokenSilent` ska vara mer beskrivande för den här funktionen.
+* Metoden för att hämta och förnya token tyst utan att be användarna att namnges `acquireToken` i ADAL. js. I MSAL. js kallas den här metoden `acquireTokenSilent` för att vara mer beskrivande av den här funktionen.
 
-### <a name="authority-value-common"></a>Värdet för `common`
+### <a name="authority-value-common"></a>Auktoritets värde`common`
 
-I v1.0, med hjälp av den `https://login.microsoftonline.com/common` myndigheten kommer användarna att logga in med valfri Azure AD-konto (för alla organisationer).
+I v 1.0 gör det möjligt `https://login.microsoftonline.com/common` för användarna att logga in med alla Azure AD-konton (för alla organisationer) med hjälp av-utfärdaren.
 
-I v2.0, med hjälp av den `https://login.microsoftonline.com/common` utfärdaren kan användarna logga in med valfri Azure AD-organisationskonto eller ett personligt Microsoft-konto (MSA). Om du vill begränsa inloggningen till endast Azure AD-konton (samma beteende som med ADAL.js), måste du använda `https://login.microsoftonline.com/organizations`. Mer information finns i `authority` config-alternativet i [initieras med hjälp av MSAL.js](msal-js-initializing-client-applications.md).
+I v 2.0 kan användare med `https://login.microsoftonline.com/common` hjälp av-utfärdaren logga in med ett Azure AD-organisations konto eller ett Microsoft personal-konto (MSA). Om du vill begränsa inloggningen till enbart Azure AD-konton (samma beteende som med ADAL. js) måste du använda `https://login.microsoftonline.com/organizations`. Mer information finns `authority` i konfigurations alternativet i [initiera med MSAL. js](msal-js-initializing-client-applications.md).
 
-### <a name="scopes-for-acquiring-tokens"></a>Omfång för att hämta token
-* Omfång i stället för resursparametern i autentiseringsbegäranden att hämta token
+### <a name="scopes-for-acquiring-tokens"></a>Omfattningar för att förvärva token
+* Omfattning i stället för resurs parameter i autentiseringsbegäranden för att hämta token
 
-    v2.0-protokollet använder omfång i stället för resurs i begäranden. Med andra ord, när programmet behöver för att begära token med behörigheter för en resurs, till exempel MS Graph, är skillnaden i värden som skickas till biblioteket metoder följande:
+    v 2.0-protokollet använder omfång i stället för resurs i begär Anden. När ditt program behöver begära token med behörigheter för en resurs, till exempel MS Graph, är skillnaden i värden som skickas till biblioteks metoderna följande:
 
-    V1.0: resource =https://graph.microsoft.com
+    v 1.0: Resource = https\://Graph.Microsoft.com
 
-    v2.0: omfånget = https://graph.microsoft.com/User.Read
+    v 2.0: scope = https\://Graph.Microsoft.com/user.Read
 
-    Du kan begära omfång för alla resurser API med URI: N för API: et i det här formatet: appidURI/omfattningen för till exempel: https:\//mytenant.onmicrosoft.com/myapi/api.read
+    Du kan begära scope för alla resurs-API: er med hjälp av URI: n för API: et i följande format: appidURI/\/scope, till exempel: https:/mytenant.onmicrosoft.com/myapi/API.Read
 
-    Endast för MS Graph API, scope-värde `user.read` mappar till https://graph.microsoft.com/User.Read och är utbytbara.
+    Endast för MS Graph API mappas ett omfattnings `user.read` värde till https://graph.microsoft.com/User.Read och kan användas utbytbart.
 
     ```javascript
     var request = {
@@ -75,9 +75,9 @@ I v2.0, med hjälp av den `https://login.microsoftonline.com/common` utfärdaren
     acquireTokenPopup(request);   
     ```
 
-* Dynamiska omfång för inkrementell medgivande.
+* Dynamiska omfattningar för stegvist godkännande.
 
-    När du skapar program med hjälp av v1.0 behövs du för att registrera den fullständiga uppsättningen behörigheter (statiska omfång) som krävs av programmet för användaren att godkänna vid tidpunkten för inloggningen. Du kan använda omfattningsparametern i v2.0, för att begära behörigheterna vid tidpunkten som du vill. Dessa kallas dynamiska omfång. På så sätt kan användarna att ange inkrementell medgivande till omfång. Så kan du göra det om du inte behöver någon slags åtkomst, i början du bara vill att användaren att logga in på ditt program. Om du behöver senare möjlighet att läsa kalendern för användaren kan du begära kalender omfattning i acquireToken-metoder och hämta användarens medgivande. Exempel:
+    När du skapar program med v 1.0 behövde du registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna inloggnings tiden. I v 2.0 kan du använda omfattnings parametern för att begära behörigheten vid den tidpunkt du vill. Dessa kallas dynamiska omfattningar. Detta gör det möjligt för användaren att tillhandahålla ett stegvist tillstånd för omfattningar. Så om du i början vill att användaren ska logga in på ditt program och du inte behöver någon typ av åtkomst kan du göra det. Om du senare behöver kunna läsa kalendern för användaren kan du begära att kalender omfånget används i acquireToken-metoderna och få användarens medgivande. Exempel:
 
     ```javascript
     var request = {
@@ -87,9 +87,9 @@ I v2.0, med hjälp av den `https://login.microsoftonline.com/common` utfärdaren
     acquireTokenPopup(request);   
     ```
 
-* Omfång för V1.0 API: er
+* Omfattningar för V 1.0 API: er
 
-    När du hämtar token för V1.0 API: er med hjälp av MSAL.js, kan du begära alla statiska omfång som har registrerats på API: et genom att lägga till `.default` till URI: N för App-ID för API: er som omfång. Exempel:
+    När du hämtar token för v 1.0-API: er med MSAL. js kan du begära alla statiska omfattningar som registrerats i API: `.default` et genom att lägga till i app-ID-URI: n för API: et som omfång. Exempel:
 
     ```javascript
     var request = {
@@ -100,4 +100,4 @@ I v2.0, med hjälp av den `https://login.microsoftonline.com/common` utfärdaren
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [jämförelse mellan v1.0 och v2.0](active-directory-v2-compare.md).
+Mer information finns i [jämförelse mellan v 1.0 och v 2.0](active-directory-v2-compare.md).

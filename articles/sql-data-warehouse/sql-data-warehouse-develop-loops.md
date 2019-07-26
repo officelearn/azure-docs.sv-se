@@ -1,8 +1,8 @@
 ---
-title: Med hjälp av T-SQL-slingor i Azure SQL Data Warehouse | Microsoft Docs
-description: Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för utveckling av lösningar.
+title: Använda T-SQL-slingor i Azure SQL Data Warehouse | Microsoft Docs
+description: Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för att utveckla lösningar.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,26 +10,26 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c321bc4e493799a50ada4dd91faf2d2ebdee8aba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e27edcc1383a235fbdb9513066e69e2f680ea2f9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850462"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479626"
 ---
-# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Med hjälp av T-SQL-slingor i SQL Data Warehouse
-Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för utveckling av lösningar.
+# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Använda T-SQL-slingor i SQL Data Warehouse
+Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för att utveckla lösningar.
 
-## <a name="purpose-of-while-loops"></a>Syftet med vid slingor
+## <a name="purpose-of-while-loops"></a>Syfte med WHILe-slingor
 
-SQL Data Warehouse stöder den [medan](/sql/t-sql/language-elements/while-transact-sql) loop för att köra instruktionen block upprepade gånger. Den här tag-loopen fortsätter så länge de angivna villkoren är sant, eller tills koden särskilt avbryter loopen med hjälp av nyckelordet BREAK. Loopar är användbara för att ersätta markörer som definierats i SQL-kod. Nästan alla markörer som är skrivna i SQL-kod är som tur är kan sortens snabba framåtriktade, skrivskyddade. Därför [medan] slingor är ett perfekt alternativ för att ersätta markörer.
+SQL Data Warehouse stöder [while](/sql/t-sql/language-elements/while-transact-sql) -slingan för att köra instruktions block upprepade gånger. Den här WHILe-slingan fortsätter så länge som de angivna villkoren är sanna eller tills koden specifikt avslutar loopen med hjälp av nyckelordet BREAK. Slingor är användbara för att ersätta markörer som definierats i SQL-kod. Lyckligt vis är nästan alla markörer som skrivs i SQL-kod av den snabba, skrivskyddade sorten. Därför är det ett bra alternativ att ersätta markörer med [WHILe]-slingor.
 
-## <a name="replacing-cursors-in-sql-data-warehouse"></a>Ersätt markörer i SQL Data Warehouse
-Men innan du börjar i head först bör du fråga dig själv följande fråga: ”Kan den här markören skrivas om för att använda set-baserade åtgärder?”. I många fall svaret är Ja och är ofta det bästa sättet. En set-baserade åtgärden ofta utförs snabbare än en iterativ, rad för rad metod.
+## <a name="replacing-cursors-in-sql-data-warehouse"></a>Ersätta markörer i SQL Data Warehouse
+Innan du börjar med simhopp i head bör du dock fråga dig själv följande fråga: "Kan den här markören skrivas om för att använda set-based Operations?." I många fall är svaret ja och är ofta den bästa metoden. En Set-baserad åtgärd utför ofta snabbare än en upprepad rad med rad metod.
 
-Snabba framåtriktade skrivskyddade markörer kan enkelt ersättas med uvozuje konstruktor cyklu. Följande är ett enkelt exempel. Det här kodexemplet uppdaterar statistik för varje tabell i databasen. Genom att gå över tabeller i loopen körs varje kommando i följd.
+Snabba framåtriktade skrivskyddade markörer kan enkelt ersättas med en loop-konstruktion. Följande är ett enkelt exempel. I den här kod exemplet uppdateras statistiken för alla tabeller i databasen. Genom att iterera över tabellerna i slingan körs varje kommando i följd.
 
-Börja med att skapa en tillfällig tabell som innehåller ett unikt radnummer som används för att identifiera enskilda uttryck:
+Skapa först en temporär tabell som innehåller ett unikt rad nummer som används för att identifiera de enskilda uttrycken:
 
 ```
 CREATE TABLE #tbl
@@ -44,7 +44,7 @@ FROM    sys.tables
 ;
 ```
 
-Andra initiera variabler som krävs för att utföra loopen:
+Sedan initierar du de variabler som krävs för att utföra slingan:
 
 ```
 DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
@@ -52,7 +52,7 @@ DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
 ;
 ```
 
-Nu köras i slinga över instruktioner som körs på en i taget:
+Loopar över instruktioner som kör dem en i taget:
 
 ```
 WHILE   @i <= @nbr_statements
@@ -63,12 +63,12 @@ BEGIN
 END
 ```
 
-Slutligen släppa den temporära tabellen som skapats i det första steget
+Ta slutligen bort den tillfälliga tabellen som skapades i det första steget
 
 ```
 DROP TABLE #tbl;
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).
 

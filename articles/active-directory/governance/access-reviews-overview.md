@@ -1,10 +1,10 @@
 ---
 title: Vad är åtkomstgranskningar? – Azure Active Directory | Microsoft Docs
-description: Med Azure Active Directory-åtkomstgranskningar kan kontrollera du gruppmedlemskap och programåtkomst åtkomst för att uppfylla styrning, riskhantering och efterlevnadsinitiativ i din organisation.
+description: Med hjälp av Azure Active Directory åtkomst granskningar kan du kontrol lera grupp medlemskap och program åtkomst för att möta styrning, riskhantering och regelefterlevnad i din organisation.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,84 +12,103 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fcc804db66430598e72e9ebf31a8837eda1cca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da9bc3906e6f39b2d943708eb6a1b930ac8cc5a5
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204599"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68401935"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomst granskar?
+# <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD Access-granskningar?
 
-Azure Active Directory (Azure AD)-åtkomstgranskningar kan organisationer effektivt hantera gruppmedlemskap, åtkomst till företagsprogram och rolltilldelningar. Användarens åtkomst kan granskas regelbundet att kontrollera att rätt personer ha fortsatt åtkomst.
+Azure Active Directory (Azure AD) åtkomst granskningar gör det möjligt för organisationer att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användarens åtkomst kan granskas regelbundet för att se till att endast rätt personer har fortsatt åtkomst.
 
-Här är en video som ger en snabb översikt över åtkomstgranskningar:
+Här är en video som ger en snabb översikt över åtkomst granskningar:
 
 >[!VIDEO https://www.youtube.com/embed/kDRjQQ22Wkk]
 
-## <a name="why-are-access-reviews-important"></a>Varför är åtkomst granskar viktigt?
+## <a name="why-are-access-reviews-important"></a>Varför är åtkomst granskningar viktiga?
 
-Azure AD kan du samarbeta internt inom organisationen och med användare från externa organisationer som partners. Användare kan ansluta till grupper, bjuda in gäster, ansluta till molnbaserade appar och arbeta fjärranslutet från sina arbets- eller personliga enheter. Praktiskt utnyttjar Self Service har lett till ett behov av bättre hanteringsfunktioner för åtkomst.
+Med Azure AD kan du samar beta internt i din organisation och med användare från externa organisationer, till exempel partner. Användare kan ansluta till grupper, bjuda in gäster, ansluta till molnappar och arbeta via fjärr anslutning från sina arbets-eller personliga enheter. Bekvämligheten med att dra nytta av självbetjänings kraften har lett till ett behov av bättre åtkomst hanterings funktioner.
 
-- När nya nyanställd person, hur undviker du att de har rätt behörighet att vara produktiva?
-- När personer flytta team eller lämnar företaget, hur undviker du att åtkomsten gamla tas bort, särskilt när det innebär att gäster?
-- Långa åtkomsträttigheter kan leda till att granska resultaten och kompromisser eftersom de tyda på brist på kontroll över åtkomst.
-- Du måste proaktivt interagera med resursägare att se till att de regelbundet granska vem som har åtkomst till sina resurser.
+- Hur ser du till att de har rätt åtkomst för att vara produktiv när du ansluter till nya anställda?
+- Hur kan personer flytta team eller lämna företaget, hur ser du till att deras gamla åtkomst tas bort, särskilt när det handlar om gäster?
+- För hög åtkomst behörighet kan leda till gransknings resultat och kompromisser när de visar att det inte finns någon kontroll över åtkomsten.
+- Du måste proaktivt kommunicera med resurs ägare för att se till att de regelbundet granskar vem som har åtkomst till sina resurser.
 
-## <a name="when-to-use-access-reviews"></a>När du ska använda åtkomst går igenom?
+## <a name="when-to-use-access-reviews"></a>När ska jag använda åtkomst granskningar?
 
-- **För många användare i Privilegierade roller:** Det är en bra idé att kontrollera hur många användare har administrativ åtkomst, hur många av dem är globala administratörer och om det finns några bjuds in gäster eller partners som inte har tagits bort som har tilldelats att göra en administrativ åtgärd. Du kan certifiera om rollen tilldelning av användare i [Azure AD-roller](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , till exempel globala administratörer eller [Azure-resursroller](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) som administratör för användaråtkomst i den [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upplevelse.
-- **När automation är omöjligt:** Du kan skapa regler för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper, men vad händer om HR data är inte i Azure AD eller om användare fortfarande behöver åtkomst efter att ha lämnat gruppen för att träna sina ersättning? Du kan sedan skapa en granskning på den gruppen för att se till att de som fortfarande behöver åtkomst bör ha fortsatt åtkomst.
-- **När en grupp används för ett nytt syfte:** Om du har en grupp som ska synkroniseras till Azure AD, eller om du planerar att aktivera programmet Salesforce för alla i teamet försäljningsgruppen, skulle det vara praktiskt att be gruppägare att granska gruppmedlemskap före gruppen som används i en annan risk co chning.
-- **Företag kritiska dataåtkomst:** för vissa resurser, kan det krävas att ställa personer utanför IT-avdelningen att regelbundet logga ut och ge en motivering på varför de behöver åtkomst i granskningssyfte.
-- **Att underhålla en princip undantagslistan:** I en perfekt värld följer alla användare åtkomstprinciper för säker åtkomst till organisationens resurser. Men finns ibland företagsfall som uppmanar dig att göra undantag. Som IT-administratör kan du hantera den här uppgiften, undvika översyn av rutinundantag och ge granskare bevis att sådana undantag granskas regelbundet.
-- **Be gruppägare att bekräfta att de fortfarande behöver gäster i deras grupper:** Medarbetarnas åtkomst kan automatiseras med några lokala IAM, men inte de inbjudna. Om en grupp får gäster företag känsligt innehåll och sedan dess gruppägarens ansvar att bekräfta gästerna fortfarande har en legitima företagsbehov för åtkomst.
-- **Har granskningar som utför regelbundet:** Du kan ställa in återkommande åtkomstgranskningar av användare i set-frekvenser som varje vecka, månadsvis, Kvartalsvis eller årligen och granskarna kommer att meddelas i början av varje granskning. Granskare kan godkänna eller neka åtkomst med ett eget gränssnitt och med hjälp av smarta rekommendationer.
+- **För många användare i privilegierade roller:** Det är en bra idé att kontrol lera hur många användare som har administrativ åtkomst, hur många av dem som är globala administratörer och om det finns inbjudna gäster eller partners som inte har tagits bort efter att ha tilldelats en administrativ uppgift. Du kan omcertifiera roll tilldelnings användare i [Azure AD-roller](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) som globala administratörer eller [Azure-resurser](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , t. ex. administratör för användar åtkomst i [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) .
+- **När Automation är ogenomförbart:** Du kan skapa regler för dynamiskt medlemskap i säkerhets grupper eller Office 365-grupper, men vad händer om data i HR inte finns i Azure AD eller om användarna fortfarande behöver åtkomst efter att gruppen har lämnats för att träna utbyte av dem? Du kan sedan skapa en granskning av den gruppen för att säkerställa att de som fortfarande behöver åtkomst har fortsatt åtkomst.
+- **När en grupp används för ett nytt syfte:** Om du har en grupp som kommer att synkroniseras till Azure AD, eller om du planerar att aktivera programmet Salesforce för alla i Sälj grupps gruppen, är det bra att be grupp ägaren att granska grupp medlemskapet innan gruppen används i ett annat risk samarbete chning.
+- **Affärs kritisk data åtkomst:** för vissa resurser kan det vara nödvändigt att be personer utanför IT att regelbundet signera och ge en motivering för varför de behöver åtkomst för gransknings syfte.
+- **För att underhålla undantags listan för en princip:** I en idealisk värld följer alla användare åtkomst principerna för att skydda åtkomsten till organisationens resurser. Ibland finns det dock affärs fall där du behöver göra undantag. Som IT-administratör kan du hantera den här uppgiften, undvika överblick av princip undantag och tillhandahålla granskare med bevis på att dessa undantag granskas regelbundet.
+- **Be grupp ägare att bekräfta att de fortfarande behöver gäster i sina grupper:** Åtkomst till anställda kan automatiseras med vissa lokalt IAM, men inte inbjudna gäster. Om en grupp ger gäster åtkomst till företagets känsliga innehåll, är det grupp ägarens ansvar att bekräfta att gästerna fortfarande har till gång till ett legitimt verksamhets behov.
+- **Låt granskningar upprepas regelbundet:** Du kan ställa in återkommande åtkomst granskningar av användare i angivna frekvenser, till exempel varje vecka, varje kvartal eller varje kvartal, och granskarna meddelas i början av varje granskning. Granskare kan godkänna eller neka åtkomst med ett vänligt gränssnitt och med hjälp av smarta rekommendationer.
 
-## <a name="where-do-you-create-reviews"></a>Där skapas granskningar?
+## <a name="where-do-you-create-reviews"></a>Var skapar du granskningar?
 
-Beroende på vad du vill granska, skapar du din åtkomstgranskning i Azure AD åtkomst till granskningar, Azure AD-företagsappar (i förhandsversion) eller Azure AD PIM.
+Beroende på vad du vill granska kommer du att skapa din åtkomst granskning i Azure AD åtkomst granskningar, Azure AD Enterprise-appar (i för hands versionen) eller Azure AD PIM.
 
-| Behörighet för åtkomst av användare | Granskare kan vara | Granska som skapats i | Granskare-upplevelse |
+| Åtkomst rättigheter för användare | Granskare kan vara | Granskning skapad i | Granskare upplevelse |
 | --- | --- | --- | --- |
-| Medlemmar i gruppen</br>Office-gruppmedlemmar | Angivna granskare</br>Gruppägare</br>Granska lokal | Azure AD-åtkomstgranskningar</br>Azure AD-grupper | Åtkomstpanel |
-| Tilldelad till en ansluten app | Angivna granskare</br>Granska lokal | Azure AD-åtkomstgranskningar</br>Azure AD-företagsappar (i förhandsversion) | Åtkomstpanel |
-| Azure AD-roll | Angivna granskare</br>Granska lokal | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
-| Azure-resurs-roll | Angivna granskare</br>Granska lokal | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Medlemmar i säkerhets grupp</br>Office-gruppmedlemmar | Angivna granskare</br>Gruppägare</br>Själv granskning | Azure AD-åtkomstgranskningar</br>Azure AD-grupper | Åtkomstpanelen |
+| Tilldelad till en ansluten app | Angivna granskare</br>Själv granskning | Azure AD-åtkomstgranskningar</br>Azure AD Enterprise-appar (för hands version) | Åtkomstpanelen |
+| Azure AD-roll | Angivna granskare</br>Själv granskning | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Resurs roll för Azure | Angivna granskare</br>Själv granskning | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
 
 ## <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
 
-Varje användare som interagerar med åtkomstgranskningar måste ha en betald Azure AD Premium P2-licens. Exempel:
+Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens. Exempel:
 
-- Administratörer som kan skapar en åtkomstgranskning
-- Gruppägare som utför en granska
-- Användare som är tilldelade som granskare
-- Användare som utför själva granska
+- Administratörer som skapar en åtkomst granskning
+- Grupp ägare som utför en åtkomst granskning
+- Användare som tilldelats som granskare
+- Användare som utför en själv granskning
 
-Du kan även ställa gästanvändare rätt att granska sin egen åtkomst. Du kan använda Azure AD business-to-business (B2B) för varje betalda Azure AD Premium P2-licens som tilldelas en av användare i din organisation, bjuda in upp till fem gästanvändare under den externa användaren tilldelningen. Dessa gästanvändare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [Azure AD B2B-samarbete och licenser vägledning](../b2b/licensing-guidance.md).
+Du kan också be gäst användare att granska sin egen åtkomst. För varje betald Azure AD Premium P2-licens som du tilldelar till en av dina egna organisations användare kan du använda Azure AD Business-to-Business (B2B) för att bjuda in upp till fem gäst användare under tilldelningen av externa användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../b2b/licensing-guidance.md).
 
-Här följer några exempelscenarier för att bestämma antalet licenser som du måste ha.
+Här följer några exempel scenarier som hjälper dig att avgöra antalet licenser som du måste ha.
 
-| Scenario | Beräkning | Nödvändigt antal licenser |
+| Scenario | Beräkning | Antalet licenser som krävs |
 | --- | --- | --- |
-| En administratör skapar en åtkomstgranskning av grupp A med 500 användare.<br/>Tilldelar 3 gruppägare som granskare. | 1 administratör + 3 gruppägare | 4 |
-| En administratör skapar en åtkomstgranskning av grupp A med 500 användare.<br/>Gör det själv granska. | 1 administratör + 500 användare som självgranskare | 501 |
-| En administratör skapar en åtkomstgranskning av grupp A med 5 användare och 25 gästanvändare.<br/>Gör det själv granska. | 1 administratör + 5 användare som självgranskare<br/>(gästanvändare beskrivs i förhållandet krävs 1:5) | 6 |
-| En administratör skapar en åtkomstgranskning av grupp A med 5 användare och 28 gästanvändare.<br/>Gör det själv granska. | 1 administratör + 5 användare som självgranskare + 1 användare för att täcka gästanvändare i förhållandet krävs 1:5 | 7 |
+| En administratör skapar en åtkomst granskning av grupp A med 500-användare.<br/>Tilldelar 3 grupp ägare som granskare. | 1 administratör + 3 grupp ägare | 4 |
+| En administratör skapar en åtkomst granskning av grupp A med 500-användare.<br/>Gör det till en själv granskning. | 1 administratör + 500 användare som självgranskare | 501 |
+| En administratör skapar en åtkomst granskning av grupp A med 5 användare och 25 gäst användare.<br/>Gör det till en själv granskning. | 1 administratör + 5 användare som självgranskare<br/>(gäst användare omfattas av den obligatoriska 1:5-kvoten) | 6 |
+| En administratör skapar en åtkomst granskning av grupp A med 5 användare och 28 gäst användare.<br/>Gör det till en själv granskning. | 1 administratör + 5 användare som självgranskare + 1 användare för att få gäst användare i det obligatoriska 1:5-förhållandet | 7 |
 
-Information om hur du tilldelar licenser till din använder finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory-portalen](../fundamentals/license-users-groups.md).
+Information om hur du tilldelar licenser till dina användnings områden finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 
-## <a name="learn-about-access-reviews"></a>Lär dig mer om åtkomstgranskningar
+## <a name="onboard-access-reviews"></a>Publicera åtkomstgranskningar
 
-Titta på den här kort demonstration om du vill veta mer om att skapa och utföra åtkomstgranskningar:
+Följ dessa steg om du vill ha åtkomst till granskningar.
+
+1. Logga in på den [Azure Portal](https://portal.azure.com) där du vill använda åtkomst granskningar som global administratör eller användar administratör.
+
+1. Klicka på **Azure Active Directory**i det vänstra navigerings fältet.
+
+1. Klicka på **identitets styrning**på den vänstra menyn.
+
+1. Klicka på **åtkomst granskningar**.
+ 
+    ![Start sida för åtkomst granskningar](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+
+1. Klicka på knappen **onboard Now (publicera nu** ) på sidan.
+    
+      ![Åtkomst granskningar](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+
+
+## <a name="learn-about-access-reviews"></a>Lär dig mer om åtkomst granskningar
+
+Om du vill veta mer om hur du skapar och utför åtkomst granskningar kan du titta på den här korta demon:
 
 >[!VIDEO https://www.youtube.com/embed/6KB3TZ8Wi40]
 
-Om du är redo att distribuera åtkomstgranskningar i din organisation kan följa stegen i videon att publicera, träna dina administratörer och skapa din första åtkomstgranskning!
+Om du är redo att distribuera åtkomst granskningar i din organisation följer du de här stegen i videon för att publicera, träna dina administratörer och skapa din första åtkomst granskning!
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
@@ -99,7 +118,7 @@ Om du är redo att distribuera åtkomstgranskningar i din organisation kan följ
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en åtkomstgranskning av grupper eller program](create-access-review.md)
+- [Skapa en åtkomst granskning av grupper eller program](create-access-review.md)
 - [Skapa en åtkomstgranskning av användarna i en administrativ roll i Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
 - [Granska åtkomst till grupper eller program](perform-access-review.md)
-- [Slutför en åtkomstgranskning av grupper eller program](complete-access-review.md)
+- [Slutför en åtkomst granskning av grupper eller program](complete-access-review.md)

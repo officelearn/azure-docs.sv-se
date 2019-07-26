@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric-nodtyper och VM-skalningsuppsättningar | Microsoft Docs
-description: Lär dig hur Azure Service Fabric-noden typer som är relaterade till VM-skalningsuppsättning anger och hur du ansluter via en fjärranslutning till en skala ange instans eller en klusternod.
+title: Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer | Microsoft Docs
+description: Lär dig hur Azure Service Fabric Node-typer relaterar till skalnings uppsättningar för virtuella datorer och hur du fjärransluter till en instans av en skalnings uppsättning eller klusternod.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f33b25112b5c4ee77f1f7d2a419ffb8e926a27d9
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684680"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501366"
 ---
-# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric-nodtyper och VM-skalningsuppsättningar
-[VM-skalningsuppsättningar](/azure/virtual-machine-scale-sets) är en Azure-beräkningsresurs. Du kan använda skalningsuppsättningar för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster ställer in en separat skala.  Service Fabric-körningen installerad på varje virtuell dator i skalningsuppsättningen med tillägget för Microsoft.Azure.ServiceFabric virtuell dator. Du kan oberoende skala varje nodtyp upp eller ned, ändra den operativsystem-SKU som körs på varje nod i klustret, ha olika portar öppna och använda olika kapacitet.
+# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
+[Skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets) är en Azure Compute-resurs. Du kan använda skalnings uppsättningar för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster ställer in en separat skala.  Service Fabric Runtime installerat på varje virtuell dator i skalnings uppsättningen av tillägget Microsoft. Azure. ServiceFabric för virtuella datorer. Du kan skala upp eller ned varje nodtyp separat, ändra OS-SKU: n som körs på varje klusternod, ha olika portar öppna och använda olika kapacitets mått.
 
-Följande bild visar ett kluster med två nodtyper med namnet FrontEnd och BackEnd. Varje nodtyp har fem noder.
+Följande bild visar ett kluster som har två nodtyper, med namnet FrontEnd och Server del. Varje nodtyp har fem noder.
 
-![Ett kluster med två nodtyper][NodeTypes]
+![Ett kluster som har två nodtyper][NodeTypes]
 
-## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Mappa VM-skalningsuppsättningsinstanser till noder
-I bilden ovan visas skalningsuppsättningsinstanser startar instansen 0 och sedan öka med 1. Numreringen återspeglas i nod-namn. Noden BackEnd_0 är till exempel instansen 0 av skalningsuppsättningen serverdel. Den här specifika skalningsuppsättningen har fem instanser, med namnet BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 och BackEnd_4.
+## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Mappa virtuella datorers skalnings uppsättnings instanser till noder
+Som du ser i föregående bild, startar skalnings uppsättnings instanserna vid instans 0 och ökar sedan med 1. Numreringen visas i nodnamn. Node BackEnd_0 är till exempel instans 0 av Server dels skalnings uppsättningen. Denna specifika skalnings uppsättning har fem instanser, med namnet BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 och BackEnd_4.
 
-När du skalar upp en skalningsuppsättning skapas en ny instans. Ny scale set-instansnamnet är vanligtvis skalningsuppsättningen namn samt nästa instansnummer. I vårt exempel är det BackEnd_5.
+När du skalar upp en skalnings uppsättning skapas en ny instans. Det nya instans namnet för skalnings uppsättningen är vanligt vis skalnings uppsättningens namn plus nästa instans nummer. I vårt exempel är det BackEnd_5.
 
-## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mappa scale set-belastningsutjämnare till nodtyper och skalningsuppsättningar
-Om du har distribuerat ditt kluster i Azure-portalen eller använt exempelmallen för Azure Resource Manager, visas alla resurser under en resursgrupp. Du kan se belastningsutjämnare för varje scale set eller noden. Namnet på belastningsutjämnaren använder följande format: **LB -&lt;nodtypnamn&gt;** . Ett exempel är LB-sfcluster4doc-0, enligt följande bild:
+## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mappa skal uppsättnings belastningsutjämnare till nodtyper och skalnings uppsättningar
+Om du har distribuerat klustret i Azure Portal eller använt exemplet Azure Resource Manager mall visas alla resurser under en resurs grupp. Du kan se belastnings utjämning för varje skalnings uppsättning eller nodtyp. Belastnings Utjämnings namnet har följande format: **Lb-&lt;Node-typnamn.&gt;** Ett exempel är LB-sfcluster4doc-0, som du ser i följande figur:
 
 ![Resurser][Resources]
 
-## <a name="service-fabric-virtual-machine-extension"></a>Service Fabric VM-tillägget
-Service Fabric VM-tillägget används för att starta Service Fabric till Azure Virtual Machines och konfigurera nod-säkerhet.
+## <a name="service-fabric-virtual-machine-extension"></a>Service Fabric tillägg för virtuell dator
+Service Fabric tillägg för virtuell dator används för att starta Service Fabric till Azure Virtual Machines och konfigurera nodens säkerhet.
 
-Följande är ett kodfragment i Service Fabric VM-tillägg:
+Följande är ett fragment med Service Fabric virtuell dators tillägg:
 
 ```json
 "extensions": [
@@ -60,6 +60,7 @@ Följande är ett kodfragment i Service Fabric VM-tillägg:
          "durabilityLevel": "Silver",
          "enableParallelJobs": true,
          "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "dataPath": "D:\\\\SvcFab",
          "certificate": {
            "commonNames": [
              "[parameters('certificateCommonName')]"
@@ -72,29 +73,30 @@ Följande är ett kodfragment i Service Fabric VM-tillägg:
    },
 ```
 
-Här följer Egenskapsbeskrivningar:
+Följande är egenskaps beskrivningarna:
 
-| **Namn** | **Tillåtna värden** | ** --- ** | **Vägledning eller en kort beskrivning** |
+| **Namn** | **Tillåtna värden** | ** --- ** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-| name | string | --- | unikt namn för tillägg |
-| type | ”ServiceFabricLinuxNode” eller ”ServiceFabricWindowsNode | --- | Identifierar OS Service Fabric bootstrapping till |
-| autoUpgradeMinorVersion | SANT eller FALSKT | --- | Aktivera automatisk uppgradering av SF Runtime delversioner |
-| publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric-tillägget utgivarens namn |
-| clusterEndpont | string | --- | URI:port till hanteringsslutpunkten |
-| nodeTypeRef | string | --- | namnet på nodeType |
-| durabilityLevel | Brons, silver, guld, Platina | --- | tiden som tillåts att pausa oföränderlig infrastruktur i Azure |
-| enableParallelJobs | SANT eller FALSKT | --- | Aktivera Compute ParallelJobs som att ta bort virtuell dator och starta om virtuell dator i samma skalningsuppsättningen parallellt |
-| nicPrefixOverride | string | --- | Undernätets Prefix som ”10.0.0.0/24” |
-| commonNames | string[] | --- | Vanliga namn på installerade klustercertifikat |
-| x509StoreName | string | --- | Namnet på Store där det finns installerade klustercertifikat |
-| typeHandlerVersion | 1.1 | --- | Versionen av tillägget. 1.0 klassiska versionen av tillägget rekommenderas för att uppgradera till 1.1 |
+| name | sträng | --- | unikt namn för tillägg |
+| type | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode | --- | Identifierar OS-Service Fabric som startas |
+| autoUpgradeMinorVersion | Sant eller falskt | --- | Aktivera automatisk uppgradering av SF runtime minor-versioner |
+| publisher | Microsoft.Azure.ServiceFabric | --- | namnet på Service Fabric omfattnings utgivaren |
+| clusterEndpont | sträng | --- | URI: PORT till hanterings slut punkt |
+| nodeTypeRef | sträng | --- | namn på nodeType |
+| durabilityLevel | brons, silver, guld, platina | --- | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
+| enableParallelJobs | Sant eller falskt | --- | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
+| nicPrefixOverride | sträng | --- | Undernätsprefixet som "10.0.0.0/24" |
+| commonNames | sträng [] | --- | Vanliga namn på installerade kluster certifikat |
+| x509StoreName | sträng | --- | Namn på arkivet där det installerade kluster certifikatet finns |
+| typeHandlerVersion | 1.1 | --- | Version av tillägget. 1,0 Classic-versionen av tillägget rekommenderas för att uppgradera till 1,1 |
+| dataPath | sträng | --- | Sökväg till enheten som används för att spara tillstånd för Service Fabric system tjänster och program data. 
 
 ## <a name="next-steps"></a>Nästa steg
-* Se den [översikt över ”distribuera var som helst”-funktionen och en jämförelse med Azure-hanterade kluster](service-fabric-deploy-anywhere.md).
-* Lär dig mer om [kluster security](service-fabric-cluster-security.md).
-* [Fjärranslutning](service-fabric-cluster-remote-connect-to-azure-cluster-node.md) till en specifik scale set-instans
-* [Uppdatera RDP-portintervallvärden](./scripts/service-fabric-powershell-change-rdp-port-range.md) i klustret virtuella datorer efter distributionen
-* [Ändra administratörens användarnamn och lösenord](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) för virtuella datorer klustret
+* Se [översikten över funktionen "distribuera överallt" och en jämförelse med Azure-hanterade kluster](service-fabric-deploy-anywhere.md).
+* Lär dig mer om [kluster säkerhet](service-fabric-cluster-security.md).
+* [Fjärrans luta](service-fabric-cluster-remote-connect-to-azure-cluster-node.md) till en bestämd skalnings uppsättnings instans
+* [Uppdatera RDP-portens intervall värden](./scripts/service-fabric-powershell-change-rdp-port-range.md) på virtuella kluster datorer efter distributionen
+* [Ändra administratörens användar namn och lösen ord](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) för virtuella kluster datorer
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png

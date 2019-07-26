@@ -1,6 +1,6 @@
 ---
 title: Ladda upp filer från enheter till Azure IoT Hub med Java | Microsoft Docs
-description: Hur du överför filer från en enhet till molnet med Azure IoT-enhetens SDK för Java. Överförda filer lagras i en Azure storage blob-behållare.
+description: Ladda upp filer från en enhet till molnet med Azure IoT-enhets-SDK för Java. Överförda filer lagras i en BLOB-behållare för Azure Storage.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,40 +9,40 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3893e496b41b0f3df8dc5a580daf298888578d6e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620137"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404179"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från enheten till molnet med IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Den här självstudien bygger på koden i den [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) självstudien för att visa dig hur du använder den [filen ladda upp funktionerna i IoT Hub](iot-hub-devguide-file-upload.md) att överföra en fil till [Azure-blob Storage](../storage/index.yml). Självstudien visar hur du:
+Den här självstudien bygger på koden i [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) själv studie kurs som visar hur du använder [fil överförings funktionerna i IoT Hub](iot-hub-devguide-file-upload.md) för att ladda upp en fil till [Azure Blob Storage](../storage/index.yml). Självstudien visar hur du:
 
-* Ange en enhet på ett säkert sätt med en Azure blob-URI: N för att ladda upp en fil.
+* Tillhandahålla en enhet på ett säkert sätt en Azure Blob-URI för att ladda upp en fil.
 
-* Använd IoT Hub filen ladda upp meddelanden för att utlösa fil i din app-serverdel.
+* Använd IoT Hub fil överförings meddelanden för att utlösa bearbetning av filen i Server delen av din app.
 
-Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-java.md) Snabbstart och [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) självstudien visar de grundläggande funktionerna av enhet till moln och från moln till enhet meddelanden i IoT Hub. Den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) självstudien beskrivs ett sätt att pålitligt lagra meddelanden från enheten till molnet i Azure blob storage. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
+[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-java-java-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Exempel:
 
 * Stora filer som innehåller bilder
-* Videoklipp
-* Vibrationer data samplas med hög frekvens
+* Videor
+* Exempel på vibrations data med hög frekvens
 * Någon form av förbearbetade data.
 
-Dessa filer är vanligtvis bearbetas i molnet med hjälp av verktyg som [Azure Data Factory](../data-factory/introduction.md) eller [Hadoop](../hdinsight/index.yml) stack. När du behöver upland filer från en enhet, kan du fortfarande använda säkerheten och pålitligheten för IoT Hub.
+De här filerna bearbetas vanligt vis i molnet med hjälp av verktyg som [Azure Data Factory](../data-factory/introduction.md) eller [Hadoop](../hdinsight/index.yml) -stacken. När du behöver använda filer från en enhet kan du fortfarande använda säkerhet och tillförlitlighet för IoT Hub.
 
-I slutet av den här kursen kan du köra två Java-konsolappar:
+I slutet av den här självstudien kör du två Java-konsol program:
 
-* **simulated-device**, en modifierad version av appen skapades i självstudien [skicka moln-till-enhet-meddelanden med IoT Hub]. Den här appen överför en fil till storage med hjälp av en SAS-URI som tillhandahålls av din IoT-hubb.
+* **simulerad enhet**, en modifierad version av appen som skapats i själv studie kursen [skicka meddelanden från moln till enhet med IoT Hub]. Den här appen laddar upp en fil till lagring med hjälp av en SAS-URI från IoT Hub.
 
-* **Läs –--filuppladdningsmeddelande**, som tar emot filen ladda upp meddelanden från IoT hub.
+* **Read-File-Upload-Notification**, som tar emot fil överförings meddelanden från IoT Hub.
 
 > [!NOTE]
-> IoT-hubb har stöd för många enhetsplattformar och språk (inklusive C, .NET och Javascript) via SDK: er för Azure IoT-enheter. Referera till den [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) stegvisa instruktioner om hur du ansluter din enhet till Azure IoT Hub.
+> IoT Hub stöder många enhets plattformar och språk (inklusive C, .NET och Java Script) via SDK: er för Azure IoT-enheter. I [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) hittar du stegvisa instruktioner för hur du ansluter enheten till Azure IoT Hub.
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -50,25 +50,25 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * [Maven 3](https://maven.apache.org/install.html)
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en app för enheter
+## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en enhets app
 
-I det här avsnittet ska du ändra app för enheter som du skapade i [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) att överföra en fil till IoT hub.
+I det här avsnittet ändrar du den enhets app som du skapade i [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) att ladda upp en fil till IoT Hub.
 
-1. Kopiera en fil till den `simulated-device` mappen och Byt namn på den `myimage.png`.
+1. Kopiera en avbildnings fil till `simulated-device` mappen och Byt namn `myimage.png`på den.
 
-2. Använd en textredigerare och öppna den `simulated-device\src\main\java\com\mycompany\app\App.java` filen.
+2. Öppna `simulated-device\src\main\java\com\mycompany\app\App.java` filen med en text redigerare.
 
-3. Lägg till variabeldeklaration till den **App** klass:
+3. Lägg till variabel deklarationen i klassen **app** :
 
     ```java
     private static String fileName = "myimage.png";
     ```
 
-4. Om du vill bearbeta filen överför motringning statusmeddelanden, lägger du till följande kapslade klassen för att den **App** klass:
+4. Om du vill bearbeta återställnings meddelanden för fil överföring lägger du till följande kapslade klass i klassen **app** :
 
     ```java
     // Define a callback method to print status codes from IoT Hub.
@@ -80,7 +80,7 @@ I det här avsnittet ska du ändra app för enheter som du skapade i [skicka med
     }
     ```
 
-5. Om du vill kunna överföra bilder till IoT Hub, lägger du till följande metod för att den **App** klassen för att kunna överföra bilder till IoT Hub:
+5. Om du vill ladda upp avbildningar till IoT Hub lägger du till följande metod i klassen **app** för att ladda upp avbildningar till IoT Hub:
 
     ```java
     // Use IoT Hub to upload a file asynchronously to Azure blob storage.
@@ -94,7 +94,7 @@ I det här avsnittet ska du ändra app för enheter som du skapade i [skicka med
     }
     ```
 
-6. Ändra den **huvudsakliga** metod för att anropa den **uploadFile** metod som du ser i följande kodavsnitt:
+6. Ändra **main** -metoden för att anropa **UploadFile** -metoden som visas i följande kodfragment:
 
     ```java
     client.open();
@@ -114,27 +114,31 @@ I det här avsnittet ska du ändra app för enheter som du skapade i [skicka med
     MessageSender sender = new MessageSender();
     ```
 
-7. Använd följande kommando för att skapa den **simulated-device** appen och Sök efter fel:
+7. Använd följande kommando för att bygga den **simulerade Device-** appen och söka efter fel:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
 
-## <a name="receive-a-file-upload-notification"></a>Ta emot ett filuppladdningsmeddelande
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-I det här avsnittet skapar du en Java-konsolapp som tar emot filen ladda upp meddelanden från IoT Hub.
+I den här artikeln skapar du en backend-tjänst för att ta emot meddelanden om fil överföring från IoT-hubben som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-java.md). Om du vill ta emot meddelanden om fil överföring behöver tjänsten **tjänst anslutnings** behörighet. Som standard skapas varje IoT Hub med en delad åtkomst princip med namnet **tjänst** som ger den här behörigheten.
 
-Du behöver den **iothubowner** anslutningssträngen för din IoT-hubb att slutföra det här avsnittet. Du hittar anslutningssträngen i den [Azure-portalen](https://portal.azure.com/) på den **princip för delad åtkomst** bladet.
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-1. Skapa ett Maven-projekt som heter **Läs –--filuppladdningsmeddelande** med följande kommando i Kommandotolken. Observera att det här kommandot är ett enda långt kommando:
+## <a name="receive-a-file-upload-notification"></a>Ta emot ett meddelande om fil uppladdning
+
+I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om fil överförings meddelanden från IoT Hub.
+
+1. Skapa ett Maven-projekt med namnet **Read-File-Upload-Notification** med följande kommando i kommando tolken. Observera att det här kommandot är ett enda, långt kommando:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. I Kommandotolken, gå till den nya `read-file-upload-notification` mapp.
+2. I kommando tolken navigerar du till den `read-file-upload-notification` nya mappen.
 
-3. Använd en textredigerare och öppna den `pom.xml` fil i den `read-file-upload-notification` mapp och Lägg till följande beroende till den **beroenden** noden. Om du lägger till beroendet kan du använda den **iothub-java-service-client** paketet i ditt program kan kommunicera med IoT hub-tjänsten:
+3. Använd en text redigerare och öppna `pom.xml` filen `read-file-upload-notification` i mappen och Lägg till följande beroende till noden **beroenden** . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
 
     ```xml
     <dependency>
@@ -145,11 +149,11 @@ Du behöver den **iothubowner** anslutningssträngen för din IoT-hubb att slutf
     ```
 
     > [!NOTE]
-    > Du kan söka efter den senaste versionen av **iot-service-client** med [Maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Du kan söka efter den senaste versionen av **IoT-service-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Spara och Stäng den `pom.xml` filen.
+4. Spara och Stäng `pom.xml` filen.
 
-5. Använd en textredigerare och öppna den `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` filen.
+5. Öppna `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` filen med en text redigerare.
 
 6. Lägg till följande **Import**-instruktioner i filen:
 
@@ -161,7 +165,7 @@ Du behöver den **iothubowner** anslutningssträngen för din IoT-hubb att slutf
     import java.util.concurrent.Executors;
     ```
 
-7. Lägg till de följande variablerna på klassnivå till den **App** klass:
+7. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen: `{Your IoT Hub connection string}`
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";
@@ -169,7 +173,7 @@ Du behöver den **iothubowner** anslutningssträngen för din IoT-hubb att slutf
     private static FileUploadNotificationReceiver fileUploadNotificationReceiver = null;
     ```
 
-8. Om du vill skriva ut information om själva filuppladdningen till konsolen, lägger du till följande kapslade klassen för att den **App** klass:
+8. Om du vill skriva ut information om fil uppladdning till-konsolen lägger du till följande kapslade klass i klassen **app** :
 
     ```java
     // Create a thread to receive file upload notifications.
@@ -196,7 +200,7 @@ Du behöver den **iothubowner** anslutningssträngen för din IoT-hubb att slutf
     }
     ```
 
-9. Om du vill starta en tråd som lyssnar efter meddelanden för uppladdning av filen, lägger du till följande kod till den **huvudsakliga** metoden:
+9. Om du vill starta tråden som lyssnar efter meddelanden om fil uppladdning lägger du till följande kod i **main** -metoden:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException, Exception {
@@ -224,9 +228,9 @@ Du behöver den **iothubowner** anslutningssträngen för din IoT-hubb att slutf
     }
     ```
 
-10. Spara och Stäng den `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` filen.
+10. Spara och Stäng `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` filen.
 
-11. Använd följande kommando för att skapa den **Läs –--filuppladdningsmeddelande** appen och Sök efter fel:
+11. Använd följande kommando för att bygga appen **Read-File-Upload-Notification** och söka efter fel:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -236,40 +240,40 @@ Du behöver den **iothubowner** anslutningssträngen för din IoT-hubb att slutf
 
 Du är nu redo att köra programmen.
 
-I en kommandotolk i den `read-file-upload-notification` mapp, kör du följande kommando:
+Kör följande kommando i kommando tolken i `read-file-upload-notification` mappen:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 ```
 
-I en kommandotolk i den `simulated-device` mapp, kör du följande kommando:
+Kör följande kommando i kommando tolken i `simulated-device` mappen:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 ```
 
-I följande skärmbild visas utdata från den **simulated-device** app:
+Följande skärm bild visar utdata från den **simulerade Device-** appen:
 
-![Utdata från app för simulerade enheter](media/iot-hub-java-java-upload/simulated-device.png)
+![Utdata från den simulerade enhets appen](media/iot-hub-java-java-upload/simulated-device.png)
 
-I följande skärmbild visas utdata från den **Läs –--filuppladdningsmeddelande** app:
+Följande skärm bild visar utdata från appen **Read-File-Upload-Notification** :
 
-![Utdata från Läs –--filuppladdningsmeddelande app](media/iot-hub-java-java-upload/read-file-upload-notification.png)
+![Utdata från Read-File-Upload-Notification-appen](media/iot-hub-java-java-upload/read-file-upload-notification.png)
 
-Du kan använda portalen för att visa den överförda filen i storage-behållare som du har konfigurerat:
+Du kan använda portalen för att visa den överförda filen i den lagrings behållare som du konfigurerade:
 
-![Uppladdad fil](media/iot-hub-java-java-upload/uploaded-file.png)
+![Överförd fil](media/iot-hub-java-java-upload/uploaded-file.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien beskrivs hur du använder filen ladda upp funktionerna i IoT Hub för att förenkla filöverföringar från enheter. Du kan fortsätta att utforska IoT hub funktioner och scenarier i följande artiklar:
+I den här självstudien har du lärt dig hur du använder fil överförings funktionerna i IoT Hub för att förenkla fil överföringar från enheter. Du kan fortsätta att utforska funktionerna och scenarierna i IoT Hub med följande artiklar:
 
-* [Skapa en IoT hub programmässigt](iot-hub-rm-template-powershell.md)
+* [Skapa en IoT Hub program mässigt](iot-hub-rm-template-powershell.md)
 
 * [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
 
 * [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
 
-Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
 * [Simulera en enhet med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

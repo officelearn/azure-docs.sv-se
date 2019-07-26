@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807557"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477186"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visa programmen i din Azure Active Directory-klientorganisation
 
@@ -39,16 +39,16 @@ Du kan se programmen i din Azure AD-klientorganisation i avsnittet **Företagspr
 
 Så här hittar du programmen i din klientorganisation:
 
-1. I den  **[Azure-portalen](https://portal.azure.com)** , på den vänstra navigeringspanelen väljer **Azure Active Directory**.
-1. I den **Azure Active Directory** väljer **företagsprogram**.
-1. Från den **programtyp** nedrullningsbara menyn och välj **alla program**, och välj **tillämpa**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
-1. Om du vill visa fler program, Välj **Läs in fler** längst ned i listan. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
+1. Välj **Azure Active Directory**på den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
+1. I fönstret **Azure Active Directory** väljer du **företags program**.
+1. I list rutan **program typ** väljer du **alla program**och sedan **Använd**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
+1. Om du vill visa fler program väljer du **Läs in mer** längst ned i listan. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
 
 ## <a name="select-viewing-options"></a>Välj visningsalternativ
 
 Välj alternativ enligt vad du letar efter.
 
-1. Du kan se program som **programtyp**, **programstatus**, och **synlighet för program**.
+1. Du kan visa programmen efter **program typ**, **program status**och **program synlighet**.
 1. Välj något av följande alternativ under **Programtyp**:
 
     - **Företagsprogram** visar andra program än Microsoft-program.
@@ -56,27 +56,27 @@ Välj alternativ enligt vad du letar efter.
     - **Alla program** visar både Microsoft-program och andra program.
 
 1. Välj **Alla**, **Inaktiverade** eller **Aktiverade** under **Programstatus**. Alternativet **Alla** omfattar både inaktiverade och aktiverade program.
-1. Välj **Alla** eller **Dolda** under **Synlighet för program**. Den **Hidden** alternativet visar program som finns i klienten, men inte är synliga för användare.
-1. När du har valt önskade alternativ, Välj **tillämpa**.
+1. Välj **Alla** eller **Dolda** under **Synlighet för program**. Alternativet **dold** visar program som finns i klienten, men som inte är synliga för användare.
+1. När du har valt de alternativ som du vill använda väljer du **Använd**.
 
 ## <a name="search-for-a-tenant-application"></a>Söka efter ett klientprogram
 
-Att söka efter ett visst program:
+Så här söker du efter ett visst program:
 
-1. I den **programtyp** menyn och välj **alla program**, och välj **tillämpa**.
-1. Ange namnet på det program som du vill söka efter. Om programmet har lagts till Azure AD-klienten, visas den i sökresultatet. Det här exemplet visar att GitHub inte har lagts till klient-program.
+1. I menyn **program typ** väljer du **alla program**och sedan **Använd**.
+1. Ange namnet på det program som du vill söka efter. Om programmet har lagts till i din Azure AD-klient visas det i Sök resultaten. Det här exemplet visar att GitHub inte har lagts till i klient programmet.
 
-    ![Exemplet visar en app som inte har lagts till klienten](media/view-applications-portal/search-for-tenant-application.png)
+    ![Exempel visar att en app inte har lagts till i klient organisationen](media/view-applications-portal/search-for-tenant-application.png)
 
 1. Prova att skriva de första bokstäverna i ett programnamn. I det här exemplet visas alla program som börjar med **Sales**.
 
-    ![Exemplet visar alla appar som börjar med försäljning](media/view-applications-portal/search-by-prefix.png)
+    ![Exempel visar alla appar som börjar med Sales](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du visar program i Azure AD-klienten. Du har lärt dig hur du kan filtrera listan med program som programtyp, status och synlighet. Du har också lärt dig hur du söker efter ett specifikt program.
+I den här snabb starten har du lärt dig hur du visar programmen i din Azure AD-klient. Du har lärt dig hur du filtrerar listan över program efter program typ, status och synlighet. Du har också lärt dig hur du söker efter ett specifikt program.
 
-Nu när du har hittat programmet du letar efter kan du fortsätta att [lägga till fler program i din klient](add-application-portal.md). Du kan också välja programmet för att visa eller redigera egenskaper och alternativ. Du kan till exempel konfigurera enkel inloggning.
+Nu när du har hittat det program som du letade efter kan du fortsätta att [lägga till fler program till din klient organisation](add-application-portal.md). Du kan också välja programmet för att visa eller redigera egenskaper och konfigurations alternativ. Du kan till exempel konfigurera enkel inloggning.
 
 > [!div class="nextstepaction"]
-> [Konfigurera enkel inloggning](configure-single-sign-on-portal.md)
+> [Konfigurera enkel inloggning](configure-single-sign-on-non-gallery-applications.md)

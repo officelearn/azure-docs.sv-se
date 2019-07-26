@@ -1,6 +1,6 @@
 ---
-title: Hur du skickar schemalagda meddelanden | Microsoft Docs
-description: Det här avsnittet beskriver hur du använder schemalagda meddelanden med Azure Notification Hubs.
+title: Skicka schemalagda meddelanden | Microsoft Docs
+description: I det här avsnittet beskrivs hur du använder schemalagda meddelanden med Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 keywords: push-meddelanden, push-meddelande, schemaläggning av push-meddelanden
@@ -15,34 +15,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: af0de9e8c18644f4ae200f6546c0dd0a41320f9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94af0dede158c091ae64ae317db3c3153063ce79
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457693"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347355"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Instruktioner: Skicka schemalagda meddelanden
 
-Om du har ett scenario där du vill skicka ett meddelande vid en viss tidpunkt i framtiden, men som inte har ett enkelt sätt att aktivera in backend-koden så att skicka meddelandet. Standard-nivån för meddelandehubbar stöd för en funktion som gör att du kan schemalägga meddelanden upp till sju dagar i framtiden.
+Om du har ett scenario där du vill skicka ett meddelande vid ett senare tillfälle, men inte har ett enkelt sätt att aktivera din backend-kod för att skicka meddelandet. Aviserings hubbar på standard nivå stöder en funktion som gör att du kan schemalägga meddelanden upp till sju dagar i framtiden.
 
 
-## <a name="schedule-your-notifications"></a>Schemalägg meddelanden
-När du skickar ett meddelande, använder bara den [ `ScheduledNotification` klass](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) i Notification Hubs SDK som visas i följande exempel:
+## <a name="schedule-your-notifications"></a>Schemalägg dina meddelanden
+När du skickar ett meddelande använder [ `ScheduledNotification` ](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) du bara-klassen i Notification Hubs SDK, som du ser i följande exempel:
 
-```c#
+```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
 
 ## <a name="cancel-scheduled-notifications"></a>Avbryt schemalagda meddelanden
-Du kan också avbryta en tidigare schemalagda meddelande med hjälp av dess meddelande-ID:
+Du kan också avbryta ett tidigare schemalagt meddelande med hjälp av dess notificationId:
 
-```c#
+```csharp
 await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 
-Det finns ingen gräns för antalet schemalagda meddelanden som du kan skicka.
+Det finns ingen gräns för hur många schemalagda meddelanden du kan skicka.
 
 ## <a name="next-steps"></a>Nästa steg
 

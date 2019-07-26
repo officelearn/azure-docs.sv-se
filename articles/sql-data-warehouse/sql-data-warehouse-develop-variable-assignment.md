@@ -2,7 +2,7 @@
 title: Tilldela variabler i Azure SQL Data Warehouse | Microsoft Docs
 description: Tips för att tilldela T-SQL-variabler i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,27 +10,27 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 62c4273a02e02aff268a96e1b13483088ba33f87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c943478f3904aac17a572f012f2b2b69ffa2223
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861685"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479549"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Tilldela variabler i Azure SQL Data Warehouse
 
 Tips för att tilldela T-SQL-variabler i Azure SQL Data Warehouse för utveckling av lösningar.
 
-## <a name="setting-variables-with-declare"></a>Ange variabler med DECLARE
+## <a name="setting-variables-with-declare"></a>Anger variabler med DECLARE
 
-Variabler i SQL Data Warehouse är inställda med hjälp av den `DECLARE` instruktionen eller `SET` instruktionen. Initiera variabler med DECLARE är ett av de mest flexibla sätten att ange ett variabelvärde i SQL Data Warehouse.
+Variabler i SQL Data Warehouse anges med `DECLARE` instruktionen `SET` eller instruktionen. Att initiera variabler med deklarera är ett av de mest flexibla sätten att ange ett variabel värde i SQL Data Warehouse.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-Du kan också använda DECLARE för att ange fler än en variabel i taget. Du kan inte använda SELECT- eller UPDATE för att göra följande:
+Du kan också använda deklarera för att ange mer än en variabel i taget. Du kan inte använda Välj eller uppdatera för att göra följande:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -38,7 +38,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Du kan inte initiera och använder en variabel i samma DECLARE-instruktion. För att illustrera punkten i följande exempel är **inte** tillåts eftersom @p1 är både initierats och användas i samma DECLARE-instruktion. I följande exempel ger ett fel.
+Det går inte att initiera och använda en variabel i samma DECLARE-instruktion. Följande exempel tillåts **inte** eftersom @p1 är både initierad och används i samma declare-instruktion för att illustrera punkten. Följande exempel ger ett fel.
 
 ```sql
 DECLARE @p1 int = 0
@@ -48,9 +48,9 @@ DECLARE @p1 int = 0
 
 ## <a name="setting-values-with-set"></a>Ange värden med SET
 
-Är en vanlig metod för att ange en variabel.
+SET är en gemensam metod för att ställa in en enskild variabel.
 
-Följande instruktioner är alla giltiga sätt att ange en variabel med:
+Följande instruktioner är giltiga sätt att ange en variabel med SET:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -59,12 +59,12 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-Du kan bara ange en variabel i taget med. Dock är sammansatt operatorer tillåtna.
+Du kan bara ange en variabel i taget med SET. Sammansatta operatörer är dock tillåtna.
 
 ## <a name="limitations"></a>Begränsningar
 
-Du kan inte använda UPPDATERINGEN för variabeltilldelning.
+Du kan inte använda uppdatering för variabel tilldelning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).

@@ -12,12 +12,12 @@ ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b23aa7db29390ef50a72f73fb153fef5301b92
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304841"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477182"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 
@@ -71,9 +71,9 @@ SAML-baserad enkel inloggning stöds för program som använder någon av dessa 
 - SAML 2.0
 - WS-Federation
 
-Information om hur du konfigurerar ett SaaS-program för SAML-baserad enkel inloggning finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-portal.md). Många program vara som en tjänst (SaaS) har också en [programspecifik självstudie](../saas-apps/tutorial-list.md) som steg för steg tar dig igenom konfigurationen för SAML-baserad enkel inloggning.
+Information om hur du konfigurerar ett SaaS-program för SAML-baserad enkel inloggning finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md). Många program vara som en tjänst (SaaS) har också en [programspecifik självstudie](../saas-apps/tutorial-list.md) som steg för steg tar dig igenom konfigurationen för SAML-baserad enkel inloggning.
 
-Om du vill konfigurera ett program för WS-Federation följer du samma anvisningar för att konfigurera program för SAML-baserad enkel inloggning. mer information finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-portal.md). I steget för att konfigurera programmet till att använda Azure AD måste du ersätta inloggnings-URL: en för Azure AD för slut punkten `https://login.microsoftonline.com/<tenant-ID>/wsfed`WS-Federation.
+Om du vill konfigurera ett program för WS-Federation följer du samma anvisningar för att konfigurera program för SAML-baserad enkel inloggning. mer information finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md). I steget för att konfigurera programmet till att använda Azure AD måste du ersätta inloggnings-URL: en för Azure AD för slut punkten `https://login.microsoftonline.com/<tenant-ID>/wsfed`WS-Federation.
 
 Om du vill konfigurera ett lokalt program för SAML-baserad enkel inloggning, se [SAML enkel inloggning för lokala program med Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -100,7 +100,7 @@ Lösenordsbaserad enkel inloggning har stöd för alla molnbaserade program som 
 - Chrome på Windows 7 eller senare, och i Mac OS X eller senare
 - Firefox 26.0 eller senare på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare
 
-För att konfigurera ett molnprogram för lösenordsbaserad enkel inloggning, se [konfigurera program för lösenord för enkel inloggning](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
+Information om hur du konfigurerar ett moln program för lösenordsbaserad enkel inloggning finns i [Konfigurera enkel inloggning för lösen ord](configure-password-single-sign-on-non-gallery-applications.md).
 
 För att konfigurera ett lokalt program för enkel inloggning via programproxy Se [lösenord vaulting för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -127,8 +127,7 @@ När användaren hanterar autentiseringsuppgifter:
 - Administratörer kan fortfarande ange nya autentiseringsuppgifter för programmet.
 
 ## <a name="linked-sign-on"></a>Länkad inloggning
-
-Länkad inloggning gör att Azure AD att tillhandahålla enkel inloggning till ett program som redan är konfigurerad för enkel inloggning i en annan tjänst. Länkade programmet kan visas för slutanvändare i Office 365-portalen eller Azure AD MyApps-portalen. En användare kan till exempel starta ett program som har konfigurerats för enkel inloggning i Active Directory Federation Services 2.0 (AD FS) från Office 365-portalen. Ytterligare reporting är också tillgängligt för länkade program som startas från Office 365-portalen eller Azure AD MyApps-portalen.
+Länkad inloggning gör att Azure AD att tillhandahålla enkel inloggning till ett program som redan är konfigurerad för enkel inloggning i en annan tjänst. Länkade programmet kan visas för slutanvändare i Office 365-portalen eller Azure AD MyApps-portalen. En användare kan till exempel starta ett program som har konfigurerats för enkel inloggning i Active Directory Federation Services 2.0 (AD FS) från Office 365-portalen. Ytterligare reporting är också tillgängligt för länkade program som startas från Office 365-portalen eller Azure AD MyApps-portalen. Information om hur du konfigurerar ett program för länkad inloggning finns i [Konfigurera länkad inloggning](configure-linked-sign-on.md).
 
 ### <a name="linked-sign-on-for-application-migration"></a>Länkad inloggning för programmigrering
 
@@ -189,8 +188,9 @@ Eftersom det här scenariot erbjuds via ett partnerskap mellan Azure AD och Ping
 Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Relaterade artiklar
-
-- [Självstudier för att integrera SaaS-program med Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Självstudie för att konfigurera enkel inloggning](configure-single-sign-on-portal.md)
-- [Introduktion till hantering av åtkomst till program](what-is-access-management.md)
-- Nedladdnings länk: [Distributions plan för enkel inloggning](https://aka.ms/SSODeploymentPlan)
+* [Självstudier för att integrera SaaS-program med Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md)
+* [Konfigurera lösenordsbaserad enkel inloggning](configure-password-single-sign-on-non-gallery-applications.md)
+* [Konfigurera länkad inloggning](configure-linked-sign-on.md)
+* [Introduktion till hantering av åtkomst till program](what-is-access-management.md)
+* Nedladdnings länk: [Distributions plan för enkel inloggning](https://aka.ms/SSODeploymentPlan).

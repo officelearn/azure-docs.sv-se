@@ -1,6 +1,6 @@
 ---
-title: Hur du använder anpassade allokeringsprinciper med Azure IoT Hub Device Provisioning-tjänsten | Microsoft Docs
-description: Hur du använder anpassade allokeringsprinciper med Azure IoT Hub Device Provisioning-tjänsten
+title: Använda anpassade principer för allokering med Azure-IoT Hub Device Provisioning Service | Microsoft Docs
+description: Använda anpassade principer för allokering med Azure-IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,155 +8,155 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e672e7bd43dcd05d048d22205939749c1d96579
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916963"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348057"
 ---
-# <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
+# <a name="how-to-use-custom-allocation-policies"></a>Använda anpassade principer för allokering
 
 
-En anpassad allokeringsprincip ger dig större kontroll över hur enheter tilldelas till en IoT-hubb. Detta åstadkoms med hjälp av anpassad kod i en [Azure Function](../azure-functions/functions-overview.md) tilldela enheter till en IoT-hubb. Device provisioning-tjänst anropar Azure Function-koden med alla relevanta uppgifter om enheten och registrering. Funktionskoden körs och returnerar IoT-hubinformationen som används för att etablera enheten.
+Med en anpassad resursallokeringsprincip får du mer kontroll över hur enheter tilldelas till en IoT-hubb. Detta åstadkommer du genom att använda anpassad kod i en [Azure-funktion](../azure-functions/functions-overview.md) för att tilldela enheter till en IoT-hubb. Enhets etablerings tjänsten anropar din Azure Function-kod och ger all relevant information om enheten och registreringen. Funktions koden körs och returnerar IoT Hub-informationen som används för att tillhandahålla enheten.
 
-Med hjälp av anpassade allokeringsprinciper definiera egna allokeringsprinciper när de principer som tillhandahålls av Device Provisioning-tjänsten inte uppfyller kraven för ditt scenario.
+Genom att använda anpassade allokeringsregler definierar du egna allokeringsregler när principerna som tillhandahålls av enhets etablerings tjänsten inte uppfyller kraven för ditt scenario.
 
-Till exempel kanske du vill undersöka certifikatet med hjälp av en enhet under etableringen och tilldela enheten till en IoT-hubb baserat på en certifikat-egenskap. Du kan kanske har information som lagras i en databas för dina enheter och vill söka i databasen för att avgöra vilken IoT-hubb som en enhet ska tilldelas till.
+Till exempel kanske du vill undersöka certifikatet som en enhet använder vid etableringen och tilldela enheten till en IoT-hubb baserat på en certifikat egenskap. Du kanske har information lagrad i en databas för dina enheter och behöver fråga databasen för att avgöra vilken IoT-hubb en enhet ska tilldelas till.
 
 
-Den här artikeln visar en anpassad princip med hjälp av en Azure-funktion som skrivits i C#. Två nya IoT-hubbar skapas som representerar en *Contoso brödrostar Division* och en *Contoso termisk pumpar Division*. Enheter som begär etablering måste ha en registrerings-ID med något av följande suffix ska godkännas för etablering:
+Den här artikeln visar en anpassad resursallokeringsprincip som använder en Azure-funktion C#som skrivits i. Två nya IoT-hubbar skapas som representerar en Contoso-popups- *avdelning* och en *contoso värme pumpar-avdelning*. Enheter som begär etablering måste ha ett registrerings-ID med något av följande suffix som ska godkännas för etablering:
 
-- **-contoso-tstrsd-007**: Contoso brödrostar Division
-- **-contoso-hpsd-088**: Contoso termisk pumpar Division
+- **-contoso-tstrsd-007**: Contosos popup-avdelning
+- **-contoso-hpsd-088**: Contoso värme pumpar-avdelning
 
-Enheterna som ska etableras baserat på en av dessa nödvändiga suffix på registrering-ID. Dessa enheter kommer simuleras med hjälp av en allokering exempel som ingår i den [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
+Enheterna kommer att tillhandahållas baserat på något av de nödvändiga suffixen i registrerings-ID: t. De här enheterna kommer att simuleras med hjälp av ett etablerings exempel som ingår i [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
 
-Du utför följande steg i den här artikeln:
+Du kommer att utföra följande steg i den här artikeln:
 
-* Använda Azure CLI för att skapa två Contoso division IoT-hubbar (**Contoso brödrostar Division** och **Contoso termisk pumpar Division**)
-* Skapa en ny gruppregistrering med en Azure-funktion för den anpassade allokeringsprincipen
-* Skapa enhetsnycklar för två enheten simuleringar.
-* Konfigurera utvecklingsmiljön för Azure IoT C SDK
-* Simulera enheter för att se att de har etablerats enligt exempelkoden för den anpassade allokeringsprincipen
+* Använd Azure CLI för att skapa två IoT-hubbar i Contoso-avdelning (Contosos popups-**Division** och **contoso värme pumpar**)
+* Skapa en ny grupp registrering med en Azure-funktion för den anpassade allokeringsregeln
+* Skapa enhets nycklar för två enhets simuleringar.
+* Konfigurera utvecklings miljön för Azure IoT C SDK
+* Simulera enheterna för att se att de är etablerade enligt exempel koden för den anpassade allokeringsregeln
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Slutförandet av den [konfigurera IoT Hub Device Provisioning-tjänsten med Azure portal](./quick-setup-auto-provision.md) Snabbstart.
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med den [”utveckling för stationära datorer med C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) arbetsbelastning aktiverat.
+* [Konfigurations IoT Hub Device Provisioning service har](./quick-setup-auto-provision.md) slutförts med snabb starten för Azure Portal.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med arbets belastningen ["Skriv C++bords utveckling med"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-two-divisional-iot-hubs"></a>Skapa två avdelningar IoT-hubbar
+## <a name="create-two-divisional-iot-hubs"></a>Skapa två IoT-hubbar för avdelning
 
-I det här avsnittet ska du använda Azure Cloud Shell för att skapa två nya IoT-hubbar som representerar den **Contoso brödrostar Division** och **Contoso termisk pumpar division**.
+I det här avsnittet ska du använda Azure Cloud Shell för att skapa två nya IoT-hubbar som representerar Contosos popups- **Division** och **contoso värme pumpar-Division**.
 
-1. Använda Azure Cloud Shell för att skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#az-group-create) kommando. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
+1. Använd Azure Cloud Shell för att skapa en resurs grupp med kommandot [AZ Group Create](/cli/azure/group#az-group-create) . En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
-    I följande exempel skapas en resursgrupp med namnet *contoso-oss-resource-group* i den *eastus* region. Du rekommenderas att du använder den här gruppen för alla resurser som skapats i den här artikeln. Den här metoden gör Rensa enklare när du är klar.
+    I följande exempel skapas en resurs grupp med namnet *contoso-US-Resource-Group* i regionen *östra* . Vi rekommenderar att du använder den här gruppen för alla resurser som skapats i den här artikeln. Den här metoden blir tydligare när du är klar.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Använda Azure Cloud Shell för att skapa den **Contoso brödrostar Division** IoT hub med den [az iot hub skapa](/cli/azure/iot/hub#az-iot-hub-create) kommando. IoT-hubben ska läggas till *contoso-oss-resource-group*.
+2. Använd Azure Cloud Shell för att skapa **Contosos indelning** IoT Hub med kommandot [AZ IoT Hub Create](/cli/azure/iot/hub#az-iot-hub-create) . IoT Hub kommer att läggas till i *contoso-US-Resource-Group*.
 
-    I följande exempel skapas en IoT-hubb med namnet *contoso-brödrostar-hub-1098* i den *eastus* plats. Du måste använda en egen unik hubbnamn. Skapa dina egna suffix i hubbnamnet i stället för **1098**. Kodexempel för anpassade allokeringsprincipen kräver `-toasters-` i hubbnamnet.
+    I följande exempel skapas en IoT-hubb med namnet *contoso--popups – Hub-1098* på den *östra* platsen. Du måste använda ditt eget unika Hubbs namn. Skapa ditt eget suffix i hubben i stället för **1098**. Exempel koden för den anpassade allokeringsregeln kräver `-toasters-` i hubbens namn.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
     
-    Det här kommandot kan ta några minuter att slutföra.
+    Det kan ta några minuter att slutföra kommandot.
 
-3. Använda Azure Cloud Shell för att skapa den **Contoso termisk pumpar Division** IoT hub med den [az iot hub skapa](/cli/azure/iot/hub#az-iot-hub-create) kommando. Den här IoT-hubben läggs också till *contoso-oss-resource-group*.
+3. Använd Azure Cloud Shell för att skapa **Contosos** IoT Hub-hubb med [AZ IoT Hub](/cli/azure/iot/hub#az-iot-hub-create) . Den här IoT-hubben läggs också till i *contoso-US-Resource-Group*.
 
-    I följande exempel skapas en IoT-hubb med namnet *contoso-heatpumps-hub-1098* i den *eastus* plats. Du måste använda en egen unik hubbnamn. Skapa dina egna suffix i hubbnamnet i stället för **1098**. Kodexempel för anpassade allokeringsprincipen kräver `-heatpumps-` i hubbnamnet.
+    I följande exempel skapas en IoT-hubb med namnet *contoso-heatpumps-Hub-1098* på den *östra* platsen. Du måste använda ditt eget unika Hubbs namn. Skapa ditt eget suffix i hubben i stället för **1098**. Exempel koden för den anpassade allokeringsregeln kräver `-heatpumps-` i hubbens namn.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
     
-    Det här kommandot kan också ta ett par minuter att slutföra.
+    Det kan också ta några minuter att slutföra kommandot.
 
 
 
 
 ## <a name="create-the-enrollment"></a>Skapa registreringen
 
-I det här avsnittet skapar du en ny grupp för registrering som använder den anpassade allokeringsprincipen. För enkelhetens skull använder den här artikeln [symmetriska nyckelattestering](concepts-symmetric-key-attestation.md) med registreringen. Överväg att använda för en säkrare lösningen [X.509-certifikat attestering](concepts-security.md#x509-certificates) med en certifikatkedja.
+I det här avsnittet ska du skapa en ny registrerings grupp som använder den anpassade allokeringsregeln. För enkelhetens skull använder den här artikeln [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning bör du överväga att använda [X. 509 certifikat attestering](concepts-security.md#x509-certificates) med en förtroende kedja.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna Device Provisioning Service-instans.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din enhets etablerings tjänst instans.
 
-2. Välj den **hantera registreringar** fliken och klicka sedan på den **Lägg till grupp för registrering** längst upp på sidan. 
+2. Välj fliken **Hantera registreringar** och klicka sedan på knappen **Lägg till registrerings grupp** överst på sidan. 
 
-3. På **lägga till Registreringsgruppen**, anger du följande information och klicka på den **spara** knappen.
+3. I **Lägg till registrerings grupp**anger du följande information och klickar på knappen **Spara** .
 
-    **Gruppnamn**: Ange **contoso-anpassad-allokerade-enheter**.
+    **Grupp namn**: Ange **contoso – anpassade-allokerade enheter**.
 
-    **Typ av attestering**: Välj **symmetrisk nyckel**.
+    **Attesterings typ**: Välj **symmetrisk nyckel**.
 
-    **Generera nycklar automatiskt**: Den här kryssrutan bör redan vara markerad.
+    **Generera nycklar automatiskt**: Den här kryss rutan bör redan vara markerad.
 
-    **Välj hur du vill tilldela enheter till hubs**: Välj **anpassad (använda Azure-funktion)** .
+    **Välj hur du vill tilldela enheter till hubbar**: Välj **Anpassad (Använd Azure Function)** .
 
-    ![Lägg till grupp för registrering av anpassade allokering för symmetrisk nyckelattestering](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
-
-
-4. På **lägga till Registreringsgruppen**, klickar du på **länka en ny IoT hub** länka båda dina nya avdelningar IoT-hubbar. 
-
-    Du måste köra det här steget för båda dina avdelningar IoT-hubbar.
-
-    **Prenumeration**: Om du har flera prenumerationer väljer du den prenumeration där du skapade avdelningar IoT-hubbar.
-
-    **IoT hub**: Välj en av de avdelningar nav som du skapade.
-
-    **Princip för**: Välj **iothubowner**.
-
-    ![Länka avdelningar IoT-hubbar med etableringstjänsten](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
+    ![Lägg till anpassad grupp registrerings grupp för symmetrisk nyckel attestering](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-5. På **lägga till Registreringsgruppen**, när båda avdelningar IoT-hubbar har länkats, du måste välja dem som IoT Hub-grupp för registreringsgruppen enligt nedan:
+4. I **Lägg till registrerings grupp**klickar du på **Länka en ny IoT-hubb** för att länka båda dina nya avdelnings IoT-hubbar. 
 
-    ![Skapa avdelningar hub-grupp för registrering](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
+    Du måste köra det här steget för båda dina avdelnings IoT-hubbar.
+
+    **Prenumeration**: Om du har flera prenumerationer väljer du den prenumeration där du skapade avdelningens IoT-hubbar.
+
+    **IoT-hubb**: Välj ett av de divisions nav som du har skapat.
+
+    **Åtkomst princip**: Välj **iothubowner**.
+
+    ![Länka avdelningens IoT-hubbar med etablerings tjänsten](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
 
-6. På **lägga till Registreringsgruppen**, rulla ned till den **väljer Azure Function** och klicka **skapa en ny funktionsapp**.
+5. När båda avdelnings IoT-hubbarna har länkats i **Lägg till registrerings grupp**måste du välja dem som IoT Hub grupp för registrerings gruppen enligt nedan:
 
-7. På **Funktionsapp** sidan som öppnas anger du följande inställningar för din nya funktion och klicka på Skapa **skapa**:
+    ![Skapa delnings nav gruppen för registreringen](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
 
-    **Appnamn**: Ange ett unikt funktionsappens namn. **Contoso-function-app-1098** visas som ett exempel.
 
-    **Resursgrupp**: Välj **Använd befintlig** och **contoso-oss-resource-group** att hålla alla resurser som skapats i den här artikeln tillsammans.
+6. Rulla ned till avsnittet **Välj Azure Function** i **Lägg till registrerings grupp**och klicka på **skapa en ny function-app**.
 
-    **Application Insights**: Du kan stänga av den här övningen detta.
+7. På **Funktionsapp** skapa sida som öppnas anger du följande inställningar för den nya funktionen och klickar på **skapa**:
+
+    **App-namn**: Ange ett unikt namn för Function-appen. **contoso-Function-app-1098** visas som ett exempel.
+
+    **Resursgrupp**: Välj **Använd befintlig** och **Contoso-USA-resurs grupp** för att hålla alla resurser som skapats i den här artikeln tillsammans.
+
+    **Application Insights**: I den här övningen kan du stänga av detta.
 
     ![Skapa funktionsappen](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
 
-8. Gå tillbaka till din **lägga till Registreringsgruppen** kontrollerar din nya funktionsapp. Du kan behöva välja prenumeration för att uppdatera listan över funktionen igen.
+8. Gå tillbaka till sidan **Lägg till registrerings grupp** och kontrol lera att din nya Function-app är markerad. Du kan behöva välja prenumerationen igen för att uppdatera listan över funktions appar.
 
-    När din nya funktionsapp är markerad, klickar du på **skapa en ny funktion**.
+    När din nya Function-app har valts klickar du på **skapa en ny funktion**.
 
     ![Skapa funktionsappen](./media/how-to-use-custom-allocation-policies/click-create-new-function.png)
 
-    din nya funktionsapp öppnas.
+    din nya Function-app öppnas.
 
-9. På din funktionsapp klickar du på om du vill skapa en ny funktion
+9. I din Function-app klickar du på för att skapa en ny funktion
 
     ![Skapa funktionsappen](./media/how-to-use-custom-allocation-policies/new-function.png)
 
-    Använda standardinställningarna för den nya funktionen för att skapa en ny **Webhook + API** med hjälp av den **CSharp** språk. Klicka på **skapa den här funktionen**.
+    För den nya funktionen använder du standardinställningarna för att skapa en ny **webhook + API** med hjälp av **csharp** -språket. Klicka på **skapa den här funktionen**.
 
-    Detta skapar en ny C#-funktion som heter **HttpTriggerCSharp1**.
+    Detta skapar en ny C# funktion med namnet **HttpTriggerCSharp1**.
 
-10. Ersätt Koden för den nya C#-funktionen med följande kod och klicka på **spara**:    
+10. Ersätt koden för den nya C# funktionen med följande kod och klicka på **Spara**:    
 
-    ```C#
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using System.Text;
@@ -266,32 +266,32 @@ I det här avsnittet skapar du en ny grupp för registrering som använder den a
     ```
 
 
-11. Gå tillbaka till din **lägga till Registreringsgruppen** sidan och kontrollera att den nya funktionen är markerad. Du kan behöva välja igen appen att uppdatera listan med funktioner.
+11. Gå tillbaka till sidan **Lägg till registrerings grupp** och kontrol lera att den nya funktionen är markerad. Du kan behöva välja appen funktion igen för att uppdatera funktions listan.
 
-    När den nya funktionen är markerad, klickar du på **spara** att spara grupp för registrering.
+    När du har valt den nya funktionen klickar du på **Spara** för att spara registrerings gruppen.
 
-    ![Slutligen Spara grupp för registrering](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
-
-
-12. När du har sparat registreringen, öppna den igen och anteckna den **primärnyckel**. Du måste spara registreringen först om du vill att nyckeln som skapas. Den här nyckeln används för att generera unika enhetsnycklar för simulerade enheter senare.
+    ![Spara slutligen registrerings gruppen](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
 
-## <a name="derive-unique-device-keys"></a>Härled unika enhetsnycklar
+12. När du har sparat registreringen kan du öppna den igen och anteckna den **primära nyckeln**. Du måste spara registreringen innan du genererar nycklarna. Den här nyckeln kommer att användas för att generera unika enhets nycklar för simulerade enheter senare.
 
-I det här avsnittet skapar du två unikt enhets-nycklar. En nyckel ska användas för en simulerad toaster-enhet. Den andra nyckeln används för en simulerad termisk pump-enhet.
 
-Om du vill generera enhetsnyckeln som du ska använda den **primärnyckel** du antecknade tidigare för att beräkna den [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av enheten registrerings-ID för varje enhet och konvertera resultatet i Base64-format. Mer information om hur du skapar härledda enhetsnycklar med registreringsgrupper finns i avsnittet grupp registreringar av [symmetriska nyckelattestering](concepts-symmetric-key-attestation.md).
+## <a name="derive-unique-device-keys"></a>Härled unika enhets nycklar
 
-Använd de följande två enhetsregistreringen-ID för det här exemplet i den här artikeln och beräkna en enhetsnyckel för både enheter. Båda registrerings-ID: N har ett giltigt suffix att arbeta med kodexempel för anpassade allokeringsprincipen:
+I det här avsnittet ska du skapa två unika enhets nycklar. En nyckel kommer att användas för en simulerad toaster-enhet. Den andra nyckeln kommer att användas för en simulerad värme Pumps enhet.
+
+Om du vill generera enhets nyckeln använder du den **primära nyckeln** som du noterade tidigare för att beräkna [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) för enhets registrerings-ID: t för varje enhet och konvertera resultatet till base64-format. Mer information om hur du skapar härledda enhets nycklar med registrerings grupper finns i avsnittet grupp registrering i [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md).
+
+I exemplet i den här artikeln använder du följande två enhets registrerings-ID: n och beräknar en enhets nyckel för båda enheterna. Båda registrerings-ID: n har ett giltigt suffix för att fungera med exempel koden för den anpassade allokeringsregeln:
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
 
 #### <a name="linux-workstations"></a>Linux-arbetsstationer
 
-Om du använder en Linux-arbetsstation, kan du använda openssl för att generera enhetsnycklar härledda som visas i följande exempel.
+Om du använder en Linux-arbetsstation kan du använda OpenSSL för att generera dina härledda enhets nycklar på det sätt som visas i följande exempel.
 
-1. Ersätt värdet för **nyckel** med den **primärnyckel** du antecknade tidigare.
+1. Ersätt värdet för **Key** med den **primära nyckel** du noterade tidigare.
 
     ```bash
     KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
@@ -312,11 +312,11 @@ Om du använder en Linux-arbetsstation, kan du använda openssl för att generer
     ```
 
 
-#### <a name="windows-based-workstations"></a>Windows-baserade arbetsstationer
+#### <a name="windows-based-workstations"></a>Windows-baserade arbets stationer
 
-Om du använder en Windows-arbetsstation, kan du använda PowerShell för att generera härledda enhetsnyckeln som du ser i följande exempel.
+Om du använder en Windows-baserad arbets Station kan du använda PowerShell för att generera en härledd enhets nyckel som visas i följande exempel.
 
-1. Ersätt värdet för **nyckel** med den **primärnyckel** du antecknade tidigare.
+1. Ersätt värdet för **Key** med den **primära nyckel** du noterade tidigare.
 
     ```powershell
     $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
@@ -340,18 +340,18 @@ Om du använder en Windows-arbetsstation, kan du använda PowerShell för att ge
     ```
 
 
-De simulerade enheterna använda härledda enhetsnycklar med varje registrerings-ID för att utföra symmetriska nyckelattestering.
+De simulerade enheterna kommer att använda de härledda enhets nycklarna med varje registrerings-ID för att utföra symmetrisk nyckel attestering.
 
 
 
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Förbereda en utvecklingsmiljö för Azure IoT C SDK
 
-I det här avsnittet förbereder du en utvecklingsmiljö som används för att skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enheten försöker etablera under enhetens startsekvens.
+I det här avsnittet förbereder du en utvecklingsmiljö som används för att skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). SDK innehåller exempel koden för den simulerade enheten. Den här simulerade enheten försöker etablera under enhetens startsekvens.
 
-Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel finns i konfigurationsprocessen för de virtuella datorerna i [hur man etablerar för flera innehavare](how-to-provision-multitenant.md).
+Det här avsnittet är riktat mot en Windows-baserad arbets Station. Ett Linux-exempel finns i konfiguration av de virtuella datorerna i [hur du etablerar för flera innehavare](how-to-provision-multitenant.md).
 
-1. Ladda ned den [CMake-buildsystemet](https://cmake.org/download/).
+1. Ladda ned [cmake build-systemet](https://cmake.org/download/).
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
@@ -400,15 +400,15 @@ Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel fi
 
 ## <a name="simulate-the-devices"></a>Simulera enheterna
 
-I det här avsnittet ska du uppdaterar ett etablering exempel med namnet **prov\_dev\_klienten\_exempel** finns i Azure IoT C SDK du skapade tidigare. 
+I det här avsnittet ska du uppdatera ett etablerings exempel med namnet **\_test dev\_client\_-exempel** som finns i Azure IoT C SDK som du har skapat tidigare. 
 
-Den här exempelkoden simulerar en startsekvens för enheten som skickar en begäran om etablering till din instans av Device Provisioning-tjänsten. Startsekvens medför att toaster-enheten ska identifieras och tilldelad till IoT hub med hjälp av anpassade allokeringsprincipen.
+Den här exempel koden simulerar en enhets startsekvens som skickar etablerings förfrågan till din enhets etablerings tjänst instans. Startsekvensen gör att toaster-enheten identifieras och tilldelas IoT-hubben med hjälp av den anpassade principen för tilldelning.
 
 1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och noterar värdet för **_ID-omfång_** .
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. Visual Studio, öppna den **azure_iot_sdks.sln** lösningsfilen som har genererats genom att köra CMake tidigare. Lösningsfilen bör vara på följande plats:
+2. Öppna lösnings filen **azure_iot_sdks. SLN** som genererades genom att köra cmake tidigare i Visual Studio. Lösningsfilen bör vara på följande plats:
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -434,16 +434,16 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 6. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
 
 
-#### <a name="simulate-the-contoso-toaster-device"></a>Simulera Contoso toaster-enhet
+#### <a name="simulate-the-contoso-toaster-device"></a>Simulera contoso toaster-enheten
 
-1. Om du vill simulera toaster-enhet, hitta anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_klienten\_sample.c** som har kommenterats bort.
+1. För att simulera toaster-enheten hittar du anropet till `prov_dev_set_symmetric_key_info()` **\_i test av\_dev\_-klient. c** som är kommenterad.
 
     ```c
     // Set the symmetric key if using they auth type
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Ta bort kommentarerna funktionsanropet och Ersätt platshållarvärdena (inklusive hakparenteser) med toaster registrerings-ID och härledda enhetsnyckeln som du skapade tidigare. Nyckelvärdet **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** visas nedan ges endast som ett exempel.
+    Ta bort kommentarer till funktions anropet och ersätt plats hållarnas värden (inklusive vinkelparenteser) med toaster registrerings-ID och härledd enhets nyckel som du skapade tidigare. Nyckelvärdet **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** som visas nedan anges bara som ett exempel.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -454,7 +454,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
 2. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
 
-    Följande utdata är ett exempel på simulerade toaster-enhet har startas och ansluta till etablering tjänstinstansen som ska tilldelas till IoT-hubb brödrostar av anpassade allokeringsprincipen:
+    Följande utdata är ett exempel på en simulerad toaster-enhet som startar och ansluter till etablerings tjänst instansen som ska tilldelas till popups IoT Hub med den anpassade allokeringsregeln:
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -471,9 +471,9 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     ```
 
 
-#### <a name="simulate-the-contoso-heat-pump-device"></a>Simulera Contoso termisk pump enhet
+#### <a name="simulate-the-contoso-heat-pump-device"></a>Simulera enheten contoso värme pump
 
-1. Uppdatera för att simulera enheten termisk pump anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_klienten\_sample.c** igen med den termiska pump registrerings-ID och härledda enhetsnyckel du skapade tidigare . Nyckelvärdet **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** visas nedan ges också bara som ett exempel.
+1. Om du vill simulera värme Pumps enheten uppdaterar du anropet `prov_dev_set_symmetric_key_info()` till **\_i test\_av\_dev-klienten. c** igen med registrerings-ID: t för värme pumpen och den härledda enhets nyckeln som du skapade tidigare. Nyckel värdet **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** som visas nedan anges också bara som ett exempel.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -484,7 +484,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
 2. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
 
-    Följande utdata är ett exempel på simulerade termisk pump enheten har startas och ansluta till etablering tjänstinstansen som ska tilldelas till Contoso termisk pumpar IoT hub med anpassade allokeringsprincipen:
+    Följande utdata är ett exempel på den simulerade värme pump enheten som har startats och ansluter till etablerings tjänst instansen som ska tilldelas contoso värme pumpar IoT Hub med den anpassade allokeringsregeln:
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -501,36 +501,36 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     ```
 
 
-## <a name="troubleshooting-custom-allocation-policies"></a>Felsökning av anpassade allokeringsprinciper
+## <a name="troubleshooting-custom-allocation-policies"></a>Felsöka anpassade principer för allokering
 
-I följande tabell visar förväntad scenarier och resultat felkoder som kan uppstå. Använd den här tabellen för att felsöka anpassad princip Allokeringsfel med Azure Functions.
+Följande tabell visar förväntade scenarier och de resultat fel koder som du kan stöta på. Använd den här tabellen för att felsöka problem med anpassade allokeringsregler med Azure Functions.
 
 
-| Scenario | Registrering av resultatet från Provisioning-tjänsten | Etablering SDK-resultat |
+| Scenario | Registrerings resultat från etablerings tjänsten | Tillhandahålla SDK-resultat |
 | -------- | --------------------------------------------- | ------------------------ |
-| Webhooken returnerar 200 OK med 'iotHubHostName' inställt på ett giltigt värdnamn för IoT hub | Resultat: Tilldelad  | SDK: N returnerar PROV_DEVICE_RESULT_OK tillsammans med hub information |
-| Webhooken returnerar 200 OK med 'iotHubHostName' i svaret, men att en tom sträng eller null | Resultat: Misslyckad<br><br> Felkod: CustomAllocationIotHubNotSpecified (400208) | SDK: N returnerar PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| Webhooken returnerar 401 Ej behörig | Resultat: Misslyckad<br><br>Felkod: CustomAllocationUnauthorizedAccess (400209) | SDK: N returnerar PROV_DEVICE_RESULT_UNAUTHORIZED |
-| En enskild registrering har skapats för att inaktivera enheten | Resultat: Inaktiverad | SDK: N returnerar PROV_DEVICE_RESULT_DISABLED |
-| Webhooken returnerar felkod > = 429 | DPS-dirigering kommer att försöka igen flera gånger. Återförsöksprincipen är för närvarande:<br><br>&nbsp;&nbsp;– Antal nya försök: 10<br>&nbsp;&nbsp;-Första intervall: 1s<br>&nbsp;&nbsp;-Öka: 9s | SDK: N ska ignorera felet och skicka en annan get-statusmeddelande inom den angivna tiden |
-| Webhooken returnerar alla andra statuskod | Resultat: Misslyckad<br><br>Felkod: CustomAllocationFailed (400207) | SDK: N returnerar PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| Webhooken returnerar 200 OK med ' iotHubHostName ' inställt på ett giltigt värd namn för IoT Hub | Resultat status: Tilldelad  | SDK returnerar PROV_DEVICE_RESULT_OK tillsammans med information om hubben |
+| Webhooken returnerar 200 OK med "iotHubHostName" i svaret, men är inställt på en tom sträng eller null | Resultat status: Misslyckad<br><br> Felkod: CustomAllocationIotHubNotSpecified (400208) | SDK returnerar PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| Webhooken returnerar 401 obehörig | Resultat status: Misslyckad<br><br>Felkod: CustomAllocationUnauthorizedAccess (400209) | SDK returnerar PROV_DEVICE_RESULT_UNAUTHORIZED |
+| En enskild registrering har skapats för att inaktivera enheten | Resultat status: Inaktiverad | SDK returnerar PROV_DEVICE_RESULT_DISABLED |
+| Webhooken returnerar felkoden > = 429 | DPS försöker igen ett antal gånger. Principen för återförsök är för närvarande:<br><br>&nbsp;&nbsp;Antal nya försök: 10<br>&nbsp;&nbsp;-Start intervall: 1<br>&nbsp;&nbsp;Enheter nior | SDK kommer att ignorera fel och skicka ett annat get status meddelande inom den angivna tiden |
+| Webhooken returnerar annan status kod | Resultat status: Misslyckad<br><br>Felkod: CustomAllocationFailed (400207) | SDK returnerar PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta arbeta med resurser som skapats i den här artikeln kan du lämna dem. Om du inte tänker fortsätta att använda resursen kan du använda följande steg för att ta bort alla resurser som skapats av den här artikeln för att undvika onödiga avgifter.
+Om du planerar att fortsätta arbeta med resurser som skapats i den här artikeln kan du lämna dem. Om du inte planerar att fortsätta använda resursen kan du använda följande steg för att ta bort alla resurser som skapats i den här artikeln för att undvika onödiga kostnader.
 
-De här stegen förutsätter att alla resurser som du skapade i den här artikeln som finns beskrivet i samma resursgrupp med namnet **contoso-oss-resource-group**.
+Stegen här förutsätter att du har skapat alla resurser i den här artikeln enligt anvisningarna i samma resurs grupp med namnet **contoso-US-Resource-Group**.
 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
 >
 
-Ta bort resursgruppen med namnet:
+Så här tar du bort resurs gruppen efter namn:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-2. I den **filtrera efter namn...**  textrutan skriver namnet på resursen gruppen som innehåller dina resurser, **contoso-oss-resource-group**. 
+2. I text rutan **Filtrera efter namn...** skriver du namnet på den resurs grupp som innehåller dina resurser, **contoso-US-Resource-Group**. 
 
 3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
@@ -538,8 +538,8 @@ Ta bort resursgruppen med namnet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer Reprovisioning i [reprovisioning koncept för IoT Hub-enhet](concepts-device-reprovision.md) 
-- Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering](how-to-unprovision-devices.md) 
+- Mer information om hur du reetablerar finns i [IoT Hub metoder för att etablera enheter](concepts-device-reprovision.md) 
+- Mer information om hur du avetablerar [enheter finns i så här avetablerar du enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md) 
 
 
 

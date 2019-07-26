@@ -5,26 +5,26 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 816fa4b0df2fab77bcde261f30d8bad584257fd7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 73a7795629a94395b43bfca191cec7b2c4773611
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592622"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68481575"
 ---
-Formuläret Igenkännande fungerar på inkommande dokument som uppfyller dessa krav:
+Formulär tolken arbetar med inmatade dokument som uppfyller följande krav:
 
-* Formatet måste vara JPG, PNG- eller PDF (text eller skannade). Text som är inbäddad PDF-filer är bästa eftersom det finns ingen risk för fel i teckenextrahering och plats.
-* Filstorleken måste vara mindre än 4 MB (megabyte).
-* Storleken måste vara mellan 50 x 50 bildpunkter och 4200 x 4200 bildpunkter för avbildningar.
-* Om genomsökts från pappersdokument vara formulär genomsökningar av hög kvalitet.
-* Text måste använda det latinska alfabetet (engelska tecken).
-* Data måste skrivas (handskriven inte).
+* Formatet måste vara JPG, PNG eller PDF (text eller genomsökt). Text-inbäddade PDF-filer är bäst eftersom det inte går att extrahera fel i tecken extrahering och plats.
+* Om dina PDF-filer är lösenordsskyddade måste du ta bort låset innan du skickar dem.
+* Fil storleken måste vara mindre än 4 MB.
+* För bilder måste dimensionerna vara mellan 50 x 50 pixlar och 4200 x 4200 bild punkter.
+* Om du skannar från pappers dokument bör formulär vara av hög kvalitet.
+* Texten måste använda det latinska alfabetet (engelska tecken).
 * Data måste innehålla nycklar och värden.
-* Nycklar kan visas ovanför eller till vänster av värden, men inte mindre än eller till höger.
+* Nycklar kan visas ovanför eller till vänster om värdena, men inte under eller till höger.
 
-Formuläret Igenkännande stöder inte för närvarande dessa typer av indata:
+Formulär tolken stöder för närvarande inte följande typer av indata:
 
-* Komplexa tabeller (kapslade tabeller, sammanfogade rubriker eller celler och så vidare).
-* Kryssrutorna eller radio knappar.
-* PDF-dokument är längre än 50 sidor.
+* Komplexa tabeller (kapslade tabeller, sammanfogade rubriker eller celler osv.).
+* Kryss rutor eller alternativ knappar.
+* PDF-dokument som är längre än 50 sidor.

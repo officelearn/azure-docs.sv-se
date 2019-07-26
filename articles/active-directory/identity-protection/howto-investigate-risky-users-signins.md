@@ -1,273 +1,197 @@
 ---
-title: Hur du undersöker riskabla användare och inloggningar i Azure Active Directory identity protection (uppdateras) | Microsoft Docs
-description: Lär dig hur du undersöker riskabla användare och inloggningar i Azure Active Directory identity protection (uppdateras).
+title: Undersöka riskfyllda användare och inloggningar i Azure Active Directory identitets skydd (uppdateras) | Microsoft Docs
+description: Lär dig hur du undersöker riskfyllda användare och inloggningar i Azure Active Directory identitets skydd (uppdateras).
 services: active-directory
-keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.author: joflore
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
+ms.topic: conceptual
 ms.date: 01/25/2019
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89658e962654f005eaee5ceff220d5fb343e86e
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108956"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370320"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Instruktioner: Undersöka riskfyllda användare och inloggningar 
 
+Med hjälp av rapporter om riskfyllda inloggningar och riskfyllda användare kan du undersöka och få insikt i risker i din miljö. Med möjligheten att filtrera och sortera riskfyllda inloggningar och användare kan du bättre förstå potentiella intrång i din organisation. 
 
-Använda rapporter för riskfyllda inloggningar och riskfylld användare du undersöka och få insyn i risker i din miljö. Möjlighet att filtrera och sortera riskfyllda inloggningar och användare, kan du bättre förstår potentiella intrång i din organisation. 
+## <a name="risky-users-report"></a>Rapport om riskanvändare
 
+Med den information som ges av rapporten riskfyllda användare kan du hitta svar på frågor som:
 
-## <a name="risky-users-report"></a>Riskfylld användare rapport
+- Vilka användare är höga risker?
+- Vilka användare har risk statusen åtgärdade?
 
-Med den information som tillhandahålls av rapporten över riskfyllda användare, kan du hitta svar på frågor som:
+Din första start punkt i den här rapporten är avsnittet **Undersök** på sidan säkerhet.
 
-- Vilka användare som är hög risk?
-- Vilka användare som har statusen riskerna åtgärdas?
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/01.png)
 
-
-
-Din startpunkt för den här rapporten är den **Undersök** avsnitt på sidan.
-
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/01.png)
-
-
-Rapporten över riskfyllda användare har en standard-vy som visar:
+Rapporten riskfyllda användare har en standardvy som visar:
 
 - Namn
-
-- Risktillstånd
-
+- Riskstatus
 - Risknivå
-
-- Detalj för risk
-
-- Risken uppdaterades senast
-
-- Typ
-
+- Riskinformation
+- Risk senast uppdaterad
+- type
 - Status
- 
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/03.png)
-
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/03.png)
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/04.png)
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/04.png)
 
-Dialogrutan kolumner kan du visa ytterligare fält eller ta bort fält som redan visas.
+I dialog rutan kolumner kan du Visa ytterligare fält eller ta bort fält som redan visas.
 
 När du klickar på ett objekt i listvyn visas all tillgänglig information om det i en horisontell vy.
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/05.png)
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/05.png)
 
-
-Visar Informationsvyn:
+Vyn information visar:
 
 - Grundläggande information
-
 - Senaste riskfyllda inloggningar
-
-- Riskhändelser som inte har länkats till en inloggning
-
+- Riskhändelser är inte länkade till någon inloggning
 - Riskhistorik
-
-
 
 Dessutom kan du:
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/08.png)
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/08.png)
 
-- Visa alla inloggningar genväg om du vill visa rapporten inloggningar för den användaren.
+- Visa alla inloggnings gen vägar för att Visa inloggnings rapporten för den användaren.
+- Visa alla riskfyllda inloggningar för att visa alla inloggnings program för den användare som har flaggats som riskfylld.
+- Återställ en användares lösen ord om du misstänker att användarens identitet har komprometterats.
+- Ignorera användar risken om du tror att de aktiva risk händelserna för en användare är falska positiva identifieringar. Mer information finns i artikeln [ge feedback om risk händelser i Azure AD Identity Protection](howto-provide-risk-event-feedback.md).
 
-- Visa alla riskfyllda inloggningar för att visa alla inloggningar för den användaren som har flaggats som riskfyllt.
+### <a name="filter-risky-users"></a>Filtrera riskfyllda användare
 
-- Återställa en användares lösenord om du tror att användarens identitet har komprometterats.
-
-- Ignorera användarrisk om du tror att de aktiva riskhändelser för en användare är falska positiva identifieringar. Mer information finns i [hur vi kan förbättra identifieringen](howto-improve-detection-accuracy.md).
-
-
-
-### <a name="filter-risky-users"></a>Filtrera riskfylld användare
-
-Om du vill begränsa data som rapporteras till en nivå som passar dig kan filtrera du riskfylld användardata med hjälp av följande standardfält:
+Om du vill begränsa vilka data som rapporteras till en nivå som passar dig kan du filtrera riskfyllda användar data med hjälp av följande standard fält:
 
 - Namn
-
 - Användarnamn
-
-- Risktillstånd
-
+- Riskstatus
 - Risknivå
-
-- Typ
-
+- type
 - Status
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/06.png)
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/06.png)
 
+Med filtret **namn** kan du ange namnet eller User Principal Name (UPN) för den användare som du bryr dig om.
 
+Filtret **risk tillstånd** gör att du kan välja:
 
-Den **namn** filter kan du ange namn eller användarens huvudnamn (UPN) för den användare som intresserar dig.
-
-
-Den **riskerar tillstånd** filter kan du välja:
-
-- I fara
+- I farozonen
 - Åtgärdad
-- Avvisade
+- Avvisad
 
-
-Den **risknivå** filter kan du välja:
+Med filtret **risk nivå** kan du välja:
 
 - Hög
 - Medel
 - Låg
 
-
-Den **typ** filter kan du välja:
+Med filtret **typ** kan du välja:
 
 - Gäst
 - Medlem
 
-Den **Status** filter kan du välja:
+Med **status** filtret kan du välja:
 
-- Borttaget
+- Borttagen
 - Aktiv
 
+### <a name="download-risky-users-data"></a>Hämta riskfyllda användares data
 
-### <a name="download-risky-users-data"></a>Ladda ned riskabla användare
+Du kan hämta risk användarens data om du vill arbeta med dem utanför Azure Portal. Om du klickar på Hämta skapas en CSV-fil med de senaste 2 500 posterna. 
 
-Du kan hämta data riskabla användare om du vill arbeta med dem utanför Azure-portalen. Klicka på ladda ned skapar en CSV-fil för de senaste 2 500 posterna. 
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/07.png)
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/07.png)
-
-
-Du kan anpassa listvyn genom att klicka på kolumner i verktygsfältet.
+Du kan anpassa List visningen genom att klicka på kolumner i verktygsfältet.
  
 På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
  
-Mer information om en riskfylld användare klicka på information om lådan så att det expanderas
-
- 
-
-
+Om du vill veta mer om en riskfylld användare klickar du på informations lådan för att expandera den
 
 ## <a name="risky-sign-ins-report"></a>Rapport över riskfyllda inloggningar
 
-Med den information som tillhandahålls av rapporten över riskfyllda inloggningar, kan du hitta svar på frågor som:
+Med informationen i rapporten om riskfyllda inloggningar kan du hitta svar på frågor som:
 
-- Hur många genomförda inloggningar har det som hade riskhändelser för anonyma IP-adress under den senaste veckan?
+- Hur många lyckade inloggningar fanns det där anonyma händelser för IP-risker hade varit under den senaste veckan?
+- Vilka användare har bekräftat komprometterats under den senaste månaden?
+- Vilka användare hade riskfyllda inloggningar till Office 365-portalen?
 
-- Vilka användare har bekräftats komprometteras i den senaste månaden?
-
-- Vilka användare som hade riskfyllda inloggningar till Office 365-portalen?
-
-
-
-
-Din startpunkt för den här rapporten är den **Undersök** avsnitt på sidan.
+Din första start punkt i den här rapporten är avsnittet **Undersök** på sidan säkerhet.
 
 ![Rapport över riskfyllda inloggningar](./media/howto-investigate-risky-users-signins/02.png)
 
-Rapporten över riskfyllda inloggningar har en standard-vy som visar:
+Rapporten över riskfyllda inloggningar har en standardvy som visar:
 
 - Date
-
 - Användare
-
 - Program
-
 - Inloggningsstatus
-
-- Risktillstånd
-
-- Risknivå (aggregering)
-
-- Risknivå (realtid)
-
-- Villkorlig åtkomst
-
+- Riskstatus
+- Risk nivå (agg regering)
+- Risk nivå (real tid)
+- Villkorad åtkomst
 - MFA krävs  
- 
 
 ![Rapport över riskfyllda inloggningar](./media/howto-investigate-risky-users-signins/09.png)
 
-
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/11.png)
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/11.png)
 
-Dialogrutan kolumner kan du visa ytterligare fält eller ta bort fält som redan visas.
+I dialog rutan kolumner kan du Visa ytterligare fält eller ta bort fält som redan visas.
 
 När du klickar på ett objekt i listvyn visas all tillgänglig information om det i en horisontell vy.
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/12.png)
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/12.png)
 
-
-Visar Informationsvyn:
+Vyn information visar:
 
 - Grundläggande information
-
 - Enhetsinformation
-
-- Risk info
-
+- Riskinformation
 - MFA-information
-
-- Villkorlig åtkomst
-
-
-
-
+- Villkorad åtkomst
 
 Dessutom kan du:
 
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/13.png)
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/13.png)
 
-- Bekräfta komprometteras 
-
+- Bekräfta kompromettering 
 - Bekräfta säker
 
-Mer information finns i [hur vi kan förbättra identifieringen](howto-improve-detection-accuracy.md).
-
-
-
+Mer information finns i artikeln [ge feedback om risk händelser i Azure AD Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### <a name="filter-risky-sign-ins"></a>Filtrera riskfyllda inloggningar
 
-Om du vill begränsa data som rapporteras till en nivå som passar dig kan filtrera du riskfylld användardata med hjälp av följande standardfält:
+Om du vill begränsa vilka data som rapporteras till en nivå som passar dig kan du filtrera riskfyllda användar data med hjälp av följande standard fält:
 
 - Användare
 - Program
 - Inloggningsstatus
-- Risktillstånd
-- Risknivå (aggregering)
-- Risknivå (realtid)
-- Villkorlig åtkomst
+- Riskstatus
+- Risk nivå (agg regering)
+- Risk nivå (real tid)
+- Villkorad åtkomst
 - Date
-- På typen av risk
+- Typ av risk nivå
 
 ![Rapport över riskfyllda inloggningar](./media/howto-investigate-risky-users-signins/14.png)
 
+Med filtret **namn** kan du ange namnet eller User Principal Name (UPN) för den användare som du bryr dig om.
 
-
-Den **namn** filter kan du ange namn eller användarens huvudnamn (UPN) för den användare som intresserar dig.
-
-Den **program** filter kan du ange användaren försökte komma åt molnappen.
+Med **program** filtret kan du ange vilken molnbaserad app användaren försökte få åtkomst till.
 
 Med filtret **Inloggningsstatus** kan du välja något av följande filter:
 
@@ -275,57 +199,47 @@ Med filtret **Inloggningsstatus** kan du välja något av följande filter:
 - Lyckades
 - Fel
 
+Filtret **risk tillstånd** gör att du kan välja:
 
-Den **riskerar tillstånd** filter kan du välja:
-
-- I fara
-- Bekräftat komprometteras
+- I farozonen
+- Bekräftat komprometterad
 - Bekräftat säker
-- Avvisade
+- Avvisad
 - Åtgärdad
 
-
-Den **risknivå (aggregering)** filter kan du välja:
-
-- Hög
-- Medel
-- Låg
-
-Den **risknivå (realtid)** filter kan du välja:
+Med filtret **risk nivå (mängd)** kan du välja:
 
 - Hög
 - Medel
 - Låg
 
+Med filtret **risk nivå (i real tid)** kan du välja:
 
-Den **villkorlig åtkomst** filter kan du välja:
+- Hög
+- Medel
+- Låg
+
+Med filtret för **villkorlig åtkomst** kan du välja:
 
 - Alla
 - Används inte
 - Klart
 - Fel
 
-
 Med filtret **Datum** kan du definiera en tidsram för de data som returneras.
-Möjliga värden:
+Möjliga värden är:
 
 - Senaste månaden
 - Senaste 7 dagarna
-- Senaste 24 timmarna
+- De senaste 24 timmarna
 - Anpassat tidsintervall
 
+### <a name="download-risky-sign-ins-data"></a>Hämta information om riskfyllda inloggningar
 
+Du kan hämta de riskfyllda inloggnings data om du vill arbeta med dem utanför Azure Portal. Om du klickar på Hämta skapas en CSV-fil med de senaste 2 500 posterna. 
 
-
-
-### <a name="download-risky-sign-ins-data"></a>Ladda ned riskfyllda inloggningar
-
-Om du vill arbeta med dem utanför Azure-portalen kan du hämta data för riskfyllda inloggningar. Klicka på ladda ned skapar en CSV-fil för de senaste 2 500 posterna. 
-
-![Riskfylld användare rapport](./media/howto-investigate-risky-users-signins/15.png)
-
-
+![Rapport om riskanvändare](./media/howto-investigate-risky-users-signins/15.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att få en översikt över Azure AD Identity Protection kan se den [översikt över Azure AD Identity Protection](overview-v2.md).
+För att få en översikt över Azure AD Identity Protection, se [Översikt över Azure AD Identity Protection](overview-v2.md).

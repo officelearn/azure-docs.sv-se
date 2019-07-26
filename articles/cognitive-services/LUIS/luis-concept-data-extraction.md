@@ -1,7 +1,7 @@
 ---
 title: Extrahering av data
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Extrahera data från uttryck text med avsikter och entiteter. Läs om vilken typ av data kan extraheras från Språkförståelse (LUIS).
+description: Extrahera data från uttryck text med avsikter och entiteter. Lär dig vilken typ av data som kan extraheras från Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d10588e3df3932f5749093170e7e76fc029053ff
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150687"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479096"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
 
-Den svåraste data att extrahera är datorn lärt dig data eftersom det inte är en exakt denna matchning. Extrahering av data för den datorn-lärt dig [entiteter](luis-concept-entity-types.md) måste vara en del av den [redigering cykel](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.
+De hårda data som ska extraheras är de data som lagras på datorn eftersom det inte är en exakt text matchning. Data extrahering av de datorbaserade [enheterna](luis-concept-entity-types.md) måste vara en del av [redigerings cykeln](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.
 
 ## <a name="data-location-and-key-usage"></a>Dataanvändning för platsen och nyckel
 LUIS innehåller data från den publicerade [endpoint](luis-glossary.md#endpoint). Den **HTTPS-begäran** (POST eller GET) innehåller uttryck samt vissa valfria konfigurationer, till exempel mellanlagring eller produktionsmiljö.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-Den `appID` är tillgänglig på den **inställningar** sidan av dina LUIS-app, samt en del av URL: en (när `/apps/`) när du redigerar den LUIS-app. Den `subscription-key` är slutpunktsnyckeln som används för att fråga din app. Du kan använda din kostnadsfria redigering/starter nyckel medan du lär LUIS, är det viktigt att ändra slutpunktsnyckeln till en nyckel som har stöd för din [förväntad användning av LUIS](luis-boundaries.md#key-limits). Den `timezoneOffset` enhet är minuter.
+Är tillgänglig på sidan **Inställningar** i Luis-appen samt en del av URL: en (efter `/apps/`) när du redigerar den Luis-appen. `appID` Den `subscription-key` är slutpunktsnyckeln som används för att fråga din app. Även om du kan använda din kostnads fria redigerings-/start nyckel när du lär dig LUIS, är det viktigt att ändra slut punkts nyckeln till en nyckel som stöder din [förväntade Luis-användning](luis-boundaries.md#key-limits). Den `timezoneOffset` enhet är minuter.
 
 Den **HTTPS-svar** innehåller alla avsikt och entiteten informationen LUIS kan fastställa baserat på den aktuella publicerade modellen antingen slutpunkten mellanlagring eller produktion. Den slutpunkt som URL-Adressen finns på den [LUIS](luis-reference-regions.md) webbplats, i den **hantera** avsnittet på den **nycklar och slutpunkter** sidan.
 
@@ -148,141 +148,15 @@ Till exempel på tyska, ordet `das Bauernbrot` tokeniserad till `das bauern brot
 
 ## <a name="simple-entity-data"></a>Enkel entitetsdata
 
-En [enkel enhet](luis-concept-entity-types.md) är ett värde för datorn lärt dig. Det kan vara ett ord eller fraser.
-
-`Bob Jones wants 3 meatball pho`
-
-I den föregående uttryck `Bob Jones` är märkt som en enkel `Customer` entitet.
-
-De data som returneras från slutpunkten innehåller entitetsnamnet, identifierade texten från uttryck, platsen för den identifierade texten och poängen:
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
-```
-
-|Dataobjekt|Entitetsnamn|Värde|
-|--|--|--|
-|Enkel enhet|`Customer`|`bob jones`|
+En [enkel enhet](reference-entity-simple.md) är ett värde för datorn lärt dig. Det kan vara ett ord eller fraser.
 
 ## <a name="composite-entity-data"></a>Sammansatta entitetsdata
-[Sammansatta](luis-concept-entity-types.md) entiteter är datorn lärt dig och kan innehålla ett ord eller fraser. Anta exempelvis att en sammansatt entitet av färdiga `number` och `Location::ToLocation` med följande uttryck:
 
-`book 2 tickets to paris`
-
-Observera att `2`, antalet, och `paris`, ToLocation har ord mellan dem som inte tillhör någon av enheterna. Grön linje, används i en taggade uttryck i den [LUIS](luis-reference-regions.md) webbplats, anger en sammansatt entitet.
-
-![Sammansatt entitet](./media/luis-concept-data-extraction/composite-entity.png)
-
-Sammansatta entiteter returneras i en `compositeEntities` matris och alla enheter i sammansatt returneras också i de `entities` matris:
-
-```JSON
-
-"entities": [
-    {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
-    },
-    {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
-        "subtype": "integer",
-        "value": "2"
-    }
-    },
-    {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
-        {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
-        },
-        {
-        "type": "builtin.number",
-        "value": "2"
-        }
-    ]
-    }
-]
-```    
-
-|Dataobjekt|Entitetsnamn|Värde|
-|--|--|--|
-|Fördefinierade enhet - nummer|”builtin.number”|”2”|
-|Fördefinierade enhet – GeographyV2|”Location::ToLocation”|”paris”|
+En [sammansatt entitet](reference-entity-composite.md) består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en helhet. 
 
 ## <a name="list-entity-data"></a>Lista entitetsdata
 
-En [lista](luis-concept-entity-types.md) entiteten är inte datorn lärt dig. Det är en exakt denna matchning. En lista representerar objekt i listan tillsammans med synonymer för dessa objekt. LUIS markerar alla motsvarar ett objekt i en lista som en entitet i svaret. En synonym kan finnas i mer än en lista.
-
-Anta att appen har en lista som heter `Cities`, så att variationer av stadsnamn inklusive stad flygplats (Sea tac), flygplatsen (SEA), postnummer (98101), och phone riktnummer (206).
-
-|Listobjekt|Objektet synonymer|
-|---|---|
-|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
-|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
-
-`book 2 tickets to paris`
-
-I den föregående uttryck ordet `paris` mappas till paris-objektet som en del av den `Cities` lista entitet. Entiteten listan matchar både objektets normaliserade namn samt synonymer för objektet.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-Ett annat exempel uttryck med en synonym för Paris:
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
+[Lista entiteter](reference-entity-list.md) representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för listan över entiteter. Använd den **rekommenderar** funktionen för att se förslag för nya ord baserat på den aktuella listan. Om det finns mer än en entitet i listan med samma värde, returneras varje entitet i frågan slutpunkt. 
 
 ## <a name="prebuilt-entity-data"></a>Fördefinierade entitetsdata
 [Fördefinierade](luis-concept-entity-types.md) entiteter identifieras baserat på en vanlig uttrycksmatchning med öppen källkod [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text) projekt. Fördefinierade entiteter returneras i matrisen entiteter och använda namnet på prefixet `builtin::`. Följande text är ett exempel uttryck med returnerade förskapade entiteter:
@@ -369,56 +243,29 @@ Ett annat exempel uttryck med en synonym för Paris:
 ```
 
 ## <a name="regular-expression-entity-data"></a>Reguljärt uttryck entitetsdata
-[Reguljärt uttryck](luis-concept-entity-types.md) entiteter identifieras baserat på en vanlig uttrycksmatchning med hjälp av ett uttryck som du anger när du har skapat entiteten. När du använder `kb[0-9]{6}` som reguljärt uttryck dess definition följande JSON-svar är en exempel-uttryck med entiteterna returnerade reguljärt uttryck för frågan `When was kb123456 published?`:
 
-```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
-}
-```
+En [entitet för reguljära uttryck](reference-entity-regular-expression.md) extraherar en entitet baserat på ett mönster för reguljära uttryck som du anger.
 
 ## <a name="extracting-names"></a>Extrahera namn
-Det är svårt att hämta namn från ett uttryck eftersom ett namn kan vara nästan vilken kombination av bokstäver och ord. Beroende på vilken typ av namn som du extrahera, har du flera alternativ. Följande rekommendationer är inte regler utan fler riktlinjer.
+Det är svårt att hämta namn från ett uttryck eftersom ett namn kan vara nästan vilken kombination av bokstäver och ord. Beroende på vilken typ av namn du extraherar har du flera alternativ. Följande förslag är inte regler, men fler rikt linjer.
 
-### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Lägg till fördefinierade PersonName och GeographyV2 entiteter
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Lägg till färdiga PersonName-och GeographyV2-entiteter
 
-[PersonName](luis-reference-prebuilt-person.md) och [GeographyV2](luis-reference-prebuilt-geographyV2.md) entiteter är tillgängliga i vissa [språk kulturer](luis-reference-prebuilt-entities.md). 
+[PersonName](luis-reference-prebuilt-person.md) -och [GeographyV2](luis-reference-prebuilt-geographyV2.md) -entiteter är tillgängliga i vissa [språk kulturer](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Namnen på personer
 
-Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd antingen fördefinierade **[personName](luis-reference-prebuilt-person.md)** entitet eller en **[enkel enhet](luis-concept-entity-types.md#simple-entity)** med [roller](luis-concept-roles.md) av första och efternamn. 
+Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd antingen en fördefinierad **[personName](luis-reference-prebuilt-person.md)** -entitet eller en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** med [roller](luis-concept-roles.md) för för-och efter namn. 
 
-Om du använder enkel enhet, se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
+Om du använder den enkla entiteten ska du se till att ge exempel som använder det första och sista namnet i olika delar av uttryck, i yttranden med olika längd och yttranden i alla avsikter, inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ### <a name="names-of-places"></a>Namnen på platser
 
-Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder/regioner. Använda fördefinierade entiteten **[geographyV2](luis-reference-prebuilt-geographyv2.md)** att extrahera platsinformation.
+Plats namn anges och är kända som städer, regioner, stater, provinser och länder/regioner. Använd den fördefinierade entiteten **[geographyV2](luis-reference-prebuilt-geographyv2.md)** för att extrahera plats information.
 
 ### <a name="new-and-emerging-names"></a>Nya och framväxande namn
 
-Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Dessa typer av namn är den svåraste typen av extrahering av data. Börja med en **[enkel enhet](luis-concept-entity-types.md#simple-entity)** och Lägg till en [frasen lista](luis-concept-feature.md). [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
+Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Dessa typer av namn är den svåraste typen av data extrahering. Börja med en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** och Lägg till en [fras lista](luis-concept-feature.md). [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ## <a name="pattern-roles-data"></a>Mönstret roller data
 Roller är sammanhangsberoende skillnader med entiteter.
@@ -482,49 +329,8 @@ Roller är sammanhangsberoende skillnader med entiteter.
 ```
 
 ## <a name="patternany-entity-data"></a>Pattern.any entitetsdata
-Pattern.any entiteter är variabel längd entiteter som används i mallen yttranden av en [mönstret](luis-concept-patterns.md).
 
-```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
-}
-```
-
+[Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar.  
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 Om attitydanalys är konfigurerad, innehåller json-svar LUIS attitydanalys. Mer information om sentimentanalys i den [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) dokumentation.
@@ -718,7 +524,7 @@ LUIS-slutpunkten kan identifiera samma data på olika enheter:
 }
 ```
 
-## <a name="data-matching-multiple-list-entities"></a>Data som matchar flera listan entiteter
+## <a name="data-matching-multiple-list-entities"></a>Data som matchar flera List enheter
 
 Om ett ord eller fraser matchar mer än en entitet i listan, returnerar endpoint-frågan varje entitet i listan.
 

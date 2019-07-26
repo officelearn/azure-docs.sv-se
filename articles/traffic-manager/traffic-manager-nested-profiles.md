@@ -1,7 +1,7 @@
 ---
-title: Kapslade Traffic Manager-profiler i Azure
+title: Kapslade Traffic Manager profiler i Azure
 titlesuffix: Azure Traffic Manager
-description: Den här artikeln förklarar kapslade profiler-funktionen i Azure Traffic Manager
+description: I den här artikeln förklaras funktionen "nästlade profiler" i Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -13,93 +13,107 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: allensu
-ms.openlocfilehash: 3c5459d0474ecd45501e634c4777fa178386183c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071158"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333788"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Kapslade Traffic Manager-profiler
 
-Traffic Manager erbjuder en mängd trafikroutningsmetoder så att du kan styra hur Traffic Manager väljer vilken slutpunkt som ska ta emot trafik från varje slutanvändare. Mer information finns i [Traffic Manager trafikroutningsmetoder](traffic-manager-routing-methods.md).
+Traffic Manager innehåller en mängd metoder för trafik dragning som gör att du kan styra hur Traffic Manager väljer vilken slut punkt som ska ta emot trafik från varje slutanvändare. Mer information finns i [Traffic Manager metoder för trafik dirigering](traffic-manager-routing-methods.md).
 
-Varje Traffic Manager-profil anger en enda metod för routning av nätverkstrafik. Det finns dock scenarier som kräver mer sofistikerade routning av nätverkstrafik än routning tillhandahålls som en enda Traffic Manager-profil. Du kan kapsla Traffic Manager-profiler om du vill kombinera fördelarna med fler än en metod för routning av nätverkstrafik. Kapslade profiler kan du åsidosätta standardbeteendet för Traffic Manager stöd för större och mer komplexa distributioner av program.
+Varje Traffic Manager profil anger en enda metod för trafik dirigering. Det finns dock scenarier som kräver mer avancerad trafikroutning än routningen som tillhandahålls av en enda Traffic Manager profil. Du kan kapsla Traffic Manager profiler för att kombinera fördelarna med mer än en metod för trafikroutning. Med kapslade profiler kan du åsidosätta standard Traffic Manager beteende som stöder större och mer komplexa program distributioner.
 
-I följande exempel visas hur du använder kapslade Traffic Manager-profiler i olika scenarier.
+I följande exempel visas hur du använder kapslade Traffic Manager profiler i olika scenarier.
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exempel 1: Kombinera ”Performance” och ”viktat' routning av nätverkstrafik
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exempel 1: Kombinera "prestanda" och "viktad" trafikroutning
 
-Anta att du distribuerat ett program i följande Azure-regioner: Västra USA, västra Europa och Asien. Du kan använda Traffic Manager ”Performance” trafikdirigeringsmetoden för att distribuera trafik till regionen som är närmast användaren.
+Anta att du har distribuerat ett program i följande Azure-regioner: Västra USA, Västeuropa och Asien, östra. Du använder Traffic Manager ' prestanda Traffic-routningsmetod ' för att distribuera trafik till den region som är närmast användaren.
 
-![Enskild Traffic Manager-profil][4]
+![Single Traffic Manager-profil][4]
 
-Anta nu att du vill testa en uppdatering av din tjänst innan den distribueras mer brett. Du vill använda metoden 'viktad' routning av nätverkstrafik för att dirigera en liten andel av trafik till test-distribution. Du har konfigurerat testdistributionen tillsammans med den befintliga produktionsdistributionen i Västeuropa.
+Anta nu att du vill testa en uppdatering av tjänsten innan du lyfter ut den mycket. Du vill använda metoden "viktad Traffic-routing" för att dirigera en liten procent andel av trafiken till test distributionen. Du ställer in test distributionen tillsammans med den befintliga produktions distributionen i Västeuropa.
 
-Du kan inte kombinera båda viktat och ' prestanda-routning av nätverkstrafik i en enda profil. För det här scenariot måste skapa du en Traffic Manager-profil med hjälp av två Västeuropa slutpunkter och metoden 'Viktat' routning av nätverkstrafik. Sedan lägger du till den här profilen ”underordnad” som en slutpunkt för ”överordnad”-profilen. Den överordnade profilen fortfarande använder trafikdirigeringsmetoden prestanda och innehåller andra globala distributioner som slutpunkter.
+Du kan inte kombinera både "viktad" och "prestanda trafik-routning i en enskild profil. För att stödja det här scenariot skapar du en Traffic Manager profil med hjälp av två Västeuropas slut punkter och "viktad" Traffic-routing-metod. Sedan lägger du till den här underordnade profilen som en slut punkt till den överordnade profilen. Den överordnade profilen använder fortfarande metoden för prestanda trafik-Routning och innehåller andra globala distributioner som slut punkter.
 
 Följande diagram illustrerar det här exemplet:
 
 ![Kapslade Traffic Manager-profiler][2]
 
-I den här konfigurationen distribuerar trafik dirigeras via den överordnade profilen trafik mellan regioner normalt. Västra Europa distribuerar kapslad profil trafiken slutpunkter i produktion och testning enligt vikterna tilldelad.
+I den här konfigurationen distribuerar trafik som riktas via den överordnade profilen trafik mellan regioner normalt. I Europa Västeuropa distribuerar den kapslade profilen trafiken till produktions-och test slut punkterna enligt tilldelade vikter.
 
-När den överordnade profilen använder trafikdirigeringsmetoden ”Performance”, måste varje slutpunkt tilldelas en plats. Platsen tilldelas när du konfigurerar slutpunkten. Välj Azure-regionen närmast din distribution. Azure-regioner är plats-värden som stöds av tabellen Internet svarstid. Mer information finns i [Traffic Manager ”Performance” trafikdirigeringsmetoden](traffic-manager-routing-methods.md#performance).
+När den överordnade profilen använder metoden "prestanda" för Traffic-routing måste varje slut punkt tilldelas en plats. Platsen tilldelas när du konfigurerar slut punkten. Välj den Azure-region som är närmast din distribution. Azure-regionerna är de plats värden som stöds av tabellen Internet latens. Mer information finns i [Traffic Manager "prestanda" för Traffic routing-metoden](traffic-manager-routing-methods.md#performance).
 
-## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exempel 2: Slutpunktsövervakning i kapslade profiler
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exempel 2: Slut punkts övervakning i kapslade profiler
 
-Traffic Manager övervakar aktivt hälsan hos varje serviceslutpunkt. Om en slutpunkt är felaktiga, dirigerar Traffic Manager användare till alternativa slutpunkter att bevara tillgängligheten för din tjänst. Den här slutpunkten av och redundansväxling för beteende gäller för alla metoder för routning av nätverkstrafik. Mer information finns i [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Slutpunktsövervakning fungerar på olika sätt för kapslade profiler. Med kapslade profiler utföra överordnade profilen inte hälsokontroller av slutpunkter på underordnat direkt. Hälsotillståndet för den underordnade profilen slutpunkter används i stället för att beräkna den övergripande hälsan för den underordnade profilen. Den här hälsoinformation sprids upp kapslad profilhierarki. Den överordnade profilen använder denna sammanställda hälsa för att avgöra om du vill dirigera trafik till den underordnade profilen. Se den [vanliga frågor och svar](traffic-manager-FAQs.md#traffic-manager-nested-profiles) för fullständig information om hälsoövervakning av kapslade profiler.
+Traffic Manager aktivt övervakar hälsan för varje tjänst slut punkt. Om en slut punkt inte är felfri, Traffic Manager dirigerar användare till alternativa slut punkter för att bevara tjänstens tillgänglighet. Den här åtgärden för slut punkts övervakning och redundans gäller för alla metoder för trafik dirigering. Mer information finns i [Traffic Manager slut punkts övervakning](traffic-manager-monitoring.md). Slut punkts övervakning fungerar annorlunda för kapslade profiler. Med kapslade profiler utför inte den överordnade profilen hälso kontroller på den underordnade direkt. I stället används hälsan för den underordnade profilens slut punkter för att beräkna den övergripande hälsan för den underordnade profilen. Den här hälso informationen sprider den kapslade-hierarkin. Den överordnade profilen använder denna aggregerade hälsa för att avgöra om trafik ska dirigeras till den underordnade profilen. Se [vanliga frågor och svar](traffic-manager-FAQs.md#traffic-manager-nested-profiles) för all information om hälso övervakning av kapslade profiler.
 
-Tillbaka till föregående exempel kan anta att produktionsdistributionen i Västeuropa misslyckas. Som standard dirigeras all trafik till test-distribution i profilen ”underordnad”. Om det misslyckas också test-distribution, anger den överordnade profilen att den underordnade profilen inte bör ta emot trafik eftersom alla underordnade slutpunkter är skadade. Den överordnade profilen distribuerar sedan trafiken till andra regioner.
+I föregående exempel, Antag att produktions distributionen i Västeuropa inte kan utföras. Som standard dirigerar profilen "underordnad" all trafik till test distributionen. Om test distributionen också Miss lyckas, avgör den överordnade profilen att den underordnade profilen inte ska ta emot trafik eftersom alla underordnade slut punkter inte är felfria. Sedan distribuerar den överordnade profilen trafik till de andra regionerna.
 
-![Kapslad profil redundans (standardinställning)][3]
+![Redundansväxling av kapslad profil (standard beteende)][3]
 
-Du kan bli nöjd med den här ordningen. Eller kanske är du orolig att all trafik för Västeuropa kommer nu att test-distribution i stället för en begränsad delmängd-trafik. Oavsett hälsotillståndet för test-distribution som du vill växla över till andra regioner när produktionsdistributionen i Västeuropa misslyckas. Du kan ange parametern 'MinChildEndpoints ”när du konfigurerar den underordnade profilen som en slutpunkt i den överordnade profilen om du vill aktivera den här redundansen. Parametern anger det minsta antalet tillgängliga slutpunkterna i den underordnade profilen. Standardvärdet är '1'. Det här scenariot kan ange du MinChildEndpoints värdet till 2. Den här tröskeln överordnade profilen tar hänsyn till hela underordnade profilen inte var tillgänglig och dirigeras trafiken till de andra slutpunkterna.
+Du kanske är nöjd med den här ordningen. Eller så kanske du är bekymrad om att all trafik för Västeuropa i Europa nu kommer till test distributionen i stället för en begränsad del av trafik. Oavsett hälso tillståndet för test distributionen vill du växla över till de andra regionerna när produktions distributionen i Västeuropa upphör att fungera. Om du vill aktivera redundans kan du ange parametern "MinChildEndpoints" när du konfigurerar den underordnade profilen som en slut punkt i den överordnade profilen. Parametern bestämmer det minsta antalet tillgängliga slut punkter i den underordnade profilen. Standardvärdet är ' 1 '. I det här scenariot anger du MinChildEndpoints-värdet till 2. Under det här tröskelvärdet anser den överordnade profilen att hela den underordnade profilen inte är tillgänglig och dirigerar trafik till andra slut punkter.
 
 Följande bild visar den här konfigurationen:
 
-![Kapslade profil redundans med 'MinChildEndpoints' = 2][4]
+![Redundansväxling av kapslad profil med ' MinChildEndpoints ' = 2][4]
 
 > [!NOTE]
-> ”Prioritet” trafikdirigeringsmetoden distribuerar all trafik till en enda slutpunkt. Därför finns det lite syfte i en MinChildEndpoints inställning än ”1” för en underordnad-profil.
+> Metoden Priority Traffic-routing distribuerar all trafik till en enda slut punkt. Det finns därför ett litet syfte i en annan MinChildEndpoints än 1 för en underordnad profil.
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exempel 3: Prioriterad redundans regioner i trafikroutningsmetoden ”Performance”-trafik
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exempel 3: Prioriterade redundans i "prestanda"-trafik dirigering
 
-Standardbeteendet för trafikdirigeringsmetoden ”Performance” är när du har slutpunkter på olika geografiska platser som slutanvändarna dirigeras till ”närmaste” slutpunkten när det gäller den lägsta Nätverksfördröjningen.
+Standard beteendet för Traffic-metoden för trafik överföring är när du har slut punkter på olika geografiska platser som slutanvändarna dirigeras till den "närmast" slut punkten i förhållande till den lägsta nätverks fördröjningen.
 
-Men du kanske föredrar trafikredundans för Europa, västra USA, västra, och endast dirigera trafik till andra regioner när båda slutpunkterna är inte tillgänglig. Du kan skapa den här lösningen med hjälp av en underordnad-profil med metoden ”prioritet” routning av nätverkstrafik.
+Anta dock att du föredrar trafik växlingen i Västeuropa till västra USA, och endast direkt trafik till andra regioner när båda slut punkterna inte är tillgängliga. Du kan skapa den här lösningen med hjälp av en underordnad profil med Traffic-metoden Traffic-routing.
 
-![”Performance” trafiken dirigeras med en växling vid fel][6]
+![Trafikroutning av prestanda med genomdriven redundans][6]
 
-Eftersom Västeuropa slutpunkten har högre prioritet än västra USA-slutpunkten, skickas all trafik till slutpunkten Västeuropa när båda slutpunkterna är online. Om det inte går att Västeuropa, dirigeras dess trafik till USA, västra. Med profilen för en kapslad dirigeras trafiken till Östasien endast när misslyckas både västra Europa och västra USA.
+Eftersom slut punkten för Västeuropa har högre prioritet än den västra amerikanska slut punkten skickas all trafik till slut punkten Västeuropa när båda slut punkterna är online. Om Europa Västeuropa Miss lyckas dirigeras trafiken till västra USA. Med den kapslade profilen dirigeras trafiken till Asien, östra endast när både Västeuropa och västra USA kraschar.
 
-Du kan upprepa det här mönstret för alla regioner. Ersätt alla tre slutpunkter i profilen för överordnade med tre underordnade profiler, var och en har en prioriterad redundans-sekvens.
+Du kan upprepa det här mönstret för alla regioner. Ersätt alla tre slut punkterna i den överordnade profilen med tre underordnade profiler, som var och en ger en prioriterad redundansväxling.
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Exempel 4: Kontrollera ”Performance” trafikroutning mellan flera slutpunkter i samma region
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Exempel 4: Kontrol lera "prestanda" i trafik flödet mellan flera slut punkter i samma region
 
-Anta att prestanda-trafikdirigeringsmetoden används i en profil som har mer än en slutpunkt i en viss region. Som standard är trafik dirigeras till den regionen fördelas jämnt över alla tillgängliga slutpunkterna i den regionen.
+Anta att metoden "prestanda" Traffic-routing används i en profil som har fler än en slut punkt i en viss region. Som standard fördelas trafik som är riktad till denna region jämnt över alla tillgängliga slut punkter i den regionen.
 
-![”Performance” trafiken dirigeras regional trafikfördelning (standardinställning)][7]
+![Traffic routing Traffic routing in-region Traffic distribution (standard beteende)][7]
 
-I stället för att lägga till flera slutpunkter i Europa, västra, är dessa slutpunkter inom en separat underordnad-profil. Den underordnade profilen läggs till överordnat som endast slutpunkten i Västeuropa. Inställningarna på den underordnade profilen kan styra trafikfördelning med Västeuropa genom att aktivera prioritetsbaserad eller viktad trafikdirigering i den regionen.
+I stället för att lägga till flera slut punkter i Västeuropa, står dessa slut punkter i en separat underordnad profil. Den underordnade profilen läggs till i det överordnade objektet som den enda slut punkten i Västeuropa. Inställningarna i den underordnade profilen kan styra trafik distributionen med Västeuropa, Västeuropa genom att aktivera prioriterad eller viktad trafikroutning inom den regionen.
 
-![”Performance” trafiken dirigeras med anpassade regional trafikfördelning][8]
+![Trafikroutning av prestanda med anpassad trafik distribution][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>Exempel 5: Inställningarna för övervakning av per slutpunkt
+## <a name="example-5-per-endpoint-monitoring-settings"></a>Exempel 5: Övervaknings inställningar per slut punkt
 
-Anta att du använder Traffic Manager för att smidigt migrera trafik från en äldre lokala webbplats till en ny molnbaserade version i Azure. För äldre platsen, som du vill använda startsidan URI för att övervaka hälsa för platsen. Men för den nya versionen molnbaserade du implementerar en anpassad övervakning sida (sökvägen ”/ monitor.aspx”) som innehåller ytterligare kontroller.
+Anta att du använder Traffic Manager för att smidigt migrera trafik från en äldre lokal webbplats till en ny molnbaserad version som finns i Azure. För den äldre platsen vill du använda Start sidans URI för att övervaka plats hälsan. Men för den nya molnbaserade versionen implementerar du en anpassad övervaknings sida (sökväg '/Monitor.aspx ') som innehåller ytterligare kontroller.
 
-![Traffic Manager endpoint monitoring (standardinställning)][9]
+![Traffic Manager slut punkts övervakning (standard beteende)][9]
 
-Inställningar för programövervakning i en Traffic Manager-profil gäller för alla slutpunkter i en enda profil. Kapslade profiler använder en annan underordnad-profil per plats för att definiera olika inställningar för programövervakning.
+Övervaknings inställningarna i en Traffic Manager profil gäller för alla slut punkter i samma profil. Med kapslade profiler använder du en annan underordnad profil per plats för att definiera olika övervaknings inställningar.
 
-![Övervakning med per slutpunktsinställningarna Traffic Manager-slutpunkt][10]
+![Traffic Manager slut punkts övervakning med inställningar per slut punkt][10]
+
+## <a name="faqs"></a>Vanliga frågor och svar
+
+* [Hur gör jag för att konfigurera kapslade profiler?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+
+* [Hur många kapslings nivåer stöder Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+
+* [Kan jag blanda andra slut punkts typer med kapslade underordnade profiler i samma Traffic Manager profil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+
+* [Hur gäller fakturerings modellen för kapslade profiler?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+
+* [Påverkas prestandan för kapslade profiler?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+
+* [Hur beräknar Traffic Manager hälsan för en kapslad slut punkt i en överordnad profil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [Traffic Manager-profiler](traffic-manager-overview.md)
+Läs mer om [Traffic Manager profiler](traffic-manager-overview.md)
 
-Lär dig hur du [skapa en Traffic Manager-profil](traffic-manager-create-profile.md)
+Lär dig hur du [skapar en Traffic Manager-profil](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

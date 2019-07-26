@@ -1,29 +1,28 @@
 ---
-title: 'Azure Backup: Hantera säkerhetskopieringsjobb via REST-API'
-description: Hantera säkerhetskopiering och Återställ jobb av Azure Backup med hjälp av REST API
-services: backup
+title: 'Azure Backup: Hantera säkerhets kopierings jobb med REST API'
+description: hantera säkerhets kopierings-och återställnings jobb för Azure Backup med REST API
 author: pvrk
 manager: shivamg
-keywords: 'REST API: ET Azure VM-säkerhetskopiering; Återställning av Azure virtuella datorer;'
+keywords: REST API; Azure VM-säkerhetskopiering; Återställning av Azure VM;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d497fc714e0ad5f61873d4c1f95ab35837532646
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646630"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466761"
 ---
-# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Spåra säkerhetskopiering och återställning jobb med hjälp av REST API
+# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Spåra säkerhets kopierings-och återställnings jobb med REST API
 
-Azure Backup-tjänsten utlöser jobb som körs i bakgrunden i olika scenarier, till exempel aktiverar säkerhetskopiering, återställning, inaktivera backup. Dessa jobb kan spåras med hjälp av deras ID: N.
+Azure Backup tjänst utlöser jobb som körs i bakgrunden i olika scenarier, t. ex. utlöser säkerhets kopiering, återställnings åtgärder, inaktiverar säkerhets kopiering. Dessa jobb kan spåras med hjälp av deras ID.
 
-## <a name="fetch-job-information-from-operations"></a>Hämta jobbinformation från åtgärder
+## <a name="fetch-job-information-from-operations"></a>Hämta jobb information från åtgärder
 
-En åtgärd som att utlösa säkerhetskopieringen returnerar alltid en jobID. För t.ex.: Det slutliga svaret på en [utlösa säkerhetskopieringen till REST API](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) är följande:
+En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID. För t. ex.: Det slutliga svaret från en [Utlös ande säkerhets kopiering REST API åtgärd](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) är följande:
 
 ```http
 {
@@ -39,7 +38,7 @@ En åtgärd som att utlösa säkerhetskopieringen returnerar alltid en jobID. F�
 }
 ```
 
-Säkerhetskopieringsjobbet för virtuella Azure-datorer identifieras med ”jobId”-fältet och kan spåras som vi redan nämnt [här](https://docs.microsoft.com/rest/api/backup/jobdetails/) med hjälp av en enkel *hämta* begäran.
+Jobbet för säkerhets kopiering av virtuella Azure-datorer identifieras av "jobId"-fältet och kan spåras på det sätt som anges [här](https://docs.microsoft.com/rest/api/backup/jobdetails/) med en enkel *Get* -begäran.
 
 ## <a name="tracking-the-job"></a>Spåra jobbet
 
@@ -47,7 +46,7 @@ Säkerhetskopieringsjobbet för virtuella Azure-datorer identifieras med ”jobI
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
 ```
 
-Den `{jobName}` är ”jobId” som nämns ovan. Svaret är alltid 200 OK med fältet ”status” som indikerar den aktuella statusen för jobbet. När det gäller ”slutfört” eller ”CompletedWithWarnings”, visar ”extendedInfo”-avsnittet Mer information om jobbet.
+`{jobName}` Är "jobId" som nämnts ovan. Svaret är alltid 200 OK med fältet status och indikerar jobbets aktuella status. När det är "slutfört" eller "CompletedWithWarnings" visar avsnittet "extendedInfo" Mer information om jobbet.
 
 ### <a name="response"></a>Svar
 
@@ -57,7 +56,7 @@ Den `{jobName}` är ”jobId” som nämns ovan. Svaret är alltid 200 OK med f�
 
 #### <a name="example-response"></a>Exempelsvar
 
-När den *hämta* URI skickas, returneras ett svar med 200 (OK).
+När *hämtnings* -URI: n har skickats returneras ett 200-svar (OK).
 
 ```http
 HTTP/1.1 200 OK

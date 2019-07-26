@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c97729cf7d88ebdeefb44c83eb571bb6d7ebd0ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbc5c356ea5a542fdc12b11aff236c56b146b3d5
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825586"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477246"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråksmedvetna appar i programproxyn
 [Anspråksmedvetna appar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) utför en omdirigering till Security Token Service (STS). STS begär autentiseringsuppgifter från användaren i utbyte mot en token och sedan omdirigeras användaren till programmet. Det finns ett antal sätt att aktivera Application Proxy att arbeta med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna appar. 
@@ -55,7 +55,7 @@ Om alla interna URL: er för dina program är fullständigt kvalificerade domän
    ![Lägg till en slutpunkt - värdet betrodda URL - skärmbild](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktivera enkel inloggning på](configure-single-sign-on-portal.md) för program som inte är anspråksmedvetna
+* [Aktivera enkel inloggning på](configure-single-sign-on-non-gallery-applications.md) för program som inte är anspråksmedvetna
 * [Aktivera ursprungliga klientappar kan interagera med proxy-program](application-proxy-configure-native-client-application.md)
 
 

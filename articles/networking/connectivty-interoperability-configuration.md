@@ -1,6 +1,6 @@
 ---
-title: 'Samverkan i Azure backend-anslutningsfunktionerna: Information om | Microsoft Docs'
-description: Den här artikeln beskriver konfigurationsdetaljer för de inställningar du kan använda för att analysera samverkan mellan ExpressRoute, en plats-till-plats-VPN och virtuell nätverkspeering i Azure.
+title: 'Interoperabilitet i Azures Server dels anslutnings funktioner: Konfigurations information | Microsoft Docs'
+description: Den här artikeln beskriver konfigurations information för test konfigurationen som du kan använda för att analysera interoperabilitet mellan ExpressRoute, en plats-till-plats-VPN och virtuell nätverks-peering i Azure.
 documentationcenter: na
 services: networking
 author: rambk
@@ -10,48 +10,48 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 2ceb4aeac55bd555a41c29bd41b00c771490e5f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425799"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335939"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Samverkan i Azure backend-anslutningsfunktionerna: Testa konfigurationsinformation
+# <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilitet i Azures Server dels anslutnings funktioner: Testa konfigurations information
 
-Den här artikeln beskriver konfigurationsinformationen för de [testa installationen][Setup]. Testa installationen hjälper dig att analysera hur Azure nätverkstjänster interagera på den plan kontrollnivå och data plan nivå.
+I den här artikeln beskrivs konfigurations information för [test konfigurationen][Setup]. Test installationen hjälper dig att analysera hur Azures nätverks tjänster samverkar med kontroll Plans nivån och data planet nivån.
 
-## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Ekeranslutning virtuellt nätverk med hjälp av VNet-peering
+## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Eker VNet-anslutning med hjälp av VNet-peering
 
-Följande bild visar Azure Virtual Network peering-information för ett virtuellt eker-nätverk (VNet). Läs hur du konfigurerar peering mellan två virtuella nätverk i [hantera VNet-peering][VNet-Config]. Om du vill att eker VNet att använda gateways som är anslutna till det virtuella hubbnätverket, Välj **Använd fjärrgateway**.
+Följande bild visar information om Virtual Network peering i Azure för ett eker-virtuellt nätverk (VNet). Information om hur du konfigurerar peering mellan två virtuella nätverk finns i [Hantera VNet][VNet-Config]-peering. Om du vill att det virtuella eker-nätverket ska använda de gatewayer som är anslutna till hubbens VNet väljer du **Använd**fjärrgatewayer.
 
 [![1]][1]
 
-Följande bild visar VNet-peering-information för det virtuella hubbnätverket. Om du vill eker VNet att använda VNet-gateways hub väljer **Använd fjärrgateway**.
+Följande bild visar information om VNet-peering för hubbens VNet. Om du vill att hubbens VNet ska tillåta att det virtuella eker-nätverket använder hubbens gatewayer väljer du **Tillåt Gateway-överföring**.
 
 [![2]][2]
 
-## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Gren VNet-anslutning med hjälp av en plats-till-plats-VPN
+## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Gren-VNet-anslutning med hjälp av en plats-till-plats-VPN
 
-Konfigurera plats-till-plats VPN-anslutningar mellan hub och grenen virtuella nätverk med hjälp av VPN-gatewayer i Azure VPN Gateway. Som standard VPN gateway och Azure ExpressRoute-gateway använder privata autonoma system tal (ASN) värdet **65515**. Du kan ändra ASN-värdet i VPN-Gateway. I test-installationsprogrammet ASN-värdet på förgrening VNet VPN-gateway har ändrats till **65516** som stöd för eBGP routning mellan hub och grenen virtuella nätverk.
+Konfigurera VPN-anslutning från plats till plats mellan hubben och grenen virtuella nätverk med hjälp av VPN-gatewayer i Azure VPN Gateway. Som standard använder VPN-gatewayer och Azure ExpressRoute-gatewayer ett privat autonomt system nummer (ASN)-värde på **65515**. Du kan ändra ASN-värdet i VPN Gateway. I test installationen ändras ASN-värdet för VPN-gatewayen för gren-VNet till **65516** för att stödja eBGP-routning mellan hubben och gren virtuella nätverk.
 
 
 [![3]][3]
 
 
-## <a name="on-premises-location-1-connectivity-by-using-expressroute-and-a-site-to-site-vpn"></a>Lokal plats 1 anslutning med hjälp av ExpressRoute och en plats-till-plats-VPN
+## <a name="on-premises-location-1-connectivity-by-using-expressroute-and-a-site-to-site-vpn"></a>Lokal plats 1 anslutning med hjälp av ExpressRoute och VPN för plats till plats
 
-### <a name="expressroute-1-configuration-details"></a>Information om konfiguration av ExpressRoute 1
+### <a name="expressroute-1-configuration-details"></a>Konfigurations information för ExpressRoute 1
 
-Följande bild visar Azure-Region 1 ExpressRoute-krets konfigurationen mot en lokal plats 1 (CE) gränsroutrar:
+Följande bild visar Azure region 1 ExpressRoute-krets konfigurationen mot lokala platser 1-Azure-routrar (Customer Edge):
 
 [![4]][4]
 
-Följande bild visar konfigurationen mellan 1 för ExpressRoute-kretsen och det virtuella hubbnätverket:
+Följande bild visar anslutnings konfigurationen mellan ExpressRoute 1-kretsen och hubbens VNet:
 
 [![5]][5]
 
-I följande lista visas den primära CE router-konfigurationen för ExpressRoute privat peering-anslutningen. (Cisco-routrar ASR1000 används som CE routrar i installationsprogrammet för test). När plats-till-plats VPN och ExpressRoute-kretsar har konfigurerats parallellt för att ansluta ett lokalt nätverk till Azure, prioriterar Azure ExpressRoute-krets som standard. För att undvika asymmetrisk routning kan ska det lokala nätverket även gälla i ExpressRoute-anslutningen via plats-till-plats VPN-anslutning. Följande konfiguration upprättar prioritering med hjälp av BGP **till lokala inställningar** attribut:
+I följande lista visas den primära CE-routerkonfigurationen för ExpressRoute-anslutning för privat peering. (Cisco ASR1000-routrarna används som CE-routrar i test konfigurationen.) När plats-till-plats-VPN-och ExpressRoute-kretsar konfigureras parallellt för att ansluta ett lokalt nätverk till Azure prioriterar Azure ExpressRoute-kretsen som standard. För att undvika asymmetrisk routning bör det lokala nätverket även prioritera ExpressRoute-anslutning via plats-till-plats-VPN-anslutning. Följande konfiguration fastställer prioritet genom att använda attributet BGP **Local-Preference** :
 
     interface TenGigabitEthernet0/0/0.300
      description Customer 30 private peering to Azure
@@ -91,9 +91,9 @@ I följande lista visas den primära CE router-konfigurationen för ExpressRoute
     ip prefix-list Cust30_to_Private seq 10 permit 10.2.30.0/25
     !
 
-### <a name="site-to-site-vpn-configuration-details"></a>Information om plats-till-plats VPN-konfiguration
+### <a name="site-to-site-vpn-configuration-details"></a>Konfigurations information för plats-till-plats-VPN
 
-I följande lista visas den primära CE router-konfigurationen för plats-till-plats VPN-anslutning:
+I följande lista visas den primära CE-routerkonfigurationen för plats-till-plats-VPN-anslutning:
 
     crypto ikev2 proposal Cust30-azure-proposal
      encryption aes-cbc-256 aes-cbc-128 3des
@@ -148,69 +148,69 @@ I följande lista visas den primära CE router-konfigurationen för plats-till-p
     !
     ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
 
-## <a name="on-premises-location-2-connectivity-by-using-expressroute"></a>Lokal plats 2-anslutning med ExpressRoute
+## <a name="on-premises-location-2-connectivity-by-using-expressroute"></a>Lokal plats 2 anslutning med hjälp av ExpressRoute
 
-En andra ExpressRoute-kretsen i en lokal plats 2 finns närmare ansluter en lokal plats 2 till det virtuella hubbnätverket. Följande bild visar den andra ExpressRoute-konfigurationen:
+En andra ExpressRoute-krets, i nära närhet till lokal plats 2, ansluter lokalt plats 2 till hubb-VNet. Följande bild visar den andra ExpressRoute-konfigurationen:
 
 [![6]][6]
 
-Följande bild visar konfigurationen mellan andra ExpressRoute-kretsen och det virtuella hubbnätverket:
+Följande bild visar anslutnings konfigurationen mellan den andra ExpressRoute-kretsen och Hub VNet:
 
 [![7]][7]
 
-ExpressRoute 1 ansluter både virtuella hubbnätverket och en lokal plats 1 till en fjärransluten virtuellt nätverk i en annan Azure-region:
+ExpressRoute 1 ansluter både hubb-VNet och lokal plats 1 till ett fjärrnätverk i en annan Azure-region:
 
 [![8]][8]
 
-## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute och plats-till-plats VPN-anslutning tillsammans
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute och plats-till-plats VPN-anslutning i tandem
 
-###  <a name="site-to-site-vpn-over-expressroute"></a>Plats-till-plats-VPN över ExpressRoute
+###  <a name="site-to-site-vpn-over-expressroute"></a>Plats-till-plats-VPN via ExpressRoute
 
-Du kan konfigurera en plats-till-plats VPN med hjälp av ExpressRoute-Microsoft-peering för att privat utbyta data mellan ditt lokala nätverk och ditt virtuella Azure-nätverk. Du kan utbyta data med sekretess, äkthetsbeviset och integritet med den här konfigurationen. Datautbytet är också ett repetitionsattacker. Mer information om hur du konfigurerar en plats-till-plats IPsec VPN i tunnelläge med hjälp av ExpressRoute Microsoft-peering finns i [plats-till-plats-VPN över ExpressRoute Microsoft-peering][S2S-Over-ExR]. 
+Du kan konfigurera en plats-till-plats-VPN genom att använda ExpressRoute Microsoft-peering för att utbyta data mellan ditt lokala nätverk och ditt Azure-virtuella nätverk. Med den här konfigurationen kan du utbyta data med konfidentialitet, äkthet och integritet. Data utbytet är också en anti-omuppspelning. Mer information om hur du konfigurerar en plats-till-plats IPsec-VPN i tunnel läge med ExpressRoute Microsoft-peering finns i [plats-till-plats-VPN över ExpressRoute Microsoft-peering][S2S-Over-ExR]. 
 
-Den huvudsakliga begränsningen med att konfigurera en plats-till-plats VPN-anslutning som använder Microsoft-peering är genomströmning. Genomströmning via IPsec-tunneln begränsas av VPN gateway-kapaciteten. VPN gateway-genomströmning är lägre än ExpressRoute dataflöde. I det här scenariot använder IPsec-tunneln för mycket säker trafik och använder privata peering för all annan trafik hjälper till att optimera bandbreddsanvändningen för ExpressRoute.
+Den primära begränsningen för att konfigurera en plats-till-plats-VPN som använder Microsoft-peering är data flöde. Data flödet över IPsec-tunneln begränsas av VPN-gatewayens kapacitet. Data flödet för VPN-gatewayen är lägre än ExpressRoute-dataflödet. I det här scenariot kan du använda IPsec-tunneln för hög säker trafik och använda privat peering för all annan trafik för att optimera ExpressRoute bandbredds användning.
 
-### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>Plats-till-plats VPN som en säker redundanssökväg för ExpressRoute
+### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>Plats-till-plats-VPN som en säker redundans för ExpressRoute
 
-ExpressRoute fungerar som ett redundant krets-par för att säkerställa hög tillgänglighet. Du kan konfigurera geo-redundant ExpressRoute-anslutningen i olika Azure-regioner. Som visas i vår test-installationsprogrammet, inom en Azure-region kan du också använda en plats-till-plats VPN-anslutning för att skapa en redundanssökväg för ExpressRoute-anslutning. När samma prefix har annonserats via både ExpressRoute och en plats-till-plats-VPN, prioriterar ExpressRoute i Azure. Om du vill undvika asymmetrisk routning mellan ExpressRoute och plats-till-plats-VPN, lokala nätverkskonfigurationen bör också att öka exponeringen med hjälp av ExpressRoute-anslutningen innan den använder plats-till-plats VPN-anslutning.
+ExpressRoute fungerar som ett redundant krets par för att säkerställa hög tillgänglighet. Du kan konfigurera Geo-redundant ExpressRoute-anslutning i olika Azure-regioner. Som du ser i vår test konfiguration, i en Azure-region, kan du också använda en plats-till-plats-VPN för att skapa en sökväg för redundans för ExpressRoute-anslutningen. När samma prefix annonseras över både ExpressRoute och en plats-till-plats-VPN prioriterar Azure ExpressRoute. För att undvika asymmetrisk routning mellan ExpressRoute och plats-till-plats-VPN, bör den lokala nätverks konfigurationen också vara kolv med ExpressRoute-anslutning innan den använder VPN-anslutning från plats till plats.
 
-Mer information om hur du konfigurerar du samexisterande anslutningar för ExpressRoute och en plats-till-plats-VPN finns i [ExpressRoute och plats-till-plats samexistens][ExR-S2S-CoEx].
+Mer information om hur du konfigurerar sambefintliga anslutningar för ExpressRoute och en plats-till-plats-VPN finns i [ExpressRoute och plats-till-plats-samexistens][ExR-S2S-CoEx].
 
-## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Utöka backend-anslutning till virtuella ekernätverk och olika kontor
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Utöka backend-anslutningen till ekrar virtuella nätverk och filial platser
 
-### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Ekeranslutning virtuellt nätverk med hjälp av VNet-peering
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Eker VNet-anslutning med hjälp av VNet-peering
 
-NAV och ekrar VNet arkitektur används ofta. Hubben är ett virtuellt nätverk i Azure som fungerar som en central plats för anslutning mellan din virtuella ekernätverken och till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben, och som du kan använda för att isolera arbetsbelastningar. Trafiken flödar mellan det lokala datacentret och hubben via en ExpressRoute eller VPN-anslutning. Mer information om arkitekturen finns i [implementerar en hub-spoke för nätverk i Azure][Hub-n-Spoke].
+NAV-och eker VNet-arkitekturen används ofta. Hubben är ett VNet i Azure som fungerar som en central punkt för anslutningen mellan ekrarnas virtuella nätverk och det lokala nätverket. Ekrarna är virtuella nätverk som peer-kopplas med hubben och som du kan använda för att isolera arbets belastningar. Trafik flöden mellan det lokala data centret och hubben via en ExpressRoute-eller VPN-anslutning. Mer information om arkitekturen finns i [implementera en nätverkstopologi för NAV-ekrar i Azure][Hub-n-Spoke].
 
-I VNet-peering inom en region, kan virtuella ekernätverk använda hub VNet-gatewayer (både VPN och ExpressRoute-gatewayer) att kommunicera med fjärrnätverk.
+I VNet-peering inom en region kan eker-virtuella nätverk använda hubb-gatewayer (både VPN-och ExpressRoute-gatewayer) för att kommunicera med fjärrnätverk.
 
-### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Gren VNet-anslutning via plats-till-plats-VPN
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Gren-VNet-anslutning med plats-till-plats-VPN
 
-Du kanske vill gren virtuella nätverk som finns i olika regioner och lokala nätverk för att kommunicera med varandra via en hubbnätverket. Intern Azure-lösning för den här konfigurationen är plats-till-plats VPN-anslutning med hjälp av en VPN-anslutning. Ett alternativ är att använda en virtuell nätverksinstallation (NVA) för routning i hubben.
+Du kanske vill använda Branch virtuella nätverk, som finns i olika regioner och lokala nätverk för att kommunicera med varandra via ett nav-VNet. Den interna Azure-lösningen för den här konfigurationen är plats-till-plats-VPN-anslutning med hjälp av en VPN. Ett alternativ är att använda en virtuell nätverks installation (NVA) för routning i hubben.
 
-Mer information finns i [vad är VPN-Gateway?] [ VPN] och [distribuera en högtillgänglig NVA][Deploy-NVA].
+Mer information finns i [Vad är VPN gateway?][VPN] and [Deploy a highly available NVA][Deploy-NVA].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [styra plan analysis] [ Control-Analysis] test-installationen och vyer för olika virtuella nätverk eller VLAN i topologin.
+Lär dig mer om [kontroll Plans analys][Control-Analysis] av test konfigurationen och vyer för olika virtuella nätverk eller VLAN i topologin.
 
-Lär dig mer om [data analysis-dataplaner] [ Data-Analysis] av inställningar och Azure-nätverk övervakningsvyer för funktionen.
+Lär dig mer om [analys av data planet][Data-Analysis] i vyerna test konfiguration och Azure Network Monitoring.
 
-Se den [ExpressRoute vanliga frågor och svar] [ ExR-FAQ] till:
--   Lär dig hur många ExpressRoute-kretsar som du kan ansluta till en ExpressRoute-gateway.
--   Lär dig hur många ExpressRoute-gatewayer som du kan ansluta till en ExpressRoute-krets.
--   Läs mer om andra gränser för skalning av ExpressRoute.
+Se [vanliga frågor och svar om ExpressRoute][ExR-FAQ] för att:
+-   Lär dig hur många ExpressRoute-kretsar du kan ansluta till en ExpressRoute-Gateway.
+-   Lär dig hur många ExpressRoute-gatewayer du kan ansluta till en ExpressRoute-krets.
+-   Lär dig mer om andra skalnings gränser för ExpressRoute.
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/SpokeVNet_peering.png "ekrar VNet VNet-peering"
-[2]: ./media/backend-interoperability/HubVNet-peering.png "hub VNet VNet-peering"
-[3]: ./media/backend-interoperability/BranchVNet-VPNGW.png "VPN Gateway-konfiguration av en gren virtuellt nätverk"
-[4]: ./media/backend-interoperability/ExR1.png "ExpressRoute-1-konfiguration"
-[5]: ./media/backend-interoperability/ExR1-Hub-Connection.png "anslutningskonfiguration ExpressRoute 1 till ett nav VNet ExR gateway"
-[6]: ./media/backend-interoperability/ExR2.png "ExpressRoute-2-konfiguration"
-[7]: ./media/backend-interoperability/ExR2-Hub-Connection.png "anslutningskonfiguration ExpressRoute 2 till en hubb VNet ExR gateway"
-[8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "anslutningskonfiguration ExpressRoute 2 till en fjärransluten VNet ExR-gateway"
+[1]: ./media/backend-interoperability/SpokeVNet_peering.png  "Virtuellt nätverk för eker VNet" -peering
+[2]: ./media/backend-interoperability/HubVNet-peering.png  "Hubb" för VNet VNet-peering
+[3]: ./media/backend-interoperability/BranchVNet-VPNGW.png  "VPN gateway konfiguration av ett förgrenings-VNet"
+[4]: ./media/backend-interoperability/ExR1.png  "Konfiguration av ExpressRoute 1"
+[5]: ./media/backend-interoperability/ExR1-Hub-Connection.png  "Anslutnings konfiguration för ExpressRoute 1 till en hubb VNet ExR Gateway"
+[6]: ./media/backend-interoperability/ExR2.png  "ExpressRoute 2-konfiguration"
+[7]: ./media/backend-interoperability/ExR2-Hub-Connection.png  "Anslutnings konfiguration för ExpressRoute 2 till en hubb VNet ExR Gateway"
+[8]: ./media/backend-interoperability/ExR2-Remote-Connection.png  "Anslutnings konfiguration för ExpressRoute 2 till en fjärran sluten VNet ExR-Gateway"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

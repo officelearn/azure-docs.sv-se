@@ -1,8 +1,8 @@
 ---
-title: 'Snabbstart: Skapa och fråga Azure SQL Data Warehouse – Azure-portalen | Microsoft Docs'
-description: Skapa och fråga data warehouse med Azure SQL Data Warehouse i Azure-portalen.
+title: 'Snabbstart: Skapa och fråga Azure SQL Data Warehouse-Azure Portal | Microsoft Docs'
+description: Skapa och fråga ett informations lager med Azure SQL Data Warehouse i Azure Portal.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: 9072caf29be0ebf47207266b7313e989034c3a18
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 2864acca443e3135ea0023070da95accf97fe2e9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428041"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479438"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Skapa och skicka frågor till ett Azure SQL Data Warehouse i Azure Portal
 
-Skapa snabbt och fråga en Azure SQL data warehouse med hjälp av Azure portal.
+Skapa snabbt och fråga ett Azure SQL Data Warehouse med hjälp av Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -67,22 +67,22 @@ Följ de här stegen för att skapa ett SQL Data Warehouse som innehåller exemp
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
     ||||
 
     ![skapa databasserver](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
 5. Klicka på **Välj**.
 
-6. Klicka på **prestandanivå** att ange prestandakonfigurationen för informationslagret.
+6. Klicka på **prestanda nivå** för att ange prestanda konfigurationen för data lagret.
 
-7. Den här självstudien väljer **Gen2**. Skjutreglaget är som standard anges till **DW1000c**. Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+7. I den här självstudien väljer du **Gen2**. Skjutreglaget är som standard inställt på **DW1000c**. Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Klicka på **Verkställ**.
 
-9. Nu när du har slutfört formuläret SQL Data Warehouse, klickar du på **skapa** att etablera databasen. Etableringen tar några minuter.
+9. Nu när du har fyllt i SQL Data Warehouse formuläret klickar du på **skapa** för att etablera databasen. Etableringen tar några minuter.
 
     ![klicka på skapa](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -92,14 +92,14 @@ Följ de här stegen för att skapa ett SQL Data Warehouse som innehåller exemp
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-SQL Data Warehouse-tjänsten skapar en brandvägg på servernivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser. Följ dessa steg för att skapa en [brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) för klientens IP-adress.
+Tjänsten SQL Data Warehouse skapar en brand vägg på server nivå. Den här brand väggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser. Följ dessa steg för att skapa en [brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) för klientens IP-adress.
 
 > [!NOTE]
 > SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 
-1. När distributionen är klar väljer du **alla tjänster** på den vänstra menyn. Välj **databaser**, markera stjärnan bredvid **SQL-informationslager** att lägga till SQL-informationslager i dina Favoriter.
-1. Välj **SQL-informationslager** från den vänstra menyn och klicka sedan på **mySampleDatabase** på den **SQL-informationslager** sidan. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (till exempel **mynewserver-20180430.database.windows.net**) och alternativ för ytterligare konfiguration.
-1. Kopiera den här fullständigt kvalificerade servernamnet för anslutning till servern och databaserna i den här och andra snabbstarter. Öppna serverinställningarna genom att klicka på servernamnet.
+1. När distributionen är klar väljer du **alla tjänster** i den vänstra menyn. Välj **databaser**, Välj stjärnan bredvid **SQL Data Warehouses** för att lägga till SQL Data Warehouse i dina favoriter.
+1. Välj **SQL Data Warehouses** på menyn till vänster och klicka sedan på **MySampleDatabase** på sidan **SQL Data Warehouse** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade Server namnet (till exempel **mynewserver-20180430.Database.Windows.net**) och alternativ för ytterligare konfiguration.
+1. Kopiera det här fullständigt kvalificerade Server namnet som ska användas för att ansluta till servern och dess databaser i den här och andra snabb starter. Öppna serverinställningarna genom att klicka på servernamnet.
 
    ![hitta servernamn](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -127,7 +127,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Välj **SQL-informationslager** från den vänstra menyn och klicka på ditt datalager på den **SQL-informationslager** sidan.
+2. Välj **SQL Data Warehouses** på menyn till vänster och klicka på informations lagret på sidan **SQL Data Warehouse** .
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver-20180430.database.windows.net.
 
     ![anslutningsinformation](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
@@ -143,10 +143,10 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | Inställning | Föreslaget värde | Beskrivning |
    | :------ | :-------------- | :---------- |
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver-20180430.database.windows.net**. |
-   | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-   | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | Lösenord | Lösenordet för serveradministratörskontot | Lösenordet som du angav när du skapade servern. |
+   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver-20180430.Database.Windows.net**. |
+   | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
+   | Logga in | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
+   | lösenordsinställning | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
    ||||
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -183,9 +183,9 @@ SQL Data Warehouse använder T-SQL som frågespråk. Använd följande steg om d
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du debiteras för informationslagerenheter och data lagras i informationslagret. Dessa beräknings- och lagringsresurser debiteras separat.
+Du debiteras för data lager enheter och data som lagras i data lagret. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa databearbetning, du debiteras endast för lagring av data. Du kan återuppta beräkningarna när du är redo att arbeta med data.
+- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning debiteras du bara för data lagring. Du kan återuppta beräkningen när du är redo att arbeta med data.
 - Om du vill undvika framtida avgifter kan du ta bort informationslagret.
 
 Följ dessa steg för att rensa resurser som du inte längre behöver.
@@ -194,17 +194,17 @@ Följ dessa steg för att rensa resurser som du inte längre behöver.
 
     ![Rensa resurser](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När informationslagret har pausats visas en **återuppta** knappen. Om du vill återuppta beräkningarna klickar du på **återuppta**.
+2. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När data lagret har pausats visas en knappen **Fortsätt** . Fortsätt beräkning genom att klicka på **Fortsätt**.
 
-3. Om du vill ta bort informationslagret så att du inte debiteras för beräkning eller lagring, klickar du på **ta bort**.
+3. Om du vill ta bort data lagret så att du inte debiteras för beräkning eller lagring klickar du på **ta bort**.
 
-4. Ta bort den SQLServer som du skapade genom att klicka på **mynewserver-20180430.database.windows.net** i föregående bild och klicka sedan på **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+4. Om du vill ta bort den SQL-Server som du har skapat klickar du på **mynewserver-20180430.Database.Windows.net** i föregående bild och sedan på **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
 5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu skapat ett informationslager, skapat en brandväggsregel som är anslutna till ditt informationslager och kört några frågor. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
+Nu har du skapat ett informations lager, skapat en brand Väggs regel, anslutit till ditt data lager och kört några frågor. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
 
 > [!div class="nextstepaction"]
 > [Läsa in data i ett SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

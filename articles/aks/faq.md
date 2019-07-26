@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 554eba87efc56e2dadb3fb2d0cb78cd8b7ea7237
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302729"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381977"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes service (AKS)
 
@@ -140,6 +140,50 @@ AKS agent-noder faktureras som standard virtuella Azure-datorer, så om du har k
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Kan jag flytta/migrera mitt kluster mellan prenumerationer?
 
 Det finns för närvarande inte stöd för att flytta kluster mellan prenumerationer.
+
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Kan jag flytta mina AKS-kluster från den aktuella Azure-prenumerationen till en annan? 
+
+Det finns inte stöd för att flytta AKS-klustret och dess tillhör ande resurser mellan Azure-prenumerationer.
+
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>Varför tar min kluster borttagning att ta lång tid? 
+
+De flesta kluster tas bort vid användar förfrågan. i vissa fall, särskilt när kunder tar emot sin egen resurs grupp, eller om du utför RG uppgifter kan borttagningen ta ytterligare tid eller misslyckande. Om du har problem med borttagningarna, kontrol lera att du inte har lås på RG, att inga resurser utanför RG är kopplade till RG osv.
+
+## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>Om jag har Pod/distributioner i status "NodeLost" eller "okänd" kan jag fortfarande uppgradera mitt kluster?
+
+Du kan, men AKS rekommenderar inte detta. Uppgraderingar bör helst utföras när kluster tillståndet är känt och felfritt.
+
+## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>Kan jag utföra en uppgradering om jag har ett kluster med en eller flera noder i ett ohälsosamt tillstånd eller stänger av?
+
+Nej, ta bort/ta bort alla noder i ett felaktigt tillstånd eller ta bort dem från klustret innan du uppgraderar.
+
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Jag har kört ett kluster borttagnings fel men ser felet`[Errno 11001] getaddrinfo failed` 
+
+Oftast orsakas detta av användare som har en eller flera nätverks säkerhets grupper (NSG: er) som fortfarande används och som är kopplade till klustret.  Ta bort dem och försök att ta bort dem igen.
+
+## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Jag körde en uppgradering, men nu finns det poddar i krascher och det går inte att söka efter beredskap?
+
+Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: Autentiseringsuppgifter för [AKS-tjänstens huvud namn](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) och [AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+
+## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>Mitt kluster fungerade, men det gick plötsligt inte att etablera belastningsutjämnare, montera PVC: er osv. 
+
+Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: Autentiseringsuppgifter för [AKS-tjänstens huvud namn](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) och [AKS](https://docs.microsoft.com/azure/aks/update-credentials).
+
+## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Kan jag använda API: erna för skalnings uppsättningen för virtuella datorer för att skala manuellt?
+
+Nej, skalnings åtgärder med hjälp av API: er för skalnings uppsättningen för virtuella datorer stöds inte. Använd AKS-API:`az aks scale`er ().
+
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>Kan jag använda skalnings uppsättningar för virtuella datorer för att manuellt skala till 0 noder?
+
+Nej, skalnings åtgärder med hjälp av API: er för skalnings uppsättningen för virtuella datorer stöds inte.
+
+## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>Kan jag stoppa eller ta bort alla mina virtuella datorer?
+
+Även om AKS har återhämtnings metoder för att motstå sådan konfiguration och återställa från den, är detta inte en rekommenderad konfiguration.
+
+## <a name="can-i-use-custom-vm-extensions"></a>Kan jag använda anpassade VM-tillägg?
+
+Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte. Så här installerar du anpassade komponenter osv. Använd Kubernetes-API: er och mekanismer. Du kan till exempel utnyttja DaemonSets för att installera nödvändiga komponenter.
 
 <!-- LINKS - internal -->
 

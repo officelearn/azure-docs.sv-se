@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326940"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334593"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -23,8 +23,6 @@ Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell. Den här modell
 Ett program som ansluter till ett lagringskonto när Nätverksregler tillämpas kräver rätt behörighet på begäran. Auktorisering stöds med Azure Active Directory (Azure AD)-autentiseringsuppgifter för blobbar och köer, med en giltig konto åtkomst nyckel eller med en SAS-token.
 
 > [!IMPORTANT]
-> Azure File Sync har ännu inte stöd för brand väggar och virtuella nätverk. Om du använder Azure File Sync på ditt lagrings konto och aktiverar dessa, kommer Azure File Sync inte att synkroniseras.
->
 > Aktivera brandväggsregler för ditt lagringskonto blockerar inkommande begäranden om data som standard inte begäranden som kommer från en tjänst som körs i Azure Virtual Network (VNet). Begäranden som blockeras är de från andra Azure-tjänster från Azure-portalen från loggning och mått tjänster, och så vidare.
 >
 > Du kan ge åtkomst till Azure-tjänster som fungerar från inom ett virtuellt nätverk genom att tillåta att undernätet för tjänstinstansen. Aktivera ett begränsat antal scenarier via den [undantag](#exceptions) mekanism som beskrivs i följande avsnitt. För att komma åt Azure-portalen, skulle du behöva finnas på en dator i den betrodda gränsen (IP eller virtuellt nätverk) som du har konfigurerat.

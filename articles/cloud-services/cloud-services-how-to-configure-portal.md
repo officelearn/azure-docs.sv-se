@@ -1,112 +1,106 @@
 ---
-title: Så här konfigurerar du en molntjänst (portal) | Microsoft Docs
-description: Lär dig hur du konfigurerar molntjänster i Azure. Lär dig att uppdatera konfigurationen för Molntjänsten och konfigurera fjärråtkomst till rollinstanser. De här exemplen använder Azure portal.
+title: Så här konfigurerar du en moln tjänst (portal) | Microsoft Docs
+description: Lär dig hur du konfigurerar moln tjänster i Azure. Lär dig att uppdatera moln tjänst konfigurationen och konfigurera fjärråtkomst till roll instanser. I de här exemplen används Azure Portal.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435871"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359650"
 ---
 # <a name="how-to-configure-cloud-services"></a>Så här konfigurerar du Cloud Services
 
-Du kan konfigurera de vanligaste inställningarna för en molntjänst i Azure-portalen. Du kan också uppdatera konfigurationsfilerna direkt, hämta en tjänstkonfigurationsfil för uppdatering och sedan överföra den uppdaterade filen och uppdatera molntjänsten med konfigurationsändringarna. Vilket sätt du än väljer kommer konfigurationsuppdateringarna att skickas ut till alla rollinstanser.
+Du kan konfigurera de vanligaste inställningarna för en moln tjänst i Azure Portal. Du kan också uppdatera konfigurationsfilerna direkt, hämta en tjänstkonfigurationsfil för uppdatering och sedan överföra den uppdaterade filen och uppdatera molntjänsten med konfigurationsändringarna. Vilket sätt du än väljer kommer konfigurationsuppdateringarna att skickas ut till alla rollinstanser.
 
-Du kan också hantera instanser av din molntjänstroller eller fjärrskrivbord i dessa.
+Du kan också hantera instanser av dina moln tjänst roller eller fjärr skrivbord i dem.
 
-Azure kan bara kontrollera tillgänglighets på 99,95 procent under konfigurationsuppdateringarna om du har minst två rollinstanser för varje roll. Som gör det möjligt för en virtuell dator att bearbeta klientbegäranden medan den andra uppdateras. Mer information finns i [serviceavtal](https://azure.microsoft.com/support/legal/sla/).
+Azure kan bara se till att 99,95 procent är tillgänglig under konfigurations uppdateringarna om du har minst två roll instanser för varje roll. Detta gör att en virtuell dator kan bearbeta klient förfrågningar medan den andra uppdateras. Mer information finns i [service nivå avtal](https://azure.microsoft.com/support/legal/sla/).
 
-## <a name="change-a-cloud-service"></a>Ändra en molntjänst
+## <a name="change-a-cloud-service"></a>Ändra en moln tjänst
 
-Efter att den [Azure-portalen](https://portal.azure.com/), navigera till din molntjänst. Härifrån kan hantera du många aspekter av den.
+När du har öppnat [Azure Portal](https://portal.azure.com/)går du till moln tjänsten. Härifrån kan du hantera många delar av det.
 
-![Inställningssidan](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+![Sidan Inställningar](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-Den **inställningar** eller **alla inställningar** länkar öppnas **inställningar** där du kan ändra den **egenskaper**, ändra den  **Konfigurationen**, hantera den **certifikat**, Ställ in **Aviseringsregler**, och hantera den **användare** som har åtkomst till den här Molntjänsten.
+Länkarna **Inställningar** eller **alla inställningar** öppnar **Inställningar** där du kan ändra **egenskaperna**, ändra **konfigurationen**, hantera certifikaten, ställa in **aviserings regler**och hantera  **användare** som har åtkomst till den här moln tjänsten.
 
-![Azure-molnet tjänstinställningar](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
+![Azure Cloud Service-inställningar](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
-### <a name="manage-guest-os-version"></a>Hantera gäst-OS-version
+### <a name="manage-guest-os-version"></a>Hantera gäst operativ system version
 
-Som standard uppdateras Azure regelbundet dina gästoperativsystemet på den senaste stödda avbildningen i OS-familj som du har angett i din tjänstkonfiguration (.cscfg), till exempel Windows Server 2016.
+Som standard uppdaterar Azure regelbundet ditt gäst operativ system till den senaste avbildning som stöds i OS-familjen som du har angett i tjänst konfigurationen (. cscfg), t. ex. Windows Server 2016.
 
-Om du vill rikta en specifik version av Operativsystemet kan du ange den i **Configuration**.
+Om du behöver ange en speciell operativ Systems version som mål kan du ange den i **konfigurationen**.
 
 ![Ange OS-version](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
 
 >[!IMPORTANT]
-> Välja en specifik operativsystemversion inaktiverar automatisk OS uppdaterar och gör korrigeringar ditt ansvar. Du måste se till att dina rollinstanser tar emot uppdateringar eller du kan lägga upp ditt program till säkerhetsproblem.
+> Om du väljer en annan operativ system version inaktive ras automatiska uppdateringar av operativ systemet och du får en korrigering av ditt ansvar. Du måste se till att roll instanserna tar emot uppdateringar eller att du kan exponera ditt program för säkerhets risker.
 
 ## <a name="monitoring"></a>Övervakning
 
-Du kan lägga till aviseringar i din molntjänst. Klicka på **inställningar** > **Aviseringsregler** > **Lägg till avisering**.
+Du kan lägga till aviseringar till moln tjänsten. Klicka på **Inställningar** > **varnings regler** > **Lägg till avisering**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-Härifrån kan ställa du in en avisering. Med den **mått** nedrullningsbara listrutan som du kan ställa in en avisering för följande typer av data.
+Härifrån kan du konfigurera en avisering. Med list rutan **mått** kan du ställa in en avisering för följande typer av data.
 
-* Disk-lästa
+* Diskläsning
 * Diskskrivning
-* Nätverk in
-* Nätverk ut
-* CPU-procent
+* Nätverk – inkommande
+* Nätverk – utgående
+* Processorprocent
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
-### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurera övervakning från en metrisk panel
+### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurera övervakning från en mått panel
 
-Istället för att använda **inställningar** > **Aviseringsregler**, du kan klicka på någon av mått paneler på den **övervakning** avsnittet av Molntjänsten.
+I stället för att använda**varnings regler**för **Inställningar** > kan du klicka på någon av mått panelerna i **övervaknings** avsnittet i moln tjänsten.
 
-![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
+![Övervakning av moln tjänst](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
-Härifrån kan du anpassa diagram som används med panelen eller Lägg till en varningsregel.
+Härifrån kan du anpassa diagrammet som används med panelen eller lägga till en varnings regel.
 
-## <a name="reboot-reimage-or-remote-desktop"></a>Omstart eller återställa avbildningen av fjärrskrivbord
+## <a name="reboot-reimage-or-remote-desktop"></a>Starta om, avbildning eller fjärr skrivbord
 
-Du kan konfigurera fjärrskrivbord via den [Azure-portalen (Konfigurera fjärrskrivbord)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), eller via [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
+Du kan konfigurera fjärr skrivbord via [Azure Portal (Konfigurera fjärr skrivbord)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)eller via [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 
-Om du vill starta om, väljer reimage eller Fjärranslut till en molntjänst, du molntjänstinstans.
+Om du vill starta om, återställa avbildningen eller fjärranslutna till en moln tjänst väljer du moln tjänst instansen.
 
-![Molntjänstinstans](./media/cloud-services-how-to-configure-portal/cs-instance.png)
+![Moln tjänst instans](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
-Du kan initiera en fjärrskrivbordsanslutning, via en fjärranslutning starta om instansen eller återavbilda via en fjärranslutning (börja med en ny avbildning) instansen.
+Du kan sedan starta en anslutning till fjärr skrivbord, fjärrstarta instansen eller fjärravbildningen (börja med en ny avbildning) instansen.
 
-![Cloud Service-instans knappar](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
+![Knappar för moln tjänst instans](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
-## <a name="reconfigure-your-cscfg"></a>Konfigurera om din .cscfg
+## <a name="reconfigure-your-cscfg"></a>Konfigurera om. cscfg
 
-Du kan behöva konfigurera om din molntjänst via den [service config (cscfg)](cloud-services-model-and-package.md#cscfg) fil. Först måste du ladda ned din .cscfg-filen, ändrar du den och sedan ladda upp den.
+Du kan behöva konfigurera om moln tjänsten via [tjänst konfigurations filen (cscfg)](cloud-services-model-and-package.md#cscfg) . Först måste du ladda ned. cscfg-filen, ändra den och sedan ladda upp den.
 
-1. Klicka på den **inställningar** ikonen eller **alla inställningar** länken så att du öppnar **inställningar**.
+1. Klicka på ikonen **Inställningar** eller länken **alla inställningar** för att öppna **Inställningar**.
 
-    ![Inställningssidan](./media/cloud-services-how-to-configure-portal/cloud-service.png)
-2. Klicka på den **Configuration** objekt.
+    ![Sidan Inställningar](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+2. Klicka på **konfigurationsobjektet** .
 
-    ![Konfigurationsbladet](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
+    ![Konfigurations blad](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Klicka på knappen **Hämta**.
 
     ![Ladda ned](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
-4. När du uppdaterar tjänstkonfigurationsfilen, ladda upp och tillämpa uppdateringarna för:
+4. När du har uppdaterat tjänst konfigurations filen laddar du upp och tillämpar konfigurations uppdateringarna:
 
     ![Ladda upp](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
-5. Välj .cscfg-filen och klicka på **OK**.
+5. Välj. cscfg-filen och klicka på **OK**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [distribuera en molntjänst](cloud-services-how-to-create-deploy-portal.md).
-* Konfigurera en [domännamn](cloud-services-custom-domain-name-portal.md).
-* [Hantera din molntjänst](cloud-services-how-to-manage-portal.md).
-* Konfigurera [ssl-certifikat](cloud-services-configure-ssl-certificate-portal.md).
+* Lär dig hur du [distribuerar en moln tjänst](cloud-services-how-to-create-deploy-portal.md).
+* Konfigurera ett [anpassat domän namn](cloud-services-custom-domain-name-portal.md).
+* [Hantera din moln tjänst](cloud-services-how-to-manage-portal.md).
+* Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).

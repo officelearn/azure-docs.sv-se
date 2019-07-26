@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e252774d99eecac3623fcbae4ce9fdc0e1591672
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3ea4ebe652679ee9e4c0a165493fa86756ca7868
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474112"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494558"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Aktivera lösenordssynkronisering med Azure Active Directory Domain Services
 I föregående uppgifter aktiverade du Azure Active Directory Domain Services för din Azure Active Directory-klient (Azure AD). Nästa uppgift är att aktivera synkronisering av autentiseringshasher som krävs för NT LAN Manager (NTLM)- och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat synkroniseringen av autentiseringsuppgifter kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
@@ -41,7 +41,7 @@ Stegen är olika för endast molnbaserade användarkonton och användarkonton so
 En synkroniserad Azure AD-klient konfigureras att synkronisera med din organisations lokal katalog med hjälp av Azure AD Connect. Som standard synkroniserar Azure AD Connect inte NTLM- och Kerberos-autentiseringshasher till Azure AD. Om du vill använda Azure AD Domain Services måste du konfigurera Azure AD Connect att synkronisera autentiseringshasher som krävs för NTLM- och Kerberos-autentisering. Följande steg aktiverar synkronisering av nödvändiga autentiseringshasher från din lokala katalog till din Azure AD-klient.
 
 > [!NOTE]
-> **Om din organisation har användarkonton som synkroniseras från din lokala katalog så måste du aktivera synkronisering av NTLM och Kerberos-hashvärden för att kunna använda den hanterade domänen.** Ett synkroniserat användarkonto är ett konto som skapades i din lokala katalog och som synkroniseras till Azure AD-klienten med Azure AD Connect.
+> **Om din organisation har användarkonton som synkroniseras från din lokala katalog så måste du aktivera synkronisering av NTLM och Kerberos-hashvärden för att kunna använda den hanterade domänen.** Ett synkroniserat användarkonto är ett konto som skapades i din lokala katalog och som synkroniseras till Azure AD-klienten med Azure AD Connect.  Lösen ordets hash-synkronisering är en annan process än synkronisering av användare/objekt. Du måste inaktivera/aktivera hash-synkronisering av lösen ord för att få fullständig lösen ords synkronisering. därefter visas uppdateringarna för batch-lösenordet i program händelse loggen.
 >
 >
 
@@ -50,7 +50,7 @@ Installera den senaste rekommenderade versionen av Azure AD Connect på en domä
 
 **[Ladda ned Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
-Rekommenderad version: **1.1.614.0** – publicerad den 5 September 2017.
+Rekommenderad version: **1.1.614.0** – Publicerad den 5 september 2017.
 
 > [!WARNING]
 > Du MÅSTE installera den senaste rekommenderade versionen av Azure AD Connect för att den äldre lösenordsinformationen (som krävs för NTLM- och Kerberos-autentisering) ska kunna synkroniseras till din Azure AD-klient. Den här funktionen är inte tillgänglig i tidigare versioner av Azure AD Connect eller med det äldre DirSync-verktyget.
@@ -78,8 +78,11 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 Beroende på storleken på din katalog (antal användare, grupper osv.) kan synkroniseringen av autentiseringshasherna till Azure AD ta ett tag. Lösenorden kan användas på den Azure AD DS-hanterade domänen strax efter att hashvärdena för autentiseringsuppgifterna har synkroniserats till Azure AD.
 
+> [!NOTE]
+> **Hash-synkronisering av lösen ord** är en annan process än synkronisering av användare/objekt. Du måste inaktivera/aktivera hash-synkronisering av lösen ord för att få fullständig lösen ords synkronisering. därefter visas uppdateringarna för batch-lösenordet i program händelse loggen.
+
 ## <a name="related-content"></a>Relaterat innehåll
 * [Aktivera lösenordssynkronisering till AAD Domain Services för en molnbaserad Azure AD-katalog](active-directory-ds-getting-started-password-sync.md)
-* [Hantera en Azure AD Domain Services-domän](manage-domain.md)
+* [Hantera en Azure AD Domain Services domän](manage-domain.md)
 * [Ansluta en virtuell Windows-dator till en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Ansluta en virtuell Linux-dator med Red Hat Enterprise till en Azure AD Domain Services-hanterad domän](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

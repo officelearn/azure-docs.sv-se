@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Kontrollera stavning med SDK för stavningskontroll i Bing för C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: adbb60c7ddbc72b8b7e5cb31c6909117ce3a10cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d98d00275cbd89702e4bae0c93aa262805617e59
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798364"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500787"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Snabbstart: Kontrollera stavning med SDK för stavningskontroll i Bing för C#
 
@@ -23,10 +23,10 @@ Använd den här snabbstarten för att börja kontrollera stavning med SDK för 
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-* En utgåva av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
+* En version av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
 * [NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck) för Stavningskontroll i Bing
 
-Om du vill lägga till Bing stavningskontroll kontrollera SDK: N i projektet, Välj **hantera NuGet-paket** från **Solution Explorer** i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. Paketet installerar även följande beroenden:
+Om du vill lägga till Stavningskontroll i Bing SDK i projektet väljer du **Hantera NuGet-paket** från **Solution Explorer** i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. Paketet installerar även följande beroenden:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure

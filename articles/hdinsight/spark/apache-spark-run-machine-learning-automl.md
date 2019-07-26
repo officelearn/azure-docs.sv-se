@@ -1,78 +1,80 @@
 ---
-title: Köra arbetsbelastningar för Azure Machine Learning med automatiserade machine learning (AutoML) i Apache Spark i Azure HDInsight
-description: Lär dig hur du kör Azure Machine Learning arbetsbelastningar med automatiserade machine learning (AutoML) på Apache Spark i Azure HDInsight.
+title: Kör Azure Machine Learning-arbetsbelastningar med automatiserad Machine Learning (AutoML) på Apache Spark i Azure HDInsight
+description: Lär dig hur du kör Azure Machine Learning arbets belastningar med automatiserad Machine Learning (AutoML) på Apache Spark i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 5135de0fc87af227073f96c653d928ace1a50fd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff6a071a2d157bf79ab27fcbf4f9753fdbcac118
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917046"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68354870"
 ---
-# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Köra arbetsbelastningar för Azure Machine Learning med automatiserade machine learning (AutoML) i Apache Spark i Azure HDInsight
+# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Kör Azure Machine Learning-arbetsbelastningar med automatiserad Machine Learning (AutoML) på Apache Spark i Azure HDInsight
 
-Azure Machine Learning förenklar och går det snabbare att skapa, utbildning och distribuera machine learning-modeller. Automatiserad Machine learning (AutoML), börja med träningsdata som har ett definierat mål-funktionen och sedan gå igenom kombinationer av algoritmer och val av funktioner att automatiskt välja modellen med bäst för dina data baserat på poäng för utbildning. HDInsight kan kunderna etablera kluster med hundratals noder. AutoML som körs på Spark i ett HDInsight-kluster kan du använda beräkningskapacitet på dessa noder köra upplärningsjobb på en skalbar sätt och för att köra flera upplärningsjobb parallellt. På så sätt kan användare köra AutoML experiment och dela beräkningen som med andra stordataarbetsbelastningar.
+Azure Machine Learning fören klar och påskyndar byggnaden, utbildningen och distributionen av Machine Learning-modeller. I Automated Machine Learning (AutoML) börjar du med tränings data som har en definierad mål funktion och går sedan igenom kombinationer av algoritmer och funktions val för att automatiskt välja den bästa modellen för dina data baserat på utbildnings poängen. Med HDInsight kan kunderna etablera kluster med hundratals noder. AutoML som körs i spark i ett HDInsight-kluster gör att användarna kan använda beräknings kapacitet över dessa noder för att köra utbildnings jobb på ett skalbart sätt och för att köra flera utbildnings jobb parallellt. Detta gör att användarna kan köra AutoML experiment samtidigt som de delar beräkningen med sina andra Big data-arbetsbelastningar.
  
 
-## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Installera Azure Machine Learning på ett HDInsight-kluster
+## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Installera Azure Machine Learning i ett HDInsight-kluster
 
-Allmän självstudier av automatiserade machine learning finns [självstudien: Använd automatiserade machine learning för att skapa din regressionsmodell](../../machine-learning/service/tutorial-auto-train-models.md).
-Alla nya HDInsight Spark-kluster levereras förinstallerade med AzureML-AutoML SDK. Du kan komma igång med AutoML på HDInsight med den här [exempel Jupyter-anteckningsbok](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). Den här Jupyter-anteckningsbok visar hur du använder en automatiserad machine learning-klassificerare för en enkel klassificeringsproblem.
-
-> [!Note]
-> Azure Machine Learning-paket installeras till Python3 conda-miljö. Installerade Jupyter-anteckningsboken ska köras med hjälp av PySpark3 kernel.
-
-Du kan också använda Zeppelin-anteckningsböcker för att använda AutoML samt.
+Allmän själv studie kurs om automatisk maskin inlärning finns [i Självstudier: Använd automatisk maskin inlärning för att bygga Regressions](../../machine-learning/service/tutorial-auto-train-models.md)modellen.
+Alla nya HDInsight-Spark-kluster levereras förinstallerade med AzureML-AutoML SDK. Du kan komma igång med AutoML på HDInsight med den här [exempel Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). Den här Jupyter Notebook visar hur du använder en automatiserad Machine Learning-klassificerare för ett enkelt klassificerings problem.
 
 > [!Note]
-> Zeppelin har en [känt problem](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) där PySpark3 inte välja rätt version av Python. Använd dokumenterade arbete-runt.
+> Azure Machine Learning-paket installeras i python3 Conda-miljö. Den installerade Jupyter-anteckningsboken ska köras med PySpark3-kärnan.
 
-## <a name="authentication-for-workspace"></a>Autentisering för arbetsytan
+Du kan också använda Zeppelin-anteckningsböcker för att använda AutoML.
 
-Skapa arbetsyta och experiment bidrag kräver en autentiseringstoken. Denna token kan genereras med hjälp av en [Azure AD-program](../../active-directory/develop/app-objects-and-service-principals.md). En [Azure AD-användare](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python) kan också används för att generera autentiseringstoken krävs om multifaktorautentisering inte är aktiverat för kontot.  
+> [!Note]
+> Zeppelin har ett [känt problem](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) där PySpark3 inte väljer rätt version av python. Använd det dokumenterade arbetet runt.
 
-Följande kodfragment skapar en autentisering token med hjälp av en **Azure AD-program**.
+## <a name="authentication-for-workspace"></a>Autentisering för arbets yta
+
+Skapandet av arbets ytan och experimentet kräver en autentiseringstoken. Denna token kan genereras med hjälp av ett [Azure AD-program](../../active-directory/develop/app-objects-and-service-principals.md). En [Azure AD-användare](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python) kan också användas för att generera en obligatorisk autentiseringstoken om Multi-Factor Authentication inte har Aktiver ATS för kontot.  
+
+Följande kodfragment skapar en autentiseringstoken med hjälp av ett **Azure AD-program**.
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
 auth_sp = ServicePrincipalAuthentication(
-                tenant_id = '<Azure Tenant ID>',
-                service_principal_id = '<Azure AD Application ID>',
-                service_principal_password = '<Azure AD Application Key>'
-                )
+    tenant_id='<Azure Tenant ID>',
+    service_principal_id='<Azure AD Application ID>',
+    service_principal_password='<Azure AD Application Key>'
+)
 ```
-Följande kodfragment skapar en autentisering token med hjälp av en **Azure AD-användare**.
+Följande kodfragment skapar en autentiseringstoken med en **Azure AD-användare**.
 
 ```python
 from azure.common.credentials import UserPassCredentials
-credentials = UserPassCredentials('user@domain.com','my_smart_password')
+credentials = UserPassCredentials('user@domain.com', 'my_smart_password')
 ```
 
-## <a name="loading-dataset"></a>Läser in datauppsättningen
+## <a name="loading-dataset"></a>Läser in data uppsättning
 
-Automatiserad machine learning i Spark använder **dataflöden**, som är lazily utvärderade, kan ändras av åtgärder med data.  Ett dataflöde kan läsa in en datauppsättning från en blob med offentlig läsbehörighet, eller från en blob-URL med en SAS-token.
+Automatisk maskin inlärning på Spark använder **data flöden**, som är Lazy-utvärderade, oföränderliga åtgärder på data.  Ett data flöde kan läsa in en data uppsättning från en blob med offentlig Läs behörighet eller från en BLOB-URL med en SAS-token.
 
 ```python
 import azureml.dataprep as dprep
 
-dataflow_public = dprep.read_csv(path='https://commonartifacts.blob.core.windows.net/automl/UCI_Adult_train.csv')
+dataflow_public = dprep.read_csv(
+    path='https://commonartifacts.blob.core.windows.net/automl/UCI_Adult_train.csv')
 
-dataflow_with_token = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
+dataflow_with_token = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 ```
 
-Du kan också registrera datalagringen med arbetsytan med en registrering.
+Du kan också registrera data lagret med arbets ytan med en engångs registrering.
 
-## <a name="experiment-submission"></a>Skicka experiment
+## <a name="experiment-submission"></a>Experiment överföring
 
-I den [automatiserade machine learning-konfiguration](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), egenskapen `spark_context` ska ställas in för att paketet körs på distribuerat läge. Egenskapen `concurrent_iterations`, vilket är det maximala antalet iterationer som körs parallellt, sättas till ett lägre antal än executor kärnor för Spark-app.
+I den [automatiserade konfigurationen av Machine Learning](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)ska `spark_context` egenskapen anges för det paket som ska köras i distribuerat läge. Egenskapen `concurrent_iterations`, som är det högsta antalet iterationer som körs parallellt, ska anges till ett tal som är mindre än utförar-kärnan för Spark-appen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer på motivationen bakom automatiserade maskininlärning [versionen modeller i takt med hjälp av Microsofts automatiserad maskininlärning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
-* Mer information om hur du använder Azure ML automatiserade ML-funktioner finns i [New automatiserad maskininlärningsförmågor i Azure Machine Learning-tjänsten](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
-* [AutoML projektet från Microsoft Research](https://www.microsoft.com/research/project/automl/)
+* Mer information om motiveringen bakom Automatisk maskin inlärning finns i [versions modeller i takt med Microsofts automatiserade maskin inlärning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
+* Mer information om hur du använder Azure ML automatiserade ML-funktioner finns i [nya funktioner för automatisk maskin inlärning i Azure Machine Learning-tjänsten](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* [AutoML-projekt från Microsoft Research](https://www.microsoft.com/research/project/automl/)

@@ -1,79 +1,100 @@
 ---
-title: Logga in med tvåstegsverifiering verifiering eller din säkerhetsinformation - Azure Active Directory | Microsoft Docs
-description: Läs mer om hur du loggar in med olika identitet verifieringsmetoderna säkerhetsinformation.
+title: Logga in med tvåstegsverifiering eller säkerhets information – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du loggar in med de olika identitets verifierings metoderna i säkerhets information.
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: librown
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 07/18/2019
 ms.author: lizross
-ms.custom: user-help, seo-update-azuread-jan
+ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472975"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382293"
 ---
-# <a name="sign-in-using-two-step-verification-or-security-info"></a>Logga in med tvåstegsverifiering verifiering eller din säkerhetsinformation
-När du har konfigurerat tvåstegsverifiering eller säkerhetsinformation kommer du att kunna logga in på ditt konto med angivna autentiseringsmetod.
+# <a name="sign-in-using-two-step-verification-or-security-info"></a>Logga in med tvåstegsverifiering eller säkerhets information
+
+När du har konfigurerat tvåstegsverifiering eller säkerhets information kan du logga in på ditt konto med hjälp av din angivna autentiseringsmetod.
 
 > [!Note]
-> Om du fortfarande använder verifieringsupplevelse tvåstegsverifiering, du måste du konfigurera dina autentiseringsmetoder genom att följa anvisningarna i den [konfigurerar mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md) artikeln.
-> 
-> Om din administratör har aktiverat info säkerhetsupplevelse, måste du ange dina autentiseringsmetoder med hjälp av dessa steg för steg-artiklar:<ul><li>[Ställa in säkerhetsinformation för att använda en authentication-appen](security-info-setup-auth-app.md)</li><li>[Konfigurera säkerhetsinformation för att använda textmeddelanden](security-info-setup-text-msg.md)</li><li>[Konfigurera säkerhetsinformation för att använda ett telefonsamtal](security-info-setup-phone-number.md)</li></ul>
+> Om du fortfarande använder tvåstegsverifiering måste du ställa in dina autentiseringsmetoder genom att följa anvisningarna i artikeln [Konfigurera mitt konto för tvåstegsverifiering för två steg](multi-factor-authentication-end-user-first-time.md) .
+>
+> Om din administratör har aktiverat säkerhets informations upplevelsen måste du ange autentiseringsmetoder med hjälp av dessa steg-för-steg-artiklar:<ul><li>[Konfigurera säkerhets information för att använda en app för autentisering](security-info-setup-auth-app.md)</li><li>[Konfigurera säkerhetsinformation för att använda textmeddelanden](security-info-setup-text-msg.md)</li><li>[Konfigurera säkerhets information för att använda ett telefonsamtal](security-info-setup-phone-number.md)</li><li>[Konfigurera säkerhets information för att använda en säkerhets nyckel](security-info-setup-security-key.md)</li></ul>
 
-## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Logga in med en avisering för authenticator-appen på din mobila enhet
+## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Logga in med ett autentiserat meddelande på din mobila enhet
 
-1. Logga in på ditt konto med ditt användarnamn och lösenord.
+1. Logga in på ditt konto med ditt användar namn och lösen ord.
 
-2. Välj **Godkänn** från meddelande om godkännande skickas till din mobila enhet.
+2. Välj **Godkänn** från godkännande meddelandet som skickas till din mobila enhet.
 
-## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>Logga in med en kod för authenticator-appen på din mobila enhet
+## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>Logga in med en Authenticator-app-kod på din mobila enhet
 
-1. Logga in på ditt konto med ditt användarnamn och lösenord.
+1. Logga in på ditt konto med ditt användar namn och lösen ord.
 
-2. Öppna autentiseringsappen och ange slumpmässigt genererat kod för ditt konto i den **ange koden** box.
+2. Öppna din Authenticator-app och skriv den slumpmässigt genererade koden för ditt konto i rutan **Ange kod** .
 
 ## <a name="sign-in-using-your-phone-number"></a>Logga in med ditt telefonnummer
 
-1. Logga in på ditt konto med ditt användarnamn och lösenord.
+1. Logga in på ditt konto med ditt användar namn och lösen ord.
 
-2. Besvara din telefon och följ instruktionerna.
+2. Besvara din telefon och följ anvisningarna.
 
-## <a name="sign-in-using-a-text-message"></a>Logga in med ett textmeddelande
+## <a name="sign-in-using-a-text-message"></a>Logga in med ett SMS
 
-1. Logga in på ditt konto med ditt användarnamn och lösenord.
+1. Logga in på ditt konto med ditt användar namn och lösen ord.
 
-2. Öppna textmeddelandet och ange koden från din textmeddelande till den **ange koden** box.
+2. Öppna textmeddelandet och skriv koden från SMS-meddelandet i rutan **Ange kod** .
+
+## <a name="sign-in-using-a-security-key-at-the-lock-screen"></a>Logga in med en säkerhets nyckel på Lås skärmen
+
+1. När du har registrerat din säkerhets nyckel väljer du säkerhets nyckel avbildningen på Lås skärmen för Windows 10.
+
+2. Infoga din säkerhets nyckel i enhetens USB-port och logga in i Windows med hjälp av din PIN-kod för säkerhets nyckeln.
+
+    ![Inloggning av säkerhets nyckel på Lås skärmen i Windows 10](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
+
+## <a name="sign-in-using-a-security-key-and-the-microsoft-edge-browser"></a>Logga in med en säkerhets nyckel och Microsoft Edge-webbläsaren
+
+1. När du har registrerat din säkerhets nyckel öppnar du Microsoft Edge-webbläsaren.
+
+2. När du uppmanas att logga in, infogar du säkerhets nyckeln i enhetens USB-port och loggar in i Windows med hjälp av din PIN-kod för säkerhets nyckeln.
+
+    ![Säkerhets nyckel inloggning med Microsoft Edge-webbläsaren](./media/security-info/security-info-edge-security-key.png)
+
+    >[!NOTE]
+    >Information om hur du loggar in med Microsoft Authenticator-appen finns i artikeln [Logga in på dina konton med hjälp av Microsoft Authenticator-appen](user-help-auth-app-sign-in.md).
 
 ## <a name="sign-in-using-another-verification-method"></a>Logga in med en annan verifieringsmetod
-Om det inte går att använda din primära inloggningsmetod av någon anledning, kan du använda en annan tidigare har konfigurerat verifieringsmetod.
 
-1. Logga in på ditt konto normalt och välj sedan den **loggar du in ett annat sätt** länkar på den **tvåstegsverifiering** sidan.
+Om du av någon anledning inte kan använda din primära inloggnings metod kan du använda en annan tidigare konfigurerad verifieringsmetod.
 
-    ![Ändra inloggning verifieringsmetod](media/security-info/two-factor-auth-signin-another-way.png)
+1. Logga in på ditt konto på vanligt sätt och välj sedan länken **Logga in på ett annat sätt** **på sidan med** tvåstegsverifiering.
+
+    ![Ändra verifierings metod för inloggning](media/security-info/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >Om du inte ser den **loggar du in ett annat sätt** länken, betyder det att du inte har konfigurerat några andra verifieringsmetoder och att du måste kontakta administratören för hjälp med att logga in på ditt konto. När administratören hjälper dig att logga in, kontrollera att du lägger till ytterligare verifieringsmetoder. Mer information om att lägga till verifieringsmetoder finns i den [hantera dina inställningar för tvåstegsverifiering](multi-factor-authentication-end-user-manage-settings.md) artikeln.
-    > 
-    >Om du ser den **loggar du in ett annat sätt** koppla, men fortfarande inte ser några andra verifieringsmetoder, måste du kontakta administratören för hjälp med att logga in på ditt konto.
+    >Om du inte ser länken **Logga in på ett annat sätt** , innebär det att du inte har konfigurerat några andra verifierings metoder och att du måste kontakta administratören för att få hjälp med att logga in på ditt konto. När administratören har försäkrat dig om att logga in, måste du lägga till ytterligare verifierings metoder. Mer information om hur du lägger till verifieringsmetoder finns i artikeln [Hantera inställningar för](multi-factor-authentication-end-user-manage-settings.md) tvåstegsverifiering.
+    >
+    >Om du ser länken **Logga in på ett annat sätt** , men ändå inte ser några andra verifierings metoder, måste du kontakta administratören för att få hjälp med att logga in på ditt konto.
 
-2. Välj din alternativa verifieringsmetod och fortsätta med tvåstegsprocessen för verifiering.
+2. Välj den alternativa verifierings metoden och fortsätt med verifierings processen i två steg.
 
-3. När du är tillbaka i ditt konto kan du uppdatera din verifieringsmetoder (vid behov). Mer information om Lägg till eller ändra din metod, se den [hantera dina inställningar för tvåstegsverifiering](multi-factor-authentication-end-user-manage-settings.md) artikeln.
+3. När du är tillbaka i ditt konto kan du uppdatera dina verifierings metoder (om det behövs). Mer information om hur du lägger till eller ändrar dina metoder finns i artikeln [Hantera inställningar för](multi-factor-authentication-end-user-manage-settings.md) tvåstegsverifiering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om säkerhetsinformation i den [info (förhandsversion) Säkerhetsöversikt](user-help-security-info-overview.md) artikeln.
+- Lär dig mer om säkerhets information i översikts artikeln om [säkerhets information (för hands version)](user-help-security-info-overview.md) .
 
-- Lär dig mer om tvåstegsverifiering i den [tvåstegsverifiering verifiering översikt](user-help-two-step-verification-overview.md) artikeln. 
+- Läs mer om tvåstegsverifiering i artikeln [Översikt över](user-help-two-step-verification-overview.md) tvåstegsverifiering.
 
-- Återställa lösenordet om du har förlorat den, från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/)
+- Återställ ditt lösen ord om du har förlorat eller glömt bort det från [portalen för återställning av lösen ord](https://passwordreset.microsoftonline.com/)
 
 - Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -12,12 +12,12 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 951481a7dd7d7a9cfd8c88f2cd8bbcaaec4df685
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320630"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494969"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs Azure SQL Database och SQL Data Warehouse anslutnin
 
 Följande diagram ger en översikt över Azure SQL Database anslutnings arkitekturen.
 
-![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-overview.png)
+![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
 Följande steg beskriver hur en anslutning upprättas till en Azure SQL-databas:
 
@@ -47,13 +47,13 @@ Azure SQL Database stöder följande tre alternativ för anslutnings princip ins
 
 Om du ansluter inifrån Azure får anslutningarna `Redirect` som standard en anslutnings princip. En princip på `Redirect` innebär att när TCP-sessionen har upprättats till Azure SQL Database omdirigeras sedan klientsessionen till rätt databas kluster med en ändring i den virtuella mål-IP-adressen från den Azure SQL Database gatewayen till den för flernodskluster. Därefter flödar alla efterföljande paket direkt till klustret och hoppar över Azure SQL Database Gateway. Följande diagram illustrerar det här trafikflödet.
 
-![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-azure.png)
+![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Anslutning från utanför Azure
 
 Om du ansluter från en plats utanför Azure har anslutningarna `Proxy` som standard en anslutnings princip. En princip i `Proxy` innebär att TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen. Följande diagram illustrerar det här trafikflödet.
 
-![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database Gateway-IP-adresser
 
@@ -72,15 +72,15 @@ När du går vidare lägger vi till fler gateways i varje region och drar tillba
 | Centrala Kanada       | 40.85.224.249      |                 | |
 | Östra Kanada          | 40.86.226.166      |                 | |
 | Centrala USA           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Inga anslutningar efter den 1 september 2019 |
-| Kina, östra 1         | 139.219.130.35     |                 | |
+| Kina, östra           | 139.219.130.35     |                 | |
 | Kina, östra 2         | 40.73.82.1         |                 | |
-| Kina, norra 1        | 139.219.15.17      |                 | |
+| Kina, norra          | 139.219.15.17      |                 | |
 | Kina, norra 2        | 40.73.50.0         |                 | |
 | Östasien            | 191.234.2.139, 52.175.33.150 |       | |
-| USA, östra 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Inga anslutningar efter den 1 september 2019 |
+| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Inga anslutningar efter den 1 september 2019 |
 | USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Inga anslutningar efter den 1 september 2019 |
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |           | |
-| Centrala Tyskland      | 51.4.144.100       |                 | |
+| Tyskland, centrala      | 51.4.144.100       |                 | |
 | Tyskland, norra öst   | 51.5.144.179       |                 | |
 | Centrala Indien        | 104.211.96.159     |                 | |
 | Södra Indien          | 104.211.224.146    |                 | |
@@ -100,8 +100,8 @@ När du går vidare lägger vi till fler gateways i varje region och drar tillba
 | Storbritannien, södra             | 51.140.184.11      |                 | |
 | Storbritannien, västra              | 51.141.8.11        |                 | |
 | Västra centrala USA      | 13.78.145.25       |                 | |
-| Västra Europa          | 191.237.232.75, 40.68.37.158 |       | |
-| USA, västra 1            | 23.99.34.75, 104.42.238.205 |        | |
+| Västra Europa          | 40.68.37.158       | 191.237.232.75  | Inga anslutningar efter den 1 september 2019 |
+| Västra USA              | 104.42.238.205     | 23.99.34.75     | Inga anslutningar efter den 1 september 2019 |
 | Västra USA 2            | 13.66.226.202      |                 | |
 |                      |                    |                 | |
 

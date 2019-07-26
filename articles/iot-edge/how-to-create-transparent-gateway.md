@@ -9,72 +9,71 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5881adb7e2fc0d52cc2037d3d4a9e986b3e29d74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50d91c03ac33c32577ddf3838ed6b10024133333
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058377"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414549"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
-Den här artikeln innehåller detaljerade anvisningar för att konfigurera en IoT Edge-enhet kan fungera som en transparent gateway för andra enheter att kommunicera med IoT Hub. I den här artikeln termen *IoT Edge-gateway* refererar till en IoT Edge-enhet som används som en transparent gateway. Mer information finns i [hur en IoT Edge-enhet kan användas som en gateway](./iot-edge-as-gateway.md).
+Den här artikeln innehåller detaljerade anvisningar för hur du konfigurerar en IoT Edge-enhet så att den fungerar som en transparent Gateway för andra enheter att kommunicera med IoT Hub. I den här artikeln termen *IoT Edge-gateway* refererar till en IoT Edge-enhet som används som en transparent gateway. Mer information finns i [så här kan en IoT Edge enhet användas som en gateway](./iot-edge-as-gateway.md).
 
 >[!NOTE]
 >För närvarande:
 > * Edge-aktiverade enheter kan inte ansluta till IoT Edge-gateways. 
 > * Efterföljande enheter kan inte använda filuppladdningen.
 
-Det finns tre allmänna steg för att skapa en lyckad transparent gatewayanslutning. Den här artikeln beskriver det första steget:
+Det finns tre allmänna steg för att konfigurera en lyckad transparent Gateway-anslutning. Den här artikeln beskriver det första steget:
 
-1. **Gateway-enheten måste kunna ansluta till underordnade enheter, ta emot kommunikation från underordnade enheter och dirigera meddelanden till rätt destination på ett säkert sätt.**
-2. Underordnade enheten måste ha en enhetsidentitet för att kunna autentisera med IoT Hub och veta för att kommunicera via dess gateway-enhet. Mer information finns i [autentisera en underordnad enhet på Azure IoT Hub](how-to-authenticate-downstream-device.md).
-3. Underordnade enheten måste vara på ett säkert sätt ansluta till dess gateway-enhet. Mer information finns i [en underordnad ansluts till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md).
+1. **Gateway-enheten måste kunna ansluta till underordnade enheter på ett säkert sätt, ta emot kommunikation från underordnade enheter och dirigera meddelanden till rätt mål.**
+2. Den underordnade enheten måste ha en enhets identitet för att kunna autentisera med IoT Hub och kunna kommunicera via dess gateway-enhet. Mer information finns i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
+3. Den underordnade enheten måste kunna ansluta till sin gateway-enhet på ett säkert sätt. Mer information finns i [en underordnad ansluts till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md).
 
 
-För en enhet kan fungera som en gateway krävs för att kunna ansluta säkert till dess underordnade enheter. Azure IoT Edge kan du använda en public key infrastructure (PKI) för att konfigurera säkra anslutningar mellan enheter. I det här fallet vi så att en underordnad enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway. Om du vill skydda rimliga, bör underordnade enheten bekräfta identiteten för gateway-enheten. Den här identitetskontroll förhindrar att dina enheter ansluter till potentiellt skadliga gateways.
+För att en enhet ska fungera som en gateway måste den kunna ansluta till dess underordnade enheter på ett säkert sätt. Azure IoT Edge kan du använda en public key infrastructure (PKI) för att konfigurera säkra anslutningar mellan enheter. I det här fallet vi så att en underordnad enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta gateway-enhetens identitet. Den här identitets kontrollen förhindrar att enheterna ansluter till potentiellt skadliga gatewayer.
 
 En underordnad enhet kan vara valfritt program eller en plattform som har en identitet som skapats med den [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) molntjänst. I många fall kan dessa program använda den [Azure IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md). En underordnad enhet kan även vara ett program som körs på IoT Edge-gatewayenhet själva för alla praktiska syften. 
 
-Du kan skapa någon infrastruktur för certifikat som gör det förtroendet som krävs för din enhet-gateway-topologi. I den här artikeln förutsätter vi att samma inställningar för certifikat som du använder för att aktivera [X.509 CA-säkerheten](../iot-hub/iot-hub-x509ca-overview.md) i IoT Hub, som innebär att ett X.509 CA-certifikat som är kopplad till en specifik IoT-hubb (IoT hub rotcertifikatutfärdaren), en serie signerade med den här Certifikatutfärdaren och en Certifikatutfärdare för IoT Edge-enhet.
+Du kan skapa någon infrastruktur för certifikat som gör det förtroendet som krävs för din enhet-gateway-topologi. I den här artikeln förutsätter vi samma certifikat inställningar som du använde för att aktivera [x. 509 ca-säkerhet](../iot-hub/iot-hub-x509ca-overview.md) i IoT Hub, vilket inbegriper ett X. 509 CA-certifikat som är kopplat till en speciell IoT-hubb (IoT Hub rot certifikat utfärdare), en serie certifikat som har signerats med denna certifikat utfärdare , och en certifikat utfärdare för den IoT Edge enheten.
 
 ![Installationsprogram för gateway-certifikatet](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 >[!NOTE]
->Termen ”rot-CA” används i den här artikeln refererar till det offentliga certifikatet översta utfärdare av PKI-certifikatkedja, och inte nödvändigtvis en syndikerade certifikatutfärdare certifikatroten. I många fall är det faktiskt en mellanliggande offentlig certifikatutfärdare. 
+>Termen "rot certifikat utfärdare" som används i den här artikeln avser det offentliga auktoritets certifikatet för PKI-certifikat kedjan och inte nödvändigt vis certifikat roten för en syndikerad certifikat utfärdare. I många fall är det faktiskt ett offentligt certifikat för certifikat utfärdare. 
 
-Gatewayen anger kanten IoT device CA-certifikat till den underordnade enheten under initiering av anslutningen. Underordnad enhet kontrollerar om du vill kontrollera IoT Edge-enhetens CA-certifikat signerat av rotcertifikatutfärdarens certifikat. Den här processen kan underordnade enheten för att kontrollera att gatewayen kommer från en betrodd källa.
+Gatewayen visar IoT Edge enhetens CA-certifikat till den underordnade enheten under initieringen av anslutningen. Den underordnade enheten kontrollerar att IoT Edge enhetens CA-certifikat är signerat av rot certifikat utfärdarens certifikat. Den här processen gör att den underordnade enheten kan bekräfta att gatewayen kommer från en betrodd källa.
 
-Följande steg vägleder dig genom processen att skapa certifikat och installera dem på rätt plats på gatewayen. Du kan använda valfri dator för att generera certifikat och kopiera dem sedan till din IoT Edge-enhet. 
+Följande steg vägleder dig genom processen att skapa certifikaten och installera dem på rätt plats på gatewayen. Du kan använda valfri dator för att generera certifikat och kopiera dem sedan till din IoT Edge-enhet. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-En Azure IoT Edge-enhet för att konfigurera som en gateway. Använd IoT Edge-installationsstegen för något av följande operativsystem:
-  * [Windows](./how-to-install-iot-edge-windows.md)
-  * [Linux x64](./how-to-install-iot-edge-linux.md)
-  * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
+En Azure IoT Edge-enhet för att konfigurera som en gateway. Använd IoT Edge installations steg för något av följande operativ system:
+  * [Windows](/how-to-install-iot-edge-windows.md)
+  * [Linux](/how-to-install-iot-edge-linux.md)
 
-Den här artikeln handlar om den *gateway värdnamn* på flera platser. Gateway-värdnamnet är deklarerad i den **värdnamn** -parametern för filen config.yaml på IoT Edge-gatewayenhet. Den används för att skapa certifikaten i den här artikeln och är som anges i anslutningssträngen för efterföljande enheter. Gateway-värdnamnet måste kunna matchas till en IP-adress, antingen med hjälp av DNS- eller en host-filpost.
+Den här artikeln hänvisar till *Gateway* -värdnamnet på flera punkter. Gateway-värdnamnet deklareras i parametern **hostname** i filen config. yaml på den IoT Edge gateway-enheten. Den används för att skapa certifikaten i den här artikeln och det hänvisas till anslutnings strängen för de underordnade enheterna. Gateway-värdnamnet måste matchas till en IP-adress, antingen med DNS eller en värd fil post.
 
 ## <a name="generate-certificates-with-windows"></a>Generera certifikat med Windows
 
-Använd stegen i det här avsnittet för att generera testcertifikat på Windows. Du kan använda en Windows-dator för att generera certifikat och kopiera dem sedan till alla IoT Edge-enhet som körs på alla operativsystem som stöds. 
+Använd stegen i det här avsnittet för att generera test certifikat i Windows. Du kan använda en Windows-dator för att generera certifikaten och sedan kopiera dem till valfri IoT Edge enhet som körs på ett operativ system som stöds. 
 
 De certifikat som genereras i det här avsnittet är avsedda för endast i testningssyfte. 
 
 ### <a name="install-openssl"></a>Installera OpenSSL
 
-Installera OpenSSL för Windows på den dator som du använder för att generera certifikat. Om du redan har OpenSSL som har installerats på din Windows-enhet kan du hoppa över detta steg, men se till att openssl.exe är tillgängliga i miljövariabeln PATH. 
+Installera OpenSSL för Windows på den dator som du använder för att generera certifikat. Om du redan har OpenSSL installerat på din Windows-enhet kan du hoppa över det här steget, men se till att openssl. exe finns i miljövariabeln PATH. 
 
 Det finns flera sätt kan du installera OpenSSL:
 
-* **Enklare:** Ladda ned och installera eventuella [från tredje part OpenSSL binärfiler](https://wiki.openssl.org/index.php/Binaries), till exempel från [OpenSSL på SourceForge](https://sourceforge.net/projects/openssl/). Lägga till den fullständiga sökvägen till openssl.exe till SÖKVÄGEN för miljövariabeln. 
+* **Lätt** Hämta och installera eventuella [openssl-binärfiler från tredje part](https://wiki.openssl.org/index.php/Binaries), till exempel från [openssl på SourceForge](https://sourceforge.net/projects/openssl/). Lägga till den fullständiga sökvägen till openssl.exe till SÖKVÄGEN för miljövariabeln. 
    
-* **Rekommenderat:** Ladda ned källkoden OpenSSL och skapa de binära filerna på din dator själv eller via [vcpkg](https://github.com/Microsoft/vcpkg). Anvisningarna nedan använder vcpkg att ladda ned källkoden, kompilera och installera OpenSSL på din Windows-dator med enkla steg.
+* **Rekommenderas** Ladda ned OpenSSL-källkoden och bygg binärfilerna på din dator av dig själv eller via [vcpkg](https://github.com/Microsoft/vcpkg). Anvisningarna nedan använder vcpkg att ladda ned källkoden, kompilera och installera OpenSSL på din Windows-dator med enkla steg.
 
    1. Navigera till den katalog som där du vill installera vcpkg. Vi ska referera till den här katalogen som  *\<VCPKGDIR >* . Följ instruktionerna för att ladda ned och installera [vcpkg](https://github.com/Microsoft/vcpkg).
    
-   2. En gång vcpkg har installerats kör du följande kommando från en powershell-kommandotolk för att installera OpenSSL-paketet för Windows x64. Installationen tar vanligtvis cirka 5 minuter att slutföra.
+   2. När vcpkg har installerats kör du följande kommando från en PowerShell-kommandotolk för att installera OpenSSL-paketet för Windows x64. Installationen tar vanligtvis cirka 5 minuter att slutföra.
 
       ```powershell
       .\vcpkg install openssl:x64-windows
@@ -83,7 +82,7 @@ Det finns flera sätt kan du installera OpenSSL:
 
 ### <a name="prepare-creation-scripts"></a>Förbereda skripten för att skapa
 
-Git-lagringsplatsen för Azure IoT Edge innehåller skript som du kan använda för att generera testcertifikat. I det här avsnittet, klona IoT Edge-lagringsplatsen och kör skripten. 
+Azure IoT Edge git-lagringsplatsen innehåller skript som du kan använda för att generera test certifikat. I det här avsnittet ska du klona IoT Edge lagrings platsen och köra skripten. 
 
 1. Öppna ett PowerShell-fönster i administratörsläge. 
 
@@ -93,16 +92,16 @@ Git-lagringsplatsen för Azure IoT Edge innehåller skript som du kan använda f
    git clone https://github.com/Azure/iotedge.git
    ```
 
-3. Navigera till den katalog där du vill ska fungera. I den här artikeln ska vi kallar den här katalogen  *\<WRKDIR >* . Alla certifikat och nycklar skapas i den här arbetskatalogen.
+3. Navigera till den katalog där du vill ska fungera. I den här artikeln kallar vi katalogen  *\<WRKDIR >* . Alla certifikat och nycklar kommer att skapas i den här arbets katalogen.
 
-4. Kopiera konfigurations-och skript från den klonade repon till din arbetskatalog. 
+4. Kopiera konfigurations-och skriptfiler från den klonade lagrings platsen till din arbets katalog. 
 
    ```powershell
    copy <path>\iotedge\tools\CACertificates\*.cnf .
    copy <path>\iotedge\tools\CACertificates\ca-certs.ps1 .
    ```
 
-   Om du har hämtat lagringsplatsen som en ZIP så mappnamnet är `iotedge-master` och resten av sökvägen är samma. 
+   Om du har hämtat lagrings platsen som ett zip-namn är `iotedge-master` mappnamnet och resten av sökvägen är samma. 
 <!--
 5. Set environment variable OPENSSL_CONF to use the openssl_root_ca.cnf configuration file.
 
@@ -116,15 +115,15 @@ Git-lagringsplatsen för Azure IoT Edge innehåller skript som du kan använda f
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
-7. Ta med de funktioner som används av skripten i PowerShell-globalt namnområde.
+7. Ta de funktioner som används av skripten till PowerShell: s globala namn område.
    
    ```powershell
    . .\ca-certs.ps1
    ```
 
-   PowerShell-fönstret visas en varning om att de certifikat som genereras av det här skriptet är endast för testning och ska inte användas i produktionsscenarier.
+   PowerShell-fönstret visar en varning om att de certifikat som genereras av det här skriptet endast är i test syfte och inte ska användas i produktions scenarier.
 
-8. Kontrollera att OpenSSL har installerats korrekt och se till att det inte namnkonflikter med befintliga certifikat. Om det uppstår problem kan bör skriptet beskriva hur du löser dem på datorn.
+8. Kontrol lera att OpenSSL har installerats korrekt och att det inte finns namn konflikter med befintliga certifikat. Om det uppstår problem kan bör skriptet beskriva hur du löser dem på datorn.
 
    ```powershell
    Test-CACertsPrerequisites
@@ -134,36 +133,36 @@ Git-lagringsplatsen för Azure IoT Edge innehåller skript som du kan använda f
 
 I det här avsnittet ska du skapa tre certifikat och Anslut dem i en kedja. Placera certifikaten i en kedja-fil kan du enkelt installera dem på din IoT Edge-gatewayenhet och alla underordnade enheter.  
 
-1. Skapa certifikatet för rotcertifikatutfärdaren och den signera en mellanliggande certifikat. Certifikaten placeras i din arbetskatalog.
+1. Skapa rot certifikat utfärdarens certifikat och be det att signera ett mellanliggande certifikat. Alla certifikat placeras i din arbets katalog.
 
    ```powershell
    New-CACertsCertChain rsa
    ```
 
-   Det här skriptkommandot skapar flera certifikat och nyckelfiler, men vi kommer att referera till en särskild senare i den här artikeln:
+   Det här skript kommandot skapar flera certifikat och viktiga filer, men vi ska referera till ett i synnerhet i den här artikeln:
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2. Skapa IoT Edge enheten CA-certifikat och privata nyckeln med följande kommando. Ange gateway-värdnamn, som finns i filen iotedge\config.yaml på gateway-enheten. Gateway-värdnamnet används för att namnge filerna och under skapande av certifikat. 
+2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange Gateway-värdnamnet, som du hittar i iotedge\config.yaml-filen på gateway-enheten. Gateway-värdnamnet används för att namnge filerna och under genereringen av certifikatet. 
 
    ```powershell
    New-CACertsEdgeDevice "<gateway hostname>"
    ```
 
-   Det här skriptkommandot skapar flera certifikat och viktiga filer, inklusive två som vi kommer att referera till senare i den här artikeln:
+   Det här skript kommandot skapar flera certifikat och viktiga filer, inklusive två som vi ska referera till senare i den här artikeln:
    * `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
 
-Nu när du har certifikat som kan gå vidare till [installera certifikat på gateway](#install-certificates-on-the-gateway)
+Nu när du har certifikaten kan du gå vidare till [Installera certifikat på gatewayen](#install-certificates-on-the-gateway)
 
 ## <a name="generate-certificates-with-linux"></a>Generera certifikat med Linux
 
-Använd stegen i det här avsnittet för att generera testcertifikat i Linux. Du kan använda en Linux-dator för att generera certifikat och kopiera dem sedan till alla IoT Edge-enhet som körs på alla operativsystem som stöds. 
+Använd stegen i det här avsnittet för att generera test certifikat på Linux. Du kan använda en Linux-dator för att generera certifikaten och sedan kopiera dem till valfri IoT Edge enhet som körs på ett operativ system som stöds. 
 
 De certifikat som genereras i det här avsnittet är avsedda för endast i testningssyfte. 
 
 ### <a name="prepare-creation-scripts"></a>Förbereda skripten för att skapa
 
-Git-lagringsplatsen för Azure IoT Edge innehåller skript som du kan använda för att generera testcertifikat. I det här avsnittet, klona IoT Edge-lagringsplatsen och kör skripten. 
+Azure IoT Edge git-lagringsplatsen innehåller skript som du kan använda för att generera test certifikat. I det här avsnittet ska du klona IoT Edge lagrings platsen och köra skripten. 
 
 1. Klona git-lagringsplats som innehåller skript för att generera certifikat för icke-produktion. Dessa skript hjälper dig att skapa nödvändiga certifikat att ställa in en transparent gateway. 
 
@@ -171,9 +170,9 @@ Git-lagringsplatsen för Azure IoT Edge innehåller skript som du kan använda f
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Navigera till den katalog där du vill ska fungera. Vi ska referera till den här katalogen i artikeln som  *\<WRKDIR >* . Alla certifikat och nyckel filer skapas i den här katalogen.
+2. Navigera till den katalog där du vill ska fungera. Vi kommer att referera till den här katalogen i hela artikeln som  *\<WRKDIR >* . Alla certifikat och viktiga filer kommer att skapas i den här katalogen.
   
-3. Kopiera filerna konfigurations- och skript från den klonade IoT Edge-repon till din arbetskatalog.
+3. Kopiera config-och skriptfiler från den klonade IoT Edge lagrings platsen till din arbets katalog.
 
    ```bash
    cp <path>/iotedge/tools/CACertificates/*.cnf .
@@ -192,22 +191,22 @@ Git-lagringsplatsen för Azure IoT Edge innehåller skript som du kan använda f
 
 I det här avsnittet ska du skapa tre certifikat och Anslut dem i en kedja. Placera certifikaten i en kedja-fil kan enkelt installera dem på din IoT Edge-gatewayenhet och alla underordnade enheter.  
 
-1. Skapa rotcertifikatutfärdarens certifikat och en mellanliggande certifikat. Dessa certifikat är placerade i  *\<WRKDIR >* .
+1. Skapa rot certifikat utfärdarens certifikat och ett mellanliggande certifikat. Dessa certifikat är placerade i  *\<WRKDIR >* .
 
    ```bash
    ./certGen.sh create_root_and_intermediate
    ```
 
-   Skriptet skapar flera certifikat och nycklar. Anteckna något som vi ska referera till i nästa avsnitt:
+   Skriptet skapar flera certifikat och nycklar. Anteckna ett, som vi ska referera till i nästa avsnitt:
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`
 
-2. Skapa IoT Edge enheten CA-certifikat och privata nyckeln med följande kommando. Ange gateway-värdnamn, som finns i filen iotedge/config.yaml på gateway-enheten. Gateway-värdnamnet används för att namnge filerna och under skapande av certifikat. 
+2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange Gateway-värdnamnet, som du hittar i filen iotedge/config. yaml på gateway-enheten. Gateway-värdnamnet används för att namnge filerna och under genereringen av certifikatet. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway hostname>"
    ```
 
-   Skriptet skapar flera certifikat och nycklar. Anteckna två, vilket vi refererar till i nästa avsnitt: 
+   Skriptet skapar flera certifikat och nycklar. Anteckna två, som vi ska referera till i nästa avsnitt: 
    * `<WRKDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<gateway hostname>.key.pem`
 
@@ -219,16 +218,16 @@ Nu när du har gjort en certifikatkedja, måste du installera den på IoT Edge-g
 
    * Enhets-CA-certifikat –  `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
    * Enhets-CA-privata nyckel – `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
-   * Rot-CA- `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+   * Rot-CA-`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-   Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [säker kopia protokollet](https://www.ssh.com/ssh/scp/) att flytta certifikatdatabasen.  Om du har genererat certifikaten på själva IoT Edge-enheten kan du hoppa över detta steg och använda sökvägen till arbetskatalogen.
+   Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.  Om du har genererat certifikaten på själva enheten för IoT Edge kan du hoppa över det här steget och använda sökvägen till arbets katalogen.
 
 2. Öppna konfigurationsfilen för IoT Edge security daemon. 
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-3. Ange den **certifikat** egenskaper i config.yaml-filen till den fullständiga sökvägen till filerna för certifikat och nyckel på IoT Edge-enhet. Ta bort den `#` tecknet innan certifikategenskaper att ta bort kommentarerna för de fyra raderna. Kom ihåg att indrag i yaml är två blanksteg.
+3. Ange **certifikat** egenskaperna i filen config. yaml till den fullständiga sökvägen till certifikatet och nyckelfilen på den IoT Edge enheten. Ta bort `#` tecknen innan du tar bort dem från certifikat egenskaperna för att ta bort kommentarer till de fyra raderna. Kom ihåg att indrag i yaml är två blank steg.
 
    * Windows:
 
@@ -247,13 +246,13 @@ Nu när du har gjort en certifikatkedja, måste du installera den på IoT Edge-g
         trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
       ```
 
-4. På Linux enheter, se till att användaren **iotedge** har läsbehörighet för den katalog som innehåller certifikaten. 
+4. På Linux-enheter ser du till att användar **iotedge** har Läs behörighet för den katalog som innehåller certifikaten. 
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Distribuera EdgeHub till gatewayen
 
-När du först installera IoT Edge på en enhet, endast en systemmodulen startas automatiskt: IoT Edge-agenten. För enheten att fungera som en gateway, måste både systemmoduler. Om du inte har distribuerat alla moduler till din gatewayenhet innan du kan skapa en inledande distribution för din enhet att starta den andra systemmodulen, IoT Edge hub. Distributionen ser tomt eftersom du inte lägger till alla moduler i guiden, men det ser till att båda systemmoduler körs. 
+Första gången du installerar IoT Edge på en enhet startar bara en systemmodul automatiskt: IoT Edge agenten. För enheten att fungera som en gateway, måste både systemmoduler. Om du inte har distribuerat några moduler till din gateway-enhet tidigare skapar du en första distribution för enheten för att starta den andra systemmodulen, IoT Edge hubben. Distributionen kommer att se Tom ut eftersom du inte lägger till några moduler i guiden, men det ser till att båda systemmodulerna körs. 
 
-Du kan kontrollera vilka moduler som körs på en enhet med kommandot `iotedge list`. Om listan endast returnerar modulen **edgeAgent** utan **edgeHub**, Använd följande steg:
+Du kan kontrollera vilka moduler som körs på en enhet med kommandot `iotedge list`. Om listan endast returnerar modulen **edgeAgent** utan **edgeHub**, använder du följande steg:
 
 1. Gå till din IoT-hubb på Azure Portal.
 
@@ -277,22 +276,22 @@ Du kan kontrollera vilka moduler som körs på en enhet med kommandot `iotedge l
 
 ## <a name="open-ports-on-gateway-device"></a>Öppna portar på gateway-enhet
 
-Standard IoT Edge-enheter behöver inte inkommande anslutningar till funktionen, eftersom all kommunikation med IoT Hub görs via utgående anslutningar. Gateway-enheter skiljer sig eftersom de behöver för att ta emot meddelanden från sina underordnade enheter. Om en brandvägg mellan underordnade enheter och gateway-enheten måste kommunikation sedan vara möjlig genom brandväggen samt.
+Standard IoT Edge enheter behöver ingen inkommande anslutning för att fungera eftersom all kommunikation med IoT Hub görs via utgående anslutningar. Gateway-enheter skiljer sig åt eftersom de måste ta emot meddelanden från deras underordnade enheter. Om en brand vägg är mellan de efterföljande enheterna och gateway-enheten, behöver kommunikationen också vara möjlig genom brand väggen.
 
-Minst en av IoT Edge-hubben protokoll som stöds måste vara öppna för inkommande trafik från underordnade enheter för en gatewayscenariot ska fungera. Protokoll som stöds är MQTT-, AMQP- och HTTPS. 
+För att ett Gateway-scenario ska fungera måste minst ett av de protokoll som stöds av IoT Edge Hub vara öppet för inkommande trafik från efterföljande enheter. De protokoll som stöds är MQTT, AMQP och HTTPS. 
 
 | Port | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
-| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
+| 443 | HTTPS <br> MQTT + WS <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Skicka meddelanden från underordnade enheter
-IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enheter precis som meddelanden som skickas av moduler. Den här funktionen kan du utföra analyser i en modul som körs på gatewayen innan du skickar data till molnet. 
+IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enheter precis som meddelanden som skickas av moduler. Med den här funktionen kan du utföra analyser i en modul som körs på gatewayen innan du skickar data till molnet. 
 
 För närvarande är det sätt som du vidarebefordra meddelanden som skickas av efterföljande enheter genom att skilja dem från meddelanden som skickas av moduler. Meddelanden som skickas av moduler som alla innehåller en systemegenskap som kallas **connectionModuleId** men inte meddelanden som skickas av efterföljande enheter. Du kan använda WHERE-satsen i vägen för att exkludera alla meddelanden som innehåller den Systemegenskapen. 
 
-Det är ett exempel som skickar meddelanden från en underordnad enhet till en modul med namnet nedan väg `ai_insights`, och sedan `ai_insights` till IoT Hub.
+Nedanstående väg är ett exempel som skickar meddelanden från en underordnad enhet till en modul med `ai_insights`namnet och sedan från `ai_insights` till IoT Hub.
 
 ```json
 {
@@ -306,14 +305,14 @@ Det är ett exempel som skickar meddelanden från en underordnad enhet till en m
 Läs mer om meddelanderoutning [distribuerar moduler och upprätta vägar](./module-composition.md#declare-routes).
 
 
-## <a name="enable-extended-offline-operation"></a>Aktivera utökad offline åtgärd
+## <a name="enable-extended-offline-operation"></a>Aktivera utökad offline-åtgärd
 
-Från och med den [v1.0.4 versionen](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) av IoT Edge-körningen gateway-enheten och underordnade enheter som ansluter till den kan konfigureras för utökade offline igen. 
+Från och med [v 1.0.4-versionen](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) av IoT Edge runtime kan gateway-enheten och underordnade enheter som ansluter till den konfigureras för utökad offline-åtgärd. 
 
-Med den här funktionen lokala moduler eller efterföljande enheter autentiseras igen med IoT Edge-enheten efter behov och kommunicera med varandra med hjälp av meddelanden och metoder även när kopplas bort från IoT hub. Mer information finns i [förstå utökat offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter](offline-capabilities.md).
+Med den här funktionen kan lokala moduler eller underordnade enheter återautentiseras med den IoT Edge enheten vid behov och kommunicera med varandra med hjälp av meddelanden och metoder, även när de är frånkopplade från IoT-hubben. Mer information finns i [förstå utökat offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter](offline-capabilities.md).
 
-Om du vill aktivera utökad offlinefunktionerna upprätta du en överordnad-underordnad-relation mellan en IoT Edge-gatewayenhet och efterföljande enheter som ska ansluta till den. De här stegen beskrivs i detalj i [autentisera en underordnad enhet på Azure IoT Hub](how-to-authenticate-downstream-device.md).
+Om du vill aktivera utökade offline-funktioner upprättar du en överordnad-underordnad relation mellan en IoT Edge gateway-enhet och underordnade enheter som ska ansluta till den. Dessa steg beskrivs i detalj i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge-enhet som fungerar som en transparent gateway, måste du konfigurera dina underordnade enheter för att lita på gatewayen och skicka meddelanden till den. Mer information finns i [en underordnad ansluts till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md) och [autentisera en underordnad enhet på Azure IoT Hub](how-to-authenticate-downstream-device.md).
+Nu när du har en IoT Edge-enhet som fungerar som en transparent gateway, måste du konfigurera dina underordnade enheter för att lita på gatewayen och skicka meddelanden till den. Mer information finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md) och [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).

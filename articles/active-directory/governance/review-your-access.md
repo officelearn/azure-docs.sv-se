@@ -1,9 +1,9 @@
 ---
-title: Granska åtkomst själv till grupper eller program i åtkomstgranskningar - Azure Active Directory | Microsoft Docs
-description: Lär dig hur du granskar din egen åtkomst till grupper eller program i Azure Active Directory-åtkomstgranskningar.
+title: Granska åtkomsten för dig själv till grupper eller program i åtkomst granskningar – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du granskar din egen åtkomst till grupper eller program i Azure Active Directory åtkomst granskningar.
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/21/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d4b48e035476e5381104b442f87dcac03ac11778
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471749"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499682"
 ---
-# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst själv till grupper eller program i Azure AD-åtkomstgranskningar
+# <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst för dig själv till grupper eller program i åtkomst granskningar för Azure AD
 
-Azure Active Directory (Azure AD) förenklar hur företag hantera åtkomst till grupper eller program i Azure AD och andra Microsoft Online Services med en funktion som kallas åtkomst till Azure AD-åtkomstgranskningar.
+Azure Active Directory (Azure AD) gör det enklare för företag att hantera åtkomst till grupper eller program i Azure AD och andra Microsoft Online Services med en funktion som kallas Azure AD-åtkomst granskningar.
 
-Den här artikeln beskriver hur du granskar du din egen åtkomst till en grupp eller ett program.
+Den här artikeln beskriver hur du granskar din egen åtkomst till en grupp eller ett program.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,57 +34,57 @@ Den här artikeln beskriver hur du granskar du din egen åtkomst till en grupp e
 
 Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
 
-## <a name="open-the-access-review"></a>Öppna åtkomstgranskningen
+## <a name="open-the-access-review"></a>Öppna åtkomst granskningen
 
-Det första steget för att utföra en åtkomstgranskning är att leta upp och öppna åtkomstgranskningen.
+Det första steget för att utföra en åtkomst granskning är att hitta och öppna åtkomst granskningen.
 
-1. Leta efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Här är ett e-postmeddelande med exempel för att granska din åtkomst till en grupp.
+1. Sök efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Här är ett exempel på ett e-postmeddelande för att granska din åtkomst till en grupp.
 
-    ![Exempel e-post från Microsoft för att granska din åtkomst till en grupp](./media/review-your-access/access-review-email.png)
+    ![Exempel på e-post från Microsoft för att granska din åtkomst till en grupp](./media/review-your-access/access-review-email.png)
 
-1. Klicka på den **granska åtkomst** länk för att öppna åtkomstgranskningen.
+1. Klicka på länken **Granska åtkomst** för att öppna åtkomst granskningen.
 
-Du kan hitta din väntande åtkomstgranskningar genom att följa dessa steg om du inte har e-postmeddelandet.
+Om du inte har e-postmeddelandet kan du hitta dina väntande åtkomst granskningar genom att följa dessa steg.
 
-1. Logga in på MyApps-portalen på [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Logga in på webbplatsen för Mina appar på [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![Visa en lista över appar som du har behörighet att MyApps-portalen](./media/review-your-access/myapps-access-panel.png)
+    ![Appar för portalen som visar appar som du har behörighet att](./media/review-your-access/myapps-access-panel.png)
 
 1. I det övre högra hörnet på sidan klickar du på användarsymbolen, som visar ditt namn och standardorganisationen. Om mer än en organisation visas väljer du den organisation som begärde en åtkomstgranskning.
 
-1. Till höger på sidan klickar du på den **Åtkomstgranskningar** ikonen för att visa en lista över väntande åtkomstgranskningar.
+1. Klicka på panelen **åtkomst granskningar** på höger sida av sidan för att se en lista över väntande åtkomst granskningar.
 
     Om panelen inte är synlig finns det inga åtkomstgranskningar att utföra för den organisationen, och ingen åtgärd krävs just nu.
 
-    ![Väntande granskningar åtkomstlista för dina appar och grupper](./media/review-your-access/access-reviews-list.png)
+    ![Lista över väntande åtkomst granskningar för dina appar och grupper](./media/review-your-access/access-reviews-list.png)
 
-1. Klicka på den **påbörja granskning** länk för åtkomstgranskning som du vill utföra.
+1. Klicka på länken **Starta granskning** för den åtkomst granskning som du vill utföra.
 
-## <a name="perform-the-access-review"></a>Utför åtkomstgranskningen
+## <a name="perform-the-access-review"></a>Utför åtkomst granskningen
 
-När du har öppnat åtkomstgranskningen, ser du din åtkomst.
+När du har öppnat åtkomst granskningen kan du se din åtkomst.
 
-1. Granska din åtkomst och avgöra om du fortfarande behöver åtkomst.
+1. Granska din åtkomst och bestäm om du fortfarande behöver åtkomst.
 
-    Om begäran är att granska åtkomst för andra, ser sidan annorlunda. Mer information finns i [granska åtkomst till grupper eller program](perform-access-review.md).
+    Om begäran är att granska åtkomsten för andra, ser sidan annorlunda ut. Mer information finns i [Granska åtkomst till grupper eller program](perform-access-review.md).
 
-    ![Öppna åtkomstgranskning som frågar om du fortfarande behöver åtkomst till en grupp](./media/review-your-access/perform-access-review.png)
+    ![Öppna åtkomst granskning och fråga om du fortfarande behöver åtkomst till en grupp](./media/review-your-access/perform-access-review.png)
 
-1. Klicka på **Ja** att hålla din åtkomst eller klicka på **nr** att ta bort din åtkomst.
+1. Klicka på **Ja** om du vill behålla åtkomsten eller på **Nej** om du vill ta bort åtkomsten.
 
-1. Om du klickar på **Ja**, du kan behöva ange en motivering i den **orsak** box.
+1. Om du klickar på **Ja**kan du behöva ange en motivering i rutan **orsak** .
 
-    ![Slutfört åtkomstgranskning som frågar om du fortfarande behöver åtkomst till en grupp](./media/review-your-access/perform-access-review-submit.png)
+    ![Slutförd åtkomst granskning som frågar om du fortfarande behöver åtkomst till en grupp](./media/review-your-access/perform-access-review-submit.png)
 
 1. Klicka på **Skicka**.
 
-    Ditt val har skickats och du tillbaka till MyApps-portalen.
+    Ditt val skickas och du returnerade till portalen för Mina appar.
 
-    Om du vill ändra ditt svar öppnar sidan åtkomst granskningar och uppdaterar ditt svar. Du kan ändra ditt svar när som helst tills åtkomstgranskningen har avslutats.
+    Om du vill ändra ditt svar öppnar du sidan åtkomst granskningar på nytt och uppdaterar ditt svar. Du kan ändra ditt svar när du vill tills åtkomst granskningen har slutförts.
 
     > [!NOTE]
-    > Om du har angett att du inte längre behöver åtkomst du tas inte bort direkt. Du tas bort när granskningen har slutförts eller när en administratör slutar granskningen.
+    > Om du har angett att du inte längre behöver åtkomst, tas du inte bort direkt. Du tas bort när granskningen har slutförts eller när en administratör stoppar granskningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Slutför en åtkomstgranskning av grupper eller program](complete-access-review.md)
+- [Slutför en åtkomst granskning av grupper eller program](complete-access-review.md)

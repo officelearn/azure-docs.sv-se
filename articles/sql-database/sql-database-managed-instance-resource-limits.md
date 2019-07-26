@@ -1,6 +1,6 @@
 ---
-title: Resursgränser för Azure SQL Database - hanterad instans | Microsoft Docs
-description: Den här artikeln innehåller en översikt över Azure SQL Database-resursgränser för hanterade instanser.
+title: Azure SQL Database resurs gränser-hanterad instans | Microsoft Docs
+description: Den här artikeln innehåller en översikt över Azure SQL Database resurs gränser för hanterade instanser.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,140 +12,139 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 29ece0677c71a2cb423e541cf2e9f4a06947e44c
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707008"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413381"
 ---
-# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database managed instance resursbegränsningar
+# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
-Den här artikeln innehåller en översikt över resursbegränsningar för Azure SQL Database-hanterad instans och innehåller information om hur du begär en ökning av dessa begränsningar.
+Den här artikeln innehåller en översikt över resurs gränserna för Azure SQL Database Hanterad instans och ger information om hur du begär en ökning av dessa gränser.
 
 > [!NOTE]
-> Skillnaderna i funktioner som stöds och T-SQL-instruktioner finns i [funktionsskillnader](sql-database-features.md) och [T-SQL-instruktionen support](sql-database-managed-instance-transact-sql-information.md).
+> Skillnader i funktioner som stöds och T-SQL-uttryck finns i [funktions skillnader](sql-database-features.md) och [stöd för t-SQL-uttryck](sql-database-managed-instance-transact-sql-information.md).
 
-## <a name="instance-level-resource-limits"></a>På instansnivå resursbegränsningar
+## <a name="instance-level-resource-limits"></a>Resurs gränser på instans nivå
 
-Hanterad instans har egenskaper och resursbegränsningar som beror på den underliggande infrastrukturen och arkitektur. Gränserna beror på maskinvara generation och service-nivån.
+Den hanterade instansen har egenskaper och resurs gränser som är beroende av den underliggande infrastrukturen och arkitekturen. Gränserna är beroende av maskin varu generering och tjänst nivå.
 
-### <a name="hardware-generation-characteristics"></a>Generation maskinvaruegenskaper
+### <a name="hardware-generation-characteristics"></a>Egenskaper för maskin varu skapande
 
-Azure SQL Database-hanterad instans kan distribueras på två maskinvarugenerationer: Gen4 och Gen5. Maskinvarugenerationer har olika egenskaper, enligt beskrivningen i följande tabell:
+Azure SQL Database Hanterad instans kan distribueras på två maskin varu generationer: Gen4 och Gen5. Maskin varu generationer har olika egenskaper, enligt beskrivningen i följande tabell:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysiska kärnor) | Intel E5-2673 v4 (Broadwell) 2.3-GHz-processorer, snabb NVMe SSD, vCore = 1 LP (hyper-tråd) |
-| Antal virtuella kärnor | 8, 16, 24 virtuella kärnor | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| Maximalt minne (minne/kärna-kvot) | 7 GB per vCore<br/>Lägga till fler virtuella kärnor för att få mer minne. | 5.1 GB per vCore<br/>Lägga till fler virtuella kärnor för att få mer minne. |
-| Maximal InMemory-OLTP-minne | Gräns för instans: 3 GB per vCore<br/>Databasgränser:<br/> – 8 kärnor: 8 GB per databas<br/> – 16 kärnor: 20 GB per databas<br/> -24 kärnor: 36 GB per databas | Gräns för instans: 2,5 GB per vCore<br/>Databasgränser:<br/> – 8 kärnor: 13 GB per databas<br/> – 16 kärnor: 32 GB per databas |
-| Högsta reserverade lagring (generell användning) |  8 TB | 8 TB |
-| Högsta reserverade storage (affärskritisk) | 1 TB | 1 TB, 2 TB och 4 TB beroende på antalet kärnor |
+| Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysisk kärna) | Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer, fast NVMe SSD, vCore = 1 LP (Hyper-Thread) |
+| Antal virtuella kärnor | 8, 16, 24 virtuella kärnor | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| Högsta mängd minne (minne/Core-förhållande) | 7 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. | 5,1 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. |
+| Högsta minnes intern OLTP-minne | Instans gräns: 3 GB per vCore<br/>Databas gränser:<br/> – 8 kärnor: 8 GB per databas<br/> – 16 kärnor: 20 GB per databas<br/> – 24 kärnor: 36 GB per databas | Instans gräns: 2,5 GB per vCore<br/>Databas gränser:<br/> – 8 kärnor: 13 GB per databas<br/> – 16 kärnor: 32 GB per databas |
+| Högsta reserverade instans lagring |  Generell användning: 8 TB<br/>Affärskritisk: 1 TB | Generell användning: 8 TB<br/> Affärskritisk 1 TB, 2 TB eller 4 TB beroende på antalet kärnor |
 
 > [!IMPORTANT]
-> Nya Gen4 databaser stöds inte längre i regionen Australien.
+> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
 
-### <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
+### <a name="service-tier-characteristics"></a>Egenskaper för tjänst nivå
 
-Hanterad instans har två tjänstnivåer: Generell användning och affärskritisk. Dessa nivåer ger olika funktioner som beskrivs i tabellen nedan:
+Den hanterade instansen har två tjänst nivåer: Generell användning och Affärskritisk. Dessa nivåer ger olika funktioner, enligt beskrivningen i tabellen nedan:
 
 | **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
-| Antal virtuella kärnor\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
-| Maximalt minne | Gen4: 56 GB – 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB – 408 GB (5.1 GB/vCore)<br/>Lägga till fler virtuella kärnor för att få mer minne. | Gen4: 56 GB – 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB – 408 GB (5.1 GB/vCore)<br/>Lägga till fler virtuella kärnor för att få mer minne. |
-| Högsta reserverade lagringsstorlek | – 2 TB för 4 virtuella kärnor (endast Gen5)<br/>– 8 TB för andra storlekar | Gen4: 1 TB <br/> Gen5: <br/>-1 TB för 4, 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>-4 TB för 32, 40, 64, 80 virtuella kärnor |
-| Maximal databasstorlek | Bestäms av den maximala lagringsstorleken per instans | Bestäms av den maximala lagringsstorleken per instans |
+| Antal virtuella kärnor\* | Gen4 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 8, 16, 24, 32 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 |
+| Högsta mängd minne | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 40,8 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. | Gen4 56 GB-168 GB (7GB/vCore)<br/>Gen5 40,8 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. |
+| Maximal lagrings storlek för reserverad instans | -2 TB för 4 virtuella kärnor (endast Gen5)<br/>– 8 TB för andra storlekar | Gen4 1 TB <br/> Gen5 <br/>-1 TB för 4, 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>– 4 TB för 32, 40, 64, 80 virtuella kärnor |
+| Maximal databasstorlek | Bestäms av den maximala lagrings storleken per instans | Bestäms av den maximala lagrings storleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
-| Maxantal databasfiler per instans | Upp till 280 | 32 767 filer per databas |
-| Data/Log IOPS (ungefärlig) | 500 – 7500 per fil<br/>\*[Öka storleken på filen för att få fler IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore)<br/>Lägga till fler virtuella kärnor för att få bättre i/o-prestanda. |
-| Log skriva dataflödesgräns | 3 MB/s per vCore<br/>Max 22 MB/s per instans | 4 MB/s per vCore<br/>Max 48 MB/s per instans|
-| Dataflöde (ungefärlig) | 100 - 250 MB/s per fil<br/>\*[Öka storlek för att få bättre i/o-prestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Gäller inte |
-| Storage-i/o-svarstid (ungefärlig) | 5 – 10 ms | 1 – 2 ms |
-| Maxstorlek för tempDB | 192 - 1,920 GB (24 GB per vCore)<br/>Lägga till fler virtuella kärnor för att få mer utrymme i TempDB. | Begränsas av de största instansstorleken för lagring. TempDB loggfilens storlek är för närvarande begränsad till 24GB/vCore. |
+| Maximalt antal databasfiler per instans | Upp till 280 | 32 767 filer per databas |
+| Data/logga IOPS (ungefärligt) | 500 – 7 500 per fil<br/>\*[Öka fil storleken för att få mer IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 k – 110 KB (1375/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
+| Skriv gränsen för logg skrivnings data | 3 MB/s per vCore<br/>Högst 22 MB/s per instans | 4 MB/s per vCore<br/>Max 48 MB/s per instans|
+| Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[Öka fil storleken för att få bättre IO-prestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Gäller inte |
+| IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
+| Maximal tempDB-storlek | 192 – 1 920 GB (24 GB per vCore)<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme. | Begränsas av maximal instans lagrings storlek. TempDB-logg fils storleken är för närvarande begränsad till 24GB/vCore. |
 | Maximalt antal sessioner | 30000 | 30000 |
 
 > [!NOTE]
-> - Både data och loggfiler filstorlek i användar- och systemdatabaser ingår i den instans lagringsstorleken som jämförs med den högsta gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> systemvy att fastställa det totala antalet använt utrymme i av databaser. Felloggar inte beständiga och inte ingår i storlek. Säkerhetskopior ingår inte i lagringsstorlek.
-> - Dataflöde och allokerad IOPS beror också på den sidstorlek som inte uttryckligen begränsas av hanterad instans.
+> - Både data-och logg fils storleken i användar-och system databaserna ingår i instans lagrings storleken som jämförs med den maximala lagrings storleks gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> system-vyn för att fastställa det totala använda utrymmet för databaser. Fel loggarna är inte bestående och ingår inte i storlek. Säkerhets kopieringar ingår inte i lagrings storleken.
+> - Data flödet och IOPS är också beroende av den sid storlek som inte uttryckligen begränsas av den hanterade instansen.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Hanterade instanser kan bara skapas i [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i en region som inte stöds för närvarande, kan du [skicka en supportförfrågan via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+Hanterade instanser kan bara skapas i [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i en region som för närvarande inte stöds kan du [skicka en supportbegäran via Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance).
 
-## <a name="supported-subscription-types"></a>Prenumerationstyper som stöds
+## <a name="supported-subscription-types"></a>Prenumerations typer som stöds
 
-Hanterad instans stöder för närvarande distribution endast för följande typer av prenumerationer:
+Den hanterade instansen stöder för närvarande endast distribution av följande typer av prenumerationer:
 
 - [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
-- [Enterprise – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Enterprise dev/test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Prenumerationer med Azure-månadskrediten för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
+- [Prenumerationer med månatlig Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
-## <a name="regional-resource-limitations"></a>Regionala resursbegränsningar
+## <a name="regional-resource-limitations"></a>Begränsningar för regionala resurser
 
-Stöds prenumerationstyper kan innehålla ett begränsat antal resurser per region. Hanterad instans har två standardgränser per Azure-region beroende på en typ av prenumerationstyp:
+Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. Den hanterade instansen har två standard gränser per Azure-region beroende på typ av prenumerations typ:
 
-- **Undernät gränsen**: Det maximala antalet undernät där hanterade instanser har distribuerats i en region.
-- **vCore-gränsen**: Det maximala antalet virtuella kärnor som kan distribueras i alla instanser i en region.
+- **Under näts gräns**: Det maximala antalet undernät där hanterade instanser distribueras i en enda region.
+- **vCore gräns**: Det maximala antalet virtuella kärnor som kan distribueras över alla instanser i en enda region.
 
 > [!Note]
-> Dessa gränser är standardinställningarna och inte tekniska begränsningar. Gränserna kan vara ökad på begäran genom att skapa en särskild [supportförfrågan i Azure-portalen](#obtaining-a-larger-quota-for-sql-managed-instance) om du behöver mer hanterade instanser i den aktuella regionen. Alternativt kan skapa du nya hanterade instanser i en annan Azure-region utan att skicka supportförfrågningar.
+> Dessa gränser är standardinställningar och inte tekniska begränsningar. Gränserna kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) om du behöver fler hanterade instanser i den aktuella regionen. Alternativt kan du skapa nya hanterade instanser i en annan Azure-region utan att skicka support förfrågningar.
 
-I följande tabell visas de regionala standardgränserna för stöds prenumerationer:
+Följande tabell visar de regionala standard gränserna för prenumerationer som stöds:
 
-|Typ av prenumeration| Maxantal hanterade instansen undernät | Maxantal vCore enheter * |
+|Prenumerationstyp| Maximalt antal hanterade instans under nät | Max antal vCore-enheter * |
 | :---| :--- | :--- |
 |Användningsbaserad betalning|3|320|
-|CSP |8 (15 i vissa regioner **)|960 (1440 i vissa regioner **)|
+|CSP |8 (15 i vissa regioner * *)|960 (1440 i vissa regioner * *)|
 |Betala per användning – utveckling/testning|3|320|
 |Enterprise Dev/Test|3|320|
-|EA|8 (15 i vissa regioner **)|960 (1440 i vissa regioner **)|
+|EA|8 (15 i vissa regioner * *)|960 (1440 i vissa regioner * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional och MSDN-plattformar|2|32|
 
-\* När du planerar distributionen bör du överväga att att en kritisk Business (BC) virtuell kärna (på grund av har lagts till redundans) använder 4 x mer kapacitet än en allmänt syfte (GP) virtuell kärna. Så för dina beräkningar, 1 GP vCore = 1 vCore-enhet och BC 1 vCore = 4 vCore-enheter. Sammanfatta vCore-enheter för att förenkla din förbrukning analys mot standardgränserna över alla undernät i den region där hanterade instanser har distribuerats och jämföra resultaten med enhet instansgränser för prenumerationstyp. **Maxantal vCore enheter** gränsen gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät, förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **max antal vCore enheter**.
+\*När du planerar distributionen bör du tänka på att en Affärskritisk (BC) vCore (på grund av ytterligare redundans) förbrukar mer kapacitet än en Generell användning (GP) vCore. Så för dina beräkningar, 1 GP-vCore = 1 vCore-enhet och 1 BC vCore = 4 vCore-enheter. För att förenkla förbruknings analysen mot standard gränserna ska du sammanfatta vCore-enheterna över alla undernät i den region där hanterade instanser distribueras och jämföra resultaten med instans enhets gränserna för din prenumerations typ. Gränsen **för antalet vCore-enheter** gäller för varje prenumeration i en region. Det finns ingen gräns per enskilda undernät förutom att summan av alla virtuella kärnor som distribueras över flera undernät måste vara lägre eller lika med **Max antalet vCore-enheter**.
 
-\*\* Större undernät och vCore gränser är tillgängliga i följande regioner: Östra Australien, östra USA, östra USA 2, Nordeuropa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
+\*\*Större gränser för undernät och vCore är tillgängliga i följande regioner: Östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Hämta en större kvot för SQL-hanterad instans
 
-Om du behöver mer hanterade instanser i din aktuella regioner kan du skicka en supportbegäran om att utöka kvoten med hjälp av Azure portal.
-Så här initierar processen för att hämta en större kvot:
+Om du behöver fler hanterade instanser i dina aktuella regioner skickar du en supportbegäran för att utöka kvoten med hjälp av Azure Portal.
+Initiera processen för att erhålla en större kvot:
 
-1. Öppna **hjälp + support**, och klicka på **ny supportbegäran**.
+1. Öppna **Hjälp + Support**och klicka på **nytt support ärende**.
 
-   ![Hjälp och Support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. På fliken grunderna för ny supportbegäran:
-   - För **typ av problem**väljer **begränsningar för tjänsten och -prenumeration (kvoter)** .
+   ![Hjälp och support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
+2. På fliken grundläggande för den nya support förfrågan:
+   - För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)** .
    - I fältet **Prenumeration** väljer du din prenumeration.
-   - För **kvottypen**väljer **SQL Database Managed Instance**.
-   - För **supportavtal**, Välj ditt supportavtal.
+   - För **typ av kvot**väljer du **SQL Database Hanterad instans**.
+   - Välj ditt support avtal för **support avtalet**.
 
-     ![Problemet typ av kvot](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
+     ![Typ kvot för utfärdande](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
 3. Klicka på **Nästa**.
-4. På den **problemet fliken** för ny supportbegäran:
-   - För **allvarlighetsgrad**, Välj problemets allvarlighetsgrad.
-   - För **information**, ger ytterligare information om problemet, inklusive felmeddelanden.
-   - För **filuppladdning**, bifoga en fil med mer information (upp till 4 MB).
+4. På **fliken problem** för den nya support förfrågan:
+   - För **allvarlighets grad**väljer du problemets allvarlighets grad.
+   - Om **du vill ha**mer information anger du ytterligare information om problemet, inklusive fel meddelanden.
+   - Bifoga en fil med mer information (upp till 4 MB) för **fil uppladdning**.
 
-     ![Probleminformation](media/sql-database-managed-instance-resource-limits/problem-details.png)
+     ![Uppgifter om problem](media/sql-database-managed-instance-resource-limits/problem-details.png)
 
      > [!IMPORTANT]
      > En giltig begäran bör innehålla:
-     > - Region i vilken prenumeration behöver gränsen ökas.
-     > - Nödvändigt antal virtuella kärnor per tjänstnivå i befintliga undernät efter kvoten öka (om någon av de befintliga undernät måste utökas.
-     > - Obligatoriskt antal nya undernät och Totalt antal virtuella kärnor per tjänstnivå inom de nya undernäten (om du behöver distribuera hanterade instanser i nya undernät).
+     > - Region där prenumerations gränsen behöver ökas.
+     > - Antalet virtuella kärnor per tjänst nivå som krävs i befintliga undernät efter kvot ökningen (om något av de befintliga under näten måste expanderas.
+     > - Antalet nya undernät och det totala antalet virtuella kärnor per tjänst nivå inom de nya under näten (om du behöver distribuera hanterade instanser i nya undernät).
 
 5. Klicka på **Nästa**.
-6. Ange önskad kontaktmetod (e-post eller telefon) och kontaktuppgifter på fliken kontaktuppgifter för ny supportbegäran.
+6. På fliken kontakt information för den nya support förfrågan anger du önskad kontakt metod (e-post eller telefon) och kontakt uppgifter.
 7. Klicka på **Skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hanterad instans finns i [vad är en hanterad instans?](sql-database-managed-instance.md).
-- Information om priser finns i [SQL Database managed instance priser](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-- Läs hur du skapar din första hanterad instans i [Snabbstartsguide för](sql-database-managed-instance-get-started.md).
+- Mer information om en hanterad instans finns i [Vad är en hanterad instans?](sql-database-managed-instance.md).
+- Pris information finns i [priser för SQL Database Managed instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Information om hur du skapar din första hanterade instans finns i [snabb starts guiden](sql-database-managed-instance-get-started.md).

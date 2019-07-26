@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e59b9a34d075002e8129fe1588c95e207f8273
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366270"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359028"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
 
@@ -106,7 +106,7 @@ När du driftsätta modellen i Azure Machine Learning, visas en webbtjänst som 
 Här är ett kodstycke som utvecklats i en Python Jupyter-anteckningsbok som bygger en enkel modell med SciKit-Läs-biblioteket.
 
 ```python
-#IRIS classification
+# IRIS classification
 from sklearn import datasets
 from sklearn import svm
 clf = svm.SVC()
@@ -120,10 +120,12 @@ Metoden används för att distribuera python-modeller till Azure Machine Learnin
 ```python
 from azureml import services
 @services.publish(workspaceid, auth_token)
-@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-@services.returns(int) #0, or 1, or 2
+@services.types(sep_l=float, sep_w=float, pet_l=float, pet_w=float)
+@services.returns(int)  # 0, or 1, or 2
 def predictIris(sep_l, sep_w, pet_l, pet_w):
     inputArray = [sep_l, sep_w, pet_l, pet_w]
+
+
 return clf.predict(inputArray)
 ```
 
@@ -265,9 +267,9 @@ Om du vill hämta kod från en GitHub-lagringsplats som du använder den ```git 
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-I Visual Studio kan du göra samma kopieringen. Följande skärmbild visar hur du kommer åt Git och GitHub-verktygen i Visual Studio.
+I Visual Studio kan du göra samma kopieringen. Följande skärm bild visar hur du kommer åt git-och GitHub-verktyg i Visual Studio.
 
-![Skärmbild av Visual Studio med GitHub-anslutningen visas](./media/vm-do-ten-things/VSGit.PNG)
+![Skärm bild av Visual Studio med GitHub-anslutningen visas](./media/vm-do-ten-things/VSGit.PNG)
 
 Du hittar mer information om hur du använder Git för att arbeta med din GitHub-lagringsplats från flera resurser som är tillgängliga på github.com. Den [facit](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) är användbar som referens.
 
@@ -286,7 +288,7 @@ Azure blob är en pålitlig, ekonomisk molnlagring för stora och små. Det här
 
 ![Skärmbild av Azure Storage Explorer åtkomst till ett Lagringskonto](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**Flytta data från virtuell dator till Azure Blob: AzCopy**
+**Flytta data från virtuell dator till Azure-Blob: AzCopy**
 
 För att flytta data mellan din lokala filer och blob storage med AzCopy kan du i kommandoraden eller PowerShell:
 
@@ -311,20 +313,20 @@ När du kör AzCopy-kommandot för att kopiera till en Azure-blob, visas din fil
 
 ![Skärmbild av Storage-konto, visar den uppladdade CSV-filen](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Flytta data från virtuell dator till Azure Blob: Azure Storage Explorer**
+**Flytta data från virtuell dator till Azure-Blob: Azure Storage Explorer**
 
 Du kan också ladda upp data från den lokala filen i den virtuella datorn med Azure Storage Explorer:
 
 * Välj en målbehållare för att ladda upp data till en behållare, och klicka på den **överför** knappen.![ Skärmbild av knappen ladda upp i Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
 * Klicka på den **...**  till höger om den **filer** väljer du en eller flera filer att ladda upp från filsystemet och klicka på **överför** att påbörja uppladdningen av filerna.![ Skärmbild av dialogrutan för filöverföring-filer](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Läsa data från Azure Blob: Modul för dataläsare för Machine Learning**
+**Läs data från Azure-Blob: Machine Learning läsar modul**
 
 Du kan använda i Azure Machine Learning Studio, en **importdata modulen** att läsa data från din blob.
 
 ![Skärmbild av modulen importera Data i Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Läsa data från Azure Blob: Python ODBC**
+**Läs data från Azure-Blob: Python ODBC**
 
 Du kan använda **BlobService** -biblioteket för att läsa data direkt från blob i ett Jupyter-anteckningsbok eller Python.
 
@@ -397,7 +399,7 @@ Du kan använda **Azure Data Lake Explorer** att överföra data från de lokala
 
 Du kan också skapa en datapipeline för att operationalisera dina data flyttas till eller från Azure Data Lake med hjälp av den [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Referera till denna [artikeln](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) att guida dig genom stegen för att skapa data pipelines.
 
-**Läsa data från Azure Blob till Data Lake: U-SQL**
+**Läs data från Azure-blobben till Data Lake: U-SQL**
 
 Om dina data finns i Azure Blob storage, kan du direkt läsa data från Azure storage blob i U-SQL-fråga. Kontrollera att blob storage-kontot är länkat till din Azure Data Lake innan du skriver U-SQL-fråga. Gå till **Azure-portalen**, hitta din Azure Data Lake Analytics-instrumentpanelen, klicka på **Lägg till datakälla**, Välj lagringstyp som ska **Azure Storage** och Anslut i Azure Storage-konto Namn och nyckel. Är du kunna referera till de data som lagras i lagringskontot.
 
@@ -495,7 +497,7 @@ Azure HDInsight är en hanterad Apache Hadoop, Spark, HBase och Storm-tjänst i 
 * Överföra data med hjälp av IPython Notebook. Först importera paket som krävs, plugin-autentiseringsuppgifter, skapa en databas i ditt storage-konto och sedan läsa in data till HDI-kluster.
 
 ```python
-#Import required Packages
+# Import required Packages
 import pyodbc
 import time as time
 import json
@@ -510,12 +512,12 @@ from azure.storage.blob import BlobService
 warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 
-#Create the connection to Hive using ODBC
-SERVER_NAME='xxx.azurehdinsight.net'
-DATABASE_NAME='nyctaxidb'
-USERID='xxx'
-PASSWORD='xxxx'
-DB_DRIVER='Microsoft Hive ODBC Driver'
+# Create the connection to Hive using ODBC
+SERVER_NAME = 'xxx.azurehdinsight.net'
+DATABASE_NAME = 'nyctaxidb'
+USERID = 'xxx'
+PASSWORD = 'xxxx'
+DB_DRIVER = 'Microsoft Hive ODBC Driver'
 driver = 'DRIVER={' + DB_DRIVER + '}'
 server = 'Host=' + SERVER_NAME + ';Port=443'
 database = 'Schema=' + DATABASE_NAME
@@ -523,12 +525,13 @@ hiveserv = 'HiveServerType=2'
 auth = 'AuthMech=6'
 uid = 'UID=' + USERID
 pwd = 'PWD=' + PASSWORD
-CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
+CONNECTION_STRING = ';'.join(
+    [driver, server, database, hiveserv, auth, uid, pwd])
 connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-cursor=connection.cursor()
+cursor = connection.cursor()
 
 
-#Create Hive database and tables
+# Create Hive database and tables
 queryString = "create database if not exists nyctaxidb;"
 cursor.execute(queryString)
 
@@ -576,11 +579,13 @@ queryString = """
 cursor.execute(queryString)
 
 
-#Upload data from blob storage to HDI cluster
-for i in range(1,13):
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
+# Upload data from blob storage to HDI cluster
+for i in range(1, 13):
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);" % (
+        i, i)
     cursor.execute(queryString)
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);" % (
+        i, i)
     cursor.execute(queryString)
 ```
 
@@ -592,7 +597,7 @@ for i in range(1,13):
 
 När data har lästs in HDI-kluster, kan du kontrollera dina data i Azure Storage Explorer. Och du har en databas nyctaxidb som skapats i HDI-kluster.
 
-**Datagranskning: Hive-frågor i Python**
+**Data utforskning: Hive-frågor i python**
 
 Eftersom data är i Hadoop-kluster kan använda du pyodbc-paketet för att ansluta till Hadoop-kluster och fråga databasen med Hive för att göra utforskning och funktionstekniker. Du kan visa de befintliga tabellerna som vi skapade i nödvändiga steg.
 
@@ -600,7 +605,7 @@ Eftersom data är i Hadoop-kluster kan använda du pyodbc-paketet för att anslu
 queryString = """
     show tables in nyctaxidb2;
     """
-pd.read_sql(queryString,connection)
+pd.read_sql(queryString, connection)
 ```
 
 ![Visa befintliga tabeller](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
@@ -633,7 +638,7 @@ queryString = """
     )tc
     GROUP BY tipped;
     """
-results = pd.read_sql(queryString,connection)
+results = pd.read_sql(queryString, connection)
 
 results.columns = ['tipped', 'trip_count']
 df = results.copy()
@@ -661,7 +666,7 @@ queryString = """
                         and dropoff_longitude between -90 and -30
                         and dropoff_latitude between 30 and 90;
             """
-results = pd.read_sql(queryString,connection)
+results = pd.read_sql(queryString, connection)
 results.head(5)
 ```
 
@@ -669,9 +674,9 @@ results.head(5)
 
 ```python
 results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                    'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-df = results.loc[results['trip_distance']<=100] #remove outliers
-df = df.loc[df['direct_distance']<=100] #remove outliers
+                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
+df = results.loc[results['trip_distance'] <= 100]  # remove outliers
+df = df.loc[df['direct_distance'] <= 100]  # remove outliers
 plt.scatter(df['direct_distance'], df['trip_distance'])
 ```
 
@@ -717,7 +722,7 @@ stored as textfile;
 cursor.execute(queryString)
 ```
 
-Nu infoga innehåll för anslutning till den föregående interna tabellen
+Nu infogar du innehållet i kopplingen i föregående interna tabell
 
 ```python
 queryString = """
@@ -812,7 +817,7 @@ queryString = """
     select * from nyctaxi_downsampled_dataset limit 10;
     """
 cursor.execute(queryString)
-pd.read_sql(queryString,connection)
+pd.read_sql(queryString, connection)
 ```
 
 ![Översta rader med data från tabellen](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)

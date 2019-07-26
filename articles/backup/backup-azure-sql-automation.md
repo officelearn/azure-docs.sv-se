@@ -1,49 +1,48 @@
 ---
-title: 'Azure Backup: Säkerhetskopiera och återställa SQL-databaser i Azure virtuella datorer med Azure Backup och PowerShell'
-description: Säkerhetskopiera och återställa SQL-databaser i Azure virtuella datorer med Azure Backup och PowerShell.
-services: backup
+title: 'Azure Backup: Säkerhetskopiera och återställa SQL-databaser på virtuella Azure-datorer med hjälp av Azure Backup och PowerShell'
+description: Säkerhetskopiera och Återställ SQL-databaser på virtuella Azure-datorer med hjälp av Azure Backup och PowerShell.
 author: pvrk
 manager: vijayts
-keywords: Azure Backup; SQL,
+keywords: Azure Backup; SQL
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6a2e065466ab4426a6472b64fae19d264ff8dd81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d3f71eb83609d09d6e4f42b15163dbfae4fca32
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734223"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465396"
 ---
-# <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i Azure virtuella datorer med PowerShell
+# <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i virtuella Azure-datorer med PowerShell
 
-Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhetskopiera och återställa en SQL-databas i en virtuell Azure-dator med hjälp av [Azure Backup](backup-overview.md) Recovery Services-valv.
+Den här artikeln beskriver hur du använder Azure PowerShell för att säkerhetskopiera och återställa en SQL-databas i en virtuell Azure-dator med [Azure Backup](backup-overview.md) Recovery Services-valvet.
 
 I den här självstudien beskrivs hur du:
 
 > [!div class="checklist"]
 > * Konfigurera PowerShell och registrera Azure Recovery Services-providern.
 > * Skapa ett Recovery Services-valv.
-> * Konfigurera säkerhetskopiering för SQL-databas inom en Azure-dator.
-> * Köra ett säkerhetskopieringsjobb.
-> * Återställa en säkerhetskopierade SQL DB.
-> * Övervaka säkerhetskopierings- och återställningsjobb.
+> * Konfigurera säkerhets kopiering för SQL DB i en virtuell Azure-dator.
+> * Kör ett säkerhets kopierings jobb.
+> * Återställa en säkerhetskopierad SQL-databas.
+> * Övervaka säkerhets kopierings-och återställnings jobb.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 * [Läs mer](backup-azure-recovery-services-vault-overview.md) om Recovery Services-valv.
-* Läs mer om funktionerna för [säkerhetskopiering av SQL-databaser i virtuella Azure-datorer](backup-azure-sql-database.md#before-you-start).
-* Granska PowerShell objekthierarkin för Recovery Services.
+* Läs om funktionerna för att [säkerhetskopiera SQL-databaser i virtuella Azure-datorer](backup-azure-sql-database.md#before-you-start).
+* Granska PowerShell-objektcachen för Recovery Services.
 
-### <a name="recovery-services-object-hierarchy"></a>Recovery Services-objekthierarkin
+### <a name="recovery-services-object-hierarchy"></a>Recovery Services objektets hierarki
 
-Objekthierarkin summeras i följande diagram.
+Objektets hierarki sammanfattas i följande diagram.
 
-![Recovery Services-objekthierarkin](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![Recovery Services objektets hierarki](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Granska den **Az.RecoveryServices** [cmdlet-referens för](/powershell/module/az.recoveryservices) referens i Azure-biblioteket.
+Granska [referens](/powershell/module/az.recoveryservices) referensen för cmdleten **AZ. RecoveryServices** i Azure-biblioteket.
 
 ### <a name="set-up-and-install"></a>Konfigurera och installera
 
@@ -51,23 +50,23 @@ Granska den **Az.RecoveryServices** [cmdlet-referens för](/powershell/module/az
 
 Konfigurera PowerShell på följande sätt:
 
-1. [Hämta den senaste versionen av Az PowerShell](/powershell/azure/install-az-ps). Den lägsta versionen är 1.5.0.
+1. [Ladda ned den senaste versionen av AZ PowerShell](/powershell/azure/install-az-ps). Den lägsta version som krävs är 1.5.0.
 
-2. Hitta Azure Backup PowerShell-cmdlets med det här kommandot:
+2. Hitta Azure Backup PowerShell-cmdlet: ar med det här kommandot:
 
     ```powershell
     Get-Command *azrecoveryservices*
     ```
 
-3. Granska alias och cmdlets för Azure Backup och Recovery Services-valvet. Här är ett exempel på vad som kan visas. Det är inte en fullständig lista över cmdlets.
+3. Granska alias och cmdlets för Azure Backup och Recovery Services-valvet. Här är ett exempel på vad du kan se. Det är inte en fullständig lista över cmdletar.
 
-    ![Lista över Recovery Services-cmdlets](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
+    ![Lista över Recovery Services-cmdletar](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Logga in på ditt Azure-konto med **Connect AzAccount**.
-5. På webbsidan som visas, uppmanas du att ange autentiseringsuppgifterna för ditt konto.
+4. Logga in på ditt Azure-konto med **Connect-AzAccount**.
+5. På webb sidan som visas uppmanas du att ange dina autentiseringsuppgifter för kontot.
 
-    * Alternativt kan du kan inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Connect AzAccount** cmdlet med **-Credential**.
-    * Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller -klient. Ett exempel är **Connect AzAccount-klient** fabrikam.com.
+    * Alternativt kan du inkludera dina konto uppgifter som en parameter i cmdleten **Connect-AzAccount** med **-Credential**.
+    * Om du är en CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras tenantID eller primära domän namn. Ett exempel är **Connect-AzAccount-Tenant** fabrikam.com.
 
 6. Associera den prenumeration som du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer.
 
@@ -75,42 +74,42 @@ Konfigurera PowerShell på följande sätt:
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-7. Om du använder Azure Backup för första gången kan du använda den **registrera AzResourceProvider** cmdlet för att registrera Azure Recovery Services-providern med din prenumeration.
+7. Om du använder Azure Backup för första gången ska du använda cmdleten **register-AzResourceProvider** för att registrera Azure Recovery Services-providern med din prenumeration.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-8. Kontrollera att de har registrerats:
+8. Verifiera att providern har registrerats:
 
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. I utdata från kommandot kontrollerar du att **RegistrationState** ändras till **registrerad**. Om det inte, kör den **registrera AzResourceProvider** cmdlet igen.
+9. I kommandot utdata kontrollerar du att **RegistrationState** ändras till **registrerad**. Om den inte gör det kör du cmdleten **register-AzResourceProvider** igen.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Följ dessa steg om du vill skapa ett Recovery Services-valv.
 
-Recovery Services-valvet är en Resource Manager-resurs, så måste du placera det inom en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en resursgrupp med det **New AzResourceGroup** cmdlet. När du skapar en resursgrupp kan du ange namn och plats för resursgruppen.
+Recovery Services valvet är en Resource Manager-resurs, så du måste placera den i en resurs grupp. Du kan använda en befintlig resurs grupp, eller så kan du skapa en resurs grupp med cmdleten **New-AzResourceGroup** . När du skapar en resurs grupp anger du namn och plats för resurs gruppen.
 
-1. Ett valv placeras i en resursgrupp. Om du inte har en befintlig resurs, skapa en ny med den [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). I det här exemplet skapar vi en ny resursgrupp i regionen USA, västra.
+1. Ett valv placeras i en resurs grupp. Om du inte har en befintlig resurs grupp skapar du en ny med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). I det här exemplet skapar vi en ny resurs grupp i regionen USA, västra.
 
     ```powershell
     New-AzResourceGroup -Name "test-rg" -Location "West US"
     ```
 
-2. Använd den [New AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet för att skapa valvet. Ange samma plats för valvet som har använts för resursgruppen.
+2. Använd cmdleten [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) för att skapa valvet. Ange samma plats för valvet som användes för resurs gruppen.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Ange vilken typ av redundans för lagring för valvet.
+3. Ange vilken typ av redundans som ska användas för valv lagringen.
 
-    * Du kan använda [lokalt redundant lagring](../storage/common/storage-redundancy-lrs.md) eller [geo-redundant lagring](../storage/common/storage-redundancy-grs.md).
-    * I följande exempel anges den **- BackupStorageRedundancy** för den[Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd för **testvault** inställd  **GeoRedundant**.
+    * Du kan använda [Lokalt Redundant lagring](../storage/common/storage-redundancy-lrs.md) eller [Geo-redundant lagring](../storage/common/storage-redundancy-grs.md).
+    * I följande exempel anges alternativet **-BackupStorageRedundancy** för[set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd för **testvault** som är inställt på interredundant.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -119,13 +118,13 @@ Recovery Services-valvet är en Resource Manager-resurs, så måste du placera d
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Visa valv i en prenumeration
 
-Du kan visa alla valv i prenumerationen [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0).
+Om du vill visa alla valv i prenumerationen använder du [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0).
 
 ```powershell
 Get-AzRecoveryServicesVault
 ```
 
-Utdata liknar följande. Tillhörande resursgrupp och plats har angetts.
+Utdata ser ut ungefär så här. Den tillhör ande resurs gruppen och platsen tillhandahålls.
 
 ```powershell
 Name              : Contoso-vault
@@ -137,22 +136,22 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-### <a name="set-the-vault-context"></a>Ange valvets sammanhang
+### <a name="set-the-vault-context"></a>Ange valv kontext
 
-Store vault-objekt i en variabel och ange valvets sammanhang.
+Lagra Valve-objektet i en variabel och ange valv kontexten.
 
-* Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata, så det är lämpligt att lagra valvobjekt i en variabel.
-* Valvets sammanhang är typen av data som skyddas i valvet. Konfigurera den med [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). När du har angett kontexten gäller det alla efterkommande cmdletar.
+* Många Azure Backup-cmdletar kräver att Recovery Services Vault-objektet är inmatat, så det är praktiskt att lagra valvet i en variabel.
+* Valvets sammanhang är typen av data som skyddas i valvet. Ange den med [set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). När kontexten har angetts gäller den för alla efterföljande cmdletar.
 
-I följande exempel anger valvkontexten för **testvault**.
+I följande exempel anges valv kontexten för **testvault**.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
-### <a name="fetch-the-vault-id"></a>Hämta valv-ID
+### <a name="fetch-the-vault-id"></a>Hämta valv-ID: t
 
-Planerar vi att avveckla valvkontexten inställningen i enlighet med riktlinjerna för Azure PowerShell. I stället kan du lagra eller hämta valv-ID och skicka dem till relevanta kommandon på följande sätt:
+Vi planerar att föråldra inställningen för valv kontext i enlighet med Azure PowerShell rikt linjer. I stället kan du lagra eller hämta valv-ID: t och skicka det till relevanta kommandon enligt följande:
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -160,14 +159,14 @@ $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Nam
 
 ## <a name="configure-a-backup-policy"></a>Konfigurera en säkerhetskopieringspolicy
 
-En princip för säkerhetskopiering anger schemat för säkerhetskopiering och hur länge säkerhetskopierade återställningspunkter ska finnas:
+En säkerhets kopierings princip anger schemat för säkerhets kopior och hur länge återställnings punkter för säkerhets kopiering ska behållas:
 
-* En princip för säkerhetskopiering är associerad med minst en bevarandeprincip. En bevarandeprincip definierar hur länge en återställningspunkt sparas innan de tas bort.
-* Visa standard säkerhetskopieringsprincip kvarhållning med [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Visa standard säkerhetskopieringsprincip schema med [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* Du använder den [New AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) cmdlet för att skapa en ny säkerhetskopieringsprincip. Du kan ange principobjekt schema och kvarhållning.
+* En säkerhets kopierings princip är associerad med minst en bevarande princip. En bevarande princip definierar hur länge en återställnings punkt ska sparas innan den tas bort.
+* Visa standard kvarhållning av säkerhets kopierings princip med [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
+* Visa standard schema för säkerhets kopiering med [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
+* Du använder cmdleten [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) för att skapa en ny säkerhets kopierings princip. Du har angett schema-och bevarande princip objekt.
 
-I följande exempel lagrar schema-principen och bevarandeprincipen i variabler. Därefter använder de här variablerna som parametrar för en ny princip (**NewSQLPolicy**). **NewSQLPolicy** tar en daglig ”fullständig” säkerhetskopiering, bibehålls i 180 dagar och tar en säkerhetskopia varannan timme
+I följande exempel lagras schema principen och bevarande principen i variabler. Den använder sedan variablerna som parametrar för en ny princip (**NewSQLPolicy**). **NewSQLPolicy** tar en daglig "fullständig" säkerhets kopiering, behåller den i 180 dagar och tar en logg säkerhets kopia var 2: e timme
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
@@ -175,7 +174,7 @@ $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "MSSQL
 $NewSQLPolicy = New-AzRecoveryServicesBackupProtectionPolicy -Name "NewSQLPolicy" -WorkloadType "MSSQL" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```
 
-Utdata liknar följande.
+Utdata ser ut ungefär så här.
 
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                Frequency                                IsDifferentialBackup IsLogBackupEnabled
@@ -184,45 +183,45 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 9:00:00 PM      Daily                                    False                True
 ```
 
-## <a name="enable-backup"></a>Aktivera säkerhetskopiering
+## <a name="enable-backup"></a>Aktivera säkerhets kopiering
 
-### <a name="registering-the-sql-vm"></a>Registrera SQL VM
+### <a name="registering-the-sql-vm"></a>Registrerar den virtuella SQL-datorn
 
-Backup-tjänsten kan ansluta till dessa Azure Resource Manager-resurser och hämta relevant information för Virtuella Azure-säkerhetskopieringar och Azure-filresurser. Eftersom SQL är ett program i en Azure-dator, måste Backup-tjänsten behörighet att komma åt programmet och hämta nödvändig information. För att göra det, måste du *”registrera'* Azure VM som innehåller SQL-program med ett Recovery services-valv. Du kan skydda SQL-databaser till den vault endast när du registrerar en SQL-VM med ett valv. Använd [registrera AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) PS-cmdleten för att registrera den virtuella datorn.
+För virtuella Azure-säkerhetskopieringar och Azure-filresurser kan säkerhets kopierings tjänsten ansluta till dessa Azure Resource Manager resurser och hämta relevant information. Eftersom SQL är ett program i en virtuell Azure-dator måste säkerhets kopierings tjänsten ha behörighet att komma åt programmet och hämta nödvändig information. För att göra det måste du *Registrera* den virtuella Azure-datorn som innehåller SQL-programmet med ett Recovery Services-valv. När du registrerar en virtuell SQL-dator med ett valv kan du bara skydda SQL-databaser till det valvet. Använd [register-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) PS-cmdlet för att registrera den virtuella datorn.
 
 ````powershell
  $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
 Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID -Force
 ````
 
-Kommandot returnerar en ”säkerhetskopiering behållare” för den här resursen och status 'registreras'
+Kommandot returnerar en "säkerhets kopierings behållare" för den här resursen och statusen är "registrerad"
 
 > [!NOTE]
-> Om du inte är parametern force, uppmanas användaren att bekräfta med texten ”vill du inaktivera skyddet för den här behållaren”. Ignorera den här texten och säg ”Y” för att bekräfta. Det här är ett känt problem och vi arbetar för att ta bort texten och behovet av parametern force
+> Om Force-parametern inte anges uppmanas användaren att bekräfta med en text. vill du inaktivera skyddet för den här behållaren. Ignorera den här texten och säg "Y" för att bekräfta. Detta är ett känt problem och vi arbetar för att ta bort texten och kravet för Force-parametern
 
 ### <a name="fetching-sql-dbs"></a>Hämtar SQL-databaser
 
-När registreringen är klar, kommer Backup-tjänsten att visa en lista över alla tillgängliga SQL-komponenter i den virtuella datorn. Visa alla SQL-komponenter än som ska säkerhetskopieras till valvet användningen [Get-AzRecoveryServicesBackupProtectableItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) PS-cmdlet
+När registreringen är färdig kommer säkerhets kopierings tjänsten att kunna visa alla tillgängliga SQL-komponenter på den virtuella datorn. Om du vill visa alla SQL-komponenter som ännu inte har säkerhetskopierats till det här valvet använder du [Get-AzRecoveryServicesBackupProtectableItem PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) cmdleten
 
 ````powershell
 Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -VaultId $targetVault.ID
 ````
 
-Utdata visar alla oskyddade SQL-komponenter för samtliga SQL virtuella datorer har registrerats i valvet med typen av konfigurationsobjekt och servernamn. Du kan filtrera till en viss SQL VM ytterligare genom att skicka den ”-behållaren” parametern eller Använd en kombination av ”namn” och ”servernamn, tillsammans med ItemType flagga för att komma fram till ett unikt SQL-objekt.
+Utdata visar alla oskyddade SQL-komponenter i alla virtuella SQL-datorer som är registrerade för det här valvet med objekt typ och ServerName. Du kan filtrera efter en viss virtuell SQL-dator genom att skicka parametern "-container" eller använda kombinationen av "name" och "ServerName" tillsammans med egenskapen ItemType för att komma till ett unikt SQL-objekt.
 
 ````powershell
 $SQLDB = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDataBase -VaultId $targetVault.ID -Name "<Item Name>" -ServerName "<Server Name>"
 ````
 
-### <a name="configuring-backup"></a>Konfigurera säkerhetskopiering
+### <a name="configuring-backup"></a>Konfigurerar säkerhets kopiering
 
-Nu när vi har nödvändiga SQL DB och principen med som den behöver säkerhetskopieras kan vi använda den [aktivera AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) cmdlet för att konfigurera säkerhetskopiering för den här SQL-databasen.
+Nu när vi har den SQL-databas som krävs och principen som den måste säkerhets kopie ras till kan vi använda cmdleten [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) för att konfigurera säkerhets kopiering för den här SQL-databasen.
 
 ````powershell
 Enable-AzRecoveryServicesBackupProtection -ProtectableItem $SQLDB -Policy $NewSQLPolicy
 ````
 
-Kommandot väntar tills konfigurera säkerhetskopieringen har slutförts och returnerar följande utdata.
+Kommandot väntar tills den konfigurerade säkerhets kopieringen har slutförts och returnerar följande utdata.
 
 ```powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -232,7 +231,7 @@ master           ConfigureBackup      Completed            3/18/2019 6:00:21 PM 
 
 ### <a name="fetching-new-sql-dbs"></a>Hämtar nya SQL-databaser
 
-När datorn har registrerats, hämtar Backup-tjänsten information om databaser som är sedan tillgängliga. Om användaren lägger till SQL DBs/SQL-instanser till den registrerade datorn senare, som krävs för att utlösa manuellt tjänsten backup för att utföra en ny förfrågan om du att hämta alla oskyddade databaser (inklusive de nyligen tillagda) igen. Använd den [initiera AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Initialize-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) PS-cmdleten på SQL-VM att utföra en ny förfrågan. Kommandot väntar tills åtgärden har slutförts. Senare använda den [Get-AzRecoveryServicesBackupProtectableItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) PS-cmdlet för att hämta listan över senaste oskyddade SQL-komponenter
+När datorn har registrerats kommer säkerhets kopierings tjänsten att hämta information om den databaser som är tillgänglig. Om användaren lägger till SQL-databaser/SQL-instanser till den registrerade datorn senare måste du manuellt aktivera säkerhets kopierings tjänsten för att kunna utföra en ny "förfrågan" för att hämta alla oskyddade databaser (inklusive de nyligen tillagda) igen. Använd cmdleten [Initialize-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Initialize-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) PS på den virtuella SQL-datorn för att utföra en ny förfrågan. Kommandot väntar tills åtgärden har slutförts. Senare använder du cmdleten [Get-AzRecoveryServicesBackupProtectableItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) PS för att hämta listan över senaste OSKYDDade SQL-komponenter
 
 ````powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
@@ -240,44 +239,44 @@ Initialize-AzRecoveryServicesBackupProtectableItem -Container $SQLContainer -Wor
 Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDataBase -VaultId $targetVault.ID
 ````
 
-När de relevanta objekt som ska skyddas hämtas, aktivera säkerhetskopiorna som finns beskrivet i de [ovan avsnittet](#configuring-backup).
-Om något inte vill manuellt identifiera nya databaser, de kan välja autoprotection enligt beskrivningen [nedan](#enable-autoprotection).
+När de relevanta skydds bara objekten har hämtats aktiverar du säkerhets kopieringarna enligt anvisningarna i [avsnittet ovan](#configuring-backup).
+Om det inte vill att nya databaser ska identifieras manuellt kan de välja automatisk skydd enligt beskrivningen [nedan](#enable-autoprotection).
 
-## <a name="enable-autoprotection"></a>Enable AutoProtection
+## <a name="enable-autoprotection"></a>Aktivera autoskydd
 
-En användare kan konfigurera säkerhetskopiering så att alla databaser som har lagts till i framtiden skyddas automatiskt med en viss princip. Om du vill aktivera autoprotection använder [aktivera AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) PS-cmdlet.
+En användare kan konfigurera säkerhets kopiering så att alla databaser som läggs till i framtiden skyddas automatiskt med en viss princip. Använd [Enable-AzRecoveryServicesBackupAutoProtection PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) cmdlet för att aktivera autoskydd.
 
-Eftersom instruktionen är att säkerhetskopiera alla framtida databaser och åtgärden utförs på en SQLInstance nivå.
+Eftersom instruktionen är att säkerhetskopiera alla framtida databaser görs åtgärden på en SQLInstance nivå.
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
 Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -Policy $targetPolicy -VaultId $targetvault.ID
 ```
 
-När autoprotection avsikten ges förfrågan in på datorn för att hämta nyligen har lagts till databaser sker som en schemalagd bakgrundsaktivitet var åttonde timme.
+När avsikten med autoskydd har angetts sker förfrågan om att hämta nyligen tillagda databaser i en schemalagd bakgrunds aktivitet var åttonde timme.
 
-## <a name="restore-sql-dbs"></a>Återställa SQL-databaser
+## <a name="restore-sql-dbs"></a>Återställ SQL-databaser
 
-Azure Backup kan återställa SQL Server-databaser som körs på virtuella Azure-datorer på följande sätt:
+Azure Backup kan återställa SQL Server databaser som körs på virtuella Azure-datorer på följande sätt:
 
-1. Återställa till ett visst datum eller tid (till andra) med hjälp av säkerhetskopieringar av transaktionsloggen. Azure Backup anger automatiskt den lämpliga fullständig differentiella säkerhetskopieringen och kedja av säkerhetskopior som krävs för att återställa baserat på den valda tid.
-2. Återställa en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt.
+1. Återställ till ett visst datum eller en angiven tidpunkt (till den andra) med hjälp av säkerhets kopior av transaktions loggen. Azure Backup identifierar automatiskt rätt fullständig differentiell säkerhets kopiering och kedja av logg säkerhets kopior som krävs för att återställa baserat på den valda tiden.
+2. Återställ en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
-Kontrollera kraven nämns [här](restore-sql-database-azure-vm.md#prerequisites) innan du återställer SQL-databaser.
+Kontrol lera de krav som anges [här](restore-sql-database-azure-vm.md#prerequisites) innan du återställer SQL-databaser.
 
-Först hämta den relevanta säkerhetskopierade SQL-databas med den [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem?view=azps-1.5.0) PS-cmdlet.
+Börja med att hämta relevant säkerhetskopierad SQL DB med hjälp av [Get-AzRecoveryServicesBackupItem PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem?view=azps-1.5.0) cmdleten.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
 ````
 
-### <a name="fetch-the-relevant-restore-time"></a>Hämta relevanta återställningstiden
+### <a name="fetch-the-relevant-restore-time"></a>Hämta relevant återställnings tid
 
-Som vi nämnt ovan kan användare kan återställa säkerhetskopierade SQL-databas till en fullständig/differentiell kopia **eller** till en logg i tidpunkt.
+Som beskrivs ovan kan användaren återställa den säkerhetskopierade SQL-databasen till en fullständig/differentiell kopia **eller** till en logg tidpunkt.
 
-#### <a name="fetch-distinct-recovery-points"></a>Hämta distinkta återställningspunkter
+#### <a name="fetch-distinct-recovery-points"></a>Hämta distinkta återställnings punkter
 
-Använd [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupRecoveryPoint?view=azps-1.5.0) att hämta återställningspunkter för olika (fullständig/differentiell) för en säkerhetskopierad SQL-databas.
+Använd [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupRecoveryPoint?view=azps-1.5.0) för att hämta distinkta (fullständiga/differentiella) återställnings punkter för en säkerhetskopierad SQL-databas.
 
 ````powershell
 $startDate = (Get-Date).AddDays(-7).ToUniversalTime()
@@ -294,21 +293,21 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ItemName           
 6660368097802      Full               3/18/2019 8:09:35 PM   MSSQLSERVER;model             AzureWorkload
 ````
 
-Använd ”RecoveryPointId”-filter eller en matris-filter för att hämta den relevanta återställningspunkten.
+Använd filtret ' RecoveryPointId ' eller ett mat ris filter för att hämta relevant återställnings punkt.
 
 ````powershell
 $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $targetVault.ID -RecoveryPointId "6660368097802"
 ````
 
-#### <a name="fetch-point-in-time-recovery-point"></a>Hämta point-in-time-återställningspunkt
+#### <a name="fetch-point-in-time-recovery-point"></a>Hämtnings punkt-tidpunkt för återställning
 
-Om du vill återställa databasen till en viss point-in-time, använda [Get-AzRecoveryServicesBackupRecoveryLogChain](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupRecoveryLogChain?view=azps-1.5.0) PS-cmdlet. Cmdleten returnerar en lista över datum som representerar start- och sluttider för en obruten, kontinuerlig loggkedjan för att säkerhetskopiera SQL-objekt. Den önskade punkt i tiden ska vara i intervallet.
+Om användaren vill återställa databasen till en viss tidpunkt, använder du [Get-AzRecoveryServicesBackupRecoveryLogChain PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupRecoveryLogChain?view=azps-1.5.0) cmdlet. Cmdleten returnerar en lista med datum som representerar start-och slut tider för en bruten, kontinuerlig logg kedja för det SQL-säkerhetskopierade objektet. Den önskade tidpunkten ska ligga inom det här intervallet.
 
 ```powershell
 Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
 ```
 
-Utdata ska vara detsamma som i följande exempel.
+Utdata ser ut ungefär som i följande exempel.
 
 ````powershell
 ItemName                       StartTime                      EndTime
@@ -316,63 +315,63 @@ ItemName                       StartTime                      EndTime
 SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32 PM
 ````
 
-Ovanstående utdata innebär att användaren kan återställa till valfri punkt i tiden mellan visas starttid och sluttid. Tiderna är i UTC. Skapa alla point-in-time i PS som ligger inom det intervallet som anges ovan.
+Ovanstående utdata innebär att användaren kan återställa till valfri tidpunkt mellan den visade start tiden och slut tiden. Tiderna är UTC. Konstruera alla tidpunkter i PS som ligger inom det intervall som visas ovan.
 
 > [!NOTE]
-> När en logg i tidpunkt valts för återställning, behöver användaren inte ange startpunkt d.v.s., fullständig säkerhetskopiering som databasen återställs från. Azure Backup-tjänsten tar hand om hela återställningsplanen, dvs. som fullständig säkerhetskopiering för att välja vad loggsäkerhetskopior för att tillämpa osv.
+> När en loggnings punkt aktive ras för återställning behöver användaren inte ange start punkten, d.v.s. den fullständiga säkerhets kopian som databasen återställs från. Azure Backups tjänsten tar hand om hela återställnings planen, t. ex. vilken fullständig säkerhets kopia du väljer, vilken logg säkerhets kopia som ska användas osv.
 
-### <a name="determine-recovery-configuration"></a>Fastställa återställningskonfiguration
+### <a name="determine-recovery-configuration"></a>Ange återställnings konfiguration
 
-Vid återställning av SQL-databas stöds följande scenarion för återställning.
+I händelse av SQL DB-återställning stöds följande återställnings scenarier.
 
-1. Åsidosätta säkerhetskopierade SQL-databas med data från en annan återställningspunkt - OriginalWorkloadRestore
-2. Återställa SQL-databas som en ny databas i samma SQL-instans - AlternateWorkloadRestore
-3. Återställa SQL-databas som en ny databas i en annan SQL-instans i en annan SQL VM - AlternateWorkloadRestore
+1. Åsidosätta den säkerhetskopierade SQL-databasen med data från en annan återställnings punkt – OriginalWorkloadRestore
+2. Återställa SQL DB som en ny databas i samma SQL-instans – AlternateWorkloadRestore
+3. Återställa SQL DB som en ny databas i en annan SQL-instans i en annan virtuell SQL-AlternateWorkloadRestore
 
-När du hämtar den relevanta återställningspunkten (distinkta eller logga point-in-time), Använd [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS-cmdlet för att hämta recovery config objekt enligt önskad återställningsplanen.
+När du har hämtat relevant återställnings punkt (distinkt eller logg tidpunkt) använder du [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) cmdlet: en för att hämta återställnings konfigurations objekt enligt önskad återställnings plan.
 
-#### <a name="original-workload-restore"></a>Den ursprungliga arbetsbelastning återställning
+#### <a name="original-workload-restore"></a>Återställning av ursprunglig arbets belastning
 
-Om du vill åsidosätta den säkerhetskopierade databasen med data från återställningspunkten bara ange flaggan rätt och relevanta återställningspunkten som visas i följande exempel.
+Om du vill åsidosätta den säkerhetskopierade databasen med data från återställnings punkten anger du bara rätt flagga och lämplig återställnings punkt enligt följande exempel.
 
-##### <a name="original-restore-with-distinct-recovery-point"></a>Ursprungliga återställning med distinkta återställningspunkt
+##### <a name="original-restore-with-distinct-recovery-point"></a>Ursprunglig återställning med en distinkt återställnings punkt
 
 ````powershell
 $OverwriteWithFullConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRP -OriginalWorkloadRestore -VaultId $targetVault.ID
 ````
 
-##### <a name="original-restore-with-log-point-in-time"></a>Ursprungliga återställning med log point-in-time
+##### <a name="original-restore-with-log-point-in-time"></a>Ursprunglig återställning med logg tidpunkt
 
 ```powershell
 $OverwriteWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $bkpItem  -OriginalWorkloadRestore -VaultId $targetVault.ID
 ```
 
-#### <a name="alternate-workload-restore"></a>Alternativa arbetsbelastning återställning
+#### <a name="alternate-workload-restore"></a>Alternativ återställning av arbets belastning
 
 > [!IMPORTANT]
-> En säkerhetskopierade SQL DB kan återställas som en ny databas till en annan SQLInstance endast i en Azure virtuell dator som har registrerats i valvet.
+> En säkerhetskopierad SQL-databas kan återställas som en ny databas till en annan SQLInstance, i en registrerad virtuell Azure-dator i det här valvet.
 
-Som beskrivs ovan, om målet SQLInstance ligger inom en annan virtuell Azure-dator, se till att det [har registrerats i valvet](#registering-the-sql-vm) och relevanta SQLInstance visas som ett objekt som kan skyddas.
+Som beskrivs ovan, om mål-SQLInstance ligger inom en annan virtuell Azure-dator, kontrollerar du att den är [registrerad på det här valvet](#registering-the-sql-vm) och att den relevanta SQLInstance visas som ett skydds objekt.
 
 ````powershell
 $TargetInstance = Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -ItemType SQLInstance -Name "<SQLInstance Name>" -ServerName "<SQL VM name>" -VaultId $targetVault.ID
 ````
 
-Sedan bara skicka relevant återställningspunkt, målinstansen av SQL med flaggan rätt som visas nedan.
+Sedan skickar du bara den relevanta återställnings punkten, mål-SQL-instansen med rätt flagga som visas nedan.
 
-##### <a name="alternate-restore-with-distinct-recovery-point"></a>Alternativa återställning med distinkta återställningspunkt
+##### <a name="alternate-restore-with-distinct-recovery-point"></a>Alternativ återställning med distinkt återställnings punkt
 
 ````powershell
 $AnotherInstanceWithFullConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRP -TargetItem $TargetInstance -AlternateWorkloadRestore -VaultId $targetVault.ID
 ````
 
-##### <a name="alternate-restore-with-log-point-in-time"></a>Alternativa återställning med log point-in-time
+##### <a name="alternate-restore-with-log-point-in-time"></a>Alternativ återställning med inloggnings tidpunkt
 
 ```powershell
 $AnotherInstanceWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $bkpItem -AlternateWorkloadRestore -VaultId $targetVault.ID
 ```
 
-Sista recovery point configuration-objekt som hämtats från [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS-cmdlet har all relevant information för återställning och är enligt nedan.
+Det sista konfigurations objekt för återställnings punkten som hämtades från [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS-cmdlet: en innehåller all relevant information för återställning och ser nedan.
 
 ````powershell
 TargetServer         : <SQL server name>
@@ -388,7 +387,7 @@ RecoveryPoint        : Microsoft.Azure.Commands.RecoveryServices.Backup.Cmdlets.
 PointInTime          : 1/1/0001 12:00:00 AM
 ````
 
-Du kan redigera de återställda DB namn, OverwriteWLIfpresent, NoRecoveryMode och targetPhysicalPath fält. Få mer information om målfilsökvägar enligt nedan.
+Du kan redigera fälten återställda DB-namn, OverwriteWLIfpresent, NoRecoveryMode och targetPhysicalPath. Få mer information om sökvägar till mål filen enligt nedan.
 
 ````powershell
 $AnotherInstanceWithFullConfig.targetPhysicalPath
@@ -399,7 +398,7 @@ Data        azurebackup1      F:\Data\azurebackup1.mdf    F:\Data\azurebackup1_1
 Log         azurebackup1_log  F:\Log\azurebackup1_log.ldf F:\Log\azurebackup1_log_1553001753.ldf
 ````
 
-Ange de relevanta PS-egenskaperna som strängvärden som visas nedan.
+Ange de relevanta PS-egenskaperna som sträng värden som visas nedan.
 
 ````powershell
 $AnotherInstanceWithFullConfig.OverwriteWLIfpresent = "Yes"
@@ -419,17 +418,17 @@ PointInTime          : 1/1/0001 12:00:00 AM
 ````
 
 > [!IMPORTANT]
-> Se till att det slutgiltiga återställningsmålet config-objektet har alla nödvändiga och rätt värden eftersom återställningen kommer att baseras på config-objektet.
+> Se till att det slutliga återställnings konfigurations objektet har alla nödvändiga och korrekta värden eftersom återställnings åtgärden baseras på konfigurationsobjektet konfiguration.
 
-### <a name="restore-with-relevant-configuration"></a>Återställa med relevanta konfiguration
+### <a name="restore-with-relevant-configuration"></a>Återställ med relevant konfiguration
 
-När konfigurationsobjekt relevanta återställning hämtas och verifierats, använda den [återställning AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Restore-AzRecoveryServicesBackupItem?view=azps-1.5.0) PS-cmdlet för att starta återställningen.
+När relevant återställnings konfigurations objekt har hämtats och verifierats använder du [AzRecoveryServicesBackupItem PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Restore-AzRecoveryServicesBackupItem?view=azps-1.5.0) cmdlet: en för att starta återställnings processen.
 
 ````powershell
 Restore-AzRecoveryServicesBackupItem -WLRecoveryConfig $AnotherInstanceWithLogConfig -VaultId $targetVault.ID
 ````
 
-Återställningsåtgärden returnerar ett jobb som ska spåras.
+Restore-åtgärden returnerar ett jobb som ska spåras.
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -437,11 +436,11 @@ WorkloadName     Operation            Status               StartTime            
 MSSQLSERVER/m... Restore              InProgress           3/17/2019 10:02:45 AM                                3274xg2b-e4fg-5952-89b4-8cb566gc1748
 ````
 
-## <a name="manage-sql-backups"></a>Hantera SQL-säkerhetskopior
+## <a name="manage-sql-backups"></a>Hantera SQL-säkerhetskopieringar
 
-### <a name="on-demand-backup"></a>Säkerhetskopiering på begäran
+### <a name="on-demand-backup"></a>Säkerhets kopiering på begäran
 
-När säkerhetskopieringen har aktiverats för en databas, användare kan även utlösa en säkerhetskopiering på begäran för DB med hjälp av [Backup AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Backup-AzRecoveryServicesBackupItem?view=azps-1.5.0) PS-cmdlet. I följande exempel utlöser en fullständig säkerhetskopiering för en SQL-databas med komprimering aktiverat och en fullständig säkerhetskopiering ska behållas i 60 dagar.
+När säkerhets kopiering har Aktiver ATS för en databas kan användaren även utlösa en säkerhets kopiering på begäran för databasen med [Backup-AzRecoveryServicesBackupItem PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Backup-AzRecoveryServicesBackupItem?view=azps-1.5.0) cmdlet. I följande exempel utlöses en fullständig säkerhets kopiering på en SQL DB med komprimering aktive rad och den fullständiga säkerhets kopieringen ska behållas i 60 dagar.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -449,7 +448,7 @@ $endDate = (Get-Date).AddDays(60).ToUniversalTime()
 Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ````
 
-Ad hoc backup-kommandot returnerar ett jobb som ska spåras.
+Kommandot adhoc backup returnerar ett jobb som ska spåras.
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -457,11 +456,11 @@ WorkloadName     Operation            Status               StartTime            
 MSSQLSERVER/m... Backup               InProgress           3/18/2019 8:41:27 PM                                2516bb1a-d3ef-4841-97a3-9ba455fb0637
 ````
 
-Om utdata är borttappad eller om du vill hämta den relevanta jobb-ID [hämta listan över jobb](#track-azure-backup-jobs) från Azure Backup-tjänsten och sedan spåra den och dess egenskaper.
+Om utdata förloras eller om du vill hämta det relevanta jobb-ID: t [hämtar du listan över jobb](#track-azure-backup-jobs) från Azure Backup tjänsten och spårar den och dess information.
 
-### <a name="change-policy-for-backup-items"></a>Ändra principen för säkerhetskopieringsobjekt
+### <a name="change-policy-for-backup-items"></a>Ändra princip för säkerhets kopierings objekt
 
-Användaren kan ändra befintlig princip eller ändra principen för det säkerhetskopierade objektet från Princip1 till Princip2. Om du vill växla principer för ett säkerhetskopierade objekt bara hämta relevanta principen och säkerhetskopiera objekt och Använd den [aktivera AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) med säkerhetskopieringsobjekt som parameter.
+Användaren kan antingen ändra den befintliga principen eller ändra principen för det säkerhetskopierade objektet från Policy1 till Policy2. Om du vill växla principer för ett säkerhetskopierat objekt, behöver du bara hämta den relevanta principen och säkerhetskopiera objektet och använda kommandot [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) med säkerhets kopierings objekt som parameter.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -469,7 +468,7 @@ $anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType MSSQL -BackupMa
 Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
 ````
 
-Kommandot väntar tills konfigurera säkerhetskopieringen har slutförts och returnerar följande utdata.
+Kommandot väntar tills den konfigurerade säkerhets kopieringen har slutförts och returnerar följande utdata.
 
 ```powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -477,23 +476,23 @@ WorkloadName     Operation            Status               StartTime            
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-### <a name="re-register-sql-vms"></a>Registrera SQL-datorer
+### <a name="re-register-sql-vms"></a>Registrera virtuella SQL-datorer på nytt
 
 > [!WARNING]
-> Se till att läsa följande [dokumentet](backup-sql-server-azure-troubleshoot.md#re-registration-failures) Fel Symptom och de orsaker innan du försöker omregistrering
+> Se till att läsa det här [dokumentet](backup-sql-server-azure-troubleshoot.md#re-registration-failures) för att förstå fel symptomen och orsakerna till detta innan du försöker registrera igen
 
-Hämta den relevanta behållaren för säkerhetskopian och skickar den till cmdleten register för att utlösa omregistrering av SQL-VM.
+Om du vill utlösa omregistreringen av den virtuella SQL-datorn hämtar du den relevanta säkerhets kopierings behållaren och skickar den till register-cmdleten.
 
 ````powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
 Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID
 ````
 
-### <a name="stop-protection"></a>Sluta skydda
+### <a name="stop-protection"></a>Stoppa skydd
 
-#### <a name="retain-data"></a>Behålla data
+#### <a name="retain-data"></a>Kvarhåll data
 
-Om användare vill sluta skydda, använder de den [inaktivera AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS-cmdlet. Detta förhindrar att de schemalagda säkerhetskopieringarna men data som säkerhetskopieras tills nu behålls alltid.
+Om användaren vill stoppa skyddet kan de använda cmdleten [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS. Detta stoppar schemalagda säkerhets kopieringar men data som säkerhets kopie ras tills nu kvarhålls för alltid.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -502,7 +501,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="delete-backup-data"></a>Ta bort säkerhetskopieringsdata
 
-För att ta bort säkerhetskopierade data lagrade i valvet, ska du lägga till ”-RemoveRecoveryPoints' flaggan/växlar du till den [inaktivera skydd kommandot](#retain-data).
+För att fullständigt ta bort lagrade säkerhets kopierings data i valvet lägger du bara till flaggan-RemoveRecoveryPoints eller växlar till [skydds kommandot Disable (inaktivera)](#retain-data).
 
 ````powershell
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
@@ -510,53 +509,53 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="disable-auto-protection"></a>Inaktivera automatiskt skydd
 
-Om autoprotection har konfigurerats på en SQLInstance användaren kan inaktivera den med hjälp av den [inaktivera AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) PS-cmdlet.
+Om Autoprotection konfigurerades på en SQLInstance kan användaren inaktivera den med hjälp av cmdleten [disable-AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) PS.
 
 ````powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
 Disable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetvault.ID
 ````
 
-#### <a name="unregister-sql-vm"></a>Avregistrera SQL VM
+#### <a name="unregister-sql-vm"></a>Avregistrera virtuell SQL-dator
 
-Om alla databaser på en SQLServer [är inte längre skyddade och inte säkerhetskopierade data finns](#delete-backup-data), användare kan avregistrera SQL VM från det här valvet. Användare kan bara skydda databaser till ett annat valv. Använd [avregistrera AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/Unregister-AzRecoveryServicesBackupContainer?view=azps-1.5.0) PS-cmdlet för att avregistrera SQL-VM.
+Om alla databaser av en SQL-Server [inte längre är skyddade och det inte finns några säkerhets kopierings data](#delete-backup-data), kan användaren avregistrera den virtuella SQL-datorn från det här valvet. Användaren kan bara skydda databaser till ett annat valv. Använd [unregister-AzRecoveryServicesBackupContainer PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Unregister-AzRecoveryServicesBackupContainer?view=azps-1.5.0) cmdlet för att avregistrera den virtuella SQL-datorn.
 
 ````powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
  Unregister-AzRecoveryServicesBackupContainer -Container $SQLContainer -VaultId $targetvault.ID
 ````
 
-### <a name="track-azure-backup-jobs"></a>Spåra Azure säkerhetskopieringsjobb
+### <a name="track-azure-backup-jobs"></a>Spåra Azure Backup jobb
 
-Det är viktigt att notera att Azure Backup endast spårar användaren utlöses jobb i SQL-säkerhetskopiering. Schemalagda säkerhetskopieringar (inklusive säkerhetskopior) visas inte i portal/powershell. Men om alla schemalagda jobb misslyckas, en [avisering om bandsäkerhetskopiering](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) genereras och visas i portalen. [Använda Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) att spåra alla schemalagda uppgifter och annan relevant information.
+Det är viktigt att Observera att Azure Backup bara spårar användare som har utlöst jobb i SQL-säkerhetskopiering. Schemalagda säkerhets kopieringar (inklusive logg säkerhets kopior) syns inte i portalen/PowerShell. Men om det inte går att utföra schemalagda jobb genereras en [säkerhets kopierings avisering](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) och visas i portalen. [Använd Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) för att spåra alla schemalagda jobb och annan relevant information.
 
-Användare kan spåra ad hoc/användare som utlöste åtgärder med jobb-ID som returneras i de [utdata](#on-demand-backup) asynkrona jobb som säkerhetskopiering. Använd [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS-cmdlet för att spåra jobb och dess egenskaper.
+Användare kan spåra adhoc/User-utlöst åtgärder med den JobID som returneras i [utdata](#on-demand-backup) från asynkrona jobb som säkerhets kopiering. Använd [Get-AzRecoveryServicesBackupJobDetail PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) cmdlet: en för att spåra jobbet och dess information.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID
 ````
 
-Hämta listan över adhoc-jobb och deras status från Azure Backup-tjänsten med [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS-cmdlet. I följande exempel returneras alla pågående SQL-jobb.
+Använd [Get-AzRecoveryServicesBackupJob PS-](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) cmdleten om du vill hämta en lista över adhoc-jobb och deras status från Azure Backup-tjänsten. I följande exempel returneras alla pågående SQL-jobb.
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWorkload
 ```
 
-Om du vill avbryta ett pågående jobb, Använd den [Stop-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Stop-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS-cmdlet.
+Om du vill avbryta ett pågående jobb använder du cmdleten [Stop-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Stop-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS.
 
-## <a name="managing-sql-always-on-availability-groups"></a>Hantera SQL alltid på Tillgänglighetsgrupper
+## <a name="managing-sql-always-on-availability-groups"></a>Hantera tillgänglighets grupper för SQL Always on
 
-Se till att för SQL Always On-Tillgänglighetsgrupper [registrera alla noder](#registering-the-sql-vm) för tillgänglighetsgruppen (AG). När registreringen är klar för alla noder som kan skapas logiskt ett gruppobjekt för SQL-tillgänglighet under objekt som ska skyddas. Databaserna under SQL AG visas som ”SQLDatabase”. Noderna visas som fristående instanser och standard SQL-databaser därunder listas som SQL-databaser.
+För SQL Always on-tillgänglighetsgrupper, se till att [registrera alla noder](#registering-the-sql-vm) i tillgänglighets gruppen (AG). När registreringen är färdig för alla noder skapas ett SQL-tillgänglighetsgrupper för tillgänglighets gruppen logiskt under objekt som kan skyddas. Databaserna under SQL-AG visas som "SQLDatabase". Noderna visas som fristående instanser och standard-SQL-databaserna under dem visas även som SQL-databaser.
 
-Låt oss anta en SQL-Tillgänglighetsgrupp har två noder: ”sql-server-0” och ”sql-server-1' och 1 SQL AG DB. När båda dessa noder har registrerats, om användaren [visar en lista över objekt som ska skyddas](#fetching-sql-dbs), visas en lista med följande komponenter
+Anta till exempel att en SQL AG har två noder: SQL-Server-0 och SQL-Server-1 och 1 SQL AG DB. När båda dessa noder är registrerade, om användaren [visar en lista över de objekt](#fetching-sql-dbs)som kan skyddas, visas följande komponenter
 
-1. En SQL AG-objekt – som kan skyddas objekttyp som SQLAvailabilityGroup
-2. En AG SQL DB - skyddsobjekt typ som SQLDatabase
-3. SQL-server-0 - skyddsobjekt skriver som SQLInstance
-4. SQL-server-1 - skyddsobjekt skriver som SQLInstance
-5. Alla standard SQL-databaser (master, model, msdb) under sql-server-0 - skyddsobjekt skriver som SQLDatabase
-6. Alla standard SQL-databaser (master, model, msdb) under sql-server-1 - skyddsobjekt skriver som SQLDatabase
+1. En SQL AG-objekts skydds bara objekt typ som SQLAvailabilityGroup
+2. En SQL AG DB-skyddad objekt typ som SQLDatabase
+3. SQL-Server-0-skydds bara objekt typ som SQLInstance
+4. SQL-Server-1-skydds bara objekt typ som SQLInstance
+5. Alla standard-SQL-databaser (Master, Model, msdb) under SQL-Server-0-skydds bara objekt typ som SQLDatabase
+6. Alla standard-SQL-databaser (Master, Model, msdb) under SQL-Server-1-skydds bara objekt typ som SQLDatabase
 
-SQL-server-0, sql-server-1 också visas som ”AzureVMAppContainer” när [säkerhetskopiering behållare visas](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
+SQL-Server-0, SQL-Server-1 visas också som "AzureVMAppContainer" när [säkerhets kopierings behållarna visas](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Hämta bara de relevanta SQL-databasen till [Aktivera säkerhetskopiering](#configuring-backup) och [ad hoc-säkerhetskopiering](#on-demand-backup) och [återställa PS-cmdletar](#restore-sql-dbs) är identiska.
+Hämta bara den relevanta SQL-databasen för att [Aktivera säkerhets](#configuring-backup) kopiering och [adhoc](#on-demand-backup) - [cmdletarna](#restore-sql-dbs) är identiska.

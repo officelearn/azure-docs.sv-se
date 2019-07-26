@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c301bb1eabf77184a292a84e2de750662a167ad
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 05596365dfa011675f38beda2435fdda1a53a5a3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276695"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488867"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Skriv bords app som anropar webb-API: er – hämta en token
 
@@ -173,13 +173,13 @@ Om du vill logga in en domän användare på en domän eller en Azure AD-anslute
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-### <a name="constraints"></a>Villkor
+### <a name="constraints"></a>Begränsningar
 
 - AcquireTokenByIntegratedWindowsAuth (IWA) är bara användbart för **federerade** användare, det vill säga användare som skapats i en Active Directory och som backas upp av Azure Active Directory. Användare som skapats direkt i AAD, utan AD- **hanterade** användare, kan inte använda det här autentiseringsschemat. Den här begränsningen påverkar inte flödet av användar namn/lösen ord.
 - IWA är avsedd för appar som är skrivna för .NET Framework, .NET Core och UWP-plattformar
 - IWA kringgår inte MFA (Multi Factor Authentication). Om MFA konfigureras kan IWA Miss förväntas om en MFA-utmaning krävs, eftersom MFA kräver användar interaktion.
   > [!NOTE]
-  > Det här är en knepig. IWA är icke-interaktivt, men 2FA kräver användar-interaktivitet. Du styr inte när identitetsprovider begär 2FA som ska utföras. klient administratören gör. Från våra observationer krävs 2FA när du loggar in från ett annat land, om du inte är ansluten via VPN till ett företags nätverk och ibland även när du är ansluten via VPN. Vänta inte en deterministisk uppsättning regler, Azure Active Directory använder AI för att kontinuerligt lära sig om 2FA krävs. Du bör återgå till en användar prompt (interaktiv autentisering eller enhets kod flöde) om IWA Miss lyckas.
+  > Det här är en knepig. IWA är icke-interaktivt, men MFA kräver användar-interaktivitet. Du styr inte när identitets leverantören begär MFA för att utföras, klient organisationens administratör gör. Från våra observationer krävs MFA när du loggar in från ett annat land, om du inte är ansluten via VPN till ett företags nätverk och ibland även när du är ansluten via VPN. Vänta inte en deterministisk uppsättning regler, Azure Active Directory använder AI för att kontinuerligt lära sig om MFA krävs. Du bör återgå till en användar prompt (interaktiv autentisering eller enhets kod flöde) om IWA Miss lyckas.
 
 - Den myndighet som skickades `PublicClientApplicationBuilder` i måste vara:
   - klient-Ed (av formuläret `https://login.microsoftonline.com/{tenant}/` där `tenant` är antingen det GUID som representerar klient-ID: t eller en domän som är associerad med klienten.
@@ -301,7 +301,7 @@ Det här flödet **rekommenderas inte** eftersom ditt program som ber användare
 > - användare som behöver göra MFA kan inte logga in (eftersom det inte finns någon interaktion)
 > - Användare kan inte utföra enkel inloggning
 
-### <a name="constraints"></a>Villkor
+### <a name="constraints"></a>Begränsningar
 
 Följande begränsningar gäller också:
 
@@ -644,7 +644,7 @@ Om du inte gör något extra i .NET Framework-och .NET Core varar token i minnet
 Klasser och gränssnitt som ingår i cachelagring av token cache är följande typer:
 
 - ``ITokenCache``, som definierar händelser för att prenumerera på begär Anden om cachelagring av token, samt metoder för att serialisera eller deserialisera cachen i olika format (ADAL v 3.0, MSAL 2. x och MSAL 3. x = ADAL v 5.0)
-- ``TokenCacheCallback``är ett återanrop som skickas till händelserna så att du kan hantera serialiseringen. De anropas med argument av typen ``TokenCacheNotificationArgs``.
+- ``TokenCacheCallback``är ett återanrop som skickas till händelserna så att du kan hantera serialiseringen. de anropas med argument av typen ``TokenCacheNotificationArgs``.
 - ``TokenCacheNotificationArgs``tillhandahåller ``ClientId`` endast programmet och en referens till den användare som token är tillgänglig för
 
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)

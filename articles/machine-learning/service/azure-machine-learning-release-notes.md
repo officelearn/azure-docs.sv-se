@@ -6,24 +6,115 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: larryfr
-author: Blackmist
-ms.date: 05/14/2019
+ms.author: jmartens
+author: j-martens
+ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2568d2213d15faf66ecf606e56ea6b82bacafc3e
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: f39c914bce3fbc47775a76f1c3a1fb64de560505
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233673"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498342"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
-I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En fullständig beskrivning av varje SDK finns i referens dokument för:
-+ Azure Machine Learning huvud- [ **SDK för python**](https://aka.ms/aml-sdk)
-+ Azure Machine Learning [ **data prep SDK**](https://aka.ms/data-prep-sdk)
+I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://aka.ms/aml-sdk) -referens.
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+## <a name="2019-07-23"></a>2019-07-23
+
+### <a name="azure-machine-learning-sdk-for-python-v1053"></a>Azure Machine Learning SDK för python v-1.0.53
+
++ **Nya funktioner**
+    + Automatiserad Machine Learning stöder nu utbildning av ONNX-modeller på fjärrdatorns mål
+  + Azure Machine Learning kan nu återuppta utbildningen från en tidigare körnings-, kontroll punkts-eller modell fil.
+    + Lär dig hur du [använder uppskattningar för att återuppta inlärningen från en tidigare körning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+
++ **Fel korrigeringar och förbättringar**
+  + **automl-client-core-nativeclient**
+    + Åtgärda felet om återfick kolumn typer efter transformeringen (fel länkad); 
+    + Tillåt att y_query är en objekt typ som inte innehåller några (s) i början (#459519).
+  + **azure-cli-ml**
+    + CLI-kommandon "modell distribution" och "tjänst uppdatering" accepterar nu parametrar, konfigurationsfiler eller en kombination av de två. Parametrar har företräde framför attribut i filer.
+    + Modell beskrivningen kan nu uppdateras efter registreringen
+  + **azureml-automl-Core**
+    + Uppdatera NimbusML-beroendet till 1.2.0-versionen (aktuell senaste).
+    + Lägga till stöd för Nimbus ML-uppskattningar & pipelines som ska användas inom AutoML-uppskattningar.
+    + Åtgärda ett fel i urvals proceduren för ensemblen som inte nödvändigt vis växer till den resulterande ensemblen även om poängen var konstant.
+    + Aktivera åter användning av vissa featurizations över ka-delningar för prognos uppgifter. Detta påskyndar körningen av installations programmet genom ungefär en faktor på n_cross_validations för dyra featurizations som lags och rullande Windows.
+    + Åtgärda ett problem om tiden ligger utanför Pandas-tidsintervallet som stöds. Vi höjer nu en DataException om tiden är mindre än PD. Timestamp. min eller större än PD. Timestamp. Max
+    + Med prognostisering kan du nu använda olika frekvenser i träna och test uppsättningar om de kan justeras. Till exempel kan "kvartals vis som börjar i januari" och "kvartals vis start i oktober" justeras.
+    + Egenskapen "parametrar" har lagts till i TimeSeriesTransformer.
+    + Ta bort gamla undantags klasser.
+    + I prognos uppgifter accepterar- `target_lags` parametern nu ett heltals värde eller en lista med heltal. Om heltalet angavs skapas bara en fördröjning. Om en lista anges kommer de unika värdena för lags att tas. target_lags = [1, 2, 2, 4] kommer att skapa lags av en, 2 och 4 perioder.
+    + Åtgärda felet om att förlora kolumn typer efter transformeringen (fel länkad);
+    + I `model.forecast(X, y_query)`, kan y_query vara en objekt typ som inte innehåller några (s) i början (#459519).
+    + Lägg till förväntade värden i automl-utdata
+  + **azureml-contrib-datadrift**
+    +  Förbättringar av exempel på bärbara datorer, inklusive växla till azureml-OpenData uppsättningar i stället för azureml-contrib-OpenData uppsättningar och prestanda förbättringar när data berikas
+  + **azureml-contrib-förklara-modell**
+    + Argument för fasta omvandlingar för LIME-förklaringar för rå funktions prioritet i azureml-contrib-Restore-Model-paket
+    + tillagda segment till bild förklaringar i bild förklaring för AzureML-contrib-deklarning-modell paket
+    + Lägg till scipy-sparse-stöd för LimeExplainer
+    + Lägg till batch_size i härmar förklaring när include_local = falskt för att strömma globala förklaringar i batchar för att förbättra körnings tiden för DecisionTreeExplainableModel
+  + **azureml-contrib-featureengineering**
+    + Korrigering för att anropa set_featurizer_timeseries_params (): förutsägelse värde typ ändring och null-kontroll – Lägg till antecknings bok för timeseries upplärda
+    + Uppdatera NimbusML-beroendet till 1.2.0-versionen (aktuell senaste).
+  + **azureml-core**
+    + Har lagt till möjligheten att bifoga DBFS-datalager i AzureML CLI 
+    + Korrigerade felet med data lager uppladdning där en tom mapp skapas om `target_path` den startas med`/`
+    + Fast deepcopy-problem i ServicePrincipalAuthentication.
+    + Har lagt till kommandona "AZ ml Environment show" och "AZ ml Environment List" i CLI.
+    + Miljöer har nu stöd för att ange en base_dockerfile som ett alternativ till redan skapade base_image.
+    + Den oanvända RunConfiguration-inställningen auto_prepare_environment har marker ATS som föråldrad.
+    + Modell beskrivningen kan nu uppdateras efter registreringen
+    + Bugfix: Modell och avbildning ta bort nu innehåller mer information om hur du hämtar överordnade objekt som är beroende av dem om borttagningen Miss lyckas på grund av ett överordnat beroende.
+    + Fast bugg som skrev tom varaktighet för distributioner som inträffar när du skapar en arbets yta för vissa miljöer.
+    + Förbättrad arbets yta skapa fel undantag. Så att användarna inte ser "det går inte att skapa arbets ytan. Det gick inte att hitta... " som meddelandet och se i stället det faktiska fel meddelandet.
+    + Lägg till stöd för token-autentisering i AKS-webbtjänster. 
+    + Lägg `get_token()` till metod `Webservice` till objekt.
+    + CLI-stöd har lagts till för hantering av Machine Learning-datauppsättningar.
+    + `Datastore.register_azure_blob_container`Om du vill kan du `blob_cache_timeout` använda ett värde (i sekunder) som konfigurerar blobfuses monterings parametrar för att aktivera förfallo tid för cacheminnet för det här data lagret. Standardvärdet är ingen tids gräns, d.v.s. När en BLOB läses, kommer den att stanna kvar i det lokala cacheminnet tills jobbet är klart. De flesta jobb föredrar den här inställningen, men vissa jobb behöver läsa mer data från en stor data uppsättning än vad som får plats på deras noder. För dessa jobb kan du justera den här parametern för att lyckas. Var försiktig när du justerar den här parametern: om du ställer in värdet för lågt kan det leda till dåliga prestanda, eftersom data som används i en epok går ut innan de används igen. Det innebär att alla läsningar görs från Blob Storage (dvs. nätverket) i stället för det lokala cacheminnet, vilket påverkar inlärnings tiderna negativt.
+    + Modell beskrivningen kan nu uppdateras korrekt efter registreringen
+    + Modell-och bild borttagning innehåller nu mer information om överordnade objekt som är beroende av dem och som gör att borttagningen Miss fungerar
+    + Förbättra resursutnyttjande för fjärrkörningar med hjälp av azureml. mlflow.
+  + **azureml-dataprep**
+    + Data Ströms objekt kan nu itereras över, vilket genererar en sekvens med poster.
+    + Lägg `_summarize_each` till som experimentell funktion `azureml.dataprep.Dataflow`i.
+  + **azureml-explain-model**
+    + Argument för fasta omvandlingar för LIME-förklaringar för rå funktions prioritet i azureml-contrib-Restore-Model-paket
+    + Lägg till scipy-sparse-stöd för LimeExplainer
+    + lade till Shap linjära förklaringar, samt en annan nivå till förklaring av tabell för att förklara linjära modeller
+    + för att efterlikna förklaringar i förklara modell bibliotek, fast fel när include_local = falskt för sparse-indata
+    + Lägg till förväntade värden i automl-utdata
+    + åtgärds prioritet för fast permutation när omvandlings argument har angetts för att hämta funktioner för RAW-funktioner
+    + Lägg till batch_size i härmar förklaring när include_local = falskt för att strömma globala förklaringar i batchar för att förbättra körnings tiden för DecisionTreeExplainableModel
+    + för modell för förklarande av modeller är fasta blackbox-förklaringar där Pandas dataframe Indatatyp krävs för förutsägelse
+    + Ett fel har åtgärd `explanation.expected_values` ATS där skulle ibland returnera ett flyttal i stället för en lista med ett flyttal.
+  + **azureml-mlflow**
+    + Förbättra prestanda för mlflow. Set _experiment (experiment_name)
+    + Åtgärda fel som används av InteractiveLoginAuthentication för mlflow-tracking_uri
+    + Förbättra resursutnyttjande för fjärrkörningar med hjälp av azureml. mlflow.
+    + Förbättra dokumentationen för azureml-mlflow-paketet
+    + Korrigerings fel där mlflow. log _artifacts ("my_dir") sparar artefakter under "my_dir/< artefakt sökvägar >" i stället för "< artefakt-sökvägar >"
+  + **azureml-opendatasets**
+    + Fäst pyarrow på OpenData uppsättningar till gamla versioner (< 0.14.0) på grund av ett minnes problem som nyligen har introducerats där.
+    +  Flytta azureml-contrib-opendataset till azureml-opendataset. – Tillåt att öppna data uppsättnings klasser registreras på AML-arbetsytan och utnyttja AML-datauppsättnings funktionerna sömlöst. -Förbättra NoaaIsdWeather-prestanda i en icke-SPARK-version avsevärt.
+  + **azureml-pipeline-steps**
+    + DBFS data lager stöds nu för indata och utdata i DatabricksStep.
+    + Uppdaterad dokumentation för Azure Batch steg med avseende på indata/utdata.
+    + I AzureBatchStep ändrades standardvärdet för *delete_batch_job_after_finish* till *True*.
+  + **azureml – telemetri**
+    +  Flytta azureml-contrib-opendataset till azureml-opendataset. – Tillåt att öppna data uppsättnings klasser registreras på AML-arbetsytan och utnyttja AML-datauppsättnings funktionerna sömlöst. -Förbättra NoaaIsdWeather-prestanda i en icke-SPARK-version avsevärt.
+  + **azureml-train-automl**
+    + Uppdaterad dokumentation på get_output som visar den faktiska retur typen och ger ytterligare information om hur du hämtar nyckel egenskaper.
+    + Uppdatera NimbusML-beroendet till 1.2.0-versionen (aktuell senaste).
+    + Lägg till förväntade värden i automl-utdata
+  + **azureml-train-core**
+    + Strängar har nu accepterats som beräknings mål för automatisk justering av den automatiska parametern
+    + Den oanvända RunConfiguration-inställningen auto_prepare_environment har marker ATS som föråldrad.
 
 ## <a name="2019-07-09"></a>2019-07-09
 
@@ -323,7 +414,7 @@ Azure Machine Learning SDK för python v-1.0.30 har släppts.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning data prep SDK v 1.1.2
 
-Obs! Data prepare för prepare installation och `numpy` `pandas` paket kommer inte längre att installeras. Se [uppdaterade installations anvisningar](https://aka.ms/aml-data-prep-installation).
+Anteckning: Data prepare för prepare installation och `numpy` `pandas` paket kommer inte längre att installeras. Se [uppdaterade installations anvisningar](https://aka.ms/aml-data-prep-installation).
 
 + **Nya funktioner**
   + Nu kan du använda Pivot-transformeringen.
@@ -504,11 +595,11 @@ Obs! Data prepare för prepare installation och `numpy` `pandas` paket kommer in
 + Ny dra och släpp diagram upplevelse för rapporter. Användare kan dra en kolumn eller ett attribut från det till diagram området där systemet automatiskt väljer en lämplig diagram typ för användaren baserat på typen av data. Användare kan ändra diagram typ till andra tillämpliga typer eller lägga till ytterligare attribut.
 
     Diagram typer som stöds:
-    - Linje diagram
+    - Linjediagram
     - Histogram
     - Liggande stapeldiagram
     - Låddiagram
-    - Punkt diagram
+    - Punktdiagram
     - Bubbeldiagram
 + Portalen genererar nu dynamiskt rapporter för experiment. När en användare skickar en körning till ett experiment genereras en rapport automatiskt med de inloggade måtten och graferna för att tillåta jämförelse mellan olika körningar. 
 
@@ -622,7 +713,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 + Visa Azure Machine Learning beräknings kluster status i real tid.
 + Virtual network-stöd har lagts till för att skapa en beräkning av Azure Machine Learning och Azure Kubernetes Service.
 + Kör de publicerade pipelinerna igen med befintliga parametrar.
-+ Ny [automatiserad machine learning diagram](how-to-track-experiments.md#auto) för klassificering modeller (lift, vinster, kalibrering, funktionen vikten diagram med modellen explainability) och regressionsmodeller (restbelopp och vikten funktionsdiagram med modellen explainability). 
++ Ny [automatiserad machine learning diagram](how-to-understand-automated-ml.md) för klassificering modeller (lift, vinster, kalibrering, funktionen vikten diagram med modellen explainability) och regressionsmodeller (restbelopp och vikten funktionsdiagram med modellen explainability). 
 + Pipelines kan ses i Azure-portalen
 
 

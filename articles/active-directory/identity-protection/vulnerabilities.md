@@ -1,63 +1,63 @@
 ---
-title: Sårbarheter som identifieras av Azure Active Directory Identity Protection
-description: Översikt över sårbarheter som identifieras av Azure Active Directory Identity Protection.
+title: Sårbarheter som upptäckts av Azure Active Directory Identity Protection
+description: Översikt över de sårbarheter som upptäckts av Azure Active Directory Identity Protection.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b481030c5d2d8e7d5e7061cdf256a202e08d6cbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 446e2ef33b714afe06f24f3dbfc46bc6a42790b8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108792"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335146"
 ---
-# <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Sårbarheter som identifieras av Azure Active Directory Identity Protection
+# <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Sårbarheter som upptäckts av Azure Active Directory Identity Protection
 
-Sårbarheter är svagheter i en miljö som kan utnyttjas av en angripare. Vi rekommenderar att administratörer åtgärda dessa sårbarheter för att förbättra säkerhetspositionen för organisationen.
+Sårbarheter är svagheter i en miljö som kan utnyttjas av en angripare. Vi rekommenderar administratörer att lösa dessa sårbarheter för att förbättra organisationens säkerhets position.
 
-![Sårbarheter som rapporterats av Identity Protection](./media/vulnerabilities/identity-protection-vulnerabilities.png)
+![Sårbarheter rapporterade av identitets skydd](./media/vulnerabilities/identity-protection-vulnerabilities.png)
 
-I följande avsnitt ger dig en översikt över sårbarheter som rapporterats av Identity Protection.
+I följande avsnitt får du en översikt över de sårbarheter som rapporteras av identitets skyddet.
 
-## <a name="multi-factor-authentication-registration-not-configured"></a>Registrering för Multifaktorautentisering inte har konfigurerats
+## <a name="multi-factor-authentication-registration-not-configured"></a>Multi-Factor Authentication-registrering har inte kon figurer ATS
 
-Denna säkerhetsrisk kan utvärdera distributionen av Azure Multi-Factor Authentication i din organisation.
+Den här säkerhets risken hjälper till att utvärdera distributionen av Azure Multi-Factor Authentication i din organisation.
 
-Azure Multi-Factor Authentication ger ett andra säkerhetslager för autentisering av användare. Det hjälper dig att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål för en enkel inloggningsprocess. Azure Multi-Factor Authentication ger lättanvända verifieringsalternativ som:
+Azure Multi-Factor Authentication tillhandahåller ett andra säkerhets lager för användarautentisering. Det hjälper till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Med Azure Multi-Factor Authentication kan du enkelt använda verifierings alternativ som:
 
 * Telefonsamtal
 * Textmeddelande
-* Meddelanden via mobilapp
-* OTP-Verifieringskod
+* Mobilapp-meddelande
+* Verifiera kod för eng ång slö sen ord
 
-Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användarinloggningar. Multifaktorautentisering spelar en viktig roll i riskbaserad villkorlig åtkomst principer som är tillgängliga via Identity Protection.
+Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användar inloggningar. Multi-Factor Authentication spelar en viktig roll i riskfyllda villkorliga åtkomst principer som är tillgängliga via identitets skydd.
 
 Mer information finns i [Vad är Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Ohanterade molnappar
 
-Denna säkerhetsrisk kan du identifiera ohanterade molnappar i din organisation.
+Denna sårbarhet hjälper dig att identifiera ohanterade molnappar i din organisation.
 
-IT-personal är ofta ovetande om alla molnprogram i deras organisation. Det är enkelt att se varför administratörer skulle är orolig för obehörig åtkomst till företagsdata, möjliga dataläckage och andra säkerhetsrisker.
+IT-personalen är ofta inte medvetna om alla moln program i organisationen. Det är enkelt att se varför administratörer har problem med obehörig åtkomst till företags data, möjliga data läckage och andra säkerhets risker.
 
-Vi rekommenderar att du distribuerar Cloud Discovery att identifiera ohanterade molnprogram och hantera dessa program med Azure Active Directory.
+Vi rekommenderar att du distribuerar Cloud Discovery för att identifiera ohanterade moln program och hantera dessa program med hjälp av Azure Active Directory.
 
 Mer information finns i [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Säkerhetsaviseringar från Privileged Identity Management
 
-Denna säkerhetsrisk kan du identifiera och Lös aviseringar om Privilegierade identiteter i din organisation.  
+Denna sårbarhet hjälper dig att identifiera och lösa aviseringar om privilegierade identiteter i din organisation.  
 
-Om du vill att användarna ska utföra Privilegierade åtgärder, organisationer behöver ge användare tillfälligt eller permanent privilegierad åtkomst i Azure AD resurser för Azure eller Office 365 eller andra SaaS-appar. Var och en av dessa Privilegierade användare ökar risken för angrepp på din organisation. Denna säkerhetsrisk kan du identifiera användare med onödiga privilegierad åtkomst och vidta lämpliga åtgärder för att minska eller eliminera risken de utgör.
+För att göra det möjligt för användare att utföra privilegierade åtgärder, behöver organisationer bevilja användare temporär eller permanent privilegie rad åtkomst i Azure AD-, Azure-eller Office 365-resurser eller andra SaaS-appar. Var och en av dessa privilegierade användare ökar angrepps ytan i din organisation. Med den här säkerhets risken kan du identifiera användare med onödig privilegie rad åtkomst och vidta lämpliga åtgärder för att minska eller eliminera risken de utgör.
 
-Vi rekommenderar organisationer att använda Azure AD Privileged Identity Management för att hantera, kontrollera och övervaka Privilegierade identiteter i Azure AD, samt andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.
+Vi rekommenderar organisationer att använda Azure AD Privileged Identity Management för att hantera, kontrol lera och övervaka privilegierade identiteter i Azure AD samt andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.
 
 Mer information finns i [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 

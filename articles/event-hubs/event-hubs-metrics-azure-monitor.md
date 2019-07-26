@@ -1,5 +1,5 @@
 ---
-title: Mått i Azure Monitor - Azure Event Hubs | Microsoft Docs
+title: Mått i Azure Monitor Azure-Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du använder Azure-övervakning för att övervaka Azure Event Hubs
 services: event-hubs
 documentationcenter: .NET
@@ -15,14 +15,14 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: b5df69e9670c01b576afe242b39532acb1e1c526
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4caa9e78d72df37bec2351fa86ae6e60630d6047
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685910"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370762"
 ---
-# <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Event Hubs-mått i Azure Monitor
+# <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Event Hubs mått i Azure Monitor
 
 Event Hubs mått ger dig tillståndet för Event Hubs-resurser i Azure-prenumerationen. Med en omfattande uppsättning mätvärden, kan du utvärdera den övergripande hälsan för händelsehubbar inte bara på namnområdesnivå, utan även på enhetsnivå. Statistiken kan vara viktigt eftersom de hjälper dig att övervaka status för dina event hubs. Mått kan också hjälpa till att felsöka problem med grundorsaken utan att behöva kontakta Azure-supporten.
 
@@ -40,7 +40,7 @@ Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com
 
 ![Visa lyckad mått][1]
 
-Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått**. Välj event hub för att visa mått som filtrerats till i omfånget för event hub, och klicka sedan på **mått**.
+Du kan också komma åt mått direkt via namnområdet. Det gör du genom att välja ditt namn område och sedan klicka på **mått**. Om du vill visa mått som filtrerats till händelse hubbens omfattning väljer du händelsehubben och klickar sedan på **mått**.
 
 För mätvärden som stöd för dimensioner, måste du filtrera med önskad dimension-värde som visas i följande exempel:
 
@@ -48,7 +48,7 @@ För mätvärden som stöd för dimensioner, måste du filtrera med önskad dime
 
 ## <a name="billing"></a>Fakturering
 
-Med hjälp av mätvärden i Azure Monitor är för närvarande kostnadsfritt. Om du använder ytterligare lösningar som mata in måttdata kan debiteras du dock av dessa lösningar. Exempelvis debiteras du per Azure Storage om du arkiverar måttdata till ett Azure Storage-konto. Du debiteras också av Azure om du strömma måttdata till Azure Monitor-loggar för avancerad analys.
+Användning av mått i Azure Monitor är för närvarande kostnads fritt. Om du använder ytterligare lösningar som mata in måttdata kan debiteras du dock av dessa lösningar. Exempelvis debiteras du per Azure Storage om du arkiverar måttdata till ett Azure Storage-konto. Du debiteras också av Azure om du strömmar mått data till Azure Monitor loggar för avancerad analys.
 
 Följande mått ger dig en översikt över hälsotillståndet för din tjänst. 
 
@@ -63,34 +63,34 @@ Räknar antalet förfrågningar om data och hantering av åtgärder.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| Inkommande förfrågningar (förhandsversion) | Antal begäranden som görs till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName |
-| Lyckade begäranden (förhandsversion)   | Antal lyckade begäranden som görs till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName |
-| Fel (förhandsversion) | Antal begäranden som inte bearbetas på grund av ett fel i tjänsten Azure Event Hubs under en angiven period. <br/><br/>Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName |
-|Användarfel (förhandsversion)|Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Kvoten har överskridits-fel (förhandsversion)|Antalet begäranden överskred tillgänglig kvot. Se [i den här artikeln](event-hubs-quotas.md) för mer information om Event Hubs-kvoter.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+| Inkommande förfrågningar  | Antal begäranden som görs till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName |
+| Slutförda förfrågningar    | Antal lyckade begäranden som görs till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName |
+| Serverfel  | Antal begäranden som inte bearbetas på grund av ett fel i tjänsten Azure Event Hubs under en angiven period. <br/><br/>Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName |
+|Användar fel |Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|Överskriden kvot fel |Antalet begäranden överskred tillgänglig kvot. Se [i den här artikeln](event-hubs-quotas.md) för mer information om Event Hubs-kvoter.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
 
 ## <a name="throughput-metrics"></a>Mått för dataflöde
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Begränsade begäranden (förhandsversion)|Antal begäranden som har begränsats eftersom enhet datadataflödesanvändning överskreds.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Begränsade begär Anden |Antal begäranden som har begränsats eftersom enhet datadataflödesanvändning överskreds.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
 
 ## <a name="message-metrics"></a>Meddelande-mått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Inkommande meddelanden (förhandsversion)|Antal händelser eller meddelanden som skickas till Event Hubs under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Utgående meddelanden (förhandsversion)|Antal händelser eller meddelanden hämtas från Event Hubs under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Inkommande byte (förhandsversion)|Antal byte som skickas till Azure Event Hubs-tjänsten under en angiven period.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Utgående byte (förhandsversion)|Antalet byte som hämtas från Azure Event Hubs-tjänsten under en angiven period.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Inkommande meddelanden |Antal händelser eller meddelanden som skickas till Event Hubs under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|Utgående meddelanden |Antal händelser eller meddelanden hämtas från Event Hubs under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|Inkommande byte |Antal byte som skickas till Azure Event Hubs-tjänsten under en angiven period.<br/><br/> Processor Byte <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|Utgående byte |Antalet byte som hämtas från Azure Event Hubs-tjänsten under en angiven period.<br/><br/> Processor Byte <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
 
 ## <a name="connection-metrics"></a>Anslutningsmått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|ActiveConnections (förhandsversion)|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Öppnade anslutningar (förhandsversion)|Antal öppna anslutningar.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Anslutningar stängd (förhandsversion)|Antal stängda anslutningar.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|ActiveConnections |Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|Öppna anslutningar |Antal öppna anslutningar.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|Stängda anslutningar |Antal stängda anslutningar.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Event Hubs Capture mått
 
@@ -98,9 +98,9 @@ Du kan övervaka Event Hubs Capture mått när du aktiverar avbildningsfunktione
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Hämta kvarvarande uppgifter (förhandsversion)|Antal byte som ännu samlas in till det valda målet.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Hämtade meddelanden (förhandsversion)|Antal meddelanden eller händelser som har hämtats till det valda målet under en angiven period.<br/><br/> Enhet: Count <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Hämtade byte (förhandsversion)|Antal byte som har hämtats till det valda målet under en angiven period.<br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
+|Samla in efter släpning |Antal byte som ännu samlas in till det valda målet.<br/><br/> Processor Byte <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|Fångade meddelanden |Antal meddelanden eller händelser som har hämtats till det valda målet under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|Hämtade byte |Antal byte som har hämtats till det valda målet under en angiven period.<br/><br/> Processor Byte <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 

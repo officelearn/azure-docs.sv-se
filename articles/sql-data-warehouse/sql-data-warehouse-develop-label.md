@@ -1,8 +1,8 @@
 ---
-title: Med hjälp av etiketter för att instrumentera frågor i SQL Data Warehouse | Microsoft Docs
-description: Tips för att använda etiketter för att instrumentera frågor i Azure SQL Data Warehouse för utveckling av lösningar.
+title: Använda etiketter för instrument frågor i SQL Data Warehouse | Microsoft Docs
+description: Tips om hur du använder etiketter till instrument frågor i Azure SQL Data Warehouse för att utveckla lösningar.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,19 +10,19 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c53fc3594d02c92ea6a238f89417e31dad4818c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee991fdfcd93ea064d1205d61d07adf377cce667
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861791"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68480026"
 ---
-# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Använda etiketter för att instrumentera frågor i Azure SQL Data Warehouse
-Tips för att använda etiketter för att instrumentera frågor i Azure SQL Data Warehouse för utveckling av lösningar.
+# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Använda etiketter för instrument frågor i Azure SQL Data Warehouse
+Tips om hur du använder etiketter till instrument frågor i Azure SQL Data Warehouse för att utveckla lösningar.
 
 
 ## <a name="what-are-labels"></a>Vad är etiketter?
-SQL Data Warehouse stöder ett begrepp som kallas fråga etiketter. Innan du går in i varje djup, nu ska vi titta på ett exempel:
+SQL Data Warehouse stöder ett begrepp som kallas fråge etiketter. Låt oss titta på ett exempel innan du går igenom ett djup:
 
 ```sql
 SELECT *
@@ -31,11 +31,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Den sista raden taggar strängen ”min fråga etiketten” i frågan. Den här taggen är särskilt användbart eftersom etiketten är frågan kan via de DMV: er. Fråga efter etiketter är en mekanism för att hitta problem med frågor och hjälper till att identifiera förloppet via en ELT kör.
+Den sista raden Taggar strängen "min fråga etikett" till frågan. Den här taggen är särskilt användbar eftersom etiketten är frågekörning genom DMV: er. Fråga efter etiketter är en mekanism för att hitta problem frågor och hjälpa till att identifiera förloppet genom en ELT körning.
 
-En bra namngivningskonvention hjälper verkligen. Till exempel hjälper börjar etiketten med projekt, proceduren, INSTRUKTIONEN eller kommentar till att unikt identifiera frågan bland all kod i källkontrollen.
+En bra namngivnings konvention hjälper egentligen. Om du till exempel startar etiketten med projekt, procedur, uttryck eller kommentar kan du identifiera frågan bland all kod i käll kontrollen på ett unikt sätt.
 
-Följande fråga använder en dynamisk hanteringsvy för att söka efter etikett.
+Följande fråga använder en vy med dynamisk hantering för att söka efter etikett.
 
 ```sql
 SELECT  *
@@ -45,11 +45,11 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> Det är viktigt att placera hakparenteser eller dubbla citattecken runt word etiketten vid frågor. Etiketten är ett reserverat ord och orsakar ett fel när den inte är avgränsad. 
+> Det är viktigt att sätta hakparenteser eller dubbla citat tecken runt ordet etikett vid frågor. Label är ett reserverat ord och orsakar ett fel när det inte är avgränsat. 
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).
 
 

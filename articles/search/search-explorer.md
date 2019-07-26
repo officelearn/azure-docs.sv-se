@@ -1,6 +1,6 @@
 ---
-title: Search explorer-verktyget för att fråga efter data i Azure portal – Azure Search
-description: Använd Azure portal-verktyg som Sökutforskaren för frågan index i Azure Search. Ange sökvillkor eller fullständiga söksträngar med avancerade syntax.
+title: Verktyget search Explorer för att fråga efter data i Azure Portal-Azure Search
+description: Använd Azure Portal-verktyg som Sök Utforskaren för att fråga index i Azure Search. Ange Sök termer eller fullständigt kvalificerade Sök strängar med avancerad syntax.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87e5ec82299ef9ddc8bc8756196bb2ace3d1f6f3
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024028"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414236"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Sökutforskaren för att fråga efter data i Azure Search 
+# <a name="search-explorer-for-querying-data-in-azure-search"></a>Sök Utforskaren för att köra frågor mot data i Azure Search 
 
-Den här artikeln visar hur du frågar efter en befintlig Azure Search index med hjälp av **Sökutforskaren** i Azure-portalen. Du kan använda Sökutforskaren för att skicka enkla eller fullständiga Lucene frågesträngar till befintliga index i din tjänst. 
+Den här artikeln visar hur du frågar ett befintligt Azure Search-index med hjälp av **Sök Utforskaren** i Azure Portal. Du kan använda Sök Utforskaren för att skicka enkla eller fullständiga Lucene-frågesträngar till ett befintligt index i din tjänst. 
 
-   ![Söka efter kommandot Sökutforskaren i portalen](./media/search-explorer/search-explorer-cmd2.png "söka efter kommandot Sökutforskaren i portalen")
+   ![Kommandot Sök Utforskaren i portalen](./media/search-explorer/search-explorer-cmd2.png "Kommandot Sök Utforskaren i portalen")
 
 
-Hjälp att komma igång, se [starta Sökutforskaren](#start-search-explorer).
+För hjälp med att komma igång, se [Starta Sök Utforskaren](#start-search-explorer).
 
-## <a name="basic-search-strings"></a>Grundläggande söksträngar
+## <a name="basic-search-strings"></a>Grundläggande Sök strängar
 
-I följande exempel förutsätts inbyggda realestate-exempelindex. Läs hur du skapar det här indexet, [Snabbstart: Importera, index och frågor i Azure-portalen](search-get-started-portal.md).
+I följande exempel förutsätts det inbyggda realestate-exempel indexet. Information om hur du skapar det här [indexet finns i snabb start: Importera, indexera och fråga i Azure Portal](search-get-started-portal.md).
 
 ### <a name="example-1---empty-search"></a>Exempel 1 – tom sökning
 
-För en första titt på ditt innehåll, kör du en tom sökning genom att klicka på **Search** med inga villkor som angetts. En tom sökning är användbart som en första fråga eftersom den returnerar hela dokument så att du kan granska dokumentet sammansättning. Det finns inga sökrangordningen på en tom sökning och returneras dokument i valfri ordning (`"@search.score": 1` för alla dokument). Som standard returneras 50 dokument i en sökbegäran.
+För en första titt på ditt innehåll, kör en tom sökning genom att klicka på **Sök** utan att ange några villkor. En tom sökning är användbar som första fråga eftersom den returnerar hela dokument så att du kan granska dokument kompositionen. I en tom sökning finns det ingen Sök rang och dokument returneras i valfri ordning (`"@search.score": 1` för alla dokument). Som standard returneras 50-dokument i en Sök förfrågan.
 
-Motsvarande syntaxen för en tom sökning är `*` eller `search=*`.
+Motsvarande syntax för en tom sökning är `*` eller `search=*`.
 
    ```Input
    search=*
@@ -41,11 +41,11 @@ Motsvarande syntaxen för en tom sökning är `*` eller `search=*`.
 
    **Results**
    
-   ![Tom fråga exempel](./media/search-explorer/search-explorer-example-empty.png "Unqualified eller tom fråga exempel")
+   ![Exempel på tom fråga](./media/search-explorer/search-explorer-example-empty.png "Icke-kvalificerat eller tomt fråge exempel")
 
-### <a name="example-2---free-text-search"></a>Exempel 2 – fritextsökningen
+### <a name="example-2---free-text-search"></a>Exempel 2 – kostnads fri texts ökning
 
-Formaliafri frågor, med eller utan operatörer, är användbara för att simulera en användardefinierad frågor som skickats från en anpassad app till Azure Search. Observera att om du anger sökord eller uttryck, kommer sökrangordningen betydelse. I följande exempel visas en fritextsökningen.
+Kostnads fria formulär frågor, med eller utan operatorer, är användbara för att simulera användardefinierade frågor som skickas från en anpassad app till Azure Search. Observera att när du anger villkor eller uttryck för frågor kommer Sök rankningen att bli i spel. I följande exempel visas en texts ökning i fritext.
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -53,24 +53,24 @@ Formaliafri frågor, med eller utan operatörer, är användbara för att simule
 
    **Results**
 
-   Du kan använda Ctrl-F för att söka i resultaten efter specifika termer i närheten.
+   Du kan använda Ctrl-F för att söka i resultat för specifika ränte villkor.
 
-   ![Exempel på sökfråga fritext](./media/search-explorer/search-explorer-example-freetext.png "fritext exempel på sökfråga")
+   ![Exempel på fritext fråga](./media/search-explorer/search-explorer-example-freetext.png "Exempel på fritext fråga")
 
-### <a name="example-3---count-of-matching-documents"></a>Exempel 3 – antalet matchande dokument 
+### <a name="example-3---count-of-matching-documents"></a>Exempel 3 – antal matchande dokument 
 
-Lägg till **$count** att hämta antalet matchningar i ett index. Antalet är det totala antalet dokument i indexet på en tom sökning. På en kvalificerad sökning är det antal dokument som matchar frågan indata.
+Lägg till **$Count** för att hämta antalet matchningar som finns i ett index. I en tom sökning är Count det totala antalet dokument i indexet. I en kvalificerad sökning är det antalet dokument som matchar frågans inmatade frågor.
 
    ```Input1
    $count=true
    ```
    **Results**
 
-   ![Antal dokument exempel](./media/search-explorer/search-explorer-example-count.png "antalet matchande dokument i indexet")
+   ![Exempel på antal dokument](./media/search-explorer/search-explorer-example-count.png "Antal matchande dokument i index")
 
-### <a name="example-4---restrict-fields-in-search-results"></a>Exempel 4 – begränsa fält i sökresultat
+### <a name="example-4---restrict-fields-in-search-results"></a>Exempel 4 – begränsa fält i Sök Resultat
 
-Lägg till **$select** att begränsa resultaten till de uttryckligen namngivna fält för lättare att läsa utdata i **Sökutforskaren**. Att hålla söksträngen och **$count = true**, prefix argument med **&** . 
+Lägg till **$Select** för att begränsa resultaten till de uttryckligen namngivna fälten för mer läsbara utdata i **Sök Utforskaren**. Om du vill behålla Sök strängen och **$Count = True**, prefix argument **&** med. 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
@@ -78,63 +78,75 @@ Lägg till **$select** att begränsa resultaten till de uttryckligen namngivna f
 
    **Results**
 
-   ![Gränsen fält exempel](./media/search-explorer/search-explorer-example-selectfield.png "begränsa fält i sökresultat")
+   ![Exempel på gräns fält](./media/search-explorer/search-explorer-example-selectfield.png "Begränsa fält i Sök Resultat")
 
-### <a name="example-5---return-next-batch-of-results"></a>Exempel 5 - returnerade nästa batch med resultat
+### <a name="example-5---return-next-batch-of-results"></a>Exempel 5 – returnera nästa resultat grupp
 
-Azure Search returnerar de översta 50 träffar baserat på sökrangordningen. Hämta nästa uppsättning matchande dokument genom att lägga till **$top = 100 & $skip = 50** att öka resultatuppsättningen till 100 dokument (standardvärdet är 50, maximalt är 1 000), hoppar du över de första 50 dokument. Kom ihåg att du måste ange sökvillkor, till exempel en frågeterm eller ett uttryck som hämta rangordnas resultat. Observera att search poäng minska den djupare du når i sökresultaten.
+Azure Search returnerar de översta 50-matchningarna baserat på Sök rankningen. För att hämta nästa uppsättning matchande dokument, Lägg till **$Top = 100, & $Skip = 50** för att öka resultat uppsättningen till 100 dokument (Standardvärdet är 50, maximum är 1000) och hoppa över de första 50-dokumenten. Kom ihåg att du måste ange Sök villkor, till exempel en frågeterm eller ett uttryck för att få rankade resultat. Observera att Sök Resultat minskar djupare som du når i Sök resultaten.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **Results**
 
-   ![Batch-sökresultat](./media/search-explorer/search-explorer-example-topskip.png "returnerade nästa batch med sökresultat")
+   ![Sök Resultat för batch](./media/search-explorer/search-explorer-example-topskip.png "Returnera nästa batch med Sök Resultat")
 
-## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Filtrera uttryck (större än, mindre än, lika med)
+## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Filter uttryck (större än, mindre än, lika med)
 
-Använd den **$filter** parameter när du vill ange exakta kriterier i stället för fritextsökningen. Det här exemplet söker efter sovrum som är större än 3: `search=seattle condo&$filter=beds gt 3&$count=true`
+Använd parametern **$filter** när du vill ange exakta villkor i stället för texts ökning utan text. Det här exemplet söker efter sovrum som är större än 3:
 
-   ![Filteruttryck](./media/search-explorer/search-explorer-example-filter.png "filtrera efter villkor")
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Results**
 
-## <a name="order-by-expressions"></a>Order by-uttryck
+   ![Filter uttryck](./media/search-explorer/search-explorer-example-filter.png "Filtrera efter kriterier")
 
-Lägg till **$orderby** att sortera resultaten efter ett annat fält än sökpoängen. Ett exempel-uttryck som du kan använda för att testa det här är `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+## <a name="order-by-expressions"></a>Ordning efter uttryck
 
-   ![Výraz OrderBy](./media/search-explorer/search-explorer-example-ordery.png "ändra sorteringsordning")
+Lägg till **$OrderBy** för att sortera resultat efter ett annat fält förutom Sök resultat. Ett exempel uttryck som du kan använda för att testa det här är:
 
-Båda **$filter** och **$orderby** uttryck är OData-konstruktioner. Mer information finns i [OData-filtersyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Results**
+
+   ![OrderBy-uttryck](./media/search-explorer/search-explorer-example-ordery.png "Ändra sorterings ordning")
+
+Både **$filter** -och **$OrderBy** -uttryck är OData-konstruktioner. Mer information finns i [OData-filtersyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="start-search-explorer"></a>
 
-## <a name="how-to-start-search-explorer"></a>Så här startar du Sökutforskaren
+## <a name="how-to-start-search-explorer"></a>Starta Sök Utforskaren
 
-1. I den [Azure-portalen](https://portal.azure.com), öppna söktjänstsidan från instrumentpanelen eller [hitta din tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) i tjänstelistan.
+1. I [Azure Portal](https://portal.azure.com)öppnar du sidan Sök tjänst från instrument panelen eller [söker efter tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) i tjänst listan.
 
-2. I tjänstöversiktssidan klickar du på **Sökutforskaren**.
+2. Klicka på **search Explorer**på sidan tjänst översikt.
 
-   ![Söka efter kommandot Sökutforskaren i portalen](./media/search-explorer/search-explorer-cmd2.png "söka efter kommandot Sökutforskaren i portalen")
+   ![Kommandot Sök Utforskaren i portalen](./media/search-explorer/search-explorer-cmd2.png "Kommandot Sök Utforskaren i portalen")
 
-3. Välj indexet till frågan.
+3. Välj index att fråga.
 
-   ![Välj indexet som frågan](./media/search-explorer/search-explorer-changeindex-se2.png "Välj indexet")
+   ![Välj index att fråga](./media/search-explorer/search-explorer-changeindex-se2.png "Välj index")
 
-4. Du kan också ange API-version. Som standard den aktuella allmänt tillgängliga API-versionen är markerad, men du kan välja en förhandsversion eller äldre API om syntaxen som du vill använda versionsspecifika.
+4. Du kan också ange API-version. Som standard är den aktuella allmänt tillgängliga API-versionen markerad, men du kan välja en för hands version eller en äldre API om den syntax som du vill använda är versions bestämd.
 
-5. När indexet och API-versionen är markerat, ange sökvillkor eller fullständiga frågeuttryck i sökfältet och klicka på **Search** att köra.
+5. När du har valt index-och API-version anger du Sök villkor eller fullständigt kvalificerade frågeuttryck i Sök fältet och klickar på **Sök** för att köra.
 
-   ![Ange sökorden och klicka på Sök](./media/search-explorer/search-explorer-query-string-example.png "RETUR sökning villkor och klicka på Sök")
+   ![Ange Sök villkor och klicka på Sök](./media/search-explorer/search-explorer-query-string-example.png "Ange Sök villkor och klicka på Sök")
 
-Tips för att söka i **Sökutforskaren**:
+Tips för att söka i **Sök Utforskaren**:
 
-+ Resultaten returneras som utförlig JSON-dokument så att du kan visa dokumentet konstruktionen och innehåll, i helhet. Du kan använda frågeuttryck som visas i exemplen är att begränsa vilka fält som returneras.
++ Resultat returneras som utförliga JSON-dokument så att du kan se dokument konstruktion och innehåll, i sin helhet. Du kan använda frågeuttryck, som visas i exemplen, för att begränsa vilka fält som returneras.
 
-+ Dokument består av alla fält som markerats som **hämtningsbara** i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-us-sample* i den **index** listan på översiktssidan.
++ Dokument består av alla fält som har marker  ATS som hämtnings bara i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-US-Sample* i listan **index** på sidan Sök översikt.
 
-+ Formaliafri frågor, liknar vad du kan ange i en extern webbläsare är användbara för att testa en slutanvändarens upplevelse. Exempel: Anta att exempelindexet inbyggda realestate och du kan skriva ”Seattle lägenheter lake washington” och kan du använda Ctrl-F för att hitta villkoren i sökresultaten. 
++ Kostnads fria frågor, som liknar vad du kan ange i en kommersiell webbläsare, är användbara för att testa en slut användar upplevelse. Om du till exempel antar det inbyggda realestate exempel indexet, kan du ange "Seattle lägenheter Lake Washington" och sedan använda Ctrl-F för att hitta termer inom Sök resultaten. 
 
-+ Fråga och filtrera uttryck måste vara uppvisat i en syntax som stöds av Azure Search. Standardvärdet är en [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), men du kan också använda [fullständig Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) för mer kraftfulla frågor. [Filtrera uttryck](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) är en OData-syntax.
++ Fråga-och filter uttryck måste ledas i en syntax som stöds av Azure Search. Standardvärdet är en [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), men du kan också använda [fullständig Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) för mer kraftfulla frågor. [Filter uttryck](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) är en OData-syntax.
 
 
 ## <a name="next-steps"></a>Nästa steg

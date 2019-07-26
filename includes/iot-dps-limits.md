@@ -4,34 +4,36 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 610f5fcf80db8ffa0c7207d459b98087cbb4773b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e427a7b80b28f1cc70a02890152f9f2247a8bcd2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455142"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360279"
 ---
 I följande tabell visas de begränsningar som gäller för Azure IoT Hub Device Provisioning Service-resurser.
 
 | Resource | Gräns |
 | --- | --- |
-| Maximal enhetsetableringstjänster per Azure-prenumeration | 10 |
+| Maximalt antal enhets etablerings tjänster per Azure-prenumeration | 10 |
 | Maximalt antal registreringar | 1,000,000 |
 | Maximalt antal registreringar | 1,000,000 |
-| Maximalt antal registreringsgrupper | 100 |
-| Maximalt antal CA: er | 25 |
-| Maximal storlek för meddelande | 96 KB|
+| Maximalt antal registrerings grupper | 100 |
+| Maximalt antal ca: er | 25 |
+| Maximalt antal länkade IoT-hubbar | 10 |
+| Maximal meddelande storlek | 96 KB|
+
 
 > [!NOTE]
-> Om du vill öka antalet instanser i din prenumeration, kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka antalet instanser i prenumerationen.
 
 > [!NOTE]
-> Om du vill öka antalet registreringar och registreringar på etableringstjänsten, kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka antalet registreringar och registreringar på etablerings tjänsten.
 
-Device Provisioning-tjänsten begränsar begärandena om följande kvoter överskrids.
+Enhets etablerings tjänsten begränsar begär anden när följande kvoter överskrids.
 
 | Begränsning | Värde per enhet |
 | --- | --- |
 | Åtgärder | 200/min/tjänst |
 | Enhetsregistreringar | 200/min/tjänst |
-| Avsökningsåtgärden för enhet | 5/10 sek/enhet |
+| Enhets avsökning | 5/10 SEK/enhet |

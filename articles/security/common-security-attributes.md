@@ -1,6 +1,6 @@
 ---
 title: Säkerhetsattribut för Azure-tjänster
-description: En check lista över gemensamma säkerhetsattribut för utvärdering av Azure-Service Fabric
+description: En check lista över säkerhetsattribut för utvärdering av Azure-tjänster
 services: security
 documentationcenter: ''
 author: msmbaldwin
@@ -9,18 +9,27 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d45e28175412b574432adb59cf700568c9a7fb39
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0010273d41769c57144fdde63e47c528f313a228
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304253"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443355"
 ---
 # <a name="security-attributes-for-azure-services"></a>Säkerhetsattribut för Azure-tjänster
 
-Den här artikeln samlar in gemensamma säkerhetsattribut för de valda Azure-tjänsterna. 
+I den här artikeln samlas säkerhetsattributen in för de valda Azure-tjänsterna. Ett säkerhetsattribut är en kvalitet eller funktion i en Azure-tjänst. Tjänsten bidrar till tjänstens möjlighet att förhindra, identifiera och reagera på säkerhets risker.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+Säkerhetsattribut kategoriseras som:
+* Förebyggande
+* Nätverks segmentering
+* Identifiering
+* Stöd för identitets-och åtkomst hantering
+* Gransknings logg
+* Åtkomst kontroller (om de används)
+* Konfigurations hantering (om det används)
+
+I varje kategori visar vi "Ja" eller "nej" för att ange om ett attribut används. För vissa tjänster visar vi "ej tillämpligt" för ett attribut som inte är tillämpligt. Vi kan också ange en anteckning eller en länk till mer information om ett attribut.
 
 ## <a name="api-managementapi-managementapi-management-security-attributesmd"></a>[API Management](../api-management/api-management-security-attributes.md)
 
@@ -44,7 +53,7 @@ Den här artikeln samlar in gemensamma säkerhetsattribut för de valda Azure-tj
 | Stöd för nätverks isolering och brand vägg| Ja | Använda nätverks säkerhets grupper (NSG) och Azure Application Gateway (eller annan program varu installation). |
 | Stöd för Tvingad tunnel trafik| Ja | Azure-nätverk tillhandahåller Tvingad tunnel trafik. |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -75,7 +84,7 @@ Den här artikeln samlar in gemensamma säkerhetsattribut för de valda Azure-tj
 
 I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure-API Management.
 
-| Brist               | Beskrivning                                                                                                                                                                                                                                                                                                               |
+| Sårbarhet               | Beskrivning                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed är ett säkerhets problem i implementeringen av TLS SessionTicket-tillägget som finns i vissa F5-produkter. Det tillåter läckage ("avblödning") på upp till 31 byte data från ej initierat minne. Detta orsakas av att utfyllnaden av TLS-stacken är ett sessions-ID som skickas från klienten, med data som gör den 32 bitar lång. |
 
@@ -101,7 +110,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Stöd för nätverks isolering och brand vägg| Ja | För den offentliga variationen av flera innehavare av App Service kan kunder konfigurera nätverks-ACL: er (IP-begränsningar) för att låsa tillåten inkommande trafik.  Se [begränsningar för Azure App Service åtkomst](../app-service/app-service-ip-restrictions.md).  App Service miljöer distribueras direkt till virtuella nätverk och kan därför skyddas med NSG: er. |
 | Stöd för Tvingad tunnel trafik| Ja | App Service miljöer kan distribueras till en kunds virtuella nätverk där Tvingad tunnel trafik har kon figurer ATS. Kunderna måste följa anvisningarna i [Konfigurera din app service-miljön med Tvingad tunnel trafik](../app-service/environment/forced-tunnel-support.md). |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -151,7 +160,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Stöd för nätverks isolering och brand vägg| Nej |  |
 | Stöd för Tvingad tunnel trafik| Nej |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -200,7 +209,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Stöd för nätverks isolering och brand vägg| Ja | Tvingad tunnel trafik stöds för VM-säkerhetskopiering. Tvingad tunnel trafik stöds inte för arbets belastningar som körs i virtuella datorer. |
 | Stöd för Tvingad tunnel trafik| Nej |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -244,11 +253,11 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Säkerhetsattribut | Ja/Nej | Anteckningar |
 |---|---|--|
 | Stöd för tjänst slut punkt| Ja |  |
-| stöd för vNET-injektering| Ja | Med VNet-tjänstens slut punkt kan du konfigurera ett Azure Cosmos DB konto för att tillåta åtkomst endast från ett speciellt undernät i ett virtuellt nätverk (VNet). Du kan också kombinera VNet-åtkomst med brand Väggs regler.  Se [åtkomst Azure Cosmos dB från virtuella nätverk](../cosmos-db/vnet-service-endpoint.md). |
+| Stöd för VNet-injektering| Ja | Med VNet-tjänstens slut punkt kan du konfigurera ett Azure Cosmos DB konto för att tillåta åtkomst endast från ett speciellt undernät i ett virtuellt nätverk (VNet). Du kan också kombinera VNet-åtkomst med brand Väggs regler.  Se [åtkomst Azure Cosmos dB från virtuella nätverk](../cosmos-db/VNet-service-endpoint.md). |
 | Stöd för nätverks isolering och brand vägg| Ja | Med brand Väggs stöd kan du konfigurera ditt Azure Cosmos-konto så att det bara tillåter åtkomst från en godkänd uppsättning IP-adresser, ett intervall med IP-adresser och/eller moln tjänster. Se [Konfigurera IP-brandvägg i Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md).|
-| Stöd för Tvingad tunnel trafik | Ja | Kan konfigureras på klient sidan på det VNET där de virtuella datorerna finns.   |
+| Stöd för Tvingad tunnel trafik| Ja | Kan konfigureras på klient sidan på det VNet där de virtuella datorerna finns.   |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
@@ -265,7 +274,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 
 | Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
-| Kontroll/hanterings plan loggning och granskning| Ja | Azure aktivitets logg för åtgärder på konto nivå, till exempel brand väggar, virtuella nätverk, nycklar åtkomst och IAM. |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Azure aktivitets logg för åtgärder på konto nivå, till exempel brand väggar, virtuella nätverk, nycklar åtkomst och IAM. |
 | Loggning och granskning av data planet | Ja | Loggning av diagnostik för behållar åtgärder, till exempel skapa behållare, etablera data flöde, indexerings principer och CRUD åtgärder för dokument. |
 
 ### <a name="configuration-management"></a>Konfigurationshantering
@@ -298,11 +307,11 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
 | Stöd för tjänst slut punkt| Ja |  |
-| stöd för vNET-injektering| Nej | |
+| Stöd för VNet-injektering| Nej | |
 | Stöd för nätverks isolering och brand vägg| Ja |  |
 | Stöd för Tvingad tunnel trafik| Nej |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -347,11 +356,11 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
 | Stöd för tjänst slut punkt| Gäller inte |  |
-| stöd för vNET-injektering| Gäller inte | |
+| Stöd för VNet-injektering| Gäller inte | |
 | Stöd för nätverks isolering och brand vägg| Ja | Varje kund ingår i en egen routningsdomän och dirigeras sedan till sitt eget VNet |
 | Stöd för Tvingad tunnel trafik| Gäller inte | Via Border Gateway Protocol (BGP). |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -400,7 +409,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Stöd för nätverks isolering och brand vägg| Ja | Använd brand Väggs regler för VNet. |
 | Stöd för Tvingad tunnel trafik| Nej |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -420,7 +429,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Kontroll/hantering plan-loggning och granskning| Ja | Använda Log Analytics. |
 | Loggning och granskning av data planet| Ja | Använda Log Analytics. |
 
-### <a name="access-controls"></a>Åtkomst kontroller
+### <a name="access-controls"></a>Åtkomstkontroller
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -448,7 +457,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Stöd för nätverks isolering och brand vägg| Gäller inte |  |
 | Stöd för Tvingad tunnel trafik| Gäller inte | |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -495,7 +504,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Stöd för nätverks isolering och brand vägg| Ja (endast Premium-nivå) |  |
 | Stöd för Tvingad tunnel trafik| Nej |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -543,7 +552,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Stöd för nätverks isolering och brand vägg| Nej |  |
 | Stöd för Tvingad tunnel trafik| Gäller inte | Relä är TLS-tunneln  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -589,7 +598,7 @@ I det här avsnittet dokumenteras vanliga sårbarheter, som inte påverkar Azure
 | Stöd för nätverks isolering och brand vägg| Ja | Använda nätverks säkerhets grupper (NSG). |
 | Stöd för Tvingad tunnel trafik| Ja | Azure-nätverk tillhandahåller Tvingad tunnel trafik. |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -638,7 +647,7 @@ SQL Database innehåller både [en enkel databas och en](../sql-database/sql-dat
 | Nätverks isolering och brand Väggs stöd| Ja | Brand väggen på både databas nivå och server nivå. Nätverks isolering är endast för [hanterad instans](../sql-database/sql-database-managed-instance.md) . |
 | Stöd för Tvingad tunnel trafik| Ja | [Hanterad instans](../sql-database/sql-database-managed-instance.md) via en [ExpressRoute](../expressroute/index.yml) VPN. |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -694,7 +703,7 @@ SQL Database innehåller både [en enkel databas och en](../sql-database/sql-dat
 | Stöd för nätverks isolering och brand vägg| Ja | |
 | Stöd för Tvingad tunnel trafik| Gäller inte |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -744,7 +753,7 @@ SQL Database innehåller både [en enkel databas och en](../sql-database/sql-dat
 | Stöd för nätverks isolering och brand vägg| Ja |  |
 | Stöd för Tvingad tunnel trafik| Ja | Se [Konfigurera Tvingad tunnel trafik med Azure Resource Manager distributions modell](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
@@ -793,7 +802,7 @@ SQL Database innehåller både [en enkel databas och en](../sql-database/sql-dat
 | Stöd för nätverks isolering och brand vägg| Ja | VPN-gatewayer är dedikerade VM-instanser för varje kund Virtual Network  |
 | Stöd för Tvingad tunnel trafik| Ja |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|

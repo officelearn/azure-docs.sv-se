@@ -1,26 +1,26 @@
 ---
-title: Diagnostisera och Felsök problem när du använder Azure Cosmos DB utlösare i Azure Functions
-description: Vanliga problem, lösningar och diagnostiska steg när du använder Azure Cosmos DB utlösare med Azure Functions
+title: Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
+description: Vanliga problem, lösningar och diagnostiska steg när du använder Azure Functions utlösare för Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250019"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335746"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostisera och Felsök problem när du använder Azure Cosmos DB utlösare i Azure Functions
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
 
-Den här artikeln beskriver vanliga problem, lösningar och diagnostiska steg när du använder [Azure Cosmos DB](change-feed-functions.md) utlösare med Azure Functions.
+Den här artikeln beskriver vanliga problem, lösningar och diagnostiska steg när du använder [Azure Functions utlösare för Cosmos DB](change-feed-functions.md).
 
 ## <a name="dependencies"></a>Beroenden
 
-Azure Cosmos DB utlösare och bindningar är beroende av tilläggs paketen via bas Azure Functions Runtime. Behåll alltid dessa paket uppdaterade eftersom de kan innehålla korrigeringar och nya funktioner som kan åtgärda eventuella problem som kan uppstå:
+Azure Functions utlösare och bindningar för Cosmos DB beror på tilläggs paketen över bas Azure Functions Runtime. Behåll alltid dessa paket uppdaterade eftersom de kan innehålla korrigeringar och nya funktioner som kan åtgärda eventuella problem som kan uppstå:
 
 * Azure Functions v2 finns i [Microsoft. Azure. WebJobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 * Azure Functions v1 finns i [Microsoft. Azure. WebJobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
@@ -29,7 +29,7 @@ Den här artikeln kommer alltid att referera till Azure Functions v2 När körni
 
 ## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Använda Azure Cosmos DB SDK oberoende
 
-De viktigaste funktionerna i tilläggs paketet är att tillhandahålla stöd för Azure Cosmos DB utlösare och bindningar. Den innehåller också [Azure Cosmos dB .NET SDK](sql-api-sdk-dotnet-core.md), vilket är användbart om du vill interagera med Azure Cosmos DB program mässigt utan att använda utlösare och bindningar.
+De viktigaste funktionerna i tilläggs paketet är att tillhandahålla stöd för Azure Functions utlösare och bindningar för Cosmos DB. Den innehåller också [Azure Cosmos dB .NET SDK](sql-api-sdk-dotnet-core.md), vilket är användbart om du vill interagera med Azure Cosmos DB program mässigt utan att använda utlösare och bindningar.
 
 Om du vill använda Azure Cosmos DB SDK ser du till att du inte lägger till ett annat NuGet-paket referens i projektet. I stället kan **SDK-referensen lösas via Azure Functions tilläggs paketet**. Använda Azure Cosmos DB SDK separat från utlösaren och bindningarna
 
@@ -81,7 +81,7 @@ Om vissa ändringar saknas på målet kan detta betyda att vissa fel inträffar 
 I det här scenariot är den bästa åtgärden att lägga till `try/catch blocks` i din kod och inom de slingor som kan bearbeta ändringarna, för att upptäcka eventuella problem med en viss delmängd av objekt och hantera dem efter behov (skicka dem till en annan lagrings plats för ytterligare analys eller försök igen). 
 
 > [!NOTE]
-> Azure Cosmos DB-utlösaren försöker som standard inte att göra om en grupp ändringar om ett ohanterat undantag uppstod under kod körningen. Det innebär att det inte går att bearbeta ändringarna på grund av att det inte gick att bearbeta dem.
+> Azure Functions-utlösaren för Cosmos DB kommer som standard inte att försöka utföra en grupp ändringar igen om ett ohanterat undantag uppstod under kod körningen. Det innebär att det inte går att bearbeta ändringarna på grund av att det inte gick att bearbeta dem.
 
 Om du upptäcker att vissa ändringar inte tagits emot alls av utlösaren, är det vanligaste scenariot att **en annan Azure-funktion körs**. Det kan vara en annan Azure Function som distribuerats i Azure eller en Azure-funktion som körs lokalt på en utvecklares dator som har **exakt samma konfiguration** (samma övervakade och lånade behållare) och den här Azure-funktionen stjäl en delmängd av de ändringar du förväntar dig att Azure-funktionen ska bearbeta.
 

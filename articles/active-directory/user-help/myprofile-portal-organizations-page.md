@@ -1,6 +1,6 @@
 ---
-title: Hantera din organisations från min profil (förhandsgranskning)-portal – Azure Active Directory | Microsoft Docs
-description: En översikt om sidan organisationer i min profil-portalen.
+title: Hantera dina organisationer från portalen min profil (för hands version) – Azure Active Directory | Microsoft Docs
+description: En översikt på hög nivå om sidan organisationer i min profil Portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,49 +12,52 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a0ff4190a1712b91bf58fafd80a03fc2737e7a4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475554"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382997"
 ---
-# <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Hantera din organisations från min profil (förhandsgranskning)-portalen
-Du kan hantera din organisations från den **organisationer** för den **min profil** portal.
+# <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Hantera dina organisationer från portalen min profil (för hands version)
 
-Det finns två typer av organisationer som visas på den **organisationer** sidan:
+Du kan hantera dina organisationer från sidan **organisationer** i **min profil** Portal.
 
-- **Hemorganisation.** Organisationen home är den organisation som äger arbets-eller skolkonto. Du kan inte lämna organisationen hem.
+Det finns två typer av organisationer som visas på sidan **organisationer** :
 
-- **Andra organisationer.** De andra organisationerna, är en grupp som du har loggat in till tidigare med hjälp av arbets-eller skolkonto. Du kan lämna någon av dessa organisationer när som helst.
+- **Hem organisation.** Din hem organisation är den organisation som äger ditt arbets-eller skol konto. Du kan inte lämna din hem organisation.
+
+- **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets-eller skol konto. Du kan när som helst lämna någon av dessa organisationer.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-## <a name="view-your-organizations"></a>Visa ditt företag
-1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
+## <a name="view-your-organizations"></a>Visa dina organisationer
 
-2. Välj **organisationer** från den vänstra navigeringsfönstret eller Välj den **Hantera organisationer** länka från den **organisationer** block.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
 
-    ![Min profilsida som visar den markerade organisationer länkar](media/myprofile-portal/myprofile-portal-organizations.png)
+2. Välj **organisationer** i det vänstra navigerings fönstret eller Välj länken **Hantera organisationer** från **organisationer** -blocket.
 
-3. Granska informationen för din **Home organisation**. 
+    ![Sidan min profil, som visar markerade organisations länkar](media/myprofile-portal/myprofile-portal-organizations.png)
 
-    ![Organisationer sidan](media/myprofile-portal/myprofile-portal-organization-page.png)
+3. Granska informationen för din **hem organisation**. 
 
-3. Granska dina andra associerade organisationer, vilket gör att du känner igen alla organisationer som är anslutna till ditt konto.
+    ![Sidan organisationer](media/myprofile-portal/myprofile-portal-organization-page.png)
+
+4. Granska dina andra associerade organisationer och se till att du känner igen alla organisationer som är anslutna till ditt konto.
 
 ## <a name="leave-an-organization"></a>Lämna en organisation
-Du kan lämna en organisation som inte är organisationen hem.
+
+Du kan lämna en organisation som inte är din hem organisation.
 
 >[!Important]
->Om du lämnar en organisation av misstag, går det inte att ångra åtgärden. Du måste lägga till organisationen igen.
+>Om du lämnar en organisation av misstag finns det inget sätt att ångra. Du måste lägga till organisationen igen.
 
-1. Logga in på ditt konto från den **andra organisationer som jag arbeta med** området.
+1. Logga in på ditt konto från de **andra organisationer som jag arbetar med** -ytan.
 
-2. Välj **lämna organisationen**, och välj sedan **Ja** att bekräfta att du vill lämna organisationen.
+2. Välj **lämna organisationen**och välj sedan **Ja** för att bekräfta att du vill lämna organisationen.
 
-    ![Sidan för organisationer med markerade lämna organisationen länk](media/myprofile-portal/myprofile-portal-organizations-leave.png)
+    ![Sidan organisationer med markerad lämna organisations länk](media/myprofile-portal/myprofile-portal-organizations-leave.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du har visat ditt företag, som du kan välja att visa eller hantera din [säkerhetsinformation](user-help-security-info-overview.md), anslutna [enheter](myprofile-portal-devices-page.md), eller visa hur din organisation [använder dina data](myprofile-portal-privacy-page.md).
+- När du har tittat på dina organisationer kan du välja att visa eller hantera din [säkerhets information](user-help-security-info-overview.md), anslutna [enheter](myprofile-portal-devices-page.md)eller se hur din organisation [använder dina data](myprofile-portal-privacy-page.md).

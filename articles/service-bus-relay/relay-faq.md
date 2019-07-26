@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277965"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422952"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor
 
@@ -36,7 +36,7 @@ I den här artikeln besvaras några vanliga frågor och svar om [Azure Relay](ht
 Ett [namn område](relay-create-namespace-portal.md) är en omfattnings behållare som du kan använda för att adressera relä resurser i ditt program. Du måste skapa ett namn område för att kunna använda reläet. Det här är ett av de första stegen för att komma igång.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Vad hände med att Service Bus Relay tjänsten?
-Den tidigare namngivna Service Bus Relays tjänsten kallas nu [WCF Relay](relay-wcf-dotnet-get-started.md). Du kan fortsätta att använda den här tjänsten som vanligt. Den Hybridanslutningar funktionen är en uppdaterad version av en tjänst som har planterats från Azure BizTalk Services. WCF Relay och Hybridanslutningar fortsätter att stödjas.
+Den tidigare namngivna Service Bus Relays tjänsten kallas nu [WCF Relay](service-bus-relay-tutorial.md). Du kan fortsätta att använda den här tjänsten som vanligt. Den Hybridanslutningar funktionen är en uppdaterad version av en tjänst som har planterats från Azure BizTalk Services. WCF Relay och Hybridanslutningar fortsätter att stödjas.
 
 ## <a name="pricing"></a>Prissättning
 I det här avsnittet besvaras några vanliga frågor om relä pris strukturen. Du kan också se [vanliga frågor och svar om Azure-support](https://azure.microsoft.com/support/faq/) för allmän pris information om Azure. Fullständig information om priser för Reläering finns [Service Bus pris information][Pricing overview].
@@ -80,7 +80,7 @@ Att skicka ett meddelande till ett Service Bus relä behandlas som en "fullstän
 Reläer som öppnas med hjälp av **netTCPRelay** WCF-bindning behandla meddelanden som inte är enskilda meddelanden, men som data strömmar i systemet. När du använder den här bindningen får bara avsändaren och lyssnaren insyn i ram för de enskilda meddelanden som skickas och tas emot. För reläer som använder **netTCPRelay** -bindningen behandlas alla data som en ström för att beräkna fakturerbara meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskilt relä på en 5 minuters basis. Sedan delar den upp den totala mängden data med 64 KB för att fastställa antalet fakturerbara meddelanden för det reläet under den tids perioden.
 
 ## <a name="quotas"></a>Kvoter
-| Kvot namn | Omfång |  Anteckningar | Value |
+| Kvotnamn | Omfång |  Anteckningar | Value |
 | --- | --- | --- | --- |
 | Samtidiga lyssnare i ett relä |Entitet |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
 | Samtidiga relä anslutningar per alla relä slut punkter i ett tjänst namn område |Namnrymd |- |5,000 |

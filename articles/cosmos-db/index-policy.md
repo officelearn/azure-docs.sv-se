@@ -1,44 +1,44 @@
 ---
-title: Azure Cosmos DB indexeringsprinciper
-description: Lär dig mer om att konfigurera och ändra standard indexeringspolicy för automatisk indexering och bättre prestanda i Azure Cosmos DB.
+title: Azure Cosmos DB indexerings principer
+description: Lär dig hur du konfigurerar och ändrar standard indexerings principen för automatisk indexering och bättre prestanda i Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 01e3e1f1c9bffee0604de1260e8e466f5b1d229d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722548"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467882"
 ---
-# <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Indexerings principer i Azure Cosmos DB
 
-I Azure Cosmos DB har en indexeringsprincip som bestämmer hur behållarens objekt ska indexeras i behållare. Standard indexeringspolicy för nyligen skapade behållare index varje egenskap för varje artikel, tillämpa intervallet index för en sträng eller en siffra, och spatialindex för alla GeoJSON-objekt i Skriv punkt. På så sätt kan du få hög frågeprestanda utan att behöva tänka indexering och indexhantering förskott.
+I Azure Cosmos DB har varje behållare en indexerings princip som avgör hur behållarens objekt ska indexeras. Standard indexerings principen för nyskapade behållare indexerar varje egenskap för varje objekt, som framtvingar intervall index för valfri sträng eller siffra, och rums index för valfritt interjson-objekt av typen Point. På så sätt kan du få höga prestanda för frågor utan att behöva tänka på indexering och index hantering.
 
-I vissa situationer kan du åsidosätta detta automatiskt så att den bättre passar dina behov. Du kan anpassa indexeringsprincip för en behållare genom att ange dess *indexering läge*, och inkludera eller exkludera *egenskapen sökvägar*.
+I vissa fall kanske du vill åsidosätta det automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge*och ta med eller undanta *egenskaps Sök vägar*.
 
 > [!NOTE]
-> Metoden för att uppdatera indexering principer som beskrivs i den här artikeln gäller bara för Azure Cosmos DB SQL (kärna) API.
+> Metoden för att uppdatera indexerings principer som beskrivs i den här artikeln gäller endast Azure Cosmos DB s SQL-API (Core).
 
-## <a name="indexing-mode"></a>Indexering läge
+## <a name="indexing-mode"></a>Indexerings läge
 
-Azure Cosmos DB stöder två lägen för indexering:
+Azure Cosmos DB stöder två indexerings lägen:
 
-- **Konsekvent**: Om en behållare indexeringsprincip anges för konsekvens, uppdateras indexet synkront när du skapar, uppdatera eller ta bort objekt. Det innebär att dina skrivskyddade frågor konsekvens är den [konsekvens som konfigurerats för kontot](consistency-levels.md).
+- **Konsekvent**: Om en behållares indexerings princip är inställd på konsekvent uppdateras indexet synkront när du skapar, uppdaterar eller tar bort objekt. Det innebär att konsekvensen för dina Läs frågor är den [konsekvens som kon figurer ATS för kontot](consistency-levels.md).
 
-- **Ingen**: Om en behållare indexeringsprincip har angetts till None, inaktiveras effektivt indexering på behållaren. Detta används vanligtvis när en behållare används som en ren nyckel / värdelagring utan att behöva sekundära index. Det kan också snabbare bulk infogningsåtgärder.
+- **Ingen**: Om en behållares indexerings princip är inställd på ingen, inaktive ras indexeringen i den behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också hjälpa till att påskynda Mass infognings åtgärder.
 
-## <a name="including-and-excluding-property-paths"></a>Inkludera och exkludera egenskapen sökvägar
+## <a name="including-and-excluding-property-paths"></a>Inklusive och exklusive egenskaps Sök vägar
 
-En anpassad indexeringsprincip kan ange egenskapen sökvägar som är uttryckligen inkluderas eller uteslutas från indexering. Du kan minska mängden lagringsutrymme som används av din behållare och förbättra svarstiden för skrivåtgärder genom att optimera antalet sökvägar som indexeras. Dessa sökvägar definieras efter [den metod som beskrivs i avsnittet indexering översikt](index-overview.md#from-trees-to-property-paths) med följande tillägg:
+En anpassad indexerings princip kan ange egenskaps Sök vägar som uttryckligen tas med eller undantas från indexering. Genom att optimera antalet sökvägar som indexeras kan du minska mängden lagrings utrymme som används av din behållare och förbättra svars tiden för Skriv åtgärder. Dessa sökvägar definieras enligt [metoden som beskrivs i avsnittet indexerings översikt](index-overview.md#from-trees-to-property-paths) med följande tillägg:
 
-- en sökväg som leder till ett skalärt värde (sträng eller en siffra) slutar med `/?`
-- element från en matris behandlas tillsammans via den `/[]` notation (i stället för `/0`, `/1` osv.)
-- den `/*` med jokertecken kan användas för att matcha alla element under noden
+- en sökväg som leder till ett skalärt värde (sträng eller siffra) slutar med`/?`
+- element från en matris behandlas tillsammans genom `/[]` notationen (i stället `/1` för `/0`osv.)
+- `/*` jokertecknet kan användas för att matcha alla element under noden
 
-Med det här exemplet igen:
+Ta samma exempel igen:
 
     {
         "locations": [
@@ -52,52 +52,52 @@ Med det här exemplet igen:
         ]
     }
 
-- den `headquarters`'s `employees` sökvägen är `/headquarters/employees/?`
-- den `locations`' `country` sökvägen är `/locations/[]/country/?`
-- sökvägen till något under `headquarters` är `/headquarters/*`
+- `headquarters`sökvägen är`employees``/headquarters/employees/?`
+- `locations`sökvägen är`country``/locations/[]/country/?`
+- sökvägen till något under `headquarters` är`/headquarters/*`
 
-En sökväg uttryckligen tas med i indexprincip finns det också att definiera vilka typer av index som ska kopplas till denna sökväg och för varje Indextyp av måste datatypen indexet gäller för:
+När en sökväg uttryckligen ingår i indexerings principen, måste den också definiera vilka index typer som ska användas för den sökvägen, och för varje index typ gäller den datatyp som indexet avser:
 
-| Indextyp | Tillåtna mål-datatyper |
+| Indextyp | Tillåtna mål data typer |
 | --- | --- |
-| Intervall | Strängen eller talvärdet |
-| Spatial | Point, LineString eller Polygon |
+| Intervall | Sträng eller siffra |
+| Spatial | Punkt, lin Est ring eller polygon |
 
-Vi kan till exempel innehålla den `/headquarters/employees/?` sökvägen och ange att en `Range` index ska tillämpas på samma sökväg för både `String` och `Number` värden.
+Vi kan `/headquarters/employees/?` till exempel inkludera sökvägen och ange att ett `Range` index ska tillämpas på den sökvägen för båda `String` värdena och `Number` .
 
 ### <a name="includeexclude-strategy"></a>Inkludera/exkludera strategi
 
-Alla indexeringsprincip måste inkludera rotsökvägen `/*` som en inkluderad eller en Undantagen sökväg.
+Alla indexerings principer måste innehålla rot Sök vägen `/*` antingen som en inkluderad eller undantagen sökväg.
 
-- Inkludera rotsökvägen för att selektivt undanta sökvägar som inte behöver indexeras. Detta är den rekommenderade metoden eftersom det kan användas av Azure Cosmos DB proaktivt Indexera nya egenskaper som kan läggas till i din modell.
-- Undanta rotsökvägen för att selektivt ta med sökvägar som måste indexeras.
+- Inkludera rot Sök vägen för att selektivt exkludera sökvägar som inte behöver indexeras. Detta är den rekommenderade metoden eftersom Azure Cosmos DB indexera alla nya egenskaper som kan läggas till i din modell proaktivt.
+- Undanta rot Sök vägen för att selektivt inkludera sökvägar som behöver indexeras.
 
-- För sökvägar med vanliga tecken som består av: alfanumeriska tecken och _ (understreck) kan du inte undvika sökvägssträngen runt dubbla citattecken (till exempel ”/ sökväg /”?). För sökvägar med andra specialtecken, måste de föregås sökvägssträngen runt dubbla citattecken (till exempel ”/\"sökväg abc\"/”?). Om du förväntar dig specialtecken i din sökväg escape du varje sökväg för säkerhet. Funktionellt gör det inte skillnader om du escape-varje sökväg jämfört med bara de som innehåller ogiltiga tecken.
+- För sökvägar med vanliga tecken som innehåller alfanumeriska tecken och _ (under streck) behöver du inte undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/Path/?"). För sökvägar med andra specialtecken måste du undvika Sök vägs strängen runt dubbla citat tecken (till exempel "/\"Path-ABC\"/?"). Om du förväntar dig specialtecken i sökvägen kan du kringgå alla säkerhets vägar. Det spelar ingen roll om du avvisar alla sökvägar och bara de som innehåller specialtecken.
 
-- Systemegenskapen ”etag” är exkluderad från att indexera som standard såvida inte etag har lagts till i den inkluderade sökvägen för indexering.
+- System egenskapen "etag" undantas från indexering som standard, om inte etag läggs till i den inkluderade sökvägen för indexering.
 
-Se [i det här avsnittet](how-to-manage-indexing-policy.md#indexing-policy-examples) för indexering av exempel på.
+Se [det här avsnittet](how-to-manage-indexing-policy.md#indexing-policy-examples) för indexerings princip exempel.
 
 ## <a name="composite-indexes"></a>Sammansatta index
 
-Frågor som `ORDER BY` två eller flera egenskaper kräver ett sammansatt index. Sammansatta index är för närvarande endast används av flera `ORDER BY` frågor. Som standard inga sammansatta index har definierats så bör du [lägga till sammansatta index](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) efter behov.
+Frågor som `ORDER BY` har två eller fler egenskaper kräver ett sammansatt index. För närvarande används sammansatta index bara av flera `ORDER BY` frågor. Som standard definieras inga sammansatta index så att du kan [lägga till sammansatta index](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) vid behov.
 
-När du definierar ett sammansatt index måste ange du:
+När du definierar ett sammansatt index anger du:
 
-- Två eller flera sökvägar för egenskapen. Sekvensen som egenskap sökvägar är definierad som är viktigt.
+- Två eller flera egenskaps sökvägar. Den sekvens i vilken egenskaps Sök vägar definieras.
 - Ordningen (stigande eller fallande).
 
 Följande överväganden används när du använder sammansatta index:
 
-- Om sökvägarna till sammansatta index inte matchar de egenskaper i ORDER BY-satsen sedan sammansatta index har inte stöd för frågan
+- Om de sammansatta index Sök vägarna inte matchar ordningen på egenskaperna i ORDER BY-satsen kan inte det sammansatta indexet stödja frågan
 
-- Ordningen på sammansatta index sökvägar (stigande eller fallande) måste även matcha ordningen i ORDER BY-satsen.
+- Ordningen för sammansatta index Sök vägar (stigande eller fallande) ska också matcha ordningen i ORDER BY-satsen.
 
-- Sammansatta index stöder också en ORDER BY-sats med omvänd ordning på alla sökvägar.
+- Det sammansatta indexet stöder också en ORDER BY-sats med motsatt ordning på alla sökvägar.
 
-Fundera på följande exempel där ett sammansatt index definieras egenskaperna för a, b och c:
+Tänk på följande exempel där ett sammansatt index definieras för egenskaperna a, b och c:
 
-| **Sammansatta Index**     | **Exemplet `ORDER BY` fråga**      | **Stöds av Index?** |
+| **Sammansatt index**     | **Exempel `ORDER BY` fråga**      | **Stöds av index?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
@@ -106,41 +106,41 @@ Fundera på följande exempel där ett sammansatt index definieras egenskaperna 
 | ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
 | ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
 
-Du bör anpassa indexprincip så att du kan leverera all nödvändig `ORDER BY` frågor.
+Du bör anpassa indexerings principen så att du kan hantera alla nödvändiga `ORDER BY` frågor.
 
-## <a name="modifying-the-indexing-policy"></a>Ändra indexprincip
+## <a name="modifying-the-indexing-policy"></a>Ändra indexerings principen
 
-Indexeringsprincip för en behållare kan uppdateras när som helst [med hjälp av Azure-portalen eller en av de stödda SDK: erna](how-to-manage-indexing-policy.md). En uppdatering av indexprincip utlöser en omvandling från det gamla indexet till den nya, vilket utförs och på plats (så att inget ytterligare utrymme förbrukas under åtgärden). Gamla principens index omvandlas effektivt till den nya principen utan att påverka tillgängligheten för skrivning eller dataflödet som tillhandahållits för behållaren. Index omvandlingen är en asynkron åtgärd och den tid det tar för att slutföra beror på det etablerade dataflödet, antalet objekt och deras storlek. 
+En behållares indexerings princip kan uppdateras när [som helst genom att använda Azure Portal eller någon av de SDK](how-to-manage-indexing-policy.md): er som stöds. En uppdatering av indexerings principen utlöser en omvandling från det gamla indexet till den nya, som utförs online och på plats (så att ingen ytterligare lagrings utrymme förbrukas under driften). Den gamla principens index omvandlas effektivt till den nya principen utan att det påverkar Skriv tillgängligheten eller det data flöde som har allokerats på behållaren. Omvandling av index är en asynkron åtgärd och den tid det tar att slutföra beror på det etablerade data flödet, antalet objekt och deras storlek. 
 
 > [!NOTE]
-> Medan omindexering pågår, frågor kan inte returnera alla matchande resultat och gör det utan att returnera eventuella fel. Det innebär att frågeresultatet inte kanske är konsekvent tills indexet omvandlingen har slutförts. Det är möjligt att spåra förloppet för index omvandling [med någon av de SDK: erna](how-to-manage-indexing-policy.md).
+> När Omindexering pågår, kan frågor inte returnera alla matchande resultat och kommer att göra det utan att returnera några fel. Det innebär att frågeresultaten kanske inte är konsekventa förrän index omvandlingen har slutförts. Det är möjligt att spåra förloppet för index omvandlingen [med hjälp av en av SDK: erna](how-to-manage-indexing-policy.md).
 
-Om den nya indexprincip läge är inställt på konsekvens, kan inga andra indexering principändringen tillämpas när indexet transformeringen pågår. En pågående index omvandling kan avbrytas genom att ange den indexprincip läge None (som kommer omedelbart att släppa indexet).
+Om den nya indexerings principens läge är inställt på konsekvent, kan ingen annan indexerings princip ändras när index transformationen pågår. En index omvandling som körs kan avbrytas genom att ställa in indexerings principens läge på ingen (som omedelbart släpper indexet).
 
-## <a name="indexing-policies-and-ttl"></a>Principer för indexering och TTL
+## <a name="indexing-policies-and-ttl"></a>Indexerings principer och TTL
 
-Den [Time-to-Live (TTL) funktionen](time-to-live.md) kräver indexering för att vara aktiv för behållaren som den är påslagen. Detta innebär att:
+[TTL-funktionen (Time-to-Live)](time-to-live.md) kräver att indexeringen är aktiv på den behållare som den är påslagen. Detta innebär att:
 
-- Det går inte att aktivera TTL-värdet från en behållare där indexering läge är inställt på Ingen,
-- Det går inte att ange läget som indexering NONE för en behållare där TTL är aktiverad.
+- Det går inte att aktivera TTL på en behållare där indexerings läget är inställt på ingen,
+- Det går inte att ställa in indexerings läget på none i en behållare där TTL har Aktiver ATS.
 
-Du kan använda en indexeringsprincip med scenarier där ingen egenskapssökväg måste indexeras, men TTL-värde krävs:
+För scenarier där ingen egenskaps Sök väg behöver indexeras, men TTL krävs, kan du använda en indexerings princip med:
 
-- en indexering inställd på konsekvens, och
-- Ingen inkluderade sökväg och
-- `/*` eftersom den enda exkluderade sökvägen.
+- ett indexerings läge har angetts till konsekvent och
+- ingen sökväg har inkluderats och
+- `/*`som den enda undantagna sökvägen.
 
 ## <a name="obsolete-attributes"></a>Föråldrade attribut
 
-När du arbetar med principer för indexering, du kan stöta på följande attribut som är nu föråldrade:
+När du arbetar med indexerings principer kan du stöta på följande attribut som nu är föråldrade:
 
-- `automatic` är ett booleskt värde som definierats i roten av en princip för indexering. Den ignoreras nu och kan ställas in på `true`, när du använder verktyget kräver den.
-- `precision` ett tal har definierats på nivån index för sökvägar som tas med. Den ignoreras nu och kan ställas in på `-1`, när du använder verktyget kräver den.
-- `hash` är en typ av index som har ersatts av typ av intervall.
+- `automatic`är ett booleskt värde som definierats i roten för en indexerings princip. Nu ignoreras den och kan ställas in `true`på när verktyget som du använder kräver det.
+- `precision`är ett tal definierat på index nivå för inkluderade sökvägar. Nu ignoreras den och kan ställas in `-1`på när verktyget som du använder kräver det.
+- `hash`är en index typ som nu ersätts av typ av intervall.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om indexering i följande artiklar:
 
-- [Indexering, översikt](index-overview.md)
-- [Så här hanterar du indexeringsprincip](how-to-manage-indexing-policy.md)
+- [Översikt över indexering](index-overview.md)
+- [Hantera indexerings principen](how-to-manage-indexing-policy.md)

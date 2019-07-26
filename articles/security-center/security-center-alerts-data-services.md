@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 1cafd8a3c766e57aed67634d7da8498c9a6ee120
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295821"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501483"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Hot identifiering för data tjänster i Azure Security Center
 
@@ -27,6 +27,7 @@ ms.locfileid: "68295821"
 
 * [Azure SQL Database och SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
+* [Cosmos DB](#cosmos-db)
 
 ## Azure SQL Database och SQL Data Warehouse<a name="data-sql"></a>
 
@@ -46,7 +47,7 @@ Mer information om varningar om SQL-hotet finns i[Azure SQL Database hot identif
 ## Azure Storage<a name="azure-storage"></a>
 
 >[!NOTE]
-> Avancerat skydd för Azure Storage är för närvarande endast tillgängligt för Blob Storage. 
+> Avancerat skydd för Azure Storage är för närvarande endast tillgängligt för Blob Storage.
 
 Med Advanced Threat Protection för Azure Storage får du en ytterligare nivå med säkerhetsinsikter som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Det här skydds lagret gör att du kan åtgärda hot utan att du behöver vara säkerhets expert och hantera säkerhets övervaknings system.
 
@@ -70,3 +71,14 @@ Security Center analyserar diagnostiska loggar med Läs-, skriv-och borttagnings
 >Avancerat skydd för Azure Storage är för närvarande inte tillgängligt i moln regioner i Azure myndigheter och i vår suveräna region.
 
 Mer information om aviseringar för lagring finns i artikeln [Avancerat skydd mot Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) och i avsnittet skydds aviseringar.
+
+## Cosmos DB<a name="cosmos-db"></a>
+
+Följande aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja Azure Cosmos DB-konton:
+
+|Varning|Beskrivning|
+|---|---|
+|**Åtkomst från ovanlig plats**|Anger att åtkomst mönstret har ändrats till ett Cosmos DB-konto. Någon har använt det här kontot från en okänd IP-adress jämfört med senaste aktivitet. Antingen har en angripare använt ett Cosmos DB konto eller så har en legitim användare åtkomst till Cosmos DB-kontot från en ny och ovanlig geografisk plats. Till exempel: ett nytt program eller ett nytt utvecklings underhåll från fjärrdatorn.|
+|**Ovanliga data exfiltrering**|Indikerar att det har ändrats ett data extraherings mönster från ett Cosmos DB konto. Någon har extraherat en ovanlig mängd data jämfört med senaste aktivitet. Antingen har en angripare extraherat en stor mängd data från en Cosmos DB databas. Exempel: data exfiltrering/läckage, obehörig överföring av data. Eller en legitim användare eller ett program har extraherat en ovanlig mängd data från en behållare. Till exempel: underhåll säkerhets kopierings aktivitet.|
+
+Mer information finns i [Avancerat skydd mot Azure Cosmos DB](../cosmos-db/cosmos-db-advanced-threat-protection.md).

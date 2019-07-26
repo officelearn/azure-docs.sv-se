@@ -1,6 +1,6 @@
 ---
-title: Security attribut för Azure Cosmos DB
-description: En checklista med säkerhetsattribut för att utvärdera Azure Cosmos DB
+title: Säkerhetsattribut för Azure Cosmos DB
+description: En check lista över säkerhetsattribut för utvärdering av Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: msmbaldwin
@@ -9,67 +9,67 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ffeb60f5476a540e3da46a82c240b0dda9aa6be2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480460"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442558"
 ---
-# <a name="security-attributes-for-azure-cosmos-db"></a>Security attribut för Azure Cosmos DB
+# <a name="security-attributes-for-azure-cosmos-db"></a>Säkerhetsattribut för Azure Cosmos DB
 
-Den här artikeln beskrivs vanliga security attribut som är inbyggda i Azure Cosmos DB.
+I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Azure Cosmos DB.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 ## <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/Nej | Anteckningar |
+| Säkerhetsattribut | Ja/Nej | Anteckningar |
 |---|---|--|
-| Kryptering i vila (t.ex kryptering på serversidan, kryptering på serversidan med Kundhanterade nycklar och andra krypteringsfunktioner) | Ja | Alla Cosmos DB-databaser och säkerhetskopieringar krypteras som standard. Se [datakryptering i Azure Cosmos DB](database-encryption-at-rest.md). Kryptering på serversidan med Kundhanterade nycklar stöds inte. |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i virtuella nätverk, och kryptering för VNet-VNet)| Ja | Alla Azure Cosmos DB-data krypteras vid överföring. |
-| Hantering av kryptering nyckel (CMK, BYOK osv.)| Nej |  |
-| Kolumnen Filnivåkryptering (Azure-datatjänster)| Ja | Endast i tabeller API Premium. Inte alla API: er stöder den här funktionen. Se [introduktion till Azure Cosmos DB: Tabell-API](table-introduction.md). |
-| API-anrop som är krypterad| Ja | Alla anslutningar till Azure Cosmos DB stöder HTTPS. Azure Cosmos DB stöder TLS 1.2-anslutningar, men detta är inte ännu tvingande. Kunder har stängt av lägre nivå TLS på sina slutet, de kan garantera för att ansluta till Cosmos DB.  |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner) | Ja | Alla Cosmos DB databaser och säkerhets kopior krypteras som standard. Se [data kryptering i Azure Cosmos DB](database-encryption-at-rest.md). Kryptering på Server sidan med Kundhanterade nycklar stöds inte. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Alla Azure Cosmos DB data krypteras vid överföring. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej |  |
+| Kryptering på kolumn nivå (Azure Data Services)| Ja | Endast i Tables API Premium. Alla API: er stöder inte den här funktionen. Se [introduktion till Azure Cosmos DB: Tabell-API](table-introduction.md). |
+| Krypterade API-anrop| Ja | Alla anslutningar till Azure Cosmos DB stöd för HTTPS. Azure Cosmos DB stöder även TLS 1,2-anslutningar, men detta är inte tvingande än. Om kunderna stänger av lågnivå-TLS på deras sida, kan de se till att de ansluter till Cosmos DB.  |
 
-## <a name="network-segmentation"></a>Nätverkssegmentering
+## <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/Nej | Anteckningar |
+| Säkerhetsattribut | Ja/Nej | Anteckningar |
 |---|---|--|
-| Stöd för tjänstslutpunkt| Ja |  |
-| vNET-stöd för inmatning| Ja | Du kan konfigurera ett Azure Cosmos DB-konto för att tillåta åtkomst från ett specifikt undernät i ett virtuellt nätverk (VNet) med VNet-tjänstslutpunkt. Du kan också kombinera VNet-åtkomst med brandväggsregler.  Se [åtkomst till Azure Cosmos DB från virtuella nätverk](vnet-service-endpoint.md). |
-| Stöd för isolering av nätverk och Firewalling| Ja | Med brandväggen kan konfigurera du ditt Azure Cosmos-konto för att tillåta åtkomst från en godkänd uppsättning IP-adresser, ett intervall med IP-adresser och/eller molntjänster. Se [konfigurera IP-brandvägg i Azure Cosmos DB](how-to-configure-firewall.md).|
-| Stöd för Tvingad tunneltrafik | Ja | Kan konfigureras på klientsidan på det virtuella nätverket där de virtuella datorerna finns.   |
+| Stöd för tjänst slut punkt| Ja |  |
+| Stöd för VNet-injektering| Ja | Med VNet-tjänstens slut punkt kan du konfigurera ett Azure Cosmos DB konto för att tillåta åtkomst endast från ett speciellt undernät i ett virtuellt nätverk (VNet). Du kan också kombinera VNet-åtkomst med brand Väggs regler.  Se [åtkomst Azure Cosmos dB från virtuella nätverk](VNet-service-endpoint.md). |
+| Stöd för nätverks isolering och brand vägg| Ja | Med brand Väggs stöd kan du konfigurera ditt Azure Cosmos-konto så att det bara tillåter åtkomst från en godkänd uppsättning IP-adresser, ett intervall med IP-adresser och/eller moln tjänster. Se [Konfigurera IP-brandvägg i Azure Cosmos DB](how-to-configure-firewall.md).|
+| Stöd för Tvingad tunnel trafik| Ja | Kan konfigureras på klient sidan på det VNet där de virtuella datorerna finns.   |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
-| Säkerhetsattributet | Ja/Nej | Anteckningar|
+| Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Alla förfrågningar som skickas till Azure Cosmos DB loggas. [Azure Monitoring](../azure-monitor/overview.md), Azure-mått, Azure-granskningsloggning stöds.  Du kan logga information som motsvarar begäranden av plan, runtime frågestatistik, frågetexten MongoDB-begäranden. Du kan också konfigurera aviseringar. |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Alla begär Anden som skickas till Azure Cosmos DB loggas. [Azure-övervakning](../azure-monitor/overview.md), Azure-mått, Azure gransknings loggning stöds.  Du kan logga information som motsvarar data Plans begär Anden, fråga efter körnings statistik, frågetext, MongoDB-begäranden. Du kan också ställa in aviseringar. |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/Nej | Anteckningar|
+| Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Ja på kontonivå databasen; på nivån data dataplanet använder Cosmos DB resurstokens och nyckelåtkomst. |
-| Auktorisering| Ja | Stöds på Azure Cosmos-konto med huvudnycklar (primära och sekundära) och resurstokens. Du kan få full eller skrivskyddad åtkomst till data med huvudnycklar. Resurstokens Tillåt tidsbegränsat åtkomst till resurser, till exempel dokument och behållare. |
+| Authentication| Ja | Ja på databas konto nivå; på data planet nivå använder Cosmos DB resurspooler och nyckel åtkomst. |
+| Authorization| Ja | Stöds på Azure Cosmos-kontot med huvud nycklar (primära och sekundära) och resurs-token. Du kan hämta Läs-och skriv-eller Läs behörighet till data med huvud nycklar. Med resurs-token får du begränsad åtkomst till resurser som dokument och behållare. |
 
 
-## <a name="audit-trail"></a>Granskningslogg
+## <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/Nej | Anteckningar|
+| Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering planera loggning och granskning| Ja | Azure-aktivitetslogg för kontot på åtgärder som till exempel brandväggar, virtuella nätverk, åtkomst till nycklar och IAM. |
-| Data-dataplaner loggning och granskning | Ja | Diagnostik övervakning loggning för behållare på åtgärder som skapar behållare, etablera dataflöde, indexering av principer och CRUD-åtgärder på dokument. |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Azure aktivitets logg för åtgärder på konto nivå, till exempel brand väggar, virtuella nätverk, nycklar åtkomst och IAM. |
+| Loggning och granskning av data planet | Ja | Loggning av diagnostik för behållar åtgärder, till exempel skapa behållare, etablera data flöde, indexerings principer och CRUD åtgärder för dokument. |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Nej  | | 
+| Konfigurations hanterings stöd (konfigurations version osv.)| Nej  | | 
 
-## <a name="additional-security-attributes-for-cosmos-db"></a>Attribut för ytterligare säkerhet för Cosmos DB
+## <a name="additional-security-attributes-for-cosmos-db"></a>Ytterligare säkerhetsattribut för Cosmos DB
 
-| Säkerhetsattributet | Ja/Nej | Anteckningar|
+| Säkerhetsattribut | Ja/Nej | Anteckningar|
 |---|---|--|
-| Cross Origin Resource Sharing (CORS) | Ja | Se [konfigurera Cross-Origin Resource Sharing (CORS)](how-to-configure-cross-origin-resource-sharing.md). |
+| Resurs delning mellan ursprung (CORS) | Ja | Se [Konfigurera CORS (Cross-Origin resurs delning)](how-to-configure-cross-origin-resource-sharing.md). |

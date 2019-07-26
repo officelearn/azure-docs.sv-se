@@ -1,19 +1,18 @@
 ---
 title: Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 description: Innehåller fel söknings vägledning som hjälper dig att diagnostisera orsaken till Azure Backup prestanda problem
-services: backup
 author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 592a46077bb9e3469f3a42a95173af1b6db93510
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3a39d39412c8b64d1851ea0fc9511d116f3b232a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "67704936"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465345"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 Den här artikeln innehåller fel söknings vägledning som hjälper dig att diagnostisera orsaken till långsamma säkerhets kopierings prestanda för filer och mappar när du använder Azure Backup. När du använder Azure Backup Agent för att säkerhetskopiera filer kan säkerhets kopieringen ta längre tid än förväntat. Den här fördröjningen kan ha orsakats av ett eller flera av följande:
@@ -38,7 +37,7 @@ Windows innehåller ett inbyggt verktyg som kallas [prestanda övervakaren](http
 
 Här följer några prestanda räknare och intervall som kan vara till hjälp vid diagnostisering av flask halsar för optimala säkerhets kopieringar.
 
-| Medelvärde | Status |
+| Räknare | Status |
 | --- | --- |
 | Logisk disk (fysisk disk)--% inaktiv |• 100% inaktiv till 50% Idle = felfri</br>• 49% inaktiv till 20% inaktiv = varning eller Övervakare</br>• 19% inaktiv till 0% inaktiv = kritisk eller ur specifikation |
 | Logisk disk (fysisk disk)--% AVG. Disk s Läs eller Skriv |• 0,001 MS till 0,015 MS = felfri</br>• 0,015 MS till 0,025 MS = varning eller Övervakare</br>• 0,026 MS eller längre = kritisk eller ur specifikationen |
@@ -83,7 +82,7 @@ The following indicators can help you understand the bottleneck and accordingly 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
 * **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).Processor--\`processor tid (alla instanser)es and folders in Azure Backup
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
-services: backup
+
 author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup

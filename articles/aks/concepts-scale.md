@@ -1,109 +1,109 @@
 ---
-title: Begrepp - skala program i Azure Kubernetes Services (AKS)
-description: Mer information om skalning i Azure Kubernetes Service (AKS), inklusive vågrät pod autoskalningen, kluster autoskalningen och Azure Container Instances-anslutningen.
+title: Koncept – skala program i Azure Kubernetes Services (AKS)
+description: Lär dig mer om skalning i Azure Kubernetes service (AKS), inklusive horisontell Pod-autoskalning, kluster autoskalning och Azure Container Instances anslutningen.
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3230d85dfcf57bfd4e2e1684f4f5620600ec4e3a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074044"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424199"
 ---
-# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalningsalternativ för program i Azure Kubernetes Service (AKS)
+# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalnings alternativ för program i Azure Kubernetes service (AKS)
 
-När du kör program i Azure Kubernetes Service (AKS), kan du behöva öka eller minska mängden beräkningsresurser. När antalet instanser av programmet måste du ändra antalet underliggande Kubernetes noder kan också behöva ändra. Du kan också behöva etablera snabbt ett stort antal ytterligare programinstanser.
+När du kör program i Azure Kubernetes service (AKS) kan du behöva öka eller minska mängden beräknings resurser. Antalet underliggande Kubernetes-noder kan också behöva ändras som antalet program instanser som du behöver ändra. Du kan också behöva etablera ett stort antal ytterligare program instanser.
 
-Den här artikeln beskrivs grundläggande begrepp som hjälper dig att skala program i AKS:
+Den här artikeln beskriver de viktigaste begreppen som hjälper dig att skala program i AKS:
 
 - [Skala manuellt](#manually-scale-pods-or-nodes)
-- [Vågrät pod autoskalningen (HPA)](#horizontal-pod-autoscaler)
-- [Klustret autoskalningen](#cluster-autoscaler)
-- [Azure Container-instans (ACI)-integrering med AKS](#burst-to-azure-container-instances)
+- [Horisontell Pod autoskalning (HPA)](#horizontal-pod-autoscaler)
+- [Kluster autoskalning](#cluster-autoscaler)
+- [Azure Container instance-integrering (ACI) med AKS](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>Skala poddar eller noder manuellt
 
-Du kan manuellt skala repliker (poddar) och noder för att testa hur ditt program svarar på en ändring i tillgängliga resurser och tillstånd. Skala resurser manuellt kan du definiera en viss mängd resurser som ska användas för att underhålla en fast kostnad, till exempel hur många noder. Om du vill skala manuellt definiera repliken eller antalet noder och Kubernetes API-scheman skapar nya poddarna eller tömmer noderna.
+Du kan skala repliker (poddar) och noder manuellt för att testa hur programmet svarar på en ändring i tillgängliga resurser och tillstånd. Genom att skala resurser manuellt kan du också definiera en uppsättning resurser som ska användas för att upprätthålla en fast kostnad, till exempel antalet noder. Om du vill skala manuellt definierar du repliken eller antalet noder och Kubernetes API-scheman skapar ytterligare poddar eller tömmer noder.
 
-Du kommer igång med manuellt skala poddar och noder [skala program i AKS][aks-scale].
+För att komma igång med manuell skalning av poddar och noder, se [skala program i AKS][aks-scale].
 
-## <a name="horizontal-pod-autoscaler"></a>Vågrät pod autoskalningen
+## <a name="horizontal-pod-autoscaler"></a>Horisontell Pod autoskalning
 
-Kubernetes använder vågrät pod autoskalningen (HPA) för att övervaka resursbehov och automatiskt skala antalet repliker. Som standard kontrollerar vågrät pod autoskalningen mått-API med 30 sekunders mellanrum för eventuella nödvändiga ändringar i replikantal. När ändringar krävs, antalet repliker ökar eller minskar därefter. Vågrät pod autoskalningen fungerar med AKS-kluster som har distribuerat mått-Server för Kubernetes 1.8 +.
+Kubernetes använder den vågräta Pod autoskalning (HPA) för att övervaka resurs behovet och skalar automatiskt antalet repliker. Som standard kontrollerar autoskalning i horisontella Pod mått-API var 30: e sekund för alla nödvändiga ändringar i replik antalet. När ändringar krävs ökas eller minskas antalet repliker i enlighet med detta. Horisontell Pod autoskalning fungerar med AKS-kluster som har distribuerat mått servern för Kubernetes 1.8 +.
 
-![Vågrät Kubernetes pod automatisk skalning](media/concepts-scale/horizontal-pod-autoscaling.png)
+![Kubernetes horisontell Pod autoskalning](media/concepts-scale/horizontal-pod-autoscaling.png)
 
-När du konfigurerar vågrät pod autoskalningen för en viss distribution kan definiera du minsta och största antalet repliker som kan köras. Du kan också definiera mått för att övervaka och basera alla beslut om skalning, till exempel CPU-användning.
+När du konfigurerar den horisontella Pod autoskalning för en specifik distribution definierar du det lägsta och högsta antalet repliker som kan köras. Du definierar också måttet för att övervaka och basera eventuella skalnings beslut, till exempel processor användning.
 
-Kom igång med vågrät pod autoskalningen i AKS, se [autoskalning av poddarna i AKS][aks-hpa].
+För att komma igång med den vågräta Pod-autoskalning i AKS, se AutoScale- [poddar i AKS][aks-hpa].
 
-### <a name="cooldown-of-scaling-events"></a>Nedkylningstiden skala händelser
+### <a name="cooldown-of-scaling-events"></a>Cooldown för skalnings händelser
 
-Eftersom vågrät pod autoskalningen kontrollerar mått-API med 30 sekunders mellanrum, kanske tidigare skalningshändelser inte har slutförts innan en annan kontroll görs. Det här beteendet kan orsaka vågräta pod autoskalningen ändra antalet repliker innan den föregående skalhändelse har kunnat ta emot arbetsbelastning och resurskrav att justeras.
+I takt med att den vågräta Pod-autoskalning kontrollerar Metrics API var 30: e sekund kanske tidigare skalnings händelser inte har slutförts innan en annan kontroll görs. Detta kan orsaka att den vågräta Pod automatiskt skalar för att ändra antalet repliker innan föregående skalnings händelse har kunnat ta emot program arbets belastning och resurs behoven för att justera detta.
 
-Nedkylningstiden eller fördröjning värden kan anges för att minimera händelserna som ”vinner”. Dessa värden definierar hur länge vågrät pod autoskalningen måste vänta efter en skalhändelse innan en annan skala händelsen kan utlösas. Det här innebär att den nya repliken räkna träder i kraft och mått-API: et omfattar distribuerad arbetsbelastning. Som standard fördröjningen på skala upp händelser är 3 minuter och fördröjningen på skala ned händelser är 5 minuter
+För att minimera dessa tävlings händelser kan cooldown eller fördröjnings värden anges. Dessa värden definierar hur länge den automatiska skalningen av vågrät Pod måste vänta efter en skalnings händelse innan en annan skalnings händelse kan utlösas. Det här beteendet gör att det nya replik antalet börjar gälla och att mått-API: et återspeglar den distribuerade arbets belastningen. Som standard är fördröjningen för skala upp händelser 3 minuter och fördröjningen för att skala ned händelser är 5 minuter
 
-Du kan behöva justera dessa nedkylningstiden-värden. Standardvärden för nedkylningstiden kan ge intryck av att vågrät pod autoskalningen inte skalning replikantalet tillräckligt snabbt. Till exempel för att snabbt öka antalet repliker används kan minska den `--horizontal-pod-autoscaler-upscale-delay` när du skapar din vågrät pod autoskalningen definitioner med `kubectl`.
+Du kan behöva finjustera dessa cooldown-värden. Standardvärdena för cooldown kan ge intryck av att den vågräta Pod inte skalar replik antalet tillräckligt snabbt. Om du till exempel snabbt vill öka antalet repliker som används minskar `--horizontal-pod-autoscaler-upscale-delay` du när du skapar en horisontell Pod-definition för autoskalning med hjälp av. `kubectl`
 
-## <a name="cluster-autoscaler"></a>Klustret autoskalningen
+## <a name="cluster-autoscaler"></a>Kluster autoskalning
 
-För att svara på pod behov, har Kubernetes ett kluster autoskalningen (för närvarande i förhandsversion i AKS) som justerar antalet noder baserat på de begärda beräkningsresurserna i noden poolen. Som standard kontrollerar autoskalningen kluster API-servern var tionde sekund för alla nödvändiga ändringar i antalet noder. Om klustret automatisk skalning krävs en ändring, antalet noder i AKS-kluster ökar eller minskar därefter. Autoskalningen kluster fungerar med RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10.x eller högre.
+För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning (för närvarande i för hands version i AKS) som justerar antalet noder baserat på de begärda beräknings resurserna i Node-poolen. Som standard kontrollerar kluster autoskalning API-servern var 10: e sekund för alla nödvändiga ändringar i antalet noder. Om klustrets autoskalning avgör att en ändring krävs, ökar eller minskar du antalet noder i ditt AKS-kluster. Kluster autoskalning fungerar med RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10. x eller senare.
 
-![Kubernetes-kluster autoskalningen](media/concepts-scale/cluster-autoscaler.png)
+![Kubernetes-kluster autoskalning](media/concepts-scale/cluster-autoscaler.png)
 
-Klustret autoskalningen används vanligen tillsammans med vågrät pod autoskalningen. I kombination, vågrät pod autoskalningen ökar eller minskar antalet poddar baserat på programmets efterfrågan och klustret autoskalningen justerar antalet noder som behövs för att köra de nya poddarna i enlighet med detta.
+Kluster autoskalning används vanligt vis tillsammans med den horisontella Pod autoskalning. När den vågräta Pod används ökas eller minskas antalet poddar baserat på program efter frågan och klustrets autoskalning justerar antalet noder som behövs för att köra ytterligare poddar.
 
-Klustret autoskalningen bör endast testas i förhandsversionen av AKS-kluster med en enda nod-pool.
+Kluster autoskalning ska endast testas i för hands versionen i AKS-kluster.
 
-Kom igång med autoskalningen kluster i AKS, se [kluster Autoskalningen på AKS][aks-cluster-autoscaler].
+För att komma igång med klustrets autoskalning i AKS, se [kluster autoskalning på AKS][aks-cluster-autoscaler].
 
 ### <a name="scale-up-events"></a>Skala upp händelser
 
-Om en nod inte har tillräckligt med beräkningsresurser att köra en begärda pod, det går inte att den pod fortsätter genom planeringsprocessen. Poden kan inte starta om inte fler beräkningsresurser är tillgängliga i noden poolen.
+Om en nod inte har tillräckligt med beräknings resurser för att köra en begärd pod, kan Pod inte passera genom schemaläggnings processen. Pod kan inte startas om inte ytterligare beräknings resurser är tillgängliga i Node-poolen.
 
-När klustret autoskalningen meddelanden poddar som inte går att schemalägga på grund av resursbegränsningar för noden pool, ökas antalet noder i poolen för noden för att ge ytterligare beräkningsresurser. När dessa ytterligare noder är har distribuerats och är tillgänglig för användning i nodpoolen, är sedan poddarna schemalagda att köras på dem.
+När poddar för kluster autoskalning inte kan schemaläggas på grund av resurs begränsningar för en resurspool, ökar antalet noder i noden för att tillhandahålla ytterligare beräknings resurser. När de ytterligare noderna har distribuerats och är tillgängliga för användning i Node-poolen, schemaläggs poddar sedan att köras på dem.
 
-Om programmet behöver för att skala snabbt, kan vissa poddar kvar i ett tillstånd som väntar på att schemaläggas tills de ytterligare noder som distribueras av klustret autoskalningen kan acceptera schemalagda poddarna. För program som har hög burst-krav, kan du skala med virtuella noder och Azure Container Instances.
+Om ditt program behöver skala snabbt kan vissa poddar finnas kvar i ett tillstånd som väntar på att schemaläggas tills de ytterligare noder som distribueras av klustret autoskalning kan godkänna den schemalagda poddar. För program som har höga burst-krav kan du skala med virtuella noder och Azure Container Instances.
 
 ### <a name="scale-down-events"></a>Skala ned händelser
 
-Autoskalningen klustret övervakar även pod schemaläggning status för noder som inte nyligen har tagit emot nya schemaläggning begäranden. Det här scenariot anger att nodpoolen har fler beräkningsresurser än vad som krävs och antalet noder kan minskas.
+Klustrets autoskalning övervakar också Pod schemaläggnings status för noder som inte nyligen har fått nya tids planerings begär Anden. Det här scenariot indikerar att Node-poolen har fler beräknings resurser än vad som krävs och att antalet noder kan minskas.
 
-En nod som skickar ett tröskelvärde för längre som behövs i 10 minuter som standard har schemalagts för borttagning. När den här situationen uppstår poddar är schemalagda att köras på andra noder i poolen noden och klustret autoskalningen minskar antalet noder.
+En nod som skickar ett tröskelvärde som inte längre behövs i 10 minuter är schemalagd för borttagning. När den här situationen inträffar är poddar schemalagda att köras på andra noder i Node-poolen och klustrets autoskalning minskar antalet noder.
 
-Vissa avbrott kan uppstå i dina program som poddar schemaläggs på olika noder när klustret autoskalningen minskar antalet noder. Undvik att program som använder en enda pod-instans för att minimera störningar.
+Dina program kan drabbas av vissa avbrott när poddar är schemalagda för olika noder när den automatiska skalnings tjänsten för klustret minskar antalet noder. Undvik avbrott genom att undvika program som använder en enda Pod-instans.
 
-## <a name="burst-to-azure-container-instances"></a>Utöka till Azure Container Instances
+## <a name="burst-to-azure-container-instances"></a>Burst till Azure Container Instances
 
-Snabbt skalar ditt AKS-kluster kan integrera du med Azure Container Instances (ACI). Kubernetes har inbyggda komponenter att skala antalet replik och nod. Om programmet behöver för att skala snabbt, kan vågrät pod autoskalningen schemalägga flera poddar än vad som kan anges av de befintliga beräkningsresurserna i noden poolen. Om konfigurerat kan det här scenariot skulle utlöser autoskalningen klustret om du vill distribuera ytterligare noder i poolen noden, men det kan ta några minuter för dessa noder att etablera och Tillåt Kubernetes-Schemaläggaren för att köra poddar på dem.
+Om du snabbt vill skala ditt AKS-kluster kan du integrera med Azure Container Instances (ACI). Kubernetes har inbyggda komponenter för skalning av antalet repliker och noder. Men om ditt program behöver skala snabbt, kan den horisontella Pod autoskalning schemalägga mer poddar än vad som finns i de befintliga beräknings resurserna i Node-poolen. Om det här scenariot har kon figurer ATS utlöses det här scenariot för att distribuera ytterligare noder i Node-poolen, men det kan ta några minuter för noderna att etablera och tillåta Kubernetes Scheduler att köra poddar på dem.
 
-![Kubernetes burst skalning till ACI](media/concepts-scale/burst-scaling.png)
+![Kubernetes burst-skalning till ACI](media/concepts-scale/burst-scaling.png)
 
-ACI kan du snabbt distribuera behållarinstanser utan ytterligare infrastruktur behöva. När du ansluter med AKS blir ACI en säker, logiska förlängning av ditt AKS-kluster. Virtual Kubelet-komponenten har installerats i AKS-klustret som presenterar ACI som en virtuell Kubernetes-nod. Kubernetes kan sedan schemalägga poddar som körs som ACI-instanser via virtuella noder och inte som poddar på VM-noder direkt i AKS-klustret. Virtuella noder finns för närvarande i förhandsversion i AKS.
+Med ACI kan du snabbt distribuera behållar instanser utan ytterligare infrastruktur belastning. När du ansluter med AKS blir ACI ett säkert, logiskt tillägg för ditt AKS-kluster. Den virtuella Kubelet-komponenten installeras i ditt AKS-kluster som visar ACI som en virtuell Kubernetes-nod. Kubernetes kan sedan schemalägga poddar som körs som ACI-instanser via virtuella noder, inte som poddar på VM-noder direkt i ditt AKS-kluster. Virtuella noder är för närvarande för hands versioner i AKS.
 
-Programmet kräver inga ändringar att använda virtuella noder. Distributioner kan skala över AKS och ACI och utan fördröjning som kluster autoskalningen distribuerar nya noderna i AKS-klustret.
+Programmet kräver ingen ändring för att använda virtuella noder. Distributioner kan skalas över AKS och ACI och utan fördröjning som kluster autoskalning distribuerar nya noder i ditt AKS-kluster.
 
-Virtuella noder distribueras till en ytterligare undernät i samma virtuella nätverk som AKS-klustret. Den här virtuella nätverkskonfigurationen tillåter trafik mellan ACI och AKS skyddas. Precis som ett AKS-kluster är en säker, logiska beräkningsresurs som är isolerad från andra användare i en ACI-instans.
+Virtuella noder distribueras till ett extra undernät i samma virtuella nätverk som ditt AKS-kluster. Med den här virtuella nätverks konfigurationen kan trafiken mellan ACI och AKS skyddas. Precis som ett AKS-kluster är en ACI-instans en säker, logisk beräknings resurs som är isolerad från andra användare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med skalning av program, först följa den [Snabbstart för att skapa ett AKS-kluster med Azure CLI][aks-quickstart]. Du kan sedan starta manuellt eller automatiskt skala program i AKS-klustret:
+För att komma igång med skalnings program, följ först [snabb starten för att skapa ett AKS-kluster med Azure CLI][aks-quickstart]. Du kan sedan starta manuellt eller automatiskt skala program i ditt AKS-kluster:
 
-- Skala manuellt [poddar] [ aks-manually-scale-pods] eller [noder][aks-manually-scale-nodes]
-- Använd den [vågrät pod autoskalningen][aks-hpa]
-- Använd den [kluster autoskalningen][aks-cluster-autoscaler]
+- Skala [poddar][aks-manually-scale-pods] manuellt or [nodes][aks-manually-scale-nodes]
+- Använd den [vågräta Pod][aks-hpa] autoskalning
+- Använd [kluster][aks-cluster-autoscaler] autoskalning
 
-Mer information om core Kubernetes och AKS förklaringar av begrepp finns i följande artiklar:
+Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 
-- [Kubernetes / AKS-kluster och arbetsbelastningar][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS åtkomst och identitet][aks-concepts-identity]
-- [Kubernetes / AKS-säkerhet][aks-concepts-security]
-- [Kubernetes / AKS virtuella nätverk][aks-concepts-network]
-- [Kubernetes / AKS-lagring][aks-concepts-storage]
+- [Kubernetes/AKS-kluster och arbets belastningar][aks-concepts-clusters-workloads]
+- [Kubernetes/AKS-åtkomst och identitet][aks-concepts-identity]
+- [Kubernetes/AKS-säkerhet][aks-concepts-security]
+- [Kubernetes/AKS virtuella nätverk][aks-concepts-network]
+- [Kubernetes/AKS-lagring][aks-concepts-storage]
 
 <!-- LINKS - external -->
 

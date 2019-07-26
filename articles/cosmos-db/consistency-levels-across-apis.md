@@ -1,62 +1,62 @@
 ---
 title: Konsekvensnivåer och API:er för Azure Cosmos DB
-description: 'För att förstå konsekvensnivåerna i API: er i Azure Cosmos DB.'
+description: 'Förstå konsekvens nivåer för API: er i Azure Cosmos DB.'
 author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1129152c1823fbffb3d6c9ec918d7b8cb4426bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26cea6243a8b6d06c132325f0b2fe830c4030e9d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235616"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467764"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och API:er för Azure Cosmos DB
 
-Azure Cosmos DB erbjuder inbyggt stöd för wire protocol-kompatibla API: er för populära databaser. Dessa inkluderar MongoDB, Apache Cassandra, Gremlin och Azure Table storage. De här databaserna erbjuder inte exakt definierade konsekvensmodeller eller garantier som omfattas av serviceavtalet för konsekvensnivåerna. De tillhandahåller normalt endast en delmängd av de fem konsekvensmodeller erbjuds av Azure Cosmos DB. 
+Azure Cosmos DB har inbyggt stöd för API-kompatibla API: er för populära databaser. Dessa omfattar MongoDB, Apache Cassandra, Gremlin och Azure Table Storage. De här databaserna erbjuder inte exakt definierade konsekvens modeller eller garanti garantier för konsekvens nivå. De tillhandahåller vanligt vis endast en delmängd av de fem konsekvens modellerna som erbjuds av Azure Cosmos DB. 
 
-När du använder SQL-API, Gremlin-API och en tabell-API, används standard-konsekvensnivå som konfigurerats för Azure Cosmos-kontot. 
+När du använder SQL API, Gremlin API och Tabell-API, används standard konsekvens nivån som kon figurer ATS på Azure Cosmos-kontot. 
 
-När du använder Cassandra API eller Azure Cosmos DB API för MongoDB, hämta en fullständig uppsättning konsekvensnivåer som Apache Cassandra och MongoDB, finns, med ännu starkare konsekvens och garantier för hållbarhet i program. Det här dokumentet visar motsvarande Azure Cosmos DB-konsekvensnivåer för Apache Cassandra och MongoDB-konsekvensnivåer.
+När du använder API för Cassandra eller Azure Cosmos DB s API för MongoDB får program en fullständig uppsättning konsekvens nivåer som erbjuds av Apache Cassandra och MongoDB, med ännu bättre konsekvens och hållbarhets säkerhet. Det här dokumentet visar motsvarande Azure Cosmos DB konsekvens nivåer för konsekvens nivåer av Apache Cassandra och MongoDB.
 
 
-## <a id="cassandra-mapping"></a>Mappning mellan Apache Cassandra och Azure Cosmos DB-konsekvensnivåer
+## <a id="cassandra-mapping"></a>Mappning mellan Apache Cassandra och Azure Cosmos DB konsekvens nivåer
 
-Till skillnad från AzureCosmos DB ger Apache Cassandra internt inte exakt definierade konsekvensgarantier.  Apache Cassandra ger i stället en konsekvensnivå för skrivning och en skrivskyddad konsekvensnivå, aktivera hög tillgänglighet, konsekvens och svarstid-kompromisser. När du använder Azure Cosmos DB Cassandra-API: 
+Till skillnad från AzureCosmos DB ger Apache Cassandra inte inbyggt rätt definierade konsekvens garantier.  I stället ger Apache Cassandra en Skriv konsekvens nivå och en Läs konsekvens nivå för att möjliggöra hög tillgänglighet, konsekvens och latens fördröjningar. När du använder Azure Cosmos DB API för Cassandra: 
 
-* Konsekvensnivå skrivning av Apache Cassandra mappas till standard-konsekvensnivå som konfigurerats på ditt Azure Cosmos-konto. 
+* Den Skriv konsekvens nivån för Apache Cassandra mappas till standard konsekvens nivån som kon figurer ATS på ditt Azure Cosmos-konto. 
 
-* Azure Cosmos DB mappar dynamiskt Läs konsekvensnivå som anges av Cassandra-klientdrivrutinen till en Azure Cosmos DB-konsekvensnivåer konfigureras dynamiskt på en läsbegäran. 
+* Azure Cosmos DB mappar dynamiskt den Läs konsekvens nivå som anges av Cassandra-klient driv rutinen till en av Azure Cosmos DB konsekvens nivåer som kon figurer ATS dynamiskt på en läsbegäran. 
 
-I följande tabell visar hur de inbyggda Cassandra-konsekvensnivåerna mappas till Azure Cosmos DB-konsekvensnivåer när du använder Cassandra API:  
+I följande tabell visas hur de interna Cassandra-konsekvens nivåerna mappas till Azure Cosmos DBs konsekvens nivåer när du använder API för Cassandra:  
 
-[![Cassandra konsekvens Modellmappning](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Cassandra konsekvens modell mappning](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
-## <a id="mongo-mapping"></a>Mappning mellan MongoDB och Azure Cosmos DB-konsekvensnivåer
+## <a id="mongo-mapping"></a>Mappning mellan MongoDB-och Azure Cosmos DB konsekvens nivåer
 
-Till skillnad från Azure Cosmos DB tillhandahåller inte den interna MongoDB exakt definierade konsekvensgarantier. I stället interna MongoDB kan du konfigurera följande konsekvensgarantier: ett problem för skrivning och ett Läs problem direktivet isMaster - att dirigera läsåtgärder till primära eller sekundära repliker för att uppnå den önskade konsekvensnivån. 
+Till skillnad från Azure Cosmos DB ger det inbyggda MongoDB inte exakt definierade konsekvens garantier. I stället tillåter interna MongoDB att användare konfigurerar följande konsekvens garantier: en Skriv angelägenhet, en läsning och isMaster-direktivet – för att dirigera Läs åtgärder till antingen primära eller sekundära repliker för att uppnå önskad konsekvens nivå. 
 
-När du använder Azure Cosmos DB API för MongoDB, MongoDB-drivrutinen behandlar skrivregion som den primära repliken och alla andra regioner är skrivskyddade replik. Du kan välja vilken region som är associerade med ditt Azure Cosmos-konto som en primär replik. 
+När du använder Azure Cosmos DBs API för MongoDB, behandlar MongoDB-drivrutinen din Skriv region som den primära repliken och alla andra regioner är läsa replik. Du kan välja vilken region som är kopplad till ditt Azure Cosmos-konto som en primär replik. 
 
-När du använder Azure Cosmos DB API för MongoDB:
+När du använder Azure Cosmos DBs API för MongoDB:
 
-* Skriv problem är mappad till standard-konsekvensnivå som konfigurerats på ditt Azure Cosmos-konto.
+* Skriv skyddet mappas till standard konsekvens nivån som kon figurer ATS på ditt Azure Cosmos-konto.
  
-* Azure Cosmos DB mappar dynamiskt Läs problem som anges av MongoDB klientdrivrutinen till en Azure Cosmos DB-konsekvensnivåer som konfigureras dynamiskt på en läsbegäran. 
+* Azure Cosmos DB mappar dynamiskt det läsnings problem som anges av MongoDB-klient driv rutinen till en av de Azure Cosmos DB konsekvens nivåer som har kon figurer ATS dynamiskt på en Read-begäran. 
 
-* Du kan kommentera en viss region som är associerade med ditt Azure Cosmos-konto som ”Master” genom att göra regionen som den första skrivbara regionen. 
+* Du kan kommentera en speciell region som är kopplad till ditt Azure Cosmos-konto som "Master" genom att göra regionen till den första skrivbara regionen. 
 
-Följande tabell visar hur interna MongoDB skrivning/läsning frågor mappas till Azure Cosmos-konsekvensnivåer när du använder Azure Cosmos DB API för MongoDB:
+I följande tabell illustreras hur de inbyggda Skriv-och Läs problemen i MongoDB mappas till konsekvens nivåerna i Azure Cosmos när du använder Azure Cosmos DB s API för MongoDB:
 
-[![MongoDB konsekvens Modellmappning](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![MongoDB konsekvens modell mappning](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om konsekvensnivåer och kompatibiliteten mellan Azure Cosmos DB API: er med öppen källkod-API: er. Se följande artiklar:
+Läs mer om konsekvens nivåer och kompatibilitet mellan Azure Cosmos DB-API: er med API: er med öppen källkod. Se följande artiklar:
 
 * [Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer](consistency-levels-tradeoffs.md)
-* [MongoDB-funktioner som stöds av Azure Cosmos DB: s API för MongoDB](mongodb-feature-support.md)
-* [Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API](cassandra-support.md)
+* [MongoDB-funktioner som stöds av Azure Cosmos DBs API för MongoDB](mongodb-feature-support.md)
+* [Apache Cassandra-funktioner som stöds av Azure Cosmos DB API för Cassandra](cassandra-support.md)

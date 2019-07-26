@@ -1,6 +1,6 @@
 ---
-title: Diskussionsämne extrahering kognitiv sökning färdigheter – Azure Search
-description: Utvärderar ostrukturerad text och returnerar en lista med viktiga fraser för varje post i en Azure Search berikande pipeline.
+title: Nyckel fras extrahering inlärning Sök kunskaper – Azure Search
+description: Utvärderar ostrukturerad text och returnerar en lista med nyckel fraser i en Azure Search anriknings pipeline för varje post.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,48 +11,48 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1d221e3bcdfd781da79c73e8f228b9e449a7f5bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87f20f1989c70988784b422fc38094ec1fc5a966
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021820"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347727"
 ---
-#   <a name="key-phrase-extraction-cognitive-skill"></a>Nyckeln diskussionsämne kognitiva kunskaper
+#   <a name="key-phrase-extraction-cognitive-skill"></a>Extrahering av diskussionsämne kognitiva kunskaper
 
-Den **nyckel diskussionsämne** färdigheter utvärderar ostrukturerad text och returnerar en lista med viktiga fraser för varje post. Kompetensen använder maskininlärningsmodeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
+Den **extrahering av diskussionsämnea** kunskapen utvärderar ostrukturerad text och returnerar en lista över viktiga fraser för varje post. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
 
-Den här funktionen är användbar om du behöver att snabbt identifiera de viktigaste samtalsämnen i posten. Till exempel angivna indata-text ”livsmedelskedjan var härligt och det fanns underbar personal”, tjänsten returnerar ”mat” och ”underbar personal”.
+Den här funktionen är användbar om du snabbt behöver identifiera de viktigaste pratar punkterna i posten. Till exempel, den inmatade texten "livsmedlet var Delicious och det var en fantastiskt anställd", returnerar tjänsten "mat" och "trevlig personal".
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, att lägga till fler dokument eller att lägga till fler AI-algoritmer, måste du [bifoga en fakturerbar resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md). Avgifter tillkommer när du anropar API: er i Cognitive Services och extrahering av avbildningen som en del av det dokumentknäckning steget i Azure Search. Det finns inga avgifter för textextrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda färdigheter som ingår debiteras enligt den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Bild extrahering priser beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken enligt `String.Length`. Om du vill dela upp dina data innan de skickas till diskussionsämne extraktor kan du använda den [Text dela färdighet](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-parameters"></a>Färdighet parametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
-Parametrar är skiftlägeskänsliga.
+Parametrar är Skift läges känsliga.
 
 | Indata                | Beskrivning |
 |---------------------|-------------|
-| defaultLanguageCode | (Valfritt) Språkkoden som ska användas för dokument som inte uttryckligen anger språk.  Om Standardspråkkod inte är angivna, engelska ska (en) användas som Standardspråkkod. <br/> Se [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
-| maxKeyPhraseCount   | (Valfritt) Det maximala antalet viktiga fraser för att producera. |
+| defaultLanguageCode | Valfritt Språk koden som ska användas för dokument som inte uttryckligen anger språk.  Om standard språk koden inte anges används engelska (en) som standard språk kod. <br/> Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| maxKeyPhraseCount   | Valfritt Det maximala antalet nyckel fraser som ska skapas. |
 
-## <a name="skill-inputs"></a>Färdighet indata
+## <a name="skill-inputs"></a>Kompetens inmatningar
 
 | Indata     | Beskrivning |
 |--------------------|-------------|
-| text | Texten som ska analyseras.|
-| languageCode  |  En sträng som anger språket poster. Om den här parametern inte anges används Standard-språkkod att analysera poster. <br/>Se [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| text | Den text som ska analyseras.|
+| languageCode  |  En sträng som anger språket för posterna. Om den här parametern inte anges används standard språk koden för att analysera posterna. <br/>Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
 
-##  <a name="sample-definition"></a>Exempeldefinition
+##  <a name="sample-definition"></a>Exempel definition
 
 ```json
  {
@@ -76,7 +76,7 @@ Parametrar är skiftlägeskänsliga.
   }
 ```
 
-##  <a name="sample-input"></a>Exempelindata
+##  <a name="sample-input"></a>Exempel på inmatade
 
 ```json
 {
@@ -119,11 +119,11 @@ Parametrar är skiftlägeskänsliga.
 
 
 ## <a name="errors-and-warnings"></a>Fel och varningar
-Om du anger ett som inte stöds språkkod kan genereras ett fel och är inte att extrahera nyckelfraser.
-Om texten är tom, skapas en varning.
-Om texten är längre än 50 000 tecken, endast de första 50 000 tecken som ska analyseras och kommer att utfärdas en varning.
+Om du anger en språk kod som inte stöds genereras ett fel och nyckel fraser extraheras inte.
+Om texten är tom skapas en varning.
+Om texten är större än 50 000 tecken kommer endast de första 50 000 tecknen att analyseras och en varning utfärdas.
 
 ## <a name="see-also"></a>Se också
 
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
-+ [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

@@ -2,20 +2,20 @@
 title: 'Snabbstart: Skala ut beräkning i Azure SQL Data Warehouse – PowerShell | Microsoft Docs'
 description: Skala beräkning i Azure SQL Data Warehouse i PowerShell. Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: igorstan
-ms.openlocfilehash: bd137b71cab4a345afce835effd2ecb0c03df312
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddf33c927054512d1807d1c9e3429edaa5de25b9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66167015"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479256"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snabbstart: Skala beräkning i Azure SQL Data Warehouse i PowerShell
 
@@ -31,19 +31,19 @@ I denna Snabbstart förutsätts att du redan har ett SQL-informationslager som d
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med den [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) och följer den på skärmen riktningar.
+Logga in på Azure-prenumerationen med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) och följ anvisningarna på skärmen.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Om du vill se vilken prenumeration som du använder kör [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Om du vill se vilken prenumeration du använder kör du [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Om du vill använda en annan prenumeration än standard, kör [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Om du behöver använda en annan prenumeration än standardinställningen kör du [set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -68,15 +68,15 @@ Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
 I SQL Data Warehouse kan du öka eller minska beräkningsresurser genom att justera informationslagerenheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
 
-Du kan ändra informationslagerenheter med den [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell-cmdlet. I följande exempel anges informationslagerenheterna till DW300 för databasen **mySampleDataWarehouse** som finns i resursgruppen **myResourceGroup** på servern **mynewserver-20180430**.
+Om du vill ändra informations lager enheter använder du PowerShell-cmdleten [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . I följande exempel anges data lager enheter till DW300c för databasen **mySampleDataWarehouse** som finns i resurs gruppen **myResourceGroup** på Server **mynewserver-20180430**.
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>Kontrollera tillstånd för informationslager
 
-Om du vill se det aktuella tillståndet för datalagret, använda den [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) PowerShell-cmdlet. När du gör det hämtas statusen för databasen **mySampleDataWarehouse** i resursgruppen **myResourceGroup** på servern **mynewserver-20180430.database.windows.net**.
+Använd PowerShell-cmdleten [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) om du vill se data lagrets aktuella tillstånd. När du gör det hämtas statusen för databasen **mySampleDataWarehouse** i resursgruppen **myResourceGroup** på servern **mynewserver-20180430.database.windows.net**.
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
@@ -98,7 +98,7 @@ MaxSizeBytes                  : 263882790666240
 Status                        : Online
 CreationDate                  : 11/20/2017 9:18:12 PM
 CurrentServiceObjectiveId     : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
-CurrentServiceObjectiveName   : DW300
+CurrentServiceObjectiveName   : DW300c
 RequestedServiceObjectiveId   : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
 RequestedServiceObjectiveName :
 ElasticPoolName               :

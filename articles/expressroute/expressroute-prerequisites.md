@@ -1,19 +1,19 @@
 ---
-title: 'Förutsättningar - ExpressRoute: Azure | Microsoft Docs'
+title: 'Krav – ExpressRoute: Azure | Microsoft Docs'
 description: Den här sidan innehåller en lista med de krav som ska vara uppfyllda innan du kan beställa en Azure ExpressRoute-krets. Den innehåller en checklista.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: mialdrid
+ms.date: 07/23/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f16f797afca6d60029c1f39fea7235ce84e4f954
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883291"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442218"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute-krav och checklista
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i följande avsnitt är uppfyllda.
@@ -22,7 +22,7 @@ Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kont
 
 ## <a name="azure-account"></a>Azure-konto
 * Ett giltigt och aktivt Microsoft Azure-konto. Detta konto är nödvändigt för att kunna konfigurera ExpressRoute-kretsen. ExpressRoute-kretsar är resurser i Azure-prenumerationer. Du måste ha en Azure-prenumeration, även om anslutningen är begränsad till Microsoft-molntjänster som inte finns i Azure, som till exempel Office 365-tjänster och Dynamics 365.
-* En aktiv prenumeration på Office 365 (om du använder Office 365-tjänster). Mer information finns i Office 365-specifika krav i den här artikeln.
+* En aktiv prenumeration på Office 365 (om du använder Office 365-tjänster). Mer information finns i avsnittet Office 365-särskilda krav i den här artikeln.
 
 ## <a name="connectivity-provider"></a>Anslutningsleverantör
 
@@ -30,10 +30,10 @@ Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kont
 * Om din leverantör inte är en ExpressRoute-anslutningspartner kan du fortfarande ansluta till Microsoft-molnet via en [molnutbytesleverantör](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Nätverkskrav
-* **Redundans på varje peeringplats**: Microsoft kräver att redundanta BGP-sessioner konfigureras mellan Microsofts routrar och peeringroutrar på varje ExpressRoute-krets (även om du har precis [en fysisk anslutning till ett molnutbyte](expressroute-faqs.md#onep2plink)).
-* **Redundans för Disaster Recovery**: Microsoft att rekommenderar du har konfigurerat minst två ExpressRoute-kretsar i olika peering-platser för att undvika en enskild felpunkt.
+* **Redundans på varje peering-plats**: Microsoft kräver att redundanta BGP-sessioner konfigureras mellan Microsofts routrar och peering-routrarna på varje ExpressRoute-krets (även om du bara har [en fysisk anslutning till ett moln utbyte](expressroute-faqs.md#onep2plink)).
+* **Redundans för katastrof återställning**: Microsoft rekommenderar starkt att du konfigurerar minst två ExpressRoute-kretsar på olika peering-platser för att undvika en enskild felpunkt.
 * **Routning**: Beroende på hur du ansluter till Microsoft Cloud måste du eller din leverantör konfigurera och hantera BGP-sessioner för [routningsdomäner](expressroute-circuit-peerings.md). Vissa Ethernet-anslutningsleverantörer eller molnutbytesleverantörer kan erbjuda BGP-hantering som en mervärdestjänst.
-* **NAT**: Microsoft godkänner bara offentliga IP-adresser via Microsoft-peering. Om du använder privata IP-adresser i det lokala nätverket måste du eller din leverantör översätta dem till offentliga IP-adresser [med hjälp av NAT](expressroute-nat.md).
+* **NAT**: Microsoft accepterar bara offentliga IP-adresser via Microsoft-peering. Om du använder privata IP-adresser i det lokala nätverket måste du eller din leverantör översätta dem till offentliga IP-adresser [med hjälp av NAT](expressroute-nat.md).
 * **QoS**: Skype för företag har olika tjänster (till exempel röst, video, text) som kräver särskild QoS-behandling. Du och din leverantör bör följa [QoS-kraven](expressroute-qos.md).
 * **Nätverkssäkerhet**: Fundera över [nätverkssäkerheten](../best-practices-network-security.md) när du ansluter till Microsoft Cloud via ExpressRoute.
 
@@ -50,10 +50,7 @@ Om du planerar att aktivera Office 365 på ExpressRoute bör du läsa följande 
 * [ExpressRoute på Office 365 – avancerade utbildningsvideor](https://channel9.msdn.com/series/aer/)
 
 ## <a name="dynamics-365"></a>Dynamics 365
-Om du planerar att aktivera Dynamics 365 på ExpressRoute bör du läsa följande dokument för att få mer information om Dynamics 365
-
-* [Dynamics 365 och ExpressRoute-dokumentation](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
-* [Dynamics 365-URL:er](https://support.microsoft.com/kb/2655102) och [IP-adressintervall](https://support.microsoft.com/kb/2728473)
+Om du planerar att aktivera Dynamics 365 på ExpressRoute, granskar du [dynamics 365-URL: er](https://support.microsoft.com/kb/2655102) och [IP-adressintervall](https://support.microsoft.com/kb/2728473).
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).

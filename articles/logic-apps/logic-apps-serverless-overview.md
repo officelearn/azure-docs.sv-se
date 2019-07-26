@@ -1,50 +1,49 @@
 ---
-title: Översikt över Azure utan Server | Microsoft Docs
-description: Lär dig mer om att skapa kraftfulla lösningar i molnet utan att behöva bekymra dig om infrastrukturen
+title: Översikt – Azure utan Server
+description: Skapa kraftfulla lösningar i molnet utan att oroa dig över infrastrukturen
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: klam, estfan, LADocs
-ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 9cd1946d8fa670764bcc95b82298d07cc70417bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 363002712bdd06e74360de9af186f5a458a4999d
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684116"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385358"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Översikt: Azure utan server med Azure Logic Apps och Azure Functions
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Översikt: Azure server utan Azure Logic Apps och Azure Functions
 
-[Serverlös](https://azure.microsoft.com/solutions/serverless/) program erbjuder fördelar med sänkt hastigheten på utveckling, minskad krävs kod och enkelhet med skalning.  Den här artikeln hamnar i olika attribut för serverlösa lösningar och serverfria erbjudandena i Azure.
+[Server](https://azure.microsoft.com/solutions/serverless/) lös appar erbjuder fördelar som ökad utvecklings hastighet, minskad kod, enkelhet och skalning. Den här artikeln beskriver de olika attributen för lösningar utan server och Azure Server lösa erbjudanden.
 
-## <a name="what-is-serverless"></a>Vad är utan Server?
+## <a name="what-is-serverless"></a>Vad är Server lös?
 
-Serverlösa innebär inte att det finns inga servrar – det betyder bara att utvecklare inte behöver bekymra sig om servrar.  En stor del av traditionell programutveckling svarar på frågor om skalning, värdtjänsten och övervakningen lösningar för att uppfylla kraven för programmet.  Dessa frågor är tar hand om med utan server, som en del av lösningen.  Dessutom faktureras program utan server med en förbrukningsbaserad plan.  Om programmet används aldrig, påförs en avgift aldrig.  De här funktionerna kan utvecklare fokusera enbart på affärslogiken i lösningen.
+Server lös innebär inte att det inte finns några servrar, utan i stället behöver utvecklare oroa sig för servrar. En stor del av traditionell program utveckling besvarar frågor kring skalnings-, värd-och övervaknings lösningar som uppfyller programmets krav. Med Server lös vidtas dessa frågor som en del av lösningen. Dessutom faktureras appar utan server utifrån en förbruknings plan. Om appen aldrig används kommer ingen kostnad att debiteras. Dessa funktioner hjälper utvecklare att fokusera enbart på en lösnings affärs logik.
 
-De viktigaste tjänsterna i Azure runt utan Server är [Azure Functions](https://azure.microsoft.com/services/functions/) och [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).  Båda dessa lösningar följa principerna ovan och att utvecklare kan skapa robusta molnprogram med minimal kod.
+De grundläggande Azure-tjänsterna för Server lös är [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) och [Azure Functions](https://azure.microsoft.com/services/functions/). Båda lösningarna följer de tidigare beskrivna principerna och hjälper utvecklare att bygga robusta molnappar med minimal kod.
 
-## <a name="what-are-azure-functions"></a>Vad är Azure Functions?
+## <a name="what-is-azure-logic-apps"></a>Vad är Azure Logic Apps?
 
-Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda programmeringsspråk du föredrar, till exempel C#, F#, Node.js, Python eller PHP. Betala endast för den tid som koden körs och Azure kan skalas efter behov.
+[Azure Logic Apps](logic-apps-overview.md) är ett sätt att förenkla och implementera skalbara integreringar och arbets flöden i molnet. Den här tjänsten ger en visuell designer som kan modellera och automatisera processen som en serie steg som kallas för ett arbets flöde. Det finns många [anslutningar](../connectors/apis-list.md) mellan moln tjänster och lokala system som snabbt ansluter en app utan server till andra API: er. Varje Logic app börjar med en utlösare, till exempel "när ett konto läggs till i Dynamics CRM". När utlösaren utlöses kan arbets flödet köra kombinationer av åtgärder, konverteringar och villkorlig logik. Logic Apps är ett bra val när du dirigerar olika Azure Functions i en process, särskilt när processen kräver att du interagerar med ett externt system eller API.
 
-Om du vill komma igång snabbt med Azure Functions, börja med att [Skapa din första Azure-funktion](../azure-functions/functions-create-first-azure-function.md). Mer teknisk information om Azure Functions finns i [Info för utvecklare](../azure-functions/functions-reference.md).
+Börja med att [skapa din första Logic-app](quickstart-create-first-logic-app-workflow.md)för att komma igång med Logic Apps. Mer teknisk information om Logic Apps finns i referens för [utvecklare](logic-apps-workflow-definition-language.md).
 
-## <a name="what-are-azure-logic-apps"></a>Vad är Azure Logic Apps?
+## <a name="what-is-azure-functions"></a>Vad är Azure Functions?
 
-Med Azure Logic Apps är ett sätt att förenkla och implementera skalbara integreringar och arbetsflöden i molnet. Det ger ett visuellt designverktyg för modellering och automatisering av processer som en serie steg kallade ett arbetsflöde.  Det finns [många anslutningsappar](../connectors/apis-list.md) i molnet och lokala tjänster enkelt kan ansluta en app utan server till andra API: er.  En logikapp börjar med en utlösare (t.ex. ”när ett konto läggs till i Dynamics CRM”) och kan när den utlösts starta många kombinationer av åtgärder, konverteringar och villkorslogik.  Logic Apps är ett bra val när samordna olika Azure-funktionerna i en process, särskilt när processen kräver att interagera med ett externt system eller API: et.
+Azure Functions är en tjänst för att enkelt köra delar av kod eller "Functions" i molnet. Du kan bara skriva den kod som krävs för det aktuella problemet, utan att oroa dig för en hel app eller den infrastruktur som krävs. Functions kan göra utvecklingen ännu mer produktiv och du kan använda det utvecklings språk som du väljer, till C#exempel F#Node. js, python eller php. Du betalar bara för den tid som koden körs och Azure skalas vid behov.
 
-Om du vill komma igång med Logic Apps kan du börja med [skapa din första logikapp](quickstart-create-first-logic-app-workflow.md).  Om du behöver mer teknisk information om Logic Apps finns i den [utvecklarreferens](logic-apps-workflow-actions-triggers.md).
+Börja med att [skapa din första Azure-funktion](../azure-functions/functions-create-first-azure-function.md)för att komma igång med Azure Functions. Mer teknisk information om funktioner finns i referens för [utvecklare](../azure-functions/functions-reference.md).
 
-## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Hur kan jag skapa och distribuera program utan server i Azure?
+## <a name="how-can-i-build-and-deploy-serverless-apps-in-azure"></a>Hur kan jag bygga och distribuera appar utan server i Azure?
 
-Azure tillhandahåller en omfattande uppsättning verktyg för utveckling, distribution och hantering av appar utan server.  Appar kan skapas direkt i Azure portal eller med [verktyg från Visual Studio](logic-apps-serverless-get-started-vs.md).  När ett program har utvecklats kan det vara [distribueras direkt](logic-apps-create-deploy-template.md).  Azure tillhandahåller även övervakning av appar utan server.  Den här övervakningen kan nås från Azure-portalen via API: et eller SDK: er eller med integrerade verktyg för Azure Monitor-loggar och Application Insights.
+Azure innehåller omfattande verktyg för att utveckla, distribuera och hantera appar utan server. Du kan bygga appar direkt i Azure Portal, med [verktyg i Visual Studio](logic-apps-serverless-get-started-vs.md)eller [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md). När du har skapat din app kan du [distribuera appen snabbt med Azure Resource Manager mallar](logic-apps-deploy-azure-resource-manager-templates.md). Azure tillhandahåller också övervakning, som du kan komma åt via Azure Portal, via API eller SDK eller med integrerade verktyg för Azure Monitor loggar och Application Insights.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång med att skapa en app utan server i Visual Studio](logic-apps-serverless-get-started-vs.md)
-* [Skapa en instrumentpanel för kunden med utan Server](logic-apps-scenario-social-serverless.md)
-* [Skapa en Distributionsmall för en logikapp](logic-apps-create-deploy-template.md)
+* [Bygg en app utan server i Visual Studio](logic-apps-serverless-get-started-vs.md)
+* [Skapa en instrument panel för kund insikter med Server lös](logic-apps-scenario-social-serverless.md)
+* [Automatisera Logic app-distribution](logic-apps-azure-resource-manager-templates-overview.md)

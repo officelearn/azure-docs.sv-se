@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3dd1dde067a2ec745d7d60a78a50ab34ea30d0dd
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634358"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359803"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Åtkomst till molndata på en bärbar dator
 
@@ -42,7 +42,7 @@ import requests
 data_url = 'https://data.cityofnewyork.us/resource/gkne-dk5s.json'
 
 # General data request; include other API keys and credentials as needed in the data argument
-response = requests.get(data_url, data={"limit" : "20"})
+response = requests.get(data_url, data={"limit": "20"})
 
 if response.status_code == 200:
     dataframe_rest2 = pandas.DataFrame.from_records(response.json())
@@ -69,7 +69,7 @@ Exemplet anteckningsboken visar arbetar med både tabeller och blobbar, inklusiv
 Azure Cosmos DB tillhandahåller en helt indexerade NoSQL-lager för JSON-dokument). Följande artiklar innehåller ett antal olika sätt att arbeta med Cosmos DB från Python:
 
 - [Skapa en SQL API-app med Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Skapa en Flask-app med Azure Cosmos DB: s API för MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Bygg en kolv-app med Azure Cosmos DBs API för MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Skapa en grafdatabas med Python och Gremlin-API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Skapa en Cassandra-app med Python och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Skapa en tabell-API-app med Python och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
@@ -80,12 +80,12 @@ När du arbetar med Cosmos DB kan du använda den [azure-cosmos DB-table](https:
 
 Azure tillhandahåller ett antal andra typer av databaser som du kan använda. Artiklarna nedan innehåller riktlinjer för att komma åt dessa databaser från Python:
 
-- [Azure Database för PostgreSQL: Använd Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Snabbstart: Använda Azure Redis Cache med Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database för MySQL: Använd Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Database for PostgreSQL: Använd python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [Snabbstart: Använda Azure Redis Cache med python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Azure Database for MySQL: Använd python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Kopieringsguiden för Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anvisningar: Arbeta med data projektfiler](work-with-project-data-files.md)
+- [Anvisningar: Arbeta med Project-datafiler](work-with-project-data-files.md)

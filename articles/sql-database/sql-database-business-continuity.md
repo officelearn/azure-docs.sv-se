@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 26b31781ae0056999eb222981b2eea3eb4595041
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 361613c52c00b7a7e468eccbb52bf113b6adb434
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228055"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444515"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -58,7 +58,23 @@ Du kan använda automatiska databas säkerhets kopieringar för att återställa
 
 Om den högsta kvarhållningsperioden för kvarhållning av säkerhets kopior för PITR (Point-in-Time Restore) inte räcker för ditt program kan du utöka det genom att konfigurera en princip för långsiktig kvarhållning (brv) för databaserna. Mer information finns i [långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-retention.md).
 
-## <a name="recover-a-database-to-another-azure-region"></a>Återställa en databas till en annan Azure-region
+## <a name="compare-geo-replication-with-failover-groups"></a>Jämför geo-replikering med failover-grupper
+
+[Grupper för automatisk redundans](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) fören klar distributionen och användningen av [geo-replikering](sql-database-active-geo-replication.md) och Lägg till ytterligare funktioner enligt beskrivningen i följande tabell:
+
+|                                              | Geo-replikering | Redundansgrupper  |
+|:---------------------------------------------| :-------------- | :----------------|
+| Automatisk redundans                           |     Nej          |      Ja         |
+| Redundansväxla flera databaser samtidigt  |     Nej          |      Ja         |
+| Uppdatera anslutnings sträng efter redundans      |     Ja         |      Nej          |
+| Hanterad instans stöds                   |     Nej          |      Ja         |
+| Kan finnas i samma region som primär             |     Ja         |      Nej          |
+| Flera repliker                            |     Ja         |      Nej          |
+| Stöder Read-Scale                          |     Ja         |      Ja         |
+| &nbsp; | &nbsp; | &nbsp; |
+
+
+## <a name="recover-a-database-to-the-existing-server"></a>Återställ en databas till den befintliga servern
 
 Även om det är ovanligt finns risken för ett avbrott på ett Azure-datacenter. När ett avbrott uppstår orsakar det ett verksamhetsavbrott som kan vara några få minuter eller flera timmar.
 
@@ -70,10 +86,10 @@ När du utvecklar din affärskontinuitetsplan är det viktigt att du känner til
 
 Olika återställnings metoder erbjuder olika nivåer av återställnings-och RTO. Du kan välja en specifik återställnings metod eller använda en kombination av metoder för att uppnå fullständig program återställning. I följande tabell jämförs återställnings-och RTO för varje återställnings alternativ. Grupper för automatisk redundans fören klar distributionen och användningen av geo-replikering och lägger till ytterligare funktioner enligt beskrivningen i följande tabell.
 
-| Återställnings metod | RTO | BEGÄRT |
+| Återställnings metod | RTO | Mål för återställningspunkt |
 | --- | --- | --- | 
-| Geo-återställning från geo-replikerade säkerhets kopieringar | 12 h | 1 h |
-| Automatiska redundansgrupper | 1 h | 5 s |
+| Geo-återställning från geo-replikerade säkerhets kopieringar | 12 h | 1 tim |
+| Automatiska redundansgrupper | 1 tim | 5 s |
 | Manuell databas växling vid fel | 30 s | 5 s |
 
 > [!NOTE]

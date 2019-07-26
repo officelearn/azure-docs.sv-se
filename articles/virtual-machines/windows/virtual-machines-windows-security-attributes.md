@@ -1,6 +1,6 @@
 ---
-title: Security attribut för Azure Windows Virtual Machines
-description: En lista med vanliga security attribut för att utvärdera Azure Windows-datorer
+title: Säkerhetsattribut för Azure Virtuella Windows-datorer
+description: En check lista över säkerhetsattribut för utvärdering av Azure-Virtuella Windows-datorer
 services: virtual-machines
 ms.service: virtual-machines
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0c13ca0f383db53d14847f72f1ea63166f763d94
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 1aabdbf24725ae0986feb1f9652e13e806df8fdf
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800268"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444322"
 ---
-# <a name="security-attributes-for-windows-virtual-machines"></a>Security attribut för Windows-datorer
+# <a name="security-attributes-for-windows-virtual-machines"></a>Säkerhetsattribut för Virtuella Windows-datorer
 
-Den här artikeln dokumenteras security-attribut som bygger på Windows virtuella datorer.
+I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Virtuella Windows-datorer.
 
 [!INCLUDE [Security attributes header](../../../includes/security-attributes-header.md)]
 

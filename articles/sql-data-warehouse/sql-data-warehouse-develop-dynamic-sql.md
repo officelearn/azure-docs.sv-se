@@ -1,8 +1,8 @@
 ---
-title: Med hjälp av dynamisk SQL i Azure SQL Data Warehouse | Microsoft Docs
-description: Tips för att använda dynamisk SQL i Azure SQL Data Warehouse för utveckling av lösningar.
+title: Använda dynamisk SQL i Azure SQL Data Warehouse | Microsoft Docs
+description: Tips om hur du använder dynamisk SQL i Azure SQL Data Warehouse för att utveckla lösningar.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,19 +10,19 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 567637cab1c983992b08f65352ab9a92bd448c5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4454b1d44d0be61dca8571e86c73e09a9527d1eb
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861811"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479665"
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>Dynamisk SQL i SQL Data Warehouse
-Tips för att använda dynamisk SQL i Azure SQL Data Warehouse för utveckling av lösningar.
+Tips om hur du använder dynamisk SQL i Azure SQL Data Warehouse för att utveckla lösningar.
 
-## <a name="dynamic-sql-example"></a>Dynamisk SQL-exempel
+## <a name="dynamic-sql-example"></a>Dynamiskt SQL-exempel
 
-När du utvecklar programkod för SQL Data Warehouse, kan du behöva använda dynamisk sql för att leverera flexibla, allmän och modulära lösningar. SQL Data Warehouse stöder inte blob datatyper just nu. Inte har stöd för blob-datatyper kan begränsa storleken på din strängar eftersom blob-datatyper innehåller både varchar(max) och nvarchar(max) typer. Om du har använt typerna i din programkod för att skapa stora strängar kan behöva du dela koden i segment och i stället använda EXEC-instruktion.
+När du utvecklar program kod för SQL Data Warehouse kan du behöva använda dynamisk SQL för att leverera flexibla, generiska och modulära lösningar. SQL Data Warehouse har inte stöd för BLOB-datatyper just nu. Om du inte stöder BLOB-datatyper kan du begränsa storleken på dina strängar eftersom BLOB-datatyper inkluderar båda typerna varchar (max) och nvarchar (max). Om du har använt dessa typer i program koden för att bygga stora strängar måste du dela upp koden i segment och använda EXEC-instruktionen i stället.
 
 Ett enkelt exempel:
 
@@ -34,13 +34,13 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Om strängen är kort, kan du använda [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) som vanligt.
+Om strängen är kort kan du använda [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) som normalt.
 
 > [!NOTE]
-> Instruktioner som körs som dynamisk SQL kommer fortfarande att omfattas av alla TSQL-valideringsregler.
+> Instruktioner som körs i dynamisk SQL gäller fortfarande alla TSQL verifierings regler.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).
 

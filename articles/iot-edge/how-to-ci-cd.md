@@ -9,210 +9,210 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 659a6f5acaac848084ed1e9590a414191542b54a
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61222057"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414627"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
-Du kan enkelt implementera DevOps med Azure IoT Edge-program med inbyggda Azure IoT Edge-uppgifter i Azure-Pipelines. Den här artikeln visar hur du kan använda den kontinuerliga integreringen och funktioner för kontinuerlig distribution av Azure Pipelines för att bygga, testa och distribuera program snabbt och effektivt till Azure IoT Edge. 
+Du kan enkelt införa DevOps med dina Azure IoT Edge-program med de inbyggda Azure IoT Edge uppgifterna i Azure-pipelines. Den här artikeln visar hur du kan använda funktionerna för kontinuerlig integrering och kontinuerlig distribution i Azure pipelines för att bygga, testa och distribuera program snabbt och effektivt till din Azure IoT Edge. 
 
-I den här artikeln får du lära dig hur du använder de inbyggda Azure IoT Edge-uppgifterna för Azure-Pipelines för att skapa två pipelines för din IoT Edge-lösning. Först tar för din kod och bygger lösningen och push-överför modul-avbildningar på ditt behållarregister och skapa ett manifest för distribution. Andra distribuerar dina moduler till IoT Edge-målenheter.  
+I den här artikeln får du lära dig hur du använder de inbyggda Azure IoT Edge uppgifterna för Azure pipelines för att skapa två pipeliner för din IoT Edge-lösning. Det första tar din kod och skapar lösningen, och skickar sedan modulens avbildningar till behållar registret och skapar ett distributions manifest. Den andra distribuerar dina moduler till riktade IoT Edge enheter.  
 
 ![Diagram - CI och CD grenar för utveckling och produktion](./media/how-to-ci-cd/cd.png)
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En lagringsplats för Azure-databaser. Om du inte har något, kan du [skapa en ny Git-lagringsplats i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
-* En IoT Edge-lösning allokeras och skickas till din lagringsplats. Om du vill skapa en ny lösning för exemplet för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C# moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md).
-   * I den här artikeln är allt du behöver lösningsmappen som skapats av IoT Edge-mallar i Visual Studio Code eller Visual Studio. Du behöver inte skapa, skicka, distribuera eller felsöka den här koden innan du fortsätter. Du konfigurerar dessa processer i Azure-Pipelines. 
-   * Om du skapar en ny lösning kan du klona lagringsplatsen lokalt först. När du skapar lösningen välja du sedan att skapa den direkt i databasmappen. Du kan enkelt genomför och push-överför de nya filerna därifrån. 
-* Ett behållarregister där du kan skicka modulen avbildningar. Du kan använda [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller en tredje parts-registret. 
-* En aktiv [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) med minst IoT Edge-enheter för att testa de separata stegen för testning och produktion distribution. Du kan följa artiklarna i snabbstarten för att skapa en IoT Edge-enhet på [Linux](quickstart-linux.md) eller [Windows](quickstart.md)
+* En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
+* En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C# moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md).
+   * Allt du behöver i den här artikeln är mappen Solution som skapats av IoT Edge mallar i antingen Visual Studio Code eller Visual Studio. Du behöver inte bygga, skicka, distribuera eller Felsöka den här koden innan du fortsätter. Du ställer in dessa processer i Azure-pipeliner. 
+   * Om du skapar en ny lösning ska du klona din lagrings plats lokalt först. När du sedan skapar lösningen kan du välja att skapa den direkt i databasmappen. Du kan enkelt bekräfta och skicka de nya filerna därifrån. 
+* Ett behållar register där du kan push-modul avbildningar. Du kan använda [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller ett register från en tredje part. 
+* En aktiv [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) med minst IoT Edge enheter för att testa de separata distributions faserna för test och produktion. Du kan följa snabb starts artiklarna för att skapa en IoT Edge-enhet i [Linux](quickstart-linux.md) eller [Windows](quickstart.md)
 
 
-Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure-lagringsplatser](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
+Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure databaser](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
 
 ## <a name="configure-continuous-integration"></a>Konfigurera kontinuerlig integrering
-I det här avsnittet skapar du en ny build-pipeline. Konfigurera pipeline kan köras automatiskt när du checka in ändringarna till exempel IoT Edge-lösning och publicera build-loggar.
+I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen så att den körs automatiskt när du checkar in eventuella ändringar i exempel IoT Edge lösning och publicera build-loggar.
 
 >[!NOTE]
->Den här artikeln använder Azure DevOps visuell designer. Inaktivera förhandsversionsfunktionen för den nya upplevelsen för YAML pipeline skapas innan du följer stegen i det här avsnittet. 
->1. I Azure DevOps, väljer din profilikonen och välj sedan **Förhandsversionsfunktioner**.
->2. Aktivera **upplevelse för nya YAML pipeline när du skapar** av. 
+>I den här artikeln används den visuella designern för Azure DevOps. Innan du följer stegen i det här avsnittet stänger du av förhands gransknings funktionen för den nya YAML-upplevelsen för pipeline. 
+>1. I Azure DevOps väljer du din profil ikon och väljer sedan för **hands versions funktioner**.
+>2. Sätt igång **nya yaml-pipeline** för att skapa pipelinen. 
 >
->Mer information finns i [skapa en build-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
+>Mer information finns i [skapa en pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline)för bygge.
 
-1. Logga in på din Azure DevOps-organisation (**https:\//dev.azure.com/{your organisation} /** ) och öppna projektet som innehåller din lagringsplats för IoT Edge-lösning.
+1. Logga in på din Azure DevOps-organisation (**https:\//dev.Azure.com/{Your Organization}/** ) och öppna projektet som innehåller lagrings platsen för din IoT Edge lösning.
 
-   För den här artikeln har vi skapat en databas som heter **IoTEdgeRepo**. Databasen innehåller **IoTEdgeSolution** som har kod för en modul med namnet **filtermodule**. 
+   I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**. Databasen innehåller **IoTEdgeSolution** som har koden för en modul med namnet **filtermodule**. 
 
-   ![Öppna din DevOps-projekt](./media/how-to-ci-cd/init-project.png)
+   ![Öppna ditt DevOps-projekt](./media/how-to-ci-cd/init-project.png)
 
-2. Gå till Azure Pipelines i projektet. Öppna den **bygger** fliken och markera **ny pipeline**. Om du redan har skapandet av pipelines, väljer du den **New** knappen. Välj sedan **buildu pipeline**.
+2. Navigera till Azure-pipeliner i ditt projekt. Öppna fliken **builds** och välj **ny pipeline**. Om du redan har skapat pipelines väljer du knappen **nytt** . Välj sedan **ny versions pipeline**.
 
     ![Skapa en ny bygg-pipeline](./media/how-to-ci-cd/add-new-build.png)
 
 3. Följ anvisningarna för att skapa din pipeline. 
 
-   1. Ange källinformation för din nya build-pipeline. Välj **Azure lagringsplatser Git** som källa, välj sedan projektet, lagringsplatsen och grenen som där koden IoT Edge-lösning finns. Välj **Fortsätt**. 
+   1. Ange käll information för den nya bygg pipelinen. Välj **Azure databaser git** som källa och välj sedan projektet, databasen och grenen där din IoT Edge lösnings kod finns. Välj sedan **Fortsätt**. 
 
-      ![Välj din pipelinekälla](./media/how-to-ci-cd/pipeline-source.png)
+      ![Välj din pipeline-källa](./media/how-to-ci-cd/pipeline-source.png)
 
-   2. Välj **tom jobbet** i stället för en mall. 
+   2. Välj **tomt jobb** i stället för en mall. 
 
       ![Börja med en tom process](./media/how-to-ci-cd/start-with-empty.png)
 
-4. När du har skapat din pipeline, tas du till pipeline-redigeringsprogrammet. Välj rätt agentpoolen baserat på din målplattform i din pipeline-beskrivning: 
+4. När din pipeline har skapats, kommer du till pipeline-redigeraren. I din pipeline-Beskrivning väljer du rätt agent-pool baserat på din mål plattform: 
     
    * Om du vill bygga dina moduler i plattformen amd64 för Linux-behållare kan du välja **finns Ubuntu 1604**
 
-   * Om du vill bygga dina moduler i plattformen amd64 för Windows 1809 behållare kan du behöva [ställer in lokal agent på Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Om du vill skapa moduler i plattforms-amd64 för Windows 1809-behållare måste du konfigurera en lokal [agent i Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * Om du vill bygga dina moduler i plattformen arm32v7 för Linux-behållare kan du behöva [ställer in lokal agent på Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Om du vill skapa moduler i plattforms-arm32v7 eller arm64 för Linux-behållare måste du konfigurera en lokal [agent på Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
      ![Konfigurera build-agentpoolen](./media/how-to-ci-cd/configure-env.png)
 
-5. Din pipeline är förkonfigurerad med ett jobb som heter **agentjobbet 1**. Klicka på plustecknet ( **+** ) att lägga till tre uppgifter i jobbet: **Azure IoT Edge** två gånger, och **publicera skapa artefakter** när. (Håll muspekaren över namnet på varje uppgift att se den **Lägg till** knappen.)
+5. Din pipeline är förkonfigurerad med ett jobb som kallas **Agent jobb 1**. Välj plus tecknet ( **+** ) för att lägga till tre aktiviteter i jobbet: **Azure IoT Edge** två gånger och **publicera Bygg artefakter** en gång. (Hovra över namnet på varje uppgift för att se knappen **Lägg till** .)
 
-   ![Lägg till Azure IoT Edge-aktivitet](./media/how-to-ci-cd/add-iot-edge-task.png)
+   ![Lägg till Azure IoT Edge uppgift](./media/how-to-ci-cd/add-iot-edge-task.png)
 
-   När alla tre aktiviteter läggs Agent-jobbet som ser ut som i följande exempel:
+   När alla tre aktiviteter läggs till ser ditt Agent jobb ut som i följande exempel:
     
-   ![Tre aktiviteter i pipelinen build](./media/how-to-ci-cd/add-tasks.png)
+   ![Tre uppgifter i build-pipeline](./media/how-to-ci-cd/add-tasks.png)
 
-6. Välj först **Azure IoT Edge** aktiviteten för att redigera den. Den här uppgiften skapar alla moduler i lösningen med målplattform att du anger, genereras även den **deployment.json** -filen som talar om hur du konfigurerar distributionen för din IoT Edge-enheter.
+6. Välj den första **Azure IoT Edge** uppgiften för att redigera den. Den här uppgiften skapar alla moduler i lösningen med den mål plattform som du anger, den genererar också filen **Deployment. JSON** som talar om för IoT Edge enheter hur distributionen ska konfigureras.
 
-   * **Visningsnamn**: Acceptera standardvärdet **Azure IoT Edge - Build-modulen avbildningar**.
-   * **Åtgärd**: Acceptera standardvärdet **skapa modulen avbildningar**. 
-   * **. filen template.json**: Välj ellipsen ( **...** ) och gå till den **deployment.template.json** filen i databasen som innehåller din IoT Edge-lösning. 
-   * **Standard-plattformen**: Välj lämplig plattform för dina moduler baserat på målet IoT Edge-enhet. 
-   * **Utdata variabler**: Variablerna utdata innehåller en referensnamn som du kan använda för att konfigurera sökvägen till filen där deployment.json filen kommer att genereras. Ange referensnamnet på något egen som **edge**. 
+   * **Visnings namn**: Godkänn standard avbildningarna för **Azure IoT Edge-build-modulen**.
+   * **Åtgärd**: Acceptera standard avbildningarna för **build-modulen**. 
+   * **. mall. JSON-fil**: Välj ellipsen ( **...** ) och navigera till filen **Deployment. template. JSON** i lagrings platsen som innehåller din IoT Edge lösning. 
+   * **Standard plattform**: Välj lämplig plattform för dina moduler baserat på din mål IoT Edge enhet. 
+   * **Utdata-variabler**: Variablerna för utdata innehåller ett referens namn som du kan använda för att konfigurera fil Sök vägen där din Deployment. JSON-fil kommer att skapas. Ange referens namnet till något som du kan komma ihåg som **Edge**. 
 
-7. Välj andra **Azure IoT Edge** aktiviteten för att redigera den. Den här uppgiften skickar alla modulen avbildningar till behållarregistret som du väljer. Autentiseringsuppgifterna för container registry att läggs även den **deployment.json** filen så att din IoT Edge-enhet kan komma åt modul-avbildningar. 
+7. Välj den andra **Azure IoT Edge** uppgiften för att redigera den. Den här uppgiften push-överför alla modulblad till det behållar register som du väljer. Den lägger också till dina autentiseringsuppgifter för behållar registret i filen **Deployment. JSON** så att din IoT Edge-enhet kan komma åt modul avbildningarna. 
 
-   * **Visningsnamn**: Visningsnamnet uppdateras automatiskt när fältet åtgärd ändras. 
-   * **Åtgärd**: Använd listrutan för att välja **skicka modulen avbildningar**. 
-   * **Behållaren registertyp**: Välj typ av behållarregister som används för att lagra dina avbildningar för modulen. Beroende på vilken typ av registret som du använder, formuläret ändras. Om du väljer **Azure Container Registry**, Använd listrutorna för att välja Azure-prenumeration och namnet på ditt behållarregister. Om du väljer **allmän Behållarregister**väljer **New** att skapa en anslutning för registry-tjänsten. 
-   * **. filen template.json**: Välj ellipsen ( **...** ) och gå till den **deployment.template.json** filen i databasen som innehåller din IoT Edge-lösning. 
-   * **Standard-plattformen**: Välj samma plattform som bilderna inbyggd modul.
+   * **Visnings namn**: Visnings namnet uppdateras automatiskt när åtgärds fältet ändras. 
+   * **Åtgärd**: Använd List rutan för att välja **push module**-avbildningar. 
+   * **Behållarens register typ**: Välj den typ av behållar register som du använder för att lagra dina modulblad. Formuläret ändras beroende på vilken register typ du väljer. Om du väljer **Azure Container Registry**använder du List rutan för att välja Azure-prenumerationen och namnet på behållar registret. Om du väljer **allmän container Registry**väljer du **ny** för att skapa en anslutning till en register tjänst. 
+   * **. mall. JSON-fil**: Välj ellipsen ( **...** ) och navigera till filen **Deployment. template. JSON** i lagrings platsen som innehåller din IoT Edge lösning. 
+   * **Standard plattform**: Välj samma plattform som de inbyggda modul avbildningarna.
 
    Om du har flera behållarregister som värd för dina modul-avbildningar, måste du duplicera den här uppgiften, Välj olika behållarregister och använda **kringgå modulen eller modulerna** i avancerade inställningar för att kringgå de avbildningar som inte är för detta specifika register.
 
-8. Välj den **publicera skapa artefakter** aktiviteten för att redigera den. Ange sökvägen till distributionsfilen som skapats av denna build task. Ange den **sökvägen till publicera** värde som matchar variabeln utdata som du angav i uppgift för build-modulen. Till exempel `$(edge.DEPLOYMENT_FILE_PATH)`. Lämna de andra värdena som standard. 
+8. Välj aktiviteten **publicera Bygg artefakter** för att redigera den. Ange fil Sök vägen till den distributions fil som genererats av bygg uppgiften. Ange **sökvägen till publicering** svärdet för att matcha den utgående variabel som du anger i aktiviteten skapa modul. Till exempel `$(edge.DEPLOYMENT_FILE_PATH)`. Lämna de andra värdena som standardvärden. 
 
-9. Öppna den **utlösare** fliken och markerar kryssrutan **möjliggöra kontinuerlig integration**. Se till att grenen som innehåller koden ingår.
+9. Öppna fliken  utlösare och markera kryss rutan för att **aktivera kontinuerlig integrering**. Se till att grenen som innehåller koden ingår.
 
     ![Aktivera utlösaren för kontinuerlig integrering](./media/how-to-ci-cd/configure-trigger.png)
 
-10. Spara den nya build-pipelinen med **spara** knappen.
+10. Spara den nya bygg pipelinen med knappen **Spara** .
 
-Den här pipelinen har nu konfigurerats för att köras automatiskt när du skickar ny kod till din lagringsplats. Den sista aktiviteten, publicerar pipeline-artefakter utlöser en releasepipeline. Fortsätt till nästa avsnitt för att skapa versionspipelinen. 
+Den här pipelinen har nu kon figurer ATS för att köras automatiskt när du push-överför ny kod till din lagrings platsen. Den senaste aktiviteten, publicering av pipeline-artefakter, utlöser en versions pipeline. Fortsätt till nästa avsnitt för att bygga lanserings pipelinen. 
 
 ## <a name="configure-continuous-deployment"></a>Konfigurera kontinuerlig distribution
-I det här avsnittet skapar du en pipeline för versionen som är konfigurerad för att köras automatiskt när build-pipeline sjunker artefakter och distributionsloggarna visas i Azure-Pipelines.
+I det här avsnittet skapar du en versions pipeline som är konfigurerad för att köras automatiskt när din Bygg pipeline tappar ut artefakter och det visar distributions loggar i Azure-pipelines.
 
-I det här avsnittet skapar du två olika faser, en testdistributioner och en för Produktionsdistribution. 
+I det här avsnittet skapar du två olika steg, en för test distributioner och en för produktions distributioner. 
 
-### <a name="create-test-stage"></a>Skapa test steg
+### <a name="create-test-stage"></a>Skapa test fas
 
-Skapa en ny pipeline och konfigurera sin första steget för kvalitet assurance (kvalitetskontroll) distributioner. 
+Skapa en ny pipeline och konfigurera dess första Stadium för distributioner av kvalitets säkrings frågor (frågor och svar). 
 
-1. I den **versioner** fliken **+ ny pipeline**. Eller, om du redan har releaser kan välja den **+ ny** och välj **+ ny viktig pipeline**.  
+1. I den **versioner** fliken **+ ny pipeline**. Eller, om du redan har versions pipeliner, väljer du knappen **+ ny** och väljer **+ ny versions pipeline**.  
 
     ![Lägg till releasepipeline](./media/how-to-ci-cd/add-release-pipeline.png)
 
-2. När du uppmanas att välja en mall, välja att börja med en **tom jobbet**.
+2. När du uppmanas att välja en mall väljer du att starta med ett **tomt jobb**.
 
     ![Börja med en tom jobb](./media/how-to-ci-cd/start-with-empty-job.png)
 
-3. Din nya releasepipeline initierar med ett steg som kallas **steg 1**. Byt namn på steg 1 till **QA** och behandlar det som en testmiljö. Pipelines för kontinuerlig distribution har vanligtvis flera faser. Du kan skapa fler utifrån dina DevOps-metoder. Stäng fönstret scenen information när den har bytt namn. 
+3. Din nya versions pipeline initieras med en fas, som kallas **steg 1**. Byt namn på steg 1 till **frågor och svar** och behandla den som en test miljö. I allmänhet har kontinuerliga distributions pipeliner flera steg. Du kan skapa mer baserat på din DevOps-praxis. Stäng fönstret steg information när det har bytt namn. 
 
     ![Skapa test-miljö steg](./media/how-to-ci-cd/QA-env.png)
 
-4. Länka versionen till byggartefakterna som publiceras av build-pipelinen. Klicka på **Lägg till** i artefakter område.
+4. Länka versionen till de versions artefakter som publiceras av bygg pipelinen. Klicka på **Lägg till** i artefakter område.
 
    ![Lägg till artefakter](./media/how-to-ci-cd/add-artifacts.png)  
     
-5. I **Lägg till en artefakt sida**, Välj typ av datakälla **skapa**. Markera projektet och build-pipeline som du skapade. Välj sedan **Lägg till**.
+5. På **sidan Lägg till en artefakt**väljer **du typ av**källtyp. Välj sedan projektet och den build-pipeline som du skapade. Välj sedan **Lägg till**.
 
    ![Lägg till en byggesartefakt](./media/how-to-ci-cd/add-an-artifact.png)
 
-6. Öppna artefakt-utlösare och välj växlingsknappen för att aktivera utlösare av kontinuerlig distribution. En ny version kommer nu att skapas varje gång en ny version är tillgänglig.
+6. Öppna artefakt utlösare och välj växla för att aktivera den kontinuerliga distributions utlösaren. Nu skapas en ny version varje gång en ny version är tillgänglig.
 
    ![Konfigurera utlösare av kontinuerlig distribution](./media/how-to-ci-cd/add-a-trigger.png)
 
-7. Den **QA** scenen är förkonfigurerad med en uppgift och noll uppgifter. Pipeline-menyn väljer **uppgifter** Välj sedan den **QA** steg.  Välj antalet jobb- och för att konfigurera aktiviteterna i det här steget.
+7. Fasen **frågor och svar** är förkonfigurerad med ett jobb och noll uppgifter. Från pipeline-menyn väljer du **aktiviteter** och sedan frågor och **svar** -fasen.  Välj jobb-och aktivitets antal för att konfigurera uppgifterna i det här steget.
 
     ![Konfigurera QA uppgifter](./media/how-to-ci-cd/view-stage-tasks.png)
 
-8. I steget QA du bör se en standard **agentjobbet**. Du kan konfigurera information om agent-jobbet, men aktiviteten distribution är skiftlägesokänsligt plattform så att du kan använda antingen **finns VS2017** eller **finns Ubuntu 1604** i den **agentpoolen**(eller andra agent som hanteras av dig själv). 
+8. I frågor och svar-fasen bör du se ett standard **Agent jobb**. Du kan konfigurera information om Agent jobbet, men distributions aktiviteten är plattforms okänslig så att du kan använda antingen **värdbaserade VS2017** eller **värdbaserad Ubuntu 1604** i **agenten** (eller någon annan agent som hanteras av dig själv). 
 
-9. Klicka på plustecknet ( **+** ) att lägga till en aktivitet. Sök efter och lägga till **Azure IoT Edge**. 
+9. Välj plus tecknet ( **+** ) för att lägga till en aktivitet. Sök efter och Lägg till **Azure IoT Edge**. 
 
     ![Lägg till aktiviteter för QA](./media/how-to-ci-cd/add-task-qa.png)
 
-10. Välj den nya Azure IoT Edge-aktiviteten och konfigurera den med följande värden:
+10. Välj aktiviteten ny Azure IoT Edge och konfigurera den med följande värden:
 
-    * **Visningsnamn**: Visningsnamnet uppdateras automatiskt när fältet åtgärd ändras. 
-    * **Åtgärd**: Använd listrutan för att välja **distribuera till IoT Edge-enhet**. Visningsnamn för aktiviteten så att den matchar uppdateras automatiskt när du ändrar Åtgärdsvärdet för.
-    * **Azure-prenumeration**: Välj den prenumeration som innehåller din IoT-hubb.
-    * **IoT-hubbnamn**: Välj din IoT-hubb. 
-    * **Välj en eller flera enhet**: Välj om du vill releasepipeline ska distribueras till en eller flera enheter. 
-      * Om du distribuerar till en enda enhet, anger du den **enhets-ID för IoT Edge**. 
-      * Om du distribuerar till flera enheter, kan du ange enheten **rikta villkor**. Målvillkoret har ett filter för att matcha en uppsättning Edge-enheter i IoT Hub. Om du vill använda taggar för enheten som villkoret måste du uppdatera dina motsvarande enheter taggar med enhetstvillingen i IoT Hub. Uppdatera den **distributions-ID för IoT Edge** och **IoT Edge-distributionsprioritet** i de avancerade inställningarna. Läs mer om hur du skapar en distribution för flera enheter, [automatisk förstå IoT Edge-distributioner](module-deployment-monitoring.md).
+    * **Visnings namn**: Visnings namnet uppdateras automatiskt när åtgärds fältet ändras. 
+    * **Åtgärd**: Använd List rutan för att välja **distribuera till IoT Edge enheten**. Om du ändrar åtgärd svärdet uppdateras även uppgifts visnings namnet så att det matchar.
+    * **Azure-prenumeration**: Välj den prenumeration som innehåller din IoT Hub.
+    * **IoT Hub namn**: Välj din IoT-hubb. 
+    * **Välj en/flera enheter**: Välj om du vill att versions pipelinen ska distribueras till en enhet eller flera enheter. 
+      * Om du distribuerar till en enda enhet anger du **IoT Edge enhets-ID**. 
+      * Om du distribuerar till flera enheter anger du enhetens **mål villkor**. Målvillkoret har ett filter för att matcha en uppsättning Edge-enheter i IoT Hub. Om du vill använda taggar för enheten som villkoret måste du uppdatera dina motsvarande enheter taggar med enhetstvillingen i IoT Hub. Uppdatera **IoT Edge distributions-ID** och **IoT Edge distributions prioritet** i de avancerade inställningarna. Mer information om hur du skapar en distribution för flera enheter finns i [förstå IoT Edge automatiska distributioner](module-deployment-monitoring.md).
 
-11. Välj **spara** att spara dina ändringar i den nya releasepipeline. Gå tillbaka till vyn pipelinen genom att välja **Pipeline** på menyn. 
+11. Välj **Spara** för att spara ändringarna i den nya versions pipelinen. Gå tillbaka till vyn pipeline genom att välja **pipeline** på menyn. 
 
-### <a name="create-production-stage"></a>Skapa tillverkningen
+### <a name="create-production-stage"></a>Skapa produktions Stadium
 
-Skapa en andra steget i din releasepipeline för Produktionsdistribution. 
+Skapa ett andra steg i din versions pipeline för produktions distribution. 
 
-1. Se en andra steget för produktion genom att klona QA-steget. Håll markören över QA scenen och välj sedan knappen Kopiera. 
+1. Gör ett andra Stadium för produktion genom att klona frågor och svar-fasen. Håll markören över frågor och svar-fasen och välj sedan knappen klona. 
 
     ![Klona steg](./media/how-to-ci-cd/clone-stage.png)
 
-2. Välj det nya steget kallas **kopia av QA**, för att öppna dess egenskaper. Ändra namnet på scenen **PROD**, för produktion. Stäng fönstret scenen egenskaper. 
+2. Välj den nya fasen, kallas **kopia av frågor och svar**, för att öppna dess egenskaper. Ändra scen namnet till **Prod**, för produktion. Stäng fönstret Egenskaper för fas. 
 
-3. Om du vill öppna PROD scenen uppgifter, Välj **uppgifter** pipeline-menyn väljer den **PROD** steg. 
+3. Öppna uppgifterna i produktions stadiet genom att välja **uppgifter** från pipeline-menyn och sedan välja **produktions** Stadium. 
 
-4. Välj Azure IoT Edge-uppgiften att konfigurera om för din produktionsmiljö. Distributionsinställningarna är förmodligen samma för QA och PROD, förutom att du vill använda en annan enhet eller uppsättning enheter i produktionen. Uppdatera enhetens ID-fältet eller villkor och distribution ID målfälten för dina produktionsenheter. 
+4. Välj Azure IoT Edge uppgift för att konfigurera om för produktions miljön. Distributions inställningarna är förmodligen samma för frågor och svar och för produktion, förutom att du vill rikta in sig på en annan enhet eller uppsättning enheter i produktionen. Uppdatera fältet enhets-ID eller fälten mål villkor och distributions-ID för dina produktions enheter. 
 
-5. Spara den med den **spara** knappen. Välj sedan **Pipeline** att gå tillbaka till vyn pipeline.
+5. Spara den med knappen **Spara** . Och välj sedan **pipeline** för att gå tillbaka till vyn pipeline.
     
-6. På sätt som den här releasepipeline har konfigurerats, byggesartefakten utlöser den **QA** steget och sedan **PROD** mellanlagra varje gång en ny version är klar. Men vill vanligtvis integrera vissa testfall på QA-enheter och godkänna manuellt distributionen för produktion. Använd följande steg för att skapa ett villkor för godkännande för PROD steg:
+6. Sättet den här versionen av pipelinen är konfigurerad för tillfället, och bygg artefakten utlöser frågor  och **svars** skedet, varje gång en ny version slutförs. Du vill dock vanligt vis integrera vissa test fall på frågor och svar och manuellt godkänna distributionen för produktion. Använd följande steg för att skapa ett godkännande villkor för produktions stadiet:
 
-    1. Öppna den **före villkor** inställningspanelen.
+    1. Öppna panelen **för villkors inställningar för distribution** .
 
         ![Öppna före villkor](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Visa/Dölj de **före godkännanden** villkoret till **aktiverad**. Lägga till en eller flera användare eller grupper i den **godkännare** fältet och anpassa andra godkännande principer som du vill. Stäng panelen före villkor för att spara ändringarna.
+    2. Aktivera godkännande villkor för för **distribution** till aktive **rad**. Lägg till en eller flera användare eller grupper i fältet **god kännare** och anpassa eventuella andra godkännande principer som du vill använda. Om du vill spara ändringarna stänger du panelen villkor för för distribution.
     
        ![Ange villkor](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
 
-7. Spara din releasepipeline med den **spara** knappen. 
+7. Spara din versions pipeline med knappen **Spara** . 
 
     
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verifiera IoT Edge CI/CD med build and release-pipelines
 
-Om du vill utlösa ett skapandejobb du skickar något till lagringsplatsen för källkod eller utlösa den manuellt. I det här avsnittet ska utlösa du manuellt CI/CD-pipeline för att testa att det fungerar. Kontrollera att distributionen är klar.
+Om du vill utlösa ett skapandejobb du skickar något till lagringsplatsen för källkod eller utlösa den manuellt. I det här avsnittet utlöser du CI/CD-pipeline manuellt för att testa att den fungerar. Kontrol lera sedan att distributionen lyckades.
 
-1. Gå till build-pipeline som du skapade i början av den här artikeln. 
+1. Navigera till den pipeline för build som du skapade i början av den här artikeln. 
 
-2. Du kan utlösa en build-jobb i build-pipeline genom att välja den **kö** knappen som i följande skärmbild.
+2. Du kan utlösa ett build-jobb i din build-pipeline genom att välja knappen **kö** som i följande skärm bild.
 
     ![Manuell utlösare](./media/how-to-ci-cd/manual-trigger.png)
 
-3. Välj build-jobb kan du titta på förloppet. Om build pipelinen har slutförts, utlöser en version till **QA** steg. 
+3. Välj build-jobbet för att se hur det fortskrider. Om build-pipeline har slutförts utlöses en version till frågor och **svar** . 
 
     ![Skapa loggar](./media/how-to-ci-cd/build-logs.png)
 
-4. Distributionen till **QA** steget utlöser en avisering till godkännaren. Kontrollera att modulerna som har distribuerats på enheten eller enheter som du har valt med QA-steg. Gå sedan för att frigöra pipeline och ge godkännande för versionen att gå till PROD steg genom att välja den **PROD** och sedan välja **Godkänn**. 
+4. En lyckad distribution till **frågor och svar** utlöser ett meddelande till god kännaren. Kontrol lera att modulerna har distribuerats på enheten eller enheterna som du är mål för i frågor och svars skedet. Gå sedan till versions pipeline och ge godkännande för versionen att gå till PROD-fasen genom att välja knappen **Prod** och sedan på **Godkänn**. 
 
     ![Väntar på godkännande](./media/how-to-ci-cd/pending-approval.png)
 

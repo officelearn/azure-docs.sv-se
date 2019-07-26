@@ -1,6 +1,6 @@
 ---
-title: BuildingBlocks - Azure Active Directory B2C | Microsoft Docs
-description: Ange det BuildingBlocks elementet i en anpassad princip i Azure Active Directory B2C.
+title: BuildingBlocks – Azure Active Directory B2C | Microsoft Docs
+description: Ange BuildingBlocks-elementet för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 67770661f0660b9a84d16bbbc7d86cfcbca2cfdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ab2b11749aa57065a1a4d688b02fed97731ab7c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511590"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464748"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den **BuildingBlocks** element har lagts till i den [TrustFrameworkPolicy](trustframeworkpolicy.md) element.
+**BuildingBlocks** -elementet läggs till i [TrustFrameworkPolicy](trustframeworkpolicy.md) -elementet.
 
 ```XML
 <TrustFrameworkPolicy
@@ -55,21 +55,23 @@ Den **BuildingBlocks** element har lagts till i den [TrustFrameworkPolicy](trust
  </BuildingBlocks>
 ```
 
-Den **BuildingBlocks** elementet innehåller följande element som måste anges i den ordning som definierats:
+**BuildingBlocks** -elementet innehåller följande element som måste anges i den definierade ordningen:
 
-- [ClaimsSchema](claimsschema.md) -definierar vilka anspråkstyper som kan referera till som en del av principen. Anspråk schemat är den plats där du deklarera dina anspråkstyper. En Anspråkstyp liknar en variabel i många programmässiga språk. Du kan använda Anspråkstypen att samla in data från användare av ditt program, ta emot anspråk från sociala identitetsleverantörer, skicka och ta emot data från en anpassad REST-API eller lagra interna data som används av en egen princip. 
+- [ClaimsSchema](claimsschema.md) – definierar de anspråks typer som kan refereras till som en del av principen. Anspråks schema är den plats där du deklarerar dina anspråks typer. En anspråks typ liknar en variabel i många programmerings språk. Du kan använda anspråks typen för att samla in data från användare av ditt program, ta emot anspråk från sociala identitets leverantörer, skicka och ta emot data från en anpassad REST API eller lagra interna data som används av den anpassade principen. 
 
-- [Predikat och PredicateValidationsInput](predicates.md) – kan du utföra en verifieringsprocessen för att säkerställa att endast korrekt strukturerad data har angetts till ett anspråk.
+- [Predikat och PredicateValidationsInput](predicates.md) – gör att du kan utföra en verifierings process för att säkerställa att endast korrekt utformade data anges i ett anspråk.
  
-- [ClaimsTransformations](claimstransformations.md) -innehåller en lista över anspråksomvandlingar som kan användas i din princip.  En anspråkstransformering konverterar ett anspråk till en annan. I anspråkstransformering anger vilken transformering-metod som: 
-    - Ändra skiftläge för ett sträng-anspråk till den som angetts. Till exempel ändrar en sträng från gemener till versaler.
-    - Jämföra två anspråk och returnera ett anspråk med SANT som du anger som anspråken matchar, annars false.
-    - Skapa ett sträng-anspråk från den angivna parametern i principen.
-    - Skapa en slumpmässig sträng med slumpmässig talgeneratorns startvärden.
-    - Formatera ett anspråk enligt den angivna Formatsträngen. Den här omvandlingen använder C# `String.Format` metod.
+- [ClaimsTransformations](claimstransformations.md) – innehåller en lista med anspråks omvandlingar som kan användas i principen.  En anspråks omvandling konverterar ett anspråk till ett annat. I omvandlings deklarationen anger du en Transformations metod, till exempel: 
+    - Ändra Skift läget för ett sträng anspråk till det som angetts. Du kan till exempel ändra en sträng från gemener till versaler.
+    - Jämför två anspråk och returnerar ett anspråk med True och anger att anspråk matchar, annars falskt.
+    - Skapar ett sträng anspråk från den angivna parametern i principen.
+    - Skapar en slumpmässig sträng med slump tals generatorn.
+    - Formatera ett anspråk enligt den angivna format strängen. Den här omvandlingen använder C# `String.Format` metoden.
+    
+- InputValidation – det här elementet gör att du kan utföra booleska agg regeringar som liknar *och* och *eller*.
 
-- [ContentDefinitions](contentdefinitions.md) -innehåller URL: er för HTML5 mallar att använda i din användarresan. I en anpassad princip definierar en innehållsdefinition sidan HTML5 URI som används för ett specifikt steg på vägen för användaren. Till exempel, logga in eller registrera dig, lösenordsåterställning eller felsidor. Du kan ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-fil. Eller så kan du skapa nya innehållsdefinitioner efter dina behov. Det här elementet kan innehålla en referens för lokaliserade resurser med hjälp av ett lokalisering-ID.
+- [ContentDefinitions](contentdefinitions.md) – innehåller URL: er för HTML5-mallar som ska användas i användar resan. I en anpassad princip definierar en innehålls definition den HTML5-sid-URI som används för ett angivet steg i användar resan. Till exempel inloggnings-eller registrerings-, lösen ords återställning eller fel sidor. Du kan ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-filen. Eller så kan du skapa nya innehålls definitioner efter dina behov. Det här elementet kan innehålla en lokaliserad resurs referens med hjälp av ett lokaliserings-ID.
 
-- [Lokalisering](localization.md) – gör att du kan ha stöd för flera språk. Lokaliseringsstöd i principer kan du konfigurera listan över språk som stöds i en princip och välja ett standardspråk. Språkspecifika strängar och samlingar stöds också.
+- [Lokalisering](localization.md) – gör att du kan stödja flera språk. Lokaliserings stödet i principer gör att du kan ställa in listan över språk som stöds i en princip och välja ett standard språk. Språkspecifika strängar och samlingar stöds också.
 
 

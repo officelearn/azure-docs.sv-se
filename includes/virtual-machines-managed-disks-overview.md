@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/22/2019
 ms.locfileid: "68319997"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar

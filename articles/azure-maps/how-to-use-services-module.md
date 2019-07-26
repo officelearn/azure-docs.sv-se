@@ -1,6 +1,6 @@
 ---
-title: Använda services-modul - Azure Maps | Microsoft Docs
-description: Lär dig hur du använder Azure Maps-services-modul.
+title: Använda modulen tjänster – Azure Maps | Microsoft Docs
+description: Lär dig hur du använder modulen Azure Maps tjänster.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,40 +8,40 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: b56191bc93a91f944bb313b4ab9ad602da17dcf0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7baacd3bb64ad234e478d4c1f75e793c46ec321
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357638"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476776"
 ---
-# <a name="use-the-azure-maps-services-module"></a>Använd Azure Maps-services-modul
+# <a name="use-the-azure-maps-services-module"></a>Använd modulen Azure Maps tjänster
 
-Azure Maps Web SDK tillhandahåller en *services-modul*. Denna modul är ett hjälpbibliotek som gör det enkelt att använda Azure Maps REST-tjänster i webb- eller Node.js-program med hjälp av JavaScript- eller TypeScript.
+Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-tjänsterna i webb-eller Node. js-program med hjälp av Java Script eller TypeScript.
 
-## <a name="use-the-services-module-in-a-webpage"></a>Använd modulen tjänster i en webbsida
+## <a name="use-the-services-module-in-a-webpage"></a>Använda modulen tjänster på en webb sida
 
 1. Skapa en ny HTML-fil.
-1. Läsa in modulen för Azure Maps-tjänster. Du kan läsa in den i ett av två sätt:
-    - Använd den globalt värdbaserade Azure Content Delivery Network-versionen av modulen för Azure Maps-tjänster. Lägg till ett som skriptreferens till den `<head>` elementet i filen:
+1. Läs in Azure Maps Services-modulen. Du kan läsa in den på ett av två sätt:
+    - Använd den globalt värdbaserade Azure Content Delivery Network-versionen av modulen Azure Maps tjänster. Lägg till en skript referens till `<head>` filens element:
 
         ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - Du kan också läsa in Azure mappar webbtjänst-SDK-källkoden lokalt genom att använda den [azure maps rest](https://www.npmjs.com/package/azure-maps-rest) npm paketet och sedan lägga upp den med din app. Det här paketet innehåller också TypeScript definitioner. Använd följande kommando:
+    - Du kan också läsa in Azure Maps Web SDK-källkod lokalt med hjälp av [Azure-Maps-rest NPM-](https://www.npmjs.com/package/azure-maps-rest) paketet och sedan vara värd för det med din app. Det här paketet innehåller även TypeScript-definitioner. Använd det här kommandot:
     
-        > **npm install azure maps-vila**
+        > **NPM installera Azure-Maps-rest**
     
-        Lägg sedan till en skriptreferens till den `<head>` elementet i filen:
+        Lägg sedan till en skript referens till `<head>` filens element:
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
          ```
 
-1. Skapa en pipeline för autentisering. Du måste skapa pipelinen innan du kan initiera en tjänstslutpunkt URL-klienten. Använda din egen nyckel för Azure Maps-konto eller autentiseringsuppgifter för Azure Active Directory (Azure AD) för att autentisera klienten för en Azure Maps Search-tjänsten. Search service URL: en klient i det här exemplet kommer att skapas. 
+1. Skapa en pipeline för autentisering. Du måste skapa pipelinen innan du kan initiera en klient slut punkt för tjänst-URL. Använd dina egna Azure Maps konto nycklar eller Azure Active Directory (Azure AD) autentiseringsuppgifter för att autentisera en Azure Maps Sök tjänst klient. I det här exemplet kommer URL-klienten för Sök tjänsten att skapas. 
 
-    Om du använder en prenumerationsnyckel för autentisering:
+    Om du använder en prenumerations nyckel för autentisering:
 
     ```javascript
     // Get an Azure Maps key at https://azure.com/maps.
@@ -124,7 +124,7 @@ Azure Maps Web SDK tillhandahåller en *services-modul*. Denna modul är ett hj�
 
     Mer information finns i [autentisering med Azure Maps](azure-maps-authentication.md).
 
-1. Följande kod använder nyligen skapade Azure Search service URL klienten att geokoda en adress: "1 Microsoft Way, Redmond, WA". Koden använder den `searchAddress` fungerar och visar resultatet som en tabell i brödtexten i sidan.
+1. I följande kod används den nyligen skapade Azure Search tjänst-URL-klienten för att koda en adress: "1 Microsoft Way, Redmond, WA". I koden används `searchAddress` funktionen och resultatet visas som en tabell i bröd texten på sidan.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
@@ -154,12 +154,12 @@ Azure Maps Web SDK tillhandahåller en *services-modul*. Denna modul är ett hj�
     });
     ```
 
-    Här är den fullständiga kör kodexempel:
+    Här är det fullständiga kod exemplet som körs:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Med hjälp av Services-modul" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>med hjälp av modulen Services</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Använda modulen tjänster" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se pennan <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>med hjälp av modulen tjänster</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) i <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -181,13 +181,13 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 > [!div class="nextstepaction"]
 > [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-maps-typescript-latest)
 
-Fler kodexempel som använder services-modul finns i följande artiklar:
+Mer kod exempel som använder modulen tjänster finns i följande artiklar:
 
 > [!div class="nextstepaction"]
-> [Visa sökresultat på kartan](./map-search-location.md)
+> [Visa Sök resultat på kartan](./map-search-location.md)
 
 > [!div class="nextstepaction"]
 > [Hämta information från en koordinat](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
-> [Visa riktningar från A till B](./map-route.md)
+> [Visa vägvisningar från A till B](./map-route.md)

@@ -1,154 +1,153 @@
 ---
-title: Återställa data i Azure till en Windows server eller Windows-dator
-description: Lär dig hur du återställer data som lagras i Azure till en Windows server eller Windows-dator.
-services: backup
+title: Återställa data i Azure till en Windows Server-eller Windows-dator
+description: Lär dig hur du återställer data som lagras i Azure till en Windows Server-eller Windows-dator.
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460265"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465687"
 ---
-# <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Återställa filer till Windows med hjälp av Azure Resource Manager-distributionsmodellen
+# <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Återställa filer till Windows med hjälp av Azure Resource Manager distributions modell
 
-Den här artikeln förklarar hur du återställer data från ett säkerhetskopieringsvalv. Om du vill återställa data, Använd guiden Återställ Data i Microsoft Azure Recovery Services MARS-agenten. Du kan:
+Den här artikeln förklarar hur du återställer data från ett säkerhets kopierings valv. För att återställa data använder du guiden Återställ data i Microsoft Azure Recovery Services (MARS) agenten. Du kan:
 
-* Återställa data på samma dator varifrån säkerhetskopieringarna vidtogs.
+* Återställ data till samma dator som säkerhets kopiorna gjordes från.
 * Återställ data till en annan dator.
 
-Använd funktionen omedelbar återställning för att montera en skrivbar återställningspunktens ögonblicksbild som en volym för återställning. Du kan sedan utforska återställa volymen och kopiera filer till en lokal dator därmed selektivt återställningen.
+Använd funktionen omedelbar återställning för att montera en skrivbar ögonblicks bild av återställnings punkt som en återställnings volym. Du kan sedan utforska återställnings volymen och kopiera filer till en lokal dator, så att filer kan återställas selektivt.
 
 > [!NOTE]
-> Den [januari 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) krävs om du vill använda omedelbar återställning för att återställa data. Säkerhetskopierade data skyddas i valv i nationella inställningar som anges i supportartikeln. Läs den [januari 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) för den senaste listan över språk som har stöd för omedelbar återställning.
+> [Azure Backup uppdateringen från januari 2017](https://support.microsoft.com/en-us/help/3216528?preview) krävs om du vill använda omedelbar återställning för att återställa data. Dessutom måste säkerhets kopierings data skyddas i valv i de språk som anges i Support artikeln. Se [Azure Backup uppdateringen för januari 2017](https://support.microsoft.com/en-us/help/3216528?preview) för den senaste listan över språk som stöder omedelbar återställning.
 >
 
-Använd omedelbar återställning med Recovery Services-valv i Azure-portalen. Om du lagras data i Backup-valv, har de konverterats till Recovery Services-valv. Om du vill använda omedelbar återställning hämta MARS-uppdatering och följa procedurerna som nämner omedelbar återställning.
+Använd omedelbar återställning med Recovery Services valv i Azure Portal. Om du har lagrat data i säkerhets kopierings valv har de konverterats till Recovery Services valv. Om du vill använda omedelbar återställning hämtar du MARS-uppdateringen och följer de procedurer som nämns direkt återställning.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Använd omedelbar återställning för att återställa data på samma dator
+## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Använd omedelbar återställning för att återställa data till samma dator
 
-Om du av misstag har tagit bort en fil och vill återställa den till samma dator (som säkerhetskopieringen görs), följande steg hjälper dig att återställa data.
+Om du av misstag har tagit bort en fil och vill återställa den till samma dator (från vilken säkerhets kopian görs) kan du använda följande steg för att återställa data.
 
-1. Öppna snapin-modulen **Microsoft Azure Backup**. Om du inte vet där snapin-modulen har installerats, Sök dator eller server för **Microsoft Azure Backup**.
+1. Öppna snapin-modulen **Microsoft Azure Backup**. Om du inte vet var snapin-modulen har installerats söker du efter **Microsoft Azure Backup**i datorn eller servern.
 
-    Skrivbordsappen ska visas i sökresultaten.
+    Skriv bords appen bör visas i Sök resultaten.
 
-2. Välj **Återställ Data** så startas guiden.
+2. Välj **Återställ data** för att starta guiden.
 
-    ![Skärmbild av Azure Backup med Återställ Data markerat](./media/backup-azure-restore-windows-server/recover.png)
+    ![Skärm bild av Azure Backup, där Återställ data har marker ATS](./media/backup-azure-restore-windows-server/recover.png)
 
-3. På den **komma igång** att återställa data på samma server eller dator, väljer du **den här servern (`<server name>`)**  > **nästa**.
+3. På sidan **komma igång** för att återställa data till samma server eller dator väljer du **den här servern`<server name>`()**  > **Nästa**.
 
-    ![Skärmbild av återställa Data guiden komma igång-sidan](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Skärm bild av guiden Återställ data Komma igång sidan](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. På den **Välj återställningsläge** väljer **enskilda filer och mappar** > **nästa**.
+4. På sidan **Välj återställnings läge** väljer **du enskilda filer och mappar** > **Nästa**.
 
-    ![Skärmbild av återställa Data guiden Välj återställningsläge sidan](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+    ![Skärm bild av guiden Återställ data på sidan Välj återställnings läge](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
-   > Alternativet för att återställa enskilda filer och mappar kräver .NET Framework 4.5.2 eller senare. Om du inte ser den **enskilda filer och mappar** alternativet, måste du uppgradera .NET Framework version 4.5.2 eller senare, och försök igen.
+   > Alternativet för att återställa enskilda filer och mappar kräver .NET Framework 4.5.2 eller senare. Om du inte ser alternativet **enskilda filer och mappar** måste du uppgradera .NET Framework till version 4.5.2 eller senare och försöka igen.
 
    > [!TIP]
-   > Den **enskilda filer och mappar** alternativet möjliggör snabb åtkomst till informationen för återställningspunkten. Den är lämplig för att återställa enskilda filer med storlekar som tillsammans utgör inte mer än 80 GB och ger överföring eller kopiera ökar hastigheten för upp till 6 Mbit/s under återställningen. Den **volym** alternativet återställer alla säkerhetskopierade data i en angiven volym. Det här alternativet ger överföringen går snabbare hastigheter (upp till 60 Mbit/s), vilket är idealiskt för att återställa stora data eller hela volymer.
+   > Alternativet **enskilda filer och mappar** ger snabb åtkomst till återställnings punkt data. Det är lämpligt för att återställa enskilda filer, med storlekar som totalt inte är större än 80 GB, och erbjuder överförings-eller kopierings hastigheter upp till 6 MBps under återställningen. Alternativet **volym** återställer alla säkerhetskopierade data på en angiven volym. Det här alternativet ger snabbare överförings hastigheter (upp till 60 Mbit/s), vilket är idealiskt för att kunna återskapa stora data mängder eller hela volymer.
 
-5. På den **Välj volym och datum** väljer du den volym som innehåller de filer och mappar som du vill återställa.
+5. På sidan **Välj volym och datum** väljer du den volym som innehåller de filer och mappar som du vill återställa.
 
-    Välj en återställningspunkt i kalendern. Datum i **fetstil** anger tillgängligheten för minst en återställningspunkt. Om flera återställningspunkter är tillgängliga i ett enda datum, väljer du den specifika återställningspunkten från den **tid** nedrullningsbara menyn.
+    Välj en återställnings punkt i kalendern. Datum i **fetstil** anger tillgänglighet för minst en återställnings punkt. Om flera återställnings punkter är tillgängliga inom ett enda datum väljer du den aktuella återställnings punkten i list rutan **tid** .
 
-    ![Skärmbild av återställa Data guiden Välj volym och datum sidan](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
+    ![Skärm bild av guiden Återställ data Välj volym och datum sida](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
-6. Välj återställningspunkt att återställa och välj **montera**.
+6. När du har valt återställnings punkten som ska återställas väljer du **montera**.
 
-    Azure Backup monterar lokal återställningspunkt och använder dem som en volym för återställning.
+    Azure Backup monterar den lokala återställnings punkten och använder den som återställnings volym.
 
-7. På den **Bläddra och återställa filer** väljer **Bläddra** att öppna Windows Explorer och hitta de filer och mappar som du vill.
+7. På sidan **Bläddra och återställa filer** väljer du **Bläddra** för att öppna Utforskaren och leta upp de filer och mappar som du vill använda.
 
-    ![Skärmbild av återställa Data guiden Bläddra och återställa filer](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
-
-
-8. Kopiera filer och mappar som du vill återställa i Windows Explorer och klistra in dem till valfri plats som är lokala för servern eller datorn. Du kan öppna eller strömma filer direkt från återställningsvolymen och verifiera att du återställer rätt versioner.
-
-    ![Skärmbild av Windows Explorer med kopia markerat](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Skärm bild av guiden Återställ data på sidan Bläddra och återställa filer](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-9. När du är klar på den **Bläddra och återställa filer** väljer **demonteringen**. Välj sedan **Ja** att bekräfta att du vill demontera volymen.
+8. I Utforskaren i Windows kopierar du de filer och mappar som du vill återställa och klistrar in dem på alla platser som är lokala på servern eller datorn. Du kan öppna eller strömma filerna direkt från återställnings volymen och kontrol lera att du återställer rätt versioner.
 
-    ![Skärmbild av återställa Data guiden Bläddra och återställa filer](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Skärm bild av Utforskaren i Windows med kopiera markerat](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
+
+9. När du är färdig väljer du **demontera**på sidan **Bläddra och återställa filer** . Välj sedan **Ja** för att bekräfta att du vill demontera volymen.
+
+    ![Skärm bild av guiden Återställ data på sidan Bläddra och återställa filer](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Om du inte väljer **demonteringen**, återställningsvolymen är monterade i 6 timmar från den tidpunkt när den är monterad. Montera tiden är dock längre upp till 24 timmar vid en pågående filkopiering. Inga säkerhetskopieringsåtgärder kommer att köras även om volymen är monterad. Alla säkerhetskopieringen som är schemalagda att köras under den tid när volymen är monterad körs när återställningsvolymen är demonterad.
+    > Om du inte väljer att **demontera**, förblir återställnings volymen monterad i 6 timmar från den tidpunkt då den monterades. Monterings tiden utökas dock upp till högst 24 timmar om en fort löp ande fil kopiering sker. Inga säkerhets kopierings åtgärder körs medan volymen monteras. Alla säkerhets kopieringar som körs under den tid då volymen monteras kommer att köras efter att återställnings volymen har demonterats.
     >
 
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Använd omedelbar återställning för att återställa data till en annan dator
-Om hela servern tappas bort, kan du fortfarande återställa data från Azure Backup till en annan dator. Följande steg illustrerar arbetsflödet.
+Om hela servern tappas bort kan du fortfarande återställa data från Azure Backup till en annan dator. Följande steg illustrerar arbets flödet.
 
 
-De här stegen är följande termer:
+Dessa steg omfattar följande terminologi:
 
-* *Källdatorn* – den ursprungliga datorn från säkerhetskopian skapades och som är för närvarande inte tillgänglig.
-* *Måldatorn* – den datorn som data återställs.
-* *Exemplet vault* – The Recovery Services-valv som källdatorn och måldatorn är registrerade. <br/>
+* *Käll dator* – den ursprungliga datorn från vilken säkerhets kopian gjordes och som för tillfället inte är tillgänglig.
+* *Måldator* – den dator som data återställs till.
+* *Exempel valv* – det Recovery Services valv som käll datorn och mål datorn är registrerade på. <br/>
 
 > [!NOTE]
-> Säkerhetskopieringar kan inte återställas till en måldator som kör en tidigare version av operativsystemet. Till exempel kan en säkerhetskopia som gjorts från en dator med Windows 7 återställas på en dator med Windows 7 (eller senare). En säkerhetskopia som gjorts från en Windows 8-dator kan inte återställas till en dator med Windows 7.
+> Säkerhets kopieringar kan inte återställas till en måldator som kör en tidigare version av operativ systemet. Till exempel kan en säkerhets kopia som tas från en dator med Windows 7 återställas på en dator med Windows 7 (eller senare). En säkerhets kopia som tagits från en Windows 8-dator kan inte återställas till en dator med Windows 7.
 >
 >
 
-1. Öppna den **Microsoft Azure Backup** snapin-modulen på måldatorn.
+1. Öppna snapin-modulen **Microsoft Azure Backup** på mål datorn.
 
-2. Kontrollera att måldatorn och källdatorn registreras på samma Recovery Services-valv.
+2. Se till att mål datorn och käll datorn är registrerade på samma Recovery Services-valv.
 
-3. Välj **Återställ Data** att öppna den **guiden Återställ Data**.
+3. Välj **Återställ data** för att öppna **guiden Återställ data**.
 
-    ![Skärmbild av Azure Backup med Återställ Data markerat](./media/backup-azure-restore-windows-server/recover.png)
+    ![Skärm bild av Azure Backup, där Återställ data har marker ATS](./media/backup-azure-restore-windows-server/recover.png)
 
-4. På den **komma igång** väljer **en annan server**.
+4. På sidan **komma igång** väljer du **en annan server**.
 
-    ![Skärmbild av återställa Data guiden komma igång-sidan](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+    ![Skärm bild av guiden Återställ data Komma igång sidan](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
-5. Ange valvautentiseringsfilen som motsvarar till exempel valvet och välj **nästa**.
+5. Ange den valv fil för valvet som motsvarar exempel valvet och välj **Nästa**.
 
-    Om valvautentiseringsfilen är ogiltigt (eller har upphört att gälla), kan du hämta en ny valvautentiseringsfil från exemplet valv i Azure-portalen. När du har angett en giltig valvautentiseringen visas namnet på motsvarande säkerhetskopieringsvalvet.
+    Om valvet för valvet är ogiltigt (eller har gått ut) laddar du ned en ny fil för valvet från exempel valvet i Azure Portal. När du har angett giltiga autentiseringsuppgifter för valvet visas namnet på motsvarande säkerhets kopierings valv.
 
 
-6. På den **Välj Backup Server** väljer källdatorn i listan visas datorer, och ange lösenfrasen. Välj sedan **Nästa**.
+6. På sidan **Välj säkerhets kopierings Server** väljer du käll datorn i listan med datorer som visas och anger lösen frasen. Välj sedan **Nästa**.
 
-    ![Skärmbild av återställa Data guiden Välj Backup Server-sida](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
+    ![Skärm bild av guiden Återställ data på sidan Välj säkerhets kopierings Server](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
-7. På den **Välj återställningsläge** väljer **enskilda filer och mappar** > **nästa**.
+7. På sidan **Välj återställnings läge** väljer **du enskilda filer och mappar** > **Nästa**.
 
-    ![Skärmbild av återställa Data guiden Välj återställningsläge sidan](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Skärm bild av guiden Återställ data på sidan Välj återställnings läge](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
-8. På den **Välj volym och datum** väljer du den volym som innehåller de filer och mappar som du vill återställa.
+8. På sidan **Välj volym och datum** väljer du den volym som innehåller de filer och mappar som du vill återställa.
 
-    Välj en återställningspunkt i kalendern. Datum i **fetstil** anger tillgängligheten för minst en återställningspunkt. Om flera återställningspunkter är tillgängliga i ett enda datum, väljer du den specifika återställningspunkten från den **tid** nedrullningsbara menyn.
+    Välj en återställnings punkt i kalendern. Datum i **fetstil** anger tillgänglighet för minst en återställnings punkt. Om flera återställnings punkter är tillgängliga inom ett enda datum väljer du den aktuella återställnings punkten i list rutan **tid** .
 
-    ![Skärmbild av återställa Data guiden Välj volym och datum sidan](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
+    ![Skärm bild av guiden Återställ data Välj volym och datum sida](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
-9. Välj **montera** lokalt montera återställningspunkten som en volym för återställning på måldatorn.
+9. Välj **montera** för att montera återställnings punkten lokalt som en återställnings volym på mål datorn.
 
-10. På den **Bläddra och återställa filer** väljer **Bläddra** att öppna Windows Explorer och hitta de filer och mappar som du vill.
+10. På sidan **Bläddra och återställa filer** väljer du **Bläddra** för att öppna Utforskaren och leta upp de filer och mappar som du vill använda.
 
-    ![Skärmbild av återställa guiden Bläddra och återställa datafiler sidan](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
+    ![Skärm bild av guiden Återställ data på sidan Bläddra och återställa filer](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
-11. Kopiera filer och mappar från återställningsvolymen i Windows Explorer och klistra in dem till din dator målplats. Du kan öppna eller strömma filer direkt från återställningsvolymen och verifiera att rätt versioner återställs.
+11. I Utforskaren i Windows kopierar du filerna och mapparna från återställnings volymen och klistrar in dem på mål datorns plats. Du kan öppna eller strömma filerna direkt från återställnings volymen och kontrol lera att rätt versioner återställs.
 
-    ![Skärmbild av Windows Explorer med kopia markerat](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
+    ![Skärm bild av Utforskaren i Windows med kopiera markerat](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. När du är klar på den **Bläddra och återställa filer** väljer **demonteringen**. Välj sedan **Ja** att bekräfta att du vill demontera volymen.
+12. När du är färdig väljer du **demontera**på sidan **Bläddra och återställa filer** . Välj sedan **Ja** för att bekräfta att du vill demontera volymen.
 
-    ![Skärmbild av återställa guiden Bläddra och återställa datafiler sidan](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
+    ![Skärm bild av guiden Återställ data på sidan Bläddra och återställa filer](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Om du inte väljer **demonteringen**, återställningsvolymen är monterade i 6 timmar från den tidpunkt när den är monterad. Montera tiden är dock längre upp till 24 timmar vid en pågående filkopiering. Inga säkerhetskopieringsåtgärder kommer att köras även om volymen är monterad. Alla säkerhetskopieringen som är schemalagda att köras under den tid när volymen är monterad körs när återställningsvolymen är demonterad.
+    > Om du inte väljer att **demontera**, förblir återställnings volymen monterad i 6 timmar från den tidpunkt då den monterades. Monterings tiden utökas dock upp till högst 24 timmar om en fort löp ande fil kopiering sker. Inga säkerhets kopierings åtgärder körs medan volymen monteras. Alla säkerhets kopieringar som körs under den tid då volymen monteras kommer att köras efter att återställnings volymen har demonterats.
     >
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har återställt filer och mappar, kan du [hantera dina säkerhetskopior](backup-azure-manage-windows-server.md).
+Nu när du har återställt dina filer och mappar kan du [Hantera dina säkerhets kopior](backup-azure-manage-windows-server.md).

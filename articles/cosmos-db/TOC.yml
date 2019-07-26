@@ -272,6 +272,8 @@
         - name: Rollbaserad åtkomstkontroll
           displayName: rbac
           href: role-based-access-control.md
+        - href: cosmos-db-advanced-threat-protection.md
+          name: Advanced Threat Protection
         - name: Säkerhetsattribut
           href: cosmos-db-security-attributes.md
     - name: Företagsberedskap

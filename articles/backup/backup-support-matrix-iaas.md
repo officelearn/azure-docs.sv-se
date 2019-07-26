@@ -1,19 +1,18 @@
 ---
 title: Azure Backup support mat ris för virtuell Azure-säkerhetskopiering
 description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: 3823bca0601f825323a44773f8c70be371ec8781
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3b979b6bcf2078e83564a8f008d392fd8e0a7c78
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311654"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464892"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Support mat ris för säkerhets kopiering av virtuella Azure-datorer
 Du kan använda [tjänsten Azure Backup](backup-overview.md) för att säkerhetskopiera lokala datorer och arbets belastningar och virtuella datorer i Azure. Den här artikeln sammanfattar support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -96,7 +95,7 @@ Maximal förfallo tid för en återställnings punkt | Ingen gräns.
 Maximal säkerhets kopierings frekvens till valv (Azure VM-tillägg) | En gång om dagen.
 Maximal säkerhets kopierings frekvens till valv (MARS-agent) | Tre säkerhets kopieringar per dag.
 Högsta säkerhetskopieringsfrekvens till DPM/MABS | Var 15: e minut för SQL Server.<br/><br/> En gång i timmen för andra arbets belastningar.
-Kvarhållning av återställningspunkt | Varje dag, varje vecka, varje månad och varje år.
+Återställningspunkt för kvarhållning | Varje dag, varje vecka, varje månad och varje år.
 Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 Återställningspunkter på DPM-/MABS-disk | 64 för fil servrar och 448 för App-servrar.<br/><br/> Bandåterställningspunkter är obegränsade för lokal DPM.
 
@@ -144,8 +143,7 @@ I följande tabell sammanfattas stödet för säkerhets kopiering under aktivite
 **Compute** | **Support**
 --- | ---
 Storlek på virtuell dator |   Valfri storlek på virtuella Azure-datorer med minst 2 processor kärnor och 1 GB RAM.<br/><br/> [Läs mer.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-Säkerhetskopiera virtuella datorer i [tillgänglighets uppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) | Stöds.<br/><br/> Du kan inte återställa en virtuell dator i en tillgänglig uppsättning genom att använda alternativet för att snabbt skapa en virtuell dator. När du i stället återställer den virtuella datorn återställer du disken och använder den för att distribuera en virtuell dator, eller återställer en disk och använder den för att ersätta en befintlig disk.
-Säkerhetskopiera virtuella datorer i [tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Stöds ej.
+Säkerhetskopiera virtuella datorer i [tillgänglighets uppsättningar](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Stöds.<br/><br/> Du kan inte återställa en virtuell dator i en tillgänglig uppsättning genom att använda alternativet för att snabbt skapa en virtuell dator. När du i stället återställer den virtuella datorn återställer du disken och använder den för att distribuera en virtuell dator, eller återställer en disk och använder den för att ersätta en befintlig disk.
 Säkerhetskopiera virtuella datorer som har distribuerats med [Hybrid Use Benefit (hubb)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Stöds.
 Säkerhetskopiera virtuella datorer som distribueras i en [skalnings uppsättning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  Stöds ej.
 Säkerhetskopiera virtuella datorer som distribueras från [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicerat av Microsoft, tredje part) |  Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system). Vi återställer inte virtuella Azure Marketplace-datorer som har säkerhetskopierats som virtuella datorer eftersom de behöver köpa information men bara som diskar.

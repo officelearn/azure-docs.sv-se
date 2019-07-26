@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du lösenord för enkel inloggning för ett Azure AD-galleriprogram | Microsoft Docs
-description: Hur du konfigurerar ett program för säker lösenordsbaserad enkel inloggning när det redan finns i Azure AD-Programgalleriet
+title: Konfigurera enkel inloggning med lösen ord för ett Azure AD Gallery-program | Microsoft Docs
+description: Konfigurera ett program för säker lösenordsbaserad enkel inloggning när det redan är listat i Azure AD-programgalleriet
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,41 +15,42 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d53dbcddf2025ddc3111bc585655e2c157844b18
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ROBOTS: NOINDEX
+ms.openlocfilehash: eb37fe247901b799a845ce75723a4a6b535cbb28
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190178"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422578"
 ---
-# <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för ett Azure AD-galleriprogram
+# <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Konfigurera enkel inloggning med lösen ord för ett Azure AD Gallery-program
 
-När du lägger till ett program från den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), du kan välja mellan hur du vill att användarna att logga in på programmet. Du kan konfigurera det här alternativet när som helst genom att välja den **enkel inloggning** navigering objekt i ett Enterprise-program i den [Azure-portalen](https://portal.azure.com/).
+När du lägger till ett program från [Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)-programgalleriet kan du välja hur du vill att användarna ska logga in i programmet. Du kan konfigurera det här alternativet när du vill genom att välja navigerings objekt för **enkel inloggning** i ett företags program i [Azure Portal](https://portal.azure.com/).
 
-En av enkel inloggning metoder tillgängliga för dig är det [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) alternativet. Detta är ett bra sätt att komma igång med att integrera program till Azure AD snabbt och kan du:
+En av de enkla inloggnings metoderna som är tillgängliga för dig är alternativet för [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) . Det här är ett bra sätt att komma igång med att integrera program i Azure AD snabbt och gör att du kan:
 
--   Aktivera **enkel inloggning för användarnas** genom att på ett säkert sätt lagra och spela upp användarnamn och lösenord för programmet som du har integrerat med Azure AD
+-   Aktivera **enkel inloggning för dina användare** genom säker lagring och uppspelning av användar namn och lösen ord för det program som du har integrerat med Azure AD
 
--   **Stöd för program som kräver flera inloggningsfält** för program som kräver mer än bara användarnamn och lösenord fält att logga in
+-   **Stöd för program som kräver flera inloggnings fält** för program som kräver mer än bara användar namn och lösen ords fält för att logga in
 
--   **Anpassa etiketterna** användarnamn och lösenord indatafält användarna ser på den [Programåtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
+-   **Anpassa etiketterna** för fälten användar namn och lösen ord indatatyper som användarna ser på [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
 
--   Tillåt dina **användare** att ange användarnamn och lösenord för alla befintliga program-konton som de skriver i manuellt på den [programmets åtkomstpanel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+-   Tillåt att **användarna** anger sina egna användar namn och lösen ord för alla befintliga program konton som de skriver in manuellt på [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
--   Tillåt en **medlem i gruppen företag** att ange användarnamn och lösenord som har tilldelats till en användare med hjälp av den [Självbetjäning för programåtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) funktion
+-   Tillåt en **medlem i företags gruppen** att ange användar namn och lösen ord som tilldelats en användare med hjälp av funktionen för självbetjänings [åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Tillåt en **administratör** för att ange användarnamn och lösenord som har tilldelats en användare med hjälp av uppdatera autentiseringsuppgifterna funktionen när [tilldela en användare till ett program](#assign-a-user-to-an-application-directly)
+-   Tillåt en **administratör** att ange användar namn och lösen ord som tilldelats en användare med hjälp av funktionen uppdatera autentiseringsuppgifter när [en användare tilldelas till ett program](#assign-a-user-to-an-application-directly)
 
--   Tillåt en **administratör** ange delade användarnamnet eller lösenordet som används av en grupp människor med hjälp av uppdatera autentiseringsuppgifterna funktionen när [tilldela en grupp till ett program](#assign-an-application-to-a-group-directly)
+-   Tillåt en **administratör** att ange det delade användar namnet eller lösen ordet som används av en grupp med personer genom att använda funktionen uppdatera autentiseringsuppgifter när [en grupp tilldelas till ett program](#assign-an-application-to-a-group-directly)
 
-I följande avsnitt beskrivs hur du kan aktivera [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) till ett program som redan finns i den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+I följande avsnitt beskrivs hur du kan aktivera [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) till ett program som redan finns i [Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)-programgalleriet.
 
-## <a name="overview-of-steps-required"></a>Översikt över steg som krävs
-Konfigurera ett program från Azure AD-galleriet som du behöver:
+## <a name="overview-of-steps-required"></a>Översikt över de steg som krävs
+Om du vill konfigurera ett program från Azure AD-galleriet måste du:
 
 -   [Lägga till ett program från Azure AD-galleriet](#add-an-application-from-the-azure-ad-gallery)
 
--   [Konfigurera program för lösenord för enkel inloggning](#configure-the-application-for-password-single-sign-on)
+-   [Konfigurera programmet för enkel inloggning med lösen ord](#configure-the-application-for-password-single-sign-on)
 
 -   Tilldela programmet till en användare eller grupp
 
@@ -59,39 +60,39 @@ Konfigurera ett program från Azure AD-galleriet som du behöver:
 
 ## <a name="add-an-application-from-the-azure-ad-gallery"></a>Lägga till ett program från Azure AD-galleriet
 
-Följ dessa steg om du vill lägga till ett program från Azure AD-galleriet:
+Följ dessa steg om du vill lägga till ett program i Azure AD-galleriet:
 
-1.  Öppna den [Azure-portalen](https://portal.azure.com) och logga in som en **Global administratör** eller **medadministratör**
+1.  Öppna [Azure Portal](https://portal.azure.com) och logga in som **Global administratör** eller medadministratör
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4.  Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
-5.  Klicka på den **Lägg till** knappen i det övre högra hörnet på den **företagsprogram** fönstret.
+5.  Klicka på knappen **Lägg till** längst upp till höger i fönstret **företags program** .
 
-6.  I den **anger du ett namn** textrutan från den **Lägg till från galleriet** Skriv namnet på programmet.
+6.  I text rutan **Ange ett namn** i avsnittet **Lägg till från galleriet** skriver du namnet på programmet.
 
 7.  Välj det program som du vill konfigurera för enkel inloggning.
 
-8.  Innan du lägger till programmet, kan du ändra dess namn från den **namn** textrutan.
+8.  Innan du lägger till programmet kan du ändra dess namn i text rutan **namn** .
 
-9.  Klicka på **Lägg till** för att lägga till programmet.
+9.  Klicka på knappen **Lägg till** för att lägga till programmet.
 
-Du kan se programmets konfigurationsruta efter en kort period.
+Efter en kort period kan du se programmets konfigurations fönster.
 
-## <a name="configure-the-application-for-password-single-sign-on"></a>Konfigurera program för lösenord för enkel inloggning
+## <a name="configure-the-application-for-password-single-sign-on"></a>Konfigurera programmet för enkel inloggning med lösen ord
 
 Följ dessa steg om du vill konfigurera enkel inloggning för ett program:
 
-1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör **.**
 
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
 3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
 5. Klicka på **alla program** att visa en lista över alla dina program.
 
@@ -99,13 +100,13 @@ Följ dessa steg om du vill konfigurera enkel inloggning för ett program:
 
 6. Välj det program som du vill konfigurera enkel inloggning
 
-7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på **enkel inloggning** från programmets vänstra navigerings meny.
 
-8. Välj läget **lösenordsbaserad inloggning.**
+8. Välj läge för **lösenordsbaserad inloggning.**
 
 9. [Tilldela användare till programmet](#assign-a-user-to-an-application-directly).
 
-10. Du kan dessutom också ange autentiseringsuppgifter för användarens räkning genom att markera rader av användare och klicka på **uppdaterade autentiseringsuppgifter** och ange användarnamnet och lösenordet åt användarna. Annars kan uppmanas användare att ange autentiseringsuppgifterna sig vid start.
+10. Dessutom kan du ange autentiseringsuppgifter för användarens räkning genom att markera användarens rader och klicka på **uppdatera autentiseringsuppgifter** och ange användar namn och lösen ord för användarnas räkning. Annars uppmanas användarna att ange sina autentiseringsuppgifter vid start.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Tilldela en användare till ett program direkt
 
@@ -113,11 +114,11 @@ Följ dessa steg om du vill tilldela en eller flera användare till ett program 
 
 1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
 3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
 5. Klicka på **alla program** att visa en lista över alla dina program.
 
@@ -125,7 +126,7 @@ Följ dessa steg om du vill tilldela en eller flera användare till ett program 
 
 6. Välj det program som du vill tilldela en användare i listan.
 
-7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigerings meny.
 
 8. Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** listan för att öppna den **Lägg till tilldelning** fönstret.
 
@@ -135,7 +136,7 @@ Följ dessa steg om du vill tilldela en eller flera användare till ett program 
 
 11. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** Om du vill **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till fler än en användare**skriver du in ett annat **fullständigt namn** eller **e-postadress** i sökrutan **Sök efter namn eller e-postadress** och klickar sedan på kryss rutan för att lägga till användaren i den **markerade** listan.
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
@@ -149,11 +150,11 @@ Följ dessa steg om du vill tilldela en eller flera grupper till ett program dir
 
 1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
 3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
 
 5. Klicka på **alla program** att visa en lista över alla dina program.
 
@@ -161,7 +162,7 @@ Följ dessa steg om du vill tilldela en eller flera grupper till ett program dir
 
 6. Välj det program som du vill tilldela en användare i listan.
 
-7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigerings meny.
 
 8. Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** listan för att öppna den **Lägg till tilldelning** fönstret.
 
@@ -171,7 +172,7 @@ Följ dessa steg om du vill tilldela en eller flera grupper till ett program dir
 
 11. Hovra över den **grupp** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid gruppen profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** Om du vill **lägga till mer än en grupp**, typ i en annan **fullständiga namn** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här gruppen till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till fler än en grupp**skriver du in ett annat **fullständigt grupp namn** i sökrutan **Sök efter namn eller e-postadress** och klickar sedan på kryss rutan för att lägga till den här gruppen i den **markerade** listan.
 
 13. När du har valt grupper klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
@@ -179,7 +180,7 @@ Följ dessa steg om du vill tilldela en eller flera grupper till ett program dir
 
 15. Klicka på den **tilldela** knappen för att tilldela programmet till valda grupper.
 
-De användare som du har valt att kunna starta dessa program i åtkomstpanelen efter en kort period.
+Efter en kort period kan de användare du har valt kunna starta dessa program på åtkomst panelen.
 
 ## <a name="next-steps"></a>Nästa steg
 [Tillhandahålla enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)

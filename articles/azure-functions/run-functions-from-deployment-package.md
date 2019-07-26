@@ -1,76 +1,76 @@
 ---
-title: Kör dina Azure-funktioner från ett paket | Microsoft Docs
-description: Har Azure Functions-körningen kör dina funktioner genom att montera en paketfil för distribution som innehåller dina projektfiler för funktionen app.
+title: Köra Azure Functions från ett paket | Microsoft Docs
+description: Kör den Azure Functions körningen av dina funktioner genom att montera en distributions paket fil som innehåller dina projektfiler för Function-appen.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: 83a98a493068d3427e34f3ac2ca5c24baa48dda1
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 96dbe9b15831a349afc0e68c15c39c1cb31b1032
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508245"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444059"
 ---
-# <a name="run-your-azure-functions-from-a-package-file"></a>Kör dina Azure-funktioner från en paketfil
+# <a name="run-your-azure-functions-from-a-package-file"></a>Köra Azure Functions från en paketfil
 
-> [!NOTE]
-> Funktioner som beskrivs i den här artikeln är inte tillgänglig för funktionsappar som körs på Linux i en [App Service-plan](functions-scale.md#app-service-plan).
+I Azure kan du köra dina funktioner direkt från en distributions paket fil i din Function-app. Det andra alternativet är att distribuera dina filer i `d:\home\site\wwwroot` katalogen i din Function-app.
 
-I Azure, kan du köra dina funktioner direkt från en paketfil för distribution i din funktionsapp. Ett annat alternativ är att distribuera dina filer i den `d:\home\site\wwwroot` katalog på din funktionsapp.
+I den här artikeln beskrivs fördelarna med att köra funktioner från ett paket. Den visar också hur du aktiverar den här funktionen i Function-appen.
 
-Den här artikeln beskriver fördelarna med att köra dina funktioner från ett paket. Den visar även hur du aktiverar den här funktionen i din funktionsapp.
+> [!IMPORTANT]
+> När du distribuerar dina funktioner till en Linux Function-app i en [Premium-plan](functions-scale.md#premium-plan)bör du alltid köra från paket filen och [publicera din app med hjälp av Azure Functions Core tools](functions-run-local.md#project-file-deployment).
 
-## <a name="benefits-of-running-from-a-package-file"></a>Fördelar med att köra en paketfil från
+## <a name="benefits-of-running-from-a-package-file"></a>Fördelar med att köra från en paket fil
   
-Det finns flera fördelar med att köra en paketfil från:
+Det finns flera fördelar med att köra från en paket fil:
 
-+ Minskar risken för filkopiering låsning problem.
-+ Kan distribueras till en produktionsapp (omstart).
-+ Du kan vara säker på filer som körs i din app.
-+ Förbättrar prestandan vid [Azure Resource Manager-distributioner](functions-infrastructure-as-code.md).
-+ Kan minska kallstart gånger, särskilt för JavaScript-funktioner med stora npm-paketet träd.
++ Minskar risken för fil kopierings låsnings problem.
++ Kan distribueras till en produktions-app (med omstart).
++ Du kan vara säker på vilka filer som körs i din app.
++ Förbättrar prestandan för [Azure Resource Manager distributioner](functions-infrastructure-as-code.md).
++ Kan minska kall start tider, särskilt för JavaScript-funktioner med stora NPM paket träd.
 
 Mer information finns i [det här meddelandet](https://github.com/Azure/app-service-announcements/issues/84).
 
 ## <a name="enabling-functions-to-run-from-a-package"></a>Aktivera funktioner för att köra från ett paket
 
-Om du vill aktivera funktionsappen att köra från ett paket, du lägger bara till en `WEBSITE_RUN_FROM_PACKAGE` att ställa in din funktionsappinställningarna. Den `WEBSITE_RUN_FROM_PACKAGE` inställningen kan ha ett av följande värden:
+Om du vill att din Function-app ska köras från ett paket lägger du `WEBSITE_RUN_FROM_PACKAGE` bara till en inställning i appens inställningar. `WEBSITE_RUN_FROM_PACKAGE` Inställningen kan ha ett av följande värden:
 
-| Värde  | Beskrivning  |
+| Value  | Beskrivning  |
 |---------|---------|
-| **`1`**  | Rekommenderas för funktionsappar som körs på Windows. Kör en paketfil i från den `d:\home\data\SitePackages` mapp på din funktionsapp. Om inte [distribuerar med zip distribuera](#integration-with-zip-deployment), det här alternativet kräver mappen också ha en fil med namnet `packagename.txt`. Den här filen innehåller bara namnet på den paketfil i mappen, utan några blanksteg. |
-|**`<url>`**  | Platsen för en specifik paketfil som du vill köra. När du använder Blob storage, bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) att aktivera Functions-körningen får tillgång till paketet. Du kan använda den [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) ladda upp paketfiler till Blob storage-kontot.         |
+| **`1`**  | Rekommenderas för Function-appar som körs i Windows. Kör från en paket fil i `d:\home\data\SitePackages` mappen i din Function-app. Om du inte [distribuerar med zip-distribution](#integration-with-zip-deployment)kräver det här alternativet att mappen också har en fil `packagename.txt`med namnet. Den här filen innehåller bara namnet på paket filen i mappen utan blank steg. |
+|**`<url>`**  | Platsen för en angiven paketfil som du vill köra. När du använder Blob Storage bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) för att göra det möjligt för functions-körningen att komma åt paketet. Du kan använda [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp paketfiler till ditt Blob Storage-konto.         |
 
 > [!CAUTION]
-> När du kör en funktionsapp på Windows, ger externa URL: er sämre resultat kallstart prestanda. När du distribuerar din funktionsapp till Windows, bör du ange `WEBSITE_RUN_FROM_PACKAGE` till `1` och publicera med zip-distribution.
+> När du kör en Function-app i Windows ger det externa URL-alternativet sämre kall start prestanda. När du distribuerar din Function-app till Windows bör du `WEBSITE_RUN_FROM_PACKAGE` ange `1` och publicera med zip-distribution.
 
-Nedan visas en funktionsapp som konfigurerats för att köras från en .zip-fil som finns i Azure Blob storage:
+Följande visar en Function-app som kon figurer ATS för att köras från en. zip-fil som finns i Azure Blob Storage:
 
-![WEBSITE_RUN_FROM_ZIP appinställning](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
+![Inställning för WEBSITE_RUN_FROM_ZIP-app](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
 
 > [!NOTE]
-> För närvarande stöds endast .zip-paketfilerna.
+> För närvarande stöds endast. zip-paketfiler.
 
 ## <a name="integration-with-zip-deployment"></a>Integrering med zip-distribution
 
-[ZIP-distribution][Zip deployment for Azure Functions] är en funktion i Azure App Service som låter dig distribuera ditt funktionsappsprojekt till den `wwwroot` directory. Projektet kommer som en .zip-fil i distributionen. Samma API: er som kan användas för att distribuera paketet till den `d:\home\data\SitePackages` mapp. Med den `WEBSITE_RUN_FROM_PACKAGE` app inställningens värde av `1`, zip-distribution API: er kopiera paketet till den `d:\home\data\SitePackages` mappen i stället för att extrahera filerna till `d:\home\site\wwwroot`. Det skapar också de `packagename.txt` fil. Funktionsappen körs sedan från paketet efter en omstart och `wwwroot` skrivskyddas. Mer information om zip-distribution finns i [Zip-distribution för Azure Functions](deployment-zip-push.md).
+[Zip-distribution][Zip deployment for Azure Functions] är en funktion i Azure App Service som gör att du kan distribuera ditt app- `wwwroot` projekt till katalogen. Projektet paketeras som en. zip-distributions fil. Samma API: er kan användas för att distribuera paketet till `d:\home\data\SitePackages` mappen. Med appens inställnings `1`värde `d:\home\data\SitePackages` kopierar API: erna för zip-distribution ditt paket till mappen i stället för att extrahera filerna `d:\home\site\wwwroot`till. `WEBSITE_RUN_FROM_PACKAGE` `packagename.txt` Filen skapas också. Function-appen körs sedan från paketet efter en omstart och `wwwroot` blir skrivskyddad. Mer information om zip-distribution finns i [zip-distribution för Azure Functions](deployment-zip-push.md).
 
-## <a name="adding-the-websiterunfrompackage-setting"></a>Att lägga till inställningen WEBSITE_RUN_FROM_PACKAGE
+## <a name="adding-the-websiterunfrompackage-setting"></a>Lägger till inställningen WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 ## <a name="troubleshooting"></a>Felsökning
 
-- Kör från paketet gör `wwwroot` skrivskyddad, så att du får ett felmeddelande när du skriver filer till den här katalogen.
-- Tar och gzip-format stöds inte.
-- Den här funktionen inte compose med lokalt cacheminne.
-- För bättre prestanda för kallstart, använder du alternativet för lokal Zip (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- Kör från paket gör `wwwroot` skrivskyddat så att du får ett fel meddelande när du skriver filer till den här katalogen.
+- Tar-och gzip-format stöds inte.
+- Den här funktionen skapar inte lokal cache.
+- För förbättrade kall start prestanda använder du det lokala zip-alternativet (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Nästa steg
 

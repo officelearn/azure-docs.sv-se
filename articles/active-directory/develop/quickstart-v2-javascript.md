@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b8780ae0c24ca2b037211f7cb977f0cacee0f9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 3ca7e7f282d63160cd1f729fba00f6d7d7704270
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325378"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334133"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett program med en enda sida med Java Script
 
@@ -180,7 +180,7 @@ var msalConfig = {
 var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Var  |  |
+> |Där  |  |
 > |---------|---------|
 > |`ClientId`     | Program-ID för programmet som är registrerat i Azure Portal.|
 > |`authority`    | Valfritt Auktoritets-URL: en som stöder konto typer, enligt beskrivningen ovan i avsnittet konfiguration. Standard auktoriteten är `https://login.microsoftonline.com/common`. |
@@ -205,7 +205,7 @@ myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
 });
 ```
 
-> |Var  |  |
+> |Där  |  |
 > |---------|---------|
 > | `scopes`   | Valfritt Innehåller omfattningar som begärs för användar medgivande vid inloggnings tillfället. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API:er (det vill säga `api://<Application ID>/access_as_user`). |
 
@@ -233,7 +233,7 @@ myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 });
 ```
 
-> |Var  |  |
+> |Där  |  |
 > |---------|---------|
 > | `scopes`   | Innehåller omfång som begärs att returneras i åtkomsttoken för API. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API:er (det vill säga `api://<Application ID>/access_as_user`).|
 
@@ -275,3 +275,8 @@ Om du vill bläddra bland MSAL-lagrings platsen för dokumentation, vanliga frå
 
 > [!div class="nextstepaction"]
 > [MSAL. js GitHub-lagrings platsen](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+
+Hjälp oss att förbättra Microsoft Identity Platform. Berätta för oss vad du tycker genom att slutföra en kort enkät med två frågor.
+
+> [!div class="nextstepaction"]
+> [Microsoft Identity Platform-undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

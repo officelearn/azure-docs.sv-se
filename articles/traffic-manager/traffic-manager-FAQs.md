@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310269"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335806"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -382,23 +382,23 @@ När en fråga tas emot mot en profil hittar Traffic Manager först den slut pun
 
 För profiler med någon annan routningsmetod än multivärde:
 
-|Begäran om inkommande fråga|    Slut punkts typ|  Svar har angetts|
+|Begäran om inkommande fråga|    Typ av slutpunkt|  Svar har angetts|
 |--|--|--|
 |HELST |  A / AAAA / CNAME |  Mål slut punkt| 
-|A |    A / CNAME | Mål slut punkt|
-|A |    AAAA |  INGA DATA |
+|G |    A / CNAME | Mål slut punkt|
+|G |    AAAA |  INGA DATA |
 |AAAA | AAAA / CNAME |  Mål slut punkt|
-|AAAA | A | INGA DATA |
+|AAAA | G | INGA DATA |
 |CNAME |    CNAME | Mål slut punkt|
 |CNAME  |A/AAAA | INGA DATA |
 |
 
 För profiler med routningsmetod inställd på multivärde:
 
-|Begäran om inkommande fråga|    Slut punkts typ | Svar har angetts|
+|Begäran om inkommande fråga|    Typ av slutpunkt | Svar har angetts|
 |--|--|--|
 |HELST |  Blandning av A och AAAA | Mål slut punkter|
-|A |    Blandning av A och AAAA | Endast mål slut punkter av typen A|
+|G |    Blandning av A och AAAA | Endast mål slut punkter av typen A|
 |AAAA   |Blandning av A och AAAA|     Endast mål slut punkter av typen AAAA|
 |CNAME |    Blandning av A och AAAA | INGA DATA |
 
@@ -438,7 +438,7 @@ Traffic Manager övervaknings inställningarna är på per profil nivå. Om du b
 Med Traffic Manager kan du ange anpassade huvuden i de HTTP-hälsokontroller som det initierar till dina slut punkter. Om du vill ange en anpassad rubrik kan du göra det på profil nivå (gäller för alla slut punkter) eller ange den på slut punkts nivå. Om en rubrik definieras på båda nivåerna åsidosätter den som anges på slut punkts nivån profil nivån en.
 Ett vanligt användnings fall för detta är att ange värdhuvuden så att Traffic Manager begär Anden kan dirigeras korrekt till en slut punkt som finns i en miljö med flera innehavare. Ett annat användnings fall är att identifiera Traffic Manager begär Anden från en slut punkts HTTP (S) begär ande loggar
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>Vilket värd huvud använder hälso kontroller för slut punkter?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>Vilket värd huvud använder hälso kontroller för slut punkter?
 
 Om ingen anpassad värd huvud inställning anges, är värd rubriken som används av Traffic Manager DNS-namnet på slut punkts målet som kon figurer ATS i profilen, om det är tillgängligt.
 

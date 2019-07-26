@@ -1,207 +1,206 @@
 ---
-title: Azure Backup-arkitektur
-description: Översikt över arkitektur, komponenter och processer som används av Azure Backup-tjänsten.
-services: backup
+title: Azure Backup arkitektur
+description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7c0a1650490a863f5b3a3cf09a5500d72359e7f1
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 44bf85eafe3f5cfa801b6c845a51e3dcd5e1262a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271996"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466872"
 ---
-# <a name="azure-backup-architecture"></a>Azure Backup-arkitektur
+# <a name="azure-backup-architecture"></a>Azure Backup arkitektur
 
-Du kan använda den [Azure Backup-tjänsten](backup-overview.md) att säkerhetskopiera data till Microsoft Azure-molnplattformen. Den här artikeln sammanfattas Azure Backup-arkitektur, komponenter och processer. 
+Du kan använda [tjänsten Azure Backup](backup-overview.md) för att säkerhetskopiera data till moln plattformen Microsoft Azure. I den här artikeln sammanfattas Azure Backup arkitektur, komponenter och processer. 
 
-## <a name="what-does-azure-backup-do"></a>Vad är Azure Backup?
+## <a name="what-does-azure-backup-do"></a>Vad gör Azure Backup?
 
-Azure Backup säkerhetskopierar data, datorn och arbetsbelastningar som körs på lokala datorer och instanser av Azure virtuella datorer (VM). Det finns ett antal scenarier för Azure Backup.
+Azure Backup säkerhetskopierar data, dator tillstånd och arbets belastningar som körs på lokala datorer och instanser av virtuella Azure-datorer. Det finns ett antal Azure Backup scenarier.
 
 ## <a name="how-does-azure-backup-work"></a>Hur fungerar Azure Backup?
 
-Du kan säkerhetskopiera datorer och data med hjälp av ett antal metoder:
+Du kan säkerhetskopiera datorer och data genom att använda ett antal metoder:
 
 - **Säkerhetskopiera lokala datorer**:
-    - Du kan säkerhetskopiera lokala Windows-datorer direkt till Azure med hjälp av Azure Backup Microsoft Azure Recovery Services MARS-agenten. Linux-datorer stöds inte.
-    - Du kan säkerhetskopiera lokala datorer till en sekundär server (System Center Data Protection Manager (DPM) eller Microsoft Azure Backup Server (MABS)). Du kan sedan säkerhetskopiera backup-servern till ett Recovery Services-valv i Azure.
+    - Du kan säkerhetskopiera lokala Windows-datorer direkt till Azure med hjälp av MARS-agenten (Azure Backup Microsoft Azure Recovery Services). Linux-datorer stöds inte.
+    - Du kan säkerhetskopiera lokala datorer till en säkerhets kopierings Server (antingen System Center Data Protection Manager (DPM) eller Microsoft Azure Backup Server (MABS)). Du kan sedan säkerhetskopiera säkerhets kopierings servern till ett Recovery Services valv i Azure.
 
 - **Säkerhetskopiera virtuella Azure-datorer**:
-    - Du kan säkerhetskopiera virtuella Azure-datorer direkt. Azure Backup installerar ett tillägg för säkerhetskopiering till Azure VM-agenten som körs på den virtuella datorn. Det här tillägget säkerhetskopierar hela VM.
+    - Du kan säkerhetskopiera virtuella Azure-datorer direkt. Azure Backup installerar ett säkerhets kopierings tillägg för Azure VM-agenten som körs på den virtuella datorn. Det här tillägget säkerhetskopierar hela den virtuella datorn.
     - Du kan säkerhetskopiera vissa filer och mappar på den virtuella Azure-datorn genom att köra MARS-agenten.
-    - Du kan säkerhetskopiera virtuella Azure-datorer till MABS som körs i Azure och du kan sedan lagra MABS till ett Recovery Services-valv.
+    - Du kan säkerhetskopiera virtuella Azure-datorer till MABS som körs i Azure, och du kan sedan säkerhetskopiera MABS till ett Recovery Services-valv.
 
-Läs mer om [vad du kan säkerhetskopiera](backup-overview.md) och [stöds säkerhetskopieringsscenarier](backup-support-matrix.md).
+Läs mer om [vad du kan säkerhetskopiera](backup-overview.md) och om vilka [säkerhets kopierings scenarier som stöds](backup-support-matrix.md).
 
-## <a name="where-is-data-backed-up"></a>Där data säkerhetskopieras?
+## <a name="where-is-data-backed-up"></a>Var säkerhets kopie ras data?
 
-Azure Backup lagrar säkerhetskopierade data i ett Recovery Services-valv. Ett valv är en-onlinelagringsentitet i Azure som används för att lagra data, till exempel säkerhetskopior, återställningspunkter och principer för säkerhetskopiering.
+Azure Backup lagrar säkerhetskopierade data i ett Recovery Services-valv. Ett valv är en online-lagrings enhet i Azure som används för att lagra data, till exempel säkerhets kopior, återställnings punkter och säkerhets kopierings principer.
 
 Recovery Services-valv har följande funktioner:
 
-- Valv är det enkelt att organisera dina säkerhetskopierade data när du minimerar hanteringskostnaden.
-- Du kan skapa upp till 500 valv i varje Azure-prenumeration.
+- Valven gör det enkelt att organisera dina säkerhets kopierings data samtidigt som hanterings kostnaderna minimeras.
+- I varje Azure-prenumeration kan du skapa upp till 500-valv.
 - Du kan övervaka säkerhetskopierade objekt i ett valv, inklusive virtuella datorer i Azure och lokala datorer.
-- Du kan hantera valvåtkomst med Azure [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Du kan hantera valv åtkomst med [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)med Azure.
 - Du anger hur data i valvet replikeras för redundans:
-    - **Lokalt redundant lagring (LRS)** : Du kan använda LRS för att skydda mot fel i ett datacenter. LRS replikerar data till en lagringsskalningsenhet. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-    - **GEO-redundant lagring (GRS)** : Du kan använda GRS för att skydda mot regionomfattande avbrott. GRS replikerar dina data till en sekundär region. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
+    - **Lokalt Redundant lagring (LRS)** : Du kan använda LRS för att skydda mot problem i ett Data Center. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+    - **Geo-redundant lagring (GRS)** : Du kan använda GRS för att skydda mot drift avbrott i regioner. GRS replikerar dina data till en sekundär region. [Läs mer](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
     - Som standard använder Recovery Services-valv GRS. 
 
-## <a name="backup-agents"></a>Backup-agenter
+## <a name="backup-agents"></a>Säkerhets kopierings agenter
 
-Azure Backup innehåller olika backup-agenter, beroende på vilken typ av dator säkerhetskopieras:
+Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på vilken typ av dator som säkerhets kopie ras:
 
 **Agent** | **Detaljer** 
 --- | --- 
-**MARS-agenten** | <ul><li>Körs på enskilda lokala Windows Server-datorer för säkerhetskopiering av filer, mappar och systemtillståndet.</li> <li>Körs på virtuella Azure-datorer för säkerhetskopiering av filer, mappar och systemtillståndet.</li> <li>Körs på DPM/MABS-servrar för att säkerhetskopiera DPM/MABS lokal Lagringsdisken till Azure.</li></ul> 
-**Azure VM-tillägg** | Körs på Azure Virtual Machines säkerhetskopierar dem till ett valv.
+**MARS-agent** | <ul><li>Körs på enskilda lokala Windows Server-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på virtuella Azure-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på DPM/MABS-servrar för att säkerhetskopiera den lokala lagrings disken för DPM/MABS till Azure.</li></ul> 
+**Azure VM-tillägg** | Körs på virtuella Azure-datorer för att säkerhetskopiera dem till ett valv.
 
-## <a name="backup-types"></a>Typer av säkerhetskopiering
+## <a name="backup-types"></a>Säkerhets kopierings typer
 
-I följande tabell beskrivs de olika typerna av säkerhetskopieringar och när de används:
+I följande tabell förklaras de olika typerna av säkerhets kopieringar och när de används:
 
-**Typ av säkerhetskopiering** | **Detaljer** | **Användning**
+**Typ av säkerhets kopiering** | **Detaljer** | **Användning**
 --- | --- | ---
-**Fullständig** | En fullständig säkerhetskopia innehåller hela datakällan. Tar mer bandbredd i nätverket än differentiell eller inkrementell säkerhetskopiering. | Används för den första säkerhetskopieringen.
-**Differentiell** |  En differentiell säkerhetskopiering lagrar de block som har ändrats sedan den första fullständiga säkerhetskopieringen. Använder en mindre mängd nätverk och lagring och hålla inte redundanta kopior av oförändrade data.<br/><br/> Ineffektiv eftersom datablock som har inte ändrats mellan senare säkerhetskopieringar överförs och lagras. | Används inte av Azure Backup.
-**Inkrementell** | En inkrementell säkerhetskopia lagrar endast datablock som har ändrats sedan föregående säkerhetskopia. Hög effektivitet för lagring och nätverk. <br/><br/> Det finns inget behov av att komplettera med fullständiga säkerhetskopieringar med inkrementell säkerhetskopiering. | Används av DPM/MABS för säkerhetskopiering till disk, och i alla säkerhetskopieringar till Azure.
+**Fullständig** | En fullständig säkerhets kopiering innehåller hela data källan. Tar större nätverks bandbredd än differentiella eller stegvisa säkerhets kopieringar. | Används för den första säkerhets kopieringen.
+**Differentiell** |  En differentiell säkerhets kopia lagrar block som har ändrats sedan den första fullständiga säkerhets kopieringen. Använder en mindre mängd nätverks-och lagrings utrymme och skyddar inte redundanta kopior av data som inte har ändrats.<br/><br/> Ineffektiva eftersom data block som inte har ändrats mellan senare säkerhets kopieringar överförs och lagras. | Används inte av Azure Backup.
+**Inkrementell** | En stegvis säkerhets kopiering lagrar bara de data block som har ändrats sedan den tidigare säkerhets kopieringen. Hög lagrings-och nätverks effektivitet. <br/><br/> Med en stegvis säkerhets kopiering behöver du inte komplettera med fullständiga säkerhets kopieringar. | Används av DPM/MABS för disk säkerhets kopieringar och används i alla säkerhets kopior till Azure.
 
-## <a name="sql-server-backup-types"></a>Typer av SQL Server-säkerhetskopiering
+## <a name="sql-server-backup-types"></a>SQL Server säkerhets kopierings typer
 
-I följande tabell beskrivs de olika typerna av säkerhetskopieringar som används för SQL Server-databaser och hur ofta de används:
+I följande tabell förklaras de olika typerna av säkerhets kopieringar som används för SQL Server databaser och hur ofta de används:
 
-**Typ av säkerhetskopiering** | **Detaljer** | **Användning**
+**Typ av säkerhets kopiering** | **Detaljer** | **Användning**
 --- | --- | ---
-**Fullständig säkerhetskopiering** | En fullständig säkerhetskopia av databas säkerhetskopierar hela databasen. Den innehåller alla data i en specifik databas eller i en uppsättning filgrupper eller filer. En fullständig säkerhetskopia innehåller också tillräckligt med loggarna om du vill återställa dessa data. | Du kan endast utlösa en fullständig säkerhetskopiering per dag.<br/><br/> Du kan välja att göra en fullständig säkerhetskopiering med dagliga och veckovisa intervall.
-**Differentiell säkerhetskopia** | En differentiell säkerhetskopiering baseras på de senaste, föregående fullständig säkerhetskopiering.<br/><br/> Den samlar in data som ändrats sedan den fullständiga säkerhetskopian. |  Du kan endast utlösa en differentiell säkerhetskopia per dag.<br/><br/> Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopia samma dag.
-**Säkerhetskopiering av transaktionsloggen** | Med en loggsäkerhetskopia kan en återställning som baseras på tidpunkt utföras upp till en specifik sekund. | Du kan som mest konfigurera loggsäkerhetskopior var 15:e minut.
+**Fullständig säkerhets kopiering** | En fullständig säkerhetskopia av databas säkerhetskopierar hela databasen. Den innehåller alla data i en speciell databas eller i en uppsättning fil grupper eller filer. En fullständig säkerhets kopiering innehåller också tillräckligt med loggar för att återställa dessa data. | Du kan endast utlösa en fullständig säkerhetskopiering per dag.<br/><br/> Du kan välja att göra en fullständig säkerhets kopia på ett dags-eller vecko intervall.
+**Differentiell säkerhets kopia** | En differentiell säkerhets kopia baseras på den senaste, tidigare fullständiga säkerhets kopieringen.<br/><br/> Den fångar bara in de data som har ändrats sedan den fullständiga säkerhets kopieringen. |  Du kan endast utlösa en differentiell säkerhetskopia per dag.<br/><br/> Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopia samma dag.
+**Säkerhets kopiering av transaktions logg** | Med en loggsäkerhetskopia kan en återställning som baseras på tidpunkt utföras upp till en specifik sekund. | Du kan som mest konfigurera loggsäkerhetskopior var 15:e minut.
 
-### <a name="comparison-of-backup-types"></a>Jämförelse av typer av säkerhetskopiering
+### <a name="comparison-of-backup-types"></a>Jämförelse av säkerhets kopierings typer
 
-Förbrukning av lagringsutrymme, för återställningstid (RTO) och nätverksförbrukning varierar för varje typ av säkerhetskopiering. Följande bild visar en jämförelse av typerna av säkerhetskopiering:
+Lagrings förbrukning, återställnings tids mål (RTO) och nätverks förbrukning varierar för varje typ av säkerhets kopiering. Följande bild visar en jämförelse av säkerhets kopierings typerna:
 
-- Består datakälla A av 10 storage block, A1 – A10, som säkerhetskopieras varje månad.
+- Data källa A består av 10 lagrings block, a1-A10, som säkerhets kopie ras varje månad.
 - Block A2, A3, A4 och A9 ändras under den första månaden, och block A5 ändras nästa månad.
-- För differentiella säkerhetskopieringar säkerhetskopieras i den andra månaden ändrade block A2, A3, A4 och A9. Den tredje månaden säkerhetskopieras samma block igen, tillsammans med ändrade A5-block. De ändrade blocken fortsätter att säkerhetskopieras tills nästa fullständiga säkerhetskopiering sker.
-- För inkrementell säkerhetskopiering i den andra månaden block A2, A3, A4 och A9 markerade som ändrats och överförs. I den tredje månaden markeras och överförs endast ändrade A5-block. 
+- För differentiella säkerhets kopior i den andra månaden säkerhets kopie ras de ändrade blocken a2, A3, A4 och A9. Den tredje månaden säkerhetskopieras samma block igen, tillsammans med ändrade A5-block. De ändrade blocken fortsätter att säkerhetskopieras tills nästa fullständiga säkerhetskopiering sker.
+- För stegvisa säkerhets kopieringar är block a2, A3, A4, och A9 markerade som ändrade och överförda. I den tredje månaden markeras och överförs endast ändrade A5-block. 
 
-![bild som visar jämförelser av metoder för säkerhetskopiering](./media/backup-architecture/backup-method-comparison.png)
+![Bild som visar jämförelser av säkerhets kopierings metoder](./media/backup-architecture/backup-method-comparison.png)
 
-## <a name="backup-features"></a>Backup-funktioner
+## <a name="backup-features"></a>Funktioner för säkerhets kopiering
 
-I följande tabell sammanfattas funktionerna som stöds för de olika typerna av säkerhetskopiering:
+I följande tabell sammanfattas de funktioner som stöds för de olika typerna av säkerhets kopiering:
 
 **Funktion** | **Lokala Windows Server-datorer (direkt)** | **Virtuella Azure-datorer** | **Datorer eller appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green] 
-Säkerhetskopiera till DPM/MABS-disk, sedan till Azure | | | ![Ja][green] 
-Komprimera data som skickas för säkerhetskopiering | ![Ja][green] | Ingen komprimering används vid överföring av data. Lagring är fylld något, men återställningen går snabbare.  | ![Ja][green] 
-Köra inkrementell säkerhetskopiering |![Ja][green] |![Ja][green] |![Ja][green] 
-Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> För DPM/MABS distribueras-servrar endast lokalt. 
+Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Ja][green] 
+Komprimera data som skickats för säkerhets kopiering | ![Ja][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Ja][green] 
+Kör stegvis säkerhets kopiering |![Ja][green] |![Ja][green] |![Ja][green] 
+Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast för DPM/MABS-servrar distribuerade lokalt. 
 
-![tabellnyckel](./media/backup-architecture/table-key.png)
+![Tabell nyckel](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>Arkitektur: Direkt säkerhetskopiering av virtuella Azure-datorer
+## <a name="architecture-direct-backup-of-azure-vms"></a>Arkitektur: Direkt säkerhets kopiering av virtuella Azure-datorer
 
-1. När du aktiverar säkerhetskopiering för en Azure virtuell dator körs en säkerhetskopiering enligt det schema du anger.
-1. Under den första säkerhetskopieringen installeras en säkerhetskopieringstillägget på den virtuella datorn om Virtuellt datorn körs.
-    - VMSnapshot-tillägget har installerats för Windows-datorer.
-    - Tillägget VMSnapshot Linux för virtuella Linux-datorer är installerad.
-1. Tillägget tar en ögonblicksbild för lagring på servernivå. 
-    - För Windows-datorer som kör samordnar säkerhetskopiering med tjänsten Windows Volume Shadow Copy (VSS) att ta en programkonsekvent ögonblicksbild av den virtuella datorn. Som standard tar Backup Fullständig VSS-säkerhetskopiering. Om säkerhetskopieringen är det går inte att ta en programkonsekvent ögonblicksbild, tar en filkonsekvent ögonblicksbild.
-    - Säkerhetskopieringen tar en filkonsekvent ögonblicksbild för virtuella Linux-datorer. Du måste manuellt anpassa före/efter-skript för appkonsekventa ögonblicksbilder.
-    - Backup optimeras genom att säkerhetskopiera varje VM-disk parallellt. För varje disk som säkerhetskopieras, Azure Backup läser block på disken och lagrar bara de ändrade data. 
-1. När ögonblicksbilden tas data har överförts till valvet. 
-    - Endast datablock som ändrats sedan den senaste säkerhetskopieringen kopieras.
-    - Data är inte krypterade. Azure Backup kan säkerhetskopiera virtuella Azure-datorer som har krypterats med hjälp av Azure Disk Encryption.
-    - Ögonblicksbilddata kan inte kopieras direkt till valvet. Vid Högbelastningstider, kan säkerhetskopieringen ta några timmar. Total tid för säkerhetskopiering för en virtuell dator ska vara mindre än 24 timmar för principer för daglig säkerhetskopiering.
-1. När data skickas till valvet, tas ögonblicksbilden bort och en återställningspunkt skapas.
+1. När du aktiverar säkerhets kopiering för en virtuell Azure-dator körs en säkerhets kopiering enligt det schema du anger.
+1. Under den första säkerhets kopieringen installeras ett säkerhets kopierings tillägg på den virtuella datorn om den virtuella datorn körs.
+    - För virtuella Windows-datorer installeras VMSnapshot-tillägget.
+    - För virtuella Linux-datorer är VMSnapshot Linux-tillägget installerat.
+1. Tillägget tar en ögonblicks bild på lagrings nivå. 
+    - För virtuella Windows-datorer som kör, koordineras säkerhets kopieringen med Windows-tjänsten Volume Shadow Copy (VSS) för att ta en programkonsekvent ögonblicks bild av den virtuella datorn. Som standard tar säkerhets kopieringen fullständiga VSS-säkerhetskopieringar. Om säkerhets kopieringen inte kan göra en programkonsekvent ögonblicks bild tar det en filkonsekvent ögonblicks bild.
+    - För virtuella Linux-datorer tar säkerhets kopieringen en filkonsekvent ögonblicks bild. För programkonsekventa ögonblicks bilder måste du manuellt anpassa för-eller-post-skript.
+    - Säkerhets kopieringen är optimerad genom att säkerhetskopiera varje virtuell dator disk parallellt. För varje disk som säkerhets kopie ras läser Azure Backup blocken på disk och lagrar endast ändrade data. 
+1. När ögonblicks bilden har tagits överförs data till valvet. 
+    - Endast data block som har ändrats sedan den senaste säkerhets kopieringen kopierades.
+    - Data är inte krypterade. Azure Backup kan säkerhetskopiera virtuella Azure-datorer som har krypterats med Azure Disk Encryption.
+    - Ögonblicks bild data kan inte kopieras direkt till valvet. Vid hög belastnings tider kan säkerhets kopieringen ta några timmar. Den totala säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för dagliga säkerhets kopierings principer.
+1. När data har skickats till valvet tas ögonblicks bilden bort och en återställnings punkt skapas.
 
-Virtuella Azure-datorer behöver Internetåtkomst för kontroll kommandon. Om du säkerhetskopierar arbetsbelastningar på den virtuella datorn (till exempel SQL Server database-säkerhetskopior), måste backend-data också tillgång till internet. 
+Virtuella Azure-datorer behöver Internet åtkomst för kontroll kommandon. Om du säkerhetskopierar arbets belastningar i den virtuella datorn (t. ex. SQL Server databas säkerhets kopior) behöver backend-data även Internet åtkomst. 
 
-![Säkerhetskopiering av virtuella Azure-datorer](./media/backup-architecture/architecture-azure-vm.png)
+![Säkerhets kopiering av virtuella Azure-datorer](./media/backup-architecture/architecture-azure-vm.png)
 
-## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Arkitektur: Direkt säkerhetskopiering av lokala Windows Server-datorer eller Virtuella Azure-filer eller mappar
+## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Arkitektur: Direkt säkerhets kopiering av lokala Windows Server-datorer eller Azure VM-filer eller-mappar
 
-1. Om du vill konfigurera scenariot måste du hämta och installera MARS-agenten på datorn. Sedan välja du vad du ska säkerhetskopiera när säkerhetskopieringar ska köras och hur länge de ska behållas i Azure.
-1. Den första säkerhetskopieringen körs enligt inställningarna för säkerhetskopiering.
-1. MARS-agenten använder VSS för att ta en point-in-time-ögonblicksbild av de volymer som valts för säkerhetskopiering.
-    - MARS-agenten använder bara Windows system Skrivåtgärden för att samla in ögonblicksbilden.
-    - Eftersom agenten inte använder programmet VSS-skrivare, registrerar inte den appkonsekventa ögonblicksbilder.
-1. Efter att ögonblicksbilden med VSS skapar en virtuell hårddisk (VHD) i cache-mappen som du angav när du har konfigurerat säkerhetskopieringen i MARS-agenten. Agenten lagras också kontrollsummor för varje datablock.
-1. Inkrementell säkerhetskopiering köras enligt det schema som du anger, såvida du inte kör en ad hoc-säkerhetskopiering.
-1. Ändrade filer identifieras i inkrementella säkerhetskopieringar och en ny virtuell Hårddisk har skapats. Den virtuella Hårddisken komprimeras och krypteras, och sedan det skickas till valvet.
-1. När den inkrementella säkerhetskopieringen är klar samman den nya virtuella Hårddisken med den virtuella Hårddisken som skapats efter den inledande replikeringen. Den här sammanfogade virtuella Hårddisken innehåller det senaste tillståndet som ska användas för jämförelse för pågående säkerhetskopiering.
+1. Om du vill konfigurera scenariot laddar du ned och installerar MARS-agenten på datorn. Sedan väljer du vad som ska säkerhets kopie ras, när säkerhets kopieringarna ska köras och hur länge de ska sparas i Azure.
+1. Den första säkerhets kopieringen körs enligt inställningarna för säkerhets kopiering.
+1. MARS-agenten använder VSS för att ta en ögonblicks bild av de volymer som valts för säkerhets kopiering.
+    - MARS-agenten använder bara Windows system Skriv åtgärd för att avbilda ögonblicks bilden.
+    - Eftersom agenten inte använder några VSS-skrivare för programmet fångar den inte in programkonsekventa ögonblicks bilder.
+1. När du har tagit ögonblicks bilden med VSS skapar MARS-agenten en virtuell hård disk (VHD) i cache-mappen som du angav när du konfigurerade säkerhets kopian. Agenten lagrar också kontroll summor för varje data block.
+1. Stegvisa säkerhets kopieringar körs enligt det schema du anger, om du inte kör en ad hoc-säkerhetskopiering.
+1. I stegvisa säkerhets kopieringar identifieras ändrade filer och en ny virtuell hård disk skapas. Den virtuella hård disken komprimeras och krypteras och skickas sedan till valvet.
+1. När den stegvisa säkerhets kopieringen har slutförts slås den nya virtuella hård disken samman med den virtuella hård disk som skapades efter den inledande replikeringen. Denna sammanlagda virtuella hård disk tillhandahåller det senaste tillstånd som ska användas för att jämföra säkerhets kopior.
 
-![Säkerhetskopiering av lokala Windows Server-datorer med MARS-agenten](./media/backup-architecture/architecture-on-premises-mars.png)
+![Säkerhets kopiering av lokala Windows Server-datorer med MARS-agent](./media/backup-architecture/architecture-on-premises-mars.png)
 
 ## <a name="architecture-back-up-to-dpmmabs"></a>Arkitektur: Säkerhetskopiera till DPM/MABS
 
-1. Du installerar DPM- eller MABS-skyddsagenten på datorer som du vill skydda. Du sedan lägga till datorer i en skyddsgrupp i DPM.
-    - DPM- eller MABS-server måste vara finnas lokalt för att skydda lokala datorer.
-    - MABS-server måste finnas i Azure, som körs som en Azure-dator för att skydda virtuella datorer i Azure.
-    - Med DPM/MABS kan du skydda säkerhetskopierade volymer, resurser, filer och mappar. Du kan även skydda systemtillståndet för en dator (utan operativsystem) och du kan skydda specifika appar med app-anpassade inställningar för säkerhetskopiering.
-1. När du ställer in skydd för en dator eller en app i DPM/MABS, väljer du för att säkerhetskopiera till den lokala MABS/DPM-disken för kortsiktig lagring och till Azure för onlineskydd. Du kan ange när säkerhetskopian till lokal DPM/MABS-lagring ska köras och när onlinesäkerhetskopiering till Azure ska köras.
-1. Disken för skyddad arbetsbelastning har säkerhetskopierats till lokala MABS/DPM-diskar, enligt det schema som du har angett.
-4. MARS-agenten som körs på DPM/MABS-server säkerhetskopieras DPM/MABS-diskar till valvet.
+1. Du installerar DPM-eller MABS-skyddsagenten på datorer som du vill skydda. Sedan lägger du till datorerna i en DPM-skyddsagenten.
+    - För att skydda lokala datorer måste DPM-eller MABS-servern finnas lokalt.
+    - För att skydda virtuella datorer i Azure måste MABS-servern finnas i Azure, som körs som en virtuell Azure-dator.
+    - Med DPM/MABS kan du skydda säkerhets kopierings volymer, resurser, filer och mappar. Du kan också skydda datorns system tillstånd (Bare Metal) och du kan skydda vissa appar med app-medvetna inställningar för säkerhets kopiering.
+1. När du konfigurerar skydd för en dator eller app i DPM/MABS väljer du att säkerhetskopiera till den lokala MABS/DPM-disken för kortsiktig lagring och till Azure för onlineskydd. Du anger också när säkerhets kopieringen till den lokala DPM/MABS-lagringen ska köras och när Online-säkerhetskopiering till Azure ska köras.
+1. Disken för den skyddade arbets belastningen säkerhets kopie ras till de lokala MABS/DPM-diskarna enligt det schema som du har angett.
+4. DPM/MABS-diskarna säkerhets kopie ras till valvet av MARS-agenten som körs på DPM/MABS-servern.
 
-![Säkerhetskopiering av datorer och arbetsbelastningar som skyddas av DPM- eller MABS](./media/backup-architecture/architecture-dpm-mabs.png)
+![Säkerhets kopiering av datorer och arbets belastningar som skyddas av DPM eller MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 
 ## <a name="azure-vm-storage"></a>Azure VM-lagring
 
-Virtuella Azure-datorer använder diskar för att lagra sitt operativsystem, appar och data. Varje virtuell Azure-dator har minst två diskar: en disk för operativsystemet och en tillfällig disk. Virtuella Azure-datorer kan också ha datadiskar för appdata. Diskarna lagras som virtuella hårddiskar.
+Virtuella Azure-datorer använder diskar för att lagra operativ system, appar och data. Varje virtuell Azure-dator har minst två diskar: en disk för operativ systemet och en tillfällig disk. Virtuella Azure-datorer kan också ha data diskar för AppData. Diskar lagras som virtuella hård diskar.
 
-- VHD lagras som sidblobar i standard- eller premium storage-konton i Azure:
-    - **Standard-lagring:** Tillförlitlig, billig disksupport för virtuella datorer som kör arbetsbelastningar som inte är känslig för fördröjning. Standard-lagring kan använda standard Solid State-hårddisk (SSD) eller standard hårddisken (HDD) diskar.
-    - **Premium-lagring:** Högpresterande disksupport. Använder premium SSD-diskar.
-- Det finns olika prestandanivåer för diskar:
-    - **Standard HDD-disk:** Backas upp av hårddiskar och används för kostnadseffektiv lagring.
-    - **Standard SSD-disk:** En kombination av premiumdiskar för SSD och HDD-standarddiskar. Erbjuder mer konsekventa prestanda och tillförlitlighet än HDD, men fortfarande kostnadseffektiv.
-    - **Premium SSD-disk:** Backas upp av SSD-enheter och ger hög prestanda och låg fördröjning för virtuella datorer som kör I/O-intensiva arbetsbelastningar.
-- Vara kan hanterade eller ohanterade diskar:
-    - **Ohanterade diskar:** Traditionella typen av diskar som används av virtuella datorer. För dessa diskar, skapa ditt eget lagringskonto och ange det när du skapar disken. Sedan måste du ta reda på hur du maximerar lagringsresurser för dina virtuella datorer.
-    - **Hanterade diskar:** Azure skapar och hanterar lagringskonton åt dig. Du anger storlek och nivå för disk och Azure skapar hanterade diskar. När du lägger till diskar och skala virtuella datorer, hanterar Azure storage-konton.
+- Virtuella hård diskar lagras som Page blobbar i standard-eller Premium Storage-konton i Azure:
+    - **Standard lagring:** Tillförlitligt stöd för diskar med låg kostnad för virtuella datorer som kör arbets belastningar som inte är känsliga för fördröjning. Standard lagringen kan använda SSD-diskar (Solid-State Drive) eller standard diskar på hård disken (HDD).
+    - **Premium-lagring:** Disk support med höga prestanda. Använder Premium SSD-diskar.
+- Det finns olika prestanda nivåer för diskar:
+    - **Standard HDD disk:** Backas upp av hård diskar och används för kostnads effektiv lagring.
+    - **Standard SSD disk:** Kombinerar element i Premium SSD-diskar och standard diskar för hård diskar. Erbjuder mer konsekvent prestanda och tillförlitlighet än HDD, men är fortfarande kostnads effektivt.
+    - **Premium SSD disk:** Backas upp av SSD och ger hög prestanda och låg latens för virtuella datorer som kör I/O-intensiva arbets belastningar.
+- Diskar kan hanteras eller ohanteras:
+    - **Ohanterade diskar:** Traditionell typ av diskar som används av virtuella datorer. För de här diskarna skapar du ett eget lagrings konto och anger det när du skapar disken. Du måste sedan ta reda på hur du kan maximera lagrings resurserna för dina virtuella datorer.
+    - **Hanterade diskar:** Azure skapar och hanterar lagrings konton åt dig. Du anger disk storlek och prestanda nivå, och Azure skapar hanterade diskar åt dig. När du lägger till diskar och skalar virtuella datorer, hanterar Azure lagrings kontona.
 
-Mer information om och vilka ledigt diskutrymme för virtuella datorer finns i följande artiklar:
+Mer information om disk lagring och tillgängliga disk typer för virtuella datorer finns i följande artiklar:
 
-- [Azure-hanterade diskar för virtuella Windows-datorer](../virtual-machines/windows/managed-disks-overview.md)
-- [Azure-hanterade diskar för virtuella Linux-datorer](../virtual-machines/linux/managed-disks-overview.md)
-- [Tillgängliga disktyper för virtuella datorer](../virtual-machines/windows/disks-types.md)
+- [Azure Managed disks för virtuella Windows-datorer](../virtual-machines/windows/managed-disks-overview.md)
+- [Azure Managed disks för virtuella Linux-datorer](../virtual-machines/linux/managed-disks-overview.md)
+- [Tillgängliga disk typer för virtuella datorer](../virtual-machines/windows/disks-types.md)
 
-### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med premium storage 
+### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med Premium Storage 
 
-Du kan säkerhetskopiera virtuella Azure-datorer med premium storage med Azure Backup:
+Du kan säkerhetskopiera virtuella Azure-datorer med hjälp av Premium Storage med Azure Backup:
 
-- Under processen med att säkerhetskopiera virtuella datorer med premium storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet *AzureBackup -* , i lagringskontot. Storleken på mellanlagringsplatsen är lika med storleken på återställningspunktens ögonblicksbild.
-- Kontrollera att premium storage-konto har tillräckligt med ledigt utrymme för den tillfälliga mellanlagringsplatsen får platsen. [Läs mer](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Ändra inte mellanlagringsplatsen.
-- När säkerhetskopieringen är klar tas mellanlagringsplatsen bort.
-- Priset för lagringen som används för mellanlagringsplatsen är konsekvent med [priser för premium storage](../virtual-machines/windows/disks-types.md#billing).
+- Under säkerhets kopieringen av virtuella datorer med Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet *AzureBackup-* , i lagrings kontot. Storleken på mellanlagringsplatsen är lika stor som storleken på ögonblicks bilden av återställnings punkten.
+- Se till att Premium Storage-kontot har tillräckligt med ledigt utrymme för att kunna hantera den tillfälliga mellanlagrings platsen. [Läs mer](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Ändra inte mellanlagringsplatsen.
+- När säkerhets kopierings jobbet har slutförts tas mellanlagringsplatsen bort.
+- Priset för det lagrings utrymme som används för mellanlagringsplatsen är konsekvent med [priser för Premium Storage](../virtual-machines/windows/disks-types.md#billing).
 
-När du återställer virtuella Azure-datorer med premium storage kan återställa du dem till premium eller standard-lagring. Vanligtvis vill du återställa dem till premium storage. Men om du behöver bara en delmängd av filerna från den virtuella datorn kan det vara kostnadseffektivt att återställa dem till standardlagring.
+När du återställer virtuella Azure-datorer med hjälp av Premium Storage kan du återställa dem till Premium eller standard lagring. Normalt skulle du återställa dem till Premium Storage. Men om du bara behöver en delmängd av filerna från den virtuella datorn kan det vara kostnads effektivt att återställa dem till standard lagring.
 
 ### <a name="back-up-and-restore-managed-disks"></a>Säkerhetskopiera och återställa hanterade diskar
 
-Du kan säkerhetskopiera virtuella Azure-datorer med hanterade diskar:
+Du kan säkerhetskopiera virtuella Azure-datorer med Managed disks:
 
-- Du säkerhetskopierar virtuella datorer med hanterade diskar på samma sätt som du gör eventuella andra virtuella Azure-datorer. Du kan säkerhetskopiera den virtuella datorn direkt från virtuella datorinställningar eller du kan aktivera säkerhetskopiering för virtuella datorer i Recovery Services-valvet.
+- Du säkerhetskopierar virtuella datorer med hanterade diskar på samma sätt som du gör med andra virtuella Azure-datorer. Du kan säkerhetskopiera den virtuella datorn direkt från inställningarna för den virtuella datorn, eller så kan du aktivera säkerhets kopiering för virtuella datorer i Recovery Services valvet.
 - Du kan säkerhetskopiera virtuella datorer på hanterade diskar via RestorePoint-samlingar som är byggda ovanpå hanterade diskar.
-- Azure Backup stöder också säkerhetskopiering av virtuella datorer med hanterade diskar som krypterats med hjälp av Azure Disk Encryption.
+- Azure Backup också stöd för säkerhets kopiering av virtuella datorer med hanterade diskar som har krypterats med hjälp av Azure Disk Encryption.
 
-När du återställer virtuella datorer med hanterade diskar kan återställa du till en hel virtuell dator med hanterade diskar eller till ett lagringskonto:
+När du återställer virtuella datorer med hanterade diskar kan du återställa till en fullständig virtuell dator med Managed disks eller till ett lagrings konto:
 
-- Azure hanterar de hanterade diskarna under återställningsprocessen. Om du använder kontoalternativet kan du hantera det lagringskonto som har skapats under återställningsprocessen.
-- Om du återställer en hanterad virtuell dator som är krypterad, kontrollera att den Virtuella datorns nycklar och hemligheter finnas i nyckelvalvet innan du startar återställningsprocessen.
+- Under återställnings processen hanterar Azure de hanterade diskarna. Om du använder alternativet lagrings konto hanterar du det lagrings konto som skapas under återställnings processen.
+- Om du återställer en hanterad virtuell dator som är krypterad kontrollerar du att de virtuella datorernas nycklar och hemligheter finns i nyckel valvet innan du påbörjar återställnings processen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska stödmatris till [Lär dig mer om funktioner som stöds och begränsningar för säkerhetskopieringsscenarier](backup-support-matrix.md).
-- Konfigurera säkerhetskopiering för en av dessa scenarier:
+- Läs support-matrisen [om du vill veta mer om vilka funktioner som stöds och begränsningar för säkerhets kopierings scenarier](backup-support-matrix.md).
+- Konfigurera säkerhets kopiering för något av följande scenarier:
     - [Säkerhetskopiera virtuella Azure-datorer](backup-azure-arm-vms-prepare.md).
     - [Säkerhetskopiera Windows-datorer direkt](tutorial-backup-windows-server-to-azure.md) utan en reservserver.
     - [Konfigurera MABS](backup-azure-microsoft-azure-backup.md) för säkerhetskopiering till Azure och säkerhetskopiera sedan arbetsbelastningar till MABS.

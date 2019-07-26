@@ -1,193 +1,192 @@
 ---
-title: Datamodell för Azure Backup
-description: Den här artikeln handlar om Power BI data modellinformation för Azure Backup-rapporter.
-services: backup
+title: Data modell för Azure Backup
+description: Den här artikeln beskriver information om Power BI data modell för Azure Backup rapporter.
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337586"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465599"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Datamodell för Azure Backup-rapporter
-Den här artikeln beskriver Power BI-datamodell som används för att skapa Azure Backup-rapporter. Med den här datamodellen kan du filtrera befintliga rapporter baserat på relevanta fälten och mer är dock skapa egna rapporter med hjälp av tabeller och fält i modellen. 
+I den här artikeln beskrivs Power BI data modell som används för att skapa Azure Backup rapporter. Med den här data modellen kan du filtrera befintliga rapporter baserat på relevanta fält och på ett mer viktigt, skapa egna rapporter med hjälp av tabeller och fält i modellen. 
 
 ## <a name="creating-new-reports-in-power-bi"></a>Skapa nya rapporter i Power BI
-Powerbi ger anpassade funktioner med hjälp av som du kan [skapa rapporter med datamodellen](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
+Power BI innehåller anpassnings funktioner som du kan använda [för att skapa rapporter med hjälp av data modellen](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
-## <a name="using-azure-backup-data-model"></a>Med hjälp av Azure Backup-datamodell
-Du kan använda följande fält som ingår i datamodellen för att skapa rapporter och anpassa befintliga rapporter.
+## <a name="using-azure-backup-data-model"></a>Använda Azure Backup data modell
+Du kan använda följande fält som ingår i data modellen för att skapa rapporter och anpassa befintliga rapporter.
 
 ### <a name="alert"></a>Varning
-Den här tabellen innehåller grundläggande fält och aggregeringar över olika aviseringar relaterade fält.
+Den här tabellen innehåller grundläggande fält och agg regeringar för olika fält för aviseringar.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| #AlertsCreatedInPeriod |Heltal |Antal aviseringar skapade i den valda tidsperioden |
-| %ActiveAlertsCreatedInPeriod |Procent |Procentandelen aktiva aviseringar under vald tidsperiod |
-| %CriticalAlertsCreatedInPeriod |Procent |Procentandel av kritiska aviseringar under vald tidsperiod |
-| AlertOccurrenceDate |Date |Datum då aviseringen skapades |
-| AlertSeverity |Text |Aviseringens exempelvis kritisk allvarlighetsgrad |
-| AlertStatus |Text |Status för aviseringen till exempel aktiv |
-| AlertType |Text |Typ av genererade aviseringen till exempel säkerhetskopiering |
-| AlertUniqueId |Text |Unikt Id för den genererade aviseringen |
-| AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
-| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimaltal |Genomsnittlig tid (i minuter) för att lösa aviseringen för vald tidsperiod |
-| EntityState |Text |Aktuell status för aviseringen objektet till exempel aktiv, har tagits bort |
+| #AlertsCreatedInPeriod |Heltal |Antal aviseringar som skapats under den valda tids perioden |
+| %ActiveAlertsCreatedInPeriod |Procent |Procent andel aktiva aviseringar under den valda tids perioden |
+| %CriticalAlertsCreatedInPeriod |Procent |Procent av kritiska aviseringar under den valda tids perioden |
+| AlertOccurrenceDate |Date |Datum när avisering skapades |
+| AlertSeverity |Text |Allvarlighets grad för aviseringen, till exempel kritisk |
+| Alert status |Text |Status för aviseringen, till exempel aktiv |
+| AlertType |Text |Typ av genererad avisering till exempel säkerhets kopiering |
+| AlertUniqueId |Text |Unikt ID för den genererade aviseringen |
+| AsOnDateTime |Date/Time |Senaste uppdaterings tid för den valda raden |
+| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimal tal |Genomsnittlig tid (i minuter) för att lösa aviseringar för den valda tids perioden |
+| EntityState |Text |Aktuellt tillstånd för aviserings objekt, t. ex. aktiv, borttagen |
 
-### <a name="backup-item"></a>Säkerhetskopieringsobjekt
-Den här tabellen innehåller grundläggande fält och aggregeringar över olika säkerhetskopierade objekt-relaterade fält.
+### <a name="backup-item"></a>Säkerhets kopierings objekt
+Den här tabellen innehåller grundläggande fält och agg regeringar för olika fält för säkerhetskopierade objekt.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| #BackupItems |Heltal |Antal säkerhetskopieringsobjekt |
-| #UnprotectedBackupItems |Heltal |Antalet objekt har stoppats för skydd eller konfigurerad för säkerhetskopiering men säkerhetskopior som inte har startats|
-| AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
-| BackupItemFriendlyName |Text |Eget namn på säkerhetskopieringsobjekt |
-| BackupItemId |Text |ID för säkerhetskopieringsobjekt |
-| BackupItemName |Text |Namnet på säkerhetskopieringsobjektet |
-| BackupItemType |Text |Typ av säkerhetskopieringsobjekt exempelvis VM FileFolder |
-| EntityState |Text |Aktuell status för objektet säkerhetskopieringsobjekt som till exempel aktiv, har tagits bort |
-| LastBackupDateTime |Datum/tid |Tid för senaste säkerhetskopiering för valda säkerhetskopieringsobjektet |
-| LastBackupState |Text |Status för senaste säkerhetskopiering för valda säkerhetskopieringsobjekt t.ex, lyckades eller misslyckades |
-| LastSuccessfulBackupDateTime |Datum/tid |Tid för senaste säkerhetskopiering för valda säkerhetskopieringsobjektet |
-| ProtectionState |Text |Den aktuella protection tillståndet för säkerhetskopieringsobjektet som t.ex, skyddade eller ProtectionStopped |
+| #BackupItems |Heltal |Antal säkerhets kopierings objekt |
+| #UnprotectedBackupItems |Heltal |Antal säkerhets kopierings objekt som har stoppats för skydd eller som inte har kon figurer ATS för säkerhets kopiering|
+| AsOnDateTime |Date/Time |Senaste uppdaterings tid för den valda raden |
+| BackupItemFriendlyName |Text |Eget namn på säkerhets kopierings objekt |
+| BackupItemId |Text |ID för säkerhets kopierings objekt |
+| BackupItemName |Text |Namn på säkerhets kopierings objekt |
+| BackupItemType |Text |Typ av säkerhets kopierings objekt, till exempel virtuell dator, FileFolder |
+| EntityState |Text |Aktuellt tillstånd för objektet för säkerhets kopiering, till exempel aktivt, borttaget |
+| LastBackupDateTime |Date/Time |Tid för senaste säkerhets kopiering för valt säkerhets kopierings objekt |
+| LastBackupState |Text |Tillstånd för den senaste säkerhets kopieringen för det valda säkerhets kopierings objektet, till exempel lyckad, misslyckades |
+| LastSuccessfulBackupDateTime |Date/Time |Tid för senaste lyckade säkerhets kopiering för valt säkerhets kopierings objekt |
+| ProtectionState |Text |Aktuellt skydds tillstånd för säkerhets kopierings objekt, till exempel, skyddat, ProtectionStopped |
 
 ### <a name="calendar"></a>Kalender
-Den här tabellen innehåller information om kalendern-relaterade fält.
+Den här tabellen innehåller information om kalender relaterade fält.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Date |Date |Datum som valts för att filtrera data |
-| DateKey |Text |Unik nyckel för varje datum-objekt |
-| DayDiff |Decimaltal |Skillnad i dag för att filtrera data, till exempel, 0 indikerar aktuell dag data, -1 anger föregående en dags data, 0 och -1 anger data för aktuella och föregående dag  |
-| Månad |Text |Månad på året som valts för att filtrera data, månad börjar på första dag och slutar gälla 31: a dag |
-| MonthDate | Date |Datum i månaden då månad slutar valts för att filtrera data |
-| MonthDiff |Decimaltal |Skillnad i månad för data som filtrerande till exempel, 0 indikerar aktuella månadens data, -1 anger föregående månad data, 0 och -1 anger data för aktuella och föregående månad |
-| Vecka |Text |Veckan har valts för att filtrera data, veckan som börjar med söndag och slutar på lördag |
-| WeekDate |Date |Datum i veckan då vecka slutar valts för att filtrera data |
-| WeekDiff |Decimaltal |Skillnad i veckan, filtrera data, till exempel, 0 indikerar aktuella veckan data, -1 anger data i föregående vecka, 0 och -1 anger data för aktuella och föregående vecka |
-| År |Text |Kalenderår som valts för att filtrera data |
-| YearDate |Date |Datum under året när året slutar valts för att filtrera data |
+| Date |Date |Datum som valts för filtrering av data |
+| DateKey |Text |Unik nyckel för varje datum objekt |
+| DayDiff |Decimal tal |Skillnad på dag för filtrering av data, till exempel 0 anger dagens data,-1 anger föregående data för en dag, 0 och-1 visar data för aktuell och föregående dag  |
+| Månad |Text |Månad på det år som valts för filtrering av data, månad börjar den första dagen och slutar på 31: a dag |
+| MonthDate | Date |Datum i månaden då månaden slutar, valt för filtrering av data |
+| MonthDiff |Decimal tal |Skillnad i månad för filtrering av data, till exempel 0 anger aktuell månads data,-1 anger föregående månads data, 0 och-1 visar data för aktuell och föregående månad |
+| Vecka |Text |Vecka som valts för att filtrera data, veckan börjar på söndag och slutar på lördag |
+| WeekDate |Date |Datum i veckan då veckan slutar, valt för filtrering av data |
+| WeekDiff |Decimal tal |Skillnaden i veckan för att filtrera data, till exempel 0 anger den aktuella veckans data,-1 anger föregående veckas data, 0 och-1 visar data för aktuell och föregående vecka |
+| År |Text |Kalender år valt för filtrering av data |
+| YearDate |Date |Datum under året då året slutar, valt för filtrering av data |
 
 ### <a name="job"></a>Jobb
-Den här tabellen innehåller grundläggande fält och aggregeringar över olika jobbrelaterade fält.
+Den här tabellen innehåller grundläggande fält och agg regeringar för olika projektrelaterade fält.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| #JobsCreatedInPeriod |Heltal |Antalet jobb som skapats i den valda tidsperioden |
-| %FailuresForJobsCreatedInPeriod |Procent |Procentandel total köras i den valda tidsperioden |
-| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Decimaltal |80 percentilvärdet för data som överförs i MB för **säkerhetskopiering** jobb som skapats i den valda tidsperioden |
-| AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
-| AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimaltal |Genomsnittlig tid i minuter för **slutförda backup** jobb som skapats i den valda tidsperioden |
-| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Decimaltal |Genomsnittlig tid i minuter för **slutförts återställning** jobb som skapats i den valda tidsperioden |
-| BackupStorageDestination |Text |Mål för lagring av säkerhetskopior till exempel molnet, Disk  |
-| EntityState |Text |Aktuell status för objektet till exempel aktiv, har tagits bort |
-| JobFailureCode |Text |Felkod sträng på grund av som hände jobbfel |
-| JobOperation |Text |Åtgärden som jobbet körs exempelvis säkerhetskopiering, återställning, konfigurera säkerhetskopiering |
-| JobStartDate |Date |Datum när jobbet har startats |
-| JobStartTime |Tid |När du jobb började köras |
-| JobStatus |Text |Status för det färdiga t.ex, slutförd eller misslyckades |
-| JobUniqueId |Text |Unikt Id för att identifiera jobbet |
+| #JobsCreatedInPeriod |Heltal |Antal jobb som har skapats under den valda tids perioden |
+| %FailuresForJobsCreatedInPeriod |Procent |Procent andel övergripande jobb haverier under den valda tids perioden |
+| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Decimal tal |80th percentil värde av data som överförts i MB för **säkerhets kopierings** jobb som skapats under den valda tids perioden |
+| AsOnDateTime |Date/Time |Senaste uppdaterings tid för den valda raden |
+| AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimal tal |Genomsnittlig tid i minuter för **slutförda säkerhets kopierings** jobb som skapats under vald tids period |
+| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Decimal tal |Genomsnittlig tid i minuter för **slutförda** återställnings jobb som skapats under den valda tids perioden |
+| BackupStorageDestination |Text |Målet för lagring av säkerhets kopior, till exempel Cloud, disk  |
+| EntityState |Text |Aktuellt tillstånd för jobbobjektet, t. ex. aktiv, borttagen |
+| JobFailureCode |Text |Kod sträng för felkod på grund av vilket jobbfel som skett |
+| JobOperation |Text |Åtgärd för vilket jobb som körs, till exempel säkerhets kopiering, återställning, konfigurera säkerhets kopiering |
+| JobStartDate |Date |Datum när jobbet började köras |
+| JobStartTime |Time |Tid när jobbet började köras |
+| JobStatus |Text |Status för det slutförda jobbet, till exempel slutfört, misslyckades |
+| JobUniqueId |Text |Unikt ID för att identifiera jobbet |
 
 ### <a name="policy"></a>Princip
-Den här tabellen innehåller grundläggande fält och aggregeringar över olika princip-relaterade fält.
+Den här tabellen innehåller grundläggande fält och agg regeringar för olika principbaserade fält.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| #Policies |Heltal |Antal principer för säkerhetskopiering som finns i systemet |
-| #PoliciesInUse |Heltal |Antal principer som för närvarande används för att konfigurera säkerhetskopiering |
-| AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
-| BackupDaysOfTheWeek |Text |Dagar i veckan när säkerhetskopieringar har schemalagts |
-| BackupFrequency |Text |Frekvens med vilken säkerhetskopieringar körs till exempel, varje dag, varje vecka |
-| BackupTimes |Text |Datum och tid när säkerhetskopieringar är schemalagda |
-| DailyRetentionDuration |Heltal |Totalt antal kvarhållning varaktighet i dagar för konfigurerade säkerhetskopieringar |
-| DailyRetentionTimes |Text |Datum och tid när bevarande varje dag har konfigurerats |
-| EntityState |Text |Aktuell status för principobjektet till exempel aktiv, har tagits bort |
-| MonthlyRetentionDaysOfTheMonth |Text |Datum i månaden som valts för kvarhållning av månatlig |
-| MonthlyRetentionDaysOfTheWeek |Text |Dagar i veckan har valts för kvarhållning av månatlig |
-| MonthlyRetentionDuration |Decimaltal |Totalt antal kvarhållningsvaraktighetens i månader för konfigurerade säkerhetskopieringar |
-| MonthlyRetentionFormat |Text |Typ av konfigurationen för kvarhållning av månatlig till exempel varje dag för dag-baserat, varje vecka för vecka baserat |
-| MonthlyRetentionTimes |Text |Datum och tid när månatliga kvarhållning har konfigurerats |
-| MonthlyRetentionWeeksOfTheMonth |Text |Veckor i månaden när kvarhållning av månatlig är konfigurerats exempelvis första, sista osv. |
-| PolicyName |Text |Namnet på den princip som har definierats |
-| PolicyUniqueId |Text |Unikt Id för att identifiera principen |
-| RetentionType |Text |Typ av bevarandeprincipen till exempel, varje dag, vecka, månad, varje år |
-| WeeklyRetentionDaysOfTheWeek |Text |Dagar i veckan har valts för kvarhållning av veckovis |
-| WeeklyRetentionDuration |Decimaltal |Total varaktighet för varje vecka kvarhållning i veckor för konfigurerade säkerhetskopieringar |
-| WeeklyRetentionTimes |Text |Datum och tid när kvarhållning av veckovis har konfigurerats |
-| YearlyRetentionDaysOfTheMonth |Text |Datum i månaden som valts för kvarhållning av årlig |
-| YearlyRetentionDaysOfTheWeek |Text |Dagar i veckan har valts för kvarhållning av årlig |
-| YearlyRetentionDuration |Decimaltal |Totalt antal kvarhållningsvaraktighetens i år för konfigurerade säkerhetskopior |
-| YearlyRetentionFormat |Text |Typ av konfigurationen för kvarhållning av årlig till exempel varje dag för dag-baserat, varje vecka för vecka baserat |
-| YearlyRetentionMonthsOfTheYear |Text |Månader som har valts för kvarhållning av årlig |
-| YearlyRetentionTimes |Text |Datum och tid när årliga kvarhållning har konfigurerats |
-| YearlyRetentionWeeksOfTheMonth |Text |Veckor i månaden när kvarhållning av årlig är konfigurerats exempelvis första, sista osv. |
+| #Policies |Heltal |Antal säkerhets kopierings principer som finns i systemet |
+| #PoliciesInUse |Heltal |Antal principer som för närvarande används för att konfigurera säkerhets kopior |
+| AsOnDateTime |Date/Time |Senaste uppdaterings tid för den valda raden |
+| BackupDaysOfTheWeek |Text |Vecko dagar när säkerhets kopieringar har schemalagts |
+| BackupFrequency |Text |Den frekvens med vilken säkerhets kopieringar körs, till exempel varje dag, varje vecka |
+| BackupTimes |Text |Datum och tid när säkerhets kopieringar schemaläggs |
+| DailyRetentionDuration |Heltal |Total Retentions tid i dagar för konfigurerade säkerhets kopieringar |
+| DailyRetentionTimes |Text |Datum och tid när daglig kvarhållning hade kon figurer ATS |
+| EntityState |Text |Aktuellt tillstånd för principobjektet, t. ex. aktiv, borttagen |
+| MonthlyRetentionDaysOfTheMonth |Text |Datum i månaden som valts för månatlig kvarhållning |
+| MonthlyRetentionDaysOfTheWeek |Text |Vecko dagar som valts för månatlig kvarhållning |
+| MonthlyRetentionDuration |Decimal tal |Total Retentions tid i månader för konfigurerade säkerhets kopieringar |
+| MonthlyRetentionFormat |Text |Typ av konfiguration för månatlig kvarhållning, till exempel dagligen för dag baserat, veckovis för vecka, baserat |
+| MonthlyRetentionTimes |Text |Datum och tid när månatlig kvarhållning har kon figurer ATS |
+| MonthlyRetentionWeeksOfTheMonth |Text |Veckor i månaden då månatlig kvarhållning har kon figurer ATS till exempel första, sist osv. |
+| PolicyName |Text |Namn på den princip som definierats |
+| PolicyUniqueId |Text |Unikt ID för att identifiera principen |
+| RetentionType |Text |Typ av bevarande princip, till exempel varje dag, varje vecka, varje månad, varje år |
+| WeeklyRetentionDaysOfTheWeek |Text |Vecko dagar som valts för veckovis kvarhållning |
+| WeeklyRetentionDuration |Decimal tal |Total varaktighet för veckovis kvarhållning i veckor för konfigurerade säkerhets kopieringar |
+| WeeklyRetentionTimes |Text |Datum och tid när veckovis kvarhållning har kon figurer ATS |
+| YearlyRetentionDaysOfTheMonth |Text |Datum för den månad som valts för årlig kvarhållning |
+| YearlyRetentionDaysOfTheWeek |Text |Vecko dagar som valts för årlig kvarhållning |
+| YearlyRetentionDuration |Decimal tal |Total Retentions tid i år för konfigurerade säkerhets kopieringar |
+| YearlyRetentionFormat |Text |Typ av konfiguration för årlig kvarhållning, till exempel dagligen för dag baserat, veckovis för vecka, baserat |
+| YearlyRetentionMonthsOfTheYear |Text |Månader under året som valts för årlig kvarhållning |
+| YearlyRetentionTimes |Text |Datum och tid när årlig kvarhållning har kon figurer ATS |
+| YearlyRetentionWeeksOfTheMonth |Text |Veckor i månaden när årlig kvarhållning har kon figurer ATS till exempel första, sist osv. |
 
 ### <a name="protected-server"></a>Skyddad Server
-Den här tabellen innehåller grundläggande fält och aggregeringar över olika skyddade server-relaterade fält.
+Den här tabellen innehåller grundläggande fält och agg regeringar för olika skyddade Server-relaterade fält.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | #ProtectedServers |Heltal |Antal skyddade servrar |
-| AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
-| AzureBackupAgentOSType |Text |OS-typ av Azure Backup-agenten |
-| AzureBackupAgentOSVersion |Text |OS-versionen av Azure Backup-agenten |
-| AzureBackupAgentUpdateDate |Text |Datum när agenten Backup-agenten uppdaterades |
-| AzureBackupAgentVersion |Text |Versionsnumret för Backup-Agentversion |
-| BackupManagementType |Text |Typ av provider för att utföra säkerhetskopieringen exempelvis IaaSVM FileFolder |
-| EntityState |Text |Aktuell status för skyddade server-objekt till exempel aktiv, har tagits bort |
-| ProtectedServerFriendlyName |Text |Eget namn på skyddad server |
-| ProtectedServerName |Text |Namnet på skyddad server |
-| ProtectedServerType |Text |Typ av skyddad server säkerhetskopieras till exempel IaaSVMContainer |
-| ProtectedServerName |Text |Namnet på skyddad server till vilken säkerhetskopieringsobjekt tillhör |
-| RegisteredContainerId |Text |ID för behållare som har registrerats för säkerhetskopiering |
+| AsOnDateTime |Date/Time |Senaste uppdaterings tid för den valda raden |
+| AzureBackupAgentOSType |Text |OS-typ för Azure Backup Agent |
+| AzureBackupAgentOSVersion |Text |OS-version av Azure Backup Agent |
+| AzureBackupAgentUpdateDate |Text |Datum när agenten för säkerhets kopiering uppdaterades |
+| AzureBackupAgentVersion |Text |Versions nummer för agentens säkerhets kopierings version |
+| BackupManagementType |Text |Providertyp för att utföra säkerhets kopiering till exempel, IaaSVM, FileFolder |
+| EntityState |Text |Aktuellt tillstånd för det skyddade Server objektet, till exempel aktivt, borttaget |
+| ProtectedServerFriendlyName |Text |Eget namn på skyddad Server |
+| ProtectedServerName |Text |Namn på skyddad Server |
+| ProtectedServerType |Text |Typ av skyddad server som har säkerhetskopierats, till exempel IaaSVMContainer |
+| ProtectedServerName |Text |Namnet på den skyddade server som säkerhetskopierade objekt tillhör |
+| RegisteredContainerId |Text |ID för den behållare som registrerats för säkerhets kopiering |
 
 ### <a name="storage"></a>Storage
-Den här tabellen innehåller grundläggande fält och aggregeringar över olika storage-relaterade fält.
+Den här tabellen innehåller grundläggande fält och agg regeringar för olika lagrings fält.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| #ProtectedInstances |Decimaltal |Antalet skyddade instanser som används för att beräkna frontend-lagring i fakturering, beräknad baserat på senaste värdet i vald tid |
-| AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
-| CloudStorageInMB |Decimaltal |Säkerhetskopiering molnlagring som används av säkerhetskopieringar, beräknas baserat på senaste värdet i vald tid |
-| EntityState |Text |Aktuell status för objektet till exempel aktiv, har tagits bort |
-| LastUpdatedDate |Date |Datum då vald rad senast uppdaterades |
+| #ProtectedInstances |Decimal tal |Antal skyddade instanser som används för att beräkna frontend-lagring vid fakturering, beräknat baserat på det senaste värdet i vald tid |
+| AsOnDateTime |Date/Time |Senaste uppdaterings tid för den valda raden |
+| CloudStorageInMB |Decimal tal |Lagring av moln säkerhets kopior som används av säkerhets kopieringar, beräknat baserat på det senaste värdet i vald tid |
+| EntityState |Text |Objektets aktuella tillstånd, t. ex. aktiv, borttagen |
+| LastUpdatedDate |Date |Datum när den markerade raden senast uppdaterades |
 
-### <a name="time"></a>Tid
+### <a name="time"></a>Time
 Den här tabellen innehåller information om tidsrelaterade fält.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Timme |Tid |Timme på dagen till exempel 1:00:00 PM |
-| HourNumber |Decimaltal |Timme numret i dag exempelvis 13,00 |
-| Minut |Decimaltal |Minuten i timmen |
-| PeriodOfTheDay |Text |Period tidslucka i dag exempelvis 12-3 AM |
-| Tid |Tid |Den tid på dagen till exempel 12:00:01: 00 |
-| TimeKey |Text |Nyckelvärdet för att representera tid |
+| Timme |Time |Timme på dagen till exempel 1:00:00 PM |
+| HourNumber |Decimal tal |Timmes nummer på dagen till exempel 13,00 |
+| Minut |Decimal tal |Minut i timmen |
+| PeriodOfTheDay |Text |Tids period under dagen till exempel 12-3 AM |
+| Time |Time |Tid på dagen till exempel 12:00:01 AM |
+| TimeKey |Text |Nyckel värde som representerar tid |
 
 ### <a name="vault"></a>Valv
-Den här tabellen innehåller grundläggande fält och aggregeringar över olika vault-relaterade fält.
+Den här tabellen innehåller grundläggande fält och agg regeringar för olika valv-relaterade fält.
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | #Vaults |Heltal |Antal valv |
-| AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
-| AzureDataCenter |Text |Datacenter där valvet finns |
-| EntityState |Text |Aktuell status för valvobjekt till exempel aktiv, har tagits bort |
-| StorageReplicationType |Text |Typ av lagringsreplikering för valvet exempelvis GeoRedundant |
-| SubscriptionId |Text |Prenumerations-Id för kunden som har valts för att generera rapporter |
-| VaultName |Text |Namnet på valvet |
+| AsOnDateTime |Date/Time |Senaste uppdaterings tid för den valda raden |
+| AzureDataCenter |Text |Data Center där valvet finns |
+| EntityState |Text |Aktuellt tillstånd för Valve-objektet till exempel aktivt, borttaget |
+| StorageReplicationType |Text |Typ av lagrings replikering för valvet, t. ex., förredundant |
+| SubscriptionId |Text |Prenumerations-ID för den valda kunden för generering av rapporter |
+| VaultName |Text |Namn på valvet |
 | VaultTags |Text |Taggar som är kopplade till valvet |
 
 ## <a name="next-steps"></a>Nästa steg
-När du har läst datamodellen för att skapa Azure Backup-rapporter, finns i följande artiklar för mer information om att skapa och visa rapporter i Power BI.
+När du har granskat data modellen för att skapa Azure Backup rapporter kan du läsa följande artiklar för mer information om hur du skapar och visar rapporter i Power BI.
 
 * [Skapa rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
 * [Filtrera rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

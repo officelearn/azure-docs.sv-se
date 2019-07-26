@@ -1,6 +1,6 @@
 ---
-title: Omvandla data med Databricks Notebook - Azure | Microsoft Docs
-description: Lär dig hur du bearbeta eller omvandla data genom att köra en Databricks notebook.
+title: Transformera data med Databricks Notebook – Azure | Microsoft Docs
+description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks Notebook.
 services: data-factory
 documentationcenter: ''
 ms.assetid: ''
@@ -12,20 +12,20 @@ ms.date: 03/15/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311673"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335851"
 ---
-# <a name="transform-data-by-running-a-databricks-notebook"></a>Transformera data genom att köra en Databricks notebook
+# <a name="transform-data-by-running-a-databricks-notebook"></a>Transformera data genom att köra en Databricks Notebook
 
-Azure Databricks Notebook-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Databricks notebook i Azure Databricks-arbetsytan. Den här artikeln bygger vidare på den [datatransformeringsaktiviteter](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter. Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks Notebook-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Databricks-anteckningsbok i din Azure Databricks-arbetsyta. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
-## <a name="databricks-notebook-activity-definition"></a>Definitionen för Databricks Notebook-aktivitet
+## <a name="databricks-notebook-activity-definition"></a>Aktivitets definition för Databricks Notebook
 
-Här är exempel JSON-definition för en Databricks Notebook-aktiviteten:
+Här är exempel-JSON-definitionen för en Databricks Notebook-aktivitet:
 
 ```json
 {
@@ -55,22 +55,22 @@ Här är exempel JSON-definition för en Databricks Notebook-aktiviteten:
 
 ## <a name="databricks-notebook-activity-properties"></a>Egenskaper för Databricks Notebook-aktivitet
 
-I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
+I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
-|Egenskap|Beskrivning|Krävs|
+|Egenskap|Beskrivning|Obligatorisk|
 |---|---|---|
 |name|Namnet på aktiviteten i pipelinen.|Ja|
-|description|Text som beskriver hur aktiviteten ska hantera.|Nej|
-|type|För Databricks Notebook-aktiviteten är aktivitetstypen DatabricksNotebook.|Ja|
-|linkedServiceName|Namnet på den länkade tjänsten för Databricks som Databricks notebook körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
-|notebookPath|Den absoluta sökvägen till anteckningsboken för att köras i Databricks-arbetsytan. Den här sökvägen måste börja med ett snedstreck.|Ja|
-|baseParameters|En matris med nyckel / värde-par. Grundläggande parametrar kan användas för varje aktivitet kör. Om anteckningsboken tar en parameter som inte anges, används standardvärdet från anteckningsboken. Hitta mer information om parametrar i [Databricks-anteckningsböcker](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nej|
-|Bibliotek|En lista med bibliotek som ska installeras på det kluster som ska utföra jobbet. Det kan vara en matris med \<sträng, objekt->.|Nej|
+|description|Text som beskriver vad aktiviteten gör.|Nej|
+|type|Aktivitets typen är DatabricksNotebook för Databricks Notebook-aktivitet.|Ja|
+|linkedServiceName|Namnet på den länkade Databricks-tjänsten som Databricks-anteckningsboken körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .|Ja|
+|notebookPath|Den absoluta sökvägen till antecknings boken som ska köras i Databricks-arbetsytan. Sökvägen måste börja med ett snedstreck.|Ja|
+|baseParameters|En matris med nyckel/värde-par. Du kan använda bas parametrar för varje aktivitets körning. Om antecknings boken använder en parameter som inte har angetts används standardvärdet från antecknings boken. Hitta mer information om parametrar i [Databricks Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nej|
+|biblioteksfliken|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med \<sträng, objekt >.|Nej|
 
 
-## <a name="supported-libraries-for-databricks-activities"></a>Stöds-bibliotek för Databricks-aktiviteter
+## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för Databricks-aktiviteter
 
-I ovanstående Databricks aktivitetsdefinitionen, anger du dessa typer av dokumentbibliotek: *jar*, *ägg*, *maven*, *pypi*,  *cran*.
+I Databricks-aktivitets definitionen anger du dessa biblioteks typer: *jar*, *ägg*, *WHL*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -80,6 +80,12 @@ I ovanstående Databricks aktivitetsdefinitionen, anger du dessa typer av dokume
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+    {
+            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {
@@ -104,18 +110,18 @@ I ovanstående Databricks aktivitetsdefinitionen, anger du dessa typer av dokume
 
 ```
 
-Mer information finns i den [dokumentation för Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) för bibliotekstyper.
+Mer information finns i Databricks- [dokumentationen](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) för biblioteks typer.
 
-## <a name="how-to-upload-a-library-in-databricks"></a>Hur du överför ett bibliotek i Databricks
+## <a name="how-to-upload-a-library-in-databricks"></a>Ladda upp ett bibliotek i Databricks
 
-#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Med hjälp av Användargränssnittet för Databricks-arbetsyta](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Använda användar gränssnittet för Databricks-arbetsyta](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
-Om du vill ha antingen sökvägen till biblioteket har lagts till med hjälp av Användargränssnittet kan du använda den [Databricks CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+Du kan hämta dBFS-sökvägen till biblioteket som lagts till med hjälp av användar gränssnittet genom att använda [DATABRICKS CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Normalt Jar-bibliotek lagras under dbfs: / FileStore/JAR: er när du använder Användargränssnittet. Du kan lista alla via CLI: *databricks fs ls dbfs: / FileStore/JAR-filer*.
+Jar-bibliotek lagras vanligt vis under dBFS:/FileStore/jar v7 när användar gränssnittet används. Du kan visa alla via CLI: *databricks FS LS dBFS:/FileStore/jar v7*.
 
 
 
 #### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Kopiera bibliotek med Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
 
-Exempel: *databricks fs cp SparkPi-sammansättningen-0.1.jar dbfs: / FileStore/JAR-filer*
+Exempel: *databricks FS CP sparkpi-Assembly-0,1. jar dBFS:/FileStore/jar v7*

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320090"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333749"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
@@ -148,6 +148,14 @@ Som förklaras i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md)
 ## <a name = "multivalue"></a>Metod för Multivärdes trafik – routningsmetod
 Med  metoden för Multivärdes trafik-routning kan du hämta flera felfria slut punkter i ett enda DNS-fråge svar. Detta gör det möjligt för anroparen att utföra försök på klient sidan med andra slut punkter i händelse av en returnerad slut punkt som inte svarar. Det här mönstret kan öka tillgängligheten för en tjänst och minska svars tiden som associeras med en ny DNS-fråga för att få en felfri slut punkt. Routningsmetod för flera värden fungerar bara om alla slut punkter av typen ' external ' och anges som IPv4-eller IPv6-adresser. När en fråga tas emot för den här profilen returneras alla felfria slut punkter och omfattas av ett konfigurerbart Max antal retur antal.
 
+### <a name="faqs"></a>Vanliga frågor och svar
+
+* [Vad är några användnings fall där multivärde-routning är användbart?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+
+* [Hur många slut punkter returneras när multivärde-routning används?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+
+* [Får jag samma uppsättning slut punkter när multivärde-routning används?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+
 ## <a name = "subnet"></a>Under näts trafik – routningsmetod
 Med metoden för att dirigera **under nät** trafiken kan du mappa en uppsättning IP-adressintervall för slutanvändare till särskilda slut punkter i en profil. Om Traffic Manager tar emot en DNS-fråga för profilen, kommer den att inspektera käll-IP-adressen för den begäran (i de flesta fall är detta den utgående IP-adressen för den DNS-matchare som används av anroparen), avgöra vilken slut punkt den är mappad till och kommer att returnera t hatt-slutpunkt i svaret på frågan. 
 
@@ -155,6 +163,19 @@ IP-adressen som ska mappas till en slut punkt kan anges som CIDR-intervall (t. e
 Om du definierar en slut punkt utan ett adress intervall fungerar det som en reserv och tar trafik från eventuella kvarvarande undernät. Om ingen återställnings punkt ingår, skickar Traffic Manager ett nodata-svar för alla odefinierade intervall. Vi rekommenderar därför starkt att du antingen definierar en återställnings slut punkt eller att du ser till att alla möjliga IP-intervall anges i dina slut punkter.
 
 Under näts dirigering kan användas för att ge en annan upplevelse för användare som ansluter från ett särskilt IP-utrymme. Till exempel kan en kund med hjälp av under näts dirigering dirigera alla förfrågningar från sitt företags kontor till en annan slut punkt där de kan testa en intern version av appen. Ett annat scenario är om du vill ge en annan upplevelse till användare som ansluter från en specifik Internet leverantör (till exempel blockera användare från en angiven Internet leverantör).
+
+### <a name="faqs"></a>Vanliga frågor och svar
+
+* [Vad är några användnings fall där under näts dirigering är användbart?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [Hur vet Traffic Manager IP-adressen för slutanvändaren?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [Hur kan jag ange IP-adresser när jag använder Subnet-routning?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [Hur kan jag ange en återställnings slut punkt när jag använder under näts dirigering?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [Vad händer om en slut punkt är inaktive rad i en under näts typ profil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

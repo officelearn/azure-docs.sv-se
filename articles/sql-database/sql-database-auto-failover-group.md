@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: 174147aca75452dfaee02d20df5377fa1f6070c1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325099"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443311"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -31,7 +31,7 @@ När du använder grupper för automatisk redundans med automatisk redundansväx
 När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar databaser i SQL Database-servern eller hanterade instanser i automatisk redundans. Du kan hantera gruppen för automatisk redundans med:
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
-- [PowerShell Redundans grupp](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell Redundans grupp](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [REST API: Failover-](https://docs.microsoft.com/rest/api/sql/failovergroups)grupp.
 
 Efter redundansväxlingen kontrollerar du att autentiseringskrav för servern och databasen har kon figurer ATS på den nya primära servern. Mer information finns i [SQL Database säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
@@ -310,7 +310,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 |  | |
 
 > [!IMPORTANT]
-> Ett exempel skript finns i [Konfigurera och redundansväxla en failover-grupp för en enskild databas](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
+> Ett exempel skript finns i [Konfigurera och redundansväxla en failover-grupp för en enskild databas](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Hantera grupper med hanterade instanser (förhands granskning)
@@ -371,7 +371,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 - Exempel skript finns i:
   - [Konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Konfigurera och redundansväxla en pooldatabas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Konfigurera och redundansväxla en redundansgrupp för en enskild databas](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+  - [Konfigurera och redundansväxla en redundansgrupp för en enskild databas](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - För en översikt över verksamhets kontinuitet och scenarier, se [Översikt över verksamhets kontinuitet](sql-database-business-continuity.md)
 - Mer information om hur du Azure SQL Database automatiserade säkerhets kopieringar finns [SQL Database automatiska säkerhets kopieringar](sql-database-automated-backups.md).
 - Information om hur du använder automatiska säkerhets kopieringar för återställning finns i [återställa en databas från de säkerhets kopior som initieras av tjänsten](sql-database-recovery-using-backups.md).

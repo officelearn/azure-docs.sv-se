@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e8ae2fd99ee57062a0bf99f0550e58a5bb4857a3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187249"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426961"
 ---
 I följande tabell visas tillgängliga regioner som stöds för funktioner som är GA.
 
@@ -25,10 +25,9 @@ I följande tabell visas tillgängliga regioner som stöds för funktioner som �
 | Asien | Östra Asien, Sydostasien |
 | Japan  | Västra Japan, östra Japan |
 | Australien | Sydöstra Australien, östra Australien | 
-| Myndigheter i Australien | Centrala Australien, Centrala Australien 2 |
+| Australien, myndigheter | Centrala Australien, Centrala Australien 2 |
 | Indien | Västra Indien, centrala Indien, södra Indien |
 | Sydkorea | Sydkorea, centrala; Sydkorea, södra |
-| Sydafrika | Sydafrika, norra, Sydafrika, västra |
+| Sydafrika | Södra Afrika, västra Sydafrika |
 
-* Information om förhandsversionen av ExpressRoute finns i [virtuellt WAN-nätverk och ExpressRoute - förhandsversion](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).
-* Information om punkt-till-plats-förhandsversionen finns i [virtuellt WAN-nätverk och punkt-till-plats - förhandsversion](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register).
+* Information om för hands versionen av ExpressRoute finns i [Virtual WAN och ExpressRoute – för hands version](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).

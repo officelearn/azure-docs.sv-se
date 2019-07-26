@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: b298d73620990dd8f6c6577818adaef9788122e9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 50703ede205b42032e9618c1b16b0de2bd7f3a23
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326326"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424143"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>API för Statusövervakare v2: Get-ApplicationInsightsMonitoringStatus
 
@@ -39,7 +39,6 @@ Denna cmdlet kommer att rapportera versions information och information om vikti
 Kör kommandot `Get-ApplicationInsightsMonitoringStatus` för att Visa övervaknings statusen för webbplatser.
 
 ```
-Machine Identifier:
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
 Machine Identifier:
 811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639
@@ -135,7 +134,7 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Exempel: Körnings status
+### <a name="example-runtime-status"></a>Exempel: Körningsstatus
 
 Du kan kontrol lera processen på den instrumenterade datorn för att se om alla DLL-filer har lästs in. Om övervakningen fungerar bör minst 12 DLL-filer läsas in.
 

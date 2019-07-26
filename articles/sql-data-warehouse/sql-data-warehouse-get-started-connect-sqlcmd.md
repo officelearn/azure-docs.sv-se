@@ -1,8 +1,8 @@
 ---
 title: Ansluta till Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Du kan använda kommandoradsverktyget SQLCMD för att ansluta till och fråga en Azure SQL Data Warehouse.
+description: Använd kommando rads verktyget sqlcmd för att ansluta till och fråga en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 72760c5123703a664695c1be4d286a38e96ecc3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873323"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479510"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Anslut till SQL Data Warehouse med sqlcmd
 > [!div class="op_single_selector"]
@@ -27,19 +27,19 @@ ms.locfileid: "65873323"
 > 
 > 
 
-Använd kommandoradsverktyget [sqlcmd][sqlcmd] för att ansluta till och hämta information från ett Azure SQL Data Warehouse.  
+Använd kommando rads verktyget [SQLCMD][sqlcmd] för att ansluta till och fråga en Azure SQL Data Warehouse.  
 
 ## <a name="1-connect"></a>1. Anslut
 Du kommer igång med [sqlcmd][sqlcmd] genom att öppna kommandotolken och ange **sqlcmd** följt av anslutningssträngen för din SQL Data Warehouse-databas. Anslutningssträngen kräver följande parametrar:
 
-* **Server (-S):** Server i formatet `<`servernamn`>`. database.windows.net
-* **Databas (-d):** Databasnamnet.
-* **Aktivera identifierare (– jag):** Identifierare måste aktiveras för att ansluta till en instans av SQL Data Warehouse.
+* **Server (-S):** Server i formatet `<`Server namn`>`. Database.Windows.net
+* **Databas (-d):** Databas namn.
+* **Aktivera citerade identifierare (-I):** Identifierare med citat tecken måste vara aktiverade för att ansluta till en SQL Data Warehouse-instans.
 
 Om du vill använda SQL Server-autentisering måste du lägga till användarnamn/lösenordsparametrar:
 
-* **Användare (-U):** Serveranvändare i formatet `<`användare`>`
-* **Lösenord (-P):** Lösenordet som är associerat med användaren.
+* **Användare (-U):** Server användare i formulär `<`användaren`>`
+* **Lösen ord (-P):** Lösen ordet som är kopplat till användaren.
 
 Anslutningssträngen kan se ut ungefär så här:
 
@@ -62,7 +62,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## <a name="2-query"></a>2. Fråga
+## <a name="2-query"></a>2. Söka i data
 Du kan utfärda alla Transact-SQL-uttryck som stöds mot instansen efter anslutning.  I det här exemplet skickas frågor i interaktivt läge.
 
 ```sql
@@ -83,7 +83,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se [sqlcmd-dokumentationen][sqlcmd] för mer information om tillgängliga alternativ i sqlcmd.
+Mer information om tillgängliga alternativ i SQLCMD finns i [SQLCMD-dokumentationen][sqlcmd] .
 
 <!--Image references-->
 

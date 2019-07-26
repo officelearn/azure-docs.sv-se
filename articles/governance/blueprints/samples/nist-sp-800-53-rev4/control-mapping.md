@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: a0ebd29f1ce4390bacb0de360938045b79f63159
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a179c5919f647b567b2109ec1a73ac8bb6cda36b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326841"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479857"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Kontroll mappning av NIST SP 800-53 R4 skiss exempel
 
@@ -35,7 +35,7 @@ Den här skissen hjälper dig att granska konton som kanske inte uppfyller organ
 Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure Policy-definition för att granska användningen av anpassade RBAC-regler. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga.
 
 - En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
-- Granska användningen av anpassade RBAC-regler
+- Granska användning av anpassade RBAC-regler
 - Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering
 
 ## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>AC-2 (12) konto hantering | Konto övervakning/ovanlig-användning
@@ -49,7 +49,7 @@ Just-in-Time (JIT)-åtkomst till virtuella datorer låser inkommande trafik till
 Med resurs delning mellan ursprung (CORS) kan App Services resurser begäras från en extern domän. Microsoft rekommenderar att du endast tillåter att domäner interagerar med API-, funktions-och webb program. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka åtkomst begränsningar för CORS-resurser i Azure Security Center.
 Att förstå CORS-implementeringar kan hjälpa dig att kontrol lera att informations flödes kontrollerna implementeras.
 
-- CORS bör inte tillåta alla resurser åtkomst till ditt webb program
+- CORS bör inte tillåta att alla resurser får åtkomst till din webbapp
 
 ## <a name="ac-5-separation-of-duties"></a>AC-5-separering av uppgifter
 
@@ -87,9 +87,9 @@ Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst geno
 
 - \[För\]hands version: Granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- Granska obegränsad nätverks åtkomst till lagrings konton
-- Fjärrfelsökning bör inaktive ras för API-appen
-- Fjärrfelsökning bör inaktive ras för Funktionsapp
+- Granska obegränsad nätverksåtkomst till lagringskonton
+- Du bör stänga av fjärrfelsökning för API-appen
+- Du bör stänga av fjärrfelsökning för funktionsappen
 - Fjärrfelsökning bör stängas av för webbprogram
 
 ## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) innehåll i gransknings poster | Centraliserad hantering av innehåll för planerad gransknings post
@@ -109,7 +109,7 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som övervakar konfigurationer för granskning och händelse loggning. Övervakning av de här konfigurationerna kan ge en indikator för ett fel eller en felaktig konfiguration av systemet och hjälpa dig att vidta lämpliga åtgärder.
 
 - Granska diagnostikinställning
-- Granska gransknings inställningar för SQL Server-nivå
+- Granska granskningsinställningar på SQL-servernivå
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 
@@ -137,11 +137,11 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 - \[För\]hands version: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
 - \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
-- Granska gransknings inställningar för SQL Server-nivå
+- Granska granskningsinställningar på SQL-servernivå
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
-- Distribuera granskning på SQL-servrar
+- Distribuera Granskning på SQL-servrar
 - Distribuera diagnostikinställningar för nätverks säkerhets grupper
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM – 7 (2) minst funktions sätt | Förhindra program körning
@@ -166,7 +166,7 @@ Adaptiva program kontroller i Azure Security Center är en intelligent, automati
 
 Azure Site Recovery replikerar arbets belastningar som körs på virtuella datorer från en primär plats till en sekundär plats. Om ett avbrott uppstår på den primära platsen växlar arbets belastningen över den sekundära platsen. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som granskar virtuella datorer utan haveri beredskap konfigurerad. Övervakning av den här indikatorn kan hjälpa dig att se till att de nödvändiga kontrollerna är på plats.
 
-- Granska virtuella datorer utan haveri beredskap har kon figurer ATS
+- Granska virtuella datorer som inte har konfigurerats för haveriberedskap
 
 ## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>IA-2 (1) identifiering och autentisering (företags användare) | Nätverks åtkomst till privilegierade konton
 
@@ -235,7 +235,7 @@ Dessutom tilldelar skissen princip definitioner som övervakar oskyddade slut pu
 - Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
 - Åtkomst via slut punkt mot Internet bör vara begränsad
 - NSG: er-reglerna för webb program på IaaS bör vara härdade
-- Granska obegränsad nätverks åtkomst till lagrings konton
+- Granska obegränsad nätverksåtkomst till lagringskonton
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) gränser skydd | Åtkomst punkter
 
@@ -253,7 +253,7 @@ Just-in-Time (JIT)-åtkomst till virtuella datorer låser inkommande trafik till
 
 Den här skissen hjälper dig att skydda konfidentiell och integritet på överförd information genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka kryptografisk mekanism som implementerats för kommunikations protokoll. Att säkerställa att kommunikationen är korrekt krypterad kan hjälpa dig att uppfylla organisationens krav eller skydda information från obehörigt utlämnande av information och ändringar.
 
-- API-appen bör bara vara tillgänglig via HTTPS
+- API-appen bör endast vara åtkomlig via HTTPS
 - Granska Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera krav för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Funktionen App bör enbart vara åtkomliga via HTTPS
@@ -268,7 +268,7 @@ Den här skissen hjälper dig att genomdriva principen om användningen av krypt
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
-- Distribuera transparent data kryptering för SQL DB
+- Distribuera transparent datakryptering för SQL DB
 - Disk kryptering bör tillämpas på virtuella datorer
 - Kräv kryptering för Data Lake Store-konton
 - transparent datakryptering på SQL-databaser ska aktive ras
@@ -289,16 +289,16 @@ Den här skissen hjälper dig att hantera fel i informations systemet genom att 
 
 Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig kod skydd, genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakas för saknade Endpoint Protection på virtuella datorer i Azure Security Center och tvinga Microsoft lösning mot skadlig kod på virtuella Windows-datorer.
 
-- Distribuera standard Microsoft IaaSAntimalware-tillägget för Windows Server
+- Distribuera Microsofts IaaSAntimalware-standardtillägg för Windows Server
 - Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar
-- Övervaka saknade Endpoint Protection i Azure Security Center
+- Övervaka avsaknad av slutpunktsskydd i Azure Security Center
 
 ## <a name="si-3-1-malicious-code-protection--central-management"></a>SI-3 (1) skadlig kod skydd | Central hantering
 
 Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig kod skydd, genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar för saknade Endpoint Protection på virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller centraliserade hanterings-och rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser.
 
 - Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar
-- Övervaka saknade Endpoint Protection i Azure Security Center
+- Övervaka avsaknad av slutpunktsskydd i Azure Security Center
 
 ## <a name="si-4-information-system-monitoring"></a>SI-4 övervakning av informations system
 
@@ -314,16 +314,19 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
-- Distribuera Avancerat skydd på lagrings konton
-- Distribuera granskning på SQL-servrar
-- Distribuera nätverks övervakare när virtuella nätverk skapas
-- Distribuera hot identifiering på SQL-servrar
+- Distribuera Advanced Threat Protection på lagringskonton
+- Distribuera Granskning på SQL-servrar
+- Distribuera Network Watcher när virtuella nätverk skapas
+- Distribuera hotidentifiering på SQL-servrar
 
 ## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>SI-4 (18) information system övervakning | Analysera trafik/konvertera exfiltrering
 
 Avancerat skydd för Azure Storage identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Skydds aviseringar innehåller avvikande åtkomst mönster, avvikande extrakt/uppladdningar och misstänkt lagrings aktivitet. Dessa indikatorer kan hjälpa dig att identifiera konverterad exfiltrering av information.
 
-- Distribuera Avancerat skydd på lagrings konton
+- Distribuera Advanced Threat Protection på lagringskonton
+
+> [!NOTE]
+> Tillgängligheten för vissa Azure Policy definitioner kan variera i Azure Government och andra nationella moln.
 
 ## <a name="next-steps"></a>Nästa steg
 

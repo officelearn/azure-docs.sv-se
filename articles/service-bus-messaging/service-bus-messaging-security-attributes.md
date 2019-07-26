@@ -1,6 +1,6 @@
 ---
-title: Vanliga säkerhetsattribut för Azure Service Bus-meddelanden
-description: En lista med vanliga security attribut för att utvärdera Azure Service Bus-meddelanden
+title: Säkerhetsattribut för Azure Service Bus meddelande funktion
+description: En check lista över säkerhetsattribut för utvärdering av Azure Service Bus meddelanden
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
@@ -9,62 +9,62 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e1d6e041b47a261b549fb8b608cf09d0d6362dd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003117"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443904"
 ---
-# <a name="security-attributes-for-azure-service-bus-messaging"></a>Security attribut för Azure Service Bus-meddelanden
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Säkerhetsattribut för Azure Service Bus meddelande funktion
 
-Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Service Bus-meddelanden.
+I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Azure Service Bus Messaging.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 ## <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>|  Ja för serversidan kryptering vid vila som standard. | Kundhanterade nycklar och BYOK stöds inte ännu. Kryptering är klientens ansvar |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | Stöder standard HTTPS/TLS-mekanism. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Nej |   |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
-| API-anrop som är krypterad| Ja | API-anrop som görs via [Azure Resource Manager](../azure-resource-manager/index.yml) och HTTPS. |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner)|  Ja för kryptering på Server sidan – rest som standard. | Kundhanterade nycklar och BYOK stöds inte ännu. Kryptering på klient sidan är klientens ansvar |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Stöder standard-HTTPS/TLS-mekanismen. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej |   |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | API-anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) och https. |
 
-## <a name="network-segmentation"></a>Nätverkssegmentering
+## <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja (endast Premium-nivån) | Tjänstslutpunkter i virtuella nätverk stöds för [Service Bus Premium-nivån](service-bus-premium-messaging.md) endast. |
-| VNet-stöd för inmatning| Nej | |
-| Isolering av nätverk och brandväggsfunktioner support| Ja (endast Premium-nivån) |  |
-| Tvingad tunneltrafik support| Nej |  |
+| Stöd för tjänst slut punkt| Ja (endast Premium-nivå) | VNet-tjänstens slut punkter stöds endast för [Service Bus Premium-nivån](service-bus-premium-messaging.md) . |
+| Stöd för VNet-injektering| Nej | |
+| Stöd för nätverks isolering och brand vägg| Ja (endast Premium-nivå) |  |
+| Stöd för Tvingad tunnel trafik| Nej |  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Stöds via [Azure Monitor och aviseringar](service-bus-metrics-azure-monitor.md). |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Stöds via [Azure Monitor och aviseringar](service-bus-metrics-azure-monitor.md). |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Hanteras via [Azure Active Directory hanterad tjänstidentitet](service-bus-managed-service-identity.md); Se [Service Bus, autentisering och auktorisering](service-bus-authentication-and-authorization.md).|
-| Auktorisering| Ja | Har stöd för auktorisering via [RBAC](service-bus-role-based-access-control.md) (förhandsversion) och SAS-token, se [Service Bus, autentisering och auktorisering](service-bus-authentication-and-authorization.md). |
+| Authentication| Ja | Hanteras via [Azure Active Directory hanterad tjänstidentitet](service-bus-managed-service-identity.md); Se [Service Bus autentisering och auktorisering](service-bus-authentication-and-authorization.md).|
+| Authorization| Ja | Stöder auktorisering via [RBAC](service-bus-role-based-access-control.md) (för hands version) och SAS-token; Se [Service Bus autentisering och auktorisering](service-bus-authentication-and-authorization.md). |
 
 
 
-## <a name="audit-trail"></a>Granskningslogg
+## <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Åtgärdsloggar är tillgängliga. Se [Service Bus diagnostikloggar](service-bus-diagnostic-logs.md).  |
-| Data plan loggning och granskning| Nej |  |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Det finns tillgängliga åtgärds loggar. Se [Service Bus diagnostikloggar](service-bus-diagnostic-logs.md).  |
+| Loggning och granskning av data planet| Nej |  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | Har stöd för resource provider versionshantering via den [Azure Resource Manager API](/rest/api/resources/).|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Stöder versions hantering av resurs leverantörer via [Azure Resource Manager API](/rest/api/resources/).|

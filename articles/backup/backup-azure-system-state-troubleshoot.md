@@ -1,156 +1,155 @@
 ---
-title: Felsöka säkerhetskopiering av systemtillstånd med Azure Backup
-description: Felsöka problem i säkerhetskopiering av systemtillstånd.
-services: backup
+title: Felsöka säkerhets kopiering av system tillstånd med Azure Backup
+description: Felsök problem med säkerhets kopiering av system tillstånd.
 author: srinathvasireddy
 manager: sivan
-keywords: Så här säkerhetskopierar du; säkerhetskopiera systemtillstånd
+keywords: Säkerhetskopiera; Säkerhetskopiera system tillstånd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 07/22/2019
 ms.author: srinathv
-ms.openlocfilehash: 87b5fff58ecf9e89bc94f31a0bc3a591c146c88f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8996270acb1525697f29b4251bf4e11d2db62fdf
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705003"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465361"
 ---
-# <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhetskopiering av systemtillstånd
+# <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
 
-Den här artikeln beskriver lösningar på problem som kan uppstå när du använder säkerhetskopiering av systemtillstånd.
+I den här artikeln beskrivs lösningar för problem som kan uppstå när du använder säkerhets kopiering av system tillstånd.
 
 ## <a name="basic-troubleshooting"></a>Grundläggande felsökning
-Vi rekommenderar att du utför den under verifieringen, innan du börjar felsöka säkerhetskopiering av systemtillstånd:
+Vi rekommenderar att du utför nedanstående verifiering innan du börjar felsöka säkerhets kopiering av system tillstånd:
 
-- [Se till att Microsoft Azure Recovery Services MARS-agenten är uppdaterade](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Se till att Microsoft Azure Recovery Services (MARS) Agent är uppdaterad](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Kontrollera att det finns nätverksanslutning mellan MARS-agenten och Azure](https://aka.ms/AB-A4dp50)
 - Kontrollera att Microsoft Azure Recovery Services körs (i tjänstkonsolen). Starta om åtgärden och försök igen vid behov
 - [Kontrollera att det finns 5–10 % ledigt utrymme i den tillfälliga mappen](https://aka.ms/AB-AA4dwtt)
 - [Kontrollera att inte andra processer eller antivirusprogram stör Azure Backup](https://aka.ms/AB-AA4dwtk)
 - [Schemalagd säkerhetskopiering misslyckas, men manuell säkerhetskopiering fungerar](https://aka.ms/ScheduledBackupFailManualWorks)
 - Kontrollera att ditt operativsystem har de senaste uppdateringarna
-- [Se till att enheter som inte stöds och filer med attribut som inte stöds är undantagna från säkerhetskopia](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- [Se till att enheter och filer som inte stöds med attribut som inte stöds undantas från säkerhets kopian](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Kontrollera att **systemklockan** i det skyddade systemet är konfigurerad till rätt tidszon <br>
 - [Kontrollera att servern har minst .NET Framework version 4.5.2 eller senare](https://www.microsoft.com/download/details.aspx?id=30653)<br>
 - Om du försöker **omregistrera din server** till ett valv: <br>
   - Kontrollera att agenten är avinstallerad på servern och raderad från portalen <br>
   - Använd samma lösenfras som användes vid den första registreringen av servern <br>
-- Se till att Azure PowerShell-version 3.7.0 är installerad på både käll- och kopiera datorn innan du påbörjar säkerhetskopieringen offline vid säkerhetskopiering offline
-- [Faktor vid Backup-agenten körs på virtuella Azure-datorer](https://aka.ms/AB-AA4dwtr)
+- Om säkerhets kopiering offline säkerställer att Azure PowerShell version 3.7.0 installeras på både käll-och kopierings datorn innan du påbörjar säkerhets kopiering offline
+- [Att tänka på när säkerhets kopierings agenten körs på en virtuell Azure-dator](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>Begränsning
 - Återställning till annan maskinvara genom återställning av systemtillståndet rekommenderas inte av Microsoft
-- Säkerhetskopiering av systemtillstånd stöder för närvarande ”lokalt” Windows-servrar, den här funktionen är inte tillgänglig för virtuella Azure-datorer.
+- Säkerhets kopiering av system tillstånd stöder för närvarande lokala Windows-servrar, men den här funktionen är inte tillgänglig för virtuella Azure-datorer.
 
 ## <a name="pre-requisite"></a>Förhandskrav
 
-Innan vi felsöka säkerhetskopiering av systemtillstånd med Azure Backup kan du kontrollera att du utför den nedan förutsättningar kontrollera.  
+Innan vi felsöker säkerhets kopiering av system tillstånd med Azure Backup bör du se till att du försäkrar nedanstående krav kontroll.  
 
-### <a name="verify-windows-server-backup-is-installed"></a>Kontrollera Windows Server Backup är installerad
+### <a name="verify-windows-server-backup-is-installed"></a>Verifiera Windows Server Backup har installerats
 
-Se till att Windows Server Backup har installerats och aktiverats på servern. Kontrollera installationsstatus, köra de PowerShell-kommandot nedan:
+Se till att Windows Server Backup är installerat och aktiverat på servern. Kontrol lera installations status genom att köra följande PowerShell-kommando:
 
  ```
  PS C:\> Get-WindowsFeature Windows-Server-Backup
  ```
-Om utdata visar den **installationstillståndet** som **tillgängliga**, innebär det till att Windows Server backup funktionen är tillgänglig för installation, men inte installerade på servern. Men om Windows Server Backup inte är installerad kan sedan använda en av de metoderna nedan för att installera den.
+Om utdata visar **installations status** som **tillgänglig**innebär det att Windows Server Backup-funktionen är tillgänglig för installationen men inte är installerad på servern. Men om Windows Server Backup inte är installerat kan du använda någon av metoderna nedan för att installera den.
 
-**Metod 1: Installera Windows Server Backup med hjälp av PowerShell**
+**Metod 1: Installera Windows Server Backup med PowerShell**
 
-Installera Windows Server Backup med hjälp av PowerShell genom att köra i kommandot nedan:
+Kör följande kommando för att installera Windows Server Backup med PowerShell:
 
   ```
   PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
-**Metod 2: Installera Windows Server Backup med hjälp av Serverhanteraren**
+**Metod 2: Installera Windows Server Backup med Serverhanteraren**
 
-Så här installerar du Windows Server Backup med hjälp av Serverhanteraren den nedan:
+Gör så här om du vill installera Windows Server Backup med hjälp av Serverhanteraren:
 
-1. I den **Server Manager** och klicka på **Lägg till roller och funktioner**. Den **guiden för Lägg till roller och funktioner** visas.
+1. I **Server hanteraren** och klicka på **Lägg till roller och funktioner**. **Guiden Lägg till roller och funktioner** visas.
 
     ![Instrumentpanel](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Välj **installationstyp** och klicka på **nästa**.
+2. Välj **Installations typ** och klicka på **Nästa**.
 
-    ![Installationstyp](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
+    ![Installations typ](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Välj en server från serverpoolen och klicka på **nästa**. Lämna kvar standardvalet i Server-rollen och klickar på **nästa**.
-4. Välj **Windows Server Backup** i **funktioner** fliken och klicka på **nästa**.
+3. Välj en server från serverpoolen och klicka på **Nästa**. I Server rollen lämnar du standard valet och klickar på **Nästa**.
+4. Välj **Windows Server Backup** på fliken **funktioner** och klicka på **Nästa**.
 
     ![funktioner](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. I den **bekräftelse** fliken **installera** att starta installationen.
-6. I den **resultat** fliken visas i Windows Server Backup funktionen har installerats på Windows Server.
+5. På fliken **bekräftelse** klickar du på **Installera** för att starta installations processen.
+6. På fliken **resultat** visas Windows Server Backup funktionen har installerats på Windows-servern.
 
     ![Resultatet](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 
-### <a name="system-volume-information-permission"></a>System Volume information behörighet
+### <a name="system-volume-information-permission"></a>Behörighet för system volym information
 
-Kontrollera att det lokala systemet har fullständig behörighet på **System Volume Information** mappen finns på volymen där windows är installerat. Detta är vanligtvis **C:\System Volume Information**. Windows Server backup kan misslyckas om dessa behörigheter inte är korrekt inställda
+Se till att det lokala systemet har fullständig kontroll över mappen **System Volume Information** som finns i den volym där Windows är installerat. Detta är vanligt vis **C:\System volym information**. Windows Server Backup kan inte köras om ovanstående behörigheter inte har angetts korrekt
 
 ### <a name="dependent-services"></a>Beroende tjänster
 
-Se till att den är i körningstillstånd nedan tjänster:
+Se till att nedanstående tjänster är i körnings tillstånd:
 
-**Tjänstnamn** | **Starttyp**
+**Tjänst namn** | **Starttyp**
 --- | ---
-RPC-Call(RPC) | Automatisk
-COM + Event System(EventSystem) | Automatisk
-System Event Notification Service(SENS) | Automatisk
-Volume Shadow startmetoden | Manuellt
-Microsoft-programvara Shadow Copy Provider(SWPRV) | Manuellt
+RPC (Remote Procedure Call) | Automatiskt
+COM+-händelse system (EventSystem) | Automatiskt
+SENS (system Event Notification Service) | Automatiskt
+Volume Shadow Copy (VSS) | Manuell
+Microsoft Software Shadow Copy-Provider (SWPRV) | Manuell
 
-### <a name="validate-windows-server-backup-status"></a>Validera status för Windows Server Backup
+### <a name="validate-windows-server-backup-status"></a>Verifiera Windows Server Backup status
 
-Du kan kontrollera status för Windows Server Backup genom att utföra den nedan:
+Gör så här för att verifiera Windows Server Backup status:
 
-  * Kontrollera att WSB PowerShell körs
+  * Se till att WSB PowerShell körs
 
-    -   Kör `Get-WBJob` från en upphöjd PowerShell och kontrollera att den inte returnerar följande fel:
+    -   Kör `Get-WBJob` från en upphöjd PowerShell och se till att den inte returnerar följande fel:
 
     > [!WARNING]
-    > Get-WBJob: Termen ”Get-WBJob” identifieras inte som namnet på en cmdlet, funktion, skriptfil eller ett körbart program. Kontrollera stavningen av namnet, eller om en sökväg har inkluderats, kontrollera att sökvägen är korrekt och försök igen.
+    > Get-WBJob: Termen "Get-WBJob" känns inte igen som namnet på en cmdlet, Function, skript fil eller fungerande program. Kontrol lera stavningen av namnet eller om en sökväg har inkluderats, kontrol lera att sökvägen är korrekt och försök igen.
 
-    -   Om det misslyckas med felet sedan installera om Windows Server Backup funktionen på server-datorn som vi nämnde i steg 1-krav.
+    -   Om det Miss lyckas med det här felet installerar du om Windows Server Backup-funktionen på serverdatorn enligt anvisningarna i steg 1.
 
-  * Kontrollera att WSB-säkerhetskopiering fungerar, genom att köra den nedanstående kommando från en upphöjd kommandotolk:
+  * Se till att säkerhets kopieringen WSB fungerar korrekt genom att köra kommandot nedan från upphöjd kommando tolk:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
-      >Ersätt X med enhetsbeteckningen för volymen där du vill lagra systemtillståndet säkerhetskopiera bild.
+      >Ersätt X med enhets bokstaven för den volym där du vill lagra säkerhets kopian av system tillstånd.
 
-    - Regelbundet kontrollera status för jobbet genom att köra `Get-WBJob` från utökad PowerShell-session        
-    - När säkerhetskopieringsjobbet är klart kontrollerar du den slutgiltiga statusen för jobbet genom att köra `Get-WBJob -Previous 1` kommando
+    - Kontrol lera regelbundet status för jobbet genom att köra `Get-WBJob` kommandot från upphöjt PowerShell        
+    - När säkerhets kopierings jobbet har slutförts kontrollerar du jobbets slutliga status `Get-WBJob -Previous 1` genom att köra kommandot
 
-Om jobbet misslyckats, anger ett WSB-problem som skulle resultera i MARS-agenten fel vid säkerhetskopiering av systemtillstånd.
+Om jobbet Miss lyckas visas ett WSB-problem som leder till att säkerhets kopieringen av MARS-agenten Miss lyckas.
 
 ## <a name="common-errors"></a>Vanliga fel
 
-### <a name="vss-writer-timeout-error"></a>VSS-skrivaren tidsgränsfel
+### <a name="vss-writer-timeout-error"></a>Tids gräns fel för VSS-skrivare
 
 | Symtom | Orsak | Lösning
 | -- | -- | --
-| -MARS agenten misslyckas med felmeddelandet: ”Windows Server Backup-jobbet misslyckades med VSS-fel. Kontrollera händelseloggarna för VSS att lösa felet ”<br/><br/> – Loggen är finns i Loggboken VSS-program följande fel: ”En VSS-skrivare har avvisat en händelse med fel 0x800423f2, av skrivaren tidsgränsen gick ut mellan händelserna Freeze och Thaw”.| VSS-skrivaren kan inte slutföra tidpunkt på grund av bristande resurser för CPU och minne på datorn <br/><br/> Ett annat säkerhetskopieringsprogram använder redan VSS-skrivaren, därmed ögonblicksbildsåtgärden kunde inte slutföra för den här säkerhetskopian | Vänta tills processor/minne att frigöras på system eller avbryta processer som äger för mycket minne/CPU och försök sedan igen <br/><br/>  Vänta tills pågående säkerhetskopieringen har slutförts och försök igen senare när inga säkerhetskopieringar som körs på datorn
+| -MARS-agenten Miss lyckas med fel meddelandet: "WSB-jobbet misslyckades med VSS-fel. Kontrol lera händelse loggarna för VSS för att lösa problemet "<br/><br/> – Följande fel logg finns i händelse loggar för VSS-program: "En VSS-skrivare har avvisat en händelse med fel 0x800423f2, skrivarens tids gräns överskreds mellan Freeze-och Tina-händelserna."| VSS Writer kan inte slutföras i tid på grund av brist på processor-och minnes resurser på datorn <br/><br/> En annan säkerhets kopierings program vara använder redan VSS-skrivaren eftersom det inte gick att slutföra ögonblicks bilds åtgärden för den här säkerhets kopian | Vänta tills CPU/minne har frigjorts på systemet eller Avbryt processer som tar för mycket minne/CPU och försök sedan igen <br/><br/>  Vänta tills den pågående säkerhets kopieringen har slutförts och försök sedan igen vid ett senare tillfälle när inga säkerhets kopior körs på datorn
 
 
-### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Inte tillräckligt mycket ledigt utrymme att växa skuggkopior
-
-| Symtom | Lösning
-| -- | --
-| -MARS agenten misslyckas med felmeddelandet: Säkerhetskopieringen misslyckades eftersom det inte gick att utöka skuggkopian på grund av otillräckligt diskutrymme på volymer som innehåller systemfiler <br/><br/> -Följande fel/varninglogg finns i volsnap systemhändelseloggarna: ”Det fanns inte tillräckligt med diskutrymme på volymen C: att öka lagringsutrymmet för skuggkopian för skuggkopior av C: på grund av felet alla skuggkopior för volymen C: finns risk för att tas bort” | -Frigöra utrymme i den markerade volymen i händelseloggen så att det finns tillräckligt med utrymme för skuggkopior att växa när säkerhetskopiering pågår <br/><br/> – När du konfigurerar shadow copy utrymme som vi kan begränsa mängden utrymme som används för skuggkopian, mer information finns i den här [artikel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
-
-
-### <a name="efi-partition-locked"></a>EFI-partition som låst
+### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Det finns inte tillräckligt med disk utrymme för att öka skugg kopior
 
 | Symtom | Lösning
 | -- | --
-| MARS-agenten misslyckas med felmeddelandet: ”Systemtillstånd tillbaka upp misslyckades eftersom EFI-systempartitionen är låst. Det kan bero på partitionen användare av en säkerhetsprogram från tredje part eller säkerhetskopiera programvara ” | -Om problemet beror på ett säkerhetsprogram från tredje part-programvara, måste du kontakta leverantören för skydd mot Virus så att de kan tillåta MARS-agenten <br/><br/> – Om en tredje parts programvara för säkerhetskopiering körs, vänta tills den har slutförts och försök sedan tillbaka upp
+| -MARS-agenten Miss lyckas med fel meddelandet: Det gick inte att säkerhetskopiera eftersom skugg kopie volymen inte kunde växa på grund av otillräckligt disk utrymme på volymer som innehåller systemfiler <br/><br/> -Följande fel/varnings logg finns i volsnap-systemets händelse loggar: "Det fanns inte tillräckligt med disk utrymme på volym C: för att öka lagrings utrymmet för skugg kopior av C: på grund av detta problem alla skugg kopior av volym C: riskerar att tas bort" | – Frigör utrymme på den markerade volymen i händelse loggen så att det finns tillräckligt med utrymme för skugg kopior som ska växa medan säkerhets kopiering pågår <br/><br/> – När du konfigurerar skugg kopierings utrymme kan vi begränsa mängden utrymme som används för skugg kopia. mer information finns i den här [artikeln](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+
+
+### <a name="efi-partition-locked"></a>EFI-partitionen är låst
+
+| Symtom | Lösning
+| -- | --
+| MARS-agenten Miss lyckas med fel meddelandet: "Det gick inte att säkerhetskopiera system tillstånd eftersom EFI-systempartitionen är låst. Detta kan bero på systempartitions åtkomst av säkerhets-eller säkerhets kopierings program från tredje part | – Om problemet beror på en säkerhets program vara från tredje part måste du kontakta leverantören av antivirus programmet så att de kan tillåta MARS-agenten <br/><br/> – Om en program vara från tredje part körs, väntar du tills den är klar och försöker sedan säkerhetskopiera igen
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Windows system-tillstånd i Resource Manager-distribution finns i [Säkerhetskopiera Windows Server System-tillstånd](backup-azure-system-state.md)
+- Mer information om Windows system State i Resource Manager-distribution finns i [Säkerhetskopiera Windows Server System State](backup-azure-system-state.md)

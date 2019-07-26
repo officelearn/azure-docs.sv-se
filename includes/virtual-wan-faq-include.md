@@ -5,23 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 07/22/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9cad403e39239ea92aa432ef3234c5388bfa95c7
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c46c11ead645b93d7710d1e11636037e4dcaf8e7
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673530"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444574"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Vad är skillnaden mellan en virtuell nätverksgateway i Azure (VPN Gateway) och en Azure Virtual WAN-vpngateway?
 
-Virtual WAN tillhandahåller storskalig plats-till-plats-anslutning och byggs för dataflöde, skalbarhet och användarvänlighet. Funktionen med ExpressRoute- och punkt-till-plats-anslutning är för närvarande i förhandsversion. CPE grenen enheter autoprovision och Anslut till Azure virtuellt WAN-nätverk. Enheterna finns tillgängliga från ett växande ekosystem av SD-WAN- och VPN-partner. Se [listan över föredragna partner](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+Virtual WAN tillhandahåller storskalig plats-till-plats-anslutning och byggs för dataflöde, skalbarhet och användarvänlighet. ExpressRoute för virtuell WAN-anslutning är för närvarande en för hands version. CPE-avdelnings enheter autoetablera och Anslut till Azure Virtual WAN. Enheterna finns tillgängliga från ett växande ekosystem av SD-WAN- och VPN-partner. Se [listan över föredragna partner](https://go.microsoft.com/fwlink/p/?linkid=2019615).
 
-### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Vad är en gren anslutning till Azure virtuellt WAN-nätverk?
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Vad är en förgrenings anslutning till Azure Virtual WAN?
 
-En anslutning från en gren-enhet till Azure virtuellt WAN-nätverk, består av två aktiva IPsec-tunnlar.
+En anslutning från en förgrenings enhet till Azure Virtual WAN, som består av två aktiva/aktiva IPsec-tunnlar.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Vilken enhetsprovider (Virtual WAN-partner) stöds vid start?
 
@@ -73,7 +73,7 @@ Nej. Det virtuella NVA-nätverket kan inte ha en virtuell nätverksgateway om de
 
 ### <a name="is-there-support-for-bgp"></a>Stöds BGP?
 
-Ja, BGP stöds. När du skapar en VPN-plats kan ange du BGP-parametrarna i den. Detta kan innebära att alla anslutningar som skapats i Azure för den platsen ska aktiveras för BGP. Även måste om du har ett virtuellt nätverk med en NVA, och om det här NVA virtuella nätverket har kopplats till ett virtuellt WAN-nätverk NAV, för att säkerställa att vägarna från en NVA VNet annonseras korrekt, ekrar som är kopplade till NVA-VNet inaktivera BGP. Dessutom kan ansluta dessa eker virtuella nätverk till det virtuella hubbnätverket så eker VNet vägar har spridits till lokala system.
+Ja, BGP stöds. När du skapar en VPN-webbplats kan du ange BGP-parametrar i den. Det innebär att alla anslutningar som har skapats i Azure för platsen aktive ras för BGP. Om du har ett VNet med en NVA, och om det här NVA-VNet har kopplats till en virtuell WAN-hubb, för att säkerställa att vägar från ett NVA VNet annonseras på lämpligt sätt, måste ekrar som är kopplade till NVA VNet inaktivera BGP. Anslut dessutom de här eker-virtuella nätverk till virtuella hubb-VNet för att se till att virtuella ekrar i ekrar sprids till lokala system.
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Kan jag dirigera trafik med hjälp av UDR i den virtuella hubben?
 
@@ -83,25 +83,25 @@ Ja, du kan dirigera trafik till ett virtuellt nätverk med hjälp av routningsta
  
 Ja. Se sidan med [prissättning](https://azure.microsoft.com/pricing/details/virtual-wan/).
 
-### <a name="how-do-i-calculate-price-of-a-hub"></a>Hur jag för att beräkna priset för en hubb?
+### <a name="how-do-i-calculate-price-of-a-hub"></a>Hur gör jag för att beräkna priset för en hubb?
  
-Du betalar för tjänsten i hubben. Till exempel skulle 10 grenar eller lokala enheter som kräver för att ansluta till Azure virtuellt WAN ansluta till VPN-slutpunkter i hubben. Kan anta att det här är VPN över 1 skalningsenhet = 500 Mbit/s, det kostar $0.361/ timme. Varje anslutning som ingår debiteras enligt 0,08 USD/timme. För 10 anslutningar, blir den totala kostnaden för tjänsten/tim $0.361 + $. 8 / HR. Data tillkommer för trafik som lämnar Azure. 
+Du betalar för tjänsten i hubben. Till exempel kan 10 grenar eller lokala enheter som kräver anslutning till Azure Virtual WAN innebära anslutning till VPN-slutpunkter i hubben. Här kan du säga att det här är VPN för 1 skalnings enhet = 500 Mbit/s. Detta debiteras på $0.361/tim. Varje anslutning debiteras med $0,08/timme. För 10 anslutningar blir den totala avgiften för tjänst/timme $0,361 + $. 8/ timmars. Data avgifter för trafik som lämnar Azure gäller. 
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Hur registreras nya partner som inte visas i startpartnerlistan?
 
 Skicka ett e-postmeddelande till azurevirtualwan@microsoft.com. En perfekt partner är en partner som har en enhet som kan etableras för IKEv1 eller IKEv2 IPSec-anslutning.
 
-### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Vad händer om en enhet i använder är inte i listan över virtuella WAN-partner? Kan jag fortfarande använda det för att ansluta till Azure virtuellt WAN VPN?
+### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Vad händer om en enhet jag använder inte finns med i listan över virtuella WAN-partner? Kan jag fortfarande använda den för att ansluta till Azure Virtual WAN VPN?
 
-Ja så länge enheten har stöd för IPsec-IKEv1 eller IKEv2. Virtuellt WAN partner automatisera anslutningen mellan enheten och Azure VPN-slutpunkter. Detta innebär automatiserar steg, till exempel ”ladda upp information gren', 'IPsec och configuration” och ”anslutning”. Eftersom enheten inte är från ett virtuellt WAN-nätverk partnerekosystem, behöver du tungrodda manuellt med Azure-konfiguration och uppdatera din enhet för att konfigurera IPsec-anslutning. 
+Ja så länge enheten stöder IPsec IKEv1 eller IKEv2. Virtuella WAN-partner automatiserar anslutningen från enheten till Azure VPN-slutpunkter. Detta innebär att automatisera steg som "gren information upload", "IPsec and Configuration" och "anslutning". Eftersom din enhet inte kommer från ett eko system med en virtuell WAN-partner måste du göra den tunga genom att manuellt ta Azure-konfigurationen och uppdatera enheten för att konfigurera IPsec-anslutning. 
 
 ### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>Är det möjligt att konstruera Azure Virtual WAN med en Resource Manager-mall?
 
-En enkel konfiguration av ett virtuellt WAN-nätverk med en hubb och en vpnsite kan skapas med en [Azure-Snabbstart mallen](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN är främst en REST- eller portaldriven tjänst.
+En enkel konfiguration av ett virtuellt WAN med en hubb och en vpnsite kan skapas med en [Azure snabb starts mall](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN är främst en REST- eller portaldriven tjänst.
 
 ### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>Tillåts gren-till-gren-anslutningar i Virtual WAN?
 
-Ja, det finns stöd för gren-till-gren-anslutningar i Virtual WAN för VPN och VPN till ExpressRoute. VPN plats-till-plats är allmänt tillgängligt, men ExpressRoute och punkt-till-plats är för närvarande i förhandsversion.
+Ja, det finns stöd för gren-till-gren-anslutningar i Virtual WAN för VPN och VPN till ExpressRoute. Även om VPN plats-till-plats är GA, är ExpressRoute för närvarande en för hands version.
 
 ### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>Kan gren-till-gren-trafik användas i Azure Virtual WAN?
 
@@ -109,11 +109,11 @@ Ja.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Hur skiljer sig Virtual WAN från den befintliga Azure Virtual Network-gatewayen?
 
-Det virtuella privata nätverkets Virtual Network-gateway är begränsad till 30 tunnlar. För anslutningar bör du använda Virtual WAN för ett storskaligt virtuellt privat nätverk. Du kan ansluta upp till 1 000 anslutningar för avdelningskontor med 20 Gbit/s i en hubb för alla regioner. En anslutning är en aktiv-aktiv-tunnel från den lokala VPN-enheten till den virtuella hubben. Du kan ha en hubb för varje region, vilket innebär att du kan ansluta fler än 1 000 grenar på hubs.
+Det virtuella privata nätverkets Virtual Network-gateway är begränsad till 30 tunnlar. För anslutningar bör du använda Virtual WAN för ett storskaligt virtuellt privat nätverk. Du kan ansluta upp till 1 000 förgrenings anslutningar med 20 Gbit/s i hubben för alla regioner. En anslutning är en aktiv-aktiv-tunnel från den lokala VPN-enheten till den virtuella hubben. Du kan ha en hubb per region, vilket innebär att du kan ansluta fler än 1 000 grenar över hubbar.
 
-### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Hur virtuellt WAN-nätverk stöder SD-WAN-enheter?
+### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Hur fungerar virtuella WAN-enheter som stöder SD-WAN-enheter?
 
-Virtuellt WAN partner automatisera IPsec-anslutning till Azure VPN-slutpunkter. Om du använder virtuella WAN partnern som en SD-WAN-provider är den underförstådda att kontrollanten SD-WAN hanterar automation och IPsec-anslutning för Azure VPN-slutpunkter. Om SD-WAN kräver sin egen slutpunkt i stället för Azure VPN för eventuella upphovsrättsskyddad SD-WAN-funktioner, kan du distribuera SD-WAN-slutpunkten i ett virtuellt Azure nätverk och samexistera med Azure virtuellt WAN-nätverk.
+Virtuella WAN-partners automatiserar IPsec-anslutningen till Azure VPN-slutpunkter. Om den virtuella WAN-partnern är en SD-WAN-Provider, är det underförstådd att den SD-WAN-styrenheten hanterar automatisering och IPsec-anslutning till Azure VPN-slutpunkter. Om SD-WAN-enheten kräver sin egen slut punkt i stället för Azure VPN för alla patentskyddade SD-WAN-funktioner, kan du distribuera en slut punkt för SD-WAN i ett Azure VNet och samverka med Azure Virtual WAN.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>Kräver detta Virtual WAN ExpressRoute från varje plats?
 
@@ -121,24 +121,24 @@ Nej, Virtual WAN kräver inte ExpressRoute från varje plats. Virtual WAN använ
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Finns det någon gräns för nätverksdataflöde vid användning av Azure Virtual WAN?
 
-Antalet grenar är begränsat till 1 000 anslutningar per hubb/region och totalt 2 G i hubben. Undantaget är USA, västra centrala, som har högst 20 Gbit/s. Vi kommer att lansera 20 Gbit/s till andra regioner i framtiden.
+Antalet grenar är begränsat till 1000 anslutningar per hubb/region och totalt 20 Gbit/s i hubben.
 
-### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Hur många VPN-anslutningar stöder en virtuellt WAN-nätverk hubb?
+### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Hur många VPN-anslutningar stöder en virtuell WAN-hubb?
 
-En Azure virtuellt WAN-hubb kan stöda upp till 1 000 anslutningar för S2S och 10 000 P2S-anslutningar samtidigt.
+En virtuell Azure-hubb i Azure har stöd för upp till 1 000 S2S-anslutningar och 10 000 P2S-anslutningar samtidigt.
 
-### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Vad är den totala genomströmningen för VPN i en VPN-tunnel och en anslutning?
+### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Vad är det totala VPN-dataflödet för en VPN-tunnel och en anslutning?
 
-Den totala genomströmningen för VPN i en hubb är upp till 20 Gbit/s baserat på valda skalningsenheten. Dataflödet är gemensam för alla befintliga anslutningar.
+Det totala VPN-dataflödet för en hubb är upp till 20 Gbit/s baserat på vald skalnings enhet. Data flödet delas av alla befintliga anslutningar.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Tillåter Virtual WAN att den lokala enheten använder flera Internetleverantörer samtidigt eller är det alltid en enda VPN-tunnel?
 
-En anslutning kommer till virtuellt WAN VPN är alltid en aktiv-aktiv-tunnel (för ökad flexibilitet i samma hubbregion) med hjälp av en länk som är tillgängliga på grenen. Den här länken kan vara en ISP-länk på den lokala grenen. Virtuellt WAN ger inte någon särskild logik för att ställa in flera Internetleverantören parallellt; Hantera redundans i ISP på grenen är helt en gren-centric nätverksåtgärd. Du kan använda din favorit SD-WAN-lösning för att göra bana markering på grenen.
+En anslutning som kommer till virtuella WAN-VPN är alltid en aktiv-aktiv tunnel (för återhämtning inom samma hubb/region) med en länk som är tillgänglig på grenen. Länken kan vara en ISP-länk på den lokala grenen. Virtual WAN tillhandahåller inte någon speciell logik för att konfigurera flera Internet leverantörer parallellt. hantering av redundans över Internet leverantörer i grenen är helt en grenad, inriktad nätverks åtgärd. Du kan använda din favorit lösning för SD-WAN för att göra Sök vägs val på grenen.
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Hur dirigeras trafiken i Azures stamnät?
 
-Trafiken följer mönstret: grenen enheter -> ISP -> Microsoft edge -> Microsoft-DC (hubbnätverket) -> Microsoft edge -> ISP -> gren enhet
+Trafiken följer mönstret: grenen het-> ISP-> Microsoft Edge-> Microsoft DC (hubb VNet)-> Microsoft Edge-> Branch-enhet
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Vad behöver du på varje plats i den här modellen? Bara en Internetanslutning?
 
-Ja. En Internetanslutning och en fysisk enhet som har stöd för IPsec, helst från våra integrerade [partner](https://go.microsoft.com/fwlink/p/?linkid=2019615). Du kan manuellt hantera konfigurationen och anslutningen till Azure från önskad enhet.
+Ja. En Internet anslutning och en fysisk enhet som stöder IPsec, helst från våra integrerade [partner](https://go.microsoft.com/fwlink/p/?linkid=2019615). Du kan manuellt hantera konfigurationen och anslutningen till Azure från önskad enhet.

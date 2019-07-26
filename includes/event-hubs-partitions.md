@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b23f9532aa1ca6f7bae914ff8cb9d7566a0fec86
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: dc7c86ff1df48f9ce96769098f7aab76d33c8822
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841493"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68481580"
 ---
 Event Hubs tillhandahåller meddelandeströmning via ett partitionerat konsumentmönster där varje konsument endast läser en specifik delmängd, eller partition, av meddelandeströmmen. Det här mönstret gör det möjligt att skala horisontellt för händelsebearbetning och tillhandahåller andra strömfokuserade funktioner som inte är tillgängliga i köer och ämnen.
 
@@ -27,12 +27,14 @@ Event Hubs behåller data under en konfigurerad kvarhållningstid som gäller f�
 
 Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Eftersom det inte går att ändra antalet partitioner bör du tänka på hur många partitioner som kommer att behövas på längre sikt när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Du kan öka antalet partitioner till mer än 32 genom att kontakta Event Hubs-teamet.
 
-Du rekommenderas att inte skicka direkt till en partition partitioner kan identifieras och kan skickas till direkt. Du kan i stället använda konstruktioner på högre nivå introducerades i den [händelseutfärdare](../articles/event-hubs/event-hubs-features.md#event-publishers) avsnittet. 
+Du kanske vill ange att den ska vara det högsta möjliga värdet, vilket är 32 vid tidpunkten för skapandet. Kom ihåg att om du har mer än en partition resulterar det i händelser som skickas till flera partitioner utan att behållas i ordningen, om du inte konfigurerar avsändare till att bara skicka till en enda partition av 32 som lämnar de återstående 31 partitionerna överflödiga. I det förra fallet måste du läsa händelser över alla 32-partitioner. I det senare fallet finns det ingen uppenbar ytterligare kostnad utöver den extra konfiguration som du måste göra på händelse bearbetnings värden.
+
+Du rekommenderas att inte skicka direkt till en partition partitioner kan identifieras och kan skickas till direkt. I stället kan du använda konstruktioner på högre nivå som introduceras i avsnittet [händelse utfärdare](../articles/event-hubs/event-hubs-features.md#event-publishers) . 
 
 Partitioner är fyllda med en sekvens av händelsedata som innehåller själva händelsen, en användardefinierad egenskapsuppsättning och metadata, till exempel dess offset i partitionen och dess nummer i dataströmsekvensen.
 
-Vi rekommenderar att du balanserar 1:1-genomflödesenheter och partitioner för att uppnå optimal skala. En enskild partition har en garanterad ingående och utgående på upp till en genomflödesenhet. Du kanske kan uppnå högre dataflöde på en partition, garanteras inte prestanda. Det är därför vi rekommenderar starkt att antalet partitioner i en händelsehubb är större än eller lika med antalet dataflödesenheter.
+Vi rekommenderar att du balanserar 1:1-dataflödes enheter och partitioner för att uppnå optimal skalning. En enda partition har en garanterad ingående och utgående enhet till en data flödes enhet. Även om du kan få högre data flöde på en partition, garanterar du inte prestanda. Därför rekommenderar vi starkt att antalet partitioner i en händelsehubben är större än eller lika med antalet data flödes enheter.
 
-Det totala dataflödet som du planerar att behöva får du vet antal throughput units som du behöver och det minsta antalet partitioner, men hur många partitioner bör du ha? Välj antal partitioner baserat på den underordnade parallellitet som du vill uppnå samt framtida dataflödet behöver. Det finns ingen kostnad för antalet partitioner som du har i en Händelsehubb.
+Utifrån det totala data flöde som du planerar att använda, vet du antalet data flödes enheter du behöver och det lägsta antalet partitioner, men hur många partitioner bör du ha? Välj antal partitioner baserat på den underordnade parallellitet som du vill uppnå samt dina framtida data flödes behov. Det finns ingen kostnad för antalet partitioner som du har i en Event Hub.
 
 Mer information om partitioner och avvägningen mellan tillgänglighet och tillförlitlighet finns i [Programmeringsguide för Event Hubs](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) och i artikeln om [tillgänglighet och konsekvens i Event Hubs](../articles/event-hubs/event-hubs-availability-and-consistency.md).

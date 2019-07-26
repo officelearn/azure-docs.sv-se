@@ -1,6 +1,6 @@
 ---
-title: Vanliga säkerhetsattribut för Azure Service Bus Relay
-description: En lista med vanliga security attribut för att utvärdera Azure Service Bus Relay
+title: Säkerhetsattribut för Azure Service Bus relä
+description: En check lista över säkerhetsattribut för utvärdering av Azure Service Bus relä
 services: service-bus-relay
 ms.service: service-bus-relay
 documentationcenter: ''
@@ -9,60 +9,60 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2047f64914d4a286e6de38b7b2c8524d98eba562
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000156"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443872"
 ---
-# <a name="security-attributes-for-azure-service-bus-relay"></a>Security attribut för Azure Service Bus Relay
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Säkerhetsattribut för Azure Service Bus relä
 
-Den här artikeln dokumenteras security-attribut som är inbyggda i Azure Service Bus Relay.
+I den här artikeln dokumenteras säkerhetsattributen som är inbyggda i Azure Service Bus relä.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 ## <a name="preventative"></a>Förebyggande
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>|  Gäller inte | Relay är en web-socket och data sparas inte. |
-| Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | Tjänsten kräver TLS. |
-| Kryptering viktiga hantering (CMK, BYOK osv.)| Nej | Använder Microsoft TLS-certifikat.  |
-| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte | |
-| API-anrop som är krypterad| Ja | HTTPS. |
+| Kryptering i vila (t. ex. kryptering på Server sidan, kryptering på Server sidan med Kundhanterade nycklar och andra krypterings funktioner)|  Gäller inte | Relay är en webbsocket och bevarar inte data. |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Tjänsten kräver TLS. |
+| Hantering av krypterings nyckel (CMK, BYOK osv.)| Nej | Använder endast Microsoft TLS-certifikat.  |
+| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
+| Krypterade API-anrop| Ja | HTTPS. |
 
-## <a name="network-segmentation"></a>Nätverkssegmentering
+## <a name="network-segmentation"></a>Nätverks segmentering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar |
+| Säkerhetsattribut | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Nej |  |
-| Isolering av nätverk och brandväggsfunktioner support| Nej |  |
-| Tvingad tunneltrafik support| Gäller inte | Relay är TLS-tunnel  |
+| Stöd för tjänst slut punkt| Nej |  |
+| Stöd för nätverks isolering och brand vägg| Nej |  |
+| Stöd för Tvingad tunnel trafik| Gäller inte | Relä är TLS-tunneln  |
 
-## <a name="detection"></a>Detection (Identifiering)
+## <a name="detection"></a>Identifiering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Ja | Via SAS. |
-| Auktorisering|  Ja | Via SAS. |
+| Authentication| Ja | Via SAS. |
+| Authorization|  Ja | Via SAS. |
 
 
-## <a name="audit-trail"></a>Granskningslogg
+## <a name="audit-trail"></a>Gransknings logg
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Kontroll och hantering av plan loggning och granskning| Ja | Via [med Azure Resource Manager](../azure-resource-manager/index.yml). |
-| Data plan loggning och granskning| Ja | Anslutningen lyckas / fel och fel och loggas.  |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Loggning och granskning av data planet| Ja | Lyckad/misslyckad anslutning och fel och loggad.  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetsattributet | Ja/nej | Anteckningar|
+| Säkerhetsattribut | Ja/nej | Anteckningar|
 |---|---|--|
-| Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja | Via [med Azure Resource Manager](../azure-resource-manager/index.yml).|
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml).|

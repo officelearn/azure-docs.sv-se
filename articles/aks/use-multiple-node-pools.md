@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278175"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478332"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -145,7 +145,9 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 ## <a name="upgrade-a-node-pool"></a>Uppgradera en Node-pool
 
-När ditt AKS-kluster skapades i det första steget angavs `--kubernetes-version` en av *1.13.5* . Nu ska vi uppgradera *mynodepool* till Kubernetes *1.13.7*. Använd kommandot [Uppgradera AZ AKS Node pool][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
+När ditt AKS-kluster skapades i det första steget angavs `--kubernetes-version` en av *1.13.5* . Detta anger Kubernetes-versionen för både kontroll planet och den första noden. Det finns olika kommandon för att uppgradera Kubernetes-versionen av kontroll planet och Node-poolen. Kommandot används för att uppgradera kontroll planet, `az aks nodepool upgrade` medan används för att uppgradera en enskild Node-pool. `az aks upgrade`
+
+Nu ska vi uppgradera *mynodepool* till Kubernetes *1.13.7*. Använd kommandot [Uppgradera AZ AKS Node pool][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -155,6 +157,9 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.7 \
     --no-wait
 ```
+
+> [!Tip]
+> Om du vill uppgradera kontroll planet till *1.13.7*kör `az aks upgrade -k 1.13.7`du.
 
 Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge till *1.13.7*:
 
@@ -170,6 +175,15 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 Det tar några minuter att uppgradera noderna till den angivna versionen.
 
 Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till samma Kubernetes-version. Möjligheten att uppgradera enskilda noder i pooler gör att du kan utföra en löpande uppgradering och schemalägga poddar mellan noder för att upprätthålla drift tiden för programmet.
+
+> [!NOTE]
+> Kubernetes använder standard versions schema för [semantisk versions hantering](https://semver.org/) . Versions numret uttrycks som *x. y. z*, där *x* är huvud versionen, *y* är den lägre versionen och *z* är korrigerings versionen. I version *1.12.6*1 är till exempel den högre versionen, 12 är den lägre versionen och 6 är korrigerings versionen. Kubernetes-versionen av kontroll planet samt den första nodens resurspool anges när klustret skapas. Alla ytterligare noder i pooler har Kubernetes-versionen när de läggs till i klustret. Kubernetes-versionerna kan variera mellan olika resurspooler samt mellan en Node-pool och kontroll planet, men följande begränsningar gäller:
+> 
+> * Node-versionen måste ha samma huvud version som kontroll planet.
+> * Node-versionen kan vara en lägre version som är mindre än kontroll Plans versionen.
+> * En version av Node-poolen kan vara en korrigerings version så länge de andra två begränsningarna följs.
+> 
+> Om du vill uppgradera Kubernetes-versionen av kontroll planet använder `az aks upgrade`du. Om klustret bara har en adresspool, kommer `az aks upgrade` kommandot också att uppgradera Kubernetes-versionen för Node-poolen.
 
 ## <a name="scale-a-node-pool"></a>Skala en Node-pool
 

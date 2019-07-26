@@ -1,7 +1,6 @@
 ---
 title: Azure Snabbstart – Säkerhetskopiera en virtuell dator med PowerShell
 description: Lär dig hur du säkerhetskopierar virtuella datorer med Azure PowerShell
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
@@ -10,22 +9,22 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 05432f5a38c3d907afa95ac7b1b3adfe9c5515fe
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3766b3b7f9dbab23673498eefd3f335b8e7f6c16
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236333"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467166"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Säkerhetskopiera en virtuell dator med PowerShell
 
-Den [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) modulen används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. 
+Modulen [Azure POWERSHELL AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) används för att skapa och hantera Azure-resurser från kommando raden eller i skript. 
 
-[Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en virtuell Azure-dator med AZ-modulen. Du kan också säkerhetskopiera en virtuell dator med den [Azure CLI](quick-backup-vm-cli.md), eller i den [Azure-portalen](quick-backup-vm-portal.md).
+[Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en virtuell Azure-dator med AZ-modulen. Alternativt kan du säkerhetskopiera en virtuell dator med hjälp av [Azure CLI](quick-backup-vm-cli.md)eller i [Azure Portal](quick-backup-vm-portal.md).
 
 I den här snabbstarten sker säkerhetskopieringen på en befintlig virtuell Azure-dator. Om du behöver skapa en virtuell dator kan du [skapa en virtuell dator med Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Den här snabbstarten kräver Azure PowerShell-AZ Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
+Den här snabb starten kräver Azure PowerShell AZ-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -36,7 +35,7 @@ Den här snabbstarten kräver Azure PowerShell-AZ Modulversion 1.0.0 eller senar
     ```powershell
     Connect-AzAccount
     ```
-2. Första gången du använder Azure Backup, måste du registrera Azure Recovery Services-providern i din prenumeration med [registrera AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), enligt följande:
+2. Första gången du använder Azure Backup måste du registrera Azure Recovery Service-providern i din prenumeration med [register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), enligt följande:
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -45,18 +44,18 @@ Den här snabbstarten kräver Azure PowerShell-AZ Modulversion 1.0.0 eller senar
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-En [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) är en logisk behållare som lagrar säkerhetskopierade data för skyddade resurser, till exempel virtuella Azure-datorer. När ett säkerhetskopieringsjobb körs, skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
+Ett [Recovery Services valv](backup-azure-recovery-services-vault-overview.md) är en logisk behållare som lagrar säkerhetskopierade data för skyddade resurser, till exempel virtuella Azure-datorer. När ett säkerhets kopierings jobb körs skapas en återställnings punkt i Recovery Services valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
 
 När du skapar valvet:
 
-- Ange resursgrupp och plats för den virtuella datorn som du vill säkerhetskopiera för resursgrupp och plats.
-- Om du har använt detta [exempel på skript](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) för att skapa den virtuella datorn, resursgruppen är **myResourceGroup**, den virtuella datorn är ***myVM**, och resurserna finns på den **WestEurope**  region.
-- Azure Backup hanterar automatiskt lagring för säkerhetskopierade data. Valvet använder som standard [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). GEO-redundans garanterar att säkerhetskopierade data replikeras till en sekundär Azure region hundratals mil bort från den primära regionen.
+- För resurs gruppen och platsen anger du resurs grupp och plats för den virtuella dator som du vill säkerhetskopiera.
+- Om du använde det här [exempel skriptet](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) för att skapa den virtuella datorn är resurs gruppen **myResourceGroup**, den virtuella datorn är ***MyVM**och resurserna finns i **WestEurope** -regionen.
+- Azure Backup hanterar automatiskt lagring för säkerhetskopierade data. Som standard använder valvet [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). GEO-redundans garanterar att säkerhetskopierade data replikeras till en sekundär Azure-region, hundratals mil bort från den primära regionen.
 
-Nu ska du skapa ett valv:
+Skapa ett valv nu:
 
 
-1. Använd den [New AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) att skapa valvet:
+1. Använd [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) för att skapa valvet:
 
     ```powershell
     New-AzRecoveryServicesVault `
@@ -65,38 +64,38 @@ Nu ska du skapa ett valv:
     -Location "WestEurope"
     ```
 
-2. Anger du valvkontexten med [Set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext), enligt följande:
+2. Ange valv kontexten med [set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext)enligt följande:
 
     ```powershell
     Get-AzRecoveryServicesVault `
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. Ändra storage redundans-konfiguration (LRS/GRS) valvet med [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty), enligt följande:
+3. Ändra LRS/GRS (Storage redundans Configuration) för valvet med [set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty)enligt följande:
     
     ```powershell
     Get-AzRecoveryServicesVault `
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
-    > Lagringsredundans kan ändras om det finns inga objekt att säkerhetskopiera skyddas i valvet.
+    > Lagrings redundans kan bara ändras om det inte finns några säkerhets kopierings objekt skyddade i valvet.
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Aktivera säkerhetskopiering för en virtuell Azure-dator
 
-Du aktiverar säkerhetskopiering för en Azure virtuell dator och ange en princip för säkerhetskopiering.
+Du aktiverar säkerhets kopiering för en virtuell Azure-dator och anger en säkerhets kopierings princip.
 
-- Principen definierar när säkerhetskopieringar ska köras och hur länge återställningspunkter som skapats av säkerhetskopiorna ska behållas.
-- Med standardskyddsprincipen körs en gång per dag för en säkerhetskopia för den virtuella datorn och behåller skapade återställningspunkter i 30 dagar. Du kan använda den här standardprincipen för att snabbt skydda den virtuella datorn. 
+- Principen definierar när säkerhets kopieringar körs och hur länge återställnings punkter som skapas av säkerhets kopiorna ska behållas.
+- Standard skydds principen kör en säkerhets kopiering en gång per dag för den virtuella datorn och behåller de skapade återställnings punkterna i 30 dagar. Du kan använda den här standard principen för att snabbt skydda den virtuella datorn. 
 
-Aktivera säkerhetskopiering på följande sätt:
+Aktivera säkerhets kopiering på följande sätt:
 
-1. Först ange standardprincipen med [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy):
+1. Ange först standard principen med [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy):
 
     ```powershell
     $policy = Get-AzRecoveryServicesBackupProtectionPolicy     -Name "DefaultPolicy"
     ```
 
-2. Aktivera säkerhetskopiering av virtuella datorer med [aktivera AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Ange principen, resursgruppen och VM-namnet.
+2. Aktivera säkerhets kopiering av virtuella datorer med [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Ange principen, resurs gruppen och namnet på den virtuella datorn.
 
     ```powershell
     Enable-AzRecoveryServicesBackupProtection `
@@ -108,19 +107,19 @@ Aktivera säkerhetskopiering på följande sätt:
 
 ## <a name="start-a-backup-job"></a>Starta ett säkerhetskopieringsjobb
 
-Säkerhetskopiering köras i enlighet med det schema som angetts i säkerhetskopieringsprincipen. Du kan också köra en ad hoc-säkerhetskopiering:
+Säkerhets kopieringar körs enligt det schema som anges i säkerhets kopierings principen. Du kan också köra en ad hoc-säkerhetskopiering:
 
-- Det första första säkerhetskopieringsjobbet skapar en fullständig återställningspunkt.
-- Efter den första säkerhetskopian skapas varje säkerhetskopiering inkrementella återställningspunkter.
+- Det första första säkerhets kopierings jobbet skapar en fullständig återställnings punkt.
+- Efter den första säkerhets kopieringen skapar varje säkerhets kopierings jobb stegvisa återställnings punkter.
 - Inkrementella återställningspunkter är lagrings- och tidseffektiva eftersom de bara överför de ändringar som gjorts sedan den senaste säkerhetskopieringen.
 
-Om du vill köra en ad hoc-säkerhetskopiering, som du använder den [Backup AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
-- Anger du en behållare i valvet som innehåller dina säkerhetskopierade data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
-- Varje virtuell dator som säkerhetskopieras hanteras som ett objekt. Om du vill starta ett säkerhetskopieringsjobb du få information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+Om du vill köra en ad hoc-säkerhetskopiering använder du [säkerhets kopierings-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+- Du anger en behållare i valvet som innehåller dina säkerhets kopierings data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
+- Varje virtuell dator som säkerhetskopieras hanteras som ett objekt. Om du vill starta ett säkerhets kopierings jobb får du information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
-Kör en ad hoc-säkerhetskopiering på följande sätt:
+Kör ett ad hoc-säkerhets kopierings jobb på följande sätt:
 
-1. Anger behållaren, hämta information för virtuell dator och köra säkerhetskopieringen.
+1. Ange behållaren, hämta information om virtuella datorer och kör säkerhets kopieringen.
 
     ```powershell
     $backupcontainer = Get-AzRecoveryServicesBackupContainer `
@@ -134,17 +133,17 @@ Kör en ad hoc-säkerhetskopiering på följande sätt:
     Backup-AzRecoveryServicesBackupItem -Item $item
     ```
 
-2. Du kan behöva vänta upp till 20 minuter, eftersom det första säkerhetskopieringsjobbet körs skapas en fullständig återställningspunkt. Övervaka jobbet enligt beskrivningen i nästa procedur.
+2. Du kan behöva vänta upp till 20 minuter eftersom det första säkerhets kopierings jobbet skapar en fullständig återställnings punkt. Övervaka jobbet enligt beskrivningen i nästa procedur.
 
 
 ## <a name="monitor-the-backup-job"></a>Övervaka säkerhetskopieringen
 
-1. Kör [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) att övervaka jobbstatusen.
+1. Kör [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) för att övervaka jobb statusen.
 
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
-    Utdata liknar följande exempel som visar jobbet som **InProgress**:
+    Utdata liknar följande exempel som visar jobbet som **pågående**:
 
     ```
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
@@ -153,16 +152,16 @@ Kör en ad hoc-säkerhetskopiering på följande sätt:
     myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
     ```
 
-2. När jobbet har statusen är **slutförd**, den virtuella datorn är skyddad och har en fullständig återställningspunkt har sparats.
+2. När jobbets status är **slutförd**, skyddas den virtuella datorn och har en fullständig återställnings punkt.
 
 
-## <a name="clean-up-the-deployment"></a>Rensa upp distributionen
+## <a name="clean-up-the-deployment"></a>Rensa distributionen
 
-Om du behöver inte längre att säkerhetskopiera den virtuella datorn kan rensa du den.
-- Hoppa över den Rensa upp om du vill prova återställer den virtuella datorn.
-- Om du använde en befintlig virtuell dator kan du hoppa över sista [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdleten och ha kvar resursgruppen och den Virtuella datorn.
+Om du inte längre behöver säkerhetskopiera den virtuella datorn kan du rensa den.
+- Om du vill prova att återställa den virtuella datorn hoppar du över rensningen.
+- Om du använde en befintlig virtuell dator kan du hoppa över den slutliga cmdleten [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) så att du lämnar resurs gruppen och den virtuella datorn på plats.
 
-Inaktivera skyddet, ta bort återställningspunkterna och valv. Ta sedan bort resursgruppen och de relaterade Virtuella datorresurserna på följande sätt:
+Inaktivera skydd, ta bort återställnings punkterna och valvet. Ta sedan bort resurs gruppen och tillhör ande virtuella dator resurser enligt följande:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints
@@ -176,5 +175,5 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 I den här snabbstarten har du skapat ett Recovery Services-valv, aktiverat skydd på en virtuell dator och skapat den första återställningspunkten. 
 
-- [Lär dig hur](tutorial-backup-vm-at-scale.md) att säkerhetskopiera virtuella datorer i Azure-portalen.
-- [Lär dig hur](tutorial-restore-disk.md) snabbt återställa en virtuell dator
+- [Lär dig hur](tutorial-backup-vm-at-scale.md) du säkerhetskopierar virtuella datorer i Azure Portal.
+- [Lär dig hur](tutorial-restore-disk.md) du snabbt återställer en virtuell dator

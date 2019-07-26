@@ -1,5 +1,5 @@
 ---
-title: Automatisk etablering av enheter med DPS med hjälp av symmetrisk nyckel attestering-Azure IoT Edge | Microsoft Docs
+title: Etablera enheter med DPS med hjälp av symmetrisk nyckel attestering-Azure IoT Edge | Microsoft Docs
 description: Använd symmetrisk nyckel attestering för att testa automatisk enhets etablering för Azure IoT Edge med enhets etablerings tjänsten
 author: kgremban
 manager: philmea
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91162271bf36e1d68e087a60723497e7fc261ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
-ms.translationtype: HT
+ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275730"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414586"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering
 
-Azure IoT Edge-enheter kan vara automatisk etablering med hjälp av den [Device Provisioning-tjänsten](../iot-dps/index.yml) precis som enheter som inte är Microsoft edge-aktiverade. Om du är bekant med processen för automatisk etablering kan du granska den [begrepp inom Automatisk etablering](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Azure IoT Edge-enheter kan vara autoprovisioned med hjälp av den [Device Provisioning-tjänsten](../iot-dps/index.yml) precis som enheter som inte är Microsoft edge-aktiverade. Om du är bekant med processen för autoprovisioning kan du granska den [autoprovisioning begrepp](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
 
 Den här artikeln visar hur du skapar en individuell registrering av enhets etablerings tjänsten med hjälp av symmetrisk nyckel attestering på en IoT Edge enhet med följande steg:
 
@@ -165,8 +165,7 @@ Du behöver följande information när du konfigurerar din enhet:
 
 Följ anvisningarna för enhetens arkitektur. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering.
 
-* [Installera Azure IoT Edge runtime på Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Installera Azure IoT Edge runtime på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)
 
 Avsnittet i konfigurations filen för symmetrisk nyckel etablering ser ut så här:
 
@@ -188,7 +187,7 @@ Ersätt plats hållarnas värden för `{scope_id}`, `{registration_id}`och `{sym
 
 Följ anvisningarna för att installera IoT Edge runtime på enheten som du skapade en härledd enhets nyckel för. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering.
 
-[Installera och etablera IoT Edge automatiskt](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Installera och etablera IoT Edge automatiskt i Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Verifiera installationen
 

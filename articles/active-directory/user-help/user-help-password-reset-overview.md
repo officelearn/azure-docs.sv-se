@@ -1,6 +1,6 @@
 ---
-title: Återställa ditt eget arbete eller skola lösenord översikt – Azure Active Directory | Microsoft Docs
-description: En lista med länkar till artiklar om hur du registrerar och återställa lösenordet för arbets- eller skolkonton utan hjälp av administratören.
+title: Återställa ditt eget arbets-eller skol lösen ord översikt – Azure Active Directory | Microsoft Docs
+description: En lista med länkar till artiklar om hur du registrerar och återställer lösen ordet för ditt arbets-eller skol konto utan Administratörs hjälp.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,27 +12,27 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1dae1b8577c4f90211c3b377dbf88efe6907326
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 66cb7218b5217565529e1e15d875c23dff10e06f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243878"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382266"
 ---
-# <a name="reset-your-own-work-or-school-password-overview"></a>Återställa ditt eget arbete eller skola översikt för lösenord
+# <a name="reset-your-own-work-or-school-password-overview"></a>Återställa ditt eget arbets-eller skol lösen ord – översikt
 
-Om du har glömt ditt lösenord för arbets- eller skolkonto aldrig fick ett lösenord från din organisation, eller har blivit utelåst från ditt konto, kan du använda din säkerhetsinformation och din mobila enhet för att återställa lösenordet för arbets- eller skolkonto.
+Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig ett lösen ord från din organisation eller har låsts av ditt konto, kan du använda din säkerhets information och din mobila enhet för att återställa lösen ordet till ditt arbets-eller skol konto.
 
-Administratören måste aktivera den här funktionen att kunna registrera din information och återställa ditt eget lösenord. Om du inte ser den **har glömt mitt lösenord** alternativet, betyder det att administratören inte har aktiverat funktionen för din organisation. Om du tror att detta ska vara felaktigt kan kontakta supportavdelningen för hjälp.
+Administratören måste aktivera den här funktionen så att du kan registrera din information och återställa ditt eget lösen ord. Om du inte ser alternativet **glömt mitt lösen ord** betyder det att administratören inte har aktiverat funktionen på för din organisation. Om du tror att det är fel kan du kontakta supportavdelningen om du behöver hjälp.
 
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-## <a name="reset-your-own-work-or-school-password-related-articles"></a>Återställa ditt eget arbete eller skola lösenord-relaterade artiklar
+## <a name="reset-your-own-work-or-school-password-related-articles"></a>Återställa dina egna arbets-eller skolbaserade lösen ords artiklar
 
-Detaljerad information och anvisningar om hur du registrerar ditt konto för återställning av lösenord och hur du återställer ditt lösenord finns i följande artiklar:
+Detaljerad information och anvisningar om hur du registrerar ditt konto för lösen ords återställning och hur du återställer ditt lösen ord finns i följande artiklar:
 
 |Artikel |Beskrivning |
 |------|------------|
-|[Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)| Anvisningar om hur du verifierar din autentiseringsmetoder och logga in för lösenordsåterställning via självbetjäning, så du kan återställa ditt eget lösenord.|
-|[Återställa lösenordet](user-help-reset-password.md)| Anvisningar om hur du återställa eller låsa upp lösenordet för ett arbets- eller skolkonto konto.|
+| [Registrera dig för lösen ords återställning](active-directory-passwords-reset-register.md) via självbetjäning] Instruktioner för hur du verifierar dina autentiseringsmetoder och registrerar dig för lösen ords återställning via självbetjäning så att du kan återställa ditt eget lösen ord.|
+| [Återställ ditt lösen ord](user-help-reset-password.md) ] Anvisningar om hur du återställer eller låser upp lösen ordet för ett arbets-eller skol konto.|

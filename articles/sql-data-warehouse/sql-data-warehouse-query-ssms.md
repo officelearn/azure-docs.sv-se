@@ -1,8 +1,8 @@
 ---
-title: Ansluta till Azure SQL Data Warehouse – SSMS | Microsoft Docs
-description: Använda SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure SQL Data Warehouse.
+title: Anslut till Azure SQL Data Warehouse-SSMS | Microsoft Docs
+description: Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,14 +10,14 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 64ea7c175b733f974eba6c081ee2c98814cbcda2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67707b64bb6018b322ba980535651c126a526eb7
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873709"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479540"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Anslut till SQL Data Warehouse med SQL Server Management Studio (SSMS)
+# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Ansluta till SQL Data Warehouse med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -27,18 +27,18 @@ ms.locfileid: "65873709"
 > 
 > 
 
-Använda SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure SQL Data Warehouse. 
+Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure SQL Data Warehouse. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att använda de här självstudierna:
 
 * Ett befintligt SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] för att se hur man skapar det.
-* SQL Server Management Studio (SSMS) installerat. [Installera SSMS] [ Install SSMS] kostnadsfritt om du inte redan har den.
+* SQL Server Management Studio (SSMS) har installerats. [Installera SSMS][Install SSMS] kostnads fritt om du inte redan har det.
 * Det fullständigt kvalificerade servernamnet. [Anslut till SQL Data Warehouse][Connect to SQL Data Warehouse] för att hitta detta.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Anslut till din SQL Data Warehouse
 1. Öppna SSMS.
-2. Öppna Object Explorer. Om du vill göra detta, Välj **filen** > **ansluta Object Explorer**.
+2. Öppna Object Explorer. Det gör du genom att välja **fil** > **anslutning Object Explorer**.
    
     ![SQL Server Object Explorer][1]
 3. Fyll i fälten i fönstret anslut till server.
@@ -65,9 +65,9 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Kör frågan. Gör detta genom att klicka på `Execute` eller använder följande genväg: `F5`.
+4. Kör frågan. Det gör du genom att `Execute` Klicka på eller använda följande genväg `F5`:.
    
-    ![Kör frågan][5]
+    ![Kör fråga][5]
 5. Titta på frågeresultaten. I det här exemplet har tabellen FactInternetSales 60398 rader.
    
     ![Frågeresultat][6]

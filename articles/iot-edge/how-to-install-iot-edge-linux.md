@@ -1,57 +1,59 @@
 ---
 title: Installera Azure IoT Edge på Linux | Microsoft Docs
-description: Installationsinstruktioner för Azure IoT Edge på Linux AMD64-enheter som kör Ubuntu
+description: Azure IoT Edge Installationsinstruktioner på Linux-enheter som kör Ubuntu eller Raspbian
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 822efe2534d49c0995a672232107cc322e547989
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bb23ee1e51be178f93e05b728f7b8c2e9bb18e0d
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227515"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414492"
 ---
-# <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installera Azure IoT Edge-körningen på Linux (x64)
+# <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installera Azure IoT Edge runtime på Debian-baserade Linux-system
 
-Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet.
+Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet. Mer information finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
-Mer information finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
+Den här artikeln beskriver stegen för att installera Azure IoT Edge runtime på en x64-, ARM32-eller ARM64 Linux-enhet. Installations paket tillhandahålls för Ubuntu Server 16,04, Ubuntu Server 18,04 och Raspbian utsträckt. Se [Azure IoT Edge system som stöds](support.md#operating-systems) för en lista över operativ system och arkitekturer som stöds av Linux.
 
-Den här artikeln innehåller anvisningar för att installera Azure IoT Edge runtime på din Ubuntu Linux x64 (Intel/AMD) IoT Edge-enhet. Se [Azure IoT Edge system som stöds](support.md#operating-systems) för en lista över vilka amd64-operativsystem som stöds.
+>[!NOTE]
+>Stöd för ARM64-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > Paket i databaser för Linux-programvara är gäller under licensvillkor som finns i varje paket (/ usr/dela/docs/*paketnamn*). Läs licensvillkoren innan du börjar använda paketet. Din installation och användning av paketet kräver att du accepterar dessa villkor. Om du inte samtycker till licensvillkoren, Använd inte paketet.
 
-## <a name="install-the-latest-version"></a>Installera den senaste versionen
+## <a name="install-the-latest-runtime-version"></a>Installera den senaste körnings versionen
 
-Använd följande avsnitt för att installera den senaste versionen av tjänsten Azure IoT Edge på dina enheter. 
+Använd följande avsnitt för att installera den senaste versionen av Azure IoT Edge runtime på din enhet. 
 
 ### <a name="register-microsoft-key-and-software-repository-feed"></a>Registrera Microsoft nyckeln och program lagringsplats feed
 
 Förbered enheten för IoT Edge runtime-installationen.
 
+Installera konfiguration av lagrings plats. Välj det **16,04** -eller **18,04** -kommando som matchar enhetens operativ system:
 
-Installera konfiguration av lagrings plats. Välj antingen kod avsnittet **16,04** eller **18,04** efter vad som är lämpligt för din version av Ubuntu:
-
-> [!NOTE]
-> Se till att du väljer kodfragmentet från den rätta kod rutan för din version av Ubuntu.
-
-* För **Ubuntu 16,04**:
+* **Ubuntu Server 16,04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-* För **Ubuntu 18,04**:
+* **Ubuntu Server 18,04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
-   
+
+* **Raspbian-storlek**:
+   ```bash
+   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
 Kopiera den genererade listan.
 
    ```bash
@@ -87,17 +89,7 @@ Installera Moby kommandoradsgränssnittet (CLI). CLI är användbart för utveck
    sudo apt-get install moby-cli
    ```
 
-#### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Verifiera din Linux-kernel för Moby-kompatibilitet
-
-Många inbäddade enhets tillverkare levererar enhets avbildningar som innehåller anpassade Linux-kerneler som kanske saknar funktioner som krävs för container runtime-kompatibilitet. Om du får problem när du installerar den rekommenderade [Moby](https://github.com/moby/moby) container runtime kan du felsöka din Linux-kernel-konfiguration med hjälp av skriptet [Check-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) som anges i den officiella [Moby GitHub](https://github.com/moby/moby) -lagringsplatsen genom att Kör följande kommandon på enheten.
-
-   ```bash
-   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
-   chmod +x check-config.sh
-   ./check-config.sh
-   ```
-
-Detta ger en detaljerad utmatning som innehåller statusen för de kernel-funktioner som används av Moby-körningsmiljön. Du bör se till att alla objekt under `Generally Necessary` och `Network Drivers` är aktiverade för att säkerställa att din kernel är helt kompatibel med Moby-körningsmiljön.  Om du har identifierat vilka funktioner som saknas kan du aktivera dem genom att återskapa din kernel från källa och välja de associerade modulerna som ska ingå i den aktuella kernel. config.  Om du använder en kernel-konfigurations generator som defconfig eller menuconfig, måste du hitta och aktivera respektive funktioner och återskapa din kernel på motsvarande sätt.  När du har distribuerat den nyligen ändrade kärnan kör du check config-skriptet igen för att kontrol lera att dina identifierade funktioner har Aktiver ATS.
+Om du stöter på fel när du installerar Moby container runtime följer du stegen för att [kontrol lera din Linux-kernel för Moby-kompatibilitet](#verify-your-linux-kernel-for-moby-compatibility), som beskrivs längre fram i den här artikeln. 
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Daemon för Azure IoT Edge-säkerhet
 
@@ -117,17 +109,17 @@ Installera daemonen säkerhet. Paketet har installerats på `/etc/iotedge/`.
    sudo apt-get install iotedge
    ```
 
-När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i avsnittet [Konfigurera säkerhets demon för Azure IoT Edge](#configure-the-azure-iot-edge-security-daemon) för att slutföra etableringen av enheten. 
+När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i avsnittet [Konfigurera säkerhets demon för Azure IoT Edge](#configure-the-security-daemon) för att slutföra etableringen av enheten. 
 
-## <a name="install-a-specific-version"></a>Installera en enskild version
+## <a name="install-a-specific-runtime-version"></a>Installera en viss körnings version
 
-Om du vill installera en speciell version av Azure IoT Edge kan du rikta in komponentfilerna direkt från IoT Edge GitHub-lagringsplatsen. Använd följande steg för att hämta alla IoT Edge-komponenter på enheten: Moby-motorn och CLI, libiothsm och slutligen IoT Edge Security daemon.
+Om du vill installera en viss version av Azure IoT Edge runtime kan du rikta in komponentfilerna direkt från IoT Edge GitHub-lagringsplatsen. Använd följande steg för att hämta alla IoT Edge-komponenter på enheten: Moby-motorn och CLI, libiothsm och slutligen IoT Edge Security daemon.
 
 1. Gå till [Azure IoT Edge versioner](https://github.com/Azure/azure-iotedge/releases)och leta upp den version som du vill använda som mål. 
 
 2. Expandera avsnittet **till gångar** för den versionen.
 
-3. Det kan hända att det inte finns uppdateringar av Moby-motorn i en specifik version. Om du ser filer som börjar med **Moby-Engine** och **Moby-CLI**använder du följande kommandon för att uppdatera komponenterna. Om du inte ser några Moby-filer och du inte redan har Moby installerat på enheten går du tillbaka genom de äldre versions resurserna tills du hittar dem. 
+3. Det kan hända att det inte finns uppdateringar av Moby-motorn i en specifik version. Om du ser filer som börjar med **Moby-Engine** och **Moby-CLI**använder du följande kommandon för att uppdatera komponenterna. Om du inte ser några Moby-filer går du tillbaka genom de äldre versions resurserna tills du hittar den senaste versionen. 
 
    1. Hitta den **Moby** som matchar din IoT Edge enhets arkitektur. Högerklicka på fil länken och Kopiera länk adressen.
 
@@ -165,7 +157,7 @@ Om du vill installera en speciell version av Azure IoT Edge kan du rikta in komp
 
 När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i nästa avsnitt för att slutföra etableringen av enheten. 
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Konfigurera Azure IoT Edge Security daemon
+## <a name="configure-the-security-daemon"></a>Konfigurera Security daemon
 
 Konfigurera IoT Edge-körningen för att länka den fysiska enheten med en enhetsidentitet som finns i Azure IoT hub.
 
@@ -211,7 +203,7 @@ Starta om daemon när du har angett etableringsinformationen i konfigurationsfil
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>Alternativ 2: Automatisk etablering
+### <a name="option-2-automatic-provisioning"></a>Alternativ 2: Automatisk försörjning
 
 Att automatiskt etablera en enhet [konfigurera Device Provisioning-tjänsten och hämta din enhet registrerings-ID](how-to-auto-provision-simulated-device-linux.md). Det finns ett antal attesterings metoder som stöds av IoT Edge när du använder automatisk etablering men maskin varu kraven påverkar också dina val. Till exempel levereras inte Raspberry Pi-enheter med ett Trusted Platform Module-chip (TPM) som standard.
 
@@ -271,13 +263,26 @@ Och listan körs moduler med:
 sudo iotedge list
 ```
 
-## <a name="tips-and-suggestions"></a>Användbara tips och råd
+## <a name="tips-and-troubleshooting"></a>Felsökning och tips
 
 Förhöjd behörighet krävs för att köra `iotedge`-kommandon. När du har installerat en runtime, logga ut från datorn och logga in för att uppdatera dina behörigheter automatiskt. Tills dess kan du använda **sudo** framför alla `iotedge` kommandona.
 
 På resursen begränsad enheter, vi rekommenderar starkt att du ställer in den *OptimizeForPerformance* miljövariabeln till *FALSKT* enligt anvisningarna i den [felsökningsguide ](troubleshoot.md).
 
 Om ditt nätverk som har en proxyserver, följer du stegen i [konfigurerar IoT Edge-enheten att kommunicera via en proxyserver](how-to-configure-proxy-support.md).
+
+### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Verifiera din Linux-kernel för Moby-kompatibilitet
+
+Många inbäddade enhets tillverkare levererar enhets avbildningar som innehåller anpassade Linux-Kernels utan de funktioner som krävs för container runtime-kompatibilitet. Om du stöter på problem när du installerar den rekommenderade Moby container runtime kan du felsöka din Linux-kernel-konfiguration med hjälp av skriptet för att [kontrol lera konfiguration](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) från den officiella [Moby GitHub](https://github.com/moby/moby)-lagringsplatsen. Kör följande kommandon på enheten för att kontrol lera kernel-konfigurationen:
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+Detta ger en detaljerad utmatning som innehåller statusen för de kernel-funktioner som används av Moby-körningsmiljön. Du bör se till att alla objekt under `Generally Necessary` och `Network Drivers` är aktiverade för att säkerställa att din kernel är helt kompatibel med Moby-körningsmiljön.  Om du har identifierat vilka funktioner som saknas kan du aktivera dem genom att återskapa din kernel från källa och välja de associerade modulerna som ska ingå i den aktuella kernel. config.  Om du använder en kernel-konfigurations generator som defconfig eller menuconfig, kan du söka efter och aktivera respektive funktioner och återskapa din kernel på motsvarande sätt.  När du har distribuerat den nyligen ändrade kärnan kör du check config-skriptet igen för att kontrol lera att alla nödvändiga funktioner har Aktiver ATS.
+
 
 ## <a name="uninstall-iot-edge"></a>Avinstallera IoT Edge
 

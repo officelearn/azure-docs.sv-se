@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1e45f89cd557281399c86ae75898d99e0d4d381
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 57047069e196ab887824311374719cf2b210fe1d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327011"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361026"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en pipeline för maskin inlärning med hjälp av Azure Machine Learning SDK
 
@@ -62,9 +62,9 @@ När du skapar din arbets yta kopplas [Azure Files](https://docs.microsoft.com/a
 
 ```python
 # Default datastore (Azure blob storage)
-def_data_store = ws.get_default_datastore() 
+def_data_store = ws.get_default_datastore()
 
-# The above call is equivalent to this 
+# The above call is equivalent to this
 def_data_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
@@ -76,7 +76,7 @@ Ladda upp filer eller kataloger till databasen för att de ska vara tillgänglig
 ```python
 def_blob_store.upload_files(
     ["./data/20news.pkl"],
-    target_path="20newsgroups", 
+    target_path="20newsgroups",
     overwrite=True)
 ```
 
@@ -130,17 +130,19 @@ if compute_name in ws.compute_targets:
         print('Found compute target: ' + compute_name)
 else:
     print('Creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # STANDARD_NC6 is GPU-enabled
-                                                                min_nodes = 0, 
-                                                                max_nodes = 4)
-     # create the compute target
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-    
-    # Can poll for a minimum number of nodes and for a specific timeout. 
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size=vm_size,  # STANDARD_NC6 is GPU-enabled
+                                                                min_nodes=0,
+                                                                max_nodes=4)
+    # create the compute target
+    compute_target = ComputeTarget.create(
+        ws, compute_name, provisioning_config)
+
+    # Can poll for a minimum number of nodes and for a specific timeout.
     # If no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
-     # For a more detailed view of current cluster status, use the 'status' property    
+    compute_target.wait_for_completion(
+        show_output=True, min_node_count=None, timeout_in_minutes=20)
+
+    # For a more detailed view of current cluster status, use the 'status' property
     print(compute_target.status.serialize())
 ```
 
@@ -163,13 +165,18 @@ import os
 from azureml.core.compute import ComputeTarget, DatabricksCompute
 from azureml.exceptions import ComputeTargetException
 
-databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
-databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
-databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
-databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+databricks_compute_name = os.environ.get(
+    "AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_workspace_name = os.environ.get(
+    "AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get(
+    "AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
+databricks_access_token = os.environ.get(
+    "AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
 
 try:
-    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    databricks_compute = ComputeTarget(
+        workspace=ws, name=databricks_compute_name)
     print('Compute target already exists')
 except ComputeTargetException:
     print('compute not found')
@@ -178,15 +185,15 @@ except ComputeTargetException:
     print('databricks_access_token {}'.format(databricks_access_token))
 
     # Create attach config
-    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
-                                                           workspace_name = databricks_workspace_name,
-                                                           access_token = databricks_access_token)
+    attach_config = DatabricksCompute.attach_configuration(resource_group=databricks_resource_group,
+                                                           workspace_name=databricks_workspace_name,
+                                                           access_token=databricks_access_token)
     databricks_compute = ComputeTarget.attach(
-             ws,
-             databricks_compute_name,
-             attach_config
-         )
-    
+        ws,
+        databricks_compute_name,
+        attach_config
+    )
+
     databricks_compute.wait_for_completion(True)
 ```
 
@@ -212,9 +219,12 @@ from azureml.core.compute import ComputeTarget, AdlaCompute
 from azureml.exceptions import ComputeTargetException
 
 
-adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
-adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
-adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
+adla_compute_name = os.environ.get(
+    "AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_group = os.environ.get(
+    "AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get(
+    "AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
 
 try:
     adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
@@ -225,15 +235,15 @@ except ComputeTargetException:
     print('adla_resource_id {}'.format(adla_resource_group))
     print('adla_account_name {}'.format(adla_account_name))
     # create attach config
-    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
-                                                     account_name = adla_account_name)
+    attach_config = AdlaCompute.attach_configuration(resource_group=adla_resource_group,
+                                                     account_name=adla_account_name)
     # Attach ADLA
     adla_compute = ComputeTarget.attach(
-             ws,
-             adla_compute_name,
-             attach_config
-         )
-    
+        ws,
+        adla_compute_name,
+        attach_config
+    )
+
     adla_compute.wait_for_completion(True)
 ```
 
@@ -366,10 +376,10 @@ Alla publicerade pipeliner har en REST-slutpunkt. Den här slut punkten anropar 
 Om du vill anropa körningen av föregående pipeline behöver du en Azure Active Directory Authentication Head-token, enligt beskrivningen i [AzureCliAuthentication-klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) eller få mer information vid [autentisering i Azure Machine Learning](https://aka.ms/pl-restep-auth) Notebook.
 
 ```python
-response = requests.post(published_pipeline1.endpoint, 
-    headers=aad_token, 
-    json={"ExperimentName": "My_Pipeline",
-        "ParameterAssignments": {"pipeline_arg": 20}})
+response = requests.post(published_pipeline1.endpoint,
+                         headers=aad_token,
+                         json={"ExperimentName": "My_Pipeline",
+                               "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
 ## <a name="view-results"></a>Visa resultat
@@ -392,12 +402,12 @@ För att optimera och anpassa beteendet för dina pipeliner kan du göra några 
 Som standard `allow-reuse` har steg Aktiver ATS och endast huvud skript filen är hash-kodad. Om skriptet för ett specifikt steg däremot är detsamma (`script_name`, indata och parametrar), så kommer utdata från ett föregående steg att återanvändas, jobbet skickas inte till beräkningen och resultatet från föregående körning är omedelbart tillgängligt för nästa steg i stället .  
 
 ```python
-step = PythonScriptStep(name="Hello World", 
-                        script_name="hello_world.py",  
-                        compute_target=aml_compute,  
-                        source_directory= source_directory, 
-                        allow_reuse=False, 
-                        hash_paths=['hello_world.ipynb']) 
+step = PythonScriptStep(name="Hello World",
+                        script_name="hello_world.py",
+                        compute_target=aml_compute,
+                        source_directory=source_directory,
+                        allow_reuse=False,
+                        hash_paths=['hello_world.ipynb'])
 ```
  
 

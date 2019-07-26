@@ -1,92 +1,95 @@
 ---
-title: Vad är förhandsversionen av Azure Data resurs
-description: En översikt över Azure förhandsgranskning för resursen
+title: Vad är för hands version av Azure Data-resurs
+description: En översikt över för hands versionen av Azure Data Share
 author: joannapea
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807551"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421398"
 ---
 # <a name="what-is-azure-data-share-preview"></a>Vad är förhandsversionen av Azure Data Share?
 
-I dagens värld visas informationen som en viktig strategisk tillgång som många organisationer behöver för att helt enkelt och säkert sätt dela med kunder och partner. Det finns många sätt att kunder gör den här idag, inklusive via FTP, e-post, API: er att nämna några. Organisationer kan enkelt tappa som de har delat sina data med. Dela data via FTP eller skapa egna API-infrastruktur är ofta dyra att etablera och administrera. Det finns hanteringskostnader som är associerade med hjälp av dessa metoder att dela i stor skala. 
+I dagens värld visas data som en viktig strategisk till gång som många organisationer behöver för att enkelt och säkert dela med sina kunder och partners. Det finns många sätt för kunderna att göra detta idag, inklusive via FTP, e-post och API: er för att ge några. Organisationer kan enkelt förlora vem de har delat med sig av sina data med. Att dela data via FTP eller genom att skapa sin egen API-infrastruktur är ofta kostsamt att etablera och administrera. Det finns hanterings kostnader för att använda dessa metoder för delning i stor skala. 
 
-Många organisationer behöver vara ansvariga för de data som de har delat. Förutom ansvarstagande vill många organisationer kunna styra, hantera och övervaka alla sina data delning på ett enkelt sätt. I dag världen, där data förväntas fortsätter att växa i exponentiell takt kan behöver organisationer du ett enkelt sätt att dela big data. Kunder kräver den senaste informationen om du vill se till att de kan att härleda insikter i god tid.
+Många organisationer måste vara konto bara för de data som de har delat. Förutom ansvar skulle många organisationer vilja kunna styra, hantera och övervaka all sin data delning på ett enkelt sätt. I dagens värld, där data förväntas växa i en exponentiell takt, behöver organisationer ett enkelt sätt att dela Big data. Kunder efterfrågar de senaste data som krävs för att säkerställa att de kan komma i rätt tid.
 
-Dela förhandsversionen av Azure Data gör det möjligt för organisationer att helt enkelt och säkert sätt dela data med flera kunder och partner. Med bara några klick du etablerar en ny resurs-konto för data, Lägg till datauppsättningar och bjuda in dina kunder och partner till din data filresurs. Dataleverantörer har alltid kontroll över de data som de har delat. Azure-Dataresursen gör det enkelt att hantera och övervaka vilka data som har delats, när och av vem. 
+Med för hands versionen av Azure Data Share kan organisationer enkelt och säkert dela data med flera kunder och partner. Med bara några klick kan du etablera ett nytt data delnings konto, lägga till data uppsättningar och bjuda in kunder och partner till din data resurs. Data leverantörer har alltid kontroll över de data som de har delat. Azure Data Share gör det enkelt att hantera och övervaka vilka data som delades, när och av vem. 
 
-En dataleverantör kan behålla kontrollen över hur data hanteras genom att ange villkor för användning av deras dataresursen. Datakonsumenten måste acceptera dessa villkor innan du kan ta emot data. Dataleverantörer kan ange hur ofta som deras datakonsumenterna ta emot uppdateringar. Åtkomst till nya uppdateringar kan återkallas när som helst av dataleverantören. 
+En DataProvider kan hålla kontrollen över hur deras data hanteras genom att ange användnings villkoren för data resursen. Data konsumenten måste acceptera dessa villkor innan de kan ta emot data. Data leverantörer kan ange med vilken frekvens data konsumenter får uppdateringar. Åtkomst till nya uppdateringar kan återkallas när som helst av data leverantören. 
 
-Azure-Dataresursen bidrar till att förbättra insikter genom att göra det enkelt att kombinera data från andra leverantörer att utöka analys och AI-scenarier. Enkelt använda power ot Azure analytics-verktyg för att förbereda, bearbeta och analysera data som delas med hjälp av Azure Data filresurs. 
+Azure Data Share hjälper till att förbättra insikter genom att göra det enkelt att kombinera data från tredje part för att utöka analys-och AI-scenarier. Använd enkelt Azure Analytics-verktyg i Power of för att förbereda, bearbeta och analysera data som delas med Azure Data Share. 
 
-## <a name="scenarios-for-azure-data-share"></a>Scenarier för Azure Dataresurs
+Både data leverantören och data konsumenten måste ha en Azure-prenumeration för att kunna dela och ta emot data. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-Azure Dataresursen kan användas i ett antal olika branscher. En återförsäljare kanske exempelvis vill dela senaste återställningspunkt försäljningsdata med deras leverantörer. Med hjälp av Azure Data delar, en återförsäljare ställa in en Dataresurs som innehåller försäljningsdata punkt för alla deras leverantörer och dela försäljning på grundval av per timme eller dag. 
+## <a name="scenarios-for-azure-data-share"></a>Scenarier för Azure Data Share
 
-Azure-Dataresursen kan också användas för att upprätta en data-marknadsplatsen efter en viss bransch. Till exempel myndigheter eller en research institution som delar regelbundet maskerade data om befolkningstillväxten med tredje part. 
+Azure Data Share kan användas i flera olika branscher. En åter försäljare kan till exempel vilja dela den senaste försäljnings platsen med deras leverantörer. Med hjälp av Azure Data Share kan en åter försäljare skapa en data resurs som innehåller en data resurs som innehåller en data källa för alla deras leverantörer och dela försäljningen per timme eller dag. 
 
-En annan användningsfall för Azure Data filresurs är att upprätta en data-consortium. Till exempel kan ett antal olika forskningsinstitutioner dela data med en enda betrodda brödtext. Data analyseras, aggregeras eller med hjälp av Azures analysverktyg och sedan delas med berörda parter. 
+Azure Data Share kan också användas för att upprätta en data Marketplace för en speciell bransch. Till exempel en myndighet eller en forsknings institution som regelbundet delar anonymiserats data om populationens tillväxt med tredje part. 
+
+Ett annat användnings fall för Azure Data Share är att upprätta ett data konsortium. Ett antal olika forsknings institutioner kan till exempel dela data med ett enda betrott innehåll. Data analyseras, aggregeras eller bearbetas med hjälp av Azure Analytics-verktyg och delas sedan med berörda parter. 
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Azure-Dataresursen använder en ögonblicksbildbaserade delningsapplikationen metod, där data flyttas från Dataleverantörens Azure-prenumeration och hamnar i data-consumer Azure-prenumeration. Som en dataleverantör etablera en Dataresurs och bjuda in mottagare till dataresursen. Datakonsumenterna får en inbjudan till din data filresurs via e-post. När en datakonsumenten accepterar inbjudan, de kan utlösa en fullständig ögonblicksbild av data som delas du delat dem. Dessa data tas emot till konsumenter storage-konto för data. Datakonsumenter kan ta emot regelbundna, inkrementella uppdateringar av data som delas med dem så att de alltid har den senaste versionen av data. 
+Azure Data Share använder en ögonblicks bild baserad delnings metod där data flyttas från data leverantörens Azure-prenumeration och hamnar i data konsumentens Azure-prenumeration. Som data leverantör etablerar du en data resurs och bjuder in mottagare till data resursen. Data konsumenter får en inbjudan till din data resurs via e-post. När en data konsument accepterar inbjudan kan de utlösa en fullständig ögonblicks bild av de data som delas som delas. Dessa data tas emot i lagrings kontot för data konsumenter. Data konsumenter kan ta emot regelbundna, stegvisa uppdateringar av data som delas med dem så att de alltid har den senaste versionen av datan. 
 
-Dataleverantörer kan erbjuda sina data konsumenter inkrementella uppdateringar för data som delas med dem via ett schema för ögonblicksbilder. Scheman ögonblicksbilder erbjuds på varje timme eller varje dag. När en datakonsumenten accepterar och konfigurerar sina Dataresurs, kan de prenumerera på ett schema för ögonblicksbilder. Detta är bra i scenarier där de delade data uppdateras regelbundet och datakonsumenten måste de mest uppdaterade data. 
+Data leverantörer kan erbjuda sina data konsumenters stegvisa uppdateringar av de data som delas med dem genom ett schema för ögonblicks bilder. Ögonblicks bilds scheman erbjuds per timme eller per dag. När en data konsument accepterar och konfigurerar sin data resurs kan de prenumerera på ett ögonblicks bild schema. Detta är fördelaktigt i scenarier där delade data uppdateras regelbundet och data konsumenten behöver de mest aktuella data. 
 
-![dataflöde för resursen](media/data-share-flow.png)
+![data resurs flöde](media/data-share-flow.png)
 
-När en datakonsumenten accepterar en Dataresurs, kan de ta emot data i ett lagringskonto som de vill. Till exempel om dataleverantören delar data med hjälp av Azure Blob Storage, datakonsumenten kan ta emot dessa data i Azure Data Lake Store. 
+När en data konsument accepterar en data resurs kan de ta emot data i ett lagrings konto som de väljer. Om dataprovidern t. ex. delar data med Azure Blob Storage kan data konsumenten ta emot dessa data i Azure Data Lake Store. 
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
-Azure-Dataresursen kan Dataprovidrarna:
+Azure Data Share gör det möjligt för data leverantörer att:
 
 * Dela data från Azure Storage och Azure Data Lake Store med kunder och partner utanför organisationen
 
-* Håll koll på vilka du har delat dina data med
+* Håll koll på vem du har delat dina data med
 
-* Hur ofta dina dataanvändare tar emot uppdateringar till dina data
+* Hur ofta dina data konsumenter tar emot uppdateringar av dina data
 
-* Tillåt dina kunder att hämta den senaste versionen av dina data efter behov, eller att de kan få inkrementella ändringar i dina data automatiskt vid ett intervall som du definierar
+* Gör det möjligt för dina kunder att hämta den senaste versionen av dina data vid behov, eller tillåta att de automatiskt får stegvisa ändringar i dina data enligt ett intervall som definierats av dig
 
-Azure-Dataresursen gör det möjligt för Datakonsumenterna att: 
+Azure Data Share gör det möjligt för data konsumenter att: 
 
-* Visa en beskrivning av typ av data som delas
+* Visa en beskrivning av den typ av data som delas
 
-* Visa villkor för användning av data
+* Visa användnings villkoren för data
 
-* Godkänna eller avvisa inbjudan Azure Data filresurs
+* Acceptera eller avvisa en Azure Data Share-inbjudan
 
-* Utlös en fullständig eller inkrementell ögonblicksbild av en resurs för Data som en organisation har delat med dig
+* Utlös en fullständig eller stegvis ögonblicks bild av en data resurs som en organisation har delat med dig
 
-* Prenumerera på en Data-resurs för att få den senaste kopian av data via kopiering av inkrementell ögonblicksbild
+* Prenumerera på en data resurs för att ta emot den senaste kopian av data via en stegvis ögonblicks bilds kopia
 
-* Acceptera data som delas med dig i ett Azure Blob Storage eller Azure Data Lake Gen2 konto
+* Acceptera data som delas med dig i ett Azure Blob Storage-eller Azure Data Lake Gen2-konto
 
-Alla viktiga funktioner som anges ovan kan hanteras via Azure eller via REST API: er. Kolla in våra referensdokumentation för mer information om hur du använder Azure Data filresursen via REST API: er. 
+Alla viktiga funktioner som anges ovan stöds via Azure eller via REST-API: er. Mer information om hur du använder Azure Data Share via REST-API: er finns i vår referens dokumentation. 
 
 ## <a name="security"></a>Säkerhet
 
-Azure-Dataresursen utnyttjar den underliggande säkerhet som Azure erbjuder att skydda data i vila och under överföring. Data krypteras i viloläge, om det stöds av underliggande Lagringsmekanismen. Data är också krypterad under överföringen. Metadata om en Dataresurs är också krypterade i vila och under överföring. 
+Azure Data Share utnyttjar den underliggande säkerhet som Azure erbjuder för att skydda data i vila och under överföring. Data krypteras i vila, där det stöds av den underliggande lagrings funktionen. Data krypteras också vid överföring. Metadata om en data resurs krypteras också i vila och under överföring. 
 
-Åtkomstkontroller kan ställas in på Azure-Dataresursen resursnivån att se till att den används av de som har behörighet. 
+Åtkomst kontroller kan ställas in på resurs nivån på Azure-dataresursen för att säkerställa att de kan nås av de som är auktoriserade. 
 
-Azure-Dataresursen utnyttjar hanterade identiteter för Azure-resurser (kallades tidigare MSI: er) för automatisk hantering i Azure Active Directory. Hanterade identiteter för Azure-resurser utnyttjas för åtkomst till de lagringskonton som används för delning av data. Det finns inga utbyte av autentiseringsuppgifter mellan en dataleverantör och en datakonsument. Mer information finns i den [hanterade identiteter för Azure-resurser sida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
+Azure Data Share utnyttjar hanterade identiteter för Azure-resurser (kallades tidigare MSIs) för automatisk identitets hantering i Azure Active Directory. Hanterade identiteter för Azure-resurser utnyttjas för åtkomst till de lagrings konton som används för data delning. Det finns inget utbyte av autentiseringsuppgifter mellan en data leverantör och en data konsument. Mer information finns på [sidan hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
+
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-En lista över Azure-regioner som gör resursen för Azure Data tillgängliga, finns i den [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) sidan och Sök efter Azure-Dataresursen. 
+En lista över Azure-regioner som gör Azure-dataresursen tillgänglig finns på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) och Sök efter Azure Data Share. 
 
-Azure-Dataresursen lagrar inte några data själva. Data lagras i de underliggande lagringskonton som ska delas. Till exempel om en data-producent lagrar sina data i ett Azure Data Lake Store-konto finns i USA, västra, är det där data lagras. Om de delar data med ett Azure Storage-konto finns i Europa, västra, överförs data direkt till Azure Storage-konto finns i Europa, västra. 
+Azure Data Share lagrar inga data. Data lagras i de underliggande lagrings konton som delas. Om en data producent till exempel lagrar sina data i ett Azure Data Lake Store konto som finns i västra USA, är det där data lagras. Om de delar data med ett Azure Storage konto som finns i Europa, västra, överförs data direkt till det Azure Storage konto som finns i Västeuropa. 
 
-Azure Data Share-tjänsten har inte ska vara tillgängliga i din region för att använda tjänsten. Om du har data som lagras i ett Azure Storage-konto finns i en region där Azure Data delar inte är tillgänglig ännu kan du fortfarande använda tjänsten om du vill dela dina data. 
+Azure Data Share-tjänsten behöver inte vara tillgänglig i din region för att utnyttja tjänsten. Om du till exempel har data som lagras i ett Azure Storage konto som finns i en region där Azure Data Share inte är tillgängligt ännu, kan du fortfarande använda tjänsten för att dela dina data. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kan börja dela data, fortsätter du till den [dela dina data](share-your-data.md) självstudien.
+Om du vill lära dig hur du börjar dela data fortsätter du till kursen [dela data](share-your-data.md) .

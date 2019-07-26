@@ -1,37 +1,40 @@
 ---
-title: Fråga efter data i Azure Data Lake med Azure Data Explorer
-description: Lär dig mer om att fråga efter data i Azure Data Lake med Datautforskaren i Azure.
+title: Fråga efter data i Azure Data Lake med Azure Datautforskaren
+description: Lär dig hur du frågar efter data i Azure Data Lake att använda Azure Datautforskaren.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/25/2019
-ms.openlocfilehash: d6a58d144482e17f7e4b615134115d1da46af6f0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/17/2019
+ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453182"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494870"
 ---
-# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Data Lake med Azure Data Explorer (förhandsversion)
+# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Data Lake med Azure Datautforskaren (förhands granskning)
 
-Azure Data Lake Storage är en mycket pålitlig och kostnadseffektiv data lake-lösning för analys av stordata. Här kombineras kraften hos ett högpresterande filsystem med storskalighet och ekonomi som hjälper dig att korta insiktstiden. Med Data Lake Storage Gen2 utökas kapaciteten i Azure Blob Storage och optimeras för analysarbetsbelastningar.
+Azure Data Lake Storage är en mycket skalbar och kostnads effektiv data Lake-lösning för stor data analys. Här kombineras kraften hos ett högpresterande filsystem med storskalighet och ekonomi som hjälper dig att korta insiktstiden. Med Data Lake Storage Gen2 utökas kapaciteten i Azure Blob Storage och optimeras för analysarbetsbelastningar.
  
-Azure Data Explorer kan integreras med Azure Blob Storage och Azure Data Lake Storage Gen2, vilket ger snabb, cachelagras och indexeras åtkomst till data i sjön. Du kan analysera och fråga efter data i sjön utan tidigare samlats in till Datautforskaren i Azure. Du kan också fråga i infogade och uningested interna lake samtidigt.  
+Azure Datautforskaren integreras med Azure Blob Storage och Azure Data Lake Storage Gen2, vilket ger snabb, cachelagrad och indexerad åtkomst till data i sjön. Du kan analysera och fråga efter data i sjön utan föregående inhämtning i Azure Datautforskaren. Du kan också fråga över inmatade och inmatade interna sjö data samtidigt.  
 
 > [!TIP]
-> Bästa frågeprestanda kräver datapåfyllning till Datautforskaren i Azure. Möjlighet att fråga efter data i Azure Data Lake Storage Gen2 utan tidigare inmatning bör endast användas för historiska data eller data som används sällan.
+> Bästa prestanda för frågor kräver data inmatning i Azure Datautforskaren. Möjligheten att fråga data i Azure Data Lake Storage Gen2 utan föregående inmatning bör endast användas för historiska data eller data som sällan efter frågas.
  
-## <a name="optimize-query-performance-in-the-lake"></a>Optimera prestanda för frågor i sjön 
+## <a name="optimize-query-performance-in-the-lake"></a>Optimera frågornas prestanda i sjö 
 
-* Partitionera data för bättre prestanda och optimerad fråga körs.
-* Komprimera data för bättre prestanda (gzip för bästa komprimerings, lz4 för bästa prestanda).
-* Använda Azure Blob Storage eller Azure Data Lake Storage Gen2 med samma region som din Azure Data Explorer-kluster. 
+* Partitionera data för bättre prestanda och optimerad fråge tid.
+* Komprimera data för bättre prestanda (gzip för bästa komprimering, lz4 för bästa prestanda).
+* Använd Azure Blob Storage eller Azure Data Lake Storage Gen2 med samma region som ditt Azure Datautforskaren-kluster. 
 
 ## <a name="create-an-external-table"></a>Skapa en extern tabell
 
-1. Använd den `.create external table` kommando för att skapa en extern tabell i Datautforskaren i Azure. Ytterligare extern tabell kommandon som `.show`, `.drop`, och `.alter` finns dokumenterade i [extern tabell kommandon](/azure/kusto/management/externaltables).
+ > [!NOTE]
+ > Lagrings konton som stöds för närvarande är Azure Blob Storage eller Azure Data Lake Storage Gen2. Data format som stöds för närvarande är JSON, CSV, TSV och txt.
+
+1. `.create external table` Använd kommandot för att skapa en extern tabell i Azure datautforskaren. Ytterligare kommandon för externa tabeller som `.show`, `.drop`och `.alter` är dokumenterade i [kommandon för externa tabeller](/azure/kusto/management/externaltables).
 
     ```Kusto
     .create external table ArchivedProducts(
@@ -43,37 +46,69 @@ Azure Data Explorer kan integreras med Azure Blob Storage och Azure Data Lake St
     with (compressed = true)  
     ```
 
-    Den här frågan skapar dagliga *container1/yyyy/MM/dd/all_exported_blobs.csv*. Bättre prestanda förväntas med mer detaljerade partitionering. Till exempel har frågor via externa tabeller med dagliga partitioner, till exempel de som anges ovan bättre prestanda än dessa frågor med månatliga partitionerade tabeller.
+    Den här frågan skapar dagliga partitioner *container1/åååå/mm/dd/all_exported_blobs. csv*. Ökad prestanda förväntas med mer detaljerad partitionering. Till exempel har frågor över externa tabeller med dagliga partitioner, till exempel den ovan, bättre prestanda än de frågor som har en månads partitionerade tabeller.
 
-    > [!NOTE]
-    > Konton som för närvarande stöds är Azure Blob Storage eller Azure Data Lake Storage Gen2. Dataformat som stöds för närvarande är csv, TVs och txt.
+1. Den externa tabellen visas i den vänstra rutan i webb gränssnittet
 
-1. Den externa tabellen visas i den vänstra rutan i Webbgränssnittet
+    ![extern tabell i webb gränssnittet](media/data-lake-query-data/external-tables-web-ui.png)
 
-    ![extern tabell i webbgränssnittet](media/data-lake-query-data/external-tables-web-ui.png)
+### <a name="create-an-external-table-with-json-format"></a>Skapa en extern tabell med JSON-format
+
+Du kan skapa en extern tabell med JSON-format. Mer information finns i [externa tabell kommandon](/azure/kusto/management/externaltables)
+
+1. Använd kommandot för att skapa en tabell med namnet *ExternalTableJson:* `.create external table`
+
+    ```kusto
+    .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
+    kind=blob
+    dataformat=json
+    ( 
+       h@'http://storageaccount.blob.core.windows.net/container1;secretKey'
+    )
+    with 
+    (
+       docstring = "Docs",
+       folder = "ExternalTables",
+       namePrefix="Prefix"
+    ) 
+    ```
  
-### <a name="external-table-permissions"></a>Extern tabellbehörigheter
+1. JSON-formatet kräver ett andra steg i skapandet av mappning till kolumner som visas nedan. I följande fråga skapar du en angiven JSON-mappning med namnet *mappingName*:
+
+    ```kusto
+    .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 
+    ```
+
+### <a name="external-table-permissions"></a>Behörigheter för externa tabeller
  
-* Databasanvändare kan skapa en extern tabell. Den tabell som har skaparen blir automatiskt tabell-administratör.
-* Klustret, databasen eller tabellen administratör kan redigera en befintlig tabell.
-* En databasanvändare eller läsare kan fråga en extern tabell.
+* Databas användaren kan skapa en extern tabell. Tabellens skapare blir automatiskt tabell administratör.
+* Klustret, databasen eller tabell administratören kan redigera en befintlig tabell.
+* En databas användare eller läsare kan fråga en extern tabell.
  
 ## <a name="query-an-external-table"></a>Fråga en extern tabell
  
-Om du vill fråga en extern tabell, använder de `external_table()` fungerar och ger tabellnamn som funktionsargument. Resten av frågan är standardspråket för Kusto-fråga.
+Om du vill fråga en extern tabell använder `external_table()` du funktionen och anger tabell namnet som funktions argument. Resten av frågan är standard språk för Kusto.
 
 ```Kusto
 external_table("ArchivedProducts") | take 100
 ```
 
 > [!TIP]
-> IntelliSense stöds inte för närvarande på extern tabell frågor.
+> IntelliSense stöds inte för närvarande på externa tabell frågor.
 
-## <a name="query-external-and-ingested-data-together"></a>Skicka frågor till externa och insamlade data tillsammans
+### <a name="query-an-external-table-with-json-format"></a>Fråga en extern tabell med JSON-format
 
-Du kan fråga både externa tabeller och inmatade tabeller inom samma fråga. Du [ `join` ](/azure/kusto/query/joinoperator) eller [ `union` ](/azure/kusto/query/unionoperator) den externa tabellen med ytterligare data från Azure Data Explorer, SQL-servrar eller andra källor. Använd en [ `let( ) statement` ](/azure/kusto/query/letstatement) tilldela en snabbformat till en extern tabell som referens.
+Om du vill fråga en extern tabell med JSON-format `external_table()` använder du funktionen och anger både tabell namn och mappnings namn som funktions argument. I frågan nedan, om *mappingName* inte har angetts, används en mappning som du skapade tidigare.
 
-I exemplet nedan, *produkter* är en datatabell med insamlade och *ArchivedProducts* är en extern tabell som innehåller data i Azure Data Lake Storage Gen2:
+```kusto
+external_table(‘ExternalTableJson’, ‘mappingName’)
+```
+
+## <a name="query-external-and-ingested-data-together"></a>Fråga externa och inmatade data tillsammans
+
+Du kan fråga både externa tabeller och inmatade data tabeller i samma fråga. Du [`join`](/azure/kusto/query/joinoperator) [eller`union`](/azure/kusto/query/unionoperator) den externa tabellen med ytterligare data från Azure datautforskaren, SQL-servrar eller andra källor. Använd en [`let( ) statement`](/azure/kusto/query/letstatement) för att tilldela ett kort namn till en extern tabell referens.
+
+I exemplet nedan är *produkter* en inmatad data tabell och *ArchivedProducts* är en extern tabell som innehåller data i Azure Data Lake Storage Gen2:
 
 ```kusto
 let T1 = external_table("ArchivedProducts") |  where TimeStamp > ago(100d);
@@ -81,16 +116,16 @@ let T = Products; //T is an internal table
 T1 | join T on ProductId | take 10
 ```
 
-## <a name="query-taxirides-external-table-in-the-help-cluster"></a>Fråga *TaxiRides* extern tabell i hjälpklustret
+## <a name="query-taxirides-external-table-in-the-help-cluster"></a>Fråga *TaxiRides* extern tabell i hjälp klustret
 
-Den *TaxiRides* exempeldatauppsättning innehåller New York City taxi-data från [NYC Taxi och Limousine kommissionen](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
+Exempel data uppsättningen *TaxiRides* innehåller New York City-data från [NYC taxi-och limousine-kommission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
 
 ### <a name="create-external-table-taxirides"></a>Skapa extern tabell *TaxiRides* 
 
 > [!NOTE]
-> Det här avsnittet visar frågan som används för att skapa den *TaxiRides* extern tabell i den *hjälpa* kluster. Eftersom den här tabellen har redan skapats kan du hoppa över det här avsnittet och utföra [fråga *TaxiRides* externa tabelldata](#query-taxirides-external-table-data). 
+> I det här avsnittet beskrivs frågan som används för att skapa den externa *TaxiRides* -tabellen i *Hjälp* klustret. Eftersom den här tabellen redan har skapats kan du hoppa över det här avsnittet och köra [fråga *TaxiRides* externa tabell data](#query-taxirides-external-table-data). 
 
-1. Följande fråga har använts för att skapa den externa tabellen *TaxiRides* i hjälpklustret. 
+1. Följande fråga användes för att skapa den externa tabellen *TaxiRides* i hjälp klustret. 
 
     ```kusto
     .create external table TaxiRides
@@ -151,20 +186,20 @@ Den *TaxiRides* exempeldatauppsättning innehåller New York City taxi-data frå
     partition by bin(pickup_datetime, 1d)
     dataformat=csv
     ( 
-    h@'https://externalkustosamples.blob.core.windows.net/taxiridesbyday?st=2019-06-18T14%3A59%3A00Z&se=2029-06-19T14%3A59%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=yEaO%2BrzFHzAq7lvd4d9PeQ%2BTi3AWnho8Rn8hGU0X30M%3D'
+        h@'http://storageaccount.blob.core.windows.net/container1;secretKey''
     )
     ```
-1. Den resulterande tabellen har skapats i den *hjälpa* klustret:
+1. Den resulterande tabellen skapades i *Hjälp* klustret:
 
     ![TaxiRides extern tabell](media/data-lake-query-data/taxirides-external-table.png) 
 
-### <a name="query-taxirides-external-table-data"></a>Fråga *TaxiRides* data från externa tabeller 
+### <a name="query-taxirides-external-table-data"></a>Fråga *TaxiRides* externa tabell data 
 
-Logga in på [ https://dataexplorer.azure.com/clusters/help/databases/Samples ](https://dataexplorer.azure.com/clusters/help/databases/Samples) att fråga den *TaxiRides* extern tabell. 
+Logga in för [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples) att fråga den externa *TaxiRides* -tabellen. 
 
 #### <a name="query-taxirides-external-table-without-partitioning"></a>Fråga *TaxiRides* extern tabell utan partitionering
 
-[Köra den här frågan](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAx3LSwqAMAwFwL3gHYKreh1xL7F9YrCtElP84OEV9zM4DZo5DsZjhGt6PqWTgL1p6+qhvaTEKjeI/FqyuZbGiwJf63QAi9vEL2UbAhtMEv6jyAH6+VhS9jOr1dULfUgAm2cAAAA=) på den externa tabellen *TaxiRides* till att avbilda cykel för varje dag i veckan, över hela datauppsättningen. 
+[Kör den här frågan](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAx3LSwqAMAwFwL3gHYKreh1xL7F9YrCtElP84OEV9zM4DZo5DsZjhGt6PqWTgL1p6+qhvaTEKjeI/FqyuZbGiwJf63QAi9vEL2UbAhtMEv6jyAH6+VhS9jOr1dULfUgAm2cAAAA=) på den externa tabellens *TaxiRides* om du vill visa en del av varje veckodag i hela data uppsättningen. 
 
 ```kusto
 external_table("TaxiRides")
@@ -172,13 +207,13 @@ external_table("TaxiRides")
 | render columnchart
 ```
 
-Den här frågan visar de mest använda dag i veckan. Eftersom data inte är partitionerad, kan den här frågan ta lång tid att returnera resultat (upp till flera minuter).
+Den här frågan visar veckans vanligaste dag. Eftersom data inte har partitionerats kan det ta lång tid för den här frågan att returnera resultat (upp till flera minuter).
 
-![Rendera icke-partitionerad fråga](media/data-lake-query-data/taxirides-no-partition.png)
+![rendera en icke-partitionerad fråga](media/data-lake-query-data/taxirides-no-partition.png)
 
 #### <a name="query-taxirides-external-table-with-partitioning"></a>Fråga TaxiRides extern tabell med partitionering 
 
-[Köra den här frågan](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) på den externa tabellen *TaxiRides* som visar taxi cab typer (gult eller grönt) används i januari 2017. 
+[Kör den här frågan](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) på den externa tabellen *TaxiRides* som visar taxi hytt typer (gult eller grönt) som används i januari 2017. 
 
 ```kusto
 external_table("TaxiRides")
@@ -187,12 +222,12 @@ external_table("TaxiRides")
 | render piechart
 ```
 
-Den här frågan använder partitionering, vilket optimerar frågetiden och prestanda. Frågan filtrerar på en partitionerad kolumn (pickup_datetime) och returnerar resultat på några sekunder.
+Den här frågan använder partitionering, vilket optimerar frågans tid och prestanda. Frågefilter i en partitionerad kolumn (pickup_datetime) och returnerar resultat på några sekunder.
 
-![Rendera partitionerade fråga](media/data-lake-query-data/taxirides-with-partition.png)
+![Rendera partitionerad fråga](media/data-lake-query-data/taxirides-with-partition.png)
   
-Du kan skriva ytterligare frågor som ska köras på den externa tabellen *TaxiRides* och lär dig mer om data. 
+Du kan skriva ytterligare frågor som ska köras på den externa tabellen *TaxiRides* och läsa mer om data. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fråga dina data i Azure Data Lake med Datautforskaren i Azure. Lär dig hur du [skriva frågor](write-queries.md) och få ytterligare analyser från dina data.
+Fråga dina data i Azure Data Lake med Azure Datautforskaren. Lär dig att [skriva frågor](write-queries.md) och härleda ytterligare insikter från dina data.

@@ -1,66 +1,66 @@
 ---
-title: Apache Spark Structured Streaming i Azure HDInsight
-description: Hur du använder Spark Structured Streaming program på HDInsight Spark-kluster.
-author: maxluk
+title: Spark-strukturerad strömning i Azure HDInsight
+description: Använda Spark-strukturerade strömnings program i HDInsight Spark-kluster.
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.author: maxluk
-ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: hrasheed
+ms.openlocfilehash: 0aaca127fec82d35da0ba943e97221834c2e42ed
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711320"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441900"
 ---
-# <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark Structured Streaming
+# <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark strukturerad strömning
 
-[Apache Spark](https://spark.apache.org/) Structured Streaming gör det möjligt att implementera skalbara, högt dataflöde, feltoleranta program för bearbetning av dataströmmar. Strukturerad direktuppspelning bygger på Spark SQL-motor och förbättrat konstruktioner från Spark SQL-dataramar och datauppsättningar så du kan skriva streaming frågar på samma sätt som du skulle skriva frågor för batch.  
+[Apache Spark](https://spark.apache.org/) Strukturerad direkt uppspelning gör det möjligt att implementera skalbara, stora data flöden, feltoleranta program för bearbetning av data strömmar. Strukturerad strömning bygger på Spark SQL-motorn och förbättrar konstruktionerna från Spark SQL data-ramar och data uppsättningar så att du kan skriva direkt uppspelnings frågor på samma sätt som du skulle skriva batch-frågor.  
 
-Strukturerad direktuppspelning program körs i HDInsight Spark-kluster och Anslut till strömmande data från [Apache Kafka](https://kafka.apache.org/), TCP-socket (för felsökning), Azure Storage eller Azure Data Lake Storage. Dessa två alternativ, som förlitar sig på externa lagringstjänster, kan du bevaka nya filer som läggs till i lagring och bearbeta deras innehåll som om de har strömmas. 
+Strukturerade strömmande program körs på HDInsight Spark-kluster och ansluter till strömmande data från [Apache Kafka](https://kafka.apache.org/), en TCP-socket (för fel söknings syfte), Azure Storage eller Azure Data Lake Storage. De två sistnämnda alternativen, som är beroende av externa lagrings tjänster, gör att du kan se om nya filer har lagts till i lagringen och bearbeta innehållet som om de var strömmande. 
 
-Strukturerad direktuppspelning skapar en tidskrävande fråga som du kan använda åtgärder för inkommande data, till exempel val, projektion, aggregering, fönsterhantering och koppla strömmande DataFrame med referensen dataramar. Nu ska du matar ut resultaten till file storage (Azure Storage-Blobbar eller Data Lake Storage) eller till alla datalager genom att använda anpassad kod (till exempel SQL-databas eller Power BI). Strukturerad direktuppspelning ger också utdata till konsolen för att felsöka lokalt och i en InMemory-tabell så att du kan se de data som genereras för felsökning i HDInsight. 
+Strukturerad direkt uppspelning skapar en långvarig fråga där du kan tillämpa åtgärder på indata, t. ex. urval, projektion, agg regering, fönster och anslutning av strömnings DataFrame med referens DataFrames. Därefter skickar du resultaten till File Storage (Azure Storage blobbar eller Data Lake Storage) eller till alla data lager med hjälp av anpassad kod (till exempel SQL Database eller Power BI). Strukturerad direkt uppspelning ger också utdata till-konsolen för fel sökning lokalt och till en InMemory-tabell så att du kan se de data som genereras för fel sökning i HDInsight. 
 
-![Stream bearbetning med HDInsight och Apache Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Strömnings bearbetning med HDInsight och Spark strukturerad strömning](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
-> Spark Structured Streaming ersätter Spark Streaming (DStreams). Framöver kommer får Structured Streaming förbättringar och underhåll, medan DStreams ska vara i underhållsläge endast. Strukturerad direktuppspelning är för närvarande inte som funktionen komplettering som DStreams för källorna och egenskaperna att den stöder direkt, så utvärdera dina krav och välja lämplig Spark stream Bearbetningsalternativ. 
+> Spark-strukturerad strömning ersätter Spark streaming (DStreams). I framtiden kommer strukturerad strömning att få förbättringar och underhåll, medan DStreams endast är i underhålls läge. Strukturerad direkt uppspelning är för närvarande inte som funktion – fullständig som DStreams för källorna och de handfat som den stöder utanför lådan, så du kan utvärdera dina krav för att välja lämpligt bearbetnings alternativ för Spark-strömmar. 
 
 ## <a name="streams-as-tables"></a>Strömmar som tabeller
 
-Spark Structured Streaming representerar en dataström som en tabell som är obegränsade i detalj, det vill säga tabellen fortsätter att växa när nya data tas emot. Detta *indatatabellen* kontinuerligt bearbetas av en tidskrävande fråga och resultatet skickas till en *utdatatabellen*:
+Spark-strukturerad direkt uppspelning representerar en data ström som en tabell som är obegränsad i djup, det vill säga att tabellen fortsätter att växa när nya data tas emot. Den här inmatnings *tabellen* bearbetas kontinuerligt av en lång körnings fråga och resultatet som skickas till en *utgående tabell*:
 
-![Strukturerad direktuppspelning begrepp](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
+![Strukturerat strömnings begrepp](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
 
-I Structured Streaming data anländer till systemet och omedelbart matas in i en indata-tabellen. Du kan skriva frågor (med den dataram och Dataset APIs) som utför åtgärder mot den här indatatabellen. Frågeresultatet visas ger en annan tabell i *resultattabellen*. Resultattabellen innehåller resultatet av din fråga, från vilken du rita data för en extern datalager, en relationsdatabas. Tidsinställningen för när data har bearbetats från indatatabellen styrs av den *utlösaren intervall*. Som standard är vid utlösaren noll, så Structured Streaming försöker bearbeta data när de anländer. I praktiken är det innebär att när Structured Streaming görs en annan bearbetningen kör mot alla nyligen mottagna data startar bearbetning av körning av den föregående frågan. Du kan konfigurera att utlösaren ska köras vid ett intervall, så att strömmande data bearbetas batchvis tidsbaserade. 
+I strukturerad strömning tas data emot i systemet och matas direkt in i en inmatnings tabell. Du skriver frågor (med hjälp av DataFrame och data uppsättnings-API: er) som utför åtgärder mot den här indata-tabellen. Frågeresultatet ger till gång till en annan tabell, *resultat tabellen*. Resultat tabellen innehåller resultatet från frågan, från vilken du ritar data för ett externt data lager, till exempel en Relations databas. Tiden för när data bearbetas från inmatnings tabellen styrs av *utlösarens intervall*. Som standard är utlösnings intervallet noll, så att strukturerad strömning försöker bearbeta data så fort de anländer. I praktiken innebär det att så fort Structured streaming utförs bearbetningen av den föregående frågans körning, startas en annan bearbetnings körning mot eventuella nyligen mottagna data. Du kan konfigurera utlösaren att köras med ett intervall, så att strömmande data bearbetas i tidsbaserade batchar. 
 
-Data i resultatet tabeller får bara innehålla de data som är nytt sedan senast gången frågan bearbetades (*lägga till*), eller tabellen kan inte helt uppdateras varje gång det finns nya data, så tabellen innehåller alla utdata eftersom strömmande frågan började (*fullständig läge*).
+Data i resultat tabellerna får bara innehålla data som är nya sedan frågan senast bearbetades (*tilläggs läge*), eller så kan tabellen uppdateras helt varje gång det finns nya data, så att tabellen innehåller alla utdata som visas sedan det strömmande q åga började (*fullständigt läge*).
 
-### <a name="append-mode"></a>Lägga till
+### <a name="append-mode"></a>Tilläggsläge
 
-Lägg till läget endast de rader som läggs till i resultattabellen eftersom den senaste körningen av frågan finns i resultattabellen och skrivs till extern lagring i. Till exempel kopierar den enklaste frågan bara alla data från indatatabellen till resultattabellen utan ändringar. Varje gång som ett intervall för utlösare går ut den nya data har bearbetats och rader som representerar den nya data visas i resultattabellen. 
+I läget append finns bara de rader som har lagts till i resultat tabellen sedan den senaste frågan som kördes i resultat tabellen och som skrivs till extern lagring. Den enklaste frågan kopierar till exempel bara alla data från inmatnings tabellen till tabellen Results utan att ändra den. Varje gången ett utlösnings intervall förflutit bearbetas de nya data och raderna som representerar nya data visas i resultat tabellen. 
 
-Tänk dig ett scenario där du bearbetar telemetri från temperatursensorer, till exempel en termostat. Anta att den första utlösaren bearbetas en händelse på tid 00:01 för enhet 1 med ett temperatur läsning av 95 grader. I den första utlösaren frågans visas endast raden med tiden 00:01 i resultattabellen. Vid tid 00:02 när en annan händelse tas emot, endast nya raden är raden med tiden 00:02 och därför resultattabellen innehåller endast som en rad.
+Överväg ett scenario där du bearbetar telemetri från temperatur sensorer, till exempel en termostat. Anta att den första utlösaren bearbetade en händelse vid tiden 00:01 för enhet 1 med en temperatur läsning på 95 grader. I den första utlösaren av frågan visas bara raden med tiden 00:01 i resultat tabellen. Vid tid 00:02 när en annan händelse anländer är den enda nya raden raden med tiden 00:02 och så att tabellen result bara innehåller en rad.
 
-![Structured Streaming lägga till](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png)
+![Tilläggs läge för strukturerad strömning](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png)
 
-När med hjälp av Lägg till läge, din fråga skulle vara tillämpar projektioner (och markera de kolumner som den värnar om), filtrering (välja endast de rader som matchar vissa villkor) eller ansluta till (utöka data med data från en statisk uppslagstabell). Lägg till läget gör det enkelt att skicka endast relevanta nya data pekar till extern lagring.
+När du använder läget för tillägg skulle din fråga tillämpa projektioner (Markera de kolumner som det värnar om), filtrera (plocka bara rader som matchar vissa villkor) eller Anslut (utöka data med data från en statisk uppslags tabell). Append-läge gör det enkelt att bara skicka relevanta nya data punkter ut till extern lagring.
 
-### <a name="complete-mode"></a>Fullständig läge
+### <a name="complete-mode"></a>Fullständigt läge
 
-Överväg att för samma scenario med fullständig läge. I läget för fullständig uppdateras hela utdatatabellen på varje utlösare så att tabellen innehåller data som inte bara från den senaste körningen av utlösaren, men från alla körningar. Du kan använda fullständiga läge för att kopiera data oförändrad från indatatabellen till resultattabellen. I varje utlösta visas de nya resultatraderna tillsammans med alla föregående rader. Utdatatabellen resultaten hamnar lagrar alla data som samlas in eftersom frågan började och kör du så småningom slut på minne. Fullständig läge är avsedd att användas med mängdfrågor som summerar inkommande data på något sätt och så vidare varje utlösare resultattabellen uppdateras med en ny sammanfattning. 
+Överväg samma scenario, den här gången med slutfört läge. I komplett läge uppdateras hela utdatatabellen vid varje utlösare, så att tabellen innehåller data som inte är från den senaste utlösaren, men från alla körningar. Du kan använda fullständig läge för att kopiera data som inte har ändrats från inmatnings tabellen till resultat tabellen. Vid varje utlöst körning visas nya resultat rader tillsammans med alla föregående rader. Resultat tabellen för utdata kommer att lagra alla data som samlats in sedan frågan började och du skulle då få slut på minne. Fullständigt läge är avsett för användning med sammanställda frågor som sammanfattar inkommande data på ett visst sätt, och så vidare uppdateras tabellen result med en ny sammanfattning. 
 
-Förutsätter än så länge det finns fem sekunder tillhandahåller redan bearbetas och är det dags att bearbeta data för den sjätte andra. Indatatabellen har händelser för tid 00:01 och tiden 00:03. Målet med den här exempelfråga är att ge medeltemperaturen för enheten var femte sekund. Implementeringen av den här frågan gäller en mängd som gör att alla värden som faller inom varje 5-sekundersfönster anger temperaturgenomsnittet och producerar en rad för medeltemperaturen under den perioden. Det finns två tupplar i slutet av det första 5-sekundersintervall-fönstret: (00:01, 1, 95) och (00:03, 1, 98). Så för fönstret 00:00-00:05 aggregeringen producerar en tuppel med medeltemperatur på 96.5 grader. I fönstret nästa 5-sekundersintervall finns endast en datapunkt på tid 00:06, så den resulterande medeltemperaturen håller 98 grader. Vid tiden 00:10, med fullständig läge resultattabellen innehåller raderna för både windows-00:00-00:05 och 00:05-00:10 eftersom frågan returnerar alla rader aggregerade, inte bara nya. Därför fortsätter resultattabellen att växa när nya windows har lagts till.    
+Anta att det finns fem sekunders värd för data som redan har bearbetats och det är dags att bearbeta data för den sjätte sekunden. Indatalist-tabellen innehåller händelser för tid 00:01 och tid 00:03. Målet för den här exempel frågan är att ge enhetens genomsnittliga temperatur var femte sekund. Implementeringen av den här frågan använder en agg regering som tar alla värden som ingår i varje 5-sekunders fönster, beräknar genomsnitts temperatur och genererar en rad för den genomsnittliga temperaturen under intervallet. I slutet av det första fem-andra fönstret finns det två tupler: (00:01, 1, 95) och (00:03, 1, 98). Så för Window 00:00-00:05 genererar agg regeringen en tupel med genomsnitts temperaturen på 96,5 grader. I nästa 5-Second-fönster finns det bara en data punkt vid tiden 00:06, så den resulterande genomsnitts temperaturen är 98 grader. Vid tid 00:10, med slutfört läge, innehåller resultat tabellen raderna för både Windows 00:00-00:05 och 00:05-00:10 eftersom frågan matar ut alla aggregerade rader, inte bara de nya. Därför fortsätter tabellen resultat att växa när nya fönster läggs till.    
 
-![Strukturerad direktuppspelning fullständig läge](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
+![Fullständigt läge för strukturerad strömning](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
 
-Inte alla frågor med fullständig läge innebär att tabellen utökas utan gränser.  Överväg att i föregående exempel som snarare än medelvärdet är temperatur av tidsfönster, den i stället i genomsnitt av enhets-ID. Resultattabellen innehåller ett fast antal rader (en per enhet) med medeltemperaturen för enheten för alla datapunkter som tagits emot från den enheten. När nya temperaturer tas emot uppdateras resultattabellen så att medelvärden i tabellen alltid är uppdaterade. 
+Alla frågor som använder fullständigt läge gör att tabellen växer utan gränser.  Överväg i föregående exempel i stället för att beräkna genomsnitts perioden för temperatur per tid i stället för enhets-ID. Resultat tabellen innehåller ett fast antal rader (en per enhet) med genomsnitts temperaturen för enheten över alla data punkter som tas emot från enheten. När nya temperaturer tas emot uppdateras resultat tabellen så att medelvärdena i tabellen alltid är aktuella. 
 
-## <a name="components-of-a-spark-structured-streaming-application"></a>Komponenter i ett Spark Structured Streaming-program
+## <a name="components-of-a-spark-structured-streaming-application"></a>Komponenter i ett Spark-strukturerat strömmande program
 
-Ett enkelt exempelfråga kan sammanfatta temperaturavläsningar av timslång windows. I det här fallet lagras data i JSON-filer i Azure Storage (ansluten som standardlagringen för HDInsight-kluster):
+En enkel exempel fråga kan sammanfatta temperatur avläsningar per timme-lång fönster. I det här fallet lagras data i JSON-filer i Azure Storage (bifogas som standard lagring för HDInsight-klustret):
 
     {"time":1469501107,"temp":"95"}
     {"time":1469501147,"temp":"95"}
@@ -68,11 +68,11 @@ Ett enkelt exempelfråga kan sammanfatta temperaturavläsningar av timslång win
     {"time":1469501219,"temp":"95"}
     {"time":1469501225,"temp":"95"}
 
-De här JSON-filerna lagras i den `temps` undermapp under behållaren för HDInsight-klustret. 
+Dessa JSON-filer lagras i `temps` undermappen under HDInsight-klustrets behållare. 
 
 ### <a name="define-the-input-source"></a>Definiera Indatakällan
 
-Konfigurera först en dataram som beskriver orsaken data och alla inställningar som krävs för den här källan. Det här exemplet ritar från JSON-filer i Azure Storage och tillämpliga ett schema vid läsning tidpunkt.
+Konfigurera först en DataFrame som beskriver data källan och de inställningar som krävs av källan. Det här exemplet drar från JSON-filerna i Azure Storage och använder ett schema för dem vid Läs tillfället.
 
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
@@ -88,57 +88,57 @@ Konfigurera först en dataram som beskriver orsaken data och alla inställningar
 
 #### <a name="apply-the-query"></a>Tillämpa frågan
 
-Därefter tillämpas en fråga som innehåller de önskade åtgärderna mot den strömmande dataramen. I det här fallet en aggregering grupperar raderna i windows för 1 timme och beräknar de minsta, genomsnittliga och högsta temperaturerna i fönstret 1 timme.
+Sedan använder du en fråga som innehåller önskade åtgärder mot strömnings DataFrame. I det här fallet har en agg regering grupper alla rader i en timmes Windows-period och sedan beräknar de lägsta, genomsnittliga och högsta temperaturerna i det 1-timmarsformat.
 
     val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
 
-### <a name="define-the-output-sink"></a>Definiera utdatamottagaren
+### <a name="define-the-output-sink"></a>Definiera utgående Sink
 
-Definiera mål för de rader som har lagts till i resultattabellen inom varje intervall för utlösare. Det här exemplet visar bara alla rader i en InMemory-tabell `temps` att du senare kan fråga med SparkSQL. Fullständig utdataläge garanterar att alla rader för alla fönster är utdata varje gång.
+Definiera sedan målet för de rader som läggs till i resultat tabellen inom varje utlösnings intervall. I det här exemplet matas bara alla rader till en InMemory- `temps` tabell som du senare kan fråga med SparkSQL. Fullständig utmatnings läge ser till att alla rader för alla fönster skrivs ut varje gång.
 
     val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete") 
 
 ### <a name="start-the-query"></a>Starta frågan
 
-Starta direktuppspelning frågan och kör tills en uppsägning signal tas emot. 
+Starta direkt uppspelnings frågan och kör tills en avslutnings signal tas emot. 
 
     val query = streamingOutDF.start()  
 
 ### <a name="view-the-results"></a>Visa resultatet
 
-När frågan körs i samma SparkSession, du kan köra en SparkSQL fråga mot den `temps` tabellen där resultatet av frågan lagras. 
+Även om frågan körs, i samma SparkSession, kan du köra en SparkSQL-fråga mot den `temps` tabell där frågeresultatet lagras. 
 
     select * from temps
 
 Den här frågan ger resultat som liknar följande:
 
 
-| fönstret |  min(Temp) | AVG(Temp) | Max(Temp) |
+| terminalfönstret |  min (temp) | AVG (temp) | Max (temp) |
 | --- | --- | --- | --- |
-|{u'start': u 2016-07-26T02:00:00.000Z', u'end'... |    95 |    95.231579 | 99 |
-|{u'start': u 2016-07-26T03:00:00.000Z', u'end'...  |95 |   96.023048 | 99 |
-|{u'start': u 2016-07-26T04:00:00.000Z', u'end'...  |95 |   96.797133 | 99 |
-|{u'start': u 2016-07-26T05:00:00.000Z', u'end'...  |95 |   96.984639 | 99 |
-|{u'start': u 2016-07-26T06:00:00.000Z', u'end'...  |95 |   97.014749 | 99 |
-|{u'start': u 2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
-|{u'start': u 2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
+|{u'start ': u ' 2016-07-26T02:00:00.000 Z ', u'end '... |    95 |    95,231579 | 99 |
+|{u'start ': u ' 2016-07-26T03:00:00.000 Z ', u'end '...  |95 |   96,023048 | 99 |
+|{u'start ': u ' 2016-07-26T04:00:00.000 Z ', u'end '...  |95 |   96,797133 | 99 |
+|{u'start ': u ' 2016-07-26T05:00:00.000 Z ', u'end '...  |95 |   96,984639 | 99 |
+|{u'start ': u ' 2016-07-26T06:00:00.000 Z ', u'end '...  |95 |   97,014749 | 99 |
+|{u'start ': u ' 2016-07-26T07:00:00.000 Z ', u'end '...  |95 |   96,980971 | 99 |
+|{u'start ': u ' 2016-07-26T08:00:00.000 Z ', u'end '...  |95 |   96,965997 | 99 |  
 
-Mer information om Spark-strukturerad Stream-API, tillsammans med indata källor, åtgärder och utdata egenskaperna det stöder, finns i [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Mer information om Spark-API: et för Spark, tillsammans med de inmatnings data källor, åtgärder och utgående mottagare som stöds, finns i [Apache Spark strukturerad programmerings guide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
-## <a name="checkpointing-and-write-ahead-logs"></a>Kontrollpunkter och Skriv-ahead-loggar
+## <a name="checkpointing-and-write-ahead-logs"></a>Kontroll punkts-och skriv loggar
 
-För att leverera elasticitet och feltolerans Structured Streaming förlitar sig på *kontrollpunkter* att säkerställa att dataströmmen bearbetningen kan fortsätta utan avbrott, även med nodfel. I HDInsight skapar Spark kontrollpunkter till beständig lagring, antingen Azure Storage eller Data Lake Storage. Dessa kontrollpunkter lagra statusinformation om strömmande frågan. Dessutom Structured Streaming använder en *write-ahead log* (WAL). WAL fångar insamlade data som har tagits emot men har ännu inte bearbetas av en fråga. Om ett fel inträffar och bearbetning av startas från WAL, försvinner inte alla händelser som tagits emot från källan.
+För att leverera återhämtnings-och fel tolerans är strukturerad strömning beroende av *kontroll punkter* för att säkerställa att Stream-bearbetningen kan fortsätta oavbrutet, även vid nodfel. I HDInsight skapar Spark kontroll punkter till varaktig lagring, antingen Azure Storage eller Data Lake Storage. Dessa kontroll punkter lagrar förlopps informationen om direkt uppspelnings frågan. Dessutom använder Structured streaming en logg för att *skriva framåt* (Wal). WAL fångar in inmatade data som har tagits emot men ännu inte bearbetats av en fråga. Om ett fel uppstår och bearbetningen startas om från WAL går inga händelser som tas emot från källan förlorade.
 
-## <a name="deploying-spark-streaming-applications"></a>Distribuera Spark Streaming program
+## <a name="deploying-spark-streaming-applications"></a>Distribuera program för Spark-direktuppspelning
 
-Du vanligtvis skapa ett Spark Streaming-program lokalt i en JAR-fil och sedan distribuera den till Apache Spark på HDInsight genom att kopiera JAR-filen till standardlagring kopplat till ditt HDInsight-kluster. Du kan börja med den [Apache Livy](https://livy.incubator.apache.org/) REST API: er som tillgängliga från ditt kluster med hjälp av en POST-åtgärd. Brödtexten i INLÄGGET innehåller ett JSON-dokument som innehåller sökvägen till din JAR, namnet på klassen vars main-metoden definierar och kör programmet strömmande och eventuellt resurskraven för jobbet (till exempel antalet executors, minne och kärnor) , och kräver att alla konfigurationsinställningar programkoden.
+Du skapar vanligt vis ett Spark streaming-program lokalt i en JAR-fil och distribuerar det sedan till Spark på HDInsight genom att kopiera JAR-filen till standard lagringen som är kopplad till ditt HDInsight-kluster. Du kan starta ditt program med de [Apache livy](https://livy.incubator.apache.org/) REST API: er som finns tillgängliga från klustret med en post-åtgärd. Innehållet i inlägget innehåller ett JSON-dokument som ger din JAR-sökväg, namnet på klassen vars huvudsakliga metod definierar och kör Streaming-programmet och eventuellt resurs kraven för jobbet (till exempel antalet körningar, minne och kärnor) och alla konfigurations inställningar som program koden kräver.
 
-![Distribuera ett Spark Streaming-program](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+![Distribuera ett Spark streaming-program](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-Status för alla program kan också kontrolleras med en GET-begäran mot en LIVY-slutpunkt. Slutligen kan avsluta du ett program som körs genom att utfärda en DELETE-begäran mot slutpunkten LIVY. Mer information om LIVY-API: et finns [fjärrstyrda jobb med Apache LIVY](apache-spark-livy-rest-interface.md)
+Status för alla program kan också kontrol leras med en GET-begäran mot en LIVY-slutpunkt. Slutligen kan du avsluta ett program som körs genom att utfärda en DELETE-begäran mot LIVY-slutpunkten. Mer information om LIVY-API: et finns i [Fjärrjobb med Apache LIVY](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett Apache Spark-kluster i HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Apache Spark-strukturerad strömning Programmeringsguide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
-* [Starta Apache Spark-jobb via fjärranslutning med Apache LIVY](apache-spark-livy-rest-interface.md)
+* [Programmerings guide för Apache Spark strukturerad strömning](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Starta Apache Spark jobb via en fjärr anslutning med Apache LIVY](apache-spark-livy-rest-interface.md)

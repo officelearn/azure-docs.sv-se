@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 269568c172ff6c65c9877f9ad22067a11125b339
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847425"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370467"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Logga mått under inlärnings körningar i Azure Machine Learning
 
@@ -225,8 +225,8 @@ I avsnittet [starta, övervaka och avbryta utbildnings körningar](how-to-manage
 
 ## <a name="view-run-details"></a>Visa körningsinformation
 
-### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Övervakare som körs med Jupyter notebook widgetar
-När du använder den **ScriptRunConfig** metod för att skicka körs, du kan se förloppet för körning med en Jupyter-anteckningsbok widget. Precis som körningsöverföringen är widgeten asynkron och tillhandahåller liveuppdateringar var 10:e till var 15:e sekund tills jobbet har slutförts.
+### <a name="monitor-run-with-jupyter-notebook-widget"></a>Övervaka körning med Jupyter Notebook-widget
+När du använder **ScriptRunConfig** -metoden för att skicka körningar kan du se förloppet för körningen med en [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Precis som körningsöverföringen är widgeten asynkron och tillhandahåller liveuppdateringar var 10:e till var 15:e sekund tills jobbet har slutförts.
 
 1. Visa widgeten Jupyter under väntan på Kör för att slutföra.
 
@@ -236,6 +236,12 @@ När du använder den **ScriptRunConfig** metod för att skicka körs, du kan se
    ```
 
    ![Skärmbild av Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
+
+Du kan också hämta en länk till samma visning i din arbets yta.
+
+```python
+print(run.get_portal_url())
+```
 
 2. **[Automatiserad machine learning i körningar]**  Att komma åt diagrammen från en tidigare körning. Ersätt `<<experiment_name>>` med lämpligt experiment namn:
 
@@ -257,7 +263,8 @@ Om du vill visa information om en pipeline-Klicka på pipelinen du vill utforska
 ### <a name="get-log-results-upon-completion"></a>Hämta loggresultat när åtgärden har slutförts
 
 Modellen tränas och övervakning sker i bakgrunden så att du kan köra andra uppgifter medan du väntar. Du kan också vänta tills modellen har slutförts utbildning innan du kör mer kod. När du använder **ScriptRunConfig**, du kan använda ```run.wait_for_completion(show_output = True)``` ska visas när modellträning är klar. Den ```show_output``` flaggan ger dig utförliga utdata. 
-  
+
+
 ### <a name="query-run-metrics"></a>Frågekörningen mått
 
 Du kan visa mått för en tränade modellen med hjälp av ```run.get_metrics()```. Nu kan du få alla mått som loggats i exemplet ovan för att avgöra den bästa modellen.
@@ -287,140 +294,6 @@ Det finns olika sätt att använda loggning API: er till olika posttyper mått u
 |Logga en rad med 2 numeriska kolumner upprepade gånger|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Två variabler linjediagram|
 |Tabell med 2 numeriska kolumner|`run.log_table(name='Sine Wave', value=sines)`|Två variabler linjediagram|
 
-<a name="auto"></a>
-## <a name="understanding-automated-ml-charts"></a>Så här fungerar automatisk ML-diagram
-
-När du har skickat ett automatiserade ML-jobb på en bärbar dator, finns en historik över de här körs i din machine learning-arbetsyta. 
-
-Läs mer om:
-+ [Diagram och kurvor för klassificering modeller](#classification)
-+ [Tabeller och diagram för regressionsmodeller](#regression)
-+ [Modellen förklara möjlighet](#model-explain-ability-and-feature-importance)
-
-
-### <a name="view-the-run-charts"></a>Visa kör diagram
-
-1. Gå till din arbetsyta. 
-
-1. Välj **experiment** på panelen längst till vänster i din arbetsyta.
-
-   ![Skärmbild av menyn för experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
-
-1. Välj experiment som du är intresserad av.
-
-   ![Experiment lista](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
-
-1. I tabellen, väljer du hur många som kör.
-
-   ![Körningen av experimentet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
-
-1. Välj Iteration numret för den modell som du vill utforska vidare i tabellen.
-
-   ![Experiment modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
-
-
-
-### <a name="classification"></a>Klassificering
-
-För varje klassificering-modell som du skapar med hjälp av de automatiserade machine learning-funktionerna i Azure Machine Learning, kan du se följande diagram: 
-+ [Felmatris](#confusion-matrix)
-+ [Precisionsåterkallningsdiagram diagram](#precision-recall-chart)
-+ [Mottagare operativa egenskaper (eller ROC)](#roc)
-+ [Flytta kurva](#lift-curve)
-+ [Vinster kurva](#gains-curve)
-+ [Kalibreringskurva](#calibration-plot)
-
-#### <a name="confusion-matrix"></a>Felmatris
-
-En felmatris används för att beskriva resultatet av en modell för klassificering. Varje rad visar instanserna av klassen SANT och varje kolumn representerar instanser av den förväntade klassen. Felmatrisen visar korrekt klassificerade etiketter och felaktigt klassificerad etiketter för en viss modell.
-
-För klassificering, problem ger Azure Machine Learning automatiskt en felmatris för varje modell som har skapats. För varje felmatris visas automatiserade ML korrekt klassificerade etiketterna som gröna och felaktigt klassificerad etiketter rött. Storleken på cirkeln representerar antalet prov i lagerplatsen. Dessutom finns frekvens antal förväntade etiketterna och varje SANT etikett i intilliggande stapeldiagram. 
-
-Exempel 1: En klassificerings modell med dålig ![precision för en klassificerings modell med dålig precision](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
-
-Exempel 2: En klassificerings modell med hög noggrannhet (idealisk ![) en klassificerings modell med hög exakthet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
-
-
-#### <a name="precision-recall-chart"></a>Precisionsåterkallningsdiagram diagram
-
-Du kan jämföra precisionsåterkallningsdiagram kurvor för varje modell att avgöra vilken modell som har en godtagbar relation mellan precision och återkallande för din specifika affärsproblem med det här diagrammet. Det här diagrammet visar makrot genomsnittlig Precisionsåterkallningsdiagram, Micro genomsnittliga Precisionsåterkallningsdiagram och precisionsåterkallningsdiagram som är associerade med alla klasser för en modell.
-
-Termen Precision representerar den möjligheten för en klassificerare att märka alla instanser korrekt. Återkallande representerar möjligheten för en klassificerare att hitta alla instanser av en viss etikett. Precisionsåterkallningsdiagram kurvan visar relationen mellan dessa två begrepp. Vi rekommenderar skulle modellen ha 100% noggrannhet och 100% noggrannhet.
-
-Exempel 1: En klassificerings modell med låg precision och låg ![återkallning av en klassificerings modell med låg precision och låg återkallning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
-
-Exempel 2: En klassificerings modell med ~ 100% precision och ~ 100% återkalla (idealisk ![) en klassificerings modell med hög precision och återkallande](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
-
-#### <a name="roc"></a>ROC
-
-Mottagare som fungerar egenskap (eller ROC) är en rityta för korrekt klassificerade etiketterna jämfört med felaktigt klassificerad etiketter för en viss modell. ROC-kurvan kan vara mindre informativa när modeller för utbildning på datauppsättningar med hög partiskt, som det inte visas falskt positivt etiketter.
-
-Exempel 1: En klassificerings modell med låg sant etikett och etikett ![modell med hög falsk etikett med låg sant etiketter och höga Felaktiga etiketter](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
-
-Exempel 2: En klassificerings modell med High True Labels och low ![false etiketter en klassificerings modell med höga sanna etiketter och låg falskt etiketter](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
-
-#### <a name="lift-curve"></a>Flytta kurva
-
-Du kan jämföra hissen av modellen som skapats automatiskt med Azure Machine Learning till i baslinjen för att kunna visa vinsten värdet för den specifika modellen.
-
-Lift scheman används för att utvärdera prestanda för en modell för klassificering. Den visar hur mycket bättre du kan förvänta dig att göra med en modell som jämfört med utan en modell. 
-
-Exempel 1: Modellen presterar sämre än en slumpmässig markerings modell ![som är en klassificerings modell som är sämre än en slumpmässig markerings modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
-
-Exempel 2: Modellen fungerar bättre än en slumpmässig markerings ![modell som en klassificerings modell som fungerar bättre](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
-
-#### <a name="gains-curve"></a>Vinster kurva
-
-Ett diagram får utvärderar prestanda för en modell för klassificering av varje del av data. Den visar för vardera percentil för datamängd, hur mycket bättre du kan förvänta dig att utföra jämfört med mot ett slumpmässigt urval-modellen.
-
-Använda ackumulerade vinster diagrammet för att hjälpa dig att välja den klassificering brytfrekvens med hjälp av en procentsats som motsvarar en önskad vinst från modellen. Den här informationen innehåller ett annat sätt att titta på resultaten i den medföljande ökningsdiagrammet.
-
-Exempel 1: En klassificerings modell med minimal ![förstärkning av en klassificerings modell med minimal vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
-
-Exempel 2: En klassificerings modell med betydande ![förstärkning av en klassificerings modell med betydande vinst](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
-
-#### <a name="calibration-plot"></a>Kalibreringskurva
-
-Alla klassificering problem, kan du läsa kalibrering raden för micro medelvärde, makrot medelvärde och varje klass i en viss förutsägelsemodell. 
-
-En kalibreringskurva används för att visa förtroendet hos en förutsägelsemodell. Det gör du genom att som visar relationen mellan sannolikheten förväntade och faktiska sannolikheten, där ”sannolikhet” representerar sannolikheten att en viss instans hör under vissa etiketten. En bra justerat modell överensstämmer med y = x rad, där det är ganska säker på i dess förutsägelser. En modell för över confident överensstämmer med y = 0 rad, där den förväntade sannolikheten finns men det finns inga faktiska sannolikheten.
-
-Exempel 1: En mer välkalibrerad modell ![ som är mer bra kalibrerad modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
-
-Exempel 2: En över-trygg modell ![för en över-säker modell](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
-
-### <a name="regression"></a>Regression
-För varje regressionsmodell du skapar med hjälp av de automatiserade machine learning-funktionerna i Azure Machine Learning kan du se följande diagram: 
-+ [Förväntade vs. SANT](#pvt)
-+ [Histogram för restbelopp](#histo)
-
-<a name="pvt"></a>
-
-#### <a name="predicted-vs-true"></a>Förväntade vs. True
-
-Förväntade vs. SANT visar förhållandet mellan ett prognostiserat värde och dess correlating SANT värde för ett regressionsproblem. Det här diagrammet kan användas för att mäta prestanda för en modell som närmare y = x rad de förväntade värdena är, desto bättre noggrannhet för en förutsägelsemodell.
-
-Efter varje körning visas en förväntad kontra SANT graph för varje regressionsmodell. För att skydda integriteten för värden är binned tillsammans och storleken på varje lagerplats visas som ett stapeldiagram på den nedre delen av diagramområdet. Du kan jämföra förutsägande modell med området ljusare nyans som visar fel marginaler mot perfekt värdet för där modellen ska vara.
-
-Exempel 1: En Regressions modell med låg noggrannhet i ![förutsägelser en Regressions modell med låg precision i förutsägelserna](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.png)
-
-Exempel 2: En Regressions modell med hög noggrannhet i dess ![förutsägelser en Regressions modell med hög noggrannhet i dess förutsägelser](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.png)
-
-<a name="histo"></a>
-
-#### <a name="histogram-of-residuals"></a>Histogram för restbelopp
-
-En återstående representerar en observerade y – förväntade y. Om du vill visa en felmarginalen med låg bias bör histogram för restbelopp skapas som en klockformad kurva inriktade på 0. 
-
-Exempel 1: En Regressions modell med bias i sina ![fel sa Regressions modell med en förskjutning i sina fel](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.png)
-
-Exempel 2: En Regressions modell med mer jämn fördelning av ![fel en Regressions modell med mer jämna distributioner av fel](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.png)
-
-### <a name="model-explain-ability-and-feature-importance"></a>Modeller förklara möjligheten och funktionen prioritet
-
-Funktionen vikten ger ett värde som anger hur värdefull varje funktion befann sig i konstruktion av en modell. Du kan granska funktionen vikten poäng för modellen övergripande samt per klass på en förutsägelsemodell. Per funktion kan du se hur vikten jämförs mot varje klass och övergripande.
-
-![Funktionen förklara möjlighet](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 Följande anteckningsböcker demonstrera begreppen i den här artikeln:

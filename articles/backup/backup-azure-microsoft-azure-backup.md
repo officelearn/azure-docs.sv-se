@@ -1,19 +1,18 @@
 ---
 title: Använda Azure Backup Server för att säkerhetskopiera arbets belastningar till Azure
 description: Använd Azure Backup Server för att skydda eller säkerhetskopiera arbets belastningar till Azure Portal.
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 12ec1ce4a774178be621d7d8626ead7f1b106189
-ms.sourcegitcommit: 20bb149fe74459e59b648361235324b0674fe55b
+ms.openlocfilehash: bf0e964c46088947fa50d1eadbcc12b78978251f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298534"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466383"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -276,11 +275,11 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Aktiv |Gett |Gett |Gett |Gett |
-| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Gett |Gett |
+| Ansluten |Aktiv |Behörig |Behörig |Behörig |Behörig |
+| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Gett |Gett |
-| Förlorad anslutning > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Gett |Gett |
+| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorad anslutning > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställning från förlust av anslutning

@@ -1,6 +1,6 @@
 ---
-title: Meddelanden från molnet till enheten med Azure IoT Hub (Java) | Microsoft Docs
-description: Hur du skickar meddelanden från moln till enhet till en enhet från Azure IoT hub med Azure IoT SDK för Java. Du kan ändra en simulerad enhetsapp för att ta emot meddelanden från moln till enhet och ändra en backend-app för att skicka meddelanden från moln-till-enhet.
+title: Meddelanden från moln till enhet med Azure IoT Hub (Java) | Microsoft Docs
+description: 'Skicka meddelanden från moln till enhet till en enhet från en Azure IoT Hub med Azure IoT SDK: er för Java. Du ändrar en simulerad enhets app för att ta emot meddelanden från molnet till enheten och ändra en backend-app för att skicka meddelanden från molnet till enheten.'
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -9,57 +9,57 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: a74058c509c8031d0ac53c0d9cdf91e6f933ea1f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e844fbe542e0517ffe1f99b550544e6eaca22885
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620153"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402367"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden från moln till enhet med IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub är en helt hanterad tjänst som hjälper dig att aktivera pålitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-java.md) snabbstarten visar hur du skapar en IoT-hubb, etablera en enhetsidentitet i den och koda en simulerad enhetsapp som skickar meddelanden från enheten till molnet.
+Azure IoT Hub är en fullständigt hanterad tjänst som hjälper till att möjliggöra tillförlitlig och säker dubbelriktad kommunikation mellan miljon tals enheter och Server delen av lösningen. Snabb starten [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) visar hur du skapar en IoT-hubb, etablerar en enhets identitet i den och kodar en simulerad enhets app som skickar enhet till molnet-meddelanden.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Den här självstudien bygger på [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-java.md). Den visar hur du gör följande:
+Den här självstudien bygger på [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-java.md). Det visar hur du gör följande:
 
-* Skicka meddelanden från moln till enhet på en enhet via IoT Hub från lösningens backend-servrar.
+* Skicka meddelanden från moln till enhet från Server delen av lösningen till en enda enhet via IoT Hub.
 
 * Ta emot meddelanden från molnet till enheten på en enhet.
 
-* Från lösningens backend-servrar, begär bekräftelse av leverans (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
+* Från Server delen av lösningen kan du begära leverans bekräftelse (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
 
-Du hittar mer information på [meddelanden från molnet till enheten i IoT Hub developer guide](iot-hub-devguide-messaging.md).
+Du hittar mer information om [moln-till-enhet-meddelanden i guiden för IoT Hub utvecklare](iot-hub-devguide-messaging.md).
 
-I slutet av den här kursen kan du köra två Java-konsolappar:
+I slutet av den här självstudien kör du två Java-konsol program:
 
-* **simulated-device**, en modifierad version av appen som skapats i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-java.md), som ansluter till din IoT hub och tar emot meddelanden från molnet till enheten.
+* **simulerad enhet**, en modifierad version av appen som skapats i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-java.md), som ansluter till din IoT-hubb och tar emot meddelanden från molnet till enheten.
 
-* **Skicka-c2d-meddelanden**, som skickar ett moln-till-enhet-meddelande till den simulerade enhetsappen via IoT Hub och sedan ta emot dess leverans bekräftelse.
+* **send-C2D-** Messages, som skickar ett meddelande från molnet till enheten till den simulerade appen via IoT Hub och sedan får leverans bekräftelse.
 
 > [!NOTE]
-> IoT Hub har SDK-stöd för många enhetsplattformar och språk (inklusive C, Java och Javascript) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner om hur du ansluter enheten till den här självstudien kod och vanligen på Azure IoT Hub finns i den [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
+> IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* En fullständig fungerande version av den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-java.md) Snabbstart eller [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) självstudien.
+* En komplett fungerande version av funktionen [Skicka telemetri från en enhet till en snabb start för IoT Hub](quickstart-send-telemetry-java.md) eller den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) själv studie kursen.
 
 * Senaste [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 
-* Ett aktivt Azure-konto. Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>Ta emot meddelanden i den simulerade enhetsappen
+## <a name="receive-messages-in-the-simulated-device-app"></a>Ta emot meddelanden i den simulerade Device-appen
 
-I det här avsnittet ska du ändra den simulerade enhetsappen som du skapade i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-java.md) att ta emot meddelanden från moln till enhet från IoT hub.
+I det här avsnittet ändrar du den simulerade Device-app som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-java.md) för att ta emot meddelanden från molnet till enheten från IoT Hub.
 
 1. Öppna filen simulated-device\src\main\java\com\mycompany\app\App.java i en textredigerare.
 
-2. Lägg till följande **MessageCallback** klass som en kapslad klass inuti den **App** klass. Den **köra** metoden anropas när enheten tar emot ett meddelande från IoT Hub. I det här exemplet meddelar enheten alltid IoT-hubben att den har slutförts meddelandet:
+2. Lägg till följande **MessageCallback** -klass som en kapslad klass inuti klassen **app** . Metoden **execute** anropas när enheten tar emot ett meddelande från IoT Hub. I det här exemplet meddelar enheten alltid IoT-hubben att den har slutfört meddelandet:
 
     ```java
     private static class AppMessageCallback implements MessageCallback {
@@ -72,7 +72,7 @@ I det här avsnittet ska du ändra den simulerade enhetsappen som du skapade i [
     }
     ```
 
-3. Ändra den **huvudsakliga** metod för att skapa en **AppMessageCallback** instans och anropa den **setMessageCallback** metoden innan det öppnar klienten på följande sätt:
+3. Ändra **main** -metoden för att skapa en **AppMessageCallback** -instans och anropa **setMessageCallback** -metoden innan den öppnar klienten på följande sätt:
 
     ```java
     client = new DeviceClient(connString, protocol);
@@ -83,7 +83,7 @@ I det här avsnittet ska du ändra den simulerade enhetsappen som du skapade i [
     ```
 
     > [!NOTE]
-    > Om du använder HTTPS i stället för MQTT eller AMQP som transport, den **DeviceClient** instans söker efter meddelanden från IoT Hub sällan (mindre än var 25: e minut). Mer information om skillnaderna mellan MQTT-, AMQP- och HTTPS-stöd och IoT Hub-begränsning finns i den [meddelanden i IoT Hub developer guiden](iot-hub-devguide-messaging.md).
+    > Om du använder HTTPS i stället för MQTT eller AMQP som transport söker **DeviceClient** -instansen efter meddelanden från IoT Hub sällan (mindre än var 25: e minut). Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd och IoT Hub begränsning finns i [meddelande avsnittet i IoT Hub Developer Guide](iot-hub-devguide-messaging.md).
 
 4. Skapa appen **simulated-device** med hjälp av Maven genom att köra följande kommando i Kommandotolken i mappen simulated-device:
 
@@ -91,19 +91,25 @@ I det här avsnittet ska du ändra den simulerade enhetsappen som du skapade i [
     mvn clean package -DskipTests
     ```
 
-## <a name="send-a-cloud-to-device-message"></a>Skicka ett moln-till-enhet-meddelande
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-I det här avsnittet skapar du en Java-konsolapp som skickar meddelanden från molnet till enheten till den simulerade enhetsappen. Du behöver enhets-ID för enheten som du lade till i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-java.md) Snabbstart. Du måste också IoT Hub-anslutningssträngen för hubben som du hittar i den [Azure-portalen](https://portal.azure.com).
+I den här artikeln skapar du en backend-tjänst för att skicka meddelanden från molnet till enheten via IoT-hubben som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-java.md). För att skicka meddelanden från molnet till enheten måste tjänsten ha behörighet för **tjänst anslutning** . Som standard skapas varje IoT Hub med en delad åtkomst princip med namnet **tjänst** som ger den här behörigheten.
 
-1. Skapa ett Maven-projekt som heter **skicka-c2d-meddelanden** med följande kommando i Kommandotolken. Observera att det här kommandot är ett enda långt kommando:
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande från moln till enhet
+
+I det här avsnittet ska du skapa en Java-konsol-app som skickar meddelanden från molnet till enheten till den simulerade Device-appen. Du behöver enhets-ID för enheten som du har lagt till i [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) -snabb start. Du behöver också den IoT Hub-anslutningssträng som du kopierade tidigare i [Hämta anslutnings strängen för IoT Hub](#get-the-iot-hub-connection-string).
+
+1. Skapa ett Maven-projekt med namnet **send-C2D-Messages** med hjälp av följande kommando i kommando tolken. Observera att det här kommandot är ett enda, långt kommando:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. Navigera till mappen Skicka-c2d-meddelanden i en kommandotolk.
+2. Gå till den nya mappen Send-C2D-Messages i kommando tolken.
 
-3. Använd en textredigerare och öppna filen pom.xml i mappen Skicka-c2d-meddelanden och Lägg till följande beroende till den **beroenden** noden. Om du lägger till beroendet kan du använda den **iothub-java-service-client** paketet i ditt program kan kommunicera med IoT hub-tjänsten:
+3. Använd en text redigerare och öppna filen Pom. xml i mappen Send-C2D-Messages och Lägg till följande beroende till noden beroenden  . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
 
     ```xml
     <dependency>
@@ -114,11 +120,11 @@ I det här avsnittet skapar du en Java-konsolapp som skickar meddelanden från m
     ```
 
     > [!NOTE]
-    > Du kan söka efter den senaste versionen av **iot-service-client** med [Maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Du kan söka efter den senaste versionen av **IoT-service-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Spara och stäng filen pom.xml.
 
-5. Använd en textredigerare och öppna filen send-c2d-messages\src\main\java\com\mycompany\app\App.java.
+5. Öppna send-c2d-messages\src\main\java\com\mycompany\app\App.java-filen med hjälp av en text redigerare.
 
 6. Lägg till följande **Import**-instruktioner i filen:
 
@@ -128,7 +134,7 @@ I det här avsnittet skapar du en Java-konsolapp som skickar meddelanden från m
     import java.net.URISyntaxException;
     ```
 
-7. Lägg till de följande variablerna på klassnivå till den **App** klassen ersätta **{yourhubconnectionstring}** och **{yourdeviceid}** med värden noterade tidigare:
+7. Lägg till följande variabler på klass nivå i klassen **app** och Ersätt **{yourhubconnectionstring}** och **{yourdeviceid}** med de värden som du antecknade tidigare:
 
     ```java
     private static final String connectionString = "{yourhubconnectionstring}";
@@ -137,7 +143,7 @@ I det här avsnittet skapar du en Java-konsolapp som skickar meddelanden från m
         IotHubServiceClientProtocol.AMQPS;
     ```
 
-8. Ersätt den **huvudsakliga** metoden med följande kod. Den här koden ansluter till din IoT-hubb, skickar ett meddelande till din enhet och väntar sedan på en bekräftelse att enheten tas emot och bearbetas meddelandet:
+8. Ersätt **main** -metoden med följande kod. Den här koden ansluter till din IoT-hubb, skickar ett meddelande till din enhet och väntar sedan på en bekräftelse på att enheten har tagit emot och bearbetat meddelandet:
 
     ```java
     public static void main(String[] args) throws IOException,
@@ -170,7 +176,7 @@ I det här avsnittet skapar du en Java-konsolapp som skickar meddelanden från m
     ```
 
     > [!NOTE]
-    > Den här självstudien implementerar inte någon återförsöksprincip för enkelhetens skull. I produktionskoden bör du implementera principer för omförsök (till exempel exponentiell backoff) vilket rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
+    > För enkelhetens skull implementerar den här självstudien inte någon princip för återförsök. I produktions koden bör du implementera principer för omförsök (till exempel exponentiell backoff), enligt förslag i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
 
 9. Skapa appen **simulated-device** med hjälp av Maven genom att köra följande kommando i Kommandotolken i mappen simulated-device:
 
@@ -182,26 +188,26 @@ I det här avsnittet skapar du en Java-konsolapp som skickar meddelanden från m
 
 Nu är det dags att köra programmen.
 
-1. Kör följande kommando för att börja skicka telemetri till din IoT-hubb och att lyssna efter meddelanden från molnet till enheten skickas från din hubb i Kommandotolken i mappen simulated-device:
+1. Kör följande kommando i en kommando tolk i mappen simulerad enhet för att börja skicka telemetri till din IoT-hubb och lyssna efter meddelanden från moln till enhet som skickas från hubben:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Kör den simulerade enhetsappen](./media/iot-hub-java-java-c2d/receivec2d.png)
+    ![Kör den simulerade Device-appen](./media/iot-hub-java-java-c2d/receivec2d.png)
 
-2. Kör följande kommando för att skicka ett moln-till-enhet-meddelande och vänta tills en feedback-bekräftelse i Kommandotolken i mappen Skicka-c2d-meddelanden:
+2. Kör följande kommando i en kommando tolk i mappen Send-C2D-Messages för att skicka ett meddelande från moln till enhet och vänta på bekräftelse av feedback:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Kör kommando för att skicka meddelandet moln till enhet](media/iot-hub-java-java-c2d/sendc2d.png)
+    ![Kör kommandot för att skicka meddelanden från molnet till enheten](media/iot-hub-java-java-c2d/sendc2d.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I de här självstudierna lärde du dig att skicka och ta emot meddelanden från moln till enhet.
+I den här självstudien har du lärt dig hur du skickar och tar emot meddelanden från molnet till enheten.
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt som använder IoT Hub finns i [Azure IoT-Lösningsacceleratorer](https://azure.microsoft.com/documentation/suites/iot-suite/).
+Om du vill se exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub, se [Azure IoT Solution](https://azure.microsoft.com/documentation/suites/iot-suite/)-acceleratorer.
 
-Mer information om hur du utvecklar lösningar med IoT Hub finns det [utvecklarhandboken för IoT Hub](iot-hub-devguide.md).
+Mer information om hur du utvecklar lösningar med IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).

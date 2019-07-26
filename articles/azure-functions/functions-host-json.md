@@ -1,6 +1,6 @@
 ---
-title: Host.JSON-referens för Azure Functions 2.x
-description: Referensdokumentation för Azure Functions host.json filen med v2-runtime.
+title: Host. JSON-referens för Azure Functions 2. x
+description: Referens dokumentation för Azure Functions Host. JSON-fil med v2-körningsmiljön.
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -10,31 +10,31 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310472"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371690"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
+# <a name="hostjson-reference-for-azure-functions-2x"></a>Host. JSON-referens för Azure Functions 2. x  
 
-> [!div class="op_single_selector" title1="Välj versionen av Azure Functions-runtime som du använder: "]
+> [!div class="op_single_selector" title1="Välj den version av Azure Functions runtime som du använder: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-Den *host.json* metadatafilen innehåller globala konfigurationsalternativ som påverkar alla funktioner för en funktionsapp. Den här artikeln innehåller de inställningar som är tillgängliga för v2-runtime.  
+*Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga för v2-körningen.  
 
 > [!NOTE]
-> Den här artikeln är för Azure Functions 2.x.  En referens för host.json i Functions 1.x, se [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md).
+> Den här artikeln är för Azure Functions 2. x.  En referens för host.json i Functions 1.x, se [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md).
 
-Andra konfigurationsalternativ för funktionen app hanteras i din [appinställningar](functions-app-settings.md).
+Andra konfigurations alternativ för Function-appar hanteras i dina [app-inställningar](functions-app-settings.md).
 
-Vissa host.json-inställningarna används bara när du kör lokalt i den [local.settings.json](functions-run-local.md#local-settings-file) fil.
+Vissa värden. JSON-inställningar används bara när de körs lokalt i den [lokala. Settings. JSON](functions-run-local.md#local-settings-file) -filen.
 
-## <a name="sample-hostjson-file"></a>Exempelfilen för host.json
+## <a name="sample-hostjson-file"></a>Exempel på Host. JSON-fil
 
-I följande exempel *host.json* filer har alla möjliga alternativ som har angetts.
+Följande exempel på *Host. JSON* -filer har alla möjliga alternativ angivna.
 
 ```json
 {
@@ -88,9 +88,9 @@ I följande exempel *host.json* filer har alla möjliga alternativ som har anget
 }
 ```
 
-I följande avsnitt i den här artikeln beskrivs varje översta egenskap. Alla är valfria om inget annat anges.
+I följande avsnitt i den här artikeln beskrivs varje toppnivå egenskap. Alla är valfria om inget annat anges.
 
-## <a name="aggregator"></a>Aggregator
+## <a name="aggregator"></a>aggregera
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
@@ -98,7 +98,7 @@ I följande avsnitt i den här artikeln beskrivs varje översta egenskap. Alla �
 
 Den här inställningen är underordnad [loggning](#logging).
 
-Kontroller i [sampling funktion i Application Insights](./functions-monitoring.md#configure-sampling).
+Styr [samplings funktionen i Application Insights](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
@@ -112,32 +112,32 @@ Kontroller i [sampling funktion i Application Insights](./functions-monitoring.m
 ```
 
 > [!NOTE]
-> Log sampling kan orsaka vissa körningar inte visas i Application Insights monitor-bladet.
+> Logg sampling kan orsaka att vissa körningar inte visas på bladet Application Insights övervakning.
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|true|Aktiverar eller inaktiverar sampling.| 
-|maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka sampling börjar.| 
+|maxTelemetryItemsPerSecond|5|Tröskelvärdet då samplingen börjar.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
-Konfigurationsinställningen kan hittas i [Cosmos DB-utlösare och bindningar](functions-bindings-cosmosdb-v2.md#host-json).
+Du hittar konfigurations inställningen i [Cosmos DB utlösare och bindningar](functions-bindings-cosmosdb-v2.md#host-json).
 
 ## <a name="durabletask"></a>durableTask
 
-Konfigurationsinställningen kan hittas i [bindningar för varaktiga funktioner](durable/durable-functions-bindings.md#host-json).
+Konfigurations inställningen finns i [bindningar för Durable Functions](durable/durable-functions-bindings.md#host-json).
 
 ## <a name="eventhub"></a>eventHub
 
-Konfigurationsinställningar finns i [Event Hub-utlösare och bindningar](functions-bindings-event-hubs.md#host-json). 
+Konfigurations inställningar finns i [Event Hub](functions-bindings-event-hubs.md#host-json)-utlösare och bindningar. 
 
-## <a name="extensions"></a>Tillägg
+## <a name="extensions"></a>tillägg
 
-Egenskap som returnerar ett objekt som innehåller alla bindning-specifika inställningar, till exempel [http](#http) och [eventHub](#eventhub).
+Egenskap som returnerar ett objekt som innehåller alla bindande inställningar, till exempel [http](#http) och [eventHub](#eventhub).
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funktioner
 
-En lista över funktioner som värd för jobb körs. En tom matris innebär att köra alla funktioner. Avsedd att användas endast när [körs lokalt](functions-run-local.md). I funktionsappar i Azure, bör du i stället följa stegen i [så här inaktiverar du funktioner i Azure Functions](disable-function.md) att inaktivera specifika funktioner i stället för den här inställningen.
+En lista med funktioner som jobb värden kör. En tom matris innebär att köra alla-funktioner. Endast avsedd att användas när du [Kör lokalt](functions-run-local.md). I Function-appar i Azure bör du i stället följa stegen i [så här inaktiverar du funktioner i Azure Functions](disable-function.md) för att inaktivera vissa funktioner i stället för att använda den här inställningen.
 
 ```json
 {
@@ -147,7 +147,7 @@ En lista över funktioner som värd för jobb körs. En tom matris innebär att 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mellan 1 sekund till 10 minuter i en serverlös förbrukningsplan och standardvärdet är 5 minuter. Det finns ingen övergripande gräns i en dedikerad App Service-plan och standardvärdet är 30 minuter. Värdet `-1` anger obundna körning.
+Anger varaktigheten för alla funktioner. I en server lös förbruknings plan är det giltiga intervallet från 1 sekund till 10 minuter och standardvärdet är 5 minuter. I en App Service plan finns det ingen övergripande gräns och Standardvärdet beror på körnings versionen. I version 2. x är standardvärdet för en App Service plan 30 minuter. I version 1. x är det *Null*, vilket indikerar ingen tids gräns. Den kan inte anges som oändlig. Om du inte anger det här värdet kommer det att ta värdet 30 minuter.
 
 ```json
 {
@@ -157,7 +157,7 @@ Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mell
 
 ## <a name="healthmonitor"></a>healthMonitor
 
-Konfigurationsinställningar för [Övervakare för hälsa för värd](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+Konfigurations inställningar för [övervakaren av värd hälsa](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -173,21 +173,21 @@ Konfigurationsinställningar för [Övervakare för hälsa för värd](https://g
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|enabled|true|Anger om funktionen är aktiverad. | 
-|healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsotillståndet kontrollerar. | 
-|healthCheckWindow|2 minuter|En glidande tidsperiod som används tillsammans med den `healthCheckThreshold` inställningen.| 
-|healthCheckThreshold|6|Hur många gånger hälsokontrollen kan misslyckas innan återvinning värd har initierats.| 
-|counterThreshold|0.80|Tröskelvärdet som en prestandaräknare anses vara felaktiga.| 
+|enabled|true|Anger om funktionen är aktive rad. | 
+|healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
+|healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold` inställningen.| 
+|healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
+|counterThreshold|0,80|Tröskelvärdet som en prestanda räknare kommer att anses vara ohälsosam.| 
 
 ## <a name="http"></a>http
 
-Konfigurationsinställningar finns i [http-utlösare och bindningar](functions-bindings-http-webhook.md).
+Konfigurations inställningar kan hittas i [http-utlösare och bindningar](functions-bindings-http-webhook.md).
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="logging"></a>Loggning
+## <a name="logging"></a>Logging
 
-Styr loggning beteenden för funktionsappen, inklusive Application Insights.
+Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 
 ```json
 "logging": {
@@ -207,14 +207,14 @@ Styr loggning beteenden för funktionsappen, inklusive Application Insights.
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
-|fileLoggingMode|debugOnly|Definierar vilken nivå av filen loggning är aktiverat.  Alternativen är `never`, `always`, `debugOnly`. |
-|logLevel|Saknas|Objekt som definierar loggkategori filtrering för funktionerna i appen. Version 2.x följer ASP.NET Core-layouten för log kategorifiltrering. På så sätt kan du filtrera loggning för specifika funktioner. Mer information finns i [Log filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.NET Core-dokumentationen. |
+|fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never`, `always`, `debugOnly`. |
+|logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x följer ASP.NET Core layout för filtrering av loggnings kategorier. På så sätt kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
 |console|Saknas| Den [console](#console) inställning för aktivitetsloggning. |
-|applicationInsights|Saknas| Den [applicationInsights](#applicationinsights) inställningen. |
+|applicationInsights|Saknas| Inställningen [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>console
 
-Den här inställningen är underordnad [loggning](#logging). Den kontrollerar konsolen loggning när inte i felsökningsläge.
+Den här inställningen är underordnad [loggning](#logging). Den styr konsol loggningen när det inte är i fel söknings läge.
 
 ```json
 {
@@ -230,23 +230,23 @@ Den här inställningen är underordnad [loggning](#logging). Den kontrollerar k
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|isEnabled|false|Aktiverar eller inaktiverar loggning för konsolen.| 
+|isEnabled|false|Aktiverar eller inaktiverar konsol loggning.| 
 
-## <a name="queues"></a>köer
+## <a name="queues"></a>kön
 
-Konfigurationsinställningar finns i [Storage-kö-utlösare och bindningar](functions-bindings-storage-queue.md#host-json).  
+Du hittar konfigurations inställningar i [utlösare och bindningar för lagrings köer](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="sendgrid"></a>sendGrid
 
-Konfigurationsinställningen kan hittas i [SendGrid utlösare och bindningar](functions-bindings-sendgrid.md#host-json).
+Det går att hitta konfigurations inställningen i SendGrid-utlösare [och bindningar](functions-bindings-sendgrid.md#host-json).
 
 ## <a name="servicebus"></a>serviceBus
 
-Konfigurationsinställningen kan hittas i [Service Bus-utlösare och bindningar](functions-bindings-service-bus.md#host-json).
+Du hittar konfigurations inställningen i [Service Bus utlösare och bindningar](functions-bindings-service-bus.md#host-json).
 
-## <a name="singleton"></a>Singleton-instans
+## <a name="singleton"></a>Singleton
 
-Konfigurationsinställningar för Singleton-låsbeteende. Mer information finns i [GitHub-ärende om singleton-stöd](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Konfigurations inställningar för beteendet singleton lock. Mer information finns i [GitHub problem med singleton-stöd](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
 {
@@ -262,19 +262,19 @@ Konfigurationsinställningar för Singleton-låsbeteende. Mer information finns 
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|Den period som funktionen på Lås används för. Låsen den automatiska förnyelsen.| 
-|listenerLockPeriod|00:01:00|Den period som lyssnare Lås används för.| 
-|listenerLockRecoveryPollingInterval|00:01:00|Tidsintervall som används för lyssnare låsåterställning om lyssnaren låsa inte det gick att hämta vid start.| 
-|lockAcquisitionTimeout|00:01:00|Längsta tid körningen kommer att försöka låsa.| 
-|lockAcquisitionPollingInterval|Saknas|Intervall mellan försök för anskaffning av Lås.| 
+|lockPeriod|00:00:15|Den period som funktions nivå lås utförs för. Lås automatisk förnyelse.| 
+|listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
+|listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
+|lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
+|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
 
 ## <a name="version"></a>version
 
-Versionsträngen `"version": "2.0"` krävs för en funktionsapp som riktar sig mot v2-runtime.
+Versions strängen `"version": "2.0"` krävs för en Function-app som är riktad till v2-körningen.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
-En uppsättning [delad kod kataloger](functions-reference-csharp.md#watched-directories) som ska övervakas avseende ändringar.  Säkerställer att när koden i dessa kataloger ändras ändringarna fångas upp av dina funktioner.
+En uppsättning [delade kod kataloger](functions-reference-csharp.md#watched-directories) som ska övervakas för ändringar.  Säkerställer att när kod i dessa kataloger ändras, hämtas ändringarna av funktionerna.
 
 ```json
 {
@@ -284,7 +284,7 @@ En uppsättning [delad kod kataloger](functions-reference-csharp.md#watched-dire
 
 ## <a name="manageddependency"></a>managedDependency
 
-Hanterade beroende är en förhandsgranskningsfunktion som för närvarande stöds med endast PowerShell baserat funktioner. Det gör att beroenden hanteras automatiskt av tjänsten. När egenskapen aktiverat har angetts till SANT, den [requirements.psd1](functions-reference-powershell.md#dependency-management) filen kommer att bearbetas. Beroenden uppdateras när någon mindre version släpps.
+Hanterat beroende är en förhands gransknings funktion som för närvarande endast stöds med PowerShell-baserade funktioner. Det gör att beroenden kan hanteras automatiskt av tjänsten. När egenskapen Enabled har angetts till True kommer filen [Requirements. psd1](functions-reference-powershell.md#dependency-management) att bearbetas. Beroenden kommer att uppdateras när eventuella del versioner släpps.
 
 ```json
 {
@@ -297,7 +297,7 @@ Hanterade beroende är en förhandsgranskningsfunktion som för närvarande stö
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du uppdaterar filen host.json](functions-reference.md#fileupdate)
+> [Lär dig hur du uppdaterar Host. JSON-filen](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Globala inställningar i miljövariabler](functions-app-settings.md)
+> [Se globala inställningar i miljövariabler](functions-app-settings.md)

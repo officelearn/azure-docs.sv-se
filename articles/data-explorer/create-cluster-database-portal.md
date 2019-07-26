@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/22/2019
+ms.openlocfilehash: cfab883f9b9b063bd51b9fdb7306d45371449180
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60760105"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406088"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
 
@@ -47,14 +47,15 @@ Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings
 
 1. Fyll i grundläggande klusterinformation med uppgifter.
 
-   ![Skapa kluster](media/create-cluster-database-portal/create-cluster-form.png)
+   ![Skapa kluster](media/create-cluster-database-portal/create-cluster-form2.png)
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
-    | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
-    | Resursgrupp | *test-resource-group* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
-    | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Exempel: *mydataexplorercluster*. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 3 och 22 tecken.
-    | Location | *USA, västra* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
+    | Subscription | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
+    | Resource group | Din resurs grupp | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
+    | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 4 och 22 tecken.
+    | Region | USA, *västra* eller *västra USA 2* | Välj *västra USA* eller *västra USA 2* (om du använder tillgänglighets zoner) för den här snabb starten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
+    | Tillgänglighetszoner | *1*, *2*och/eller *3* | För zoner som stöds av redundans väljer du i vilka zoner som dina instanser ska finnas (valfritt). Klusternoderna skapas som standard i samma data Center. Använd [Azure-tillgänglighetszoner](/azure/availability-zones/az-overview) för att placera kluster instanserna i olika tillgänglighets zoner i samma region. Genom att välja flera tillgänglighets zoner kan du eliminera en enskild felpunkt och garantera hög tillgänglighet. 
     | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
     | | |
 

@@ -12,14 +12,15 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60475307"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382774"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Konfigurera din säkerhetsinformation (förhandsversion) från uppmaningen på inloggningssidan
+
 Du kan följa de här stegen om du uppmanas att konfigurera säkerhetsinformation omedelbart efter att du har loggat in på ditt arbets- eller skolkonto.
 
 Det här meddelandet visas endast om du inte har konfigurerat den säkerhetsinformation som krävs av din organisation. Om du tidigare har konfigurerat din säkerhetsinformation men vill göra ändringar kan du följa stegen i de olika metodbaserade instruktionsartiklarna. Mer information finns i [översikten om att lägga till eller uppdatera säkerhetsinformation](security-info-add-update-methods-overview.md).
@@ -27,11 +28,13 @@ Det här meddelandet visas endast om du inte har konfigurerat den säkerhetsinfo
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Logga in på ditt arbets- eller skolkonto
+
 När du har loggat in på ditt arbets- eller skolkonto konto visas en uppmaning om att du behöver ange mer information innan du tillåts komma åt ditt konto.
 
 ![Uppmaning som ber om mer information](media/security-info/securityinfo-prompt.png)
 
 ## <a name="set-up-your-security-info-using-the-wizard"></a>Konfigurera säkerhetsinformation med hjälp av guiden
+
 Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets-eller skolkonto från uppmaningen.
 
 >[!Important]
@@ -41,7 +44,7 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
 
    > [!Note]
    > Om du vill använda en annan autentiseringsapp än Microsoft Authenticator-appen väljer du länken **Jag vill använda en annan autentiseringsapp**.
-   > 
+   >
    > Om din organisation låter dig välja en annan metod än autentiseringsappen kan du välja länken **Jag vill konfigurera en annan metod**.
 
     ![Guiden för att hålla ditt konto säkert, som visar sidan för nedladdning av autentiseringsappen](media/security-info/securityinfo-prompt-get-auth-app.png)

@@ -1,63 +1,59 @@
 ---
 title: Installera .NET på Azure Cloud Services-roller | Microsoft Docs
-description: Den här artikeln beskriver hur du manuellt installera .NET Framework på dina webb- och arbetsroller molntjänstroller
+description: Den här artikeln beskriver hur du installerar .NET Framework manuellt i webb-och arbets roller för moln tjänsten
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/22/2018
-ms.author: jeconnoc
-ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699682"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359643"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installera .NET på Azure Cloud Services-roller
-Den här artikeln beskriver hur du installerar .NET Framework-versioner som inte levereras med Azures gäst-OS. Du kan använda .NET på Gästoperativsystemet för att konfigurera dina webb- och arbetsroller molntjänstroller.
+Den här artikeln beskriver hur du installerar versioner av .NET Framework som inte ingår i Azures gäst operativ system. Du kan använda .NET på gäst operativ systemet för att konfigurera webb-och arbets roller för moln tjänsten.
 
-Du kan till exempel installera .NET 4.6.2 eller senare på den gästoperativsystemfamilj 4, som inte levereras med någon version av .NET 4.6. (Gäst-OS-familj 5 kommer med .NET 4.6). Den senaste informationen om Azures gäst-OS-versioner finns i den [versionsnyheter för Azures gäst-OS](cloud-services-guestos-update-matrix.md). 
+Du kan till exempel installera .NET-4.6.2 på gäst operativ system familj 4, som inte ingår i någon version av .NET 4,6. (Gäst operativ system familjen 5 levereras med .NET 4,6.) Den senaste informationen om Azure-gästens OS-versioner finns i [nyheter om Azure gäst operativ system](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->Azure SDK 2.9 innehåller en begränsning på distribuerar .NET 4.6 på gästoperativsystemfamilj 4 eller tidigare. En korrigering för begränsningen är tillgänglig på den [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) plats.
+>Azure SDK 2,9 innehåller en begränsning för distribution av .NET 4,6 på gäst operativ system familj 4 eller tidigare. En korrigering för begränsningen finns på den [Microsoft docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) webbplatsen.
 
-Inkludera webbinstallationsprogrammet för .NET som en del av ditt molntjänstprojekt för att installera .NET på din webb- och worker-roller. Starta installationsprogrammet som en del av rollens startåtgärder. 
+Om du vill installera .NET på dina webb-och arbets roller inkluderar du .NET-webb installations programmet som en del av ditt moln tjänst projekt. Starta installations programmet som en del av rollens start aktiviteter. 
 
-## <a name="add-the-net-installer-to-your-project"></a>Lägg till .NET-installationsprogrammet i projektet
-Välj den version som du vill installera för att hämta webbinstallationsprogrammet för .NET Framework:
+## <a name="add-the-net-installer-to-your-project"></a>Lägg till .NET-installations programmet i projektet
+Om du vill ladda ned webb installations programmet för .NET Framework väljer du den version som du vill installera:
 
-* [Webbinstallationsprogrammet för .NET 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
-* [.NET 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [.NET 4.6.2 web installer](https://www.microsoft.com/download/details.aspx?id=53345)
+* [.NET 4,8-webb installations program](https://dotnet.microsoft.com/download/thank-you/net48)
+* [.NET 4.7.2 Web Installer](https://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET 4.6.2 Web Installer](https://www.microsoft.com/download/details.aspx?id=53345)
 
-Att lägga till installationsprogrammet för en *web* roll:
-  1. I **Solution Explorer**under **roller** i ditt molntjänstprojekt högerklickar du på din *web* rollen och välj **Lägg till**  >  **Ny mapp**. Skapa en mapp med namnet **bin**.
-  2. Högerklicka på bin-mappen och välj **Lägg till** > **befintligt objekt**. Välj .NET-installationsprogrammet och lägga till den till bin-mappen.
+Så här lägger du till installations programmet för en *webb* roll:
+  1. I **Solution Explorer**, under **roller** i ditt moln tjänst projekt, högerklickar du på din *webb* roll och väljer **Lägg till** > **ny mapp**. Skapa en mapp med namnet **bin**.
+  2. Högerklicka på mappen bin och välj **Lägg till** > **befintligt objekt**. Välj .NET-installations programmet och Lägg till det i bin-mappen.
   
-Att lägga till installationsprogrammet för en *worker* roll:
-* Högerklicka på din *worker* rollen och välj **Lägg till** > **befintligt objekt**. Välj .NET-installationsprogrammet och lägga till i rollen. 
+Så här lägger du till installations programmet för en *arbets* roll:
+* Högerklicka på din *arbets* roll och välj **Lägg till** > **befintligt objekt**. Välj .NET-installations programmet och Lägg till det i rollen. 
 
-När filer läggs på så vis till innehållsmappen roll, läggs de till automatiskt i cloud service-paketet. Filer distribueras sedan till samma plats på den virtuella datorn. Upprepa proceduren för varje webb- och worker-roll i din molntjänst så att alla roller har en kopia av installationsprogrammet.
+När filer läggs till på det här sättet i mappen roll innehåll läggs de automatiskt till i moln tjänst paketet. Filerna distribueras sedan till en konsekvent plats på den virtuella datorn. Upprepa den här processen för varje webb-och arbets roll i moln tjänsten så att alla roller har en kopia av installations programmet.
 
 > [!NOTE]
-> Du bör installera .NET 4.6.2 på din molntjänstroll även om ditt program används .NET 4.6. Gäst-OS innehåller kunskapsbasen [uppdatera 3098779](https://support.microsoft.com/kb/3098779) och [uppdatera 3097997](https://support.microsoft.com/kb/3097997). Problem kan uppstå när du kör dina .NET-program om .NET 4.6 installeras ovanpå Knowledge Base-uppdateringar. Undvik dessa problem genom att installera .NET 4.6.2 snarare än version 4.6. Mer information finns i den [Knowledge Base-artikeln 3118750](https://support.microsoft.com/kb/3118750) och [4340191](https://support.microsoft.com/kb/4340191).
+> Du bör installera .NET-4.6.2 på din moln tjänst roll även om ditt program är mål för .NET 4,6. Gäst operativ systemet innehåller kunskaps bas [uppdateringen 3098779](https://support.microsoft.com/kb/3098779) och [uppdatering 3097997](https://support.microsoft.com/kb/3097997). Problem kan uppstå när du kör dina .NET-program om .NET 4,6 installeras ovanpå kunskaps bas uppdateringarna. Undvik dessa problem genom att installera .NET-4.6.2 i stället för version 4,6. Mer information finns i [Knowledge Base-artikeln 3118750](https://support.microsoft.com/kb/3118750) och [4340191](https://support.microsoft.com/kb/4340191).
 > 
 > 
 
-![Rollen innehållet med installer-filer][1]
+![Roll innehåll med installationsfiler][1]
 
-## <a name="define-startup-tasks-for-your-roles"></a>Definiera startåtgärder för dina roller
-Du kan använda startåtgärder för att utföra åtgärder innan en roll startas. Genom att installera .NET Framework som en del av startåtgärden säkerställer att framework är installerat innan programmet kod körs. Mer information om startåtgärder finns [köra startåtgärder i Azure](cloud-services-startup-tasks.md). 
+## <a name="define-startup-tasks-for-your-roles"></a>Definiera start aktiviteter för dina roller
+Du kan använda Start åtgärder för att utföra åtgärder innan en roll startar. Att installera .NET Framework som en del av start aktiviteten säkerställer att ramverket installeras innan någon program kod körs. Mer information om start åtgärder finns i [köra start åtgärder i Azure](cloud-services-startup-tasks.md). 
 
-1. Lägg till följande innehåll i filen ServiceDefinition.csdef under den **WebRole** eller **WorkerRole** nod för alla roller:
+1. Lägg till följande innehåll i service definition. csdef-filen under **Webrole** -eller **WorkerRole** -noden för alla roller:
    
     ```xml
     <LocalResources>
@@ -77,19 +73,19 @@ Du kan använda startåtgärder för att utföra åtgärder innan en roll starta
     </Startup>
     ```
    
-    Ovanstående konfiguration körs kommandot konsolen `install.cmd` med administratörsbehörighet för att installera .NET Framework. Konfigurationen skapar även en **LocalStorage** element med namnet **NETFXInstall**. Startskriptet anger tillfällig mapp för att använda den här resursen för lokal lagring. 
+    Föregående konfiguration kör konsol kommandot `install.cmd` med administratörs behörighet för att installera .NET Framework. Konfigurationen skapar också ett **localStorage** -element med namnet **NETFXInstall**. Start skriptet anger Temp-mappen som ska användas för den här lokala lagrings resursen. 
     
     > [!IMPORTANT]
-    > Ange storleken på den här resursen för att säkerställa rätt installation av framework, minst 1 024 MB.
+    > För att säkerställa korrekt installation av ramverket anger du storleken på den här resursen till minst 1 024 MB.
     
-    Mer information om startåtgärder finns [vanliga Azure-molntjänster startåtgärder](cloud-services-startup-tasks-common.md).
+    Mer information om start åtgärder finns i [vanliga åtgärder för att starta Azure-Cloud Services](cloud-services-startup-tasks-common.md).
 
-2. Skapa en fil med namnet **install.cmd** och Lägg till följande installationsskriptet till filen.
+2. Skapa en fil med namnet **install. cmd** och Lägg till följande installations skript i filen.
 
-   Skriptet kontrollerar om den angivna versionen av .NET Framework redan är installerad på datorn genom att fråga registret. Om .NET-versionen inte är installerad, öppnas webbinstallationsprogrammet för .NET. För att felsöka eventuella problem kan skriptet loggar alla aktiviteter i filen startuptasklog-(aktuellt datum och tid) .txt som lagras i **InstallLogs** lokal lagring.
+   Skriptet kontrollerar om den angivna versionen av .NET Framework redan har installerats på datorn genom att fråga registret. Om .NET-versionen inte är installerad öppnas .NET-webb installations programmet. För att hjälpa till att felsöka eventuella problem loggar skriptet all aktivitet till filen startuptasklog – (aktuellt datum och tid). txt som lagras i lokal **InstallLogs** -lagring.
    
    > [!IMPORTANT]
-   > Använda en enkel textredigerare, t.ex Windows för att skapa filen install.cmd. Om du använder Visual Studio för att skapa en textfil och ändra tillägget till .cmd, kan filen fortfarande innehålla en UTF-8 byte-ordningsmarkering. Den här mark kan orsaka ett fel när den första raden i skriptet körs. För att undvika det här felet kan du se den första raden i skriptet en Orttagningsavisering-instruktion som kan hoppas över av orderbearbetningen byte. 
+   > Använd en enkel text redigerare, t. ex. Windows Anteckningar, för att skapa install. cmd-filen. Om du använder Visual Studio för att skapa en textfil och ändrar tillägget till. cmd, kan filen fortfarande innehålla ett tecken för UTF-8-byte. Det här märket kan orsaka ett fel när den första raden i skriptet körs. Undvik det här felet genom att göra den första raden i skriptet en REM-instruktion som kan hoppas över av bearbetningen av byte ordern. 
    > 
    >
    
@@ -201,17 +197,17 @@ Du kan använda startåtgärder för att utföra åtgärder innan en roll starta
    EXIT /B 0
    ```
 
-3. Lägga till filen install.cmd på varje roll med hjälp av **Lägg till** > **befintligt objekt** i **Solution Explorer** som beskrivits tidigare i det här avsnittet. 
+3. Lägg till filen Install. cmd i varje roll genom att använda **Lägg till** > **befintligt objekt** i **Solution Explorer** enligt beskrivningen ovan i det här avsnittet. 
 
-    När det här steget har slutförts, bör alla roller ha .NET installer-fil och filen install.cmd.
+    När det här steget har slutförts ska alla roller ha .NET-installations filen och filen Install. cmd.
 
-   ![Rollen innehållet med alla filer][2]
+   ![Roll innehåll med alla filer][2]
 
-## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Konfigurera diagnostik för att överföra Start loggar till Blob storage
-Du kan konfigurera Azure Diagnostics för att överföra alla loggfiler som genererats av startskriptet eller .NET-installationsprogrammet till Azure Blob storage för att förenkla felsökning av installationsproblem. Med den här metoden kan visa du loggarna genom att ladda ned filerna från Blob storage i stället för att behöva fjärransluta till rollen.
+## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Konfigurera diagnostik för att överföra start loggar till Blob Storage
+För att under lätta fel sökning av installations problem kan du konfigurera Azure-diagnostik att överföra loggfiler som genereras av start skriptet eller .NET-installations programmet till Azure Blob Storage. Genom att använda den här metoden kan du visa loggarna genom att hämta loggfilerna från Blob Storage i stället för att behöva använda fjärr skrivbord i rollen.
 
 
-Konfigurera diagnostik, öppna filen diagnostics.wadcfgx och Lägg till följande innehåll under den **kataloger** nod: 
+Om du vill konfigurera diagnostik öppnar du filen Diagnostics. wadcfgx och lägger till följande innehåll under noden **kataloger** : 
 
 ```xml 
 <DataSources>
@@ -221,15 +217,15 @@ Konfigurera diagnostik, öppna filen diagnostics.wadcfgx och Lägg till följand
 </DataSources>
 ```
 
-Den här XML konfigurerar diagnostik för att överföra filer i loggkatalogen i den **NETFXInstall** resursen diagnostiklagringskonto i den **har stöd netfx-installation** blob-behållare.
+Den här XML-koden konfigurerar diagnostik för att överföra filerna i logg katalogen i **NETFXInstall** -resursen till kontot för diagnostik-lagring i BLOB **-behållaren NetFx-install** .
 
-## <a name="deploy-your-cloud-service"></a>Distribuera cloud Services
-När du distribuerar din molntjänst kan installera .NET Framework i startuppgifter om den inte redan är installerat. Dina molntjänstroller finns i den *upptagen* tillstånd medan ramverket installeras. Om installationen av framework kräver en omstart, service-roller kan också starta om. 
+## <a name="deploy-your-cloud-service"></a>Distribuera din moln tjänst
+När du distribuerar din moln tjänst installerar start aktiviteterna .NET Framework om de inte redan är installerade. Moln tjänst rollerna är i läget *upptagen* medan ramverket installeras. Om Framework-installationen kräver en omstart kan tjänst rollerna också starta om. 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Installera .NET Framework][Installing the .NET Framework]
-* [Ta reda på vilka .NET Framework-versioner är installerad][How to: Determine Which .NET Framework Versions Are Installed]
-* [Felsökning av .NET Framework-installationer][Troubleshooting .NET Framework Installations]
+* [Ta reda på vilka .NET Framework-versioner som är installerade][How to: Determine Which .NET Framework Versions Are Installed]
+* [Felsöka .NET Framework installationer][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
 [Installing the .NET Framework]: /dotnet/framework/install/guide-for-developers

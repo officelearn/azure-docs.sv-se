@@ -1,119 +1,105 @@
 ---
-title: Så här konfigurerar du riskprincip för användare i Azure Active Directory Identity Protection | Microsoft Docs
-description: Lär dig hur du konfigurerar riskprincip för användare i Azure AD Identity Protection.
+title: Så här konfigurerar du användar risk principen i Azure Active Directory Identity Protection | Microsoft Docs
+description: Lär dig hur du konfigurerar principen för Azure AD Identity Protection användar risk.
 services: active-directory
-keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108915"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335451"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Instruktioner: Konfigurera riskprincipen för användare
 
-Med användarrisk upptäcker Azure AD att sannolikheten att ett användarkonto har komprometterats. Som administratör kan konfigurera du en princip för villkorlig åtkomst för att automatiskt svarar på en viss användare risknivå för användarrisk.
+Med användar risken identifierar Azure AD sannolikheten för att ett användar konto har komprometterats. Som administratör kan du konfigurera en användar risk princip för villkorlig åtkomst, så att den automatiskt svarar på en speciell användar risk nivå.
  
-Den här artikeln ger dig den information du behöver att konfigurera en princip för användarrisk.
+Den här artikeln innehåller den information du behöver för att konfigurera en användar risk princip.
 
+## <a name="what-is-a-user-risk-policy"></a>Vad är en användar risk princip?
 
-## <a name="what-is-a-user-risk-policy"></a>Vad är en användarprincip?
+Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. I Azure AD kan de misstänkta åtgärder som systemet kan identifiera kallas även risk händelser. Vissa risk händelser kan upptäckas i real tid, men det finns också risk händelser som kräver mer tid. Om du till exempel vill upptäcka en omöjlig resa till ovanlig-platser, kräver systemet en inledande inlärnings period på 14 dagar för att lära dig om en användares normala beteende. Det finns flera alternativ för att lösa identifierade risk händelser. Du kan till exempel lösa enskilda risk händelser manuellt eller så kan du få dem att lösas med hjälp av en inloggnings risk eller en användar risk princip för villkorlig åtkomst.
 
-Azure AD analyserar varje inloggning för en användare. Målet med analysen är att identifiera misstänkta åtgärder som kommer med inloggningen. Systemet kan identifiera misstänkta åtgärderna är kallas även riskhändelser i Azure AD. När en risk händelser kan identifieras i realtid, det finns även riskhändelser som kräver mer tid. Till exempel kräver systemet för att identifiera en omöjlig resa till ovanliga platser, en inledande inlärningsperiod på 14 dagar för att lära dig om en användares vanligt beteende. Det finns flera alternativ för att lösa identifierade riskhändelserna. Exempelvis kan du kan lösa enskilda riskhändelser manuellt eller du kan hämta dem matchas med en inloggningsrisk eller användarrisk princip för villkorlig åtkomst.
+Alla risk händelser som har identifierats för en användare och inte lösts kallas aktiva risk händelser. De aktiva risk händelser som är associerade med en användare kallas användar risk. Utifrån användar risken beräknar Azure AD en sannolikhet (låg, medel, hög) som en användare har komprometterat. Sannolikheten kallas användar risk nivå.
 
-Alla riskhändelser som har identifierats för en användare och inte löses kallas active riskhändelser. De aktiva riskhändelser som är kopplade till användaren kallas användarrisk. Azure AD beräknar utifrån användarrisk en sannolikhet (låg, medelhög och hög) att en användare har komprometterats. Sannolikheten kallas risknivån.
+![Användar risker](./media/howto-user-risk-policy/1031.png)
 
-![Användaren risker](./media/howto-user-risk-policy/1031.png)
+Användar risk principen är ett automatiserat svar som du kan konfigurera för en enskild risk nivå för användare. Med en användar risk princip kan du blockera åtkomst till dina resurser eller kräva en lösen ords ändring för att få ett användar konto tillbaka till ett rent tillstånd.
 
-Riskprincip för användare är en automatisk åtgärd som du kan konfigurera för en viss användare risknivå. Du kan använda en riskprincip för användare för att blockera åtkomst till resurser eller kräva ändring av lösenordet för att komma tillbaka ett användarkonto till ett rent tillstånd.
-
-
-## <a name="how-do-i-access-the-user-risk-policy"></a>Hur kommer jag åt riskprincip för användare?
+## <a name="how-do-i-access-the-user-risk-policy"></a>Hur gör jag för att åtkomst till användar risk principen?
    
-Princip för inloggninsrisk-är i den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+Principen för inloggnings risker finns i avsnittet **Konfigurera** på [sidan Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Princip för användarrisk](./media/howto-user-risk-policy/1014.png)
-
-
+![Riskprincip för användare](./media/howto-user-risk-policy/1014.png)
 
 ## <a name="policy-settings"></a>Principinställningar
 
-När du konfigurerar principen inloggningsrisk, måste du ange:
+När du konfigurerar inloggnings risk principen måste du ange:
 
-- Användare och grupper som principen gäller för:
+- De användare och grupper som principen gäller för:
 
     ![Användare och grupper](./media/howto-user-risk-policy/11.png)
 
-- Nivå för inloggningsrisk som utlöser principen:
+- Den inloggnings risk nivå som utlöser principen:
 
-    ![Nivå för användarrisk](./media/howto-user-risk-policy/12.png)
+    ![Användarisknivå](./media/howto-user-risk-policy/12.png)
 
-- Vilken typ av åtkomst som du vill tillämpas när din inloggning risknivån är uppfyllt:  
+- Den typ av åtkomst du vill tillämpa när inloggnings risk nivån har uppfyllts:  
 
-    ![Access](./media/howto-user-risk-policy/13.png)
+    ![Åtkomst](./media/howto-user-risk-policy/13.png)
 
-- Tillståndet för din princip:
+- Principens tillstånd:
 
     ![Tillämpa princip](./media/howto-user-risk-policy/14.png)
 
-Dialogrutan princip konfiguration får du ett alternativ för att beräkna effekten av din konfiguration.
+I dialog rutan princip konfiguration får du ett alternativ för att uppskatta effekten av konfigurationen.
 
 ![Uppskattad påverkan](./media/howto-user-risk-policy/15.png)
 
 ## <a name="what-you-should-know"></a>Det här bör du känna till
 
-Du kan ange en riskprincip för att blockera användare vid inloggning beroende på risknivån.
+Du kan ange en säkerhets princip för användar risk för att blockera användare vid inloggning, beroende på risk nivån.
 
-![Blockera](./media/howto-user-risk-policy/16.png)
+![Blockerar](./media/howto-user-risk-policy/16.png)
 
+Blockerar en inloggning:
 
-Blockera en inloggning:
-
-* Förhindrar generering av nya riskhändelser för användaren för den berörda användaren
-* Gör att administratörer kan manuellt åtgärdar riskhändelser som påverkar användarens identitet och återställer dem till ett säkert tillstånd
+* Förhindrar generering av nya användar risk händelser för den berörda användaren
+* Gör det möjligt för administratörer att manuellt reparera risk händelser som påverkar användarens identitet och återställa den till ett säkert tillstånd
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Välja en **hög** tröskelvärdet minskar antalet gånger som en princip har utlösts och minimerar påverkan för användare.
-Men det omfattar inte **låg** och **medel** användare som har flaggats för risk från principen som inte kanske att skydda identiteter eller enheter som har tidigare eller misstänks äventyras.
+Om du väljer ett **högt** tröskelvärde minskar antalet gånger som en princip utlöses och minimerar påverkan på användare.
+Men den utesluter **små** och **medel stora** användare som har flaggats för risk från principen, vilket inte kan skydda identiteter eller enheter som tidigare misstänkts eller var kända för att bli komprometterade.
 
-När du ställer in principen
+När du anger principen
 
-* Exkludera användare som sannolikt inte kommer att skapa ett stort antal falskpositiva resultat (utvecklare, säkerhetsanalytiker)
-* Exkludera användare i nationella inställningar där aktiverar principen inte är en praktisk (till exempel ingen åtkomst till supportavdelningen)
-* Använd en **hög** tröskelvärde under inledande skala ut, eller om du måste minimera utmaningar som setts av slutanvändare.
-* Använd en **låg** tröskelvärdet om din organisation kräver ökad säkerhet. Att välja en **låg** tröskelvärdet introducerar ytterligare användare logga in utmaningar, men ökad säkerhet.
+* Exkludera användare som sannolikt kommer att generera massor av falskt-positiva (utvecklare, säkerhets analyser)
+* Exkludera användare i språk där det inte är praktiskt att aktivera principen (till exempel ingen åtkomst till supportavdelningen)
+* Använd ett **högt** tröskelvärde under den inledande principen eller om du måste minimera utmaningarna som visas av slutanvändarna.
+* Använd ett **lågt** tröskelvärde om organisationen kräver större säkerhet. Om du väljer en **låg** tröskel införs ytterligare användar inloggnings utmaningar, men ökad säkerhet.
 
-Rekommenderad standard för de flesta organisationer är att konfigurera en regel för en **medel** tröskelvärdet för att få en balans mellan användbarhet och säkerhet.
+Den rekommenderade standarden för de flesta organisationer är att konfigurera en regel för en **medels Tor** tröskel för att få en balans mellan användbarhet och säkerhet.
 
-En översikt över relaterade användarupplevelsen finns:
+En översikt över den relaterade användar upplevelsen finns i:
 
-* [Komprometterat konto recovery flow](flows.md#compromised-account-recovery).  
-* [Komprometterade kontot har spärrats flow](flows.md#compromised-account-blocked).  
+* [Komprometterat konto återställnings flöde](flows.md#compromised-account-recovery).  
+* [Komprometterat konto blockerat flöde](flows.md#compromised-account-blocked).  
 
-**Att öppna dialogrutan tillhörande konfigurationer**:
+**Så här öppnar du dialog rutan relaterad konfiguration**:
 
-- På den **Azure AD Identity Protection** bladet i den **konfigurera** klickar du på **användarprincip**.
+- Klicka på **användar risk princip**i avsnittet **Konfigurera** på bladet **Azure AD Identity Protection** .
 
-    ![Princip för användarrisk](./media/howto-user-risk-policy/1009.png "riskprincip för användare")
-
-
-
+    ![Användar risk princip](./media/howto-user-risk-policy/1009.png "Användar risk princip")
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att få en översikt över Azure AD Identity Protection kan se den [översikt över Azure AD Identity Protection](overview.md).
+För att få en översikt över Azure AD Identity Protection, se [Översikt över Azure AD Identity Protection](overview.md).

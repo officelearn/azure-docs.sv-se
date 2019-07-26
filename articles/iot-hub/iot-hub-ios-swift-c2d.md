@@ -1,51 +1,51 @@
 ---
-title: Meddelanden från molnet till enheten med Azure IoT Hub (iOS) | Microsoft Docs
-description: Hur du skickar meddelanden från moln till enhet till en enhet från en Azure IoT hub med Azure IoT SDK för iOS.
+title: Meddelanden från moln till enhet med Azure IoT Hub (iOS) | Microsoft Docs
+description: 'Skicka meddelanden från moln till enhet till en enhet från en Azure IoT Hub med Azure IoT-SDK: er för iOS.'
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 6bb95bf887837fffc4196bca8d761239ac430a1a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: af1b331836cd025bbe15665aa03faee000e7c4f0
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620182"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404236"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Skicka meddelanden från moln till enhet med IoT Hub (iOS)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub är en helt hanterad tjänst som hjälper dig att aktivera pålitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-ios.md) snabbstarten visar hur du skapar en IoT-hubb, etablera en enhetsidentitet i den och koda en simulerad enhetsapp som skickar meddelanden från enheten till molnet.
+Azure IoT Hub är en fullständigt hanterad tjänst som hjälper till att möjliggöra tillförlitlig och säker dubbelriktad kommunikation mellan miljon tals enheter och Server delen av lösningen. Snabb starten [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-ios.md) visar hur du skapar en IoT-hubb, etablerar en enhets identitet i den och kodar en simulerad enhets app som skickar enhet till molnet-meddelanden.
 
 I den här självstudiekursen lär du dig att:
 
-* Skicka meddelanden från moln till enhet på en enhet via IoT Hub från lösningens backend-servrar.
+* Skicka meddelanden från moln till enhet från Server delen av lösningen till en enda enhet via IoT Hub.
 
 * Ta emot meddelanden från molnet till enheten på en enhet.
 
-* Från lösningens backend-servrar, begär bekräftelse av leverans (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
+* Från Server delen av lösningen kan du begära leverans bekräftelse (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
 
-Du hittar mer information om meddelanden från molnet till enheten i den [meddelanden i IoT Hub developer guiden](iot-hub-devguide-messaging.md).
+Du hittar mer information om moln-till-enhet-meddelanden i [meddelande avsnittet i guiden för IoT Hub utvecklare](iot-hub-devguide-messaging.md).
 
 I slutet av den här artikeln kör du två Swift iOS-projekt:
 
-* **exemplet enhet**, samma app som skapats i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-ios.md), som ansluter till din IoT hub och tar emot meddelanden från molnet till enheten.
+* **Sample-Device**, samma app skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-ios.md), som ansluter till din IoT-hubb och tar emot meddelanden från molnet till enheten.
 
-* **exempel-tjänst**, som skickar ett moln-till-enhet-meddelande till den simulerade enhetsappen via IoT Hub och sedan ta emot dess leverans bekräftelse.
+* **exempel-service**, som skickar ett meddelande från moln till enhet till den simulerade enheten via IoT Hub och sedan får leverans bekräftelse.
 
 > [!NOTE]
-> IoT Hub har SDK-stöd för många enhetsplattformar och språk (inklusive C, Java och Javascript) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner om hur du ansluter enheten till den här självstudien kod och vanligen på Azure IoT Hub finns i den [Azure IoT Developer Center](https://www.azure.com/develop/iot).
+> IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://www.azure.com/develop/iot).
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 * En aktiv IoT-hubb i Azure.
 
-* Kodexemplet från [Azure-exempel](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip).
+* Kod exemplet från [Azure-exempel](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip).
 
 * Den senaste versionen av [XCode](https://developer.apple.com/xcode/) med den senaste versionen av iOS SDK. Denna snabbstart har testats med XCode 9.3 och iOS 11.3.
 
@@ -53,9 +53,9 @@ För att kunna genomföra den här kursen behöver du följande:
 
 ## <a name="simulate-an-iot-device"></a>Simulera en IoT-enhet
 
-I det här avsnittet ska simulera du en iOS-enhet som kör ett Swift program att ta emot meddelanden från moln till enhet från IoT hub. 
+I det här avsnittet ska du simulera en iOS-enhet som kör ett SWIFT-program för att ta emot meddelanden från molnet till enheten från IoT Hub. 
 
-Det här är exempel-enhet som du skapar i artikeln [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-ios.md). Om du redan har den körs, kan du hoppa över det här avsnittet.
+Det här är exempel enheten som du skapar i artikeln [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-ios.md). Om du redan har den som körs kan du hoppa över det här avsnittet.
 
 ### <a name="install-cocoapods"></a>Installera CocoaPods
 
@@ -75,9 +75,9 @@ pod install
 
 Förutom att installera de poddar som krävs för projektet så skapar även installationskommandot en XCode-arbetsytefil som redan är konfigurerad att använda poddarna för beroenden.
 
-### <a name="run-the-sample-device-application"></a>Kör programmet på exempelenheten
+### <a name="run-the-sample-device-application"></a>Kör programmet exempel enhet
 
-1. Hämta anslutningssträngen för din enhet. Du kan kopiera den här strängen från den [Azure-portalen](https://portal.azure.com) i bladet med enhetsinformation, eller hämta den med följande CLI-kommando:
+1. Hämta anslutnings strängen för enheten. Du kan kopiera den här strängen från [Azure Portal](https://portal.azure.com) på bladet med enhets information eller hämta den med följande CLI-kommando:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
@@ -89,11 +89,11 @@ Förutom att installera de poddar som krävs för projektet så skapar även ins
    open "MQTT Client Sample.xcworkspace"
    ```
 
-2. Expandera den **MQTT Client Sample** projekt och sedan mappen med samma namn.  
+2. Expandera **MQTT-klientens exempel** projekt och sedan mapp med samma namn.  
 
 3. Öppna **ViewController.swift** för redigering i XCode. 
 
-4. Sök efter den **connectionString** variabeln och uppdatera värdet med strängen som du kopierade i det första steget.
+4. Sök efter **ConnectionString** -variabeln och uppdatera värdet med enhets anslutnings strängen som du kopierade i det första steget.
 
 5. Spara ändringarna. 
 
@@ -101,15 +101,21 @@ Förutom att installera de poddar som krävs för projektet så skapar även ins
 
    ![Kör projektet](media/iot-hub-ios-swift-c2d/run-sample.png)
 
-## <a name="simulate-a-service-device"></a>Simulera en enhet för tjänsten
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-I det här avsnittet ska simulera du en andra iOS-enhet med en Swift-app som skickar meddelanden från molnet till enheten via IoT hub. Den här konfigurationen är användbar för IoT-scenarier där det finns en iPhone eller iPad som fungerar som en domänkontrollant för andra iOS-enheter är anslutna till en IoT-hubb.
+I den här artikeln skapar du en backend-tjänst för att skicka meddelanden från molnet till enheten via IoT-hubben som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-ios.md). För att skicka meddelanden från molnet till enheten måste tjänsten ha behörighet för **tjänst anslutning** . Som standard skapas varje IoT Hub med en delad åtkomst princip med namnet **tjänst** som ger den här behörigheten.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+## <a name="simulate-a-service-device"></a>Simulera en tjänst enhet
+
+I det här avsnittet simulerar du en andra iOS-enhet med en SWIFT-app som skickar meddelanden från molnet till enheten via IoT Hub. Den här konfigurationen är användbar för IoT-scenarier där det finns en iPhone eller iPad som fungerar som en styrenhet för andra iOS-enheter som är anslutna till en IoT-hubb.
 
 ### <a name="install-cocoapods"></a>Installera CocoaPods
 
 CocoaPods hanterar beroenden för iOS-projekt där du använder bibliotek från tredje part.
 
-Navigera till mappen Azure IoT iOS-exempel som du hämtade i förutsättningarna. Gå sedan till exempelprojektet för tjänsten:
+Gå till mappen Azure IoT iOS-exempel som du laddade ned i kraven. Navigera sedan till exempel tjänst projektet:
 
 ```sh
 cd quickstart/sample-service
@@ -123,49 +129,43 @@ pod install
 
 Förutom att installera de poddar som krävs för projektet så skapar även installationskommandot en XCode-arbetsytefil som redan är konfigurerad att använda poddarna för beroenden.
 
-### <a name="run-the-sample-service-application"></a>Kör exempelprogrammet för tjänsten
+### <a name="run-the-sample-service-application"></a>Kör exempel tjänst programmet
 
-1. Hämta tjänstanslutningssträngen för din IoT hub. Du kan kopiera den här strängen från den [Azure-portalen](https://portal.azure.com) från den **iothubowner** principen i den **principer för delad åtkomst** bladet eller hämta den med följande CLI-kommando:  
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
-    ```
-
-2. Öppna exempelarbetsytan i XCode.
+1. Öppna exempelarbetsytan i XCode.
 
    ```sh
    open AzureIoTServiceSample.xcworkspace
    ```
 
-3. Expandera den **AzureIoTServiceSample** projekt och expandera sedan mappen med samma namn.  
+2. Expandera **AzureIoTServiceSample** -projektet och expandera sedan mappen med samma namn.  
 
-4. Öppna **ViewController.swift** för redigering i XCode. 
+3. Öppna **ViewController.swift** för redigering i XCode. 
 
-5. Sök efter den **connectionString** variabeln och uppdatera värdet med tjänstanslutningssträngen som du kopierade tidigare.
+4. Sök efter **ConnectionString** -variabeln och uppdatera värdet med tjänst anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
 
-6. Spara ändringarna.
+5. Spara ändringarna.
 
-7. Ändra inställningarna för emulatorn till en annan iOS-enhet än du används för att köra IoT-enheter i Xcode. XCode kan inte köra flera emulatorer av samma typ.
+6. I Xcode ändrar du inställningarna för emulatorn till en annan iOS-enhet än du använde för att köra IoT-enheten. XCode kan inte köra flera emulatorer av samma typ.
 
-   ![Ändra emulatorn-enheten](media/iot-hub-ios-swift-c2d/change-device.png)
+   ![Ändra emulator-enhet](media/iot-hub-ios-swift-c2d/change-device.png)
 
-8. Köra projektet i enhetsemulatorn med den **skapa och köra** knappen eller tangentkombinationen **Command + r**.
+7. Kör projektet i enhetens emulator med knappen **skapa och kör** eller med **kommando + r**för nyckel kombination.
 
    ![Kör projektet](media/iot-hub-ios-swift-c2d/run-app.png)
 
-## <a name="send-a-cloud-to-device-message"></a>Skicka ett moln-till-enhet-meddelande
+## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande från moln till enhet
 
 Du är nu redo att använda de två programmen för att skicka och ta emot meddelanden från molnet till enheten.
 
-1. I den **iOS appexempel** app som körs på den simulerade IoT-enheten, klicka på **starta**. Programmet börjar skicka meddelanden från enheten till molnet, men även börjar lyssna efter meddelanden från molnet till enheten.
+1. I **exempel appen iOS app** som körs på den simulerade IoT-enheten klickar du på **Starta**. Programmet börjar skicka enhets-till-moln-meddelanden, men börjar också lyssna efter meddelanden från molnet till enheten.
 
-   ![Visa exempelapp för IoT-enhet](media/iot-hub-ios-swift-c2d/view-d2c.png)
+   ![Visa exempel på IoT Device-appen](media/iot-hub-ios-swift-c2d/view-d2c.png)
 
-2. I den **IoTHub Service Client Sample** app som körs på tjänstenheten simulerade Ange ID för IoT-enheter som du vill skicka ett meddelande till. 
+2. I **IoTHub-tjänstens exempel** app som körs på den simulerade tjänst enheten anger du ID: t för den IoT-enhet som du vill skicka ett meddelande till. 
 
-3. Skriva ett meddelande som oformaterad text och klicka sedan på **skicka**.
+3. Skriv ett meddelande i klartext och klicka sedan på **Skicka**.
 
-    Flera åtgärder inträffa när du klickar på Skicka. Tjänstexemplet skickar meddelandet till din IoT hub, som appen har åtkomst till strängen som du förutsatt för på grund av tjänst-anslutningen. IoT-hubben kontrollerar enhets-ID, skickar meddelandet till målenheten och skickar en bekräftelse inleverans till källan. När appen körs på den simulerade IoT-enheten söker efter meddelanden från IoT Hub och skriver ut texten från den senaste på skärmen.
+    Flera åtgärder sker så snart du klickar på Skicka. Tjänst exemplet skickar meddelandet till din IoT-hubb, som appen har åtkomst till på grund av den tjänst anslutnings sträng som du har angett. Din IoT Hub kontrollerar enhets-ID, skickar meddelandet till mål enheten och skickar ett bekräftelse kvitto till käll enheten. Den app som körs på din simulerade IoT-enhet söker efter meddelanden från IoT Hub och skriver ut texten från den senaste på skärmen.
 
     Dina utdata bör se ut som i följande exempel:
 
@@ -173,8 +173,8 @@ Du är nu redo att använda de två programmen för att skicka och ta emot medde
 
 ## <a name="next-steps"></a>Nästa steg
 
-I de här självstudierna lärde du dig att skicka och ta emot meddelanden från moln till enhet.
+I den här självstudien har du lärt dig hur du skickar och tar emot meddelanden från molnet till enheten.
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt som använder IoT Hub finns i den [Azure IoT-Lösningsacceleratorer](https://azure.microsoft.com/documentation/suites/iot-suite/) dokumentation.
+Exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub finns i dokumentationen för [Azure IoT Solution acceleratorer](https://azure.microsoft.com/documentation/suites/iot-suite/) .
 
-Mer information om hur du utvecklar lösningar med IoT Hub finns det [utvecklarhandboken för IoT Hub](iot-hub-devguide.md).
+Mer information om hur du utvecklar lösningar med IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).

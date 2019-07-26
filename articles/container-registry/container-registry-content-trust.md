@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 9cd2965e64806dded0e5c688b70d07dfcd763f46
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
-ms.translationtype: HT
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309748"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356542"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Innehållsförtroende i Azure Container Registry
 
@@ -174,7 +174,7 @@ Enligt `docker push`-utdata är rotnyckeln som mest känslig när du överför d
 ~/.docker/trust/private
 ```
 
-Säkerhetskopiera dina rot- och lagringsplatsnycklar genom att komprimera dem i ett arkiv och lagra det på ett säkert sätt offline (till exempel på en USB-lagringsenhet). Till exempel i Bash:
+Säkerhetskopiera dina rot-och lagrings nycklar genom att komprimera dem i ett arkiv och lagra dem på en säker plats. Till exempel i Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
@@ -195,7 +195,9 @@ Om du vill inaktivera innehållsförtroende för ditt register navigerar du till
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [innehålls förtroende i Docker][docker-content-trust] för mer information om förtroende för innehåll. Den här artikeln berör flera viktiga punkter, men innehållsförtroende är ett omfattande ämne och beskrivs mer ingående i Docker-dokumentationen.
+* Se [innehålls förtroende i Docker][docker-content-trust] för mer information om förtroende för innehåll. Den här artikeln berör flera viktiga punkter, men innehållsförtroende är ett omfattande ämne och beskrivs mer ingående i Docker-dokumentationen.
+
+* I dokumentationen för [Azure](/azure/devops/pipelines/build/content-trust) -pipelinen finns ett exempel på hur du använder innehålls förtroende när du skapar och push-överför en Docker-avbildning.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

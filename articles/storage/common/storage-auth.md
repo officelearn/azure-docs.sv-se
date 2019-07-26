@@ -1,6 +1,6 @@
 ---
 title: Auktorisera åtkomst till Azure Storage | Microsoft Docs
-description: Läs mer om olika sätt att auktorisera åtkomst till Azure Storage, inklusive Azure Active Directory, autentisering med delad nyckel eller signaturer för delad åtkomst.
+description: Lär dig mer om de olika sätten att ge åtkomst till Azure Storage, inklusive Azure Active Directory, autentisering med delad nyckel eller delade signaturer för åtkomst.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,23 +9,35 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9e8c9755c444ca7b81891f5f83164bc51aa694eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0717785f4f9c1c21a18d081d157a6cdc8c12f18
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147071"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371195"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>Auktorisera åtkomst till Azure Storage
 
-Varje gång som du kommer åt data i ditt lagringskonto, din klient gör en begäran via HTTP/HTTPS till Azure Storage. Varje begäran till en säker resurs måste auktoriseras så att tjänsten säkerställer att klienten har behörighet att komma åt data. Azure Storage erbjuder dessa alternativ för att auktorisera åtkomst för att skydda resurser:
+Varje gång du kommer åt data i ditt lagrings konto skickar klienten en begäran över HTTP/HTTPS till Azure Storage. Varje begäran till en säker resurs måste vara auktoriserad, så att tjänsten säkerställer att klienten har de behörigheter som krävs för att komma åt data.
 
-- **Integrering med Azure Active Directory (Azure AD)** för blobbar och köer. Azure AD tillhandahåller rollbaserad åtkomstkontroll (RBAC) för detaljerad kontroll över en klients åtkomst till resurser i ett lagringskonto. Mer information finns i [autentisering av förfrågningar till Azure Storage med Azure Active Directory](storage-auth-aad.md).
-- **Delad nyckel auktorisering** för blobar, filer, köer och tabeller. En klient som använder delad nyckel skickar ett huvud med varje begäran som har signerats med åtkomstnyckeln för lagringskontot. Mer information finns i [auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/).
-- **Signaturer för delad åtkomst** för blobar, filer, köer och tabeller. Signaturer för delad åtkomst (SAS) ger begränsad delegerad åtkomst till resurser i ett lagringskonto. Att lägga till begränsningar på tidsintervall där signaturen är giltig eller behörigheter som den ger ger flexibilitet vid hantering av åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
-- **Anonym offentlig läsbehörighet** för behållare och blobbar. Auktorisering krävs inte. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../blobs/storage-manage-access-to-resources.md).  
+I följande tabell beskrivs de alternativ som Azure Storage erbjudanden för att auktorisera åtkomst till resurser:
 
-Som standard alla resurser i Azure Storage är skyddade och är endast tillgängliga för kontoinnehavaren. Men du kan använda någon av de auktorisering strategier som beskrivs ovan och ge klienterna åtkomst till resurser i ditt storage-konto, Microsoft rekommenderar att du använder Azure AD när det är möjligt för maximal säkerhet och användarvänlighet. 
+|  |Delad nyckel (lagrings konto nyckel)  |Signatur för delad åtkomst (SAS)  |Azure Active Directory (Azure AD)  |Anonym offentlig Läs behörighet  |
+|---------|---------|---------|---------|---------|
+|Azure-blobbar     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-dotnet-shared-access-signature-part-1.md)         |[Stöds](storage-auth-aad.md)         |[Stöds](../blobs/storage-manage-access-to-resources.md)         |
+|Azure Files (SMB)     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |Stöds inte         |[Stöds endast med AAD Domain Services](../files/storage-files-active-directory-overview.md)         |Stöds inte         |
+|Azure Files (REST)     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-dotnet-shared-access-signature-part-1.md)         |Stöds inte         |Stöds inte         |
+|Azure-köer     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-dotnet-shared-access-signature-part-1.md)         |[Stöds](storage-auth-aad.md)         |Stöds inte         |
+|Azure-tabeller     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-dotnet-shared-access-signature-part-1.md)         |Stöds inte         |Stöds inte         |
 
+Varje Authorization-alternativ beskrivs kortfattat nedan:
 
+- **Azure Active Directory (Azure AD)-integration** för blobbar och köer. Azure AD tillhandahåller rollbaserad åtkomst kontroll (RBAC) för detaljerad kontroll över en klients åtkomst till resurser i ett lagrings konto. Mer information om Azure AD-integrering för blobbar och köer finns i [autentisera begär anden till Azure Storage att använda Azure Active Directory](storage-auth-aad.md).
 
+- **Azure AD Domain Services (DS)-integration (för hands version)** för filer. Azure Files stöder identitets-baserad autentisering över Server Message Block (SMB) via Azure AD DS. Detta tillhandahåller RBAC för detaljerad kontroll över en klients åtkomst till resurser i ett lagrings konto. Mer information om Azure AD-integrering för filer med domän tjänster finns i [Översikt över stöd för autentisering med Azure Files Azure Active Directory Domain Service (AAD DS) för SMB-åtkomst (för hands version)](../files/storage-files-active-directory-overview.md).
+
+- **Auktorisering av delad nyckel** för blobbar, filer, köer och tabeller. En klient som använder delad nyckel skickar ett huvud till varje begäran som är signerad med lagrings kontots åtkomst nyckel. Mer information finns i [auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/).
+- **Signaturer för delad åtkomst** för blobbar, filer, köer och tabeller. Signaturer för delad åtkomst (SAS) ger begränsad delegerad åtkomst till resurser i ett lagrings konto. Att lägga till begränsningar i tidsintervallet för vilka signaturen är giltig eller behörigheter som den ger ger flexibilitet vid hantering av åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Anonym offentlig Läs behörighet** för behållare och blobbar. Auktorisering krävs inte. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../blobs/storage-manage-access-to-resources.md).  
+
+Som standard är alla resurser i Azure Storage skyddade, och de är bara tillgängliga för kontots ägare. Även om du kan använda någon av de behörighets strategier som beskrivs ovan för att ge klienterna åtkomst till resurser i ditt lagrings konto, rekommenderar Microsoft att använda Azure AD när det är möjligt för maximal säkerhet och enkel användning. 

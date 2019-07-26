@@ -1,6 +1,6 @@
 ---
-title: Konfiguration av lösenordsfri inloggning med Microsoft Authenticator-appen (förhandsversion) – Azure Active Directory
-description: Logga in på Azure AD med Microsoft Authenticator-appen utan att använda lösenordet (offentlig förhandsversion)
+title: Lösen ords delning med Microsoft Authenticator app (för hands version) – Azure Active Directory
+description: Logga in på Azure AD med hjälp av Microsoft Authenticator-appen utan att använda ditt lösen ord (offentlig för hands version)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,67 +12,69 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3125de0d1fd784b30c000bb287b457397c0fbebb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c464874708c7b93ec5620cc9ae253912ce1a4790
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703029"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357134"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Konfiguration av lösenordsfri inloggning via mobilen med Microsoft Authenticator-appen (offentlig förhandsversion)
+# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Inloggning med lösen ord med Microsoft Authenticator-appen (offentlig för hands version)
 
-Microsoft Authenticator-appen kan användas för att logga in på alla Azure AD-konto utan lösenord. Liknande teknik för [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator använder nyckel-baserad autentisering för att aktivera en autentiseringsuppgift för användare som är kopplad till en enhet och använder en biometriska eller PIN-kod.
+Microsoft Authenticator-appen kan användas för att logga in på ett Azure AD-konto utan att använda ett lösen ord. På samma sätt som med [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification), använder Microsoft Authenticator nyckelbaserad autentisering för att aktivera autentiseringsuppgifter som är knutna till en enhet och använder bio metrisk eller PIN-kod.
 
-![Exempel på en webbläsare inloggning där personen ombeds användaren att godkänna inloggningen](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Exempel på en webb läsar inloggning som ber användaren att godkänna inloggningen](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
-I stället för ett oväntat meddelande för ett lösenord när du har angett ett användarnamn, visas en person som har aktiverat telefoninloggning i Microsoft Authenticator-appen ett meddelande som uppmanar dem att trycka på ett nummer i appen. I appen, användaren måste stämma med numret, väljer du Godkänn och sedan ange sin PIN-kod eller biometriska sedan autentiseringen slutförs.
+I stället för att se en uppmaning om att ange ett lösen ord när du har angett ett användar namn, kommer en person som har aktiverat telefonin loggning i Microsoft Authenticator-appen att se ett meddelande som säger att de trycker på ett nummer i appen. Användaren måste matcha siffran i appen, välja Godkänn, ange sin PIN-kod eller bio metrisk, så slutförs autentiseringen.
 
-## <a name="enable-my-users"></a>Aktivera Mina användare
+## <a name="enable-my-users"></a>Aktivera mina användare
 
-För en förhandsversion, en administratör måste först lägga till en princip via powershell som tillåter användning av autentiseringsuppgifter i klienten. Läs avsnittet ”kända problem” innan du tar det här steget.
-
-### <a name="tenant-prerequisites"></a>Krav för klient
+### <a name="tenant-prerequisites"></a>Krav för klient organisation
 
 * Azure Active Directory
-* Slutanvändare som har aktiverats för Azure Multi-Factor Authentication
+* Slutanvändare aktiverade för Azure Multi-Factor Authentication
 * Användare kan registrera sina enheter
 
 ### <a name="steps-to-enable"></a>Steg för att aktivera
 
-Följ stegen i artikeln [aktivera lösenordslös inloggning för Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods)att aktivera lösenordslös autentiseringsmetoder i din katalog.
-
-## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hur aktiverar slutanvändarna telefoninloggning?
-
-För en förhandsversion går det inte att tvinga användare att skapa eller använda den här nya autentiseringsuppgifter. En användare får endast lösenordslös inloggning när en administratör har aktiverat sin klient och användaren har uppdaterat sina Microsoft Authenticator-appen om du vill aktivera telefoninloggning.
+Följ stegen i artikeln [Aktivera lösen ords lös inloggning för Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods)för att aktivera metoder för lösen ords lös autentisering i din katalog.
 
 > [!NOTE]
-> Den här funktionen har varit i appen sedan mars 2017, så det finns en möjlighet att när principen är aktiverad för en klient, kan användarna få det här flödet omedelbart. Tänk på och Förbered dina användare för den här ändringen.
+> Om du tidigare har aktiverat den här funktionen för din klient med hjälp av ett PowerShell-skript, skriver en ny princip för användare och grupper över den befintliga principen för hela klienten. 
 >
 
-1. Registrera dig i Azure Multi-Factor Authentication
-1. Senaste versionen av Microsoft Authenticator installerade på enheter som kör iOS 8.0 eller senare eller Android 6.0 eller senare.
-1. Arbets- eller skolkonto konto med push-meddelanden som har lagts till i appen. Slutanvändardokumentation finns på [ https://aka.ms/authappstart ](https://aka.ms/authappstart).
+## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hur aktiverar mina slutanvändare telefonin loggning?
 
-När användaren har MFA-konto med push-meddelanden som ställts in i Microsoft Authenticator-appen, kan de följer du stegen i artikeln [logga in med din telefon, inte ditt lösenord](../user-help/microsoft-authenticator-app-phone-signin-faq.md) att slutföra registreringen för phone logga in.
+För offentlig för hands version finns det inget sätt att tvinga användare att skapa eller använda den här nya autentiseringsuppgiften. En slutanvändare kommer bara att upptäcka lösen ords lös inloggning när en administratör har aktiverat sin klient och användaren har uppdaterat sin Microsoft Authenticator app för att aktivera telefonin loggning.
+
+> [!NOTE]
+> Den här funktionen har funnits i appen sedan mars 2017, så det finns en möjlighet att när principen är aktive rad för en klient, kan användarna stöta på det här flödet omedelbart. Tänk på och Förbered dina användare för den här ändringen.
+>
+
+1. Registrera dig för Azure Multi-Factor Authentication
+1. Den senaste versionen av Microsoft Authenticator installerad på enheter som kör iOS 8,0 eller senare, eller Android 6,0 eller senare.
+1. Arbets-eller skol konto med push-meddelanden tillagda i appen. Dokumentation om slutanvändare finns på [https://aka.ms/authappstart](https://aka.ms/authappstart).
+
+När användaren har MFA-kontot med push-meddelanden som har kon figurer ATS i Microsoft Authenticator-appen, kan de följa stegen i artikeln [Logga in med din telefon, inte ditt lösen ord](../user-help/microsoft-authenticator-app-phone-signin-faq.md) för att slutföra telefon registreringen.
 
 ## <a name="known-issues"></a>Kända problem
 
 ### <a name="ad-fs-integration"></a>AD FS-integrering
 
-När en användare har aktiverat Microsoft Authenticator lösenordslös autentiseringsuppgifter, autentisering för den användaren alltid som standard skickar ett meddelande om godkännande. Den här logiken som förhindrar att användare i en hybrid-klient dirigeras till AD FS för att bekräfta din inloggning utan att användaren tar ytterligare ett steg att klicka på ”Använd ditt lösenord istället”. Den här processen kommer också kringgå alla principer för villkorlig åtkomst av lokala och direkt autentiseringsflöden. Undantag till den här processen är om en login_hint är anges en användare vara automatiskt till AD FS och kringgå alternativet att använda lösenordslös autentiseringsuppgifterna.
+När en användare har aktiverat Microsoft Authenticator lösen ords lös autentiseringsuppgifter kommer autentiseringen för användaren alltid att vara standard att skicka ett meddelande för godkännande. Den här logiken förhindrar att användare i en hybrid klient dirigeras till ADFS för inloggnings verifiering utan att användaren vidtar ytterligare steg för att klicka på Använd lösen ordet i stället. Den här processen kringgår också alla lokala principer för villkorlig åtkomst och genom strömnings flöden. Undantaget till den här processen är om en login_hint har angetts, en användare vidarebefordras automatiskt till AD FS och kringgå alternativet att använda lösen ords lös autentiseringsuppgifter.
 
-### <a name="azure-mfa-server"></a>Azure MFA-servern
+### <a name="azure-mfa-server"></a>Azure MFA-Server
 
-Slutanvändare som är aktiverade för MFA via en organisations lokal Azure MFA server kan fortfarande skapa och använda autentiseringsuppgift för enkel konfiguration av lösenordsfri phone. Om du försöker uppgradera flera installationer (5 +) av Microsoft Authenticator med autentiseringsuppgifterna, kan den här ändringen resultera i ett fel.  
+Slutanvändare som har Aktiver ATS för MFA via en organisations lokala Azure MFA-Server kan fortfarande skapa och använda en enda inloggnings inloggning för lösen ord. Om användaren försöker uppgradera flera installationer (5 +) av Microsoft Authenticator med autentiseringsuppgifterna kan denna ändring resultera i ett fel.  
 
 ### <a name="device-registration"></a>Enhetsregistrering
 
-En av kraven för att skapa den här nya, starka autentiseringsuppgifter är att enheten där det finns är registrerad i Azure AD-klient till en enskild användare. På grund av begränsningar för registrering av enheter kan endast en enhet registreras i en enda klient. Den här gränsen innebär att endast ett arbets- eller skolkonto konto i Microsoft Authenticator-appen kan aktiveras för telefoninloggning.
+En av kraven för att skapa den nya, starka autentiseringsuppgiften är att enheten där den finns är registrerad i Azure AD-klienten, till en enskild användare. På grund av begränsningar för enhets registrering kan en enhet bara registreras i en enda klient. Den här gränsen innebär att endast ett arbets-eller skol konto i Microsoft Authenticator-appen kan aktive ras för telefonin loggning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är lösenordslös?](concept-authentication-passwordless.md)
+[Vad är lösen ord?](concept-authentication-passwordless.md)
 
-[Lär dig mer om enhetsregistrering](../devices/overview.md#getting-devices-in-azure-ad)
+[Läs mer om enhets registrering](../devices/overview.md#getting-devices-in-azure-ad)
 
 [Lär dig mer om Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

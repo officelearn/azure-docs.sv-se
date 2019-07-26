@@ -1,8 +1,8 @@
 ---
-title: Med lagrade procedurer i Azure SQL Data Warehouse | Microsoft Docs
-description: Tips för att implementera lagrade procedurer i Azure SQL Data Warehouse för utveckling av lösningar.
+title: Använda lagrade procedurer i Azure SQL Data Warehouse | Microsoft Docs
+description: Tips för att implementera lagrade procedurer i Azure SQL Data Warehouse för att utveckla lösningar.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,41 +10,41 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 200433d95d62edf2e878e58e5089a6baff290775
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c12a679ed5f0a1574deb34df8c0151e737d2d01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850573"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479594"
 ---
-# <a name="using-stored-procedures-in-sql-data-warehouse"></a>Med lagrade procedurer i SQL Data Warehouse
-Tips för att implementera lagrade procedurer i Azure SQL Data Warehouse för utveckling av lösningar.
+# <a name="using-stored-procedures-in-sql-data-warehouse"></a>Använda lagrade procedurer i SQL Data Warehouse
+Tips för att implementera lagrade procedurer i Azure SQL Data Warehouse för att utveckla lösningar.
 
-## <a name="what-to-expect"></a>Vad du kan förvänta dig
+## <a name="what-to-expect"></a>Vad händer nu
 
-SQL Data Warehouse stöder många av T-SQL-funktioner som används i SQL Server. Det finns ännu viktigare är skalbar specifika funktioner som du kan använda för att maximera prestanda i din lösning.
+SQL Data Warehouse stöder många av de T-SQL-funktioner som används i SQL Server. Det är viktigt att det finns skalbara funktioner som du kan använda för att maximera prestandan för din lösning.
 
-Men om du vill behålla finns den skala och prestanda i SQL Data Warehouse det också vissa egenskaper och funktioner som har beteendeanalys skillnader och andra som inte stöds.
+Men för att bevara skalan och prestandan hos SQL Data Warehouse finns det också vissa funktioner och funktioner som har beteende skillnader och andra som inte stöds.
 
 
 ## <a name="introducing-stored-procedures"></a>Introduktion till lagrade procedurer
-Lagrade procedurer är ett bra sätt för att kapsla in din SQL-kod. lagra det nära dina data i datalagret. Lagrade procedurer som hjälper utvecklare att modularize sina lösningar genom att kapsla in koden i hanterbara enheter; underlätta större återanvändning av kod. Alla lagrade procedurer kan också acceptera parametrar för att göra dem ännu mer flexibel.
+Lagrade procedurer är ett bra sätt att kapsla in din SQL-kod. lagra den nära dina data i informations lagret. Lagrade procedurer hjälper utvecklare att modularize sina lösningar genom att kapsla in koden i hanterbara enheter. underlättar bättre åter användning av kod. Varje lagrad procedur kan också acceptera parametrar för att göra dem ännu mer flexibla.
 
-SQL Data Warehouse ger en förenklad och smidig lagrad procedur-implementering. Den största skillnaden jämfört med SQL Server är att den lagrade proceduren inte är förkompilerad kod. I informationslager är kompileringstid liten jämfört med den tid det tar för att köra frågor mot stora datamängder. Det är viktigare att se till att den lagrade procedur koden korrekt är optimerad för stora frågor. Målet är att spara timmar, minuter och sekunder, inte millisekunder. Det är därför mer bra att tänka på lagrade procedurer som behållare för SQL-logik.     
+SQL Data Warehouse tillhandahåller en förenklad och strömlinjeformad implementering av lagrade procedurer. Den största skillnaden jämfört med SQL Server är att den lagrade proceduren inte är förkompilerad kod. I informations lager är kompileringen av tiden liten jämfört med den tid det tar att köra frågor mot stora data volymer. Det är viktigt att se till att den lagrade procedur koden är korrekt optimerad för stora frågor. Målet är att spara timmar, minuter och sekunder, inte millisekunder. Det är därför mer användbart att tänka på lagrade procedurer som behållare för SQL-logik.     
 
-När SQL Data Warehouse kör den lagrade proceduren, är SQL-uttryck parsas, översättas och optimerad vid körning. Under den här processen konverteras varje uttryck i distribuerade frågor. SQL-kod som körs mot data skiljer sig från den fråga som skickats.
+När SQL Data Warehouse kör den lagrade proceduren, parsas SQL-uttryck, översätts och optimeras vid körning. Under den här processen konverteras varje instruktion till distribuerade frågor. SQL-koden som körs mot data skiljer sig från den skickade frågan.
 
-## <a name="nesting-stored-procedures"></a>Kapsling lagrade procedurer
-När lagrade procedurer anropa andra lagrade procedurer, eller kör dynamic SQL, sedan inre lagrade proceduren eller kod anrop anses vara kapslade.
+## <a name="nesting-stored-procedures"></a>Kapslade lagrade procedurer
+När lagrade procedurer anropar andra lagrade procedurer eller kör dynamisk SQL, kallas den inre lagrade proceduren eller kod anropet som kapslas.
 
-SQL Data Warehouse stöder högst åtta kapslingsnivåer. Det här är något annorlunda till SQL Server. Den kapslade nivån i SQL Server är 32.
+SQL Data Warehouse stöder högst åtta kapslings nivåer. Detta skiljer sig något från SQL Server. Kapslings nivån i SQL Server är 32.
 
-Det översta lagrade proceduranropet är om du vill kapsla nivå 1.
+Det översta lagrade procedur anropet motsvarar kapslad nivå 1.
 
 ```sql
 EXEC prc_nesting
 ```
-Om den lagrade proceduren gör även en annan EXEC anropa, ökar den kapslade nivån till två.
+Om den lagrade proceduren också gör ett annat EXEC-anrop, ökar kapslings nivån till två.
 
 ```sql
 CREATE PROCEDURE prc_nesting
@@ -53,7 +53,7 @@ EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
-Om den andra proceduren körs sedan vissa dynamic SQL, ökar den kapslade nivån till tre.
+Om den andra proceduren sedan kör en del dynamisk SQL, ökar kapslings nivån till tre.
 
 ```sql
 CREATE PROCEDURE prc_nesting_2
@@ -63,28 +63,28 @@ GO
 EXEC prc_nesting
 ```
 
-Observera att SQL Data Warehouse inte stöder för närvarande [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). Du behöver spåra kapslade-nivå. Det är inte troligt att överskrida den åtta kapslade nivå, men om du gör det, måste du omarbeta koden så att de passar kapslingsnivåer i den här gränsen.
+Obs! SQL Data Warehouse stöder för närvarande inte [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). Du måste spåra kapslings nivån. Det är inte troligt att du överskrider gränsen på åtta kapslings nivåer, men om du gör det måste du återanvända koden för att passa de kapslade nivåerna inom den här gränsen.
 
-## <a name="insertexecute"></a>INFOGA... KÖRA
-SQL Data Warehouse tillåter inte att du kan använda resultatuppsättningen för en lagrad procedur med en INSERT-instruktion. Det finns dock en annan metod som du kan använda. Ett exempel finns i artikeln på [temporära tabeller](sql-data-warehouse-tables-temporary.md). 
+## <a name="insertexecute"></a>INFOGA.. KÖRA
+SQL Data Warehouse tillåter inte att du använder resultat uppsättningen för en lagrad procedur med en INSERT-instruktion. Det finns dock en alternativ metod som du kan använda. Ett exempel finns i artikeln om temporära [tabeller](sql-data-warehouse-tables-temporary.md). 
 
 ## <a name="limitations"></a>Begränsningar
-Det finns vissa aspekter av Transact-SQL-lagrade procedurer som inte är implementerade i SQL Data Warehouse.
+Det finns vissa aspekter av lagrade Transact-SQL-procedurer som inte har implementerats i SQL Data Warehouse.
 
 De är:
 
-* tillfälliga lagrade procedurer
+* temporärt lagrade procedurer
 * numrerade lagrade procedurer
-* Utökade lagrade procedurer
-* CLR som lagrade procedurer
-* Krypteringsalternativet
+* utökade lagrade procedurer
+* Lagrade CLR-procedurer
+* krypterings alternativ
 * replikeringsalternativ
-* tabellvärdeparametrar
-* skrivskyddad parametrar
-* standardparametrar
-* körningen kontexter
-* returnera instruktionen
+* tabell värdes parametrar
+* skrivskyddade parametrar
+* standard parametrar
+* körnings kontexter
+* Return-instruktion
 
 ## <a name="next-steps"></a>Nästa steg
-Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).
 

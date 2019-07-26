@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: b815ba80ac0860a4248b27e4013da4a8a9d12e18
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321301"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377208"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Meddelande anrikning för IoT Hub-meddelanden från enhet till moln (för hands version)
 
@@ -41,6 +41,8 @@ Värdet kan vara något av följande exempel:
 
    > [!NOTE]
    > För närvarande är det bara $iothubname, $twin. taggar, $twin. Properties. Reporting, och $twin. Properties. rapporterade variabler som stöds för meddelande anrikning.
+
+Meddelande berikare läggs till som program egenskaper till meddelanden som skickas till valda slut punkter.  
 
 ## <a name="applying-enrichments"></a>Använda omfattande funktioner
 

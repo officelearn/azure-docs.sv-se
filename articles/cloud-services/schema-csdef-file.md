@@ -1,36 +1,31 @@
 ---
-title: Azure Cloud Services-Definitionsschema (.csdef-fil) | Microsoft Docs
+title: Definitions schema för Azure-Cloud Services (. csdef-fil) | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
 caps.latest.revision: 42
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: ea373c7b35ef82496690f213b92cc97f3536c57a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: b832723fdf773ff06c0b03b9aa80f542279cd309
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356154"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360631"
 ---
-# <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services Definition Schema (.csdef File)
-Tjänstdefinitionsfilen definierar tjänstmodellen för ett program. Filen innehåller definitionerna för de roller som är tillgängliga för en molntjänst, anger Tjänsteslutpunkter och upprättar konfigurationsinställningarna för tjänsten. Konfigurationsvärden för inställningen är inställda i tjänstkonfigurationsfilen, enligt beskrivningen av den [molntjänst (klassisk) konfigurationsschema](/previous-versions/azure/reference/ee758710(v=azure.100)).
+# <a name="azure-cloud-services-definition-schema-csdef-file"></a>Definitions schema för Azure-Cloud Services (. csdef-fil)
+Tjänst definitions filen definierar tjänst modellen för ett program. Filen innehåller definitionerna för de roller som är tillgängliga för en moln tjänst, anger tjänstens slut punkter och upprättar konfigurations inställningar för tjänsten. Konfigurations inställnings värden anges i tjänst konfigurations filen, enligt beskrivningen i [konfigurations schema för moln tjänst (klassisk)](/previous-versions/azure/reference/ee758710(v=azure.100)).
 
-Som standard installeras Azure Diagnostics schema konfigurationsfilen till den `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` directory. Ersätt `<version>` med den installerade versionen av den [Azure SDK](https://www.windowsazure.com/develop/downloads/).
+Som standard installeras den Azure-diagnostik konfigurations schema filen i `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` katalogen. Ersätt `<version>` med den installerade versionen av [Azure SDK](https://www.windowsazure.com/develop/downloads/).
 
-Standardfilnamnstillägget för tjänstdefinitionsfilen är .csdef.
+Standard tillägget för tjänst definitions filen är. csdef.
 
-## <a name="basic-service-definition-schema"></a>Grundläggande tjänstdefinitionsschemat
-Tjänstdefinitionsfilen måste innehålla ett `ServiceDefinition` element. Tjänstdefinitionen måste innehålla minst en roll (`WebRole` eller `WorkerRole`) element. Det kan innehålla upp till 25 roller som definierats i en enda definition och du kan blanda rolltyper. Tjänstdefinitionen innehåller även den valfria `NetworkTrafficRules` element som begränsar vilka roller kan kommunicera med angivna interna slutpunkter. Tjänstdefinitionen innehåller även den valfria `LoadBalancerProbes` elementet som innehåller kund definierats hälsoavsökningar-slutpunkter.
+## <a name="basic-service-definition-schema"></a>Grundläggande tjänst definitions schema
+Tjänst definitions filen måste innehålla ett `ServiceDefinition` -element. Tjänst definitionen måste innehålla minst ett roll element (`WebRole` eller `WorkerRole`). Den kan innehålla upp till 25 roller som definierats i en enda definition och du kan blanda roll typer. Tjänst definitionen innehåller också det valfria `NetworkTrafficRules` element som begränsar vilka roller som kan kommunicera med angivna interna slut punkter. Tjänst definitionen innehåller också det valfria `LoadBalancerProbes` element som innehåller kunddefinierade hälso avsökningar av slut punkter.
 
-Det grundläggande formatet för tjänstdefinitionsfilen är som följer.
+Det grundläggande formatet för tjänst definitions filen är följande.
 
 ```xml
 <ServiceDefinition name="<service-name>" topologyChangeDiscovery="<change-type>" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" upgradeDomainCount="<number-of-upgrade-domains>" schemaVersion="<version>">
@@ -54,7 +49,7 @@ Det grundläggande formatet för tjänstdefinitionsfilen är som följer.
 </ServiceDefinition>
 ```
 
-## <a name="schema-definitions"></a>Schemadefinitioner
+## <a name="schema-definitions"></a>Schema definitioner
 I följande avsnitt beskrivs schemat:
 
 - [LoadBalancerProbe-schema](schema-csdef-loadbalancerprobe.md)
@@ -62,14 +57,14 @@ I följande avsnitt beskrivs schemat:
 - [WorkerRole-schema](schema-csdef-workerrole.md)
 - [NetworkTrafficRules-schema](schema-csdef-networktrafficrules.md)
 
-##  <a name="ServiceDefinition"></a> ServiceDefinition-Element
-Den `ServiceDefinition` elementet har det översta elementet i tjänstdefinitionsfilen.
+##  <a name="ServiceDefinition"></a>Service definition-element
+`ServiceDefinition` Elementet är det översta elementet i tjänst definitions filen.
 
-I följande tabell beskrivs attributen för den `ServiceDefinition` element.
+I följande tabell beskrivs attributen för `ServiceDefinition` -elementet.
 
 | Attribut               | Beskrivning |
 | ----------------------- | ----------- |
-| name                    |Krävs. Namnet på tjänsten. Namnet måste vara unikt inom kontot.|
-| topologyChangeDiscovery | Valfri. Anger vilken typ av topologi ändringsmeddelande. Möjliga värden:<br /><br /> -   `Blast` -Skickar uppdateringen så snart som möjligt till alla rollinstanser. Om du väljer alternativet ska rollen kunna hantera topologi uppdateringen utan startas.<br />-   `UpgradeDomainWalk` – Skickar uppdateringen till varje rollinstans i ordning föregående instans har godkänt uppdateringen.|
-| schemaVersion           | Valfri. Anger vilken version av tjänstdefinitionsschemat. Schemaversion kan Visual Studio för att de rätt SDK-verktyg som ska användas för schemavalideringen om mer än en version av SDK: N installeras sida-vid-sida.|
-| upgradeDomainCount      | Valfri. Anger antalet uppgraderingsdomäner som tilldelas roller i den här tjänsten. Rollinstanser har tilldelats en uppgraderingsdomän när tjänsten har distribuerats. Mer information finns i [uppdatera en molntjänstroll eller distribution](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [hantera tillgänglighet för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) och [vad är en Molnmodell Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> Du kan ange upp till 20 uppgraderingsdomäner. Om inte anges är standardvärdet för antal uppgraderingsdomäner 5.|
+| name                    |Obligatoriskt. Namnet på tjänsten. Namnet måste vara unikt inom tjänst kontot.|
+| topologyChangeDiscovery | Valfri. Anger typ av meddelande om ändring av topologin. Möjliga värden är:<br /><br /> -   `Blast`– Skickar uppdateringen så snart som möjligt till alla roll instanser. Om du väljer alternativet ska rollen kunna hantera topologins uppdatering utan att starta om.<br />-   `UpgradeDomainWalk`– Skickar uppdateringen till varje roll instans på ett sekventiellt sätt efter att uppdateringen har godkänts av föregående instans.|
+| schemaVersion           | Valfri. Anger versionen för tjänst definitions schema. Med schema versionen kan Visual Studio välja rätt SDK-verktyg som ska användas för schema validering om fler än en version av SDK: n installeras sida vid sida.|
+| upgradeDomainCount      | Valfri. Anger det antal uppgraderings domäner över vilka roller i den här tjänsten allokeras. Roll instanser tilldelas en uppgraderings domän när tjänsten distribueras. Mer information finns i [Uppdatera en moln tjänst roll eller distribution](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Hantera tillgänglighets för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) och [vad som är en moln tjänst modell](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> Du kan ange upp till 20 uppgraderings domäner. Om inget värde anges är standard antalet uppgraderings domäner 5.|

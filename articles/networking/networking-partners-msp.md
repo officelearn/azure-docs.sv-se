@@ -1,56 +1,56 @@
 ---
-title: 'Nätverk partner: Azure-nätverk | Microsoft Docs'
-description: Den här artikeln innehåller en lista över nätverk MSP-partner
+title: 'Nätverks partners: Azure-nätverk | Microsoft Docs'
+description: Den här artikeln innehåller en lista över MSP-nätverks partner
 services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 922749591bdc9222e5f97b2bb6828c5660c0dbac
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ffcfd48d9a93ee7c73e2597ff9bea704e0378440
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840331"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385209"
 ---
-# <a name="about-azure-networking-msp-partners"></a>Om Azure Networking MSP-partner
+# <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
-Azure Networking Managed Service Provider (MSP) partnerprogram aktiverar network-tjänster med fokus MSP Telefoniföretag och systemintegrerare (SIs) för att erbjuda moln- och hybridintegrering nätverkstjänster inriktade på Azures portfölj med nätverksprodukter och tjänster.
+Azure Network Managed Service Provider (MSP)-partner programmet möjliggör nätverks tjänster med fokus på MSP, telefoni och Systems integrators (SIs) för att erbjuda moln-och hybrid nätverks tjänster som är centrerade kring Azures portfölj av nätverks produkter och Terminal.
 
-Azure Networking MSP är en särskild uppsättning leverantörer av hanterade tjänster som löser enterprise cloud nätverksbehov och utmaningar inom alla delar av moln och hybrid-nätverk. De hanterade nätverkstjänsterna omfattar en eller flera av följande tjänster: arkitektur, planering, distribution, åtgärder, underhåll och optimering.
+Azure Networking MSP är en specialiserad uppsättning leverantörer av hanterade tjänster som hanterar företagets moln nätverks behov och utmaningar i alla aspekter av molnet och hybrid nätverk. De hanterade nätverks tjänsterna innehåller en eller flera av följande tjänster: nätverks arkitektur, planering, distribution, åtgärder, underhåll och optimering.
 
 ![MSP][0]
 
-Kunder kan köpa MSP-hanterade tjänster erbjudanden på Azure Marketplace eller direkt från MSP. MSP kan distribuera och hantera Azure-nätverksresurser i kundernas prenumerationer och resursgrupper med hjälp av Azure fyr.
+Kunder kan köpa MSP-hanterade tjänster i Azure Marketplace eller direkt från MSP. MSP kan distribuera och hantera Azure nätverks resurser i kundernas prenumerationer och resurs grupper med hjälp av Azure Lighthouse.
 
 ## <a name="msp"></a>MSP-partner
 
-Använd länkarna i det här avsnittet för mer information om hanterade molnet nätverkstjänster som erbjuds av Azure Networking MSP-partner. Om inte din cloud network services partner visas i avsnittet nedan har providern Kontakta oss. De kan kontakta oss genom att skicka ett e-postmeddelande till ManagedVirtualWAN@microsoft.com. 
+Använd länkarna i det här avsnittet för mer information om hanterade moln nätverks tjänster som erbjuds av Azure Network MSP-partner. Om din moln nätverks tjänst partner inte visas i avsnittet nedan, ber du leverantören att kontakta oss. De kan kontakta oss genom att skicka ett e ManagedVirtualWAN@microsoft.com-postmeddelande till. 
 
-[Aryaka Networks](https://www.aryaka.com/)
+[Aryaka nätverk](https://www.aryaka.com/)
 
 [BT](https://www.bt.com/)
 
-[Dimensionsdata](https://www.dimensiondata.com/)
+[Dimensions data](https://www.dimensiondata.com/)
 
 [Equinix](https://www.equinix.com/)
 
 [InterCloud](https://www.intercloud.com/)
 
-[IIJ](https://www.riverbed.com/go/steelconnect-azurewan.html)
+[IIJ](https://www.iij.ad.jp/en/)
 
 [Megaport](https://www.megaport.com/)
 
-[Tata Communications](https://www.tatacommunications.com/)
+[Tata-kommunikation](https://www.tatacommunications.com/)
 
 ## <a name="expressroute"></a>ExpressRoute-partner
 
-Läs om hur partner [ExpressRoute-partner och platser](../expressroute/expressroute-locations-providers.md).
+Information om partner finns i [ExpressRoute partners och platser](../expressroute/expressroute-locations-providers.md).
 
 ## <a name="vwan"></a>Virtuella WAN-partner
 
-Läs om hur partner [virtuellt WAN-nätverk partners och leverantörer](../virtual-wan/virtual-wan-locations-partners.md).
+För information om partners, se [virtuella WAN-partners och leverantörer](../virtual-wan/virtual-wan-locations-partners.md).
 
 <!--Image References-->
-[0]: ./media/networking-partners-msp/msp.png "Beskrivning av MSP"
+[0]: ./media/networking-partners-msp/msp.png "Beskrivning av MSP-program"

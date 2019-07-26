@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Data Lake Analytics med hjälp av Python
-description: Den här artikeln beskriver hur du använder Python för att hantera Data Lake Analytics-konton, datakällor, användare och jobb.
+title: Hantera Azure Data Lake Analytics med python
+description: Den här artikeln beskriver hur du använder python för att hantera Data Lake Analytics-konton, data källor, användare & jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
@@ -9,43 +9,43 @@ ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 82007c780a0c9ff3bb2e1a50a4826499f9df9c9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811701"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355977"
 ---
-# <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics med hjälp av Python
+# <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics med python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av Python.
+Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, data källor, användare och jobb med hjälp av python.
 
 ## <a name="supported-python-versions"></a>Python-versioner som stöds
 
-* Använda en 64-bitars version av Python.
-* Du kan använda standard Python-distribution finns på  **[Python.org hämtar](https://www.python.org/downloads/)** . 
-* Många utvecklare tycker att det är praktiskt att använda den  **[Anaconda Python-distribution](https://www.anaconda.com/download/)** .  
-* Den här artikeln skrevs med hjälp av Python version 3.6 från standard Python-distribution
+* Använd en 64-bitars version av python.
+* Du kan använda standard-python-distributionen som finns på **[python.org-nedladdningar](https://www.python.org/downloads/)** . 
+* Många utvecklare tycker att det är praktiskt att använda **[Anaconda python-distribution](https://www.anaconda.com/download/)** .  
+* Den här artikeln skrevs med python version 3,6 från standard-python-distributionen
 
 ## <a name="install-azure-python-sdk"></a>Installera Azure Python SDK
 
 Installera följande moduler:
 
-* Den **azure-mgmt-resource** modulen innehåller andra Azure-moduler för Active Directory osv.
-* Den **azure-datalake-store** modulen innehåller Azure Data Lake Store-filsystemsåtgärder. 
-* Den **azure-mgmt-datalake-store** modulen innehåller Azure Data Lake Store-kontohanteringsåtgärder.
-* Den **azure-mgmt-datalake-analytics** modulen innehåller Azure Data Lake Analytics-åtgärder. 
+* Modulen **Azure-MGMT-Resource** innehåller andra Azure-moduler för Active Directory osv.
+* **Azure-datalake – Store-** modulen innehåller Azure Data Lake Store fil Systems åtgärder. 
+* Modulen **Azure-MGMT-datalake-Store** innehåller Azure Data Lake Store konto hanterings åtgärder.
+* Modulen **Azure-MGMT-datalake-Analytics** innehåller Azure Data Lake Analytics åtgärder. 
 
-Kontrollera först att du har senast `pip` genom att köra följande kommando:
+Se först till att du har det `pip` senaste genom att köra följande kommando:
 
 ```
 python -m pip install --upgrade pip
 ```
 
-Det här dokumentet skrevs med `pip version 9.0.1`.
+Det här dokumentet skrevs `pip version 9.0.1`med.
 
-Använd följande `pip` kommandon för att installera modulerna från kommandoraden:
+Använd följande `pip` kommandon för att installera modulerna från kommando raden:
 
 ```
 pip install azure-mgmt-resource
@@ -54,55 +54,60 @@ pip install azure-mgmt-datalake-store
 pip install azure-mgmt-datalake-analytics
 ```
 
-## <a name="create-a-new-python-script"></a>Skapa ett nytt pythonskript
+## <a name="create-a-new-python-script"></a>Skapa ett nytt Python-skript
 
 Klistra in följande kod i skriptet:
 
 ```python
-## Use this only for Azure AD service-to-service authentication
+# Use this only for Azure AD service-to-service authentication
 #from azure.common.credentials import ServicePrincipalCredentials
 
-## Use this only for Azure AD end-user authentication
+# Use this only for Azure AD end-user authentication
 #from azure.common.credentials import UserPassCredentials
 
-## Required for Azure Resource Manager
+# Required for Azure Resource Manager
 from azure.mgmt.resource.resources import ResourceManagementClient
 from azure.mgmt.resource.resources.models import ResourceGroup
 
-## Required for Azure Data Lake Store account management
+# Required for Azure Data Lake Store account management
 from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
 from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-## Required for Azure Data Lake Store filesystem management
+# Required for Azure Data Lake Store filesystem management
 from azure.datalake.store import core, lib, multithread
 
-## Required for Azure Data Lake Analytics account management
+# Required for Azure Data Lake Analytics account management
 from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
 from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInformation
 
-## Required for Azure Data Lake Analytics job management
+# Required for Azure Data Lake Analytics job management
 from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient
 from azure.mgmt.datalake.analytics.job.models import JobInformation, JobState, USqlJobProperties
 
-## Required for Azure Data Lake Analytics catalog management
+# Required for Azure Data Lake Analytics catalog management
 from azure.mgmt.datalake.analytics.catalog import DataLakeAnalyticsCatalogManagementClient
 
-## Use these as needed for your application
-import logging, getpass, pprint, uuid, time
+# Use these as needed for your application
+import logging
+import getpass
+import pprint
+import uuid
+import time
 ```
 
-Kör skriptet för att kontrollera att modulerna som kan importeras.
+Kör det här skriptet för att kontrol lera att modulerna kan importeras.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
-### <a name="interactive-user-authentication-with-a-pop-up"></a>Interaktiv användarautentisering med ett popup-fönster
+### <a name="interactive-user-authentication-with-a-pop-up"></a>Interaktiv användarautentisering med ett popup
 
 Den här metoden stöds inte.
 
-### <a name="interactive-user-authentication-with-a-device-code"></a>Interaktiv användarautentisering med en kod för enhet
+### <a name="interactive-user-authentication-with-a-device-code"></a>Interaktiv användarautentisering med en enhets kod
 
 ```python
-user = input('Enter the user to authenticate with that has permission to subscription: ')
+user = input(
+    'Enter the user to authenticate with that has permission to subscription: ')
 password = getpass.getpass()
 credentials = UserPassCredentials(user, password)
 ```
@@ -110,42 +115,45 @@ credentials = UserPassCredentials(user, password)
 ### <a name="noninteractive-authentication-with-spi-and-a-secret"></a>Icke-interaktiv autentisering med SPI och en hemlighet
 
 ```python
-credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
+credentials = ServicePrincipalCredentials(
+    client_id='FILL-IN-HERE', secret='FILL-IN-HERE', tenant='FILL-IN-HERE')
 ```
 
-### <a name="noninteractive-authentication-with-api-and-a-certificate"></a>Icke-interaktiv autentisering med API: et och ett certifikat
+### <a name="noninteractive-authentication-with-api-and-a-certificate"></a>Ej interaktiv autentisering med API och ett certifikat
 
 Den här metoden stöds inte.
 
-## <a name="common-script-variables"></a>Vanliga skriptvariabler
+## <a name="common-script-variables"></a>Vanliga skript-variabler
 
 Dessa variabler används i exemplen.
 
 ```python
-subid= '<Azure Subscription ID>'
+subid = '<Azure Subscription ID>'
 rg = '<Azure Resource Group Name>'
-location = '<Location>' # i.e. 'eastus2'
+location = '<Location>'  # i.e. 'eastus2'
 adls = '<Azure Data Lake Store Account Name>'
 adla = '<Azure Data Lake Analytics Account Name>'
 ```
 
-## <a name="create-the-clients"></a>Skapa klienter
+## <a name="create-the-clients"></a>Skapa klienterna
 
 ```python
 resourceClient = ResourceManagementClient(credentials, subid)
 adlaAcctClient = DataLakeAnalyticsAccountManagementClient(credentials, subid)
-adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalakeanalytics.net')
+adlaJobClient = DataLakeAnalyticsJobManagementClient(
+    credentials, 'azuredatalakeanalytics.net')
 ```
 
 ## <a name="create-an-azure-resource-group"></a>Skapa en Azure-resursgrupp
 
 ```python
-armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGroup( location=location ) )
+armGroupResult = resourceClient.resource_groups.create_or_update(
+    rg, ResourceGroup(location=location))
 ```
 
 ## <a name="create-data-lake-analytics-account"></a>Skapa ett Data Lake Analytics-konto
 
-Skapa först ett store-konto.
+Skapa först ett lagrings konto.
 
 ```python
 adlsAcctResult = adlsAcctClient.account.create(
@@ -198,20 +206,21 @@ jobResult = adlaJobClient.job.create(
 )
 ```
 
-## <a name="wait-for-a-job-to-end"></a>Vänta tills ett jobb för att avsluta
+## <a name="wait-for-a-job-to-end"></a>Vänta tills ett jobb har slutförts
 
 ```python
 jobResult = adlaJobClient.job.get(adla, jobId)
 while(jobResult.state != JobState.ended):
-    print('Job is not yet done, waiting for 3 seconds. Current state: ' + jobResult.state.value)
+    print('Job is not yet done, waiting for 3 seconds. Current state: ' +
+          jobResult.state.value)
     time.sleep(3)
     jobResult = adlaJobClient.job.get(adla, jobId)
 
-print ('Job finished with result: ' + jobResult.result.value)
+print('Job finished with result: ' + jobResult.result.value)
 ```
 
-## <a name="list-pipelines-and-recurrences"></a>Lista över pipelines och upprepningar
-Beroende på om dina jobb har pipelinen eller en återkommande metadata som är ansluten kan visa du pipelines och upprepningar.
+## <a name="list-pipelines-and-recurrences"></a>Visa lista över pipelines och upprepningar
+Du kan visa pipeliner och upprepningar, beroende på om dina jobb har slut för ande av pipeline eller återkommande metadata.
 
 ```python
 pipelines = adlaJobClient.pipeline.list(adla)
@@ -223,28 +232,31 @@ for r in recurrences:
     print('Recurrence: ' + r.name + ' ' + r.recurrenceId)
 ```
 
-## <a name="manage-compute-policies"></a>Hantera principer för beräkning
+## <a name="manage-compute-policies"></a>Hantera beräknings principer
 
-Objektet DataLakeAnalyticsAccountManagementClient ger metoder för att hantera principer för beräkning för ett Data Lake Analytics-konto.
+DataLakeAnalyticsAccountManagementClient-objektet innehåller metoder för att hantera beräknings principerna för ett Data Lake Analytics-konto.
 
-### <a name="list-compute-policies"></a>Lista beräkning principer
+### <a name="list-compute-policies"></a>Lista med beräknings principer
 
-Följande kod hämtar en lista över principer för beräkning för ett Data Lake Analytics-konto.
+Följande kod hämtar en lista med beräknings principer för ett Data Lake Analytics-konto.
 
 ```python
 policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
 for p in policies:
-    print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' + p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
+    print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' +
+          p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
 ```
 
-### <a name="create-a-new-compute-policy"></a>Skapa en ny princip för beräkning
+### <a name="create-a-new-compute-policy"></a>Skapa en ny beräknings princip
 
-Följande kod skapar en ny princip för beräkning för ett Data Lake Analytics-konto, ange de maximala AU: er tillgängliga till den angivna användaren till mellan 50 och den minsta prioriteten till 250.
+Följande kod skapar en ny beräknings princip för ett Data Lake Analytics konto, ställer in den maximala mappen som är tillgänglig för den angivna användaren till 50 och minsta jobb prioritet till 250.
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"
-newPolicyParams = ComputePolicyCreateOrUpdateParameters(userAadObjectId, "User", 50, 250)
-adlaAccountClient.computePolicies.createOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams)
+newPolicyParams = ComputePolicyCreateOrUpdateParameters(
+    userAadObjectId, "User", 50, 250)
+adlaAccountClient.computePolicies.createOrUpdate(
+    rg, adla, "GaryMcDaniel", newPolicyParams)
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4daa7ae9c7e58c1949dfbe4427a154c389100d4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277782"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348372"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapacitets planering och skalning för Azure Service Fabric
 
@@ -92,7 +92,7 @@ Du kan göra horisontell skalning antingen [manuellt](https://docs.microsoft.com
 
 Skala ut ett Service Fabric kluster genom att öka antalet instanser för en viss skalnings uppsättning för virtuella datorer. Du kan skala ut program mässigt genom att använda `AzureClient` och ID: t för önskad skalnings uppsättning för att öka kapaciteten.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -134,7 +134,7 @@ Om du vill skala i manuellt uppdaterar du kapaciteten i SKU-egenskapen för öns
 
 Du måste förbereda noden för avstängning för skalning i program mässigt. Hitta noden som ska tas bort (den högsta instans-noden). Exempel:
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -151,7 +151,7 @@ using (var client = new FabricClient())
 
 Inaktivera och ta bort noden genom att använda samma `FabricClient` instans (`client` i det här fallet) och Node-instansen (`instanceIdString` i det här fallet) som du använde i föregående kod:
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster

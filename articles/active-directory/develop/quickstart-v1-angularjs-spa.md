@@ -1,5 +1,5 @@
 ---
-title: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory | Microsoft Docs
+title: Bygg AngularJS-app med en sida för inloggning och logga ut med Azure AD | Microsoft Docs
 description: Lär dig hur du skapar ett enkelsidigt AngularJS-program som integreras med Azure AD för inloggning och anropar Azure AD-skyddade API:er med hjälp av OAuth.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001201"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380766"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snabbstart: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory
 
@@ -47,9 +47,9 @@ Om du vill skapa ett komplett, fungerande program måste du:
 3. Använd ADAL för att säkra sidor i ensidesappen.
 
 > [!NOTE]
-> Om du vill aktivera inloggningar för personliga konton förutom arbets-och skolkonton kan du använda den  *[Microsoft identity-plattformen endpoint](azure-ad-endpoint-comparison.md)*. Mer information finns i [självstudien JavaScript SPA](tutorial-v2-javascript-spa.md) samt [i den här artikeln](active-directory-v2-limitations.md) förklarar den *Microsoft identity-plattformen endpoint*. 
+> Om du behöver aktivera inloggningar för personliga konton förutom arbets-och skol konton kan du använda *[Microsoft Identity Platform](azure-ad-endpoint-comparison.md)* -slutpunkten. Mer information finns i [den här själv studie kursen om Java scripts Spa](tutorial-v2-javascript-spa.md) och [den här artikeln](active-directory-v2-limitations.md) förklarar *slut punkten för Microsoft Identity Platform*. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kom igång genom att slutföra följande krav:
 
@@ -63,15 +63,15 @@ Om du vill göra så att appen kan autentisera användare och hämta token behö
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du är inloggad i flera kataloger kan du behöva se till att du är i rätt katalog. Gör det genom att klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du den Azure AD-klientorganisation där du vill registrera programmet.
 1. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
-1. Klicka på **appregistreringar**, och välj sedan **ny registrering**.
+1. Klicka på **Appregistreringar**och välj sedan **ny registrering**.
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-1. Välj den **Web** plattform under den **omdirigerings-URI** avsnittet och ange värdet `https://localhost:44326/` (den plats som Azure AD returnerar token).
+1. Välj webb plattformen under avsnittet omdirigerings **-** **URI** och ange värdet till `https://localhost:44326/` (platsen som Azure AD ska returnera tokens till).
 1. När det är klart väljer du **Registrera**. På appens sida **Översikt** antecknar du värdet för **Application (client) ID** (Program-ID (klient)).
 1. Adal.js använder det implicita flödet för OAuth för att kommunicera med Azure AD. Du måste aktivera det implicita flödet för ditt program. I det vänstra navigeringsfönstret för det registrerade programmet väljer du **Autentisering**.
 1. I **Avancerade inställningar** går du till **Implicit beviljande** och aktiverar kryssrutorna **ID-token** och **Åtkomsttoken**. ID-token och åtkomsttoken krävs eftersom den här appen behöver logga in användare och anropa ett API.
 1. Välj **Spara**.
-1. Ge behörigheter till hela klientorganisationen för programmet. Gå till **API-behörigheter**, och välj den **bevilja administratörsmedgivande** knappen **ge medgivande**.
+1. Ge behörigheter till hela klientorganisationen för programmet. Gå till **API-behörigheter**och välj knappen **bevilja administratörs medgivande** under **bevilja medgivande**.
 1. Bekräfta genom att välja **Ja**.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Steg 2: Installera ADAL och konfigurera den enkelsidiga appen

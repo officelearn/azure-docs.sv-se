@@ -1,63 +1,58 @@
 ---
-title: Vad du gör i händelse av en Azure-tjänsten avbrott som påverkar Azure Cloud Services | Microsoft Docs
-description: Lär dig vad du gör i händelse av ett avbrott i Azure-tjänsten som påverkar Azure Cloud Services.
+title: Vad du gör om ett avbrott i Azure-tjänsten påverkar Azure Cloud Services | Microsoft Docs
+description: Lär dig hur du gör i händelse av ett avbrott i Azure-tjänsten som påverkar Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: 976bb43fd3e6d6fdb19c733affd4afa2e49e482c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 269bb59210e24623a16b27d21d7276c084e4cca7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967683"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359669"
 ---
-# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vad du gör i händelse av en Azure-tjänsten avbrott som påverkar Azure Cloud Services
-På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga för dig när du behöver dem. Framtvingar ligger utanför vårt kontroll påverka ibland oss på ett sätt som kan leda till oplanerade avbrott.
+# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vad du gör om ett avbrott uppstår i Azure-tjänsten som påverkar Azure Cloud Services
+På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga för dig när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.
 
-Microsoft tillhandahåller ett serviceavtal (SLA) för sina tjänster som ett åtagande gällande drifttid och anslutning. SERVICEAVTALET för enskilda Azure-tjänster finns på [Azure serviceavtal](https://azure.microsoft.com/support/legal/sla/).
+Microsoft tillhandahåller en Serviceavtal (SLA) för sina tjänster som ett åtagande för drift tid och anslutning. Service avtalet för enskilda Azure-tjänster finns på [Azure Service nivå avtal](https://azure.microsoft.com/support/legal/sla/).
 
-Azure har redan många inbyggda funktioner som har stöd för program med hög tillgänglighet. Mer information om dessa tjänster läsa [haveriberedskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Azure har redan många inbyggda plattforms funktioner som stöder program med hög tillgänglighet. Läs [haveri beredskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)om du vill ha mer information om dessa tjänster.
 
-Den här artikeln innehåller en sant för katastrofåterställning när en hel region uppstår ett avbrott på grund av större naturkatastrofer eller utökas tjänstavbrott. Det här är ovanligt förekomster, men du måste beredd på att det finns ett avbrott i en hel region. Om en hel region uppstår ett avbrott i tjänsten kan blir lokalt redundant kopior av dina data tillfälligt otillgänglig. Om du har aktiverat geo-replikering, lagras tre ytterligare kopior av dina Azure Storage-blobbar och tabeller i en annan region. Vid en fullständig regionalt strömavbrott eller en katastrof där den primära regionen inte kan återställas adressommappningar alla DNS-poster till den geo-replikerad regionen i Azure.
+Den här artikeln beskriver ett verkligt haveri återställnings scenario, när en hel region upplever ett avbrott på grund av stor natur katastrof eller omfattande avbrott i tjänsten. Detta är ovanliga förekomster, men du måste förbereda dig för möjligheten att det uppstår ett avbrott i en hel region. Om en hel region upplever avbrott i tjänsten blir de lokalt redundanta kopiorna av dina data tillfälligt otillgängliga. Om du har aktiverat geo-replikering lagras tre ytterligare kopior av dina Azure Storage blobbar och tabeller i en annan region. I händelse av ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte kan återskapas mappar Azure om alla DNS-poster till den geo-replikerade regionen.
 
 > [!NOTE]
-> Tänk på att du inte har någon kontroll över den här processen och det inträffar endast för hela datacentret avbrott. Därför måste du också beroende andra programspecifika säkerhetskopieringsstrategier att uppnå den högsta möjliga tillgänglighet. Mer information finns i [haveriberedskap och hög tillgänglighet för program som bygger på Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Om du vill kunna påverka dina egna redundans kan du överväga att använda [läsåtkomst till geografiskt redundant lagring (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), vilket skapar en skrivskyddad kopia av dina data i en annan region.
+> Tänk på att du inte har någon kontroll över den här processen och att den endast kommer att ske för data Center som är i stor drifts störning. Därför måste du också förlita dig på andra programspecifika säkerhets kopierings strategier för att uppnå den högsta tillgängliga tillgänglighets nivån. Mer information finns i [haveri beredskap och hög tillgänglighet för program som bygger på Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Om du vill kunna påverka din egen redundans kanske du vill överväga att använda [Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), vilket skapar en skrivskyddad kopia av dina data i en annan region.
 >
 >
 
 
-## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Alternativ 1: Använda en säkerhetskopiering via Azure Traffic Manager-distribution
-Den mest robusta haveriberedskapslösning innebär att underhålla flera distributioner av ditt program i olika regioner och sedan använda [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) att dirigera trafik mellan dem. Azure Traffic Manager tillhandahåller flera [routningsmetoder](../traffic-manager/traffic-manager-routing-methods.md), så att du kan välja om du vill hantera dina distributioner med en primär/backup-modell eller att dela upp trafiken mellan dem.
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Alternativ 1: Använda en säkerhets kopierings distribution via Azure Traffic Manager
+Den mest robusta katastrof återställnings lösningen omfattar att underhålla flera distributioner av programmet i olika regioner och sedan använda [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) för att dirigera trafik mellan dem. Azure Traffic Manager tillhandahåller flera [routningsmetoder](../traffic-manager/traffic-manager-routing-methods.md), så du kan välja om du vill hantera distributioner med en primär/säkerhets kopierings modell eller dela trafik mellan dem.
 
-![Belastningsutjämning Azure Cloud Services i flera regioner med Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
+![Balansera Azure Cloud Services över flera regioner med Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
-Snabbaste svaret till förlust av en region, är det viktigt att du konfigurerar Traffic Manager [slutpunktsövervakning](../traffic-manager/traffic-manager-monitoring.md).
+För det snabbaste svaret på förlusten av en region är det viktigt att du konfigurerar Traffic Manager [slut punkts övervakning](../traffic-manager/traffic-manager-monitoring.md).
 
-## <a name="option-2-deploy-your-application-to-a-new-region"></a>Alternativ 2: Distribuera programmet till en ny region
-Underhålla flera aktiva distributioner enligt beskrivningen i föregående alternativ medför ytterligare kostnader. Om din återställningstid (RTO) är tillräckligt flexibelt för att du har till Originalkoden eller kompilerade Cloud Services-paketet och kan du skapa en ny instans av ditt program i en annan region och uppdatera din DNS-poster så att den pekar till den nya distributionen.
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>Alternativ 2: Distribuera ditt program till en ny region
+Att upprätthålla flera aktiva distributioner enligt beskrivningen i föregående alternativ medför ytterligare löpande kostnader. Om ditt mål för återställnings tid (RTO) är tillräckligt flexibelt och du har den ursprungliga koden eller det kompilerade Cloud Services paketet kan du skapa en ny instans av programmet i en annan region och uppdatera dina DNS-poster så att de pekar på den nya distributionen.
 
-Mer information om hur du skapar och distribuerar ett molnprogram för tjänsten finns i [hur du skapar och distribuerar en tjänst i molnet](cloud-services-how-to-create-deploy-portal.md).
+Mer information om hur du skapar och distribuerar ett moln tjänst program finns i [så här skapar och distribuerar du en moln tjänst](cloud-services-how-to-create-deploy-portal.md).
 
-Beroende på din programdatakällor kan behöva du kontrollera återställningsproceduren för programmets datakälla.
+Beroende på dina program data källor kan du behöva kontrol lera återställnings procedurerna för program data källan.
 
-* Azure Storage-datakällor finns [Azure Storage-replikering](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) för att läsa på de alternativ som är tillgängliga baserat på modellen välja replikering för ditt program.
-* SQL Database-källor, läsa [översikt: Företag affärskontinuitet och databasen haveriberedskap med SQL-databas i molnet](../sql-database/sql-database-business-continuity.md) för att läsa på de alternativ som är tillgängliga baserat på den valda replikering-modellen för ditt program.
+* Azure Storage data källor finns i [Azure Storage replikering](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
+* För SQL Database källor, Läs [översikt: Drifts beredskap för affärs kontinuitet och databaser i](../sql-database/sql-database-business-continuity.md) molnet med SQL Database för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
 
 
-## <a name="option-3-wait-for-recovery"></a>Alternativ 3: Vänta tills återställningen
-I så fall krävs ingen åtgärd från din sida, men tjänsten är inte tillgängliga förrän regionen har återställts. Du kan se aktuell status för tjänsten på den [Hälsoinstrumentpanelen för Azure](https://azure.microsoft.com/status/).
+## <a name="option-3-wait-for-recovery"></a>Alternativ 3: Vänta på återställning
+I det här fallet krävs ingen åtgärd på din del, men tjänsten blir otillgänglig tills regionen har återställts. Du kan se aktuell status för tjänsten på [Azure Service Health instrument panelen](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur du implementerar en katastrofåterställning och strategi för hög tillgänglighet i [haveriberedskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Mer information om hur du implementerar en strategi för haveri beredskap och hög tillgänglighet finns i [haveri beredskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-För att utveckla en detaljerad teknisk förståelse av en molnplattform funktioner kan se [Azure återhämtning, tekniska riktlinjer](../resiliency/resiliency-technical-guidance.md).
+Information om hur du utvecklar en detaljerad teknisk förståelse av moln plattformens funktioner finns i [teknisk vägledning för Azure-återhämtning](../resiliency/resiliency-technical-guidance.md).

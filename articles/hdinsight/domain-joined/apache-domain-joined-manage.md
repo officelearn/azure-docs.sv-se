@@ -1,6 +1,6 @@
 ---
-title: Hantera HDInsight-kluster med Enterprise Security Enterprise - Azure
-description: Lär dig mer om att hantera HDInsight-kluster med Enterprise Security Package.
+title: Hantera HDInsight-kluster med Enterprise Security Enterprise – Azure
+description: Lär dig hur du hanterar HDInsight-kluster med Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -8,109 +8,109 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 951bd74c67c77c944a17e41646c4fe49ef46b33f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725658"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488726"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Hantera HDInsight-kluster med Enterprise Security Package
-Lär dig användarna och roller i HDInsight Enterprise Security Package (ESP) och hur du hanterar ESP-kluster.
+Lär dig mer om användare och roller i HDInsight Enterprise Security Package (ESP) och hur du hanterar ESP-kluster.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Använda VSCode för att länka till domänanslutna kluster
 
-Du kan länka en normal kluster med hjälp av Apache Ambari hanteras användarnamn, också länka ett security Apache Hadoop-kluster med hjälp av domänanvändarnamn (t.ex: user1@contoso.com).
-1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: Länka ett kluster**.
+Du kan länka ett vanligt kluster med hjälp av Apache Ambari-hanterat användar namn, även länka ett säkerhets Apache Hadoop kluster genom att använda domän `user1@contoso.com`användar namn (t. ex.:).
+1. Öppna paletten kommando genom att välja **Ctrl + Shift + P**och ange **sedan HDInsight: Länka ett kluster**.
 
-   ![länken cluster kommando](./media/apache-domain-joined-manage/link-cluster-command.png)
+   ![länka kluster kommando](./media/apache-domain-joined-manage/link-cluster-command.png)
 
-2. Ange HDInsight-kluster-URL > indata Username -> lösenordet -> Välj typ av kluster -> den visar lyckad info om verifiering.
+2. Ange HDInsight-kluster-URL – > indatamängds >-inloggnings lösen ord – > Välj kluster typ-> visar information om lyckad information om verifieringen har slutförts.
    
-   ![länka kluster dialog](./media/apache-domain-joined-manage/link-cluster-process.png)
+   ![dialog rutan länka kluster](./media/apache-domain-joined-manage/link-cluster-process.png)
 
    > [!NOTE]  
-   > Länkade användarnamn och lösenord används om klustret både loggas i Azure-prenumeration och länkad ett kluster. 
+   > Det länkade användar namnet och lösen ordet används om klustret både är inloggat i Azure-prenumerationen och länkat ett kluster. 
    
-3. Du kan se ett länkade-kluster med hjälp av kommandot **listan kluster**. Nu kan du skicka ett skript för att den här länkade kluster.
+3. Du kan se ett länkat kluster med kommando **list kluster**. Nu kan du skicka ett skript till det här länkade klustret.
 
-   ![länkade kluster](./media/apache-domain-joined-manage/linked-cluster.png)
+   ![länkat kluster](./media/apache-domain-joined-manage/linked-cluster.png)
 
-4. Du kan också Avlänka ett kluster genom att mata in **HDInsight: Ta bort länken till ett kluster** från kommandopaletten.
+4. Du kan också ta bort länken mellan ett kluster genom **att mata in HDInsight: Ta bort länken mellan** ett kluster och kommando paletten.
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Använda IntelliJ för att länka till domänanslutna kluster
 
-Du kan länka ett normalt kluster med Ambari hanteras användarnamn, också länka ett hadoop-kluster med säkerhet med hjälp av domänanvändarnamn (t.ex: user1@contoso.com). 
-1. Klicka på **länka ett kluster** från **Azure Explorer**.
+Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar namn, även länka ett Hadoop-kluster med domän namn ( `user1@contoso.com`t. ex.:). 
+1. Klicka på **Länka ett kluster** från **Azure Explorer**.
 
-   ![länken snabbmenyn för kluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![snabb meny för länk kluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
-2. Ange **klusternamn**, **användarnamn** och **lösenord**. Du måste kontrollera användarnamnet och lösenordet om autentisering misslyckades. Du kan också lägga till Storage-konto, Lagringsnyckeln, och välj sedan en behållare från Storage-behållare. Information om är så att Lagringsutforskaren i det vänstra trädet
+2. Ange **kluster namn**, **användar namn** och **lösen ord**. Du måste kontrol lera användar namnet och lösen ordet om autentiseringen skulle bli autentiseringsfel. Du kan också lägga till lagrings konto, lagrings nyckel och sedan välja en behållare från lagrings behållaren. Lagrings information är för lagrings Utforskaren i det vänstra trädet
    
-   ![länka kluster dialog](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+   ![dialog rutan länka kluster](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
-   > Vi använder länkade lagringsnyckel, användarnamn och lösenord om klustret både loggas i Azure-prenumeration och länkad ett kluster.
-   > ![Storage explorer i IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+   > Vi använder den länkade lagrings nyckeln, användar namnet och lösen ordet om klustret både är inloggat i Azure-prenumerationen och länkade ett kluster.
+   > ![lagrings Utforskaren i IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
    
-3. Du kan se ett länkade kluster i **HDInsight** noden om informationen om indata är rätt. Nu kan du skicka ett program till den här länkade kluster.
+3. Du kan se ett länkat kluster i **HDInsight** -noden om indata-informationen är rätt. Nu kan du skicka ett program till det här länkade klustret.
 
-   ![länkade kluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![länkat kluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
-4. Du kan också Avlänka ett kluster från **Azure Explorer**.
+4. Du kan också ta bort länken mellan ett kluster och **Azure Explorer**.
    
-   ![ta bort kopplingen kluster](./media/apache-domain-joined-manage/unlink.png)
+   ![olänkat kluster](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Använda Eclipse för att länka till domänanslutna kluster
 
-Du kan länka ett normalt kluster med Ambari hanteras användarnamn, också länka ett hadoop-kluster med säkerhet med hjälp av domänanvändarnamn (t.ex: user1@contoso.com).
-1. Klicka på **länka ett kluster** från **Azure Explorer**.
+Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar namn, även länka ett Hadoop-kluster med domän namn ( `user1@contoso.com`t. ex.:).
+1. Klicka på **Länka ett kluster** från **Azure Explorer**.
 
-   ![länken snabbmenyn för kluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![snabb meny för länk kluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
-2. Ange **klusternamnet**, **användarnamn** och **lösenord**, klicka sedan på OK för att länka kluster. Alternativt kan du ange Storage-konto, Lagringsnyckeln och välj sedan storage explorer för att arbeta i den vänstra trädvyn Storage-behållare
+2. Ange **kluster namn**, **användar namn** och **lösen ord**och klicka sedan på OK för att länka klustret. Du kan också ange lagrings konto, lagrings nyckel och välja lagrings behållare för lagrings Utforskaren som ska fungera i den vänstra trädvyn
    
-   ![länka kluster dialog](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![dialog rutan länka kluster](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
    > [!NOTE]  
-   > Vi använder länkade lagringsnyckel, användarnamn och lösenord om klustret både loggas i Azure-prenumeration och länkad ett kluster.
-   > ![Storage explorer i Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+   > Vi använder den länkade lagrings nyckeln, användar namnet och lösen ordet om klustret både är inloggat i Azure-prenumerationen och länkade ett kluster.
+   > ![lagrings Utforskaren i Sol förmörkelse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
-3. Du kan se ett länkade kluster i **HDInsight** nod när du klickar på OK-knapp om informationen om indata är rätt. Nu kan du skicka ett program till den här länkade kluster.
+3. Du kan se ett länkat kluster i **HDInsight** -noden när du har klickat på OK, om indatan är rätt. Nu kan du skicka ett program till det här länkade klustret.
 
-   ![länkade kluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![länkat kluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
-4. Du kan också Avlänka ett kluster från **Azure Explorer**.
+4. Du kan också ta bort länken mellan ett kluster och **Azure Explorer**.
    
-   ![ta bort kopplingen kluster](./media/apache-domain-joined-manage/unlink.png)
+   ![olänkat kluster](./media/apache-domain-joined-manage/unlink.png)
 
-## <a name="access-the-clusters-with-enterprise-security-package"></a>Åtkomst till kluster med Enterprise Security Package.
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Få åtkomst till kluster med Enterprise Security Package.
 
-Enterprise Security Package (tidigare kallat HDInsight Premium) ger flera användare åtkomst till klustret, där autentisering görs genom att Active Directory och auktorisering av Apache Ranger och Storage-ACL: er (ADLS ACL: er). Auktorisering ger säker gränser mellan flera användare och tillåter enbart behöriga användare ska ha åtkomst till data baserat på auktoriseringsprinciper för.
+Enterprise Security Package (tidigare kallat HDInsight Premium) ger åtkomst till flera användare till klustret, där autentisering görs genom Active Directory och auktorisering av Apache Ranger och lagrings-ACL: er (ADLS ACL: er). Auktorisering ger säkra gränser mellan flera användare och tillåter endast att privilegierade användare får åtkomst till data baserat på Auktoriseringsprinciper.
 
-Säkerhet och användare isolering är viktiga för ett HDInsight-kluster med Enterprise Security Package. SSH-åtkomst till klustret med Enterprise Security Package blockeras som uppfyller dina krav. I följande tabell visas de rekommenderade metoderna för varje typ av kluster:
+Säkerhet och användar isolering är viktiga för ett HDInsight-kluster med Enterprise Security Package. För att uppfylla dessa krav blockeras SSH-åtkomst till klustret med Enterprise Security Package. I följande tabell visas rekommenderade åtkomst metoder för varje kluster typ:
 
-|Arbetsbelastning|Scenario|Åtkomstmetod|
+|Arbetsbelastning|Scenario|Åtkomst metod|
 |--------|--------|-------------|
-|Apache Hadoop|Hive – interaktiva jobb/frågor  |<ul><li>[Beeline](#beeline)</li><li>[Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Apache Spark|Interaktiva jobb/frågor, interaktiv PySpark|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin med Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Apache Spark|Batchscenarier – Spark-submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
-|Interactive Query (LLAP)|Interaktiv|<ul><li>[Beeline](#beeline)</li><li>[Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Alla|Installera anpassade program|<ul><li>[Skriptåtgärder](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+|Apache Hadoop|Hive – interaktiva jobb/frågor  |<ul><li>[Beeline](#beeline)</li><li>[Hive-vy](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-verktyg](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Interaktiva jobb/frågor, PySpark interaktiva|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin med livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-vy](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-verktyg](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Batch-scenarier – Spark-överföring, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Interaktiv fråga (LLAP)|Interaktiv|<ul><li>[Beeline](#beeline)</li><li>[Hive-vy](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-verktyg](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Any|Installera anpassat program|<ul><li>[Skript åtgärder](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
    > [!NOTE]  
-   > Jupyter är inte installerad/stöds i Enterprise Security Package.
+   > Jupyter är inte installerat/stöds i Enterprise Security Package.
 
-Med hjälp av standard-API: er hjälper från säkerhetsperspektiv. Dessutom kan få du följande fördelar:
+Att använda standard-API: er hjälper till med säkerhets perspektiv. Dessutom får du följande fördelar:
 
-1.  **Hantering av** – du kan hantera din kod och automatisera jobb med hjälp av standard-API: er – Livy HS2 osv.
-2.  **Granska** – med SSH, det finns inget sätt att granska vilka användare SSH var tvungen att klustret. Detta skulle vara fallet när du jobb skapas via standard-slutpunkter som de skulle verkställas i kontexten för användaren. 
+1.  **Hantering** – du kan hantera din kod och automatisera jobb med standard-API: er – LIVY, HS2 osv.
+2.  **Audit** – med SSH finns det inget sätt att granska, vilka användare som använder SSH till klustret. Detta är inte fallet när jobben skapas via standard slut punkter som de skulle köras i samband med användaren. 
 
 
 
 ### <a name="beeline"></a>Använd Beeline 
-Installera Beeline på din dator och ansluta via det offentliga internet, använder följande parametrar: 
+Installera Beeline på datorn och Anslut via det offentliga Internet använder du följande parametrar: 
 
 ```
 - Connection string: -u 'jdbc:hive2://<clustername>.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
@@ -118,13 +118,13 @@ Installera Beeline på din dator och ansluta via det offentliga internet, använ
 - Cluster login password -p 'password'
 ```
 
-Om du har installerat lokalt Beeline och ansluta via Azure Virtual Network, använder du följande parametrar: 
+Om du har installerat Beeline lokalt och ansluter via en Azure-Virtual Network använder du följande parametrar: 
 
 ```
 - Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-Använd informationen i den hantera HDInsight med hjälp av Ambari REST API-dokumentet för att hitta det fullständigt kvalificerade domännamnet för en huvudnod.
+Om du vill hitta det fullständigt kvalificerade domän namnet för en huvudnoden använder du informationen i hantera HDInsight med hjälp av Ambari REST API-dokumentet.
 
 
 
@@ -139,87 +139,87 @@ Använd informationen i den hantera HDInsight med hjälp av Ambari REST API-doku
 
 
 
-## <a name="users-of-hdinsight-clusters-with-esp"></a>Användare av HDInsight-kluster med hjälp av ESP
-Ett icke - ESP HDInsight-kluster har två konton som skapas när klustret skapas:
+## <a name="users-of-hdinsight-clusters-with-esp"></a>Användare av HDInsight-kluster med ESP
+Ett icke-ESP HDInsight-kluster har två användar konton som skapas när klustret skapas:
 
-* **Ambari admin**: Det här kontot kallas även *Hadoop-användare* eller *HTTP-användare*. Det här kontot kan användas för att logga in på Ambari på https://&lt;klusternamn >. azurehdinsight.net. Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med Hive ODBC-drivrutinen och BI-verktyg (till exempel Excel, Power BI och Tableau).
+* **Ambari-administratör**: Det här kontot kallas även *Hadoop-användare* eller *http-användare*. Detta konto kan användas för att logga in på Ambari på https://&lt;kluster namn >. azurehdinsight. net. Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med Hive ODBC-drivrutin och BI-verktyg (till exempel Excel, Power BI eller Tableau).
 
-Ett HDInsight-kluster med ESP har tre nya användare förutom Ambari Admin.
+Ett HDInsight-kluster med ESP har tre nya användare utöver Ambari-administratören.
 
-* **Ranger admin**:  Det här kontot är det lokala administratörskontot för Apache Ranger. Det är inte en domänanvändare för active directory. Det här kontot kan användas för att konfigurera principer och göra andra användare, Administratörer eller delegerade administratörer (så att användarna kan hantera principer). Användarnamnet är som standard *admin* och lösenordet är detsamma som administratörslösenordet som Ambari. Lösenordet kan uppdateras från sidan Inställningar i Ranger.
-* **Klustret admin domänanvändare**: Det här kontot är en active directory-domänanvändare som är utsedd till Hadoop-kluster-administratör, inklusive Ambari och Ranger. Du måste ange den här användarens autentiseringsuppgifter när klustret skapas. Den här användaren har följande behörigheter:
+* **Ranger-administratör**:  Det här kontot är det lokala Apache Ranger-administratörskontot. Det är inte en Active Directory-domän användare. Detta konto kan användas för att konfigurera principer och göra andra användare administratörer eller delegerade administratörer (så att dessa användare kan hantera principer). Som standard är användar namnet *administratör* och lösen ordet är detsamma som administratörs lösen ordet för Ambari. Lösen ordet kan uppdateras från sidan Inställningar i Ranger.
+* **Kluster administratörs domän användare**: Det här kontot är en Active Directory-domän som anges som Hadoop-kluster administratör, inklusive Ambari och Ranger. Du måste ange användarens autentiseringsuppgifter när du skapar klustret. Den här användaren har följande behörigheter:
 
-  * Ansluta datorer till domänen och placera dem inom den Organisationsenhet som du anger när klustret skapas.
-  * Skapa tjänstens huvudnamn i Organisationsenheten som du anger när klustret skapas.
+  * Anslut datorer till domänen och placera dem i den ORGANISATIONSENHET som du anger när du skapar klustret.
+  * Skapa tjänstens huvud namn i den ORGANISATIONSENHET som du anger när klustret skapas.
   * Skapa omvända DNS-poster.
 
-    Observera de AD-användarna också ha dessa privilegier.
+    Observera att övriga AD-användare också har dessa behörigheter.
 
-    Det finns några slutpunkter i klustret (till exempel Templeton) som inte hanteras av Ranger och därför inte är säker. De här slutpunkterna är låsta för alla användare utom domänanvändare för kluster-administratör.
-* **Vanliga**: Du kan ange flera active directory-grupper när du skapar klustret. Användare i dessa grupper synkroniseras till Ranger och Ambari. Dessa användare är domänanvändare och har åtkomst till endast Ranger-hanterade slutpunkter (till exempel Hiveserver2). Alla RBAC-principer och granskning kommer att användas på dessa användare.
+    Det finns några slut punkter i klustret (till exempel Templeton) som inte hanteras av Ranger, och därför inte är säkra. Dessa slut punkter är låsta för alla användare förutom kluster administratörens domän användare.
+* **Normalt**: När klustret skapas kan du ange flera Active Directory-grupper. Användare i dessa grupper synkroniseras med Ranger och Ambari. Dessa användare är domän användare och har åtkomst till endast Ranger-hanterade slut punkter (till exempel Hiveserver2). Alla RBAC-principer och granskningar kommer att gälla för dessa användare.
 
-## <a name="roles-of-hdinsight-clusters-with-esp"></a>Rollerna för HDInsight-kluster med hjälp av ESP
-Enterprise-säkerhetspaketet för HDInsight har följande roller:
+## <a name="roles-of-hdinsight-clusters-with-esp"></a>Roller för HDInsight-kluster med ESP
+HDInsight Enterprise Security Package har följande roller:
 
-* Klusteradministratören
-* Kluster-Operator
+* Kluster administratör
+* Kluster operatör
 * Tjänstadministratör
-* Tjänsten Operator
-* Klusteranvändaren
+* Tjänst operatör
+* Kluster användare
 
-**Se behörigheterna för dessa roller**
+**Så här visar du behörigheterna för dessa roller**
 
-1. Öppna hanteringsgränssnittet för Ambari.  Se [öppna Ambari hanteringsgränssnittet](#open-the-ambari-management-ui).
+1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
 2. I den vänstra menyn klickar du på **roller**.
-3. Klicka på blå frågetecknet visas behörigheterna:
+3. Klicka på det blå frågetecknet för att se behörigheterna:
 
-    ![ESP HDInsight rollbehörigheter](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    ![Behörigheter för ESP HDInsight-roller](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
-## <a name="open-the-ambari-management-ui"></a>Öppna hanteringsgränssnittet för Ambari
+## <a name="open-the-ambari-management-ui"></a>Öppna hanterings gränssnittet för Ambari
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna ditt HDInsight-kluster.
-3. Klicka på **instrumentpanelen** på den översta menyn för att öppna Ambari.
-4. Logga in på Ambari med klustret domänanvändarnamn och lösenord.
-5. Klicka på den **Admin** nedrullningsbara menyn från övre högra hörnet och klicka sedan på **hantera Ambari**.
+3. Klicka på **instrument panel** på den övre menyn för att öppna Ambari.
+4. Logga in på Ambari med hjälp av kluster administratörens domän användar namn och lösen ord.
+5. Klicka på list Rute menyn **administratör** i det övre högra hörnet och klicka sedan på **Hantera Ambari**.
 
     ![ESP HDInsight hantera Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
-    Det ser ut som Användargränssnittet:
+    Användar gränssnittet ser ut så här:
 
-    ![Hantering av ESP HDInsight Ambari UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    ![ESP HDInsight-Ambari hanterings gränssnitt](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
-## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Lista de domänanvändare som synkroniseras från din Active Directory
-1. Öppna hanteringsgränssnittet för Ambari.  Se [öppna Ambari hanteringsgränssnittet](#open-the-ambari-management-ui).
-2. I den vänstra menyn klickar du på **användare**. Du bör se alla användare som synkroniseras från Active Directory till HDInsight-klustret.
+## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Lista de domän användare som synkroniseras från din Active Directory
+1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
+2. Klicka på **användare**på menyn till vänster. Du ska se alla användare som har synkroniserats från Active Directory till HDInsight-klustret.
 
-    ![ESP HDInsight Ambari UI-användare av lista](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    ![ESP HDInsight Ambari management UI List users](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
-## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Lista de domängrupperna som synkroniseras från din Active Directory
-1. Öppna hanteringsgränssnittet för Ambari.  Se [öppna Ambari hanteringsgränssnittet](#open-the-ambari-management-ui).
-2. I den vänstra menyn klickar du på **grupper**. Du bör se alla grupper som synkroniserats från Active Directory till HDInsight-kluster.
+## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Lista de domän grupper som synkroniserats från din Active Directory
+1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
+2. Klicka på **grupper**på den vänstra menyn. Du ser alla grupper som synkroniserats från Active Directory till HDInsight-klustret.
 
-    ![ESP HDInsight Ambari-Användargränssnittet lista hanteringsgrupper](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    ![ESP HDInsight-Ambari hanterings gränssnitt List grupper](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
-## <a name="configure-hive-views-permissions"></a>Konfigurera behörigheter för Hive-vyer
-1. Öppna hanteringsgränssnittet för Ambari.  Se [öppna Ambari hanteringsgränssnittet](#open-the-ambari-management-ui).
+## <a name="configure-hive-views-permissions"></a>Konfigurera Hive-vyer behörigheter
+1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
 2. I den vänstra menyn klickar du på **vyer**.
-3. Klicka på **HIVE** visa informationen.
+3. Klicka på **HIVE** för att visa information.
 
-    ![Hantering av ESP HDInsight Ambari UI Hive-vyer](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
-4. Klicka på den **Hive-vy** länk för att konfigurera Hive-vyer.
-5. Rulla ned till den **behörigheter** avsnittet.
+    ![ESP HDInsight Ambari management UI Hive views](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+4. Klicka på länken **Hive-vy** om du vill konfigurera Hive-vyer.
+5. Rulla ned till avsnittet **behörigheter** .
 
-    ![ESP HDInsight Ambari UI Hive-vyer för hantering av konfigurera behörigheter](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
-6. Klicka på **Lägg till användare** eller **Lägg till grupp**, och anger sedan de användare eller grupper som kan använda Hive-vyer.
+    ![ESP HDInsight Ambari management UI Hive views Configure Permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+6. Klicka på **Lägg till användare** eller **Lägg till grupp**och ange sedan de användare eller grupper som kan använda Hive-vyer.
 
-## <a name="configure-users-for-the-roles"></a>Konfigurera användare för roller
- Om du vill se en lista över roller och deras behörigheter finns i roller för HDInsight-kluster med hjälp av ESP.
+## <a name="configure-users-for-the-roles"></a>Konfigurera användare för rollerna
+ Om du vill se en lista över roller och deras behörigheter, se roller för HDInsight-kluster med ESP.
 
-1. Öppna hanteringsgränssnittet för Ambari.  Se [öppna Ambari hanteringsgränssnittet](#open-the-ambari-management-ui).
+1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
 2. I den vänstra menyn klickar du på **roller**.
-3. Klicka på **Lägg till användare** eller **Lägg till grupp** att tilldela användare och grupper för olika roller.
+3. Klicka på **Lägg till användare** eller **Lägg till grupp** för att tilldela användare och grupper till olika roller.
 
 ## <a name="next-steps"></a>Nästa steg
-* Konfigurera ett HDInsight-kluster med Enterprise Security Package finns i [konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
-* Konfigurera Hive-principer och köra Hive-frågor finns i [konfigurerar Apache Hive-principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md).
+* Information om hur du konfigurerar ett HDInsight-kluster med Enterprise Security Package finns i [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
+* Om du vill konfigurera Hive-principer och köra Hive-frågor, se [konfigurera Apache Hive principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md).

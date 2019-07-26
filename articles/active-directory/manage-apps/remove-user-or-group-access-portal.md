@@ -1,6 +1,6 @@
 ---
-title: Ta bort en användare eller grupp från en företagsapp i Azure Active Directory | Microsoft Docs
-description: Ta bort tilldelningen för åtkomst av en användare eller grupp från en företagsapp i Azure Active Directory
+title: Ta bort användar-eller grupp tilldelningar från en app i Azure Active Directory | Microsoft Docs
+description: Så här tar du bort åtkomst tilldelningen för en användare eller grupp från en företags app i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,37 +16,37 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6524a757d885e95637cb05480838db8ac37259
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 380816283156969c47f45a9b47435688df91f4ca
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701932"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381042"
 ---
-# <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Ta bort en användare eller grupp från en företagsapp i Azure Active Directory
+# <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Ta bort en användare eller grupp tilldelning från en företags app i Azure Active Directory
 
-Det är enkelt att ta bort en användare eller grupp från tilldelad åtkomst till en av dina företagsprogram i Azure Active Directory (AD Azure). Du behöver behörighet att hantera appen enterprise. Och du måste vara global administratör för katalogen.
+Det är enkelt att ta bort en användare eller en grupp från tilldelad åtkomst till ett företags program i Azure Active Directory (Azure AD). Du behöver rätt behörighet för att hantera företags appen. Och du måste vara global administratör för katalogen.
 
 > [!NOTE]
-> For Microsoft Applications (till exempel Office 365-appar), ta bort användare i en företagsapp med hjälp av PowerShell.
+> För Microsoft-program (till exempel Office 365-appar) använder du PowerShell för att ta bort användare till en företags app.
 
-## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Hur tar jag bort en användare eller grupptilldelning till en företagsapp i Azure-portalen?
+## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Hur gör jag för att ta bort en användare eller grupp tilldelning till en företags app i Azure Portal?
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-1. Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
-1. På den **Azure Active Directory - *directoryname***  (det vill säga Azure AD-sidan för den katalog som du hanterar), väljer **företagsprogram**.
-1. På den **företagsprogram – alla program** sidan visas en lista över appar som du kan hantera. Välj en app.
-1. På den ***appname*** översiktssidan (det vill säga sida med namnet på den valda appen i rubriken), Välj **användare och grupper**.
-1. På den ***appname*** **-användare och grupptilldelning** väljer du en av flera användare eller grupper och välj sedan den **ta bort** kommando. Bekräfta ditt beslut i Kommandotolken.
+1. Välj **alla tjänster**, ange **Azure Active Directory** i text rutan och välj sedan **RETUR**.
+1. På sidan **Azure Active Directory- *DirectoryName***  (det vill säga Azure AD-sidan för den katalog som du hanterar) väljer du **företags program**.
+1. På sidan **företags program – alla program** visas en lista över de appar som du kan hantera. Välj en app.
+1. På sidan ***APPNAME*** -översikt (det vill säga sidan med namnet på den valda appen i rubriken) väljer **du användare & grupper**.
+1. På sidan ***APPNAME*** **-User & grupp tilldelning** väljer du en eller flera användare eller grupper och väljer sedan kommandot **ta bort** . Bekräfta ditt beslut vid prompten.
 
-## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Hur tar jag bort en användare eller grupptilldelning till en företagsapp med PowerShell?
+## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Hur gör jag för att ta bort en användare eller grupp tilldelning till en företags app med hjälp av PowerShell?
 
-1. Öppna en upphöjd Windows PowerShell-kommandotolk.
+1. Öppna en upphöjd kommando tolk i Windows PowerShell.
 
    > [!NOTE]
-   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Y och tryck på RETUR.
+   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory v2 PowerShell-modulen skriver du Y och trycker på RETUR.
 
-1. Kör `Connect-AzureAD` och logga in med ett användarkonto för Global administratör.
+1. Kör `Connect-AzureAD` och logga in med ett globalt administratörs användar konto.
 1. Använd följande skript för att ta bort en användare och roll från ett program:
 
     ```powershell
@@ -66,7 +66,7 @@ Det är enkelt att ta bort en användare eller grupp från tilldelad åtkomst ti
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Se alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Tilldela en användare eller grupp till en företagsapp](assign-user-or-group-access-portal.md)
-- [Inaktivera användarinloggningar för en företagsapp](disable-user-sign-in-portal.md)
-- [Ändra namnet eller logotyp i en företagsapp](change-name-or-logo-portal.md)
+- [Visa alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Tilldela en användare eller grupp till en företags app](assign-user-or-group-access-portal.md)
+- [Inaktivera användar inloggningar för en företags app](disable-user-sign-in-portal.md)
+- [Ändra namn eller logo typ för en företags app](change-name-or-logo-portal.md)

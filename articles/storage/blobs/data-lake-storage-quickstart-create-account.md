@@ -1,28 +1,27 @@
 ---
 title: Skapa ett Azure Data Lake Storage Gen2-lagringskonto | Microsoft Docs
-description: Lär dig snabbt att skapa ett nytt lagringskonto med åtkomst till Data Lake Storage Gen2 med hjälp av Azure-portalen, Azure PowerShell eller Azure CLI.
+description: Lär dig snabbt att skapa ett nytt lagrings konto med åtkomst till Data Lake Storage Gen2 med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 12/06/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: normesta
-ms.reviewer: jamesbak
-ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 297ab5971fdf60ce260808cb4864621ec1188b5e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939414"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360776"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snabbstart: Skapa ett Azure Data Lake Storage Gen2-lagringskonto
+# <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Skapa ett Azure Data Lake Storage Gen2-lagringskonto
 
-Azure Data Lake Storage Gen2 [stöder ett hierarkiskt namnområde](data-lake-storage-introduction.md) som innehåller ett inbyggt directory-baserad filsystem som skräddarsytts för att fungera med Hadoop Distributed File System (HDFS). Du kan komma åt Data Lake Storage Gen2-data från HDFS via [ABFS-drivrutinen](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [stöder ett hierarkiskt namn område](data-lake-storage-introduction.md) som ger ett enhetligt katalogbaserade fil system som är anpassat för att fungera med HADOOP DISTRIBUTED File System (HDFS). Du kan komma åt Data Lake Storage Gen2-data från HDFS via [ABFS-drivrutinen](data-lake-storage-abfs-driver.md).
 
 Den här snabbstarten visar hur du skapar ett konto med [Azure-portalen](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
@@ -30,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 |-----------|--------------|
 |Portalen     | Inget         |
 |PowerShell | Den här snabbstarten kräver PowerShell-modul Az.Storage-version **0.7** eller senare. Kör kommandot `Get-Module -ListAvailable Az.Storage` för att hitta din nuvarande version. Om inga resultat visas när du kör detta kommando eller om en annan version än **0.7** visas måste du uppgradera powershell-modulen. Se avsnittet [Uppgradera powershell-modulen](#upgrade-your-powershell-module) i den här guiden.
-|CLI        | Du kan logga in på Azure och köra Azure CLI-kommandon i ett av två sätt: <ul><li>Du kan köra CLI-kommandon från Azure-portalen, i Azure Cloud Shell </li><li>Du kan installera CLI och köra CLI-kommandon lokalt</li></ul>|
+|CLI        | Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt: <ul><li>Du kan köra CLI-kommandon från Azure-portalen, i Azure Cloud Shell </li><li>Du kan installera CLI och köra CLI-kommandon lokalt</li></ul>|
 
 När du arbetar på kommandoraden kan du välja om du vill köra Azure Cloud Shell eller installera CLI lokalt.
 
@@ -77,7 +76,7 @@ Följ de här stegen för att skapa en resursgrupp i Azure-portalen:
 5. Välj platsen för resursgruppen.
 6. Klicka på knappen **Skapa**.  
 
-   ![Skärmbild som visar du skapar en resursgrupp i Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
+   ![Skärm bild som visar hur du skapar en resurs grupp i Azure Portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Skapa ett v2-lagringskonto för generell användning
 
@@ -97,7 +96,7 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 9. I avsnittet **Data Lake Storage Gen2** anger du **Hierarkisk namnrymd** till **Aktiverad**.
 10. Skapa lagringskontot genom att klicka på **Granska + Skapa**.
 
-    ![Skärmbild som visar lagringskontot har skapats i Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+    ![Skärm bild som visar hur du skapar lagrings konton i Azure Portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 Nu har ditt lagringskonto skapats via Portal.
 
@@ -106,14 +105,14 @@ Nu har ditt lagringskonto skapats via Portal.
 Ta bort en resursgrupp med Azure-portalen:
 
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper** för att visa listan över dina resursgrupper.
-2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen **Mer** (**...**) till höger om listan.
+2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen **Mer** ( **...** ) till höger om listan.
 3. Välj **Ta bort resursgrupp** och bekräfta.
 
 ## <a name="create-an-account-using-powershell"></a>Skapa ett lagringskonto med PowerShell
 
 Installera först den senaste versionen av [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)-modulen.
 
-Sedan kan uppgradera din powershell-modulen, logga in på Azure-prenumerationen, skapa en resursgrupp och sedan skapa ett lagringskonto.
+Uppgradera sedan PowerShell-modulen, logga in på din Azure-prenumeration, skapa en resurs grupp och skapa ett lagrings konto.
 
 ### <a name="upgrade-your-powershell-module"></a>Uppgradera din PowerShell-modul
 
@@ -129,7 +128,7 @@ Installera modulen Az.Storage
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Logga in på Azure-prenumerationen
+### <a name="sign-in-to-your-azure-subscription"></a>Logga in på din Azure-prenumeration
 
 Använd kommandot `Login-AzAccount` och följ anvisningarna på skärmen för att autentisera.
 
@@ -177,9 +176,9 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-an-account-using-azure-cli"></a>Skapa ett konto med Azure CLI
 
-Om du vill starta Azure Cloud Shell, logga in på den [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com)för att starta Azure Cloud Shell.
 
-Om du vill logga in på den lokala installationen av CLI kör inloggningskommandot:
+Om du vill logga in på den lokala installationen av CLI kör du inloggnings kommandot:
 
 ```cli
 az login

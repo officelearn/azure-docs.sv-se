@@ -1,181 +1,181 @@
 ---
-title: Hög tillgänglighet för Hadoop - Azure HDInsight
-description: Lär dig hur HDInsight-kluster använder för att förbättra tillförlitlighet och tillgänglighet genom att använda en ytterligare huvudnod. Lär dig hur detta påverkar Hadoop-tjänster, till exempel Ambari och Hive, och hur ansluta individuellt till varje huvudnod via SSH.
+title: Hög tillgänglighet för Hadoop – Azure HDInsight
+description: Lär dig hur HDInsight-kluster förbättrar tillförlitligheten och tillgängligheten genom att använda en ytterligare Head-nod. Lär dig hur detta påverkar Hadoop-tjänster som Ambari och Hive, samt hur du ansluter till varje Head-nod med hjälp av SSH.
 ms.reviewer: jasonh
 author: hrasheed-msft
-keywords: hög tillgänglighet för hadoop
+keywords: Hadoop hög tillgänglighet
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704937"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405989"
 ---
-# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop-kluster i HDInsight
+# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
 
-HDInsight-kluster tillhandahåller två huvudnoder för att öka tillgängligheten och tillförlitligheten för Apache Hadoop-tjänster och jobb som körs.
+HDInsight-kluster ger två huvudnoder för att öka tillgängligheten och tillförlitligheten för Apache Hadoop tjänster och jobb som körs.
 
-Hadoop uppnår hög tillgänglighet och tillförlitlighet genom att replikera data och tjänster över flera noder i ett kluster. Men standard Hadoop-distributioner har vanligtvis bara en enda huvudnod. Eventuella avbrott i enkel huvudnoden kan orsaka att klustret slutar fungera. HDInsight tillhandahåller två huvudnoder för att förbättra Hadoops tillgänglighet och tillförlitlighet.
+Hadoop uppnår hög tillgänglighet och tillförlitlighet genom att replikera tjänster och data över flera noder i ett kluster. Standard distributioner av Hadoop har dock vanligt vis bara en enda Head-nod. Eventuella avbrott i noden för den enkla huvudnoden kan orsaka att klustret slutar fungera. HDInsight ger två huvudnoderna för att förbättra Hadoop: s tillgänglighet och tillförlitlighet.
 
 ## <a name="availability-and-reliability-of-nodes"></a>Tillgänglighet och tillförlitlighet för noder
 
-Noder i ett HDInsight-kluster implementeras med hjälp av Azure virtuella datorer. I följande avsnitt beskrivs enskilda nodtyperna användas med HDInsight. 
+Noder i ett HDInsight-kluster implementeras med hjälp av Azure Virtual Machines. I följande avsnitt beskrivs de olika nodtyper som används med HDInsight. 
 
 > [!NOTE]  
-> Inte alla nodtyper används för en typ av kluster. En typ av Hadoop-kluster har till exempel inte några Nimbus-noder. Mer information om noder som används av HDInsight-klustertyper finns i avsnittet Cluster typer av den [skapa Linux-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) dokumentet.
+> Alla typer av noder används inte för en kluster typ. En Hadoop-kluster typ har till exempel inte några Nimbus-noder. Mer information om noder som används av kluster typer av HDInsight finns i avsnittet kluster typer i [skapa Linux-baserade Hadoop-kluster i HDInsight-](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) dokument.
 
 ### <a name="head-nodes"></a>Huvudnoder
 
-HDInsight tillhandahåller två huvudnoder för att garantera hög tillgänglighet för Hadoop-tjänster. Både huvudnoderna är aktiv och körs i ett HDInsight-kluster samtidigt. Vissa tjänster, till exempel Apache HDFS eller Apache Hadoop YARN är endast aktiv på en huvudnod vid en given tidpunkt. Andra tjänster, till exempel HiveServer2 eller Hive-Metaarkiv är aktiva på både huvudnoderna på samma gång.
+HDInsight erbjuder två huvudnoder för att säkerställa hög tillgänglighet för Hadoop-tjänster. Båda Head-noderna är aktiva och körs i HDInsight-klustret samtidigt. Vissa tjänster, som Apache HDFS eller Apache Hadoop garn, är bara aktiva på en head-nod vid en viss tidpunkt. Andra tjänster som HiveServer2 eller Hive Metaarkiv är aktiva på båda Head-noderna samtidigt.
 
-Huvudnoder (och andra noder i HDInsight) har ett numeriskt värde som en del av värdnamnet för noden. Till exempel `hn0-CLUSTERNAME` eller `hn4-CLUSTERNAME`.
+Huvudnoder (och andra noder i HDInsight) har ett numeriskt värde som en del av nodens värdnamn. Till exempel `hn0-CLUSTERNAME` eller `hn4-CLUSTERNAME`.
 
 > [!IMPORTANT]  
-> Koppla inte det numeriska värdet till om en nod är primär eller sekundär. Det numeriska värdet finns bara att ange ett unikt namn för varje nod.
+> Associera inte det numeriska värdet med om en nod är primär eller sekundär. Det numeriska värdet finns bara för att ange ett unikt namn för varje nod.
 
 ### <a name="nimbus-nodes"></a>Nimbus-noder
 
-Nimbus-noder är tillgängliga med Apache Storm-kluster. Nimbus-noder ger liknande funktionalitet till Hadoop JobTracker genom att distribuera och övervaka bearbetning över arbetsnoder. HDInsight tillhandahåller två Nimbus-noder för Storm-kluster
+Nimbus-noder är tillgängliga med Apache Storm-kluster. Nimbus-noderna ger liknande funktionalitet till Hadoop-JobTracker genom att distribuera och övervaka bearbetning över arbetsnoder. HDInsight innehåller två Nimbus-noder för Storm-kluster
 
 ### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper-noder
 
-[ZooKeeper](https://zookeeper.apache.org/) noder som används för val av ledare av master tjänster på huvudnoder. De används också för att se till att tjänster, datanoder (worker) och gatewayer vet vilka huvudnoden en master tjänst är aktiv på. Som standard innehåller tre ZooKeeper-noder i HDInsight.
+[ZooKeeper](https://zookeeper.apache.org/) -noder används för val av ledare för huvud tjänster på huvud-noder. De används också för att kontrol lera att tjänsterna, data (Worker)-noder och gatewayer vet vilken Head-nod en huvud tjänst är aktiv på. Som standard tillhandahåller HDInsight tre ZooKeeper-noder.
 
 ### <a name="worker-nodes"></a>Arbetsnoder
 
-Arbetsnoder utföra den faktiska dataanalysen när ett jobb skickas till klustret. Om en arbetsnod misslyckas skickas den aktivitet som processen utförde till en annan worker-nod. Som standard skapar fyra arbetsnoder i HDInsight. Du kan ändra antalet så att det passar dina behov, både under och när klustret har skapats.
+Arbetsnoder utför den faktiska data analysen när ett jobb skickas till klustret. Om en arbetsnod Miss lyckas skickas den aktivitet som den utförde till en annan arbetsnod. Som standard skapar HDInsight fyra arbetsnoder. Du kan ändra det här värdet så att det passar dina behov både under och efter att klustret har skapats.
 
 ### <a name="edge-node"></a>Gränsnod
 
-En kantnod deltar inte aktivt i dataanalys i klustret. Den används av utvecklare och datavetare när du arbetar med Hadoop. Kantnod fungerar finns i Azure samma virtuella nätverk som de andra noderna i klustret och har direkt åtkomst till andra noder. Kantnoden kan användas utan stjäl resurser från kritiska Hadoop-tjänster eller analysis-jobb.
+En Edge-nod deltar inte aktivt i data analysen i klustret. Den används av utvecklare eller data experter när de arbetar med Hadoop. Edge-noden finns i samma Azure-Virtual Network som de andra noderna i klustret och kan komma åt alla andra noder direkt. Du kan använda Edge-noden utan att ta resurser bort från kritiska Hadoop-tjänster eller analys jobb.
 
-ML-tjänster på HDInsight är för närvarande den enda typ av kluster som innehåller en kantnod som standard. Kantnoden används för ML-tjänster på HDInsight, test R-kod lokalt på noden innan den skickas till klustret för distribuerad databehandling.
+För närvarande är ML-tjänster i HDInsight den enda kluster typen som tillhandahåller en Edge-nod som standard. För ML-tjänster i HDInsight används test R-koden lokalt på noden innan den skickas till klustret för distribuerad bearbetning.
 
-Information om hur du använder en kantnod med andra klustertyper finns i den [använda kantnoder i HDInsight](hdinsight-apps-use-edge-node.md) dokumentet.
+Information om hur du använder en Edge-nod med andra kluster typer finns i [använda Edge-noder i HDInsight](hdinsight-apps-use-edge-node.md) -dokument.
 
 ## <a name="accessing-the-nodes"></a>Åtkomst till noderna
 
-Åtkomst till klustret via internet är tillgängligt via en offentlig gateway. Åtkomst är begränsad till ansluter till huvudnoderna och (om en sådan finns) kantnoden. Åtkomst till tjänster som körs på huvudnoderna påverkas inte genom att låta flera huvudnoder. Den offentliga gatewayen dirigerar begäranden till huvudnoden som är värd för den begärda tjänsten. Till exempel om Apache Ambari finns på den sekundära huvudnoden, dirigerar gatewayen inkommande begäranden för Ambari till noden.
+Åtkomst till klustret via Internet tillhandahålls via en offentlig Gateway. Åtkomsten är begränsad till att ansluta till huvudnoderna och (om det finns en sådan) Edge-noden. Åtkomst till tjänster som körs på huvudnoderna sker inte genom att ha flera huvudnoder. Den offentliga gatewayen dirigerar begär anden till Head-noden som är värd för den begärda tjänsten. Om t. ex. apache Ambari för närvarande finns på den sekundära Head-noden dirigerar gatewayen inkommande begär Anden för Ambari till noden.
 
-Åtkomst via den offentliga gatewayen är begränsad till port 443 (HTTPS), 22 och 23.
+Åtkomst via offentlig Gateway är begränsad till port 443 (HTTPS), 22 och 23.
 
-* Port __443__ används för att komma åt Ambari och andra webb-UI eller REST API: er på huvudnoderna.
+* Port __443__ används för att få åtkomst till Ambari och andra webb gränssnitt eller REST-API: er som finns på huvudnoderna.
 
-* Port __22__ används för att få åtkomst till den primära huvudnoden eller edge node med SSH.
+* Port __22__ används för att få åtkomst till den primära Head-noden eller Edge-NODEN med SSH.
 
-* Port __23__ används för att få åtkomst till den sekundära huvudnoden med SSH. Till exempel `ssh username@mycluster-ssh.azurehdinsight.net` ansluter till den primära huvudnoden av kluster med namnet **mycluster**.
+* Port __23__ används för att få åtkomst till den sekundära Head-NODEN med SSH. `ssh username@mycluster-ssh.azurehdinsight.net` Ansluter till exempel den primära huvudnoden i klustret med namnet IT- **kluster**.
 
-Mer information om hur du använder SSH finns i den [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) dokumentet.
+Mer information om hur du använder SSH finns i dokumentet [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) .
 
-### <a name="internal-fully-qualified-domain-names-fqdn"></a>Interna fullständigt kvalificerade domännamn (FQDN)
+### <a name="internal-fully-qualified-domain-names-fqdn"></a>Interna fullständigt kvalificerade domän namn (FQDN)
 
-Noder i ett HDInsight-kluster har en intern IP-adress och FQDN som kan bara kommas åt från klustret. Vid åtkomst till tjänster på klustret med den interna FQDN eller IP-adressen, bör du använda Ambari för att verifiera IP-Adressen eller FQDN för att använda vid åtkomst till tjänsten.
+Noder i ett HDInsight-kluster har en intern IP-adress och ett fullständigt domän namn som bara kan nås från klustret. När du ansluter till tjänster i klustret med hjälp av den interna FQDN-adressen eller IP-adressen bör du använda Ambari för att kontrol lera vilken IP eller FQDN som ska användas för att komma åt tjänsten.
 
-Till exempel Apache Oozie-tjänsten endast kan köra på en huvudnod och använder den `oozie` kommando från en SSH-session kräver URL till tjänsten. Den här URL: en kan hämtas från Ambari med hjälp av följande kommando:
+Till exempel kan Apache Oozie-tjänsten endast köras på en head-nod och med hjälp `oozie` av kommandot från en SSH-session krävs URL: en till tjänsten. URL: en kan hämtas från Ambari med hjälp av följande kommando:
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
-Det här kommandot returnerar ett värde som liknar följande kommando, som innehåller den interna URL: en ska användas med den `oozie` kommando:
+Det här kommandot returnerar ett värde som liknar följande kommando, som innehåller den interna URL: en som ska `oozie` användas med kommandot:
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-Mer information om hur du arbetar med Ambari REST API finns i [övervaka och hantera HDInsight med hjälp av Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+Mer information om hur du arbetar med Ambari REST API finns i [övervaka och hantera HDInsight med Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ### <a name="accessing-other-node-types"></a>Åtkomst till andra nodtyper
 
-Du kan ansluta till noder som inte är direkt åtkomliga via internet med hjälp av följande metoder:
+Du kan ansluta till noder som inte är direkt tillgängliga via Internet med hjälp av följande metoder:
 
-* **SSH**: Anslutit till en huvudnod via SSH kan använda du sedan SSH från klustrets huvudnod för att ansluta till andra noder i klustret. Mer information finns i dokumentet [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **SSH**: När du har anslutit till en head-nod med SSH kan du sedan använda SSH från Head-noden för att ansluta till andra noder i klustret. Mer information finns i dokumentet [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **SSH Tunnel**: Om du behöver komma åt en webbtjänst som finns på en av noderna som inte är exponerad för internet, måste du använda en SSH-tunnel. Mer information finns i den [använder en SSH-tunnel med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) dokumentet.
+* **SSH-tunnel**: Om du behöver åtkomst till en webb tjänst som finns på en av noderna som inte är utsatta för Internet, måste du använda en SSH-tunnel. Mer information finns i [använda en SSH-tunnel med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) -dokument.
 
-* **Azure Virtual Network**: Om ditt HDInsight-kluster är en del av Azure Virtual Network, alla resurser på samma virtuella nätverk direkt åtkomst till alla noder i klustret. Mer information finns i den [utöka HDInsight med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) dokumentet.
+* **Azure Virtual Network**: Om ditt HDInsight-kluster ingår i en Azure-Virtual Network kan alla resurser på samma Virtual Network få direkt åtkomst till alla noder i klustret. Mer information finns i avsnittet [planera ett virtuellt nätverk för HDInsight](hdinsight-plan-virtual-network-deployment.md) -dokument.
 
-## <a name="how-to-check-on-a-service-status"></a>Hur du kontrollerar på en Tjänststatus
+## <a name="how-to-check-on-a-service-status"></a>Så här kontrollerar du en tjänst status
 
-Använda Ambari-Webbgränssnittet eller Ambari REST API för att kontrollera status för tjänster som körs på huvudnoderna.
+Om du vill kontrol lera statusen för tjänster som körs på huvudnoderna använder du Ambari-webbgränssnittet eller Ambari-REST API.
 
-### <a name="ambari-web-ui"></a>Ambari-webbgränssnittet
+### <a name="ambari-web-ui"></a>Ambari webb gränssnitt
 
-Ambari-Webbgränssnittet kan visas på `https://CLUSTERNAME.azurehdinsight.net`. Ersätt **CLUSTERNAME** med namnet på klustret. Om du uppmanas, anger du HTTP-autentiseringsuppgifterna för ditt kluster. HTTP-Standardanvändarnamnet är **admin** och lösenordet är lösenordet du angav när klustret skapas.
+Ambari webb gränssnitt kan visas på `https://CLUSTERNAME.azurehdinsight.net`. Ersätt **CLUSTERNAME** med namnet på klustret. Ange HTTP-användarautentiseringsuppgifter för klustret om du uppmanas till det. Standard namnet för HTTP-användare är **administratör** och lösen ordet är det lösen ord som du angav när du skapade klustret.
 
-När du kommer på sidan Ambari visas installerade tjänster till vänster på sidan.
+När du kommer till sidan Ambari visas de installerade tjänsterna till vänster på sidan.
 
 ![Installerade tjänster](./media/hdinsight-high-availability-linux/services.png)
 
-Det finns en serie med ikoner som kan visas bredvid en tjänst för att ange status. Alla aviseringar som rör en tjänst kan granskas med den **aviseringar** länken längst upp på sidan.  Ambari erbjuder flera fördefinierade aviseringar.
+Det finns en serie ikoner som kan visas bredvid en tjänst för att indikera status. Aviseringar som är relaterade till en tjänst kan visas med  hjälp av länken Aviseringar överst på sidan.  Ambari erbjuder flera fördefinierade aviseringar.
 
-Följande aviseringar hjälpa att övervaka tillgängligheten för ett kluster:
+Följande aviseringar hjälper dig att övervaka tillgängligheten för ett kluster:
 
 | Aviseringsnamn                               | Beskrivning                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Metrisk Monitor-Status                    | Den här varningen anger status för mått övervaka processen systemets övervaka status för skriptet.                                                                                   |
-| Ambari Agentpulsslag                   | Den här aviseringen utlöses om servern har tappat kontakten med en agent.                                                                                                                        |
-| ZooKeeper Server Process                 | Den här värdnivå aviseringen utlöses om serverprocessen ZooKeeper inte får vara fastställs att upp och lyssnar på nätverket.                                                               |
-| Status för IOCache Metadata           | Den här värdnivå aviseringen utlöses om IOCache Metadata-servern inte kan vara fastställs att upp och svarar på klientbegäranden                                                            |
-| JournalNode webbgränssnittet                       | Den här värdnivå aviseringen utlöses om Webbgränssnittet JournalNode inte kan nås.                                                                                                                 |
-| Spark2 Thrift Server                     | Den här värdnivå aviseringen utlöses om Spark2 Thrift-Server inte kan fastställas att vara igång.                                                                                                |
-| Historik serverprocessen                   | Den här värdnivå aviseringen utlöses om historik serverprocessen inte får vara etablerade att vara igång och lyssnar på nätverket.                                                                |
-| Historik-Server webbgränssnittet                    | Den här värdnivå aviseringen utlöses om Webbgränssnittet för historik Server inte kan nås.                                                                                                              |
-| ResourceManager webbgränssnittet                   | Den här värdnivå aviseringen utlöses om Webbgränssnittet ResourceManager inte kan nås.                                                                                                             |
-| Sammanfattning av NodeManager hälsotillstånd               | Den här tjänstnivå aviseringen utlöses om det finns felaktiga NodeManagers                                                                                                                    |
-| App-tidslinje webbgränssnittet                      | Den här värdnivå aviseringen utlöses om Webbgränssnittet för App tidslinje Server inte kan nås.                                                                                                         |
-| Sammanfattning av DataNode hälsotillstånd                  | Den här tjänstnivå aviseringen utlöses om det finns felaktiga DataNodes                                                                                                                       |
-| NameNode webbgränssnittet                          | Den här värdnivå aviseringen utlöses om Webbgränssnittet NameNode inte kan nås.                                                                                                                    |
-| ZooKeeper Redundansväxla kontrollenhet Process    | Den här värdnivå aviseringen utlöses om ZooKeeper Redundansväxla kontrollenhet processen inte får vara bekräftat att vara igång och lyssnar på nätverket.                                                   |
-| Oozie Server Web UI                      | Den här värdnivå aviseringen utlöses om Webbgränssnittet för Oozie-servern inte kan nås.                                                                                                                |
-| Status för Oozie                      | Den här värdnivå aviseringen utlöses om Oozie-servern inte kan vara fastställs att upp och svarar på klientförfrågningar.                                                                      |
-| Processen för hive-Metaarkiv                   | Den här värdnivå aviseringen utlöses om Hive-Metaarkiv processen inte får vara fastställs att upp och lyssnar på nätverket.                                                                 |
-| HiveServer2 Process                      | Den här värdnivå aviseringen utlöses om HiveServer inte får vara fastställs att upp och svarar på klientförfrågningar.                                                                        |
-| WebHCat Server Status                    | Den här värdnivå aviseringen utlöses om statusen för templeton-servern inte är felfri.                                                                                                            |
-| Procent ZooKeeper-servrar som är tillgängliga      | Den här aviseringen utlöses om antalet ned ZooKeeper-servrarna i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av ZooKeeper processen kontroller.     |
-| Spark2 Livy Server                       | Den här värdnivå aviseringen utlöses om Livy2 servern inte kan fastställas att vara igång.                                                                                                        |
-| Spark2 Historikserver                    | Den här värdnivå aviseringen utlöses om Spark2 historik servern inte kan fastställas att vara igång.                                                                                               |
-| Mått insamlaren Process                | Den här aviseringen utlöses om inte insamlaren mått får vara bekräftat att vara igång och lyssnar på den konfigurerade porten för antalet sekunder som är lika med tröskelvärdet.                                 |
-| Mått insamlaren - HBase Master Process | Den här aviseringen utlöses om mått insamlarens HBase master processer inte kan bekräftad att vara igång och lyssnar på nätverket för det angivna kritiska tröskelvärdet, beroende på några sekunder. |
-| Procent mått Övervakare som är tillgängliga       | Den här aviseringen utlöses om en del av mått övervaka processer inte är igång och lyssnar på nätverket för den konfigurerade varningar och kritiska tröskelvärden.                             |
-| Procent NodeManagers som är tillgängliga           | Den här aviseringen utlöses om antalet ned NodeManagers i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av NodeManager processen kontroller.        |
-| NodeManager hälsotillstånd                       | Den här aviseringen på värdnivå kontrollerar noden hälsotillstånd egenskapen som är tillgänglig från komponenten NodeManager.                                                                                              |
-| NodeManager webbgränssnittet                       | Den här värdnivå aviseringen utlöses om Webbgränssnittet NodeManager inte kan nås.                                                                                                                 |
-| NameNode High Availability Health        | Den här tjänstnivå aviseringen utlöses om den aktiva NameNode eller vänteläge NameNode inte körs.                                                                                     |
-| DataNode Process                         | Den här värdnivå aviseringen utlöses om de enskilda DataNode processerna inte får vara etablerade att vara igång och lyssnar på nätverket.                                                         |
-| DataNode webbgränssnittet                          | Den här värdnivå aviseringen utlöses om Webbgränssnittet DataNode inte kan nås.                                                                                                                    |
-| Procent JournalNodes som är tillgängliga           | Den här aviseringen utlöses om antalet ned JournalNodes i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av JournalNode processen kontroller.        |
-| Procent DataNodes som är tillgängliga              | Den här aviseringen utlöses om antalet ned DataNodes i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av DataNode processen kontroller.              |
-| Zeppelin serverstatus                   | Den här värdnivå aviseringen utlöses om Zeppelin-servern inte kan vara fastställs att upp och svarar på klientförfrågningar.                                                                   |
-| HiveServer2 Interactive Process          | Den här värdnivå aviseringen utlöses om HiveServerInteractive inte får vara fastställs att upp och svarar på klientförfrågningar.                                                             |
-| LLAP program                         | Den här aviseringen utlöses om LLAP programmet kan inte definieras för att vara igång och svarar på förfrågningar.                                                                                    |
+| Status för mått övervakare                    | Den här varningen anger status för den Mät övervaknings process som definieras av skriptet övervaka status.                                                                                   |
+| Ambari agent-pulsslag                   | Den här aviseringen utlöses om servern har förlorat kontakt med en agent.                                                                                                                        |
+| Process för ZooKeeper-Server                 | Den här varningen på värdnivå utlöses om ZooKeeper-serverns process inte kan fastställas och lyssna på nätverket.                                                               |
+| Status för IOCache           | Den här varningen på värdnivå utlöses om IOCache-metadatatjänsten inte kan fastställas och svarar på klient begär Anden                                                            |
+| JournalNode webb gränssnitt                       | Den här aviseringen om värd nivå utlöses om JournalNode-webbgränssnittet inte kan kommas åt.                                                                                                                 |
+| Spark2 Thrift-Server                     | Den här varningen på värdnivå utlöses om det inte går att identifiera Spark2 Thrift-servern.                                                                                                |
+| Process för historik Server                   | Den här varningen på värdnivå utlöses om det inte går att upprätta historik Server processen för att bli igång och lyssna på nätverket.                                                                |
+| Webb gränssnitt för historik Server                    | Den här varningen på värdnivå utlöses om webb gränssnittet för historik servern inte kan kontaktas.                                                                                                              |
+| Webb gränssnitt för ResourceManager                   | Den här aviseringen om värd nivå utlöses om det inte går att hitta webb gränssnittet för ResourceManager.                                                                                                             |
+| NodeManager hälso översikt               | Den här aviseringen på tjänst nivå utlöses om det finns) Nodemanagers som inte är felfria                                                                                                                    |
+| Webb gränssnitt för app-tidslinje                      | Den här varningen på värdnivå utlöses om det inte går att komma åt appens tids linje webb gränssnitt.                                                                                                         |
+| DataNode hälso översikt                  | Den här aviseringen på tjänst nivå utlöses om det finns DataNodes som inte är felfria                                                                                                                       |
+| NameNode webb gränssnitt                          | Den här aviseringen om värd nivå utlöses om NameNode-webbgränssnittet inte kan kommas åt.                                                                                                                    |
+| Process för ZooKeeper-redundansväxling    | Den här aviseringen om värd nivå utlöses om processen för ZooKeeper inte kan bekräftas för att vara igång och lyssna på nätverket.                                                   |
+| Webb gränssnitt för Oozie-Server                      | Den här varningen på värdnivå utlöses om Oozie Server-webbgränssnittet inte kan kontaktas.                                                                                                                |
+| Status för Oozie-Server                      | Den här varningen på värdnivå utlöses om Oozie-servern inte kan fastställas och svarar på klient begär Anden.                                                                      |
+| Process för Hive-Metaarkiv                   | Den här varningen på värdnivå utlöses om processen för Hive-Metaarkiv inte kan fastställas för att vara igång och lyssna på nätverket.                                                                 |
+| HiveServer2 process                      | Den här varningen på värdnivå utlöses om HiveServer inte kan fastställas och svarar på klient begär Anden.                                                                        |
+| Status för WebHCat-Server                    | Den här varningen på värdnivå utlöses om Templeton-serverns status inte är felfri.                                                                                                            |
+| Procent ZooKeeper-servrar tillgängliga      | Den här aviseringen utlöses om antalet ZooKeeper-servrar i klustret är större än det konfigurerade kritiska tröskelvärdet. Den sammanställer resultaten av ZooKeeper process-kontroller.     |
+| Spark2 livy-Server                       | Den här aviseringen om värd nivå utlöses om Livy2-servern inte kan fastställas.                                                                                                        |
+| Spark2 historik Server                    | Den här varningen på värdnivå utlöses om Spark2 historik Server inte kan fastställas.                                                                                               |
+| Insamlings process för mått                | Den här aviseringen utlöses om insamlaren av mått inte kan bekräftas att vara igång och lyssna på den konfigurerade porten för antalet sekunder som är lika med tröskelvärdet.                                 |
+| Mått insamlare – HBase Master process | Den här aviseringen utlöses om mått insamlarens HBase huvud processer inte kan bekräftas att vara igång och lyssna på nätverket för det konfigurerade kritiska tröskelvärdet, angivet i sekunder. |
+| Procent mått övervakare tillgängliga       | Den här aviseringen utlöses om en procent andel mått i övervaknings processer inte är igång och lyssnar på nätverket efter den konfigurerade varningen och de kritiska tröskelvärdena.                             |
+| Procent) Nodemanagers tillgängliga           | Den här aviseringen utlöses om antalet) Nodemanagers i klustret är större än det konfigurerade kritiska tröskelvärdet. Den sammanställer resultaten av NodeManager process-kontroller.        |
+| NodeManager-hälsa                       | Den här varningen på värdnivå kontrollerar egenskapen för nodens hälso tillstånd som är tillgänglig från NodeManager-komponenten.                                                                                              |
+| NodeManager webb gränssnitt                       | Den här aviseringen om värd nivå utlöses om NodeManager-webbgränssnittet inte kan kommas åt.                                                                                                                 |
+| NameNode-hälsa för hög tillgänglighet        | Den här aviseringen på tjänst nivå utlöses om antingen den aktiva NameNode eller vänte läges NameNode inte körs.                                                                                     |
+| DataNode process                         | Den här varningen på värdnivå utlöses om de enskilda DataNode-processerna inte kan upprättas för att bli igång och lyssna på nätverket.                                                         |
+| DataNode webb gränssnitt                          | Den här aviseringen om värd nivå utlöses om DataNode-webbgränssnittet inte kan kommas åt.                                                                                                                    |
+| Procent Journalnodes available tillgängliga           | Den här aviseringen utlöses om antalet Journalnodes available i klustret är större än det konfigurerade kritiska tröskelvärdet. Den sammanställer resultaten av JournalNode process-kontroller.        |
+| Procent DataNodes tillgängliga              | Den här aviseringen utlöses om antalet DataNodes i klustret är större än det konfigurerade kritiska tröskelvärdet. Den sammanställer resultaten av DataNode process-kontroller.              |
+| Status för Zeppelin-Server                   | Den här varningen på värdnivå utlöses om Zeppelin-servern inte kan fastställas och svarar på klient begär Anden.                                                                   |
+| HiveServer2 interaktiv process          | Den här varningen på värdnivå utlöses om HiveServerInteractive inte kan fastställas och svarar på klient begär Anden.                                                             |
+| LLAP-program                         | Den här aviseringen utlöses om LLAP-programmet inte kan fastställas för att svara på begär Anden.                                                                                    |
 
-Du kan välja varje tjänst och visa mer information om den.
+Du kan välja varje tjänst om du vill visa mer information om den.
 
-När sidan innehåller information om status och konfiguration för varje tjänst, innehåller inte information som på vilka huvudnoden tjänsten körs på. Du kan visa den här informationen i **värdar** länken längst upp på sidan. Den här sidan visar värdarna i klustret, inklusive huvudnoderna.
+Även om tjänst sidan innehåller information om statusen och konfigurationen för varje tjänst ger den inte information om vilken Head-nod tjänsten körs på. Om du vill visa den här informationen använder du länken **värdar** överst på sidan. Den här sidan visar värdar i klustret, inklusive Head-noderna.
 
-![värdarna](./media/hdinsight-high-availability-linux/hosts.png)
+![lista över värdar](./media/hdinsight-high-availability-linux/hosts.png)
 
-Om du väljer länken för en av huvudnoderna visar de tjänster och komponenter som körs på noden.
+Om du väljer länken för en av huvudnoderna visas tjänsterna och komponenterna som körs på noden.
 
-![Komponentstatus](./media/hdinsight-high-availability-linux/nodeservices.png)
+![Komponent status](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-Läs mer om hur du använder Ambari [övervaka och hantera HDInsight med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md).
+Mer information om hur du använder Ambari finns i [övervaka och hantera HDInsight med Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="ambari-rest-api"></a>Ambari REST API
 
-Ambari REST API är tillgänglig via internet. Den offentliga gatewayen HDInsight hanterar dirigering av begäranden till huvudnoden som för närvarande är värd för REST API.
+Ambari-REST API är tillgängligt via Internet. Den offentliga HDInsight-gatewayen hanterar vägvals begär anden till huvudnoden som för närvarande är värd för REST API.
 
-Du kan använda följande kommando för att kontrollera tillståndet för en tjänst via Ambari REST API:
+Du kan använda följande kommando för att kontrol lera status för en tjänst via Ambari-REST API:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Ersätt **lösenord** med HTTP-lösenordet för användarkontot (admin).
+* Ersätt **Password** med konto lösen ordet för http-användare (admin).
 * Ersätt **CLUSTERNAME** med namnet på klustret.
-* Ersätt **SERVICENAME** med namnet på den tjänst du vill kontrollera status för.
+* Ersätt **SERVICENAME** med namnet på den tjänst som du vill kontrol lera status för.
 
-Till exempel för att kontrollera status för den **HDFS** på ett kluster med namnet **mycluster**, med ett lösenord för **lösenord**, skulle du använda följande kommando:
+Om du till exempel vill kontrol lera status för **HDFS** -tjänsten på ett kluster med namnet ' IT **cluster**', med lösen ordet lösen **ord, använder**du följande kommando:
 
     curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
 
@@ -190,81 +190,81 @@ Svaret liknar följande JSON:
       }
     }
 
-URL: en talar om för oss att tjänsten körs på en huvudnod med namnet **hn0 CLUSTERNAME**.
+URL: en talar om för oss att tjänsten körs på en head-nod med namnet **hn0-kluster**namn.
 
-Tillståndet talar om för oss att tjänsten körs för närvarande, eller **startad**.
+Tillstånds information talar om för oss att tjänsten körs eller **startas**.
 
-Om du inte vet vilka tjänster som är installerade på klustret, använder du följande kommando för att hämta en lista:
+Om du inte vet vilka tjänster som är installerade i klustret kan du använda följande kommando för att hämta en lista:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-Mer information om hur du arbetar med Ambari REST API finns i [övervaka och hantera HDInsight med hjälp av Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+Mer information om hur du arbetar med Ambari REST API finns i [övervaka och hantera HDInsight med Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-#### <a name="service-components"></a>Tjänstkomponenter
+#### <a name="service-components"></a>Tjänst komponenter
 
-Tjänsterna kan innehålla komponenter som du vill kontrollera status för individuellt. Till exempel innehåller HDFS NameNode-komponenten. Om du vill visa information om en komponent, skulle kommandot vara:
-
-    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
-
-Om du inte vet vilka komponenter som tillhandahålls som en tjänst, använder du följande kommando för att hämta en lista:
+Tjänster kan innehålla komponenter som du vill kontrol lera statusen för enskilda. HDFS innehåller till exempel NameNode-komponenten. Om du vill visa information om en komponent blir kommandot:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
-## <a name="how-to-access-log-files-on-the-head-nodes"></a>Hur du kommer åt loggfilerna på huvudnoderna
+Om du inte vet vilka komponenter som tillhandahålls av en tjänst kan du använda följande kommando för att hämta en lista:
+
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
+
+## <a name="how-to-access-log-files-on-the-head-nodes"></a>Så här kommer du åt loggfiler på huvudnoderna
 
 ### <a name="ssh"></a>SSH
 
-När du är ansluten till en huvudnod via SSH, loggfiler finns under **/var/log**. Till exempel **/var/log/hadoop-yarn/yarn** innehålla loggar för YARN.
+När du är ansluten till en head-nod via SSH kan du hitta loggfiler under **/var/log**. Till exempel innehåller **/var/log/Hadoop-yarn/yarn** loggar för garn.
 
-Varje huvudnod kan ha unika loggposter, så du bör kontrollera loggfilerna på båda.
+Varje Head-nod kan ha unika logg poster, så du bör kontrol lera loggarna på båda.
 
 ### <a name="sftp"></a>SFTP
 
-Du kan också ansluta till klustrets huvudnod med hjälp av SSH File Transfer Protocol eller SFTP Secure File Transfer Protocol () och ladda ned loggfiler direkt.
+Du kan också ansluta till Head-noden med SSH-File Transfer Protocol eller säkra File Transfer Protocol (SFTP) och hämta loggfilerna direkt.
 
-Ungefär som att använda en SSH-klient när du ansluter till klustret som du måste ange SSH-användarkontonamnet och SSH-adressen för klustret. Till exempel `sftp username@mycluster-ssh.azurehdinsight.net`. Ange lösenordet för kontot när du uppmanas att göra eller ange en offentlig nyckel med hjälp av den `-i` parametern.
+På samma sätt som med en SSH-klient måste du ange SSH-användarnamnet och SSH-adressen för klustret när du ansluter till klustret. Till exempel `sftp username@mycluster-ssh.azurehdinsight.net`. Ange lösen ordet för kontot när du uppmanas till det, eller ange en offentlig `-i` nyckel med hjälp av parametern.
 
-När du är ansluten, visas en `sftp>` prompten. Från det här meddelandet kan du ändra katalog, ladda upp och ladda ned filer. Till exempel följande kommandon ändrar du katalog till den **/var/log/hadoop/hdfs** directory och sedan ladda ned alla filer i katalogen.
+När du är ansluten visas en `sftp>` uppfrågad prompt. I den här frågan kan du ändra kataloger, ladda upp och ladda ned filer. Följande kommandon ändrar till exempel kataloger till katalogen **/var/log/Hadoop/HDFS** och laddar ned alla filer i katalogen.
 
     cd /var/log/hadoop/hdfs
     get *
 
-En lista över tillgängliga kommandon, ange `help` på den `sftp>` prompten.
+Om du vill visa en lista över tillgängliga `help` kommandon anger `sftp>` du vid prompten.
 
 > [!NOTE]  
-> Det finns även grafiska gränssnitt som gör det möjligt att visualisera filsystemet när du är ansluten med SFTP. Till exempel [MobaXTerm](https://mobaxterm.mobatek.net/) kan du bläddra filsystemet med ett gränssnitt som liknar Windows Explorer.
+> Det finns också grafiska gränssnitt som gör att du kan visualisera fil systemet när du är ansluten med SFTP. Med [MobaXTerm](https://mobaxterm.mobatek.net/) kan du till exempel bläddra i fil systemet med ett gränssnitt som liknar Utforskaren i Windows.
 
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]  
-> För att komma åt loggfiler med hjälp av Ambari, måste du använda en SSH-tunnel. Webbgränssnitt för enskilda tjänster exponeras inte offentligt på Internet. Information om hur du använder en SSH-tunnel finns i den [använda SSH-tunnlar](hdinsight-linux-ambari-ssh-tunnel.md) dokumentet.
+> Om du vill komma åt loggfiler med Ambari måste du använda en SSH-tunnel. Webb gränssnitten för enskilda tjänster visas inte offentligt på Internet. Information om hur du använder en SSH-tunnel finns i [använda SSH](hdinsight-linux-ambari-ssh-tunnel.md) -tunnlar.
 
-Ambari-Webbgränssnittet väljer du tjänsten som du vill visa loggarna för (till exempel YARN). Använd sedan **snabblänkar** att välja vilka huvudnod för att visa loggar.
+Välj den tjänst som du vill visa loggar för i Ambari-webbgränssnittet (till exempel garn). Använd sedan **snabb länkar** för att välja vilken Head-nod som ska visa loggarna för.
 
-![Använda snabblänkar för att visa loggar](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Använda snabb Länkar för att visa loggar](./media/hdinsight-high-availability-linux/viewlogs.png)
 
-## <a name="how-to-configure-the-node-size"></a>Så här konfigurerar du nodstorlek
+## <a name="how-to-configure-the-node-size"></a>Så här konfigurerar du nodens storlek
 
-Storleken på en nod kan endast väljas när klustret skapas. Du hittar en lista över de olika storlekarna som är tillgängliga för HDInsight på den [HDInsight prissättningssidan](https://azure.microsoft.com/pricing/details/hdinsight/).
+Storleken på en nod kan bara väljas när klustret skapas. Du hittar en lista över de olika VM-storlekar som är tillgängliga för HDInsight på [sidan med pris](https://azure.microsoft.com/pricing/details/hdinsight/)information för HDInsight.
 
-När du skapar ett kluster kan ange du storleken på noderna. Följande information innehåller råd om hur du anger en storlek med hjälp av den [Azure-portalen][preview-portal], [Azure PowerShell-modulen Az][azure-powershell], och [Azure CLI][azure-cli]:
+När du skapar ett kluster kan du ange storleken på noderna. Följande information ger vägledning om hur du anger storleken med [Azure Portal][preview-portal], [Azure PowerShell module Az][azure-powershell]och [Azure CLI][Azure-CLI]:
 
-* **Azure-portalen**: När du skapar ett kluster, kan du ange storleken på de noder som används av klustret:
+* **Azure Portal**: När du skapar ett kluster kan du ange storleken på noderna som används av klustret:
 
-    ![Bild av guiden med val av klusternod storlek för att skapa kluster](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Bild av guiden skapa kluster med val av Node-storlek](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: När du använder den [az hdinsight skapa](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) kommandot, du kan ange storleken på head, arbetsroller och ZooKeeper-noder med hjälp av den `--headnode-size`, `--workernode-size`, och `--zookeepernode-size` parametrar.
+* **Azure CLI**: När du använder kommandot [AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) kan du ange storleken på noderna Head, Work och ZooKeeper med `--headnode-size`parametrarna, `--workernode-size`och `--zookeepernode-size` .
 
-* **Azure PowerShell**: När du använder den [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet, du kan ange storleken på head, arbetsroller och ZooKeeper-noder med hjälp av den `-HeadNodeSize`, `-WorkerNodeSize`, och `-ZookeeperNodeSize` parametrar.
+* **Azure PowerShell**: När du använder cmdleten [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) kan du ange storleken på noderna Head, Work och ZooKeeper med `-HeadNodeSize`parametrarna, `-WorkerNodeSize`och `-ZookeeperNodeSize` .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd följande länkar om du vill veta mer om saker som nämns i det här dokumentet.
+Använd följande länkar om du vill veta mer om vad som nämns i det här dokumentet.
 
-* [Apache Ambari REST-referens](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [REST-referens för Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Installera och konfigurera Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Installera och konfigurera Azure PowerShell-modulen Az](/powershell/azure/overview)
-* [Hantera HDInsight med hjälp av Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Installera och konfigurera Azure PowerShell modul AZ](/powershell/azure/overview)
+* [Hantera HDInsight med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/

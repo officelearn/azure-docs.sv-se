@@ -1,13 +1,13 @@
 ---
 title: Vägledning för att minimera spekulativ körning i Azure | Microsoft Docs
-description: Riktlinjer för att minimera spekulativ körning säkerhetsrisker i sidokanal i Azure.
+description: Vägledning för att åtgärda problem med säkerhets luckor i spekulativ körnings sida i Azure.
 services: cloud-services
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
-keywords: spectre,meltdown,specter
+keywords: SPECTRE, Meltdown, Specter
 ms.service: cloud-services
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: cynthn
-ms.openlocfilehash: 3382907cf3267bc5a326daca2131829e82e76371
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e669b3923a2019b071ae9abe2b78db299a24f572
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60613637"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360671"
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Vägledning för att minimera spekulativ körning säkerhetsrisker i sidokanal i Azure
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Vägledning för att åtgärda problem med säkerhets luckor i spekulativ körnings sida i Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../includes/virtual-machines-common-mitigate-se.md)]

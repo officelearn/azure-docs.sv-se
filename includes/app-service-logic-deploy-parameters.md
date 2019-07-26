@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: f188f2c7bea511f1109d37ef49563e0f745a770e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187762"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385754"
 ---
-Med Azure Resource Manager kan du definiera parametrar för värdena som används när du distribuerar mallen. Mallen innehåller en `parameters` avsnitt som innehåller alla parametervärden. Varje parametervärde används av mallen för att definiera de resurser som du vill distribuera.
+Med Azure Resource Manager kan du definiera parametrar för de värden som ska användas när du distribuerar mallen. Mallen innehåller ett `parameters` avsnitt som innehåller alla parameter värden. Varje parameter värde används av mallen för att definiera de resurser som du vill distribuera.
 
 > [!NOTE]
-> Definiera inte parametrar för värden som aldrig ändras. Definiera parametrar endast för värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö där du distribuerar.
+> Definiera inte parametrar för värden som aldrig ändras. Definiera parametrar enbart för värden som varierar beroende på vilket projekt du distribuerar eller baserat på den miljö där du distribuerar.
 
 När du definierar parametrar:
 
-* Om du vill ange de tillåtna värdena som en användare kan ange under distributionen, använda den **allowedValues** fält.
+* Använd fältet **allowedValues** för att ange de tillåtna värden som en användare kan ange under distributionen.
 
-* Om du vill tilldela värden till parametern när inga värden anges under distributionen, använda den **defaultValue** fält. 
+* Använd fältet **DefaultValue** om du vill tilldela standardvärden till parameter när inga värden anges under distributionen. 

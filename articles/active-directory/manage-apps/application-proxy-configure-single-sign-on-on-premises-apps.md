@@ -1,5 +1,5 @@
 ---
-title: SAML enkel inloggning för lokala program med Azure Active Directory-programproxy (för hands version) | Microsoft Docs
+title: SAML enkel inloggning för lokala appar med Azure AD App proxy | Microsoft Docs
 description: Lär dig att tillhandahålla enkel inloggning för lokala program som skyddas med SAML-autentisering. Ge fjärråtkomst till lokala appar med Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f4ab79a9fc9b8fec26cce98d9a878b6fa2a0c3
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: ff5152a2d65ea3921f0fef7f3a020bcea80d1769
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853776"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421266"
 ---
-# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML enkel inloggning för lokala program med programproxy (för hands version)
+# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML enkel inloggning för lokala program med programproxy
 
 Du kan tillhandahålla enkel inloggning (SSO) till lokala program som skyddas med SAML-autentisering och ge fjärråtkomst till dessa program via programproxyn. Med enkel inloggning med SAML kan Azure Active Directory (Azure AD) autentiseras för programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Du kan också mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. Genom att aktivera Application Proxy förutom SAML SSO får användarna extern åtkomst till programmet och en sömlös SSO-upplevelse.
 
@@ -49,7 +49,7 @@ Protokoll diagrammen nedan beskriver den enkla inloggnings ordningen för både 
 
 5. Välj **SAML** som metoden för enkel inloggning.
 
-6. Börja med att konfigurera SAML SSO så att den fungerar medan den är i företags nätverket. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Följ stegen i [Ange grundläggande SAML-konfiguration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) för att konfigurera SAML-baserad autentisering för programmet.
+6. Börja med att konfigurera SAML SSO så att den fungerar medan den är i företags nätverket. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Följ stegen i [Ange grundläggande SAML-konfiguration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) för att konfigurera SAML-baserad autentisering för programmet.
 
 7. Lägg till minst en användare i programmet och kontrol lera att test kontot har åtkomst till programmet. När du är ansluten till företags nätverket använder du test kontot för att se om du har enkel inloggning till programmet. 
 

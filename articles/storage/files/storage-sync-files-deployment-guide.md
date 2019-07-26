@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9c05f3cf9a4c6fc916f1c9578de7aee6d0190ee5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 6a41830dcb7f681713db7a7802ab430581dc844f
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327141"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371141"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync transformerar Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -357,18 +357,19 @@ if ($cloudTieringDesired) {
 
 ---
 
-## <a name="configure-firewall-and-vnet-settings"></a>Konfigurera inställningar för brand vägg och VNet
+## <a name="configure-firewall-and-virtual-network-settings"></a>Konfigurera inställningar för brand vägg och virtuellt nätverk
 
 ### <a name="portal"></a>Portalen
 Gör så här om du vill konfigurera Azure File Sync så att den fungerar med brand vägg och inställningar för virtuellt nätverk:
 
 1. Från Azure Portal navigerar du till det lagrings konto som du vill skydda.
-1. Välj knappen **brand väggar och virtuella nätverk** på lefthand-menyn.
+1. Välj knappen **brand väggar och virtuella nätverk** på den vänstra menyn.
 1. Välj **valda nätverk** under **Tillåt åtkomst från**.
 1. Kontrol lera att dina servrars IP-adresser eller virtuella nätverk visas under lämpligt avsnitt.
 1. Kontrol lera att **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** är markerat.
 1. Spara inställningarna genom att välja **Spara** .
 
+![Konfigurera inställningarna för brand väggen och det virtuella nätverket så att de fungerar med Azure File Sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Onboarding med Azure File Sync
 De rekommenderade stegen för att integrera Azure File Sync för det första med noll stillestånd samtidigt som du behåller fullständig fil åter givning och åtkomst kontrol lista (ACL) är följande:

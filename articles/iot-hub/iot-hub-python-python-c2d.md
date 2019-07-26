@@ -1,6 +1,6 @@
 ---
-title: Meddelanden från molnet till enheten med Azure IoT Hub (Python) | Microsoft Docs
-description: Hur du skickar meddelanden från moln till enhet till en enhet från Azure IoT hub med Azure IoT SDK för Python. Du kan ändra en simulerad enhetsapp för att ta emot meddelanden från moln till enhet och ändra en backend-app för att skicka meddelanden från moln-till-enhet.
+title: Meddelanden från moln till enhet med Azure IoT Hub (python) | Microsoft Docs
+description: 'Skicka meddelanden från moln till enhet till en enhet från en Azure IoT Hub med Azure IoT-SDK: er för python. Du ändrar en simulerad enhets app för att ta emot meddelanden från molnet till enheten och ändra en backend-app för att skicka meddelanden från molnet till enheten.'
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -9,62 +9,62 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 00f639ec57f3d29dff1993bbc664477b8648ce9a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: da5481af1086c14ce0961d0ac6b8ef55cfc73707
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612565"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403876"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Skicka meddelanden från moln till enhet med IoT Hub (Python)
+# <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Skicka meddelanden från moln till enhet med IoT Hub (python)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Introduktion
 
-Azure IoT Hub är en helt hanterad tjänst som hjälper dig att aktivera pålitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) snabbstarten visar hur du skapar en IoT-hubb, etablera en enhetsidentitet i den och koda en simulerad enhetsapp som skickar meddelanden från enheten till molnet.
+Azure IoT Hub är en fullständigt hanterad tjänst som hjälper till att möjliggöra tillförlitlig och säker dubbelriktad kommunikation mellan miljon tals enheter och Server delen av lösningen. Snabb starten [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-python.md) visar hur du skapar en IoT-hubb, etablerar en enhets identitet i den och kodar en simulerad enhets app som skickar enhet till molnet-meddelanden.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Den här självstudien bygger på [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md). Den visar hur du:
+Den här självstudien bygger på [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-python.md). Det visar hur du:
 
-* Skicka meddelanden från moln till enhet på en enhet via IoT Hub från lösningens backend-servrar.
+* Skicka meddelanden från moln till enhet från Server delen av lösningen till en enda enhet via IoT Hub.
 
 * Ta emot meddelanden från molnet till enheten på en enhet.
 
-* Från lösningens backend-servrar, begär bekräftelse av leverans (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
+* Från Server delen av lösningen kan du begära leverans bekräftelse (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
 
-Du hittar mer information om meddelanden från molnet till enheten i den [utvecklarhandboken för IoT Hub](iot-hub-devguide-messaging.md).
+Du hittar mer information om moln-till-enhet-meddelanden i [guiden för IoT Hub utvecklare](iot-hub-devguide-messaging.md).
 
-I slutet av den här kursen kan du köra två Python-konsolappar:
+I slutet av den här självstudien kör du två python-konsol program:
 
-* **SimulatedDevice.py**, en modifierad version av appen som skapats i [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md), som ansluter till din IoT hub och tar emot meddelanden från molnet till enheten.
+* **SimulatedDevice.py**, en modifierad version av appen som skapats i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-python.md), som ansluter till din IoT-hubb och tar emot meddelanden från molnet till enheten.
 
-* **SendCloudToDeviceMessage.py**, som skickar ett moln-till-enhet-meddelande till den simulerade enhetsappen via IoT Hub och sedan ta emot dess leverans bekräftelse.
+* **SendCloudToDeviceMessage.py**, som skickar ett meddelande från moln till enhet till den simulerade Device-appen via IoT Hub, och sedan får leverans bekräftelse.
 
 > [!NOTE]
-> IoT Hub har SDK-stöd för många enhetsplattformar och språk (inklusive C, Java och Javascript) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner om hur du ansluter enheten till den här självstudien kod och vanligen på Azure IoT Hub finns i den [Azure IoT Developer Center](https://www.azure.com/develop/iot).
+> IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://www.azure.com/develop/iot).
 >
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
+* [Python 2. x eller 3. x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
 
 * Om du använder Windows OS installerar du [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda native-DLL:er från Python.
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 > [!NOTE]
-> *Pip*-paketet för `azure-iothub-service-client` och `azure-iothub-device-client` är endast tillgänglig för Windows-Operativsystemet. Linux/Mac OS, finns i Linux och Mac OS-specifika avsnitt på den [Förbered din utvecklingsmiljö för Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) publicera.
+> *Pip*-paketet för `azure-iothub-service-client` och `azure-iothub-device-client` är endast tillgänglig för Windows-Operativsystemet. För Linux/Mac OS, se avsnitten Linux och Mac OS-vissa i avsnittet [förbereda din utvecklings miljö för python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
 >
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>Ta emot meddelanden i den simulerade enhetsappen
+## <a name="receive-messages-in-the-simulated-device-app"></a>Ta emot meddelanden i den simulerade Device-appen
 
-I det här avsnittet skapar du en Python-konsolapp för att simulera enheten och ta emot meddelanden från moln till enhet från IoT hub.
+I det här avsnittet skapar du en python-konsol-app för att simulera enheten och ta emot meddelanden från molnet till enheten från IoT Hub.
 
-1. Använd en textredigerare och skapa en **SimulatedDevice.py** fil.
+1. Skapa en **SimulatedDevice.py** -fil med hjälp av en text redigerare.
 
-2. Lägg till följande `import` instruktioner och variabler i början av den **SimulatedDevice.py** fil:
+2. Lägg till följande `import` -instruktioner och variabler i början av **SimulatedDevice.py** -filen:
 
    ```python
     import time
@@ -79,7 +79,7 @@ I det här avsnittet skapar du en Python-konsolapp för att simulera enheten och
     RECEIVE_CALLBACKS = 0
     ```
 
-3. Lägg till följande kod i **SimulatedDevice.py** fil. Ersätt ”{deviceConnectionString}” platshållarvärdet med anslutningssträngen för den enhet som du skapade i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) Snabbstart:
+3. Lägg till följande kod i **SimulatedDevice.py** -filen. Ersätt placeholder-värdet {deviceConnectionString} med enhets anslutnings strängen för enheten som du skapade i [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-python.md) -snabb start:
 
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -87,7 +87,7 @@ I det här avsnittet skapar du en Python-konsolapp för att simulera enheten och
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-4. Lägg till följande funktion om du vill skriva ut mottagna meddelanden till konsolen:
+4. Lägg till följande funktion för att skriva ut mottagna meddelanden till-konsolen:
 
     ```python
     def receive_message_callback(message, counter):
@@ -123,7 +123,7 @@ I det här avsnittet skapar du en Python-konsolapp för att simulera enheten och
                 print ( iothub_client_error )
     ```
 
-5. Lägg till följande kod för att initiera klienten och vänta med att ta emot meddelandet moln till enhet:
+5. Lägg till följande kod för att initiera klienten och vänta på att ta emot meddelanden från molnet till enheten:
 
     ```python
     def iothub_client_init():
@@ -156,7 +156,7 @@ I det här avsnittet skapar du en Python-konsolapp för att simulera enheten och
         print_last_message_time(client)
     ```
 
-6. Lägg till följande huvudsakliga funktion:
+6. Lägg till följande huvud funktion:
 
     ```python
     if __name__ == '__main__':
@@ -167,15 +167,21 @@ I det här avsnittet skapar du en Python-konsolapp för att simulera enheten och
         iothub_client_sample_run()
     ```
 
-7. Spara och Stäng **SimulatedDevice.py** fil.
+7. Spara och Stäng **SimulatedDevice.py** -filen.
 
-## <a name="send-a-cloud-to-device-message"></a>Skicka ett moln-till-enhet-meddelande
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-I det här avsnittet skapar du en Python-konsolapp som skickar meddelanden från molnet till enheten till den simulerade enhetsappen. Du behöver enhets-ID för enheten som du lade till i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) Snabbstart. Du måste också IoT Hub-anslutningssträngen för hubben som du hittar i den [Azure-portalen](https://portal.azure.com).
+I den här artikeln skapar du en backend-tjänst för att skicka meddelanden från molnet till enheten via IoT-hubben som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-python.md). För att skicka meddelanden från molnet till enheten måste tjänsten ha behörighet för **tjänst anslutning** . Som standard skapas varje IoT Hub med en delad åtkomst princip med namnet **tjänst** som ger den här behörigheten.
 
-1. Använd en textredigerare och skapa en **SendCloudToDeviceMessage.py** fil.
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-2. Lägg till följande `import` instruktioner och variabler i början av den **SendCloudToDeviceMessage.py** fil:
+## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande från moln till enhet
+
+I det här avsnittet skapar du en python-konsol-app som skickar meddelanden från molnet till enheten till den simulerade Device-appen. Du behöver enhets-ID för enheten som du har lagt till i [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-python.md) -snabb start. Du behöver också den IoT Hub-anslutningssträng som du kopierade tidigare i [Hämta anslutnings strängen för IoT Hub](#get-the-iot-hub-connection-string).
+
+1. Skapa en **SendCloudToDeviceMessage.py** -fil med hjälp av en text redigerare.
+
+2. Lägg till följande `import` -instruktioner och variabler i början av **SendCloudToDeviceMessage.py** -filen:
 
     ```python
     import random
@@ -190,14 +196,14 @@ I det här avsnittet skapar du en Python-konsolapp som skickar meddelanden från
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-3. Lägg till följande kod i **SendCloudToDeviceMessage.py** fil. Ersätt ”{IoTHubConnectionString}” platshållarvärdet med IoT Hub-anslutningssträngen för hubben som du skapade i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) Snabbstart. Ersätt platshållaren ”{deviceId}” med enhets-ID för enheten som du lade till i den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) Snabbstart:
+3. Lägg till följande kod i **SendCloudToDeviceMessage.py** -filen. Ersätt plats hållarna {IoT Hub-anslutningssträng} och {Device ID} med IoT Hub-anslutningssträngen och enhets-ID: t som du antecknade tidigare:
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
     ```
 
-4. Lägg till följande funktion om du vill skriva ut meddelanden till konsolen:
+4. Lägg till följande funktion för att skriva ut feedback-meddelanden till-konsolen:
 
     ```python
     def open_complete_callback(context):
@@ -209,7 +215,7 @@ I det här avsnittet skapar du en Python-konsolapp som skickar meddelanden från
         print ( 'messagingResult : {0}'.format(messaging_result) )
     ```
 
-5. Lägg till följande kod för att skicka ett meddelande till din enhet och hantera feedback-meddelande när enheten bekräftar moln-till-enhet-meddelande:
+5. Lägg till följande kod för att skicka ett meddelande till enheten och hantera feedback-meddelandet när enheten bekräftar meddelandet från molnet till enheten:
 
     ```python
     def iothub_messaging_sample_run():
@@ -250,7 +256,7 @@ I det här avsnittet skapar du en Python-konsolapp som skickar meddelanden från
             print ( "IoTHubMessaging sample stopped" )
     ```
 
-6. Lägg till följande huvudsakliga funktion:
+6. Lägg till följande huvud funktion:
 
     ```python
     if __name__ == '__main__':
@@ -261,48 +267,48 @@ I det här avsnittet skapar du en Python-konsolapp som skickar meddelanden från
         iothub_messaging_sample_run()
     ```
 
-7. Spara och Stäng **SendCloudToDeviceMessage.py** fil.
+7. Spara och Stäng **SendCloudToDeviceMessage.py** -filen.
 
 ## <a name="run-the-applications"></a>Köra programmen
 
 Nu är det dags att köra programmen.
 
-1. Öppna en kommandotolk och installera den **Azure IoT Hub Device SDK för Python**.
+1. Öppna en kommando tolk och installera **Azure IoT Hub Device SDK för python**.
 
     ```shell
     pip install azure-iothub-device-client
     ```
 
-2. Kör följande kommando för att lyssna efter meddelanden från molnet till enheten i Kommandotolken:
+2. Kör följande kommando i kommando tolken för att lyssna efter meddelanden från molnet till enheten:
 
     ```shell
     python SimulatedDevice.py
     ```
 
-    ![Kör den simulerade enhetsappen](./media/iot-hub-python-python-c2d/simulated-device.png)
+    ![Kör den simulerade Device-appen](./media/iot-hub-python-python-c2d/simulated-device.png)
 
-3. Öppna en kommandotolk och installera den **Azure IoT Hub Service SDK för Python**.
+3. Öppna en ny kommando tolk och installera **Azure IoT Hub service SDK för python**.
 
     ```shell
     pip install azure-iothub-service-client
     ```
 
-4. Kör följande kommando för att skicka ett moln-till-enhet-meddelande och vänta tills meddelandet feedback i en kommandotolk:
+4. Kör följande kommando i en kommando tolk för att skicka ett meddelande från moln till enhet och vänta på feedback från meddelandet:
 
     ```shell
     python SendCloudToDeviceMessage.py
     ```
 
-    ![Kör appen för att skicka kommandot moln till enhet](./media/iot-hub-python-python-c2d/send-command.png)
+    ![Kör appen för att skicka kommandot från molnet till enheten](./media/iot-hub-python-python-c2d/send-command.png)
 
-5. Observera meddelandet tas emot av enheten.
+5. Observera meddelandet som mottagits av enheten.
 
-    ![Det mottagna meddelandet](./media/iot-hub-python-python-c2d/message-received.png)
+    ![Meddelande mottaget](./media/iot-hub-python-python-c2d/message-received.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I de här självstudierna lärde du dig att skicka och ta emot meddelanden från moln till enhet.
+I den här självstudien har du lärt dig hur du skickar och tar emot meddelanden från molnet till enheten.
 
-Exempel på fullständiga lösningar för slutpunkt till slutpunkt som använder IoT Hub finns i [Azure IoT lösningsacceleratorn för fjärrövervakning](https://azure.microsoft.com/documentation/suites/iot-suite/).
+Exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub finns i [Azure IoT Remote Monitoring Solution Accelerator](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
-Mer information om hur du utvecklar lösningar med IoT Hub finns det [utvecklarhandboken för IoT Hub](iot-hub-devguide.md).
+Mer information om hur du utvecklar lösningar med IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60202981"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356049"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Hur du använder Azure Event Hubs från ett Python-program
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Mer information finns i [introduktion till Event Hubs](event-hubs-what-is-event-hubs.md). 
@@ -29,10 +29,10 @@ Den här artikeln innehåller länkar till artiklar om hur du kan utföra följa
 
 - [Skicka händelser till en händelsehubb](#send-events-to-event-hubs)
 - [Ta emot händelser från en event hub](#receive-events-from-event-hubs)
-- Läs avbildas händelsedata från en Azure storage. 
+- Läsa insamlade händelse data från en Azure-lagring. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-- Skapa en event hub något av dessa snabbstarter: [Azure-portalen](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub.md). 
+## <a name="prerequisites"></a>Förutsättningar
+- Skapa en Event Hub genom att följa någon av följande snabb starter: [Azure Portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager mall](event-hubs-resource-manager-namespace-event-hub.md). 
 - Python 3.4 och senare är installerad på datorn.
 
 ## <a name="install-python-package"></a>Installera Python-paketet
@@ -94,7 +94,8 @@ Följande kod visar hur du tar emot händelser från en händelsehubb från ett 
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 
 # Add a receiver to the client
-receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+receiver = client.add_receiver(
+    CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
 
 # Run the Event Hubs client
 client.run()
@@ -112,7 +113,7 @@ client.stop()
 En fullständig genomgång om hur du tar emot händelser från en händelsehubb från ett program som skrivits i Python kan se [i den här artikeln](event-hubs-python-get-started-receive.md)
 
 ## <a name="read-capture-event-data-from-azure-storage"></a>Läs capture händelsedata från Azure Storage
-Följande kod visar hur du läser avbildade händelsedata som lagras i en **Azure blobblagring** från ett Python-program: Aktivera **avbilda** funktionen för event hub genom att följa instruktionerna från: [Aktivera Event Hubs Capture i Azure Portal](event-hubs-capture-enable-through-portal.md). Skicka sedan vissa händelser till event hub innan du testar koden. 
+Följande kod visar hur du läser fångade händelse data som lagras i **Azure Blob Storage** från ett python-program: Aktivera funktionen **Capture** för Event Hub genom att följa anvisningarna nedan: [Aktivera Event Hubs avbildning med hjälp av Azure Portal](event-hubs-capture-enable-through-portal.md). Skicka sedan vissa händelser till event hub innan du testar koden. 
 
 ```python
 import os
@@ -156,7 +157,6 @@ def startProcessing(accountName, key, container):
             os.remove(cleanName)
         block_blob_service.delete_blob(container, blob.name)
 startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
-
 ```
 
 En fullständig genomgång om hur du läser avbildade Event Hubs-data i Azure blob storage från ett program som skrivits i Python finns [i den här artikeln](event-hubs-capture-python.md)

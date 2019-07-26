@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: fb221d774d9d00a5dc7b0d94edc35a5651443a5b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874058"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479937"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection för Azure Storage
 
@@ -66,7 +66,7 @@ Använd en Azure Resource Manager mall för att distribuera ett Azure Storage ko
 
 Använd en Azure Policy för att aktivera avancerat skydd mellan lagrings konton under en speciell prenumeration eller resurs grupp.
 
-1. Lunch sidan Azure **policy-definitions** .
+1. Starta sidan Azure **policy-definitions** .
 
 1. Sök efter principen **distribuera Avancerat skydd på lagrings konton** .
 

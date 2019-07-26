@@ -1,87 +1,72 @@
 ---
-title: Azure Active Directory Identity Protection-aviseringar | Microsoft Docs
-description: Lär dig hur meddelanden Supportaktiviteter din undersökning.
+title: Azure Active Directory Identity Protection meddelanden | Microsoft Docs
+description: Lär dig hur meddelanden stöder dina undersöknings aktiviteter.
 services: active-directory
-keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dcc7d2d03b3c4a3f4c8c772f38aa3785080d986
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784347"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335365"
 ---
-# <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection-aviseringar
+# <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection meddelanden
 
-Azure AD Identity Protection skickar två typer av automatiskt meddelande om e-postmeddelanden för att hantera risker för användare och riskhändelser:
+Azure AD Identity Protection skickar två typer av automatiserade e-postmeddelanden som hjälper dig att hantera användar risker och risk händelser:
 
-- Användare i farozonen har identifierats e-post
-- Veckovis sammanfattad e-post
+- Användare med skadligt upptäckt e-post
+- E-postmeddelande om veckovis sammandrag
 
 Den här artikeln ger en översikt över både e-postaviseringar.
 
+## <a name="users-at-risk-detected-email"></a>Användare med skadligt upptäckt e-post
 
-## <a name="users-at-risk-detected-email"></a>Användare i farozonen har identifierats e-post
+Som svar på ett identifierat konto vid risk genererar Azure AD Identity Protection en e-postavisering med **användare som riskerar att identifieras** som ämne. E-postmeddelandet innehåller en länk till de användare som har **[flaggats för risk](../reports-monitoring/concept-user-at-risk.md)** rapporten. Som bästa praxis bör du omedelbart undersöka de användare som är utsatta för risk.
 
-Som svar på ett konto som har identifierats i fara, Azure AD Identity Protection genererar en e-postavisering med **användare i farozonen har identifierats** som ämne. E-postmeddelandet innehåller en länk till den **[användare som har flaggats för risk](../reports-monitoring/concept-user-at-risk.md)** rapporten. Som bästa praxis bör du omedelbart undersöka användare i riskzonen.
+Med konfigurationen för den här aviseringen kan du ange på vilken nivå för användar risk du vill att aviseringen ska genereras. E-postmeddelandet skapas när användarens risk nivå når det du har angett. du får dock inga nya användare när de riskerar att identifiera e-postaviseringar för den här användaren när de har flyttat till den här användar risk nivån. Om du t. ex. ställer in principen för att varna om medelhög användar risk och din användare John flyttar till medelhög risk, får användarna ett hot som upptäckts via e-post för John. Men du kommer inte att få en andra användare vid risk identifiering om John sedan flyttar till hög risk eller har ytterligare risk händelser.
 
-Konfigurationen för den här aviseringen kan du ange på vilken nivå för användarrisk du vill att aviseringen ska genereras. E-postmeddelandet kommer att genereras när användarens risknivå når vad du har angett; men får du inte nya användare på identifierad risk e-postaviseringar för den här användaren när de flyttar till den här risknivån. Om du anger principen att Avisera om medelstora användarrisk och dina användare John flyttas till Medelrisk får du till exempel användare i e-post för identifierad risk för John. Men får du inte en andra användare i identifierad risk avisering om John sedan flyttas till hög risk eller har ytterligare riskhändelser.
-
-![Användare i farozonen har identifierats e-post](./media/notifications/01.png)
-
+![Användare med skadligt upptäckt e-post](./media/notifications/01.png)
 
 ### <a name="configuration"></a>Konfiguration
 
-Som administratör kan ange du:
+Som administratör kan du ange:
 
-- **Risknivån som utlöser generering av det här e-** -risknivån är som standard ”hög” risker.
-- **Mottagare av e-postmeddelandet** -mottagare ingår som standard alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhetsadministratörer, Säkerhetsläsare som mottagare.  
+- **Den användar risk nivå som utlöser genereringen av det här e** -postmeddelandet som standard är risk nivån inställd på "hög" risk.
+- Mottagare **av det här e** -postmeddelandet är som standard alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhets administratörer och säkerhets läsare som mottagare.  
 
+Öppna dialog rutan relaterad genom att klicka  på aviseringar i avsnittet **Inställningar** på sidan för **identitets skydd** .
 
-Klicka för att öppna dialogrutan relaterade **aviseringar** i den **inställningar** delen av den **Identity Protection** sidan.
+![Användare med skadligt upptäckt e-post](./media/notifications/05.png)
 
-![Användare i farozonen har identifierats e-post](./media/notifications/05.png)
+## <a name="weekly-digest-email"></a>E-postmeddelande om veckovis sammandrag
 
+E-postmeddelandet om veckovis sammandrag innehåller en sammanfattning av nya risk händelser.  
+Den innehåller:
 
-## <a name="weekly-digest-email"></a>Veckovis sammanfattad e-post
-
-Sammanfattad veckovis e-postmeddelandet innehåller en sammanfattning av nya riskhändelser.  
-Det innehåller:
-
-- Användare i riskzonen
-
+- Användare i farozonen
 - Misstänkta aktiviteter
-
-- Identifierade säkerhetsrisker
-
+- Identifierade sårbarheter
 - Länkar till relaterade rapporter i Identity Protection
 
-    ![Reparation](./media/notifications/400.png "reparation")
+    ![Reparation](./media/notifications/400.png "Reparation")
 
 ### <a name="configuration"></a>Konfiguration
 
-Som administratör kan växla du skickar en veckovis e-post för sammandrag.
+Som administratör kan du växla att skicka ett e-postmeddelande om veckovis Sammanfattning.
 
-![Användaren risker](./media/notifications/62.png "användaren risker")
+![Användar risker](./media/notifications/62.png "Användar risker")
 
-Klicka för att öppna dialogrutan relaterade **Veckosammandrag** i den **inställningar** delen av den **Identity Protection** sidan.
+Öppna den relaterade dialog rutan genom att klicka på **veckovis Sammanfattning** i avsnittet **Inställningar** på sidan för **identitets skydd** .
 
-![Användare i farozonen har identifierats e-post](./media/notifications/04.png)
-
+![Användare med skadligt upptäckt e-post](./media/notifications/04.png)
 
 ## <a name="see-also"></a>Se också
 

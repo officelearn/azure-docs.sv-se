@@ -1,7 +1,7 @@
 ---
 title: Modelltolkning
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du förklara varför din modell förutsägelser med hjälp av Azure Machine Learning-SDK. Det kan användas vid utbildning och inferens för att förstå hur din modell förutsägelser.
+description: Lär dig hur du förklarar varför din modell gör förutsägelser med hjälp av Azure Machine Learning SDK. Den kan användas under utbildning och härledning för att förstå hur din modell gör förutsägelser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,107 +10,107 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: cba46a277dfce93d0080d8f04a26fd135407de15
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 1e742c278b9356c7501964541802e0c96dc74b09
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536745"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358658"
 ---
-# <a name="model-interpretability-with-azure-machine-learning-service"></a>Modellen interpretability med Azure Machine Learning-tjänsten
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Modell tolkning med Azure Machine Learning tjänst
 
-I den här artikeln får du lära dig hur att förklara varför förutsägelserna gjorts i din modell med de olika interpretability paket av Azure Machine Learning Python SDK.
+I den här artikeln får du lära dig hur du förklarar varför din modell gjorde förutsägelserna i de olika tolknings paketen för Azure Machine Learning python SDK.
 
-Använda klasser och metoder i SDK kan få du:
-+ Funktionen vikten värden för både rådata och bakåtkompilerade funktioner
-+ Interpretability verkliga datauppsättningar i stor skala, under utbildning och inferens.
-+ Interaktiva visualiseringar som hjälper dig i identifiering av mönster i data och förklaringar på utbildning
+Med hjälp av klasserna och metoderna i SDK kan du hämta:
++ Funktions prioritets värden för både rå och uttillverkade funktioner
++ Tolkning av verkliga data uppsättningar i stor skala, under utbildning och härledning.
++ Interaktiva visualiseringar som hjälper dig att upptäcka mönster i data och förklaringar i utbildnings tid
 
-Under fasen utbildning av utvecklingscykeln använder modellen designers och bedömare interpretability resultatet för en modell för att verifiera hypoteser och skapa förtroende med intressenter.  De även använda insikter om modellen för felsökning, verifierar beteendet för enhetsmodellen matchar deras mål, och att söka efter bias.
+Under övnings fasen av utvecklings cykeln kan modell designers och utvärderare använda tolknings resultat för en modell för att verifiera Hypotheses och bygga förtroende med intressenter.  De kan också använda insikter i modellen för fel sökning, att validera modell beteendet matchar deras mål och för att kontrol lera om det finns någon kompensation.
 
-I machine learning **funktioner** är datafält som används för att förutsäga en datapunkt för målet. Till exempel för att förutsäga kreditrisker kanske datafält för ålder, kontostorlek och konto ålder används. I det här fallet ålder, kontostorlek och konto ålder är **funktioner**. Funktionen vikten anger hur varje fält påverkas modellens förutsägelser. Till exempel kan ålder kraftigt användas i förutsägelsen medan kontostorlek och ålder inte påverkar prognosens noggrannhet kan förbättras avsevärt. Den här processen kan dataforskare att förklara resulterande förutsägelser så att intressenter har insyn i vilka datapunkter som är viktigast i modellen.
+I Machine Learning är **funktioner** de data fält som används för att förutsäga en mål data punkt. För att förutsäga kredit risken kan exempelvis data fält för ålder, konto storlek och konto ålder användas. I det här fallet är ålder, konto storlek och konto ålder **funktioner**. Funktions prioriteten visar hur varje data fält påverkar modellens förutsägelser. Till exempel kan ålder användas kraftigt i förutsägelsen när kontots storlek och ålder inte påverkar förutsägelse noggrannheten avsevärt. Den här processen gör det möjligt för data experter att förklara de resulterande förutsägelserna, så att intressenterna får insyn i de data punkter som är viktigast i modellen.
 
-Med dessa verktyg kan du förklara maskininlärningsmodeller **globalt på alla data**, eller **lokalt på en viss datapunkt** med för avancerade tekniker i ett enkelt att använda och skalbart sätt.
+Med hjälp av dessa verktyg kan du förklara maskin inlärnings modeller **globalt på alla data**eller **lokalt på en viss data punkt** med hjälp av de avancerade teknikerna i en lättanvänd och skalbar miljö.
 
-Klasserna interpretability görs tillgängliga via flera SDK-paket. Lär dig hur du [installera SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+Klasser för tolkning kan göras tillgängliga via flera SDK-paket. Lär dig hur du [installerar SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), det största paket, som innehåller funktioner som stöds av Microsoft.
+* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), huvud paketet, som innehåller funktioner som stöds av Microsoft.
 
-* `azureml.contrib.explain.model`, preview och experimentella funktioner som du kan prova.
+* `azureml.contrib.explain.model`, för hands versioner och experiment funktioner som du kan prova.
 
-* `azureml.train.automl.automlexplainer` paketet för att tolka automatiserade machine learning-modeller.
+* `azureml.train.automl.automlexplainer`paket för att tolka automatiserade maskin inlärnings modeller.
 
 > [!IMPORTANT]
-> Innehåll i den `contrib` namnområde stöds inte fullt ut. När de experimentella funktionerna blir mogen, flyttas de gradvis till det huvudsakliga namnområdet.
+> Innehållet i `contrib` namn området stöds inte fullt ut. När experiment funktionerna blir mogna, kommer de gradvis att flyttas till huvud namn rummet.
 
 ## <a name="how-to-interpret-your-model"></a>Så här tolkar du din modell
 
-Du kan använda interpretability klasser och metoder för att förstå modellens globala beteende eller specifika förutsägelser. Den tidigare versionen är globala förklaring och det senare kallas lokala förklaring.
+Du kan använda klasser och metoder för tolkning för att förstå modellens globala beteende eller vissa förutsägelser. Den tidigare kallas global förklaring och den senare kallas lokal förklaring.
 
-Metoderna som kan kategoriseras även baserat på om metoden är oberoende av modellen eller specifika modellen. Vissa metoder rikta in vissa typer av modeller. Till exempel gäller Formdatas trädet förklaring endast för trädet-baserade modellen. Vissa metoder behandlar modellen som en svart ruta, till exempel mimic förklaring eller Formdatas kernel förklaring. Den `explain` paketet utnyttjar dessa olika sätt utifrån datauppsättningar, modelltyper och användningsfall.
+Metoderna kan också kategoriseras baserat på om metoden är modell oberoende eller modell Specific. Vissa metoder riktar sig till viss typ av modeller. Till exempel gäller SHAP träd förklaringar endast för trädbaserade modeller. Vissa metoder behandlar modellen som en svart ruta, t. ex. imiterare eller SHAPs kernel-förklaring. `explain` Paketet utnyttjar dessa olika metoder baserat på data uppsättningar, modell typer och användnings fall.
 
-Utdata är en uppsättning med information om hur en viss modell gör dess prognoser, till exempel:
-* Global/lokal relativa funktionen prioritet
+Utdata är en uppsättning information om hur en specifik modell gör dess förutsägelse, till exempel:
+* Global/lokal relativ funktions prioritet
 
-* Global/lokal funktion och förutsägelser relation
+* Global/lokal funktion och förutsägelse relation
 
-### <a name="explainers"></a>Explainers
+### <a name="explainers"></a>Förklaringar
 
-Det finns två uppsättningar explainers: Dirigera Explainers och Meta Explainers i SDK.
+Det finns två uppsättningar med förklaringar: Direkta förklaringar och meta-förklaringar i SDK.
 
-__Dirigera explainers__ kommer från integrerade bibliotek. SDK: N omsluter alla explainers så att de exponera ett gemensamt API och utdataformat. Om du är bekvämare direkt med hjälp av dessa explainers kan anropa du dem direkt i stället för med vanliga API och utdataformat. Här följer en lista över de direkta explainers som är tillgängliga i SDK:
+__Direkta förklaringar__ kommer från integrerade bibliotek. SDK: n omsluter alla förklaringar så att de visar ett gemensamt API och utdataformat. Om du är mer bekväm med dessa förklaringar kan du direkt anropa dem i stället för att använda det vanliga API-och utdataformat. Nedan visas en lista över de direkta förklaringar som är tillgängliga i SDK:
 
-* **FORMDATA trädet förklaring**: Formdatas trädet förklaring, som fokuserar på polynom snabb FORMDATA värdet uppskattning av algoritmen time specifika för träd och -ensembler av träd.
-* **FORMDATA djup förklaring**: Baserat på förklaring från FORMDATA djup förklaring ”är en snabb approximativ algoritm för FORMDATA värdena i modeller för djup maskininlärning som bygger på en anslutning med DeepLIFT som beskrivs i dokumentet FORMDATA NIPS. TensorFlow-modeller och Keras med TensorFlow-serverdelen som stöds (det finns också preliminär stöd för PyTorch) ”.
-* **FORMDATA Kernel förklaring**: Formdatas Kernel förklaring använder ett särskilt viktad lokala linjär regression för att beräkna FORMDATA värden för alla modeller.
-* **Efterlikna förklaring**: Mimic förklaring baseras på idén om global surrogate modeller. En global surrogate modell är en tack interpretable modell som har tränats för att beräkna ungefär förutsägelser för en svart ruta modell så noggrant som möjligt. Dataexpert kan tolka surrogate-modellen för att dra slutsatser om modellen svart ruta. Du kan använda någon av följande interpretable modeller som surrogate-modell: LightGBM (LinearExplainableModel), linjär Regression (LinearExplainableModel), Stokastisk brantaste Lutningsmetoden explainable modell (SGDExplainableModel) och beslutsträd (DecisionTreeExplainableModel).
-
-
-* **Permutation funktionen vikten förklaring**: Permutation funktionen vikten är en teknik som används för att förklara klassificerings- och regressionsmodeller modeller som är inspirerat [Breimans slumpmässiga skogar papper](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är hur det fungerar med blandning data en funktion i taget för hela datauppsättningen slumpmässigt och beräkna hur mycket prestandamått intressanta minskar. Större ändringar, de viktigaste är den funktionen.
-
-* **GRÖN förklaring** (`contrib`): Baserat på grön, används grön förklaring enligt modellen-oberoende förklaringar i den senaste lokala interpretable (grön) algoritmen för att skapa lokala surrogate modeller. Till skillnad från de globala surrogate modellerna fokuserar grön på utbildning modeller för lokala surrogate att förklara enskilda förutsägelser.
-* **HAN Text förklaring** (`contrib`): HAN Text förklaring använder ett hierarkisk uppmärksamhet nätverk för att hämta modellen förklaringar från textdata för en viss svart ruta text-modell. Vi tränar HAN surrogate på en viss lärare modell förväntade utdata. Vi har lagt till ett fine-tune steg för ett visst dokument för att kunna förbättra förklaringarna efter utbildning globalt över texten Kristi. HAN använder en dubbelriktad RNN med två uppmärksamhet lager för mening och word uppmärksamhet. När DNN har tränats på modellen för lärare och finjusterat på ett visst dokument, kan vi extrahera word importances från uppmärksamhet-lager. Vi har hittat HAN ska exaktare än grön eller FORMDATA för textdata men dyrare i villkoren i utbildning samt tid. Men har vi gjort förbättringar till dess att utbildning genom att ge användaren kan initiera nätverk med GloVe ordinbäddningar, även om det är fortfarande långsamt. Utbildningstid kan förbättras avsevärt genom att köra HAN på en fjärransluten Azure GPU VM. Implementeringen av HAN beskrivs i ”hierarkisk uppmärksamhet nätverk för Dokumentklassificering (Yang et al., 2016)” ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
+* **SHAP Tree-förklaring**: SHAP: s träd förklaring, som fokuserar på polynomed Time fast SHAP för värde uppskattning som är speciell för träd och ensembler för träd.
+* **SHAP djup förklaring**: Baserat på förklaringen från SHAP är djupgående förklaring en algoritm för hög hastighet för SHAP värden i djup inlärnings modeller som bygger på en anslutning med DeepLIFT som beskrivs i SHAP NIPS-papper. TensorFlow-modeller och keras-modeller med TensorFlow-backend stöds (det finns även stöd för PyTorch) ".
+* **SHAP kernel-förklaring**: SHAPs kernel-förklaring använder en särskilt viktad lokal linjär regression för att beräkna SHAP-värden för alla modeller.
+* **Imitera förklaring**: Härma förklarar vad som är baserat på idén med globala surrogat modeller. En global surrogat modell är en modell med en inbyggd tolkning som är tränad att approximera förutsägelserna av en svart Box-modell så fort som möjligt. Data expert kan tolka surrogat modellen för att rita slut satser om den svarta Box-modellen. Du kan använda någon av följande tolknings bara modeller som surrogat modell: LightGBM (LinearExplainableModel), linjär regression (LinearExplainableModel), Stochastic gradient brantaste-förklarande modell (SGDExplainableModel) och besluts träd (DecisionTreeExplainableModel).
 
 
-__Meta explainers__ automatiskt välja en lämplig direkt förklaring och generera den bästa förklaring information baserat på den angivna modellen och datauppsättningar. Meta-explainers utnyttja alla bibliotek (FORMDATA, grön, avbildningen osv.) som vi har integrerat eller utvecklas. Följande är de meta explainers som är tillgängliga i SDK:
+* **Förklaring till Viktighets funktion**för permutationer: Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av Breiman-bladet för [slumpmässiga skogar](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måttet för räntan minskar. Ju större ändringen är, desto viktigare är funktionen.
 
-* **Tabular förklaring**: Använda med tabelldatauppsättningar.
-* **Text förklaring**: Används med text datauppsättningar.
-* **Bild förklaring**: Används med bild datauppsättningar.
+* **Lime-förklaring** (`contrib`): Baserat på LIME används den avancerade oberoende förklaringar (kalk) för att skapa lokala surrogat modeller med hjälp av lime-algoritmen. Till skillnad från globala surrogat modeller fokuserar kalk på att träna lokala surrogat modeller för att förklara enskilda förutsägelser.
+* **Text förklaring för han** (`contrib`): Text förklaring för HAN använder ett hierarkiskt Attention-nätverk för att få modell förklaringar från text data för en specifik text modell i svart ruta. Vi tränar den HAN surrogat-modellen på en viss lärares modells förväntade utdata. Efter att ha tränat över texten sökkorpus har vi lagt till ett fin justerings steg för ett särskilt dokument för att förbättra noggrannheten i förklaringarna. HAN använder en dubbelriktad RNN med två åtgärds lager, för mening och ord uppmärksamhet. När DNN har tränats i lärarens modell och finjusteras för ett specifikt dokument kan vi extrahera ordets betydelse från Attention-lagren. Vi har funnit att HAN är mer exakt än kalk eller SHAP för text data, men mer kostsamma vad gäller inlärnings tiden. Vi har dock gjort förbättringar i utbildnings tiden genom att ge användaren möjlighet att initiera nätverket med assisterad Word-inbäddningar, även om det fortfarande är långsamt. Inlärnings tiden kan förbättras avsevärt genom att köra HAN på en virtuell dator med Azure GPU. Implementeringen av HAN beskrivs i "hierarkiska Attention-nätverk för dokument klassificering (Yang et al., 2016)"[https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)().
 
-Dessutom till meta välja av direkt explainers, meta explainers utveckla ytterligare funktioner ovanpå de underliggande bibliotek och förbättras direkt explainers hastighet och skalbarhet.
 
-För närvarande `TabularExplainer` använder följande logik för att anropa direkt FORMDATA Explainers:
+__Meta-förklaringar__ väljer automatiskt en lämplig direkt förklaring och genererar den bästa förklarings informationen baserat på den aktuella modellen och data uppsättningar. Meta-förklaringarna utnyttjar alla bibliotek (SHAP, kalk, härma osv.) som vi har integrerat eller utvecklat. Följande är de meta-förklaringar som är tillgängliga i SDK:
 
-1. Om det är ett träd-baserade modellen gäller FORMDATA `TreeExplainer`, annat
-2. Om det är en DNN-modell, tillämpa FORMDATA `DeepExplainer`, annat
-3. Behandlar det som en svart ruta modell och tillämpa FORMDATA `KernelExplainer`
+* **Tabell förklaring**: Används med tabell data uppsättningar.
+* **Text förklaring**: Används med text data uppsättningar.
+* **Bild förklaring**: Används med bild data uppsättningar.
 
-Intelligens är inbyggt i `TabularExplainer` kommer allt mer sofistikerade som ytterligare bibliotek är integrerade i SDK: N och vi gå igenom- och nackdelar med varje förklaring.
+Förutom meta-markering av direkta förklaringar kan meta-förklaringar utveckla ytterligare funktioner ovanpå de underliggande biblioteken och förbättra hastigheten och skalbarheten i de direkta förklaringarna.
 
-`TabularExplainer` har även gjort betydande förbättringar för funktionen och prestanda över direkt Explainers:
+Använder `TabularExplainer` för närvarande följande logik för att anropa de direkta SHAP-förklaringarna:
 
-* **Sammanfattning av datauppsättningen som initieringen**. I fall där hastigheten på förklaring är viktigast vi sammanfatta initieringen datauppsättningen och skapa en liten uppsättning representativa mängder som påskyndar både globala och lokala förklaring.
-* **Sampling datauppsättningen utvärdering**. Om användaren skickar i en stor uppsättning utvärdering exempel men inte verkligen behöver dem som ska utvärderas alla, kan parametern sampling anges som SANT för att snabba upp globala förklaring.
+1. Om det är en träd-baserad modell använder du SHAP `TreeExplainer`, annars
+2. Om det är en DNN modell använder du SHAP `DeepExplainer`, annars
+3. Behandla den som en svart Box-modell och tillämpa SHAP`KernelExplainer`
 
-Följande diagram visar de aktuella strukturen för direct och meta explainers.
+Den inbyggda information som `TabularExplainer` är inbyggd i blir mer avancerad eftersom fler bibliotek integreras i SDK och vi lär dig om-och nack delar med varje förklaring.
 
-[![Machine Learning-Interpretability arkitektur](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+`TabularExplainer`har också gjort betydande förbättringar av funktioner och prestanda i de direkta förklaringarna:
+
+* **Sammanfattning av initierings data uppsättningen**. I de fall då förklaringen är viktigast sammanfattar vi initierings data uppsättningen och genererar en liten uppsättning representativa exempel, vilket påskyndar både global och lokal förklaring.
+* **Sampling av utvärderings data uppsättningen**. Om användaren går igenom en stor uppsättning utvärderings exempel, men inte behöver alla dem för att utvärderas, kan exempel parametern anges till sant för att påskynda den globala förklaringen.
+
+Följande diagram visar den aktuella strukturen för direkta och meta-förklaringar.
+
+[![Machine Learning tolknings arkitektur](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 
 ### <a name="models-supported"></a>Modeller som stöds
 
-Alla modeller som är tränade på datauppsättningar i Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, eller `scipy.sparse.csr_matrix` format som stöds av interpretability `explain` paket med SDK: N.
+Alla modeller som har tränats på data uppsättningar i `numpy.array`python `pandas.DataFrame`, `iml.datatypes.DenseData`, `explain` eller `scipy.sparse.csr_matrix` format stöds av tolknings paketet för SDK: n.
 
-Förklaring-funktioner innehålla både modeller och pipelines som indata. Om en modell har angetts och modellen måste implementera förutsägelsefunktionen `predict` eller `predict_proba` som överensstämmer med Scikit-konventionen. Om en pipeline (namnet på skriptet pipeline) tillhandahålls förutsätter funktionen förklaring att köra pipeline-skriptet returnerar en förutsägelse. Vi stöder modeller tränas via PyTorch, TensorFlow och Keras deep learning-ramverk.
+Förklarings funktionerna accepterar både modeller och pipeliner som inmatade. Om en modell anges måste modellen implementera förutsägelse funktionen `predict` eller `predict_proba` som följer Scikit-konventionen. Om en pipeline (namnet på pipelinen) anges förutsätter förklarings funktionen att skriptet för pipeline-körningen returnerar en förutsägelse. Vi har stöd för modeller som har tränats via PyTorch, TensorFlow och keras djup inlärnings ramverk.
 
-### <a name="local-and-remote-compute-target"></a>Lokal och fjärransluten beräkningsmål
+### <a name="local-and-remote-compute-target"></a>Lokalt och fjärrstyrt beräknings mål
 
-Den `explain` paketet är utformat för att arbeta med både lokala och fjärranslutna beräkningsmål. Om du kör lokalt SDK-funktioner inte att kontakta Azure-tjänster. Du kan köra förklaring via fjärranslutning på beräkning av Azure Machine Learning och logga in informationen som förklaring på Azure Machine Learning kör historik Services. Rapporter och visualiseringar från en förklaring finns tillgängliga i portalen Azure Machine Learning-arbetsyta för Användaranalys när den här informationen loggas.
+`explain` Paketet är utformat för att fungera med både lokala och fjärranslutna beräknings mål. Om kör lokalt kontaktar inte SDK-funktionerna några Azure-tjänster. Du kan köra förklaringen via fjärr anslutning på Azure Machine Learning beräkna och logga förklarings informationen i Azure Machine Learning köra historik tjänster. När den här informationen har loggats finns rapporter och visualiseringar från förklaringen enkelt på Azure Machine Learning-arbetsyta Portal för användar analys.
 
-## <a name="interpretability-in-training"></a>Interpretability i utbildning
+## <a name="interpretability-in-training"></a>Tolkning i utbildning
 
-### <a name="train-and-explain-locally"></a>Träna och förklarar lokalt
+### <a name="train-and-explain-locally"></a>Utbilda och förklara lokalt
 
 1. Träna din modell i en lokal Jupyter-anteckningsbok.
 
@@ -132,7 +132,7 @@ Den `explain` paketet är utformat för att arbeta med både lokala och fjärran
     model = clf.fit(x_train, y_train)
     ```
 
-2. Anropa förklaring: Om du vill initiera en förklaring-objekt, måste du skicka din modell och vissa träningsdata till den förklaring konstruktorn. Du kan också välja att skicka i funktionsnamn och utdata klassnamn (om göra klassificering) som ska användas för att göra dina förklaringar och visualiseringar mer informativ. Här är att skapa en instans av en förklaring objekt med hjälp av [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), och [PFIExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.permutation.permutation_importance.pfiexplainer?view=azure-ml-py) lokalt. `TabularExplainer` anropar någon av de tre FORMDATA explainers under (`TreeExplainer`, `DeepExplainer`, eller `KernelExplainer`), och automatiskt välja det passar bäst för ditt användningsområde. Men du kan anropa var och en av dess tre underliggande explainers direkt.
+2. Anropa förklaringen: Om du vill initiera ett förklarings objekt måste du skicka din modell och vissa utbildnings data till förklaringens konstruktor. Du kan också ange funktions namn och utdataports namn (om du gör klassificering) som ska användas för att göra dina förklaringar och visualiseringar mer informativa. Så här skapar du en instans av ett förklarings objekt med [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py)och [PFIExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.permutation.permutation_importance.pfiexplainer?view=azure-ml-py) lokalt. `TabularExplainer`anropar en av de tre SHAP-förklaringarna under`TreeExplainer`( `DeepExplainer`, eller `KernelExplainer`) och väljer automatiskt den lämpligaste för ditt användnings fall. Du kan dock anropa var och en av de tre underliggande förklaringarna direkt.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -177,7 +177,7 @@ Den `explain` paketet är utformat för att arbeta med både lokala och fjärran
                              classes=classes)
     ```
 
-3. Hämta funktionen globala vikten värden.
+3. Hämta de globala funktionernas prioritets värden.
 
     ```python
     # you can use the training data or the test data here
@@ -195,7 +195,7 @@ Den `explain` paketet är utformat för att arbeta med både lokala och fjärran
     global_explanation.get_feature_importance_dict()
     ```
 
-4. Hämta lokala funktionen vikten värden: Använd följande funktionsanrop för att förklara en enskild instans eller en grupp av instanser. Observera att PFIExplainer inte har stöd för lokala förklaringar.
+4. Hämta prioritets värden för den lokala funktionen: Använd följande funktions anrop för att förklara en enskild instans eller en grupp av instanser. Observera att PFIExplainer inte stöder lokala förklaringar.
 
     ```python
     # explain the first data point in the test set
@@ -217,11 +217,11 @@ Den `explain` paketet är utformat för att arbeta med både lokala och fjärran
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
 
-### <a name="train-and-explain-remotely"></a>Träna och förklarar via en fjärranslutning
+### <a name="train-and-explain-remotely"></a>Utbilda och förklara fjärran slutet
 
-Medan du kan träna på olika beräkningsmål som stöds av Azure Machine Learning-tjänsten visas i exempel i det här avsnittet hur du gör detta med hjälp av ett mål för beräkning av Azure Machine Learning.
+Även om du kan träna på de olika beräknings målen som stöds av Azure Machine Learning-tjänsten, visar exemplet i det här avsnittet hur du gör detta med ett Azure Machine Learning Compute-mål.
 
-1. Skapa ett inlärningsskript i en lokal Jupyter-anteckningsbok (till exempel run_explainer.py).
+1. Skapa ett utbildnings skript i en lokal Jupyter Notebook (till exempel run_explainer. py).
 
     ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
@@ -251,9 +251,9 @@ Medan du kan träna på olika beräkningsmål som stöds av Azure Machine Learni
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Följ anvisningarna på [konfigurera beräkningsmål för modellträning](how-to-set-up-training-targets.md#amlcompute) mer information om hur du konfigurerar en Azure Machine Learning Compute som din beräkningsmål och skicka in din utbildning-körning.
+2. Följ instruktionerna för att konfigurera [beräknings mål för modell utbildning](how-to-set-up-training-targets.md#amlcompute) för att lära dig mer om hur du konfigurerar en Azure Machine Learning Compute som beräknings mål och hur du skickar in din utbildning.
 
-3. Hämta förklaring i din lokal Jupyter-anteckningsbok.
+3. Hämta förklaringen i den lokala Jupyter-anteckningsboken.
 
     ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
@@ -273,40 +273,40 @@ Medan du kan träna på olika beräkningsmål som stöds av Azure Machine Learni
 
 ## <a name="visualizations"></a>Visualiseringar
 
-Använd instrumentpanelen för visualisering för att förstå och tolka din modell:
+Använd instrument panelen för visualiseringar för att förstå och tolka din modell:
 
-### <a name="global-visualizations"></a>Global visualiseringar
+### <a name="global-visualizations"></a>Globala visualiseringar
 
-Följande områden tillhandahåller en global vy av den tränade modellen tillsammans med dess förutsägelser och förklaringar.
+I följande områden får du en global vy över den tränade modellen tillsammans med dess förutsägelser och förklaringar.
 
 |Rita|Beskrivning|
 |----|-----------|
-|Datautforskning| En översikt över datauppsättningen tillsammans med förutsägelse värden.|
-|Global prioritet|Visar de översta K (konfigurerbara K) viktigaste funktionerna globalt. Det här diagrammet är användbart för att förstå global beteendet för den underliggande modellen.|
-|Förklaring utforskning|Visar hur en funktion är ansvarig för att göra en ändring i modellens förutsägelser värden (eller sannolikhet för förutsägelse värden). |
-|Sammanfattning| Använder en signerad lokala funktion vikten värden över alla datapunkter för att visa fördelningen av varje funktion har på värdet för förutsägelse effekten.|
+|Data utforskning| En översikt över data uppsättningen tillsammans med förutsägelse värden.|
+|Global prioritet|Visar de viktigaste K-funktionerna (konfigurerbart K) globalt. Det här diagrammet är användbart för att förstå den underliggande modellens globala beteende.|
+|Förklarings utforskning|Visar hur en funktion ansvarar för att göra en ändring i modellens förutsägelse värden (eller sannolikheten för förutsägelse värden). |
+|Sammanfattning| Använder ett inloggat värde för lokala funktioner i alla data punkter för att Visa fördelningen av effekten som varje funktion har på förutsägelse värdet.|
 
-[![Instrumentpanelen för visualisering globala](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
+[![Global instrument panel för visualisering](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### <a name="local-visualizations"></a>Lokala visualiseringar
 
-Du kan klicka på en enskild datapunkt när som helst av de föregående diagrammen att läsa in lokala funktion vikten området för den angivna datapunkten.
+Du kan klicka på en enskild data punkt när som helst på föregående områden för att läsa in prioritets ritningen för den lokala funktionen för den aktuella data punkten.
 
 |Rita|Beskrivning|
 |----|-----------|
-|Lokala prioritet|Visar de översta K (konfigurerbara K) viktigaste funktionerna globalt. Det här diagrammet är användbart för att förstå den underliggande modellen på en viss datapunkt lokala beteende.|
-|Perturbation utforskning|Kan du ändra funktionen värden av valda data peka och se hur ändringarna påverkar förutsägelse värde.|
-|Enskilda villkorlig förväntan (ICE)| Kan du ändra värdet för en funktion från ett lägsta värde till ett högsta värde vill se hur den datapunkt förutsägelse ändras när en funktion ändras.|
+|Lokal prioritet|Visar de viktigaste K-funktionerna (konfigurerbart K) globalt. Det här diagrammet är användbart för att förstå den underliggande modellens lokala funktion på en viss data punkt.|
+|Perturbation-utforskning|Gör att du kan ändra funktions värden för den valda data punkten och se hur ändringarna påverkar förutsägelse värdet.|
+|Individuell villkorlig förväntad (ICE)| Gör att du kan ändra ett funktions värde från ett minimivärde till ett högsta värde för att se hur data punktens förutsägelse ändras när en funktion ändras.|
 
-[![Visualisering instrumentpanelen lokala funktion prioritet](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
-
-
-[![Visualisering instrumentpanelen funktionen Perturbation](./media/machine-learning-interpretability-explainability/perturbation.gif)](./media/machine-learning-interpretability-explainability/perturbation.gif#lightbox)
+[![Lokal funktions prioritet för visualiserings instrument panel](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
 
-[![Instrumentpanelen för visualisering ICE ritar](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
+[![Instrument panel funktionen perturbation](./media/machine-learning-interpretability-explainability/perturbation.gif)](./media/machine-learning-interpretability-explainability/perturbation.gif#lightbox)
 
-Observera att du behöver du ha widget tillägg på instrumentpanelen för visualisering aktiverat innan du startar om Jupyter kernel.
+
+[![ICE-observationer på visualiserings instrument panelen](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
+
+Observera att du måste ha widgets tillägg för visualiserings instrument panelen som har Aktiver ATS innan Jupyter-kernel startar.
 
 * Jupyter Notebooks
 
@@ -323,7 +323,7 @@ Observera att du behöver du ha widget tillägg på instrumentpanelen för visua
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install microsoft-mli-widget
     ```
-Använd följande kod för att läsa in instrumentpanelen för visualisering:
+Använd följande kod för att läsa in visualiserings instrument panelen:
 
 ```python
 from azureml.contrib.explain.model.visualize import ExplanationDashboard
@@ -331,13 +331,13 @@ from azureml.contrib.explain.model.visualize import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, x_test)
 ```
 
-## <a name="raw-feature-transformations"></a>Rå funktionen omvandlingar
+## <a name="raw-feature-transformations"></a>Transformeringar av RAW-funktioner
 
-Du kan också skicka din funktion på transfomeringspipeline till förklaring att ta emot förklaringar när det gäller de råa funktionerna innan den transformering (snarare än bakåtkompilerade funktioner). Om du hoppar över det här ger förklaring förklaringar när det gäller bakåtkompilerade funktioner.
+Om du vill kan du skicka en funktions omvandlings pipeline till förklaringen för att få förklaringar i termer av RAW-funktioner före transformeringen (i stället för de funktioner som har utvecklats). Om du hoppar över detta innehåller förklaringen förklaringar vad gäller de funktioner som har utformats.
 
-Formatet för stöds transformationer är samma som det beskrivs i [sklearn pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). I allmänhet stöds alla transformeringar så länge som de fungerar på en enda kolumn och därför är tydligt en till många. 
+Formatet på omvandlingar som stöds är samma som det som beskrivs i [sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). I allmänhet stöds alla omvandlingar så länge de arbetar på en enda kolumn och är därför tydligt en till många. 
 
-Vi förklara raw funktioner genom att antingen använda en `sklearn.compose.ColumnTransformer` eller en lista över anpassade omvandlare tupplar. Cellen nedan används `sklearn.compose.ColumnTransformer`. 
+Vi kan förklara RAW-funktioner genom att antingen `sklearn.compose.ColumnTransformer` använda en eller en lista med monterade transformatorer. Cellen nedan används `sklearn.compose.ColumnTransformer`. 
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -361,7 +361,6 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
                       ('classifier', LogisticRegression(solver='lbfgs'))])
 
 
-
 # append classifier to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', preprocessor),
@@ -371,14 +370,14 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                    initialization_examples=x_train, 
-                                    features=dataset_feature_names, 
-                                    classes=dataset_classes, 
-                                    transformations=preprocessor) 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
+                                     transformations=preprocessor)
 ```
 
-Om du vill köra exemplet med listan över monterade omvandlare tupplar, Använd följande kod: 
+Om du vill köra exemplet med listan över monterade transformatorer, använder du följande kod: 
 ```python
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -388,35 +387,37 @@ from sklearn_pandas import DataFrameMapper
 
 # assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
 
-numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
+numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(
+    strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
 
-categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
+categorical_transformations = [([f], OneHotEncoder(
+    handle_unknown='ignore', sparse=False)) for f in categorical]
 
 transformations = numeric_transformations + categorical_transformations
 
 # append model to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
-                    ('classifier', LogisticRegression(solver='lbfgs'))])
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
 
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                     initialization_examples=x_train, 
-                                     features=dataset_feature_names, 
-                                     classes=dataset_classes, 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
                                      transformations=transformations)
 ```
 
-## <a name="interpretability-at-inferencing-time"></a>Interpretability inferensjobb tidpunkt
+## <a name="interpretability-at-inferencing-time"></a>Tolkning på inferencing tid
 
-Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan användas vid bedömning tid för att ange information om lokala förklaring. Vi erbjuder också slimmad bedömnings explainers för att göra interpretability på inferensjobb tid bättre. Processen för att distribuera en slimmad bedömnings förklaring påminner om att distribuera en modell och omfattar följande steg:
-
-
+Förklaringen kan distribueras tillsammans med den ursprungliga modellen och kan användas vid beräknings tid för att tillhandahålla den lokala förklarings informationen. Vi erbjuder även undersökare med lättare vikter som gör det lättare att tolka på inferencing tid. Processen för att distribuera en undervisad resultat förklaring liknar att distribuera en modell och innehåller följande steg:
 
 
-1. Skapa ett objekt för förklaring (t.ex. med TabularExplainer):
+
+
+1. Skapa ett förklarings objekt (t. ex. med TabularExplainer):
 
    ```python
    from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
@@ -428,7 +429,7 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
                                 transformations=transformations)
    ```
 
-1. Skapa en arbetsflödesbaserad förklaring med hjälp av objektet förklaring:
+1. Skapa en bedömnings förklaring med hjälp av förklarings objekt:
 
    ```python
    from azureml.contrib.explain.model.scoring.scoring_explainer import KernelScoringExplainer, save
@@ -442,7 +443,7 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
    save(scoring_explainer, directory=OUTPUT_DIR, exist_ok=True)
    ```
 
-1. Konfigurera och registrera en avbildning som använder bedömningsmodell för förklaring.
+1. Konfigurera och registrera en avbildning som använder bedömnings modellen bedömning.
 
    ```python
    # register explainer model using the path from ScoringExplainer.save - could be done on remote compute
@@ -454,7 +455,7 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
    print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
-1. [Valfritt] Hämta bedömnings förklaring från molnet och testa förklaringarna
+1. Valfritt Hämta förklaringen från molnet och testa förklaringarna
 
    ```python
    from azureml.contrib.explain.model.scoring.scoring_explainer import load
@@ -471,9 +472,9 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
    print(preds)
    ```
 
-1. Distribuera avbildningen till ett beräkningsmål:
+1. Distribuera avbildningen till ett beräknings mål:
 
-   1. Skapa en bedömningsfilen (innan det här steget, följer du stegen i [distribuera modeller med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) att registrera din ursprungliga prognosmodell med tidsserie)
+   1. Skapa en bedömnings fil (innan det här steget följer du stegen i [Distribuera modeller med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) för att registrera din ursprungliga förutsägelse modell)
 
         ```python
         %%writefile score.py
@@ -510,7 +511,7 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
         ```
 
-   1. Definiera distributionskonfigurationen (den här konfigurationen beror på kraven i din modell. Följande exempel definierar en konfiguration som använder en processorkärna och 1 GB minne)
+   1. Definiera distributions konfigurationen (den här konfigurationen beror på kraven i din modell. I följande exempel definieras en konfiguration som använder en processor kärna och 1 GB minne.
 
         ```python
         from azureml.core.webservice import AciWebservice
@@ -545,14 +546,14 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
             print(f.read())
         ```
 
-   1. Skapa en anpassad docker-fil med g ++ installerat
+   1. Skapa en anpassad Dockerfile med g + + installerat
 
         ```python
         %%writefile dockerfile
         RUN apt-get update && apt-get install -y g++
         ```
 
-   1. Distribuera den skapa avbildningen (Uppskattad tidsåtgång: 5 minuter)
+   1. Distribuera den skapade avbildningen (tids uppskattning: 5 minuter)
 
         ```python
         from azureml.core.webservice import Webservice
@@ -595,30 +596,9 @@ Förklaring kan distribueras tillsammans med den ursprungliga modellen och kan a
 
 1. Rensa: Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
 
-## <a name="interpretability-in-automated-ml"></a>Interpretability i automatiserade ML
 
-Automatiserad maskininlärning innehåller paket för att tolka funktionen betydelse i auto-utbildade modeller. Dessutom kan klassificering scenarier du hämta klassnivå funktionen prioritet. Det finns två metoder för att aktivera det här beteendet i automatiserade maskininlärning:
 
-* Om du vill aktivera funktionen betydelse för en tränad ensemble modell, använda den [ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) funktion.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, \
-        per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
-    ```
-
-* Om du vill aktivera funktionen vikten för varje enskild innan utbildning, ange den `model_explainability` parameter `True` i den `AutoMLConfig` objekt, tillsammans med tillhandahåller verifieringsdata för. Använd sedan den [ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) funktion.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, \
-        per_class_imp = retrieve_model_explanation(best_run)
-    ```
-
-Mer information finns i den [how-to](how-to-configure-auto-train.md#explain-the-model-interpretability) om hur du aktiverar interpretability funktioner i automatiserade machine learning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En samling med Jupyter-anteckningsböcker som visar anvisningarna ovan finns i den [exempelanteckningsböcker som Azure Machine Learning Interpretability](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+Om du vill se en samling av Jupyter-anteckningsböcker som visar anvisningarna ovan går du till [exempel antecknings böckerna för Azure Machine Learning tolkning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

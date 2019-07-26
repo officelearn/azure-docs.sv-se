@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f3877538d26e55bf0550a995ca0c50699de5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65914127"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360127"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -60,7 +60,7 @@ Körhistorik kallas nu **experiment**. Du kan samla in modellens experiment och 
 
 Portalens instrumentpanel för arbetsytor stöds endast i webbläsarna Microsoft Edge, Chrome och Firefox:
 
-[![Online-portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Online Portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Starta utbildning dina modeller och spåra körhistorik som använder den nya CLI och SDK. Hur du gör visas i [Självstudie: träna modeller med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
 
@@ -68,7 +68,7 @@ Starta utbildning dina modeller och spåra körhistorik som använder den nya CL
 
 Dina befintliga dataförberedelsefiler kan inte överföras till den senaste versionen eftersom vi inte längre har Machine Learning Workbench. Däremot kan du fortfarande förbereda datauppsättningar av valfri storlek för modellering.   
 
-Med datauppsättningar i alla storlekar, kan du använda den [databearbetningspaketet för Azure Machine Learning](https://aka.ms/data-prep-sdk) snabbt förbereda dina data för modellering genom att skriva kod för Python. 
+Med data mängder av valfri storlek kan du använda [data förberedelse paketet för Azure Machine Learning](https://aka.ms/data-prep-sdk) för att snabbt förbereda dina data före modellering genom att skriva python-kod. 
 
 Du kan följa [den här självstudien](tutorial-data-prep.md) för att lära dig mer om hur du använder Azure Machine Learning SDK för dataförberedelse.
 
@@ -76,18 +76,19 @@ Du kan följa [den här självstudien](tutorial-data-prep.md) för att lära dig
 
 Du förlorar inte någon kod eller något arbete. I den äldre versionen är projekt molnentiteter med en lokal katalog. I den senaste versionen kopplar du lokala kataloger till Azure Machine Learning Service-arbetsytan med hjälp av en lokal konfigurationsfil. Se ett [diagram över den senaste arkitekturen](concept-azure-machine-learning-architecture.md).
 
-Mycket av projektinnehållet finns redan på den lokala datorn. Så du behöver bara skapa en konfigurationsfil i denna katalog och referera till den i koden för att ansluta till din arbetsyta. Om du vill använda den lokala katalogen som innehåller filer och skript, ange katalogens namn i den ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python-kommandot eller med hjälp av den `az ml project attach` CLI-kommando.  Exempel:
+Mycket av projektinnehållet finns redan på den lokala datorn. Så du behöver bara skapa en konfigurationsfil i denna katalog och referera till den i koden för att ansluta till din arbetsyta. Om du vill fortsätta att använda den lokala katalogen som innehåller dina filer och skript, anger du katalogens namn i python-kommandot ["experiment. Submit"](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) eller med `az ml project attach` kommandot cli.  Exempel:
 ```python
-run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+run = exp.submit(source_directory=script_folder,
+                 script='train.py', run_config=run_config_system_managed)
 ```
 
-[Skapa en arbetsyta](setup-create-workspace.md#portal) att komma igång.
+[Skapa en arbets yta](setup-create-workspace.md#portal) för att komma igång.
 
 ## <a name="what-about-my-registered-models-and-images"></a>Vad händer med mina registrerade modeller och bilder?
 
 De modeller som du registrerade i ditt gamla modellregister måste migreras till din nya arbetsyta om du vill fortsätta att använda dem. För att migrera dina modeller hämtar du modellerna och registrerar dem på nytt i den nya arbetsytan. 
 
-Bilder som du skapade i din gamla avbildningsregister kan inte migreras direkt till den nya arbetsytan. I de flesta fall kan modellen distribueras utan att behöva skapa en avbildning. Om det behövs kan du skapa en avbildning för modellen i den nya arbetsytan. Mer information finns i [hantera, registrera, distribuera och övervaka maskininlärningsmodeller](concept-model-management-and-deployment.md).
+Avbildningarna som du skapade i det gamla avbildnings registret kan inte migreras direkt till den nya arbets ytan. I de flesta fall kan modellen distribueras utan att behöva skapa en avbildning. Om det behövs kan du skapa en avbildning för modellen i den nya arbets ytan. Mer information finns i [Hantera, registrera, distribuera och övervaka Machine Learning-modeller](concept-model-management-and-deployment.md).
 
 ## <a name="what-about-deployed-web-services"></a>Vad händer med distribuerade webbtjänster?
 
@@ -97,7 +98,7 @@ I den senaste versionen distribueras modeller som webbtjänster till Azure Conta
 
 Mer information finns i följande artiklar:
 + [Var och hur du distribuerar modeller](how-to-deploy-and-where.md)
-+ [Självstudie: Distribuera modeller i Azure Machine Learning-tjänsten](tutorial-deploy-models-with-aml.md)
++ [Självstudier: Distribuera modeller i Azure Machine Learning-tjänsten](tutorial-deploy-models-with-aml.md)
 
 ## <a name="what-about-the-old-sdk-and-cli"></a>Vad gäller för den gamla SDK:n och CLI?
 
@@ -121,6 +122,6 @@ Lär dig mer om den [senaste arkitekturen för Azure Machine Learning Service](c
 
 En översikt över tjänsten finns i [Vad är tjänsten Azure Machine Learning?](overview-what-is-azure-ml.md)
 
-En Snabbstart som visar hur du kör ett skript och utforska körningshistoriken för skriptet med den senaste versionen av Azure Machine Learning-tjänsten, försök [Kom igång med Azure Machine Learning-tjänsten](quickstart-run-cloud-notebook.md).
+För en snabb start som visar hur du kör ett skript och utforskar körnings historiken för skriptet med den senaste versionen av Azure Machine Learning-tjänsten kan du försöka [komma igång med Azure Machine Learning-tjänsten](quickstart-run-cloud-notebook.md).
 
 För en mer ingående beskrivning av det här arbetsflödet kan du följa den [fullständiga självstudien](tutorial-train-models-with-aml.md), som innehåller detaljerade anvisningar för att träna och distribuera modeller med Azure Machine Learning-tjänsten. 

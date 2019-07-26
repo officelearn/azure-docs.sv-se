@@ -1,6 +1,6 @@
 ---
-title: Definiera en RESTful-tekniska profilen i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
-description: Definiera en RESTful-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
+title: Definiera en RESTful teknisk profil i en anpassad princip i Azure Active Directory B2C | Microsoft Docs
+description: Definiera en RESTful teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,34 +10,34 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f535bc7d67198b3fe06326260bc1910b6afd36f2
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512746"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346765"
 ---
-# <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful-tekniska profilen i en anpassad princip för Azure Active Directory B2C
+# <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful teknisk profil i en Azure Active Directory B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C har stöd för ditt eget RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänst i ett inkommande anspråk samling och tar emot data i en samling för utgående anspråk. Med RESTful-tjänst-integrering kan du:
+Azure Active Directory (Azure AD) B2C tillhandahåller stöd för din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i en inloggad anspråks samling och tar emot data tillbaka i en utgående anspråks samling. Med RESTful service integration kan du:
 
-- **Verifiera användarens indata** – förhindrar att felaktigt bestående i Azure AD B2C. Om värdet från användaren inte är giltigt, returnerar RESTful-tjänst ett felmeddelande som anger att användaren anger en post. Du kan till exempel kontrollera att den e-postadress som anges av användaren finns i din kunddatabas.
-- **Skriv över inkommande anspråk** – gör att du kan formatera om värdena i inkommande anspråk. Om en användare anger det första namnet i alla gemener eller versaler kan formatera du namnet med bara den första bokstaven med versaler.
-- **Utöka användardata** – gör det möjligt att ytterligare integrera med företagets line-of-business-program. RESTful-tjänst kan till exempel ta emot användarens e-postadress, fråga kundens databas och returnera användarens lojalitet talet till Azure AD B2C. Returnerar anspråk kan lagras, utvärderas i nästa Orchestration-steg eller ingår i åtkomsttoken.
-- **Kör anpassad affärslogik** – gör det möjligt att skicka push-meddelanden, uppdatera företagets databaser, kör en process för migrering av användare, hantera behörigheter och granska databaser och utföra andra åtgärder.
+- **Verifiera** indata från användaren – förhindrar att felaktiga data behålls i Azure AD B2C. Om värdet från användaren inte är giltigt returnerar din RESTful-tjänst ett fel meddelande som uppmanar användaren att ange en post. Du kan till exempel kontrol lera att den e-postadress som användaren har angett finns i kundens databas.
+- **Skriv över** inloggade anspråk – gör att du kan formatera om värden i inloggade anspråk. Om en användare till exempel anger det första namnet i gemener eller versaler, kan du formatera namnet med enbart den första bokstaven versaler.
+- **Utöka användar data** – gör att du kan integrera med affärs program på företags nivå. Till exempel kan din RESTful-tjänst ta emot användarens e-postadress, fråga kundens databas och returnera användarens lojalitets nummer till Azure AD B2C. Retur anspråk kan lagras, utvärderas i nästa steg för att dirigera eller ingå i åtkomsttoken.
+- **Kör anpassad affärs logik** – gör att du kan skicka push-meddelanden, uppdatera företags databaser, köra en användarmigrering, hantera behörigheter, granska databaser och utföra andra åtgärder.
 
-Din princip kan skicka inkommande anspråk till REST-API. REST API kan också returnera utdataanspråk som du kan använda senare i din princip eller den kan ge ett felmeddelande. Du kan utforma integrering med RESTful-tjänster på följande sätt:
+Din princip kan skicka indatamängds anspråk till din REST API. REST API kan också returnera utgående anspråk som du kan använda senare i principen, eller så kan den utlösa ett fel meddelande. Du kan utforma integrationen med RESTful-tjänsterna på följande sätt:
 
-- **Teknisk verifieringsprofil** – en teknisk verifieringsprofil anropar RESTful-tjänst. Den tekniska profilen verifiering verifierar data från användare innan användarresa fortsätter. Med den tekniska profilen verifiering, ett felmeddelande visas på en självkontrollerad sida och returneras i utgående anspråk.
-- **Exchange-anspråk** -ett anrop görs till RESTful-tjänsten via en orchestration-steg. I det här scenariot finns det inget användargränssnitt att visas ett felmeddelande. Om REST-API returnerar ett fel, omdirigeras användaren till förlitande part programmet med ett felmeddelande.
+- **Teknisk profil för validering** – en teknisk profil för validering anropar RESTful-tjänsten. Den tekniska verifierings profilen verifierar de data som anges av användaren innan användar resan fortsätter. Med den tekniska profilen för validering visas ett fel meddelande på en självkontrollerad sida och returneras i utgående anspråk.
+- **Anspråk Exchange** – ett anrop görs till RESTful-tjänsten via ett Orchestration-steg. I det här scenariot finns det inget användar gränssnitt för att rendera fel meddelandet. Om REST API returnerar ett fel omdirigeras användaren tillbaka till det förlitande parts programmet med fel meddelandet.
 
 ## <a name="protocol"></a>Protocol
 
-Den **namn** attributet för den **protokollet** element måste anges till `Proprietary`. Den **hanteraren** attributet måste innehålla det fullständigt kvalificerade namnet på protokoll hanteraren sammansättningen som används av Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+Namnattributet  för **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-I följande exempel visas en RESTful tekniska profil:
+I följande exempel visas en RESTful teknisk profil:
 
 ```XML
 <TechnicalProfile Id="REST-UserMembershipValidator">
@@ -46,9 +46,9 @@ I följande exempel visas en RESTful tekniska profil:
   ...    
 ```
 
-## <a name="input-claims"></a>Inkommande anspråk
+## <a name="input-claims"></a>Inmatade anspråk
 
-Den **InputClaims** elementet innehåller en lista över anspråk ska skickas till REST API. Du kan också mappa namnet på din ansökan till det namn som definierats i REST-API. Följande exempel visas mappningen mellan din princip och REST-API. Den **givenName** anspråk skickas till REST-API som **firstName**, medan **efternamn** skickas som **lastName**. Den **e-post** anspråk är inställd på är.
+**InputClaims** -elementet innehåller en lista över anspråk att skicka till REST API. Du kan också mappa namnet på anspråket till namnet som definierats i REST API. I följande exempel visas mappningen mellan principen och REST API. **GivenName** -anspråket skickas till REST API som **FirstName** **, medan** efter namn skickas som **LastName**. **E-** postanspråket anges som det är.
 
 ```XML
 <InputClaims>
@@ -58,21 +58,21 @@ Den **InputClaims** elementet innehåller en lista över anspråk ska skickas ti
 </InputClaims>
 ```
 
-Den **InputClaimsTransformations** element kan innehålla en uppsättning **InputClaimsTransformation** element som används för att ändra de inkommande anspråken eller generera nya innan du skickar till REST API.
+**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till REST API.
 
-## <a name="output-claims"></a>Utdataanspråk
+## <a name="output-claims"></a>Utgående anspråk
 
-Den **OutputClaims** elementet innehåller en lista över anspråk som returneras av REST API. Du kan behöva matchar namnet på anspråk som definierats i din princip att namnet som definierats i REST-API. Du kan även inkludera anspråk som inte returneras av identitetsprovider REST-API som du ställer in den `DefaultValue` attribut.
+**OutputClaims** -elementet innehåller en lista över anspråk som returneras av REST API. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i REST API. Du kan också inkludera anspråk som inte returneras av REST API identitets leverantören, så länge som du ställer in `DefaultValue` attributet.
 
-Den **OutputClaimsTransformations** element kan innehålla en uppsättning **OutputClaimsTransformation** element som används för att ändra de utgående anspråk eller generera nya.
+**OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
-I följande exempel visar de anspråk som returneras av REST-API:
+I följande exempel visas anspråk som returneras av REST API:
 
-- Den **MembershipId** anspråk som är mappad till den **loyaltyNumber** anspråk namn.
+- **MembershipId** -anspråket som är mappat till namnet på **loyaltyNumber** -anspråket.
 
-Den tekniska profilen returnerar också anspråk som inte returnerade poskytovatelem identity: 
+Den tekniska profilen returnerar även anspråk som inte returneras av identitets leverantören: 
 
-- Den **loyaltyNumberIsNew** anspråk som har angetts till standardvärdet `true`.
+- **LoyaltyNumberIsNew** -anspråket som har ett standardvärde inställt på `true`.
 
 ```xml
 <OutputClaims>
@@ -83,17 +83,17 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| ServiceUrl | Ja | URL till REST API-slutpunkt. | 
-| authenticationType | Ja | Vilken typ av autentisering som utförs av RESTful anspråksprovidern. Möjliga värden: `None`, `Basic`, eller `ClientCertificate`. Den `None` värdet anger att REST-API inte är anonyma. Den `Basic` värdet anger att REST API skyddas med grundläggande HTTP-autentisering. Endast verifierad användare, inklusive Azure AD B2C kan komma åt ditt API. Den `ClientCertificate` (rekommenderas) värdet anger att REST-API begränsar åtkomst med hjälp av autentisering av klientcertifikat. Endast de tjänster som har rätt certifikat, såsom Azure AD B2C kan komma åt tjänsten. | 
-| SendClaimsIn | Nej | Anger hur de inkommande anspråken skickas till RESTful anspråksprovidern. Möjliga värden: `Body` (standard), `Form`, `Header`, eller `QueryString`. Den `Body` värdet är den inkommande anspråk som skickas i begärandetexten i JSON-format. Den `Form` värdet är den inkommande anspråk som skickas i begärandetexten i ett et-tecken ' och ' avgränsade nyckelvärdet format. Den `Header` värdet är den inkommande anspråk som skickas i rubriken. Den `QueryString` värdet är den inkommande anspråk som skickas i frågesträngen begäran. | 
-| ClaimsFormat | Nej | Anger formatet för utdataanspråk. Möjliga värden: `Body` (standard), `Form`, `Header`, eller `QueryString`. Den `Body` värdet är utdata-anspråket som skickas i begärandetexten i JSON-format. Den `Form` värdet är utdata-anspråket som skickas i begärandetexten i ett et-tecken ' och ' avgränsade nyckelvärdet format. Den `Header` värdet är utdata-anspråket som skickas i rubriken. Den `QueryString` värdet är utdata-anspråket som skickas i frågesträngen begäran. | 
-| DebugMode | Nej | Kör den tekniska profilen i felsökningsläge. I felsökningsläge och kan REST-API returnera mer information. Se meddelandeavsnittet returnerar fel. | 
+| ServiceUrl | Ja | URL: en för REST API slut punkten. | 
+| AuthenticationType | Ja | Den typ av autentisering som utförs av RESTful-anspråks leverantören. Möjliga värden: `None`, `Basic`, eller `ClientCertificate`. `None` Värdet anger att REST API inte är anonymt. `Basic` Värdet anger att REST API skyddas med http Basic-autentisering. Endast verifierade användare, inklusive Azure AD B2C, har åtkomst till ditt API. Värdet `ClientCertificate` (rekommenderas) indikerar att REST API begränsar åtkomsten med autentisering av klient certifikat. Endast tjänster som har rätt certifikat, till exempel Azure AD B2C kan komma åt din tjänst. | 
+| SendClaimsIn | Nej | Anger hur inloggade anspråk skickas till RESTful-anspråks leverantören. Möjliga värden: `Body` (standard), `Form`, `Header`, eller `QueryString`. `Body` Värdet är det ingående anspråket som skickas i begär ande texten i JSON-format. `Form` Värdet är det inloggade anspråket som skickas i begär ande texten i ett et-tecken () &. `Header` Värdet är det ingående anspråket som skickas i begär ande huvudet. `QueryString` Värdet är det inloggade anspråk som skickas i frågesträngen för begäran. | 
+| ClaimsFormat | Nej | Anger formatet för de utgående anspråken. Möjliga värden: `Body` (standard), `Form`, `Header`, eller `QueryString`. `Body` Värdet är det utgående anspråket som skickas i begär ande texten i JSON-format. `Form` Värdet är det utgående anspråket som skickas i begär ande texten i ett tecken värdes format med formatet "&". `Header` Värdet är det utgående anspråket som skickas i begär ande huvudet. `QueryString` Värdet är det utgående anspråket som skickas i frågesträngen för begäran. | 
+| DebugMode | Nej | Kör den tekniska profilen i fel söknings läge. I fel söknings läge kan REST API returnera mer information. Se avsnittet returnera fel meddelande. | 
 
-## <a name="cryptographic-keys"></a>Krypteringsnycklar
+## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
-Om typ av autentisering är inställt på `None`, **CryptographicKeys** elementet används inte.
+Om autentiseringstypen har angetts till `None`används inte **CryptographicKeys** -elementet.
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -107,14 +107,14 @@ Om typ av autentisering är inställt på `None`, **CryptographicKeys** elemente
 </TechnicalProfile>
 ```
 
-Om typ av autentisering är inställt på `Basic`, **CryptographicKeys** elementet innehåller följande attribut:
+Om autentiseringstypen har angetts till `Basic`innehåller **CryptographicKeys** -elementet följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | Ja | Det användarnamn som används för att autentisera. | 
-| BasicAuthenticationPassword | Ja | Det lösenord som används för att autentisera. |
+| BasicAuthenticationUsername | Ja | Det användar namn som används för att autentisera. | 
+| BasicAuthenticationPassword | Ja | Det lösen ord som används för att autentisera. |
 
-I följande exempel visas en tekniska profilen med basic-autentisering:
+I följande exempel visas en teknisk profil med grundläggande autentisering:
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -132,11 +132,11 @@ I följande exempel visas en tekniska profilen med basic-autentisering:
 </TechnicalProfile>
 ```
 
-Om typ av autentisering är inställt på `ClientCertificate`, **CryptographicKeys** elementet innehåller följande attribut:
+Om autentiseringstypen har angetts till `ClientCertificate`innehåller **CryptographicKeys** -elementet följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| ClientCertificate | Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att autentisera. | 
+| Mängden | Ja | X509-certifikatet (RSA-nyckel uppsättning) som ska användas för att autentisera. | 
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -153,21 +153,21 @@ Om typ av autentisering är inställt på `ClientCertificate`, **CryptographicKe
 </TechnicalProfile>
 ```
 
-## <a name="returning-error-message"></a>Returnerar ett felmeddelande
+## <a name="returning-error-message"></a>Returnerar fel meddelande
 
-REST-API kan behöva returnera ett felmeddelande som ”användaren inte hittades i CRM-systemet”. Ett fel inträffar, REST-API ska returnera felmeddelandet HTTP 409 (konflikt svarsstatuskod) med följande attribut:
+REST API kan behöva returnera ett fel meddelande, till exempel "användaren inte kunde hittas i CRM-systemet". I ett fel inträffar ska REST API returnera ett HTTP 409-fel meddelande (konflikt svars status kod) med följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | version | Ja | 1.0.0 | 
 | status | Ja | 409 | 
-| code | Nej | Felkoden från leverantören RESTful-slutpunkt, vilket är visas när `DebugMode` är aktiverat. | 
-| requestId | Nej | En identifierare för begäran från leverantören RESTful-slutpunkt, vilket är visas när `DebugMode` är aktiverat. | 
-| userMessage | Ja | Ett felmeddelande som visas för användaren. | 
-| developerMessage | Nej | Utförlig beskrivning av problemet och hur du åtgärdar det, vilket är visas när `DebugMode` är aktiverat. | 
-| moreInfo | Nej | En URI som pekar på ytterligare information som visas när `DebugMode` är aktiverat. | 
+| code | Nej | En felkod från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. | 
+| requestId | Nej | En begärande-ID från RESTful-slutpunkt-providern, som `DebugMode` visas när är aktive rad. | 
+| userMessage | Ja | Ett fel meddelande som visas för användaren. | 
+| developerMessage | Nej | Utförlig beskrivning av problemet och hur du åtgärdar det, som visas när `DebugMode` är aktiverat. | 
+| moreInfo | Nej | En URI som pekar på ytterligare information, som visas när `DebugMode` är aktive rad. | 
 
-I följande exempel visar ett REST-API som returnerar ett felmeddelande som formaterats i JSON:
+I följande exempel visas ett REST API som returnerar ett fel meddelande som är formaterat i JSON:
 
 ```JSON
 {
@@ -181,9 +181,9 @@ I följande exempel visar ett REST-API som returnerar ett felmeddelande som form
 }
 ```
 
-I följande exempel visas en C#-klass som returnerar ett felmeddelande visas:
+I följande exempel visas en C# klass som returnerar ett fel meddelande:
 
-```C#
+```csharp
 public class ResponseContent
 {
   public string version { get; set; }
@@ -197,10 +197,10 @@ public class ResponseContent
 ```
 
 ## <a name="examples"></a>Exempel:
-- [Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren](active-directory-b2c-custom-rest-api-netfw.md) 
-- [Skydda RESTful-tjänster med hjälp av grundläggande HTTP-autentisering](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [Skydda RESTful-tjänst med hjälp av klientcertifikat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Genomgång: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering på indata från användaren](active-directory-b2c-rest-api-validation-custom.md)
+- [Integrera REST API Claims-utbyten i Azure AD B2C användar resa som validering av användarindata](active-directory-b2c-custom-rest-api-netfw.md) 
+- [Skydda dina RESTful-tjänster med hjälp av HTTP Basic-autentisering](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+- [Skydda din RESTful-tjänst genom att använda klient certifikat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+- [Genom gång Integrera REST API Claims-utbyten i Azure AD B2C användar resa som verifiering vid användarindata](active-directory-b2c-rest-api-validation-custom.md)
 
  
 

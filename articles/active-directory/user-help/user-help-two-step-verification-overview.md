@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d33a18aaca923bd49858671546ab053cf3fb21a3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472772"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382143"
 ---
 # <a name="two-step-verification-overview"></a>Översikt över tvåstegsverifiering
 
@@ -30,9 +30,9 @@ Tvåstegsverifiering är säkrare än bara ett lösenord eftersom den består av
 
 |Artikel |Beskrivning |
 |------|------------|
-|[Konfiguration](multi-factor-authentication-end-user-first-time.md) |Beskriver hur du konfigurerar tvåstegsverifiering för första gången.|
-|[Kom igång med tvåstegsverifiering](multi-factor-authentication-end-user.md)|Beskriver vad tvåstegsverifiering innebär för dig.| 
-|[Så här loggar du in](user-help-sign-in.md)|Beskriver hur du loggar in med din angivna verifieringsmetod.|
-|[Ändra inställningar](multi-factor-authentication-end-user-manage-settings.md) |Beskriver hur du ändrar inställningar som telefonnummer eller önskad registreringsmetod.|
-|[Hjälp med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) |Beskriver hur du felsöker vanliga problem med tvåstegsverifiering.|
-|[Hantera lösenord för appar](multi-factor-authentication-end-user-app-passwords.md) |Beskriver hur du skapar och använda lösenord för appar.|
+| [Konfiguration](multi-factor-authentication-end-user-first-time.md) |Beskriver hur du konfigurerar tvåstegsverifiering för första gången.|
+| [Kom igång med](multi-factor-authentication-end-user.md) tvåstegsverifiering] Beskriver vad tvåstegsverifiering innebär.| 
+| [Så här loggar du in](user-help-sign-in.md) ] Beskriver hur du loggar in med den angivna verifierings metoden.|
+| [Ändra inställningar](multi-factor-authentication-end-user-manage-settings.md) |Beskriver hur du ändrar inställningar som telefonnummer eller önskad registreringsmetod.|
+| [Hjälp med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) |Beskriver hur du felsöker vanliga problem med tvåstegsverifiering.|
+| [Hantera lösenord för appar](multi-factor-authentication-end-user-app-passwords.md) |Beskriver hur du skapar och använda lösenord för appar.|

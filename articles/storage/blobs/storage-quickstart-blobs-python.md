@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0ae47a7898e380a25618a8d6ae6a1e0251fe466c
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 5fe011d740b1c08ae3b9cf4e3ea67d2cdd4fee66
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514585"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360092"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
-I den här snabbstarten lär du dig att använda Python för att ladda upp, ladda ned och lista blockblobar i en behållare i Azure Blob storage. BLOB-lagring är bara de objekt som kan innehålla vilken mängd text eller binära data (till exempel bilder, dokument, strömmande media, arkivera data, etc.) och skiljer sig i Azure Storage från filresurser, schemalös tabeller och meddelandeköer. (Mer information finns i [introduktion till Azure Storage](/azure/storage/common/storage-introduction).)
+I den här snabb starten får du se hur du använder python för att ladda upp, ladda ned och lista block-blobar i en behållare i Azure Blob Storage. Blobbar är bara objekt som kan innehålla valfri text eller binära data (till exempel bilder, dokument, strömmande medier, arkivera data osv.) och är distinkta i Azure Storage från fil resurser, schemabaserade tabeller och meddelande köer. (Mer information finns i [Introduktion till Azure Storage](/azure/storage/common/storage-introduction).)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,8 +45,9 @@ Det här kommandot klonar lagringsplatsen *Azure-Samples/storage-blobs-python-qu
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 I programmet måste du ange ditt lagringskontonamn och kontonyckel för att skapa ett `BlockBlobService`-objekt. Öppna filen *example.py* från Solution Explorer i IDE. Ersätt värdena `accountname` och `accountkey` med kontonamnet och nyckeln. 
 
-```python 
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
+```python
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
 ```
 
 ## <a name="run-the-sample"></a>Kör exemplet
@@ -94,16 +95,18 @@ När du har molnblobcontainern kan du instansiera objektet **CloudBlockBlob** so
 
 I det här avsnittet skapar du instanser av objekten, skapar en ny container och anger sedan behörigheter för containern så att blobarna är offentliga. Containern heter **quickstartblobs**. 
 
-```python 
+```python
 # Create the BlockBlockService that is used to call the Blob service for the storage account.
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
- 
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
+
 # Create a container called 'quickstartblobs'.
 container_name = 'quickstartblobs'
-block_blob_service.create_container(container_name) 
+block_blob_service.create_container(container_name)
 
 # Set the permission so the blobs are public.
-block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
+block_blob_service.set_container_acl(
+    container_name, public_access=PublicAccess.Container)
 ```
 ### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
 
@@ -111,7 +114,7 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är
 
 Om du vill överföra en fil till en blob hämtar du den fullständiga sökvägen genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden `create_blob_from_path`. 
 
-Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, lagrar filen som ska laddas upp som *full_path_to_file* och namnet på bloben som *local_file_name*. I följande exempel överförs filen till containern med namnet **quickstartblobs**.
+Exempel koden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar filen som ska laddas upp som *full_path_to_file* och namnet på blobben som *local_file_name*. I följande exempel överförs filen till containern med namnet **quickstartblobs**.
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -128,7 +131,8 @@ print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
 # Upload the created file, use local_file_name for the blob name.
-block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
+block_blob_service.create_blob_from_path(
+    container_name, local_file_name, full_path_to_file)
 ```
 
 Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du kan använda metoden `create_blob_from_stream` snarare än `create_blob_from_path`. 
@@ -149,14 +153,16 @@ for blob in generator:
 
 ### <a name="download-the-blobs"></a>Ladda ned blobarna
 
-Ladda ned blobar till din lokala disk med hjälp av den `get_blob_to_path` metoden. Följande kod laddar ned bloben som överfördes i föregående avsnitt. *_DOWNLOADED* läggs till som ett suffix på blobnamnet så att du kan se båda filerna på den lokala disken. 
+Ladda ned blobar till din lokala disk med `get_blob_to_path` hjälp av metoden. Följande kod laddar ned bloben som överfördes i föregående avsnitt. *_DOWNLOADED* läggs till som ett suffix på blobnamnet så att du kan se båda filerna på den lokala disken. 
 
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(
+    local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
-block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
+block_blob_service.get_blob_to_path(
+    container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>Rensa resurser

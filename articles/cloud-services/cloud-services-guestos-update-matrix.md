@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: edf120fa7997cf2d0381dcb7cd3ee0d4e16dd72b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321412"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405556"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst operativ system versioner och SDK-kompatibilitet mat ris
 Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för Cloud Services. Den här informationen hjälper dig att planera uppgraderings vägen innan ett gäst operativ system är inaktiverat. Om du konfigurerar dina roller så att de använder *automatiska* uppdateringar av gäst operativ system enligt beskrivningen i [Azures uppdaterings inställningar för gäst operativ system][Azure Guest OS Update Settings]är det inte viktigt att du läser den här sidan.
@@ -110,7 +110,7 @@ Gäst operativ systemet i september har släppts.
 ## <a name="family-5-releases"></a>Family 5-versioner
 **Windows Server 2016**
 
-.NET Framework installerat: 3,5, 4.6.2, 4.7.2
+.NET Framework installerat: 3,5, 4,6
 
 > [!NOTE]
 > RDP-lösenordet för OS-familjen 5 måste bestå av minst 10 tecken.

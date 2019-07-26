@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: snehaa
-ms.openlocfilehash: e5b4777adfcbb5babbf5db792a10d025c79b1a8b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302376"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372482"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Migrate
 
@@ -20,20 +20,8 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Migrate. Om du h
 ## <a name="general"></a>Allmänt
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Vilka Azure-geografiska diagram stöds av Azure Migrate?
-Azure Migrate stöder för närvarande ett antal geografiska områden där ett Azure Migrate-projekt kan skapas. Även om du bara kan skapa projekt i dessa geografiska områden kan du fortfarande utvärdera eller migrera dina datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
 
-
-**Geografi** | **Lagrings plats för metadata**
---- | ---
-Azure Government | Virginia (USA-förvaltad region)
-Asien | Sydostasien eller Asien, östra
-Europa | Europa, södra eller Västeuropa
-Storbritannien | Storbritannien, södra eller Storbritannien, västra
-USA | USA, centrala eller västra USA 2
-
-
-> [!NOTE]
-> Stöd för Azure Government är för närvarande bara tillgängligt för den [äldre versionen](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) av Azure Migrate.
+Du kan hitta listan för [VMware här](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) och för [Hyper-V här](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Hur skiljer sig Azure Migrate från Azure Site Recovery?
 
@@ -51,7 +39,7 @@ För de URL: er och portar som krävs för att Azure Migrate ska kunna kommunice
 
 ### <a name="can-i-harden-the-appliance-vm-i-set-up-with-the-template"></a>Kan jag skärpa den virtuella dator som jag har skapat med mallen?
 
-Ytterligare komponenter (till exempel anti-virus) kan läggas till i mallen, så länge som de kommunikations-och brand Väggs regler som krävs för Azure Migrate-enheten är kvar som de är.   
+Ytterligare komponenter (till exempel Antivirus) kan läggas till i mallen, så länge som de kommunikations-och brand Väggs regler som krävs för Azure Migrate-installationen är kvar.   
 
 ### <a name="what-data-is-collected-by-azure-migrate-appliance"></a>Vilka data samlas in av Azure Migrate utrustning?
 

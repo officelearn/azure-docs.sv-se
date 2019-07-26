@@ -1,6 +1,6 @@
 ---
-title: Inte att logga in till en app för Azure AD-galleriet som konfigurerats för enkel inloggning med lösenord | Microsoft Docs
-description: Så här felsöker du problem med en Azure AD-galleriprogram som konfigurerats för lösenord för enkel inloggning.
+title: Det gick inte att logga in på Azure AD Gallery-appen som kon figurer ATS för SSO | Microsoft Docs
+description: Så här felsöker du problem med ett Azure AD Gallery-program som är konfigurerat för enkel inloggning med lösen ord.
 documentationcenter: ''
 author: msmimart
 manager: CelesteDG
@@ -15,183 +15,183 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742df882fb64e09ff63ef2eceb5514ca070dc227
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190332"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381303"
 ---
-# <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Inloggningsproblem med en app för Azure AD-galleriet som konfigurerats för enkel inloggning
+# <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Inloggnings problem med en Azure AD Gallery-app som kon figurer ATS för SSO
 
-Åtkomstpanelen är en webbaserad portal. Det gör det möjligt för användare som har Azure Active Directory (Azure AD) arbets- eller skolkonton för att komma åt molnbaserade appar som de har behörighet för. Användare som har Azure AD-versioner kan också använda självbetjäning och app-hanteringsfunktioner via åtkomstpanelen.
+Åtkomst panelen är en webbaserad portal. Det gör det möjligt för användare som har Azure Active Directory (Azure AD) arbets-eller skol konton att komma åt molnbaserade appar som de har behörighet för. Användare som har Azure AD-versioner kan också använda funktioner för självbetjänings grupp och app-hantering via åtkomst panelen.
 
-Åtkomstpanelen är separat från Azure-portalen. Användarna behöver inte en Azure-prenumeration du använder åtkomstpanelen.
+Åtkomst panelen är separat från Azure Portal. Användare behöver ingen Azure-prenumeration för att använda åtkomst panelen.
 
-Om du vill använda lösenordsbaserad enkel inloggning (SSO) i åtkomstpanelen, måste tillägget åtkomstpanelen installeras i webbläsaren. Tillägget hämtar automatiskt när du väljer en app som är konfigurerad för lösenordsbaserad SSO.
+Om du vill använda lösenordsbaserad enkel inloggning (SSO) i åtkomst panelen måste åtkomst panels tillägget vara installerat i webbläsaren. Fil namns tillägget hämtas automatiskt när du väljer en app som är konfigurerad för lösenordsbaserad SSO.
 
-## <a name="browser-requirements-for-access-panel"></a>Webbläsarkrav för åtkomstpanelen
+## <a name="browser-requirements-for-access-panel"></a>Webb läsar krav för åtkomst panelen
 
-Åtkomstpanelen kräver en webbläsare som stöder JavaScript och CSS aktiverat.
+Åtkomst panelen kräver en webbläsare som stöder Java Script och har CSS aktiverat.
 
 Följande webbläsare har stöd för lösenordsbaserad SSO:
 
-- Internet Explorer 8, 9, 10 och 11 på Windows 7 eller senare
+- Internet Explorer 8, 9, 10 och 11 i Windows 7 eller senare
 
-- Chrome på Windows 7 eller senare eller i Mac OS X eller senare
+- Chrome på Windows 7 eller senare eller på MacOS X eller senare
 
-- Firefox 26.0 eller senare på Windows XP SP2 eller senare eller på Mac OS X 10.6 eller senare
+- Firefox 26,0 eller senare i Windows XP SP2 eller senare eller på Mac OS X 10,6 eller senare
 
 >[!NOTE]
->Tillägget lösenordsbaserad SSO blir tillgängliga för Microsoft Edge i Windows 10 när stödet för webbläsartillägg har lagts till i Microsoft Edge.
+>Det lösenordsbaserade SSO-tillägget blir tillgängligt för Microsoft Edge i Windows 10 när stöd för webb läsar tillägg har lagts till i Microsoft Edge.
 
-## <a name="install-the-access-panel-browser-extension"></a>Installera Access Panel webbläsartillägg
+## <a name="install-the-access-panel-browser-extension"></a>Installera åtkomst panelens webb läsar tillägg
 
 Följ de här stegen:
 
-1. Öppna [åtkomstpanelen](https://myapps.microsoft.com) i en webbläsare som stöds och logga in som en användare i Azure AD.
+1. Öppna [åtkomst panelen](https://myapps.microsoft.com) i en webbläsare som stöds och logga in som en användare i Azure AD.
 
-2. Välj en lösenord-SSO-aktiverad app i åtkomstpanelen.
+2. Välj en lösen ords-SSO-aktiverad app i åtkomst panelen.
 
-3. När du uppmanas väljer **installera nu**.
+3. När du uppmanas väljer du **Installera nu**.
 
-4. Du omdirigeras till en nedladdningslänk baserat på din webbläsare. Välj **Lägg till** att installera webbläsartillägget.
+4. Du dirigeras till en nedladdnings länk baserat på din webbläsare. Välj **Lägg till** för att installera webb läsar tillägget.
 
-5. Om du uppmanas väljer **aktivera** eller **Tillåt**.
+5. Om du uppmanas väljer du **Aktivera** eller **Tillåt**.
 
 6. Starta om webbläsaren efter installationen.
 
-7.  Logga in på åtkomstpanelen och se om du startar dina lösenord-SSO-aktiverade appar.
+7.  Logga in på åtkomst panelen och se om du kan starta dina appar för inloggning med lösen ord.
 
-Du kan också direkt hämta tillägg för Chrome och Firefox via följande länkar:
+Du kan också hämta tilläggen för Chrome och Firefox direkt genom följande länkar:
 
--   [Chrome Access Panel-tillägg](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Tillägg för Chrome Access panel](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Firefox Access Panel-tillägg](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Åtkomst panels tillägg för Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="set-up-a-group-policy-for-internet-explorer"></a>Konfigurera en grupprincip för Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Konfigurera en grup princip för Internet Explorer
 
-Du kan konfigurera en grupprincip som gör det möjligt att fjärrinstallera Access Panel-tillägg för Internet Explorer på användarnas datorer.
+Du kan konfigurera en grup princip som gör att du kan fjärrinstallera åtkomst panels tillägget för Internet Explorer på användarnas datorer.
 
-Det här är kraven:
+Följande är förutsättningarna:
 
--   [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) måste ställas in, och dina användares datorer måste vara ansluten till din domän.
+-   [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx) måste konfigureras och användarnas datorer måste vara anslutna till din domän.
 
--   Du har ”redigera inställningar” behörighet att redigera det grupprincipobjekt (GPO). Som standard har medlemmar i de följande säkerhetsgrupperna denna behörighet: Domänadministratörer, Företagsadministratörer och skapare och ägare av Grupprincip. [Läs mer](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Du har behörighet att redigera inställningar för att redigera grupprincip-objektet (GPO). Som standard har medlemmar i följande säkerhets grupper den här behörigheten: Domän administratörer, företags administratörer och grupprincip Skapare ägare. [Läs mer](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Om du vill konfigurera en Grupprincip och distribuera till användare, se [hur du distribuerar tillägget åtkomstpanelen för Internet Explorer med hjälp av en Grupprincip](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
+Information om hur du konfigurerar grup principen och distribuerar den till användare finns i [så här distribuerar du åtkomst panels tillägget för Internet Explorer med hjälp av grup princip](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
 
-## <a name="troubleshoot-access-panel-in-internet-explorer"></a>Felsöka åtkomstpanelen i Internet Explorer
+## <a name="troubleshoot-access-panel-in-internet-explorer"></a>Felsöka åtkomst panelen i Internet Explorer
 
-Du hittar ett verktyg för diagnostik och anvisningar för att konfigurera tillägget i [Felsök Access Panel-tillägg för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
+Information om hur du konfigurerar tillägget finns i [Felsöka åtkomst panelens tillägg för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## <a name="configure-password-sso-for-an-azure-ad-gallery-app"></a>Konfigurera enkel inloggning med lösenord för en app för Azure AD-galleriet
+## <a name="configure-password-sso-for-an-azure-ad-gallery-app"></a>Konfigurera SSO för lösen ord för en Azure AD-Galleri-app
 
-Om du vill konfigurera en app från Azure AD-galleriet, måste du göra allt detta:
+Om du vill konfigurera en app från Azure AD-galleriet måste du göra följande saker:
 
 -   Lägg till appen från Azure AD-galleriet
--   [Konfigurera appen för lösenord för enkel inloggning](#configure-the-app-for-password-sso)
+-   [Konfigurera appen för enkel inloggning med lösen ord](#configure-the-app-for-password-sso)
 -   [Tilldela användare till appen](#assign-users-to-the-app)
 
 ### <a name="add-the-app-from-the-azure-ad-gallery"></a>Lägg till appen från Azure AD-galleriet
 
 Följ de här stegen:
 
-1. Öppna den [Azure-portalen](https://portal.azure.com) och logga in som en global administratör eller medadministratör.
+1. Öppna [Azure Portal](https://portal.azure.com) och logga in som global administratör eller medadministratör.
 
-2. Välj **alla tjänster** överst i navigeringsfönstret till vänster för att öppna Azure AD-tillägget.
+2. Välj **alla tjänster** överst i navigerings fönstret på vänster sida för att öppna Azure AD-tillägget.
 
-3. Typ **Azure Active Directory** i filtret sökrutan och välj sedan **Azure Active Directory**.
+3. Skriv **Azure Active Directory** i rutan filtrera sökning och välj sedan **Azure Active Directory**.
 
-4. Välj **företagsprogram** i navigeringsfönstret i Azure AD.
+4. Välj **företags program** i navigerings fönstret i Azure AD.
 
-5. Välj **Lägg till** i det övre högra hörnet av den **företagsprogram** fönstret.
+5. Välj **Lägg till** i det övre högra hörnet i fönstret **företags program** .
 
-6. I den **Lägg till från galleriet** Skriv namnet på appen i den **anger du ett namn** box.
+6. I avsnittet **Lägg till från galleriet** , anger du namnet på appen i rutan **Ange ett namn** .
 
-7. Välj den app som du vill konfigurera för enkel inloggning.
+7. Välj den app som du vill konfigurera för SSO.
 
-8. *Valfritt:* Innan du lägger till appen, kan du ändra dess namn i den **namn** box.
+8. *Valfritt:* Innan du lägger till appen kan du ändra dess namn i rutan **namn** .
 
-9. Klicka på **Lägg till** lägger du till appen.
+9. Klicka på **Lägg till** för att lägga till appen.
 
-   Efter en liten stund kommer du att kunna se appens konfigurationsruta.
+   Efter en kort fördröjning kommer du att kunna se appens konfigurations fönster.
 
-### <a name="configure-the-app-for-password-sso"></a>Konfigurera appen för enkel inloggning med lösenord
+### <a name="configure-the-app-for-password-sso"></a>Konfigurera appen för inloggning med lösen ord
 
 Följ de här stegen:
 
-1. Öppna den [Azure-portalen](https://portal.azure.com/) och logga in som en global administratör eller medadministratör.
+1. Öppna [Azure Portal](https://portal.azure.com/) och logga in som global administratör eller medadministratör.
 
-2. Välj **alla tjänster** överst i navigeringsfönstret till vänster för att öppna Azure AD-tillägget.
+2. Välj **alla tjänster** överst i navigerings fönstret på vänster sida för att öppna Azure AD-tillägget.
 
-3. Typ **Azure Active Directory** i filtret sökrutan och välj sedan **Azure Active Directory**.
+3. Skriv **Azure Active Directory** i rutan filtrera sökning och välj sedan **Azure Active Directory**.
 
-4. Välj **företagsprogram** i navigeringsfönstret för Azure AD.
+4. Välj **företags program** i navigerings fönstret i Azure AD.
 
-5. Välj **alla program** att visa en lista över dina appar.
+5. Välj **alla program** om du vill visa en lista över dina appar.
 
    > [!NOTE]
-   > Om du inte ser den app som du vill använda den **Filter** kontroll högst upp på den **listan över alla program**. Ange den **visa** alternativet ”alla program”.
+   > Om du inte ser den app du vill använda använder du **filter** kontrollen längst upp i **listan Alla program**. Ange alternativet **Visa** som "alla program".
 
-6. Välj den app som du vill konfigurera för enkel inloggning.
+6. Välj den app som du vill konfigurera för SSO.
 
-7. När appen har lästs in väljer **enkel inloggning** i fönstret till vänster i appen.
+7. När appen har lästs in väljer du **enkel inloggning** i rutan till vänster i appen.
 
-8. Välj **lösenordsbaserad inloggning** läge.
+8. Välj **lösenordsbaserad inloggnings** läge.
 
 9. Tilldela användare till appen.
 
-10. Du kan också ange autentiseringsuppgifter för användare. (Annars kan användare uppmanas att ange dem vid start av appen.) Gör detta genom att markera vilka rader av användare. Välj sedan **uppdaterade autentiseringsuppgifter** och ange sina användarnamn och lösenord.
+10. Du kan också ange autentiseringsuppgifter för användare. (Annars uppmanas användarna att ange autentiseringsuppgifter när appen startas.) Det gör du genom att välja rader för användarna. Välj sedan **uppdatera autentiseringsuppgifter** och ange användar namn och lösen ord.
 
 ### <a name="assign-users-to-the-app"></a>Tilldela användare till appen
 
 Följ dessa steg om du vill tilldela användare till en app direkt:
 
-1. Öppna den [Azure-portalen](https://portal.azure.com/) och logga in som global administratör.
+1. Öppna [Azure Portal](https://portal.azure.com/) och logga in som global administratör.
 
-2. Välj **alla tjänster** i navigeringen enkelt på vänster sida för att öppna Azure AD-tillägget.
+2. Välj **alla tjänster** i navigerings perspektivet på vänster sida för att öppna Azure AD-tillägget.
 
-3. Typ **Azure Active Directory** i filtret sökrutan och välj sedan **Azure Active Directory**.
+3. Skriv **Azure Active Directory** i rutan filtrera sökning och välj sedan **Azure Active Directory**.
 
-4. Välj **företagsprogram** i navigeringsfönstret för Azure AD.
+4. Välj **företags program** i navigerings fönstret i Azure AD.
 
-5. Välj **alla program** att visa en lista över dina program.
+5. Välj **alla program** om du vill visa en lista över dina program.
 
    > [!NOTE]
-   > Om du inte ser den app som du vill använda den **Filter** kontroll högst upp på den **listan över alla program**. Ange den **visa** alternativet ”alla program”.
+   > Om du inte ser den app du vill använda använder du **filter** kontrollen längst upp i **listan Alla program**. Ange alternativet **Visa** som "alla program".
 
-6. Välj den app som du vill tilldela en användare i listan.
+6. I listan väljer du den app som du vill tilldela en användare till.
 
-7. När programmet har lästs in väljer **användare och grupper** från appens navigeringsfönstret till vänster.
+7. När programmet har lästs in väljer **du användare och grupper** i appens navigerings fönster på den vänstra sidan.
 
-8. Välj **Lägg till** överst i den **användare och grupper** listan för att öppna den **Lägg till tilldelning** fönstret.
+8. Välj **Lägg till** överst i listan **användare och grupper** för att öppna fönstret **Lägg till tilldelning** .
 
-9. Välj **användare och grupper** i den **Lägg till tilldelning** fönstret.
+9. Välj **användare och grupper** i fönstret **Lägg till tilldelning** .
 
-10. I den **Sök efter namn eller e-postadress** skriver du det fullständiga namnet eller e-postadress för den användare som du vill tilldela.
+10. I rutan **Sök efter namn eller e-postadress** anger du det fullständiga namnet eller e-postadressen för den användare som du vill tilldela.
 
-11. Hovra över användare i listan. Markera kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till den **valda** lista.
+11. Hovra över användaren i listan. Markera kryss rutan bredvid användarens profil bild eller logo typ för att lägga till användaren i den **markerade** listan.
 
-12. *Valfritt:* Om du vill lägga till en annan användare, skriver du ett annat namn eller e-postadress i den **Sök efter namn eller e-postadress** rutan och välj sedan kryssrutan för att lägga till den **valda** lista.
+12. *Valfritt:* Om du vill lägga till en annan användare skriver du ett annat namn eller en e-postadress i rutan **Sök efter namn eller e-** postadress och markerar sedan kryss rutan för att lägga till användaren i den **markerade** listan.
 
-13. När du är klar att välja användare klickar du på **Välj** att lägga till dem i listan över användare och grupper som är tilldelade till appen.
+13. När du är klar med att välja användare klickar du på **Välj** för att lägga till dem i listan över användare och grupper som är tilldelade till appen.
 
-14. *Valfritt:* Klicka på **Välj roll** i den **Lägg till tilldelning** fönstret för att välja en roll att tilldela till användare som du har valt.
+14. *Valfritt:* Klicka på **Välj roll** i fönstret **Lägg till tilldelning** för att välja en roll som ska tilldelas de användare som du har valt.
 
-15. Välj **tilldela** att tilldela appen till de valda användarna.
+15. Välj **tilldela** för att tilldela appen till de valda användarna.
 
-    Efter en kort fördröjning kommer användare kunna komma åt apparna från åtkomstpanelen.
+    Efter en kort fördröjning kommer användarna att kunna komma åt dessa appar från åtkomst panelen.
 
-## <a name="request-support"></a>Begär support 
-Om du får ett felmeddelande när du ställer in enkel inloggning och tilldela användare kan öppna ett supportärende. Inkludera följande information som möjligt:
+## <a name="request-support"></a>Support för begäran 
+Om du får ett fel meddelande när du konfigurerar SSO och tilldelar användare, öppnar du ett support ärende. Inkludera så mycket som möjligt av följande information:
 
--   Korrelations-ID för fel
+-   Korrelations fel-ID
 -   UPN (användarens e-postadress)
 -   TenantID
 -   Typ av webbläsare
 -   Tidszon och tid/tidsram när felet uppstod
--   Fiddler-spårningar
+-   Fiddler-spår
 
 ## <a name="next-steps"></a>Nästa steg
 [Tillhandahålla enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)

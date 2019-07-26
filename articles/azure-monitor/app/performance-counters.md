@@ -1,6 +1,6 @@
 ---
-title: Prestandaräknare i Application Insights | Microsoft Docs
-description: Övervaka systemet och anpassad .NET-prestandaräknare i Application Insights.
+title: Prestanda räknare i Application Insights | Microsoft Docs
+description: Övervaka system-och anpassade .NET-prestanda räknare i Application Insights.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,96 +12,93 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0ec64a5ae412fb4a1900021fefcb7d9112b1b019
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c681b58b01979b95e35ae57cefde38c56a787543
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255327"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360250"
 ---
-# <a name="system-performance-counters-in-application-insights"></a>Systemprestandaräknare i Application Insights
+# <a name="system-performance-counters-in-application-insights"></a>System prestanda räknare i Application Insights
 
-Windows har en mängd olika [prestandaräknare](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) för exempelvis användning av processorer, minne, diskar och nätverk. Du kan även definiera dina egna prestandaräknare. Insamling av prestandaräknare stöds så länge ditt program körs under IIS på en lokal värd eller virtuell dator som du har administrativ åtkomst. Om program som körs som Azure Web Apps inte har direkt åtkomst till prestandaräknare, en delmängd av tillgängliga räknare samlas in av Application Insights.
+Windows har en mängd olika [prestandaräknare](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) för exempelvis användning av processorer, minne, diskar och nätverk. Du kan också definiera dina egna prestanda räknare. Insamling av prestanda räknare stöds så länge programmet körs under IIS på en lokal värd eller virtuell dator som du har administrativ åtkomst till. Även om program som körs som Azure Web Apps inte har direkt åtkomst till prestanda räknare samlas en del av de tillgängliga räknarna upp av Application Insights.
 
 ## <a name="view-counters"></a>Visa räknare
 
-Rutan mått visar standarduppsättningen med prestandaräknare.
+Fönstret mått visar standard uppsättningen med prestanda räknare.
 
-![Prestandaräknare som rapporteras i Application Insights](./media/performance-counters/performance-counters.png)
+![Prestanda räknare som rapporter ATS i Application Insights](./media/performance-counters/performance-counters.png)
 
-De aktuella standard räknare som är konfigurerade som ska samlas in för ASP.NET/ASP.NET Core-webbprogram är:
-
-         - % Process\\Processor Time
-         - % Process\\Processor Time Normalized
-         - Memory\\Available Bytes
-         - ASP.NET Requests/Sec
-         - .NET CLR Exceptions Thrown / sec
-         - ASP.NET ApplicationsRequest Execution Time
-         - Process\\Private Bytes
-         - Process\\IO Data Bytes/sec
-         - ASP.NET Applications\\Requests In Application Queue
-         - Processor(_Total)\\% Processor Time
+De aktuella standard räknare som har kon figurer ATS för att samlas in för ASP.NET/ASP.NET Core-webbprogram är:
+- \\Processor tid i procent för processor
+- % Process\\processor tid normaliserad
+- Tillgängliga\\byte för minne
+- ASP.NET-begäranden per sekund
+- Utlösta .NET CLR-undantag/SEK
+- Körnings tid för ASP.NET-ApplicationsRequest
+- Privata\\byte för process
+- Bearbeta\\IO-databyte/s
+- ASP.NET program\\begär anden i program kön
+- Processor (_ total\\)% processor tid
 
 ## <a name="add-counters"></a>Lägg till räknare
 
-Om prestandaräknare som du vill att inte ingår i listan över mått, kan du lägga till den.
+Om den prestanda räknare som du vill använda inte finns med i listan över mått kan du lägga till den.
 
-1. Ta reda på vilka räknare som är tillgängliga i servern med hjälp av det här PowerShell-kommandot på den lokala servern:
+1. Ta reda på vilka räknare som är tillgängliga på servern med hjälp av PowerShell-kommandot på den lokala servern:
 
     `Get-Counter -ListSet *`
 
-    (Se [ `Get-Counter` ](https://technet.microsoft.com/library/hh849685.aspx).)
-2. Öppna ApplicationInsights.config.
+    (Se [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
+2. Öppna ApplicationInsights. config.
 
-   * Lägg till Application Insights i din app under utvecklingen och redigera ApplicationInsights.config i projektet och distribuera om den till dina servrar.
-3. Redigera direktivet prestanda insamlaren:
+   * Om du har lagt till Application Insights i din app under utvecklingen redigerar du ApplicationInsights. config i projektet och distribuerar det sedan igen till dina servrar.
+3. Redigera prestanda insamlings direktivet:
 
-```XML
+    ```XML
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
-      <Counters>
-        <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
-      </Counters>
-    </Add>
-
-```
+        <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
+          <Counters>
+            <Add PerformanceCounter="\Objects\Processes"/>
+            <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
+          </Counters>
+        </Add>
+    ```
 
 > [!NOTE]
-> ASP.NET Core-program inte har `ApplicationInsights.config`, och därför metoden ovan är inte giltigt för ASP.NET Core-program.
+> ASP.net Core program har `ApplicationInsights.config`inte, och därför är metoden ovan inte giltig för ASP.net Core program.
 
-Du kan avbilda standard räknare och du har implementerat själv. `\Objects\Processes` är ett exempel på en standard räknare som är tillgänglig på alla Windows-System. `\Sales(photo)\# Items Sold` är ett exempel på en anpassad räknare som kan implementeras på en webbtjänst.
+Du kan avbilda både standard räknare och de som du har implementerat själv. `\Objects\Processes`är ett exempel på en standard räknare som är tillgänglig på alla Windows-system. `\Sales(photo)\# Items Sold`är ett exempel på en anpassad räknare som kan implementeras i en webb tjänst.
 
-Formatet är `\Category(instance)\Counter"`, eller kategorier som inte har instanser, bara `\Category\Counter`.
+Formatet är `\Category(instance)\Counter"`, eller för kategorier som inte har instanser, bara `\Category\Counter`.
 
-`ReportAs` krävs för namn på prestandaräknare som inte matchar `[a-zA-Z()/-_ \.]+` – det vill säga de innehåller tecken som inte finns i följande: bokstäver, avrunda hakparenteser, snedstreck, bindestreck, understreck, blanksteg, punkt.
+`ReportAs`krävs för räknar namn som inte matchar `[a-zA-Z()/-_ \.]+` – det vill säga de innehåller tecken som inte finns i följande uppsättningar: bokstäver, parenteser, snedstreck, bindestreck, under streck, blank steg, punkt.
 
-Om du anger en instans, den kommer att samlas in som en dimension ”CounterInstanceName” för den rapporterade måtten.
+Om du anger en instans kommer den att samlas in som en dimension "CounterInstanceName" av det rapporterade måttet.
 
-### <a name="collecting-performance-counters-in-code-for-aspnet-web-applications-or-netnet-core-console-applications"></a>Insamling av prestandaräknare i koden för ASP.NET-webbprogram och.NET/.NET Core-konsolprogram
-Om du vill samla in prestandaräknare för system och skicka dem till Application Insights, kan du anpassa kodavsnittet nedan:
+### <a name="collecting-performance-counters-in-code-for-aspnet-web-applications-or-netnet-core-console-applications"></a>Samla in prestanda räknare i kod för ASP.NET-webbprogram eller .NET/.NET Core-konsolprogram
+Om du vill samla in system prestanda räknare och skicka dem till Application Insights kan du anpassa kodfragmentet nedan:
 
 
-``` C#
-
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 
-Eller så kan du göra samma sak med anpassade mått som du skapade:
+Eller så kan du göra samma sak med anpassade mått som du har skapat:
 
-``` C#
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 
-### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Insamling av prestandaräknare i koden för ASP.NET Core-webbprogram
+### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Samla in prestanda räknare i kod för ASP.NET Core webb program
 
-Ändra `ConfigureServices` -metod i din `Startup.cs` klassen enligt nedan.
+Ändra `ConfigureServices` metod`Startup.cs` i klassen enligt nedan.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
@@ -120,48 +117,48 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
     }
 ```
 
-## <a name="performance-counters-in-analytics"></a>Prestandaräknare i Analytics
-Du kan söka efter och visa räknare prestandarapporter i [Analytics](../../azure-monitor/app/analytics.md).
+## <a name="performance-counters-in-analytics"></a>Prestanda räknare i Analytics
+Du kan söka efter och Visa prestanda räknar rapporter i [Analytics](../../azure-monitor/app/analytics.md).
 
-Den **performanceCounters** schemat exponerar den `category`, `counter` namn, och `instance` för varje prestandaräknare.  I telemetri för varje program visas endast räknarna för programmet. Till exempel om du vill se vilka räknare är tillgängliga: 
+**PerformanceCounters** `category`-schemat visar, `counter` namn och `instance` namn för varje prestanda räknare.  I telemetri för varje program visas endast räknare för programmet. Till exempel för att se vilka räknare som är tillgängliga: 
 
-![Prestandaräknare i Application Insights analytics](./media/performance-counters/analytics-performance-counters.png)
+![Prestanda räknare i Application Insights Analytics](./media/performance-counters/analytics-performance-counters.png)
 
-('Instance' här refererar till prestandaräknarinstans, inte rollen eller serverinstansen för datorn. Instans prestandaräknarnamnet vanligtvis segment räknare, till exempel processortid av namnet på process eller program.)
+("Instans" här refererar till prestanda räknar instansen, inte rollen eller server maskin instansen. Prestanda räknarens instans namn brukar vara segment räknare som processor tid med namnet på processen eller programmet.)
 
-Hämta ett diagram av det tillgängliga minnet under den senaste perioden: 
+Så här hämtar du ett diagram över tillgängligt minne under den senaste perioden: 
 
-![Minne tidsdiagram i Application Insights analytics](./media/performance-counters/analytics-available-memory.png)
+![Minnes timechart i Application Insights Analytics](./media/performance-counters/analytics-available-memory.png)
 
-Som andra telemetri **performanceCounters** också har en kolumn `cloud_RoleInstance` värde som anger identiteten för värdserverinstansens som din app körs. Till exempel att jämföra prestanda för din app på olika datorer: 
+Precis som andra telemetri innehåller **performanceCounters** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Om du till exempel vill jämföra appens prestanda på olika datorer: 
 
-![Prestanda uppdelat efter rollinstans i Application Insights analytics](./media/performance-counters/analytics-metrics-role-instance.png)
+![Prestanda segmenterad av roll instans i Application Insights Analytics](./media/performance-counters/analytics-metrics-role-instance.png)
 
-## <a name="aspnet-and-application-insights-counts"></a>ASP.NET och Application Insights-antal
+## <a name="aspnet-and-application-insights-counts"></a>ASP.NET och Application Insights antal
 
-*Vad är skillnaden mellan det antal undantag och undantag mått?*
+*Vad är skillnaden mellan undantags frekvensen och undantags måtten?*
 
-* *Antal undantag* är en system-prestandaräknare. CLR räknar alla hanterade och ohanterade undantag som utlöses och delar det totala antalet i ett exempelintervall med längden på intervallet. Application Insights SDK samlar in det här resultatet och skickar det till portalen.
+* *Undantags frekvensen* är en system prestanda räknare. CLR räknar alla hanterade och ohanterade undantag som genereras, och dividerar summan i ett samplings intervall med längden på intervallet. Application Insights SDK samlar in det här resultatet och skickar det till portalen.
 
-* *Undantag* antal TrackException rapporterna tas emot av portalen i insamlingsintervall för diagrammet. Den innehåller endast hanterade undantag där du har skrivit TrackException anropar i din kod och inte innehåller alla [ohanterade undantag](../../azure-monitor/app/asp-net-exceptions.md). 
+* *Undantag* är antalet TrackException-rapporter som tagits emot av portalen i diagrammets samplings intervall. Den innehåller bara de hanterade undantagen där du har skrivit TrackException-anrop i koden, och innehåller inte alla [ohanterade undantag](../../azure-monitor/app/asp-net-exceptions.md). 
 
-## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Prestandaräknare för program som körs i Azure Web Apps
+## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Prestanda räknare för program som körs i Azure Web Apps
 
-Både ASP.NET och ASP.NET Core-program som distribueras till Azure Web Apps körs i en särskild sandbox-miljö. Den här miljön tillåter inte direkt åtkomst till systemprestandaräknare. Men en begränsad delmängd av prestandaräknare visas som miljövariabler enligt [här](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK för ASP.NET och ASP.NET Core samlar in prestandaräknare från Azure Web Apps från dessa särskilda miljövariabler. Endast en delmängd av räknare är tillgängliga i den här miljön och en fullständig lista finns [här.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+Både ASP.NET-och ASP.NET Core-program som distribueras till Azure Web Apps köras i en särskild sandbox-miljö. Den här miljön tillåter inte direkt åtkomst till system prestanda räknare. En begränsad del av räknare visas dock som miljövariabler enligt beskrivningen [här](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK för ASP.NET och ASP.NET Core samlar in prestanda räknare från Azure Web Apps från dessa särskilda miljövariabler. Endast en del av räknarna är tillgängliga i den här miljön och den fullständiga listan finns [här.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Prestandaräknare i ASP.NET Core-program
+## <a name="performance-counters-in-aspnet-core-applications"></a>Prestanda räknare i ASP.NET Core program
 
-* [ASP.NET Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.4.1 och samlar in prestandaräknare ovan om programmet körs i Azure Web App (Windows)
+* [ASP.net Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.4.1 och senare samlar in prestanda räknare om programmet körs i Azure Web App (Windows)
 
-* SDK-version 2.7.0-beta3 och samlar in prestandaräknare ovan om programmet körs i Windows och riktar in sig på `NETSTANDARD2.0` eller högre.
-* För program som riktar in sig på .NET Framework, stöds prestandaräknare i alla versioner av SDK.
-* Den här artikeln kommer att uppdateras när du lägger till stöd för räknaren av prestanda i icke-Windows.
+* SDK-version 2.7.0 – beta3 och ovan samlar in prestanda räknare om programmet körs i Windows, och mål `NETSTANDARD2.0` eller högre.
+* Prestanda räknare stöds i alla versioner av SDK för program som är riktade till .NET Framework.
+* Den här artikeln kommer att uppdateras när prestanda räknar stödet i icke-Windows läggs till.
 
 ## <a name="alerts"></a>Aviseringar
-Till exempel andra mått, kan du [ställa in en avisering](../../azure-monitor/app/alerts.md) att varna dig om en prestandaräknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
+Precis som med andra mått kan du [Ange en avisering](../../azure-monitor/app/alerts.md) som varnar dig om en prestanda räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
 
 ## <a name="next"></a>Nästa steg
 
-* [Beroendespårning](../../azure-monitor/app/asp-net-dependencies.md)
-* [Undantagsspårning](../../azure-monitor/app/asp-net-exceptions.md)
+* [Beroende spårning](../../azure-monitor/app/asp-net-dependencies.md)
+* [Undantags spårning](../../azure-monitor/app/asp-net-exceptions.md)
 

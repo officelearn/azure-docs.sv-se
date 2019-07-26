@@ -1,6 +1,6 @@
 ---
-title: Korsdomänprinciper Azure API Management | Microsoft Docs
-description: Läs mer om principerna för över domäner som är tillgängliga för användning i Azure API Management.
+title: Azure API Management kors domän principer | Microsoft Docs
+description: Lär dig mer om de kors domän principer som är tillgängliga för användning i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071941"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442323"
 ---
 # <a name="api-management-cross-domain-policies"></a>Korsdomänprinciper för API Management
-Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="CrossDomainPolicies"></a> Principer mellan domäner
+## <a name="CrossDomainPolicies"></a>Kors domän principer
 
-- [Tillåt anrop mellan domäner](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -gör API: et åtkomlig från Adobe Flash och Microsoft Silverlight webbläsarbaserade klienter.
-- [CORS](api-management-cross-domain-policies.md#CORS) -lägger till cross-origin resource sharing (CORS) support till en åtgärd eller ett API för att tillåta anrop mellan domäner från webbläsarbaserade klienter.
-- [JSONP](api-management-cross-domain-policies.md#JSONP) -lägger till JSON med stöd för utfyllnad (JSONP) till en åtgärd eller ett API för att tillåta anrop mellan domäner från JavaScript-webbläsarbaserade klienter.
+- [Tillåt kors domän anrop](api-management-cross-domain-policies.md#AllowCrossDomainCalls) – gör API: et tillgängligt från webbläsarbaserade Adobe Flash-och Microsoft Silverlight-baserade klienter.
+- [CORS](api-management-cross-domain-policies.md#CORS) – lägger till CORS-stöd (Cross-Origin Resource Sharing) till en åtgärd eller ett API för att tillåta kors domän anrop från webbläsarbaserade klienter.
+- [JSONP](api-management-cross-domain-policies.md#JSONP) – lägger till JSON med JSONP-stöd (JSON with utfyllnad) till en åtgärd eller ett API för att tillåta kors domän anrop från Java Script browser-baserade klienter.
 
-## <a name="AllowCrossDomainCalls"></a> Tillåt anrop mellan domäner
-Använd den `cross-domain` princip att göra API tillgängligt från Adobe Flash och Microsoft Silverlight webbläsarbaserade klienter.
+## <a name="AllowCrossDomainCalls"></a>Tillåt anrop mellan domäner
+`cross-domain` Använd principen för att göra API: et tillgängligt från webbläsarbaserade klienter i Adobe Flash och Microsoft Silverlight.
 
-### <a name="policy-statement"></a>Principframställning
+### <a name="policy-statement"></a>Princip kommentar
 
 ```xml
 <cross-domain>
@@ -46,30 +46,30 @@ Använd den `cross-domain` princip att göra API tillgängligt från Adobe Flash
 
 ```xml
 <cross-domain>
-    <cross-domain-policy>
+    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain-policy>
+    </cross-domain>
 </cross-domain>
 ```
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|
+|Namn|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
-|mellan domäner|Rotelement. Underordnade element måste motsvara den [Adobe domänerna filen principspecifikationen](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|
+|mellan domäner|Rot element. Underordnade element måste följa specifikationen för [Adobe Cross-domain policy File](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|
 
 ### <a name="usage"></a>Användning
-Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
-- **Princip-avsnitt:** inkommande
-- **Princip-scope:** globala
+- **Princip avsnitt:** inkommande
+- **Princip omfattningar:** alla omfattningar
 
-## <a name="CORS"></a> CORS
-Den `cors` Grupprincip lägger till cross-origin resource sharing (CORS) support till en åtgärd eller ett API för att tillåta anrop mellan domäner från webbläsarbaserade klienter.
+## <a name="CORS"></a>CORS
+`cors` Principen lägger till CORS-stöd (Cross-Origin Resource Sharing) till en åtgärd eller ett API för att tillåta kors domän anrop från webbläsarbaserade klienter.
 
-CORS kan en webbläsare och en server för att interagera och avgöra om att tillåta specifika cross-origin-begäranden (d.v.s. XMLHttpRequests anrop som görs från JavaScript på en webbsida till andra domäner) eller inte. Detta möjliggör mer flexibilitet än att bara tillåta begäranden om samma ursprung, men det är säkrare än så att alla cross-origin-begäranden.
+CORS gör det möjligt för en webbläsare och en server att samverka och avgöra om det ska gå att tillåta vissa cross-origin-begäranden (d.v.s. XMLHttpRequests-anrop som görs från Java Script på en webb sida till andra domäner). Detta ger större flexibilitet än att bara tillåta begär Anden om samma ursprung, men det är säkrare än att tillåta alla cross-origin-begäranden.
 
-### <a name="policy-statement"></a>Principframställning
+### <a name="policy-statement"></a>Princip kommentar
 
 ```xml
 <cors allow-credentials="false|true">
@@ -89,7 +89,7 @@ CORS kan en webbläsare och en server för att interagera och avgöra om att til
 ```
 
 ### <a name="example"></a>Exempel
-Det här exemplet visar hur du stöd för före flygning begäranden, till exempel de med anpassade huvuden eller andra metoder än GET och POST. För att stödja anpassade sidhuvuden och ytterligare HTTP-verb, Använd den `allowed-methods` och `allowed-headers` avsnitten som visas i följande exempel.
+I det här exemplet visas hur du stöder för-flygnings begär Anden, t. ex. de som har anpassade sidhuvuden eller andra metoder än GET och POST. Om du vill ha stöd för anpassade rubriker och ytterligare http- `allowed-methods` verb `allowed-headers` använder du avsnitten och som visas i följande exempel.
 
 ```xml
 <cors allow-credentials="true">
@@ -123,34 +123,34 @@ Det här exemplet visar hur du stöd för före flygning begäranden, till exemp
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
-|cors|Rotelement.|Ja|Gäller inte|
-|tillåtna ursprung|Innehåller `origin` element som beskriver de tillåtna ursprung för begäranden mellan domäner. `allowed-origins` kan innehålla antingen ett enskilt `origin` element som anger `*` så att alla ursprung, eller en eller flera `origin` element som innehåller en URI.|Ja|Gäller inte|
-|ursprung|Värdet kan vara antingen `*` så att alla ursprung eller en URI som anger ett enda ursprung. URI: N måste innehålla ett schema, värd och port.|Ja|Om porten utelämnas i en URI, används port 80 för HTTP och port 443 används för HTTPS.|
-|tillåtna metoder|Det här elementet krävs om metoder än får eller publicera tillåts. Innehåller `method` element som anger HTTP-verb som stöds.|Nej|Om det här avsnittet inte är tillgänglig, stöds GET och POST.|
-|method|Anger ett HTTP-verb.|Minst en `method` elementet krävs om de `allowed-methods` avsnittet finns.|Gäller inte|
-|tillåtna huvuden|Det här elementet innehåller `header` element att ange namnen på de rubriker som kan tas med i begäran.|Nej|Gäller inte|
-|Exponerar rubriker|Det här elementet innehåller `header` element att ange namnen på de rubriker som ska vara tillgängliga för klienten.|Nej|Gäller inte|
-|sidhuvud|Anger en rubrik.|Minst en `header` elementet krävs i `allowed-headers` eller `expose-headers` om finns i avsnittet.|Gäller inte|
+|CORS|Rot element.|Ja|Gäller inte|
+|tillåtna-ursprung|Innehåller `origin` element som beskriver tillåtna ursprung för frågor mellan domäner. `allowed-origins`kan innehålla antingen ett enda `origin` element som anger `*` att alla ursprung eller ett eller flera `origin` element som innehåller en URI ska tillåtas.|Ja|Gäller inte|
+|ursprung|Värdet kan antingen `*` vara att tillåta alla ursprung eller en URI som anger ett enda ursprung. URI: n måste innehålla ett schema, en värd och en port.|Ja|Om porten utelämnas i en URI används port 80 för HTTP och port 443 för HTTPS.|
+|tillåtna metoder|Det här elementet krävs om andra metoder än GET eller POST tillåts. Innehåller `method` element som anger de HTTP-verb som stöds.|Nej|Om det här avsnittet inte finns stöds GET och POST.|
+|method|Anger ett HTTP-verb.|Minst ett `method` -element krävs `allowed-methods` om avsnittet finns.|Gäller inte|
+|tillåtna – rubriker|Det här elementet `header` innehåller element som anger namn på de huvuden som kan tas med i begäran.|Nej|Gäller inte|
+|exponera – rubriker|Det här elementet `header` innehåller element som anger namn på de rubriker som ska vara tillgängliga för klienten.|Nej|Gäller inte|
+|sidhuvud|Anger ett rubrik namn.|Minst ett `header` element krävs i `allowed-headers` eller `expose-headers` om avsnittet är tillgängligt.|Gäller inte|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
-|Tillåt autentiseringsuppgifter|Den `Access-Control-Allow-Credentials` rubrik preflight-svar anges till värdet för det här attributet och påverka klientens möjlighet att skicka autentiseringsuppgifter i domänerna begäranden.|Nej|false|
-|preflight-result-max-age|Den `Access-Control-Max-Age` rubrik preflight-svar anges till värdet för det här attributet och påverka användaragenten möjlighet att cache före flygning svar.|Nej|0|
+|Tillåt-autentiseringsuppgifter|`Access-Control-Allow-Credentials` Rubriken i preflight-svaret anges till värdet för det här attributet och påverkar klientens möjlighet att skicka autentiseringsuppgifter i kors domän begär Anden.|Nej|false|
+|preflight-resultat-max-ålder|`Access-Control-Max-Age` Rubriken i preflight-svaret ställs in på värdet för det här attributet och påverkar användar agentens möjlighet att cachelagra svar före flygning.|Nej|0|
 
 ### <a name="usage"></a>Användning
-Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
-- **Princip-avsnitt:** inkommande
-- **Princip-scope:** globala, produkt, API, igen
+- **Princip avsnitt:** inkommande
+- **Princip omfattningar:** alla omfattningar
 
-## <a name="JSONP"></a> JSONP
-Den `jsonp` Grupprincip lägger till JSON med stöd för utfyllnad (JSONP) till en åtgärd eller ett API för att tillåta anrop mellan domäner från JavaScript-webbläsarbaserade klienter. JSONP är en metod som används i JavaScript-program att begärandedata från en server i en annan domän. JSONP kringgår den begränsning som tillämpas av de flesta webbläsare där åtkomst till webbsidor måste vara i samma domän.
+## <a name="JSONP"></a>JSONP
+`jsonp` Principen lägger till JSON med stöd för JSONP-stöd (JSON with utfyllnad) i en åtgärd eller ett API för att tillåta kors domän anrop från Java Script browser-baserade klienter. JSONP är en metod som används i JavaScript-program för att begära data från en server i en annan domän. JSONP kringgår begränsningen som tillämpas av de flesta webbläsare där åtkomst till webb sidor måste finnas i samma domän.
 
-### <a name="policy-statement"></a>Principframställning
+### <a name="policy-statement"></a>Princip kommentar
 
 ```xml
 <jsonp callback-parameter-name="callback function name" />
@@ -162,33 +162,33 @@ Den `jsonp` Grupprincip lägger till JSON med stöd för utfyllnad (JSONP) till 
 <jsonp callback-parameter-name="cb" />
 ```
 
-Om du anropar metoden utan parametern återanrop? cb = XXX returneras oformaterad JSON (utan en Omslutning för anrop av funktionen).
+Om du anropar-metoden utan callback-parametern? CB = XXX kommer den att returnera vanlig JSON (utan ett funktions anrop).
 
-Om du lägger till parametern återanrop `?cb=XXX` returneras ett JSONP-resultat, wrapping ursprungliga JSON resultat runt Återanropsfunktionen som `XYZ('<json result goes here>');`
+Om du lägger till en callback `?cb=XXX` -parameter returnerar den ett JSONP-resultat och omsluter de ursprungliga JSON-resultaten runt motringningsfunktionen som`XYZ('<json result goes here>');`
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|
+|Namn|Beskrivning|Obligatorisk|
 |----------|-----------------|--------------|
-|jsonp|Rotelement.|Ja|
+|jsonp|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatorisk|Standard|
 |----------|-----------------|--------------|-------------|
-|callback-parameter-name|Domänerna JavaScript funktionsanropet föregås av det fullständigt kvalificerade domännamnet där funktionen finns.|Ja|Gäller inte|
+|callback-parameter-name|JavaScript-funktionen för Cross-Domain anropas med det fullständigt kvalificerade domän namnet där funktionen finns.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
-Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
-- **Princip-avsnitt:** utgående
-- **Princip-scope:** globala, produkt, API, igen
+- **Princip avsnitt:** utgående
+- **Princip omfattningar:** alla omfattningar
 
 ## <a name="next-steps"></a>Nästa steg
 
-Arbeta med principer, Läs mer:
+Mer information om hur du arbetar med principer finns i:
 
 + [Principer i API Management](api-management-howto-policies.md)
 + [Transformera API: er](transform-api.md)
-+ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
-+ [Princip-exempel](policy-samples.md)   
++ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip exempel](policy-samples.md)

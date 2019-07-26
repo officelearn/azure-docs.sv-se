@@ -1,153 +1,175 @@
 ---
 title: Vad är Azure Reservations?
-description: Läs mer om Azure-reservationer och priser för att spara på dina virtuella datorer, SQL-databaser, Azure Cosmos DB och andra resurskostnader.
+description: Lär dig mer om Azure Reservations och priser för att spara på dina virtuella datorer, SQL-databaser, Azure Cosmos DB och andra resurs kostnader.
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/19/2019
 ms.author: banders
-ms.openlocfilehash: cd0a70aa0fb5096c5b0157ae078c961da03109bc
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565328"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359229"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
-Azure reservationer hjälpa dig att spara pengar genom att förväg betala för ett år eller tre års virtuella datorer, SQL-databas för beräkning kapacitet, dataflöde för Azure Cosmos DB eller andra Azure-resurser. Betala förväg kan du få rabatt på de resurser du använder. Reservationer kan avsevärt minska den virtuella datorn, SQL database beräkning, Azure Cosmos DB, eller annan resurs kostar upp till 72% jämfört med användningsbaserad betalning. Reservationer ger en rabatt på fakturering och påverka inte körtiden för dina resurser.
+Azure Reservations hjälpa dig att spara pengar genom förskotts betalning för ett år eller tre års virtuella datorer, SQL Database beräknings kapacitet, Azure Cosmos DB data flöde eller andra Azure-resurser. Med förbetald betalning får du rabatt på de resurser du använder. Reservationer kan avsevärt minska din virtuella dator, SQL Database Compute, Azure Cosmos DB eller andra resurs kostnader upp till 72% på priserna för betala per användning. Reservationer ger en fakturerings rabatt och påverkar inte körnings statusen för dina resurser.
 
-Du kan köpa en reservation den [Azure-portalen](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Du kan köpa en reservation i [Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-## <a name="why-buy-a-reservation"></a>Varför ska jag köpa en reservation?
+## <a name="why-buy-a-reservation"></a>Varför köpa en reservation?
 
-Om du har virtuella datorer, Azure Cosmos DB eller SQL-databaser som körs under lång tid kan ger köpa en reservation dig det billigaste alternativet. Till exempel att när du kör kontinuerligt fyra instanser av en tjänst utan en reservation, kommer du att debiteras enligt priserna för användningsbaserad betalning. Om du köper en reservation för dessa resurser kan få du direkt rabatten. Resurserna är inte längre debiteras enligt priserna för användningsbaserad betalning.
+Om du har virtuella datorer, Azure Cosmos DB eller SQL-databaser som körs under långa tids perioder får du det mest kostnads effektiva alternativet genom att köpa en reservation. När du till exempel kontinuerligt kör fyra instanser av en tjänst utan en reservation debiteras du enligt priserna för betala per användning. När du köper en reservation för dessa resurser får du reservations rabatten direkt. Resurserna debiteras inte längre enligt priserna för betala per användning.
 
-## <a name="charges-covered-by-reservation"></a>Avgifter som täcks av reservation
+## <a name="charges-covered-by-reservation"></a>Avgifter som omfattas av reservation
 
-Service-planer:
+Service planer:
 
-- **Reserverade VM-instanser** – en reservation täcker endast beräkningskostnader för virtuell dator. Det täcker inte ytterligare kostnader för programvara, nätverk och lagring.
-- **Azure Cosmos DB reserverad kapacitet** – en reservation omfattar dataflödet som etableras för dina resurser. Det täcker inte lagring och nätverk avgifter.
-- **SQL Database reserverade vCore** – endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
+- **Reserverad virtuell dator instans** – en reservation täcker bara den virtuella datorns beräknings kostnader. Det tar inte upp ytterligare program vara, nätverk eller lagrings kostnader.
+- **Azure Cosmos DB reserverad kapacitet** – en reservation täcker data flöde som har allokerats för dina resurser. Det behandlar inte lagrings-och nätverks avgifterna.
+- **SQL Database reserverad vCore** – endast beräknings kostnaderna ingår i en reservation. Licensen debiteras separat.
 
-För Windows-datorer och SQL-databas, kan du täcker licensieringskostnaderna med [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/).
+För virtuella Windows-datorer och SQL Database kan du försäkra licens kostnaderna med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-## <a name="whos-eligible-to-purchase-a-reservation"></a>Vem är kvalificerad att köpa en reservation?
+## <a name="whos-eligible-to-purchase-a-reservation"></a>Vem är berättigad att köpa en reservation?
 
-Du måste ha en prenumeration ägarrollen i ett företag (MS-AZR - 0017P eller MS-AZR - 0148P) eller en prenumeration med användningsbaserad betalning (MS-AZR - 003P eller MS-AZR - 0023P) om du vill köpa en plan. Cloud solution providers kan använda Azure-portalen eller [Partnercenter](/partner-center/azure-reservations) att köpa reservationer för Azure.
+Om du vill köpa en plan måste du ha en prenumerations ägar roll i ett företag (MS-AZR-0017P eller MS-AZR-0148P) eller prenumerationen betala per användning (MS-AZR-003P eller MS-AZR-0023P). Moln lösnings leverantörer kan använda Azure Portal eller [partner Center](/partner-center/azure-reservations) för att köpa Azure reservations.
 
-EA-kunder kan begränsa inköp till EA-administratörer genom att inaktivera den **lägga till reserverade instanser** alternativ i EA-portalen. EA-administratörer måste vara prenumerationsägare för minst en EA-prenumeration att köpa en reservation. Alternativet är användbart för företag som vill ha en centraliserad team att köpa reservationer för olika kostnadsställen. Efter köpet, centraliserad team kan lägga till kostnaden center ägare reservationerna. Ägare kan sedan begränsa reservationen prenumerationerna. Centralt team behöver inte ha ägaråtkomst för prenumerationen där reservationen köps.
+Enterprise-avtal-kunder (EA) kan begränsa köp till EA-administratörer. De gör detta genom att inaktivera alternativet **Lägg till reserverade instanser** i EA-portalen. EA-administratörer måste vara en prenumerations ägare för minst en EA-prenumeration för att köpa en reservation. Alternativet är användbart för företag som vill att ett centraliserat team ska köpa reservationer för olika kostnads ställen. Efter köpet kan centraliserade team lägga till kostnads ställe ägare till reservationerna. Ägare kan sedan begränsa reservationen till sina prenumerationer. Det centrala teamet behöver inte ha prenumerations ägar åtkomst där reservationen köps.
 
-En reservationsrabatten gäller bara för resurser som är associerade med prenumerationer som köpts via Enterprise, CSP och enskilda prenumerationer med användningsbaserad betalning.
+En reservations rabatt gäller bara för resurser som är kopplade till prenumerationer som köpts via Enterprise, Cloud Solution Provider (CSP) och enskilda planer med priser enligt principen betala per användning.
 
-## <a name="scope-reservations"></a>Scope-reservationer
+## <a name="scope-reservations"></a>Omfångs reservationer
 
-Du kan definiera en reservation för en prenumeration eller resursgrupp grupper. Ställa in omfång för en reservation väljer där besparingarna reservation tillämpas. När du skapar en resursgrupp reservationen reservation rabatter gäller endast för resursgruppen, inte hela prenumerationen.
+Du kan begränsa en reservation till en prenumeration eller resurs grupp. Om du anger omfånget för en reservation väljs var reservations besparingarna gäller. När du omfångerar reservationen till en resurs grupp gäller reservations rabatten endast för resurs gruppen, inte hela prenumerationen.
 
-### <a name="reservation-scoping-options"></a>Ange omfång alternativ för reservation
+### <a name="reservation-scoping-options"></a>Alternativ för reservations omfång
 
-Med resource har group omfång du tre alternativ att omfatta en reservation, beroende på dina behov:
+Med resurs grupp omfånget finns det tre alternativ för att omfånget för en reservation, beroende på dina behov:
 
-- **Enkel resurs Gruppomfång** – reservationsrabatten avser matchande resurserna i den valda resursgruppen bara.
-- **Enkel prenumerationsomfattningen** – reservationsrabatten avser de matchande resurserna i den valda prenumerationen.
-- **Dela omfattning** – gäller rabatten för matchande resurser i berättigade prenumerationer som är i kontexten för fakturering. För Enterprise Agreement-kunder är faktureringskontexten registreringen. För enskilda prenumerationer med användningsbaserad betalning är fakturering omfattningen alla berättigade prenumerationer som skapats av kontoadministratören.
+- **Definitions område för enskild resurs grupp** – tillämpar reservations rabatten på de matchande resurserna enbart i den valda resurs gruppen.
+- **Enda prenumerations omfång** – tillämpar reservations rabatten på de matchande resurserna i den valda prenumerationen.
+- **Delat omfång** – tillämpar reservations rabatten på matchande resurser i berättigade prenumerationer som finns i fakturerings kontexten. För Enterprise-avtal kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med priser enligt principen betala per användning är fakturerings omfånget alla berättigade prenumerationer som skapats av konto administratören.
 
-När reservationen rabatter på din användning, bearbetar Azure reservationen i följande ordning:
+När du använder reservations rabatter för din användning, bearbetar Azure reservationen i följande ordning:
 
-1. Reservationer som är begränsade till en resursgrupp
-2. Enda scope-reservationer
-3. Delade omfattningen reservationer
+1. Reservationer som är begränsade till en resurs grupp
+2. Enkla omfångs reservationer
+3. Delade omfångs reservationer
 
-En enskild resursgrupp kan hämta reserverade rabatter från flera reservationer, beroende på hur du begränsa dina reservationer.
+En enda resurs grupp kan hämta reservations rabatter från flera reservationer, beroende på hur du omfångerar dina reservationer.
 
-### <a name="scope-a-reservation-to-a-resource-group"></a>Omfång för reservation för en resursgrupp
+### <a name="scope-a-reservation-to-a-resource-group"></a>Omfånget av en reservation till en resurs grupp
 
-När du köper reservationen, eller ställa in omfånget efter köpet kan du begränsa reservationen till en resursgrupp. Du måste vara en prenumerant för att definiera omfattningen av reservationen till en resursgrupp.
+Du kan begränsa reservationen till en resurs grupp när du köper reservationen, eller så ställer du in omfånget efter köpet. Du måste vara prenumerations ägare för att omfånget av reservationen till en resurs grupp.
 
-Ange omfånget, går du till den [köpa reservationen](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) sidan på Azure portal. Välj den reservationstyp av som du vill köpa. På den **Välj den produkt som du vill köpa** val av formuläret, ändra den **omfång** värde att **enskild resursgrupp** och välj en resursgrupp.
+Om du vill ange omfånget går du till sidan [köp reservation](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) i Azure Portal. Välj den reservations typ som du vill köpa. I **Välj den produkt som du vill köpa** urvals formuläret ändrar du värdet för omfattning till enskild resurs grupp. Välj sedan en resurs grupp.
 
-![Exempel på VM-reservation köp val](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+![Exempel som visar köp val för virtuella datorer](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
 
-Rekommendationer för köp på resursgruppen i reservera virtuella datorer visas. Rekommendationer beräknas genom att analysera din användning under de senaste 30 dagarna. En rekommendation för inköp görs om kostnaden för att köra resurser med reserverade instanser är billigare än kostnaden för att köra resurser med betala per användning. Läs mer om rekommendationer för köp av reservation, den [rekommendationer för köp av reserverade instanser för få utifrån användningsmönstret](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations) blogginlägg.
+Inköps rekommendationer för resurs gruppen i den virtuella dator reservationen visas. Rekommendationerna beräknas genom att analysera din användning under de senaste 30 dagarna. En inköps rekommendation görs om kostnaden för att köra resurser med reserverade instanser är billigare än kostnaden för att köra resurser med taxan betala per användning. Mer information om rekommendationer för reservations köp finns i [Hämta reserverade instanser köp rekommendationer baserat på användnings mönster](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations).
 
-Du kan alltid uppdatera omfattningen när du köper en reservation. Du gör detta genom att gå till reservationen, klickar du på **Configuration** och rescope reservationen. Rescoping en reservation är inte en affärstransaktion. Din reservationsperioden ändras inte. Läs mer om att uppdatera omfattningen [uppdatera omfattningen när du köper en reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+Du kan alltid uppdatera omfånget när du har köpt en reservation. Det gör du genom att gå till reservationen, klicka på **konfiguration**och omfång reservationen. Omdefiniering av en reservation är inte en kommersiell transaktion. Reservations perioden har inte ändrats. Mer information om hur du uppdaterar omfattningen finns i [Uppdatera omfånget när du har köpt en reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
-![Exemplet visar en ändring av omfång för reservation](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+![Exempel som visar en ändring av reservations omfånget](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
 
-### <a name="monitor-and-optimize-reservation-usage"></a>Övervaka och optimera användningen av reservation
+### <a name="monitor-and-optimize-reservation-usage"></a>Övervaka och optimera reservations användningen
 
-Du kan övervaka din reservation användning på flera olika sätt – via Azure-portalen, via API: erna eller via användningsdata. Om du vill se alla reservationer som du har åtkomst till, går du till **reservationer** i Azure-portalen. Reservationer rutnätet visar senaste inspelade utnyttjandeprocent för reservationen. Klicka på reservationen om du vill se långsiktig användning av reservationen.
+Du kan övervaka reservations användningen på flera sätt – via Azure Portal, via API: er eller via användnings data. Om du vill se alla reservationer som du har åtkomst till, går du till **reservationer** i Azure Portal. Boknings rutnätet visar den senast inloggade användnings procenten för reservationen. Klicka på reservationen om du vill se långsiktig användning av reservationen.
 
-Du kan också hämta reserverade användning med [API: er](billing-reservation-apis.md#see-reservation-usage) och från din [användningsdata](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) om du är en enterprise agreement-kunder.
+Du kan också få reservations användning med [API: er](billing-reservation-apis.md#see-reservation-usage) och [användnings data](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) om du är kund för Enterprise-avtal.
 
-Om du märker att användningen av resursgruppen omfattar reservationen är låg, och sedan kan du uppdatera reservationsomfånget för att enstaka prenumeration eller dela den i kontexten för fakturering. Du kan också dela reservationen och tillämpa de resulterande reservationerna för olika resursgrupper.
+Om du märker att användningen av den omslutna reservationen för resurs gruppen är låg kan du uppdatera reservations omfånget till en enskild prenumeration eller dela den över fakturerings kontexten. Du kan också dela reservationen och tillämpa de resulterande reservationerna på olika resurs grupper.
 
 ### <a name="other-considerations"></a>Annat att tänka på
 
-Om du inte behöver matcha resurser i en resursgrupp, underutnyttjade reservationen. Reservationen gäller inte automatiskt till en annan resursgrupp eller prenumeration där det finns låg användning.
+Om du inte har matchande resurser i en resurs grupp kommer reservationen att underutnyttjas. Reservationen gäller inte automatiskt för en annan resurs grupp eller prenumeration där det är ont om användning.
 
-Ett omfång för reservation uppdateras inte automatiskt om du flyttar resursgruppen från en prenumeration till en annan. Du kommer behöva rescope reservationen. I annat fall kommer reservationen underutnyttjade.
+En reservations omfattning uppdateras inte automatiskt om du flyttar resurs gruppen från en prenumeration till en annan. Omfånget uppdateras inte om du tar bort resurs gruppen. Du kommer att behöva [omfånget för reservationen](billing-manage-reserved-vm-instance.md#change-the-reservation-scope). Annars kommer reservationen att underutnyttjas.
 
-## <a name="discounted-subscription-and-offer-types"></a>Rabatterade prenumerationen och typer av erbjudanden
+## <a name="discounted-subscription-and-offer-types"></a>Rabatterat abonnemang och erbjudande typer
 
-Reservation rabatter gäller följande berättigade prenumerationer och erbjuder typer.
+Reservations rabatter gäller för följande berättigade prenumerationer och erbjudande typer.
 
-- Enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P)
-- Enskilda prenumerationer med användningsbaserad betalning (erbjuder siffror: MS-AZR-0003P eller MS-AZR - 0023 P)
+- Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P)
+- Enskilda planer med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P)
 - CSP-prenumerationer
 
-Resurser som körs i en prenumeration med andra typer av erbjudanden får inte rabatten.
+Resurser som körs i en prenumeration med andra erbjudande typer får inte reservations rabatten.
 
 ## <a name="how-is-a-reservation-billed"></a>Hur faktureras en reservation?
 
-Reservationen sker via den betalningsmetod som är kopplad till prenumerationen. Om du har en prenumeration på Enterprise dras reservation kostnaden från ditt åtagandebelopp. Om ditt saldo för åtagandebeloppet inte täcker kostnaden för reservationen, du debiteras överförbrukning. Om du har en prenumeration från en enskild plan med betala per användning debiteras då kreditkortet som du har på ditt konto omedelbart. Om du faktureras med faktura visas avgifterna på din nästa faktura.
+Reservationen debiteras till betalnings metoden som är kopplad till prenumerationen. Om du har en Enterprise-prenumeration dras reservations kostnaden från ditt åtagande belopp. När saldot för ditt åtagande belopp inte påverkar kostnaden för reservationen debiteras du överanvändning. Om du har en prenumeration från en enskild plan med taxan betala per användning faktureras det kredit kort som du har på ditt konto omedelbart. När du faktureras per faktura visas avgifterna på nästa faktura.
 
-## <a name="how-reservation-discount-is-applied"></a>Hur reservationsrabatten tillämpas
+## <a name="how-reservation-discount-is-applied"></a>Så här tillämpas reservations rabatten
 
-Rabatten gäller för Resursanvändning som matchar de attribut som du väljer när du köper reservationen. Attributen innehåller området där de matchande virtuella datorerna, SQL-databaser, Azure Cosmos DB eller andra resurser kör. Till exempel om du vill en reservationsrabatten för fyra Standard D2 virtuella datorer i regionen USA, västra, välj sedan den prenumeration där de virtuella datorerna körs.
+Reservations rabatten gäller för resursanvändning som matchar de attribut som du väljer när du köper reservationen. Attribut är det omfång där matchande virtuella datorer, SQL-databaser, Azure Cosmos DB eller andra resurser körs. Om du till exempel vill ha en reservations rabatt för fyra standard D2-virtuella datorer i regionen Västra USA väljer du den prenumeration där de virtuella datorerna körs.
 
-En reservationsrabatten är ”*användning – it-eller-förlora-it*”. Om du inte behöver matcha resurser för en timme, sedan förlora en Reservationskvantitet för den timmen. Du kan inte utföra vidarebefordra oanvända reserverade timmar.
+En reservations rabatt är "*Använd-IT-eller-förlorad-IT*". Om du inte har några matchande resurser i någon timme förlorar du en reservations kvantitet för den timmen. Det går inte att överföra oanvända reserverade timmar.
 
-När du stänger en resurs kan tillämpas reservationsrabatten automatiskt till en annan matchande resurs i det specificerade omfånget. Om inga matchande resurser finns i det specificerade omfånget så är de reserverade timmarna *förlorad*.
+När du stänger av en resurs tillämpas reservations rabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 
-Du kan senare skapa en resurs och har en matchande reservation som är underutnyttjade. I det här exemplet gäller reservationsrabatten automatiskt till den nya matchande resursen.
+Du kan till exempel skapa en resurs senare och ha en matchande reservation som underutnyttjas. Reservations rabatten gäller automatiskt för den nya matchande resursen.
 
-Om de virtuella datorerna körs i olika prenumerationer i din registrering/konto, väljer du området som delad. Delat omfång kan reservationsrabatten tillämpas i alla prenumerationer. Du kan ändra omfånget när du köper en reservation. Mer information finns i [hantera Azure-reservationer](billing-manage-reserved-vm-instance.md).
+Om de virtuella datorerna körs i olika prenumerationer i registreringen/kontot väljer du omfånget som delad. Delad omfattning gör att reservations rabatten kan tillämpas på alla prenumerationer. Du kan ändra omfånget när du har köpt en reservation. Mer information finns i [hantera Azure reservations](billing-manage-reserved-vm-instance.md).
 
-En reservationsrabatten gäller endast för resurser som är associerade med Enterprise, CSP eller prenumerationer med användningsbaserad-som-du gå priser. Resurser som körs i en prenumeration med andra typer av erbjudanden får inte rabatten.
+En reservations rabatt gäller bara för resurser som är kopplade till företag, CSP eller prenumerationer med betala per användning-pris. Resurser som körs i en prenumeration med andra erbjudande typer får inte reservations rabatten.
 
-## <a name="when-the-reservation-term-expires"></a>När reservationsperioden upphör att gälla
+## <a name="when-the-reservation-term-expires"></a>När reservations perioden upphör att gälla
 
-I slutet av reservationsperioden fakturering rabatten upphör att gälla och den virtuella datorn, SQL database, Azure Cosmos DB eller annan resurs debiteras enligt avgifterna för betala per användning-som-du gå priset. Azure reservationer inte den automatiska förnyelsen. Om du vill fortsätta få rabatten fakturering, måste du köpa en ny reservation för berättigade tjänster och programvara.
+I slutet av reservations perioden går fakturerings rabatten ut. Den virtuella datorn, SQL-databasen, Azure Cosmos DB eller någon annan resurs debiteras enligt priset betala per användning. Azure Reservations förnyas inte automatiskt. Om du vill fortsätta att få fakturerings rabatten måste du köpa en ny reservation för berättigade tjänster och program vara.
 
 ## <a name="discount-applies-to-different-sizes"></a>Rabatten gäller för olika storlekar
 
-När du köper en reservation gälla rabatten andra instanser med attribut som tillhör storleksgruppen samma. Den här funktionen kallas instans storlek flexibilitet. Flexibiliteten i rabatt täckning beror på vilken typ av reservation och de attribut som du väljer när du köper reservationen.
+När du köper en reservation kan rabatten gälla för andra instanser med attribut i samma storleks grupp. Den här funktionen kallas flexibilitet för instans storlek. Flexibiliteten i rabatten beror på typen av reservation och de attribut som du väljer när du köper reservationen.
 
-Service-planer:
+Service planer:
 
-- Reserverade VM-instanser: När du köper reservationen och välj **optimerade för**: **instans storlek flexibilitet**, rabatt täckning beror på virtuella datorstorlek som du väljer. Reservationen kan använda för storlekar för virtuella datorer (VM) i gruppen för serien av samma storlek. Mer information finns i [VM-storlek flexibilitet med reserverade VM-instanser](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- SQL Database reserverad kapacitet: Rabatt täckning beror på den prestandanivå som du väljer. Mer information finns i [förstå hur ett Azure reservationsrabatten tillämpas](billing-understand-reservation-charges.md).
-- Azure Cosmos DB reserverad kapacitet: Rabatt-täckning är beroende av det etablerade dataflödet. Mer information finns i [förstå hur ett Azure Cosmos DB-reservationsrabatten tillämpas](billing-understand-cosmosdb-reservation-charges.md).
+- Reserverade VM-instanser: När du köper reservationen och väljer **optimerad för flexibilitet för instans storlek**beror rabatt täckningen på den virtuella dator storleken som du väljer. Reservationen kan tillämpas på de virtuella datorernas (VM) storlekar i samma storleks serie grupp. Mer information finns i [storleks flexibilitet för virtuella datorer med reserverade VM-instanser](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Reserverad kapacitet för SQL Database: Rabatt täckningen beror på vilken prestanda nivå du väljer. Mer information finns i [förstå hur en Azure reservations rabatt](billing-understand-reservation-charges.md)används.
+- Reserverad kapacitet för Azure Cosmos DB: Rabatt täckningen beror på det etablerade data flödet. Mer information finns i [förstå hur en Azure Cosmos DB reservations rabatt tillämpas](billing-understand-cosmosdb-reservation-charges.md).
+
+## <a name="reservation-notifications"></a>Reservations meddelanden
+
+Beroende på hur du betalar för din Azure-prenumeration skickar vi e-post till följande användare i din organisation. Meddelanden skickas för olika händelser, inklusive:
+
+- Köp
+- Kommande reservations förfallo datum
+- Expiry
+- Längs
+- Annullering
+- Omfattnings ändring
+
+För kunder med EA-prenumerationer:
+- Ett inköps meddelande skickas till inköparen och funktionen för EA-aviseringar.
+- Andra meddelanden om reservations-livscykel skickas endast till meddelanden med EA-aviseringar.
+- Användare som läggs till i en reservation som använder RBAC (IAM)-behörighet får inte några e-postaviseringar.
+
+För kunder med enskilda prenumerationer:
+- Inköparen får ett inköps meddelande.
+- Vid inköps tillfället får prenumerationens fakturerings konto ägare ett inköps meddelande.
+- Konto ägaren tar emot alla andra meddelanden.
+
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Om du har frågor eller behöver hjälp kan du [skapa en support förfrågan](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om Azure reservationer i följande artiklar:
+- Läs mer om Azure Reservations med följande artiklar:
     - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
-    - [Förstå användningen av reserverade för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
-    - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
-    - [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
-    - [Azure reservationer i programmet för Partner Center Cloud Solution Provider (CSP)](/partner-center/azure-reservations)
+    - [Förstå reservations användningen för din prenumeration med priser enligt principen betala per användning](billing-understand-reserved-instance-usage.md)
+    - [Förstå reservations användningen för företags registreringen](billing-understand-reserved-instance-usage-ea.md)
+    - [Windows-programkostnader som inte ingår i reservationer](billing-reserved-instance-windows-software-costs.md)
+    - [Azure Reservations i programmet Partner Center Cloud Solution Provider (CSP)](/partner-center/azure-reservations)
 
-- Läs mer om reservationer för service-planer:
-    - [Virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-    - [Azure Cosmos DB-resurser med Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [SQL Database-beräkningsresurser med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md) mer information om reservationer för programvaruplaner:
-    - [Red Hat programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-rhel-software-charges.md)
-    - [SUSE programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-suse-software-charges.md)
+- Läs mer om reservationer för Service planer:
+    - [Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Azure Cosmos DB resurser med Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)
+    - [SQL Database beräknings resurser med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md) Läs mer om reservationer för program varu planer:
+    - [Red Hat-programplaner från Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [SUSE program varu planer från Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)

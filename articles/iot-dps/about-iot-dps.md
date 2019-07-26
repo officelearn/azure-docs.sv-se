@@ -3,17 +3,17 @@ title: Översikt över Azure IoT Hub Device Provisioning Service | Microsoft Doc
 description: Beskriver enhetsetablering i Azure med Device Provisioning Service och IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746142"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360281"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Enhetsetablering med Azure IoT Hub Device Provisioning Service
 Microsoft Azure har en stor uppsättning integrerade offentliga molntjänster för alla dina IoT-lösningsbehov. IoT Hub Device Provisioning Service är en hjälptjänst för IoT Hub som möjliggör zero-touch och just-in-time-etablering till rätt IoT-hubb utan mänsklig interaktion, vilket gör att kunder kan etablera miljontals enheter på ett säkert och skalbart sätt.
@@ -96,7 +96,7 @@ Liksom alla Azure IoT-tjänster fungerar Device Provisioning Service plattformso
 
 Device Provisioning Service stödjer endast HTTPS-anslutningar för tjänståtgärder.
 
-## <a name="regions"></a>Regioner
+## <a name="regions"></a>Regions
 Device Provisioning Service är tillgänglig i många regioner. En uppdaterad lista över befintliga och nyligen tillkännagivna regioner för alla tjänster finns på [Azure Regions](https://azure.microsoft.com/regions/) (Azure-regioner). Du kan kontrollera tillgängligheten för Device Provisioning Service på sidan [Azure Status](https://azure.microsoft.com/status/) (Azure-status).
 
 > [!NOTE]
@@ -108,8 +108,9 @@ Det finns ett 99,9 % serviceavtal för Device Provisioning Service, och du kan 
 ## <a name="quotas"></a>Kvoter
 Varje Azure-prenumeration har standardkvotgränser som kan påverka IoT-lösningens omfång. Den aktuella gränsen på per prenumerationsbasis är 10 Device Provisioning Services per prenumeration.
 
-Mer information om kvotgränser:
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
+Mer information om kvotgränser:
 * [Tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Relaterade Azure-komponenter

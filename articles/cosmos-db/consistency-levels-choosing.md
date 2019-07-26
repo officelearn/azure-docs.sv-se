@@ -1,66 +1,66 @@
 ---
-title: Välja rätt konsekvensnivå för ditt program som använder Azure Cosmos DB
-description: Välja rätt konsekvensnivå för ditt program i Azure Cosmos DB.
+title: Välja rätt konsekvens nivå för ditt program som använder Azure Cosmos DB
+description: Välja rätt konsekvens nivå för ditt program i Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b08f9a85b8c9f52724e2cd08eaf13eb1faae0977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c81e978c5f3dbbb8fac1ea5e75fc506612308f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243566"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384899"
 ---
 # <a name="choose-the-right-consistency-level"></a>Välja rätt konsekvensnivå 
 
-Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt distribuerade databaser Ställ utvecklare kan välja mellan två extrem konsekvensmodeller: *stark* konsekvens och *slutlig* konsekvens. Azure Cosmos DB kan utvecklare välja mellan fem väldefinierade konsekvensmodeller: *stark*, *begränsad föråldring*, *session*, *konsekvent prefixet* och *eventuell*. Var och en av dessa konsekvensmodeller är väldefinierade, intuitivt och kan användas för den specifika verkliga scenarier. Var och en av de fem konsekvensmodeller ge exakta [tillgänglighet och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande serviceavtal. Följande enkla överväganden hjälper dig att fatta rätt beslut i många vanliga scenarier.
+Distribuerade databaser förlitar sig på replikering för hög tillgänglighet, låg latens eller båda, och gör den grundläggande kompromissen mellan Läs konsekvens jämfört med tillgänglighet, svars tid och data flöde. De flesta kommersiellt tillgängliga distribuerade databaser ber utvecklare att välja mellan de två extrema konsekvens modellerna: *stark* konsekvens och *eventuell* konsekvens. Azure Cosmos DB gör det möjligt för utvecklare att välja bland de fem väldefinierade konsekvens modellerna: *stark*, begränsad föråldrad, *session*, *konsekvent prefix* och *eventuell*. Var och en av dessa konsekvens modeller är väldefinierad, intuitiv och kan användas för vissa verkliga scenarier. Var och en av de fem konsekvens modellerna ger exakta tillgänglighets- [och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande service avtal. Följande enkla saker hjälper dig att fatta rätt val i många vanliga scenarier.
 
-## <a name="sql-api-and-table-api"></a>SQL-API och tabell-API
+## <a name="sql-api-and-table-api"></a>SQL API och Tabell-API
 
-Tänk på följande om ditt program har skapats med SQL API eller tabell-API:
+Tänk på följande när ditt program har skapats med SQL API eller Tabell-API:
 
-- Sessionskonsekvens är den optimala för många verkliga scenarier, och det är det rekommendera alternativet. Mer information finns i, [anvisningar: hantera sessionstoken för ditt program](how-to-manage-consistency.md#utilize-session-tokens).
+- I många verkliga scenarier är konsekvensen av sessionen optimala och det är det rekommenderade alternativet. Mer information finns i, [hur man hanterar sessionstoken för ditt program](how-to-manage-consistency.md#utilize-session-tokens).
 
-- Om programmet kräver stark konsekvens, rekommenderas att du använder begränsad föråldring konsekvensnivå.
+- Om ditt program kräver stark konsekvens rekommenderar vi att du använder den begränsade inaktuella konsekvens nivån.
 
-- Om du behöver striktare garanterar konsekvens än som anges av sessionskonsekvens och enskild ensiffriga fördröjning för skrivningar, vi rekommenderar att du använder bunden föråldring konsekvensnivå.  
+- Om du behöver striktare konsekvens garantier än de som tillhandahålls av konsekvensen för sessioner och ensiffriga millisekunder för skrivningar, rekommenderar vi att du använder begränsad föråldrad konsekvens nivå.  
 
-- Om programmet kräver konsekvens, rekommenderas att du använder konsekvent prefix konsekvensnivå.
+- Om programmet kräver eventuell konsekvens, rekommenderar vi att du använder konsekvent konsekvens nivå för prefix.
 
-- Om du behöver mindre strikta konsekvensgarantier än de som tillhandahålls av sessionskonsekvens rekommenderas att du använder konsekvent prefix konsekvensnivå.
+- Om du behöver mindre strikta konsekvens garantier än de som tillhandahålls av konsekvensen i sessionen, rekommenderar vi att du använder konsekvent konsekvens nivå för prefix.
 
-- Om du behöver högsta möjliga tillgänglighet och lägsta svarstid kan sedan använda slutlig konsekvensnivå.
+- Om du behöver högsta tillgänglighet och lägsta latens kan du använda en eventuell konsekvens nivå.
 
-- Om du behöver ännu högre tillförlitlighet utan att offra prestanda kan skapa du en anpassad konsekvensnivå på programnivå. Mer information finns i [anvisningar implementera anpassade synkronisering i dina program](how-to-custom-synchronization.md).
+- Om du behöver ännu högre data hållbarhet utan att offra prestanda kan du skapa en anpassad konsekvens nivå på program nivån. Mer information finns i [så här implementerar du anpassad synkronisering i dina program](how-to-custom-synchronization.md).
 
-## <a name="cassandra-mongodb-and-gremlin-apis"></a>Cassandra, MongoDB och Gremlin-API: er
+## <a name="cassandra-mongodb-and-gremlin-apis"></a>Cassandra-, MongoDB-och Gremlin-API: er
 
-- Mer information om mappning mellan ”Läs konsekvensnivå” erbjuds i Apache Cassandra och Cosmos DB-konsekvensnivåer, finns [konsekvensnivåer och Cosmos DB API: er](consistency-levels-across-apis.md#cassandra-mapping).
+- Mer information om mappning mellan "Läs konsekvens nivå" som erbjuds i Apache Cassandra och Cosmos DB konsekvens nivåer finns i [konsekvens nivåer och Cosmos DB API: er](consistency-levels-across-apis.md#cassandra-mapping).
 
-- Mer information om mappning mellan ”Läs problem” för MongoDB och Azure Cosmos DB-konsekvensnivåer finns [konsekvensnivåer och Cosmos DB API: er](consistency-levels-across-apis.md#mongo-mapping).
+- Mer information om mappning mellan "Läs oro" av MongoDB-och Azure Cosmos DB konsekvens nivåer finns i [konsekvens nivåer och Cosmos DB-API: er](consistency-levels-across-apis.md#mongo-mapping).
 
-## <a name="consistency-guarantees-in-practice"></a>Konsekvensgarantier i praktiken
+## <a name="consistency-guarantees-in-practice"></a>Konsekvens garantier i praktiken
 
-I praktiken kan du ofta få starkare konsekvensgarantier. Konsekvensgarantier för en Läsåtgärd motsvarar färskhet och skrivordning av databastillståndet som du begär. Läs konsekvens är kopplad till beställning och spridningen av skrivning/uppdateringsåtgärder.  
+I praktiken kan du ofta få bättre konsekvens garantier. Konsekvens garantier för en Läs åtgärd motsvarar aktualiteten och ordningen för det databas tillstånd som du begär. Läs-konsekvens är knutet till beställning och spridning av Skriv-/uppdaterings åtgärder.  
 
-* När konsekvensnivån är inställd på **begränsad föråldring**, garanterar Cosmos DB att klienterna alltid läsa värdet för föregående skrivåtgärder, med en fördröjning som avgränsas av fönstret föråldring.
+* När konsekvens nivån är inställd på **gräns**för inaktuellitet, Cosmos DB garantera att klienterna alltid läser värdet för en tidigare skrivning, med en fördröjning som har bundits av inaktuella fönster.
 
-* När konsekvensnivån är inställd på **stark**fönstret föråldring motsvarar noll och klienterna garanteras att läsa det senaste allokerade värdet för Skrivåtgärden.
+* När konsekvens nivån är inställd på **stark**motsvarar inaktuellas fönstret noll, och klienterna garanteras att läsa det senaste allokerade värdet för Skriv åtgärden.
 
-* Fönstret föråldring är i hög grad beroende på din arbetsbelastning för de återstående tre konsekvensnivåerna. Exempel: om det finns inga skrivåtgärder på databasen, en Läsåtgärd med **slutlig**, **session**, eller **konsekvent prefix** konsekvensnivåer troligen kommer att ge samma resultat som en Läsåtgärd med stark konsekvensnivå.
+* För de återstående tre konsekvens nivåerna är inaktuella fönster i stort sett beroende av arbets belastningen. Om det till exempel inte finns några Skriv åtgärder i databasen, är det troligt att en Läs **åtgärd med konsekvens**nivåer för körning, **session**eller **konsekvent prefix** ger samma resultat som en Läs åtgärd med stark konsekvens nivå.
 
-Om ditt Azure Cosmos-konto har konfigurerats med en konsekvensnivå än stark konsekvens, du kan ta reda på sannolikheten att dina klienter kan få stark och konsekventa läsningar för dina arbetsbelastningar genom att titta på den *Probabilistically Begränsad föråldring* (PBS) mått. Det här måttet visas i Azure-portalen, mer information finns i [övervakaren Probabilistically bunden föråldring (PBS) mått](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Om ditt Azure Cosmos-konto har kon figurer ATS med en annan konsekvens nivå än den starka konsekvensen kan du ta reda på sannolikheten att dina klienter kan få starka och konsekventa läsningar för dina arbets belastningar genom att titta på *Probabilistically-gränsen* Värdet för föråldrad (PBS). Det här måttet visas i Azure Portal. mer information finns i [övervaka Probabilistically-gränser för Inaktuellitet (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
-Avsnittet om sannolikhetsbunden begränsad föråldring visar hur eventuell är din slutlig konsekvens. Det här måttet ger en överblick över hur ofta du kan få en starkare konsekvens än konsekvensnivå som du för närvarande har konfigurerat för ditt Azure Cosmos-konto. Med andra ord kan du se sannolikheten (mätt i millisekunder) för att få starkt konsekventa läsningar för en kombination av Skriv- och läsregioner.
+Probabilistic-begränsad föråldrad visar hur den slutliga konsekvensen är. Det här måttet ger en inblick i hur ofta du kan få en bättre konsekvens än den konsekvens nivå som du för närvarande har konfigurerat på ditt Azure Cosmos-konto. Med andra ord kan du se sannolikheten (mätt i millisekunder) för att få starkt konsekventa läsningar för en kombination av Skriv-och Läs regioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om konsekvensnivåer i följande artiklar:
+Läs mer om konsekvens nivåer i följande artiklar:
 
-* [Konsekvens mappning på i Cosmos DB API: er](consistency-levels-across-apis.md)
+* [Mappning av konsekvens nivå över Cosmos DB-API: er](consistency-levels-across-apis.md)
 * [Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer](consistency-levels-tradeoffs.md)
 * [Så här hanterar du sessionstoken för ditt program](how-to-manage-consistency.md#utilize-session-tokens)
-* [Övervaka Probabilistically bunden föråldring (PBS) mått](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [Övervaka Probabilistically-mått för föråldring (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

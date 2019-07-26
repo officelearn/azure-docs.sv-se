@@ -1,5 +1,5 @@
 ---
-title: Felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy | Microsoft Docs
+title: Felsöka konfiguration av Kerberos-begränsad delegering för App-proxy | Microsoft Docs
 description: Felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c758b473dcdf36456bcc3569c18849488ad14983
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ca50cfb8697fdbb8c71054c5a6b4d5e23792eb5
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702662"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381516"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy
 
@@ -46,7 +46,7 @@ Därför är det bäst att kontrollera att du har uppfyllt alla krav i [med KCD 
 
 - Det är inte ovanligt att en domänmedlemsserver att öppna en dialogruta för säker kanal med en specifik domänkontrollant (DC). Servern kan sedan flytta till en annan dialogruta vid en given tidpunkt. Connector värdar är därför inte begränsad till kommunikation med specifika lokala platsen domänkontrollanter.
 - Domänerna scenarier är beroende av referenser som dirigerar en värd för anslutningen till domänkontrollanter som kan vara utanför den lokala nätverksperimeter. I dessa fall är det lika viktigt att även skicka trafik och uppåt till domänkontrollanter som representerar andra respektive domäner. Om inte delegering misslyckas.
-- Om möjligt, Undvik att placera alla aktiva enheter för IP-adresser eller ID: N mellan connector värdar och domänkontrollanter. Dessa enheter är ibland för påträngande och störa core RPC-trafik.
+- Om möjligt, Undvik att placera alla aktiva enheter för IP-adresser eller ID: N mellan connector värdar och domänkontrollanter. Dessa enheter är ibland för påträngandea och stör Core RPC-trafik.
 
 Testa delegering i grundläggande scenarier. Flera variabler du introducerar, Ju mer du kan behöva Jämka. Spara tid genom att begränsa testningen till en enda anslutning. Lägga till ytterligare anslutningar när problemet har lösts.
 
@@ -60,7 +60,7 @@ Vad visar KCD problem? Det finns flera vanliga uppgifter som KCD SSO misslyckas.
 
 ![Exempel: Auktoriseringen misslyckades på grund av saknad behörighet](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Båda bilderna visar samma symptom: SSO-fel. Nekad användaråtkomst till programmet.
+Båda dessa bilder visar samma symptom: SSO-problem. Nekad användaråtkomst till programmet.
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -129,7 +129,7 @@ Konsumenter av Kerberos-biljetten som tillhandahålls av anslutningen. Förvänt
 
      *Microsoft AAD Application Proxy Connector kan inte autentisera användaren eftersom backend-servern svarar på Kerberos-autentiseringsförsök med ett HTTP 401-fel.*
 
-      ![Visar HTTTP 401 förbjudet fel](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+      ![Visar HTTTP 401-otillåtet fel](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
    - Kontrollera IIS-program. Kontrollera att den konfigurera programpoolen och SPN har konfigurerats för att använda samma konto i Azure AD. Navigera i IIS som visas i följande bild:
 
@@ -137,7 +137,7 @@ Konsumenter av Kerberos-biljetten som tillhandahålls av anslutningen. Förvänt
 
       När du känner till identiteten, kontrollera att det här kontot har konfigurerats med SPN i fråga. Ett exempel är `setspn –q http/spn.wacketywack.com`. Ange följande text i en kommandotolk:
 
-      ![Visar kommandofönstret SetSPN](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
+      ![Visar kommando fönstret SetSPN](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
    - Kontrollera SPN definieras programinställningar i portalen. Se till att samma SPN konfigurerats mot målet Azure AD-konto används av programpoolen app.
 
@@ -165,8 +165,8 @@ Om du fortfarande inte göra förloppet kan Microsoft-supporten hjälpa dig. Ska
 
 ## <a name="other-scenarios"></a>Andra scenarier
 
-- Azure Application Proxy begär en Kerberos-biljett innan du skickar begäran till ett program. Vissa program från tredje part gillar inte den här metoden för att autentisera. Dessa program förväntar sig mer konventionella förhandlingar ska kunna utföras. Den första begäran är anonyma, vilket gör att programmet att svara med autentiseringstyper som stöds via en 401.
-- Multi-hop autentisering används ofta i scenarier där ett program är nivåer, med en backend-server och en klientdel, där båda kräver autentisering, till exempel SQL Server Reporting Services. För att konfigurera flera hopp-scenariot, se supportartikeln [Kerberos-begränsad delegering kan kräva Protokollövergång i Multi-hop scenarier](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- Azure Application Proxy begär en Kerberos-biljett innan du skickar begäran till ett program. Vissa program från tredje part liknar denna metod för autentisering. Dessa program förväntar sig mer konventionella förhandlingar ska kunna utföras. Den första begäran är anonyma, vilket gör att programmet att svara med autentiseringstyper som stöds via en 401.
+- Multi-hop autentisering används ofta i scenarier där ett program är nivåer, med en backend-server och en klientdel, där båda kräver autentisering, till exempel SQL Server Reporting Services. Information om hur du konfigurerar multi-hop-scenariot finns i Support artikeln [Kerberos-begränsad delegering kan kräva protokoll över gång i scenarier med flera hopp](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Nästa steg
 

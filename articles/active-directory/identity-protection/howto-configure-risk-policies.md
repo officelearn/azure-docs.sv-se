@@ -1,222 +1,163 @@
 ---
-title: Så här konfigurerar du principer för åtkomstrisk i Azure Active Directory identity protection (uppdateras) | Microsoft Docs
-description: Så här konfigurerar du principer för åtkomstrisk i Azure Active Directory identity protection (uppdateras).
+title: Konfigurera risk principer i Azure Active Directory Identity Protection (uppdateras) | Microsoft Docs
+description: Konfigurera risk principer i Azure Active Directory Identity Protection (uppdateras).
 services: active-directory
-keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6f822f20da55488c559c081129c3f177367123
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ce4e2958978de9339f4340755e3740730025a5f
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108973"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334025"
 ---
-# <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instruktioner: Konfigurera principer för risk i Azure Active Directory identity protection (uppdateras)
+# <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instruktioner: Konfigurera risk principer i Azure Active Directory identitets skydd (uppdateras)
 
+Azure AD identifierar risk händelser som är indikatorer för potentiellt komprometterade identiteter. Genom att konfigurera risk principer kan du definiera automatiserade svar på identifierings resultaten:
 
-Azure AD upptäcker riskhändelser som indikatorer för potentiellt komprometterade identiteter. Du kan definiera automatiska svar på resultaten av programuppdateringsidentifieringen genom att konfigurera principer för åtkomstrisk:
-
-- Du kan konfigurera ett svar till i realtid riskhändelser som har identifierats under en användares inloggning med inloggningsrisk-principen. 
-- Du kan konfigurera ett svar till alla aktiva risker som har identifierats för en användare över tid med riskprincip för användare.  
+- Med inloggnings risk principen kan du konfigurera ett svar på händelser i real tid som upptäcktes under en användares inloggning. 
+- Med principen för användar risk kan du konfigurera ett svar på alla aktiva användar risker som har identifierats för en användare över tid.  
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
+## <a name="what-is-the-sign-in-risk-policy"></a>Vad är inloggnings risk principen?
 
-## <a name="what-is-the-sign-in-risk-policy"></a>Vad är inloggningsrisk principen?
+Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. Till exempel är inloggningen som görs med en anonym IP-adress eller så har inloggningen initierats från en okänd plats? I Azure AD kan de misstänkta åtgärder som systemet kan identifiera kallas även risk händelser. Baserat på risk händelser som har identifierats under en inloggning beräknar Azure AD ett värde. Värdet representerar sannolikheten (låg, medium, hög) som inloggningen inte utförs av den legitima användaren. Sannolikheten kallas **inloggnings risk nivå**.
 
-Azure AD analyserar varje inloggning för en användare. Målet med analysen är att identifiera misstänkta åtgärder som kommer med inloggningen. Till exempel är inloggningen klar med hjälp av en anonym IP-adress eller är inloggning som initieras från en okänd plats? Systemet kan identifiera misstänkta åtgärderna är kallas även riskhändelser i Azure AD. Baserat på de riskhändelser som har identifierats under inloggning, Azure AD beräknar ett värde. Värdet som representerar sannolikheten (låg, medelhög och hög) att inloggningen inte utförs av behöriga användare. Sannolikheten kallas **risknivå för inloggning**.
+Principen för inloggnings risker är ett automatiserat svar som du kan konfigurera för en enskild risk nivå för inloggning. I ditt svar kan du blockera åtkomst till dina resurser eller kräva en Multi-Factor Authentication-utmaning (MFA) för att få åtkomst.
 
-Princip för inloggningsrisk är en automatisk åtgärd som du kan konfigurera för en specifik inloggning risknivå. Du kan blockera åtkomst till resurser eller kräver skicka multifaktorautentisering (MFA) svårt att få åtkomst i ditt svar.
+När en användare har slutfört en MFA-prompt som utlöses av inloggnings risk principen, ger den feedback till identitets skydd som inloggningen har fått från den legitima användaren. Därmed stängs den inloggnings risk händelse som utlöste MFA-prompten automatiskt och identitets skyddet förhindrar att den här händelsen bidrar till utökningen av användar risken. Genom att aktivera principen för inloggnings risker kan du minska noisiness i vyn riskfyllda inloggningar genom att tillåta att användare själv åtgärdas när de uppmanas att använda MFA och sedan stänga av den associerade riskfyllda inloggningen automatiskt.
 
-När en användare har slutförts en MFA-prompt som utlösts av principen för inloggningsrisk ger feedback till Identity Protection som inloggningen kommer från legitim användare. Därför inloggningsrisk händelsen som utlöste MFA-prompten stängs automatiskt och identitetsskydd förhindrar att den här händelsen bidrar till rättighetsökning användarrisk. Aktivera princip för inloggningsrisk kan minska noisiness i vyn över riskfyllda inloggningar genom att tillåta användare att reparera när du tillfrågas om MFA och därefter automatiskt stänga tillhörande riskfyllda inloggningen.
-
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hur kommer jag åt inloggningsrisk principen?
+## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hur gör jag för att åtkomst till inloggnings risk principen?
    
-Princip för inloggninsrisk-är i den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+Principen för inloggnings risker finns i avsnittet **Konfigurera** på [sidan Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Riskprincip för inloggning](./media/howto-configure-risk-policies/1014.png "inloggning riskprincipen")
+![Princip för inloggnings risk](./media/howto-configure-risk-policies/1014.png "Princip för inloggnings risk")
 
+## <a name="sign-in-risk-policy-settings"></a>Princip inställningar för inloggnings risk
 
-## <a name="sign-in-risk-policy-settings"></a>Inställningar för inloggningsrisk
+När du konfigurerar inloggnings risk principen måste du ange:
 
-När du konfigurerar principen inloggningsrisk, måste du ange:
+- De användare och grupper som principen gäller för:
 
-- Användare och grupper som principen gäller för:
+   ![Användare och grupper](./media/howto-configure-risk-policies/11.png)
 
-    ![Användare och grupper](./media/howto-configure-risk-policies/11.png)
+- Den inloggnings risk nivå som utlöser principen:
 
-- Nivå för inloggningsrisk som utlöser principen:
+   ![Risknivå för inloggning](./media/howto-configure-risk-policies/12.png)
 
-    ![Risknivå för inloggning](./media/howto-configure-risk-policies/12.png)
+- Den typ av åtkomst du vill tillämpa när inloggnings risk nivån har uppfyllts:  
 
-- Vilken typ av åtkomst som du vill tillämpas när din inloggning risknivån är uppfyllt:  
+   ![Åtkomst](./media/howto-configure-risk-policies/13.png)
 
-    ![Access](./media/howto-configure-risk-policies/13.png)
+- Principens tillstånd:
 
-- Tillståndet för din princip:
+   ![Tillämpa princip](./media/howto-configure-risk-policies/14.png)
 
-    ![Tillämpa princip](./media/howto-configure-risk-policies/14.png)
-
-
-Dialogrutan princip konfiguration får du ett alternativ för att beräkna effekten av omkonfiguration.
+I dialog rutan princip konfiguration får du ett alternativ för att uppskatta effekten av omkonfiguration.
 
 ![Uppskattad påverkan](./media/howto-configure-risk-policies/15.png)
 
-## <a name="what-you-should-know-about-sign-in-risk-policies"></a>Vad du bör veta om principer för inloggningsrisk
+## <a name="what-you-should-know-about-sign-in-risk-policies"></a>Vad du bör veta om inloggnings risk principer
 
-Du kan konfigurera en säkerhetsprincip för inloggningsrisk för att kräva MFA:
+Du kan konfigurera en säkerhets princip för inloggnings risk för att kräva MFA:
 
 ![Kräv MFA](./media/howto-configure-risk-policies/16.png)
 
-Men av säkerhetsskäl fungerar den här inställningen bara för användare som redan har registrerats för MFA. Identitetsskydd blockerar användare med en MFA-kravet om de inte är ännu registrerats för MFA.
+Men av säkerhets skäl fungerar den här inställningen bara för användare som redan har registrerats för MFA. Identitets skyddet blockerar användare med ett MFA-krav om de inte är registrerade för MFA än.
 
-Om du vill kräva MFA för riskfyllda inloggningar, bör du:
+Om du vill kräva MFA för riskfyllda inloggningar bör du:
 
-1. Aktivera registreringsprincip för multi-Factor authentication för användare som påverkas.
+1. Aktivera registrerings principen för Multi-Factor Authentication för berörda användare.
+2. Kräv att de berörda användarna loggar in i en icke-riskfylld session för att utföra en MFA-registrering.
 
-2. Kräv att berörda användare att logga in i en icke-riskfyllda session för att utföra en MFA-registrering.
+Genom att utföra de här stegen ser du till att Multi-Factor Authentication krävs för en riskfylld inloggning.
 
-Gör så här säkerställer att multifaktorautentisering krävs för en riskfylld inloggning.
+Principen för inloggnings risker är:
 
-Princip för inloggningsrisk är:
+- Tillämpas på all webb läsar trafik och inloggningar med modern autentisering.
+- Tillämpas inte på program som använder äldre säkerhets protokoll genom att inaktivera WS-Trust-slutpunkten på den federerade IDP, till exempel ADFS.
 
-- Tillämpas på alla webbläsartrafik och inloggningar som använder modern autentisering.
+En översikt över den relaterade användar upplevelsen finns i:
 
-- Inte användas av program med äldre säkerhetsprotokoll genom att inaktivera den WS-Trust-slutpunkten på federerade IDP: N, till exempel AD FS.
-
-
-En översikt över relaterade användarupplevelsen finns:
-
-* [Riskfylld inloggning återställning](flows.md#risky-sign-in-recovery)
+* [Återställning av riskfyllda inloggningar](flows.md#risky-sign-in-recovery)
 * [Riskfylld inloggning blockerad](flows.md#risky-sign-in-blocked)  
-* [Logga in upplevelser med Azure AD Identity Protection](flows.md)  
+* [Inloggnings upplevelser med Azure AD Identity Protection](flows.md)  
 
+## <a name="what-is-a-user-risk-policy"></a>Vad är en användar risk princip?
 
+Azure AD analyserar varje inloggning av en användare. Syftet med analysen är att identifiera misstänkta åtgärder som kommer tillsammans med inloggningen. I Azure AD kan de misstänkta åtgärder som systemet kan identifiera kallas även risk händelser. Vissa risk händelser kan upptäckas i real tid, men det finns också risk händelser som kräver mer tid. Om du till exempel vill upptäcka en omöjlig resa till ovanlig-platser, kräver systemet en inledande inlärnings period på 14 dagar för att lära dig om en användares normala beteende. Det finns flera alternativ för att lösa identifierade risk händelser. Du kan till exempel lösa enskilda risk händelser manuellt eller så kan du få dem att lösas med hjälp av en inloggnings risk eller en användar risk princip för villkorlig åtkomst.
 
+Alla risk händelser som har identifierats för en användare och inte lösts kallas aktiva risk händelser. De aktiva risk händelser som är associerade med en användare kallas användar risk. Utifrån användar risken beräknar Azure AD en sannolikhet (låg, medel, hög) som en användare har komprometterat. Sannolikheten kallas användar risk nivå.
 
+![Användar risker](./media/howto-configure-risk-policies/11031.png)
 
+Användar risk principen är ett automatiserat svar som du kan konfigurera för en enskild risk nivå för användare. Med en användar risk princip kan du blockera åtkomst till dina resurser eller kräva en lösen ords ändring för att få ett användar konto tillbaka till ett rent tillstånd.
 
-
-
-
-## <a name="what-is-a-user-risk-policy"></a>Vad är en användarprincip?
-
-Azure AD analyserar varje inloggning för en användare. Målet med analysen är att identifiera misstänkta åtgärder som kommer med inloggningen. Systemet kan identifiera misstänkta åtgärderna är kallas även riskhändelser i Azure AD. När en risk händelser kan identifieras i realtid, det finns även riskhändelser som kräver mer tid. Till exempel kräver systemet för att identifiera en omöjlig resa till ovanliga platser, en inledande inlärningsperiod på 14 dagar för att lära dig om en användares vanligt beteende. Det finns flera alternativ för att lösa identifierade riskhändelserna. Exempelvis kan du kan lösa enskilda riskhändelser manuellt eller du kan hämta dem matchas med en inloggningsrisk eller användarrisk princip för villkorlig åtkomst.
-
-Alla riskhändelser som har identifierats för en användare och inte löses kallas active riskhändelser. De aktiva riskhändelser som är kopplade till användaren kallas användarrisk. Azure AD beräknar utifrån användarrisk en sannolikhet (låg, medelhög och hög) att en användare har komprometterats. Sannolikheten kallas risknivån.
-
-![Användaren risker](./media/howto-configure-risk-policies/11031.png)
-
-Riskprincip för användare är en automatisk åtgärd som du kan konfigurera för en viss användare risknivå. Du kan använda en riskprincip för användare för att blockera åtkomst till resurser eller kräva ändring av lösenordet för att komma tillbaka ett användarkonto till ett rent tillstånd.
-
-
-## <a name="how-do-i-access-the-user-risk-policy"></a>Hur kommer jag åt riskprincip för användare?
+## <a name="how-do-i-access-the-user-risk-policy"></a>Hur gör jag för att åtkomst till användar risk principen?
    
-Riskprincip för användare som tillhör den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+Användar risk principen finns i avsnittet **Konfigurera** på [sidan Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Princip för användarrisk](./media/howto-configure-risk-policies/11014.png)
+![Riskprincip för användare](./media/howto-configure-risk-policies/11014.png)
 
+## <a name="user-risk-policy-settings"></a>Princip inställningar för användar risk
 
+När du konfigurerar användar risk principen måste du ange:
 
-## <a name="user-risk-policy-settings"></a>Användarprincipinställningar för risk
+- De användare och grupper som principen gäller för:
 
-När du konfigurerar riskprincip för användare, måste du ange:
+   ![Användare och grupper](./media/howto-configure-risk-policies/111.png)
 
-- Användare och grupper som principen gäller för:
+- Den inloggnings risk nivå som utlöser principen:
 
-    ![Användare och grupper](./media/howto-configure-risk-policies/111.png)
+   ![Användarisknivå](./media/howto-configure-risk-policies/112.png)
 
-- Nivå för inloggningsrisk som utlöser principen:
+- Den typ av åtkomst du vill tillämpa när inloggnings risk nivån har uppfyllts:  
 
-    ![Nivå för användarrisk](./media/howto-configure-risk-policies/112.png)
+   ![Åtkomst](./media/howto-configure-risk-policies/113.png)
 
-- Vilken typ av åtkomst som du vill tillämpas när din inloggning risknivån är uppfyllt:  
+- Principens tillstånd:
 
-    ![Access](./media/howto-configure-risk-policies/113.png)
+   ![Tillämpa princip](./media/howto-configure-risk-policies/114.png)
 
-- Tillståndet för din princip:
-
-    ![Tillämpa princip](./media/howto-configure-risk-policies/114.png)
-
-Dialogrutan princip konfiguration får du ett alternativ för att beräkna effekten av din konfiguration.
+I dialog rutan princip konfiguration får du ett alternativ för att uppskatta effekten av konfigurationen.
 
 ![Uppskattad påverkan](./media/howto-configure-risk-policies/115.png)
 
-## <a name="what-you-should-know-about-user-risk-polices"></a>Vad du bör veta om användarrisk principer
+## <a name="what-you-should-know-about-user-risk-polices"></a>Vad du bör känna till om användar risk principer
 
-Du kan ange en riskprincip för att blockera användare vid inloggning beroende på risknivån.
+Du kan ange en säkerhets princip för användar risk för att blockera användare vid inloggning, beroende på risk nivån.
 
-![Blockera](./media/howto-configure-risk-policies/116.png)
+![Blockerar](./media/howto-configure-risk-policies/116.png)
 
+Blockerar en inloggning:
 
-Blockera en inloggning:
-
-* Förhindrar generering av nya riskhändelser för användaren för den berörda användaren
-* Gör att administratörer kan manuellt åtgärdar riskhändelser som påverkar användarens identitet och återställer dem till ett säkert tillstånd
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* Förhindrar generering av nya användar risk händelser för den berörda användaren
+* Gör det möjligt för administratörer att manuellt reparera risk händelser som påverkar användarens identitet och återställa den till ett säkert tillstånd
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Välja en **hög** tröskelvärdet minskar antalet gånger som en princip har utlösts och minimerar påverkan för användare.  
+Om du väljer ett **högt** tröskelvärde minskar antalet gånger som en princip utlöses och minimerar påverkan på användare.  
 
-Men det omfattar inte **låg** och **medel** inloggningar som har flaggats för risk från principen som inte blockerar en angripare utnyttjar en komprometterad identitet.
+Men det utesluter **små** och **medel stora** inloggningar som flaggats för risk från principen, vilket inte kan hindra en angripare från att utnyttja en komprometterad identitet.
 
-När du ställer in principen
+När du anger principen
 
-- Undanta användare som inte / kan inte ha multifaktorautentisering
+- Exkludera användare som inte kan ha Multi-Factor Authentication
+- Exkludera användare i språk där det inte är praktiskt att aktivera principen (till exempel ingen åtkomst till supportavdelningen)
+- Exkludera användare som sannolikt kommer att generera många falska positiva (utvecklare, säkerhets analyser)
+- Använd ett **högt** tröskelvärde under den inledande principen, eller om du måste minimera utmaningarna som visas av slutanvändarna.
+- Använd ett **lågt** tröskelvärde om organisationen kräver större säkerhet. Om du väljer en **låg** tröskel införs ytterligare användar inloggnings utmaningar, men ökad säkerhet.
 
-- Exkludera användare i nationella inställningar där aktiverar principen inte är en praktisk (till exempel ingen åtkomst till supportavdelningen)
-
-- Exkludera användare som sannolikt inte kommer att generera många falskpositiva resultat (utvecklare, säkerhetsanalytiker)
-
-- Använd en **hög** tröskelvärde under inledande princip lansering, eller om du måste minimera utmaningar som setts av slutanvändare.
-
-- Använd en **låg** tröskelvärdet om din organisation kräver ökad säkerhet. Att välja en **låg** tröskelvärdet introducerar ytterligare användare logga in utmaningar, men ökad säkerhet.
-
-Rekommenderad standard för de flesta organisationer är att konfigurera en regel för en **medel** tröskelvärdet för att få en balans mellan användbarhet och säkerhet.
-
-
-
-
+Den rekommenderade standarden för de flesta organisationer är att konfigurera en regel för en **medels Tor** tröskel för att få en balans mellan användbarhet och säkerhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
- [Channel 9: Azure AD och Identity visa: Förhandsversionen av Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-
+ [Kanal 9: Azure AD och identitet visar: För hands version av identitets skydd](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)

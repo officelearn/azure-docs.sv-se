@@ -1,6 +1,6 @@
 ---
-title: Distribution och bästa praxis för att optimera prestanda – Azure Search
-description: Lär dig tekniker och bästa praxis för att justera prestanda för Azure Search och konfigurera optimal skala.
+title: Distributions strategier och bästa praxis för att optimera prestanda – Azure Search
+description: Lär dig mer om tekniker och metod tips för att justera Azure Search prestanda och konfigurera optimal skala.
 author: LiamCavanagh
 manager: jlembicz
 services: search
@@ -10,102 +10,102 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4578e26df5a6c29e80a0bbd2e0a30725e3733ee
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024555"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370650"
 ---
-# <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Distribution och bästa praxis för att optimera prestanda för Azure Search
+# <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Distributions strategier och bästa praxis för att optimera prestanda på Azure Search
 
-Den här artikeln beskriver Metodtips för avancerade scenarier med avancerade krav för skalbarhet och tillgänglighet. 
+Den här artikeln beskriver metod tips för avancerade scenarier med avancerade krav på skalbarhet och tillgänglighet. 
 
-## <a name="develop-baseline-numbers"></a>Utveckla baslinje siffror
-När du optimerar för search-prestanda, bör du fokusera på att minska frågetiden för körning. Gör att behöver du veta hur vanliga frågebelastning ser ut. Följande riktlinjer kan hjälpa dig att komma fram till baslinje fråga siffror.
+## <a name="develop-baseline-numbers"></a>Utveckla bas linje nummer
+När du optimerar Sök prestanda bör du fokusera på att minska frågans körnings tid. Om du vill göra det måste du veta vad en vanlig fråga-belastning ser ut. Följande rikt linjer kan hjälpa dig att komma till bas linje frågor.
 
-1. Välj en målfördröjning (eller den längsta tid) som en typisk sökning begär bör ta för att slutföra.
-2. Skapa och testa en verklig arbetsbelastning mot din söktjänst med en realistisk datauppsättning för att mäta priserna svarstid.
-3. Börja med ett lågt antal frågor per sekund (QPS) och gradvis öka antalet som körs i testet tills frågesvarstiden sjunker under den definierade målfördröjning. Detta är ett viktigt prestandatest när du planerar för att skala allteftersom programmet växer i användning.
-4. Om möjligt återanvända HTTP-anslutningar. Om du använder Azure Search .NET SDK, innebär det att du bör återanvända en instans eller [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) instans, och om du använder REST API, bör du återanvänder en enda HttpClient.
-5. Variera ämnet för frågebegäranden så att sökningen görs via olika delar av ditt index. Variation är viktigt eftersom om du kör kontinuerligt samma sökförfrågningar, cachelagring av data ska börja visa prestanda bättre än den kan med en mer olika fråga inställd ut.
-6. Variera strukturen för frågebegäranden så att du får olika typer av frågor. Inte alla sökfråga utför på samma nivå. Till exempel är en dokumentet lookup- eller Sök förslaget normalt snabbare än en fråga med ett stort antal fasetter och filter. Testa sammansättning bör innehålla olika frågor i ungefär samma förhållanden som förväntat i produktion.  
+1. Välj en mål svars tid (eller den längsta tid) som en typisk sökbegäran ska ta att slutföra.
+2. Skapa och testa en verklig arbets belastning mot din Sök tjänst med en realistisk data uppsättning för att mäta de här latens priserna.
+3. Börja med ett lågt antal frågor per sekund (frågor per sekund) och öka antalet utförda gradvis i testet tills svars tiden sjunker under den definierade mål fördröjningen. Detta är ett viktigt mått för att hjälpa dig att planera för skalning när ditt program växer i användning.
+4. Återanvända HTTP-anslutningar närhelst det är möjligt. Om du använder Azure Search .NET SDK innebär det att du bör återanvända en instans eller [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) -instans och om du använder REST API bör du återanvända en enda httpclient.
+5. Variera ämnet för förfrågningar så att sökningen sker över olika delar av ditt index. Variationen är viktig eftersom om du kontinuerligt kör samma Sök begär Anden börjar cachelagring av data att öka prestandan bättre än den kan ha en mer detaljerad frågegrupp.
+6. Variera strukturen för fråge förfrågningar så att du får olika typer av frågor. Alla Sök frågor utförs inte på samma nivå. Till exempel är ett dokuments öknings-eller Sök förslag vanligt vis snabbare än en fråga med ett stort antal ansikte och filter. Test kompositionen bör innehålla olika frågor, i ungefär samma förhållande som du förväntar sig i produktionen.  
 
-När du skapar dessa testarbetsbelastningar finns det vissa egenskaper för Azure Search att tänka på:
+När du skapar de här test arbets belastningarna finns det vissa egenskaper för Azure Search att tänka på:
 
-+ Det är möjligt överbelasta tjänsten genom att trycka på för många sökfrågor i taget. När detta inträffar visas HTTP 503-svarskoder. För att undvika en 503 under testningen kan du börja med olika områden i sökbegäranden att se skillnaderna i priserna för fördröjning när du lägger till flera sökförfrågningar.
++ Det är möjligt att du överbelastar din tjänst genom att skicka för många Sök frågor vid ett tillfälle. När detta inträffar visas HTTP 503-svars koder. Om du vill undvika en 503 under testningen börjar du med olika intervall av Sök begär Anden för att se skillnaderna mellan svars tider när du lägger till fler Sök begär Anden.
 
-+ Azure Search körs inte indexering uppgifter i bakgrunden. Om din tjänst hanterar fråge- och indexeringsarbetsbelastningar samtidigt, beakta detta genom att antingen introducera indexeringsjobb i din fråga tester eller genom att utforska alternativ för att köra indexerade jobb under Lågbelastningstider.
++ Azure Search kör inte indexerings aktiviteter i bakgrunden. Om tjänsten hanterar fråge-och indexerings arbets belastningar samtidigt tar du hänsyn till detta genom att antingen introducera indexerings jobb i dina testtester eller genom att undersöka alternativen för att köra indexerings jobb under låg belastnings tid.
 
 > [!NOTE]
-> [Visual Studio Load testning](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release) är ett mycket bra sätt att utföra dina benchmark testar eftersom den låter dig att köra HTTP-begäranden som du skulle behöva för att köra frågor mot Azure Search och aktiverar parallellisering av begäranden.
+> [Belastnings testning i Visual Studio](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release) är ett bra sätt att utföra benchmark-tester eftersom det gör att du kan köra HTTP-begäranden som du behöver för att köra frågor mot Azure Search och möjliggör parallellisering av begär Anden.
 > 
 > 
 
-## <a name="scaling-for-high-query-volume-and-throttled-requests"></a>Skalning för stora frågearbetsbelastningar volym och begränsade begäranden
-När du tar emot för många begränsade begäranden eller överskrider dina mål svarstid priser från en ökad frågebelastning, kan du se ut om du vill minska svarstiden priserna på något av två sätt:
+## <a name="scaling-for-high-query-volume-and-throttled-requests"></a>Skalning för hög frågans volym och begränsade begär Anden
+När du får för många begränsade begär Anden eller överskrider din mål svars tid från en ökad läsar fråga, kan du se till att minska svars tiderna på något av följande sätt:
 
-1. **Öka repliker:**  En replik är som en kopia av dina data så att Azure Search för att belastningsutjämna förfrågningar mot flera kopior.  Alla belastningsutjämning och replikering av data i repliker som hanteras av Azure Search och du kan ändra antalet repliker som allokerats för din tjänst när som helst.  Du kan allokera upp till 12 repliker i en standardsöktjänst och 3 repliker i en grundläggande söktjänst. Repliker kan vara justeras antingen från den [Azure-portalen](search-create-service-portal.md) eller [PowerShell](search-manage-powershell.md).
-2. **Öka Search-nivå:**  Azure Search kommer in en [antal nivåer](https://azure.microsoft.com/pricing/details/search/) och var och en av de här nivåerna erbjuder olika nivåer av prestanda.  I vissa fall kan du ha så många frågor att den nivå du har inte kan ge tillräckligt med låg latens avgifter, även när repliker är överutnyttjade ut. I det här fallet kan du överväga att använda en av de högsta nivåerna för sökning, till exempel Azure Search S3-nivå som passar bra för scenarier med stort antal dokument och extremt hög frågearbetsbelastningar.
+1. **Öka repliker:**  En replik är som en kopia av dina data som tillåter Azure Search att belastningsutjämna begär Anden mot flera kopior.  All belastnings utjämning och replikering av data över repliker hanteras av Azure Search och du kan ändra antalet repliker som har allokerats för din tjänst när som helst.  Du kan allokera upp till 12 repliker i en standard Sök tjänst och tre repliker i en grundläggande Sök tjänst. Repliker kan justeras antingen från [Azure Portal](search-create-service-portal.md) eller [PowerShell](search-manage-powershell.md).
+2. **Öka Sök nivån:**  Azure Search finns på ett [antal nivåer](https://azure.microsoft.com/pricing/details/search/) och var och en av dessa nivåer erbjuder olika prestanda nivåer.  I vissa fall kan du ha så många frågor att nivån som du är på inte kan tillhandahålla tillräckligt med låg latens taxa, även när repliker är överutnyttjade. I det här fallet kanske du vill överväga att använda en av de högre Sök nivåerna, till exempel den Azure Search S3-nivå som passar bäst för scenarier med ett stort antal dokument och mycket hög fråge arbets belastningar.
 
-## <a name="scaling-for-slow-individual-queries"></a>Skalning för långsam enskilda frågor
-En annan orsak till långa svarstider priser som anges är en enskild fråga tar för lång tid att slutföra. I det här fallet hjälper att lägga till repliker inte. Två alternativ möjliga alternativ som kan hjälpa till att inkludera följande:
+## <a name="scaling-for-slow-individual-queries"></a>Skalning för långsamma enskilda frågor
+En annan orsak till hög latens frekvenser är att en fråga tar för lång tid att slutföra. I det här fallet kommer du inte att kunna lägga till repliker. Två möjliga alternativ som kan vara till hjälp kan vara följande:
 
-1. **Öka partitioner** en partition är en mekanism för att dela data mellan extra resurser. Att lägga till en andra partitionen delar upp data i två, en tredje partition delar upp den i tre och så vidare. Ett positivt sidoeffekt är att långsammare frågor ibland utföra snabbare på grund av parallell datorbearbetning. Vi ha antecknat parallellisering på låg selektivitet frågor, till exempel frågor som matchar många dokument eller fasetterna som ger antalet över ett stort antal dokument. Eftersom betydande beräkning krävs för att bedöma relevans dokument eller för att räkna antalet dokument, lägga till extra partitioner hjälper till att slutföra frågor snabbare.  
+1. **Öka partitioner** En partition är en mekanism för att dela data mellan extra resurser. Om du lägger till en andra partition delas data upp i två, en tredje partition delar den i tre, och så vidare. En positiv sido effekt är att långsammare frågor ibland presterar snabbare på grund av parallell dator användning. Vi har noterat parallellisering för frågor med låg selektivitet, till exempel frågor som stämmer överens med många dokument, eller till att det finns ett stort antal dokument. Eftersom det krävs en betydande beräkning för att räkna med relevanta i dokumenten, eller för att räkna antalet dokument, så kan du lägga till extra partitioner snabbare.  
    
-   Det kan vara upp till 12 partitioner i Standard-söktjänst och 1 partition i grundläggande search-tjänsten.  Partitioner kan vara justeras antingen från den [Azure-portalen](search-create-service-portal.md) eller [PowerShell](search-manage-powershell.md).
+   Det får finnas högst 12 partitioner i standard Sök tjänsten och 1 partition i den grundläggande Sök tjänsten.  Partitioner kan justeras antingen från [Azure Portal](search-create-service-portal.md) eller [PowerShell](search-manage-powershell.md).
 
-2. **Gräns för hög kardinalitet fält:** Ett fält med hög kardinalitet består av en fasettbar eller filtrerbara fält som har ett stort antal unika värden och därmed förbrukar betydande resurser när du beräknar resultatet. Exempelvis skulle anger ett fält som produkt-ID eller beskrivning som fasettbar/filtrerbara räknas som hög kardinalitet eftersom de flesta av värden från dokument till dokument är unika. Om möjligt begränsar du antalet hög kardinalitet fält.
+2. **Begränsa fält för högsta kardinalitet:** Ett högt kardinalitet-fält består av ett fasettable-eller filter bara fält som har ett stort antal unika värden och som därför förbrukar betydande resurser när du beräknar resultat. Om du till exempel anger ett produkt-ID eller ett beskrivnings fält som ett fasettable/filterbar, räknas det som hög kardinalitet eftersom de flesta av värdena från dokument till dokument är unika. När det är möjligt begränsar du antalet fält för hög kardinalitet.
 
-3. **Öka Search-nivå:**  Flytta upp till kan en högre nivå för Azure Search vara ett annat sätt att förbättra prestanda för långsamma frågor. Varje högre nivån ger snabbare processorer och mer minne, som båda har en positiv inverkan på prestanda för frågor.
+3. **Öka Sök nivån:**  Att flytta upp till en högre Azure Search nivå kan vara ett annat sätt att förbättra prestandan för långsamma frågor. Varje högre nivå ger snabbare processorer och mer minne, som båda har en positiv inverkan på frågans prestanda.
 
 ## <a name="scaling-for-availability"></a>Skalning för tillgänglighet
-Repliker inte bara att minska svarstid men kan också tillåta för hög tillgänglighet. Med en enskild replik kan du förväntar dig periodiska stilleståndstid på grund av att servern startas om efter programuppdateringar eller för andra underhållshändelser som inträffar.  Det är därför viktigt att tänka på om programmet kräver hög tillgänglighet för sökningar (frågor) samt skrivningar (indexering händelser). Azure Search erbjuder alternativ för SLA på alla betalda search-erbjudanden med följande attribut:
+Repliker bidrar inte bara till att minska svars tiden men kan även tillåta hög tillgänglighet. Med en enda replik bör du förvänta dig periodiska avbrott på grund av omstart av servern efter program uppdateringar eller för andra underhålls händelser som kommer att inträffa.  Därför är det viktigt att tänka på om ditt program kräver hög tillgänglighet för sökningar (frågor) och skrivningar (indexerings händelser). Azure Search erbjuder SLA-alternativ för alla betalda Sök erbjudanden med följande attribut:
 
-* 2 repliker för hög tillgänglighet för skrivskyddade arbetsbelastningar (frågor)
-* 3 eller fler repliker för hög tillgänglighet för skrivskyddade arbetsbelastningar (frågor och indexering)
+* 2 repliker för hög tillgänglighet för skrivskyddade arbets belastningar (frågor)
+* 3 eller flera repliker för hög tillgänglighet av Läs-och skriv arbets belastningar (frågor och indexering)
 
-Mer information om detta finns i [serviceavtal för Azure Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Mer information finns på [Azure Search serviceavtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-Eftersom repliker är kopior av dina data, du har flera repliker kan Azure Search för machine omstarter och -underhåll mot en replik samtidigt som Frågekörningen kan fortsätta på andra repliker. Däremot om du tar bort replikerna kommer debiteras prestandaförsämring i fråga, förutsatt att dessa repliker har en outnyttjade resurs.
+Eftersom repliker är kopior av dina data, kan du med flera repliker Azure Search göra omstart av datorn och underhåll mot en replik samtidigt som frågekörningen körs för att fortsätta på andra repliker. Om du däremot tar bort repliker tar du en fråga om prestanda försämring, förutsatt att dessa repliker var en underutnyttjad resurs.
 
-## <a name="scaling-for-geo-distributed-workloads-and-geo-redundancy"></a>Skalning för geo-distribuerad arbetsbelastningar och geo-redundans
-För geo-distribuerad arbetsbelastningar och har användare som är placerade är långt från datacentret som är värd för Azure Search högre latens priser. En lösning är att etablera flera söktjänster i regioner med närmare dessa användare. Azure Search ger för närvarande inte en automatiserad metod för Azure Search-index med geo-replikering i flera regioner, men det finns vissa tekniker som kan användas som kan göra den här processen enkel att implementera och hantera. Dessa beskrivs i nästa avsnitt.
+## <a name="scaling-for-geo-distributed-workloads-and-geo-redundancy"></a>Skalning för geo-distribuerade arbets belastningar och GEO-redundans
+För geo-distribuerade arbets belastningar kommer användare som finns långt från data Center som är värd för Azure Search ha högre latens. En minskning är att etablera flera Sök tjänster i regioner med närmare närhet till dessa användare. Azure Search tillhandahåller för närvarande inte en automatiserad metod för geo-replikering Azure Search index över flera regioner, men det finns vissa tekniker som kan användas för att göra den här processen enkel att implementera och hantera. Dessa beskrivs i följande avsnitt.
 
-Målet med en geo-distribuerad uppsättning söktjänster är att ha två eller flera index som är tillgängliga på två eller fler regioner där en användare dirigeras till Azure Search-tjänst som tillhandahåller den lägsta svarstiden som visas i det här exemplet:
+Målet för en geo-distribuerad uppsättning Sök tjänster är att två eller fler index är tillgängliga i två eller flera regioner där en användare dirigeras till den Azure Search tjänsten som ger den lägsta svars tiden som visas i det här exemplet:
 
-   ![Cross-fliken tjänster efter region][1]
+   ![Globala flikar för tjänster efter region][1]
 
-### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Synkronisera data över flera Azure Search-tjänster
-Det finns två alternativ för att hålla dina distribuerade söktjänster synkroniserade som består av antingen med hjälp av den [Azure Search-indexeraren](search-indexer-overview.md) eller Push-API (kallas även den [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
+### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Hålla data synkroniserade över flera Azure Search-tjänster
+Det finns två alternativ för att hålla dina distribuerade Sök tjänster synkroniserade, som består av antingen med hjälp av [Azure Search](search-indexer-overview.md) -indexeraren eller push-API: et (kallas även [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
 
-### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Använd indexerare för att uppdatera innehållet på flera tjänster
+### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Använd indexerare för att uppdatera innehåll på flera tjänster
 
-Om du redan använder indexerare på en tjänst kan konfigurera du en andra indexerare på en andra tjänst för att använda samma datakällobjektet som hämtar data från samma plats. Varje tjänst i varje region har sin egen indexeraren och ett målindex (search-index inte delas, vilket innebär att data dupliceras), men varje indexerare refererar till samma datakälla.
+Om du redan använder indexerare på en tjänst kan du konfigurera en andra indexerare på en andra tjänst för att använda samma data käll objekt, hämta data från samma plats. Varje tjänst i varje region har sin egen indexerare och ett mål index (ditt Sök index är inte delat, vilket innebär att data är duplicerade), men varje indexerare refererar samma data källa.
 
-Här är ett övergripande visuellt objekt på den arkitekturen skulle se ut.
+Här är ett visuellt visuellt objekt av vad arkitekturen skulle se ut.
 
-   ![Enskild datakälla med distribuerade indexerare och kombinationer av tjänsten][2]
+   ![Enkel data källa med distribuerade indexerare och tjänst kombinationer][2]
 
-### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Använda REST API: er för att skicka uppdateringar av innehållet på flera tjänster
-Om du använder Azure Search REST API till [Skicka innehåll i ditt Azure Search-index](https://docs.microsoft.com/rest/api/searchservice/update-index), du kan synkronisera din olika söktjänster genom att skicka ändringar till alla söktjänster när en uppdatering krävs. Se till att hantera fall där en uppdatering till en söktjänst misslyckas men inte för andra söktjänster i din kod.
+### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Använd REST-API: er för att överföra innehålls uppdateringar på flera tjänster
+Om du använder Azure Search REST API för att [skicka innehåll i ditt Azure Search-index](https://docs.microsoft.com/rest/api/searchservice/update-index)kan du behålla dina olika Sök tjänster synkroniserade genom att skicka ändringar till alla Sök tjänster när en uppdatering krävs. I din kod ser du till att hantera fall där en uppdatering av en Sök tjänst Miss lyckas men fungerar för andra Sök tjänster.
 
 ## <a name="leverage-azure-traffic-manager"></a>Utnyttja Azure Traffic Manager
-[Med Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) gör att du kan dirigera begäranden till flera geografiskt placerade webbplatser som sedan backas upp av flera Azure Search-tjänsterna. En fördel av Traffic Manager är att den kan söka i Azure Search för att se till att den är tillgänglig och dirigera användare till alternativa söktjänster i händelse av avbrott. Dessutom kan kan du routning sökförfrågningar via Azure Web Sites, Azure Traffic Manager att läsa in saldo fall där webbplatsen är igång men inte Azure Search. Här är ett exempel på vilken arkitektur som utnyttjar Traffic Manager.
+Med [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kan du dirigera begär anden till flera geo-placerade webbplatser som sedan backas upp av flera Azure Search-tjänster. En fördel med Traffic Manager är att den kan avsöka Azure Search för att säkerställa att den är tillgänglig och dirigera användare till alternativa Sök tjänster i händelse av drift stopp. Om du dirigerar Sök förfrågningar via Azure Web Sites kan du dessutom använda Azure Traffic Manager för att läsa in balans fall där webbplatsen är igång, men inte Azure Search. Här är ett exempel på vad arkitekturen som utnyttjar Traffic Manager.
 
-   ![Cross-fliken tjänster efter region, med central Traffic Manager][3]
+   ![Över-fliken av tjänster efter region, med central Traffic Manager][3]
 
 ## <a name="monitor-performance"></a>Övervaka prestanda
-Azure Search ger dig möjlighet att analysera och övervaka prestanda för din tjänst via [söktrafikanalys](search-traffic-analytics.md). När du aktiverar den här funktionen och lägger till instrumentering i klientappen, kan du också logga enskilda sökningar samt aggregerade mätvärden till ett Azure Storage-konto som sedan kan bearbetas för analys eller visualiseras i Power BI. Mått insamlingar vis tillhandahålla prestandastatistik, till exempel genomsnittlig många frågor eller frågesvarstiderna. Dessutom kan åtgärden loggning du visa detaljer om specifika sökningar.
+Azure Search ger möjlighet att analysera och övervaka prestanda för tjänsten via [Sök trafik analys](search-traffic-analytics.md). När du aktiverar den här funktionen och lägger till instrumentering i din klient app, kan du även logga enskilda Sök åtgärder och aggregerade mått till ett Azure Storage konto som sedan kan bearbetas för analys eller visualisering i Power BI. Måtten fångar på det här sättet ger prestanda statistik, till exempel Genomsnittligt antal frågor eller svars tider för frågor. Dessutom kan du i åtgärds loggningen se mer information om vissa Sök åtgärder.
 
-Trafikanalys är användbart för att förstå svarstid priset för det Azure Search-perspektivet. Eftersom frågan prestandamått loggas baseras på den tid som en fråga tar bearbetas fullständigt i Azure Search (från den tidpunkt som den begärs till när det skickas), kan du använda detta för att avgöra om det är problem med nätverkssvarstiden från Azure Search-tjänsten på klientsidan eller detaljer IDE av tjänsten, till exempel från Nätverksfördröjningen.  
+Trafik analys är användbar för att förstå latens priser från det Azure Search perspektivet. Eftersom de inloggade frågeresultaten baseras på den tid som en fråga tar att bearbetas fullständigt i Azure Search (från den tidpunkt då den skickas ut) kan du använda det för att avgöra om svars tiden är från Azure Search tjänst sidan eller IDE för tjänsten, till exempel från nätverks fördröjning.  
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om prissättning nivåer och tjänster gränserna för vart och ett i [tjänstbegränsningar i Azure Search](search-limits-quotas-capacity.md).
+Mer information om pris nivåer och tjänst begränsningar för var och en finns i [tjänst gränser i Azure Search](search-limits-quotas-capacity.md).
 
-Besök [kapacitetsplanering](search-capacity-planning.md) mer information om kombinationer av partition och repliken.
+Besök [kapacitets planering](search-capacity-planning.md) för att lära dig mer om kombinationer av partitioner och repliker.
 
-Titta på följande videoklipp för mer nedbrytning på prestanda och för att se några demonstrationer av hur du implementerar optimeringar som beskrivs i den här artikeln:
+Om du vill ha mer information om prestanda och se några demonstrationer av hur du implementerar Optimeringarna som beskrivs i den här artikeln kan du titta på följande video:
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
 > 

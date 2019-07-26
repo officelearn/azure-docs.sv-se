@@ -1,31 +1,30 @@
 ---
-title: Tyst installation av Azure Backup Server V2
-description: Använda ett PowerShell-skript för obevakad installation Azure Backup Server V2. Den här typen av installation är en förkortning av en obevakad installation.
-services: backup
+title: Tyst installation av Azure Backup Server v2
+description: Använd ett PowerShell-skript för att installera Azure Backup Server v2 obevakat. Den här typen av installation kallas även för en obevakad installation.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: raynew
-ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: add1f4057b5b52310f53553dcd23e3357fb1ee29
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253846"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465011"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Kör en obevakad installation av Azure Backup Server
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Köra en obevakad installation av Azure Backup Server
 
 Lär dig hur du kör en obevakad installation av Azure Backup Server.
 
-De här stegen gäller inte om du installerar Azure Backup Server V1.
+De här stegen gäller inte om du installerar Azure Backup Server v1.
 
-## <a name="install-backup-server"></a>Installera säkerhetskopieringsserver
+## <a name="install-backup-server"></a>Installera säkerhets kopierings Server
 
-1. På den server som är värd för Azure Backup Server V2 eller senare, skapa en textfil. (Du kan skapa filen i anteckningar eller något annat textredigeringsprogram.) Spara filen som MABSSetup.ini.
+1. Skapa en textfil på den server som är värd för Azure Backup Server v2 eller senare. (Du kan skapa filen i anteckningar eller i en annan text redigerare.) Spara filen som MABSSetup. ini.
 
-2. Klistra in följande kod i filen MABSSetup.ini. Ersätt texten inom klamrarna (\< \>) med värden från din miljö. Följande text är ett exempel:
+2. Klistra in följande kod i filen MABSSetup. ini. Ersätt texten innanför hakparenteserna (\< \>) med värden från din miljö. Följande text är ett exempel:
 
    ```
    [OPTIONS]
@@ -48,22 +47,22 @@ De här stegen gäller inte om du installerar Azure Backup Server V1.
    UseExistingSQL=<1/0 use or do not use existing SQL>
    ```
 
-3. Spara filen. Vid en upphöjd kommandotolk på installationsservern, skriver du följande kommando:
+3. Spara filen. Ange sedan följande kommando i en upphöjd kommando tolk på installations servern:
 
    ```
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 
 Du kan använda dessa flaggor för installationen:</br>
-**/f**: ini-filsökväg</br>
-**/l**: Loggsökväg</br>
+**/f**:. ini fil Sök väg</br>
+**/l**: Logg Sök väg</br>
 **/i**: Installationssökväg</br>
 **/x**: Avinstallera sökväg</br>
 
 ## <a name="next-steps"></a>Nästa steg
-När du har installerat Backup Server lär du dig hur du förbereder din server eller börjar skydda en arbetsbelastning.
+När du har installerat säkerhets kopierings servern lär du dig hur du förbereder servern eller börjar skydda en arbets belastning.
 
-- [Förbereda Backup Server-arbetsbelastningar](backup-azure-microsoft-azure-backup.md)
-- [Säkerhetskopiera en VMware-server med hjälp av Backup Server](backup-azure-backup-server-vmware.md)
-- [Säkerhetskopiera SQL Server med hjälp av Backup Server](backup-azure-sql-mabs.md)
-- [Lägga till Modern Backup Storage till säkerhetskopieringsserver](backup-mabs-add-storage.md)
+- [Förbered arbets belastningar för säkerhets kopierings Server](backup-azure-microsoft-azure-backup.md)
+- [Säkerhetskopiera en VMware-Server med hjälp av backup server](backup-azure-backup-server-vmware.md)
+- [Använd backup server för att säkerhetskopiera SQL Server](backup-azure-sql-mabs.md)
+- [Lägg till Modern Backup Storage på säkerhets kopierings Server](backup-mabs-add-storage.md)

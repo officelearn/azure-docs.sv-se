@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhetsinformation (förhandsversion) för att använda en autentiseringsapp - Azure Active Directory | Microsoft Docs
-description: Hur du ställer in din säkerhetsinformation för att verifiera din identitet med hjälp av Microsoft Authenticator-appen.
+title: Konfigurera säkerhets information (för hands version) för att använda en Authenticator-app-Azure Active Directory | Microsoft Docs
+description: Hur du konfigurerar din säkerhets information för att verifiera din identitet med hjälp av Microsoft Authenticator-appen.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,127 +12,134 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912bda010ddcf9b02506df14f06fb0650271a53b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475724"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382981"
 ---
-# <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda en autentiseringsapp
-Du kan följa stegen nedan för att lägga till två faktorer verifieringen och metoder för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
+# <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Konfigurera säkerhets information (för hands version) för att använda en Authenticator-app
 
-Om du uppmanas att konfigurera detta omedelbart efter att du loggar in på ditt arbets- eller skolkonto konto finns detaljerade anvisningar i den [ställa in din säkerhetsinformation från inloggningssidan prompten](security-info-setup-signin.md) artikeln.
+Du kan följa de här stegen för att lägga till dina metoder för verifiering och återställning av lösen ord. När du har konfigurerat den första gången kan du gå tillbaka till sidan **säkerhets** information för att lägga till, uppdatera eller ta bort din säkerhets information.
+
+Om du uppmanas att ställa in det här direkt efter att du har loggat in på ditt arbets-eller skol konto, se anvisningarna i artikeln [Konfigurera din säkerhets information från inloggnings sidan](security-info-setup-signin.md) .
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Om du inte ser en authenticator-appalternativet, är det möjligt att din organisation tillåter inte att du använder en authentication-appen för att bekräfta. I det här fallet måste du välja en annan metod eller kontakta administratören för mer hjälp.
+>Om du inte ser något alternativ för Authenticator-appen är det möjligt att din organisation inte tillåter att du använder en webbapp för verifiering. I så fall måste du välja en annan metod eller kontakta administratören om du vill ha mer hjälp.
 
-## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Konfigurera Microsoft Authenticator-appen från sidan säkerhetsinformation
-Beroende på organisationens inställningar kan kanske du använda en authentication-appen som en av din information säkerhetsmetoder. Du behöver inte använda Microsoft Authenticator-appen och du kan välja en annan app under installationen. Den här artikeln använder dock Microsoft Authenticator-appen. 
+## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Konfigurera Microsoft Authenticator-appen från sidan säkerhets information
+
+Beroende på din organisations inställningar kan du kanske använda en app för autentisering som en av dina metoder för säkerhets information. Du behöver inte använda Microsoft Authenticator-appen, och du kan välja en annan app under installationen. Den här artikeln använder dock Microsoft Authenticator-appen.
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Konfigurera Microsoft Authenticator-appen
 
-1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
 
-    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile-page.png)
+    ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 
-2. Välj **säkerhetsinformation** från det vänstra navigeringsfönstret eller från länken i den **säkerhetsinformation** blockera och sedan välja **tilläggsmetod** från den **säkerhetsinformation**  sidan.
+2. Välj **säkerhets information** i det vänstra navigerings fönstret eller från länken i **säkerhets informations** blocket och välj sedan **Lägg till metod** på sidan **säkerhets information** .
 
-    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Sidan säkerhets information med markerat Lägg till metod-alternativ](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. På den **Lägg till en metod** väljer **autentiseringsapp** från listrutan och välj sedan **Lägg till**.
+3. På sidan **Lägg till en metod** väljer du **autentisera program** i list rutan och väljer sedan **Lägg till**.
 
-    ![Lägg till metoden rutan med Authenticator-app har valts](media/security-info/securityinfo-myprofile-addauthapp.png)
+    ![Rutan Lägg till metod, där autentiserare-app har valts](media/security-info/securityinfo-myprofile-addauthapp.png)
 
-4. På den **börja med att hämta appen** väljer **Hämta nu** att ladda ned och installera Microsoft Authenticator-appen på din mobila enhet och välj sedan **nästa**.
+4. På sidan **börja med att hämta appen** väljer du **Hämta nu** för att ladda ned och installera Microsoft Authenticator-appen på din mobila enhet. Välj sedan **Nästa**.
 
     Mer information om hur du laddar ned och installerar appen finns i [Ladda ned och installera Microsoft Authenticator-appen](user-help-auth-app-download-install.md).
 
-    ![Börja med att hämta sidan](media/security-info/securityinfo-myprofile-getauthapp.png)
+    ![Börja med att hämta appens sida](media/security-info/securityinfo-myprofile-getauthapp.png)
 
    > [!Note]
    > Om du vill använda en annan autentiseringsapp än Microsoft Authenticator-appen väljer du länken **Jag vill använda en annan autentiseringsapp**.
-   > 
+   >
    > Om din organisation låter dig välja en annan metod än autentiseringsappen kan du välja länken **Jag vill konfigurera en annan metod**.
 
 5. Ha sidan **Konfigurera ditt konto** öppen medan du konfigurerar Microsoft Authenticator-appen på din mobila enhet.
 
-    ![Ställ in sidan authenticator](media/security-info/securityinfo-myprofile-setupauthapp.png)
+    ![Konfigurera sidan autentiserare](media/security-info/securityinfo-myprofile-setupauthapp.png)
 
 6. Öppna Microsoft Authenticator-appen, välj att tillåta meddelanden (om du uppmanas), välj **Lägg till konto** från ikonen **Customize and control** (Anpassa och styr) uppe till höger och välj sedan **Arbets- eller skolkonto**.
 
-7. Gå tillbaka till den **konfigurerar ditt konto** sidan på din, och välj sedan **nästa**.
+7. Gå tillbaka till sidan **Konfigurera ditt konto** på och välj sedan **Nästa**.
 
     Sidan **Skanna QR-koden** visas.
 
     ![Skanna QR-koden med hjälp av Authenticator-appen](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
 
-6. Skanna koden som tillhandahålls med Microsoft Authenticator-appen QR-kod reader, som fanns på din mobila enhet när du har skapat ditt arbets- eller skolkonto konto i steg 6.
+8. Skanna den angivna koden med Microsoft Authenticator app QR Code Reader, som visas på din mobila enhet efter att du har skapat ditt arbets-eller skol konto i steg 6.
 
     Authenticator-appen bör lägga till ditt arbets- eller skolkonto utan att någon ytterligare information krävs från dig. Men om QR-kodläsaren inte kan läsa koden kan du välja länken **Jag kan inte skanna QR-koden** och manuellt ange koden och URL:en i Microsoft Authenticator-appen. Mer information om att lägga till en kod manuellt finns i [Lägga till ett konto i appen manuellt](user-help-auth-app-add-account-manual.md).
 
-7. Välj **nästa** på den **skanna QR-koden** sidan på din.
+9. Välj **Nästa** på sidan **Skanna QR-koden** på.
 
     Ett meddelande skickas till Microsoft Authenticator-appen på din mobila enhet för att testa ditt konto.
 
     ![Testa ditt konto med Authenticator-appen](media/security-info/securityinfo-myprofile-tryitauthapp.png)
 
-8. Godkänn meddelandet i Microsoft Authenticator-appen och välj sedan **Nästa**.
+10. Godkänn meddelandet i Microsoft Authenticator-appen och välj sedan **Nästa**.
 
      ![Meddelande om att det lyckades; appen och ditt konto ansluts](media/security-info/securityinfo-myprofile-successauthapp.png)
 
      Din säkerhetsinformation uppdateras till att använda Microsoft Authenticator-appen som standard för att verifiera din identitet vid användning av tvåstegsverifiering eller återställning av lösenord.
 
-## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Ta bort din authenticator-app från din info säkerhetsmetoder
-Om du inte längre vill använda din autentiserare som en säkerhetsmetod information du kan ta bort den från den **säkerhetsinformation** sidan. Detta fungerar för alla authenticator-appar, inte bara Microsoft Authenticator-appen. När du tar bort appen, har du gå till autentiseringsappen på din mobila enhet och ta bort kontot.
+## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Ta bort din Authenticator-app från säkerhets informationens metoder
+
+Om du inte längre vill använda din Authenticator-app som säkerhets informations metod kan du ta bort den från sidan **säkerhets information** . Detta fungerar för alla autentiserare-appar, inte bara Microsoft Authenticator-appen. När du har tagit bort appen måste du gå till Authenticator-appen på din mobila enhet och ta bort kontot.
 
 >[!Important]
->Om du tar bort autentiseringsappen av misstag, går det inte att ångra åtgärden. Du måste lägga till authenticator-appen igen, följa stegen i den [konfigurera autentiseringsappen](#set-up-the-microsoft-authenticator-app-from-the-security-info-page) i den här artikeln.
+>Om du tar bort Authenticator-appen av misstag finns det inget sätt att ångra den. Du måste lägga till Authenticator-appen igen genom att följa stegen i avsnittet [Konfigurera Authenticator-appen](#set-up-the-microsoft-authenticator-app-from-the-security-info-page) i den här artikeln.
 
-### <a name="to-delete-the-authenticator-app"></a>Ta bort authenticator-appen
+### <a name="to-delete-the-authenticator-app"></a>Ta bort Authenticator-appen
 
-1. På den **säkerhetsinformation** väljer den **ta bort** länken bredvid Authenticator-appen.
+1. På sidan **säkerhets information** väljer du länken **ta bort** bredvid appen autentiserare.
 
-    ![Länk för att ta bort authenticator-appen från säkerhetsinformation](media/security-info/securityinfo-myprofile-deleteauthapp.png)
+    ![Länk för att ta bort Authenticator-appen från säkerhets information](media/security-info/securityinfo-myprofile-deleteauthapp.png)
 
-2. Välj **Ja** från dialogrutan Bekräfta att ta bort authenticator-appen. När authenticator-appen har tagits bort, tas den bort från din säkerhetsinformation och försvinner den från den **säkerhetsinformation** sidan. Om authenticator-appen är din standardmetod, ändras standardvärdet till en annan metod som är tillgängliga.
+2. Välj **Ja** i bekräftelse rutan om du vill ta bort Authenticator-appen. När du har tagit bort Authenticator-appen tas den bort från din säkerhets information och den försvinner från sidan **säkerhets information** . Om Authenticator-appen är din standard metod ändras standardinställningen till en annan tillgänglig metod.
 
-3. Öppna autentiseringsappen på din mobila enhet, väljer **redigera konton**, och ta sedan bort arbets-eller skolkonto från authenticator-appen.
+3. Öppna appen autentiserare på din mobila enhet, Välj **Redigera konton**och ta sedan bort ditt arbets-eller skol konto från Authenticator-appen.
 
-    Ditt konto helt tas bort från authenticator-appen för tvåfaktorsautentisering verifiering och begäranden för återställning av lösenord.
+    Ditt konto tas bort helt från Authenticator-appen för tvåstegsverifiering och begär Anden om lösen ords återställning.
 
-## <a name="change-your-default-security-info-method"></a>Ändra din standardmetod security info
-Om du vill authenticator-appen är den standardmetod som används när du loggar in till ditt arbets- eller skolkonto konto med två faktorer verifiering eller för att återställa lösenord begäranden måste du ange den från säkerheten **info** sidan.
+## <a name="change-your-default-security-info-method"></a>Ändra din standard metod för säkerhets information
 
-### <a name="to-change-your-default-security-info-method"></a>Ändra din standardmetod security info
+Om du vill att Authenticator-appen ska vara standard metoden som används när du loggar in på ditt arbets-eller skol konto med hjälp av tvåstegsverifiering eller för förfrågningar om lösen ords återställning, kan du ställa in den på sidan säkerhets **information** .
 
-1. På den **säkerhetsinformation** väljer den **ändra** länka bredvid den **standard inloggningsmetod** information.
+### <a name="to-change-your-default-security-info-method"></a>Ändra din standard metod för säkerhets information
 
-    ![Ändra-länk för standard inloggningsmetod](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
+1. På sidan **säkerhets information** väljer du länken **ändra** bredvid standard information om **inloggnings metoden** .
 
-2. Välj **Microsoft Authenticator - meddelande** från den nedrullningsbara listan över tillgängliga metoder. Om du inte använder Microsoft Authenticator-appen, väljer du den **Authenticator-appen eller maskinvara token** alternativet.
+    ![Ändra länk för standard inloggnings metod](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
 
-    ![Välj metod för att logga in standard](media/security-info/securityinfo-myprofile-defaultauthapp.png)
+2. Välj **Microsoft Authenticator-meddelande** i list rutan med tillgängliga metoder. Om du inte använder Microsoft Authenticator-appen väljer du alternativet **autentiserare eller maskinvarubaserad token** .
+
+    ![Välj metod för standard inloggning](media/security-info/securityinfo-myprofile-defaultauthapp.png)
 
 3. Välj **Bekräfta**.
 
-    Standardmetod som används för inloggning ändringar i Microsoft Authenticator-appen.
+    Standard metoden som används för inloggnings ändringar i Microsoft Authenticator-appen.
 
-## <a name="additional-security-info-methods"></a>Ytterligare information om säkerhetsmetoder
-Du har ytterligare alternativ för hur din organisation kontakter du verifiera din identitet, baserat på vad är du försöker göra. Följande alternativ är tillgängliga:
+## <a name="additional-security-info-methods"></a>Ytterligare metoder för säkerhets information
 
-- **Text för mobila enheter.** Ange enhetsnumret till din mobila och få ett textmeddelande när en kod som du använder för tvåstegsverifiering eller lösenord återställa. Stegvisa instruktioner om hur du verifierar din identitet med hjälp av ett textmeddelande (SMS) finns i [konfigurera säkerhetsinformation för att använda textmeddelanden (SMS)](security-info-setup-text-msg.md).
+Du har ytterligare alternativ för hur din organisation kontaktar dig för att verifiera din identitet, baserat på vad som you're försöker göra. Följande alternativ är tillgängliga:
 
-- **Mobil enhet eller arbete telefonsamtal.** Ange enhetsnumret till din mobila och få ett telefonsamtal för verifiering eller lösenord återställning av två steg. Stegvisa instruktioner om hur du verifierar din identitet med ett telefonnummer finns i [konfigurera säkerhetsinformation för att använda telefonsamtal](security-info-setup-phone-number.md).
+- **Mobil enhets text.** Ange ditt mobila enhets nummer och få en text kod som du kan använda för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett textmeddelande (SMS) finns i [Konfigurera säkerhets information för att använda SMS (text messaging)](security-info-setup-text-msg.md).
 
-- **E-postadress.** Ange företagets eller skolans e-postadress för att få ett e-postmeddelande för återställning av lösenord. Det här alternativet är inte tillgängligt för tvåstegsverifiering. Stegvisa instruktioner om hur du ställer in din e-post finns i [konfigurera säkerhetsinformation för att använda e-post](security-info-setup-email.md).
+- **Mobil enhets-eller arbets telefon samtal.** Ange ditt mobila enhets nummer och få ett telefonsamtal för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett telefonnummer finns i [Konfigurera säkerhets information så att telefonsamtal används](security-info-setup-phone-number.md).
 
-- **Säkerhetsfrågor.** Svara på vissa säkerhetsfrågor som skapats av administratören för din organisation. Det här alternativet är endast tillgänglig för återställning av lösenord och inte för tvåstegsverifiering. Stegvisa instruktioner om hur du ställer in dina säkerhetsfrågor finns i den [konfigurera säkerhetsinformation kan använda säkerhetsfrågor](security-info-setup-questions.md) artikeln.
-    
+- **Säkerhets nyckel.** Registrera din Microsoft-kompatibla säkerhets nyckel och Använd den tillsammans med en PIN-kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med en säkerhets nyckel finns i [Konfigurera säkerhets information för att använda en säkerhets nyckel](security-info-setup-security-key.md).
+
+- **E-postadress.** Ange din e-postadress till arbetet eller skolan för att få ett e-postmeddelande om lösen ords återställning. Det här alternativet är inte tillgängligt för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar din e-post finns i [Konfigurera säkerhets information för att använda e-post](security-info-setup-email.md).
+
+- **Säkerhets frågor.** Svara på vissa säkerhets frågor som har skapats av administratören för din organisation. Det här alternativet är bara tillgängligt för lösen ords återställning och inte för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar dina säkerhets frågor finns i artikeln [Konfigurera säkerhets information för att använda säkerhets frågor](security-info-setup-questions.md) .
+
     >[!Note]
-    >Om vissa av dessa alternativ saknas, är det mest sannolika eftersom din organisation inte tillåter dessa metoder. Om så är fallet, måste du välja en tillgänglig metod eller kontakta administratören för mer hjälp.
+    >Om några av dessa alternativ saknas beror det förmodligen på att din organisation inte tillåter dessa metoder. Om så är fallet måste du välja en tillgänglig metod eller kontakta administratören om du vill ha mer hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
 

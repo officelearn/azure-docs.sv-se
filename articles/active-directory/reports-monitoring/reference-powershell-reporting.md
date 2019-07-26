@@ -17,21 +17,18 @@ ms.date: 07/12/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27fa3d7be5238527f86e9dfde3be70ae09259d69
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 2d9d5fdb9091d51c67fd5d778bac189c08647741
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302744"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359763"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdletar för rapportering
 
-Med Azure Active Directory (Azure AD)-rapporter kan du få den information du behöver för att avgöra hur din miljö fungerar. Du kan hämta rapport data med hjälp av Azure AD PowerShell-cmdlets för rapportering.
+Med Azure Active Directory (Azure AD)-rapporter kan du få information om aktiviteter kring alla Skriv åtgärder i din riktning (gransknings loggar) och autentiserings data (inloggnings loggar). Även om informationen är tillgänglig med hjälp av MS-Graph API kan du hämta samma data med hjälp av Azure AD PowerShell-cmdlets för rapportering.
 
-Den här artikeln ger en översikt över cmdleten.
-
-
-
+Den här artikeln innehåller en översikt över de PowerShell-cmdletar som används för gransknings loggar och inloggnings loggar.
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
@@ -63,7 +60,7 @@ Du får åtkomst till inloggnings loggarna med hjälp av cmdleten Get-AzureADAud
 
 | Scenario                      | PowerShell-kommando |
 | :--                           | :--                |
-| Användarens visnings namn             | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "" |
+| Användarens visningsnamn             | Get-AzureADAuditSignInLogs-filter "userDisplayName EQ" Timothy Perkins "" |
 | Skapa datum och tid              | Get-AzureADAuditSignInLogs-filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (allting sedan 5:30 PM på 4/18) |
 | Status                        | Get-AzureADAuditSignInLogs-filter "status/errorCode EQ 50105" |
 | Programmets visnings namn      | Get-AzureADAuditSignInLogs-filter "appDisplayName EQ" StoreFrontStudio [wsfed Enabled] " |

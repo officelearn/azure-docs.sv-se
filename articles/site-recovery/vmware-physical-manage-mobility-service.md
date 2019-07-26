@@ -1,81 +1,82 @@
 ---
-title: Hantera mobilitetsagenten på servrar på haveriberedskap av virtuella VMware-datorer och fysiska servrar med Azure Site Recovery | Microsoft Docs
-description: Hantera mobilitetstjänstagenten för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery-tjänsten.
+title: Hantera mobilitets agenten på servrar för haveri beredskap för virtuella VMware-datorer och fysiska servrar med Azure Site Recovery | Microsoft Docs
+description: Hantera mobilitets tjänst agenten för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av tjänsten Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7cd555f66bb6f65f498f9b3e5db9bbeda0505a8f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117330"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384969"
 ---
-# <a name="manage-mobility-agent-on-protected-machines"></a>Hantera mobilitetsagenten på skyddade datorer
+# <a name="manage-mobility-agent-on-protected-machines"></a>Hantera mobilitets agenten på skyddade datorer
 
-Du konfigurerar mobilitetsagenten på servern när du använder Azure Site Recovery för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure. Mobilitetsagenten samordnar kommunikationen mellan den skyddade datorn configuration server-/ skalbar processerver och hanterar datareplikering. Den här artikeln sammanfattas vanliga uppgifter för att hantera mobilitetsagenten när den har distribuerats.
+Du konfigurerar mobilitets agenten på servern när du använder Azure Site Recovery för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure. Mobilitets agenten samordnar kommunikationen mellan den skyddade datorn, konfigurations servern/skalbar processervern och hanterar datareplikering. Den här artikeln sammanfattar vanliga uppgifter för att hantera mobilitets agenten när den har distribuerats.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="update-mobility-service-from-azure-portal"></a>Uppdateringen av mobilitetstjänsten från Azure-portalen
+## <a name="update-mobility-service-from-azure-portal"></a>Uppdatera mobilitets tjänsten från Azure Portal
 
-1. Innan du börjar måste du kontrollera att konfigurationsservern och skala ut processervrar någon huvudmålservern-server som är en del av distributionen uppdateras innan du uppdaterar Mobilitetstjänsten på skyddade datorer.
-2. Öppna i portalen valvet > **replikerade objekt**.
-3. Om konfigurationsservern är den senaste versionen kan se du ett meddelande som läser ”ny Site recovery replikering agentuppdatering är tillgänglig. Klicka för att installera ”.
+1. Innan du börjar kontrollerar du att konfigurations servern, skalbara process servrar och alla huvud mål servrar som ingår i distributionen uppdateras innan du uppdaterar mobilitets tjänsten på skyddade datorer.
+2. Öppna valvet > **replikerade objekt**i portalen.
+3. Om konfigurations servern är den senaste versionen visas ett meddelande som läser "det går inte att uppdatera den nya Site Recovery-agenten. Klicka om du vill installera. "
 
-     ![Replikerade objekt fönster](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
+     ![Fönstret replikerade objekt](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. Klicka på meddelandet och i **agentuppdatering**, Välj de datorer som du vill uppgradera mobilitetstjänsten. Klicka sedan på **OK**.
+4. Klicka på meddelandet och i **agent uppdatering**väljer du de datorer som du vill uppgradera mobilitets tjänsten till. Klicka sedan på **OK**.
 
-     ![Replikerade objekt VM-lista](./media/vmware-azure-install-mobility-service/update-okpng.png)
+     ![Lista över replikerade objekt för virtuella datorer](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. Uppdateringen av Mobilitetstjänsten jobbet startar för var och en av de valda datorerna.
+5. Jobbet Uppdatera mobilitets tjänsten startar för var och en av de valda datorerna.
 
-## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Uppdateringen av mobilitetstjänsten via powershell-skript på Windows server
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Uppdatera mobilitets tjänsten via PowerShell-skript på Windows Server
 
-Använd följande skript för att uppgradera mobilitetstjänsten på en server via power shell-cmdlet
+Använd följande skript för att uppgradera mobilitets tjänsten på en server via Power shell-cmdlet
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
-## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Uppdatera kontot som används för push-installation av mobilitetstjänsten
+## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Uppdaterings konto som används för push-installation av mobilitets tjänsten
 
-När du har distribuerat Site Recovery för att aktivera push-installation av mobilitetstjänsten, du har angett ett konto som processervern för Site Recovery använder för att få åtkomst till datorerna och installera tjänsten när replikering har aktiverats för datorn. Om du vill uppdatera autentiseringsuppgifterna för det här kontot kan du följa [instruktionerna](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+När du har distribuerat Site Recovery, för att aktivera push-installation av mobilitets tjänsten, angav du ett konto som Site Recovery processervern använder för att få åtkomst till datorerna och installera tjänsten när replikering har Aktiver ATS för datorn. Följ [dessa instruktioner](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)om du vill uppdatera autentiseringsuppgifterna för det här kontot.
 
-## <a name="uninstall-mobility-service"></a>Avinstallera mobilitetstjänsten
+## <a name="uninstall-mobility-service"></a>Avinstallera mobilitets tjänsten
 
 ### <a name="on-a-windows-machine"></a>På en Windows-dator
 
-Avinstallera i användargränssnittet eller från en kommandotolk.
+Avinstallera från användar gränssnittet eller från en kommando tolk.
 
-- **I användargränssnittet**: I Kontrollpanelen på datorn, väljer **program**. Välj **Microsoft Azure Site Recovery Mobility Service/huvudmålservern** > **avinstallera**.
-- **Från en kommandotolk**: Öppna ett kommandotolksfönster som administratör på datorn. Kör följande kommando: 
+- **Från användar gränssnittet**: I kontroll panelen på datorn väljer du **program**. Välj **Microsoft Azure Site Recovery mobilitets tjänst/huvud mål server** > **Avinstallera**.
+- **Från en kommando tolk**: Öppna ett kommando tolks fönster som administratör på datorn. Kör följande kommando: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```
 
 ### <a name="on-a-linux-machine"></a>På en Linux-dator
-1. Logga in på Linux-dator som en **rot** användare.
-2. Gå till /user/local/ASR i en terminal.
+1. Logga in som en **rot** användare på Linux-datorn.
+2. I en Terminal går du till/user/local/ASR.
 3. Kör följande kommando:
     ```
     uninstall.sh -Y
+   ```
+   
+## <a name="install-site-recovery-vss-provider-on-source-machine"></a>Installera Site Recovery VSS-Provider på käll datorn
 
-## Install Site Recovery VSS provider on source machine
+Azure Site Recovery VSS-Provider krävs på käll datorn för att generera program konsekvens punkter. Om installationen av providern inte lyckades genom push-installation följer du anvisningarna nedan för att installera den manuellt.
 
-Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.
+1. Öppna administratörens cmd-fönster.
+2. Gå till installations platsen för mobilitets tjänsten. (Tex-C:\Program Files (x86) \Microsoft Azure Site Recovery\agent.)
+3. Kör skriptet InMageVSSProvider_Uninstall. cmd. Detta kommer att avinstallera tjänsten om den redan finns.
+4. Kör skriptet InMageVSSProvider_Install. cmd för att installera VSS-providern manuellt.
 
-1. Open admin cmd window.
-2. Navigate to the mobility service installation location. (Eg - C:\Program Files (x86)\Microsoft Azure Site Recovery\agent)
-3. Run the script InMageVSSProvider_Uninstall.cmd . This will uninstall the service if it already exists.
-4. Run the script InMageVSSProvider_Install.cmd to install the VSS provider manually.
+## <a name="next-steps"></a>Nästa steg
 
-## Next steps
-
-- [Set up disaster recovery for VMware VMs](vmware-azure-tutorial.md)
-- [Set up disaster recovery for physical servers](physical-azure-disaster-recovery.md)
+- [Konfigurera katastrof återställning för virtuella VMware-datorer](vmware-azure-tutorial.md)
+- [Konfigurera katastrof återställning för fysiska servrar](physical-azure-disaster-recovery.md)

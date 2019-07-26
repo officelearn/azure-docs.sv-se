@@ -1,41 +1,41 @@
 ---
-title: Certifikat som krävs för lista över tillåtna serverdelar i Azure Application Gateway
-description: Den här artikeln innehåller exempel på hur ett SSL-certifikat kan konverteras till certifikat för serverautentisering och betrodda rotcertifikat som krävs för serverdelsinstanser för listan över tillåtna program i Azure Application Gateway
+title: Certifikat som krävs för vit listning-backend i Azure Application Gateway
+description: Den här artikeln innehåller exempel på hur ett SSL-certifikat kan konverteras till autentiseringscertifikat och betrodda rot certifikat som krävs för vit listning Server dels instanser i Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/14/2019
+ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831724"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382050"
 ---
-# <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Skapa certifikat för lista över tillåtna serverdelen med Azure Application Gateway
+# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Skapa certifikat för att tillåta Server delen med Azure Application Gateway
 
-Om du vill utföra slutpunkt till slutpunkt SSL krävs serverdelsinstanser tillåtas genom att ladda upp autentisering/betrodda rotcertifikat. När det gäller v1-SKU krävs autentiseringscertifikat, men för v2-SKU krävs betrodda rotcertifikat för att certifikaten ska godkännas
+För att avsluta SSL måste Application Gateway kräva att Server dels instanserna ska tillåtas genom att överföra autentisering/betrodda rot certifikat. För v1 SKU krävs autentiserings-certifikat, men för de v2 SKU-betrodda rot certifikaten krävs för att tillåta certifikaten.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 >
-> - Exportera certifikatet för serverautentisering från ett backend-certifikat (för v1-SKU)
-> - Exportera betrodda rotcertifikat från ett backend-certifikat (för v2-SKU)
+> - Exportera autentiseringscertifikat från ett Server dels certifikat (för v1 SKU)
+> - Exportera ett betrott rot certifikat från ett Server dels certifikat (för v2-SKU)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver ett befintligt backend-certifikat för att generera certifikat för autentisering eller betrodda rotcertifikat som krävs för lista över tillåtna serverdelsinstanser med application gateway. Backend-certifikat kan vara samma som SSL-certifikat eller en annan för ökad säkerhet. Application gateway ger dig alla mekanism för att skapa eller köpa ett SSL-certifikat. Du kan skapa ett självsignerat certifikat för testning, men du bör inte använda den för produktionsarbetsbelastningar. 
+Ett befintligt Server dels certifikat krävs för att generera de autentiseringscertifikat eller betrodda rot certifikat som krävs för att tillåta Server dels instanser med Application Gateway. Server dels certifikatet kan vara detsamma som SSL-certifikatet eller ett annat för ytterligare säkerhet. Application Gateway ger dig ingen mekanism för att skapa eller köpa ett SSL-certifikat. I test syfte kan du skapa ett självsignerat certifikat men du bör inte använda det för produktions arbets belastningar. 
 
-## <a name="export-authentication-certificate-for-v1-sku"></a>Exportera certifikatet för serverautentisering (för v1-SKU)
+## <a name="export-authentication-certificate-for-v1-sku"></a>Exportera certifikat för autentisering (för v1 SKU)
 
-Certifikat för klientautentisering krävs för att vitlista serverdelsinstanser i application gateway v1 SKU. Certifikat för klientautentisering är den offentliga nyckeln för serverdels-servercertifikat i Base64-kodad X.509 (. CER)-format. I det här exemplet vi använder ett SSL-certifikat för backend-certifikat och exportera den offentliga nyckeln som ska användas som autentisering certifiering. I det här exemplet använder vi dessutom Certifikathanteraren för Windows-verktyget för att exportera certifikat som krävs. Du kan välja att använda andra verktyg används för att underlätta för dig.
+Ett autentiseringscertifikat krävs för att tillåta Server dels instanser i Application Gateway v1 SKU. Autentiseringscertifikatet är den offentliga nyckeln för backend-server certifikat i Base-64-kodad X. 509 (. CER-format. I det här exemplet ska du använda ett SSL-certifikat för Server dels certifikatet och exportera dess offentliga nyckel som ska användas som autentiserings-certifiering. I det här exemplet ska du också använda Windows Certificate Manager-verktyget för att exportera de certifikat som krävs. Du kan välja att använda andra verktyg som är praktiska.
 
-Exportera den offentliga nyckeln .cer-fil (inte den privata nyckeln) från ditt SSL-certifikat. Följande steg hjälper dig att exportera .cer-fil i Base64-kodad X.509 (. CER)-format för ditt certifikat:
+Exportera filen offentlig Key. cer från SSL-certifikatet (inte den privata nyckeln). Med följande steg kan du exportera. CER-filen i Base-64-kodad X. 509 (. CER-format för certifikatet:
 
-1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp certifikatet, vanligtvis under ”certifikat – aktuell användare\personligt\certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas. Om du inte kan hitta certifikatet under aktuell användare\personligt\certifikat, kan du av misstag öppnade ”certifikat - lokal Computer”, i stället för ”certifikat – aktuell användare”). Om du vill öppna Certifikathanteraren i aktuella omfång med hjälp av PowerShell kan du skriva *certmgr* i konsolfönstret.
+1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp certifikatet, vanligt vis i "certificates-Current User\Personal\Certificates" och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas. Om du inte kan hitta certifikatet under aktuell User\Personal\Certificates, kan du av misstag ha öppnat "certifikat-lokal dator" i stället för "certifikat – aktuell användare"). Om du vill öppna certifikat hanteraren i aktuell användar omfattning med PowerShell skriver du *certmgr* i konsol fönstret.
 
    ![Exportera](./media/certificates-for-backend-authentication/export.png)
 
@@ -49,9 +49,9 @@ Exportera den offentliga nyckeln .cer-fil (inte den privata nyckeln) från ditt 
 
 4. På sidan **Filformat för export** väljer du **Base 64-kodad X.509 (. CER).** och klickar sedan på **Nästa**.
 
-   ![Base 64-kodad](./media/certificates-for-backend-authentication/base64.png)
+   ![Base – 64-kodad](./media/certificates-for-backend-authentication/base64.png)
 
-5. För **fil som ska exporteras**, **Bläddra** till den plats som du vill exportera certifikatet. För **Filnamn** anger du ett namn för certifikatfilen. Klicka sedan på **Nästa**.
+5. För **fil som ska exporteras** **bläddrar** du till den plats som du vill exportera certifikatet till. För **Filnamn** anger du ett namn för certifikatfilen. Klicka sedan på **Nästa**.
 
    ![Bläddra](./media/certificates-for-backend-authentication/browse.png)
 
@@ -59,50 +59,50 @@ Exportera den offentliga nyckeln .cer-fil (inte den privata nyckeln) från ditt 
 
    ![Slutför](./media/certificates-for-backend-authentication/finish.png)
 
-7. Ditt certifikat har exporterats.
+7. Ditt certifikat har exporter ATS.
 
    ![Klart](./media/certificates-for-backend-authentication/success.png)
 
    Det exporterade certifikatet ser ut ungefär så här:
 
-   ![Exporteras](./media/certificates-for-backend-authentication/exported.png)
+   ![Exporterat](./media/certificates-for-backend-authentication/exported.png)
 
-8. Om du öppnar det exporterade certifikatet med hjälp av anteckningar, visas något som liknar det här exemplet. I avsnittet i blått innehåller den information som överförs till application gateway. Om du vill öppna certifikatet med anteckningar och ser inte ut ungefär så här, vanligtvis det innebär att du inte exportera det med Base64-kodad X.509 (. CER)-format. Om du vill använda en annan textredigerare kan du också känna att vissa redigerare kan leda till oönskade formatering i bakgrunden. Detta kan skapa problem när laddat upp text från det här certifikatet till Azure.
+8. Om du öppnar det exporterade certifikatet med hjälp av anteckningar ser du något som liknar det här exemplet. Avsnittet i blått innehåller den information som överförs till Application Gateway. Om du öppnar ditt certifikat med anteckningar och det inte ser ut ungefär så här betyder det vanligt vis att du inte exporterade det med hjälp av Base-64-kodad X. 509 (. CER-format. Dessutom, om du vill använda en annan text redigerare, vet du att vissa redigerare kan introducera oavsiktlig formatering i bakgrunden. Detta kan skapa problem när du överför texten från det här certifikatet till Azure.
 
    ![Öppna med anteckningar](./media/certificates-for-backend-authentication/format.png)
 
-## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exportera betrodda rotcertifikat (för v2-SKU)
+## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exportera betrott rot certifikat (för v2-SKU)
 
-Betrodda rotcertifikat som krävs för att vitlista serverdelsinstanser i application gateway v2 SKU. Rotcertifikatet är en Base 64-kodad X.509 (. CER) format rotcertifikat från serverdels-servercertifikat. I det här exemplet ska vi använda ett SSL-certifikat för backend-certifikatet, exportera den offentliga nyckeln och sedan exportera rotcertifikatet för den betrodda Certifikatutfärdaren från den offentliga nyckeln i base64-kodat format för att hämta det betrodda rotcertifikatet. 
+Ett betrott rot certifikat krävs för att tillåta Server dels instanser i Application Gateway v2-SKU: n. Rot certifikatet är en Base-64-kodad X. 509 (. CER) formatera rot certifikat från backend-serverns certifikat. I det här exemplet ska du använda ett SSL-certifikat för Server dels certifikatet och exportera dess offentliga nyckel. Sedan ska du exportera rot certifikatet för den betrodda certifikat utfärdaren från den offentliga nyckeln i Base64-kodat format för att hämta det betrodda rot certifikatet. 
 
-Följande steg hjälper dig att exportera .cer-filen för certifikatet:
+Med följande steg kan du exportera. CER-filen för certifikatet:
 
-1. Följ steg 1 – 9 avsnittet **autentiseringscertifikat för Export från ett backend-certifikat (för v1-SKU)** ovan för att exportera den offentliga nyckeln från backend-certifikatet.
+1. Använd stegen 1-9 som nämns i avsnittet **Exportera autentiseringscertifikat från ett Server dels certifikat (för v1 SKU)** ovan för att exportera den offentliga nyckeln från Server dels certifikatet.
 
-2. När den offentliga nyckeln har exporterats kan du öppna filen.
+2. När den offentliga nyckeln har exporter ATS öppnar du filen.
 
-   ![Öppna auktorisering certifikat](./media/certificates-for-backend-authentication/openAuthcert.png)
+   ![Öppna certifikat för auktorisering](./media/certificates-for-backend-authentication/openAuthcert.png)
 
-   ![Om certifikat](./media/certificates-for-backend-authentication/general.png)
+   ![om certifikat](./media/certificates-for-backend-authentication/general.png)
 
-3. Flytta till certifieringssökvägen vyn certifikatutfärdaren.
+3. Gå till vyn certifierings Sök väg om du vill visa certifikat utfärdaren.
 
-   ![information om certifikat](./media/certificates-for-backend-authentication/certdetails.png)
+   ![certifikat information](./media/certificates-for-backend-authentication/certdetails.png)
 
-4. Välj rotcertifikat och klicka på **Visa certifikat**.
+4. Välj rot certifikatet och klicka på **Visa certifikat**.
 
-   ![CERT sökväg](./media/certificates-for-backend-authentication/rootcert.png)
+   ![certifikat Sök väg](./media/certificates-for-backend-authentication/rootcert.png)
 
-   Du ska kunna visa rot-certifikatinformation.
+   Du bör se information om rot certifikatet.
 
-   ![CERT-info](./media/certificates-for-backend-authentication/rootcertdetails.png)
+   ![certifikat information](./media/certificates-for-backend-authentication/rootcertdetails.png)
 
-5. Flytta till den **information** visa och klicka på **kopiera till fil...**
+5. Flytta till vyn **information** och klicka på **Kopiera till fil...**
 
-   ![Kopiera rotcertifikatet](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
+   ![Kopiera rot certifikat](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
 
-6. Du har nu extraherat information om rotcertifikatet från backend-certifikatet. Du kommer att se den **guiden Exportera certifikat**. Nu använda steg 2 – 9 avsnittet **autentiseringscertifikat för Export från ett backend-certifikat (för v1-SKU)** ovan för att exportera den betrodda roten certifikatet i Base-64-kodad X.509 (. CER)-format.
+6. Nu har du extraherat informationen om rot certifikatet från Server dels certifikatet. Du ser **guiden Exportera certifikat**. Använd nu steg 2-9 som nämns i avsnittet **Exportera autentiseringscertifikat från ett Server dels certifikat (för v1 SKU)** ovan för att exportera det betrodda rot certifikatet i Base-64-kodad X. 509 (. CER-format.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har autentiseringen certifikatet/betrott rotcertifikat i Base64-kodad X.509 (. CER)-format. Du kan lägga till detta application gateway till listan över godkända backend-servrarna för slutpunkt till slutpunkt SSL-kryptering. Se [så här konfigurerar du från slutpunkt till slutpunkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Nu har du autentiserings certifikatet/det betrodda rot certifikatet i Base-64-kodad X. 509 (. CER-format. Du kan lägga till den i programgatewayen så att backend-servrarna får slut på SSL-kryptering. Se [hur du konfigurerar SSL-kryptering från slut punkt till slut punkt](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).

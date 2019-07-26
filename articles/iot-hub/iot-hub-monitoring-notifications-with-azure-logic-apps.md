@@ -1,238 +1,256 @@
 ---
-title: IoT fjärrövervakning och aviseringar med Azure Logic Apps | Microsoft Docs
-description: Använd Azure Logic Apps för övervakning av IoT temperatur på IoT hub och automatiskt skicka e-postmeddelanden till din postlåda för eventuella avvikelser som har identifierats.
+title: Övervakning och aviseringar för IoT-fjärrhantering med Azure Logic Apps | Microsoft Docs
+description: Använd Azure Logic Apps för övervakning av IoT-temperaturer på din IoT-hubb och skicka e-postmeddelanden automatiskt till din post låda för eventuella avvikelser som upptäckts.
 author: robinsh
-keywords: IOT övervakningsaviseringar, iot, övervakning av iot temperatur
+keywords: IoT-övervakning, IoT-aviseringar, IoT-temperatur övervakning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719322"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385711"
 ---
-# <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IoT fjärrövervakning och aviseringar med Azure Logic Apps ansluter dina IoT-hubb och postlåda
+# <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Övervakning och aviseringar för IoT-fjärrhantering med Azure Logic Apps du ansluter din IoT Hub och post lådan
 
-![Slutpunkt till slutpunkt-diagram](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
+![Diagram från slut punkt till slut punkt](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Med Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) kan hjälpa dig att samordna arbetsflöden i lokala och molnbaserade tjänster, att en eller flera företag, och över olika protokoll. En logikapp börjar med en utlösare, som följs sedan en eller flera åtgärder som kan ordnas med hjälp av inbyggda kontroller, till exempel villkor och Iteratorer. Den här flexibiliteten gör Logic Apps en perfekt IoT-lösning för övervakning IoT-scenarier. Till exempel ankomsten av telemetridata från en enhet i en IoT Hub-slutpunkten kan exempelvis starta logikapparbetsflöden till datalager data i en Azure Storage blob, skicka e-postaviseringar för att varna av data avvikelser, schemalägga ett tekniker besök om en enhet rapporterar ett fel , och så vidare.
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) kan hjälpa dig att dirigera arbets flöden över lokala tjänster och moln tjänster, ett eller flera företag och mellan olika protokoll. En Logic app börjar med en utlösare som sedan följs av en eller flera åtgärder som kan sekvenseras med hjälp av inbyggda kontroller, till exempel villkor och iteratorer. Den här flexibiliteten gör Logic Apps en idealisk IoT-lösning för IoT Monitoring-scenarier. Till exempel kan mottagning av telemetridata från en enhet på en IoT Hub slut punkt initiera Logic app-arbetsflöden till lagret data i en Azure Storage-BLOB, skicka e-postaviseringar till en varning om data avvikelser, schemalägga en tekniker besök om en enhet rapporterar ett fel osv.
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-Du lär dig hur du skapar en logikapp som ansluter din IoT-hubb och postlådan för temperaturövervakning och aviseringar.
+Du får lära dig hur du skapar en Logi Kap par som ansluter IoT-hubben och din post låda för temperatur övervakning och meddelanden.
 
-Klientkoden körs på din enhet anger en programegenskap `temperatureAlert`på varje telemetri meddelande den skickar till IoT hub. När klienten upptäcker en temperatur över 30 C, egenskapen in till `true`, annars den anger egenskapen till `false`.
+Klient koden som körs på enheten anger en program egenskap, `temperatureAlert`vid varje telemetri som skickas till din IoT-hubb. När klient koden identifierar en temperatur över 30 C, anges denna egenskap till `true`. i annat fall anges egenskapen till. `false`
 
-I det här avsnittet konfigurerar du routning på IoT hub att skicka meddelanden där `temperatureAlert = true` till en Service Bus-slutpunkt, och du konfigurerar en logikapp som utlöser på meddelanden som inkommer på Service Bus-slutpunkten och skickar du ett e-postmeddelande.
+Meddelanden som kommer till din IoT-hubb ser ut ungefär så här, med telemetri-data som finns i texten `temperatureAlert` och egenskapen i program egenskaperna (system egenskaper visas inte):
+
+```json
+{
+  "body": {
+    "messageId": 18,
+    "deviceId": "Raspberry Pi Web Client",
+    "temperature": 27.796111770668457,
+    "humidity": 66.77637926438427
+  },
+  "applicationProperties": {
+    "temperatureAlert": "false"
+  }
+}
+```
+
+Mer information om IoT Hub meddelande format finns i [skapa och läsa IoT Hub meddelanden](iot-hub-devguide-messages-construct.md).
+
+I det här avsnittet ställer du in routning i IoT Hub för att skicka meddelanden där `temperatureAlert` egenskapen är `true` till en Service Bus slut punkt. Sedan kan du ställa in en Logi Kap par som utlöser de meddelanden som kommer till Service Bus slut punkten och skickar ett e-postmeddelande till dig.
 
 ## <a name="what-you-do"></a>Vad du gör
 
-* Skapa ett Service Bus-namnområde och Lägg till en Service Bus-kö.
-* Lägga till en anpassad slutpunkt och en regel för vidarebefordran till din IoT hub för att dirigera meddelanden som innehåller en avisering om temperatur till Service Bus-kö.
-* Skapa, konfigurera och testa en logikapp som förbrukar meddelanden från Service Bus-kö och skicka e-postaviseringar till en önskad mottagare.
+* Skapa ett Service Bus-namnområde och Lägg till en Service Bus kö i den.
+* Lägg till en anpassad slut punkt och en regel för routning i IoT Hub för att dirigera meddelanden som innehåller en temperatur avisering till Service Bus kön.
+* Skapa, konfigurera och testa en Logic-app för att använda meddelanden från din Service Bus kö och skicka e-postmeddelanden till en önskad mottagare.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-* Slutför den [Raspberry Pi onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md) självstudien eller någon av enheten självstudiekurser; exempelvis [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Dessa omfattar följande krav:
+* Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
 
   * En aktiv Azure-prenumeration.
-  * Azure IoT hub i din prenumeration.
-  * Ett klientprogram som körs på en enhet som skickar telemetrimeddelanden till din Azure IoT hub.
+  * En Azure IoT-hubb under din prenumeration.
+  * Ett klient program som körs på din enhet som skickar telemetri-meddelanden till Azure IoT Hub.
 
-## <a name="create-service-bus-namespace-and-queue"></a>Skapa Service Bus-namnområde och kö
+## <a name="create-service-bus-namespace-and-queue"></a>Skapa Service Bus namnrymd och kö
 
-Skapa ett namnområde och en kö för Service Bus. Senare i det här avsnittet ska skapa du en routningsregel i IoT-hubben till direkta meddelanden som innehåller en avisering om temperatur till Service Bus-kö, där de ska hämtas av en logikapp och utlösa det för att skicka ett e-postmeddelande.
+Skapa ett namnområde och en kö för Service Bus. Senare i det här avsnittet skapar du en regel för routning i IoT Hub för att dirigera meddelanden som innehåller en temperatur avisering till Service Bus kön, där de hämtas av en Logic app och utlöser den för att skicka ett e-postmeddelande.
 
 ### <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
 
-1. På den [Azure-portalen](https://portal.azure.com/)väljer **+ skapa en resurs** > **integrering** > **Service Bus**.
+1. På [Azure Portal](https://portal.azure.com/)väljer du **+ skapa en resurs** > **integrations** > **Service Bus**.
 
-1. På den **skapa namnområde** fönstret, ange följande information:
+1. I fönstret **skapa namn område** anger du följande information:
 
-   **Namn på**: Namnet på service bus-namnområdet. Namnområdet måste vara unikt inom Azure.
+   **Namn på**: Namnet på Service Bus-namnområdet. Namn området måste vara unikt i Azure.
 
-   **Prisnivå**: Välj **grundläggande** från den nedrullningsbara listan. Basic-nivån är tillräcklig för den här självstudien.
+   **Prisnivå**: Välj **grundläggande** i list rutan. Basic-nivån räcker för den här självstudien.
 
-   **Resursgrupp**: Använd samma resursgrupp som din IoT-hubb använder.
+   **Resursgrupp**: Använd samma resurs grupp som din IoT Hub använder.
 
-   **Plats**: Använd samma plats som använder din IoT-hubb.
+   **Plats**: Använd samma plats som din IoT Hub använder.
 
-   ![Skapa en service bus-namnområde i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
+   ![Skapa ett Service Bus-namnområde i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
 1. Välj **Skapa**. Vänta tills distributionen har slutförts innan du går vidare till nästa steg.
 
-### <a name="add-a-service-bus-queue-to-the-namespace"></a>Lägga till en Service Bus-kö i namnområdet
+### <a name="add-a-service-bus-queue-to-the-namespace"></a>Lägg till en Service Bus-kö i namn området
 
-1. Öppna Service Bus-namnområdet. Det enklaste sättet att komma till Service Bus-namnområdet är att välja **resursgrupper** från resurs-fönstret, Välj din resursgrupp och välj sedan Service Bus-namnområdet från listan över resurser.
+1. Öppna Service Bus namn området. Det enklaste sättet att komma till Service Bus namn området är att välja **resurs grupper** från resurs fönstret, markera din resurs grupp och välj sedan Service Bus namn området i listan över resurser.
 
-1. På den **Service Bus Namespace** väljer **+ kö**.
+1. I fönstret **Service Bus namnrymd** väljer du **+ kö**.
 
-1. Ange ett namn för kön och välj sedan **skapa**. När kön har skapats visas den **Skapa kö** fönstret stängs.
+1. Ange ett namn för kön och välj sedan **skapa**. När kön har skapats stängs fönstret **skapa kö** .
 
-   ![Lägg till en service bus-kö i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
+   ![Lägg till en Service Bus-kö i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. Gå tillbaka till den **Service Bus Namespace** fönstret under **entiteter**väljer **köer**. Öppna Service Bus-kön i listan och välj sedan **principer för delad åtkomst** >  **+ Lägg till**.
+1. Gå tillbaka till rutan **Service Bus namnrymd** under **entiteter**och välj **köer**. Öppna kön Service Bus i listan och välj sedan **principer** > för delad åtkomst **+ Lägg till**.
 
-1. Ange ett namn för principen, kontrollera **hantera**, och välj sedan **skapa**.
+1. Ange ett namn för principen, kontrol lera **Hantera**och välj sedan **skapa**.
 
-   ![Lägg till en service bus-kö-princip i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
+   ![Lägg till en princip för Service Bus-kö i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
-## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Lägg till en anpassad slutpunkt och en regel för vidarebefordran till din IoT hub
+## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Lägg till en anpassad slut punkt och routningsregler i IoT Hub
 
-Lägg till en anpassad slutpunkt för Service Bus-kön till din IoT hub och skapa en hanteringsregel för meddelandet för att dirigera meddelanden som innehåller en temperatur-avisering till denna slutpunkt där de ska hämtas av din logikapp. En routningsregel för använder en routning fråga `temperatureAlert = "true"`, för att vidarebefordra meddelanden baserat på värdet för den `temperatureAlert` programegenskap som angetts av klientkoden körs på enheten. Mer information finns i [Message routing frågan utifrån meddelandeegenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Lägg till en anpassad slut punkt för Service Bus kön i IoT-hubben och skapa en regel för att dirigera meddelanden som innehåller en temperatur avisering till den slut punkten, där de hämtas av din Logic app. Routningstjänsten använder en cirkulations fråga `temperatureAlert = "true"`, för att vidarebefordra meddelanden baserat på värdet `temperatureAlert` för egenskapen program som anges av den klient kod som körs på enheten. Mer information finns i [meddelande cirkulations fråga baserat på meddelande egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
 
-### <a name="add-a-custom-endpoint"></a>Lägg till en anpassad slutpunkt
+### <a name="add-a-custom-endpoint"></a>Lägg till en anpassad slut punkt
 
-1. Öppna din IoT-hubb. Det enklaste sättet att komma till IoT-hubben är att välja **resursgrupper** från resurs-fönstret, Välj resursgruppen och välj sedan IoT-hubben från listan över resurser.
+1. Öppna din IoT Hub. Det enklaste sättet att komma till IoT Hub är att välja **resurs grupper** från resurs fönstret, välja din resurs grupp och sedan använda IoT Hub i listan över resurser.
 
-1. Under **Messaging**väljer **meddelanderoutning**. På den **meddelanderoutning** väljer den **anpassade slutpunkter** fliken och välj sedan **+ Lägg till**. Från listrutan, väljer **Service bus-kö**.
+1. Under **meddelanden**väljer du **meddelanderoutning.** I fönstret **meddelanderoutning** väljer du fliken **anpassade slut punkter** och väljer sedan **+ Lägg till**. I list rutan väljer du **Service Bus-kö**.
 
-   ![Lägga till en slutpunkt i din IoT-hubb i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Lägg till en slut punkt i IoT Hub i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
-1. På den **lägga till en service bus-slutpunkt** fönstret anger du följande information:
+1. I fönstret **Lägg till en Service Bus-slutpunkt** anger du följande information:
 
-   **Namnet på slutpunkten**: Namnet på slutpunkten.
+   **Slut punkts namn**: Namnet på slut punkten.
 
-   **Service bus-namnområde**: Välj det namnområde som du skapade.
+   **Service Bus-namnrymd**: Välj det namn område som du skapade.
 
-   **Service bus-kö**: Väljer du den kö som du skapade.
+   **Service Bus-kö**: Välj den kö som du skapade.
 
-   ![Lägga till en slutpunkt i din IoT-hubb i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
+   ![Lägg till en slut punkt i IoT Hub i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Välj **Skapa**. När slutpunkten har skapats, kan du gå vidare till nästa steg.
+1. Välj **Skapa**. När slut punkten har skapats går du vidare till nästa steg.
 
-### <a name="add-a-routing-rule"></a>Lägga till en hanteringsregel
+### <a name="add-a-routing-rule"></a>Lägg till en hanteringsregel
 
-1. Gå tillbaka till den **meddelanderoutning** väljer den **vägar** fliken och välj sedan **+ Lägg till**.
+1. Tillbaka **i fönstret meddelanderoutning** väljer du fliken **vägar** och väljer sedan **+ Lägg till**.
 
-1. På den **lägga till en väg** fönstret anger du följande information:
+1. Ange följande information i fönstret **Lägg till en väg** :
 
-   **Namn på**: Namnet på regel för vidarebefordran.
+   **Namn på**: Namnet på regeln för routning.
 
-   **Slutpunkt**: Välj vilken slutpunkt som du skapade.
+   **Slutpunkt**: Välj den slut punkt som du skapade.
 
-   **Datakälla**: Välj **enhet Telemetrimeddelanden**.
+   **Datakälla**: Välj **meddelanden för telemetri om enhet**.
 
    **Dirigeringsfråga**: Ange `temperatureAlert = "true"`.
 
-   ![Lägg till en regel för vidarebefordran i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
+   ![Lägg till en regel för routning i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
-1. Välj **Spara**. Du kan stänga den **meddelanderoutning** fönstret.
+1. Välj **Spara**. Du kan **stänga fönstret meddelanderoutning** .
 
-## <a name="create-and-configure-a-logic-app"></a>Skapa och konfigurera en Logikapp
+## <a name="create-and-configure-a-logic-app"></a>Skapa och konfigurera en Logic app
 
-I föregående avsnitt ställer du in din IoT-hubb för att dirigera meddelanden som innehåller en avisering om temperatur till Service Bus-kö. Nu kan ställa du in en logikapp för att övervaka Service Bus-kö och skicka ett e-postmeddelande när ett meddelande läggs till i kön.
+I föregående avsnitt ställer du in IoT-hubben för att dirigera meddelanden som innehåller en temperatur avisering till din Service Bus-kö. Nu kan du konfigurera en Logic app för att övervaka Service Bus kön och skicka ett e-postmeddelande när ett meddelande läggs till i kön.
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
 
-1. Välj **skapa en resurs** > **integrering** > **Logikapp**.
+1. Välj **skapa en** > **Logic-app**för resurs**integrering** > .
 
 1. Ange följande information:
 
-   **Namn på**: Namnet på logikappen.
+   **Namn på**: Namnet på Logic-appen.
 
-   **Resursgrupp**: Använd samma resursgrupp som din IoT-hubb använder.
+   **Resursgrupp**: Använd samma resurs grupp som din IoT Hub använder.
 
-   **Plats**: Använd samma plats som använder din IoT-hubb.
+   **Plats**: Använd samma plats som din IoT Hub använder.
 
-   ![Skapa en logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
+   ![Skapa en Logic-app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
 1. Välj **Skapa**.
 
-### <a name="configure-the-logic-app-trigger"></a>Konfigurera logikappsutlösaren
+### <a name="configure-the-logic-app-trigger"></a>Konfigurera Logic app-utlösaren
 
-1. Öppna logikappen. Det enklaste sättet att komma till logikappen är att välja **resursgrupper** från resurs-fönstret, Välj resursgruppen och välj sedan din logikapp från listan över resurser. När du väljer logic app öppnas Logic Apps Designer.
+1. Öppna Logic-appen. Det enklaste sättet att komma till Logic app är att välja **resurs grupper** från resurs fönstret, välja din resurs grupp och sedan din Logi Kap par i listan över resurser. När du väljer Logic-appen öppnas Logic Apps designer.
 
-1. Logic Apps Designer, rulla ned till **mallar** och välj **tom Logikapp**.
+1. Rulla ned till **mallar** i Logic Apps designer och välj **Tom Logic app**.
 
-   ![Börja med en tom logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
+   ![Börja med en tom Logic-app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
 
-1. Välj den **alla** fliken och välj sedan **Service Bus**.
+1. Välj fliken **alla** och välj sedan **Service Bus**.
 
-   ![Välj Service Bus för att börja skapa din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
+   ![Välj Service Bus för att börja skapa din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. Under **utlösare**väljer **när en eller flera meddelanden anländer i en kö (Komplettera automatiskt)** .
+1. Under utlösare väljer du **när ett eller flera meddelanden anländer i en kö (komplettera automatiskt)** .
 
-   ![Välj utlösaren för din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
+   ![Välj utlösaren för din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
-1. Skapa en service bus-anslutning.
-   1. Ange ett namn på anslutningen och välj Service Bus-namnområdet från listan. Nästa skärm öppnas.
+1. Skapa en Service Bus-anslutning.
+   1. Ange ett namn på anslutningen och välj Service Bus namn området i listan. Nästa skärm öppnas.
 
-      ![Skapa en service bus-anslutning för din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Skapa en Service Bus-anslutning för din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   1. Välj service bus-princip (RootManageSharedAccessKey). Välj sedan **skapa**.
+   1. Välj Service Bus-princip (RootManageSharedAccessKey). Välj sedan **skapa**.
 
-      ![Skapa en service bus-anslutning för din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
+      ![Skapa en Service Bus-anslutning för din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
-   1. På den sista skärmen för **könamn**, väljer du den kö som du skapade från listrutan. Ange `175` för **maximala meddelandeantalet**.
+   1. På den sista skärmen, för **Könamn**väljer du den kö som du skapade i list rutan. Ange `175` för **maximalt antal meddelanden**.
 
-      ![Ange det maximala meddelandeantalet för service bus-anslutning i din logikapp](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+      ![Ange maximalt antal meddelanden för Service Bus-anslutningen i din Logic app](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
 
-   1. Välj **spara** på menyn högst upp i Logic Apps Designer för att spara dina ändringar.
+   1. Spara ändringarna genom att välja **Spara** på menyn längst upp i Logic Apps designer.
 
-### <a name="configure-the-logic-app-action"></a>Konfigurera åtgärden till logic app
+### <a name="configure-the-logic-app-action"></a>Konfigurera Logic app-åtgärden
 
-1. Skapa en anslutning för SMTP-tjänsten.
+1. Skapa en SMTP-tjänst anslutning.
 
-   1. Välj **Nytt steg**. I **Välj en åtgärd**väljer den **alla** fliken.
+   1. Välj **Nytt steg**. I **Välj en åtgärd**väljer du fliken **alla** .
 
-   1. Typ `smtp` i sökrutan, Välj den **SMTP** tjänsten i sökresultatet och välj sedan **skicka e-post**.
+   1. Skriv `smtp` i sökrutan, Välj **SMTP** -tjänsten i Sök resultatet och välj sedan **skicka e-post**.
 
-      ![Skapa en SMTP-anslutning i din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
+      ![Skapa en SMTP-anslutning i din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
 
-   1. Ange SMTP-information för din postlåda och välj sedan **skapa**.
+   1. Ange SMTP-information för din post låda och välj sedan **skapa**.
 
-      ![Ange SMTP-anslutningsinformation i din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10-enter-smtp-connection-info-logic-app-azure-portal.png)
+      ![Ange SMTP-anslutnings information i din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10-enter-smtp-connection-info-logic-app-azure-portal.png)
 
-      Få den SMTP-informationen för [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en), och [Yahoo e-post](https://help.yahoo.com/kb/SLN4075.html).
+      Hämta SMTP-information för [Hotmail/Outlook. com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en)och [Yahoo-e-post](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > Du kan behöva inaktivera SSL för att upprätta anslutningen. Om så är fallet och du vill återaktivera SSL när anslutningen har upprättats, finns det valfria steget i slutet av det här avsnittet.
+      > Du kan behöva inaktivera SSL för att upprätta anslutningen. Om så är fallet och du vill återaktivera SSL när anslutningen har upprättats, se det valfria steget i slutet av det här avsnittet.
 
-   1. Från den **Lägg till ny parameter** listrutan vid den **skicka e-post** steg, Välj **från**, **till**, **ämne**och **brödtext**. Klicka eller tryck var som helst på skärmen för att Stäng markeringsrutan.
+   1. Från List rutan **Lägg till ny parameter** i steget för **att skicka e-post** väljer du **från**, **till**, **ämne** och **brödtext**. Klicka eller tryck var som helst på skärmen för att stänga markerings rutan.
 
-      ![Välj e-postfält för SMTP-anslutning](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
+      ![Välj SMTP-anslutningens e-fält](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
 
-   1. Ange din e-postadress för **från** och **till**, och `High temperature detected` för **ämne** och **brödtext**. Om den **Lägg till dynamiskt innehåll från appar och kopplingar som används i det här flödet** dialogruta öppnas, Välj **Dölj** att stänga den. Du använder inte dynamiskt innehåll i den här självstudien.
+   1. Ange din e-postadress för **från** och **till**, `High temperature detected` samt för **ämne** och **brödtext**. Om dialog rutan **Lägg till dynamiskt innehåll från appar och anslutningar som används i det här flödet** öppnas väljer du **Dölj** för att stänga den. Du använder inte dynamiskt innehåll i den här självstudien.
 
-      ![Fyll SMTP e-Anslutningsfält](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
+      ![Fyll i e-fält för SMTP-anslutning](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
 
-   1. Välj **spara** att spara SMTP-anslutning.
+   1. Välj **Spara** för att spara SMTP-anslutningen.
 
-1. (Valfritt) Om du vill inaktivera SSL för att upprätta en anslutning till din e-postleverantör och vill aktivera det igen måste du så här:
+1. Valfritt Om du var tvungen att inaktivera SSL för att upprätta en anslutning till din e-postleverantör och vill återaktivera den, följer du dessa steg:
 
-   1. På den **logikapp** fönstret under **utvecklingsverktyg**väljer **API-anslutningar**.
+   1. I fönstret **Logic app** , under **utvecklingsverktyg**, väljer du **API-anslutningar**.
 
-   1. Välj SMTP-anslutning från listan över API-anslutningar.
+   1. Välj SMTP-anslutningen i listan över API-anslutningar.
 
-   1. På den **smtp API-anslutningen** fönstret under **Allmänt**väljer **redigera API-anslutningen**.
+   1. I fönstret **SMTP API-anslutning** under **Allmänt**väljer du **Redigera API-anslutning**.
 
-   1. På den **redigera API-anslutningen** väljer **aktivera SSL?** , anger du lösenordet för ditt e-postkonto igen och välj **spara**.
+   1. I fönstret **Redigera API-anslutning** väljer du **Aktivera SSL?** , anger lösen ordet för ditt e-postkonto igen och väljer **Spara**.
 
-      ![Redigera SMTP-API-anslutning i din logikapp i Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
+      ![Redigera SMTP API-anslutning i din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 
-Logikappen är nu redo att bearbeta temperatur aviseringar från Service Bus-kö och skickar meddelanden till ditt e-postkonto.
+Din Logi Kap par är nu redo att bearbeta temperatur aviseringar från Service Bus kön och skicka meddelanden till ditt e-postkonto.
 
 ## <a name="test-the-logic-app"></a>Testa logikappen
 
-1. Starta klientprogrammet på enheten.
+1. Starta klient programmet på enheten.
 
-1. Om du använder en fysisk enhet ta noggrant med en källa för den termiska nära termisk sensorn innan den överskrider 30 grader C. Om du använder online simulatorn klientkoden slumpmässigt mata ut telemetrimeddelanden som överskrider 30 C.
+1. Om du använder en fysisk enhet bör du noggrant ta en värme källa nära värme sensorn tills temperaturen överskrider 30 grader C. Om du använder online simulatorn kommer klient koden slumpmässigt att skicka telemetri om telemetri som överstiger 30 C.
 
-1. Du bör börja ta emot e-postmeddelanden som skickas av logikappen.
+1. Du bör börja ta emot e-postmeddelanden som skickas av Logic app.
 
    > [!NOTE]
-   > Din e-post-leverantör kan behöva kontrollera identiteten avsändaren att kontrollera att det är du som skickar e-postmeddelandet.
+   > Din e-postleverantör kan behöva verifiera avsändar identiteten för att kontrol lera att den är den som skickar e-postmeddelandet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du skapat har en logikapp som ansluter din IoT-hubb och postlådan för temperaturövervakning och aviseringar.
+Du har skapat en Logic-app som ansluter din IoT-hubb och din post låda för temperatur övervakning och-meddelanden.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

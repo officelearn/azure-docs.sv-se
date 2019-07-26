@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11532fbae4565ec1fc3625abe60b98d2ccd26fec
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319747"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346904"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -135,11 +135,11 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
         ```
 
         > [!NOTE]
-        > Det här läget Miss lyckas om Azure Multi-Factor Authentication krävs. I så fall använder du något av de föregående två autentiseringsläget eller använder någon av lösningarna nedan. Vi rekommenderar att MFA-kraven kringgås endast i test syfte.
+        > Det här läget Miss lyckas om Azure Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
         >
-        > Om ditt Azure-konto är specifikt konfigurerat för att kräva MFA kan du i stället använda ett annat konto som inte kräver MFA.
+        > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika detta kan du använda ett annat konto som har stöd för MFA med något av de tidigare två autentiseringsläget, eller så kan du också tillfälligt minska kraven för MFA-kravet för Azure Device Registration. Det gör du genom att gå till hanterings portalen för Azure, gå till Azure Active Directory, sedan enheter, sedan enhets inställningar och sedan ange "Kräv Multi-factor auth för att ansluta enheter" till Nej. Se till att konfigurera om den här inställningen igen till Ja när registreringen är klar.
         >
-        > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika detta kan du antingen använda ett annat konto som inte kräver MFA, eller så kan du tillfälligt minska MFA-kravet för Azure Device Registration. Det gör du genom att gå till hanterings portalen för Azure, gå till Azure Active Directory, sedan enheter, sedan enhets inställningar och sedan ange "Kräv Multi-factor auth för att ansluta enheter" till Nej.  Se till att konfigurera om den här inställningen igen till Ja när registreringen är klar.
+        > Vi rekommenderar att MFA-kraven kringgås endast i test syfte.
 
        Du behöver för närvarande inte ange parametern *-ForestCredential* , som är reserverad för framtida funktioner.
 
@@ -179,11 +179,11 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
         ```
 
         > [!NOTE]
-        > Det här läget Miss lyckas om Azure Multi-Factor Authentication krävs. I så fall använder du något av de föregående två autentiseringsläget eller använder någon av lösningarna nedan. Vi rekommenderar att MFA-kraven kringgås endast i test syfte.
+        > Det här läget Miss lyckas om Azure Multi-Factor Authentication krävs för ditt konto. I så fall använder du något av de föregående två autentiseringsläget eller använder i stället ett annat konto som inte kräver MFA.
         >
-        > Om ditt Azure-konto är specifikt konfigurerat för att kräva MFA kan du i stället använda ett annat konto som inte kräver MFA.
+        > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika detta kan du använda ett annat konto som har stöd för MFA med något av de tidigare två autentiseringsläget, eller så kan du också tillfälligt minska kraven för MFA-kravet för Azure Device Registration. Det gör du genom att gå till hanterings portalen för Azure, gå till Azure Active Directory, sedan enheter, sedan enhets inställningar och sedan ange "Kräv Multi-factor auth för att ansluta enheter" till Nej. Se till att konfigurera om den här inställningen igen till Ja när registreringen är klar.
         >
-        > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika detta kan du antingen använda ett annat konto som inte kräver MFA, eller så kan du tillfälligt minska MFA-kravet för Azure Device Registration. Det gör du genom att gå till hanterings portalen för Azure, gå till Azure Active Directory, sedan enheter, sedan enhets inställningar och sedan ange "Kräv Multi-factor auth för att ansluta enheter" till Nej.  Se till att konfigurera om den här inställningen igen till Ja när registreringen är klar.
+        > Vi rekommenderar att MFA-kraven kringgås endast i test syfte.
 
        De här exemplen fungerar bara om den för tillfället inloggade användaren också är en Active Directory domän administratör för rot domänen. Om detta inte är fallet kan du ange alternativa domänautentiseringsuppgifter via parametern *-ForestCredential* .
 

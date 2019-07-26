@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 38cfabc703b7578d3b5fede9d6a99fe8a33c93a4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326547"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347924"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabbstart: Lägga till funktions flaggor i en ASP.NET Core app
 
@@ -132,7 +132,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 1. Öppna *startup.cs*och Lägg till referenser till .net Core Feature Manager:
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
 1. Uppdatera metoden för att lägga till stöd för funktions flaggor genom `services.AddFeatureManagement()` att anropa metoden. `ConfigureServices` Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:

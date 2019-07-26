@@ -1,110 +1,89 @@
 ---
-title: Så här stänger du active riskhändelser i Azure Active Directory Identity Protection | Microsoft Docs
-description: Läs mer om alternativ du har att Stäng active riskhändelser.
+title: Stänga aktiva risk händelser i Azure Active Directory Identity Protection | Microsoft Docs
+description: Lär dig mer om de alternativ som du har stängt aktiva risk händelser.
 services: active-directory
-keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5e24c12b72852ee7009533c8dc24d231fe636f2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109018"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333995"
 ---
 # <a name="how-to-close-active-risk-events"></a>Instruktioner: Stäng aktiva riskhändelser
 
-Med [riskhändelser](../reports-monitoring/concept-risk-events.md), Azure Active Directory identifierar indikatorer för potentiellt komprometterade användarkonton. Som administratör, som du vill hämta alla riskhändelser stängda, så att de berörda användarna inte längre är i fara.
+Med [risk händelser](../reports-monitoring/concept-risk-events.md)identifierar Azure Active Directory indikatorer för potentiellt komprometterade användar konton. Som administratör vill du få alla risk händelser stängda, så att de berörda användarna inte längre är utsatta för risk.
 
-Den här artikeln ger en översikt över de ytterligare alternativen som du måste stänga riskhändelser som aktiv.
+Den här artikeln innehåller en översikt över de ytterligare alternativ som du måste stänga aktiva risk händelser.
 
-## <a name="options-to-close-risk-events"></a>Alternativ för att stänga riskhändelser 
+## <a name="options-to-close-risk-events"></a>Alternativ för att stänga risk händelser 
 
-Status för en riskhändelse är antingen **active** eller **stängd**. Alla aktiva riskhändelser kan ingå i beräkningen av ett värde med namnet risknivån. Risknivån är en indikator (låg, medelhög och hög) sannolikheten att ett konto har komprometterats. 
+Status för en risk händelse är antingen **aktiv** eller **stängd**. Alla aktiva risk händelser bidrar till beräkningen av ett värde som kallas användar risk nivå. Användar risk nivån är en indikator (låg, medel, hög) för sannolikheten att ett konto har komprometterats. 
 
-Om du vill stänga active riskhändelser har följande alternativ:
+För att stänga aktiva risk händelser har du följande alternativ:
 
-- Kräv lösenord för självbetjäning med en princip för användarrisk
+- Kräv lösen ords återställning med en användar risk princip
+- Manuell lösen ords återställning
+- Ignorera alla risk händelser 
+- Stäng enskilda risk händelser manuellt
 
-- Manuell lösenordsåterställning
- 
-- Stäng alla riskhändelser 
+## <a name="require-password-reset-with-a-user-risk-policy"></a>Kräv lösen ords återställning med en användar risk princip
 
-- Stäng enskilda riskhändelser manuellt
-
-
-
-## <a name="require-password-reset-with-a-user-risk-policy"></a>Kräv lösenord för självbetjäning med en princip för användarrisk
-
-Genom att konfigurera den [användarrisk princip för villkorlig åtkomst](howto-user-risk-policy.md), kan du kräva ändring av lösenordet om en risknivå för angiven användare har identifierats automatiskt. 
+Genom att konfigurera en [princip för villkorlig åtkomst för användar risker](howto-user-risk-policy.md)kan du kräva en lösen ords ändring om en angiven användar risk nivå har identifierats automatiskt. 
 
 ![Återställ lösenord](./media/howto-close-active-risk-events/13.png)
 
-En lösenordsåterställning stängs alla aktiva risker händelser för den relaterade användaren och hämtar tillbaka identiteten till säkert läge. Med hjälp av en princip för användarrisk är det bästa sättet att Stäng active riskhändelser eftersom den här metoden är automatisk. Det finns ingen interaktion krävs mellan den berörda användaren och hjälper dig att supportavdelningen eller en administratör.
+En lösen ords återställning stänger alla aktiva risk händelser för den relaterade användaren och tar tillbaka identiteten i ett säkert tillstånd. Att använda en användar risk princip är den bästa metoden för att stänga aktiva risk händelser eftersom den här metoden är automatiserad. Ingen interaktion krävs mellan den berörda användaren och supportavdelningen eller en administratör.
 
-Men gäller med hjälp av en princip för användarrisk inte alltid. Detta gäller, till exempel:
+Att använda en användar risk princip är dock inte alltid tillämpligt. Detta gäller till exempel för att:
 
-- Användare som inte har registrerats för multifaktorautentisering (MFA).
-- Användare med aktiva riskhändelser som har tagits bort.
-- En undersökning som visar att en rapporterade riskhändelse har utförts av behöriga användare.
+- Användare som inte har registrerats för Multi-Factor Authentication (MFA).
+- Användare med aktiva risk händelser som har tagits bort.
+- En undersökning som visar att en rapporterad risk händelse har utförts av den legitima användaren.
 
+## <a name="manual-password-reset"></a>Manuell lösen ords återställning
 
-## <a name="manual-password-reset"></a>Manuell lösenordsåterställning
-
-Om att kräva ett lösenord återställs via en princip för användarrisk inte är ett alternativ, kan du hämta alla riskhändelser för en användare som avslutas med en manuell lösenordsåterställning.
+Om det inte finns något alternativ för att återställa lösen ord med en användar risk princip, kan du få alla risk händelser för en användare stängd med manuell lösen ords återställning.
 
 ![Återställ lösenord](./media/howto-close-active-risk-events/04.png)
 
-
-Relaterade dialogrutan innehåller två olika metoder för att återställa ett lösenord:
+Den relaterade dialog rutan innehåller två olika metoder för att återställa ett lösen ord:
 
 ![Återställ lösenord](./media/howto-close-active-risk-events/05.png)
 
+**Generera ett tillfälligt lösen ord** – genom att skapa ett tillfälligt lösen ord kan du omedelbart flytta tillbaka en identitet till ett säkert tillstånd. Den här metoden kräver att du interagerar med de berörda användarna eftersom de måste veta vad det tillfälliga lösen ordet är. Du kan till exempel skicka det nya tillfälliga lösen ordet till en annan e-postadress till användaren eller till användarens chef. Eftersom lösen ordet är tillfälligt uppmanas användaren att ändra lösen ordet vid nästa inloggning.
 
-**Skapa ett tillfälligt lösenord** -genom att skapa ett tillfälligt lösenord, du kan omedelbart sätta en identitet tillbaka i säkert läge. Den här metoden kräver att interagera med de berörda användarna eftersom de måste veta vad det tillfälliga lösenordet är. Du kan till exempel skicka ett nytt tillfälligt lösenord till en alternativ e-postadressen för användaren eller till användarens chef. Eftersom lösenordet är tillfällig, uppmanas användaren att ändra lösenordet vid nästa inloggningen.
+**Kräv att användaren vill återställa lösen ord** – som kräver att användarna återställer lösen ord aktiverar själv återställning utan att kontakta supportavdelningen eller en administratör. Precis som när det gäller en användar risk princip gäller den här metoden endast för användare som är registrerade för MFA. För användare som inte har registrerats för MFA än, är det här alternativet inte tillgängligt.
 
+## <a name="dismiss-all-risk-events"></a>Ignorera alla risk händelser
 
-**Användaren måste återställa lösenord** -att kräva att användarna kan återställa lösenord möjliggör self återställning utan att kontakta supportavdelningen eller administratör. T.ex. när det gäller en princip för användarrisk gäller den här metoden endast för användare som har registrerats för MFA. För användare som inte har registrerats för MFA ännu, är det här alternativet inte tillgängligt.
-
-
-## <a name="dismiss-all-risk-events"></a>Stäng alla riskhändelser
-
-Om ett lösenord återställning är inte ett alternativ för dig, du kan också stänga alla riskhändelser. 
+Om ingen lösen ords återställning är ett alternativ kan du också ignorera alla risk händelser. 
 
 ![Återställ lösenord](./media/howto-close-active-risk-events/03.png)
 
-När du klickar på **Ignorera alla händelser**, alla händelser är stängda och den berörda användaren inte längre är i fara. Men eftersom den här metoden inte kan påverka det befintliga lösenordet, se den inte relaterade identiteten till säkert läge. Det prioriterade användningsfallet för den här metoden är en borttagen användare med aktiva riskhändelser. 
+När du klickar på **Ignorera alla händelser**stängs alla händelser och den berörda användaren är inte längre utsatt för risk. Men eftersom den här metoden inte påverkar det befintliga lösen ordet får den inte den relaterade identiteten tillbaka till ett säkert tillstånd. Det bästa användnings fallet för den här metoden är en borttagen användare med aktiva risk händelser. 
 
+## <a name="close-individual-risk-events-manually"></a>Stäng enskilda risk händelser manuellt
 
-## <a name="close-individual-risk-events-manually"></a>Stäng enskilda riskhändelser manuellt
-
-Du kan stänga enskilda riskhändelser manuellt. Genom att stänga riskhändelser manuellt, kan du sänka risknivån. Normalt stängs riskhändelser manuellt som svar på en relaterade undersökning. Till exempel när man talar till så visar en användare att en aktiv riskhändelse inte krävs längre. 
+Du kan stänga enskilda risk händelser manuellt. Genom att stänga risk händelser manuellt kan du sänka användar risk nivån. Vanligt vis stängs risk händelser manuellt som svar på en relaterad undersökning. Om du till exempel pratar med en användare visar att en aktiv risk händelse inte behövs längre. 
  
-När stänga riskhändelser manuellt, kan du vidta någon av följande åtgärder för att ändra status för en riskhändelse:
+När du stänger risk händelser manuellt kan du välja att vidta någon av följande åtgärder för att ändra status för en risk händelse:
 
 ![Åtgärder](./media/howto-close-active-risk-events/06.png)
 
-- **Lösa** – om när du undersöker en riskhändelse, du har gjort en lämpliga avhjälpande åtgärd utanför Identity Protection och du tror att riskhändelsen bör övervägas stängd, markera händelsen som löst. Matcha händelser som anger den riskhändelsen status till stängd och riskhändelsen kommer inte längre att bidra till användarrisk.
-
-- **Markera som FALSKT positiva** – i vissa fall kan du undersöka en riskhändelse och identifiera att det var felaktigt som flaggats som en riskfylld. Du kan minska antalet sådana händelser genom att markera riskhändelsen som FALSKT positiva. På så sätt maskininlärningsalgoritmer för att förbättra klassificeringen av liknande händelser i framtiden. Status för falsk-positiva händelser är att stängd och kommer inte längre att bidra till användarrisk.
-
-- **Ignorera** – om du inte har vidtagit några Reparationsåtgärd, men vill riskhändelsen som ska tas bort från listan över aktiva, kan du markera en riskhändelse Ignorera och händelsestatus för kommer att stängas. Ignorerade händelser bidrar inte till användarrisk. Det här alternativet bör endast användas under ovanliga omständigheter.
-
-- **Återaktivera** -riskhändelser som stängdes manuellt (genom att välja Lös, falsklarm eller ignorera) kan återaktiveras, anger händelsestatus tillbaka till aktiv. Återaktiverade riskhändelser bidra till den nivå riskberäkning för användaren. Riskhändelser stängda genom reparation (som en säker lösenordsåterställning) kan inte aktiveras.
-  
+- **Lösning** – om du har undersökt en risk händelse vidtog du en lämplig åtgärds åtgärd utanför identitets skyddet och du tror att risk händelsen bör anses vara stängd, markerar händelsen som löst. Lösta händelser ställer in risk händelse statusen på stängd och risk händelsen kommer inte längre att bidra till användar risken.
+- **Markera som falskt-positiv** – i vissa fall kan du undersöka en risk händelse och upptäcka att den är felaktigt flaggad som riskfylld. Du kan minska antalet sådana förekomster genom att markera risk händelsen som falskt-positiv. På så sätt kan Machine Learning-algoritmer förbättra klassificeringen av liknande händelser i framtiden. Status för falska positiva händelser är att stängas och de kommer inte längre att bidra till användar risken.
+- **Ignore** – om du inte har vidtagit någon reparations åtgärd, men vill att risk händelsen ska tas bort från den aktiva listan, kan du markera en risk händelse ignorera och händelse status stängs. Ignorerade händelser bidrar inte till användar risken. Det här alternativet bör endast användas under ovanliga omständigheter.
+- **Reaktivera** -risk händelser som stängdes manuellt (genom att välja lös, falskt positivt eller ignorera) kan återaktiveras, vilket återställer händelse statusen tillbaka till aktiv. Återaktiverade risk händelser bidrar till beräkning av användar risk nivå. Risk händelser som stängs genom reparation (till exempel en säker lösen ords återställning) kan inte återaktiveras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att få en översikt över Azure AD Identity Protection kan se den [översikt över Azure AD Identity Protection](overview.md).
+För att få en översikt över Azure AD Identity Protection, se [Översikt över Azure AD Identity Protection](overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Schemalägg jobb med Azure IoT Hub (Python) | Microsoft Docs
-description: Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod på flera enheter. Du kan använda Azure IoT SDK för Python för att implementera appar för simulerade enheter och en tjänstapp för att köra jobbet.
+title: Schemalägga jobb med Azure IoT Hub (python) | Microsoft Docs
+description: 'Schemalägga ett Azure IoT Hub-jobb för att anropa en direkt metod på flera enheter. Du använder Azure IoT SDK: er för python för att implementera de simulerade enhetens appar och en tjänst-app för att köra jobbet.'
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -9,82 +9,78 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: kgremban
-ms.openlocfilehash: c15db0766da3b4c18c306106ffdd5fc75a9143aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4a7cbb5c4f8f4a019cbf5d63a6f2ffe8092546e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569298"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405884"
 ---
-# <a name="schedule-and-broadcast-jobs-python"></a>Schemalägg och Sänd jobb (Python)
+# <a name="schedule-and-broadcast-jobs-python"></a>Schema-och sändnings jobb (python)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Azure IoT Hub är en helt hanterad tjänst som gör att en backend-app för att skapa och spåra jobb som schemalägger och uppdatera miljontals enheter.  Jobb kan användas för följande åtgärder:
+Azure IoT Hub är en fullständigt hanterad tjänst som gör det möjligt för en backend-app att skapa och spåra jobb som schemalägger och uppdaterar miljon tals enheter.  Jobb kan användas för följande åtgärder:
 
 * Uppdatera önskade egenskaper
-* Uppdatera taggar
-* Anropa direktmetoder
+* Uppdatera Taggar
+* Anropa direkt metoder
 
-Den övergripande ett jobb omsluter på sådana åtgärder och spårar förloppet för körning mot en uppsättning enheter, som definieras av en enhet twin fråga.  En backend-app kan till exempel använda ett jobb för att anropa en metod för omstart på 10 000 enheter, som angetts av en enhet twin fråga och schemalagda vid ett senare tillfälle.  Programmet kan sedan spåra förloppet som var och en av dessa enheter tar emot och körningsmetod omstart.
+Ett jobb är konceptuellt, och spårar förloppet för körningen mot en uppsättning enheter som definieras av en enhets dubbla frågor.  En backend-app kan till exempel använda ett jobb för att anropa en metod för omstart på 10 000 enheter, som anges av en enhets dubbla frågor och schemaläggs vid ett senare tillfälle.  Programmet kan sedan spåra förloppet när var och en av enheterna får och kör metoden starta om.
 
-Mer information om var och en av de här funktionerna i de här artiklarna:
+Lär dig mer om var och en av dessa funktioner i dessa artiklar:
 
-* Enhetstvillingen och egenskaper: [Kom igång med enhetstvillingar](iot-hub-python-twin-getstarted.md) och [självstudien: Så här använder du tvillingegenskaper](tutorial-device-twins.md)
+* Enhetens dubbla och egenskaper: [Kom igång med enhets dubbla](iot-hub-python-twin-getstarted.md) och [Självstudier: Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
 
-* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [självstudie: direkta metoder](quickstart-control-device-python.md)
+* Direkta metoder: [Guide för IoT Hub utvecklare – direkta metoder](iot-hub-devguide-direct-methods.md) och [Självstudier: direkta metoder](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Skapa en simulerad enhet Python-app som har en direkt metod, vilket gör att **lockDoor**, som kan anropas av lösningens serverdel.
+* Skapa en python-simulerad Device-app som har en direkt metod som aktiverar **lockDoor**, som kan anropas av lösningens Server del.
 
-* Skapa en Python-konsolapp som anropar den **lockDoor** direkt metod i den simulerade enhetsappen med hjälp av ett jobb och uppdateringar önskade egenskaper med hjälp av ett enhetsjobb.
+* Skapa en python-konsol-app som anropar **lockDoor** Direct-metoden i den simulerade Device-appen med ett jobb och uppdaterar önskade egenskaper med ett enhets jobb.
 
-I slutet av den här självstudien har du två Python-appar:
+I slutet av den här självstudien har du två python-appar:
 
-**simDevice.py**, som ansluter till IoT hub med enhetsidentiteten och tar emot en **lockDoor** direkt metod.
+**simDevice.py**, som ansluter till din IoT Hub med enhets identiteten och får en **lockDoor** Direct-metod.
 
-**scheduleJobService.py**, som anropar en direkt metod i den simulerade enhetsappen och uppdaterar enhetstvillingen önskade egenskaper med hjälp av ett jobb.
+**scheduleJobService.py**, som anropar en direkt metod i den simulerade Device-appen och uppdaterar enhetens dubbla egenskaper med ett jobb.
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
+* [Python 2. x eller 3. x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
 
 * Om du använder Windows OS installerar du [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda native-DLL:er från Python.
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 > [!NOTE]
-> Den **Azure IoT SDK för Python** stöder inte **jobb** funktioner. Den här självstudien är i stället en alternativ lösning genom att använda asynkrona trådar och timers. Ytterligare uppdateringar finns i den **klient-SDK** funktionslistan på den [Azure IoT SDK för Python](https://github.com/Azure/azure-iot-sdk-python) sidan. 
+> **Azure IoT SDK för python** stöder inte **jobb** funktioner direkt. I stället erbjuder den här självstudien en alternativ lösning som använder asynkrona trådar och timers. Mer uppdateringar finns i funktions listan för **service client SDK** på sidan [Azure IoT SDK för python](https://github.com/Azure/azure-iot-sdk-python) . 
 >
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT hub
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT Hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 
-I det här avsnittet skapar du en Python-konsolapp som svarar på en direkt metod som anropas av moln, vilket utlöser en simulerad **lockDoor** metod.
+I det här avsnittet skapar du en python-konsol-app som svarar på en direkt metod som anropas av molnet, vilket utlöser en simulerad **lockDoor** -metod.
 
-1. I Kommandotolken, kör du följande kommando för att installera den **azure-iot-device-client** paketet:
+1. Kör följande kommando i kommando tolken för att installera paketet **Azure-IoT-Device-client** :
 
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-2. Använd en textredigerare och skapa en ny **simDevice.py** fil i din arbetskatalog.
+2. Skapa en ny **simDevice.py** -fil i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` instruktioner och variabler i början av den **simDevice.py** fil. Ersätt `deviceConnectionString` med anslutningssträngen för den enhet som du skapade ovan:
+3. Lägg till följande `import` -instruktioner och variabler i början av **simDevice.py** -filen. Ersätt `deviceConnectionString` med anslutnings strängen för den enhet som du skapade ovan:
 
     ```python
     import time
@@ -102,7 +98,7 @@ I det här avsnittet skapar du en Python-konsolapp som svarar på en direkt meto
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-4. Lägg till följande funktion motringningen att hantera den **lockDoor** metod:
+4. Lägg till följande funktions anrop för att hantera metoden **lockDoor** :
 
     ```python
     def device_method_callback(method_name, payload, user_context):
@@ -115,7 +111,7 @@ I det här avsnittet skapar du en Python-konsolapp som svarar på en direkt meto
             return device_method_return_value
     ```
 
-5. Lägg till en annan funktion återanrop för att hantera device twins uppdateringar:
+5. Lägg till en annan funktion motringning för att hantera enhetens dubbla uppdateringar:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -124,7 +120,7 @@ I det här avsnittet skapar du en Python-konsolapp som svarar på en direkt meto
         print ( "payload: %s" % payload )
     ```
 
-6. Lägg till följande kod för att registrera hanteraren för den **lockDoor** metod. Även innehålla de `main` rutinen:
+6. Lägg till följande kod för att registrera hanteraren för **lockDoor** -metoden. Ta även med `main` rutinen:
 
     ```python
     def iothub_jobs_sample_run():
@@ -157,25 +153,31 @@ I det här avsnittet skapar du en Python-konsolapp som svarar på en direkt meto
         iothub_jobs_sample_run()
     ```
 
-7. Spara och Stäng den **simDevice.py** fil.
+7. Spara och Stäng filen **simDevice.py** .
 
 > [!NOTE]
-> För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskoden bör du implementera principer för omförsök (till exempel en exponentiell backoff) vilket rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
+> För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel en exponentiell backoff), enligt förslag i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Schemalägga jobb för att anropa en direkt metod och uppdatera egenskaperna för en enhetstvilling
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-I det här avsnittet skapar du en Python-konsolapp som initierar en fjärransluten **lockDoor** med hjälp av en direkt metod på en enhet och uppdatera den enhetstvillingen egenskaper.
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
-1. I Kommandotolken, kör du följande kommando för att installera den **azure-iot-service-client** paketet:
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Schemalägg jobb för att anropa en direkt metod och uppdatera en enhets dubbla egenskaper
+
+I det här avsnittet skapar du en python-konsol-app som initierar en fjärran sluten **lockDoor** på en enhet med hjälp av en direkt metod och uppdaterar enhetens dubbla egenskaper.
+
+1. Kör följande kommando i kommando tolken för att installera **Azure-IoT-service-client-** paketet:
 
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
 
-2. Använd en textredigerare och skapa en ny **scheduleJobService.py** fil i din arbetskatalog.
+2. Skapa en ny **scheduleJobService.py** -fil i din arbets katalog med hjälp av en text redigerare.
 
-3. Lägg till följande `import` instruktioner och variabler i början av den **scheduleJobService.py** fil:
+3. Lägg till följande `import` -instruktioner och variabler i början av **scheduleJobService.py** -filen:
 
     ```python
     import sys
@@ -214,7 +216,7 @@ I det här avsnittet skapar du en Python-konsolapp som initierar en fjärranslut
         return 0
     ```
 
-5. Lägg till följande metoder för att köra de jobb som anropar den direkta metod och enheten läsningen:
+5. Lägg till följande metoder för att köra jobb som anropar Direct-metoden och enheten dubbla:
 
     ```python
     def device_method_job(job_id, device_id, wait_time, execution_time):
@@ -244,7 +246,7 @@ I det här avsnittet skapar du en Python-konsolapp som initierar en fjärranslut
             print ( "Device twin updated." )
     ```
 
-6. Lägg till följande kod för att schemalägga jobb och uppdatera jobbstatus. Även innehålla de `main` rutinen:
+6. Lägg till följande kod för att schemalägga jobb och uppdatera jobb status. Ta även med `main` rutinen:
 
     ```python
     def iothub_jobs_sample_run():
@@ -299,32 +301,32 @@ I det här avsnittet skapar du en Python-konsolapp som initierar en fjärranslut
         iothub_jobs_sample_run()
     ```
 
-7. Spara och Stäng den **scheduleJobService.py** fil.
+7. Spara och Stäng filen **scheduleJobService.py** .
 
 ## <a name="run-the-applications"></a>Köra programmen
 
 Nu är det dags att köra programmen.
 
-1. Kör följande kommando för att börja lyssna efter omstart direkt metod i Kommandotolken i din arbetskatalog:
+1. Kör följande kommando i kommando tolken i din arbets katalog för att börja lyssna efter metoden starta om Direct:
 
     ```cmd/sh
     python simDevice.py
     ```
 
-2. Kör följande kommando för att utlösa jobb för att låsa dörren och uppdatera läsningen i en annan kommandotolk i din arbetskatalog:
+2. Kör följande kommando i en annan kommando tolk i arbets katalogen för att utlösa jobben för att låsa dörren och uppdatera den dubbla:
   
     ```cmd/sh
     python scheduleJobService.py
     ```
 
-3. Du ser enheten svar på den direkta metoden och enhetstvillingar uppdateras i konsolen.
+3. Du ser enhets Svaren till direkt metoden och enheten har dubbla uppdateringar i-konsolen.
 
-    ![IoT Hub Job exempel 1 – enheten utdata](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
+    ![IoT Hub jobb exempel 1--enhets utdata](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![IoT Hub Job 2 – exempelenhet](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
+    ![IoT Hub jobb exempel 2--enhets utdata](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien använde du ett jobb för att schemalägga en direkt metod att en enhet och varje uppdatering av enheten tvillingegenskaper.
+I den här självstudien använde du ett jobb för att schemalägga en direkt metod till en enhet och uppdateringen av enhetens egenskaper.
 
-Om du vill komma igång med IoT Hub och enhetshanteringsmönster som via luften firmware-uppdatering, [hur du gör en firmware-uppdatering](tutorial-firmware-update.md).
+Om du vill fortsätta att komma igång med IoT Hub-och enhets hanterings mönster, till exempel fjärran sluten av den inbyggda program varan, kan du läsa mer i [Uppdatera](tutorial-firmware-update.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights OpenCensus distribuerad spårning av lokala vidarebefordrare (förhandsversion) | Microsoft docs
-description: Vidarebefordra OpenCensus distribuerad spårning och sträcker sig från språk som Python och gå till Azure Application Insights
+title: Azure Application Insights openräkning Distributed tracing Local forwarder (för hands version) | Microsoft-dokument
+description: Vidarebefordring av fördelade spår i openinsights och sträcker sig från språk som python och gå till Azure Application Insights
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,77 +12,77 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699346"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348147"
 ---
-# <a name="local-forwarder-preview"></a>Lokala vidarebefordrare (förhandsversion)
+# <a name="local-forwarder-preview"></a>Lokal vidarebefordrare (förhands granskning)
 
-Lokala vidarebefordraren är en agent som samlar in Application Insights eller [OpenCensus](https://opencensus.io/) telemetri från en mängd olika SDK: er och skickar det till Application Insights. Det kan köras under Windows och Linux. Du kan också att kunna köra denna under macOS, men som officiellt stöds inte just nu.
+Lokal vidarebefordrare är en agent som samlar in telemetri för Application Insights eller Open- [räkning](https://opencensus.io/) från flera SDK: er och dirigerar dem till Application Insights. Den kan köras under Windows och Linux. Du kanske också kan köra det under macOS, men det är inte officiellt support för tillfället.
 
-## <a name="running-local-forwarder"></a>Kör lokala vidarebefordrare
+## <a name="running-local-forwarder"></a>Lokal vidarebefordrare körs
 
-Lokala vidarebefordraren är en [projekt med öppen källkod på GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Det finns en mängd olika sätt att köra lokala vidarebefordraren på flera plattformar.
+Lokal vidarebefordrare är ett [projekt med öppen källkod på GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Det finns flera olika sätt att köra lokal vidarebefordrare på flera plattformar.
 
 ### <a name="windows"></a>Windows
 
 #### <a name="windows-service"></a>Windows Service
 
-Det enklaste sättet för att köra lokala vidarebefordrare under Windows är genom att installera den som en Windows-tjänst. Versionen levereras med en körbar fil för Windows (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) som enkelt kan registreras med operativsystemet.
+Det enklaste sättet att köra lokal vidarebefordrare under Windows är att installera det som en Windows-tjänst. Versionen levereras med Windows-tjänstens körbara fil (*WindowsServiceHost/Microsoft. LocalForwarder. WindowsServiceHost. exe*) som enkelt kan registreras med operativ systemet.
 
 > [!NOTE]
-> Den lokala vidarebefordrartjänsten kräver minst .NET Framework 4.7. Om du inte har .NET Framework 4.7 tjänsten startar installation, men inte. Åtkomst till den senaste versionen av .NET Framework **[gå till hämtningssidan för .NET Framework](
+> Den lokala vidarebefordrings tjänsten kräver minst .NET Framework 4,7. Om du inte har .NET Framework 4,7 kommer tjänsten att installeras, men den startar inte. Åtkomst till den senaste versionen av .NET Framework **[gå till hämtningssidan för .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
-1. Ladda ned LF. WindowsServiceHost.zip filen från den [lokala vidarebefordrare versionen sidan](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) på GitHub.
+1. Hämta LF. WindowsServiceHost. zip-fil från den [lokala vidarebefordrare-sidan](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) på GitHub.
 
-    ![Skärmbild av lokala vidarebefordrare hämtningssidan för versionen](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
+    ![Skärm bild av den lokala sidan för versions hämtning för vidarebefordrare](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
-2. I det här exemplet för att underlätta demonstration extraherar vi bara ZIP-filen till sökvägen `C:\LF-WindowsServiceHost`.
+2. I det här exemplet är det enkelt att extrahera. zip-filen till sökvägen `C:\LF-WindowsServiceHost`.
 
-    Registrera tjänsten och konfigurera den för att starta vid systemstart kör du följande från Kommandotolken som administratör:
+    Om du vill registrera tjänsten och konfigurera den så att den startar vid system start kör du följande från kommando raden som administratör:
 
     ```
     sc create "Local Forwarder" binpath="C:\LF-WindowsServiceHost\Microsoft.LocalForwarder.WindowsServiceHost.exe" start=auto
     ```
     
-    Du bör få svaret:
+    Du bör få svar på:
     
     `[SC] CreateService SUCCESS`
     
-    Undersöka din nya tjänst via tjänster GUI-typ ``services.msc``
+    Så här undersöker du den nya tjänsten via användar gränssnittet för tjänster``services.msc``
         
-     ![Skärmbild av lokala vidarebefordrartjänst](./media/opencensus-local-forwarder/002-services.png)
+     ![Skärm bild av lokal vidarebefordrare-tjänst](./media/opencensus-local-forwarder/002-services.png)
 
-3. **Högerklicka på** nya lokala vidarebefordrare och välj **starta**. Tjänsten kommer nu att ange tillståndet.
+3. **Högerklicka på** den nya lokala vidarebefordraren och välj **Starta**. Tjänsten kommer nu att övergå till ett kör tillstånd.
 
-4. Som standard skapas tjänsten utan några åtgärder för återställning. Du kan **högerklickar du på** och välj **egenskaper** > **Recovery** att konfigurera automatiska svar till ett tjänstfel.
+4. Som standard skapas tjänsten utan återställnings åtgärder. Du kan **högerklicka** och välja **Egenskaper** > **återställning** för att konfigurera automatiska svar på ett tjänst haveri.
 
-    Eller om du vill ange alternativ för automatisk återställning programmässigt för när fel uppstår, kan du använda:
+    Eller om du föredrar att ställa in automatiska återställnings alternativ program mässigt för när fel uppstår kan du använda:
 
     ```
     sc failure "Local Forwarder" reset= 432000 actions= restart/1000/restart/1000/restart/1000
     ```
 
-5. På samma plats som din ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` fil, som i det här exemplet är ``C:\LF-WindowsServiceHost`` det finns en fil med namnet ``LocalForwarder.config``. Det här är en XML-baserade-fil där du kan justera konfigurationen av din localforwader och ange instrumenteringsnyckeln för Application Insights-resurs som du vill att distribuerad spårningsdata som vidarebefordras. 
+5. I samma plats som ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` filen, som i det här ``C:\LF-WindowsServiceHost`` exemplet finns det en fil med namnet ``LocalForwarder.config``. Det här är en XML-baserad fil som gör att du kan justera konfigurationen för din localforwader och ange Instrumentation-nyckeln för den Application Insights resurs som du vill vidarebefordra dina distribuerade spårnings data till. 
 
-    När du har redigerat den ``LocalForwarder.config`` filen om du vill lägga till din instrumentationsnyckel måste du starta om den **lokala Vidarebefordrartjänst** så att ändringarna ska börja gälla.
+    När du har ``LocalForwarder.config`` redigerat filen för att lägga till Instrumentation-nyckeln måste du starta om den **lokala vidarebefordraren** så att ändringarna börjar gälla.
     
-6. Bekräfta att inställningarna är uppfyllda och att den lokala vidarebefordraren lyssnar för spårningsdata som förväntade Kontrollera den ``LocalForwarder.log`` filen. Du bör se resultat som liknar bilden nedan längst ned i filen:
+6. För att bekräfta att dina önskade inställningar är på plats och att den lokala vidarebefordraren lyssnar efter spårnings data som förväntat kontrollerar du ``LocalForwarder.log`` filen. Du bör se resultat som liknar bilden nedan längst ned i filen:
 
-    ![Skärmbild av LocalForwarder.log fil](./media/opencensus-local-forwarder/003-log-file.png)
+    ![Skärm bild av filen LocalForwarder. log](./media/opencensus-local-forwarder/003-log-file.png)
 
-#### <a name="console-application"></a>Konsolprogram
+#### <a name="console-application"></a>Konsol program
 
-För vissa användningsfall, kan det vara bra att köra lokala vidarebefordrare som ett konsolprogram. Versionen levereras med följande körbara versioner av konsolvärden:
-* en framework-beroende .NET Core binär */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. När du kör den här binärfilen måste en .NET Core runtime ska installeras. referera till den här nedladdningen [sidan](https://www.microsoft.com/net/download/dotnet-core/2.1) mer information.
+För vissa användnings fall kan det vara bra att köra lokal vidarebefordrare som ett konsol program. Versionen levereras med följande körbara versioner av konsol värden:
+* en Ramverks beroende .NET Core Binary- */ConsoleHost/Publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Körning av denna binärfil kräver att en .NET Core-körning installeras. Mer information finns på den här hämtnings [sidan](https://www.microsoft.com/net/download/dotnet-core/2.1) .
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* en fristående .NET Core uppsättning binärfiler för x86 och x64 plattformar. Dessa kräver inte .NET Core runtime ska köras. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+* en fristående .NET Core-uppsättning binärfiler för x86-och x64-plattformar. De kräver inte att .NET Core runtime körs. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -90,26 +90,26 @@ För vissa användningsfall, kan det vara bra att köra lokala vidarebefordrare 
 
 ### <a name="linux"></a>Linux
 
-Precis som med Windows, kommer versionen med följande körbara versioner av konsolvärden:
-* en framework-beroende .NET Core binär */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. När du kör den här binärfilen måste en .NET Core runtime ska installeras. referera till den här nedladdningen [sidan](https://www.microsoft.com/net/download/dotnet-core/2.1) mer information.
+Precis som med Windows levereras versionen med följande körbara versioner av konsol värden:
+* en Ramverks beroende .NET Core Binary- */ConsoleHost/Publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Körning av denna binärfil kräver att en .NET Core-körning installeras. Mer information finns på den här hämtnings [sidan](https://www.microsoft.com/net/download/dotnet-core/2.1) .
 
 ```batchfile
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* en självständig .NET Core uppsättning binärfiler för linux-64. Du behöver den här .NET Core runtime ska köras. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
+* en fristående .NET Core-uppsättning binärfiler för Linux-64. Detta kräver inte att .NET Core runtime körs. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost
 user@machine:~/ConsoleHost/linux-x64/publish$ ./Microsoft.LocalForwarder.ConsoleHost
 ```
 
-Många Linux-användare vill köra lokala vidarebefordrare som en daemon. Linux-system levereras med en mängd olika lösningar för tjänsthantering som Upstart, sysv eller systemd. Vad din specifika version är kan använda du den för att köra lokala vidarebefordraren på ett sätt som passar bäst för ditt scenario.
+Många Linux-användare vill köra lokal vidarebefordrare som en daemon. Linux-system har en mängd olika lösningar för Service Management, till exempel uppstarter, SYSV eller system. Oavsett vilken version du har, kan du använda den för att köra en lokal vidarebefordrare på ett sätt som passar bäst för ditt scenario.
 
-Exempelvis kan vi skapa en daemontjänst med systemd. Vi använder framework-beroende-version, men kan göra samma sak för en självständig samt.
+Vi kan till exempel skapa en daemon-tjänst med system. Vi använder den Ramverks beroende versionen, men samma kan göras för en självständig och fristående.
 
-* Skapa följande service-fil med namnet *localforwarder.service* och placera den i */lib/systemd/system*.
-Det här exemplet förutsätter vi ditt användarnamn är SAMPLE_USER och du har kopierat lokala vidarebefordrare framework-beroende binärfiler (från */ConsoleHost/publicera*) till */home/SAMPLE_USER/LOCALFORWARDER_DIR*.
+* skapa följande tjänst fil med namnet *localforwarder. service* och placera den i */lib/systemd/system*.
+Det här exemplet förutsätter att ditt användar namn är SAMPLE_USER och att du har kopierat lokala distributioner som är beroende av lokala vidarebefordrare (från */ConsoleHost/Publish*) till */Home/SAMPLE_USER/LOCALFORWARDER_DIR*.
 
 ```
 # localforwarder.service
@@ -134,27 +134,27 @@ ExecStart=/usr/bin/env dotnet /home/SAMPLE_USER/LOCALFORWARDER_DIR/Microsoft.Loc
 WantedBy=multi-user.target
 ```
 
-* Kör följande kommando för att instruera systemd att starta lokal vidarebefordrare på varje start
+* Kör följande kommando för att instruera systemet att starta den lokala vidarebefordraren vid varje start
 
 ```
 systemctl enable localforwarder
 ```
 
-* Kör följande kommando för att instruera systemd att starta vidarebefordrare för lokala direkt
+* Kör följande kommando för att instruera systemet att starta den lokala vidarebefordraren direkt
 
 ```
 systemctl start localforwarder
 ```
 
-* Övervaka tjänsten genom att kontrollera * *.log* filer i katalogen /home/SAMPLE_USER/LOCALFORWARDER_DIR.
+* Övervaka tjänsten genom att kontrol lera * *. log* -filer i/Home/SAMPLE_USER/LOCALFORWARDER_DIR-katalogen.
 
 ### <a name="mac"></a>Mac
-Lokala vidarebefordrare kan fungera med macOS, men det är för närvarande inte stöds officiellt.
+Den lokala vidarebefordraren kan fungera med macOS, men den stöds för närvarande inte officiellt.
 
-### <a name="self-hosting"></a>Lokal värd
-Lokala vidarebefordrare distribueras också som en .NET Standard NuGet-paketet, så att du kan lägga upp den i ditt eget .NET-program.
+### <a name="self-hosting"></a>Egen värd
+Den lokala vidarebefordraren distribueras också som ett .NET standard NuGet-paket, så att du kan vara värd för det i ditt eget .NET-program.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();
@@ -167,20 +167,20 @@ host.Run(config, TimeSpan.FromSeconds(5));
 host.Stop();
 ```
 
-## <a name="configuring-local-forwarder"></a>Konfigurera lokala vidarebefordrare
+## <a name="configuring-local-forwarder"></a>Konfigurera lokal vidarebefordrare
 
-* När du kör en av lokala vidarebefordrarens egna värdarna (Konsolvärden eller värden för Windows-tjänsten), hittar du **LocalForwarder.config** placeras bredvid den binära filen.
-* När lokal värd för lokala vidarebefordraren NuGet, konfigurationen av samma format måste anges i koden (se avsnittet på lokal värd). Configuration-syntax finns i [LocalForwarder.config](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/ConsoleHost/LocalForwarder.config) i GitHub-lagringsplatsen. 
+* När du kör en lokal vidarebefordrare egna värdar (konsol värd eller Windows-tjänst värd), kommer du att se att **LocalForwarder. config** placeras bredvid binärfilen.
+* När du själv är värd för den lokala vidarebefordraren NuGet måste konfigurationen av samma format anges i kod (se avsnittet om egen värd). För konfigurationens syntax kontrollerar du [LocalForwarder. config](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/ConsoleHost/LocalForwarder.config) i GitHub-lagringsplatsen. 
 
 > [!NOTE]
-> Konfigurationen kan ändra från version till version, så ta hänsyn till vilken version du använder.
+> Konfigurationen kan ändras från lansering till release, så var noga med vilken version du använder.
 
-## <a name="monitoring-local-forwarder"></a>Övervaka lokala vidarebefordrare
+## <a name="monitoring-local-forwarder"></a>Övervaka lokal vidarebefordrare
 
-Spårningar skrivs till filsystemet bredvid den körbara filen som kör lokala vidarebefordrare (leta efter * *.log* filer). Du kan placera en fil med namnet *NLog.config* bredvid den körbara filen för din egen konfiguration i stället för standardvärdet. Se [dokumentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) beskrivning av formatet.
+Spår skrivs ut till fil systemet bredvid den körbara fil som kör lokal vidarebefordrare (leta efter * *. log* -filer). Du kan placera en fil med namnet *NLog. config* bredvid den körbara filen för att ange en egen konfiguration i stället för standardvärdet. Se [dokumentationen](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) för formatet.
 
-Om ingen konfigurationsfil anges (som är standard), lokala vidarebefordrare använder standardkonfigurationen, som du hittar [här](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
+Om ingen konfigurations fil anges (vilket är standard) använder den lokala vidarebefordraren standard konfigurationen som du hittar [här](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Öppna inventering](https://opencensus.io/)
+* [Öppen inventering](https://opencensus.io/)

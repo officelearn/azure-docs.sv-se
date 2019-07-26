@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 9c9b892f7d1f992210a18f2290bb199d12aeaf49
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: fe0c16962eef38ac26490eb7928d1705ef63a217
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330513"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355023"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Kontroll som en enhet som är kopplad till en IoT hub (Python)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Styra en enhet som är ansluten till en IoT Hub (python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -33,25 +33,25 @@ Snabbstarten använder två färdiga Python-program:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Python. För närvarande stöder endast specifika versioner av Python för varje plattform med Microsoft Azure IoT SDK för Python. Mer information finns i den [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
+De två exempelprogram som du kör i den här snabbstarten skrivs med Python. För närvarande stöder Microsoft Azure IoT SDK: er för python bara vissa versioner av python för varje plattform. Mer information finns i [filen python SDK README](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-Den här snabbstarten förutsätter att du använder en Windows-utvecklingsdator. För Windows System [Python 3.6.x](https://www.python.org/downloads/release/python-368/) stöds. Python-installationsprogrammet som du väljer ska baseras på arkitekturen i systemet som du arbetar med. Om systemet processorarkitektur är 32-bitars och sedan ladda ned x86 installer; ladda ned x86-64-installationsprogrammet för 64-bitars-arkitektur. Se även till den [Microsoft Visual C++ Redistributable för Visual Studio 2015, 2017 och 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) har installerats för din arkitektur (x86 eller x64).
+Den här snabb starten förutsätter att du använder en Windows-utvecklings dator. För Windows-system stöds endast [python 3.6. x](https://www.python.org/downloads/release/python-368/) . Python-installationsprogrammet som du väljer ska baseras på arkitekturen i systemet som du arbetar med. Om systemets CPU-arkitektur är 32 bitar laddar du ned x86-installations programmet. för en 64-bitars arkitektur laddar du ned x86-64-installationsprogrammet. Se dessutom till att [Microsoft C++ Visual Redistributable för Visual Studio 2015, 2017 och 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) har installerats för din arkitektur (x86 eller x64).
 
-Du kan hämta Python för andra plattformar från [Python.org](https://www.python.org/downloads/).
+Du kan ladda ned python för andra plattformar från [python.org](https://www.python.org/downloads/).
 
 Du kan kontrollera den aktuella versionen av Python på utvecklingsdatorn med någon av följande kommandon:
 
 ```python
-python --version
+python - -version
 ```
 
 ```python
-python3 --version
+python3 - -version
 ```
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) för vissa kommandon i Azure CLI.
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -71,7 +71,7 @@ Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet ti
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
-1. Kör följande kommando i Azure Cloud Shell för att skapa enhetens identitet.
+1. Kör följande kommando i Azure Cloud Shell för att skapa enhets identiteten.
 
     **YourIoTHubName** : Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
 

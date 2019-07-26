@@ -1,72 +1,71 @@
 ---
-title: 'Azure Backup: Skapa principer för säkerhetskopiering med REST API'
-description: Hantera principer för säkerhetskopiering (schema och kvarhållning) med hjälp av REST API
-services: backup
+title: 'Azure Backup: Skapa säkerhets kopierings principer med REST API'
+description: Hantera säkerhets kopierings principer (schema och kvarhållning) med REST API
 author: pvrk
 manager: shivamg
-keywords: 'REST API: ET Azure VM-säkerhetskopiering; Återställning av Azure virtuella datorer;'
+keywords: REST API; Azure VM-säkerhetskopiering; Återställning av Azure VM;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648813"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466822"
 ---
-# <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa Azure Recovery Services-säkerhetskopieringsprinciper via REST API
+# <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa principer för Azure Recovery Services säkerhets kopiering med REST API
 
-Stegen för att skapa en princip för säkerhetskopiering för ett Azure Recovery Services-valv beskrivs i den [REST API principdokument](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate). Använd berätta det här dokumentet som referens för att skapa en princip för säkerhetskopiering av Azure virtuella datorer.
+Stegen för att skapa en säkerhets kopierings princip för ett Azure Recovery Services-valv beskrivs i [princip REST API dokumentet](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate). Låt oss använda det här dokumentet som en referens för att skapa en princip för säkerhets kopiering av virtuella Azure-datorer.
 
-## <a name="backup-policy-essentials"></a>Princip för säkerhetskopiering essentials
+## <a name="backup-policy-essentials"></a>Säkerhets kopierings princip Essentials
 
-- En princip för säkerhetskopiering skapas per valv.
-- En princip för säkerhetskopiering kan skapas för säkerhetskopiering av följande arbetsbelastningar
+- En säkerhets kopierings policy skapas per valv.
+- Du kan skapa en säkerhets kopierings princip för säkerhets kopiering av följande arbets belastningar
   - Azure VM
-  - SQL i Azure VM
+  - SQL i virtuell Azure-dator
   - Azure-filresurs
-- En princip kan tilldelas till många resurser. En princip för säkerhetskopiering av virtuella Azure-datorer kan användas för att skydda många virtuella datorer i Azure.
-- En princip som består av två komponenter
-  - Schema: När du göra en säkerhetskopia
-  - Kvarhållning av säkerhetskopior: Hur länge ska varje säkerhetskopiering behållas.
-- Schemat kan du definiera ”varje dag” eller ”varje vecka” med en specifik tidpunkt.
-- Kvarhållning kan definieras för ”daglig”, ”vecka”, ”månad”, ”år” säkerhetskopieringspunkter.
-- ”varje vecka” refererar till en säkerhetskopia på en viss dag i veckan, ”månatliga” innebär att en säkerhetskopia på en viss dag i månaden och ”år” refererar till en säkerhetskopia för en viss dag på året.
-- Kvarhållning för ”månatliga”, ”år” säkerhetskopieringspunkter kallas för ”LongTermRetention”.
-- När ett valv skapas, skapas också en princip för Virtuella Azure-säkerhetskopieringar som kallas ”DefaultPolicy” och kan användas för att säkerhetskopiera virtuella Azure-datorer.
+- En princip kan tilldelas till många resurser. En princip för säkerhets kopiering av virtuella Azure-datorer kan användas för att skydda många virtuella Azure-datorer.
+- En princip består av två komponenter
+  - Ange När du ska göra säkerhets kopian
+  - Kvarhållning För hur länge varje säkerhets kopia ska behållas.
+- Schemat kan definieras som "dagligen" eller "veckovis" med en viss tidpunkt.
+- Kvarhållning kan definieras för "dagliga", "veckovis", "årliga" säkerhets kopierings punkter.
+- "veckovis" syftar på en säkerhets kopia på en viss dag i veckan, "månad" innebär en säkerhets kopiering på en viss dag i månaden och "årlig" avser en säkerhets kopia på en viss dag på året.
+- Kvarhållning för "månads", "årliga" säkerhets kopierings punkter kallas "LongTermRetention".
+- När ett valv skapas, skapas även en princip för säkerhets kopiering av virtuella Azure-datorer med namnet "DefaultPolicy" och kan användas för att säkerhetskopiera virtuella Azure-datorer.
 
-Använd följande för att skapa eller uppdatera en Azure Backup-principen, *PLACERA* åtgärden
+Om du vill skapa eller uppdatera en Azure Backup-princip använder *du följande åtgärd*
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
 ```
 
-Den `{policyName}` och `{vaultName}` finns i URI: N. Mer information finns i begärandetexten.
+`{policyName}` Och`{vaultName}` anges i URI: n. Ytterligare information finns i begär ande texten.
 
-## <a name="create-the-request-body"></a>Skapa begärandetexten
+## <a name="create-the-request-body"></a>Skapa begär ande texten
 
-Om du vill skapa en princip för säkerhetskopiering av Azure virtuella datorer är till exempel följande komponenter i begärandetexten.
+Om du till exempel vill skapa en princip för säkerhets kopiering av virtuella Azure-datorer, följer du komponenterna i begär ande texten.
 
-|Namn  |Obligatoriskt  |Typ  |Beskrivning  |
+|Namn  |Obligatorisk  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource egenskaper        |
+|properties     |   Sant      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Egenskaper för ProtectionPolicyResource        |
 |taggar     |         | Object        |  Resurstaggar       |
 
-Den fullständiga listan med definitioner i begärandetexten finns i den [säkerhetskopieringsprincip REST API-dokumentet](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
+En fullständig lista över definitioner i begär ande texten finns i [säkerhets kopierings policyn REST API-dokument](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
-### <a name="example-request-body"></a>Exempel-begärandetexten
+### <a name="example-request-body"></a>Exempel på begär ande text
 
-Följande begäran definierar en princip för säkerhetskopiering för Virtuella Azure-säkerhetskopieringar.
+Följande brödtext för begäran definierar en säkerhets kopierings policy för virtuella Azure-säkerhetskopieringar.
 
 Principen säger:
 
-- Ta en veckovis säkerhetskopiering varje måndag, onsdag, torsdag klockan 10:00 Pacific Standard Time.
-- Bevara säkerhetskopior som gjorts varje måndag, onsdag, torsdag för en vecka.
-- Bevara säkerhetskopior som har gjorts i varje första onsdag och tredje torsdag för en månad i två månader (åsidosättningar föregående kvarhållning villkor, om sådana).
-- Bevara säkerhetskopior som har gjorts på fjärde måndag och fjärde torsdagen i februari och November i fyra år (åsidosättningar föregående kvarhållning villkor, om sådana).
+- Ta en veckovis säkerhets kopia varje måndag, onsdag, torsdag vid 10:00 AM Stilla havs tid, normal tid.
+- Behåll de säkerhets kopior som gjorts varje måndag, onsdag, torsdag i en vecka.
+- Behåll de säkerhets kopior som har gjorts under varje första onsdag och tredje torsdag i månaden i två månader (åsidosätter de tidigare bevarande villkoren, om sådana finns).
+- Behåll de säkerhets kopior som gjorts den fjärde måndagen och fjärde torsdagen i februari och november i fyra år (åsidosätter de tidigare bevarande villkoren, om sådana finns).
 
 ```json
 {
@@ -150,22 +149,22 @@ Principen säger:
 ```
 
 > [!IMPORTANT]
-> Tidsformat för schema och kvarhållning stöder endast DateTime. De stöder inte fristående tidsformat.
+> Tids formaten för schema och kvarhållning stöder endast DateTime. De har inte stöd för själva tids formatet.
 
 ## <a name="responses"></a>Responses
 
-Princip för säkerhetskopiering skapande/uppdatering är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
+Skapande/uppdatering av säkerhets kopierings policy är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
-Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
+Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sedan 200 (OK) när åtgärden har slutförts.
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |    [Skydd PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  Ok       |
-|202-accepterad     |         |     Accepterat    |
+|202 accepterad     |         |     Accepterad    |
 
-### <a name="example-responses"></a>Exempelsvar
+### <a name="example-responses"></a>Exempel svar
 
-När du skickar in den *PLACERA* begäran för att skapa eller uppdatera, Rapid response är 202 (accepterad) med en platsrubrik eller Azure-async-rubrik.
+När du skickar in *begäran om* att skapa eller uppdatera en princip är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -185,13 +184,13 @@ Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Spåra resulterande åtgärden med en enkel platsrubrik eller Azure-AsyncOperation rubrik *hämta* kommando.
+Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett enkelt *Get* -kommando.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
 ```
 
-När åtgärden har slutförts, returnerar 200 (OK) med innehåll för principen i svarstexten.
+När åtgärden har slutförts returneras 200 (OK) med princip innehållet i svars texten.
 
 ```json
 {
@@ -279,13 +278,13 @@ När åtgärden har slutförts, returnerar 200 (OK) med innehåll för principen
 }
 ```
 
-Om en princip är redan används för att skydda ett objekt, någon uppdatering i principen kommer att leda [ändrar skyddet](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) för alla sådana associerade objekt.
+Om en princip redan används för att skydda ett objekt leder alla uppdateringar i principen till att [ändra skyddet](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) för alla sådana associerade objekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Aktivera skydd för en oskyddad Azure VM](backup-azure-arm-userestapi-backupazurevms.md).
+[Aktivera skydd för en oskyddad virtuell Azure-dator](backup-azure-arm-userestapi-backupazurevms.md).
 
-Mer information om Azure Backup REST-API: er finns i följande dokument:
+Mer information om Azure Backup REST API: er finns i följande dokument:
 
-- [Azure Recovery Services-provider REST API](/rest/api/recoveryservices/)
+- [Azure Recovery Services-Provider REST API](/rest/api/recoveryservices/)
 - [Kom igång med Azure REST API](/rest/api/azure/)

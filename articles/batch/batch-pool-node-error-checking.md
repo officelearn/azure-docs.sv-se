@@ -1,115 +1,145 @@
 ---
-title: Kontrollera pool och nod – Azure Batch
-description: Fel att söka efter och hur man undviker dem när du skapar pooler och noder
+title: Sök efter fel i pooler och noder – Azure Batch
+description: Fel att söka efter och hur du undviker dem när du skapar pooler och noder
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9481263773cc919fecacce80191cf209ec2a1282
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357766"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359239"
 ---
-# <a name="check-for-pool-and-node-errors"></a>Kontrollera pool och nod
+# <a name="check-for-pool-and-node-errors"></a>Sök efter fel i pooler och noder
 
-När du skapar och hanterar Azure Batch-pooler, sker vissa åtgärder omedelbart. Men är vissa åtgärder asynkrona och kan köras i bakgrunden. De kan ta flera minuter att slutföra.
+När du skapar och hanterar Azure Batch pooler sker vissa åtgärder omedelbart. Vissa åtgärder är dock asynkrona och körs i bakgrunden, vilket tar flera minuter att slutföra.
 
-Det är enkelt att identifiera fel för åtgärder som börjar gälla direkt eftersom fel returneras direkt av API: et, CLI eller Användargränssnittet.
+Det är enkelt att identifiera problem för åtgärder som sker direkt eftersom eventuella problem returneras direkt av API, CLI eller gränssnitt.
 
-Den här artikeln beskriver bakgrundsåtgärder som kan uppstå för pooler och poolnoder. Den anger hur du kan identifiera och undvika fel.
+Den här artikeln beskriver bakgrunds åtgärder som kan uppstå för pooler och noder i pooler. Det anger hur du kan identifiera och undvika fel.
 
-## <a name="pool-errors"></a>Pool-fel
+## <a name="pool-errors"></a>Allokeringsfel
 
-### <a name="resize-timeout-or-failure"></a>Ändra storlek på timeout eller fel
+### <a name="resize-timeout-or-failure"></a>Tids gräns för storlek eller haveriering
 
-När du skapar en ny pool eller ändra storlek på en befintlig pool, anger du antalet noder.  Åtgärden har slutförts omedelbart, men den faktiska tilldelningen av nya noder eller borttagning av befintliga noderna kan ta flera minuter.  Du anger tidsgräns för storleksändring i den [skapa](https://docs.microsoft.com/rest/api/batchservice/pool/add) eller [ändra storlek på](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API. Om Batch går inte att hämta antalet noder under storleksändring tidsperioden, avbryts åtgärden. Poolen hamnar i ett stabilt tillstånd och rapporter ändra storlek på fel.
+När du skapar en ny pool eller ändrar storlek på en befintlig pool anger du mål antalet noder.  Åtgärden skapa eller ändra storlek slutförs omedelbart, men den faktiska allokeringen av nya noder eller borttagning av befintliga noder kan ta flera minuter.  Du anger tids gränsen för storleks ändring i API för att [skapa](https://docs.microsoft.com/rest/api/batchservice/pool/add) eller [ändra storlek](https://docs.microsoft.com/rest/api/batchservice/pool/resize) . Om batch inte kan hämta mål antalet noder under tids gränsen för storleks ändring försätts poolen i ett stabilt tillstånd och rapporter ändrar storlek på fel.
 
-Den [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) -egenskapen för de senaste utvärderingen rapporterar en timeout för storleksändring och visar eventuella fel som inträffat.
+Egenskapen [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) för den senaste utvärderingen visar en lista över felen som har inträffat.
 
-Vanliga orsaker för storleksändring timeout är:
+Vanliga orsaker till fel storleks ändringar är:
 
-- Tidsgräns för storleksändring är för kort
-  - I de flesta fall är standardvärdet för timeout högst 15 minuter lång tid för noderna i poolen tilldelas eller tas bort.
-  - Om du allokerar ett stort antal noder, rekommenderar vi att ändra storlek på timeout-värdet till 30 minuter. Till exempel när du storleksändring att fler än 1 000 noder från en Azure Marketplace-avbildning eller mer än 300 noder från en anpassad virtuell datoravbildning.
-- Otillräcklig kärnkvot
-  - Ett Batch-konto är begränsad i antalet kärnor som den kan allokera över alla pooler. Batch stoppar allokera noder när den kvoten har nåtts. Du [kan öka](https://docs.microsoft.com/azure/batch/batch-quota-limit) kärnkvoten så att Batch kan allokera fler noder.
-- Inte tillräckligt med undernätet IP-adresser när en [pool är i ett virtuellt nätverk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Ett virtuellt nätverksundernät måste ha tillräckligt med otilldelade IP-adresser som tilldelas till alla begärda pool-noder. I annat fall kan noderna inte skapas.
-- Inte tillräckligt med resurser när en [pool är i ett virtuellt nätverk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Du kan skapa resurser, till exempel belastningsutjämnare, offentliga IP-adresser och nätverkssäkerhetsgrupper i samma prenumeration som Batch-kontot. Kontrollera att prenumerationskvoter är tillräckliga för de här resurserna.
+- Tids gränsen för storleks ändring är för kort
+  - I de flesta fall är standard tids gränsen på 15 minuter tillräckligt lång för att pool-noder ska allokeras eller tas bort.
+  - Om du allokerar ett stort antal noder rekommenderar vi att du anger tids gränsen för storleks ändring till 30 minuter. Till exempel när du ändrar storlek på fler än 1 000 noder från en Azure Marketplace-avbildning eller till fler än 300 noder från en anpassad VM-avbildning.
+- Otillräcklig kärn kvot
+  - Ett batch-konto är begränsat till antalet kärnor som det kan allokera i alla pooler. Batch slutar allokera noder när kvoten har uppnåtts. Du [kan öka](https://docs.microsoft.com/azure/batch/batch-quota-limit) kärn kvoten så att batchen kan allokera fler noder.
+- Otillräckliga undernät-IP: er när en [pool finns i ett virtuellt nätverk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Ett undernät för virtuellt nätverk måste ha tillräckligt många otilldelade IP-adresser för att allokera till varje begärd pool-nod. Annars går det inte att skapa noderna.
+- Otillräckliga resurser när en [pool finns i ett virtuellt nätverk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Du kan skapa resurser som belastningsutjämnare, offentliga IP-adresser och nätverks säkerhets grupper i samma prenumeration som batch-kontot. Kontrol lera att prenumerations kvoterna räcker för dessa resurser.
 - Stora pooler med anpassade VM-avbildningar
-  - Stora pooler som använder anpassade avbildningar av Virtuella datorer kan ta längre tid att allokera och ändra storlek på timeout-fel kan uppstå.  Se [använda en anpassad avbildning för att skapa en pool med virtuella datorer](https://docs.microsoft.com/azure/batch/batch-custom-images) rekommendationer för gränser och konfigurering.
+  - Det kan ta längre tid att tilldela stora pooler som använder anpassade VM-avbildningar och ändra storlek på tids gränser.  Se [använda en anpassad avbildning för att skapa en pool med virtuella datorer](https://docs.microsoft.com/azure/batch/batch-custom-images) för rekommendationer om gränser och konfiguration.
 
-### <a name="automatic-scaling-failures"></a>Automatisk skalning fel
+### <a name="automatic-scaling-failures"></a>Automatiska skalnings problem
 
-Du kan också ange att automatiskt skala antalet noder i en pool med Azure Batch. Du kan definiera parametrar för den [formel för en pool för automatisk skalning](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). Batch-tjänsten använder formeln för att regelbundet utvärdera antalet noder i poolen och ange ett nytt mål-nummer. Följande typer av problem kan uppstå:
+Du kan också ange Azure Batch för att automatiskt skala antalet noder i en pool. Du definierar parametrar för den [automatiska skalnings formeln för en pool](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). Batch-tjänsten använder formeln för att regelbundet utvärdera antalet noder i poolen och ange ett nytt mål nummer. Följande typer av problem kan uppstå:
 
-- Det går inte att automatisk skalning utvärderingen.
-- Den resulterande storleksändringen misslyckas och tidsgränsen uppnås.
-- Ett problem med automatisk skalningsformel leder till felaktig nod målvärden. Ändra storleken fungerar eller överskrider tidsgränsen.
+- Utvärderingen av automatisk skalning Miss lyckas.
+- Den resulterande ändrings åtgärden Miss lyckas och tids gränsen uppnås.
+- Ett problem med den automatiska skalnings formeln leder till felaktiga värden för mål värden. Storleken på antingen Works eller tids gränsen.
 
-Du kan få information om den senaste utvärderingen för automatisk skalning med hjälp av den [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) egenskapen. Den här egenskapen rapporterar utvärderingstiden, värden och resultatet och eventuella prestandafel.
+Du kan få information om den senaste automatiska skalnings utvärderingen med hjälp av egenskapen [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) . Den här egenskapen rapporterar utvärderings tiden, värdena och resultatet samt eventuella prestanda fel.
 
-Den [poolen ändrar storlek på Sluthändelse](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) samlar in information om alla utvärderingar.
+Loggen för [storleks ändring av pooler](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) samlar in information om alla utvärderingar.
 
 ### <a name="delete"></a>Ta bort
 
-När du tar bort en pool som innehåller noder första batchen tar bort noder. Sedan tar den bort själva poolobjektet. Det kan ta några minuter för noderna i poolen som ska tas bort.
+När du tar bort en pool som innehåller noder, tar den första batchen bort noderna. Sedan tas själva pool-objektet bort. Det kan ta några minuter innan poolens noder tas bort.
 
-Batch-uppsättningar på [lagringspoolen tillstånd](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) till **tar bort** under borttagningsprocessen. Det anropande programmet kan identifiera om borttagningen pool tar lång tid genom att använda den **tillstånd** och **stateTransitionTime** egenskaper.
+Batch anger det [tillstånd för poolen](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) som ska **tas bort** under borttagnings processen. Det anropande programmet kan identifiera om borttagningen tar för lång tid genom att använda egenskaperna **State** och **stateTransitionTime** .
 
-## <a name="pool-compute-node-errors"></a>Nodfel för poolen beräkning
+## <a name="pool-compute-node-errors"></a>Fel vid beräkning av pool
 
-Även om Batch har allokerar noder i en pool, kan olika problem som orsaka vissa noder är skadad och kan inte användas. Dessa noder avgifter. Det är viktigt att identifiera problem så att du inte betala för oanvändbara noder.
+Även om batch allokerar noder i en pool kan olika problem orsaka att några av noderna inte är felfria och inte kan köra uppgifter. De här noderna kostar fortfarande att betala, så det är viktigt att upptäcka problem för att undvika att betala för noder som inte kan användas.
 
-### <a name="start-task-failure"></a>Uppgiften startfel
+### <a name="start-task-failures"></a>Starta aktivitets felen
 
-Du kanske vill ange en valfri [startaktivitet](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) för en pool. Precis som med andra aktiviteter kan använda du en kommandorad och resursfiler för att ladda ned från storage. Startaktiviteten körs för varje nod när den startas. Den **waitForSuccess** egenskapen anger om Batch ska vänta tills startaktiviteten har slutförts innan det schemalägger aktiviteter till en nod.
+Du kanske vill ange en valfri [Start uppgift](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) för en pool. Som med vilken aktivitet som helst kan du använda en kommando rad och resursfiler för att ladda ned från lagringen. Start aktiviteten körs för varje nod när den har startats. Egenskapen **waitForSuccess** anger om batch väntar tills start aktiviteten har slutförts innan aktiviteterna schemaläggs till en nod.
 
-Vad händer om du har konfigurerat noden att vänta på slutförande av aktivitet lyckas start, men den fungerar inte uppgiften start? I så fall noden är oanvändbara men fortfarande tillkommer avgifter.
+Vad händer om du har konfigurerat noden för att vänta på att aktiviteten slutförs, men start aktiviteten Miss lyckas? I så fall går det inte att använda noden, men kommer fortfarande att debiteras.
 
-Du kan identifiera Aktivitetsfel för start med hjälp av den [resultatet](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) och [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) egenskaperna för den översta [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) nodegenskap.
+Du kan identifiera start aktivitets problem genom att använda egenskaperna [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) och [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) för den översta [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) Node-egenskapen.
 
-En misslyckad startaktivitet orsakar även Batch ange nod [tillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) till **starttaskfailed** om du skulle ställa in **waitForSuccess** till **SANT**.
+En misslyckad start aktivitet gör också att batch anger nodens [tillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) till **starttaskfailed** om **waitForSuccess** har angetts till **True**.
 
-Precis som med andra aktiviteter kan finnas det flera orsaker till att starta aktiviteten misslyckas.  Felsök genom att kontrollera att stdout, stderr och alla ytterligare uppgiftsspecifika loggfiler.
+Precis som med alla aktiviteter kan det finnas många orsaker till att start aktiviteten Miss Missing.  Du kan felsöka genom att kontrol lera STDOUT, stderr och eventuella ytterligare verksamhetsspecifika loggfiler.
 
-### <a name="application-package-download-failure"></a>Hämtning av programfel-paket
+Start aktiviteter måste vara omordnade eftersom det är möjligt att start aktiviteten körs flera gånger på samma nod. Start aktiviteten körs när en nod återställs eller startas om. I sällsynta fall körs en start aktivitet efter att en händelse orsakade en omstart av en nod, där ett av operativ systemen eller de tillfälliga diskarna återställdes när den andra inte var det. Eftersom batch-startuppgifter (t. ex. alla batch-uppgifter) körs från den tillfälliga disken, är detta vanligt vis inget problem, men i vissa fall där start aktiviteten installerar ett program på operativ system disken och behåller andra data på den tillfälliga disken kan detta orsaka problem eftersom saker inte är synkroniserade. Skydda ditt program efter behov om du använder båda diskarna.
 
-Du kan ange en eller flera programpaket för en pool. Batch laddar ned filer för angivet paket till varje nod och expanderar filerna när noden har startats men innan aktiviteterna schemaläggs. Det är vanligt att använda Kommandotolken start uppgiften tillsammans med programpaket. Till exempel att kopiera filer till en annan plats eller för att köra installationsprogrammet.
+### <a name="application-package-download-failure"></a>Hämtnings problem för program paket
 
-Noden [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) egenskapen rapporterar inte går att ladda ned och expandera ett programpaket. Batch anger node-tillstånd till **oanvändbara**.
+Du kan ange ett eller flera programpaket för en pool. Batch laddar ned de angivna paketfilerna till varje nod och expanderar filerna när noden har startat, men innan aktiviteter schemaläggs. Det är vanligt att använda en kommando rad för start aktivitet tillsammans med programpaket. Till exempel för att kopiera filer till en annan plats eller köra installations programmet.
 
-### <a name="container-download-failure"></a>Fel vid hämtning av behållare
+Egenskapen Node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) rapporterar ett fel vid hämtning och avkomprimering av ett programpaket. Node-tillstånd är inställt på **oanvändbart**.
 
-Du kan ange en eller flera behållare referenser i en pool. Batch laddar ned de angivna behållarna till varje nod. Noden [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) egenskapen rapporterar ett fel att ladda ned en behållare och anger Nodtillstånd till **oanvändbara**.
+### <a name="container-download-failure"></a>Hämtnings problem för behållare
 
-### <a name="node-in-unusable-state"></a>Nod i oanvändbar
+Du kan ange en eller flera behållar referenser i en pool. Batch hämtar de angivna behållarna till varje nod. Egenskapen Node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) rapporterar ett fel vid hämtning av en behållare och anger att nodens tillstånd är **oanvändbar**.
 
-Azure Batch kan ställa in den [Nodtillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) till **oanvändbara** av flera orsaker. Med Nodtillstånd inställd **oanvändbara**, aktiviteter kan inte schemaläggas till noden, men det tillkommer fortfarande avgifter.
+### <a name="node-in-unusable-state"></a>Noden är oanvändbar
 
-Noder i ett **unsuable**, men utan [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) tillståndet innebär att Batch är det går inte att kommunicera med den virtuella datorn. I det här fallet försöker Batch alltid återställa den virtuella datorn. Batch kommer inte automatiskt att försöka att återställa virtuella datorer som inte kunde installera programpaket eller behållare, även om deras tillstånd är **oanvändbara**.
+Azure Batch kan ange att [nodens tillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) inte kan **användas** av många skäl. När Node State är oanvändbart kan aktiviteter inte schemaläggas till noden, men de debiteras ändå.
 
-Om Batch kan ta reda på orsaken, noden [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) egenskapen rapporterar den.
+Noder i ett **oanvändbart** tillstånd, men utan [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) innebär att batchen inte kan kommunicera med den virtuella datorn. I det här fallet försöker batch alltid återställa den virtuella datorn. Batch försöker inte automatiskt att återställa virtuella datorer som inte kunde installera programpaket eller behållare trots att deras tillstånd är **oanvändbart**.
 
-Ytterligare exempel på orsaker till **oanvändbara** noder inkluderar:
+Om batch kan bestämma orsaken rapporterar egenskapen Node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) .
 
-- En anpassad virtuell datoravbildning är ogiltig. Till exempel en bild som förbereds inte korrekt.
+Fler exempel på orsaker till **oanvändbara** noder är:
 
-- En virtuell dator flyttas på grund av en infrastruktur-fel eller en uppgradering av på låg nivå. Batch återställer noden.
+- En anpassad virtuell dator avbildning är ogiltig. Till exempel en bild som inte är korrekt för beredd.
 
-- En VM-avbildning har distribuerats på maskinvara som inte stöder den. Till exempel en ”HPC” VM-avbildning som körs på icke-HPC-maskinvara. Exempel: försöker köra en CentOS HPC-avbildning på en [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+- En virtuell dator flyttas på grund av ett infrastruktur haveri eller en uppgradering på lägre nivå. Batch återställer noden.
 
-- De virtuella datorerna är i ett [Azure-nätverk](batch-virtual-network.md), och trafik till huvudportarna har blockerats.
+- En avbildning av en virtuell dator har distribuerats på maskin vara som inte stöder den. Försök till exempel att köra en CentOS HPC-avbildning på en [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
 
-### <a name="node-agent-log-files"></a>Noden agentens loggfiler
+- De virtuella datorerna finns i ett [virtuellt Azure-nätverk](batch-virtual-network.md)och trafiken har blockerats för nyckel portar.
 
-Processen för Batch-agenten som körs på varje nod i poolen kan ge loggfiler som kan vara användbart om du behöver kontakta supporten om problemet en pool-nod. Loggfiler för en nod kan överföras via Azure-portalen, Batch Explorer eller en [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). Det är användbart för att ladda upp och spara filerna. Därefter kan du ta bort noden eller poolen för att spara kostnaden för att köra noderna.
+- De virtuella datorerna finns i ett virtuellt nätverk, men utgående trafik till Azure Storage blockeras.
+
+- De virtuella datorerna finns i ett virtuellt nätverk med en kund-DNS-konfiguration och DNS-servern kan inte lösa Azure Storage.
+
+### <a name="node-agent-log-files"></a>Loggfiler för Node agent
+
+Batch agent-processen som körs på varje pool-nod kan ge loggfiler som kan vara till hjälp om du behöver kontakta supporten om ett problem med en adresspool. Loggfiler för en nod kan överföras via Azure Portal, Batch Explorer eller ett [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). Det är praktiskt att ladda upp och spara loggfilerna. Efteråt kan du ta bort noden eller poolen för att spara kostnaden för de noder som körs.
+
+### <a name="node-disk-full"></a>Nod disken är full
+
+Den tillfälliga enheten för en pool med virtuella datorer används av batch för projektfiler, filer och delade filer. 
+
+- Programpaket-filer
+- Resursfiler för uppgifter
+- Programspecifika filer som laddats ned till en av batch-mapparna
+- STDOUT-och stderr-filer för varje aktivitets program körning
+- Programspecifika utdatafiler
+
+En del av de här filerna skrivs bara en gång när pooler har skapats, till exempel paket för programpaket eller resurs fil för att starta aktivitet. Även om de här filerna är för stora kan de fylla den temporära enheten även om det bara skrivs en gång när noden skapas.
+
+Andra filer skrivs ut för varje aktivitet som körs på en nod, till exempel STDOUT och stderr. Om ett stort antal aktiviteter körs på samma nod och/eller om originalfilerna är för stora kan de fylla den temporära enheten.
+
+Storleken på den tillfälliga enheten beror på storleken på den virtuella datorn. Ett övervägande när du väljer en VM-storlek är att säkerställa att den tillfälliga enheten har tillräckligt med utrymme.
+
+- I Azure Portal när du lägger till en pool, kan den fullständiga listan med VM-storlekar visas och det finns en resurs disk storleks kolumn.
+- Artiklarna som beskriver alla VM-storlekar har tabeller med kolumnen Temp Storage. till exempel [Compute-optimerade VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
+
+För filer som skrivs ut av varje aktivitet kan en kvarhållningsperiod anges för varje aktivitet som avgör hur länge originalfilerna sparas innan de rensas automatiskt. Retentions tiden kan minskas för att minska lagrings kraven.
+
+Om det tillfälliga disk utrymmet har fyllts kommer noden att sluta köra aktiviteter för närvarande. I framtiden rapporteras ett [Node-fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) .
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kontrollera att du har ställt in ditt program för att implementera omfattande felkontroll, särskilt för asynkrona åtgärder. Det kan vara viktigt att snabbt identifiera och diagnostisera problem.
+Kontrol lera att du har angett att ditt program ska implementera omfattande fel kontroller, särskilt för asynkrona åtgärder. Det kan vara viktigt att snabbt identifiera och diagnostisera problem.

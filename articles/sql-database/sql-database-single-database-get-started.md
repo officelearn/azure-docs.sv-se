@@ -1,6 +1,6 @@
 ---
-title: 'Azure-portalen: Skapa en enkel databas – Azure SQL Database | Microsoft Docs'
-description: Skapa och fråga en enkel databas i Azure SQL Database med Azure-portalen.
+title: Skapa en enkel databas – Azure SQL Database | Microsoft Docs
+description: Skapa och fråga en enskild databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,14 +12,14 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 1c24c8a10e35c0cf8979538c67fa8fb71b712741
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 470dca235b9a3212c09052f7535fa90d076fe4d3
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070171"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444476"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en enkel databas i Azure SQL Database med Azure-portalen
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Snabbstart: Skapa en enskild databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI
 
 Att skapa en [enkel databas](sql-database-single-database.md) är det snabbaste och enklaste distributionsalternativet för att skapa en databas i Azure SQL Database. Snabbstarten visar hur du skapar och sedan frågar en enkel databas Azure-portalen.
 
@@ -29,71 +29,19 @@ Logga in på [Azure Portal](https://portal.azure.com/) för alla steg i den här
 
 ## <a name="create-a-single-database"></a>Skapa en enkel databas
 
-En enskild databas kan antingen skapas i den etablerade eller serverlös Beräkningsnivån (förhandsversion).
+En enskild databas kan antingen skapas i beräknings nivån etablerade eller utan server (för hands version).
 
-- En enskild databas i den etablerade Beräkningsnivån har en definierad mängd förallokerade beräkningsresurser plus en uppsättning minne och lagring resurser med hjälp av någon av de två [köpa modeller](sql-database-purchase-models.md).
-- En databas på nivån för beräkning utan Server har ett antal beräkningsresurser som är automatiskt skalade plus en viss mängd minne per kärna och en specificerad mängd lagringsresurser och är endast tillgänglig i den [vCore-baserade köpa modeller ](sql-database-service-tiers-vcore.md).
+- En enskild databas i den etablerade beräknings nivån har en definierad mängd förallokerade beräknings resurser plus en uppsättning minnes-och lagrings resurser som använder en av två [inköps modeller](sql-database-purchase-models.md).
+- En enkel databas i en server lös beräknings nivå har ett intervall med beräknings resurser som skalas automatiskt plus en viss mängd minne per kärna och en angiven mängd lagrings resurser och är bara tillgänglig i [vCore-baserade inköps modeller](sql-database-service-tiers-vcore.md).
 
 När du skapar en enkel databas definierar du även en [SQL Database-server](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
 
 > [!NOTE]
-> Den här snabbstarten används de [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) och [serverlös](sql-database-serverless.md) Beräkningsnivån, men [DTU-baserade inköpsmodellen](sql-database-service-tiers-DTU.md) är också tillgänglig.
+> I den här snabb starten används den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) och [Server](sql-database-serverless.md) lös beräknings nivån, men den [DTU-baserade inköps modellen](sql-database-service-tiers-DTU.md) är också tillgänglig.
 
 Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempeldata:
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-2. Välj **databaser** och välj sedan **SQL Database** att öppna den **skapa SQL-databas** sidan.
-
-   ![Skapa en enkel databas](./media/sql-database-get-started-portal/create-database-1.png)
-
-3. På den **grunderna** fliken den **projektinformation** avsnittet, skriver eller Välj följande värden:
-
-   - **Prenumeration**: Välj rätt prenumeration i den nedrullningsbara listrutan om den inte visas.
-   - **Resursgrupp**: Välj **Skapa nytt**, typ `myResourceGroup`, och välj **OK**.
-
-     ![Ny SQL database - fliken Grundläggande](media/sql-database-get-started-portal/new-sql-database-basics.png)
-
-4. I den **databasinformation** avsnittet, skriver eller Välj följande värden:
-
-   - **Databasnamn**: Ange `mySampleDatabase`.
-   - **Server**: Välj **Skapa nytt** och ange följande värden och välj sedan **Välj**.
-       - **Servernamn**: Typ `mysqlserver`; tillsammans med vissa nummer för unikhet.
-       - **Inloggning för serveradministratör**: Skriv `azureuser`.
-       - **Lösenord**: Ange ett komplext lösenord som uppfyller lösenordskraven för.
-       - **Plats**: Välj en plats i listrutan, till exempel `West US 2`.
-
-         ![Ny server](media/sql-database-get-started-portal/new-server.png)
-
-      > [!IMPORTANT]
-      > Skriv ned serveradministratörens inloggning och lösenord så att du kan logga in på servern och databaserna till denna och andra snabbstarter. Om du glömmer din inloggning eller ditt lösenord kan du hämta inloggningsnamnet eller återställa lösenordet på **SQLServer**-sidan. För att öppna **SQLServer**-sidan väljer du servernamnet i databasens **översiktssida** när databasen har skapats.
-
-        ![Information om SQL-databas](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
-
-   - **Vill du använda SQL-databaspool**: Välj den **nr** alternativet.
-   - **Beräkning + lagring**: Välj **konfigurera databasen** och för den här snabbstarten väljer **vCore-baserade Inköpsalternativ**
-
-     ![vCore-baserade Inköpsalternativ](media/sql-database-get-started-portal/create-database-vcore.png)
-
-   - Välj **serverlös**.
-
-     ![nivå för beräkning utan Server](media/sql-database-get-started-portal/create-database-serverless.png)
-
-   - Granska inställningarna för **maximalt antal virtuella kärnor**, **Min virtuella kärnor**, **automatisk pausning fördröjning**, och **Data maxstorlek**. Ändra dem efter behov.
-   - Acceptera villkoren för förhandsversionen och klicka på **OK**.
-   - Välj **Använd**.
-
-5. Välj den **ytterligare inställningar** fliken. 
-6. I den **datakälla** under avsnittet **använda befintliga data**väljer `Sample`. 
-
-   ![Ytterligare SQL DB-inställningar](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
-
-   > [!IMPORTANT]
-   > Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
-
-7. Lämna resten av värdena som standard och välj **granska + skapa** längst ned i formuläret.
-8. Granska de slutliga inställningarna och välj **skapa**.
-
-9. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen.
+[!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="query-the-database"></a>Fråga databasen
 
@@ -135,6 +83,6 @@ När du är klar med dessa resurser kan du ta bort dem på följande sätt:
 - När du har skapat en brandväggsregel på servernivå [ansluter du till och kör frågor mot](sql-database-connect-query.md) databasen med hjälp av flera olika verktyg och språk.
   - [Ansluta och köra frågor med SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Om du vill skapa en enkel databas på den etablerade, med hjälp av Azure CLI, se [Azure CLI-exempel](sql-database-cli-samples.md).
-- Om du vill skapa en enkel databas på den etablerade, med hjälp av Azure PowerShell, se [Azure PowerShell-exempel](sql-database-powershell-samples.md).
-- För att skapa en enkel databas på nivån för beräkning utan server med Azure Powershell, se [skapa serverlös databas](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+- Information om hur du skapar en enskild databas i den etablerade beräknings nivån med Azure CLI finns i [Azure CLI-exempel](sql-database-cli-samples.md).
+- Om du vill skapa en enskild databas i den allokerade beräknings nivån med hjälp av Azure PowerShell, se [Azure PowerShell exempel](sql-database-powershell-samples.md).
+- Information om hur du skapar en enskild databas i Server lös beräknings nivå med hjälp av Azure PowerShell finns i [skapa server lös databas](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).

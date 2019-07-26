@@ -1,82 +1,75 @@
 ---
-title: Skala en Azure-molntjänst i Windows PowerShell | Microsoft Docs
-description: (klassisk) Lär dig hur du skalar en web-roll eller worker-roll in eller ut i Azure med hjälp av PowerShell.
+title: Skala en Azure-molnbaserad tjänst i Windows PowerShell | Microsoft Docs
+description: form Lär dig hur du använder PowerShell för att skala en webb roll eller arbets roll i Azure.
 services: cloud-services
-documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: memccror
-ms.openlocfilehash: 6c013687faaca33938d0b27303e9b1252482fcb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1945aad12eb34bad1b593878779e1ceb0dae686
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963328"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359035"
 ---
-# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Skala en molntjänst i PowerShell
+# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Så här skalar du en moln tjänst i PowerShell
 
-Du kan använda Windows PowerShell för att skala en web-roll eller worker-roll in eller ut genom att lägga till eller ta bort instanser.  
+Du kan använda Windows PowerShell för att skala en webb roll eller arbets roll i eller ut genom att lägga till eller ta bort instanser.  
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Innan du kan utföra åtgärder i din prenumeration via PowerShell, måste du logga in:
+Innan du kan utföra några åtgärder för din prenumeration via PowerShell måste du logga in:
 
 ```powershell
 Add-AzureAccount
 ```
 
-Om du har flera prenumerationer som är associerat med ditt konto, kan du behöva ändra den aktuella prenumerationen beroende på där Molntjänsten finns. Du kan kontrollera den aktuella prenumerationen genom att köra:
+Om du har flera prenumerationer som är kopplade till ditt konto kan du behöva ändra den aktuella prenumerationen beroende på var moln tjänsten finns. Om du vill kontrol lera den aktuella prenumerationen kör du:
 
 ```powershell
 Get-AzureSubscription -Current
 ```
 
-Om du behöver ändra den aktuella prenumerationen, kör:
+Om du behöver ändra den aktuella prenumerationen kör du:
 
 ```powershell
 Set-AzureSubscription -SubscriptionId <subscription_id>
 ```
 
-## <a name="check-the-current-instance-count-for-your-role"></a>Kontrollera det aktuella instansantalet för din roll
+## <a name="check-the-current-instance-count-for-your-role"></a>Kontrol lera det aktuella instans antalet för rollen
 
-Du kan kontrollera det aktuella tillståndet för din roll genom att köra:
+Kör följande för att kontrol lera den aktuella status för din roll:
 
 ```powershell
 Get-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>'
 ```
 
-Du bör få tillbaka information om rollen, inklusive dess nuvarande OS-version och instans antal. I det här fallet har rollen en enda instans.
+Du bör få tillbaka information om rollen, inklusive dess aktuella OS-version och antalet instanser. I det här fallet har rollen en enda instans.
 
 ![Information om rollen](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
 
 ## <a name="scale-out-the-role-by-adding-more-instances"></a>Skala ut rollen genom att lägga till fler instanser
 
-Om du vill skala ut din roll, skickar det önskade antalet instanser som den **antal** parametern till den **Set-AzureRole** cmdlet:
+Du kan skala ut rollen genom att skicka det önskade antalet instanser som **Count** -parametern till **set-AzureRole** -cmdleten:
 
 ```powershell
 Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -Slot <target_slot> -Count <desired_instances>
 ```
 
-Cmdlet-block tillfälligt när nya instanser är etablerad och igång. Under denna tid om du öppnar en ny PowerShell-fönster och anropa **Get-AzureRole** som visades tidigare, visas det nya mål-instansantalet. Och om du inspektera Rollstatus i portalen, bör du se den nya instansen startas:
+Cmdleten blockerar tillfälligt medan de nya instanserna har tillhandahållits och startats. Om du i det här fallet öppnar ett nytt PowerShell-fönster och anropar **Get-AzureRole** som visas tidigare visas antalet nya mål instanser. Och om du inspekterar roll status i portalen bör du se att den nya instansen startar:
 
-![VM-instans med början i portalen](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
+![VM-instans som startar i portalen](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
 
-När nya instanser har startat, returnerar cmdleten har:
+När de nya instanserna har startat kommer cmdleten att returnera:
 
-![Rollen instans ökning lyckades](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
+![Roll instans ökning slutförd](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
 
 ## <a name="scale-in-the-role-by-removing-instances"></a>Skala i rollen genom att ta bort instanser
 
-Du kan skala i en roll genom att ta bort instanser på samma sätt. Ange den **antal** parametern på **Set-AzureRole** till antal instanser som du vill ha när skalan i åtgärden har slutförts.
+Du kan skala i en roll genom att ta bort instanser på samma sätt. Ange **Count** -parametern på **set-AzureRole** till det antal instanser som du vill ha när skalningen har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det går inte att konfigurera automatisk skalning för molntjänster från PowerShell. Om du vill göra det, se [hur att automatiskt skala en molntjänst](cloud-services-how-to-scale-portal.md).
+Det går inte att konfigurera automatisk skalning för moln tjänster från PowerShell. Information om hur du gör det finns i [så här skalar du automatiskt en moln tjänst](cloud-services-how-to-scale-portal.md).

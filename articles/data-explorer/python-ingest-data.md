@@ -1,26 +1,26 @@
 ---
 title: Mata in data med hjälp av Python-biblioteket i Azure Data Explorer
-description: I den här artikeln får lära du att mata in (load) data i Datautforskaren i Azure med hjälp av Python.
+description: I den här artikeln får du lära dig hur du matar in data i Azure Datautforskaren med hjälp av python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da23ec91891776e9a459b04c5718147427843991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496926"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355929"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Mata in data med hjälp av Python-biblioteket i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller två klientbibliotek för Python: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln får skapa du först en tabell och datamappning av i ett kluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller två klientbibliotek för Python: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln skapar du först en tabell och data mappning i ett kluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
 
-Den här artikeln är också tillgängligt som en [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+Den här artikeln är även tillgänglig som en [Azure-anteckningsbok](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -73,9 +73,11 @@ Skapa nu anslutningssträngen. I det här exemplet används enhetsautentisering 
 Du kan skapa måltabellen och mappningen i ett senare steg.
 
 ```python
-KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_INGEST_URI, AAD_TENANT_ID)
+KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_INGEST_URI, AAD_TENANT_ID)
 
-KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_URI, AAD_TENANT_ID)
+KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_URI, AAD_TENANT_ID)
 
 DESTINATION_TABLE = "StormEvents"
 DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
@@ -95,7 +97,8 @@ SAS_TOKEN = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=20
 FILE_PATH = "StormEvents.csv"
 FILE_SIZE = 64158321    # in bytes
 
-BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + "/" + FILE_PATH + SAS_TOKEN
+BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
+    CONTAINER + "/" + FILE_PATH + SAS_TOKEN
 ```
 
 ## <a name="create-a-table-on-your-cluster"></a>Skapa en tabell i ditt kluster
@@ -131,12 +134,14 @@ Köa ett meddelande för att hämta data från Blob Storage och mata in data i A
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
 # All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
-INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference = DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # FILE_SIZE is the raw size of the data in bytes
-INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
+INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv,
+                                           mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
+# FILE_SIZE is the raw size of the data in bytes
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
+INGESTION_CLIENT.ingest_from_blob(
+    BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
 
 print('Done queuing up ingestion with Azure Data Explorer')
-
 ```
 
 ## <a name="query-data-that-was-ingested-into-the-table"></a>Köra frågor mot data som matades in i tabellen
@@ -170,7 +175,7 @@ Kör följande kommando för att visa status för alla åtgärder för inmatning
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att följa våra andra artiklar, bevara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen StormEvents.
+Behåll de resurser du har skapat om du planerar att följa våra andra artiklar. Om inte kör du följande kommando i din databas för att rensa tabellen StormEvents.
 
 ```Kusto
 .drop table StormEvents

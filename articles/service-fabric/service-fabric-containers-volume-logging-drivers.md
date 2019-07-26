@@ -1,6 +1,6 @@
 ---
-title: Volym-drivrutinen (förhandsversion) för Service Fabric Azure Files | Microsoft Docs
-description: Service Fabric stöder användningen av Azure Files att säkerhetskopiera volymer från din behållare. Detta är för närvarande i förhandsversion.
+title: Service Fabric Azure Files volym driv rutin (förhands granskning) | Microsoft Docs
+description: Service Fabric stöder användning av Azure Files för att säkerhetskopiera volymer från din behållare. Detta är för närvarande en för hands version.
 services: service-fabric
 documentationcenter: other
 author: aljo-microsoft
@@ -13,33 +13,35 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 58bfee5963257df380adac94133dcc55dd03a443
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: aljo, subramar
+ms.openlocfilehash: 09ee729fea952665350aa25c21cdb3d5823b899f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617624"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489903"
 ---
-# <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files volym drivrutinen (förhandsversion)
-Plugin-programmet för Azure Files volym är en [Docker volym plugin-programmet](https://docs.docker.com/engine/extend/plugins_volume/) som ger [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) baserat på volymer för Docker-behållare. Detta pluginprogram för Docker-volymen har paketerats som ett Service Fabric-program som kan distribueras till Service Fabric-kluster. Syftet är att tillhandahålla Azure Files-baserade volymer till andra Service Fabric-containerprogram som distribueras till klustret.
+# <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files volym driv rutin (för hands version)
+Azure Files volym-plugin-programmet är ett Docker- [volym-plugin-program](https://docs.docker.com/engine/extend/plugins_volume/) som tillhandahåller [Azure Files](https:///azure/storage/files/storage-files-introduction) -baserade volymer för Docker-behållare. Detta pluginprogram för Docker-volymen har paketerats som ett Service Fabric-program som kan distribueras till Service Fabric-kluster. Syftet med detta är att tillhandahålla Azure Files baserade volymer för andra Service Fabric behållar program som distribueras till klustret.
 
 > [!NOTE]
-> Version 6.4.571.9590 av plugin-programmet för Azure Files volym är en förhandsversionen som är tillgängliga i det här dokumentet. Som en förhandsversionen är det **inte** stöds för användning i produktionsmiljöer.
+> Version 6.5.516.9494 av Azure Files Volume-plugin-programmet är en för hands version som är tillgänglig i det här dokumentet. Som en för hands version stöds den **inte** för användning i produktions miljöer.
 >
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Windows-versionen av Azure Files volym plugin-programmet fungerar på [Windows Server version 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) eller senare operativsystem. Linux-versionen av Azure Files volym plugin-programmet fungerar på alla versioner av operativsystem som stöds av Service Fabric.
+* Windows-versionen av Azure Files volym-plugin-programmet fungerar på [Windows Server version 1709](https:///windows-server/get-started/whats-new-in-windows-server-1709), [windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) eller senare operativ system.
 
-* Azure Files volym plugin-programmet fungerar bara på Service Fabric version 6.2 och senare.
+* Linux-versionen av Azure Files volym-plugin-programmet fungerar på alla operativ system versioner som stöds av Service Fabric.
 
-* Följ instruktionerna i den [dokumentation för Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) att skapa en filresurs för Service Fabric-behållarprogrammet ska användas som volym.
+* Plugin-programmet Azure Files volym fungerar bara på Service Fabric version 6,2 och senare.
 
-* Du behöver [Powershell med Service Fabric-modul](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) eller [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installerad.
+* Följ anvisningarna i Azure Files- [dokumentationen](https:///azure/storage/files/storage-how-to-create-file-share) för att skapa en fil resurs för Service Fabric behållar programmet som ska användas som volym.
 
-* Om du använder Hyper-v-behållare, måste följande kodavsnitt som ska läggas till i området ClusterManifest (lokala kluster) eller fabricSettings i ARM-mall (Azure-kluster) eller ClusterConfig.json (fristående kluster). Du måste volymens namn och port som volymen avlyssnar klustret. 
+* Du behöver [PowerShell med Service Fabric-modulen](https:///azure/service-fabric/service-fabric-get-started) eller [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installerat.
 
-I ClusterManifest följande behov som ska läggas till i avsnittet Hosting. I det här exemplet volymnamnet är **sfazurefile** och porten den lyssnar till i klustret är **19100**.  
+* Om du använder Hyper-V-behållare måste följande kodfragment läggas till i avsnittet ClusterManifest (lokalt kluster) eller fabricSettings i din Azure Resource Manager-mall (Azure-kluster) eller ClusterConfig. JSON (fristående kluster).
+
+I ClusterManifest måste följande läggas till i avsnittet värd. I det här exemplet är volym namnet **sfazurefile** och porten som den lyssnar på klustret är **19100**. Ersätt dem med rätt värden för klustret.
 
 ``` xml 
 <Section Name="Hosting">
@@ -47,7 +49,7 @@ I ClusterManifest följande behov som ska läggas till i avsnittet Hosting. I de
 </Section>
 ```
 
-Följande fragment måste läggas till i avsnittet fabricSettings i ARM-mall (för Azure-distributioner) eller ClusterConfig.json (för fristående distributioner). 
+I avsnittet fabricSettings i din Azure Resource Manager-mall (för Azure-distributioner) eller ClusterConfig. JSON (för fristående distributioner) måste följande kodfragment läggas till. Ersätt sedan volym namn och port värden med dina egna.
 
 ```json
 "fabricSettings": [
@@ -64,11 +66,31 @@ Följande fragment måste läggas till i avsnittet fabricSettings i ARM-mall (f�
 ```
 
 
-## <a name="deploy-the-service-fabric-azure-files-application"></a>Distribuera Service Fabric Azure Files-programmet
+## <a name="deploy-the-service-fabric-azure-files-application"></a>Distribuera Service Fabric Azure Files programmet
 
-Service Fabric-program som innehåller volymerna som för dina behållare kan hämtas från följande [länk](https://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). Programmet kan distribueras till klustret via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) eller [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>Använda Azure Resource Manager via det angivna PowerShell-skriptet (rekommenderas)
 
-1. I Kommandotolken, ändra katalogen till rotkatalogen för nedladdade.
+Om klustret är baserat i Azure rekommenderar vi att du distribuerar program till den med hjälp av Azure Resource Manager program resurs modell för enkel användning och hjälper dig att flytta till modellen för att underhålla infrastrukturen som kod. Den här metoden eliminerar behovet av att hålla koll på program versionen för Azure Files volym driv rutinen. Du kan också underhålla separata Azure Resource Manager mallar för varje operativ system som stöds. Skriptet förutsätter att du distribuerar den senaste versionen av Azure Files-programmet och tar parametrar för OS-typ, kluster prenumerations-ID och resurs grupp. Du kan ladda ned skriptet från [Service Fabric hämtnings plats](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip). Observera att detta automatiskt ställer in List List rutan, som är den port där Azure Files volym-plugin-programmet lyssnar efter förfrågningar från Docker daemon till 19100. Du kan ändra den genom att lägga till parametern "List namn". Se till att porten inte står i konflikt med andra portar som klustret eller programmen använder.
+ 
+
+Azure Resource Manager distributions kommando för Windows:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -windows
+```
+
+Azure Resource Manager distributions kommando för Linux:
+```powershell
+.\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
+```
+
+När du har kört skriptet kan du gå vidare till [avsnittet Konfigurera ditt program.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+
+
+### <a name="manual-deployment-for-standalone-clusters"></a>Manuell distribution för fristående kluster
+
+Service Fabric programmet som tillhandahåller volymerna för dina behållare kan laddas ned från [hämtnings platsen för Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). Programmet kan distribueras till klustret via [PowerShell](https:///azure/service-fabric/service-fabric-deploy-remove-applications)-, [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) -eller FabricClient- [API: er](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+
+1. Använd kommando raden för att ändra katalogen till rot katalogen för det hämtade programpaketet.
 
     ```powershell
     cd .\AzureFilesVolume\
@@ -78,7 +100,7 @@ Service Fabric-program som innehåller volymerna som för dina behållare kan h�
     cd ~/AzureFilesVolume
     ```
 
-2. Kopiera programpaketet till avbildningsarkivet köra kommandot nedan med lämpligt värde för [ApplicationPackagePath] och [ImageStoreConnectionString]:
+2. Kopiera sedan programpaketet till avbildnings arkivet med lämpliga värden för [ApplicationPackagePath] och [ImageStoreConnectionString]:
 
     ```powershell
     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath [ApplicationPackagePath] -ImageStoreConnectionString [ImageStoreConnectionString] -ApplicationPackagePathInImageStore AzureFilesVolumePlugin
@@ -89,7 +111,7 @@ Service Fabric-program som innehåller volymerna som för dina behållare kan h�
     sfctl application upload --path [ApplicationPackagePath] --show-progress
     ```
 
-3. Registrera programtypen
+3. Registrera program typen
 
     ```powershell
     Register-ServiceFabricApplicationType -ApplicationPathInImageStore AzureFilesVolumePlugin
@@ -99,32 +121,35 @@ Service Fabric-program som innehåller volymerna som för dina behållare kan h�
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Skapa programmet i kommandot för att skapa programmet nedan måste du komma ihåg det **ListenPort** parametr aplikace. Värdet för parametern program är den port där plugin-programmet för Azure Files volym lyssnar efter förfrågningar från Docker-daemon. Det är viktigt att se till att porten som application matchningen VolumePluginPorts i ClusterManifest och inte står i konflikt med någon annan port med klustret eller dina program.
+4. Skapa programmet och betala nära åtgärd svärdet för **list** rutan. Det här värdet är den port där Azure Files volym-plugin-programmet lyssnar efter begär Anden från Docker daemon. Kontrol lera att den port som har angetts för programmet matchar VolumePluginPorts i ClusterManifest och inte står i konflikt med andra portar som klustret eller programmen använder.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494  -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
 > 
-> Windows Server 2016 Datacenter har inte stöd för mappning av SMB monterar till behållare ([som stöds bara på Windows Server version 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Den här begränsningen förhindrar nätverksmappning för volymen och Azure Files volymdrivrutiner på versioner som är äldre än 1709.
+> Windows Server 2016 Data Center stöder inte mappning av SMB-monteringar till behållare ([som endast stöds i Windows Server version 1709](https:///virtualization/windowscontainers/manage-containers/container-storage)). Den här begränsningen förhindrar nätverks volym mappning och Azure Files volym driv rutiner på versioner som är äldre än 1709.
 
-### <a name="deploy-the-application-on-a-local-development-cluster"></a>Distribuera programmet på ett lokalt utvecklingskluster
-Standardinstansantalet för tjänsten för Azure Files volym-plugin-programmet är 1, vilket innebär att det finns en instans av tjänsten distribueras till varje nod i klustret. Men när du distribuerar programmet Azure Files volym-plugin-programmet på ett lokalt utvecklingskluster instansantalet service anges som 1. Detta kan göras den **InstanceCount** parametr aplikace. Därför är kommandot för att distribuera programmet Azure Files volym-plugin-programmet på ett lokalt utvecklingskluster:
+#### <a name="deploy-the-application-on-a-local-development-cluster"></a>Distribuera programmet i ett lokalt utvecklings kluster
+Följ steg 1-3 från [ovanstående.](https:////azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+
+ Standard antalet tjänst instanser för Azure Files volym-plugin-programmet är-1, vilket innebär att en instans av tjänsten som distribueras till varje nod i klustret. Men när du distribuerar Azure Files volym-plugin-programmet i ett lokalt utvecklings kluster ska antalet tjänst instanser anges som 1. Detta kan göras via program parametern **InstanceCount** . Därför är kommandot för att skapa Azure Files volym-plugin-programmet i ett lokalt utvecklings kluster:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.516.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.516.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
-## <a name="configure-your-applications-to-use-the-volume"></a>Konfigurera ditt program så att använda volymen
-Följande kodfragment visar hur en Azure-filer baserat volym kan anges i applikationsmanifestet av ditt program. Specifika elementet av intresse är den **volym** tagg:
+
+## <a name="configure-your-applications-to-use-the-volume"></a>Konfigurera dina program så att de använder volymen
+Följande kodfragment visar hur en Azure Files-baserad volym kan anges i program manifest filen för ditt program. Det specifika intresse elementet är **volym** tag gen:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -158,17 +183,17 @@ Följande kodfragment visar hur en Azure-filer baserat volym kan anges i applika
 </ApplicationManifest>
 ```
 
-Drivrutinsnamn för plugin-programmet för Azure Files volymen är **sfazurefile**. Det här värdet har angetts för den **drivrutinen** attributet för den **volym** element i manifestet.
+Driv rutins namnet för Azure Files volym-plugin-programmet är **sfazurefile**. Det här värdet anges för attributet **driv rutin** för **volym** tag gen elementet i applikations manifestet.
 
-I den **volym** element i kodfragmentet ovan, Azure Files volym plugin-programmet kräver följande taggar:
-- **Källan** – det här är namnet på volymen. Användaren kan välja ett namn för volym.
-- **Mål** – den här taggen är den plats där volymen har mappats till i behållaren som körs. Därför får inte mål vara en plats som redan finns i din behållare
+I **volym** tag gen i kodfragmentet ovan kräver Azure Files volym-plugin-programmet följande attribut:
+- **Källa** – det här är namnet på volymen. Användaren kan välja valfritt namn för volymen.
+- **Mål** – det här attributet är den plats som volymen är mappad till i den behållare som körs. Därför kan målet inte vara en plats som redan finns i din behållare
 
-Enligt den **DriverOption** element i kodfragmentet ovan, Azure Files volym plugin-programmet har stöd för följande alternativ:
-- **Resursnamn** -namnet på filresursen för Azure Files med volymen för behållaren.
-- **storageAccountName** – namn på Azure-lagringskontot som innehåller filen Azure Files dela.
-- **storageAccountKey** -åtkomstnyckel för Azure storage-kontot som innehåller filresursen Azure Files.
-- **storageAccountFQDN** -domännamn som är associerade med lagringskontot. Om storageAccountFQDN inte anges kommer domännamnet skapas med hjälp av standard-suffix(.file.core.windows.net) med storageAccountName.  
+Som du ser i **DriverOption** -elementen i kodfragmentet ovan stöder Azure Files volym-plugin-programmet följande driv rutins alternativ:
+- **resurs** namn – namnet på den Azure Files fil resurs som tillhandahåller volymen för behållaren.
+- **storageAccountName** – namnet på det Azure Storage-konto som innehåller den Azure Files fil resursen.
+- **storageAccountKey** – åtkomst nyckel för Azure Storage-kontot som innehåller den Azure Files fil resursen.
+- **storageAccountFQDN** – domän namn som är associerat med lagrings kontot. Om storageAccountFQDN inte anges skapas domän namnet med hjälp av standard suffixet (. File. Core. Windows. net) med storageAccountName.  
 
     ```xml
     - Example1: 
@@ -183,10 +208,10 @@ Enligt den **DriverOption** element i kodfragmentet ovan, Azure Files volym plug
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
 
-## <a name="using-your-own-volume-or-logging-driver"></a>Med hjälp av dina egna volym eller loggning drivrutin
-Service Fabric kan också användningen av dina egna anpassade [volym](https://docs.docker.com/engine/extend/plugins_volume/) eller [loggning](https://docs.docker.com/engine/admin/logging/overview/) drivrutiner. Om Docker volym/loggning drivrutinen inte är installerad på klustret, kan du installera det manuellt med hjälp av RDP/SSH-protokoll. Du kan utföra installationen med dessa protokoll via en [Start-skript för VM-skalningsuppsättningen](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) eller en [SetupEntryPoint skriptet](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model).
+## <a name="using-your-own-volume-or-logging-driver"></a>Använda din egen volym eller loggnings driv rutin
+Service Fabric också tillåta användning av dina egna anpassade [volymer](https://docs.docker.com/engine/extend/plugins_volume/) eller [loggnings](https://docs.docker.com/engine/admin/logging/overview/) driv rutiner. Om Docker-volym/loggnings driv rutinen inte är installerad på klustret kan du installera den manuellt med hjälp av RDP/SSH-protokollen. Du kan utföra installationen med dessa protokoll via ett start skript eller ett [SetupEntryPoint-skript](https:///azure/service-fabric/service-fabric-application-model)med hjälp av en skalnings [uppsättning för virtuella datorer](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) .
 
-Ett exempel på skript för att installera den [Docker volym-drivrutin för Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) är följande:
+Ett exempel på skriptet för att installera Docker- [volymens driv rutin för Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) är följande:
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -196,7 +221,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-I dina program för att använda volymen eller loggning drivrutin som du har installerat kan du behövt ange lämpliga värden i den **volym** och **LogConfig** element under  **ContainerHostPolicies** i programmanifestet.
+Om du ska använda den volym eller loggnings driv rutin som du har installerat i dina program måste du ange lämpliga värden i **volym** -och **LogConfig** -elementen under **ContainerHostPolicies** i program manifestet.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
@@ -213,7 +238,7 @@ I dina program för att använda volymen eller loggning drivrutin som du har ins
 </ContainerHostPolicies>
 ```
 
-När du anger en volym som plugin-programmet, skapar Service Fabric automatiskt volymen med hjälp av de angivna parametrarna. Den **källa** tagga för den **volym** element är namnet på volymen och **drivrutinen** taggen anger volym drivrutinen plugin-programmet. Den **mål** taggen är platsen som den **källa** mappas till i behållaren som körs. Därför måste ditt mål för en plats som redan finns i din behållare. Alternativen kan specificeras med hjälp av den **DriverOption** tagga på följande sätt:
+När du anger ett volym-plugin-program skapar Service Fabric volymen automatiskt med hjälp av de angivna parametrarna. **Käll** tag gen för **volym** elementet är namnet på volymen och **driv rutins** tag gen anger plugin-programmet för volym driv rutinen. **Mål** tag gen är den plats som **källan** är mappad till i den behållare som körs. Därför kan målet inte vara en plats som redan finns i din behållare. Alternativ kan anges med **DriverOption** -taggen på följande sätt:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
@@ -221,10 +246,10 @@ När du anger en volym som plugin-programmet, skapar Service Fabric automatiskt 
 </Volume>
 ```
 
-Programparametrar stöds för volymer som visas i föregående manifest fragment (leta efter `MyStorageVar` exempelvis använda).
+Program parametrar stöds för volymer som visas i föregående manifest kod avsnitt (leta efter `MyStorageVar` ett exempel som använder).
 
-Om en drivrutin för Docker-loggen har angetts måste du distribuera agenter (eller behållare) för att hantera loggarna i klustret. Den **DriverOption** tagg kan användas för att ange alternativ för log-drivrutinen.
+Om en Docker-logg driv rutin anges måste du distribuera agenter (eller behållare) för att hantera loggarna i klustret. Taggen **DriverOption** kan användas för att ange alternativ för logg driv rutinen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill se exempel på behållare, inklusive volym-drivrutinen finns på den [exempel på behållare för Service Fabric](https://github.com/Azure-Samples/service-fabric-containers)
-* Om du vill distribuera behållare till ett Service Fabric-kluster finns i artikeln [distribuera en behållare i Service Fabric](service-fabric-deploy-container.md)
+* Om du vill se container exempel, inklusive volym driv rutinen, kan du gå till [Service Fabric container-exempel](https://github.com/Azure-Samples/service-fabric-containers)
+* Information om hur du distribuerar behållare till ett Service Fabric kluster finns i artikeln [distribuera en behållare på Service Fabric](service-fabric-deploy-container.md)

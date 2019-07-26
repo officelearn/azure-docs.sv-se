@@ -1,6 +1,6 @@
 ---
-title: Problem vid inloggning i ett lokalt program med hjälp av Azure AD-programproxyn | Microsoft Docs
-description: Felsöka vanliga problem som kan stöta på när det inte går att logga in på ett lokalt program integreras med Azure AD med hjälp av Azure AD-programproxyn
+title: Problem med att logga in till en lokal app med Azure AD App proxy | Microsoft Docs
+description: Felsöka vanliga problem som är riktade mot att du inte kan logga in på ett lokalt program som är integrerat med Azure AD med hjälp av Azure-AD-programproxy
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,16 +15,16 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0adc2effb27ffcd870ec543ee7b353a092808797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4483dc75d116e75521cb348b56dac418b3e012a8
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825247"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381316"
 ---
-# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem vid inloggning i ett lokalt program med hjälp av Azure AD-programproxyn
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem med att logga in till ett lokalt program med Azure AD-programproxyn
 
-Om du har problem med att logga i ett lokalt program kan du följa stegen nedan för att lösa ditt problem.
+Om du har problem med att logga in i ett lokalt program kan du prova att följa stegen nedan för att lösa problemet.
 
 ## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Jag kan läsa in mitt program, men något på sidan verkar skadat
 
@@ -56,7 +56,7 @@ Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste prob
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Det har uppstått ett problem med att anslutningsprogrammet för programproxyagenten
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
-  * [Jag har problem med att installera den anslutningsprogrammet för Programproxyagenten](application-proxy-connector-installation-problem.md)
+  * [Jag har problem med att installera anslutningsprogrammet för programproxyagenten](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Nästa steg
 [Ge säker fjärråtkomst till lokala program](application-proxy.md)

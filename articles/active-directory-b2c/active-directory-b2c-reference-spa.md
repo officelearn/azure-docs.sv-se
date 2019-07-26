@@ -1,5 +1,5 @@
 ---
-title: Logga in på en sida med implicit flöde-Azure Active Directory B2C | Microsoft Docs
+title: Logga in på en sida med implicit flöde-Azure Active Directory B2C
 description: Lär dig hur du lägger till enkel inloggning med hjälp av det implicita flödet för OAuth 2,0 med Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,25 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ade9740d6c5e9edcda4a01c72b94c6f84686447d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 1196f3b186abcd914c409db06b52654f82f4158b
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248801"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377313"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Logga in på en enda sida med det implicita flödet för OAuth 2,0 i Azure Active Directory B2C
 
-Många moderna program har en app-frontend med en sida som främst skrivs i Java Script. Appen skrivs ofta med hjälp av ett ramverk som reagerar, vinkel eller Vue. js. Appar med en sida och andra JavaScript-appar som körs främst i en webbläsare har några ytterligare utmaningar för autentisering:
+Många moderna program har en app-klient med en enda sida som skrivits främst i Java Script. Appen skrivs ofta med hjälp av ett ramverk som reagerar, vinkel eller Vue. js. Appar med en sida och andra JavaScript-appar som körs främst i en webbläsare har några ytterligare utmaningar för autentisering:
 
 - Säkerhets egenskaperna för dessa appar skiljer sig från traditionella serverbaserade webb program.
 - Många auktoriseringsregler och identitets leverantörer har inte stöd för frågor för resurs delning mellan ursprung (CORS).
 - Hel Webbs Ides webbläsare omdirigeras bort från appen kan vara invasiv till användar upplevelsen.
 
-För att stödja dessa program använder Azure Active Directory B2C (Azure AD B2C) det implicita flödet för OAuth 2,0. Det implicita beviljande flödet för OAuth 2,0-auktorisering beskrivs i [avsnittet 4,2 i OAuth 2,0](https://tools.ietf.org/html/rfc6749)-specifikationen. I implicit flöde tar appen emot token direkt från Azure Active Directory (Azure AD) auktorisera slut punkt, utan server-till-Server-utbyte. All autentiserings-och sessionshantering utförs helt i JavaScript-klienten, utan ytterligare omdirigering av sidor.
+För att stödja dessa program använder Azure Active Directory B2C (Azure AD B2C) det implicita flödet för OAuth 2,0. Det implicita beviljande flödet för OAuth 2,0-auktorisering beskrivs i [avsnittet 4,2 i OAuth 2,0](https://tools.ietf.org/html/rfc6749)-specifikationen. I implicit flöde tar appen emot token direkt från Azure Active Directory (Azure AD) auktorisera slut punkt, utan server-till-Server-utbyte. All autentiserings-och sessionshantering utförs helt i JavaScript-klienten med antingen en Omdirigerad sida eller en popup-ruta.
 
 Azure AD B2C utökar standard OAuth 2,0-det implicita flödet till mer än enkel autentisering och auktorisering. Azure AD B2C introducerar [princip parametern](active-directory-b2c-reference-policies.md). Med princip parametern kan du använda OAuth 2,0 för att lägga till principer till appen, till exempel registrering, inloggning och profil hantering användar flöden. I exemplet HTTP-begäranden i den här artikeln används **fabrikamb2c.onmicrosoft.com** som exempel. Du kan ersätta `fabrikamb2c` med namnet på din klient om du har ett och har skapat ett användar flöde.
 
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Krävs | Beskrivning |
+| Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
 | response_type | Ja | Måste inkludera `id_token` för OpenID Connect-inloggning. Den kan även innehålla svars typen `token`. Om du använder `token`kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten.  Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
@@ -176,7 +176,6 @@ Nu när du har loggat in användaren i en app med en enda sida kan du hämta åt
 I ett typiskt webb program flöde skulle du göra en begäran till `/token` slut punkten. Slut punkten stöder dock inte CORS-begäranden, så gör AJAX-anrop för att hämta en uppdateringstoken inte ett alternativ. I stället kan du använda det implicita flödet i ett dolt HTML iframe-element för att hämta nya token för andra webb-API: er. Här är ett exempel med rad brytningar för läsbarhet:
 
 ```
-
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -186,23 +185,21 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&domain_hint=organizations
-&login_hint=myuser@mycompany.com
 &p=b2c_1_sign_in
 ```
 
-| Parameter | Krävs? | Beskrivning |
+| Parameter | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
-| client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
-| response_type |Krävs |Måste inkludera `id_token` för OpenID Connect-inloggning.  Den kan även innehålla svars typen `token`. Om du använder `token` detta kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten. Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
+| client_id |Obligatorisk |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
+| response_type |Obligatorisk |Måste inkludera `id_token` för OpenID Connect-inloggning.  Den kan även innehålla svars typen `token`. Om du använder `token` detta kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten. Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
 | redirect_uri |Rekommenderas |Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen, förutom att den måste vara URL-kodad. |
-| scope |Krävs |En blankstegsavgränsad lista över omfång.  Ta med alla omfattningar som krävs för den avsedda resursen för att hämta tokens. |
+| scope |Obligatorisk |En blankstegsavgränsad lista över omfång.  Ta med alla omfattningar som krävs för den avsedda resursen för att hämta tokens. |
 | response_mode |Rekommenderas |Anger den metod som används för att skicka den resulterande token tillbaka till din app.  Kan vara `query`, `form_post`eller. `fragment` |
 | state |Rekommenderas |Ett värde som ingår i begäran som returneras i token-svaret.  Det kan vara en sträng med innehåll som du vill använda.  Vanligt vis används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en annan plats.  Det här läget används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat. Till exempel visar sidan eller visar användaren. |
-| Nnär |Krävs |Ett värde som ingår i begäran, som genereras av appen, som ingår i den resulterande ID-token som ett anspråk.  Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Normalt är värdet en slumpmässig, unik sträng som identifierar ursprunget för begäran. |
-| visas |Krävs |Om du vill uppdatera och hämta tokens i en dold iframe använder `prompt=none` du för att se till att iframe inte fastnar på inloggnings sidan och returnerar omedelbart. |
-| login_hint |Krävs |Om du vill uppdatera och hämta tokens i en dold iframe inkluderar du användar namnet för användaren i det här tipset för att skilja mellan flera sessioner som användaren kan ha vid en angiven tidpunkt. Du kan extrahera användar namnet från en tidigare inloggning med hjälp `preferred_username` av anspråket. |
-| domain_hint |Krävs |Det kan vara `consumers` eller `organizations`.  För att uppdatera och hämta tokens i en dold iframe, inkludera `domain_hint` värdet i begäran.  `tid` Extrahera anspråket från ID-token för en tidigare inloggning för att avgöra vilket värde som ska användas.  Om anspråk svärdet är `9188040d-6c67-4c5b-b112-36a304b66dad`använder `domain_hint=consumers`du. `tid`  Annars använder `domain_hint=organizations`du. |
+| Nnär |Obligatorisk |Ett värde som ingår i begäran, som genereras av appen, som ingår i den resulterande ID-token som ett anspråk.  Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Normalt är värdet en slumpmässig, unik sträng som identifierar ursprunget för begäran. |
+| visas |Obligatorisk |Om du vill uppdatera och hämta tokens i en dold iframe använder `prompt=none` du för att se till att iframe inte fastnar på inloggnings sidan och returnerar omedelbart. |
+| login_hint |Obligatorisk |Om du vill uppdatera och hämta tokens i en dold iframe inkluderar du användar namnet för användaren i det här tipset för att skilja mellan flera sessioner som användaren kan ha vid en angiven tidpunkt. Du kan extrahera användar namnet från en tidigare inloggning med hjälp `preferred_username` av anspråket `profile` (omfånget krävs för att ta emot `preferred_username` anspråket). |
+| domain_hint |Obligatorisk |Det kan vara `consumers` eller `organizations`.  För att uppdatera och hämta tokens i en dold iframe, inkludera `domain_hint` värdet i begäran.  Extrahera anspråk från ID-token för en tidigare inloggning för att avgöra vilket värde som ska användas `profile` (omfånget krävs för att ta emot `tid` anspråket). `tid` Om anspråk svärdet är `9188040d-6c67-4c5b-b112-36a304b66dad`använder `domain_hint=consumers`du. `tid`  Annars använder `domain_hint=organizations`du. |
 
 Genom att `prompt=none` ange parametern slutförs eller Miss lyckas denna begäran omedelbart och återgår till ditt program.  Ett lyckat svar skickas till din app vid angiven omdirigerings-URI, genom att använda metoden som `response_mode` anges i parametern.
 
@@ -256,12 +253,23 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parameter | Krävs? | Beskrivning |
+| Parameter | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
-| p |Krävs |Den princip som ska användas för att signera användaren från ditt program. |
+| p |Obligatorisk |Den princip som ska användas för att signera användaren från ditt program. |
 | post_logout_redirect_uri |Rekommenderas |URL: en som användaren ska omdirigeras till efter lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C ett allmänt meddelande till användaren. |
 
 > [!NOTE]
-> Genom att dirigera användaren till `end_session_endpoint` raderas en del av användarens läge för enkel inloggning med Azure AD B2C. Den signerar dock inte användaren från användarens session med den sociala identitetsprovider. Om användaren väljer samma identifierande Provider under en efterföljande inloggning, autentiseras användaren igen utan att ange sina autentiseringsuppgifter. Om en användare vill logga ut från ditt Azure AD B2C-program, innebär det inte nödvändigt vis att de helt inte vill logga ut från sitt Facebook-konto, till exempel. För lokala konton avslutas dock användarens session på rätt sätt.
+> Genom att dirigera användaren till `end_session_endpoint` raderas en del av användarens läge för enkel inloggning med Azure AD B2C. Den signerar dock inte användaren från användarens session med den sociala identitetsprovider. Om användaren väljer samma identitets leverantör under en efterföljande inloggning, autentiseras användaren igen utan att ange sina autentiseringsuppgifter. Om en användare vill logga ut från ditt Azure AD B2C-program, innebär det inte nödvändigt vis att de helt inte vill logga ut från sitt Facebook-konto, till exempel. För lokala konton avslutas dock användarens session på rätt sätt.
 >
 
+## <a name="next-steps"></a>Nästa steg
+
+### <a name="code-sample-hellojs-with-azure-ad-b2c"></a>Kod exempel: Hej. js med Azure AD B2C
+
+[En Enkels Ides applikation som bygger på Hello. js med Azure AD B2C][github-hello-js-example] GitHub
+
+Det här exemplet på GitHub är avsett att hjälpa dig att komma igång med Azure AD B2C i ett enkelt webb program som bygger på [Hello. js][github-hello-js] och använder autentisering med popup-format.
+
+<!-- Links - EXTERNAL -->
+[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js]: https://github.com/MrSwitch/hello.js

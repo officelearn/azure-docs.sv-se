@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure IoT Hub-enhetshantering (.NET/.NET) | Microsoft Docs
-description: Hur du använder Azure IoT Hub-enhetshantering för att initiera en fjärransluten enhet omstart. Du kan använda Azure IoT-enhetens SDK för .NET för att implementera en simulerad enhetsapp som innehåller en direkt metod och tjänsten Azure IoT SDK för .NET för att implementera en service-app som anropar direktmetoden.
+title: Kom igång med Azure IoT Hub Device Management (.NET/.NET) | Microsoft Docs
+description: Använda Azure-IoT Hub enhets hantering för att starta en fjärrstyrd enhet. Du använder Azure IoT-enhetens SDK för .NET för att implementera en simulerad enhets app som innehåller en direkt metod och Azure IoT service SDK för .NET för att implementera en tjänst-app som anropar den direkta metoden.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,60 +9,62 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: robinsh
-ms.openlocfilehash: fe548b0e8c791d5e7e3bdbc7bd4612a130ff8168
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40db247dba1d55b5121f95a4d69ca853f3d7ee56
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873292"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404575"
 ---
-# <a name="get-started-with-device-management-netnet"></a>Kom igång med enhetshantering (.NET/.NET)
+# <a name="get-started-with-device-management-netnet"></a>Kom igång med enhets hantering (.NET/.NET)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Använda Azure-portalen för att skapa en IoT Hub och skapa en enhetsidentitet i IoT hub.
+* Använd Azure Portal för att skapa en IoT Hub och skapa en enhets identitet i din IoT-hubb.
 
-* Skapa en simulerad enhetsapp som innehåller en direkt metod som startar om enheten. Direkta metoder anropas från molnet.
+* Skapa en simulerad enhets app som innehåller en direkt metod som startar om enheten. Direkta metoder anropas från molnet.
 
-* Skapa en .NET-konsolapp som anropar metoden omstart direkt i den simulerade enhetsappen via din IoT-hubb.
+* Skapa en .NET-konsol app som anropar metoden starta om direkt i den simulerade appen via din IoT Hub.
 
 I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
-* **SimulateManagedDevice**, som ansluter till din IoT-hubb med enhetsidentiteten som skapades tidigare, tar emot en direkt metod för omstart, simulerar en fysisk omstart och rapporterar tiden för den senaste omstarten.
+* **SimulateManagedDevice**, som ansluter till din IoT-hubb med enhets identiteten som skapades tidigare, tar emot en direkt metod för omstart, simulerar en fysisk omstart och rapporterar tiden för den senaste omstarten.
 
-* **TriggerReboot**, som anropar en direkt metod i den simulerade enhetsappen visar svaret och visar det uppdaterade rapporterade egenskaper.
+* **TriggerReboot**, som anropar en direkt metod i den simulerade Device-appen, visar svaret och visar uppdaterade egenskaper som rapporteras.
 
 För att kunna genomföra den här kursen behöver du följande:
 
 * Visual Studio.
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
-
-[!INCLUDE [iot-hub-find-include-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT hub
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT Hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Utlösa en fjärromstart på enheten med en direkt metod
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjärromstart på en enhet med en direkt metod. Appen använder enhetstvillingfrågor för att identifiera den senaste Omstartstid för enheten.
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Utlösa en fjärran sluten omstart på enheten med en direkt metod
+
+I det här avsnittet skapar du en .NET-konsol app ( C#med) som initierar en fjärromstart på en enhet med hjälp av en direkt metod. Appen använder enhets dubbla frågor för att identifiera den senaste omstarts tiden för enheten.
 
 1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den nya lösningen med hjälp av projektmallen **Konsolapp (.NET Framework)** . Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **TriggerReboot**.
 
     ![Nytt Visual C# Windows Classic Desktop-projekt](./media/iot-hub-csharp-csharp-device-management-get-started/createserviceapp.png)
 
-2. I Solution Explorer högerklickar du på den **TriggerReboot** projektet och klicka sedan på **hantera NuGet-paket**.
+2. I Solution Explorer högerklickar du på projektet **TriggerReboot** och klickar sedan på **Hantera NuGet-paket**.
 
-3. I den **NuGet-Pakethanteraren** väljer **Bläddra**, Sök efter **Microsoft.Azure.Devices**väljer **installera** att installera den **Microsoft.Azure.Devices** paketet och Godkänn användningsvillkoren. Den här proceduren hämtar, installerar och lägger till en referens till den [Azure IoT service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet-paketet och dess beroenden.
+3. Välj **Bläddra**i fönstret **NuGet Package Manager** , Sök efter **Microsoft. Azure.** Devices, Välj **Installera** för att installera **Microsoft. Azure.** Devices-paketet och godkänn användnings villkoren. Den här proceduren hämtar, installerar och lägger till en referens till [Azure IoT service SDK NuGet-](https://www.nuget.org/packages/Microsoft.Azure.Devices/) paketet och dess beroenden.
 
     ![Fönstret för NuGet-pakethanteraren](./media/iot-hub-csharp-csharp-device-management-get-started/servicesdknuget.png)
 
@@ -73,7 +75,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
    using Microsoft.Azure.Devices.Shared;
    ```
         
-5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med IoT Hub-anslutningssträngen för hubben som du skapade i avsnittet ”Skapa en IoT-hubb”. 
+5. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
    
    ```csharp
    static RegistryManager registryManager;
@@ -82,7 +84,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
    static string targetDevice = "myDeviceId";
    ```
 
-6. Lägg till följande metod i klassen **Program**.  Den här koden hämtar enhetstvillingen för håller enheten och returnerar de rapporterade egenskaperna.
+6. Lägg till följande metod i klassen **Program**.  Den här koden hämtar enheten så att den omstartar enheten och matar ut de rapporterade egenskaperna.
    
    ```csharp
    public static async Task QueryTwinRebootReported()
@@ -92,7 +94,7 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
    }
    ```
         
-7. Lägg till följande metod i klassen **Program**.  Den här koden initierar omstarten på enheten med en direkt metod.
+7. Lägg till följande metod i klassen **Program**.  Den här koden startar omstarten på enheten med en direkt metod.
 
    ```csharp
    public static async Task StartReboot()
@@ -121,27 +123,27 @@ I det här avsnittet skapar du en .NET-konsolapp (med C#) som initierar en fjär
 8. Skapa lösningen.
 
 > [!NOTE]
-> Den här självstudien utför endast en enskild fråga för enhetens rapporterade egenskaper. I produktionskoden rekommenderar vi avsökningen för att identifiera ändringar i de rapporterade egenskaperna.
+> Den här självstudien utför bara en fråga för enhetens rapporterade egenskaper. I produktions kod rekommenderar vi att du avsöker för att identifiera ändringar i de rapporterade egenskaperna.
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 
-I det här avsnittet ska göra du följande:
+I det här avsnittet gör du följande:
 
-* Skapa en .NET-konsolapp som svarar på en direkt metod som anropas via molnet.
+* Skapa en .NET-konsol app som svarar på en direkt metod som anropas av molnet.
 
-* Utlösa en simulerad enhet omstart.
+* Utlös en simulerad omstart av enheten.
 
-* Använda rapporterade egenskaper för att aktivera enhetstvillingfrågor att identifiera enheter och när de har senast startades om.
+* Använd de rapporterade egenskaperna för att aktivera enhets dubbla frågor för att identifiera enheter och när de startades om senast.
 
 1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Ge projektet namnet **SimulateManagedDevice**.
    
-    ![Ny Visual C# Windows Classic enhetsapp](./media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png)
+    ![Ny Visual C# Windows klassisk Device-app](./media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png)
     
-2. I Solution Explorer högerklickar du på den **SimulateManagedDevice** projektet och klicka sedan på **hantera NuGet-paket...** .
+2. I Solution Explorer högerklickar du på projektet **SimulateManagedDevice** och klickar sedan på **Hantera NuGet-paket...** .
 
-3. I den **NuGet-Pakethanteraren** väljer **Bläddra** och Sök efter **Microsoft.Azure.Devices.Client**. Välj **installera** att installera den **Microsoft.Azure.Devices.Client** paketet och Godkänn användningsvillkoren. Den här proceduren hämtar, installerar och lägger till en referens till den [Azure IoT-enhetens SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
+3. I fönstret **NuGet Package Manager** väljer du **Bläddra** och söker efter **Microsoft. Azure. devices. client**. Välj **Installera** för att installera **Microsoft. Azure. devices. client** -paketet och godkänn användnings villkoren. Den här proceduren hämtar, installerar och lägger till en referens till [Azure IoT Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
    
-    ![Klientappen fönstret för NuGet-Pakethanteraren](./media/iot-hub-csharp-csharp-device-management-get-started/clientsdknuget.png)
+    ![NuGet paket hanterarens fönster klient program](./media/iot-hub-csharp-csharp-device-management-get-started/clientsdknuget.png)
     
 4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
    
@@ -150,14 +152,14 @@ I det här avsnittet ska göra du följande:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med anslutningssträngen som du antecknade i föregående avsnitt.
+5. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med enhets anslutnings strängen som du antecknade i föregående avsnitt.
 
     ```csharp
     static string DeviceConnectionString = 
       "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
     static DeviceClient Client = null;
     ```
-6. Lägg till följande om du vill implementera direkt metod på enheten:
+6. Lägg till följande för att implementera den direkta metoden på enheten:
 
    ```csharp
    static Task<MethodResponse> onReboot(MethodRequest methodRequest, object userContext)
@@ -191,7 +193,7 @@ I det här avsnittet ska göra du följande:
    }
    ```
 
-7. Slutligen lägger du till följande kod till den **Main** metod för att öppna anslutningen till din IoT-hubb och initiera lyssnaren för metoden:
+7. Slutligen lägger du till följande kod i **main** -metoden för att öppna anslutningen till IoT-hubben och initiera metoden Listener:
 
    ```csharp
    try
@@ -218,19 +220,19 @@ I det här avsnittet ska göra du följande:
    }
    ```
         
-8. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt...** . Välj **enda Startprojekt**, och välj sedan den **SimulateManagedDevice** projekt i den nedrullningsbara menyn. Skapa lösningen.       
+8. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt...** . Välj **enstaka start projekt**och välj sedan **SimulateManagedDevice** -projektet i list menyn. Skapa lösningen.       
 
 > [!NOTE]
-> För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskoden bör du implementera principer för omförsök (till exempel en exponentiell backoff) vilket rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
+> För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel en exponentiell backoff), enligt förslag i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="run-the-apps"></a>Köra apparna
 
 Nu är det dags att köra apparna.
 
-1. Att köra .NET-enhetsappen **SimulateManagedDevice**. Högerklicka på den **SimulateManagedDevice** projektet, Välj **felsöka**, och välj sedan **Starta ny instans**. Den ska börja lyssna efter metodanrop från IoT hub. 
+1. Köra .NET-enhets appens **SimulateManagedDevice**. Högerklicka på projektet **SimulateManagedDevice** , Välj **Felsök**och välj sedan **Starta ny instans**. Den ska börja lyssna efter metod anrop från IoT Hub. 
 
-2. Nu när enheten är ansluten och väntar på metodanropen, kör .NET **TriggerReboot** app att anropa metoden omstart i den simulerade enhetsappen. Gör detta genom att högerklicka på den **TriggerReboot** projektet, Välj **felsöka**, och välj sedan **Starta ny instans**. Du bör se ”omstartsläge”! skrivna i den **SimulatedManagedDevice** konsolen och de rapporterade egenskaperna av enheten, bland annat senaste omstart skriven den **TriggerReboot** konsolen.
+2. Nu när enheten är ansluten och väntar på metod anrop kör du .NET **TriggerReboot** -appen för att anropa metoden reboot i den simulerade Device-appen. Det gör du genom att högerklicka på projektet **TriggerReboot** , välja **Felsök**och sedan **Starta ny instans**. Du bör se "starta om!" Skrivet i **SimulatedManagedDevice** -konsolen och de rapporterade egenskaperna för enheten, som innehåller den senaste omstarts tiden, skrivet i **TriggerReboot** -konsolen.
    
-    ![App för tjänster och enheter som kör](./media/iot-hub-csharp-csharp-device-management-get-started/combinedrun.png)
+    ![Körning av tjänst-och enhets app](./media/iot-hub-csharp-csharp-device-management-get-started/combinedrun.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

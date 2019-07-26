@@ -5,23 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 01/11/2018
+ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 54050116f9894f9a7903dad53caf6b01228313b7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e692b4704d14a1f0d18f2a3be7397a13a969bc40
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326973"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371781"
 ---
 I följande tabell beskrivs standard gränserna för Azures allmänna-syfte v1-, v2-och Blob Storage-konton. Den *inkommande* gränsen refererar till alla data från begär Anden som skickas till ett lagrings konto. *Utgående* gräns avser alla data från svar som tas emot från ett lagrings konto.
 
 | Resource | Standardgräns |
 | --- | --- |
 | Antal lagrings konton per region per prenumeration, inklusive både standard-och Premium konton | 250 |
-| Maximal kapacitet för lagrings konto | 2 PB för USA och Europa och 500 TB för alla andra regioner (inklusive Storbritannien) <sup>1</sup>|
-| Maximalt antal BLOB-behållare, blobbar, fil resurser, tabeller, köer, entiteter eller meddelanden per lagrings konto | Obegränsad |
+| Maximal kapacitet för lagrings konto | 2 PB för USA och Europa och 500 TB för alla andra regioner (inklusive Storbritannien)<sup>1</sup>|
+| Maximalt antal BLOB-behållare, blobbar, fil resurser, tabeller, köer, entiteter eller meddelanden per lagrings konto | Ingen gräns |
 | Högsta begär ande frekvens<sup>1</sup> per lagrings konto | 20 000 begär Anden per sekund |
 | Maximalt antal inkommande<sup>1</sup> per lagrings konto (USA, Europa regioner) | 25 Gbit/s |
 | Maximalt antal inkommande<sup>1</sup> per lagrings konto (andra regioner än USA och Europa) | 5 Gbit/s om RA-GRS/GRS är aktiverat, 10 Gbit/s för LRS/ZRS<sup>2</sup> |

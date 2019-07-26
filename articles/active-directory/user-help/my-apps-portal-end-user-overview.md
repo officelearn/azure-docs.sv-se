@@ -1,6 +1,6 @@
 ---
 title: Översikt över portalen Mina appar – Azure Active Directory | Microsoft Docs
-description: En översikt på hög nivå och länkar till mer information om Mina appar-portalen och dess funktioner.
+description: En översikt på hög nivå och länkar till mer information om mina apps-portalen och dess funktioner.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,30 +13,30 @@ ms.date: 05/08/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8948040ac338a855c55e2ff44536c900adea7f6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a8827119d591ee1e3f12d0e8d8dcfc7ab88ce987
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470716"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383054"
 ---
 # <a name="what-is-the-my-apps-portal"></a>Vad är portalen Mina appar?
 
-Du kan använda ditt arbets- eller skolkonto med den webbaserade **Mina appar** portalen för att visa och starta många av organisationens molnbaserade appar, att uppdatera en del av din profil och konto information att se din **grupper** information och utföra **åtkomstgranskningar** för dina appar och grupper. Om du inte har åtkomst till den **Mina appar** portalen, måste du kontakta din supportavdelning för behörighet.
+Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att visa och starta många av organisationens molnbaserade appar för att uppdatera viss profil-och konto information, för att se din **grupp** information och utföra  **åtkomst granskningar** för dina appar och grupper. Om du inte har åtkomst till portalen för **Mina appar** , Kontakta supportavdelningen för att få behörighet.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Innehållet är avsett för användare. Om du är administratör kan du hittar mer information om hur du konfigurerar och hanterar dina molnbaserade appar i den [dokumentation om Application Management](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## <a name="my-apps-portal-articles"></a>Mina appar portal artiklar
+## <a name="my-apps-portal-articles"></a>Mina Apps-portal artiklar
 
-Detaljerad information om och vad som är tillgängligt från den **Mina appar** -portalen finns i följande artiklar:
+Detaljerad information och anvisningar om vad som är tillgängligt i portalen för **Mina appar** finns i följande artiklar:
 
 |Artikel |Beskrivning |
 |------|------------|
-|[Komma åt och använda portalen Mina appar](my-apps-portal-end-user-access.md)|Instruktioner om hur du använder den **Mina appar** webbportalen för att visa och starta din organisations molnbaserade appar, baserat på enheten.|
-|[Uppdatera din profil- och kontoinformation](my-apps-portal-end-user-update-profile.md)|Instruktioner om hur du uppdaterar din personliga information som visas på den **profil** för den **Mina appar** portal.|
-|[Uppdatera din information för grupper](my-apps-portal-end-user-groups.md)|Instruktioner om hur du visa och hantera dina grupper-relaterad information på den **grupper** för den **Mina appar** portal.|
-|[Utföra egna åtkomstgranskningar](my-apps-portal-end-user-access-reviews.md)|Instruktioner om hur du visar och utföra **åtkomstgranskningar** att tillåta eller neka användare eller grupp åtkomst till din organisations appar på den **Åtkomstgranskningar** för den **Mina appar** portalen.|
-|[Felsöka portalen Mina appar](my-apps-portal-end-user-troubleshoot.md)|Granska några förslag för felsökning för problem med den **Mina appar** -portalen innan du kontaktar supportavdelningen för hjälp.|
+| [Komma åt och använda portalen Mina appar](my-apps-portal-end-user-access.md) | Anvisningar om hur du kommer åt och använder webb portalen **Mina appar** för att visa och starta din organisations molnbaserade appar, baserat på enhet. |
+| [Uppdatera din profil- och kontoinformation](my-apps-portal-end-user-update-profile.md) |Anvisningar om hur du uppdaterar din personliga information som visas på sidan **profil** i portalen **Mina appar** . |
+| [Uppdatera din grupp information](my-apps-portal-end-user-groups.md)|Anvisningar om hur du visar och hanterar din grupprelaterad information på sidan **grupper** i portalen **Mina appar** . |
+| [Utföra egna åtkomstgranskningar](my-apps-portal-end-user-access-reviews.md) |Anvisningar om hur du visar och utför **åtkomst granskningar** för att tillåta eller neka användare eller grupp åtkomst till din organisations appar på sidan **åtkomst granskningar** i portalen **Mina appar** . |
+| [Felsöka My Apps-portalen](my-apps-portal-end-user-troubleshoot.md) |Granska några fel söknings förslag för problem med portalen för **Mina appar** innan du kontaktar supportavdelningen för att få hjälp. |

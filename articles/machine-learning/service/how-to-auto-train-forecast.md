@@ -1,7 +1,7 @@
 ---
-title: Automatisk – träna en prognosmodell med tidsserie
+title: Automatisk träna en tids serie prognos modell
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder Azure Machine Learning-tjänsten för att träna en tidsserie prognosmodellen regression modell med hjälp av automatisk maskininlärning.
+description: Lär dig hur du använder Azure Machine Learning-tjänsten för att träna en uppskattnings Regressions modell i Time Series med hjälp av automatisk maskin inlärning.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,39 +10,39 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 34902aa23339b62920f918ae19b410a99e226a0e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331686"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358807"
 ---
-# <a name="auto-train-a-time-series-forecast-model"></a>Automatisk – träna en prognosmodell med tidsserie
+# <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
-I den här artikeln får du lära dig hur du tränar en time series-regression prognosmodell med automatiserade maskininlärning i Azure Machine Learning-tjänsten. Konfigurera en prognosmodell liknar hur du konfigurerar en standard regressionsmodell med automatiserade maskininlärning, men vissa konfigurationssteg för alternativ och bearbeta data i förväg finns för att arbeta med time series-data. I följande exempel visar hur du att:
+I den här artikeln får du lära dig hur du tränar en Regressions Regressions modell i Time Series med hjälp av automatisk maskin inlärning i Azure Machine Learning-tjänsten. Att konfigurera en prognos modell liknar att konfigurera en standard Regressions modell med hjälp av automatisk maskin inlärning, men vissa konfigurations alternativ och för bearbetnings steg finns för att arbeta med Time Series-data. I följande exempel visas hur du:
 
-* Förbereda data för time series modellering
-* Konfigurera specifika time series-parametrar i en [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objekt
-* Kör förutsägelser med time series-data
+* Förbereda data för tids serie modellering
+* Konfigurera angivna parametrar för tids serier i ett [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objekt
+* Köra förutsägelser med Time Series-data
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Du kan använda automatiska ML för att kombinera tekniker och metoder och få en rekommenderas, hög kvalitet tidsserie prognos. Ett automatiserade time series-experiment behandlas som ett multivarierad regressionsproblem. Senaste time series-värden är ”pivoteras” om du vill bli ytterligare dimensioner för regressor tillsammans med andra förutsägelser. 
+Du kan använda automatiserad ML för att kombinera teknik och metoder och få en rekommenderad prognos för tids serier med hög kvalitet. Ett automatiserat experiment med tids serier behandlas som ett multivarierad Regressions problem. Tidigare tids serie värden är "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser. 
 
-Den här metoden, till skillnad från klassisk time series-metoder, har en fördel med naturligt med flera kontextuella variabler och deras relation till varandra under utbildningen. I verkliga prognosmodellen program, kan flera faktorer påverka en prognos. Till exempel när försäljningsprognoser, enhet interaktioner av historiska trender, valutakurs och pris alla gemensamt försäljning resultatet. En ytterligare fördel är att alla de senaste innovationerna i regressionsmodeller gäller direkt för prognostisering.
+Den här metoden, till skillnad från klassiska Time Series-metoder, har en fördel med att använda flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. I verkliga prognos program kan flera faktorer påverka en prognos. Till exempel, när försäljnings prognoser används, interaktioner över historiska trender, utbytes pris och pris alla gemensamt styr försäljnings resultatet. En ytterligare förmån är att alla nya innovationer i Regressions modeller omedelbart tillämpas på prognoser.
 
-Du kan [konfigurera](#config) hur långt i framtiden bör prognosen utöka (den prognoser horizon), samt beräkningstider och mycket mer. Automatiserad ML lär sig en enda, men ofta internt förgrenad modell för alla objekt i datauppsättningen och förutsägelse vyer. Mer data kan därför beräkna Modellparametrar och generalisering till överblivna serien blir möjligt. 
+Du kan [Konfigurera](#config) hur långt i framtiden prognosen ska utsträckas (prognos Horisont) samt lags med mera. Med automatisk ML får du en enda, men ofta ingrenad modell för alla objekt i data uppsättningen och förutsägelserna. Mer data är därför tillgängliga för att uppskatta modell parametrar och generalisering till osett-serien blir möjlig. 
 
-Funktioner som extraheras från träningsdata spelar en viktig roll. Och automatiserade ML utför standard förbearbetning och genererar ytterligare time series-funktioner för att avbilda säsongens effekter och maximera förutsägande precision. 
+Funktioner som har extraherats från tränings data spelar en viktig roll. Och automatiserade ML utför standard för bearbetnings steg och genererar ytterligare tids serie funktioner för att fånga säsongs effekter och maximera förutsägelse noggrannhet. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Om du vill skapa arbetsytan [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md).
-* Den här artikeln förutsätter grundläggande kunskaper om hur du konfigurerar en automatiserad machine learning-experiment. Följ den [självstudien](tutorial-auto-train-models.md) eller [how-to](how-to-configure-auto-train.md) att se de grundläggande automatiserade machine learning-experiment designmönster.
+* En arbetsyta för Azure Machine Learning-tjänsten. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md).
+* I den här artikeln förutsätter vi att du har konfigurerat ett automatiserat experiment för maskin inlärning. Följ [själv studie kursen](tutorial-auto-train-models.md) eller [anvisningar](how-to-configure-auto-train.md) för att se design mönster för det grundläggande automatiserade maskin inlärnings experimentet.
 
 ## <a name="preparing-data"></a>Förbereda data
 
-Den viktigaste skillnaden mellan en prognosmodellen regression Uppgiftstyp och regression Uppgiftstyp inom automatiserade maskininlärning omfattar en funktion i dina data som representerar en giltig tidsserie. En vanlig tidsserie har en väldefinierad och konsekvent frekvens och har ett värde i alla exempel steg i en kontinuerlig tidsrymd. Överväg följande ögonblicksbild av en fil `sample.csv`.
+Den viktigaste skillnaden mellan en typ av Regressions Regressions typ och Regressions aktivitet i Automatisk maskin inlärning är bland annat en funktion i dina data som representerar en giltig tids serie. En vanlig tids serie har en väldefinierad och konsekvent frekvens och har ett värde vid varje exempel punkt i ett kontinuerligt tidsintervall. Överväg följande ögonblicks bild av en `sample.csv`fil.
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -56,7 +56,7 @@ Den viktigaste skillnaden mellan en prognosmodellen regression Uppgiftstyp och r
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-Den här datamängden är ett enkelt exempel på dagliga försäljningsdata för ett företag som har två olika butiker, A och B. Dessutom finns det en funktion för `week_of_year` som gör att modellen ska kunna identifiera veckovisa säsongsberoende. Fältet `day_datetime` representerar en ren tidsserie med dagliga frekvens och fältet `sales_quantity` är målkolumnen för körning av förutsägelser. Läsa in datan i en Pandas-dataframe och sedan använda den `to_datetime` funktion för att tillse tidsserien är en `datetime` typen.
+Den här data uppsättningen är ett enkelt exempel på dagliga försäljnings data för ett företag som har två olika butiker, a och B. Dessutom finns det en funktion `week_of_year` för som gör att modellen kan identifiera vecko säsongs beroende. Fältet `day_datetime` representerar en ren tids serie med den dagliga frekvensen och fältet `sales_quantity` är mål kolumnen för att köra förutsägelser. Läs data till en Pandas-dataframe och Använd `to_datetime` sedan funktionen för att se till att tids serien `datetime` är av typen.
 
 ```python
 import pandas as pd
@@ -64,7 +64,7 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-I det här fallet data är redan sorterad stigande efter fältet `day_datetime`. När du konfigurerar ett experiment, se till att den önskade tid kolumnen är sorterad i stigande ordning för att skapa en giltig tidsserie. Anta att data innehåller 1 000 poster och gör en deterministisk delning i datakällan för att skapa utbildning och testa datauppsättningar. Avgränsa målfältet `sales_quantity` att skapa förutsägelser träna och testa anger.
+I det här fallet sorteras data redan stigande efter Time-fältet `day_datetime`. Men när du konfigurerar ett experiment ser du till att kolumnen önskad tid sorteras i stigande ordning för att skapa en giltig tids serie. Anta att data innehåller 1 000 poster och gör en deterministisk delning i data för att skapa utbildnings-och test data uppsättningar. Separera sedan fältet mål `sales_quantity` för att skapa förutsägelse-och test uppsättningarna.
 
 ```python
 X_train = data.iloc[:950]
@@ -75,30 +75,30 @@ y_test = X_test.pop("sales_quantity").values
 ```
 
 > [!NOTE]
-> När träna en modell för prognostisering framtida värden, kan du kontrollera att alla funktioner som används i utbildning kan användas när du kör förutsägelser för dina avsedda vyer. Till exempel när du skapar en Skapa prognoser för efterfrågan, kunde inklusive en funktion för aktuella aktiekursen massivt öka utbildning precision. Om du planerar att skapa prognoser för med en lång horizon, kan du inte kunna korrekt förutse framtida lagerartiklar värden som motsvarar framtida tidpunkter för time series- och modellens Precision kan påverkas.
+> När du tränar en modell för att förutsäga framtida värden kan du se till att alla funktioner som används i träningen kan användas när du kör förutsägelser för din avsedda horisont. När du skapar en prognos för efter frågan kan du till exempel öka inlärnings precisionen med en funktion för det aktuella lager priset. Men om du planerar att prognostisera med lång horisont kanske du inte kan förutsäga framtida lager värden som motsvarar framtida tids serie punkter och modell precisionen kan bli lidande.
 
 <a name="config"></a>
-## <a name="configure-and-run-experiment"></a>Konfigurera och köra experiment
+## <a name="configure-and-run-experiment"></a>Konfigurera och kör experiment
 
-För prognostisering uppgifter använder automatiska maskininlärning förbearbetning och uppskattning steg som är specifika för time series-data. I följande förbearbetning körs:
+För prognos uppgifter använder automatisk maskin inlärning för bearbetning och beräknings steg som är aktuella för Time Series-data. Följande steg för bearbetning utförs:
 
-* Identifiera time series-exempel frekvens (t.ex. per timme, varje dag, varje vecka) och skapa nya poster för saknade tidpunkter så att serien kontinuerlig.
-* Sedan imputera värden som saknas i funktionen kolumnerna (med median kolumnvärden) och mål (via vanlig-fyllning)
-* Skapa grain-baserade funktioner för att aktivera fasta effekter över olika serier
-* Skapa en tidsbaserad funktioner kan hjälpa lära säsongens mönster
-* Koda kategoriska variabler till numeriska mängder
+* Identifiera exempel frekvensen för tids serier (t. ex. varje timme, varje dag, varje vecka) och skapa nya poster för saknade tids punkter för att göra serien kontinuerlig.
+* Ange värden som saknas i målet (via Forward-Fill) och funktions kolumner (med kolumn värden i median)
+* Skapa korniga funktioner för att aktivera fasta effekter i olika serier
+* Skapa tidsbaserade funktioner för att hjälpa till med utbildnings säsongs mönster
+* Koda kategoriska-variabler till numeriska kvantiteter
 
-Den `AutoMLConfig` objektet definierar de inställningar och data som behövs för en automatiserad machine learning-uppgift. Liknar ett regressionsproblem, definiera standard utbildning parametrar som typ av aktivitet, antalet iterationer, utbildning data, och antalet mellan verifieringar. Det finns fler parametrar som måste anges som påverkar experimentet för prognostisering uppgifter. I följande tabell beskrivs varje parameter och dess användning.
+`AutoMLConfig` Objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Precis som med ett Regressions problem definierar du standard utbildnings parametrar som aktivitets typ, antal iterationer, tränings data och antalet kors valideringar. För prognos uppgifter finns det ytterligare parametrar som måste anges som påverkar experimentet. I följande tabell beskrivs varje parameter och dess användning.
 
-| Param | Beskrivning | Krävs |
+| Param | Beskrivning | Obligatorisk |
 |-------|-------|-------|
-|`time_column_name`|Används för att ange datetime-kolumn i indata som används för att skapa tidsserier och härledning av frekvensen.|✓|
-|`grain_column_names`|Namnen definiera enskilda Seriegrupper i indata. Om grain inte har definierats, antas datauppsättningen är en tidsserie.||
-|`max_horizon`|Definierar den maximala önskade prognoser horizon i enheter av time series-frekvens. Enheter är baserade på tidsintervallet för dina utbildningsdata, till exempel varje månad, varje vecka som prognosmodell ska förutsäga ut.|✓|
-|`target_lags`|*n* perioder att vidarebefordra fördröjning målvärden innan modellen.||
-|`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera förväntade värden < = utbildning storlek. Om det utelämnas används *n* anges fullständig utbildningen storlek.||
+|`time_column_name`|Används för att ange kolumnen datetime i de indata som används för att bygga tids serien och härleda dess frekvens.|✓|
+|`grain_column_names`|Namn (er) som definierar enskilda serie grupper i indata. Om kornig het inte har definierats antas data uppsättningen vara en tids serie.||
+|`max_horizon`|Definierar den högsta önskade prognos horisonten i enheter för tids serie frekvens. Enheter baseras på tidsintervallet för dina utbildnings data, t. ex. varje månad, varje vecka att prognosen ska förutsäga.|✓|
+|`target_lags`|*n* perioder för att vidarebefordra-fördröjnings mål före modell träning.||
+|`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden < = storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek.||
 
-Skapa time series-inställningar som ett katalogobjekt. Ange den `time_column_name` till den `day_datetime` i datauppsättningen. Definiera den `grain_column_names` parametern för att se till att **två separata grupper för time series-** skapas för data, en för store A och slutligen B. den `max_horizon` att 50 för att förutsäga för hela testet. Ange ett prognoser fönster för 10 perioder med `target_rolling_window_size`, och fördröjning målet värden 2 punkter framåt med den `target_lags` parametern.
+Skapa tids serie inställningarna som ett Dictionary-objekt. `time_column_name` Ange`day_datetime` till fältet i data uppsättningen. Definiera parametern för att se till att **två separata tids serie grupper** skapas för data, en för Store A och B. Ange `max_horizon` till 50 för att förutsäga för hela test uppsättningen. `grain_column_names` Ange en prognos period på 10 perioder med `target_rolling_window_size`och ange mål värden 2 perioder i förväg `target_lags` med parametern.
 
 ```python
 time_series_settings = {
@@ -110,7 +110,7 @@ time_series_settings = {
 }
 ```
 
-Skapa nu en standard `AutoMLConfig` objekt att ange den `forecasting` aktivitetstyp och skicka experimentet. Hämta den bästa kör iterationen när modellen har slutförts.
+Nu ska du skapa `AutoMLConfig` ett standard objekt, `forecasting` ange uppgifts typ och skicka experimentet. När modellen har slutförts hämtar du den bästa körnings iterationen.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -135,42 +135,43 @@ best_run, fitted_model = local_run.get_output()
 ```
 
 > [!NOTE]
-> Korsvalidering (KA) anvisningar finns time series-data kan bryta mot grundläggande statistisk antaganden av canonical K-vikning korsvalidering strategi så automatiserade machine learning implementerar en löpande ursprung verifiering proceduren för att skapa korsvalidering vikningar för time series-data. Om du vill använda den här proceduren, ange den `n_cross_validations` parametern i den `AutoMLConfig` objekt. Du kan kringgå verifiering och Använd din egen verifiering uppsättningar med den `X_valid` och `y_valid` parametrar.
+> Vid Cross-Validation (ka)-proceduren kan Time Series-data kränka de grundläggande statistiska antaganden för den kanoniska körningen av kors validerings strategin, så automatiserad maskin inlärning implementerar en rullande ursprungs validerings procedur för att skapa kors validerings vikning för Time Series-data. Om du vill använda den här proceduren `n_cross_validations` anger du parametern `AutoMLConfig` i objektet. Du kan kringgå valideringen och använda dina egna verifierings uppsättningar `X_valid` med `y_valid` parametrarna och.
 
-### <a name="view-feature-engineering-summary"></a>Visa funktionen engineering sammanfattning
+### <a name="view-feature-engineering-summary"></a>Visa sammanfattning av funktions teknik
 
-Du kan visa information från funktionen tekniska processen för time series-aktivitetstyper i automatiserade machine learning. Följande kod visar varje raw funktion tillsammans med följande attribut:
+För aktivitets typer för Time-serien i Automatisk maskin inlärning kan du Visa information från funktions teknik processen. Följande kod visar varje RAW-funktion tillsammans med följande attribut:
 
-* Rå funktionsnamnet
-* Antal bakåtkompilerade funktioner som skapats utanför den här raw funktionen
-* Typen som har identifierats
-* Om funktionen har tagits bort
-* Lista över funktionen transformationer för raw-funktionen
+* Oformaterat funktions namn
+* Antalet funktioner som skapats av den här RAW-funktionen
+* Typ identifierad
+* Om funktionen har släppts
+* Lista över funktions omvandlingar för RAW-funktionen
 
 ```python
 fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 ```
 
-## <a name="forecasting-with-best-model"></a>Prognostisering med bästa modellen
+## <a name="forecasting-with-best-model"></a>Prognosticering med bästa modell
 
-Använd den bästa modell iterationen framtida värden för test-datauppsättning.
+Använd den bästa modellen iterationer för att beräkna prognos värden för data uppsättningen test.
 
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
 ```
 
-Du kan också använda den `forecast()` i stället för `predict()`, så att specifikationer av när förutsägelser ska starta. I följande exempel ersätter du först alla värden i `y_pred` med `NaN`. Prognoser ursprunget blir i slutet av träningsdata i det här fallet eftersom det skulle vara när du använder normalt `predict()`. Men om du har ersatt den andra halvan av `y_pred` med `NaN`, funktionen skulle innebära de numeriska värdena i den första halvan oförändrade men prognoser den `NaN` värden i den andra halvan. Funktionen returnerar både förväntade värden och justerade funktioner.
+Du kan också använda `forecast()` funktionen i stället för `predict()`, vilket gör det möjligt att ange specifikationer för när förutsägelserna ska starta. I följande exempel ersätter du först alla värden i `y_pred` med. `NaN` Prognosens ursprung är i slutet av tränings data i det här fallet, eftersom det normalt skulle vara när det används `predict()`. Men om du bara ersatte den andra halvan av `y_pred` med `NaN`, lämnar funktionen de numeriska värdena i den första halvan `NaN` oförändrade, men prognoserar värdena i den andra halvan. Funktionen returnerar både de beräknade värdena och de justerade funktionerna.
 
-Du kan också använda den `forecast_destination` parametern i den `forecast()` funktionen framtida värden fram till ett visst datum.
+Du kan också använda `forecast_destination` -parametern `forecast()` i funktionen för att prognostisera värden fram till ett angivet datum.
 
 ```python
 y_query = y_test.copy().astype(np.float)
 y_query.fill(np.nan)
-y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+y_fcst, X_trans = fitted_pipeline.forecast(
+    X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-Beräkna RMSE (rot medelvärdet cirkels fel) mellan den `y_test` faktiska värden och förväntade värden i `y_pred`.
+Beräkna rmse (rot genomsnitts fel) mellan de `y_test` faktiska värdena och de prognostiserade värdena i. `y_pred`
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -180,18 +181,18 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Nu när totala modellens Precision har fastställts, mest realistisk nästa steg är att använda modellen framtida okänd framtida värden. Bara ange en uppsättning data i samma format som testmängd `X_test` men med framtida datum och tid och den resulterande förutsägelsen är förväntade värden för varje tidsserie-steg. Anta att de senaste time series-posterna i datauppsättningen har för 12/31 januari 2018. Till att prognostisera efterfrågan för nästa dag (eller så många punkter som du behöver att skapa prognoser, < = `max_horizon`), skapa en enda time series-post för varje butik för 01/01/2019.
+Nu när den övergripande modell precisionen har fastställts är det mest realistiska nästa steg att använda modellen för att förutsäga okända framtida värden. Du behöver bara ange en data uppsättning i samma format som test uppsättningen `X_test` , men med framtida datetime-värden och den resulterande förutsägelse uppsättningen är de prognostiserade värdena för varje tids serie steg. Anta att de senaste tid serie posterna i data uppsättningen var i 12/31/2018. Om du vill prognostisera efter frågan för nästa dag (eller så många perioder som du behöver prognostisera, < `max_horizon`=) skapar du en enda tids serie post för varje butik för 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1
     01/01/2019,A,1
 
-Upprepa de nödvändiga stegen för att läsa in den här framtida data till en dataram och kör sedan `best_run.predict(X_test)` att förutsäga framtida värden.
+Upprepa de nödvändiga stegen för att läsa in framtida data till en dataframe och kör `best_run.predict(X_test)` sedan för att förutsäga framtida värden.
 
 > [!NOTE]
-> Går inte att förutse värden för antalet perioder som är större än den `max_horizon`. Modellen måste vara utbildade igen med ett större horizon att förutsäga framtida värden utöver den aktuella perioden.
+> Det går inte att förutsäga värden för antalet perioder som är större `max_horizon`än. Modellen måste tränas om med en större horisont för att förutsäga framtida värden bortom den aktuella horisonten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Följ den [självstudien](tutorial-auto-train-models.md) och lär dig att skapa experiment med automatiserad maskininlärning.
-* Visa den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) referensdokumentation.
+* Följ [själv studie kursen](tutorial-auto-train-models.md) för att lära dig hur du skapar experiment med automatiserad maskin inlärning.
+* Visa [Azure Machine Learning SDK för python](https://aka.ms/aml-sdk) -referens dokumentation.

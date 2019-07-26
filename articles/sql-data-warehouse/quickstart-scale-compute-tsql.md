@@ -2,20 +2,20 @@
 title: 'Snabbstart: Skala ut beräkning i Azure SQL Data Warehouse – T-SQL | Microsoft Docs'
 description: Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL och SQL Server Management Studio (SSMS). Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: igorstan
-ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5f3eb8a8e323add287dba8d9c590e89ea4e1fa7
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475498"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479234"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Snabbstart: Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL
 
@@ -43,9 +43,9 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
    | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver 20171113.database.windows.net**. |
-   | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-   | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+   | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
+   | Logga in | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
+   | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
@@ -92,7 +92,7 @@ Så här ändrar du informationslagerenheter:
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
     ;
     ```
 

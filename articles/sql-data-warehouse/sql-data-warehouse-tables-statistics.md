@@ -1,8 +1,8 @@
 ---
 title: Skapa, uppdatera statistik – Azure SQL Data Warehouse | Microsoft Docs
-description: Rekommendationer och exempel för att skapa och uppdatera Frågeoptimeringen statistik på tabellerna i Azure SQL Data Warehouse.
+description: Rekommendationer och exempel för att skapa och uppdatera statistik för att optimera frågor i tabeller i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,83 +11,83 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00643e303b3352ce9ce39e5a27fd8b42246aac51
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851528"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479173"
 ---
-# <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabellstatistik i Azure SQL Data Warehouse
+# <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabell statistik i Azure SQL Data Warehouse
 
-Rekommendationer och exempel för att skapa och uppdatera Frågeoptimeringen statistik på tabellerna i Azure SQL Data Warehouse.
+Rekommendationer och exempel för att skapa och uppdatera statistik för att optimera frågor i tabeller i Azure SQL Data Warehouse.
 
-## <a name="why-use-statistics"></a>Varför ska man använda statistik
+## <a name="why-use-statistics"></a>Varför använda statistik
 
-Ju mer Azure SQL Data Warehouse vet om dina data, desto snabbare den kan köra frågor mot den. När du läser in data till SQL Data Warehouse, är samla in statistik på dina data en av de viktigaste sakerna som du kan göra för att optimera dina frågor. Frågeoptimeraren i SQL Data Warehouse är en kostnadsbaserad optimerare. Den jämför kostnaden för olika frågeplaner och sedan väljer plan med lägst pris. I de flesta fall väljer den plan som ska köra det snabbaste. Det kommer till exempel välja en plan genom att optimering uppskattar att datumet frågan filtreras efter returneras en rad. Om den uppskattar att det valda datumet returnerar 1 miljon rader returneras ett annat schema.
+Ju mer Azure SQL Data Warehouse vet om dina data, desto snabbare kan den köra frågor mot den. När du har läst in data i SQL Data Warehouse, är insamling av statistik för dina data ett av de viktigaste sakerna du kan göra för att optimera dina frågor. Frågeoptimeraren i SQL Data Warehouse är en kostnadsbaserad optimerare. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast. Om optimeringen t. ex. beräknar att det datum då frågan filtreras på kommer att returnera en rad kommer den att välja en plan. Om den beräknar att det valda datumet returnerar 1 000 000 rader, returneras ett annat schema.
 
 ## <a name="automatic-creation-of-statistic"></a>Automatisk generering av statistik
 
-När databasen AUTO_CREATE_STATISTICS alternativ finns på, analyserar inkommande användarfrågor för saknas statistik i SQL Data Warehouse. Om statistik saknas skapar Frågeoptimeringen statistik på enskilda kolumner i frågevillkoret för predikatet eller Anslut till att förbättra kardinalitet beräkningarna för frågeplanen. Automatisk generering av statistik är för närvarande aktiverat som standard.
+När AUTO_CREATE_STATISTICS-alternativet för databas är på analyserar SQL Data Warehouse inkommande användar frågor för saknad statistik. Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågeuttrycket eller kopplings villkor för att förbättra kardinalitet uppskattningar för frågeplan. Automatisk generering av statistik är för närvarande aktiverat som standard.
 
-Du kan kontrollera om ditt informationslager har AUTO_CREATE_STATISTICS konfigurerade genom att köra följande kommando:
+Du kan kontrol lera om ditt informations lager har AUTO_CREATE_STATISTICS konfigurerat genom att köra följande kommando:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-Om ditt informationslager inte har konfigurerats AUTO_CREATE_STATISTICS, rekommenderar vi att du aktiverar den här egenskapen genom att köra följande kommando:
+Om data lagret inte har AUTO_CREATE_STATISTICS konfigurerat rekommenderar vi att du aktiverar den här egenskapen genom att köra följande kommando:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
 SET AUTO_CREATE_STATISTICS ON
 ```
 
-De här uttrycken utlöser automatisk generering av statistik:
+Dessa uttryck utlöser automatisk skapande av statistik:
 
-- VÄLJ
-- INSERT-VÄLJ
+- Välj
+- INFOGA-VÄLJ
 - CTAS
 - UPDATE
 - DELETE
-- FÖRKLARA när som innehåller en koppling eller förekomsten av ett predikat som har identifierats
+- FÖRKLARA när den innehåller en koppling eller förekomsten av ett predikat identifieras
 
 > [!NOTE]
-> Automatisk generering av statistik skapas inte för tillfällig eller externa tabeller.
+> Automatisk generering av statistik skapas inte för temporära eller externa tabeller.
 
-Automatisk generering av statistik görs synkront så kan tillkomma för något försämrade frågeprestanda om dina kolumner saknar statistik. Hur lång tid att skapa statistik för en enda kolumn beror på storleken på tabellen. Om du vill undvika mätbara prestandaförsämring, särskilt i prestandatest, bör du kontrollera statistik har skapats först genom att köra benchmark-arbetsbelastningen innan Profileringen systemet.
+Automatisk generering av statistik görs synkront så att du kan få en försämrad frågeresultat om kolumnerna saknar statistik. Hur lång tid det tar att skapa statistik för en enskild kolumn beror på tabellens storlek. För att undvika mätbar prestanda försämring, särskilt vid prestandatest, bör du se till att statistik har skapats först genom att köra benchmark-arbetsbelastningen innan du profilerar systemet.
 
 > [!NOTE]
-> Skapandet av statistik kommer att loggas i [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under en annan användare.
+> Statistik skapandet loggas i [sys. DM-_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under en annan användar kontext.
 
-När automatisk statistik skapas, kommer de att vara i formatet: _WA_Sys_< 8 siffra kolumn-id i Hex > _ < 8 siffra tabell-id i Hex >. Du kan visa statistik som redan har skapats genom att köra den [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) kommando:
+När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_< 8 siffrors kolumn-ID i hex > _ < 8 siffer tabell-ID i hex >. Du kan visa statistik som redan har skapats genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) -kommandot:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-Table_name är namnet på den tabell som innehåller statistik som ska visas. Detta kan inte vara en extern tabell. Målet är namnet på den målindex, statistik eller kolumnen som du vill visa statistikinformation.
+Table_name är namnet på den tabell som innehåller den statistik som ska visas. Detta kan inte vara en extern tabell. Målet är namnet på mål indexet, statistiken eller kolumnen som statistik information ska visas för.
 
-## <a name="updating-statistics"></a>Uppdatera statistik
+## <a name="updating-statistics"></a>Uppdaterar statistik
 
-Ett bra tips är att uppdatera statistik på datumkolumner varje dag när nya datum har lagts till. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra Datadistributionen och se statistik för gammal. Däremot behöva statistik på en kolumn för land/region i en kundtabell aldrig uppdateras, eftersom distributionen av värden inte ändras Allmänt. Anta att distributionen är konstant mellan kunder och kommer att lägga till nya rader i tabellen variationen inte att ändra Datadistribution. Men om ditt informationslager bara innehåller ett land/region och du importera data från ett nytt land/region, vilket resulterar i data från flera länder/regioner som lagras, måste du uppdatera statistik i kolumnen land/region.
+Ett bra tips är att uppdatera statistik för datum kolumner varje dag då nya datum läggs till. Varje gången nya rader läses in i data lagret läggs nya inläsnings datum eller transaktions datum till. Dessa ändrar data distributionen och gör statistiken inaktuell. Däremot kan statistik i en land/region-kolumn i en kund tabell aldrig behöva uppdateras, eftersom fördelning av värden vanligt vis inte ändras. Förutsatt att fördelningen är konstant mellan kunderna, kommer nya rader i tabell variationen inte att ändra data distributionen. Men om informations lagret bara innehåller ett land/region och du hämtar data från ett nytt land/en annan region, vilket resulterar i att data från flera länder/regioner lagras, måste du uppdatera statistik i kolumnen land/region.
 
-Här följer några rekommendationer som uppdaterar statistik:
+Följande är rekommendationer om uppdaterings statistik:
 
 |||
 |-|-|
-| **Hur ofta den uppdateras stats**  | Konservativ: Dagligen </br> När du läser in eller omvandla dina data |
-| **Sampling** |  Mindre än 1 miljard rader, Använd standard sampling (20 procent). </br> Använd sampling av två procent med fler än 1 miljard rader. |
+| **Frekvens för statistik uppdateringar**  | Restriktiv Dagligen </br> När du har läst in eller omvandlat dina data |
+| **Sampling** |  Färre än 1 000 000 000 rader, Använd standard sampling (20 procent). </br> Med fler än 1 000 000 000 rader använder du samplingen av två procent. |
 
-En av de första frågorna när du felsöker en fråga är **”är statistik uppdaterad”?**
+En av de första frågorna för att fråga när du felsöker en fråga är **"är statistiken uppdaterad?"**
 
-Den här frågan är inte någon som kan betjänas av åldern på data. Ett objekt med uppdaterade statistik kanske gamla om det har förekommit utan väsentlig förändring i underliggande data. När antalet rader som har ändrats avsevärt eller om det finns en väsentlig förändring i distributionen av värden för en kolumn, *sedan* är det dags att uppdatera statistik.
+Den här frågan är inte en som kan besvaras av data åldern. Ett uppdaterat statistik objekt kan vara gammalt om ingen material ändring har gjorts i underliggande data. När antalet rader har ändrats huvudsakligen, eller om det finns en väsentlig ändring i fördelning av värden för en kolumn, *är det dags* att uppdatera statistik.
 
-Det finns inga dynamiska hanteringsvyn vyn för att avgöra om data i tabellen har ändrats sedan de senaste statistik har uppdaterats. Att känna till ålder statistik kan ge dig med en del av en bild. Du kan använda följande fråga för att fastställa den senaste gången statistik har uppdaterats i varje tabell.
+Det finns ingen dynamisk hanterings vy för att avgöra om data i tabellen har ändrats sedan den senaste tids statistiken uppdaterades. Att veta ålder på din statistik kan ge dig en del av bilden. Du kan använda följande fråga för att avgöra när statistiken senast uppdaterades i varje tabell.
 
 > [!NOTE]
-> Om det finns en väsentlig förändring i distributionen av värden för en kolumn, bör du uppdatera statistik, oavsett den senaste gången som de har uppdaterats.
+> Om det finns en väsentlig förändring i fördelningen av värden för en kolumn bör du uppdatera statistiken, oavsett när de uppdaterades senast.
 
 ```sql
 SELECT
@@ -116,33 +116,33 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Datum kolumner** i ett datalager, till exempel vanligtvis behöver frekventa uppdateringar av statistik. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra Datadistributionen och se statistik för gammal. Däremot behöva aldrig statistik på en kolumn för kön i en kundtabell som ska uppdateras. Anta att distributionen är konstant mellan kunder och kommer att lägga till nya rader i tabellen variationen inte att ändra Datadistribution. Men om ditt informationslager innehåller endast en kön och ett nytt krav resultat i flera kön, måste du uppdatera statistik i kolumnen kön.
+**Datum kolumner** i ett data lager, till exempel vanligt vis behöver ofta förekommande statistik uppdateringar. Varje gången nya rader läses in i data lagret läggs nya inläsnings datum eller transaktions datum till. Dessa ändrar data distributionen och gör statistiken inaktuell. Det kan hända att statistik i en köns kolumn i en kund tabell aldrig behöver uppdateras. Förutsatt att fördelningen är konstant mellan kunderna, kommer nya rader i tabell variationen inte att ändra data distributionen. Men om ditt informations lager bara innehåller en kön och ett nytt krav resulterar i flera kön, måste du uppdatera statistik i kön kön.
 
-Mer information finns i allmänna riktlinjer för [statistik](/sql/relational-databases/statistics/statistics).
+Mer information finns i allmän vägledning för [statistik](/sql/relational-databases/statistics/statistics).
 
-## <a name="implementing-statistics-management"></a>Implementera hantering av statistik
+## <a name="implementing-statistics-management"></a>Implementera statistik hantering
 
-Det är ofta en bra idé att utöka din datainläsning process för att säkerställa att uppdateras i slutet av belastningen. Inläsningen är när tabeller oftast ändrar sin storlek och/eller deras distribution av värden. Därför är detta en logisk plats för att implementera vissa processer.
+Det är ofta en bra idé att utöka data inläsnings processen så att statistiken uppdateras i slutet av belastningen. Data inläsningen är när tabeller ofta ändrar storlek och/eller deras fördelning av värden. Detta är därför en logisk plats för att implementera vissa hanterings processer.
 
-Följande riktlinjerna tillhandahålls för att uppdatera statistik under inläsningen:
+Följande GUID-principer används för att uppdatera din statistik under inläsnings processen:
 
-* Kontrollera att varje inlästa tabell har minst ett statistik objekt uppdateras. Detta uppdaterar tabellinformation för storlek (radantal och antal sidor) som en del av uppdateringen statistik.
-* Fokusera på kolumner som ingår i JOIN, GROUP BY, ORDER BY och DISTINCT-satser.
-* Överväg att uppdatering av ”stigande nyckeln” kolumner som transaktion datum oftare, eftersom dessa värden inte inkluderas i statistik histogrammet.
-* Överväg att uppdatera statisk distributionskolumner mindre ofta.
-* Kom ihåg att varje statistik objekt uppdateras i följd. Bara implementera `UPDATE STATISTICS <TABLE_NAME>` är inte alltid perfekt, särskilt för breda tabeller med många av statistik objekt.
+* Se till att varje inläst tabell har minst ett uppdaterat statistik objekt. Detta uppdaterar informationen i tabell storlek (antal rader och sid antal) som en del av statistiken uppdatera.
+* Fokusera på kolumner som ingår i JOIN-, GROUP BY-, ORDER BY-och DISTINCT-satser.
+* Överväg att uppdatera "ascending Key"-kolumner som transaktions datum oftare, eftersom dessa värden inte kommer att ingå i statistik histogrammet.
+* Överväg att uppdatera statiska distributions kolumner mindre ofta.
+* Kom ihåg att varje statistik objekt uppdateras i följd. Att bara `UPDATE STATISTICS <TABLE_NAME>` implementera är inte alltid idealiskt, särskilt för breda tabeller med massor av statistik objekt.
 
-Mer information finns i [Kardinalitetsberäknare](/sql/relational-databases/performance/cardinality-estimation-sql-server).
+Mer information finns i [beräkning](/sql/relational-databases/performance/cardinality-estimation-sql-server)av kardinalitet.
 
 ## <a name="examples-create-statistics"></a>Exempel: Skapa statistik
 
-De här exemplen visar hur du använder olika alternativ för att skapa statistik. Vilka alternativ som du använder för varje kolumn beror på egenskaperna för dina data och hur kolumnen kommer att användas i frågor.
+I de här exemplen visas hur du använder olika alternativ för att skapa statistik. De alternativ som du använder för varje kolumn beror på egenskaperna för dina data och hur kolumnen kommer att användas i frågor.
 
-### <a name="create-single-column-statistics-with-default-options"></a>Skapa statistik för en kolumn med standardalternativ
+### <a name="create-single-column-statistics-with-default-options"></a>Skapa en statistik med en kolumn med standard alternativ
 
-För att skapa statistik på en kolumn, tillhandahåller du helt enkelt ett namn för objektet statistik och namnet på kolumnen.
+Om du vill skapa statistik för en kolumn anger du bara ett namn för objektet statistik och namnet på kolumnen.
 
-Den här syntaxen använder alla standardalternativ. Som standard SQL Data Warehouse-exempel **20 procent** i tabellen när den skapar statistik.
+I den här syntaxen används alla standard alternativ. Som standard SQL Data Warehouse exempel **20 procent** av tabellen när statistiken skapas.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -154,11 +154,11 @@ Exempel:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
-### <a name="create-single-column-statistics-by-examining-every-row"></a>Skapa enkolumns-statistik genom att undersöka varje rad
+### <a name="create-single-column-statistics-by-examining-every-row"></a>Skapa en statistik med en kolumn genom att undersöka varje rad
 
-Standard samplingsfrekvensen på 20 procent räcker för de flesta situationer. Du kan dock justera samplingsfrekvensen.
+Standard samplings frekvensen på 20 procent räcker för de flesta situationer. Du kan dock justera samplings frekvensen.
 
-Använd följande syntax för att sampla hela tabellen:
+Använd följande syntax för att sampla den fullständiga tabellen:
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
@@ -170,57 +170,57 @@ Exempel:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>Skapa enkolumns-statistik genom att ange urvalsstorlek
+### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>Skapa en statistik med en kolumn genom att ange prov storleken
 
-Du kan också ange urvalsstorlek procent:
+Du kan också ange exempel storleken i procent:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>Skapa enkolumns-statistik på bara några rader
+### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>Skapa statistik med en kolumn på bara några av raderna
 
-Du kan också skapa statistik på en del av raderna i tabellen. Detta kallas en filtrerad statistik.
+Du kan också skapa statistik på en del av raderna i tabellen. Detta kallas för en filtrerad statistik.
 
-Du kan till exempel använda filtrerad statistik när du planerar att fråga en specifik partition av en stor partitionerad tabell. Genom att skapa statistik på partitionen värdena kommer riktighet statistik förbättra och därmed förbättra frågeprestanda.
+Du kan till exempel använda filtrerad statistik när du planerar att fråga en speciell partition i en stor partitionerad tabell. Genom att skapa statistik enbart på partitionsalternativ förbättras noggrannheten i statistiken, och därför förbättras frågans prestanda.
 
-Det här exemplet skapar statistik på ett intervall med värden. Värdena kan enkelt definieras för att matcha en uppsättning värden i en partition.
+I det här exemplet skapas statistik för ett värde intervall. Värdena kan enkelt definieras för att matcha värde intervallet i en partition.
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
 > [!NOTE]
-> Frågan måste rymmas i definitionen av objektet statistik för Frågeoptimeringen överväga användning av filtrerad statistik när de väljer den distribuerade frågeplanen. Med hjälp av det tidigare exemplet frågan var sats måste ange Kol1 värden mellan 2000101 och 20001231.
+> För att fråga optimeringen ska överväga att använda filtrerad statistik när den väljer den distribuerade frågan måste frågan passa inuti definitionen av statistik objekt. I föregående exempel måste frågans WHERE-sats ange col1-värden mellan 2000101 och 20001231.
 
-### <a name="create-single-column-statistics-with-all-the-options"></a>Skapa statistik för en kolumn med alla alternativ
+### <a name="create-single-column-statistics-with-all-the-options"></a>Skapa statistik med en kolumn med alla alternativ
 
-Du kan också kombinera alternativen tillsammans. I följande exempel skapas en filtrerad statistik objekt med en anpassad exempelstorlek:
+Du kan också kombinera alternativen tillsammans. I följande exempel skapas ett filtrerat statistik objekt med en anpassad exempel storlek:
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Fullständiga referenser finns i [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
+Fullständig referens finns i [skapa statistik](/sql/t-sql/statements/create-statistics-transact-sql).
 
 ### <a name="create-multi-column-statistics"></a>Skapa statistik för flera kolumner
 
-Om du vill skapa ett objekt med flera kolumnstatistik att helt enkelt använda i föregående exempel, men ange flera kolumner.
+Om du vill skapa ett statistik objekt med flera kolumner, använder du bara föregående exempel, men anger fler kolumner.
 
 > [!NOTE]
-> Histogram som används för att uppskatta antalet rader i frågeresultatet, är endast tillgänglig för den första kolumnen visas i statistik objektdefinition.
+> Histogrammet, som används för att uppskatta antalet rader i frågeresultatet, är bara tillgängligt för den första kolumnen som anges i statistik objekt definitionen.
 
-I det här exemplet är histogrammet på *produkten\_kategori*. Cross-kolumnstatistik beräknas *produkten\_kategori* och *produkten\_sub_category*:
+I det här exemplet är histogrammet i *produkt\_kategorin*. Statistik över kolumner beräknas i *produkt\_kategori* och *produkt\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Eftersom det finns en korrelation mellan *produkten\_kategori* och *produkten\_sub\_kategori*, ett flera kolumnstatistik-objekt kan vara användbart om dessa kolumner som kan nås på samma gång.
+Eftersom det finns en korrelation mellan *produkt\_kategori* och *produkt\_under\_kategori*, kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
 
-### <a name="create-statistics-on-all-columns-in-a-table"></a>Skapa statistik på alla kolumner i en tabell
+### <a name="create-statistics-on-all-columns-in-a-table"></a>Skapa statistik för alla kolumner i en tabell
 
-Ett sätt att skapa statistik är att utfärda kommandon för CREATE STATISTICS när du har skapat tabellen:
+Ett sätt att skapa statistik är att utfärda kommandon för att skapa statistik när tabellen har skapats:
 
 ```sql
 CREATE TABLE dbo.table1
@@ -240,11 +240,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Använda en lagrad procedur för att skapa statistik på alla kolumner i en databas
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Använd en lagrad procedur för att skapa statistik för alla kolumner i en databas
 
-SQL Data Warehouse har inte en motsvarande sp_create_stats systemlagrade proceduren i SQL Server. Den här lagrade proceduren skapar en enda kolumn statistik objekt för varje kolumn på den databas som inte redan har statistik.
+SQL Data Warehouse har ingen lagrad system procedur som motsvarar sp_create_stats i SQL Server. Den här lagrade proceduren skapar ett enda kolumn statistik objekt på varje kolumn i databasen som inte redan har statistik.
 
-I följande exempel hjälper dig att komma igång med din databasdesign. Passa på att anpassa det efter dina behov:
+I följande exempel får du hjälp att komma igång med databas designen. Det är kostnads fritt att anpassa den efter dina behov:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -332,36 +332,36 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-Köra den lagrade proceduren för att skapa statistik på alla kolumner i tabellen med hjälp av standardinställningarna.
+Om du vill skapa statistik för alla kolumner i tabellen med hjälp av standardvärdena kör du den lagrade proceduren.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
 
-Anropa den här proceduren för att skapa statistik på alla kolumner i tabellen med hjälp av en fullscan:
+Anropa den här proceduren för att skapa statistik för alla kolumner i tabellen med en fullscan:
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-Ange 3 och exempelprocenten för att skapa Exempelstatistik för alla kolumner i tabellen. Den här proceduren använder en 20 procent frekvens.
+Om du vill skapa exempel statistik för alla kolumner i tabellen anger du 3 och exemplet procent. I den här proceduren används 20 procents samplings frekvens.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
 
-Skapa statistik för alla kolumner som samplas
+Så här skapar du exempel statistik för alla kolumner
 
 ## <a name="examples-update-statistics"></a>Exempel: Uppdatera statistik
 
-Om du vill uppdatera statistik, kan du:
+Om du vill uppdatera statistiken kan du:
 
-- Uppdatera ett objekt i statistik. Ange namnet på objektet statistik som du vill uppdatera.
-- Uppdatera alla statistik objekt i en tabell. Ange namnet på tabellen i stället för en viss statistik objekt.
+- Uppdatera ett statistik objekt. Ange namnet på det statistik objekt som du vill uppdatera.
+- Uppdatera alla statistik objekt i en tabell. Ange namnet på tabellen i stället för ett enskilt statistik objekt.
 
-### <a name="update-one-specific-statistics-object"></a>Uppdatera en viss statistik objektet
+### <a name="update-one-specific-statistics-object"></a>Uppdatera ett enskilt statistik objekt
 
-Använd följande syntax för att uppdatera en viss statistik objektet:
+Använd följande syntax för att uppdatera ett enskilt statistik objekt:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
@@ -373,11 +373,11 @@ Exempel:
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-Du kan minimera den tid och resurser som krävs för att hantera statistik genom att uppdatera statistik för specifika objekt. Detta kräver vissa tror att välja de bästa statistik objekt att uppdatera.
+Genom att uppdatera vissa statistik objekt kan du minimera den tid och de resurser som krävs för att hantera statistik. Detta kräver vissa tanke på att välja de bästa statistik objekt som ska uppdateras.
 
 ### <a name="update-all-statistics-on-a-table"></a>Uppdatera all statistik för en tabell
 
-En enkel metod för att uppdatera statistik objekt i en tabell är:
+En enkel metod för att uppdatera alla statistik objekt i en tabell är:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
@@ -389,45 +389,45 @@ Exempel:
 UPDATE STATISTICS dbo.table1;
 ```
 
-UPDATE STATISTICS-instruktionen är enkel att använda. Kom bara ihåg att den uppdaterar *alla* statistik i tabellen, och därför kan utföra mer arbete än nödvändigt. Om prestanda inte är ett problem, är detta det enklaste och sättet att garantera att statistik är uppdaterade.
+UPDATE STATISTICS-instruktionen är enkel att använda. Kom bara ihåg att den uppdaterar *all* statistik i tabellen och kan därför utföra mer arbete än vad som behövs. Om prestanda inte är ett problem är det här det enklaste och mest kompletta sättet att garantera att statistiken är aktuell.
 
 > [!NOTE]
-> När du uppdaterar all statistik för en tabell i SQL Data Warehouse stöder en sökning till exempel tabellen för varje objekt i statistik. Om tabellen är stor och har många kolumner och många statistik, kan det vara mer effektivt att uppdatera enskilda statistik baserat på behov.
+> När du uppdaterar all statistik för en tabell, SQL Data Warehouse göra en genomsökning för att sampla tabellen för varje statistik objekt. Om tabellen är stor och har många kolumner och många statistik, kan det vara mer effektivt att uppdatera individuell statistik utifrån behov.
 
-För en implementering av en `UPDATE STATISTICS` proceduren finns i [temporära tabeller](sql-data-warehouse-tables-temporary.md). Metoden implementering skiljer sig från föregående `CREATE STATISTICS` procedur, men resultatet är samma.
+En implementering av en `UPDATE STATISTICS` procedur finns i temporära [tabeller](sql-data-warehouse-tables-temporary.md). Implementerings metoden skiljer sig något från föregående `CREATE STATISTICS` procedur, men resultatet är detsamma.
 
-Läs den fullständiga syntaxen [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
+Fullständig syntax finns i [Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql).
 
-## <a name="statistics-metadata"></a>Statistik metadata
+## <a name="statistics-metadata"></a>Metadata för statistik
 
-Det finns flera systemvyer och funktioner som du kan använda för att hitta information om statistik. Du kan till exempel se om ett objekt med statistik kan vara inaktuell med hjälp av funktionen statistik datum för att se när statistik skapades eller uppdaterades senast.
+Det finns flera systemvyer och funktioner som du kan använda för att hitta information om statistik. Du kan till exempel se om ett statistik objekt kan vara inaktuellt genom att använda funktionen statistik datum för att se när statistiken senast skapades eller uppdaterades.
 
 ### <a name="catalog-views-for-statistics"></a>Katalogvyer för statistik
 
-Dessa data innehåller information om statistik:
+Dessa system visningar innehåller information om statistik:
 
 | Katalogvy | Beskrivning |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |En rad för varje kolumn. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
+| [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
 | [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje schema i databasen. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |En rad för varje objekt i statistik. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |En rad för varje kolumn i objektet statistik. Länkar tillbaka till sys.columns. |
+| [sys. stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |En rad för varje statistik objekt. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |En rad för varje kolumn i objektet statistik. Länkar tillbaka till sys. columns. |
 | [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |En rad för varje tabell (inklusive externa tabeller). |
 | [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |En rad för varje datatyp. |
 
-### <a name="system-functions-for-statistics"></a>Systemfunktioner för statistik
+### <a name="system-functions-for-statistics"></a>System funktioner för statistik
 
-Dessa systemfunktioner är användbara för att arbeta med statistik:
+Dessa system funktioner är användbara när du arbetar med statistik:
 
-| Systemfunktion | Beskrivning |
+| System funktion | Beskrivning |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Datum statistik objektet uppdaterades senast. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Sammanfattning av nivå och detaljerad information om distributionen av värden som tolkas av objektet statistik. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Datum då statistik objekt senast uppdaterades. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Sammanfattnings nivå och detaljerad information om distributionen av värden som förstås av statistik objekt. |
 
-### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Kombinera kolumner för statistik och funktioner i en vy
+### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Kombinera statistik kolumner och funktioner i en vy
 
-Den här vyn ger kolumner som är relaterade till statistik och resultat av funktionen STATS_DATE() tillsammans.
+I den här vyn visas kolumner som relaterar till statistik och resultat från STATS_DATE ()-funktionen tillsammans.
 
 ```sql
 CREATE VIEW dbo.vstats_columns
@@ -465,19 +465,19 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() exempel
+## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS ()-exempel
 
-DBCC SHOW_STATISTICS() visar data som lagras i ett objekt med statistik. Dessa data finns i tre delar:
+DBCC SHOW_STATISTICS () visar data som lagras i ett statistik objekt. Dessa data ingår i tre delar:
 
 - Huvud
-- Densitet vektor
+- Densitets vektor
 - Histogram
 
-Huvudet metadata om statistik. Histogrammet visar fördelningen av värden i den första nyckelkolumnen objektets statistik. Densitet vektor mäter korrelation mellan kolumner. SQL Data Warehouse beräknar kardinalitet uppskattningar med data i objektet statistik.
+Metadata för sidhuvudet om statistiken. Histogrammet visar fördelningen av värden i den första nyckel kolumnen i statistik-objektet. Täthets vektorn mäter en jämförelse mellan kolumner. SQL Data Warehouse beräknar kardinalitet uppskattningar med alla data i objektet statistik.
 
-### <a name="show-header-density-and-histogram"></a>Visa rubrik och densitet histogram
+### <a name="show-header-density-and-histogram"></a>Visa rubrik, densitet och histogram
 
-Det här enkla exemplet visar alla tre delar av ett objekt för statistik:
+Det här enkla exemplet visar alla tre delarna i ett statistik objekt:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
@@ -489,9 +489,9 @@ Exempel:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Visa en eller flera delar av DBCC SHOW_STATISTICS()
+### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Visa en eller flera delar av DBCC SHOW_STATISTICS ()
 
-Om du bara vill visa vissa delar, använda den `WITH` satsen och ange vilka delar som du vill se:
+Om du bara vill visa vissa delar använder `WITH` du satsen och anger vilka delar du vill se:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
@@ -503,18 +503,18 @@ Exempel:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS() skillnader
+## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS () skillnader
 
-DBCC SHOW_STATISTICS() implementeras striktare i SQL Data Warehouse jämfört med SQL Server:
+DBCC SHOW_STATISTICS () är mer strikt implementerad i SQL Data Warehouse jämfört med SQL Server:
 
-- Odokumenterade funktioner stöds inte.
+- Det finns inte stöd för icke-dokumenterade funktioner.
 - Det går inte att använda Stats_stream.
-- Det går inte att ansluta till resultaten för specifika delmängder av statistikdata. Till exempel STAT_HEADER ansluta DENSITY_VECTOR.
-- NO_INFOMSGS kan inte anges för Undertryckning av meddelandet.
-- Hakparenteser kring statistik namn kan inte användas.
-- Det går inte att använda kolumnnamn för att identifiera statistik objekt.
-- Anpassat fel 2767 stöds inte.
+- Det går inte att ansluta resultat för vissa del mängder av statistik data. Till exempel STAT_HEADER JOIN DENSITY_VECTOR.
+- NO_INFOMSGS kan inte ställas in för meddelande under tryckning.
+- Hakparenteser runt statistik namn kan inte användas.
+- Det går inte att använda kolumn namn för att identifiera statistik objekt.
+- Anpassad fel 2767 stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För ytterligare förbättra frågeprestanda, se [övervaka din arbetsbelastning](sql-data-warehouse-manage-monitor.md)
+Mer information om hur du kan förbättra prestanda för frågor finns i [övervaka din arbets belastning](sql-data-warehouse-manage-monitor.md)

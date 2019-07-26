@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f117e7c5291216b5716aee40995e6f224705fa
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302266"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359359"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.locfileid: "66302266"
 Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Linux-container i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
 > [!NOTE]
-> Den här artikeln gäller för en Linux-utvecklingsmiljö.  Körningstiden för Service Fabric-kluster och Docker-körning måste köras på samma OS.  Du kan inte köra Linux-behållare i ett Windows-kluster.
+> Den här artikeln gäller en Linux-utvecklings miljö.  Service Fabric kluster körning och Docker-körningsmiljön måste köras på samma OS.  Det går inte att köra Linux-behållare i ett Windows-kluster.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * En utvecklingsdator som kör:
   * [Service Fabric SDK och verktyg](service-fabric-get-started-linux.md).
   * [Docker CE för Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -84,10 +84,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
@@ -122,7 +124,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* namnger den container som körs (i stället för container-ID:t).
 
-Anslut till den container som körs. Öppna en webbläsare och gå till IP-adress returnerades på port 4000, till exempel ”http:\//localhost:4000”. Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "\/http:/localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ![Hello World!][hello-world]
 
@@ -141,9 +143,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>Överför avbildningen till containerregistret
 När du har kontrollerat att behållaren körs på Docker överför du avbildningen till registret i Azure Container Registry.
 
-Kör `docker login` att logga in till behållarregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
+Kör `docker login` för att logga in i behållar registret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
 
-I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Eller, du kan logga in med ditt registreringsanvändarnamn och lösenord.
+I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Eller så kan du logga in med ditt användar namn och lösen ord för registret.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -174,11 +176,11 @@ Eftersom den här avbildningen har en definierad startpunkt arbetsbelastningen m
 
 Ange ett instansantal på ”1”.
 
-Ange mappningen för port i rätt format. I den här artikeln måste du ange ```80:4000``` som portmappning. På så sätt du har konfigurerat som alla inkommande förfrågningar som kommer till port 4000 på värddatorn omdirigeras till port 80 på behållaren.
+Ange port mappning i lämpligt format. I den här artikeln måste du ange ```80:4000``` som port mappning. Genom att göra detta har du konfigurerat att inkommande begär Anden som kommer till port 4000 på värddatorn omdirigeras till port 80 på behållaren.
 
 ![Service Fabric Yeoman-generator för containrar][sf-yeoman]
 
-## <a name="configure-container-repository-authentication"></a>Konfigurera Databasautentisering
+## <a name="configure-container-repository-authentication"></a>Konfigurera autentisering av container-lagringsplats
  Om containern behöver autentiseras med en privat lagringsplats lägger du till `RepositoryCredentials`. I den här artikeln lägger du till kontonamnet och lösenordet för containerregistret myregistry.azurecr.io. Se till att principen som läggs till under taggen ”ServiceManifestImport” motsvarar rätt tjänstepaket.
 
 ```xml
@@ -193,14 +195,14 @@ Ange mappningen för port i rätt format. I den här artikeln måste du ange ```
    </ServiceManifestImport>
 ``` 
 
-Vi rekommenderar att du krypterar centrallagrets lösenord. Referera till [ hantera krypterade hemligheter i Service Fabric-program](service-fabric-application-secret-management.md) anvisningar.
+Vi rekommenderar att du krypterar lösen ordet för databasen. Instruktioner hittar du [i hantera krypterade hemligheter i Service Fabric-program](service-fabric-application-secret-management.md) .
 
-### <a name="configure-cluster-wide-credentials"></a>Konfigurera autentiseringsuppgifter för klustret
-Referera till [dokumentationen här](
+### <a name="configure-cluster-wide-credentials"></a>Konfigurera autentiseringsuppgifter för hela klustret
+[Läs dokumentationen här](
 service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
-6\.3 runtime-versionen stöds VM isolering för Linux-behållare, vilket stöder två isoleringslägen för behållare: process och Hyper-v. Med isoleringsläget Hyper-v-isoleringsläget används isoleras mellan varje behållare och behållarvärden. Hyper-v-isolering implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isoleringsläget har angetts för Linux-kluster i den `ServicePackageContainerPolicy` elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är isoleringsläge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
+Med 6,3 runtime-versionen stöds VM-isolering för Linux-behållare, vilket ger stöd för två isolerings lägen för behållare: process och HyperV. I isolerings läget för HyperV är kernelerna isolerade mellan varje behållare och behållar värden. HyperV-isoleringen implementeras med hjälp av [Rensa behållare](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Isolerings läget anges för Linux-kluster i `ServicePackageContainerPolicy` elementet i applikations manifest filen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är process isolerings läge. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
 
 ```xml
 <ServiceManifestImport>
@@ -215,7 +217,7 @@ service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 
 ## <a name="configure-resource-governance"></a>Konfigurera resursstyrning
-Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som containern kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resursgränser kan anges för följande resurser: Minne, MemorySwap, CpuShares (relativ processorvikt), MemoryReservationInMB, BlkioWeight (relativ BlockIO-vikt). I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat. Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (containrar eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
+Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som containern kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resurs gränser kan anges för följande resurser: Minne, MemorySwap, CpuShares (relativ processor vikt), MemoryReservationInMB, BlkioWeight (relativ vikt för BlockIO). I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat. Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (containrar eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
 
 ```xml
 <ServiceManifestImport>
@@ -234,7 +236,7 @@ Med [resursstyrning](service-fabric-resource-governance.md) begränsas resursern
 
 Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om containern har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång containerns hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy*. 
 
-Från och med den senaste versionen för uppdatering av v6.4, har möjlighet att ange att docker HEALTHCHECK utvärderingar ska rapporteras som ett fel. Om det här alternativet aktiveras en **OK** hälsorapport visas när *health_status* är *felfri* och **fel** visas när *health_status* är *feltillstånd*.
+Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att ange att HEALTHCHECK-utvärderingar i Docker ska rapporteras som ett fel. Om det här alternativet är aktiverat visas en hälso rapport för **OK** när *health_status* är *felfri* och **fel** visas när *health_status* är *ohälsosamt*.
 
 Instruktionen för **HEALTHCHECK** som pekar mot den faktiska kontroll som utförs för att övervaka containerns hälsa måste finnas i den Dockerfile som används när containeravbildningen skapas.
 
@@ -258,11 +260,11 @@ Du kan konfigurera **HEALTHCHECK**-beteendet för varje behållare genom att ang
     </Policies>
 </ServiceManifestImport>
 ```
-Som standard *IncludeDockerHealthStatusInSystemHealthReport* är inställd på **SANT**, *RestartContainerOnUnhealthyDockerHealthStatus* är inställd på  **FALSKT**, och *TreatContainerUnhealthyStatusAsError* är inställd på **FALSKT**. 
+Som standard är *IncludeDockerHealthStatusInSystemHealthReport* inställt på **True**, *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **false**och *TreatContainerUnhealthyStatusAsError* har angetts till **false** . 
 
 Om *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **true** kommer en behållare som upprepade gånger rapporteras som ej felfri att startas om (eventuellt på andra noder).
 
-Om *TreatContainerUnhealthyStatusAsError* är inställd på **SANT**, **fel** hälsorapporter visas när behållarens *health_status*är *feltillstånd*.
+Om *TreatContainerUnhealthyStatusAsError* är inställt på **Sant**visas **fel** hälso rapporter när behållarens *health_status* inte är *felfri*.
 
 Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-klustret måste du ställa in [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) på **false**.
 
@@ -275,16 +277,16 @@ Anslut till det lokala Service Fabric-klustret.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Använd installationsskriptet som medföljer i mallar i samband med https://github.com/Azure-Samples/service-fabric-containers/ för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
+Använd installations skriptet som finns i mallarna https://github.com/Azure-Samples/service-fabric-containers/ för att kopiera programpaketet till klustrets avbildnings Arkiv, registrera program typen och skapa en instans av programmet.
 
 
 ```bash
 ./install.sh
 ```
 
-Öppna en webbläsare och gå till Service Fabric Explorer på http:\//localhost:19080 / Explorer (Ersätt localhost med den privata IP-Adressen för den virtuella datorn om du använder Vagrant på Mac OS X). Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
+Öppna en webbläsare och gå till Service Fabric Explorer på http:\//localhost: 19080/Explorer (Ersätt localhost med den virtuella datorns privata IP om du använder Vagrant på Mac OS X). Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
-Anslut till den container som körs. Öppna en webbläsare och gå till IP-adress returnerades på port 4000, till exempel ”http:\//localhost:4000”. Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare som pekar på IP-adressen som returnerades på port 4000, till exempel "\/http:/localhost: 4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ![Hello World!][hello-world]
 

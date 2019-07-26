@@ -1,6 +1,6 @@
 ---
 title: Anslut Azure HDInsight till ditt lokala nätverk
-description: Lär dig hur du skapar ett HDInsight-kluster i Azure Virtual Network och sedan ansluter den till ditt lokala nätverk. Lär dig mer om att konfigurera namnmatchning mellan HDInsight och ditt lokala nätverk med hjälp av en anpassad DNS-server.
+description: Lär dig hur du skapar ett HDInsight-kluster i en Azure-Virtual Network och sedan ansluter det till ditt lokala nätverk. Lär dig hur du konfigurerar namn matchning mellan HDInsight och ditt lokala nätverk med hjälp av en anpassad DNS-server.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,125 +8,125 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60537912"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404540"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
-Lär dig mer om att ansluta HDInsight till det lokala nätverket med hjälp av Azure-nätverk och en VPN-gateway. Det här dokumentet innehåller planeringsinformation om:
+Lär dig hur du ansluter HDInsight till ditt lokala nätverk med hjälp av virtuella Azure-nätverk och en VPN-gateway. Det här dokumentet innehåller planerings information om:
 
-* Använda HDInsight i ett virtuellt Azure-nätverk som ansluter till ditt lokala nätverk.
-* Konfigurera DNS-namnmatchningen mellan det virtuella nätverket och ditt lokala nätverk.
-* Konfigurerar nätverkssäkerhetsgrupper för att begränsa internet-åtkomst till HDInsight.
-* Portar som tillhandahålls av HDInsight i det virtuella nätverket.
+* Använda HDInsight i en Azure-Virtual Network som ansluter till ditt lokala nätverk.
+* Konfigurera DNS-namnmatchning mellan det virtuella nätverket och det lokala nätverket.
+* Konfigurera nätverks säkerhets grupper för att begränsa Internet åtkomst till HDInsight.
+* Portar som tillhandahålls av HDInsight på det virtuella nätverket.
 
 ## <a name="overview"></a>Översikt
 
-Om du vill tillåta HDInsight och resurser i anslutna nätverk för att kommunicera med namn, måste du utföra följande åtgärder:
+Om du vill tillåta att HDInsight och resurser i det anslutna nätverket kommunicerar med namn måste du utföra följande åtgärder:
 
-* Skapa Azure-nätverk.
-* Skapa en anpassad DNS-server i Azure-nätverk.
-* Konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern i stället för standard Azure rekursiva matchare.
-* Konfigurera vidarebefordran mellan anpassade DNS-servern och den lokala DNS-servern.
+* Skapa Azure-Virtual Network.
+* Skapa en anpassad DNS-server i Azure-Virtual Network.
+* Konfigurera det virtuella nätverket så att det använder den anpassade DNS-servern i stället för standard Azure-rekursiva matcharen.
+* Konfigurera vidarebefordring mellan den anpassade DNS-servern och den lokala DNS-servern.
 
-Den här konfigurationen gör på följande:
+Den här konfigurationen aktiverar följande beteende:
 
-* Begäranden för fullständigt kvalificerade domännamn som har DNS-suffixet __för det virtuella nätverket__ vidarebefordras till den anpassa DNS-servern. Den anpassa DNS-servern vidarebefordrar sedan dessa begäranden till Azure rekursiva matchare, som returnerar IP-adressen.
-* Alla övriga förfrågningar vidarebefordras till den lokala DNS-servern. Även begäranden för offentliga internet-resurser, till exempel microsoft.com vidarebefordras till den lokala DNS-server för namnmatchning.
+* Begär Anden om fullständigt kvalificerade domän namn som har DNS-suffixet __för det virtuella nätverket__ vidarebefordras till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan dessa förfrågningar till Azures rekursiva matchare, som returnerar IP-adressen.
+* Alla andra begär Anden vidarebefordras till den lokala DNS-servern. Även begär Anden för offentliga Internet resurser, till exempel microsoft.com, vidarebefordras till den lokala DNS-servern för namn matchning.
 
-I följande diagram är gröna linjer begäranden för resurser som slutar med DNS-suffixet för det virtuella nätverket. Blå linjer är begäranden för resurser i det lokala nätverket eller på internet.
+I följande diagram är gröna rader begär Anden om resurser som slutar med DNS-suffixet för det virtuella nätverket. Blå rader är begär Anden för resurser i det lokala nätverket eller på det offentliga Internet.
 
-![Diagram över hur DNS-förfrågningar har lösts i konfigurationen i det här dokumentet](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![Diagram över hur DNS-begäranden löses i konfigurationen som används i det här dokumentet](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* Om du använder PowerShell, måste den [AZ modulen](https://docs.microsoft.com/powershell/azure/overview).
-* Om du vill använda Azure CLI och du inte har installerat den, se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/overview).
+* Om du vill använda Azure CLI och du ännu inte har installerat det kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Skapa konfiguration av virtuellt nätverk
 
-Använd följande dokument för att lära dig hur du skapar ett virtuellt Azure-nätverk som är ansluten till ditt lokala nätverk:
+Använd följande dokument för att lära dig hur du skapar en Azure-Virtual Network som är ansluten till ditt lokala nätverk:
 
 * [Använda Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Använda Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Använda Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
-## <a name="create-custom-dns-server"></a>Skapa anpassad DNS-server
+## <a name="create-custom-dns-server"></a>Skapa anpassad DNS-Server
 
 > [!IMPORTANT]  
-> Du måste skapa och konfigurera DNS-servern innan du installerar HDInsight till det virtuella nätverket.
+> Du måste skapa och konfigurera DNS-servern innan du installerar HDInsight i det virtuella nätverket.
 
-De här stegen används den [Azure-portalen](https://portal.azure.com) att skapa en Azure virtuell dator. Andra sätt att skapa en virtuell dator, se [skapa VM – Azure CLI](../virtual-machines/linux/quick-create-cli.md) och [skapa VM – Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Du skapar en Linux-VM som använder den [binda](https://www.isc.org/downloads/bind/) DNS-programvara, Använd följande steg:
+De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa en virtuell Azure-dator. Andra sätt att skapa en virtuell dator finns i [skapa VM – Azure CLI](../virtual-machines/linux/quick-create-cli.md) och [skapa VM-Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Använd följande steg för att skapa en virtuell Linux-dator som använder DNS-programvaran [BIND](https://www.isc.org/downloads/bind/) :
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
   
-2. I den vänstra menyn navigerar du till **+ skapa en resurs** > **Compute** > **Ubuntu Server 18.04 LTS**.
+2. Gå till menyn till vänster och navigera till **+ skapa en resurs** > **Compute** > **Ubuntu Server 18,04 LTS**.
 
-    ![Skapa en Ubuntu-dator](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-3. Från den __grunderna__ ange följande information:  
+3. På fliken __grundläggande__ anger du följande information:  
   
-    | Fält | Värde |
+    | Fält | Value |
     | --- | --- |
-    |Prenumeration |Välj din rätt prenumeration.|
-    |Resursgrupp |Välj den resursgrupp som innehåller det virtuella nätverket som skapades tidigare.|
-    |Namn på virtuell dator | Ange ett eget namn som identifierar den här virtuella datorn. Det här exemplet används **DNSProxy**.|
-    |Region | Välj samma region som det virtuella nätverket som skapades tidigare.  Inte alla VM-storlekar är tillgängliga i alla regioner.  |
-    |Alternativ för tillgänglighet |  Välj din önskade nivå för tillgänglighet.  Azure erbjuder en mängd alternativ för att hantera tillgänglighet och återhämtningskapacitet för dina program.  Skapa din lösning om du vill använda replikerade virtuella datorerna i Tillgänglighetszoner eller Tillgänglighetsuppsättningar för att skydda dina appar och data från avbrott i datacentret och underhåll. Det här exemplet används **ingen redundans för infrastruktur som krävs för**. |
-    |Image | Lämna på **Ubuntu Server 18.04 LTS**. |
-    |Autentiseringstyp | __Lösenordet__ eller __offentlig SSH-nyckel__: Autentiseringsmetoden för SSH-kontot. Vi rekommenderar att du använder offentliga nycklar som de är säkrare. Det här exemplet används **lösenord**.  Mer information finns i den [skapa och använda SSH-nycklar för Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md) dokumentet.|
-    |Användarnamn |Ange administratörens användarnamn för den virtuella datorn.  Det här exemplet används **sshuser**.|
-    |Lösenordet eller SSH offentlig nyckel | Fältet bestäms av valet du gjorde för **autentiseringstyp**.  Ange lämpligt värde.|
-    |Offentliga inkommande portar|Välj **Tillåt valda portar**. Välj sedan **SSH (22)** från den **Välj ingående portar** listrutan.|
+    |Subscription |Välj lämplig prenumeration.|
+    |Resource group |Välj den resurs grupp som innehåller det virtuella nätverket som skapades tidigare.|
+    |Namn på virtuell dator | Ange ett eget namn som identifierar den här virtuella datorn. I det här exemplet används **DNSProxy**.|
+    |Region | Välj samma region som det virtuella nätverket som skapades tidigare.  Alla VM-storlekar är inte tillgängliga i alla regioner.  |
+    |Alternativ för tillgänglighet |  Välj önskad tillgänglighets nivå.  Azure erbjuder en rad alternativ för att hantera tillgänglighet och återhämtning för dina program.  Skapa din lösning för att använda replikerade virtuella datorer i Tillgänglighetszoner eller tillgänglighets uppsättningar för att skydda dina appar och data från data Center avbrott och underhålls händelser. I det här exemplet används **ingen infrastrukturs-redundans krävs**. |
+    |Image | Lämna på **Ubuntu Server 18,04 LTS**. |
+    |Autentiseringstyp | __Lösen ord__ eller __Offentlig SSH-nyckel__: Autentiseringsmetoden för SSH-kontot. Vi rekommenderar att du använder offentliga nycklar eftersom de är säkrare. I det här exemplet används **lösen ord**.  Mer information finns i dokumentet [skapa och använda SSH-nycklar för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md) .|
+    |Användarnamn |Ange administratörs användar namnet för den virtuella datorn.  I det här exemplet används **sshuser**.|
+    |Lösen ord eller offentlig SSH-nyckel | Det tillgängliga fältet avgörs av ditt val av **Autentiseringstyp**.  Ange lämpligt värde.|
+    |Offentliga inkommande portar|Välj **Tillåt valda portar**. Välj sedan **SSH (22)** i list rutan **Välj inkommande portar** .|
 
     ![Grundläggande konfiguration av virtuell dator](./media/connect-on-premises-network/vm-basics.png)
 
-    Andra poster lämnas kvar standardvärdena och välj sedan den **nätverk** fliken.
+    Lämna andra poster med standardvärdena och välj sedan fliken **nätverk** .
 
-4. Från den **nätverk** ange följande information:
+4. Ange följande information på fliken **nätverk** :
 
     | Fält | Värde |
     | --- | --- |
-    |Virtuellt nätverk | Välj det virtuella nätverket som du skapade tidigare.|
-    |Undernät | Välj standardundernät för det virtuella nätverket som du skapade tidigare. Gör __inte__ välja det undernät som används av VPN-gatewayen.|
-    |Offentlig IP-adress | Använd autopopulated-värdet.  |
+    |Virtuellt nätverk | Välj det virtuella nätverk som du skapade tidigare.|
+    |Subnet | Välj standard under nätet för det virtuella nätverk som du skapade tidigare. Välj __inte__ det undernät som används av VPN-gatewayen.|
+    |Offentlig IP | Använd det automatiskt ifyllda värdet.  |
 
-    ![Inställningar för virtuella nätverk](./media/connect-on-premises-network/virtual-network-settings.png)
+    ![Inställningar för virtuellt nätverk](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Andra poster lämnas kvar standardvärdena och välj sedan den **granska + skapa**.
+    Lämna övriga poster till standardvärdena och välj sedan **Granska + skapa**.
 
-5. Från den **granska + skapa** fliken **skapa** att skapa den virtuella datorn.
+5. På fliken **Granska och skapa** väljer du **skapa** för att skapa den virtuella datorn.
 
 ### <a name="review-ip-addresses"></a>Granska IP-adresser
-När du har skapat den virtuella datorn får du en **distributionen lyckades** -meddelande med en **gå till resurs** knappen.  Välj **gå till resurs** att gå till din nya virtuella dator.  Följ stegen nedan för att identifiera associerade IP-adresser från standardvyn för din nya virtuella dator:
+När den virtuella datorn har skapats visas ett meddelande om att **distributionen** har slutförts med knappen **gå till resurs** .  Välj **gå till resurs** för att gå till den nya virtuella datorn.  Följ de här stegen för att identifiera associerade IP-adresser från standardvyn för den nya virtuella datorn:
 
-1. Från **inställningar**väljer **egenskaper**.
+1. Från **Inställningar**väljer du **Egenskaper**.
 
-2. Notera värdena för **offentliga IP-adress/DNS-NAMNETIKETTEN** och **privata IP-adress** för senare användning.
+2. Observera värdena för **offentlig IP-adress/DNS-namn** och **privat IP-adress** för senare användning.
 
    ![Offentliga och privata IP-adresser](./media/connect-on-premises-network/vm-ip-addresses.png)
 
-### <a name="install-and-configure-bind-dns-software"></a>Installera och konfigurera bindning (DNS-programvara)
+### <a name="install-and-configure-bind-dns-software"></a>Installera och konfigurera BIND (DNS-programvara)
 
-1. Använda SSH för att ansluta till den __offentliga IP-adressen__ för den virtuella datorn. Ersätt `sshuser` med SSH-användarkonto som du angav när du skapar den virtuella datorn. I följande exempel ansluter till en virtuell dator på 40.68.254.142:
+1. Använd SSH för att ansluta till den __offentliga IP-adressen__ för den virtuella datorn. Ersätt `sshuser` med det SSH-användarkonto du angav när du skapade den virtuella datorn. I följande exempel ansluter du till en virtuell dator på 40.68.254.142:
 
     ```bash
     ssh sshuser@40.68.254.142
     ```
 
-2. Använd följande kommandon från SSH-sessionen om du vill installera bindning:
+2. Om du vill installera bind använder du följande kommandon från SSH-sessionen:
 
     ```bash
     sudo apt-get update -y
     sudo apt-get install bind9 -y
     ```
 
-3. Om du vill konfigurera bindning att vidarebefordra begäran till din på lokal DNS-server namnmatchning, Använd följande text som innehållet i den `/etc/bind/named.conf.options` fil:
+3. Om du vill konfigurera bindning till vidarebefordran av namn matchnings begär anden till din lokala DNS-Server använder du följande text `/etc/bind/named.conf.options` som filens innehåll:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -153,19 +153,19 @@ När du har skapat den virtuella datorn får du en **distributionen lyckades** -
         };
 
     > [!IMPORTANT]  
-    > Ersätt värdena i den `goodclients` avsnitt med IP-adressintervallet för det virtuella nätverket och lokala nätverk. Det här avsnittet definierar de adresser som den här DNS-servern tar emot förfrågningar från.
+    > Ersätt värdena i `goodclients` avsnittet med IP-adressintervallet för det virtuella nätverket och det lokala nätverket. Det här avsnittet definierar de adresser som den här DNS-servern accepterar begär Anden från.
     >
-    > Ersätt den `192.168.0.1` post i den `forwarders` avsnittet med IP-adressen för den lokala DNS-servern. Den här posten dirigerar DNS-förfrågningar till den lokala DNS-servern för matchning.
+    > `192.168.0.1` Ersätt posten`forwarders` i avsnittet med IP-adressen för din lokala DNS-server. Den här posten dirigerar DNS-begäranden till din lokala DNS-server för lösning.
 
-    Om du vill redigera den här filen använder du följande kommando:
+    Använd följande kommando om du vill redigera filen:
 
     ```bash
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Om du vill spara filen, Använd __Ctrl + X__, __Y__, och sedan __RETUR__.
+    Om du vill spara filen använder du __CTRL + X__, __Y__och __anger__sedan.
 
-4. Använd följande kommando från SSH-sessionen:
+4. Från SSH-sessionen använder du följande kommando:
 
     ```bash
     hostname -f
@@ -177,9 +177,9 @@ När du har skapat den virtuella datorn får du en **distributionen lyckades** -
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    Den `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texten är den __DNS-suffix__ för den här virtuella nätverket. Du bör spara det här värdet eftersom det används senare.
+    Texten är __DNS-suffixet__ för det här virtuella nätverket. `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` Du bör spara det här värdet eftersom det används senare.
 
-5. Om du vill konfigurera bindning för DNS-namnmatchning för resurser i det virtuella nätverket, Använd följande text som innehållet i den `/etc/bind/named.conf.local` fil:
+5. Om du vill konfigurera bind för att matcha DNS-namn för resurser i det virtuella nätverket, använder du följande text som `/etc/bind/named.conf.local` filens innehåll:
 
         // Replace the following with the DNS suffix for your virtual network
         zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
@@ -188,23 +188,23 @@ När du har skapat den virtuella datorn får du en **distributionen lyckades** -
         };
 
     > [!IMPORTANT]  
-    > Du måste ersätta det `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` med DNS-suffix som du hämtade tidigare.
+    > Du måste ersätta `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` med det DNS-suffix som du hämtade tidigare.
 
-    Om du vill redigera den här filen använder du följande kommando:
+    Använd följande kommando om du vill redigera filen:
 
     ```bash
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Om du vill spara filen, Använd __Ctrl + X__, __Y__, och sedan __RETUR__.
+    Om du vill spara filen använder du __CTRL + X__, __Y__och __anger__sedan.
 
-6. Om du vill starta bindning, använder du följande kommando:
+6. Använd följande kommando för att starta bind:
 
     ```bash
     sudo service bind9 restart
     ```
 
-7. Om du vill kontrollera den bindning kan matcha namnen på resurser i ditt lokala nätverk, använder du följande kommandon:
+7. Om du vill kontrol lera att bindningen kan matcha namnen på resurser i ditt lokala nätverk använder du följande kommandon:
 
     ```bash
     sudo apt install dnsutils
@@ -212,11 +212,11 @@ När du har skapat den virtuella datorn får du en **distributionen lyckades** -
     ```
 
     > [!IMPORTANT]  
-    > Ersätt `dns.mynetwork.net` med det fullständigt kvalificerade domännamnet (FQDN) för en resurs i ditt lokala nätverk.
+    > Ersätt `dns.mynetwork.net` med det fullständigt kvalificerade domän namnet (FQDN) för en resurs i det lokala nätverket.
     >
-    > Ersätt `10.0.0.4` med den __interna IP-adressen__ för din anpassade DNS-server i virtuella nätverk.
+    > Ersätt `10.0.0.4` med den __interna IP-adressen__ för din anpassade DNS-server i det virtuella nätverket.
 
-    Svaret ser ut som följande text:
+    Svaret ser ut ungefär som i följande text:
 
     ```output
     Server:         10.0.0.4
@@ -227,83 +227,83 @@ När du har skapat den virtuella datorn får du en **distributionen lyckades** -
     Address: 192.168.0.4
     ```
 
-## <a name="configure-virtual-network-to-use-the-custom-dns-server"></a>Konfigurera ett virtuellt nätverk om du vill använda den anpassa DNS-servern
+## <a name="configure-virtual-network-to-use-the-custom-dns-server"></a>Konfigurera ett virtuellt nätverk för att använda den anpassade DNS-servern
 
-Om du vill konfigurera det virtuella nätverket om du vill använda anpassade DNS-servern i stället för Azures rekursiva matchare, använder du följande steg från den [Azure-portalen](https://portal.azure.com):
+Om du vill konfigurera det virtuella nätverket att använda den anpassade DNS-servern i stället för Azures rekursiva matchare, använder du följande steg från [Azure Portal](https://portal.azure.com):
 
 1. I den vänstra menyn navigerar du till **alla tjänster** > **nätverk** > **virtuella nätverk**.
 
-2. Välj ditt virtuella nätverk i listan, vilket öppnar standardvyn för det virtuella nätverket.  
+2. Välj ditt virtuella nätverk i listan, så öppnas standardvyn för det virtuella nätverket.  
 
-3. Från standardvyn under **inställningar**väljer **DNS-servrar**.  
+3. I standardvyn väljer du **DNS-servrar**under **Inställningar**.  
 
-4. Välj __anpassade__, och ange den **privata IP-adress** för anpassad DNS-servern.   
+4. Välj __anpassad__och ange den **privata IP-adressen** för den anpassade DNS-servern.   
 
 5. Välj __Spara__.  <br />  
 
-    ![Ange anpassade DNS-servern för det virtuella nätverket](./media/connect-on-premises-network/configure-custom-dns.png)
+    ![Ange den anpassade DNS-servern för nätverket](./media/connect-on-premises-network/configure-custom-dns.png)
 
-## <a name="configure-on-premises-dns-server"></a>Konfigurera en lokal DNS-server
+## <a name="configure-on-premises-dns-server"></a>Konfigurera lokal DNS-Server
 
-I det föregående avsnittet konfigurerat du den anpassa DNS-servern så att den vidarebefordrar begäranden till den lokala DNS-servern. Du måste konfigurera den lokala DNS-servern så att den vidarebefordrar begäranden till den anpassa DNS-servern.
+I föregående avsnitt konfigurerade du den anpassade DNS-servern så att den vidarebefordrar begär anden till den lokala DNS-servern. Sedan måste du konfigurera den lokala DNS-servern så att den vidarebefordrar begär anden till den anpassade DNS-servern.
 
-Specifika anvisningar för hur du konfigurerar din DNS-server finns i dokumentationen för din DNS-server-programvara. Se anvisningar för hur du konfigurerar en __villkorlig vidarebefordrare__.
+Mer information om hur du konfigurerar DNS-servern finns i dokumentationen för din DNS-serverprogram vara. Leta efter de steg som krävs för att konfigurera en __villkorlig vidarebefordrare__.
 
-En villkorlig vanlig enbart vidarebefordrar begäranden för ett anslutningsspecifikt DNS-suffix. I så fall måste du konfigurera en vidarebefordrare för DNS-suffixet för det virtuella nätverket. Begäranden för det här suffixet ska vidarebefordras till IP-adressen för den anpassa DNS-servern. 
+En villkorlig vidarebefordran vidarebefordrar bara begär Anden för ett bestämt DNS-suffix. I så fall måste du konfigurera en vidarebefordrare för det virtuella nätverkets DNS-suffix. Begär Anden för det här suffixet ska vidarebefordras till den anpassade DNS-serverns IP-adress. 
 
-Följande text är ett exempel på en villkorlig forwarder-konfiguration för den **binda** DNS programvara:
+Följande text är ett exempel på en villkorlig vidarebefordrare-konfiguration för **BIND** DNS-programvaran:
 
     zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
         type forward;
         forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
     };
 
-Information om hur du använder DNS på **Windows Server 2016**, finns i den [Lägg till DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) dokumentation...
+Information om hur du använder DNS på **Windows Server 2016**finns i dokumentationen för [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) ...
 
-När du har konfigurerat en lokal DNS-server kan du använda `nslookup` från den lokala nätverket för att kontrollera att du kan matcha namnen i det virtuella nätverket. I följande exempel 
+När du har konfigurerat den lokala DNS-servern kan du använda `nslookup` från det lokala nätverket för att kontrol lera att du kan matcha namn i det virtuella nätverket. Följande exempel 
 
 ```bash
 nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.4
 ```
 
-Det här exemplet använder den lokala DNS-servern på 196.168.0.4 för att matcha namnet på den anpassa DNS-servern. Ersätt IP-adressen med den lokala DNS-servern. Ersätt den `dnsproxy` adress med det fullständigt kvalificerade domännamnet till den anpassade DNS-servern.
+I det här exemplet används den lokala DNS-servern på 196.168.0.4 för att matcha namnet på den anpassade DNS-servern. Ersätt IP-adressen med en för den lokala DNS-servern. `dnsproxy` Ersätt adressen med det fullständigt kvalificerade domän namnet för den anpassade DNS-servern.
 
-## <a name="optional-control-network-traffic"></a>Valfritt: Kontrollen nätverkstrafik
+## <a name="optional-control-network-traffic"></a>Valfritt: Kontrol lera nätverks trafik
 
-Du kan använda nätverkssäkerhetsgrupper (NSG) eller användardefinierade vägar (UDR) för att kontrollera nätverkstrafik. NSG: er kan du filtrera inkommande och utgående trafik och tillåter eller nekar trafik. Udr: er kan du styra hur trafiken flödar mellan resurser i det virtuella nätverket, internet och det lokala nätverket.
+Du kan använda nätverks säkerhets grupper (NSG) eller användardefinierade vägar (UDR) för att kontrol lera nätverks trafiken. Med NSG: er kan du filtrera inkommande och utgående trafik, samt tillåta eller neka trafiken. Med UDR kan du styra hur trafiken flödar mellan resurser i det virtuella nätverket, Internet och det lokala nätverket.
 
 > [!WARNING]  
-> HDInsight kräver inkommande åtkomst från specifika IP-adresser i Azure-molnet och obegränsad utgående åtkomst. När du använder NSG: er eller udr: er för att styra trafik, måste du utföra följande steg:
+> HDInsight kräver inkommande åtkomst från vissa IP-adresser i Azure-molnet och obegränsad utgående åtkomst. När du använder NSG: er eller UDR för att styra trafiken måste du utföra följande steg:
 
-1. Hitta IP-adresser för den plats som innehåller det virtuella nätverket. En lista över nödvändiga IP-adresser efter plats finns i [nödvändiga IP-adresser](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+1. Hitta IP-adresserna för den plats som innehåller det virtuella nätverket. En lista över de IP-adresser som krävs efter plats finns i de [obligatoriska IP-adresserna](./hdinsight-management-ip-addresses.md).
 
-2. För IP-adresser som identifierades i steg 1, tillåter inkommande trafik från den IP-adresser.
+2. För IP-adresserna som identifierades i steg 1, Tillåt inkommande trafik från de IP-adresserna.
 
    * Om du använder __NSG__: Tillåt __inkommande__ trafik på port __443__ för IP-adresser.
-   * Om du använder __UDR__: Ange den __nästa hopp__ typ för vägen som __Internet__ för IP-adresser.
+   * Om du använder __UDR__: Ange __nästa hopp__ typ för vägen till __Internet__ för IP-adresserna.
 
-Ett exempel på hur du använder Azure PowerShell eller Azure CLI för att skapa NSG: er finns i den [utöka HDInsight med Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) dokumentet.
+Ett exempel på hur du använder Azure PowerShell eller Azure CLI för att skapa NSG: er finns i dokumentet [utöka HDInsight med Azure Virtual Networks](hdinsight-create-virtual-network.md#hdinsight-nsg) .
 
-## <a name="create-the-hdinsight-cluster"></a>Skapa HDInsight-kluster
-
-> [!WARNING]  
-> Innan du installerar HDInsight i det virtuella nätverket måste du konfigurera den anpassa DNS-servern.
-
-Följ stegen i den [skapar ett HDInsight-kluster med Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md) dokumentet för att skapa ett HDInsight-kluster.
+## <a name="create-the-hdinsight-cluster"></a>Skapa HDInsight-klustret
 
 > [!WARNING]  
-> * När du skapar klustret måste du välja den plats som innehåller det virtuella nätverket.
-> * I den __avancerade inställningar__ en del av konfigurationen, du måste välja det virtuella nätverk och undernät som du skapade tidigare.
+> Du måste konfigurera den anpassade DNS-servern innan du installerar HDInsight i det virtuella nätverket.
+
+Använd stegen i [skapa ett HDInsight-kluster med hjälp av Azure Portal](./hdinsight-hadoop-create-linux-clusters-portal.md) -dokumentet för att skapa ett HDInsight-kluster.
+
+> [!WARNING]  
+> * När klustret skapas måste du välja den plats som innehåller det virtuella nätverket.
+> * I delen __Avancerade inställningar__ i konfigurationen måste du välja det virtuella nätverk och undernät som du skapade tidigare.
 
 ## <a name="connecting-to-hdinsight"></a>Ansluta till HDInsight
 
-De flesta dokumentation om HDInsight förutsätter att du har åtkomst till klustret via internet. Till exempel att du kan ansluta till klustret i `https://CLUSTERNAME.azurehdinsight.net`. Den här adressen använder den offentliga gatewayen, som inte är tillgänglig om du har använt NSG: er eller udr: er för att begränsa åtkomst från internet.
+De flesta dokumentation i HDInsight förutsätter att du har åtkomst till klustret via Internet. Till exempel att du kan ansluta till klustret i `https://CLUSTERNAME.azurehdinsight.net`. Den här adressen använder den offentliga gatewayen, som inte är tillgänglig om du har använt NSG: er eller UDR för att begränsa åtkomsten från Internet.
 
-Viss dokumentation även hänvisar till `headnodehost` när du ansluter till klustret från en SSH-session. Den här adressen är endast tillgänglig från noder i ett kluster och kan inte användas på klienter som ansluter via det virtuella nätverket.
+Vissa dokumentations referenser `headnodehost` är också när du ansluter till klustret från en SSH-session. Den här adressen är bara tillgänglig från noder i ett kluster och kan inte användas på klienter som är anslutna via det virtuella nätverket.
 
-Om du vill ansluta direkt till HDInsight via det virtuella nätverket, Använd följande steg:
+Använd följande steg för att ansluta direkt till HDInsight via det virtuella nätverket:
 
-1. Använd någon av följande metoder för att identifiera interna fullständigt kvalificerade domännamnen för noderna i HDInsight:
+1. Använd någon av följande metoder för att identifiera de interna fullständigt kvalificerade domän namnen för HDInsight-klusternoderna:
 
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
@@ -325,19 +325,19 @@ Om du vill ansluta direkt till HDInsight via det virtuella nätverket, Använd f
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Information om den port som en tjänst är tillgänglig på finns i [portar som används av Apache Hadoop-tjänster på HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentet.
+2. Information om vilka portar som en tjänst är tillgänglig på finns i portarna som [används av Apache Hadoop Services i HDInsight](./hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
     > [!IMPORTANT]  
-    > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker få åtkomst till en tjänst på en huvudnod och misslyckas, växla till andra huvudnoden.
+    > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker komma åt en tjänst på en huvudnod och den Miss lyckas växlar du till den andra Head-noden.
     >
-    > Till exempel är Apache Ambari endast aktiv på en huvudnod i taget. Om du försöker komma åt Ambari på en huvudnod och den returnerar ett 404-fel, körs det på andra huvudnoden.
+    > Apache Ambari är till exempel bara aktiv på en head-nod i taget. Om du försöker komma åt Ambari på en head-nod och den returnerar ett 404-fel, körs den på den andra Head-noden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i [utöka HDInsight med hjälp av Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md).
+* Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i [Planera en virtuell nätverks distribution för Azure HDInsight-kluster](./hdinsight-plan-virtual-network-deployment.md).
 
-* Mer information om virtuella Azure-nätverk finns i den [översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
+* Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-* Mer information om nätverkssäkerhetsgrupper finns i [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
 
 * Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Entitet för kognitiv sökning färdigheter – Azure Search
-description: Extrahera olika typer av enheter från texten i en Azure Search kognitiv sökning pipeline.
+title: Enhets igenkänning kognitiv Sök kompetens – Azure Search
+description: Extrahera olika typer av entiteter från text i en Azure Search kognitiv Sök pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,67 +11,67 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ca3b953f84677c13908028af968d5a2bf28b57c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023448"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347746"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>Entiteten erkännande kognitiva kunskaper
+#    <a name="entity-recognition-cognitive-skill"></a>Kognitiv kunskap om entitets igenkänning
 
-Den **Entitetsidentifiering** färdighet extraherar entiteter av olika typer i texten. Kompetensen använder maskininlärningsmodeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
+Kunskapen om **enhets igenkänning** extraherar entiteter av olika typer från text. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, att lägga till fler dokument eller att lägga till fler AI-algoritmer, måste du [bifoga en fakturerbar resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md). Avgifter tillkommer när du anropar API: er i Cognitive Services och extrahering av avbildningen som en del av det dokumentknäckning steget i Azure Search. Det finns inga avgifter för textextrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av dokument-cracking-fasen i Azure Search. Det finns inga kostnader för text extrahering från dokument.
 >
-> Körningen av inbyggda färdigheter som ingår debiteras enligt den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Bild extrahering priser beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan Azure Search priser](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.EntityRecognitionSkill
+Microsoft. färdigheter. text. EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken enligt `String.Length`. Om du vill dela upp dina data innan de skickas till diskussionsämne extraktor kan du använda den [Text dela färdighet](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-parameters"></a>Färdighet parametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
-Parametrar är skiftlägeskänsliga och är valfria.
+Parametrar är Skift läges känsliga och alla är valfria.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategorityper: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Om ingen kategori anges, returneras alla typer.|
-|defaultLanguageCode |  Språkkod för den inmatade texten. Följande språk stöds: `de, en, es, fr, it`|
-|minimumPrecision | Oanvända. Reserverat för framtida användning. |
-|includeTypelessEntities | Värdet true om texten innehåller en välkänd entitet, men kan inte grupperas i en av kategorierna som stöds, den kommer att returneras som en del av den `"entities"` komplexa utdatafältet. 
-Det här är de enheter som är välkänt men inte har klassificerats som en del av de aktuella stöds ”kategorierna”. Till exempel ”Windows 10” är en välkänd entitet (en produkt), men ”produkter” är inte i kategorier som stöds i dag. Standardvärdet är `false` |
+| categories    | Matris med kategorier som ska extraheras.  Möjliga kategori typer: `"Person"` `"Location"` `"Organization"`, `"Quantity"` ,,`"Email"`,, ,.`"URL"` `"Datetime"` Om ingen kategori anges returneras alla typer.|
+|defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds:`de, en, es, fr, it`|
+|minimumPrecision | Outnyttja. Reserverad för framtida användning. |
+|includeTypelessEntities | När det är inställt på sant om texten innehåller en välkänd entitet, men inte kan kategoriseras i någon av de kategorier som stöds, returneras den som en `"entities"` del av det komplexa utmatnings fältet. 
+Detta är entiteter som är välkända men inte klassificerade som en del av de aktuella "kategorierna" som stöds. Till exempel "Windows 10" är en välkänd entitet (en produkt), men "produkter" finns inte i de kategorier som stöds idag. Standard är`false` |
 
 
-## <a name="skill-inputs"></a>Färdighet indata
+## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamnet      | Beskrivning                   |
+| Indatanamn      | Beskrivning                   |
 |---------------|-------------------------------|
 | languageCode  | Valfri. Standardvärdet är `"en"`.  |
 | text          | Texten att analysera.          |
 
-## <a name="skill-outputs"></a>Färdighet utdata
+## <a name="skill-outputs"></a>Kunskaps utmatningar
 
 > [!NOTE]
-> Inte alla entiteten kategorier har stöd för alla språk. Endast _en_, _es_ stöd för extrahering av `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` typer.
+> Alla enhets kategorier stöds inte för alla språk. Endast _en_, _es_ stöder extrahering av `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` typer.
 
 | Namn på utdata     | Beskrivning                   |
 |---------------|-------------------------------|
-| personer      | En matris med strängar där varje sträng representerar namnet på en person. |
-| locations  | En matris med strängar där varje sträng representerar en plats. |
-| organisationer  | En matris med strängar där varje sträng representerar en organisation. |
-| kvantiteter  | En matris med strängar där varje sträng representerar en kvantitet. |
-| dateTimes  | En matris med strängar där varje sträng representerar ett datetime-värde (som det visas i texten) värde. |
-| URL: er | En matris med strängar där varje sträng representerar en URL |
-| e-postmeddelanden | En matris med strängar där varje sträng representerar ett e-postmeddelande |
-| namedEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>värde (faktiska entitetsnamnet)</li><li>förskjutning (plats där det hittades i texten)</li><li>förtroende (används inte för tillfället. Anges till värdet -1)</li></ul> |
-| Entiteter | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> (det faktiska entitet namn. Detta motsvarar ett ”normaliserade” formulär)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sida för entiteten)</li><li>bingId</li><li>typ (kategorin för den entitet som känns igen)</li><li>Undertyp (tillgänglig endast för särskilda kategorier, detta ger en mer detaljerad vy av entitetstypen)</li><li> matchar (en komplex samling som innehåller)<ul><li>text (rå text för entiteten)</li><li>förskjutning (plats där det hittades)</li><li>längden (längden på texten raw entitet)</li></ul></li></ul> |
+| ansvariga      | En sträng mat ris där varje sträng representerar namnet på en person. |
+| locations  | En sträng mat ris där varje sträng representerar en plats. |
+| organisationer  | En sträng mat ris där varje sträng representerar en organisation. |
+| outnyttja  | En sträng mat ris där varje sträng representerar en kvantitet. |
+| dateTimes  | En sträng mat ris där varje sträng representerar ett DateTime-värde (som det visas i texten). |
+| er | En sträng mat ris där varje sträng representerar en URL |
+| e-postmeddelanden | En sträng mat ris där varje sträng representerar ett e-postmeddelande |
+| namedEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>värde (namnet på den faktiska entiteten)</li><li>offset (platsen där den hittades i texten)</li><li>förtroende (används inte för tillfället. Anges till värdet-1)</li></ul> |
+| entiteter | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> namn (namnet på den faktiska entiteten. Detta representerar en "normaliserad" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sidan för entiteten)</li><li>bingId</li><li>typ (den enhets kategori som identifieras)</li><li>Undertyp (endast tillgängligt för vissa kategorier, detta ger en mer detaljerad vy av entitetstypen)</li><li> matchningar (en komplex samling som innehåller)<ul><li>text (den råa texten för entiteten)</li><li>förskjutning (platsen där den hittades)</li><li>längd (längden på texten i den obearbetade entiteten)</li></ul></li></ul> |
 
-##  <a name="sample-definition"></a>Exempeldefinition
+##  <a name="sample-definition"></a>Exempel definition
 
 ```json
   {
@@ -100,7 +100,7 @@ Det här är de enheter som är välkänt men inte har klassificerats som en del
     ]
   }
 ```
-##  <a name="sample-input"></a>Exempelindata
+##  <a name="sample-input"></a>Exempel på inmatade
 
 ```json
 {
@@ -191,10 +191,10 @@ Det här är de enheter som är välkänt men inte har klassificerats som en del
 ```
 
 
-## <a name="error-cases"></a>Felhändelser
-Om språkkod för dokumentet inte stöds, returneras ett fel och inga entiteter extraheras.
+## <a name="error-cases"></a>Fel fall
+Om språk koden för dokumentet inte stöds returneras ett fel och inga entiteter extraheras.
 
 ## <a name="see-also"></a>Se också
 
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
-+ [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

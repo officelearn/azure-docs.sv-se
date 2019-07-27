@@ -1,7 +1,7 @@
 ---
-title: Måttlig bilder med API-konsolen – Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Använd Image Moderering API i Azure Content Moderator för att initiera genomsökning och granska moderering arbetsflöden för innehållet.
+title: Måttliga bilder med API-konsolen – Content Moderator
+titleSuffix: Azure Cognitive Services
+description: 'Använd avbildnings redigerings-API: et i Azure Content Moderator för att initiera arbets flöden för genomsökning och gransknings redigering för bild innehåll.'
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,96 +10,96 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 20353d488cba255925d21017b77d1def2d06b30b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607484"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561250"
 ---
-# <a name="moderate-images-from-the-api-console"></a>Måttlig bilder från API-konsol
+# <a name="moderate-images-from-the-api-console"></a>Måttliga bilder från API-konsolen
 
-Använd den [Image Moderering API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) i Azure Content Moderator för att initiera genomsökning och granska moderering arbetsflöden för innehållet. Moderering av jobbet söker igenom innehållet med avseende på svordomar och jämför den med anpassade och delade svartlistor.
+Använd [avbildnings redigerings-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) i Azure Content moderator för att initiera arbets flöden för genomsökning och gransknings redigering för bild innehåll. I redigerings jobbet genomsöks innehållet efter svordomar och jämförs med anpassade och delade Black lister.
 
-## <a name="use-the-api-console"></a>Använd API-konsol
-Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [Översikt](overview.md).
+## <a name="use-the-api-console"></a>Använda API-konsolen
+Innan du kan testa API: et i online-konsolen behöver du din prenumerations nyckel. Detta finns på fliken **Inställningar** i rutan **OCP-APIM-Subscription-Key** . Mer information finns i [Översikt](overview.md).
 
-1. Gå till [Bildmoderering API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Gå till [bild moderator API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-   Den **bild – utvärdera** bild moderering sida öppnas.
+   Sidan **bild-utvärdera** avbildnings kontroll öppnas.
 
-2. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
+2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-   ![Försök bild – utvärdera val av region](images/test-drive-region.png)
+   ![Prova avbildning – utvärdera sid regions val](images/test-drive-region.png)
   
-   Den **bild – utvärdera** API-konsolen öppnas.
+   API **-** konsolen för avbildnings utvärdering öppnas.
 
-3. I den **Ocp-Apim-Subscription-Key** anger din prenumerationsnyckel.
+3. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
 
-   ![Försök bild – utvärdera konsolen prenumerationsnyckel](images/try-image-api-1.PNG)
+   ![Prova avbildning – utvärdera prenumerations nyckel för konsol](images/try-image-api-1.PNG)
 
-4. I den **Begärandetext** rutan, Använd exemplet standardavbildningen eller ange en avbildning för att söka. Du kan skicka bilden som binary bit data, eller ange en offentligt tillgänglig URL för en bild. 
+4. I rutan **begär ande innehåll** använder du standard exempel bilden eller anger en bild som ska genomsökas. Du kan skicka själva avbildningen som binära bit data eller ange en offentligt tillgänglig URL för en avbildning. 
 
-   Det här exemplet använder den sökväg som angavs i den **Begärandetext** och väljer sedan **skicka**. 
+   I det här exemplet använder du den sökväg som anges i rutan **begär text** och väljer sedan **Skicka**. 
 
-   ![Försök bild – utvärdera konsolen begärandetexten](images/try-image-api-2.PNG)
+   ![Prova avbildning – utvärdera begär ande text för konsolen](images/try-image-api-2.PNG)
 
-   Det här är bilden på URL: en:
+   Det här är bilden på den URL: en:
 
-   ![Försök bild – utvärdera Exempelbild för konsolen](images/sample-image.jpg) 
+   ![Prova avbildning – utvärdera konsol exempel bild](images/sample-image.jpg) 
 
 5. Välj **Skicka**.
 
-6. API: et returnerar en sannolikhetspoäng för varje klassificering. Returnerar en bestämning av om avbildningen uppfyller villkor som (**SANT** eller **FALSKT**). 
+6. API: et returnerar ett sannolikhets Poäng för varje klassificering. Den returnerar också en bestämning av om bilden uppfyller villkoren (**Sant** eller **falskt**). 
 
-   ![Försök bild – utvärdera konsolen sannolikhetspoäng för villkor har gjorts](images/try-image-api-3.PNG)
+   ![Prova avbildning – utvärdera sannolikhets Poäng för konsol och villkors bestämning](images/try-image-api-3.PNG)
 
-## <a name="face-detection"></a>Ansiktsspårning
+## <a name="face-detection"></a>Ansiktsavkänning
 
-Du kan använda Image Moderering API för att hitta ansikten i en bild. Det här alternativet kan vara användbart när du har sekretessen och vill förhindra att ett visst ansikte publiceras på din plattform. 
+Du kan använda bild redigerings-API: et för att hitta ansikten i en bild. Det här alternativet kan vara användbart när du har sekretess frågor och vill förhindra att en speciell ansikte publiceras på din plattform. 
 
-1. I den [Bildmoderering API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), i den vänstra menyn under **bild**väljer **hitta ansikten**. 
+1. I referens-API-referensen för [bild redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), i den vänstra menyn, under **bild**, väljer du **hitta ansikten**. 
 
-   Den **bild - hitta ansikten** öppnas.
+   Sidan **bilder – hitta ansikten** öppnas.
 
-2. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
+2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-   ![Försök bild – hitta ansikten sidan val](images/test-drive-region.png)
+   ![Prova bild-hitta ansikten sidan region val](images/test-drive-region.png)
 
-   Den **bild - hitta ansikten** API-konsolen öppnas.
+   API **-konsolen bild-hitta ansikten** öppnas.
 
-3. Ange en bild att skanna. Du kan skicka bilden som binary bit data, eller ange en offentligt tillgänglig URL till en bild. Det här exemplet innehåller länkar till en avbildning som används i en CNN-historia.
+3. Ange en bild som ska genomsökas. Du kan skicka själva avbildningen som binära bit data eller ange en offentligt tillgänglig URL till en bild. Det här exemplet länkar till en bild som används i en CNN berättelse.
 
-   ![Försök bild – hitta ansikten exempelbild](images/try-image-api-face-image.jpg)
+   ![Prova bild-hitta ansikten exempel bild](images/try-image-api-face-image.jpg)
 
-   ![Försök bild – hitta ansikten exempelbegäran](images/try-image-api-face-request.png)
+   ![Prova en bild – hitta ansikten exempel begär Anden](images/try-image-api-face-request.png)
 
-4. Välj **Skicka**. API: et i det här exemplet hittar två ansikten och returnerar deras koordinater i avbildningen.
+4. Välj **Skicka**. I det här exemplet hittar API: t två ansikten och returnerar deras koordinater i bilden.
 
-   ![Försök bild – hitta ansikten exempel svar innehållsrutan](images/try-image-api-face-response.png)
+   ![Prova rutan för att hitta ansikten exempel svar innehåll](images/try-image-api-face-response.png)
 
-## <a name="text-detection-via-ocr-capability"></a>Text identifiering via funktionen för OCR
+## <a name="text-detection-via-ocr-capability"></a>Text identifiering via OCR-kapacitet
 
-Du kan använda funktionen för Content Moderator OCR för att identifiera text i bilder.
+Du kan använda den Content Moderator OCR-funktionen för att identifiera text i bilder.
 
-1. I den [Bildmoderering API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), i den vänstra menyn under **bild**väljer **OCR**. 
+1. I referens-API-referensen för [bild redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), i den vänstra menyn, under **bild**, väljer du **OCR**. 
 
-   Den **bild - OCR** öppnas.
+   Sidan **bild-OCR** öppnas.
 
-2. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
+2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-   ![Bild - OCR sidan val](images/test-drive-region.png)
+   ![Bild – val av sid region för OCR](images/test-drive-region.png)
 
-   Den **bild - OCR** API-konsolen öppnas.
+   API **-konsolen avbildning – OCR** öppnas.
 
-3. I den **Ocp-Apim-Subscription-Key** anger din prenumerationsnyckel.
+3. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
 
-4. I den **Begärandetext** använder exemplet standardavbildningen. Det här är samma avbildning som används i föregående avsnitt.
+4. I rutan **begär ande innehåll** använder du standard exempel bilden. Detta är samma bild som används i föregående avsnitt.
 
-5. Välj **Skicka**. Extrahera texten visas i JSON:
+5. Välj **Skicka**. Den extraherade texten visas i JSON:
 
-   ![Bild - exemplet OCR svar innehållsrutan](images/try-image-api-ocr.PNG)
+   ![Bild – innehålls rutan OCR-exempel svar](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använda REST-API i koden eller börja med den [bildmoderering .NET Snabbstart](image-moderation-quickstart-dotnet.md) att integrera med ditt program.
+Använd REST API i din kod eller börja med [bild redigerings programmet .net snabb start](image-moderation-quickstart-dotnet.md) för att integrera med ditt program.

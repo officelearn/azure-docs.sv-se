@@ -1,6 +1,6 @@
 ---
-title: API-HTTP-svarskoder
-titleSuffix: Azure
+title: API HTTP-svars koder – LUIS
+titleSuffix: Azure Cognitive Services
 description: 'Förstå vilka HTTP-svarskoder returneras från LUIS redigerings- och slutpunkt-API: er'
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c92bcf55b571c37efa308d9121ee4aee714e684a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522974"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560079"
 ---
-# <a name="common-api-response-codes-and-their-meaning"></a>Vanliga API-svarskoder och deras innebörd
+# <a name="common-api-response-codes-and-their-meaning"></a>Vanliga API-svars koder och deras innebörd
 
 Den [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) och [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API: er returnera HTTP-svarskoder. Svarsmeddelanden innehåller information som är specifika för en begäran, är HTTP-svarsstatuskod allmän. 
 
@@ -42,4 +42,4 @@ I följande tabell visas några av de vanligaste svar för HTTP-statuskoder för
 
 ## <a name="next-steps"></a>Nästa steg
 
-* REST API [redigering](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) och [endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) dokumentation
+* REST API [redigering](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) och [slut punkts](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) dokumentation

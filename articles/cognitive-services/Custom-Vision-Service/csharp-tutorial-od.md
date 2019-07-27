@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för C#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och identifiera objekt med .NET SDK med C#.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 63f5853199e3ee266df298b9599c2933b7da0826
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a21c535597110b8dac823888ec2a8e689a9c57e8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606926"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561156"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision. NET SDK
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller information och exempelkod som hjälper dig att ko
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Hämta Custom Vision-SDK:n och exempelkoden
 
-Om du vill skriva ett .NET-program som använder Custom Vision behöver du Custom Vision NuGet-paket. Dessa paket som ingår i exempelprojektet laddar du ned, men du kan komma åt dem individuellt här.
+Om du vill skriva ett .NET-program som använder Custom Vision behöver du Custom Vision NuGet-paket. De här paketen ingår i det exempel projekt som du kommer att hämta, men du kan komma åt dem separat här.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -44,7 +44,7 @@ Det här Visual Studio-projektet skapar ett nytt Custom Vision-projekt med namne
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
 
-Slutpunktsparametern bör peka på den region där den Azure-resursgrupp som innehåller Custom Vision-resurserna skapades. I det här exemplet Vi förutsätter regionen södra centrala USA och använder:
+Slutpunktsparametern bör peka på den region där den Azure-resursgrupp som innehåller Custom Vision-resurserna skapades. I det här exemplet antar vi regionen Södra centrala USA och använder:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
@@ -78,7 +78,7 @@ Koden skapar den första träningsiterationen i projektet.
 
 ### <a name="publish-the-current-iteration"></a>Publicera den aktuella iterationen
 
-Namnet på den publicerade iterationen kan användas för att skicka förfrågningar för förutsägelse. En iteration är inte tillgänglig i förutsägelse slutpunkten tills den har publicerats.
+Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
 ```csharp
 // The iteration is now trained. Publish it to the prediction end point.

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Anpassade röst första virtuella assistenter (förhandsversion), Java (Windows, Linux) – Speech Services'
+title: 'Snabbstart: Anpassad röst – första virtuella assistenten (för hands version), Java (Windows, Linux) – tal service'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten får du lära dig hur du använder den Cognitive Services tal Software Development Kit (SDK) i ett Java-konsolprogram. Du får lära dig hur du kan ansluta ditt klientprogram till en tidigare skapad Bot Framework-robot som konfigurerats att använda Direct Line tal kanalen och aktivera en röst-första virtuella assistenter upplevelse.
+description: I den här snabb starten får du lära dig hur du använder Cognitive Services Speech Software Development Kit (SDK) i ett Java-konsolprogram. Du får lära dig hur du kan ansluta klient programmet till en tidigare skapad bot Framework-robot som kon figurer ATS för att använda den direkta rad igenkännings kanalen och aktivera en röst-och första funktion.
 services: cognitive-services
 author: bidishac
 manager: nitinme
@@ -10,51 +10,51 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 78e80b276a13ee6e27fdf0515f2901fdeaa20c5d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604914"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553259"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Snabbstart: Skapa en röst-första virtuella assistenter med Speech-SDK för Java
+# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Snabbstart: Skapa en röst-första virtuell assistent med talet SDK, Java
 
-Snabbstarter kan också användas för [tal till text](quickstart-java-jre.md) och [talöversättning](quickstart-translate-speech-java-jre.md).
+Snabb Starter är också tillgängliga för [tal-till-text](quickstart-java-jre.md) och [tal översättning](quickstart-translate-speech-java-jre.md).
 
-I den här artikeln skapar du ett Java-konsolprogram med hjälp av den [Cognitive Services tal SDK](speech-sdk.md). Programmet ansluter till en tidigare skapade robot som konfigurerats för att använda tal för Direct Line-kanal, skicka en förfrågan om röst och returnera en röst svar aktivitet (om konfigurerad). Programmet har byggts med tal SDK Maven-paketet och Java Eclipse IDE på Windows, Ubuntu Linux eller macOS. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+I den här artikeln skapar du ett Java-konsolprogram med hjälp av [Cognitive Services Speech SDK](speech-sdk.md). Programmet ansluter till en tidigare skapad robot som kon figurer ATS för att använda den direkta rad igenkännings kanalen, skicka en röst förfrågan och returnera en aktivitet för röst svar (om den har kon figurer ATS). Programmet har skapats med maven-paketet för tal-SDK och Sol förmörkelse Java IDE på Windows, Ubuntu Linux eller macOS. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
-* Operativsystem: Windows (64-bitars), Ubuntu Linux 16.04/18.04 (64-bitars) och macOS 10.13 eller senare
+* Operativsystem: Windows (64-bitars), Ubuntu Linux 16.04/18.04 (64-bitars) eller macOS 10,13 eller senare
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* En Azure-prenumeration-nyckel för Speech Services. [Skaffa ett kostnadsfritt](get-started.md) eller skapa den på den [Azure-portalen](https://portal.azure.com).
-* En förkonfigurerad robot som skapats med Bot Framework version 4.2 eller senare. Roboten måste prenumerera på den nya ”Direct Line tal”-kanalen för att ta emot röst indata.
+* En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
+* En förkonfigurerad robot som skapats med bot Framework version 4,2 eller senare. Roboten skulle behöva prenumerera på den nya kanalen "direkt line Speech" för att ta emot röst inmatningar.
 
     > [!NOTE]
-    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#Voice-first virtual assistants) och se till att resurserna distribueras i någon av dessa regioner.
+    > Direkt linje tal (för hands version) är för närvarande tillgängligt i en delmängd av tal Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#Voice-first virtual assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
-Om du kör Ubuntu 16.04/18.04, kontrollera att dessa beroenden är installerade innan du startar Eclipse:
+Om du kör Ubuntu 16.04/18.04 kontrollerar du att dessa beroenden är installerade innan du startar Sol förmörkelse:
 
 ```console
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-Om du kör Windows (64-bitars), kan du kontrollera att du har installerat Microsoft Visual C++ Redistributable för din plattform:
+Om du kör Windows (64-bitars) bör du kontrol lera att du har installerat Microsoft C++ Visual Redistributable för din plattform:
 * [Ladda ned Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="optional-get-started-fast"></a>Valfritt: Kom igång snabbt
 
-Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram att ansluta till din talbaserade robot. Om du vill sätta igång direkt i, fullständiga och redo att kompilera källkoden används i den här snabbstarten finns i den [tal SDK-prov](https://aka.ms/csspeech/samples) under den `quickstart` mapp.
+I den här snabb starten beskrivs steg för steg hur du gör ett enkelt klient program att ansluta till din tal-aktiverade bot. Om du föredrar att använda den fullständiga käll koden för färdig att kompilera som används i den här snabb starten finns den i exemplen för [tal-SDK](https://aka.ms/csspeech/samples) under `quickstart` mappen.
 
 ## <a name="create-and-configure-project"></a>Skapa och konfigurera projektet
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att inkludera följande beroende.
+Du kan också aktivera loggning genom att uppdatera filen **Pom. XML** så att den innehåller följande beroende.
 
    ```xml
     <dependency>
@@ -72,7 +72,7 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
 
    ![Skärmbild av fönstret New Java Class (Ny Java-klass)](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Öppna den nyligen skapade **Main** klassen och Ersätt innehållet i den `Main.java` filen med följande från kod.
+1. Öppna den nyligen skapade **huvud** klassen och ersätt innehållet i `Main.java` filen med följande start kod.
 
     ```java
     package speechsdk.quickstart;
@@ -139,14 +139,14 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
     }
     ```
 
-1. I den **huvudsakliga** metod, ska du först konfigurera din `DialogServiceConfig` och använda den för att skapa en `DialogServiceConnector` instans. Detta kommer att ansluta till den direktlinje tal kanalen för att interagera med din robot. En `AudioConfig` instans används också för att ange källan för ljudinspelning. I det här exemplet används standard-mikrofon med `AudioConfig.fromDefaultMicrophoneInput()`.
+1. I **main** -metoden ska du först konfigurera `DialogServiceConfig` och använda den för att skapa en `DialogServiceConnector` instans. Detta kommer att ansluta till den direkta linjens tal kanal för att interagera med din robot. En `AudioConfig` instans används också för att ange källan för ljud inspelning. I det här exemplet används standard mikrofonen med `AudioConfig.fromDefaultMicrophoneInput()`.
 
-    * Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel som du kan hämta från [här](get-started.md).
-    * Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med prenumerationen.
-    * Ersätt strängen `YourChannelSecret` med din direktlinje tal kanal hemlighet.
+    * Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel, som du kan hämta härifrån [.](get-started.md)
+    * Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration.
+    * Ersätt strängen `YourChannelSecret` med din direkta rad tal kanal hemlighet.
 
     > [!NOTE]
-    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att resurserna distribueras i någon av dessa regioner.
+    > Direkt linje tal (för hands version) är för närvarande tillgängligt i en delmängd av tal Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
@@ -161,7 +161,7 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
     final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `DialogServiceConnector` förlitar sig på flera händelser att kommunicera aktiviteterna bot, tal resultat och annan information. Lägga till dessa event lyssnare härnäst.
+1. `DialogServiceConnector`förlitar sig på flera händelser för att kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information. Lägg till dessa händelse lyssnare härnäst.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
@@ -200,7 +200,7 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
         });
     ```
 
-1. Anslut den `DialogServiceConnector` till Direct Line tal genom att aktivera den `connectAsync()` metoden. Om du vill testa din robot, kan du anropa den `listenOnceAsync` metod för att skicka in ljud från mikrofonen. Dessutom kan du kan också använda den `sendActivityAsync` metod för att skicka en anpassad aktivitet som en serialiserad sträng. Dessa anpassade aktiviteter kan ge ytterligare data som din robot ska använda i konversationen.
+1. Anslut till `DialogServiceConnector` det direkta rad talet genom att `connectAsync()` anropa metoden. Om du vill testa din robot kan du anropa `listenOnceAsync` -metoden för att skicka ljud inspelning från mikrofonen. Dessutom kan du också använda `sendActivityAsync` metoden för att skicka en anpassad aktivitet som en serialiserad sträng. Dessa anpassade aktiviteter kan ge ytterligare data som din robot kommer att använda i konversationen.
 
     ```java
     connector.connectAsync();
@@ -211,13 +211,13 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
     // connector.sendActivityAsync(...)
     ```
 
-1. Vill du spara ändringarna i `Main` fil.
+1. Spara ändringarna i `Main` filen.
 
-1. För att stödja svaret uppspelning du lägger till en extra klass som transformerar PullAudioOutputStream-objektet som returnerades från getAudio() API till en java InputStream för att underlätta hanteringen. Den här ActivityAudioStream är en särskild klass som hanterar ljud svar från ”tal för Direct Line-kanal”. Den tillhandahåller behöriga personer för att hämta ljudformatet information som krävs för att hantera uppspelning: För att välja **filen** > **New** > **klass**.
+1. Om du vill ha stöd för uppspelning av svar lägger du till en ytterligare klass som transformerar PullAudioOutputStream-objektet som returneras från getAudio () API till ett Java-InputStream för enkel hantering. Den här ActivityAudioStream är en specialiserad klass som hanterar ljud svar från "direkt linjens tal kanal". Den ger till gång till information som krävs för att hämta ljud format för uppspelning: För den här**klassen**väljer du**ny** >  **fil** > .
 
-1. I den **ny Java-klass** fönstret, ange **speechsdk.quickstart** till den **paketet** fält, och **ActivityAudioStream** till  **Namn på** fält.
+1. I fönstret **ny Java-klass** anger du **speechsdk. snabb start** i **paket** fältet och **ActivityAudioStream** i fältet **namn** .
 
-1. Öppna den nyligen skapade **ActivityAudioStream** klassen och Ersätt med koden nedan.
+1. Öppna den nyligen skapade **ActivityAudioStream** -klassen och Ersätt med den kod som anges nedan.
 
     ```java
     package com.speechsdk.quickstart;
@@ -459,12 +459,12 @@ Dessutom för att aktivera loggning, uppdatera den **pom.xml** filen för att in
 
     ```
 
-1. Vill du spara ändringarna i `ActivityAudioStream` fil.
+1. Spara ändringarna i `ActivityAudioStream` filen.
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
 Tryck på F11 eller välj **Kör** > **Felsök**.
-Konsolen visar ett meddelande ”säger något” nu, kan du talar ett engelska fras eller en mening som dina robotar kan förstå. Ditt tal kommer att överföras till din robot via tal för Direct Line-kanalen där det tolkas, bearbetas av dina robotar och svaret returneras som en aktivitet. Om din robot returnerar tal som svar, ljudet ska spelas tillbaka med hjälp av den `AudioPlayer` klass.
+I-konsolen visas ett meddelande om att "säga något" i det här läget, du kan tala om en engelsk fras eller mening som din robot kommer att förstå. Ditt tal skickas till din robot via direkt linjens tal kanal där den kommer att identifieras, bearbetas av din robot och svaret returneras som en aktivitet. Om din robot returnerar tal som svar kommer ljudet att spelas upp med hjälp av `AudioPlayer` -klassen.
 
 ![Skärmbild av konsolutdata efter lyckad taligenkänning](media/sdk/qs-java-jre-08-console-output.png)
 
@@ -473,12 +473,12 @@ Konsolen visar ett meddelande ”säger något” nu, kan du talar ett engelska 
 Ytterligare exempel, till exempel hur man läser tal från en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
-> [Skapa och distribuera en grundläggande bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+> [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Se också
 
-- [Om röst första virtuella assistenter](voice-first-virtual-assistants.md)
-- [Skaffa en prenumerationsnyckel för Speech Services utan kostnad](get-started.md)
-- [Anpassad aktivering ord](speech-devices-sdk-create-kws.md)
-- [Anslut direkt rad tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Om röst-första virtuella assistenter](voice-first-virtual-assistants.md)
+- [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+- [Anpassade Väcknings ord](speech-devices-sdk-create-kws.md)
+- [Anslut direkt linje tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)

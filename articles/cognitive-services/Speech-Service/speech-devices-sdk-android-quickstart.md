@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Kör tal enheter SDK på Android – Speech Services'
+title: 'Snabbstart: Kör tal enheter SDK på Android-Speech service'
 titleSuffix: Azure Cognitive Services
-description: Krav och anvisningar för att komma igång med en Android-enheter SDK-versionen för tal.
+description: Krav och anvisningar för att komma igång med Android-tal enheter SDK.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,36 +10,36 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7eea978456ed565f8fc58647dc548d1a7bc76b27
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f7039b525cf0d52670b8d76a24d8ec3ea5115772
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606371"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559109"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Snabbstart: Kör exempelappen tal Devices SDK på Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Snabbstart: Kör exempel programmet för tal enheter SDK på Android
 
-I den här snabbstarten får du lära dig hur du använder tal enheter SDK för Android för att bygga en talbaserade produkt eller använda det som en [konversationen avskrift](conversation-transcription-service.md) enhet.
+I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en avskrifts enhet för [konversation](conversation-transcription-service.md) .
 
-Den här guiden kräver en [Azure Cognitive Services](get-started.md) konto med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
+Den här guiden kräver ett [Azure Cognitive Services](get-started.md) -konto med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 Källkoden för exempelprogrammet som ingår i SDK: N för tal-enheter. Det är också [finns på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar använda SDK: N för tal enheter, måste du:
+Innan du börjar använda tal enheter SDK måste du:
 
-* Följ instruktionerna som medföljer din [development kit](get-speech-devices-sdk.md) att starta enheten.
+* Följ instruktionerna som medföljer ditt [utvecklings paket](get-speech-devices-sdk.md) för att starta enheten.
 
-* Ladda ned den senaste versionen av den [tal Devices SDK](https://aka.ms/sdsdk-download), och extrahera ZIP till din arbetskatalog.
+* Hämta den senaste versionen av [tal enheter SDK](https://aka.ms/sdsdk-download)och extrahera zip-filen till din arbets katalog.
    > [!NOTE]
-   > Android-exempel – Release.zip-filen innehåller Android-exempelappen och den här snabbstarten förutsätter att appen ska extraheras till C:\SDSDK\Android-Sample-Release
+   > Filen Android-Sample-Release. zip innehåller appen Android-exempel och den här snabb starten förutsätter att appen extraheras till C:\SDSDK\Android-Sample-Release
 
-* Att hämta en [prenumerationsnyckel för Azure för Speech Services](get-started.md)
+* Så här hämtar du en [Azure-prenumerations nyckel för tal tjänster](get-started.md)
 
-* Om du planerar att använda konversationen avskrift måste du använda en [cirkulär mikrofon enheten](get-speech-devices-sdk.md) och den här funktionen är för närvarande endast tillgänglig för ”en-US” och ”zh-CN” i regioner, ”centralus” och ”asienöstra”. Du måste ha en tal-nyckel i någon av dessa regioner för att använda konversationen avskrift.
+* Om du planerar att använda svars avskriften måste du använda en [cirkulär mikrofon enhet](get-speech-devices-sdk.md) och den här funktionen är för närvarande endast tillgänglig för "en-US" och "zh-cn" i regionerna, "Central" och "asienöstra". Du måste ha en tal nyckel i någon av dessa regioner för att kunna använda konversations avskrifter.
 
-* Om du planerar att använda Speech Services för att identifiera avsikter (eller åtgärder) från användaren yttranden, behöver du en [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) prenumeration. Läs mer om LUIS- och taligenkänning i [känna igen tal avsikter med LUIS kan C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+* Om du planerar att använda tal tjänsterna för att identifiera avsikter (eller åtgärder) från användarens yttranden behöver du en [Luis-prenumeration (Language Understanding service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Mer information om LUIS och avsikts igenkänning finns i [känna igen tal C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)insikter med Luis.
 
     Du kan [skapa en enkel LUIS-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller Använd exemplet LUIS-modell, LUIS-example.json. Exemplet LUIS-modellen är tillgänglig från den [tal Devices SDK hämtningsplats](https://aka.ms/sdsdk-luis). Ladda upp din modell JSON-filen till den [LUIS portal](https://www.luis.ai/home)väljer **importera ny app**, och välj sedan JSON-filen.
 
@@ -72,7 +72,7 @@ Innan du börjar använda SDK: N för tal enheter, måste du:
 
 ## <a name="run-the-sample-application"></a>Köra exempelprogrammet
 
-Om du vill verifiera din development kit-konfiguration, skapa och installera exempelprogrammet:
+Om du vill verifiera installationen av Development Kit, skapa och installera exempel programmet:
 
 1. Starta Android Studio.
 
@@ -82,9 +82,9 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
 
 1. Gå till C:\SDSDK\Android-Sample-Release\example. Välj **OK** att öppna exempelprojektet.
 
-1. Lägga till din prenumerationsnyckel för tal i källkoden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
+1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
 
-   Din information hamnar i MainActivity.java för tal och LUIS:
+   För tal-och LUIS går din information till MainActivity. java:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Om du använder konversationen avskrift krävs också informationen om tal nyckel och region i conversation.java:
+    Om du använder en konversations avskrift krävs även din information om din röst nyckel och region i konversationen. java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -107,10 +107,10 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
    > [!TIP]
    > Du kan också [skapa en anpassad aktivering word](speech-devices-sdk-create-kws.md).
 
-    För att använda ett nytt wake ord, uppdaterar du följande två rader i `MainActivity.java`, och kopiera wake word paketet till din app. Till exempel för att använda wake ordet ”Machine” från wake word paketet kws-machine.zip:
+    Om du vill använda ett nytt aktiverings ord uppdaterar du följande två `MainActivity.java`rader i och kopierar Väcknings ord paketet till din app. Om du till exempel vill använda Väcknings ordet "dator" från Väcknings ord paketet KWS-Machine. zip:
 
-   * Kopiera wake word paketet till mappen ”C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
-   * Uppdatera den `MainActivity.java` med nyckelordet och paketets namn:
+   * Kopiera Väcknings ord paketet till mappen "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   * `MainActivity.java` Uppdatera med nyckelordet och paket namnet:
 
      ```java
      private static final String Keyword = "Machine";
@@ -124,7 +124,7 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
    private static final String SelectedGeometry = "Circular6+1";
    ```
 
-   Den här tabellen innehåller värden som stöds:
+   I den här tabellen visas de värden som stöds:
 
    |Variabel|Betydelse|Tillgängliga värden|
    |--------|-------|----------------|
@@ -145,24 +145,24 @@ Om du vill verifiera din development kit-konfiguration, skapa och installera exe
 
    ![Exempelprogrammet tal Devices SDK exempel och alternativ](media/speech-devices-sdk/qsg-8.png)
 
-1. Prova nya konversationen avskrift demonstrationen. Börja skriva med Startsession. Som standard är alla gäst. Men om du har deltagarens röst signaturer de kan placeras i en fil `/video/participants.properties` på enheten. Om du vill skapa signaturen som röst, titta på [transkribera konversationer (SDK)](how-to-use-conversation-transcription-service.md).
+1. Prova den nya demonstrationen av konversations avskrift. Börja skriva med "Starta session". Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `/video/participants.properties` på enheten. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](how-to-use-conversation-transcription-service.md).
 
-   ![Konversationen avskrift demoprogram](media/speech-devices-sdk/qsg-15.png)
+   ![Avskrifts program för demo konversation](media/speech-devices-sdk/qsg-15.png)
 
 1. Experiment!
 
 ## <a name="troubleshooting"></a>Felsökning
 
-   Om du inte kan ansluta till tal-enheten. Skriv följande kommando i Kommandotolken. Den returnerar en lista över enheter:
+   Om du inte kan ansluta till tal enheten. Skriv följande kommando i kommando tolkens fönster. Den kommer att returnera en lista över enheter:
 
    ```powershell
     adb devices
    ```
 
    > [!NOTE]
-   > Detta kommando använder Android Debug-bryggan, `adb.exe`, vilket är en del av Android Studio-installationen. Det här verktyget finns i C:\Users\[användarnamn] \AppData\Local\Android\Sdk\platform-verktyg. Du kan lägga till den här katalogen till sökvägen att göra det mer praktiskt att anropa `adb`. Annars måste du ange den fullständiga sökvägen för din installation av adb.exe i alla kommandon som anropar `adb`.
+   > Det här kommandot använder Android fel söknings `adb.exe`bryggan, som är en del av den Android Studio installationen. Det här verktyget finns i C:\Users\[användarnamn] \AppData\Local\Android\Sdk\platform-verktyg. Du kan lägga till den här katalogen till sökvägen att göra det mer praktiskt att anropa `adb`. Annars måste du ange den fullständiga sökvägen för din installation av adb.exe i alla kommandon som anropar `adb`.
    >
-   > Om du ser ett fel `no devices/emulators found` och sedan kontrollera USB-kabeln är ansluten och se till att en högkvalitativ kabel används.
+   > Om du ser ett fel `no devices/emulators found` kan du kontrol lera att USB-kabeln är ansluten och se till att en hög kvalitets kabel används.
    >
 
 ## <a name="next-steps"></a>Nästa steg

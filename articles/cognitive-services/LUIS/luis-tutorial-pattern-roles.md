@@ -1,7 +1,7 @@
 ---
-title: Mönsterroller
+title: Mönster roller – LUIS
 titleSuffix: Azure Cognitive Services
-description: Mönster extrahera data från välutformat mall yttranden. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
+description: Mönster extraherar data från välformaterad mall yttranden. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: c0e3ac1d53cda2afb2184b92b0fd0afd662101bb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7586a81eac95a2e4a08b045b3a2826132d9919f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277506"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560027"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Självstudier: Extrahera sammanhangsmässigt relaterade mönster med hjälp av roller
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Självstudier: Extrahera sammanhangsbaserade relaterade mönster med hjälp av roller
 
-I den här självstudien använder du ett mönster för att extrahera data från ett välformaterat mallyttrande. Uttryck för mallen använder en [enkel enhet](luis-concept-entity-types.md#simple-entity) och [roller](luis-concept-roles.md) att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.  När du använder mönster behövs färre exempelyttranden för avsikten.
+I den här självstudien använder du ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallen uttryck använder en [enkel entitet](luis-concept-entity-types.md#simple-entity) och [roller](luis-concept-roles.md) för att extrahera relaterade data, till exempel ursprungs plats och målplats.  När du använder mönster behövs färre exempelyttranden för avsikten.
 
 
 **I den här självstudiekursen får du lära du dig att:**
@@ -40,7 +40,7 @@ I den här självstudien använder du ett mönster för att extrahera data från
 
 ## <a name="using-roles-in-patterns"></a>Med roller i mönster
 
-Syftet med roller är att extrahera sammanhangsmässigt relaterade entiteter i ett uttryck. I yttrandet `Move new employee Robert Williams from Sacramento and San Francisco`, är ursprungsstadens och destinationsstadens värden relaterade till varandra och använder vanliga språk för att ange varje plats. 
+Syftet med roller är att extrahera sammanhangsbaserade relaterade entiteter i en uttryck. I yttrandet `Move new employee Robert Williams from Sacramento and San Francisco`, är ursprungsstadens och destinationsstadens värden relaterade till varandra och använder vanliga språk för att ange varje plats. 
 
 
 Namnet på den nya medarbetaren Billy Patterson finns inte på listentiteten för **medarbetare** ännu. Namnet på nya medarbetaren extraheras först för att skicka namnet till ett externt system för att skapa autentiseringsuppgifter för företaget. När företagets autentiseringsuppgifter skapas läggs medarbetarens autentiseringsuppgifter till i listentiteten **medarbetare**.

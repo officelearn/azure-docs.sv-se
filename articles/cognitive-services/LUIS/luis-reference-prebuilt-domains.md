@@ -1,6 +1,6 @@
 ---
-title: Fördefinierad domänreferens
-titleSuffix: Azure
+title: Fördefinierad domän referens – LUIS
+titleSuffix: Azure Cognitive Services
 description: Referens för de fördefinierade domäner som är färdiga samlingar av avsikter och entiteter från Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ce043e23a0384a74fd5d2c9dd514045578ef836d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846672"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563467"
 ---
-# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referens för fördefinierade för LUIS-appen
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Fördefinierad domän referens för din LUIS-app
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
 
 [Anpassade domäner](luis-how-to-start-new-app.md), däremot starta utan avsikter och modeller. Du kan lägga till några fördefinierade domän avsikter och entiteter till en anpassad modell.
 
-# <a name="supported-domains-across-cultures"></a>Domäner över kulturer som stöds
+# <a name="supported-domains-across-cultures"></a>Domäner som stöds över kulturer
 
-Den enda stödda kulturen är engelska. 
+Den enda kulturen som stöds är engelska. 
 
 <!--
 
@@ -54,14 +54,14 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Entitetstyp|description|
 |--|--|
-|Kalender|Kalender är något om personliga möten och möten, _inte_ offentliga händelser (till exempel world cup scheman, Seattle händelsekalendrar) eller allmänna kalendrar (till exempel vilken dag är det idag vad fall börjar, när är Labor Day).|
-|Kommunikation|Begäranden om att göra anrop, skicka skickar ett SMS eller snabbmeddelanden, hitta och Lägg till kontakter och olika andra kommunikation skickas (utgående Allmänt). Kontaktperson endast frågor hör inte till domänen för kommunikation.|
-|Email|Email is a subdomain of the Communication domain. Den innehåller främst begäranden för att skicka och ta emot meddelanden via e-postmeddelanden.|
-|HomeAutomation|HomeAutomation domänen innehåller avsikter och entiteter relaterade till att styra smart home enheter. Den stöder huvudsakligen kommandot kontroll som rör lamporna och luftkonditionering, men den har vissa generalisering funktioner för andra elektriska apparater.|
-|Anteckningar|Obs domänen ger avsikter och entiteter för att skapa anteckningar och skriva ned objekt för användare.|
-|Platser|Platser är företag, institutioner, restauranger, offentliga blanksteg och adresser. Domänen har stöd för plats att söka efter och frågar om information om en offentlig plats, till exempel plats, operativsystem timmar och avstånd.|
-|RestaurantReservation|Restaurang reservation domän stöder avsikter för hantering av reservationer för restauranger.|
-|ToDo|Domän för att göra innehåller typer av uppgiftslistor för användare att lägga till, markera och ta bort sina att göra-objekt.|
-|Samhällsservice|Hjälpmedel domän är en allmän domän bland alla THOMAS fördefinierade modeller som innehåller vanliga avsikter och yttranden i skillnaden scenarier.|
-|Väder|Väder domän fokuserar på kontrollerar väderförändring och rekommendationerna med plats och tid eller kontrollerar tid av väderförhållanden.|
-|Webb|Web-domänen innehåller avsikt och entiteter för att söka efter en webbplats.|
+|Kalender|Kalender är allt om personliga möten och avtalade tider, _inte_ offentliga händelser (t. ex. världs omfattande scheman, händelse kalendrar i Seattle) eller allmänna kalendrar (till exempel vilken dag som är den idag, vad som händer när den är arbets dag).|
+|Kommunikation|Förfrågningar om att ringa, skicka texter eller snabb meddelanden, söka efter och lägga till kontakter och andra kommunikations-relaterade begär Anden (vanligt vis utgående). Kontakt namn endast frågor tillhör inte kommunikations domän.|
+|Email|E-post är en under domän till kommunikations domänen. Det innehåller främst förfrågningar om att skicka och ta emot meddelanden via e-post.|
+|HomeAutomation|HomeAutomation-domänen innehåller avsikter och entiteter som är relaterade till att kontrol lera smarta hem enheter. Det stöder huvudsakligen kontroll kommandot som rör indikerings-och luft konditionering, men har vissa generaliseringar för andra elektriska apparater.|
+|Anteckningar|Antecknings domän ger intentor och entiteter för att skapa anteckningar och skriva ned objekt för användare.|
+|Platser|Platser innefattar företag, institutioner, restauranger, offentliga utrymmen och adresser. Domänen har stöd för att hitta och fråga om information om en offentlig plats, till exempel plats, drift timmar och avstånd.|
+|RestaurantReservation|Restaurang reservations domänen stöder avsikter för att hantera reservationer för restauranger.|
+|Att göra|Att göra-domän tillhandahåller typer av uppgifts listor för användare att lägga till, markera och ta bort sina att göra-objekt.|
+|Samhällsservice|-Domänen är en allmän domän bland alla LUIS-fördefinierade modeller som innehåller gemensamma avsikter och yttranden i skillnads scenarier.|
+|Väder|Väder domänen fokuserar på att kontrol lera väder förhållanden och rekommendationer med plats och tid eller kontroll tid efter väder förhållanden.|
+|Webb|Webb domänen ger avsikt och entiteter för att söka efter en webbplats.|

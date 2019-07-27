@@ -1,6 +1,6 @@
 ---
-title: Valuta fördefinierade entitet
-titleSuffix: Azure
+title: Fördefinierad valuta entitet – LUIS
+titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller valuta fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 7e882a66ae5a090e1fd3a0850ff35281dc4e692d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 369e8f94a4733a7c9e21fee98c72aa447802e943
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072011"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563502"
 ---
-# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Valuta fördefinierade entitet för en LUIS-app
-Valutaentiteten fördefinierade identifierar valuta i många benämningar och länder/regioner, oavsett LUIS app kultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
+# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Fördefinierad valuta enhet för en LUIS-app
+Den fördefinierade valuta enheten identifierar valuta i många valörer och länder/regioner, oavsett LUIS-programkultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Typer av valuta
-Valuta hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) GitHub-lagringsplats
+Valutan hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
 ## <a name="resolution-for-currency-entity"></a>Lösning för valuta entitet
 
-### <a name="api-version-2x"></a>API-version 2.x
+### <a name="api-version-2x"></a>API-version 2. x
 
 I följande exempel visas av lösningen på den **builtin.currency** entitet.
 
@@ -64,9 +64,9 @@ I följande exempel visas av lösningen på den **builtin.currency** entitet.
 
 
 
-### <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
 
-Följande JSON är med i `verbose` parameteruppsättning till `false`:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 {
@@ -91,7 +91,7 @@ Följande JSON är med i `verbose` parameteruppsättning till `false`:
 }
 ```
 
-Följande JSON är med i `verbose` parameteruppsättning till `true`:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 {

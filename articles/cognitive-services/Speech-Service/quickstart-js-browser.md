@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Taligenkänning, JavaScript (webbläsare) – Speech Services'
+title: 'Snabbstart: Igenkänning av tal, Java Script (webbläsare) – tal service'
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om taligenkänning i JavaScript i en webbläsare med hjälp av Speech SDK
 services: cognitive-services
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: a2884b43268b4c067e6e739f67d2253f8c45a408
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 69ec6062d0dba1f1044f9a7dcfbe75924887d2b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603057"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559420"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Snabbstart: Taligenkänning i JavaScript i en webbläsare med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig hur du skapar en webbplats med hjälp av JavaScript-bindningen i Cognitive Services Speech SDK för att transkribera tal till text.
-Programmet baseras på tal-SDK för JavaScript ([Download version 1.5.0](https://aka.ms/csspeech/jsbrowserpackage)).
+Programmet baseras på tal-SDK för Java Script ([Hämta version 1.5.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En prenumerationsnyckel för taltjänsten. Se [testa Speech Services kostnadsfritt](get-started.md).
+* En prenumerationsnyckel för taltjänsten. Se [testa tal tjänster kostnads fritt](get-started.md).
 * En PC eller Mac, med fungerande mikrofon.
 * En textredigerare.
 * En aktuell version av Chrome, Microsoft Edge eller Safari.
@@ -100,8 +100,8 @@ På så sätt lämnar prenumerationen aldrig servern och tillåter att användar
 Starta appen genom att dubbelklicka på index.html-filen eller öppna index.html med valfri webbläsare. Ett enkelt grafiskt användargränssnitt visas där du kan ange din prenumerationsnyckel och [region](regions.md) och utlösa en igenkänning med mikrofonen.
 
 > [!NOTE]
-> Den här metoden fungerar inte på Safari-webbläsaren.
-> På Safari måste sidan exemplet finnas på en webbserver. Safari kan inte webbplatser som lästs in från en lokal fil att använda mikrofonen.
+> Den här metoden fungerar inte i Safari-webbläsaren.
+> På Safari måste exempel webb sidan finnas på en webb server. Safari tillåter inte att webbplatser läses in från en lokal fil för att använda mikrofonen.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Skapa och köra exemplet via en webbserver
 

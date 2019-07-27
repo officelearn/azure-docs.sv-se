@@ -1,5 +1,5 @@
 ---
-title: Alla fördefinierade entiteter
+title: Alla färdiga entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller en lista över de fördefinierade entiteter som ingår i Språkförståelse (LUIS).
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 082ebaef9a2497899cf91c24435dea6e626f0041
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ce6d33f6f8be844877067163630e5a7909183f6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485140"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563441"
 ---
-# <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kulturen i LUIS-modellen
+# <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kultur i din LUIS-modell
 
 Språkförståelse (LUIS) tillhandahåller förskapade entiteter. När en entitet som är färdiga ingår i ditt program, innehåller LUIS motsvarande entitet förutsägelser i svaret slutpunkt. Alla exempel yttranden är också märkta med entiteten. Fördefinierade entiteternas beteende **kan** ändras. Om inget annat anges, är fördefinierade entiteter tillgängliga i alla THOMAS programmet språk (kulturer). I följande tabell visas de fördefinierade entiteter som stöds för varje kultur.
 
@@ -34,7 +34,7 @@ Språkförståelse (LUIS) tillhandahåller förskapade entiteter. När en entite
 |Koreanska|[ko-KR](#korean-entity-support)||
 |Portugisiska|[pt-BR (Brasilien)](#portuguese-brazil-entity-support)||
 |Spanska|[es-ES (Spanien)](#spanish-spain-entity-support), [es-MX (Mexiko)](#spanish-mexico-entity-support)||
-|Turkiska|[Turkiska](#turkish-entity-support)|Inga förskapade entiteter som stöds i turkiska|
+|Turkiska|[Turkiska](#turkish-entity-support)|Inga fördefinierade entiteter stöds i turkiska|
 
 ## <a name="chinese-entity-support"></a>Stöd för kinesiska entitet
 
@@ -304,9 +304,9 @@ Se information på [inaktuell fördefinierade entiteter](luis-reference-prebuilt
 
 KeyPhrase är inte tillgänglig i alla subkulturer av portugisiska (Brasilien) - ```pt-BR```.
 
-## <a name="turkish-entity-support"></a>Stöd för turkiska entitet
+## <a name="turkish-entity-support"></a>Stöd för turkiska entiteter
 
-**Det finns inga förskapade entiteter som stöds i turkiska.** 
+**Det finns inga färdiga entiteter som stöds i turkiska.** 
 
 <!--
 

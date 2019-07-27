@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 5a73ff02479bc7dd4b66605a3f6354ffc2d8a56b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b378bef296f7cf6546887bcf760a4e14ed66a385
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447843"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569832"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Använda CLI för skalning av en elastisk pool i Azure SQL Database
 
@@ -35,7 +34,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName

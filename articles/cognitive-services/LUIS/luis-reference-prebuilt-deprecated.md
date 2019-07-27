@@ -1,6 +1,6 @@
 ---
-title: Föråldrad fördefinierade entiteter
-titleSuffix: Azure
+title: Föråldrade fördefinierade entiteter – LUIS
+titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller föråldrad fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 653fbd65e5ccfbc65781f2332b35d10237f718d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17693b7dff1df1d538f2f4a180be025e0de67c82
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712788"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563483"
 ---
-# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Föråldrad förskapade entiteter i en LUIS-app
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Föråldrade fördefinierade entiteter i en LUIS-app
 Följande fördefinierade entiteter är föråldrade och går inte att lägga till nya LUIS-appar.
 
-* **Datetime**: Befintliga LUIS-appar som använder **datetime** ska migreras till **datetimeV2**, även om entiteten datetime fortsätter att fungera i befintliga appar som använder den.
-* **Geografi**: Befintliga LUIS-appar som använder **geografi** stöds till December 2018.
-* **Uppslagsverk**: Befintliga LUIS-appar som använder **uppslagsverk** stöds till December 2018.
+* **Datetime**: Befintliga LUIS-appar som använder **datetime** ska migreras till **datetimeV2**, men datetime-entiteten fortsätter att fungera i befintliga appar som använder den.
+* **Geografi**: Befintliga LUIS-appar som använder **geografi** stöds till och med 2018 december.
+* **Uppslagsverk**: Befintliga LUIS-appar som använder **uppslagsverk** stöds till och med 2018 december.
 
 ## <a name="geography-culture"></a>Geografi kultur
 **Geografi** är endast tillgängligt i den `en-us` nationella inställningar.
@@ -43,7 +43,7 @@ Fördefinierade entitet   |   Exempel på yttrande   |   JSON
 **Uppslagsverk** är endast tillgängligt i den `en-US` nationella inställningar.
 
 #### <a name="encyclopedia-subtypes"></a>Uppslagsverk undertyper
-Uppslagsverk inbyggda entitet innehåller fler än 100 underordnade typer i följande tabell: Uppslagsverk entiteter mappar dessutom ofta flera typer. Till exempel frågan Ronald Reagan ger: 
+Den inbyggda Encyclopedia-enheten innehåller över 100 under typer i följande tabell: Dessutom mappar uppslagsverks enheter till flera olika typer. Till exempel frågan Ronald Reagan ger: 
 
 ```json
 {

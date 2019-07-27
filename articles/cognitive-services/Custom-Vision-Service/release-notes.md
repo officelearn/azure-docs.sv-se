@@ -1,6 +1,6 @@
 ---
 title: Viktig information – Custom Vision Service
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -9,86 +9,86 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79f3f2a5545b8cdcee86e52f35bd22a31e93d387
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787954"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564088"
 ---
-# <a name="custom-vision-service-release-notes"></a>Custom Vision Service viktig information
+# <a name="custom-vision-service-release-notes"></a>Viktig information om Custom Vision Service
 
-## <a name="may-2-2019-and-may-10-2019"></a>Den 2 maj 2019 och den 10 maj 2019
+## <a name="may-2-2019-and-may-10-2019"></a>2 maj 2019 och 10 maj 2019
 
-- Bugfixes och backend-förbättringar
+- Förbättringar av BUGFIXES och Server delen
 
-## <a name="may-23-2019"></a>Den 23 maj 2019
+## <a name="may-23-2019"></a>23 maj 2019
 
-- Förbättrad portal UX uppleva relaterade till Azure-prenumerationer, vilket gör det lättare att välja din Azure-kataloger.
+- Förbättrad Portal GRÄNSSNITTs upplevelse som är relaterad till Azure-prenumerationer, vilket gör det enklare att välja Azure-kataloger.
 
 ## <a name="april-18-2019"></a>18 april 2019 
 
-- Har lagts till objektidentifiering exporten av visuellt innehåll AI Dev Kit.
-- Gränssnittsförändringar, inklusive Projektsökning.
+- Objekt identifierings export för vision AI dev Kit har lagts till.
+- GRÄNSSNITTs justeringar, inklusive projekts ökning.
 
-## <a name="april-3-2019"></a>Den 3 april 2019
+## <a name="april-3-2019"></a>3 april 2019
 
-- Ökat gränsen för antalet omgivande rutorna per bild till 200. 
-- Bugfixes, inklusive betydande prestandauppdateringen för modeller exporteras till TensorFlow. 
+- Ökad gräns för antalet begränsnings rutor per bild till 200. 
+- BUGFIXES, inklusive avsevärd prestanda uppdatering för modeller som exporteras till TensorFlow. 
 
 ## <a name="march-26-2019"></a>26 mars 2019
 
-- Custom Vision Service har in allmänt tillgängliga på Azure!
-- Har lagts till avancerade utbildning-funktion med en ny machine learning-serverdelen för bättre prestanda, särskilt på utmanande datauppsättningar och detaljerad klassificering. Du kan ange en beräkning tid budget för utbildning och Custom Vision experimentellt identifierar den bästa inställningen för tokenomvandling och utbildning med avancerade utbildning. Du kan fortsätta att använda befintliga snabb utbildning för snabba iterationer.
-- Introducerade 3.0 API: er. Meddelade kommande utfasningen av äldre än 3.0 API: er på den 1 oktober 2019. Se dokumentationen snabbstarter för [.Net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [nod](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial), eller [Gå](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) exempel information om hur du kommer igång.
-- Ersatt ”standard iterationer” med publicera/avpublicera i 3.0 API: er.
-- Nya modellen export mål har lagts till. Dockerfile export har uppgraderats för att stödja ARM för Raspberry Pi 3. Stöd för export har lagts till i [Vision AI Dev Kit.](https://visionaidevkit.com/).
-- Ökade gränsen på taggar per projekt till 500 för S0-nivån. Ökade gränsen på bilder per projekt till 100 000 för S0-nivån.
-- Ta bort vuxet domän. Allmän domän rekommenderar i stället.
-- Meddelade [priser](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för allmän tillgänglighet.  
+- Custom Vision Service har angett allmän tillgänglighet för Azure!
+- Avancerad utbildning har lagts till med en ny maskin inlärnings Server del för bättre prestanda, särskilt vid utmanande data uppsättningar och detaljerade klassificeringar. Med avancerad utbildning kan du ange en budget för beräknings tid för utbildning och Custom Vision kommer att experimentellt identifiera bästa utbildning och förstärknings inställningar. För snabba iterationer kan du fortsätta att använda den befintliga snabb träningen.
+- Introducerade 3,0 API: er. Meddelad om inaktuellitet av pre-3,0-API: er den 1 oktober 2019. Se snabb starter för dokumentation för [.net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [Node](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial)eller [Go](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) för att få exempel på hur du kommer igång.
+- Ersatt "standard iterationer" med publicera/ta bort publicering i 3,0-API: erna.
+- Nya modell export mål har lagts till. Dockerfile-exporten har uppgraderats till stöd för ARM för Raspberry Pi 3. Export stöd har lagts till i det [vision AI dev kit.](https://visionaidevkit.com/)
+- Ökad gräns för Taggar per projekt till 500 för S0-nivån. Ökad gräns för avbildningar per projekt till 100 000 för S0-nivå.
+- Tog bort vuxen domän. Allmän domän rekommenderas istället.
+- [Priser](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) som är presenterade för allmän tillgänglighet.  
 
-## <a name="february-25-2019"></a>Den 25 februari 2019
+## <a name="february-25-2019"></a>25 februari 2019
 
-- Meddelade slutet av begränsad utvärderingsversion projekt (projekt som inte är associerade med en Azure-resurs), när Custom Vision närmar sig slutförandet av flytten till Azure offentlig förhandsversion. Från och den 25 mars 2019 stöder CustomVision.ai plats bara visning av projekt som är associerade med en Azure-resurs, till exempel den kostnadsfria Custom Vision-resursen. Via den 1 oktober 2019 kommer du fortfarande att kunna komma åt dina befintliga begränsad utvärderingsversion projekt Custom Vision-API: er. Detta ger du har tid att uppdatera API-nycklar för alla appar som du har skrivit med Custom Vision. Efter den 1 oktober 2019 tas begränsad utvärderingsversion projekt som du inte har flyttats till Azure bort.
+- Presenterade slutet av ett begränsat utvärderings projekt (projekt som inte är associerade med en Azure-resurs), som Custom Vision nära slut för ande av flytten till den offentliga Azure-förhands granskningen. Från den 25 mars 2019 stöder CustomVision.ai-webbplatsen endast visning av projekt som är associerade med en Azure-resurs, till exempel den kostnads fria Custom Visions resursen. Till och med den 1 oktober 2019 kommer du fortfarande att kunna komma åt dina befintliga begränsade utvärderings projekt via Custom Vision API: er. Då får du tid att uppdatera API-nycklar för appar som du har skrivit med Custom Vision. Efter den 1 oktober 2019 tas alla begränsade utvärderings projekt som du inte har flyttat till Azure bort.
 
 ## <a name="january-22-2019"></a>Den 22 januari 2019
 
-- Stöd för nya Azure-regioner: Västra USA 2, östra USA, östra USA 2, Västeuropa, Nordeuropa, Sydostasien, östra, centrala Indien, Storbritannien, södra, Japan, östra och norra centrala USA. Support fortsätter för södra centrala USA.
+- Stöd har lagts till för nya Azure-regioner: Västra USA 2, östra USA, östra USA 2, Västeuropa, norra Europa, Sydostasien, östra Australien, centrala Indien, Storbritannien, södra, Japan, östra och norra centrala USA. Support fortsätter för södra centrala USA.
 
 ## <a name="december-12-2018"></a>12 december 2018
 
-- Stöder export för objektidentifiering modeller (introducerats objektet identifiering Compact domän).
-- Fasta ett antal problem med förbättrad skärmläsare och tangentbordet navigering support.
-- UX-uppdateringar för bildvisningsprogram och förbättrad objektidentifiering taggning upplevelse för snabbare taggar.  
-- Uppdaterade basmodellen för objektet identifiering domän för bättre kvalitet objektidentifiering.
-- Felkorrigeringar.
+- Stöd för export av objekt identifierings modeller (introducerad komprimerad objekt identifierings domän).
+- Ett antal tillgänglighets problem har åtgärd ATS för förbättrad skärm läsare och stöd för tangent bords navigering.
+- UX-uppdateringar för Image Viewer och förbättrad taggning av objekt identifierings funktioner för snabbare taggning.  
+- Bas modell för objekt identifierings domän har uppdaterats för bättre kvalitets objekts identifiering.
+- Fel korrigeringar.
 
 ## <a name="november-6-2018"></a>6 november 2018
 
-- Stöd har lagts till för logotyp domän i objektidentifiering.
+- Stöd har lagts till för logo typ domän i objekt identifiering.
 
 ## <a name="october-9-2018"></a>9 oktober 2018
 
-- Objektidentifiering försätts betalad förhandsversion. Du kan nu skapa objektidentifiering projekt med en Azure-resurs.
-- Har lagts till ”Flytta till Azure”-funktion till webbplatsen för att göra det enklare att uppgradera en begränsad utvärderingsversion-projektet för att länka till en Azure. resursen länkade projektet (F0 eller S0.) Du hittar den på inställningssidan för din produkt.  
-- Har lagts till export till ONNX 1.2, att stödja Windows 2018 oktober uppdaterad version av Windows-ML.
-Felkorrigeringar, inklusive för ONNX exportera med specialtecken.
+- Objekt identifieringen anger betald förhands granskning. Nu kan du skapa objekt identifierings projekt med en Azure-resurs.
+- Lade till funktionen "flytta till Azure" till webbplatsen, så att det blir enklare att uppgradera ett begränsat utvärderings projekt för att länka till en Azure. resurs länkat projekt (F0 eller S0.) Du hittar detta på sidan Inställningar för din produkt.  
+- Export till ONNX 1,2 har lagts till för att stödja Windows 2018 oktober uppdaterings version av Windows ML.
+Fel korrigeringar, inklusive för ONNX-export med specialtecken.
 
-## <a name="august-14-2018"></a>Den 14 augusti 2018
+## <a name="august-14-2018"></a>14 augusti 2018
 
-- Har lagts till ”Kom igång” widget till customvision.ai plats som leder användarna genom utbildning.
-- Ytterligare förbättringar för maskininlärningspipeline som gynnar multilabel projekt (nya förlust layer).
+- Lade till "kom igång"-widgeten på customvision.ai-webbplatsen för att vägleda användare genom projekt träning.
+- Ytterligare förbättringar av Machine Learning-pipelinen för att dra nytta av multilabel-projekt (nytt förlust lager).
 
 ## <a name="june-28-2018"></a>28 juni 2018
 
-- Felkorrigeringar och förbättringar för serverdelen.
-- Aktivera multiklass-baserad klassificering för projekt där bilder har exakt en etikett. I förutsägelser för multiklass-baserad läge summera sannolikhet till en (alla avbildningar klassificeras bland angivna taggarna).
+- Fel korrigeringar & Server dels förbättringar.
+- Aktive rad multiklass-klassificering för projekt där bilder har exakt en etikett. I förutsägelser för multiklass-läge kommer sannolikheten att summeras till ett (alla bilder klassificeras bland de angivna taggarna).
 
 ## <a name="june-13-2018"></a>13 juni 2018
 
 - UX-uppdatering, fokuserar på enkel användning och hjälpmedel.
-- Förbättringar för machine learning-pipeline som gynnar multilabel projekt med ett stort antal taggar.
-- En bugg har åtgärdats i TensorFlow export. Aktiverad exporterade modellen versionshantering, så iterationer kan exporteras mer än en gång.
+- Förbättringar av Machine Learning-pipeline för att dra nytta av projekt med ett stort antal taggar.
+- Fast bugg i TensorFlow-export. Aktiverade exporterade modell versioner, så iterationer kan exporteras mer än en gång.
 
 ## <a name="may-7-2018"></a>7 maj, 2018
 
@@ -98,11 +98,11 @@ Felkorrigeringar, inklusive för ONNX exportera med specialtecken.
 - Betydande serverförbättringar av maskininlärningspipeline för bildklassificeringsprojekt. Projekt som tränas efter den 27 april 2018 kan dra nytta av dessa uppdateringar.
 - Lade till modellexport för ONNX, för användning med Windows ML.
 - Lade till modellexport till DockerFile. På så sätt kan du ladda ned artefakter för att skapa dina egna Windows- och Linux-containrar, till exempel DockerFile, TensorFlow-modell och tjänstkod.
-- För nyligen utbildade modeller som exporteras till TensorFlow i Allmänt (CD) och landmärken (CD)-domäner, [innebär att värden är nu (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), konsekvent på alla projekt.
+- För nytränade modeller som exporter ATS till TensorFlow i de allmänna (kompakta) och Landmärkes domänerna (Compact) [är medelvärden (0,0) nu (0](https://github.com/azure-samples/cognitive-services-android-customvision-sample), 0), för konsekvens i alla projekt.
 
 ## <a name="march-1-2018"></a>1 mars 2018
 
-- Angivna betalad förhandsversion och publicerats till Azure-portalen. Projekt kan nu bifogas till Azure-resurser med nivå F0 (kostnadsfritt) eller S0 (standard). Introducerade S0-nivån projekt, som tillåter upp till 100 taggar och 25 000 bilder.
+- Betalad förhands granskning och har registrerats på Azure Portal. Projekt kan nu bifogas till Azure-resurser med nivå F0 (kostnadsfritt) eller S0 (standard). Introducerade S0-nivån projekt, som tillåter upp till 100 taggar och 25 000 bilder.
 - Serverändringar av maskininlärningspipeline/parametern normalization. Detta ger kunderna bättre kontroll över kompromisser mellan precision och återanrop vid justeringar av sannolikhetströskelvärdet. Som en del av dessa ändringar angavs 50 % för sannolikhetströskelvärdet i CustomVision.ai-portalen.
 
 ## <a name="december-19-2017"></a>19 december 2017

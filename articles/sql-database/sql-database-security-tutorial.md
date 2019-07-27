@@ -1,6 +1,6 @@
 ---
 title: Skydda en enkel databas eller en pooldatabas i Azure SQL Database | Microsoft Docs
-description: En självstudie som Lär dig om tekniker och funktioner för att skydda en enskild eller grupperade databas i Azure SQL Database.
+description: En själv studie kurs som lär dig om tekniker och funktioner för att skydda en databas med en eller flera databaser i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582710"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566878"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudier: Skydda en enkel databas eller en pooldatabas
 
@@ -40,7 +39,7 @@ Med Azure SQL Database kan du skydda data i en enkel databas eller en pooldataba
 
 Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database](/azure/sql-database/sql-database-security-index) och [Funktioner](sql-database-security-overview.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -91,7 +90,7 @@ Nu kan du ansluta till valfri databas på servern med IP-adressen eller IP-adres
 
 ### <a name="setup-database-firewall-rules"></a>Konfigurera brandväggsregler för databaser
 
-Brandväggsregler på databasnivå gäller endast för enskilda databaser. Databasen behåller dessa regler under en serverredundans. Brandväggsregler på databasnivå kan bara konfigureras med instruktioner för Transact-SQL (T-SQL), och bara efter att du har konfigurerat en brandväggsregel på servernivå.
+Brandväggsregler på databasnivå gäller endast för enskilda databaser. Databasen behåller dessa regler under en redundansväxling av servern. Brandväggsregler på databasnivå kan bara konfigureras med instruktioner för Transact-SQL (T-SQL), och bara efter att du har konfigurerat en brandväggsregel på servernivå.
 
 Så här konfigurerar du en brandväggsregel på databasnivå:
 
@@ -251,7 +250,7 @@ Så här aktiverar du avancerad datasäkerhet:
 
    1. Välj **PÅ** under **Avancerad datasäkerhet** för att aktivera funktionen. Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara**.
 
-      ![Navigeringsfönster](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Navigeringsfönstret](./media/sql-database-security-tutorial/threat-settings.png)
 
       Du kan också konfigurera e-postmeddelanden för att få säkerhetsaviseringar, lagringsinformation och typer för identifiering av hot.
 
@@ -265,7 +264,7 @@ Om avvikande aktiviteter identifieras får du ett e-postmeddelande med informati
 
 ### <a name="auditing"></a>Granskning
 
-Granskningsfunktionen spårar databashändelser och skriver händelser till en granskningslogg i antingen Azure storage, Azure Monitor-loggar, eller till en händelsehubb. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på potentiella säkerhetsöverträdelser.
+Gransknings funktionen spårar databas händelser och skriver händelser till en Gransknings logg i antingen Azure Storage, Azure Monitor loggar eller till en händelsehubben. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på potentiella säkerhetsöverträdelser.
 
 Så här aktiverar du granskning:
 
@@ -287,7 +286,7 @@ Så här aktiverar du granskning:
        - **Log Analytics**, som automatiskt lagrar händelser för frågor eller ytterligare analys
 
            > [!NOTE]
-           > En **Log Analytics-arbetsyta** krävs för att stödja avancerade funktioner såsom analyser, anpassade aviseringsregler och export av Excel eller Power BI. Utan en arbetsyta är endast frågeredigeraren tillgänglig.
+           > En **Log Analytics arbets yta** krävs för att stödja avancerade funktioner som analys, anpassade aviserings regler och Excel eller Power BI exporter. Utan en arbetsyta är endast frågeredigeraren tillgänglig.
 
        - **Event Hub**, som tillåter att händelser dirigeras för användning i andra program
 

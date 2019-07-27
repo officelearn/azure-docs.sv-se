@@ -1,7 +1,7 @@
 ---
-title: Inspektera datakvaliteten för anpassat tal – Speech Services
-titlesuffix: Azure Cognitive Services
-description: Custom Speech tillhandahåller verktyg som gör att du kan inspektera visuellt igenkänning av kvaliteten på en modell genom att jämföra ljuddata med motsvarande igenkänningsresultatet. Med Custom Speech-portal kan du spela upp ljudet överförda och avgöra om den angivna igenkänningsresultatet är korrekt.  Det här verktyget kan du snabbt granska kvaliteten på Microsofts baslinje tal till text modell eller en anpassad träningsmodell utan att behöva transkribera alla ljuddata.
+title: Granska data kvaliteten för Custom Speech tal-tjänsten
+titleSuffix: Azure Cognitive Services
+description: Custom Speech innehåller verktyg som gör det möjligt att visuellt inspektera igenkännings kvaliteten för en modell genom att jämföra ljuddata med motsvarande igenkännings resultat. Från Custom Speech-portalen kan du spela upp ljud som laddats upp och avgöra om det angivna igenkännings resultatet är korrekt.  Med det här verktyget kan du snabbt kontrol lera kvaliteten på vår bas linje för tal-till-text-modellen eller en utbildad anpassad modell utan att behöva skriva om ljud data.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,43 +10,43 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 900d9b032b4ed121589d904a8ad18059b3283661
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603142"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562845"
 ---
-# <a name="inspect-custom-speech-data"></a>Granska data för anpassat tal
+# <a name="inspect-custom-speech-data"></a>Granska Custom Speech data
 
 > [!NOTE]
-> Den här sidan förutsätter att du har läst [förbereda testdata för anpassat tal](how-to-custom-speech-test-data.md) och har laddat upp en datauppsättning för granskning.
+> På den här sidan förutsätter vi att du har läst [förbereda test data för Custom Speech](how-to-custom-speech-test-data.md) och har laddat upp en data uppsättning för inspektion.
 
-Custom Speech tillhandahåller verktyg som gör att du kan inspektera visuellt igenkänning av kvaliteten på en modell genom att jämföra ljuddata med motsvarande igenkänningsresultatet. Med Custom Speech-portal kan du spela upp ljudet överförda och avgöra om den angivna igenkänningsresultatet är korrekt. Det här verktyget kan du snabbt granska kvaliteten på Microsofts baslinje tal till text modell eller en anpassad träningsmodell utan att behöva transkribera alla ljuddata.
+Custom Speech innehåller verktyg som gör det möjligt att visuellt inspektera igenkännings kvaliteten för en modell genom att jämföra ljuddata med motsvarande igenkännings resultat. Från Custom Speech-portalen kan du spela upp ljud som laddats upp och avgöra om det angivna igenkännings resultatet är korrekt. Med det här verktyget kan du snabbt kontrol lera kvaliteten på Microsofts bas linje för tal-till-text-modellen eller en utbildad anpassad modell utan att behöva skriva om ljud data.
 
-I det här dokumentet lär du dig att visuellt inspektera kvaliteten på en modell med träningsdata som du tidigare har laddats upp.
+I det här dokumentet får du lära dig att visuellt kontrol lera kvaliteten på en modell med hjälp av de tränings data som du tidigare har laddat upp.
 
-På den här sidan lär du dig att visuellt inspektera kvaliteten på Microsofts baslinje tal till text modellen och/eller en anpassad modell som du har tränat. Du ska använda de data som du laddade upp till den **Data** fliken för testning.
+På den här sidan får du lära dig att visuellt kontrol lera kvaliteten på Microsofts bas linje tal till text-modell och/eller en anpassad modell som du har tränat. Du använder de data som du överförde till fliken **data** för att testa.
 
 ## <a name="create-a-test"></a>Skapa ett test
 
-Följ dessa instruktioner för att skapa ett test:
+Följ de här anvisningarna för att skapa ett test:
 
-1. Gå till **tal till text > anpassat tal > Testa**.
-2. Klicka på **Lägg till Test**.
-3. Välj **inspektera kvalitet (enbart ljud data)** . Ge testet ett namn, beskrivning, och välj din ljud datauppsättning.
+1. Navigera till **> för tal till text Custom Speech > testning**.
+2. Klicka på **Lägg till test**.
+3. Välj **inspektera kvalitet (endast ljuddata)** . Ge testet ett namn, en beskrivning och välj din ljud data uppsättning.
 4. Välj upp till två modeller som du vill testa.
 5. Klicka på **Skapa**.
 
-När ett test har skapats, kan du jämföra modeller sida vid sida.
+När du har skapat ett test kan du jämföra modellerna sida vid sida.
 
-## <a name="side-by-side-model-comparisons"></a>Sida-vid-sida-modellen jämförelser
+## <a name="side-by-side-model-comparisons"></a>Jämförelser av modeller sida vid sida
 
-När test-statusen är *lyckades*, klickar på objektnamn test visas detaljerad information om testet. Den här sidan listar alla uttryck i din datauppsättning som anger igenkänningsresultat av de två modellerna tillsammans med transkription från den överförda datamängden.
+När test status är *klar*klickar du på test objekt namnet för att se information om testet. Den här informations sidan visar en lista över alla yttranden i din data uppsättning, vilket anger tolknings resultatet för de två modellerna jämte avskriften från den skickade data mängden.
 
-För att inspektera sida-vid-sida-jämförelse, kan du växla olika feltyper inklusive infogning och borttagning av ersättningen. Genom att lyssna på ljudet och jämföra resultat i varje kolumn (visar mänskliga etikett transkription och resultatet av två modeller för tal-till-text), kan du bestämma vilken modell som passar dina behov och var förbättringar som krävs.
+För att kunna kontrol lera jämförelsen sida vid sida kan du växla mellan olika typer av fel, inklusive infogning, borttagning och ersättning. Genom att lyssna på ljudet och jämföra igenkännings resultaten i varje kolumn (med mänsklig avskrift och resultatet av två tal till text-modeller) kan du bestämma vilken modell som uppfyller dina behov och var förbättringar behövs.
 
-Kontrollera kvalitetstestning är användbar för att verifiera om kvaliteten på en slutpunkt för taligenkänning räcker för ett program.  För ett servicenivåmål mått av Precision kräver transkriberade ljud, följer du instruktionerna i [utvärdera Precision](how-to-custom-speech-evaluate-data.md).
+Att kontrol lera kvalitets testning är användbart för att verifiera om kvaliteten på en slut punkt för tal igenkänning är tillräckligt för ett program.  Om du vill ha ett objektivt mått på precision, som kräver uppmätta ljud, följer du anvisningarna i [utvärdera noggrannhet](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -56,4 +56,4 @@ Kontrollera kvalitetstestning är användbar för att verifiera om kvaliteten p�
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Förbereda testdata för anpassat tal](how-to-custom-speech-test-data.md)
+* [Förbered test data för Custom Speech](how-to-custom-speech-test-data.md)

@@ -1,7 +1,7 @@
 ---
-title: Använda moderering jobb med hjälp av .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Använda innehåll Moderator .NET SDK för att initiera jobb innehållsmoderering för slutpunkt till slutpunkt för bild eller text innehåll i Azure Content Moderator.
+title: Använda moderator jobb med .NET-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Använd Content Moderator .NET SDK för att initiera innehålls redigerings jobb från slut punkt till slut punkt för bild-eller text innehåll i Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d98c88a6e1d6dfa23f53c32c85c013b4cf2c468d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113876"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565596"
 ---
-# <a name="define-and-use-moderation-jobs-net"></a>Definiera och Använd moderering jobb (.NET)
+# <a name="define-and-use-moderation-jobs-net"></a>Definiera och använda kontroll jobb (.NET)
 
-Ett jobb för moderering fungerar som en sorts Omslutning för funktionerna i innehållsmoderering, arbetsflöden och granskningar. Den här guiden innehåller information och kodexempel som hjälper dig att komma igång med den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till:
+Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Content moderatoring, arbets flöden och recensioner. Den här guiden innehåller information och kod exempel som hjälper dig att komma igång med [Content moderator SDK för .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) för att:
 
 - Starta ett modereringsjobb för att genomsöka och skapa granskningar för mänskliga moderatorer
 - Hämta status för väntande granskning
 - Spåra och hämta den slutgiltiga statusen för granskningen
-- Skicka granskningsresultaten till Motringnings-URL
+- Skicka gransknings resultaten till återanrops-URL: en
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
+- Logga in eller skapa ett konto på webbplatsen för Content Moderator [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) .
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Se till att din API-nyckel kan anropa gransknings-API:et för att skapa en granskning
 

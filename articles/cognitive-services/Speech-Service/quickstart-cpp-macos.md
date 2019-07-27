@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Recognize speech, C++ (macOS) - Speech Services'
+title: 'Snabbstart: Identifiera tal, C++ (MacOS) – tal service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig att känna igen tal i C++ på macOS med hjälp av tal-SDK
+description: Lär dig att känna igen tal C++ i på MacOS med hjälp av tal-SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: de170955ced45040541565800fc9853edea322f5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d7d35c251848af5cfd5852080d01831085401227
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603070"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554123"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ på macOS med hjälp av tal-SDK
+# <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i C++ på MacOS med hjälp av tal-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln skapar du ett C++-konsolprogram för macOS 10.13 och senare. Du använder Cognitive Services [tal SDK](speech-sdk.md) att transkribera tal till text i realtid från din Mac mikrofon. Programmet har skapats med den [tal SDK för macOS](https://aka.ms/csspeech/macosbinary) och din Mac standard C++-kompilatorn (till exempel `g++`).
+I den här artikeln skapar du ett C++ konsol program för MacOS 10,13 och senare. Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att skriva tal till text i real tid från Mac-mikrofonen. Programmet har skapats med [Speech SDK för MacOS](https://aka.ms/csspeech/macosbinary) och din Macs standard C++ kompilator (till exempel `g++`).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
+Du behöver en prenumerations nyckel för tal tjänster för att slutföra den här snabb starten. Du kan skaffa en utan kostnad. Mer information finns i [testa tal tjänsterna kostnads fritt](get-started.md) .
 
 ## <a name="install-speech-sdk"></a>Installera Speech SDK
 
@@ -33,7 +33,7 @@ Du behöver en Speech Services-prenumeration för att slutföra den här snabbst
 
 Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`.
 
-Tal-SDK: N för macOS kan laddas ned som ett komprimerade framework-paket från https://aka.ms/csspeech/macosbinary.
+Talet SDK för macOS kan laddas ned som ett zippat ramverk från https://aka.ms/csspeech/macosbinary.
 
 Ladda ned och installera SDK enligt följande:
 
@@ -49,7 +49,7 @@ Ladda ned och installera SDK enligt följande:
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Ladda ned och extrahera den `.zip` Arkiv som innehåller tal SDK-ramverket:
+1. Hämta och extrahera `.zip` arkivet som innehåller talet SDK Framework:
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -62,7 +62,7 @@ Ladda ned och installera SDK enligt följande:
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   Listan ska innehålla meddelande från tredje part och licensfiler, samt en `MicrosoftCognitiveServicesSpeech.framework` directory.
+   Katalog listan ska innehålla meddelanden från tredje part och licensfiler, samt en `MicrosoftCognitiveServicesSpeech.framework` katalog.
 
 ## <a name="add-sample-code"></a>Lägga till exempelkod
 
@@ -70,7 +70,7 @@ Ladda ned och installera SDK enligt följande:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-macos/helloworld.cpp#code)]
 
-1. I den nya filen ersätter du strängen `YourSubscriptionKey` med din prenumerationsnyckel för Speech Services.
+1. Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster i den nya filen.
 
 1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
@@ -99,7 +99,7 @@ Ladda ned och installera SDK enligt följande:
    ./helloworld
    ```
 
-1. I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech Services och transkriberas till text som visas i samma fönster.
+1. I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till tal tjänsterna och skrivs till text som visas i samma fönster.
 
    ```text
    Say something...

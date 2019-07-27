@@ -1,6 +1,6 @@
 ---
-title: Ändra, träna appen, Python
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Ändra, träna appen, python-LUIS
+titleSuffix: Azure Cognitive Services
 description: I den här Python-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen.
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 517f9f89d7733aaa066c3fb2b487be0a67994d4e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 96f4d251b0ccc76ef33c86f6661cc9b94098a967
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357099"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560529"
 ---
 # <a name="quickstart-change-model-using-python"></a>Snabbstart: Ändra modellen med Python
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Python 3.6](https://www.python.org/downloads/) eller senare.

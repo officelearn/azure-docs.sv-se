@@ -1,6 +1,6 @@
 ---
-title: Publicera kunskapsbas, REST, C#
-titleSuffix: QnA Maker- Azure Cognitive Services
+title: 'Snabbstart: Publicera kunskaps bas, REST C# QNA Maker'
+titleSuffix: Azure Cognitive Services
 description: Den här C# REST-baserade snabbstarten vägleder dig genom publiceringen av din kunskapsbas, som överför den senaste versionen av den testade kunskapsbasen till ett dedikerat Azure Search-index som representerar den publicerade kunskapsbasen. Den skapar även en slutpunkt som kan anropas i ditt program eller en chattrobot.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0ce0f3673a297964932f3b97dfd1d49d7c1e55e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827573"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559789"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med C#
 
@@ -25,7 +25,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på instrumentpanelen. 
@@ -40,8 +40,8 @@ Den här snabbstarten anropar API:er för QnA Maker:
 
 ## <a name="create-knowledge-base-project"></a>Skapa kunskapsbasprojekt
 
-1. Öppna Visual Studio 2019 Community edition.
-1. Skapa en ny **Konsolapp (.NET Core)** projektet och ge projektet namnet `QnaMakerQuickstart`. Godkänn standardinställningarna för de återstående inställningarna.
+1. Öppna Visual Studio 2019 Community Edition.
+1. Skapa ett nytt **konsol program (.net Core)-** projekt och ge projektet `QnaMakerQuickstart`ett namn. Godkänn standardinställningarna för de återstående inställningarna.
 
 ## <a name="add-required-dependencies"></a>Lägga till nödvändiga beroenden
 

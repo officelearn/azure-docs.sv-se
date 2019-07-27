@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.reviewer: ''
 ms.author: sstein
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 71863801db0c9e6928805aec47d7b9012a850a1d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 3e43a027507a52965dd56bbf6015f18d2b2ebc2c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729293"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569865"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Använd PowerShell för att skapa elastiska pooler och flytta databaser mellan elastiska pooler
 
@@ -27,7 +26,7 @@ Det här skriptexemplet för PowerShell skapar två elastiska pooler och flyttar
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -35,7 +34,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 76771a7dfcc323cca6ea52366195c895ee510701
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6c58528aba29cbbc81694112815534a8fc525b8a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165603"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565387"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabbstart: Köra din första Resource Graph-fråga med hjälp av Azure PowerShell
 
@@ -48,7 +48,7 @@ Resource Graph-modulen för PowerShell är **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Kontrollera att modulen har importerats och har rätt version (0.7.1):
+1. Kontrol lera att modulen har importer ATS och att den är rätt version (0.7.3):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -91,7 +91,7 @@ Nu när Azure PowerShell-modulen har lagts till i din valda miljö är det dags 
 När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.
 
 > [!NOTE]
-> Om frågan inte returnerar resultat från en prenumeration du redan har åtkomst till, Observera att `Search-AzGraph` cmdlet standard till prenumerationer i standardkontexten. För att se en lista över prenumeration-ID: n som är en del av standardkontexten som kör det här `(Get-AzContext).Account.ExtendedProperties.Subscriptions` om du vill söka i alla prenumerationer som du har åtkomst till kan ange en PSDefaultParameterValues för `Search-AzGraph` cmdlet genom att köra `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`
+> Om frågan inte returnerar resultat från en prenumeration som du redan har åtkomst till, noterar du att `Search-AzGraph` cmdleten använder standard kontexten för prenumerationer. Om du vill visa en lista över prenumerations-ID: n som ingår i `(Get-AzContext).Account.ExtendedProperties.Subscriptions` standard kontexten kör du detta om du vill söka i alla prenumerationer som du har åtkomst till, `Search-AzGraph` kan du ange PSDefaultParameterValues för cmdleten genom att köra`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Rensa resurser
 

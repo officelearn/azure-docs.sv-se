@@ -10,14 +10,13 @@ ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 9da848e9aa093b4e918ed961d58f946b2298954c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9468f5d631dd713c9e131c63de824c5e552178e3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447198"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569910"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Använd CLI för att övervaka och skala en enskild SQL-databas
 
@@ -38,7 +37,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName

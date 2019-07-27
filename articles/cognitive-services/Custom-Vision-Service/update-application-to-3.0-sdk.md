@@ -1,7 +1,7 @@
 ---
-title: Så här migrerar du projektet till 3.0 API
-titlesuffix: Azure Cognitive Services
-description: 'Lär dig hur du migrerar Custom Vision-projekt från den tidigare versionen av API: et till 3.0 API.'
+title: 'Så här migrerar du ditt projekt till 3,0-API: et'
+titleSuffix: Azure Cognitive Services
+description: 'Lär dig hur du migrerar Custom Vision-projekt från den tidigare versionen av API till 3,0-API: et.'
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,57 +10,57 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816444"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560888"
 ---
-# <a name="migrate-to-the-30-api"></a>Migrera till 3.0 API
+# <a name="migrate-to-the-30-api"></a>Migrera till 3,0-API: et
 
-Custom Vision har nu blivit allmänt tillgängliga och har genomgått en API-uppdatering.
-Den här uppdateringen innehåller några nya funktioner och är dock några ändringar:
+Custom Vision har nu nått allmän tillgänglighet och har genomgått en API-uppdatering.
+Den här uppdateringen innehåller några nya funktioner och några viktiga ändringar:
 
-* Förutsägelse-API är nu dela i två beroende på vilken projekt.
-* Exportalternativet Vision AI Developer Kit (VAIDK) måste du skapa ett projekt på ett visst sätt.
-* Standard iterationer har tagits bort och ersatts med en publicera / ta bort en namngiven iteration.
+* Förutsägelse-API: t delas nu upp i två baserat på projekt typen.
+* Export alternativet vision AI Developer Kit (VAIDK) kräver att du skapar ett projekt på ett särskilt sätt.
+* Standard iterationer har tagits bort i stället för att publicera/avpublicera en namngiven iteration.
 
-Den här guiden visar hur du uppdaterar dina projekt du arbetar med den nya API-versionen. Se den [viktig](release-notes.md) för en fullständig lista över ändringarna.
+I den här guiden visas hur du uppdaterar dina projekt så att de fungerar med den nya API-versionen. I [viktig information](release-notes.md) finns en fullständig lista över ändringarna.
 
-## <a name="use-the-updated-prediction-api"></a>Använd den uppdaterade förutsägelse-API
+## <a name="use-the-updated-prediction-api"></a>Använda det uppdaterade förutsägelse-API: et
 
-2\.x-API: er används samma förutsägelse anropet för både bildklassificerare och objekt detektor projekt. Båda projekttyperna av har godtagbar för den **PredictImage** och **PredictImageUrl** anrop. Från och med 3.0, har vi delat den här API: et så att du behöver att matcha projekttyp i anropet:
+API: erna för 2. x använder samma förutsägelse anrop för både bild-och objekt detektor projekt. Båda projekt typerna är acceptabla för **PredictImage** -och **PredictImageUrl** -anropen. Från och med 3,0 har vi delat upp detta API så att du måste matcha projekt typen till anropet:
 
-* Använd **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** och **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** att få förutsägelser för avbildning klassificering projekt.
-* Använd **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** och **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** att få förutsägelser för objektet identifiering projekt.
+* Använd **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** och **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** för att hämta förutsägelser för bild klassificerings projekt.
+* Använd **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** och **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** för att hämta förutsägelser för objekt identifierings projekt.
 
-## <a name="use-the-new-iteration-publishing-workflow"></a>Använda det nya iteration publishing arbetsflödet
+## <a name="use-the-new-iteration-publishing-workflow"></a>Använd det nya upprepnings arbets flödet
 
-2\.x API: er används standard iteration eller en angiven iteration-ID för att välja iterationen ska användas för förutsägelse. Från och med 3.0, har vi antagit ett publicera flöde där du först publicera en iteration under ett visst angivet namn från API: et för utbildning. Du kan sedan skicka namnet till förutsägelse-metoder för att ange vilka iteration att använda.
+2\. x-API: erna använder standard upprepning eller ett angivet upprepnings-ID för att välja den iteration som ska användas för förutsägelse. Från och med 3,0 har vi infört ett publicerings flöde där du först publicerar en iteration under ett angivet namn från utbildnings-API: et. Sedan skickar du namnet till förutsägelse metoderna för att ange vilken iteration som ska användas.
 
 > [!IMPORTANT]
-> 3\.0 API: er inte använder funktionen standard iteration. Tills vi avverka den äldre API: er kan du fortsätta att använda 2.x API: er för att växla en iteration som standard. Dessa API: er kommer att finnas kvar under en viss tidsperiod och du kan anropa den **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** metod för att markera en iteration som standard.
+> API: erna 3,0 använder inte standard funktionen iteration. Tills vi tar bort de äldre API: erna kan du fortsätta att använda API: erna 2. x för att växla en iteration som standard. Dessa API: er kommer att behållas under en viss tids period och du kan anropa metoden **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** för att markera en iteration som standard.
 
 ### <a name="publish-an-iteration"></a>Publicera en iteration
 
-När en iteration har tränats, du kan göra den tillgänglig för förutsägelse med hjälp av den **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** metod. Om du vill publicera en iteration måste förutsägelse resurs-ID som är tillgänglig på webbplatsen CustomVision inställningssidan.
+När en iteration har tränats kan du göra den tillgänglig för förutsägelse med **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** -metoden. Om du vill publicera en iteration behöver du förutsäga resurs-ID: t, som finns på CustomVision webbplats inställnings sida.
 
-![Custom Vision webbplats inställningssidan med förutsägelse resurs-ID som beskrivs.](./media/update-application-to-3.0-sdk/prediction-id.png)
+![Sidan Custom Vision webbplats inställningar med resurs-ID för förutsägelsen som beskrivs.](./media/update-application-to-3.0-sdk/prediction-id.png)
 
 > [!TIP]
-> Du kan också få den här informationen från den [Azure-portalen](https://portal.azure.com) genom att gå till Custom Vision-förutsägelse resursen och välja **egenskaper**.
+> Du kan också hämta den här informationen från [Azure Portal](https://portal.azure.com) genom att gå till Custom vision förutsägelse resurs och välja **Egenskaper**.
 
-När din iteration har publicerats kan kan appar använda den för förutsägelse genom att ange namnet i sina förutsägande API-anrop. Om du vill göra en iteration otillgängligt för förutsägande anrop, använda den **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** API.
+När iterationen har publicerats kan appar använda den för förutsägelse genom att ange namnet i API-anropet för förutsägelse. Om du vill göra en iteration otillgänglig för förutsägelse samtal använder du **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** -API: et.
 
-## <a name="additional-export-options"></a>Ytterligare exportalternativ
+## <a name="additional-export-options"></a>Ytterligare export alternativ
 
-Med 3.0 API: er som vi visar två ytterligare exportera mål: ARM-arkitekturen och visuellt innehåll AI Developer Kit.
+Med 3,0-API: erna exponeras två ytterligare export mål: ARM-arkitektur och vision AI Developer Kit.
 
-* Om du vill använda ARM, behöver du bara välja en kompakt domän och sedan välja DockerFile och sedan ARM som alternativ för export.
-* För visuellt innehåll AI Dev Kit projektet måste skapas med den __allmänna (CD)__ domänen samt att ange VAIDK i målet exportera plattformar argumentet.
+* Om du vill använda ARM behöver du bara välja en komprimerad domän och sedan välja DockerFile och sedan ARM som export alternativ.
+* För vision AI dev kit måste projektet skapas med den __allmänna (kompakta)__ domänen och ange VAIDK i argumentet mål export plattformar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Referensdokumentation för utbildning-API (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
-* [Förutsägande API-referensdokumentation (REST)](https://go.microsoft.com/fwlink/?linkid=865445)
+* [Dokumentation om utbildnings-API-referens (REST)](https://go.microsoft.com/fwlink/?linkid=865446)
+* [Dokumentation om förutsägelse-API-referens (REST)](https://go.microsoft.com/fwlink/?linkid=865445)

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Syntetisera tal, C# (UWP) – Speech Services'
+title: 'Snabbstart: Syntetiskt tal, C# (UWP) – tal service'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln ska du skapa ett C#-baserat UWP-program (Universal Windows Platform) med hjälp av Cognitive Services Speech SDK. Du syntetisera tal från text i realtid till din enhets-API. Programmet har skapats med Speech SDK NuGet-paketet och Microsoft Visual Studio 2017.
+description: I den här artikeln ska du skapa ett C#-baserat UWP-program (Universal Windows Platform) med hjälp av Cognitive Services Speech SDK. Du kan syntetisera tal från text i real tid till enhetens högtalare. Programmet har skapats med Speech SDK NuGet-paketet och Microsoft Visual Studio 2017.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: c11fbff883d2699bdd0a107fc462524d92ee410d
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 3d5bc1e9cc27fd3c40c15ba55f577779c65e6851
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467448"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559329"
 ---
-# <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i en UWP-app med hjälp av tal-SDK
+# <a name="quickstart-synthesize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i en UWP-app med hjälp av talet SDK
 
-Snabbstarter kan också användas för [taligenkänning](quickstart-csharp-uwp.md), [talöversättning](quickstart-translate-speech-uwp.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-csharp-uwp.md).
+Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-csharp-uwp.md), [tal översättning](quickstart-translate-speech-uwp.md) och [röst för första virtuella assistent](quickstart-virtual-assistant-csharp-uwp.md).
 
-I den här artikeln ska du utveckla ett C#-baserat UWP-program (Universal Windows Platform, Windows-version 1709 eller senare) med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Programmet kommer att syntetisera tal från text i realtid till din enhets-API. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
+I den här artikeln ska du utveckla ett C#-baserat UWP-program (Universal Windows Platform, Windows-version 1709 eller senare) med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Programmet kommer att syntetisera tal från text i real tid till enhetens högtalare. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
 
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
@@ -63,9 +63,9 @@ För den här snabbstarten krävs:
 
     ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-uwp-09-start-debugging.png "Starta appen i felsökningsläge")
 
-1. Ange text i textrutan och klicka på **Läs upp**. Texten skickas till Speech Services och syntetiskt till tal som spelar upp på högtalaren.
+1. Skriv lite text i text rutan och klicka på **tala**. Texten skickas till tal tjänsterna och syntetiskt till tal, som spelas upp på din talare.
 
-    ![Skärmbild av användargränssnittet för tal syntes](media/sdk/qs-tts-csharp-uwp-ui-result.png)
+    ![Skärm bild av användar gränssnittet för tal syntes](media/sdk/qs-tts-csharp-uwp-ui-result.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -74,5 +74,5 @@ För den här snabbstarten krävs:
 
 ## <a name="see-also"></a>Se också
 
-- [Anpassa rösttyper](how-to-customize-voice-font.md)
-- [Post voice-exempel](record-custom-voice-samples.md)
+- [Anpassa röst teckensnitt](how-to-customize-voice-font.md)
+- [Spela in röst exempel](record-custom-voice-samples.md)

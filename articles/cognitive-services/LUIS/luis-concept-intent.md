@@ -1,7 +1,7 @@
 ---
-title: Avsikter
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: En enda avsikten representerar en aktivitet eller åtgärd du vill utföra. Det är en syfte eller målet som uttrycks i en användares uttryck. Definiera en uppsättning avsikter som motsvarar för åtgärder som användare vill dra i ditt program.
+title: Avsikter – LUIS
+titleSuffix: Azure Cognitive Services
+description: En enda avsikt representerar en uppgift eller åtgärd som användaren vill utföra. Det är en syfte eller målet som uttrycks i en användares uttryck. Definiera en uppsättning avsikter som motsvarar för åtgärder som användare vill dra i ditt program.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b574e0a545091263fce7949f997a3ba2dc8e5a8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813453"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563972"
 ---
-# <a name="concepts-about-intents-in-your-luis-app"></a>Begrepp om avsikter i LUIS-appen
+# <a name="concepts-about-intents-in-your-luis-app"></a>Begrepp om avsikter i din LUIS-app
 
 Ett intent som representerar en aktivitet eller åtgärd du vill utföra. Det är en syfte eller målet som uttrycks i en användares [uttryck](luis-concept-utterance.md).
 
@@ -31,7 +31,7 @@ Resor appavsikter   |   Exempel på yttranden   |
  CheckWeather | ”Vad är vädret som i Boston”? <br/> ”Visa prognosen för den här helgen” |
  Ingen         | ”Hämta mig ett cookie-recept”<br>”Lakers vinna”? |
 
-Alla program som levereras med fördefinierade avsikten ”[ingen](#none-intent-is-fallback-for-app)”, vilket är reserv avsikten. 
+Alla program levereras med det fördefinierade syftet "[ingen](#none-intent-is-fallback-for-app)", vilket är återställnings avsikten. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Fördefinierade domäner tillhandahålla avsikter
 Du kan använda fördefinierade avsikter från någon av de fördefinierade domänerna förutom avsikter som du definierar. Mer information finns i [använda fördefinierade domäner i LUIS appar](luis-how-to-use-prebuilt-domains.md) vill veta mer om hur du anpassar avsikter från en domän som är färdiga för användning i din app.
@@ -59,10 +59,10 @@ På liknande sätt att vidta [yttranden](luis-concept-utterance.md) motsvarar et
 
 ## <a name="none-intent"></a>Avsikten Ingen
 
-Den **ingen** avsikt är viktigt att varje app och ska inte ha noll yttranden.
+**Ingen** avsikt är viktig för varje app och får inte ha noll yttranden.
 
 ### <a name="none-intent-is-fallback-for-app"></a>Ingen avsikt är reserv för app
-Den **ingen** avsikten är en allomfattande eller återställningsplats avsikt. Den används för att lära LUIS yttranden som inte är viktiga i programdomänen (ämnesområde). Den **ingen** avsikt ska ha mellan 10 och 20 procent av total yttranden i programmet. Lämna inte ingen tomt. 
+Den **ingen** avsikten är en allomfattande eller återställningsplats avsikt. Den används för att lära LUIS yttranden som inte är viktiga i programdomänen (ämnesområde). Den **ingen** avsikt ska ha mellan 10 och 20 procent av total yttranden i programmet. Lämna inget tomt. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>Ingen avsiktlig hjälper konversationen riktning
 När ett uttryck förväntas som ingen avsiktlig och returnerade till chattrobot med den förutsägelsen roboten kan ställa fler frågor eller ange en meny för att dirigera användare till giltiga alternativ i chattrobot. 
@@ -83,9 +83,9 @@ Om du vill fastställa negativa och positiva avsikter som ”jag **vill** en bil
 
 ## <a name="intents-and-patterns"></a>Avsikter och mönster
 
-Om du har exempel yttranden som kan definieras som ett reguljärt uttryck helt eller delvis, bör du använda den [reguljärt uttryck entitet](luis-concept-entity-types.md#regular-expression-entity) tillsammans med en [mönstret](luis-concept-patterns.md). 
+Om du har ett exempel på yttranden, som kan definieras delvis eller helt som ett reguljärt uttryck, bör du överväga att använda entiteten för [reguljära uttryck](luis-concept-entity-types.md#regular-expression-entity) med ett [mönster](luis-concept-patterns.md). 
 
-En entitet för reguljärt uttryck garanterar extrahering av data så att mönstret matchas. Den mönstermatchning garanterar en exakt avsikt returneras. 
+Om du använder en entitet med reguljära uttryck garanteras data extraheringen så att mönstret matchas. Mönster matchningen garanterar att en exakt avsikt returneras. 
 
 ## <a name="intent-balance"></a>Avsiktshantering saldo
 Domän avsikter ska ha en balans mellan yttranden över varje avsikt. Har inte en avsikt med 10 yttranden och en annan avsikten med 500 yttranden. Detta är inte balanserade. Om du har den här situationen kan du granska avsikten med 500 yttranden att se om många av avsikter kan att ordna i en [mönstret](luis-concept-patterns.md). 

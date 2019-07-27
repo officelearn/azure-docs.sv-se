@@ -1,7 +1,7 @@
 ---
-title: Granska användare yttranden
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Aktiv inlärning samlar in endpoint frågor och väljer användarens slutpunkt yttranden som det är osäker på. Du kan granska dessa uttryck för att välja avsikten och markera entiteter för dessa Läs-world yttranden. Acceptera ändringarna i ditt exempel yttranden och sedan träna och publicera. LUIS identifierar sedan yttranden som är mer exakt.
+title: Granska användarens yttranden-LUIS
+titleSuffix: Azure Cognitive Services
+description: Active Learning samlar in slut punkts frågor och väljer användarens slut punkt yttranden att det är osäkert. Du kan granska dessa yttranden för att välja avsikten och markera entiteter för dessa Read-World-yttranden. Acceptera ändringarna i ditt exempel yttranden och träna och publicera. LUIS identifierar sedan yttranden mer noggrant.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2f49d4bf573cc2dc2e1a3b8fc13413a738df8ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195170"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560456"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Granska endpoint yttranden LUIS-portalen för aktiv inlärning
+# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Så här granskar du slut punkts yttranden i LUIS-portalen för aktiv inlärning
 
-[Aktiv inlärning](luis-concept-review-endpoint-utterances.md) avbildas endpoint frågor och väljer användarens slutpunkt yttranden som det är osäker på. Du kan granska dessa uttryck för att välja avsikten och markera entiteter för dessa Läs-world yttranden. Acceptera ändringarna i ditt exempel yttranden och sedan träna och publicera. LUIS identifierar sedan yttranden som är mer exakt.
+[Active Learning](luis-concept-review-endpoint-utterances.md) samlar in slut punkts frågor och väljer användarens slut punkt yttranden att det är osäkert. Du kan granska dessa yttranden för att välja avsikten och markera entiteter för dessa Read-World-yttranden. Acceptera ändringarna i ditt exempel yttranden och träna och publicera. LUIS identifierar sedan yttranden mer noggrant.
 
 
 ## <a name="enable-active-learning"></a>Aktivera aktiv inlärning
 
-Om du vill aktivera aktiv inlärning logga användarfrågor. Detta åstadkoms genom att ange den [endpoint fråga](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) med den `log=true` querystring parametern och värdet.
+Logga användar frågor för att aktivera aktiv inlärning. Detta åstadkommer du genom att ställa in [slut punkts frågan](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) med `log=true` parametern QueryString och värdet.
 
 ## <a name="disable-active-learning"></a>Inaktivera aktiv inlärning
 
-Om du vill inaktivera aktiv inlärning, loggas inte användarfrågor. Detta åstadkoms genom att ange den [endpoint fråga](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) med den `log=false` querystring parametern och värdet.
+Du inaktiverar aktiv inlärning genom att inte logga användar frågor. Detta åstadkommer du genom att ställa in [slut punkts frågan](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) med `log=false` parametern QueryString och värdet.
 
 ## <a name="filter-utterances"></a>Filtrera uttryck
 

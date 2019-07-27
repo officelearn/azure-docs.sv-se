@@ -1,6 +1,6 @@
 ---
-title: DatetimeV2 fördefinierade entiteter
-titleSuffix: Azure
+title: DatetimeV2 fördefinierade entiteter – LUIS
+titleSuffix: Azure Cognitive Services
 description: Den här artikeln har datetimeV2 fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a19ab6e02249bad689f1a05c5761150b7a817df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148642"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560283"
 ---
-# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 fördefinierade entitet för en LUIS-app
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2-fördefinierad entitet för en LUIS-app
 
 Den **datetimeV2** fördefinierade entitet extraherar värdena för datum och tid. Dessa värden lösa i ett standardformat för klientprogram kan använda. När ett uttryck har datum och tid som inte är klar, LUIS innehåller _både tidigare och framtida värden_ reaktion slutpunkt. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller datetimeV2 till programmet avsikter. 
 
 ## <a name="types-of-datetimev2"></a>Typer av datetimeV2
-DatetimeV2 hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub-lagringsplats
+DatetimeV2 hanteras från identifierare [-text GitHub-](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) lagringsplatsen
 
 ## <a name="example-json"></a>Exempel på JSON 
 I följande exempel JSON-svar finns en `datetimeV2` entitet med en undertyp till `datetime`. Exempel på andra typer av datetimeV2 entiteter finns [undertyper till datetimeV2](#subtypes-of-datetimev2)</a>.
@@ -82,7 +82,7 @@ Varje element i den `values` matris kan ha följande fält:
 |Egenskapsnamn|Beskrivning av egenskap|
 |--|--|
 |Timex|tid, datum eller ett intervall som är uttryckt i TIMEX-format som följer den [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3 attribut för anteckningens med TimeML språk. Den här anteckningen beskrivs i den [TIMEX riktlinjer](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|Undertypen, som kan vara något av följande objekt: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
+|type|`datetime`Under typen, som kan vara något av följande: `date` `datetimerange` `timerange` `time`, `daterange`,,,,,. `set` `duration`|
 |value|**Valfritt.** Ett datetime-objekt i formatet yyyy:MM:dd (datum): mm: SS (tid) yyyy:MM:dd: mm: SS (datetime). Om `type` är `duration`, värdet är antalet sekunder (varaktighet) <br/> Används endast om `type` är `datetime` eller `date`, `time`, eller ”varaktighet.|
 
 ## <a name="valid-date-values"></a>Ogiltigt datum
@@ -206,15 +206,15 @@ I följande exempel visas hur LUIS använder **datetimeV2** att lösa det uttryc
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+## <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
 
-DatetimeV2 JSON-svar har ändrats i API-V3. 
+DatetimeV2 JSON-svaret har ändrats i API v3. 
 
-Ändringar mellan API V2:
-* `datetimeV2.timex.type` Egenskapen returneras inte längre eftersom det är tillbaka på den överordnade nivån `datetimev2.type`. 
-* Den `datetimeV2.timex` egenskapen har bytt namn till `datetimeV2.value`.
+Ändringar från API v2:
+* `datetimeV2.timex.type`Egenskapen returneras inte längre eftersom den returneras på den överordnade nivån `datetimev2.type`. 
+* Egenskapen har bytt namn till `datetimeV2.value`. `datetimeV2.timex`
 
-För uttryck, `8am on may 2nd 2017`, DatetimeV2 V3-versionen är:
+För uttryck `8am on may 2nd 2017`är v3-versionen av DatetimeV2:
 
 ```JSON
 {
@@ -244,7 +244,7 @@ För uttryck, `8am on may 2nd 2017`, DatetimeV2 V3-versionen är:
 }
 ```
 
-Följande JSON är med i `verbose` parameteruppsättning till `false`:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 {

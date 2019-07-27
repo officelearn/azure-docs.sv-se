@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Få svar från kunskapsbas – REST, Java – QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Denna Java REST-baserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas programmässigt.
 services: cognitive-services
 author: diberry
@@ -10,18 +10,18 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 6d49ce71959f80a96731046475c3de5737bf7d46
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2b888a275b08c7011c6e0b60ff1cd1d70b42f465
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796181"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559846"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Få svar på en fråga med hjälp av en kunskapsbas med Java
 
-Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. Kunskapsbasen innehåller frågor och svar från [datakällor](../Concepts/data-sources-supported.md) , till exempel vanliga frågor och svar. Den [fråga](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) skickas till QnA Maker-tjänsten. Den [svar](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) innehåller top-förutse svaret. 
+Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. Kunskaps basen innehåller frågor och svar från [data källor](../Concepts/data-sources-supported.md) som vanliga frågor och svar. [Frågan](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) skickas till QNA Maker tjänsten. [Svaret](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) innehåller det mest förväntade svaret. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * I det här exemplet används Apache [HTTP-klienten](https://hc.apache.org/httpcomponents-client-ga/) från HTTP Components. Du behöver lägga till följande Apache HTTP-klientbibliotek i projektet: 
@@ -72,7 +72,7 @@ Följande kod gör en HTTPS-begäran till API för QnA Maker för att skicka fr�
 
 Värdet för `Authorization`-huvudet innehåller strängen `EndpointKey`. 
 
-Läs mer om den [begäran](../how-to/metadata-generateanswer-usage.md#generateanswer-request) och [svar](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
+Läs mer om [begäran](../how-to/metadata-generateanswer-usage.md#generateanswer-request) och [svar](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 ## <a name="build-and-run-the-program"></a>Skapa och köra programmet
 

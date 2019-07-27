@@ -1,7 +1,7 @@
 ---
-title: Stream-codec komprimerade ljud med tal SDK - Speech Services
+title: Stream codec Compressed Audio med tal SDK-tal-tjänsten
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om att strömma komprimerat ljud till Azure Speech Services med tal SDK. Tillgänglig för C++, C#, och Java för Linux.
+description: Lär dig hur du direktuppspelar komprimerat ljud till Azure Speech Services med talet SDK. Tillgängligt för C++, C#, och Java för Linux.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,39 +10,39 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: d23190dc8f7980cb8a94ba295f45ae67fc7d4678
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b29b42dea9522526d49c1bda017a522855946def
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605096"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559552"
 ---
-# <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Med hjälp av codec komprimerade ljudindata med Speech-SDK
+# <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Använda codec-komprimerad ljud inspelning med talet SDK
 
-Tal-SDK **filer som komprimerats ljud indata Stream** API gör det möjligt att strömma komprimerat ljud till tal-tjänsten med hjälp av PullStream eller PushStream.
+Talet SDK: s **komprimerade ljud inspelnings** -API ger ett sätt att strömma komprimerat ljud till tal tjänsten med hjälp av PullStream eller PushStream.
 
 > [!IMPORTANT]
-> Strömning komprimerat ljud stöds bara för C++, C#, och Java i Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9).
-> Tal SDK-version 1.4.0 eller senare krävs.
+> Strömmande komprimerat ljud stöds bara C++för C#, och Java på Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9).
+> Tal SDK-version 1.4.0 eller högre krävs.
 
-Wav PCM/i dokumentationen om likriktade tal.  Utanför wav/PCM stöds följande indata codec komprimerat format:
+För WAV/PCM ser du Mainline tal-dokumentationen.  Utanför WAV/PCM stöds följande codec-komprimerade indataformat:
 
 - MP3-FILEN
 - OPUS/OGG
 
-## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>Krav för att använda codec komprimerade ljudindata
+## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>Krav för att använda codec-komprimerad ljud inspelning
 
-Installera dessa ytterligare beroenden för att använda komprimerade ljudindata med Speech-SDK för Linux:
+Installera dessa ytterligare beroenden för att använda komprimerade ljud indata med talet SDK för Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Exempelkod med codec komprimerade ljudindata
+## <a name="example-code-using-codec-compressed-audio-input"></a>Exempel kod med codec komprimerad ljud inspelning
 
-För att strömma i en komprimerad ljudformatet att Speech Services, skapa `PullAudioInputStream` eller `PushAudioInputStream`. Skapa sedan en `AudioConfig` från en instans av klassen stream anger komprimeringsformatet på dataströmmen.
+Skapa `PullAudioInputStream` eller`PushAudioInputStream`för att strömma i ett komprimerat ljud format till tal tjänsterna. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
 
-Anta att du har en Indataströmmen klass med namnet `myPushStream` och använder OPUS/OGG. Din kod kan se ut så här:
+Vi antar att du har en data Ströms klass som `myPushStream` heter och använder Opus/OGG. Din kod kan se ut så här:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

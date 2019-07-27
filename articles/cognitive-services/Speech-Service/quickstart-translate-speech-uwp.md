@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätt tal, C# (UWP) – Speech Services'
+title: 'Snabbstart: Översätta tal, C# (UWP) – tal service'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten skapar du ett enkelt Universal Windows Platform-program (UWP) för att samla in användarens tal, översätta det till ett annat språk och mata ut texten till kommandoraden. Den här guiden är utformad för Windows-användare.
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 07/23/2019
 ms.author: erhopf
-ms.openlocfilehash: dafcbd6bbe7f542d4eabc6b7cf858ac4871caae8
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: e73f15525aa679a3ba0242dab897adf999fe7e09
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404901"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559259"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Snabbstart: Översätt tal med Speech-SDK för C# (UWP)
 

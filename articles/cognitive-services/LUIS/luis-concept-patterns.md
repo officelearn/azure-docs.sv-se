@@ -1,6 +1,6 @@
 ---
-title: Mönster hjälpa förutsägelse
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Hjälp förutsägelse för mönster – LUIS
+titleSuffix: Azure Cognitive Services
 description: Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden.
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acbcaa7e5588c0fecf2c20751e69442e1373cbb5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813565"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563980"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Mönster lösa låg avsikt förtroende
-Överväg en personalapp som rapporterar om Organisationsschema i förhållande till en medarbetare. Baserat på en medarbetares namn och relationen, returnerar LUIS anställda som ingår. Överväg att en anställd, Tom, med en chef namn Alice och ett team med underordnade med namnet: Michael Rebecca och Carl.
+Överväg en personalapp som rapporterar om Organisationsschema i förhållande till en medarbetare. Baserat på en medarbetares namn och relationen, returnerar LUIS anställda som ingår. Överväg en anställd, tom, med ett chefs namn Alice och ett lag med underordnade med namnet: Michael, Rebecca och Carl.
 
 ![Bild av organisationsschema](./media/luis-concept-patterns/org-chart.png)
 
@@ -31,23 +31,23 @@ Mönster är utformade för att förbättra noggrannheten när flera uttryck är
 |Vem är Toms underordnad server?|GetOrgChart|.30|
 |Vem är Tom underordnat?|GetOrgChart|.30|
 
-Om en app har mellan 10 och 20 yttranden med olika längd av mening och olika ordföljden med olika ord (synonymer ”underordnad”, ”hantera”, ”report”), kan LUIS returnera ett låga förtroenderesultat. Skapa ett mönster för att hjälpa LUIS förstår vikten av word-ordning. 
+Om en app har mellan 10 och 20 yttranden med olika längd av mening och olika ordföljden med olika ord (synonymer ”underordnad”, ”hantera”, ”report”), kan LUIS returnera ett låga förtroenderesultat. Skapa ett mönster för att hjälpa LUIS förstå ord ordningens betydelse. 
 
 Mönster lösa följande situationer: 
 
-* Avsiktshantering poängen är låg
-* Rätt avsikten är inte den främsta poängen men för nära övre poängen. 
+* Poängen för avsikt är låg
+* Rätt avsikt är inte det översta resultatet, men för nära det högsta resultatet. 
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Mönster är inte en garanti för avsikt
 Mönster använder en blandning av tekniker för förutsägelse. Ange ett syfte med en mall för uttryck i ett mönster är ingen garanti för avsiktlig förutsägelser men det är en stark signal. 
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
-## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Mönster förbättras inte datorn lärt dig entitet identifiering
+## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Mönster ger inte bättre identifiering av enhets identifiering
 
-Ett mönster är främst avsett att hjälpa förutsägelser av avsikter och roller. Pattern.any entiteten används för att extrahera fri form entiteter. Mönster använda entiteter, hjälper arbetsprofilen inte identifiera en dator lärt dig entitet.  
+Ett mönster är främst avsett att hjälpa till att förutsäga avsikter och roller. Mönstret. en entitet används för att extrahera fria formulär enheter. När mönster använder entiteter kan ett mönster inte identifiera en enhet som har lärts ur enheten.  
 
-Inte räknar med att se förbättrad entitet förutsägelse när du minimerar flera uttryck i ett enda mönster. För enkla enheter innan behöver du lägga till yttranden eller Använd listan över entiteter annan mönstret inte utlöses.
+Vänta inte att se förbättrad enhets förutsägelse om du komprimerar flera yttranden till ett enda mönster. För att enkla entiteter ska kunna startas måste du lägga till yttranden eller använda List entiteter, annars går det inte att starta mönstret.
 
 ## <a name="patterns-use-entity-roles"></a>Mönster använder entiteten
 Om två eller flera entiteter i ett mönster är sammanhangsmässigt relaterade, mönster använda entiteten [roller](luis-concept-roles.md) extrahera sammanhangsberoende information om entiteter.  
@@ -61,55 +61,55 @@ Ett mönster matchas baserat på identifiera entiteterna i mönstret först och 
 ## <a name="pattern-syntax"></a>Mönstret syntax
 Mönstret syntaxen är en mall för ett uttryck. Mallen bör innehålla ord och entiteter som du vill matcha samt ord och skiljetecken som du vill ignorera. Det är **inte** ett reguljärt uttryck. 
 
-Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla entiteter och entiteter med roller. [Pattern.ANY](luis-concept-entity-types.md#patternany-entity) är en entitet som endast används i mönster. 
+Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla entiteter och entiteter med roller. [Mönster. alla](luis-concept-entity-types.md#patternany-entity) är en entitet som endast används i mönster. 
 
-Mönstret syntax stöder följande syntax:
+Pattern-syntaxen stöder följande syntax:
 
-|Funktion|Syntax|Kapslingsnivå|Exempel|
+|Funktion|Syntax|Kapslings nivå|Exempel|
 |--|--|--|--|
-|entitet| {} -klammerparenteser|2|Var är formuläret {entity-name}?|
-|Valfritt|[] - hakparenteser<BR><BR>Det finns en gräns på 3 på kapslingsnivåer av valfri kombination av valfria och gruppering |2|Frågetecknet är valfritt [?]|
-|Gruppering|() - parenteser|2|is (a \| b)|
-|eller| \| -vertikalstreck (pipe)<br><br>Det finns en gräns på 2 på de lodräta staplarna (eller) i en grupp |-|Där är formuläret ({formulär-name-kort} &#x7c; {formuläret namn-långa} &#x7c; {formuläret number})| 
-|början och/eller slutet av uttryck|^-hatt|-|^ börjar uttryck<br>uttryck görs ^<br>^ strikt literal matchning av hela uttryck med entiteten {number} ^|
+|entitet| {}– typografiska hakparenteser|2|Var finns formatet {Entity-Name}?|
+|valfri|[]-hakparenteser<BR><BR>Det finns en gräns på 3 på kapslings nivåer för valfri kombination av valfria och gruppering |2|Frågetecknet är valfritt [?]|
+|baserat|() – parenteser|2|is (a \| b)|
+|eller| \|– lodrätt streck (pipe)<br><br>Det finns en gräns på 2 på de lodräta staplarna (eller) i en grupp |-|Där är form ({form-Name-Short} &#x7c; {form-Name-Long} &#x7c; {form-Number})| 
+|början och/eller slutet av uttryck|^-cirkumflex|-|^ Starta uttryck<br>uttryck är slutförd ^<br>^ Strict literal matchning av hela uttryck med {Number} Entity ^|
 
-## <a name="nesting-syntax-in-patterns"></a>Kapsling syntax i mönster
+## <a name="nesting-syntax-in-patterns"></a>Kapsla syntax i mönster
 
-Den **valfritt** syntax, med hakparenteser och kan vara två nivåer. Till exempel: `[[this]is] a new form`. Det här exemplet möjliggör följande uttryck: 
+Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Till exempel: `[[this]is] a new form`. I det här exemplet används följande yttranden: 
 
-|Kapslade valfritt uttryck exempel|Förklaring|
+|Exempel på kapslade valfria uttryck|Förklaring|
 |--|--|
-|Det här är ett nytt formulär|matchar alla orden i mönstret|
-|är ett nytt formulär|matchar yttre valfritt word och icke-valfritt ord i mönstret|
-|ett nytt formulär|matchningar krävs ord|
+|Det här är ett nytt formulär|matchar alla ord i mönstret|
+|är ett nytt formulär|matchar yttre valfria ord och icke-valfria ord i mönstret|
+|ett nytt formulär|matchar endast obligatoriska ord|
 
-Den **gruppering** syntax, med parenteser kan vara två nivåer. Till exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Den här funktionen kan någon av de tre enheterna som ska matchas. 
+**Grupperingstypen** , med parenteser, kan kapslas två nivåer. Till exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Med den här funktionen kan alla de tre entiteterna matchas. 
 
-Om Entity1 är en plats med roller som ursprung (Seattle) och mål (Kairo) och entiteten 2 är ett känt att skapa namn från en lista över entitet (RedWest-C), skulle följande talade mappa till det här mönstret:
+Om Entity1 är en plats med roller som t. ex. ursprung (Seattle) och destination (Cairo) och entitet 2 är ett känt byggnads namn från en List-entitet (RedWest-C) mappar följande yttranden till det här mönstret:
 
-|Kapslad gruppering uttryck exempel|Förklaring|
+|Exempel på kapslad gruppering uttryck|Förklaring|
 |--|--|
-|RedWest-C|matchar yttre gruppering entitet|
-|Seattle|matchar ett av de inre gruppering entiteterna|
-|Kairo|matchar ett av de inre gruppering entiteterna|
+|RedWest-C|matchar Outer Grouping-entitet|
+|Seattle|matchar en av de inre gruppiska enheterna|
+|Kairo|matchar en av de inre gruppiska enheterna|
 
-## <a name="nesting-limits-for-groups-with-optional-syntax"></a>Kapsling gränser för grupper med valfria syntax
+## <a name="nesting-limits-for-groups-with-optional-syntax"></a>Kapslade gränser för grupper med valfri syntax
 
-En kombination av **gruppering** med **valfritt** syntax har en begränsning på 3 kapslingsnivåer.
+En kombination av **gruppering** med **valfri** syntax har en gräns på 3 kapslings nivåer.
 
-|Tillåtna|Exempel|
+|Behörig|Exempel|
 |--|--|
-|Ja|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
-|Nej|([([test1] &#x7c; test2)] &#x7c; test3)|
+|Ja|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
+|Nej|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
 
-## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Kapsling gränser för grupper med eller-ing-syntax
+## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Kapslade gränser för grupper med eller-ing-syntax
 
-En kombination av **gruppering** med **eller-ing** syntax har en gräns på 2 lodräta staplar.
+En kombination av **gruppering** med **eller-ing-** syntaxen har en gräns på 2 lodräta staplar.
 
-|Tillåtna|Exempel|
+|Behörig|Exempel|
 |--|--|
-|Ja|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
-|Nej|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
+|Ja|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
+|Nej|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxen för att lägga till en entitet i en mall för mönstret
 Om du vill lägga till en entitet i mallen mönstret omger entitetsnamn med klammerparenteser, till exempel `Who does {Employee} manage?`. 
@@ -140,14 +140,14 @@ Att lägga till en **Pattern.any** entiteten i mallen mönstret omger Pattern.an
 |Hur mycket **be** kostnaden och vilket format är tillgängliga i?|
 |Hur mycket **The nyfiken Incident av hund på natten-tiden** kostnaden och vilket format är tillgängliga i?| 
 
-Orden i rubriken för boken är inte förvirrande för LUIS eftersom LUIS vet var slutar Bokens titel, baserat på Pattern.any entitet.
+Texten i bok rubriken är inte förvirrande för LUIS eftersom LUIS vet var bok rubriken slutar, baserat på mönstret. alla entiteter.
 
 ## <a name="explicit-lists"></a>Explicit listor
 
-Skapa en [Explicit lista](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) via redigering API för att tillåta undantag när:
+skapa en [explicit lista](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) via redigerings-API: n för att tillåta undantaget när:
 
-* Mönstret innehåller en [Pattern.any](luis-concept-entity-types.md#patternany-entity)
-* Och att mönstret syntax gör möjligheten för ett ogiltigt entitetextrahering baserat på uttryck. 
+* Ditt mönster innehåller ett [mönster. alla](luis-concept-entity-types.md#patternany-entity)
+* Och den mönstermatchningssyntax ger möjlighet till en felaktig enhets extrahering baserat på uttryck. 
 
 Anta exempelvis att du har ett mönster som innehåller både valfria syntax `[]`, och entiteten syntax `{}`, kombinerade på ett sätt att extrahera data felaktigt.
 
@@ -160,7 +160,7 @@ I följande uttryck i **ämne** och **person** entitet extraheras korrekt och fe
 |e-post om hundar från Chris|ämne = hundar<br>person = Chris|✔|
 |e-post om man från La Mancha|ämne = mannen<br>person = La Mancha|X|
 
-I den föregående tabellen gäller ämne bör vara `the man from La Mancha` (en bok rubrik) men eftersom ämnet innehåller valfria ordet `from`, rubriken felaktigt förväntas. 
+I den föregående tabellen ska ämnet vara `the man from La Mancha` (en bok titel) men eftersom ämnet innehåller det valfria ordet `from`är rubriken felaktigt förväntad. 
 
 Åtgärda det här undantaget i mönstret genom att lägga till `the man from la mancha` som en explicit lista matchning för entiteten {subject} med den [redigering API för explicit lista](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -169,13 +169,13 @@ Markera valfri text i uttryck som använder syntax för reguljära uttryck hakpa
 
 |Mönstret med valfri text|Betydelse|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find` och `from {person}` är valfria|
-|”Kan du hjälpa mig [?]|Skiljetecknet är valfritt|
+|`[find] email about {subject} [from {person}]`|`find`och `from {person}` är valfria|
+|' Kan du hjälpa mig [?]|Interpunktion-tecknet är valfritt|
 
-Skiljetecken (`?`, `!`, `.`) ska ignoreras och du behöver att ignorera dem med hjälp av hakparentes-syntax i ett mönster. 
+Skiljetecken (`?`, `!`, `.`) ska ignoreras och du måste ignorera dem med hjälp av klammer i mönster. 
 
-## <a name="pattern-only-apps"></a>Endast mönstret appar
-Du kan skapa en app med avsikter som har inga exempel yttranden så länge det finns ett mönster för varje avsikt. För en app för endast mönstret får inte mönstret innehålla datorn lärt dig entiteter, eftersom dessa kräver exempel yttranden. 
+## <a name="pattern-only-apps"></a>Endast Pattern-appar
+Du kan bygga en app med avsikter som inte har något exempel yttranden, så länge det finns ett mönster för varje avsikt. För en app-only-app bör mönstret inte innehålla enhets enheter, eftersom dessa kräver exempel yttranden. 
 
 ## <a name="best-practices"></a>Bästa praxis
 Lär dig [bästa praxis](luis-concept-best-practices.md).

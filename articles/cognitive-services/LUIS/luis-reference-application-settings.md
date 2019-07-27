@@ -1,7 +1,7 @@
 ---
-title: Programinställningar
+title: Program inställningar – LUIS
 titleSuffix: Azure Cognitive Services
-description: Förstå inställningarna för program för Language understanding appar.
+description: Förstå program inställningar för språk förståelse för appar.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7dec738fca6991cbcbd822c192b96bf6b1cc6d87
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275911"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563506"
 ---
 # <a name="application-settings"></a>Programinställningar
 
-Dessa programinställningar lagras i den [exporteras](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app och [uppdateras](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med REST-API: er. Ändra inställningarna för din app version återställer din status för utbildning-app till omdöme.
+Dessa program inställningar lagras i den [exporterade](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) appen och [uppdateras](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med REST-API: erna. Om du ändrar inställningarna för program versionen återställs appens utbildnings status till inte tränad.
 
 |Inställning|Standardvärde|Anteckningar|
 |--|--|--|
-|NormalizePunctuation|Sant|Tar bort skiljetecken.|
-|NormalizeDiacritics|Sant|Tar bort diakritiska tecken.|
+|NormalizePunctuation|Sant|Tar bort interpunktion.|
+|NormalizeDiacritics|Sant|Tar bort dia kritiska tecken.|
 
-## <a name="diacritics-normalization"></a>Diakritiska tecken normalisering 
+## <a name="diacritics-normalization"></a>Normalisering av dia kritiska tecken 
 
-Aktivera uttryck normalisering för diakritiska tecken i LUIS JSON appfilen i den `settings` parametern.
+Aktivera uttryck-normalisering för dia kritiska tecken till din Luis JSON-app-fil `settings` i parametern.
 
 ```JSON
 "settings": [
@@ -37,18 +37,18 @@ Aktivera uttryck normalisering för diakritiska tecken i LUIS JSON appfilen i de
 ] 
 ```
 
-Följande uttryck visar hur diakritiska tecken normalisering påverkar yttranden:
+Följande yttranden visar hur dia kritiska normalisering påverkar yttranden:
 
-|Med diakritiska tecken inställd på false|Med diakritiska tecken inställd på true|
+|Med dia kritiska tecken inställt på falskt|Med dia kritiska tecken inställt på Sant|
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
 
-### <a name="language-support-for-diacritics"></a>Språkstöd för diakritiska tecken
+### <a name="language-support-for-diacritics"></a>Språk stöd för dia kritiska tecken
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugisiska (Brasilien) `pt-br` diakritiska tecken
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugisiska `pt-br` (Brasilien) dia kritiska tecken
 
-|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
+|Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -64,9 +64,9 @@ Följande uttryck visar hur diakritiska tecken normalisering påverkar yttranden
 |`ú`|`u`| 
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Nederländska `nl-nl` diakritiska tecken
+#### <a name="dutch-nl-nl-diacritics"></a>Nederländska `nl-nl` dia kritiska tecken
 
-|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
+|Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -81,11 +81,11 @@ Följande uttryck visar hur diakritiska tecken normalisering påverkar yttranden
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Franska `fr-` diakritiska tecken
+#### <a name="french-fr--diacritics"></a>Franska `fr-` dia kritiska tecken
 
-Detta inkluderar både franska och kanadensiska subkulturer.
+Detta inkluderar både franska och kanadensiska underkulturer.
 
-|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
+|Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -102,17 +102,17 @@ Detta inkluderar både franska och kanadensiska subkulturer.
 |`ü`|`u`| 
 |`ÿ`|`y`| 
 
-#### <a name="german-de-de-diacritics"></a>Tyska `de-de` diakritiska tecken
+#### <a name="german-de-de-diacritics"></a>Tyska `de-de` dia kritiska tecken
 
-|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
+|Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
 |`ü`|`u`| 
 
-#### <a name="italian-it-it-diacritics"></a>Italienska `it-it` diakritiska tecken
+#### <a name="italian-it-it-diacritics"></a>Italienska `it-it` dia kritiska tecken
 
-|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
+|Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -125,11 +125,11 @@ Detta inkluderar både franska och kanadensiska subkulturer.
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Spanska `es-` diakritiska tecken
+#### <a name="spanish-es--diacritics"></a>Spanska `es-` dia kritiska tecken
 
-Detta inkluderar både spanska och kanadensiska Mexikanska.
+Detta inkluderar både spanska och kanadensiska mexikanska.
 
-|Diakritiska tecken inställd på false|Diakritiska tecken är angett till true|
+|Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
@@ -140,9 +140,9 @@ Detta inkluderar både spanska och kanadensiska Mexikanska.
 |`ñ`|`u`|
 
 
-## <a name="punctuation-normalization"></a>Skiljetecken normalisering
+## <a name="punctuation-normalization"></a>Normalisering av interpunktion
 
-Aktivera uttryck normalisering för skiljetecken i LUIS JSON appfilen i den `settings` parametern.
+Aktivera uttryck normalisering för interpunktion till din Luis JSON-app-fil i `settings` -parametern.
 
 ```JSON
 "settings": [
@@ -150,16 +150,16 @@ Aktivera uttryck normalisering för skiljetecken i LUIS JSON appfilen i den `set
 ] 
 ```
 
-Följande uttryck visar hur diakritiska tecken påverkar yttranden:
+Följande yttranden visar hur dia kritiska tecken påverkar yttranden:
 
-|Med diakritiska tecken inställd på False|Med diakritiska tecken som har angetts till True|
+|Med dia kritiska tecken inställt på falskt|Med dia kritiska tecken inställt på Sant|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
-### <a name="punctuation-removed"></a>Interpunktion
+### <a name="punctuation-removed"></a>Interpunktion borttagen
 
-Följande punkter tas bort med `NormalizePunctuation` har angetts till true.
+Följande skiljetecken tas bort med `NormalizePunctuation` är inställt på sant.
 
 |Skiljetecken|
 |--|

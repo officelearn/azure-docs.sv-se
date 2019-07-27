@@ -10,14 +10,13 @@ ms.topic: sample
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 7b06082f3300249462afcd5e8808817d8651a4c5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 2bf782e1241f4d88beb3d52eefe80511375e800a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729184"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569746"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp
 
@@ -27,7 +26,7 @@ Det här PowerShell-exemplet uppdaterar synkroniseringsschemat i en befintlig sy
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-database-sync-data.md).
 
@@ -100,7 +99,7 @@ Mer information om SQL Data Sync finns i:
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](sql-database-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](../sql-database-data-sync-agent.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   Övervaka – [övervaka SQL Data Sync med Azure Monitor-loggar](../sql-database-sync-monitor-oms.md)
+-   Övervaka [SQL Data Sync med Azure Monitor loggar](../sql-database-sync-monitor-oms.md)
 -   Felsökning – [Felsöka problem med Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 -   Uppdatera synkroniseringsschemat
     -   Med Transact-SQL – [Automatisera replikeringen av schemaändringar i Azure SQL Data Sync](../sql-database-update-sync-schema.md)

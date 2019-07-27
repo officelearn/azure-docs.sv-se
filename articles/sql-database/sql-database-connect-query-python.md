@@ -10,20 +10,19 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 7fbb9265ac12126fb13a26650fbb5d65f3d39260
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 89e67fd58f6cfc54e21406e9385e7ca5e5bc1d17
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792086"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569157"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Snabbstart: Fråga Azure SQL Database med Python
 
  Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure SQL-databas och hur du använder Transact-SQL-uttryck för att köra frågor mot data. Ytterligare SDK-information finns i vår [referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/sql), [pyodbc-lagringsplatsen på GitHub](https://github.com/mkleehammer/pyodbc/wiki/) och i ett [pyodbc-exempel](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan genomföra den här snabbstarten:
 
@@ -37,7 +36,7 @@ Kontrollera att du har följande så att du kan genomföra den här snabbstarten
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]

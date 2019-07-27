@@ -1,7 +1,7 @@
 ---
-title: Tal till text med Azure Speech Services
+title: Tal-till-text-tal-tjänst
 titleSuffix: Azure Cognitive Services
-description: Tal-till-text från Azure Speech Services, även kallat tal-till-text, aktiverar real tids avskrift av ljud strömmar till text som dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder för som kommando indata. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter och fungerar sömlöst med översättning och text till tal.
+description: Tal-till-text-funktionen i Speech service, som även kallas tal-till-text, aktiverar text strömmar i real tid till text som dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder på som kommando indata. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter och fungerar sömlöst med översättning och text till tal.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cb9362c4d58deb5472c8d5adab39cdd1cc4e2600
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333565"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558859"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 

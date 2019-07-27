@@ -1,6 +1,6 @@
 ---
-title: Fraslistor
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Fras listor – LUIS
+titleSuffix: Azure Cognitive Services
 description: Använd Språkförståelse (LUIS) att lägga till appfunktioner som kan förbättra identifiering eller förutsägelser av avsikter och entiteter som kategorier och mönster
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75764fd0a3f862157d9377d7dc886334ef1231db
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195935"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563709"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Använd frasen visar att boost signaler med ordlistan
 
@@ -28,7 +28,7 @@ En lista med frasen lägger till vokabulär app-domänen som en signal för andr
 
 ## <a name="add-phrase-list"></a>Lägg till frasen lista
 
-LUIS kan upp till 10 frasen listor per app. 
+LUIS tillåter upp till 10 fras listor per app. 
 
 1. Öppna din app genom att klicka på namnet på **Mina appar** , och klicka sedan på **skapa**, klicka sedan på **fras listor** i vänster panel i din app. 
 
@@ -40,11 +40,11 @@ LUIS kan upp till 10 frasen listor per app.
 
 4. LUIS kan föreslå relaterade värden för att lägga till i listan fras. Klicka på **rekommenderar** att hämta en grupp med föreslagna värden från relaterade till added value(s). Du kan klicka på någon av de föreslagna värdena eller klicka på **Lägg till alla** att lägga till dem alla.
 
-    ![Fras föreslagen listvärden – Lägg till alla](./media/luis-add-features/related-values.png)
+    ![Föreslagna värden för fras lista – Lägg till alla](./media/luis-add-features/related-values.png)
 
 5. Klicka på **dessa värden är utbytbara** om listvärden har lagts till frasen finns alternativ som är utbytbara.
 
-    ![Fras föreslagen listvärden – utbytbara kryssrutan](./media/luis-add-features/interchangeable.png)
+    ![Föreslagna värden för fras lista – Välj utbytbar ruta](./media/luis-add-features/interchangeable.png)
 
 6. Klicka på **Spara**. Listan med frasen ”städer” har lagts till i den **fras listor** sidan.
 

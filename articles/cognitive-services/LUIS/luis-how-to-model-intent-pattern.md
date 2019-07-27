@@ -1,7 +1,7 @@
 ---
-title: Mönster öka noggrannheten
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Lägga till mönstret mallar för att förbättra förutsägelsefunktionen i Språkförståelse (LUIS) program.
+title: Mönster Lägg till precision – LUIS
+titleSuffix: Azure Cognitive Services
+description: Lägg till mallar för att förbättra förutsägelse noggrannhet i Language Understanding-program (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0e801afde240d8b2d6e0798e6894b2e83f9c5cb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196721"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560431"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
-När en LUIS-app tar emot endpoint yttranden måste använda en [mönstret](luis-concept-patterns.md) förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster som använder specifika [syntax](luis-concept-patterns.md#pattern-syntax) att ange platsen för: [entiteter](luis-concept-entity-types.md), entiteten [roller](luis-concept-roles.md), och valfria text.
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Så här lägger du till mönster för att förbättra förutsägelse noggrannhet
+När en LUIS-app tar emot slut punkts yttranden använder du ett [mönster](luis-concept-patterns.md) för att förbättra förutsägelse noggrannheten för yttranden som visar ett mönster i Word-ordning och Word-val. Mönster använder en speciell [syntax](luis-concept-patterns.md#pattern-syntax) för att ange platsen för: [entiteter](luis-concept-entity-types.md), entitets [roller](luis-concept-roles.md)och valfri text.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Lägg till mall-uttryck för att skapa mönstret
 1. Öppna din app genom att välja dess namn på **Mina appar** och välj sedan **mönster** i den vänstra panelen under **förbättra apprestanda**.
@@ -34,7 +34,7 @@ När en LUIS-app tar emot endpoint yttranden måste använda en [mönstret](luis
 
     ![Skärmbild av entitet för mönstret](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Om din entitet innehåller en [rollen](luis-concept-roles.md), indikera vilken roll med ett enda kolon `:`efter att entiteten namnet, till exempel `{Location:Origin}`. I listan över roller för enheterna som visas i en lista. Välj rollen och tryck sedan på RETUR. 
+    Om entiteten innehåller en [roll](luis-concept-roles.md), anger du rollen med ett enskilt kolon `:`, efter `{Location:Origin}`namnet på entiteten, till exempel. I listan över roller för enheterna som visas i en lista. Välj rollen och tryck sedan på RETUR. 
 
     ![Skärmbild av entiteten med rollen](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
@@ -56,22 +56,22 @@ När du lägger till, redigera, ta bort eller omtilldela ett mönster [träna](l
 <a name="remove-entity-or-intent-filter"></a>
 <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
 
-## <a name="use-contextual-toolbar"></a>Använda sammanhangsberoende verktygsfältet
+## <a name="use-contextual-toolbar"></a>Använd sammanhangsbaserade verktygsfält
 
-Sammanhangsberoende verktygsfältet ovanför listan mönster kan du:
+I kontext verktygsfältet ovanför mönster listan kan du göra följande:
 
 * Sök efter mönster
 * Redigera ett mönster
 * Omtilldela enskilda mönstret till olika avsikt
 * Tilldela flera mönster till olika avsikt
-* Delete-a-single-pattern
+* Ta bort ett enstaka mönster
 * Ta bort flera mönster
 * Filtrera enheter efter entitet
-* Filter-pattern-list-by-intent
+* Filter-mönster-lista-för-avsikt
 * Ta bort entitet eller avsiktlig filter
 * Lägg till mönster från befintliga uttryck på avsikten eller entitet
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [bygga ett mönster](luis-tutorial-pattern.md) med en pattern.any och roller med en självstudie.
+* Lär dig hur du [skapar ett mönster](luis-tutorial-pattern.md) med ett mönster. alla och roller med en själv studie kurs.
 * Lär dig hur du [träna](luis-how-to-train.md) din app.

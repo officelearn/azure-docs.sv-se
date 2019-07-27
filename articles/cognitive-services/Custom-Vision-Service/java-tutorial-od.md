@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Java'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna projektet och identifiera objekt med hjälp av Java SDK.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 9ddb882658551115b05df3820e70a6b6684d563b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c7d44efee4f6bf6ec954b015b5f34271cbca5110
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604039"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565511"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Java
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller information och exempelkod som hjälper dig att ko
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Hämta Custom Vision-SDK:n och exempelkoden
 
-Om du vill skriva ett Java-program som använder Custom Vision behöver du Custom Vision maven-paketen. Dessa paket som ingår i exempelprojektet laddar du ned, men du kan komma åt dem individuellt här.
+Om du vill skriva ett Java-program som använder Custom Vision behöver du Custom Vision maven-paketen. De här paketen ingår i det exempel projekt som du kommer att hämta, men du kan komma åt dem separat här.
 
 Du kan installera SDK för Custom Vision från maven-centrallager:
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
@@ -50,7 +50,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Hitta den **runSample** metod och kommentera ut den **ImageClassification_Sample** metodanrop&mdash;den här metoden Kör avbildningen klassificering scenario som inte beskrivs i den här guiden. Metoden **ObjectDetection_Sample** implementerar de primära funktionerna i den här snabbstarten. Gå till dess definition och granska koden. 
+Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Hitta **runSample** -metoden och kommentera ut **ImageClassification_Sample** -metod anropet&mdash;den här metoden kör bild klassificerings scenariot, som inte beskrivs i den här hand boken. Metoden **ObjectDetection_Sample** implementerar de primära funktionerna i den här snabbstarten. Gå till dess definition och granska koden. 
 
 ### <a name="create-a-new-custom-vision-service-project"></a>Skapa ett nytt Custom Vision Service-projekt
 
@@ -78,7 +78,7 @@ Föregående kodavsnitt använder två hjälpfunktioner som hämtar bilderna som
 
 ### <a name="train-the-project-and-publish"></a>Träna projektet och publicera
 
-Den här koden skapar den första upprepningen i projektet och sedan publicerar den iterationen till slutpunkten för förutsägelse. Namnet på den publicerade iterationen kan användas för att skicka förfrågningar för förutsägelse. En iteration är inte tillgänglig i förutsägelse slutpunkten tills den har publicerats.
+Den här koden skapar den första iterationen i projektet och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=233-242)]
 

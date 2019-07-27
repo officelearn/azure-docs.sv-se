@@ -1,6 +1,6 @@
 ---
 title: PowerShell, exempel – återställ och säkerhetskopiera Azure SQL-databas | Microsoft Docs
-description: Azure PowerShell-exempelskript för att återställa en enskild Azure SQL-databas till en tidigare tidpunkt från automatiska säkerhetskopieringar
+description: Azure PowerShell exempel skript för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt från automatiska säkerhets kopieringar
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -10,24 +10,23 @@ ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/27/2019
-ms.openlocfilehash: ffccbe58894a6fa7a523be2d2d26759fa20f371d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 8a34e2607a957f9af3756818bce9b2dd77541e85
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729283"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569852"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Använd PowerShell för att återställa en enskild Azure SQL-databas till en tidigare tidpunkt
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Använd PowerShell för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt
 
-Det här PowerShell-Skriptexemplet återställer en Azure SQL-databas till en viss tidpunkt.  
+Detta exempel på PowerShell-skript återställer en Azure SQL-databas till en viss tidpunkt.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -35,7 +34,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

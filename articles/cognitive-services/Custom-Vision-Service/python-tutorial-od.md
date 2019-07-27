@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Python'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och identifiera objekt med hjälp av Python SDK.
 services: cognitive-services
 author: areddish
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 623bf0b054544d2c25f3542043afe20d778fdd24
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2994d696f463c32ed05fd42b694f29fa2035b9d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603485"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564163"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Python
 
-Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Python för att skapa en objektidentifieringsmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta projektets publicerade förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet som en mall för att skapa ditt eget Python-program.
+Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Python för att skapa en objektidentifieringsmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som en mall för att skapa ditt eget Python-program.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,7 +46,7 @@ Skapa en ny fil med namnet *sample.py* i den projektkatalog du vill använda.
 
 ### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
 
-Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Skillnaden mellan att skapa projekt för klassificering av identifierings- och ett objekt är den domän som anges i den **create_project** anropa.
+Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Skillnaden mellan att skapa ett projekt för objekt identifiering och bild klassificering är den domän som anges i **create_project** -anropet.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -73,7 +73,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
-Skapa objekttyper i projektet genom att lägga till följande kod i slutet av *sample.py*:
+Om du vill skapa objekt Taggar i projektet lägger du till följande kod i slutet av *Sample.py*:
 
 ```Python
 # Make two tags in the new project
@@ -85,7 +85,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 När du taggar bilder i objektidentifieringsprojekt måste du bestämma region för varje taggat objekt med hjälp av normaliserade koordinater.
 
-För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. Den här självstudien är regionerna i hårdkodad infogade med kod. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd.
+För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. I den här självstudien är regionerna hårdkodad infogade i koden. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd.
 
 ```Python
 fork_image_regions = {
@@ -169,7 +169,7 @@ if not upload_result.is_batch_successful:
 
 ### <a name="train-the-project-and-publish"></a>Träna projektet och publicera
 
-Den här koden skapar den första upprepningen i projektet och sedan publicerar den iterationen till slutpunkten för förutsägelse. Namnet på den publicerade iterationen kan användas för att skicka förfrågningar för förutsägelse. En iteration är inte tillgänglig i förutsägelse slutpunkten tills den har publicerats.
+Den här koden skapar den första iterationen i projektet och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
 ```Python
 import time
@@ -186,7 +186,7 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och använda den publicerade iterationen på slutpunkten för förutsägelse
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
 
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 

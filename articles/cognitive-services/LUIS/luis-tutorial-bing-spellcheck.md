@@ -1,6 +1,6 @@
 ---
-title: Rätt felstavade ord.
-titleSuffix: Azure
+title: Korrigera felstavade ord – LUIS
+titleSuffix: Azure Cognitive Services
 description: Rätta felstavade ord i yttranden genom att lägga till Bing stavningskontroll kontrollera API V7 LUIS endpoint frågor.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 1e5536b08b3b78f35426207369f444e6eb21c87d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bf507fcb52d0c6a57453bd5f038530640e62ba9c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60495036"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563349"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Rätta felstavade ord med stavningskontroll i Bing
 

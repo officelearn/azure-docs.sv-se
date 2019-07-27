@@ -1,6 +1,6 @@
 ---
 title: Använd förutsägelseslutpunkt för att programmatiskt testa bilder med klassificerare – Custom Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lär dig hur du använder API:et för att programmatiskt testa bilder med din klassificerare för Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
@@ -10,48 +10,48 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8564095cc84a3f124ca41efd2e19787cd16902ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816773"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564124"
 ---
-# <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägande API
+# <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägelse-API: et
 
-När du har träna din modell, kan du testa avbildningar via programmering genom att skicka dem till förutsägelse-API-slutpunkt.
+När du har tränat din modell kan du testa bilderna program mässigt genom att skicka dem till förutsägelse-API-slutpunkten.
 
 > [!NOTE]
-> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel finns i den [förutsägelse-API-referens](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel finns i [förutsägelse API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)-referensen.
 
-## <a name="publish-your-trained-iteration"></a>Publicera din tränade iteration
+## <a name="publish-your-trained-iteration"></a>Publicera din utbildade iteration
 
 Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__.
 
-För att skicka avbildningar förutsägelse-API: et, du måste först publicera din upprepningen för förutsägelse som kan göras genom att välja __publicera__ och ange ett namn för den publicerade upprepningen. Det gör din modell är tillgängliga för förutsägelse-API: et för din anpassade Vision Azure-resurs.
+Om du vill skicka avbildningar till förutsägelse-API: t måste du först publicera din iteration för förutsägelse, som du kan göra genom att välja __publicera__ och ange ett namn för den publicerade iterationen. Detta gör din modell tillgänglig för förutsägelse-API: t för din Custom Vision Azure-resurs.
 
-![Fliken prestanda visas med en röd rektangel omger knappen Publicera.](./media/use-prediction-api/unpublished-iteration.png)
+![Fliken prestanda visas med en röd rektangel som omger publicerings knappen.](./media/use-prediction-api/unpublished-iteration.png)
 
-När din modell har publicerats, ser du en etikett för ”publicerad” visas bredvid din iteration i vänster sidofält och dess namn visas i beskrivningen av iterationen.
+När din modell har publicerats visas en "Publicerad" etikett bredvid iterationen i den vänstra sid panelen och dess namn visas i beskrivningen av iterationen.
 
-![Fliken prestanda visas med en röd rektangel omger den publicerade etiketten och namnet på den publicerade iterationen.](./media/use-prediction-api/published-iteration.png)
+![Fliken prestanda visas med en röd rektangel som omger den publicerade etiketten och namnet på den publicerade iterationen.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>Hämta URL och förutsägelsenyckel
 
-När din modell har publicerats kan du hämta informationen som krävs genom att välja __förutsägelse URL__. Då öppnas en dialogruta med information för att använda förutsägelse-API, inklusive den __förutsägelse URL__ och __förutsägelse-nyckeln__.
+När din modell har publicerats kan du hämta den information som krävs genom att välja __förutsägelse-URL__. Då öppnas en dialog ruta med information om hur du använder förutsägelse-API, inklusive __förutsägelse-URL__ och __förutsägelse nyckel__.
 
-![Fliken prestanda visas med en röd rektangel omger förutsägelse URL-knappen.](./media/use-prediction-api/published-iteration-prediction-url.png)
+![Fliken prestanda visas med en röd rektangel som omger URL-knappen för förutsägelse.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![Fliken prestanda visas med en röd rektangel omger förutsägelse URL-värdet för att använda en bildfil och förutsägelse-nyckel-värde.](./media/use-prediction-api/prediction-api-info.png)
+![Fliken prestanda visas med en röd rektangel som omger värdet för förutsägelse-URL: en för att använda en bildfil och värdet för förutsägelse nyckeln.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Din __förutsägelse-Key__ finns också i den [Azure-portalen](https://portal.azure.com) sidan för Custom Vision Azure-resurs som associeras med ditt projekt, under den __nycklar__ bladet.
+> Du kan också hitta din __förutsägelse nyckel__ på sidan [Azure Portal](https://portal.azure.com) för den Custom vision Azure-resurs som är kopplad till projektet, under bladet __nycklar__ .
 
-I den här guiden ska du använda en lokal avbildning, så Kopiera URL som under **om du har en bildfil** till en tillfällig plats. Kopiera motsvarande __förutsägelse-Key__ även värdet.
+I den här guiden ska du använda en lokal avbildning, så kopiera URL: en under **om du har en avbildnings fil** till en tillfällig plats. Kopiera även motsvarande __förutsägelse-nyckel__ värde.
 
 ## <a name="create-the-application"></a>Skapa programmet
 
-1. I Visual Studio skapar du en ny C# -konsolapp.
+1. Skapa ett nytt C# konsol program i Visual Studio.
 
 1. Använd följande kod som brödtext i filen __Program.cs__.
 
@@ -111,13 +111,13 @@ I den här guiden ska du använda en lokal avbildning, så Kopiera URL som under
     ```
 
 1. Ändra följande information:
-   * Ange den `namespace` fältet med namnet på ditt projekt.
-   * Ersätt platshållaren `<Your prediction key>` för nyckelvärdet som du hämtade tidigare.
-   * Ersätt platshållaren `<Your prediction URL>` med URL-Adressen som du hämtade tidigare.
+   * `namespace` Ange fältet till namnet på ditt projekt.
+   * Ersätt plats hållaren `<Your prediction key>` med det nyckel värde som du hämtade tidigare.
+   * Ersätt plats hållaren `<Your prediction URL>` med URL: en som du hämtade tidigare.
 
 ## <a name="run-the-application"></a>Köra programmet
 
-När du kör programmet, uppmanas du att ange en sökväg till en bildfil i konsolen. Avbildningen skickas sedan förutsägelse-API: et och resultatet returneras som en JSON-formaterad sträng. Följande är ett exempel på ett svar.
+När du kör programmet uppmanas du att ange en sökväg till en avbildnings fil i-konsolen. Avbildningen skickas sedan till förutsägelse-API: et och förutsägelse resultatet returneras som en JSON-formaterad sträng. Följande är ett exempel på ett svar.
 
 ```json
 {
@@ -134,7 +134,7 @@ När du kör programmet, uppmanas du att ange en sökväg till en bildfil i kons
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här handboken beskrivs hur du skickar bilder till din egen bild klassificerare/detektor och få ett svar via programmering med den C# SDK. Därefter lär dig hur du färdigställa scenarion för slutpunkt till slutpunkt med C#, eller komma igång med ett annat språk SDK.
+I den här guiden har du lärt dig hur du skickar avbildningar till din anpassade avbildnings klassificerare/detektor och får ett svar C# program mässigt med SDK: n. Härnäst lär du dig hur du slutför scenarier från slut punkt till slut C#punkt med eller kom igång med ett annat språk-SDK.
 
 * [Quickstart: .NET SDK](csharp-tutorial.md)
 * [Snabbstart: Python SDK](python-tutorial.md)

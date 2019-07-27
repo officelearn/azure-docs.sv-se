@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Skapa kunskapsbas – REST, Java – QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: I den här Java REST-baserade snabbstarten går vi igenom hur du skapar ett exempel på QnA Maker-kunskapsbas, programmatiskt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 298f7e90bb6848d7b0af032bdaff8724a69c227f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 767866fd6768237c4d3a0d7ea422521254414fb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249660"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559868"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med Java
 
@@ -100,7 +100,7 @@ Upprepa anropet tills det lyckas eller misslyckas:
 ```
 
 ## <a name="add-a-main-method"></a>Lägga till en main-metod
-Main-metoden skapar kunskapsbasen och söker sedan efter status. Åtgärden ID returneras i fältet POST svar rubrik **plats**, används som en del av vägen i GET-begäran. Den `while` loop försöker status om den inte har slutförts.
+Main-metoden skapar kunskapsbasen och söker sedan efter status. Åtgärds-ID: t returneras i fältet POSTens svars huvud **plats**och används som en del av vägen i get-begäran. `while` Loopen försöker igen om den inte är slutförd.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

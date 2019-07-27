@@ -10,10 +10,10 @@ ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325570"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Självstudie: Skapa en containeravbildning för distribution till Azure Container Instances
@@ -49,7 +49,7 @@ Du kan också [Hämta zip-arkivet][aci-helloworld-zip] från GitHub direkt.
 
 ## <a name="build-the-container-image"></a>Bygga containeravbildningen
 
-Den Dockerfile som finns i exempelprogrammet visar hur containern är byggd. Den börjar från en [officiell Node. js-avbildning][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux], en liten distribution som är lämplig för användning med behållare. Den kopierar sedan programfilerna till containern, installerar beroenden med Node Package Manager (nodpaketshanteraren) och startar slutligen programmet.
+Den Dockerfile som finns i exempelprogrammet visar hur containern är byggd. Den börjar från en [officiell Node. js-avbildning][docker-hub-nodeimage] baserat på [Alpine Linux][alpine-linux], en liten distribution som är lämplig för användning med behållare. Den kopierar sedan programfilerna till containern, installerar beroenden med Node Package Manager (nodpaketshanteraren) och startar slutligen programmet.
 
 ```Dockerfile
 FROM node:8.9.3-alpine

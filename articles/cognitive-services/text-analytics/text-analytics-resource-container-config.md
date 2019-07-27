@@ -1,6 +1,6 @@
 ---
-title: Konfigurera containrar
-titlesuffix: Text Analytics - Azure Cognitive Services
+title: Konfigurera behållare – Textanalys
+titleSuffix: Azure Cognitive Services
 description: Textanalys ger varje behållare med ett gemensamt ramverk för konfiguration, så att du enkelt kan konfigurera och hantera inställningar för lagring, loggning och telemetri och säkerhet för dina behållare.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: dapine
-ms.openlocfilehash: 2a9b9ce5109315d940d6dcadf395489612faddec
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 65d88e6c201f633a260e31544444341e636e9941
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356934"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552255"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Konfigurera Textanalys Docker-behållare
 
@@ -49,7 +49,7 @@ Du hittar den här inställningen på följande plats:
 
 * Azure-portalen: **Textanalys** Översikt, märkt`Endpoint`
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatorisk| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Den obligatoriska URI för fakturerings slut punkt |
 
@@ -77,10 +77,10 @@ Textanalys behållare använder inte indata eller utdata monteras för att lagra
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter. 
 
-|Valfri| Namn | Datatyp | Beskrivning |
+|Valfritt| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | Sträng | Textanalys behållare använder inte detta.|
-|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåtet| `Input` | Sträng | Textanalys behållare använder inte detta.|
+|Valfritt| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
 

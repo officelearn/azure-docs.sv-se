@@ -1,6 +1,6 @@
 ---
 title: Utföra åtgärder för avbildning – JavaScript
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utforska en grundläggande JavaScript-app som använder API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
 author: KellyDF
@@ -11,50 +11,50 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 91af70406590ab8e65a5d4a4b53835e9e4d4ed2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24ef94b702d11977df4e1ca2dab181f5c14a00df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231656"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564563"
 ---
-# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Använda funktionerna för visuellt innehåll med REST-API och JavaScript
+# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Använd Visuellt innehåll funktioner med REST API och Java Script
 
-Den här guiden beskriver funktionerna i den Azure Cognitive Services REST API för visuellt innehåll.
+I den här guiden visas funktionerna i Azure Cognitive Services Visuellt innehåll REST API.
 
 Utforska ett JavaScript-program som använder REST API för visuellt innehåll för att utföra optisk teckenigenkänning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriva visuella funktioner, inklusive ansikten i en bild. Det här exemplet låter dig skicka en bild-URL för analys eller bearbetning. Du kan använda det här exemplet med öppen källkod som en mall för att skapa din egen app i JavaScript och använda REST API för visuellt innehåll.
 
-JavaScript-formulärprogrammet har redan skrivits, men har inga funktioner för visuellt innehåll. I den här guiden du lägga till specifika koden i REST API för visuellt innehåll att slutföra programmets funktioner.
+JavaScript-formulärprogrammet har redan skrivits, men har inga funktioner för visuellt innehåll. I den här guiden lägger du till den kod som är specifik för den Visuellt innehåll REST API för att slutföra programmets funktioner.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="platform-requirements"></a>Plattformskrav
 
-Du kan följa stegen i den här guiden med en enkel textredigerare.
+Du kan följa stegen i den här guiden med en enkel text redigerare.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Prenumerera på API för visuellt innehåll och få en prenumerationsnyckel
 
-Innan du skapar exemplet, måste du prenumerera på API för visuellt innehåll som ingår i Azure Cognitive Services. Information om prenumeration och nyckelhantering finns i [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). Både de primära och sekundära nycklarna är att använda i den här guiden.
+Innan du skapar exemplet, måste du prenumerera på API för visuellt innehåll som ingår i Azure Cognitive Services. Information om prenumeration och nyckelhantering finns i [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). Både de primära och sekundära nycklarna är giltiga för användning i den här guiden.
 
-## <a name="acquire-incomplete-tutorial-project"></a>Hämta ofullständig självstudieprojektet
+## <a name="acquire-incomplete-tutorial-project"></a>Hämta ofullständigt självstudie projekt
 
 ### <a name="download-the-project"></a>Ladda ned projektet
 
 Klona [Cognitive Services-självstudien för visuellt innehåll med JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial), eller hämta ZIP-filen och extrahera den till en tom katalog.
 
-Om du föredrar att använda det färdiga projektet med alla självstudiekursen kod som har lagts till kan du använda filerna i den **slutförd** mapp.
+Om du föredrar att använda det färdiga projektet med all själv studie kod tillagd kan du använda filerna i den **färdiga** mappen.
 
-## <a name="add-tutorial-code-to-the-project"></a>Lägg till självstudiekursen koden i projektet
+## <a name="add-tutorial-code-to-the-project"></a>Lägg till självstudie kod i projektet
 
-JavaScript-programmet har konfigurerats med sex .html-filer, en för varje funktion. Varje fil som visar en annan funktion för visuellt innehåll (analysera, OCR, osv.). Sex delar har inte beroenden, så att du kan lägga till självstudiekursen koden till en fil, alla sex filer eller ett par av filer. Och du kan lägga till självstudiekoden i filerna i valfri ordning.
+JavaScript-programmet har konfigurerats med sex .html-filer, en för varje funktion. Varje fil visar en annan funktion i Visuellt innehåll (analysera, OCR osv.). De sex avsnitten har inga beroenden, så du kan lägga till själv studie koden till en fil, alla sex filer eller bara ett par filer. Och du kan lägga till självstudiekoden i filerna i valfri ordning.
 
 ### <a name="analyze-an-image"></a>Analysera en bild
 
-Funktionen Analysera i visuellt söker igenom en avbildning för tusentals identifierbara objekt, levande saker, landskap och åtgärder. När analysen är klar, returnerar analysera ett JSON-objekt som beskriver bilden med beskrivande taggar, färganalys, beskrivningar och mer.
+Analys funktionen i Visuellt innehåll skannar en bild efter tusentals identifierbara objekt, levande saker, landskap och åtgärder. När analysen är klar, returnerar analysera ett JSON-objekt som beskriver bilden med beskrivande taggar, färganalys, beskrivningar och mer.
 
-Utför följande steg för att slutföra funktionen Analysera i programmet:
+Utför följande steg för att slutföra analys funktionen i programmet:
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Lägg till händelsekod för hanteraren för knappen analysera
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Lägg till händelse hanterarens kod för knappen analysera
 
 Öppna filen **analyze.html** i en textredigerare och leta upp funktionen **analyzeButtonClick** i slutet av filen.
 
@@ -150,7 +150,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-analyze-function"></a>Kör funktionen Analysera
+#### <a name="run-the-analyze-function"></a>Kör funktionen analysera
 
 Spara filen **analyze.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL för en bild som ska analyseras och klicka sedan på knappen **Analysera bild** för att analysera bilden och se resultatet.
 
@@ -158,9 +158,9 @@ Spara filen **analyze.html** och öppna den i en webbläsare. Placera din prenum
 
 Funktionen landmärken i visuellt innehåll analyserar en bild efter naturliga och konstgjorda landmärken, till exempel berg eller berömda byggnader. När analysen är klar, returnerar Landmärke ett JSON-objekt som identifierar landmärken i bilden.
 
-Utför följande steg för att slutföra funktionen landmärken i programmet:
+Utför följande steg för att slutföra appens Landmärkes funktion:
 
-#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Lägg till händelsekod för hanteraren för knappen landmärken
+#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Lägg till händelse hanterarens kod för knappen landmärke
 
 Öppna filen **landmark.html** i en textredigerare och leta upp funktionen **landmarkButtonClick** i slutet av filen.
 
@@ -255,7 +255,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-landmark-function"></a>Kör funktionen landmärken
+#### <a name="run-the-landmark-function"></a>Kör funktionen landmärke
 
 Spara filen **landmark.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL för en bild som ska analyseras och klicka sedan på knappen **Analysera bild** för att analysera bilden och se resultatet.
 
@@ -263,9 +263,9 @@ Spara filen **landmark.html** och öppna den i en webbläsare. Placera din prenu
 
 Funktionen kändisar i visuellt innehåll analyserar en bild efter kända personer. När analysen är klar, returnerar Kändisar ett JSON-objekt som identifierar de kändisar som identifierats i bilden.
 
-Utför följande steg för att slutföra funktionen kändisar av programmet:
+Utför följande steg för att slutföra kändisar-funktionen i programmet:
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Lägg till händelsekod för hanteraren för knappen kändisar
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Lägg till händelse hanterarens kod för kändisar-knappen
 
 Öppna filen **celebrities.html** i en textredigerare och leta upp funktionen **celebritiesButtonClick** i slutet av filen.
 
@@ -364,9 +364,9 @@ Spara filen **celebrities.html** och öppna den i en webbläsare. Placera din pr
 
 Miniatyrfunktionen i visuellt innehåll skapar en miniatyrbild från en bild. Med hjälp av funktionen **Smart beskärning** så identifierar miniatyrfunktionen intresseområdet i en bild och centrerar miniatyrbilden i det här området att skapa mer estetiskt tilltalande miniatyrbilder.
 
-Utför följande steg för att slutföra funktionen miniatyr av programmet:
+Utför följande steg för att slutföra miniatyr funktionen för programmet:
 
-#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Lägg till händelsekod för hanteraren för knappen miniatyr
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Lägg till händelse hanterarens kod för miniatyr knappen
 
 Öppna filen **thumbnail.html** i en textredigerare och leta upp funktionen **thumbnailButtonClick** i slutet av filen.
 
@@ -475,7 +475,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### <a name="run-the-thumbnail-function"></a>Kör funktionen miniatyr
+#### <a name="run-the-thumbnail-function"></a>Kör funktionen thumbnail
 
 Spara filen **thumbnail.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL för en bild som ska analyseras och klicka sedan på knappen **Skapa miniatyrer** för att analysera bilden och se resultatet.
 
@@ -483,9 +483,9 @@ Spara filen **thumbnail.html** och öppna den i en webbläsare. Placera din pren
 
 Optisk teckenigenkänning (OCR)-funktionen för visuellt innehåll analyserar en bild av tryckt text. När analysen är klar, returnerar OCR en JSON-objekt som innehåller texten och placeringen av texten i bilden.
 
-Utför följande steg för att slutföra funktionen OCR av programmet:
+Utför följande steg för att slutföra OCR-funktionen i programmet:
 
-### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Lägg till händelsekod för hanteraren för OCR-knapp
+### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Lägga till händelse hanterarens kod för OCR-knappen
 
 Öppna filen **ocr.html** i en textredigerare och leta upp funktionen **ocrButtonClick** i slutet av filen.
 
@@ -568,7 +568,7 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-ocr-function"></a>Kör funktionen OCR
+#### <a name="run-the-ocr-function"></a>Kör OCR-funktionen
 
 Spara filen **ocr.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL till en textbild för att läsa och klicka sedan på knappen **Läs bild** för att analysera en bild och se resultatet.
 
@@ -576,9 +576,9 @@ Spara filen **ocr.html** och öppna den i en webbläsare. Placera din prenumerat
 
 Funktionen handskriftsigenkänning i API för visuellt innehåll analyserar en bild av handskriven text. När analysen är klar returnerar handskriftsigenkänning ett JSON-objekt som innehåller texten och placeringen av texten i bilden.
 
-Utför följande steg för att slutföra funktionen handskriftsigenkänning av programmet:
+Utför följande steg för att slutföra funktionen för hand SKRIFTS igenkänning av programmet:
 
-#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Lägg till händelsekod för hanteraren för knappen handskrift
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Lägg till händelse hanterarens kod för hand SKRIFTS knappen
 
 Öppna filen **handwriting.html** i en textredigerare och leta upp funktionen **handwritingButtonClick** i slutet av filen.
 
@@ -727,12 +727,12 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-handwriting-function"></a>Kör funktionen handskrift
+#### <a name="run-the-handwriting-function"></a>Köra hand SKRIFTS funktionen
 
 Spara filen **handwriting.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL till en textbild för att läsa och klicka sedan på knappen **Läs bild** för att analysera en bild och se resultatet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden används du den REST API för visuellt innehåll med JavaScript för att testa många av de tillgängliga bild analysis-funktionerna. Därefter finns i referensdokumentationen för att lära dig mer om API: er som ingår.
+I den här hand boken använde du Visuellt innehåll REST API med Java Script för att testa många av de tillgängliga funktionerna för bild analys. Sedan läser du referens dokumentationen för att lära dig mer om API: erna som berörs.
 
-- [REST API för visuellt](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
+- [Visuellt innehåll REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

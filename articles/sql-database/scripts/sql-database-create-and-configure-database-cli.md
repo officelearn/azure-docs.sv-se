@@ -8,16 +8,15 @@ ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
-manager: craigg
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 2a5fb6fcd9b1f0c327df23741284ec0d5fc26c71
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f6051c5c83f43f20e453b5f87aabb1a80d7a0487
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447866"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569983"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Använd CLI för att skapa en enda Azure SQL-databas och konfigurera en brandväggsregel
 
@@ -35,7 +34,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName

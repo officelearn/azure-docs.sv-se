@@ -1,6 +1,6 @@
 ---
 title: Kontrollera avbildningar mot anpassade listor i C# – Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Så här modererar du bilder med anpassade bildlistor med Content Moderator SDK för C#.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 915b308b0129d714e51ac50b4230d8447b5c933a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603414"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564475"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Moderera med anpassade bildlistor i C#
 
@@ -32,7 +32,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att ko
 > [!NOTE]
 > Det finns en maxgräns på **5 bildlistor** där varje lista **inte får överstiga 10 000 bilder**.
 
-Konsolprogrammet för den här guiden simulerar några av de uppgifter du kan utföra med API för bildlista.
+Konsol programmet för den här guiden simulerar några av de uppgifter som du kan utföra med bild listans API.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Skapa en metod för att lägga till en samling bilder i listan
 
-Lägg till följande metod i klassen **Program**. Den här guiden visar inte hur du kan lägga till taggar till avbildningar i listan. 
+Lägg till följande metod i klassen **Program**. Den här guiden visar inte hur du lägger till taggar till bilder i listan. 
 
 ```csharp
 /// <summary>

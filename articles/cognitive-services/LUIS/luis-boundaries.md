@@ -1,6 +1,6 @@
 ---
-title: Begränsningar
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Gränser – LUIS
+titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller kända begränsningar för Azure Cognitive Services Språkförståelse (LUIS). LUIS har flera gräns områden. Modellen gräns styr avsikter, entiteter och funktioner i LUIS. Kvotgränser baserat på nyckeltyp. Tangentkombination styr LUIS-webbplatsen.
 services: cognitive-services
 author: diberry
@@ -11,31 +11,31 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dd49035414c7e717c3d60ab9bc185f42dcac408
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154559"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560854"
 ---
-# <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för LUIS-modell och nycklar
+# <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
 
 
 ## <a name="model-boundaries"></a>Modellen gränser
 
-Om din app överskrider LUIS-modellen begränsningar och gränser, bör du använda en [LUIS dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) app eller med hjälp av en [LUIS behållare](luis-container-howto.md). 
+Om din app överskrider LUIS-modellens gränser och gränser bör du överväga att använda en [Luis sändnings](luis-concept-enterprise.md#dispatch-tool-and-model) app eller en [Luis-behållare](luis-container-howto.md). 
 
 |Område|Gräns|
 |--|:--|
-| [Appnamn][luis-get-started-create-app] | \* Standardvärdet max |
+| [Appens namn][luis-get-started-create-app] | \* Standardvärdet max |
 | [Batch-testning][batch-testing]| 10 datauppsättningar, 1000 yttranden per datauppsättning|
 | Explicit lista | 50 per program|
-| Externa enheter | ingen gräns |
-| [Avsikter][intents]|500 per program: 499 anpassade avsikter och de nödvändiga _ingen_ avsikt.<br>[Dispatch-baserade](https://aka.ms/dispatch-tool) programmet har motsvarande 500 dispatch-källor.|
-| [Lista över entiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnade: 20 000 objekt. Kanoniskt namn är * maximalt antal tecken som standard. Synonymen värden har ingen begränsning av lösenordslängd. |
-| [Datorn lärt dig entiteter + roller](./luis-concept-entity-types.md):<br> Sammansatta,<br>enkel,<br>entiteten roll|En gräns på 100 överordnade entiteter eller 330 entiteter, beroende på vilket som begränsar träffar för användaren först. En roll räknas som en entitet i den här gränsen. Ett exempel är en sammansatt med en enkel enhet som har 2 roller är: 1 sammansatta + 1 enkel + 2 roller = 4 330 entiteter.|
-| [Förhandsgranskning – dynamisk lista entiteter](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listor med ~ 1 kB per fråga förutsägelsefrågan slutpunkt|
+| Externa entiteter | inga gränser |
+| [Avsikter][intents]|500 per program: 499 anpassade avsikter och det krävs _ingen_ avsikt.<br>[Skickat](https://aka.ms/dispatch-tool) program har motsvarande 500-sändnings källor.|
+| [Lista över entiteter](./luis-concept-entity-types.md) | Klassificering 50, underordnad: 20 000 objekt. Kanoniskt namn är * maximalt antal tecken som standard. Synonymen värden har ingen begränsning av lösenordslängd. |
+| [Kundlärt entiteter + roller](./luis-concept-entity-types.md):<br> sammansättning<br>gång<br>enhets roll|En gräns på antingen 100 överordnade entiteter eller 330 entiteter, beroende på vilken gräns användaren träffar först. En roll räknas som en entitet för den här gränserens syfte. Ett exempel är ett sammansatt objekt med en enkel entitet som har två roller: 1 sammansatta + 1 enkla + 2 roller = 4 av 330-enheterna.|
+| [Förhands granskning-dynamiska List enheter](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listor med ~ 1 kB per förfrågan för förutsägelse slut punkt|
 | [Mönster](luis-concept-patterns.md)|500 mönster per program.<br>Maximal längd på mönstret är 400 tecken.<br>3 Pattern.any entiteter per mönster<br>Högst 2 kapslade valfritt texter i mönstret|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per program, 3 pattern.any entiteter per mönster |
 | [Fras lista][phrase-list]|10 fras listor, 5 000 poster per|
@@ -43,26 +43,26 @@ Om din app överskrider LUIS-modellen begränsningar och gränser, bör du anvä
 | [Reguljärt uttryck entiteter](./luis-concept-entity-types.md)|20 entiteter<br>max 500 tecken. per entitet mönster för reguljärt uttryck|
 | [roles](luis-concept-roles.md)|300 roller per program. 10 roller per enhet|
 | [Uttryck][utterances] | 500 tecken|
-| [Yttranden][utterances] | 15 000 per program – det finns ingen gräns för antalet yttranden per avsikt|
+| [Yttranden][utterances] | 15 000 per program-det finns ingen gräns för antalet yttranden per avsikt|
 | [Versioner](luis-concept-version.md)| ingen gräns |
-| [Versionsnamn][luis-how-to-manage-versions] | begränsad till alfanumeriska tecken och period 10 tecken (.) |
+| [Versions namn][luis-how-to-manage-versions] | begränsad till alfanumeriska tecken och period 10 tecken (.) |
 
 \* Standard tecknet max är 50 tecken. 
 
 <a name="intent-and-entity-naming"></a>
 
-## <a name="object-naming"></a>Objekt-namngivning
+## <a name="object-naming"></a>Objekt namn
 
 Använd inte följande tecken i följande namn.
 
-|Object|Utesluta tecken|
+|Object|Uteslut tecken|
 |--|--|
-|Avsikten-, entitets-och roll|`:`<br>`$`|
-|Versionsnamn|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
+|Namn på avsikt, entitet och roll|`:`<br>`$`|
+|Versions namn|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Nyckelanvändning
 
-Förstå språket har separata nycklar, en typ för redigering och en typ för att fråga förutsägelse-slutpunkten. Mer information om skillnaderna mellan nyckeltyper finns [redigering och fråga förutsägelse endpoint nycklar i LUIS](luis-concept-keys.md).
+Språk förståelsen har separata nycklar, en typ för redigering och en typ för att skicka frågor till förutsägelse slut punkten. Mer information om skillnaderna mellan nyckel typer finns i [Redigera och köra slut punkts nycklar för förutsägelse i Luis](luis-concept-keys.md).
 
 ## <a name="key-limits"></a>Viktiga begränsningar
 
@@ -71,10 +71,10 @@ Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slut
 
 |Nyckel|Redigering|Slutpunkt|Syfte|
 |--|--|--|--|
-|Language Understanding redigering/Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
-|Språkförståelse [prenumeration] [ pricing] - F0 - kostnadsfri nivå |Ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
-|Språkförståelse [prenumeration] [ pricing] - S0 - Basic-nivån|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
-|Cognitive Service [prenumeration] [ pricing] - S0 - Standard-nivån|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
+|Language Understanding redigering/starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
+|Language Understanding [prenumeration][pricing] – F0-kostnads fri nivå |Ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
+|Language Understanding [prenumeration][pricing] – S0 – Basic-nivå|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
+|Kognitiv tjänst [prenumeration][pricing] – S0 – standard nivå|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
 |[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|Ogiltig|utan kostnad|Att lägga till sentiment information, inklusive extrahering av diskussionsämne data |
 |Tal-integrering|Ogiltig|5\.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
 

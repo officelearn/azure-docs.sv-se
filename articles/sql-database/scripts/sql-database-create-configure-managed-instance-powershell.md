@@ -1,6 +1,6 @@
 ---
-title: Exempel på PowerShell – skapa en hanterad instans i Azure SQL Database | Microsoft Docs
-description: Azure PowerShell-exempelskript för att skapa en hanterad instans i Azure SQL Database
+title: PowerShell-exempel – skapa en hanterad instans i Azure SQL Database | Microsoft Docs
+description: Azure PowerShell exempel skript för att skapa en hanterad instans i Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,25 +10,24 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 929ab995ea76fa0d1d5227e3a53c2b50bc43fdc0
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 32b3c3b45c627d8dfdb42642228a7f9d9786111e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729368"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569976"
 ---
-# <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Använd PowerShell för att skapa en Azure SQL Database-hanterad instans
+# <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Använd PowerShell för att skapa en Azure SQL Database Hanterad instans
 
-Det här PowerShell-Skriptexemplet skapar en hanterad Azure SQL Database-instans i ett dedikerat undernät i ett nytt virtuellt nätverk. Den konfigurerar också en routningstabell och en nätverkssäkerhetsgrupp för det virtuella nätverket. När skriptet har körts utan problem, kan den hanterade instansen nås från det virtuella nätverket eller från en lokal miljö. Se [konfigurera Azure VM för att ansluta till en Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) och [konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Managed Instance från den lokala](../sql-database-managed-instance-configure-p2s.md).
+Det här PowerShell-skript exemplet skapar en Azure SQL Database Hanterad instans i ett dedikerat undernät i ett nytt virtuellt nätverk. Den konfigurerar också en routningstabell och en nätverks säkerhets grupp för det virtuella nätverket. När skriptet har körts kan den hanterade instansen nås från det virtuella nätverket eller från en lokal miljö. Se [Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](../sql-database-managed-instance-configure-vm.md) och [Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala](../sql-database-managed-instance-configure-p2s.md)datorn.
 
 > [!IMPORTANT]
-> Begränsningar, finns i [regioner som stöds](../sql-database-managed-instance-resource-limits.md#supported-regions) och [stöds prenumerationstyper](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
+> För begränsningar, se [regioner som stöds](../sql-database-managed-instance-resource-limits.md#supported-regions) och [prenumerations typer som stöds](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -36,7 +35,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -50,15 +49,15 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk |
-| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Lägger till en undernätskonfiguration till ett virtuellt nätverk |
-| [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Hämtar ett virtuellt nätverk i en resursgrupp |
-| [Set-AzVirtualNetwork](/powershell/module/az.network/Set-AzVirtualNetwork) | Konfigurerar målstatusen för ett virtuellt nätverk |
+| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Hämtar ett virtuellt nätverk i en resurs grupp |
+| [Set-AzVirtualNetwork](/powershell/module/az.network/Set-AzVirtualNetwork) | Anger mål tillstånd för ett virtuellt nätverk |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Get-AzVirtualNetworkSubnetConfig) | Hämtar ett undernät i ett virtuellt nätverk |
-| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-AzVirtualNetworkSubnetConfig) | Konfigurerar målstatusen för ett undernät i ett virtuellt nätverk |
+| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-AzVirtualNetworkSubnetConfig) | Konfigurerar mål tillstånd för en under näts konfiguration i ett virtuellt nätverk |
 | [New-AzRouteTable](/powershell/module/az.network/New-AzRouteTable) | Skapar en routningstabell |
 | [Get-AzRouteTable](/powershell/module/az.network/Get-AzRouteTable) | Hämtar routningstabeller |
-| [Set-AzRouteTable](/powershell/module/az.network/Set-AzRouteTable) | Konfigurerar målstatusen för en routningstabell |
-| [Ny AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Skapar en hanterad Azure SQL Database-instans |
+| [Set-AzRouteTable](/powershell/module/az.network/Set-AzRouteTable) | Anger mål status för en routningstabell |
+| [New-AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Skapar en Azure SQL Database Hanterad instans |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

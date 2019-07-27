@@ -11,20 +11,19 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8f12e699c17787d897a7f5ed23eccdbf3659921
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60862146"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569140"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använd Visual Studio Code för att ansluta till och söka i en Azure SQL-databas
 
 [Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows. Den stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. I den här snabbstarten får du använda Visual Studio Code för att ansluta till en Azure SQL-databas och därefter köra Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
@@ -36,7 +35,7 @@ ms.locfileid: "60862146"
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -50,7 +49,7 @@ Kontrollera att du har installerat den senaste versionen av [Visual Studio Code]
 
 ### <a name="mac-os"></a>**Mac OS**
 
-För macOS måste du installera OpenSSL, vilket är en förutsättning för .NET Core som används av mssql-tillägget. Ange följande kommandon för att installera **brew** och **OpenSSL**.
+För macOS måste du installera OpenSSL, som är en förutsättning för .NET Core som MSSQL-tillägget använder. Ange följande kommandon för att installera **brew** och **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -112,7 +111,7 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
    | **Databasnamn** | mySampleDatabase | Databasen du ska ansluta till. |
    | **Autentisering** | SQL-inloggning| Den här självstudien använder SQL-autentisering. |
    | **Användarnamn** | Användarnamn | Användarnamnet från det serveradministratörskonto som användes när servern skapades. |
-   | **Lösenord (SQL-inloggning)** | Lösenord | Lösenordet från det serveradministratörskonto som användes när servern skapades. |
+   | **Lösenord (SQL-inloggning)** | lösenordsinställning | Lösenordet från det serveradministratörskonto som användes när servern skapades. |
    | **Spara lösenordet?** | Ja eller nej | Välj **Ja** om du inte vill ange lösenordet varje gång. |
    | **Ange ett namn för den här profilen** | Ett profilnamn, t.ex. **mySampleProfile** | En sparad profil förbättrar anslutningen på efterföljande inloggningar. |
 

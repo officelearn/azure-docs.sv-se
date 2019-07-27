@@ -1,6 +1,6 @@
 ---
 title: Skapa granskningar med hjälp av .NET – Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Så här skapar du granskningar med SDK för Azure Content Moderator för .NET.
 services: cognitive-services
 author: sanjeev3
@@ -10,23 +10,23 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9938c79c2ba1b2f80c8f147fafe6ce79e247df43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607172"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564466"
 ---
 # <a name="create-human-reviews-net"></a>Skapa mänsklig granskning (.NET)
 
-Granskningar lagra och visa innehållet för mänskliga moderatorer att utvärdera. När en användare har slutfört en granskning, skickas resultaten till en slutpunkt för angivna återanrop. Den här guiden innehåller information och kodexempel som hjälper dig att komma igång med den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till:
+Granskar lagring och visning av innehåll för de mänskliga moderatorerna att utvärdera. När en användare slutför en granskning skickas resultatet till en angiven slut punkt för motringning. Den här guiden innehåller information och kod exempel som hjälper dig att komma igång med [Content moderator SDK för .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) för att:
 
 - Skapa en uppsättning granskningar för mänskliga moderatorer
 - Hämta status för befintliga granskningar för mänskliga moderatorer
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
+- Logga in eller skapa ett konto på webbplatsen för Content Moderator [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) .
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Se till att din API-nyckel kan anropa gransknings-API:et för att skapa en granskning
 
@@ -159,7 +159,7 @@ Lägg till följande klass till **Program**-klassen. Använd den här klassen f�
 >
 > En nyckel på den kostnadsfria nivån har en gräns på en RPS.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Lägg till följande konstanter i den **programmet** klassen i Program.cs
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Lägg till följande konstanter i **program** klassen i program.CS
 
 ```csharp
 /// <summary>
@@ -181,7 +181,7 @@ Lägg till följande klass till **Program**-klassen. Använd den här klassen f�
     private const string OutputFile = "OutputLog.txt";
 ```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Lägg till följande konstanter och statiska fält till den **programmet** klassen i Program.cs
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Lägg till följande konstanter och statiska fält i **program** klassen i program.CS
 
 Uppdatera dessa värden så att de innehåller information som är specifika för din prenumeration och ditt team.
 
@@ -238,7 +238,7 @@ private const string MetadataKey = "sc";
 private const string MetadataValue = "true";
 ```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Lägg till följande statiska fält i den **programmet** klassen i Program.cs
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Lägg till följande statiska fält i **program** klassen i program.CS
 
 Du kan använda de här fälten för att spåra programmets tillstånd.
 
@@ -382,7 +382,7 @@ Lägg till följande metod i klassen **Program**.
 
 Lägg till följande kod i metoden **Main**.
 
-Den här koden simulerar många av de åtgärder som du utför när du definierar och hanterar listan, samt när du använder listan för att söka av bilder. Loggningsfunktionerna kan du se svarsobjekt som genereras av SDK-anrop till tjänsten Content mModerator.
+Den här koden simulerar många av de åtgärder som du utför när du definierar och hanterar listan, samt när du använder listan för att söka av bilder. Med loggnings funktionerna kan du se de svars objekt som genererats av SDK-anrop till Content mModerator-tjänsten.
 
 ```csharp
 using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -536,4 +536,4 @@ Ett svar liknande följande returneras:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hämta den [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och ladda ned den [Visual Studio-lösning](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.
+Hämta [Content moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och hämta [Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content moderator snabb starter för .net och kom igång med din integrering.

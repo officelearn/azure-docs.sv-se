@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-manager: craigg-msft
 ms.date: 02/08/2019
-ms.openlocfilehash: 31246f44be5645715c5c7041d0cf9bcff9c0fa52
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f6f0160e06ac10a6f1e4e51c93bfa133818117c8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303285"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568960"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Självstudier: Utforma en relationsdatabas i en enskild databas i Azure SQL Database C&#x23; och ADO.NET
 
@@ -31,7 +30,7 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 
 *Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 En installation av [Visual Studio 2019](https://www.visualstudio.com/downloads/) eller senare.
 
@@ -62,7 +61,7 @@ Följ dessa steg för att skapa en enskild tom databas.
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databas-server](./media/sql-database-design-first-database/create-database-server.png)
 
@@ -77,7 +76,7 @@ Följ dessa steg för att skapa en enskild tom databas.
 
 9. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
-   ![avisering](./media/sql-database-design-first-database/notification.png)
+   ![meddelande](./media/sql-database-design-first-database/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Skapa en IP-brandväggsregel på servernivå
 

@@ -10,20 +10,19 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7adced4088b1e155d6776f71e8f23a9eceae2297
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709267"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566791"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå för enkla databaser eller pooldatabaser med hjälp av Azure-portalen
 
 Den här snabbstarten visar hur du skapar en [brandväggsregel på servernivå](sql-database-firewall-configure.md) för enkla databaser eller pooldatabaser i Azure SQL Database med hjälp av Azure-portalen, så att du kan ansluta till databasservrar, enkla databaser, samt elastiska pooler och deras databaser. Du måste ha en brandväggsregel för att kunna ansluta från andra Azure-resurser och lokala resurser.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här snabbstarten används de resurser som skapades i avsnittet [Skapa en enskild databas med Azure-portalen](sql-database-single-database-get-started.md) som startpunkt.
 

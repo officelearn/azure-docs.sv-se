@@ -1,5 +1,5 @@
 ---
-title: Registrera anpassade voice-exempel – Speech Services
+title: Spela in anpassade röst exempel – tal tjänst
 titleSuffix: Azure Cognitive Services
 description: Gör en anpassad röst hög kvalitet genom att förbereda ett robust skript, anställa bra röst personal och spela in professionellt.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ad2a3cd73fe97415f0d6835d70e15bf90349696c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604911"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559188"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Post voice-exempel för att skapa en anpassad röst
 
@@ -52,7 +52,7 @@ Välj röst personal vars naturligt röst du gillar. Det är möjligt att skapa 
 
 Den enda viktigaste faktorn för att välja röst personal är konsekvens. Inspelningar bör alla ljud som de har gjorts på samma dag i samma rum. Du kan itu med den här perfekt via bra inspelning metoder och tekniker.
 
-Din röst personal är den andra halvan av formeln. De måste kunna tala med konstanta, volymnivå, försäljningsargument och ton. Rensa diction är ett måste. Personal måste också kunna ha en strikt kontroll sina försäljningsargument variation och känslomässig påverkar maner tal, ovanor.
+Din röst personal är den andra halvan av formeln. De måste kunna tala med konsekvent hastighet, volym nivå, färgdjup och ton. Rensa diction är ett måste. Personal måste också kunna begränsa variationer, känslomässig påverkan och tal mannerisms.
 
 Spela in anpassade röst exempel kan vara mer tröttande än andra typer av röst arbete. De flesta röst personal registrera för två eller tre timmar per dag. Begränsa sessioner till tre eller fyra en vecka, med en dag av emellan om möjligt.
 
@@ -108,7 +108,7 @@ Som tur är kan går det att undvika de här problemen helt och hållet. Det fin
 |-|-|
 |[CMU Arctic Kristi](http://festvox.org/cmu_arctic/)|Om 1100 meningar som valts ut av upphovsrätt som ska användas i tal syntes projekt. En utmärkt utgångspunkt.|
 |Fungerar inte längre<br>upphovsrätten|Vanligtvis publicerade fungerar innan 1923. För engelska, [projekt Gutenberg](https://www.gutenberg.org/) erbjuder tiotusentals sådana verk. Du kanske vill fokusera på nyare fungerar som språket är närmare moderna engelska.|
-|Government&nbsp;fungerar|Fungerar som skapats av USA: S regering är inte upphovsrättsskyddade i USA, även om den offentliga sektorn kan göra anspråk på copyright i andra länder/regioner.|
+|Government&nbsp;fungerar|Verk som skapats av USA myndigheter är inte upphovsrättsskyddade i USA, även om myndigheter kan anspråka upphovs rätt i andra länder/regioner.|
 |Allmän egendom|Fungerar för vilka copyright har uttryckligen anges eller som har varit dedikerad till den offentliga domänen. Det kanske inte går att avstå från copyright helt i vissa jurisdiktioner.|
 |Permissively licensierad fungerar|Fungerar som distribueras under en licens som Creative Commons eller GNU kostnadsfri dokumentation licens (GFDL). Wikipedia använder GFDL. Vissa licenser, men kan införa begränsningar för prestanda för licensierade innehåll som kan påverka skapandet av en anpassad voice-modell, så Läs noggrant.|
 
@@ -116,7 +116,7 @@ Som tur är kan går det att undvika de här problemen helt och hållet. Det fin
 
 Registrera din skriptet i en professionell inspelning studio som specialiserar sig i röst arbete. De har en inspelning monter rätt utrustning och rätt personer att driva den. Det lönar sig inte för att spela in ändå.
 
-Diskutera dina projekt med i studio inspelning tekniker och lyssna på sina råd. Inspelningen bör ha lite eller ingen dynamiskt omfång komprimering (högst 4:1). Det är viktigt att ljudet har konsekventa volym och signal brus högt förhållande, samtidigt som det är kostnadsfritt oönskade ljud.
+Diskutera ditt projekt med Studios inspelnings tekniker och lyssna på deras råd. Inspelningen bör ha lite eller ingen dynamiskt omfång komprimering (högst 4:1). Det är viktigt att ljudet har konsekventa volym och signal brus högt förhållande, samtidigt som det är kostnadsfritt oönskade ljud.
 
 ### <a name="do-it-yourself"></a>Göra det själv
 
@@ -130,7 +130,7 @@ Du kan också använda en analog mikrofon. Många hyra datahus erbjuder ”vinta
 
 Installera mikrofonen på en fristående eller sådär och installera ett pop filter framför mikrofonen att eliminera brus från ”plosive” konsonanter som ”p” och ”b”. En del mikrofoner levereras med en inaktivering montering som isolerar dem från vibrationer i den fristående, vilket är användbart.
 
-Röst-personal måste hålla sig i ett konsekvent avstånd från mikrofonen. Använd bandet på våning för att markera där de ska använda. Om personal föredrar att vara, var särskilt noga med att övervaka mic avståndet och undvika chair bruset.
+Röst-personal måste hålla sig i ett konsekvent avstånd från mikrofonen. Använd band på golvet för att markera var de ska stå. Om personal föredrar att vara, var särskilt noga med att övervaka mic avståndet och undvika chair bruset.
 
 Använd en FRIS för skriptet. Undvik nöjesfiske fristående så att den kan återspegla ljud till mikrofonen.
 
@@ -157,12 +157,12 @@ Vi rekommenderar har olika personer som hanterar i rollerna för director, tekni
 
 ### <a name="before-the-session"></a>Innan sessionen
 
-Undvik att ha lagt tid studio, kör du via skript med din röst personal före inspelning sessionen. De kan tydliggöra uttal för alla okända ord medan voice-personal blir van texten.
+Undvik att ha lagt tid studio, kör du via skript med din röst personal före inspelning sessionen. När röst personal är bekant med texten kan de klargöra uttal av alla okända ord.
 
 > [!NOTE]
 > De flesta inspelning studios erbjuder elektronisk visning av skript i monter för inspelning. I det här fallet Skriv anteckningarna snabbgenomgång direkt i skriptets dokumentet. Papper för anteckningar under sessionen, men fortfarande vill. De flesta tekniker kan en utskrift för. Och du fortfarande vill kopiera tredje ut som en säkerhetskopiering för personal om datorn inte är igång.
 
-Din röst-personal kan be vilka ord som du vill att framhållit i ett uttryck (”avgörande ordet”). Berätta för dem som du vill att en naturlig läsning med ingen särskild vikt. Fokus kan läggas till när tal syntetiskt; Det får inte vara en del av den ursprungliga inspelningen.
+Din röst-personal kan be vilka ord som du vill att framhållit i ett uttryck (”avgörande ordet”). Berätta för dem att du vill ha en naturlig läsning utan särskild uppmärksamhet. Fokus kan läggas till när tal syntetiskt; Det får inte vara en del av den ursprungliga inspelningen.
 
 Dirigera personal att uttala orden tydligt. Varje ord i skriptet bör vara markant som skrivits. Ljud bör inte utelämnas eller slurred tillsammans, som är vanligt i avslappnat tal, *om de har skrivits på så sätt i skriptet*.
 
@@ -195,7 +195,7 @@ Lyssna noggrant, använda hörlurar voice-personal-prestanda. Du letar efter bra
 
 Observera take-nummer eller tid-kod på ditt skript för varje uttryck. Be tekniker för att markera varje uttryck i den inspelningen metadata eller låt dig ledas-blad.
 
-Ta regelbundna radbrytningar och ger en dryck för att hjälpa din röst personal Tänk leveransprocessen rösten.
+Ta vanliga avbrott och ge en dryck för att hjälpa din röst personal att hålla rösten i en fungerande form.
 
 ### <a name="after-the-session"></a>Efter sessionen
 

@@ -1,21 +1,21 @@
 ---
-title: Extrakt text matchar entiteter
+title: Extact text matcha entiteter-LUIS
+titleSuffix: Azure Cognitive Services
 description: Lär dig hur du lägger till en lista över entitet för att hjälpa LUIS etikett variationer av ett ord eller fraser.
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60364e864a8b35cf5f39bb8c0a0f86ae611a3c70
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117456"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563256"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Använd en entitet i listan för att öka entitet identifiering 
 Den här självstudien visar hur du använder en [lista entitet](luis-concept-entity-types.md) att öka entitet identifiering. Lista enheter behöver inte märkta som de är en exakt matchning av villkor.  
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 > [!Tip]
 > Om du inte redan har en prenumeration kan du registrera dig för en [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-All kod i den här självstudien är tillgänglig på den [Azure-Samples GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+All kod i den här självstudien finns på [Azure-samples GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Använda HomeAutomation appar
 App HomeAutomation ger kontroll över enheter, till exempel lamporna, underhållning system och miljö som styr, till exempel uppvärmning och kylning. De här systemen har flera olika namn som kan inkludera tillverkare, smeknamn, förkortningar och slang. 

@@ -1,5 +1,5 @@
 ---
-title: Granska slutpunktsyttranden
+title: Granska slut punkt yttranden-LUIS
 titleSuffix: Azure Cognitive Services
 description: Förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: dd5c0012bad567623fdfc0a70760f692aafe0e3e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276029"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563329"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudier: Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden
 I den här självstudien kommer vi att förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS. 
@@ -75,19 +75,19 @@ Använd följande steg:
     [![Skärmbild av Granska slutpunktstalindata med växeln Entitetsvy markerad](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
 
-    Den här uttryck `I'm looking for a job with Natural Language Processing`, är inte i rätt avsikten. 
+    Den här uttryck `I'm looking for a job with Natural Language Processing`är inte i rätt avsikt. 
 
-    Uttryck var mispredicted anledningen är att den **ApplyForJob** syftet har 21 yttranden jämfört med 7 yttranden i **GetJobInformation**. Avsikten med mer yttranden kommer att ha en högre förutsägelse. Det är viktigt att antalet och kvaliteten på yttranden över avsikter är balanserade.
+    Anledningen till att uttryck var oförutsägbart är att **ApplyForJob** -avsikten har 21 yttranden jämfört med 7 yttranden i **GetJobInformation**. Avsikten med fler yttranden kommer att ha en högre förutsägelse. Det är viktigt att antalet och kvaliteten på yttranden över avsikter är balanserade.
 
-1.  Välj rätt avsikten och markera enheten jobbet inom den om du vill justera detta uttryck. Lägga till den ändrade uttryck i appen genom att välja kryssrutan grön. 
+1.  Om du vill justera den här uttryck väljer du rätt avsikt och markerar jobbets entitet i den. Lägg till den ändrade uttryck i appen genom att markera kryss rutan grön. 
 
     |Yttrande|Rätt avsikt|Saknade entiteter|
     |:--|:--|:--|
     |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Jobb – ”Natural Language Process”|
 
-    Att lägga till uttryck flyttar uttryck från den **granska endpoint yttranden** till den **GetJobInformation** avsikt. Slutpunktsyttrandet är nu ett exempelyttrande för den avsikten. 
+    Om du lägger till uttryck flyttas uttryck från **gransknings slut punkten yttranden** till **GetJobInformation** -avsikten. Slutpunktsyttrandet är nu ett exempelyttrande för den avsikten. 
 
-    Tillsammans med justeringen av den här uttryck korrekt, mer yttranden ska läggas till i **GetJobInformation** avsikt. Det kvarstår som en övning som du kan slutföra på egen hand. Varje avsikt, förutom avsikten **Ingen**, bör ha ungefär samma antal exempelyttranden. Avsikten **Ingen** bör ha 10 % av de totala yttrandena i appen. 
+    Tillsammans med att justera den här uttryck korrekt bör fler yttranden läggas till i **GetJobInformation** avsikten. Det kvarstår som en övning som du kan slutföra på egen hand. Varje avsikt, förutom avsikten **Ingen**, bör ha ungefär samma antal exempelyttranden. Avsikten **Ingen** bör ha 10 % av de totala yttrandena i appen. 
 
 1. Granska de återstående yttrandena i den här avsikten, och märk yttranden och korrigera den **justerade avsikten** om dessa är felaktiga.
 

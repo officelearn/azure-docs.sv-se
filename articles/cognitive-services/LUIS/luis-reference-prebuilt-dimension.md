@@ -1,6 +1,6 @@
 ---
-title: Dimensionen fördefinierade entiteter
-titleSuffix: Azure
+title: Fördefinierade dimensions entiteter – LUIS
+titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller dimensionen fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 ms.custom: seodec18
@@ -11,24 +11,24 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e77cd2290981de62ba7fce7f04174cd0c5ec2af3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a2654947ab43000613cb1076b41d2ff5c2180e9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072189"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560269"
 ---
-# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Dimensionen fördefinierade entitet för en LUIS-app
+# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Fördefinierad dimensions enhet för en LUIS-app
 Entiteten fördefinierade dimension identifierar olika typer av dimensioner, oavsett språkinställningar för LUIS-app. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller dimensioner till programmet avsikter. Dimensionen entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-dimension"></a>Typer av dimension
 
-Dimensionen hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) GitHub-lagringsplats
+Dimensionen hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml)
 
 
 ## <a name="resolution-for-dimension-entity"></a>Lösning för dimensionen entitet
 
-### <a name="api-version-2x"></a>API-version 2.x
+### <a name="api-version-2x"></a>API-version 2. x
 
 I följande exempel visas av lösningen på den **builtin.dimension** entitet.
 
@@ -60,9 +60,9 @@ I följande exempel visas av lösningen på den **builtin.dimension** entitet.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
 
-Följande JSON är med i `verbose` parameteruppsättning till `false`:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 {
@@ -87,7 +87,7 @@ Följande JSON är med i `verbose` parameteruppsättning till `false`:
 }
 ```
 
-Följande JSON är med i `verbose` parameteruppsättning till `true`:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Go'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna projektet och identifiera objekt med hjälp av Go SDK.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: daauld
-ms.openlocfilehash: 500a8fcc4d218742b9f39834259e6a7a85ce14c2
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: fd305c0fa9f046e6601f1d94ad4ebb1677f1787d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517214"
+ms.locfileid: "68561024"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision. Go SDK
 

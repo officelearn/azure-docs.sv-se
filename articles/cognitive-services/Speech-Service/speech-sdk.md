@@ -1,7 +1,7 @@
 ---
-title: Om tal SDK – Speech Services
+title: Om talet för tal-SDK – tal
 titleSuffix: Azure Cognitive Services
-description: Tal Software Development Kit (SDK) får dina program inbyggda funktioner i tjänsten tal, vilket gör det enklare att utveckla programvara. Den här artikeln innehåller mer information om SDK för Windows, Linux och Android.
+description: Talfunktionerna Software Development Kit (SDK) ger dina program inbyggd åtkomst till funktionerna i tal tjänsten, vilket gör det lättare att utveckla program. Den här artikeln innehåller mer information om SDK för Windows, Linux och Android.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 120dd4a6a342732f3e07d87786009779d23be829
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c5e12812a4305493be2cdc234946796b21dd26d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606410"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558939"
 ---
-# <a name="about-the-speech-sdk"></a>Om tal SDK
+# <a name="about-the-speech-sdk"></a>Om tal-SDK
 
-Tal Software Development Kit (SDK) får dina program över Speech-tjänsterna, vilket gör det enklare att utveckla talbaserade programvara. För närvarande SDK: erna ger åtkomst till **tal till text**, **text till tal**, **talöversättning**, **avsiktsigenkänning**, och **Bot Framework Direct Line tal kanal**. En allmän översikt över funktioner och plattformar som stöds finns i dokumentationen [startsidan](https://aka.ms/csspeech).
+Talfunktionerna Software Development Kit (SDK) ger dina program åtkomst till funktionerna i tal tjänsterna, vilket gör det lättare att utveckla program med aktiverade tal. För närvarande ger SDK: er åtkomst till tal översättning av **tal till text**, **text till tal**, **tal översättning**, **avsikts igenkänning**och **bot-ramverkets direkta rad**igenkännings kanal. En allmän översikt över funktionerna och plattformarna som stöds finns på sidan med dokumentations [registrering](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -31,16 +31,16 @@ Tal Software Development Kit (SDK) får dina program över Speech-tjänsterna, v
 
 För Windows stöder vi följande språk:
 
-* C#UWP och .NET, C++: Du kan referera till och använder den senaste versionen av vår tal SDK NuGet-paketet. Paketet innehåller 32-bitars och 64-bitars klientbibliotek och hanterade (.NET)-bibliotek. SDK: N kan installeras i Visual Studio med hjälp av NuGet. Sök efter **Microsoft.CognitiveServices.Speech**.
+* C#(UWP och .NET) C++: Du kan referera till och använda den senaste versionen av vårt tal SDK NuGet-paket. Paketet innehåller 32-bitars och 64-bitars klientbibliotek och hanterade (.NET)-bibliotek. SDK: N kan installeras i Visual Studio med hjälp av NuGet. Sök efter **Microsoft.CognitiveServices.Speech**.
 
-* Java: Du kan referera till och använder den senaste versionen av vår tal SDK Maven-paketet som stöder endast Windows x64. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0` som ett beroende.
+* Java: Du kan referera till och använda den senaste versionen av vårt tal SDK maven-paket, som endast stöder Windows x64. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0` som ett beroende.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> För närvarande kan vi stöder endast Ubuntu 16.04, Ubuntu 18.04 och Debian 9 på en dator (x86 eller x64 för C++ utvecklings- och x64 för .NET Core, Java och Python).
+> För närvarande stöder vi endast Ubuntu 16,04, Ubuntu 18,04 och Debian 9 på en dator (x86 eller x64 för C++ utveckling och x64 för .net Core, Java och python).
 
-Kontrollera att du har de bibliotek som krävs installerat genom att köra följande shell-kommandon:
+Kontrol lera att du har de nödvändiga biblioteken installerade genom att köra följande Shell-kommandon:
 
 I Ubuntu:
 
@@ -49,22 +49,22 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-On Debian 9:
+På Debian 9:
 
 ```sh
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
 
-* C#: Du kan referera till och använder den senaste versionen av vår tal SDK NuGet-paketet. Lägg till följande paketreferens i projektet om du vill referera till SDK:
+* C#: Du kan referera till och använda den senaste versionen av vårt tal SDK NuGet-paket. Lägg till följande paketreferens i projektet om du vill referera till SDK:
 
   ```xml
   <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.6.0" />
   ```
 
-* Java: Du kan referera till och använder den senaste versionen av vår tal SDK Maven-paketet. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0` som ett beroende.
+* Java: Du kan referera till och använda den senaste versionen av vårt tal SDK maven-paket. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0` som ett beroende.
 
-* C++: Hämta SDK: N som en [.tar-paketet](https://aka.ms/csspeech/linuxbinary) och packa upp filerna i en katalog med ditt val. I följande tabell visas mappstrukturen SDK:
+* C++: Ladda ned SDK som ett [. tar-paket](https://aka.ms/csspeech/linuxbinary) och packa upp filerna i valfri katalog. I följande tabell visas mappstrukturen SDK:
 
   |Sökväg|Beskrivning|
   |-|-|
@@ -78,7 +78,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ### <a name="android"></a>Android
 
-Java SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller de nödvändiga bibliotek och behörigheter som krävs för Android. Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0`.
+Java SDK för Android paketeras som ett [AAR (Android-bibliotek)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek och nödvändiga Android-behörigheter. Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0`.
 
 Om du vill använda paketet från Android Studio-projekt gör du följande ändringar:
 

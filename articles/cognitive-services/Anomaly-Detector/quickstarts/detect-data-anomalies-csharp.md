@@ -1,46 +1,46 @@
 ---
-title: 'Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av Avvikelseidentifiering detektor REST API ochC#'
+title: 'Snabbstart: Identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API ochC#'
 titleSuffix: Azure Cognitive Services
-description: 'Använda API: T för Avvikelseidentifiering detektor för att identifiera avvikelser i dina dataserien som en batch eller på strömmande data.'
+description: 'Använd API: t för avvikelse detektor för att identifiera avvikelser i din data serie antingen som en batch eller vid strömmande data.'
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1b3ed38e7ce8738a0e92775915e894c6e0bbd52a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 97efa5cd91646809178d685ca51e29ef2fda7c0d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721555"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564738"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av Avvikelseidentifiering detektor REST API ochC# 
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabbstart: Identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API ochC# 
 
-Använd den här snabbstarten för att börja använda identifiering av avvikelser detektor API: er lägena för att identifiera avvikelser i tidsseriedata. Detta C# programmet skickar två API-begäranden som innehåller JSON-formaterade time series-data och får svar.
+Använd den här snabb starten för att börja använda de två identifierings lägena för avvikelse detektor API: erna för att identifiera avvikelser i dina tids serie data. Det C# här programmet skickar två API-begäranden som innehåller JSON-formaterade Time Series-data och hämtar svaren.
 
 | API-begäran                                        | Programutdata                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Identifiera avvikelser som en batch                        | JSON-svar som innehåller avvikelseidentifiering status (och andra data) för varje datapunkt i time series-data och positioner för alla identifierade avvikelser. |
-| Identifiera avvikelser status för senaste datapunkt | JSON-svar som innehåller avvikelseidentifiering status (och andra data) för den senaste datapunkten i time series-data.                                                                                                                                         |
+| Identifiera avvikelser som en batch                        | JSON-svaret som innehåller avvikelse status (och andra data) för varje data punkt i tids serie data och positionerna för identifierade avvikelser. |
+| Identifiera avvikelse statusen för den senaste data punkten | JSON-svaret som innehåller avvikelse status (och andra data) för den senaste data punkten i tids serie data.                                                                                                                                         |
 
  Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En utgåva av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/),
+- Alla versioner av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/),
 
-- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Så här installerar du Newtonsoft.Json som NuGet-paket i Visual Studio:
+- [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Så här installerar du Newtonsoft. JSON som ett NuGet-paket i Visual Studio:
     
-    1. Högerklicka på projektet i **Solution Explorer**.
-    2. Välj **hantera NuGet-paket**.
-    3. Sök efter *Newtonsoft.Json* och installera paketet.
+    1. Högerklicka på ditt projekt i **Solution Explorer**.
+    2. Välj **Hantera NuGet-paket**.
+    3. Sök efter *Newtonsoft. JSON* och installera paketet.
 
-- Om du använder Linux/Mac OS, det här programmet kan köras med hjälp av [Mono](https://www.mono-project.com/).
+- Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
 
-- Pekar en JSON-fil som innehåller time series-data. Exempeldata för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- En JSON-fil som innehåller tids serie data punkter. Exempel data för den här snabb starten finns på [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -48,7 +48,7 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-1. Skapa en ny konsol-lösning i Visual Studio och Lägg till följande paket. 
+1. Skapa en ny konsol lösning i Visual Studio och Lägg till följande paket. 
 
     ```csharp
     using System;
@@ -60,12 +60,12 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
     using System.Threading.Tasks;
     ```
 
-2. Skapa variabler för din prenumerationsnyckel och slutpunkten. Nedan visas URI: er som du kan använda för identifiering av avvikelser. Dessa kommer att läggas till tjänstens slutpunkt senare för att skapa API: et begär URL: er.
+2. Skapa variabler för din prenumerations nyckel och din slut punkt. Nedan visas de URI: er som du kan använda för avvikelse identifiering. Dessa kommer att läggas till i tjänst slut punkten senare för att skapa API-begärandena URL: er.
 
-    |Identifieringsmetod  |URI: N  |
+    |Identifierings metod  |URI  |
     |---------|---------|
     |Batch-identifiering    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Identifiering på den senaste tidpunkten för data     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    |Identifiering på den senaste data punkten     | `/anomalydetector/v1.0/timeseries/last/detect`        |
     
     ```csharp
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -79,13 +79,13 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
     const string batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begäranden
+## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begär Anden
 
-1. Skapa en ny async-funktion som kallas `Request` som tar de variabler som skapades ovan.
+1. Skapa en ny async-funktion `Request` som använder variablerna som skapats ovan.
 
-2. Ange klientens protokoll för säkerhet och rubrik informationen med hjälp av en `HttpClient` objekt. Se till att lägga till din prenumerationsnyckel till den `Ocp-Apim-Subscription-Key` rubrik. Skapa sedan en `StringContent` objekt för begäran.
+2. Ange klientens säkerhets protokoll och huvud information med hjälp av `HttpClient` ett objekt. Se till att lägga till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken. Skapa sedan ett `StringContent` objekt för begäran.
 
-3. Skicka begäran med `PostAsync()`, och returnerar svaret.
+3. Skicka begäran med `PostAsync()`och returnera sedan svaret.
 
 ```csharp
 static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
@@ -103,13 +103,13 @@ static async Task<string> Request(string apiAddress, string endpoint, string sub
 
 ## <a name="detect-anomalies-as-a-batch"></a>Identifiera avvikelser som en batch
 
-1. Skapa en ny funktion som kallas `detectAnomaliesBatch()`. Skapa begäran och skicka den genom att anropa den `Request()` funktion med din slutpunkt, prenumerationsnyckel, URL-Adressen för batch-avvikelseidentifiering och time series-data.
+1. Skapa en ny funktion som `detectAnomaliesBatch()`kallas. Skapa begäran och skicka den genom att anropa `Request()` funktionen med din slut punkt, prenumerations nyckel, URL för identifiering av batch-avvikelse och tids serie data.
 
-2. Deserialisera JSON-objekt och skriva den till konsolen.
+2. Deserialisera JSON-objektet och skriv det till-konsolen.
 
-3. Om svaret innehåller `code` fältet, skriva ut felkod och ett felmeddelande. 
+3. Om fältet svar innehåller `code` skriver du ut felkoden och fel meddelandet. 
 
-4. Annars kan hitta positioner av avvikelser i datauppsättningen. Svarets `isAnomaly` fältet innehåller en matris med booleska värden som anger om en datapunkt är en avvikelse. Konvertera det till en sträng med objektet response `ToObject<bool[]>()` funktion. Gå igenom matrisen och skriva ut index för någon `true` värden. Dessa värden motsvarar index för avvikande datapunkter, om några.
+4. Annars hittar du positionerna för avvikelser i data uppsättningen. Svarets `isAnomaly` fält innehåller en matris med booleska värden, som anger om en data punkt är en avvikelse. Konvertera detta till en sträng mat ris med `ToObject<bool[]>()` funktionen Response Object. Upprepa genom matrisen och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
 
 ```csharp
 static void detectAnomaliesBatch(string requestData){
@@ -140,11 +140,11 @@ static void detectAnomaliesBatch(string requestData){
 }
 ```
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelser status för senaste datapunkt
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelse statusen för den senaste data punkten
 
-1. Skapa en ny funktion som kallas `detectAnomaliesLatest()`. Skapa begäran och skicka den genom att anropa den `Request()` funktion med din slutpunkt, prenumerationsnyckel, URL-Adressen för senaste återställningspunkt avvikelseidentifiering och time series-data.
+1. Skapa en ny funktion som `detectAnomaliesLatest()`kallas. Skapa begäran och skicka den genom att anropa `Request()` funktionen med din slut punkt, prenumerations nyckel, URL: en för den senaste punkten avvikelse identifiering och tids serie data.
 
-2. Deserialisera JSON-objekt och skriva den till konsolen.
+2. Deserialisera JSON-objektet och skriv det till-konsolen.
 
 ```csharp
 static void detectAnomaliesLatest(string requestData){
@@ -160,11 +160,11 @@ static void detectAnomaliesLatest(string requestData){
 }
 ```
 
-## <a name="load-your-time-series-data-and-send-the-request"></a>Läsa in time series-data och skicka begäran
+## <a name="load-your-time-series-data-and-send-the-request"></a>Läs in dina Time Series-data och skicka begäran
 
-1. I den huvudsakliga metoden för ditt program att läsa in JSON time series-data med `File.ReadAllText()`. 
+1. I appens huvud metod läser du in dina JSON Time Series-data med `File.ReadAllText()`. 
 
-2. Anropa de funktioner för identifiering av avvikelser skapade ovan. Använd `System.Console.ReadKey()` att hålla konsolfönstret öppen när du har kört programmet.
+2. Anropa de funktioner för avvikelse identifiering som skapats ovan. Använd `System.Console.ReadKey()` för att låta konsol fönstret vara öppet när du har kört programmet.
 
 ```csharp
 static void Main(string[] args){
@@ -180,9 +180,9 @@ static void Main(string[] args){
 
 ### <a name="example-response"></a>Exempelsvar
 
-Ett lyckat svar returneras i JSON-format. Klicka på länkarna nedan för att visa JSON-svar på GitHub:
-* [Exempelsvar batch identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [Senaste återställningspunkt identifiering exempelsvar](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+Ett lyckat svar returneras i JSON-format. Klicka på länkarna nedan om du vill visa JSON-svaret på GitHub:
+* [Exempel svar för batch-identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Exempel svar på senaste Poäng identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## <a name="next-steps"></a>Nästa steg
 

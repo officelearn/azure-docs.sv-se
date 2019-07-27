@@ -1,7 +1,7 @@
 ---
-title: Ordningstalet V2 fördefinierade entitet
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Den här artikeln innehåller ordningstal V2 fördefinierade entitetsinformation i Språkförståelse (LUIS).
+title: Ordnings tal v2 för inbyggd entitet – LUIS
+titleSuffix: Azure Cognitive Services
+description: Den här artikeln innehåller en fördefinierad entitetsinformation för ordinal v2 i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 862b962f5642e01d7ed8250f49d51a6132447083
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 972f75fd1c977e79a2fa70c44bb3069e2c69a2c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486144"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563414"
 ---
-# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Ordningstalet V2 fördefinierade entitet för en LUIS-app
-Ordningstalet V2 tal expanderar [ordningstal](luis-reference-prebuilt-ordinal.md) att tillhandahålla relativa referenser som `next`, `last`, och `previous`. Dessa extraheras inte ordningstal fördefinierade entitet.
+# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Ordnings tal v2, fördefinierad entitet för en LUIS-app
+Ordnings talet v2 Number expanderar [ordnings tal](luis-reference-prebuilt-ordinal.md) för att `next`ge `last`relativa referenser `previous`som, och. Dessa extraheras inte med den fördefinierade ordnings ordningen.
 
-## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Lösning för fördefinierade ordningstal V2-entitet
+## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Lösning för fördefinierad ordnings tal v2-entitet
 
-### <a name="api-version-2x"></a>API-version 2.x
+### <a name="api-version-2x"></a>API-version 2. x
 
-I följande exempel visas av lösningen på den **builtin.ordinalV2** entitet.
+I följande exempel visas upplösningen för entiteten **Builtin. ordinalV2** .
 
 ```json
 {
@@ -55,9 +55,9 @@ I följande exempel visas av lösningen på den **builtin.ordinalV2** entitet.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
 
-Följande JSON är med i `verbose` parameteruppsättning till `false`:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 {
@@ -82,7 +82,7 @@ Följande JSON är med i `verbose` parameteruppsättning till `false`:
 }
 ```
 
-Följande JSON är med i `verbose` parameteruppsättning till `true`:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 {
@@ -124,4 +124,4 @@ Följande JSON är med i `verbose` parameteruppsättning till `true`:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den [procent](luis-reference-prebuilt-percentage.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md), och [temperatur](luis-reference-prebuilt-temperature.md) entiteter. 
+Lär dig mer om enheterna [procent](luis-reference-prebuilt-percentage.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md)och [temperatur](luis-reference-prebuilt-temperature.md) . 

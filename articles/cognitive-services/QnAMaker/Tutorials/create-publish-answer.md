@@ -1,6 +1,6 @@
 ---
-title: Skapa, publicera och svara
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: Skapa, publicera, besvara QnA Maker
+titleSuffix: Azure Cognitive Services
 description: Den här REST-baserade självstudien vägleder dig genom att programmatiskt skapa och publicera en kunskapsbas och sedan besvara en fråga från kunskapsbasen.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: a14bc14e6115c1bc25582c3de71382ae17d7debd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dfd0a04da9f4f728bd43d8d3fcd4c671e9b95a47
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792288"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562891"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Självstudie: Använda C#, skapa kunskapsbas och sedan besvara fråga
 
@@ -38,7 +38,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
 * [Hämta slutpunkter för kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys)
 * [Publicera](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på instrumentpanelen. 
@@ -158,7 +158,7 @@ Den _primära slutpunkten_ skickas som huvud för att autentisera begäran att g
 
 |Huvudnamn|Huvudvärde|
 |--|--|
-|Auktorisering|`Endpoint` + **primär slutpunkt**<br>Exempel: `Endpoint xxxxxxx`<br>Observera avståndet mellan texten i `Endpoint` och värdet för den primära slutpunkten. 
+|Authorization|`Endpoint` + **primär slutpunkt**<br>Exempel: `Endpoint xxxxxxx`<br>Observera avståndet mellan texten i `Endpoint` och värdet för den primära slutpunkten. 
 
 Brödtexten i begäran måste skicka rätt JSON:
 

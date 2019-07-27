@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Omvandla text till tal, .NET Core - Speech Services'
+title: 'Snabbstart: Konvertera text till tal, .NET Core-Speech service'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att omvandla text till tal med REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1dd54adeffab80d4334d8f08733cfd6603f673d3
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a4c514cab274c395fbe3cbf0b2ff1cd9eb3d5134
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606321"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554033"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snabbstart: Omvandla text till tal med .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snabbstart: Konvertera text till tal med .NET Core
 
 I den här snabbstarten du lär dig hur du konverterar text till tal med hjälp av .NET Core- och REST-API för text till tal. Exempeltext som ingår i den här guiden är strukturerad som [tal syntes Markup Language (SSML)](speech-synthesis-markup.md), vilket gör att du kan välja rösten och språket i svaret.
 
-Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
+Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>Skapa en klass för token exchange
 
-Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Det här exemplet utbyter prenumerationsnyckeln Speech Services för en token med den `issueToken` slutpunkt.
+Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Det här exemplet utbyter din prenumerations nyckel för tal tjänster för en `issueToken` åtkomsttoken med hjälp av slut punkten.
 
-Det här exemplet förutsätter att prenumerationen Speech Services är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `FetchTokenUri`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `FetchTokenUri`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> Mer information om autentisering finns i [autentisera med åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Mer information om autentisering finns i [autentisera med en åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>Hämta en åtkomsttoken och ange URL: Värdadressen
 

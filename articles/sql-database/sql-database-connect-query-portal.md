@@ -11,14 +11,13 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/28/2019
-ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508753"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569168"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snabbstart: Använda SQL-frågeredigeraren på Azure-portalen för att ansluta och fråga efter data
 
@@ -39,7 +38,7 @@ För att slutföra den här kursen behöver du:
   |||
 
 > [!NOTE]
-> Frågeredigeraren använder portarna 443 och 1443 för att kommunicera.  Kontrollera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress i serverns tillåtna brandväggsregler för att få åtkomst till dina databaser och datalager.
+> Frågeredigeraren använder portarna 443 och 1443 för att kommunicera.  Kontrol lera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress till serverns tillåtna brand Väggs regler för att få åtkomst till dina databaser och informations lager.
 
 ## <a name="sign-in-the-azure-portal"></a>Logga in på Azure-portalen
 
@@ -160,7 +159,7 @@ Kör följande [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transa
 
 Det finns några saker du behöver veta när du arbetar med frågeredigeraren.
 
-* Frågeredigeraren använder portarna 443 och 1443 för att kommunicera.  Kontrollera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress i serverns tillåtna brandväggsregler för att få åtkomst till dina databaser och datalager.
+* Frågeredigeraren använder portarna 443 och 1443 för att kommunicera.  Kontrol lera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress till serverns tillåtna brand Väggs regler för att få åtkomst till dina databaser och informations lager.
 
 * Om du trycker på F5 uppdateras frågeredigerarens sida och frågan som bearbetas går förlorad.
 

@@ -9,15 +9,15 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67187899"
 ---
 ## <a name="push-image-to-registry"></a>Push-överför avbildningen till registret
 
-Innan du kan push-överföra en avbildning till Azure Container Registry måste du ha en avbildning. Om du inte har några lokala containeravbildningar ännu kan du köra följande [docker pull][docker-pull]-kommando för att hämta en befintlig avbildning från Docker Hub. I det här exemplet hämtar du `hello-world`-avbildningen.
+Innan du kan push-överföra en avbildning till Azure Container Registry måste du ha en avbildning. Om du ännu inte har några lokala behållar avbildningar kör du följande [Docker pull][docker-pull] -kommando för att hämta en befintlig avbildning från Docker Hub. I det här exemplet hämtar du `hello-world`-avbildningen.
 
 ```
 docker pull hello-world
@@ -37,7 +37,7 @@ Använd slutligen [docker push][docker-push] för att överföra avbildningen ti
 docker push <acrLoginServer>/hello-world:v1
 ```
 
-När du har push-överfört avbildningen till containerregistret tar du bort `hello-world:v1`-avbildningen från den lokala Docker-miljön. (Observera att detta [docker rmi][docker-rmi]-kommando inte tar bort avbildningen från **hello-world**-lagringsplatsen i Azure-containerregistret.)
+När du har push-överfört avbildningen till containerregistret tar du bort `hello-world:v1`-avbildningen från den lokala Docker-miljön. (Observera att det här [Docker RMI][docker-rmi] -kommandot inte tar bort avbildningen från **Hello-World-** lagringsplatsen i Azure Container Registry.)
 
 ```
 docker rmi <acrLoginServer>/hello-world:v1

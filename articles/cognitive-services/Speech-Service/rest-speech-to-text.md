@@ -1,7 +1,7 @@
 ---
-title: Tal till text API-referens (REST) – Speech Services
+title: Tal-till-text API-referens (REST) – tal service
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder tal till text REST API. I den här artikeln får du lära dig om auktorisering, alternativ frågan, hur du strukturerar en begäran och får ett svar.
+description: Lär dig hur du använder tal-till-text-REST API. I den här artikeln får du lära dig om auktorisering, alternativ frågan, hur du strukturerar en begäran och får ett svar.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d967fa4d5ba54e4470dadc5e797067454e1769a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606343"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552979"
 ---
-# <a name="speech-to-text-rest-api"></a>Tal till text REST-API
+# <a name="speech-to-text-rest-api"></a>Tal till text-REST API
 
-Som ett alternativ till den [tal SDK](speech-sdk.md), Speech Services kan du konvertera tal till text med en REST-API. Varje tillgänglig slutpunkt är associerad med en region. Ditt program kräver en prenumerationsnyckel för den slutpunkt som du tänker använda.
+Som ett alternativ till [tal-SDK](speech-sdk.md)gör det möjligt för tal tjänster att konvertera tal till text med hjälp av en REST API. Varje tillgänglig slutpunkt är associerad med en region. Ditt program kräver en prenumerationsnyckel för den slutpunkt som du tänker använda.
 
-Innan du använder REST-API tal till text, Förstå:
-* Begäranden som använder REST API får bara innehålla 10 sekunder för ljud.
+Innan du använder tal-till-text-REST API förstå:
+* Begär Anden som använder REST API får bara innehålla 10 sekunders inspelat ljud.
 * Tal till text REST API: et returnerar endast slutliga resultaten. Ofullständiga resultat tillhandahålls inte.
 
 Om du skickar längre ljud är ett krav för ditt program kan du använda den [tal SDK](speech-sdk.md) eller [batch avskrift](batch-transcription.md).
@@ -51,12 +51,12 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för tal till t
 
 |Huvud| Beskrivning | Obligatoriskt / valfritt |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Prenumerationsnyckeln Speech Services. | Antingen den här rubriken eller `Authorization` krävs. |
+| `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för tal tjänster. | Antingen den här rubriken eller `Authorization` krävs. |
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
 | `Content-type` | Beskriver format och codec-enheten för den angivna ljuddata. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus`. | Krävs |
 | `Transfer-Encoding` | Anger att segmenterat ljuddata skickas, i stället för en enskild fil. Använd bara den här rubriken om storlekar ljuddata. | Valfri |
-| `Expect` | Om du använder med chunked skicka `Expect: 100-continue`. Speech Services är medveten om den första begäran och väntar på dig ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
-| `Accept` | Om det måste vara `application/json`. Speech Services omfattar resultat i JSON. Vissa webbramverk för begäran innehåller ett inkompatibelt standardvärdet om du inte anger något, så det är bra att alltid `Accept`. | Valfritt men rekommenderas. |
+| `Expect` | Om du använder med chunked skicka `Expect: 100-continue`. Tal tjänsterna bekräftar den inledande begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
+| `Accept` | Om det måste vara `application/json`. Tal tjänsterna tillhandahåller resultat i JSON. Vissa webbramverk för begäran innehåller ett inkompatibelt standardvärdet om du inte anger något, så det är bra att alltid `Accept`. | Valfritt men rekommenderas. |
 
 ## <a name="audio-formats"></a>Ljudformat
 
@@ -68,7 +68,7 @@ Ljud skickas i brödtexten i HTTP `POST` begäran. Det måste vara i något av f
 | OGG | OPUS | 16-bitars | 16 kHz, mono |
 
 >[!NOTE]
->Formaten ovan stöds via REST-API och WebSocket i Speech Services. Den [tal SDK](speech-sdk.md) för närvarande endast stöd för WAV formatera med PCM-codec.
+>Ovanstående format stöds via REST API och WebSocket i tal tjänsterna. Den [tal SDK](speech-sdk.md) för närvarande endast stöd för WAV formatera med PCM-codec.
 
 ## <a name="sample-request"></a>Exempelbegäran
 
@@ -98,7 +98,7 @@ HTTP-statuskod för varje svar anger lyckad eller vanliga fel.
 
 ## <a name="chunked-transfer"></a>Segmentvis överföring
 
-Segmentvis överföring (`Transfer-Encoding: chunked`) kan hjälpa dig att minska svarstiden för igenkänning av eftersom den tillåter Taltjänster ska börja bearbeta ljudfilen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat. Det här alternativet är avsedd endast för att förbättra svarstiden.
+Chunked Transfer (`Transfer-Encoding: chunked`) kan hjälpa till att minska igenkännings fördröjningen eftersom det gör att tal tjänsterna kan börja bearbeta ljud filen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat. Det här alternativet är avsedd endast för att förbättra svarstiden.
 
 Detta kodexempel visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` ett objekt i HTTPWebRequest är ansluten till rätt REST-slutpunkten. `audioFile` är sökvägen till en ljudfil på disken.
 
@@ -163,7 +163,7 @@ Den `RecognitionStatus` fältet får innehålla dessa värden:
 > [!NOTE]
 > Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat.
 
-Den `detailed` format innehåller samma data som den `simple` format tillsammans med `NBest`, en lista över alternativ tolkningar av samma igenkänningsresultatet. De här resultaten returneras rangordnas från det mest sannolika att inte troligt. Den första posten är samma som den huvudsakliga igenkänningsresultatet.  När du använder den `detailed` format, `DisplayText` tillhandahålls som `Display` för varje resultat i den `NBest` lista.
+Formatet innehåller samma data `simple` som formatet, tillsammans med `NBest`en lista över alternativa tolkningar av samma igenkännings resultat. `detailed` De här resultaten rangordnas från de mest sannolikaste sannolika. Den första posten är samma som det huvudsakliga igenkännings resultatet.  När du använder den `detailed` format, `DisplayText` tillhandahålls som `Display` för varje resultat i den `NBest` lista.
 
 Varje objekt i den `NBest` listan innehåller:
 

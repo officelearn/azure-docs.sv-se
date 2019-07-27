@@ -1,6 +1,6 @@
 ---
-title: Ändra, träna appen, Java
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Ändra, träna appen, Java-LUIS
+titleSuffix: Azure Cognitive Services
 description: I den här Java-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen.
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: ce2cf0603e584684edda1b1f14a12b52fbbb928c
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: bfe195ecd4dd777d5073c03c2e4fbd4bfcaaaa06
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357142"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560590"
 ---
 # <a name="quickstart-change-model-using-java"></a>Snabbstart: Ändra modell med hjälp av Java 
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)

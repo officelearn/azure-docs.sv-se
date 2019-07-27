@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309501"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure PowerShell
@@ -26,7 +26,7 @@ Azure Container Registry är en hanterad Docker-behållarregistertjänst för at
 
 Den här snabbstarten kräver Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att avgöra installerad version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
 
-Du måste också ha Docker installerat lokalt. Docker innehåller paket för [MacOS][docker-mac], [Windows][docker-windows]och [Linux][Docker-Linux-] system.
+Du måste också ha Docker installerat lokalt. Docker innehåller paket för [MacOS][docker-mac]-, [Windows][docker-windows]-och [Linux][docker-linux] -system.
 
 Eftersom Azure Cloud Shell inte innehåller alla nödvändiga Docker-komponenter (`dockerd`-daemon), kan du inte använda Cloud Shell för denna snabbstart.
 

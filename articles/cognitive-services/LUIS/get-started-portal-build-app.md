@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Skapa en ny app i LUIS-portalen'
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: I den här snabbstarten skapar du en ny app i LUIS-portalen. Skapa de grundläggande delarna i en app, avsikter och entiteter. Testa appen genom att tillhandahålla en användare uttryck i exemplet i den interaktiva test-panelen för att få förväntade avsikten. Att skapa en app är utan kostnad. Det kräver inte en Azure-prenumeration.
+titleSuffix: Azure Cognitive Services
+description: I den här snabb starten skapar du en ny app i LUIS-portalen. Skapa grundläggande delar av en app, avsikter och entiteter. Testa appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten. Det är kostnads fritt att skapa en app. ingen Azure-prenumeration krävs.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,163 +10,163 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e4ff7dc97e3ee72336bd4c081caf1aa1a62bc56
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f54643883028d93b56c7e122f43db95bb6d0b8c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146567"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560870"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabbstart: Skapa en ny app i LUIS-portalen
 
-I den här snabbstarten skapar du en ny app den [LUIS portal](https://www.luis.ai). Först skapar du de grundläggande delarna i en app, **avsikter**, och **entiteter**. Sedan kan du testa appen genom att tillhandahålla en användare uttryck i exemplet i den interaktiva test-panelen för att få förväntade avsikten.
+I den här snabb starten skapar du en ny app i [Luis-portalen](https://www.luis.ai). Först skapar du grundläggande delar av en app, **avsikter**och entiteter. Sedan testar du appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
 
-Att skapa en app är kostnadsfritt och kräver inte en Azure-prenumeration. När du är redo att distribuera din app, visas den [Snabbstart för att distribuera en app](get-started-portal-deploy-app.md). Den visar hur du skapar en Azure-Cognitive Service-resurs och tilldela den till appen.
+Att skapa en app är kostnads fritt och kräver inte en Azure-prenumeration. När du är redo att distribuera din app kan du läsa [snabb starten för att distribuera en app](get-started-portal-deploy-app.md). Den visar hur du skapar en Azure-tjänst resurs för en Azure-tjänst och tilldelar den till appen.
 
 ## <a name="create-an-app"></a>Skapa en app
 
-1. Öppna den [LUIS portal](https://www.luis.ai) i en webbläsare och logga in. Om det är första gången du loggar in, måste du skapa ett kostnadsfritt LUIS portalanvändare konto.
+1. Öppna [Luis-portalen](https://www.luis.ai) i en webbläsare och logga in. Om det är första gången du loggar in måste du skapa ett kostnads fritt LUIS-Portal-användarkonto.
 
-1. Välj **skapar en ny app** från verktygsfältet kontext.
+1. Välj **Skapa ny app** från kontext verktygsfältet.
 
-   [![Skapa ny app i LUIS-portalen](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![Skapa en ny app i LUIS-portalen](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 
-1. I popup-fönstret kan du konfigurera appen med följande inställningar och välj sedan **klar**.
+1. I popup-fönstret konfigurerar du appen med följande inställningar och väljer sedan **Slutför**.
 
-   |Inställningsnamn| Värde | Syfte|
+   |Inställningsnamn| Value | Syfte|
    |--|--|--|
-   |Namn|`myEnglishApp`|Unikt namn för LUIS-app<br>obligatorisk|
-   |Kultur|**Engelska**|Språket i yttranden från användare, **en-us**<br>obligatorisk|
+   |Namn|`myEnglishApp`|Unikt namn på LUIS-app<br>obligatorisk|
+   |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>obligatorisk|
    |Beskrivning|`App made with LUIS Portal`|Beskrivning av app<br>valfri|
    | | | |
 
-   ![Ange nya appinställningar](./media/get-started-portal-build-app/create-new-app-settings.png)
+   ![Ange nya inställningar för app](./media/get-started-portal-build-app/create-new-app-settings.png)
 
 ## <a name="create-intents"></a>Skapa avsikter
 
-När LUIS-app har skapats kan behöva du skapa avsikter. Avsikter är ett sätt att kategorisera text från användare. En personalapp kan till exempel ha två funktioner. Hjälper användare att:
+När LUIS-appen har skapats måste du skapa avsikter. Avsikter är ett sätt att kategorisera text från användare. Till exempel kan en personal-app ha två funktioner. För att hjälpa personer:
 
- 1. Hitta och gäller för jobb
- 1. Hitta formulär för jobb
+ 1. Sök efter och Ansök om jobb
+ 1. Sök efter formulär som ska användas för jobb
 
-Appen är två olika _avsikter_ justeras till följande avsikter:
+Appens två olika _avsikter_ anpassas till följande syften:
 
-|Avsikt|Exempeltexten från användare<br>kallas även en _uttryck_|
+|Avsikt|Exempel text från användare<br>kallas en _uttryck_|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
 
-Om du vill skapa avsikter, gör du följande:
+Utför följande steg för att skapa avsikter:
 
-1. När appen har skapats kan du är på den **avsikter** för den **skapa** avsnittet. Välj **Create new intent** (Skapa ny avsikt).
+1. När appen har skapats finns du på sidan **syften** i avsnittet **build** . Välj **Create new intent** (Skapa ny avsikt).
 
-   [![Skapa ny avsikt knappen Välj](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Välj Skapa ny avsikts knapp](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Ange namnet på avsikt, `FindForm`, och välj sedan **klar**.
+1. Ange namnet `FindForm`på avsikten och välj sedan **färdig**.
 
-   ![Namn på FindForm avsikt](./media/get-started-portal-build-app/create-new-intent-dialog.png)
+   ![Ange namnet på FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## <a name="add-an-example-utterance"></a>Lägg till en exempel-uttryck
 
-Du kan lägga till exempel yttranden när du har skapat avsikter. Exempel yttranden är text som en användare anger i en chattrobot eller andra klientprogram. De mappar avsikt att användarens text till en LUIS-avsikt.
+Du lägger till exempel yttranden när du har skapat avsikter. Exempel på yttranden är text som en användare anger i en chat-robot eller något annat klient program. De mappar avsikten med användarens text till ett LUISt syfte.
 
-För det här exempelprogrammet `FindForm` avsikt, exempel yttranden ska innehålla formulärnumret för. Klientprogrammet måste det tal som formuläret ska uppfylla av användaren, så det är viktigt att inkludera den i uttryck.
+I det här exempel programmets `FindForm` syfte innehåller exempel yttranden formulär numret. Klient programmet behöver formulär numret för att uppfylla användarens begäran, så det är viktigt att inkludera det i uttryck.
 
-[![Ange exempel yttranden för FindForm avsikten](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+[![Ange exempel yttranden för FindForm-avsikten](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
-Lägg till följande 15 exempel talade till den `FindForm` avsikt.
+Lägg till följande 15 exempel yttranden i `FindForm` avsikten.
 
 |#|Exempel på yttranden|
 |--|--|
-|1|Letar du efter hrf 123456|
-|2|Var finns personal formuläret hrf-234591?|
-|3|hrf 345623 var är den|
-|4|Är det möjligt att skicka mig hrf 345794|
-|5|Behöver jag hrf 234695 ansöka om ett internt jobb?|
-|6|Behöver Mina manager vet jag ansöker om ett jobb med hrf 234091|
-|7|Där skickar hrf 234918? Kan jag få ett e-postsvar det togs emot?|
+|1|Söker efter HRF – 123456|
+|2|Var är personal formuläret HRF-234591?|
+|3|HRF – 345623, där är det|
+|4|Är det möjligt att skicka mig HRF-345794|
+|5|Behöver jag HRF-234695 för att ansöka om ett internt jobb?|
+|6|Behöver min chef veta att jag använder för ett jobb med HRF-234091|
+|7|Var skickar jag HRF-234918? Får jag ett e-postmeddelande om att det togs emot?|
 |8|hrf-234555|
-|9|När uppdaterades hrf 234987?|
-|10|Jag kan använda formuläret hrf-876345 för engineering positioner|
-|11|Var en ny version av hrf-765234 skickades in om min öppna req?|
-|12|Kan jag använda hrf 234234 för internationella jobb?|
-|13|hrf 234598 felstavning|
-|14|hrf 234567 kommer redigeras för nya krav|
-|15|hrf-123456, hrf-123123, hrf-234567|
+|9|När var HRF-234987 uppdaterad?|
+|10|Använder jag formatet HRF-876345 för att ansöka om tekniska platser|
+|11|Har en ny version av HRF-765234 skickats för mina öppna REQ?|
+|12|Använder jag HRF-234234 för internationella jobb?|
+|13|HRF – 234598 stavnings fel|
+|14|kommer HRF-234567 att redige ras för nya krav|
+|15|HRF-123456, HRF-123123, HRF-234567|
 
-Av utformningen kan variera dessa exempel yttranden på följande sätt:
+Som design kan dessa exempel yttranden variera på följande sätt:
 
-* längd på uttryck
-* Skiljetecken
-* Word val
-* verb Tempus (är, var, kommer att)
-* ordföljden
+* uttryck längd
+* skiljetecken
+* Word-alternativ
+* verb (är, är, är)
+* ord ordning
 
 
 
-## <a name="create-a-regular-expression-entity"></a>Skapa en entitet för reguljärt uttryck
+## <a name="create-a-regular-expression-entity"></a>Skapa en entitet för reguljära uttryck
 
-För att returnera antalet formuläret i förutsägelse körningssvar måste formatet vara markerad som en entitet. Eftersom texten för formuläret är mycket strukturerade, kan du markera den med hjälp av en entitet för reguljärt uttryck. Skapa entiteten med följande steg:
+Om du vill returnera formulär numret i svars förutsägelsens svar måste formuläret markeras som en entitet. Eftersom formulär nummer texten är mycket strukturerad kan du markera den med en entitet för reguljära uttryck. Skapa entiteten med följande steg:
 
-1. Välj **entiteter** på menyn till vänster.
+1. Välj **entiteter** från menyn till vänster.
 
-1. Välj **Skapa ny entitet** på den **entiteter** sidan.
+1. Välj **Skapa ny entitet** på sidan **entiteter** .
 
-1. Ange namnet `Human Resources Form Number`väljer den **Regex** entitet skriver och anger det reguljära uttrycket `hrf-[0-9]{6}`. Den här posten matchar bokstäver, `hrf-`, och tillåter exakt 6 siffror.
+1. Ange namnet `Human Resources Form Number`, Välj **regex** -entitetstypen och ange `hrf-[0-9]{6}`det reguljära uttrycket. Den här posten matchar litteral tecken, `hrf-`och tillåter exakt 6 siffror.
 
-   ![Ange entitetsinformation för entiteten reguljärt uttryck](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![Ange enhets information för entiteten för reguljärt uttryck](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
 1. Välj **Done** (Klar).
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Lägga till exempelyttranden i avsikten Ingen
 
-Den **ingen** avsikt är reserv avsikten och får inte vara tomt. Den här ska innehålla ett uttryck för varje 10 exempel yttranden som du har lagt till för de andra metoderna för appen.
+**Ingen** avsikt är återställnings avsikten och får inte vara tom. Avsikten bör innehålla en uttryck för varje 10-exempel yttranden som du har lagt till för andra avsikter av appen.
 
-Den **ingen** avsikts exempel yttranden bör finnas utanför din programdomänen för klienten.
+Yttranden för **inget** exempel bör ligga utanför din klient program domän.
 
-1. Välj **avsikter** från den vänstra menyn och välj sedan **ingen** från listan över avsikter.
+1. Välj **avsikter** på menyn till vänster och välj sedan **ingen** från listan över försök.
 
-1. Lägg till följande exempel talade avsikten:
+1. Lägg till följande exempel yttranden till avsikten:
 
-   |Ingen avsiktlig exempel yttranden|
+   |Ingen avsikts exempel yttranden|
    |--|
    |Skällande hundar är irriterande|
    |Beställ en pizza åt mig|
    |Pingviner i havet|
 
-   Dessa exempel yttranden finns utanför domänen för den här personalapp. Om din personal-domän är djur, mat eller havet så bör du använda olika exempel yttranden för den **ingen** avsikt.
+   För den här typen av personal är dessa exempel yttranden utanför domänen. Om din personal domän inkluderar djur, livsmedel eller havs, bör du använda olika exempel-yttranden för **ingen** avsikt.
 
 ## <a name="train-the-app"></a>Träna appen
 
-I menyn i det övre högra hörnet, väljer **träna** tillämpas avsikt och entiteten modellen ändras till den aktuella versionen av appen.
+På menyn i det övre högra hörnet väljer du **träna** för att tillämpa ändringar av avsikt och enhets modell för den aktuella versionen av appen.
 
-## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Titta på entiteten reguljärt uttryck i exempel-uttryck
+## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Titta på entiteten reguljära uttryck i exemplet yttranden
 
-1. Kontrollera entiteten finns i den **FindForm** avsikt genom att välja **avsikter** menyn till vänster. Välj sedan **FindForm** avsikt.
+1. Verifiera att entiteten finns i **FindForm** avsikt genom att välja **avsikter** på den vänstra menyn. Välj sedan **FindForm** avsikt.
 
-   Entiteten har markerats där visas i exemplet yttranden. Om du vill se den ursprungliga texten i stället för entitetsnamnet växla **entiteter visa** från verktygsfältet.
+   Entiteten är markerad där den visas i exemplet yttranden. Om du vill se den ursprungliga texten i stället för enhets namnet växlar du **vyn entiteter** från verktygsfältet.
 
-   [![Alla exempel yttranden som markerats med entiteter](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   [![Alla exempel yttranden markerade med entiteter](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
-## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testa din nya app med interaktiva testfönstret
+## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testa din nya app med det interaktiva test fönstret
 
-Använd det interaktiva **Test** fönstret i LUIS-portalen för att verifiera att entiteten ska extraheras från nya yttranden som appen inte har sett ännu.
+Använd det interaktiva **test** fönstret i Luis-portalen för att verifiera att entiteten extraheras från en ny yttranden att appen inte har setts än.
 
-1. Välj **Test** från menyn längst upp till höger.
+1. Välj **test** på menyn längst upp till höger.
 
 1. Lägg till en ny uttryck och tryck sedan på RETUR:
 
    ```Is there a form named hrf-234098```
 
-   ![Testa nya uttryck i Testfönster](./media/get-started-portal-build-app/test-new-utterance.png)
+   ![Testa nya uttryck i test fönstret](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   Upp förutse avsikten är korrekt **FindForm** med över 90% förtroende (0.977). Den **personalfrågor formuläret nummer** entitet extraheras med ett värde av hrf 234098.
+   Den mest förväntade avsikten är korrekt **FindForm** med över 90% konfidensgrad (0,977). Entiteten **personal formulär nummer** extraheras med värdet hrf-234098.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med den här snabbstarten och inte fortsätter till nästa Snabbstart, Välj **Mina appar** från den övre navigeringsmenyn. Välj sedan appens vänstra kryssrutan från listan och välj **ta bort** från kontexten verktygsfältet ovanför listan.
+När du är klar med den här snabb starten och inte fortsätter till nästa snabb start väljer du **Mina appar** på den översta navigerings menyn. Markera sedan appens vänstra kryss ruta i listan och välj **ta bort** från verktygsfältet kontext ovanför listan.
 
-[![Ta bort appen från listan över Mina appar](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
+[![Ta bort appen från listan Mina appar](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

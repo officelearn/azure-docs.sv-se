@@ -1,7 +1,7 @@
 ---
-title: Lägg till entiteter
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Skapa entiteter för att extrahera viktiga data från användaren yttranden i appar för Språkförståelse (LUIS).
+title: Lägg till entiteter – LUIS
+titleSuffix: Azure Cognitive Services
+description: Skapa entiteter för att extrahera nyckel data från User yttranden i Language Understanding-appar (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,24 +11,24 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdf60a454aeb19b83ce455a771b8399c90af3bce
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148732"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563751"
 ---
 # <a name="create-entities-without-utterances"></a>Skapa entiteter utan yttranden
 
-Entiteten representerar ett ord eller en fras i uttryck som du vill extrahera. En entitet representerar en klass, inklusive en samling liknande objekt (platser, saker, personer, evenemang eller begrepp). Entiteter beskriver information som är relevanta för avsikten och ibland de är viktiga för din app för att utföra sitt uppdrag. Du kan skapa enheter när du lägger till ett uttryck till en avsikt eller från varandra från (före eller efter) att lägga till ett uttryck i en avsikt.
+Entiteten representerar ett ord eller en fras i uttryck som du vill extrahera. En entitet representerar en klass inklusive en samling liknande objekt (platser, saker, personer, händelser eller koncept). Entiteter beskriver information som är relevanta för avsikten och ibland de är viktiga för din app för att utföra sitt uppdrag. Du kan skapa entiteter när du lägger till en uttryck i ett avsikts syfte eller förutom (före eller efter) lägger till en uttryck till ett avsikts sätt.
 
 Du kan lägga till, redigera eller ta bort entiteter i din LUIS-app via den **entitetslistan** på den **entiteter** sidan. LUIS erbjuder två typer av entiteter: [förskapade entiteter](luis-reference-prebuilt-entities.md), och dina egna [anpassade entiteter](luis-concept-entity-types.md#types-of-entities).
 
-När en dator lärt dig entitet skapas, måste du markera entiteten på alla exempel uttryck av alla avsikter som den tillhör.
+När en enhet som har registrerats av enheten har skapats måste du markera entiteten i alla exempel-uttryck för alla syften som den finns i.
 
 <a name="add-prebuilt-entity"></a>
 
-## <a name="add-a-prebuilt-entity-to-your-app"></a>Lägga till en fördefinierade entitet i din app
+## <a name="add-a-prebuilt-entity-to-your-app"></a>Lägg till en fördefinierad entitet i din app
 
 Vanliga förskapade entiteter som lagts till i ett program är *nummer* och *datetimeV2*. 
 
@@ -42,7 +42,7 @@ Vanliga förskapade entiteter som lagts till i ett program är *nummer* och *dat
 
 <a name="add-simple-entities"></a>
 
-## <a name="add-simple-entities-for-single-concepts"></a>Lägg till enkel entiteter för enkel begrepp
+## <a name="add-simple-entities-for-single-concepts"></a>Lägg till enkla entiteter för enkla koncept
 
 En enkel enhet beskriver ett enda koncept. Använd följande procedur för att skapa en entitet som extraherar avdelning företagsnamn som *personalfrågor* eller *Operations*.   
 
@@ -56,7 +56,7 @@ En enkel enhet beskriver ett enda koncept. Använd följande procedur för att s
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Lägg till entiteter för reguljärt uttryck för kraftigt strukturerad begrepp
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Lägg till entiteter med reguljära uttryck för mycket strukturerade koncept
 
 Ett reguljärt uttryck entiteten används för att hämta data från uttryck baserat på ett reguljärt uttryck som du anger. 
 
@@ -64,11 +64,11 @@ Ett reguljärt uttryck entiteten används för att hämta data från uttryck bas
 
 1. I popup-rutan, ange `Human resources form name` i den **entitetsnamn** väljer **reguljärt uttryck** från den **entitetstypen** listan, ange det reguljära uttrycket `hrf-[0-9]{6}`, och välj sedan **klar**. 
 
-    Den här reguljära uttryck matchar strängtecken `hrf-`, sedan 6 siffror som representerar ett formulär nummer för ett formulär.
+    Det reguljära uttrycket matchar litterala tecken `hrf-`och sedan 6 siffror för att representera ett formulär nummer för ett HR-formulär.
 
 <a name="add-composite-entities"></a>
 
-## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Lägg till sammansatta entiteter gruppera i en överordnad-underordnad-relation
+## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Lägg till sammansatta entiteter i en grupp i en över-underordnad relation
 
 Du kan definiera relationer mellan entiteter av olika typer av en sammansatt entitet skapas. I följande exempel innehåller entiteten ett reguljärt uttryck och en fördefinierade entitet med namn.  
 
@@ -92,7 +92,7 @@ I uttryck `Send hrf-123456 to John Smith`, texten `hrf-123456` matchas mot ett H
 
 <a name="add-pattern-any-entities"></a>
 
-## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Lägg till Pattern.any entiteter för att samla in friformsarbetsyta entiteter
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Lägg till mönster. alla entiteter för att avbilda fria formulär enheter
 
 [Pattern.ANY](luis-concept-entity-types.md) entiteter är endast giltiga i [mönster](luis-how-to-model-intent-pattern.md), inte avsikter. Den här typen av entiteten kan LUIS hitta slutet av entiteter av olika längd och word val. Eftersom den här entiteten används i ett mönster, vet LUIS där slutet av entiteten är i mallen uttryck.
 
@@ -110,11 +110,11 @@ I uttryck `Where is Request relocation from employee new to the company on the s
 
 <a name="add-a-role-to-pattern-based-entity"></a>
 
-## <a name="add-a-role-to-distinguish-different-contexts"></a>Lägg till en roll för att skilja olika kontexter
+## <a name="add-a-role-to-distinguish-different-contexts"></a>Lägg till en roll för att skilja på olika kontexter
 
-En roll är en namngiven undertyp baserat på kontext. Det är tillgängligt i alla entiteter, inklusive fördefinierade och icke-machine-lärt dig entiteter. 
+En roll är en namngiven under typ baserat på kontext. Den är tillgänglig i alla entiteter, inklusive förbyggda och icke-inlärda entiteter. 
 
-Syntaxen för en roll är **`{Entityname:Rolename}`** där enhetens namn följt av ett kolon och sedan namnet på rollen. Till exempel `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+Syntaxen för en roll är **`{Entityname:Rolename}`** den plats där entitetsnamnet följs av ett kolon, sedan roll namnet. Till exempel `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Från den **skapa** väljer **entiteter** på den vänstra panelen.
 
@@ -128,7 +128,7 @@ Syntaxen för en roll är **`{Entityname:Rolename}`** där enhetens namn följt 
 
 <a name="add-list-entities"></a>
 
-## <a name="add-list-entities-for-exact-matches"></a>Lägg till listan över entiteter för exakta matchningar
+## <a name="add-list-entities-for-exact-matches"></a>Lägg till List enheter för exakta matchningar
 
 Lista över entiteter representerar en fast, stängda uppsättning närstående ord. 
 
@@ -144,7 +144,7 @@ Du kan ha en lista över alla avdelningar tillsammans med eventuella synonymer f
 
 1. Om du vill mer normaliserade objekt lista väljer **rekommenderar** att se alternativ från den [semantiska ordlista](luis-glossary.md#semantic-dictionary).
 
-    ![Skärmbild över att välja det rekommenderas att funktionen att se alternativ](./media/add-entities/hr-list-2.png)
+    ![Skärm bild av val av rekommendations funktion för att se alternativ](./media/add-entities/hr-list-2.png)
 
 
 1. Markera ett objekt i listan med rekommenderade att lägga till det som ett normaliserat värde eller välja **Lägg till alla** att lägga till alla objekt. 
@@ -173,13 +173,13 @@ Du kan ha en lista över alla avdelningar tillsammans med eventuella synonymer f
 
 <a name="change-entity-type"></a>
 
-## <a name="do-not-change-entity-type"></a>Ändra inte entitetstypen
+## <a name="do-not-change-entity-type"></a>Ändra inte entitetstyp
 
 LUIS kan du inte ändra typ av entiteten eftersom den inte vet vad du ska lägga till eller ta bort för att skapa entiteten. För att ändra typen, är det bättre att skapa en ny entitet av rätt typ. med ett något annorlunda namn. När enheten har skapats i varje uttryck att ta bort gamla taggade entitetsnamnet och lägga till det nya namnet. När alla yttranden har varit relabeled, kan du ta bort den gamla entiteten. 
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="create-a-pattern-from-an-example-utterance"></a>Skapa ett mönster från en exempel-uttryck
+## <a name="create-a-pattern-from-an-example-utterance"></a>Skapa ett mönster från ett exempel uttryck
 
 Se [Lägg till mönster från befintliga uttryck på avsikten eller entitet](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 

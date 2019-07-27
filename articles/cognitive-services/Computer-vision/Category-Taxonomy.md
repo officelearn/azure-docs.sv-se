@@ -1,7 +1,7 @@
 ---
-title: Taxonomi bild kategorier – visuellt innehåll
-titlesuffix: Azure Cognitive Services
-description: Hämta 86 kategorier av taxonomi för den API för visuellt innehåll i Azure Cognitive Services.
+title: Taxonomi för avbildnings kategorier – Visuellt innehåll
+titleSuffix: Azure Cognitive Services
+description: Hämta 86-kategorierna för taxonomi för API för visuellt innehåll i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498856"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565752"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Datorn Vision 86-kategoritaxonomi
+# <a name="computer-vision-86-category-taxonomy"></a>Visuellt innehåll 86-kategori-taxonomi
 
-abstract_
+sammandrag
 
 abstract_net
 
@@ -32,7 +32,7 @@ abstract_shape
 
 abstract_texture
 
-animal_
+animalie
 
 animal_bird
 
@@ -44,7 +44,7 @@ animal_horse
 
 animal_panda
 
-building_
+skapa
 
 building_arch
 
@@ -64,7 +64,7 @@ building_street
 
 dark_
 
-drink_
+varor
 
 drink_can
 
@@ -100,7 +100,7 @@ indoor_venue
 
 dark_light
 
-others_
+andra
 
 outdoor_
 
@@ -132,7 +132,7 @@ outdoor_water
 
 outdoor_waterside
 
-people_
+användar
 
 people_baby
 
@@ -152,7 +152,7 @@ people_tattoo
 
 people_young
 
-plant_
+plan
 
 plant_branch
 

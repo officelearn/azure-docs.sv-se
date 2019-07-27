@@ -1,7 +1,7 @@
 ---
-title: Vanliga frågor och svar - visuellt innehåll
-titlesuffix: Azure Cognitive Services
-description: Få svar på vanliga frågor och svar om API för visuellt innehåll i Azure Cognitive Services.
+title: Vanliga frågor och svar – Visuellt innehåll
+titleSuffix: Azure Cognitive Services
+description: Få svar på vanliga frågor om API för visuellt innehåll i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,64 +11,64 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fce3242746d47809c4fbbb1448453369d6460a9b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203225"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564601"
 ---
-# <a name="computer-vision-api-frequently-asked-questions"></a>Vanliga och frågor svar om API för visuellt
+# <a name="computer-vision-api-frequently-asked-questions"></a>Vanliga frågor och svar om API för visuellt innehåll
 
 > [!TIP]
-> Om du inte hittar svar på dina frågor i den här vanliga frågor och svar, kan du prova att fråga API för visuellt innehåll community på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) eller kontakta [hjälp och Support på UserVoice](https://cognitive.uservoice.com/)
+> Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan du prova att be API för visuellt innehåll community om [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) eller kontakta [Hjälp och support på UserVoice](https://cognitive.uservoice.com/)
 
 ---
 
-**Fråga**: *Kan jag träna API för visuellt innehåll att använda anpassade taggar?  Jag skulle vilja feed i bilder av kattraser att träna AI och sedan ta emot RAS-värdet på en begäran om AI.*
+**Fråga**: *Kan jag träna API för visuellt innehåll att använda anpassade taggar?  Anta till exempel att du vill mata in bilder av Cat-raser till "träna" AI och sedan ta emot ras-värdet i en AI-begäran.*
 
-**Svar**: Den här funktionen är för närvarande inte tillgänglig. Dock arbetar våra tekniker för att göra den här funktionen att visuellt.
-
----
-
-**Fråga**: *Visuellt användas lokalt utan Internetanslutning?*
-
-**Svar**: För närvarande erbjuder vi inte en lokal eller lokal lösning.
+**Svar**: Den här funktionen är inte tillgänglig för tillfället. Våra tekniker arbetar dock för att få den här funktionen att Visuellt innehåll.
 
 ---
 
-**Fråga**: *Kan användas för visuellt innehåll att läsa licens nivåer?*
+**Fråga**: *Kan Visuellt innehåll användas lokalt utan Internet anslutning?*
 
-**Svar**: API för visuellt innehåll ger bra text-identifiering med OCR, men det inte är för tillfället optimerat för licens-nivåer. Vi försöker hela tiden förbättra våra tjänster och har lagt till OCR för automatisk licens lj erkännande till vår lista för framtida versioner.
-
----
-
-**Fråga**: *Vilka typer av skriva ytor stöds för handskriftsigenkänning?*
-
-**Svar**: Tekniken fungerar med olika typer av Surface-enheter, inklusive whiteboardtavlor, faktablad och gula anteckningslappar.
+**Svar**: Vi erbjuder för närvarande inte någon lokal eller lokal lösning.
 
 ---
 
-**Fråga**: *Hur lång tid tar åtgärden igenkänning av handskrift?*
+**Fråga**: *Kan Visuellt innehåll användas för att läsa licens plattor?*
 
-**Svar**: Hur lång tid det tar beror på längden på texten. För längre texter kan det ta upp till några sekunder. När identifiera handskriven Text-åtgärden är klar kan du därför behöva vänta innan du kan hämta resultat med åtgärden hämta handskriven Text resultatet för åtgärden.
-
----
-
-**Fråga**: *Hur hanterar taligenkänningsteknik handskrift text som har infogats med en hatt mitt i en rad?*
-
-**Svar**: Sådan text returneras som en separat rad av åtgärden för igenkänning av handskrift.
+**Svar**: Syn-API: et erbjuder en text identifiering med OCR, men den är för närvarande inte optimerad för licens plattor. Vi försöker ständigt förbättra våra tjänster och har lagt till OCR för automatisk licens plåts igenkänning till vår lista över funktions förfrågningar.
 
 ---
 
-**Fråga**: *Hur hanterar taligenkänningsteknik handskrift överskred ut ord eller rader?*
+**Fråga**: *Vilka typer av Skriv ytor stöds för hand SKRIFTS igenkänning?*
 
-**Svar**: Om orden passeras med flera rader att återge dem okänt, över åtgärden igenkänning av handskrift inte dem. Men om orden passeras med hjälp av en enda rad, att överbrygga behandlas som bruset och orden fortfarande få slutpunktsstatus uppfattas av åtgärden för igenkänning av handskrift.
+**Svar**: Tekniken fungerar med olika typer av ytor, inklusive whiteboardtavlor, white paper och gula Fästisar.
 
 ---
 
-**Fråga**: *Vilka text skärmorienteringar stöds för taligenkänningsteknik handskrift?*
+**Fråga**: *Hur lång tid tar hand SKRIFTS igenkännings åtgärden?*
 
-**Svar**: Text orienterad i vinkel av upp till cirka 30 grader mot 40 grader kan hämta slutpunktsstatus uppfattas av åtgärden för igenkänning av handskrift.
+**Svar**: Hur lång tid det tar beror på textens längd. För längre texter kan det ta upp till flera sekunder. När åtgärden identifiera handskriven text har slutförts kan du därför behöva vänta innan du kan hämta resultatet med hjälp av åtgärden Hämta handskriven text åtgärd.
+
+---
+
+**Fråga**: *Hur hanterar hand SKRIFTS igenkännings tekniken text som infogades med en cirkumflex mitt i en rad?*
+
+**Svar**: Sådan text returneras som en separat rad vid hand SKRIFTS igenkännings åtgärden.
+
+---
+
+**Fråga**: *Hur hanteras tekniken för hand SKRIFTS igenkänning över ord eller rader?*
+
+**Svar**: Om orden är överkorsade med flera rader för att rendera dem som okända, väljer inte hand SKRIFTS igenkännings åtgärden. Men om orden korsas ut med en enda rad, behandlas korsningen som brus, och orden hämtas fortfarande av hand SKRIFTS igenkännings åtgärden.
+
+---
+
+**Fråga**: *Vilka text orienteringar stöds för tekniken för hand SKRIFTS igenkänning?*
+
+**Svar**: Text som är orienterad i vinklar på upp till cirka 30 grader till 40 grader kan hämtas av hand SKRIFTS igenkännings åtgärden.
 
 ---

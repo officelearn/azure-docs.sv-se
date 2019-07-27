@@ -1,35 +1,35 @@
 ---
-title: 'Snabbstart: Anropa anpassad sökning i Bing slutpunkten med hjälp av Python SDK | Microsoft Docs'
+title: 'Snabbstart: Anropa din Anpassad sökning i Bing-slutpunkt med python SDK | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Använd Bing anpassade Search SDK för Python för att få anpassade sökresultat.
+description: Använd den här snabb starten för att börja begära Sök Resultat från Anpassad sökning i Bing-instansen med python SDK.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: c4c5059bc57ea33357145f6b119456dc6c5bdb7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a9d0d6619878299768e1f17b4da3280ea1ec1fc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946649"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564608"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Snabbstart: Anropa anpassad sökning i Bing slutpunkten med hjälp av Python-SDK 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Snabbstart: Anropa din Anpassad sökning i Bing slut punkt med python SDK 
 
-Använd den här snabbstarten om du vill begära sökresultat från din Bing Custom Search-instans med hjälp av Python-SDK. Även om Anpassad Bing-sökning har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK för Anpassad Bing-sökning ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) med ytterligare felhantering och anteckningar.
+Använd den här snabb starten för att börja begära Sök Resultat från Anpassad sökning i Bing-instansen med hjälp av python SDK. Även om Anpassad Bing-sökning har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK för Anpassad Bing-sökning ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) med ytterligare fel hantering och anteckningar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En instans av anpassad Bing-sökning. Gå till [Snabbstart: Skapa din första instans av anpassad Bing-sökning](quick-start.md) för mer information.
 - Python[ 2.x eller 3.x](https://www.python.org/) 
-- Den [Bing Custom Search SDK för Python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
+- [Anpassad sökning I Bing SDK för python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
 
-## <a name="install-the-python-sdk"></a>Installera Python SDK
+## <a name="install-the-python-sdk"></a>Installera python SDK
 
-Installera SDK för Bing Custom Search med följande kommando.
+Installera Anpassad sökning i Bing SDK med följande kommando.
 
 ```Console
 python -m pip install azure-cognitiveservices-search-customsearch
@@ -38,14 +38,14 @@ python -m pip install azure-cognitiveservices-search-customsearch
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-Skapa en ny Python-fil i din favoritredigerare eller IDE och Lägg till följande importer.
+Skapa en ny python-fil i din favorit redigerare eller IDE och Lägg till följande importer.
 
 ```python
 from azure.cognitiveservices.search.customsearch import CustomSearchClient
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-## <a name="create-a-search-client-and-send-a-request"></a>Skapa en sökning-klient och skicka en begäran
+## <a name="create-a-search-client-and-send-a-request"></a>Skapa en Sök klient och skicka en begäran
 
 1. Skapa en variabel för din prenumerationsnyckel.
 
@@ -53,21 +53,21 @@ from msrest.authentication import CognitiveServicesCredentials
     subscription_key = 'your-subscription-key'
     ```
 
-2. Skapa en instans av `CustomSearchClient`med hjälp av en `CognitiveServicesCredentials` objekt med prenumerationsnyckeln. 
+2. Skapa en instans av `CustomSearchClient`med hjälp av `CognitiveServicesCredentials` ett objekt med prenumerations nyckeln. 
 
     ```python
     client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
     ```
 
-3. Skicka en sökbegäran med `client.custom_instance.search()`. Lägg till din sökterm som ska den `query` parametern och ange `custom_config` till din anpassade konfigurations-ID för att använda Sökinstans. Du kan hämta ditt ID från den [Bing Custom Search-portalen](https://www.customsearch.ai/), genom att klicka på den **produktion** fliken.
+3. Skicka en Sök förfrågan med `client.custom_instance.search()`. Lägg till din sökterm till `query` parametern och Ställ in `custom_config` på ditt anpassade konfigurations-ID för att använda din Sök instans. Du kan hämta ditt ID från [Anpassad sökning i Bing Portal](https://www.customsearch.ai/)genom att klicka på fliken **produktion** .
 
     ```python
     web_data = client.custom_instance.search(query="xbox", custom_config="your-configuration-id")
     ```
 
-## <a name="view-the-search-results"></a>Visa sökresultaten
+## <a name="view-the-search-results"></a>Visa Sök resultaten
 
-Om alla webbsida sökresultat hittades, skaffa den första och Skriv ut namn, URL: en och totala webbsidor hittades.
+Om det finns Sök Resultat från en webb sida, hämta det första och skriv ut dess namn, URL och totalt antal webb sidor som hittas.
 
 ```python
 if web_data.web_pages.value:

@@ -1,5 +1,6 @@
 ---
-title: Vad är Language Understanding Intelligent Service (LUIS) – Azure Cognitive Services | Microsoft Docs
+title: Vad är Language Understanding Intelligent Service (LUIS)?
+titleSuffix: Azure Cognitive Services
 description: Language Understanding Intelligent Service (LUIS) är en molnbaserad API-tjänst som använder anpassad maskininlärningsinformation på en användares naturliga konversationsspråk för att förutsäga den övergripande betydelsen och hämta relevant, detaljerad information.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41c5e2f01678996406c586eb20043516beaf2184
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062165"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563187"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -28,12 +29,12 @@ Ett klientprogram för LUIS är alla konversationsanpassade program som kommunic
 
 <a name="Accessing-LUIS"></a>
 
-När LUIS-appen har skickar ett klientprogram yttranden (text) till LUIS slutpunkts-[API][endpoint-apis] för bearbetning av naturligt språk och får resultat som JSON-svar. Ett vanligt klientprogram för LUIS är en chattrobot.
+När LUIS-appen har publicerats skickar ett klient program yttranden (text) till LUISs slut punkts- [API][endpoint-apis] för naturlig språk bearbetning och tar emot resultatet som JSON-svar. Ett vanligt klientprogram för LUIS är en chattrobot.
 
 
 ![Konceptbilder av LUIS som fungerar med chattrobot för att förutsäga användartext med förståelse av naturligt språk (NLP)](./media/luis-overview/luis-overview-process-2.png "Konceptbilder av LUIS som fungerar med chattrobot för att förutsäga användartext med förståelse av naturligt språk (NLP")
 
-|Steg|Åtgärd|
+|Steg|Action|
 |:--|:--|
 |1|Klientprogrammet skickar användarens _yttrande_ (text med användarens egna ord), "I want to call my HR rep." (”Jag vill ringa HR-personalen.”) till LUIS-slutpunkten som en HTTP-begäran.|
 |2|LUIS tillämpar den inlärda modellen på texten med naturligt språk för att tillhandahålla intelligent förståelse om användardata. LUIS returnerar ett JSON-formaterat svar, med en främsta avsikt, "HRContact" (”HR-kontakt”). Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med högsta poäng. Det kan även extrahera data som entiteten Kontakttyp.|
@@ -101,16 +102,16 @@ LUIS tillhandahåller verktyg, versionshantering och samarbete med andra LUIS-f�
 LUIS kan, som REST-API, användas med alla produkter, tjänster eller ramverk som gör en HTTP-begäran. Följande lista innehåller de främsta Microsoft-produkterna och -tjänsterna som används med LUIS.
 
 Det vanligaste klientprogram för LUIS är:
-* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) skapar snabbt en LUIS-aktiverad chattrobot för att prata med en användare via textinmatning. Använder [Bot Framework] [ bot-framework] version [4.x](https://github.com/Microsoft/botbuilder-dotnet) för en fullständig bot-upplevelse.
+* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) skapar snabbt en LUIS-aktiverad chattrobot för att prata med en användare via textinmatning. Använder [bot Framework][bot-framework] version [4. x](https://github.com/Microsoft/botbuilder-dotnet) för en fullständig bot-upplevelse.
 
 Verktyg för att snabbt och enkelt använda LUIS med en robot:
-* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) The NPM-paketet innehåller redigering och förutsägelser med som antingen en fristående kommandoradsverktyg eller importera. 
+* [Luis CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM-paketet ger redigering och förutsägelse med antingen ett fristående kommando rads verktyg eller som import. 
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen är ett verktyg för att generera starkt typbestämd C#- och TypeScript-källkod från en exporterad LUIS-modell.
 * Med [Dispatch](https://aka.ms/dispatch-tool) kan flera LUIS- och QnA Maker-appar användas via en överordnad app som använder en dispatcher-modell.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown är ett kommandoradsverktyg som hjälper dig att hantera språkmodeller för din robot.
 
 Andra Cognitive Services-tjänster som används med LUIS:
-* Med [QnA Maker][qnamaker] kan flera typer av text kombineras till en kunskapsbas med frågor och svar.
+* [QNA Maker][qnamaker] tillåter att flera typer av text kombineras till en fråga och besvarar kunskaps basen.
 * [API för stavningskontroll i Bing](../bing-spell-check/proof-text.md) kontrollerar texten innan förutsägelse. 
 * [Speech Service](../Speech-Service/overview.md) konverterar begäranden med talat språk till text. 
 * Med [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) kan du skapa robotkonversationer snabbare med LUIS.

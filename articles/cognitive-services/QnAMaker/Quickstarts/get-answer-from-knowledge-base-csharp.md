@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Få svar från kunskapsbas – REST, C# – QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Denna C# REST-baserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas programmässigt.
 services: cognitive-services
 author: diberry
@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 020403268665633bf3d71cf43258ced87b4f837d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: ba128f5ad87083f8d57c33011969756f3b3a8c93
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249718"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559818"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Få svar på en fråga med hjälp av en kunskapsbas med C#
 
-Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. Kunskapsbasen innehåller frågor och svar från [datakällor](../Concepts/data-sources-supported.md) , till exempel vanliga frågor och svar. Den [fråga](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) skickas till QnA Maker-tjänsten. Den [svar](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) innehåller top-förutse svaret. 
+Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. Kunskaps basen innehåller frågor och svar från [data källor](../Concepts/data-sources-supported.md) som vanliga frågor och svar. [Frågan](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) skickas till QNA Maker tjänsten. [Svaret](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) innehåller det mest förväntade svaret. 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -36,8 +36,8 @@ Koden för den här snabbstarten finns i lagringsplatsen [https://github.com/Azu
 
 ## <a name="create-a-knowledge-base-project"></a>Skapa ett kunskapsbasprojekt
 
-1. Öppna Visual Studio 2019 Community edition.
-1. Skapa en ny Konsolapp (.NET Core) projekt och namn på projektet QnaMakerQuickstart. Godkänn standardinställningarna för de återstående inställningarna.
+1. Öppna Visual Studio 2019 Community Edition.
+1. Skapa ett nytt konsol program (.NET Core)-projekt och namnge projektet QnaMakerQuickstart. Godkänn standardinställningarna för de återstående inställningarna.
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
@@ -59,7 +59,7 @@ Följande kod gör en HTTPS-begäran för API:et för QnA Maker för att skicka 
 
 Värdet för `Authorization`-huvudet innehåller strängen `EndpointKey`. 
 
-Läs mer om den [begäran](../how-to/metadata-generateanswer-usage.md#generateanswer-request) och [svar](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
+Läs mer om [begäran](../how-to/metadata-generateanswer-usage.md#generateanswer-request) och [svar](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
 
 ## <a name="build-and-run-the-program"></a>Skapa och köra programmet
 

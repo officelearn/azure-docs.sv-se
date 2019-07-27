@@ -1,7 +1,7 @@
 ---
-title: Migrera från Custom Speech Service till Speech Services
-titlesuffix: Azure Cognitive Services
-description: Custom Speech Service är nu en del av Speech Services. Växla till Taltjänster kan dra nytta av de senaste uppdateringarna kvalitet och funktion.
+title: Migrera från Custom Speech Service till tal-tjänsten
+titleSuffix: Azure Cognitive Services
+description: Custom Speech Service är nu en del av tal-tjänst. Växla till tal-tjänsten för att dra nytta av de senaste uppdateringarna kvalitet och funktion.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01b853c59723a8ed79cb32b0ee9c245c9c3ffb3f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995667"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562763"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrera från Custom Speech Service till Speech-tjänsten
 
 Använd den här artikeln för att migrera dina program från Custom Speech Service till Speech-tjänsten.
 
-Custom Speech Service är nu en del av tal-tjänst. Växla till Taltjänster kan dra nytta av de senaste uppdateringarna kvalitet och funktion.
+Custom Speech Service är nu en del av tal-tjänst. Växla till tal tjänsterna för att dra nytta av de senaste kvalitets-och funktions uppdateringarna.
 
 ## <a name="migration-for-new-customers"></a>Migrering för nya kunder
 
@@ -39,11 +39,11 @@ Prismodellen är enklare med hjälp av en timme-baserade prismodellen för tjän
 
 3. Följ de snabbstartguider och SDK-exempel för att använda rätt API: er. Om du använder REST-API: er, måste du också använda rätt slutpunkterna och resursnycklar.
 
-4. Uppdatera klientprogram för att använda Speech Services och API: er.
+4. Uppdatera klient programmet för att använda tal tjänster och API: er.
 
 ## <a name="migration-for-existing-customers"></a>Migrering för befintliga kunder
 
-Migrera dina befintliga resursnycklar till Taltjänster på Speech Services-portalen. Använd följande steg:
+Migrera dina befintliga resurs nycklar till tal tjänsterna på tal tjänst portalen. Använd följande steg:
 
 > [!NOTE]
 > Resursnycklar kan bara migreras inom samma region.
@@ -56,10 +56,10 @@ Migrera dina befintliga resursnycklar till Taltjänster på Speech Services-port
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Prova Speech Services kostnadsfritt](get-started.md).
+* [Prova tal tjänster kostnads fritt](get-started.md).
 * Lär dig [tal till text](./speech-to-text.md) begrepp.
 
 ## <a name="see-also"></a>Se också
 
 * [Vad är Speech Service](overview.md)
-* [Taltjänster och tal SDK-dokumentation](speech-sdk.md#get-the-sdk)
+* [Dokumentation om Speech Services och Speech SDK](speech-sdk.md#get-the-sdk)

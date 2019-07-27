@@ -9,18 +9,20 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
 ms.reviewer: seguler
-ms.openlocfilehash: 0b74876d153a775993678ad50ed311c524480f76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6a0aef9b2fc7a99183ebd6991691245731e00200
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149584"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565952"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Azure CLI
 
 Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Du kan använda det i din webbläsare med Azure Cloud Shell. Du kan även installera det på macOS, Linux eller Windows och köra det från kommandoraden. I den här snabbstarten lär du dig att använda Azure CLI för att ladda upp och ned data till och från Azure Blob Storage.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

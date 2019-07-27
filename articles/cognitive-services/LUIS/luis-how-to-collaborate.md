@@ -1,6 +1,6 @@
 ---
-title: Samarbeta med andra
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Samar beta med andra – LUIS
+titleSuffix: Azure Cognitive Services
 description: En appägare kan lägga till medarbetare till appen. Dessa medarbetare kan ändra modellen, träna och publicera appen.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004bb979adcc0d7ba4860a917242e2219d7f1379
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198770"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560467"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Så här hanterar du författare och medarbetare 
 
@@ -44,12 +44,12 @@ Medan LUIS inte stöder för närvarande överlåtelse av äganderätt, du kan e
 
 ## <a name="azure-active-directory-resources"></a>Azure Active Directory-resurser
 
-Om du använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) i din organisation, Språkförståelse (LUIS) behöver behörighet för att information om användarnas åtkomst när de vill använda LUIS. Resurser som kräver att LUIS är minimal. 
+Om du använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) i din organisation behöver language Understanding (Luis) behörighet till informationen om användarnas åtkomst när de vill använda Luis. Resurser som kräver att LUIS är minimal. 
 
 Du kan se den detaljerade beskrivningen när du försöker registrera dig med ett konto som har administratörens godkännande eller inte kräver administratörens godkännande, till exempel administratörens godkännande:
 
-* Kan du logga in i appen med ditt organisationskonto och tillåter appen att läsa din profil. Tillåter även appen att läsa grundläggande företagsinformation. Detta ger LUIS behörighet att läsa grundläggande profilinformation data, till exempel användar-ID, e-post, namn
-* Tillåter appen att visa och uppdatera dina data, även om du inte använder appen. Behörighet krävs för att uppdatera åtkomsttoken för användaren.
+* Kan du logga in i appen med ditt organisationskonto och tillåter appen att läsa din profil. Tillåter även appen att läsa grundläggande företagsinformation. Detta ger LUIS behörighet att läsa grundläggande profil data, t. ex. användar-ID, e-post, namn
+* Tillåter appen att visa och uppdatera dina data, även om du inte använder appen. Behörigheten krävs för att uppdatera åtkomsttoken för användaren.
 
 
 ## <a name="azure-active-directory-tenant-user"></a>Användare med Azure Active Directory-klient
@@ -59,15 +59,15 @@ LUIS använder standard medgivande flödet för Azure Active Directory (AD Azure
 Innehavaradministration bör arbeta direkt med användare som behöver åtkomst till använda LUIS i Azure AD. 
 
 * Först användaren loggar in på LUIS och ser popup-fönstret behöva godkännande av administratören. Användaren kontaktar administratör innan du fortsätter. 
-* Därefter innehavaradministration loggar in på LUIS och ser en dialogruta för medgivande-flödet. Det här är i dialogrutan som administratören behöver ge tillstånd för användaren. När administratören godkänner behörigheten, kan användaren fortsätta med LUIS. Om administratör inte kommer att logga in till LUIS kan administratören kan komma åt [godkänna](https://account.activedirectory.windowsazure.com/r#/applications) för LUIS, som visas i följande skärmbild. Lägg märke till listan filtreras för objekt som innehåller namnet `LUIS`.
+* Därefter innehavaradministration loggar in på LUIS och ser en dialogruta för medgivande-flödet. Det här är i dialogrutan som administratören behöver ge tillstånd för användaren. När administratören godkänner behörigheten, kan användaren fortsätta med LUIS. Om klient organisationen inte kommer att logga in på LUIS kan administratören komma åt [medgivande](https://account.activedirectory.windowsazure.com/r#/applications) för Luis, som visas i följande skärm bild. Observera att listan filtreras till objekt som innehåller namnet `LUIS`.
 
 ![Azure active directory-behörighet genom appens webbplats](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Om administratör vill bara vissa användare att använda LUIS, finns det några möjliga lösningar:
-* Ge ”administratörsmedgivande” (godkänna alla användare av Azure AD), men ställs in på ”Ja” den ”Användartilldelning krävs” under Egenskaper för Enterprise-program och slutligen tilldela/Lägg till de önskade användarna till programmet. Med den här metoden kan administratören fortfarande tillhandahåller ”administratörsmedgivande” i appen, men det är möjligt att kontrollera de användare som har åtkomst till den.
-* En andra lösningen är med hjälp av [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) att ge medgivande till varje specifik användare. 
+Om klient administratören bara vill att vissa användare ska använda LUIS, finns det ett par möjliga lösningar:
+* Ge "administrativt medgivande" (medgivande till alla användare av Azure AD), men Ställ sedan in på "Ja" "användar tilldelning krävs" under egenskaper för företags program och tilldela/Lägg slutligen till de önskade användarna i programmet. Med den här metoden ger administratören fortfarande "administrativt medgivande" till appen, men det är möjligt att kontrol lera vilka användare som har åtkomst till den.
+* En andra lösning är att använda [Azure AD-Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) för att ge medgivande till varje enskild användare. 
 
-Läs mer om Azure active directory-användare och godkännande: 
+Lär dig mer om Azure Active Directory-användare och medgivande: 
 * [Begränsa din app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) till en uppsättning användare
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Användarkonton med flera e-postmeddelanden för medarbetare

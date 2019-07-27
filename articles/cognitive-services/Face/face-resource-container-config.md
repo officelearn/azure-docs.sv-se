@@ -1,6 +1,6 @@
 ---
-title: Konfigurera containrar
-titlesuffix: Face - Azure Cognitive Services
+title: Konfigurera behållare – ansikts-API
+titleSuffix: Azure Cognitive Services
 description: Konfigurationsinställningar för behållare.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6dd047b0ba7f9a123ffcc014cff5604466946d07
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320519"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564108"
 ---
 # <a name="configure-face-docker-containers"></a>Konfigurera ansikts Docker-behållare
 
@@ -51,7 +51,7 @@ Du hittar den här inställningen på följande plats:
 
 Kom ihåg att lägga till _ansikts_ dirigering till slut punkts-URI: n som visas i exemplet. 
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatorisk| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
@@ -122,10 +122,10 @@ Ansikts behållare använder inte indata eller utdata monteras för att lagra ut
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](face-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfri| Namn | Datatyp | Beskrivning |
+|Valfritt| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | Sträng | Ansikts behållare använder inte detta.|
-|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåtet| `Input` | Sträng | Ansikts behållare använder inte detta.|
+|Valfritt| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
 

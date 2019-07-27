@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f1eac83f2b5460bf56ddff1bf15d9180adb49a48
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 63ed2c5c334aef8f6281ee34ec4ed6e47ca8521a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382283"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569106"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Snabbstarter: Azure SQL Database-anslutning och fråga
 
@@ -39,7 +38,7 @@ Följande dokument innehåller länkar till Azure-exempel som beskriver hur du a
 |[PHP](sql-database-connect-query-php.md)|Den här snabbstarten visar hur du använder PHP för att skapa ett program som ansluter till en Azure SQL-databas och använder Transact-SQL-instruktioner för att köra frågor mot data.|
 |[Python](sql-database-connect-query-python.md)|Den här snabbstarten visar hur du använder Python för att ansluta till en Azure SQL-databas och hur du använder Transact-SQL-instruktioner för att köra frågor mot data. |
 |[Ruby](sql-database-connect-query-ruby.md)|Den här snabbstarten visar hur du använder Ruby för att skapa ett program som ansluter till en Azure SQL-databas och använder Transact-SQL-instruktioner för att köra frågor mot data.|
-|[R](sql-database-connect-query-r.md)|Den här snabbstarten visar hur du använder R med Azure SQL Database Machine Learning Services för att skapa ett program som ansluter till en Azure SQL-databas och använder Transact-SQL-uttryck för att köra frågor mot data.|
+|[R](sql-database-connect-query-r.md)|Den här snabb starten visar hur du använder R med Azure SQL Database Machine Learning Services för att skapa ett program för att ansluta till en Azure SQL-databas och använda Transact-SQL-uttryck för att fråga data.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>TLS-överväganden för SQL Database-anslutning
@@ -94,8 +93,8 @@ I följande tabell visas exempel på ORM-ramverk (objektrelationell mappning) oc
   - [Anslut till SQL Database med Python](sql-database-connect-query-python.md)
   - [Ansluta till SQL Database med Ruby](sql-database-connect-query-ruby.md)
 - Kodexempel för omprövningslogik:
-  - [Ansluta elastiskt till SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [Ansluta elastiskt till SQL med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Anslut elastiskt till SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Anslut elastiskt till SQL med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

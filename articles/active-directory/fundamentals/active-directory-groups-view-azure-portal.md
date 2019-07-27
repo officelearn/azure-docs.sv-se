@@ -1,24 +1,24 @@
 ---
-title: Snabbstart för att visa grupper och medlemmar – Azure Active Directory | Microsoft Docs
+title: Snabb start för att Visa grupper och medlemmar – Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du söker efter och visar organisationens grupper och deras tilldelade medlemmar.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249394"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561895"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -29,7 +29,7 @@ I den här snabbstarten visar du alla organisationens befintliga grupper och vis
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du:
 
 - Skapa en klientorganisation i Azure Active Directory. Mer information finns i [Öppna Azure Active Directory-portalen och skapa en ny klientorganisation](active-directory-access-create-new-tenant.md).
@@ -61,7 +61,7 @@ Skapa en ny användare med namnet _Alain Charon_. En användare måste finnas in
 
     - **Namn:** Skriv _Alain Charon_.
 
-    - **Användarnamn:** Typ *alain\@contoso.com*.
+    - **Användarnamn:** Skriv *Alain\@contoso.com*.
 
 3. Kopiera det automatiskt genererade lösenordet som anges i rutan **Lösenord** och välj sedan **Skapa**.
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa en anpassad aktivering word - Speech Services
+title: Skapa en anpassad tjänsten för aktivering av ord i tal
 titleSuffix: Azure Cognitive Services
 description: Din enhet lyssnar alltid för ett wake ord (eller ett uttryck). När du visar wake ordet har skickar enheten alla efterföljande ljud till molnet, tills användaren slutar talar. Anpassa ditt wake ord är ett effektivt sätt att skilja mellan enheten och Stärk din företagsanpassning.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f43cbedc633b26a3a7fcbfb5f6a75da514bf0c45
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604873"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553105"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Skapa ett anpassat wake ord med Speech-tjänsten
 
@@ -46,26 +46,26 @@ Tänk på följande när du väljer ett wake ord:
 
 ## <a name="create-your-wake-word"></a>Skapa ditt wake ord
 
-Innan du kan använda ett anpassat wake ord med din enhet, måste du skapa ett wake ord med tjänsten Microsoft anpassade Wake Word Generation. När du har angett ett ord på wake, tjänsten ger en fil som distribuerar du din development Kit för att aktivera wake word på enheten.
+Innan du kan använda ett anpassat aktiverings ord med din enhet måste du skapa ett aktiverings ord med Microsoft Customer generations-tjänsten för automatisk aktivering. När du har angett ett aktiverings ord skapar tjänsten en fil som du distribuerar till ditt utvecklings paket för att aktivera aktiverings ordet på enheten.
 
-1. Gå till den [Custom Speech Service Portal](https://aka.ms/sdsdk-speechportal) och **logga in** eller om du inte har en tal-prenumeration väljer [ **skapar du en prenumeration**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Gå till [Custom Speech service portal](https://aka.ms/sdsdk-speechportal) och **Logga** in eller om du inte har en tal prenumeration väljer du [**skapa en prenumeration**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
-    ![Custom Speech Service-portalen](media/speech-devices-sdk/wake-word-4.png)
+    ![Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
 
-1. På den [anpassad Wake Word](https://aka.ms/sdsdk-wakewordportal) sidan Ange ordet wake för ditt val och klickar på **Lägg till wake word**. Vi har ett [riktlinjer](#choose-an-effective-wake-word) hjälpa dig att välja en effektiv nyckelord. Vi stöder för närvarande endast en-US språk.
+1. På sid typen [anpassad aktiverings ord](https://aka.ms/sdsdk-wakewordportal) i det aktiverings ord du väljer och klicka på **Lägg till aktivering Word**. Vi har några [rikt linjer](#choose-an-effective-wake-word) som hjälper dig att välja ett effektivt nyckelord. För närvarande stöder vi bara ett-US-språk.
 
     ![Ange ditt wake ord](media/speech-devices-sdk/wake-word-5.png)
 
-1. Tre alternativ uttal av wake-ord kommer att skapas. Du kan välja alla uttal som helst. Välj sedan **skicka** att generera wake ordet. Om du vill ändra wake ordet ta bort den befintliga påverkas först när du håller muspekaren på raden uttal visas ikonen Ta bort.
+1. Tre alternativa uttal av ditt aktiverings ord kommer att skapas. Du kan välja alla uttal som du vill. Välj sedan **Skicka** för att generera aktiverings ordet. Om du vill ändra aktiverings ordet, tar du bort det befintliga, när du hovrar på ututtals raden. då visas ikonen Ta bort.
 
-    ![Granska ditt wake ord](media/speech-devices-sdk/wake-word-6.png)
+    ![Granska ditt aktiverings ord](media/speech-devices-sdk/wake-word-6.png)
 
-1. Det kan ta upp till en minut för modellen som ska genereras. Du uppmanas att hämta filen.
+1. Det kan ta upp till en minut innan modellen genereras. Du uppmanas att ladda ned filen.
 
-    ![Ladda ned ditt wake ord](media/speech-devices-sdk/wake-word-7.png)
+    ![Hämta ditt aktiverings ord](media/speech-devices-sdk/wake-word-7.png)
 
-1. Spara ZIP-filen till datorn. Du behöver den här filen för att distribuera dina anpassade wake word development Kit.
+1. Spara ZIP-filen till datorn. Du behöver den här filen för att distribuera ditt anpassade aktiverings ord till utvecklings paketet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa ditt anpassade wake ord med [tal enheter SDK Snabbstart](https://aka.ms/sdsdk-quickstart).
+Testa ditt anpassade aktiverings ord med [tal enheter SDK snabb start](https://aka.ms/sdsdk-quickstart).

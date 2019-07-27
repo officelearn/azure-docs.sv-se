@@ -1,6 +1,6 @@
 ---
 title: Konfigurera behållare – Visuellt innehåll
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Konfigurera olika inställningar för Identifiera text behållare i Visuellt innehåll.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321344"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565650"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Konfigurera Identifiera text Docker-behållare
 
@@ -51,7 +51,7 @@ Du hittar den här inställningen på följande plats:
 
 Kom ihåg att lägga `vision/v1.0` till operationsföljden i slut punkts-URI: n enligt följande tabell. 
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatorisk| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -79,10 +79,10 @@ Visuellt innehåll behållare använder inte indata eller utdata monteras för a
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](computer-vision-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfri| Namn | Datatyp | Beskrivning |
+|Valfritt| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | Sträng | Visuellt innehåll behållare använder inte detta.|
-|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåtet| `Input` | Sträng | Visuellt innehåll behållare använder inte detta.|
+|Valfritt| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
 

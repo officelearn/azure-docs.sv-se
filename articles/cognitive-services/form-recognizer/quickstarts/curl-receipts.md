@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Extrahera kvitto data med hjälp av cURL - formuläret Igenkännande'
+title: 'Snabbstart: Extrahera indata med hjälp av typografiska formulär igenkänning'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten ska du använda formuläret Igenkännande REST-API med cURL för att extrahera data från bilder av försäljningskvitton.
+description: I den här snabb starten använder du formulär tolken REST API med sväng för att extrahera data från bilder av försäljnings kvitton.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,52 +9,52 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 0178e53e6a7fde54b988e710a1cabbb7ded69b22
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f8edb27e52d843d9a765aed8da9b75417cf357d1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592580"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552580"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabbstart: Extrahera kvitto data med hjälp av formuläret Igenkännande REST-API med cURL
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabbstart: Extrahera indata med formulär tolken REST API med vändning
 
-I den här snabbstarten ska du använda Azure formuläret Igenkännande REST-API med cURL för att extrahera och identifiera relevant information i försäljningskvitton.
+I den här snabb starten använder du Azures formulär igenkännings REST API med sväng för att extrahera och identifiera relevant information i försäljnings kvitton.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-För att slutföra den här snabbstarten måste du ha:
-- Åtkomst till förhandsversionen av formuläret Igenkännande begränsad åtkomst. För att få åtkomst till förhandsversionen kan fylla i och skicka den [formuläret Igenkännande åtkomstbegäran](https://aka.ms/FormRecognizerRequestAccess) formuläret.
-- [cURL](https://curl.haxx.se/windows/) installerad.
-- En URL för en avbildning av en inleverans. Du kan använda en [exempelbild](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true) för den här snabbstarten.
+För att slutföra den här snabb starten måste du ha:
+- Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
+- [spiralen](https://curl.haxx.se/windows/) är installerad.
+- En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true) för den här snabb starten.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en resurs för formuläret Igenkännande
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="analyze-a-receipt"></a>Analysera ett kvitto
 
-Om du vill börja analysera ett kvitto måste du anropa den **analysera kvitto** API: T med cURL-kommandot nedan. Innan du kör kommandot gör dessa ändringar:
+Om du vill börja analysera ett kvitto anropar du API: et för att **analysera kvitto** med hjälp av kommandot vänd nedan. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slutpunkten som du fick från din prenumerationsnyckel för formuläret Igenkännande. Du hittar den på formuläret Igenkännande resursen **översikt** fliken.
-1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto-avbildning.
-1. Ersätt `<subscription key>` med prenumerationsnyckel som du kopierade i föregående steg.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick från ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
+1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
 ```bash
 curl -i -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/asyncBatchAnalyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
 ```
 
-Du får en `202 (Success)` svar som innehåller en **åtgärden plats** rubrik. Värdet för den här rubriken innehåller en åtgärds-ID som du kan använda för att fråga efter status för åtgärden och få resultat. I följande exempel strängen efter `operations/` är åtgärden-ID.
+Du får ett `202 (Success)` svar som innehåller en **Åtgärds plats** rubrik. Värdet för den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter status för åtgärden och hämta resultatet. I följande exempel är strängen efter `operations/` åtgärds-ID: t.
 
 ```console
 https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-receipt-results"></a>Få kvitto resultat
+## <a name="get-the-receipt-results"></a>Hämta kvitto resultat
 
-När du har påbörjat den **analysera kvitto** API: et kan du anropa den **hämta kvitto resultatet** API för att hämta status för åtgärden och den extraherade data.
+När du har anropat API för att **analysera kvitto** anropar du API: t **Get kvitto resultat** för att hämta status för åtgärden och de extraherade data.
 
-1. Ersätt `<operationId>` med åtgärds-ID från föregående steg.
+1. Ersätt `<operationId>` med åtgärds-ID: t från föregående steg.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
 ```bash
@@ -63,11 +63,11 @@ curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/ope
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Du får en `200 (Success)` svar med JSON-utdata. Det första fältet `"status"`, anger status för åtgärden. Om åtgärden har slutförts, den `"recognitionResults"` fältet innehåller varje rad med text som har extraherats från mottagandet, och `"understandingResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot. Om åtgärden inte har slutförts, värdet för `"status"` blir `"Running"` eller `"NotStarted"`, och du bör anropa API: et igen, antingen manuellt eller via ett skript. Vi rekommenderar ett intervall på en sekund eller flera mellan anrop.
+Du får ett `200 (Success)` svar med JSON-utdata. Det första fältet, `"status"`anger status för åtgärden. Om åtgärden har slutförts `"recognitionResults"` innehåller fältet alla rader med text som har extraherats från inleveransen `"understandingResults"` och fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot. Om åtgärden inte är slutförd kommer värdet för `"status"` att vara `"Running"` eller `"NotStarted"`, och du bör anropa API: et igen, antingen manuellt eller genom ett skript. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
 
-Se följande kvitto avbildningen och dess motsvarande JSON-utdata. Utdata har kortats ned för läsbarhet.
+Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kort ATS för läsbarhet.
 
-![Ett kvitto från Contoso store](../media/contoso-receipt.png)
+![Ett kvitto från contoso Store](../media/contoso-receipt.png)
 
 ```json
 {
@@ -182,7 +182,7 @@ Se följande kvitto avbildningen och dess motsvarande JSON-utdata. Utdata har ko
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du formuläret Igenkännande REST-API med cURL för att extrahera innehållet i en kvittot. Därefter finns i referensdokumentationen för att utforska formuläret Igenkännande API: et i mer detalj.
+I den här snabb starten använde du formulär tolken REST API med sväng för att extrahera innehållet i en försäljnings leverans. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [Referensdokumentation för REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeReceipt)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeReceipt)

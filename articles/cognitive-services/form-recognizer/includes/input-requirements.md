@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 73a7795629a94395b43bfca191cec7b2c4773611
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 17dc32f8948387b90229d3c4c07102cff98e3018
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68481575"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562680"
 ---
 Formulär tolken arbetar med inmatade dokument som uppfyller följande krav:
 

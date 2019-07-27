@@ -1,6 +1,6 @@
 ---
 title: Testa appen i LUIS-portalen
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Använd Språkförståelse (LUIS) för att fungera kontinuerligt för ditt program för att förfina och förbättra dess språkförståelse.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1a0afc909aa7ef16fa54b931e1601c2ce7304cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199167"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560416"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Testa LUIS-appen i LUIS-portalen
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Testa din LUIS-app i LUIS-portalen
 <a name="train-your-app"></a>
 [Testa](luis-concept-test.md) en app är en iterativ process. Testa den efter utbildning LUIS-appen, med exempel yttranden om avsikter och entiteter identifieras korrekt. Om de inte gör uppdateringar till LUIS-app, träna och testa igen. 
 
@@ -47,7 +47,7 @@ Du kan se mer information om testresultat i den **granska** panelen.
  
 1. Med den **Test** bild ut panelen öppen, väljer **granska** för ett uttryck som du vill jämföra. 
 
-    ![Välj granska för att visa mer information om testresultat](./media/luis-how-to-interactive-test/inspect.png)
+    ![Klicka på granska om du vill visa mer information om test resultaten](./media/luis-how-to-interactive-test/inspect.png)
 
 2. Den **inspektion** visas panelen. Panelen visas den översta bedömning avsikt, samt alla identifierade entiteter. På panelen visas resultatet av den valda uttryck.
 

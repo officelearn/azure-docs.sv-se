@@ -1,6 +1,6 @@
 ---
-title: Kör Azure Kubernetes-tjänsten
-titleSuffix: Text Analytics - Azure Cognitive Services
+title: Köra Azure Kubernetes service – Textanalys
+titleSuffix: Azure Cognitive Services
 description: Distribuera Textanalys-behållare med sentiment Analysis-avbildningen till Azure Kubernetes-tjänsten och testa den i en webbläsare.
 services: cognitive-services
 author: IEvangelist
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 290a01e7e478f718607c0550702474cd31979a63
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 44ee5fab5b4e8900b823453e5674fc9bdb5fe9ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377384"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552277"
 ---
 # <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-service"></a>Distribuera en sentiment Analysis-behållare till Azure Kubernetes-tjänsten
 

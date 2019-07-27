@@ -1,7 +1,7 @@
 ---
-title: Använda moderering jobb med REST API-konsolen – Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Använd granska API-jobbet åtgärderna för att initiera jobb innehållsmoderering för slutpunkt till slutpunkt för bild eller text innehåll i Azure Content Moderator.
+title: Använda moderator jobb med REST API-konsolen – Content Moderator
+titleSuffix: Azure Cognitive Services
+description: 'Använd gransknings-API: s jobb åtgärder för att initiera jobb från slut punkt till slut punkt för innehålls redigering för bilder eller text innehåll i Azure Content Moderator.'
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,58 +10,58 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7827cee2af2dfc0c1fddc407c1d146dc9a66c514
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6f3d9c1605dc97b315550d8b7e3fdf08144c1bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607596"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561231"
 ---
-# <a name="define-and-use-moderation-jobs-rest"></a>Definiera och Använd moderering jobb (REST)
+# <a name="define-and-use-moderation-jobs-rest"></a>Definiera och Använd redigerings jobb (REST)
 
-Ett jobb för moderering fungerar som en sorts Omslutning för funktionerna i innehållsmoderering, arbetsflöden och granskningar. Den här guiden visar hur du använder jobbet REST API: er för att initiera och kontrollera innehållsmoderering jobb. När du förstår hur API: er kan portera du enkelt dessa anrop till valfri REST-kompatibel plattform.
+Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Content moderatoring, arbets flöden och recensioner. Den här guiden visar hur du använder REST-API: er för jobb för att initiera och kontrol lera innehålls moderator jobb. När du förstår API: ernas struktur kan du enkelt Porta dessa anrop till alla REST-kompatibla plattformar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
-- (Valfritt) [Definierar ett anpassat arbetsflöde](./Review-Tool-User-Guide/Workflows.md) ska användas med dina jobb; du kan också använda standardarbetsflödet.
+- Logga in eller skapa ett konto på webbplatsen för Content Moderator [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) .
+- Valfritt [Definiera ett anpassat arbets flöde](./Review-Tool-User-Guide/Workflows.md) som ska användas med ditt jobb. Du kan också använda standard arbets flödet.
 
 ## <a name="create-a-job"></a>Skapa ett jobb
 
-För att skapa ett jobb för moderering, går du till den [jobb – skapa](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API refererar till sidan och klicka på knappen för din nyckel region (du hittar den i slutpunkts-URL på den **autentiseringsuppgifter** för den [granskning verktyget](https://contentmoderator.cognitive.microsoft.com/)). Detta startar API-konsol, där du kan enkelt skapa och köra REST API-anrop.
+Om du vill skapa ett redigerings jobb går du till sidan [jobb-skapa API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) referens och väljer knappen för nyckel regionen (du hittar det i slut punktens URL på sidan **autentiseringsuppgifter** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/)). Detta startar API-konsolen där du enkelt kan skapa och köra REST API-anrop.
 
-![Jobb – skapa val av region](images/test-drive-job-1.png)
+![Jobb – skapa val av sid region](images/test-drive-job-1.png)
 
-### <a name="enter-rest-call-parameters"></a>Ange parametrar för REST-anrop
+### <a name="enter-rest-call-parameters"></a>Ange REST-anrops parametrar
 
-Ange följande värden för att konstruera ett REST-anrop:
+Ange följande värden för att konstruera REST-anropet:
 
-- **teamName**: Lag-ID som du skapade när du ställer in din [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) konto (finns i den **Id** på din granskningsverktyget autentiseringsuppgifter skärmen).
-- **ContentType**: Detta kan vara ”bild”, ”Text” eller ”Video”.
-- **ContentId**: En anpassad ID-sträng. Den här strängen skickas till API: et och returneras via motringningen. Det är användbart för att associera interna identifierare eller metadata med resultatet från ett jobb för moderering.
-- **workflowname**: Namnet på arbetsflödet som du skapade tidigare (eller ”standard” för standardarbetsflöde).
-- **CallbackEndpoint**: (Valfritt) URL till får återanrop information när granskningen har slutförts.
-- **Ocp-Apim-Subscription-Key**: Din nyckel för Content Moderator. Du hittar den på den **inställningar** fliken den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com).
+- **teamName**: Det team-ID som du skapade när du konfigurerade kontot för [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) (finns i fältet **ID** på skärmens inloggnings inställningar).
+- **ContentType**: Detta kan vara "image", "text" eller "video".
+- **ContentId**: En anpassad ID-sträng. Den här strängen skickas till API: et och returneras via återanropet. Det är användbart för att associera interna identifierare eller metadata med resultatet av ett redigerings jobb.
+- **Workflowname**: Namnet på arbets flödet som du skapade tidigare (eller "standard" för standard arbets flödet).
+- **CallbackEndpoint**: Valfritt URL: en som tar emot information om motringning när granskningen är klar.
+- **OCP-APIM-Subscription-Key**: Din Content Moderator-nyckel. Du hittar detta på fliken **Inställningar** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com).
 
-### <a name="fill-in-the-request-body"></a>Fyll i begärandetexten
+### <a name="fill-in-the-request-body"></a>Fyll i begär ande texten
 
-REST-anrop innehåller ett fält **ContentValue**. Klistra in innehållet rå text om du kontrollera text eller ange en bild eller video-URL Om du kontrollera bild/video. Du kan använda följande exempel bild-URL: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+Innehållet i REST-anropet innehåller ett fält, **ContentValue**. Klistra in innehållet i rå text om du redigerar text eller ange en bild-eller video-URL om du vill använda bild/video. Du kan använda följande URL för exempel bild:[https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
-![Jobb – skapa konsolen frågeparametrar, rubriker och begäran text box](images/job-api-console-inputs.PNG)
+![Jobb – skapa parametrar för konsolens fråga, rubriker och brödtext i begäran](images/job-api-console-inputs.PNG)
 
-### <a name="submit-your-request"></a>Skicka din begäran
+### <a name="submit-your-request"></a>Skicka in din begäran
 
-Välj **Skicka**. Om åtgärden lyckas den **svarsstatus** är `200 OK`, och **svarsinnehåll** visar ett ID för jobbet. Kopiera detta ID ska användas i följande steg.
+Välj **Skicka**. Om åtgärden lyckas, är `200 OK`svars **statusen** och i rutan svars **innehåll** visas ett ID för jobbet. Kopiera detta ID så att det används i följande steg.
 
-![Granska – skapa konsolen svar innehåll visar åtkomstgransknings-ID](images/test-drive-job-3.PNG)
+![Granska – skapa innehålls rutan för konsol svar visar gransknings-ID: t](images/test-drive-job-3.PNG)
 
-## <a name="get-job-status"></a>Hämta jobbstatus för
+## <a name="get-job-status"></a>Hämta jobb status
 
-Status och information om ett jobb som körs eller slutförts, gå till den [jobb – hämta](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c3) API refererar till sidan och klicka på knappen för din region (den region där din nyckel administreras).
+Om du vill hämta status och information om ett pågående eller slutfört jobb går du till sidan [jobb-Hämta API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c3) referens och väljer knappen för din region (den region där nyckeln administreras).
 
-![Jobb – Get valet](images/test-drive-region.png)
+![Jobb – Hämta regions val](images/test-drive-region.png)
 
-Ange parametrar för REST-anrop som i avsnittet ovan. Det här steget **JobId** är en unik ID-sträng som du fick när du skapade jobbet. Välj **Skicka**. Om åtgärden lyckas den **svarsstatus** är `200 OK`, och **svarsinnehåll** jobbet visar i JSON-format som liknar följande:
+Ange resten anrops parametrar som i avsnittet ovan. I det här steget är **jobId** den unika ID-sträng som du fick när du skapade jobbet. Välj **Skicka**. Om åtgärden lyckas, är `200 OK`svars **statusen** och i rutan svars **innehåll** visas jobbet i JSON-format, t. ex. följande:
 
 ```json
 {  
@@ -111,12 +111,12 @@ Ange parametrar för REST-anrop som i avsnittet ovan. Det här steget **JobId** 
 }
 ```
 
-![Jobb – hämta REST-anrop svar](images/test-drive-job-5.png)
+![Jobb – Hämta REST samtals svar](images/test-drive-job-5.png)
 
-### <a name="examine-the-new-reviews"></a>Granska nya review(s)
+### <a name="examine-the-new-reviews"></a>Granska nya granskningar
 
-Om ditt innehåll jobb resulterade i att skapa en granskning, kan du visa den i den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com). Välj **granska** > **bild**/**Text**/**Video** (beroende på vilket innehåll du används). Det är klara att innehållet ska visas för mänsklig granskning. När en mänsklig moderator granskar automatiskt tilldelade taggar och förutsägelsedata och skickar ett sista moderering beslut, skickar jobb-API: et all denna information till den avsedda återanrop endpoint-slutpunkten.
+Om ditt innehålls jobb resulterade i att en granskning skapades, kan du se det i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com). Välj **Granska** > **bild** **text** **video** (beroende på vilket innehåll du använde).// Innehållet bör visas, redo för mänsklig granskning. När en mänsklig moderator granskar de automatiskt tilldelade taggarna och förutsägelse data och skickar ett slutligt kontroll beslut skickar jobb-API: n all den här informationen till den angivna slut punkten för slut punkten för återanrop.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här handboken beskrivs hur du skapar och frågar innehållsmoderering jobb med hjälp av REST-API. Sedan integrera jobb i ett scenario för slutpunkt till slutpunkt moderering som den [E-handel moderering](./ecommerce-retail-catalog-moderation.md) självstudien.
+I den här guiden har du lärt dig hur du skapar och frågar efter innehålls redigerings jobb med hjälp av REST API. Sedan integrerar du jobb i ett scenario från slut punkt till slut punkt, till exempel själv studie kursen om [E-](./ecommerce-retail-catalog-moderation.md) handelskontrollanter.

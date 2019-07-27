@@ -1,5 +1,5 @@
 ---
-title: Sammansatt entitet självstudien
+title: Självstudie för sammansatta entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: Lägg till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d54b46ff8b0c8a987653b4fc0344377c0115b58
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073693"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560101"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Självstudier: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -44,7 +44,7 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 
 ## <a name="import-example-app"></a>Importera en exempelapp
 
-1.  Hämta och spara den [app JSON-fil](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) från listan entitet självstudierna.
+1.  Ladda ned och spara [app-JSON-filen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) från själv studie kursen för List entiteter.
 
 2. Importera JSON-koden till en ny app.
 
@@ -52,56 +52,56 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 
 ## <a name="composite-entity"></a>Sammansatt entitet
 
-I den här appen, ett avdelningsnamn definieras i den **avdelning** listan entitet och omfattar. 
+I den här appen definieras avdelnings namnet i entiteten **avdelnings** lista och innehåller synonymer. 
 
-Den **TransferEmployeeToDepartment** syftet har exempel yttranden att begära en anställd flyttas till en ny avdelning. 
+**TransferEmployeeToDepartment** -avsikten har till exempel yttranden att begära att en medarbetare flyttas till en ny avdelning. 
 
-Exempel yttranden avsikt följande:
+Exempel på yttranden för den här avsikten är:
 
 |Exempel på yttranden|
 |--|
 |Flytta John W. Smith till ekonomiavdelningen|
 |överför Jill Jones till utvecklingsavdelningen|
  
-Begäran om att flytta bör innehålla avdelningsnamnet på och medarbetarnamn. 
+Flyttnings förfrågan ska innehålla avdelnings namnet och namnet på den anställda. 
 
-## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Lägg till PersonName fördefinierade entitet som hjälper med common dataextrahering
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Lägg till PersonName-fördefinierad entitet för att hjälpa till med gemensam data typs extrahering
 
 LUIS har flera fördefinierade entiteter för extrahering av data. 
 
-1. Välj **skapa** från det övre navigeringsfältet väljer **entiteter** från den vänstra navigeringsmenyn.
+1. Välj **build (Bygg** ) i det övre navigerings  fältet och välj sedan entiteter i den vänstra navigerings menyn.
 
 1. Välj knappen **Manage prebuilt entity** (Hantera fördefinierad entitet).
 
-1. Välj **[PersonName](luis-reference-prebuilt-person.md)** Välj sedan i listan över fördefinierade entiteter **klar**.
+1. Välj **[PersonName](luis-reference-prebuilt-person.md)** i listan över fördefinierade entiteter och välj sedan **slutfört**.
 
     ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-    Den här entiteten kan du lägga till namnet taligenkänning att ditt klientprogram.
+    Med den här entiteten kan du lägga till namn igenkänning i klient programmet.
 
-## <a name="create-composite-entity-from-example-utterances"></a>Skapa sammansatta entitet från exempel yttranden
+## <a name="create-composite-entity-from-example-utterances"></a>Skapa sammansatt entitet från exempel yttranden
 
 1. Välj **Intents** (Avsikter) i det vänstra navigeringsfönstret.
 
-1. Välj **TransferEmployeeToDepartment** från listan över avsikter.
+1. Välj **TransferEmployeeToDepartment** i listan med intenter.
 
-1. I uttryck `place John Jackson in engineering`, Välj entiteten personName `John Jackson`och välj sedan **omsluta i sammansatt entitet** i listan över popup-menyn för följande uttryck. 
+1. I uttryck `place John Jackson in engineering`väljer du `John Jackson`entiteten personName och väljer sedan **Radbryt i sammansatt entitet** i popup-menyn för följande uttryck. 
 
-    ![Skärmbild över att välja radbyte sammansatta i listrutan dialogrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
+    ![Skärm bild av den nedrullningsbara dialog rutan Markera figursatta sammansatt i](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Välj sedan det senaste entitet omedelbart `engineering` i uttryck. En grön stapel dras under de valda ord som anger en sammansatt entitet. I popup-menyn, anger du sammansatta namn `TransferEmployeeInfo` och sedan anger du väljer. 
 
-    ![Skärmbild av hur du anger sammansatta namn i listrutan dialogrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
+    ![Skärm bild av dialog rutan Ange sammansatt namn i listruta](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. I **vilken typ av enhet vill du skapa?** , alla fält som krävs finns i listan: `personName` och `Department`. Välj **Done** (Klar). Observera att entiteten fördefinierade personName, har lagts till sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
+1. I **vilken typ av entitet vill du skapa?** , alla fält som krävs finns i listan: `personName` och. `Department` Välj **Done** (Klar). Observera att den fördefinierade entiteten personName har lagts till i den sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
 
-    ![Skärmbild av hur du anger sammansatta namn i listrutan dialogrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
+    ![Skärm bild av dialog rutan Ange sammansatt namn i listruta](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Etikett exempel yttranden med sammansatta entitet
 
 1. Välj vänster-entitet som ska vara i sammansatt i varje exempel-uttryck. Välj sedan **omsluta i sammansatt entitet**.
 
-1. Välj det sista ordet i sammansatt entiteten och välj sedan **TransferEmployeeInfo** på snabbmenyn. 
+1. Välj det sista ordet i den sammansatta entiteten och välj sedan **TransferEmployeeInfo** på popup-menyn. 
 
 1. Kontrollera alla uttryck i avsikten är märkta med den sammansatta entitet. 
 
@@ -191,8 +191,8 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
 ## <a name="related-information"></a>Relaterad information
 
-* [Lista entitet självstudien](luis-quickstart-intents-only.md)
-* [Sammansatt entitet](luis-concept-entity-types.md) konceptuell information
+* [Självstudie för lista med entiteter](luis-quickstart-intents-only.md)
+* Konceptuell information om [sammansatt entitet](luis-concept-entity-types.md)
 * [Så här tränar du](luis-how-to-train.md)
 * [Så här publicerar du](luis-how-to-publish-app.md)
 * [Så här testar du i LUIS-portalen](luis-interactive-test.md)
@@ -200,7 +200,7 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudiekursen skapades en sammansatt entitet för att kapsla in befintliga entiteter. På så sätt kan klientprogram för att hitta en grupp av relaterade data i olika datatyper fortsätta konversationen. Ett klientprogram för den här personalapp kan be vilken dag och tid flytten måste börja och sluta. Det kan också fråga om andra logistik av flytt till exempel en fysisk telefon. 
+Den här självstudiekursen skapades en sammansatt entitet för att kapsla in befintliga entiteter. På så sätt kan klientprogram för att hitta en grupp av relaterade data i olika datatyper fortsätta konversationen. Ett klientprogram för den här personalapp kan be vilken dag och tid flytten måste börja och sluta. Det kan också fråga om andra logistiker av flytten, till exempel en fysisk telefon. 
 
 > [!div class="nextstepaction"] 
 > [Lär dig hur du lägger till en enkel enhet med en fras-lista](luis-quickstart-primary-and-secondary-data.md)  

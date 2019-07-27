@@ -10,20 +10,19 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4472ff10c42cd9163693e7316b6bdaef50258db6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303307"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569229"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snabbstart: Använda .NET och C# i Visual Studio för att ansluta till och köra frågor mot en Azure SQL-databas
 
 Den här snabbstarten beskriver hur du använder [.NET Framework](https://www.microsoft.com/net/) och C#-kod i Visual Studio för att köra frågor mot en Azure SQL-databas med Transact-SQL-instruktioner.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -37,13 +36,13 @@ Följande krävs för att slutföra den här snabbstarten:
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
   > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas, eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
 
-- [Visual Studio-2019](https://www.visualstudio.com/downloads/) Community, Professional eller Enterprise edition.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional eller Enterprise Edition.
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
@@ -73,7 +72,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
    
 1. När installationen har slutförts kan du stänga **NuGet-pakethanteraren**. 
    
-1. Ersätt innehållet i **Program.cs** med följande kod i kodredigeraren. Ersätt värdena för `<server>`, `<username>`, `<password>`, och `<database>`.
+1. Ersätt innehållet i **Program.cs** med följande kod i kodredigeraren. Ersätt värdena för `<server>`, `<username>`, `<password>`och. `<database>`
    
    >[!IMPORTANT]
    >Koden i det här exemplet använder AdventureWorksLT-exempeldata, som du kan välja som källa när du skapar din databas. Om din databas har andra data använder du tabeller från din egen databas i SELECT-frågan. 
@@ -143,7 +142,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 - Lär dig mer om att [Komma igång med .NET Core för Windows/Linux/macOS med hjälp av kommandoraden](/dotnet/core/tutorials/using-with-xplat-cli).
 - Lär dig hur du [utformar din första Azure SQL-databas med hjälp av SSMS](sql-database-design-first-database.md) eller [utformar din första Azure SQL-databas med hjälp av .NET](sql-database-design-first-database-csharp.md).
 - Mer information om .NET finns i [.NET-dokumentationen](https://docs.microsoft.com/dotnet/).
-- Exempel på omprövningslogik: [Ansluta elastiskt till SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
+- Exempel på omprövningslogik: [Anslut elastiskt till SQL med ADO.net][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Visa text till tal röster, Python – Speech Services'
+title: 'Snabbstart: Lista text till tal-röster, python-tal-tjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten lär du dig att hämta en fullständig lista över standard- och neural röster för en region/slutpunkt med hjälp av Python. I listan returneras som JSON och röst tillgänglighet varierar beroende på region.
+description: I den här snabb starten får du lära dig hur du får en fullständig lista över standard-och neurala-röster för en region/slut punkt med python. Listan returneras som JSON och röst tillgängligheten varierar beroende på region.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 46595cdf665158d019c9b6def19ff6609db803bc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ac96c3ce3924b8b2fe834e2b350e95ce23c52e1f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602976"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559346"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Snabbstart: Hämta listan över text till tal röster med hjälp av Python
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Snabbstart: Hämta listan med text till tal-röster med python
 
-I den här snabbstarten lär du dig att hämta en fullständig lista över standard- och neural röster för en region/slutpunkt med hjälp av Python. I listan returneras som JSON och röst tillgänglighet varierar beroende på region. En lista över regioner som stöds finns i [regioner](regions.md).
+I den här snabb starten får du lära dig hur du får en fullständig lista över standard-och neurala-röster för en region/slut punkt med python. Listan returneras som JSON och röst tillgängligheten varierar beroende på region. En lista över regioner som stöds finns i [regioner](regions.md).
 
-Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
+Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -29,7 +29,7 @@ För den här snabbstarten krävs:
 
 * Python 2.7.x eller 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
-* En Azure-prenumeration-nyckel för Speech Services
+* En Azure-prenumerations nyckel för tal tjänsterna
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
@@ -42,11 +42,11 @@ import requests
 > [!NOTE]
 > Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `pip install requests`.
 
-Begäranden används för HTTP-begäranden till tjänsten text till tal.
+Begär Anden används för HTTP-begäranden till tjänsten för text till tal.
 
 ## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Ange prenumerationsnyckeln och skapa en uppmaning för text till tal
 
-I nästa avsnitt ska du skapa metoder för att hantera auktorisering, anropa text till tal-API och verifiera svaret. Låt oss börja med att skapa en klass. Det här är där vi lägger in vår metoder för tokenutbytet och anropa text till tal-API.
+I nästa avsnitt ska du skapa metoder för att hantera auktorisering, anropa text till tal-API och verifiera svaret. Vi börjar med att skapa en klass. Det här är där vi lägger in vår metoder för tokenutbytet och anropa text till tal-API.
 
 ```python
 class GetVoices(object):
@@ -59,9 +59,9 @@ Den `subscription_key` är den unika nyckeln från Azure-portalen.
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Den här slutpunkten kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Det här exemplet utbyter prenumerationsnyckeln Speech Services för en token med den `issueToken` slutpunkt.
+Den här slut punkten kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Det här exemplet utbyter din prenumerations nyckel för tal tjänster för en `issueToken` åtkomsttoken med hjälp av slut punkten.
 
-Det här exemplet förutsätter att prenumerationen Speech Services är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `fetch_token_url`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `fetch_token_url`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Kopiera den här koden i den `GetVoices` klass:
 
@@ -76,13 +76,13 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> Mer information om autentisering finns i [autentisera med åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Mer information om autentisering finns i [autentisera med en åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här ska du skapa begäran och spara listan med returnerade röster. Först behöver du ange den `base_url` och `path`. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `base_url`. Mer information finns i [Speech Services regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här skapar du begäran och sparar listan med returnerade röster. Först behöver du ange den `base_url` och `path`. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `base_url`. Mer information finns i avsnittet om [tal Services-regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Lägg sedan till nödvändiga sidhuvuden för begäran. Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas, och statuskoden 200 returneras svaret skrivs till filen.
+Lägg sedan till de rubriker som krävs för begäran. Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras, skrivs svaret till filen.
 
 Kopiera den här koden i den `GetVoices` klass:
 
@@ -119,7 +119,7 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
-Det var allt – nu kan du köra exemplet. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
+Då är det dags att köra exemplet. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
 
 ```console
 python get-voices.py

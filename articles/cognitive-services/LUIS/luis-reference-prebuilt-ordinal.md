@@ -1,6 +1,6 @@
 ---
-title: Ordningstalet fördefinierade entitet
-titleSuffix: Azure
+title: Ordnings fördefinierad entitet – LUIS
+titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller ordningstal fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 16529c8334ae9f2eed5715abb22dcbcdbebec7c4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8070f614e84dd4c328d7451103c0850826704e60
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485112"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560206"
 ---
-# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Ordningstalet fördefinierade entitet för en LUIS-app
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Fördefinierad ordnings enhet för en LUIS-app
 Ordningstal är en numerisk representation av ett objekt i en uppsättning: `first`, `second`, `third`. Eftersom den här entiteten har redan tränats, behöver du inte att lägga till exempel yttranden som innehåller ordningstal till programmet avsikter. Ordningstalet entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-ordinal"></a>Typer av nummer
-Ordningstal hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) GitHub-lagringsplats
+Ordnings talet hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Lösning för fördefinierade ordningstal entitet
 
-### <a name="api-version-2x"></a>API-version 2.x
+### <a name="api-version-2x"></a>API-version 2. x
 
 I följande exempel visas av lösningen på den **builtin.ordinal** entitet.
 
@@ -61,9 +61,9 @@ I följande exempel visas av lösningen på den **builtin.ordinal** entitet.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
 
-Följande JSON är med i `verbose` parameteruppsättning till `false`:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 {
@@ -88,7 +88,7 @@ Följande JSON är med i `verbose` parameteruppsättning till `false`:
 }
 ```
 
-Följande JSON är med i `verbose` parameteruppsättning till `true`:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 {
@@ -130,4 +130,4 @@ Följande JSON är med i `verbose` parameteruppsättning till `true`:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md), och [temperatur](luis-reference-prebuilt-temperature.md) entiteter. 
+Lär dig mer om [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md)och [temperatur](luis-reference-prebuilt-temperature.md) enheter. 

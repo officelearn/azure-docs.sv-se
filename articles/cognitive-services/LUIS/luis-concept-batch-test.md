@@ -1,6 +1,6 @@
 ---
-title: Batch-testning
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Batch-testning – LUIS
+titleSuffix: Azure Cognitive Services
 description: Använda batch testning för att arbeta kontinuerligt för ditt program för att förfina och förbättra dess språkförståelse.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9a6e7ae48a51ab10e6ba2e5d3996e61938c6f3a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813292"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560849"
 ---
-# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch testning med 1000 yttranden LUIS-portalen
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch-testning med 1000 yttranden i LUIS-portalen
 
 Batch testning validerar din [active](luis-concept-version.md#active-version) tränade modellen att mäta dess prognosens noggrannhet kan förbättras. Ett batch-test kan du visa det arbete du utfört varje avsikt och entiteten i din aktuella tränade modellen i ett diagram. Granska resultaten av batch för att vidta lämpliga åtgärder för att förbättra noggrannhet, som att lägga till fler exempel yttranden till en avsikt om din app ofta inte kan identifiera rätt avsikten.
 
@@ -48,7 +48,7 @@ Alla anpassade entiteter i modellen visas i filtret batch test entiteter även o
 
 Kommandofilen består av yttranden. Varje uttryck måste ha en förväntade avsikt förutsägelse tillsammans med eventuella [datorn lärt dig entiteter](luis-concept-entity-types.md#types-of-entities) du förväntar dig att identifieras. 
 
-## <a name="batch-syntax-template-for-intents-with-entities"></a>Mall för batch-syntax för avsikter med entiteter
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Mall för satsvis syntax för avsikter med entiteter
 
 Använd följande mall för att starta kommandofilen:
 
@@ -78,9 +78,9 @@ Batchfilen använder den **startPos** och **endPos** egenskaper att notera i bö
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
-## <a name="batch-syntax-template-for-intents-without-entities"></a>Batch syntax mall för avsikter utan entiteter
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Mall för satsvis syntax för avsikter utan entiteter
 
-Använd följande mall för att starta kommandofilen utan entiteter:
+Använd följande mall för att starta kommando filen utan entiteter:
 
 ```JSON
 [
@@ -92,7 +92,7 @@ Använd följande mall för att starta kommandofilen utan entiteter:
 ]
 ```
 
-Om du inte vill testa entiteter omfattar den `entities` egenskap och ange en tom matris `[]`.
+Om du inte vill testa entiteter, inkluderar `entities` du egenskapen och anger värdet som en tom `[]`matris.
 
 
 ## <a name="common-errors-importing-a-batch"></a>Vanliga fel som importerar en batch

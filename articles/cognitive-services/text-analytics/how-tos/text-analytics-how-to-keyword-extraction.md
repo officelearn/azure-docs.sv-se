@@ -1,5 +1,6 @@
 ---
-title: Extrahering av nyckelfraser med REST-API:et för textanalys | Microsoft Docs
+title: Extrahering av nyckel fraser med Textanalys REST API
+titleSuffix: Azure Cognitive Services
 description: Så här extraherar du nyckelfraser med hjälp av REST-API:et för textanalys från Azure Cognitive Services.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 06/05/2019
 ms.author: raymondl
-ms.openlocfilehash: c803c85a0900a09b18909e2c81d52915a12cff1a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 58bfb889662a58aa02286c41a2e242e6a0e9a75c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304059"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562640"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser med textanalys
 
@@ -22,7 +23,7 @@ ms.locfileid: "67304059"
 
 Den här funktionen är användbar om du snabbt behöver identifiera de viktigaste punkterna i en samling av dokument. Exempel: med den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”.
 
-Se den [språk som stöds](../text-analytics-supported-languages.md) artikeln för mer information. 
+Mer information finns i artikeln [språk som stöds](../text-analytics-supported-languages.md) . 
 
 > [!TIP]
 > Textanalys ger även en Linux-baserad Docker-containeravbildning för nyckelfrasextrahering, så att du kan [installera och köra Textanalys-containern](text-analytics-how-to-install-containers.md) nära dina data.
@@ -84,7 +85,7 @@ Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et]
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
-Analysen utförs när begäran har tagits emot. Se den [databegränsningar](../overview.md#data-limits) avsnittet i översikten för information om storlek och antal begäranden som du kan skicka per minut och sekund.
+Analysen utförs när begäran har tagits emot. I avsnittet [data begränsningar](../overview.md#data-limits) i översikt finns information om storlek och antal begär Anden som du kan skicka per minut och sekund.
 
 Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
 

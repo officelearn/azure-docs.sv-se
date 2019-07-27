@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Använda Postman för att få svar från kunskapsbas – QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Denna snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas med Postman.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 7083285ac81aa8eafee8de49175e40934e5d05b4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 7c419ea7cb5c9ae1d1cc419798961ec67f250160
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253817"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562998"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>Snabbstart: Få svar från en kunskapsbas med Postman
 
@@ -71,7 +71,7 @@ Utför följande steg för att generera ett svar med Postman:
 
 ## <a name="use-staging-endpoint"></a>Använda mellanlagringsslutpunkt
 
-Om du vill få svar från mellanlagring slutpunkten till URL-Adressen med den `isTest` body egenskapen.
+Om du vill få ett svar från mellanlagrings slut punkten lägger du till URL: `isTest` en med egenskapen Body.
 
 ## <a name="next-steps"></a>Nästa steg
 

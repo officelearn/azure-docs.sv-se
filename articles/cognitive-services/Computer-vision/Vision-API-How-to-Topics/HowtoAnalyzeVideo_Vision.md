@@ -1,6 +1,6 @@
 ---
 title: 'Exempel: Videoanalys i realtid – Visuellt innehåll'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lär dig mer om att utföra analyser nära realtid på bildrutor som kommer från direktuppspelad video med hjälp av API för visuellt innehåll.
 services: cognitive-services
 author: KellyDF
@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3432ea20f9fb59524940258e13c46ee6f4c4e890
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293761"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565695"
 ---
-# <a name="how-to-analyze-videos-in-real-time"></a>Analysera videor i realtid
+# <a name="how-to-analyze-videos-in-real-time"></a>Analysera videor i real tid
 
 Den här guiden visar hur du utför analyser nära realtid på bildrutor som kommer från direktuppspelad video. De grundläggande komponenterna i ett sådant system är:
 
@@ -194,7 +194,7 @@ Den andra exempelappen är lite mer intressant kan användas för att välja vil
 
 I de flesta lägen finns en synlig fördröjning mellan den direktströmmade videon till vänster och den visualiserade analysen till höger. Den här fördröjningen är den tid det tar att göra API-anrop. Undantaget till detta är i läget ”EmotionsWithClientFaceDetect”, som utför ansiktsigenkänning lokalt på klientdatorn med hjälp av OpenCV innan bilder skickas till Cognitive Services. Så sätt kan vi visualisera de identifierade ansiktena omedelbart och sedan uppdatera känslorna senare när API-anropet returneras. Detta demonstrerar möjligheten för ”hybridmetod”, där viss enkel bearbetning kan utföras på klienten och API:er för Cognitive Services sedan kan användas för att utöka detta med mer avancerad analys vid behov.
 
-![Skärmbild av LiveCameraSample app som visar bilden med taggar visas](../../Video/Images/FramebyFrame.jpg)
+![Skärm bild av LiveCameraSample-appen som visar bild med visade Taggar](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Integrera i din kodbas
 

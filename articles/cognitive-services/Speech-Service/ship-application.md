@@ -1,5 +1,5 @@
 ---
-title: Utveckla appar med tal SDK – Speech Services
+title: Utveckla appar med tjänsten Speech SDK-tal
 titleSuffix: Azure Cognitive Services
 description: 'Lär dig skapa appar med SDK: N för tal.'
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 8fc27002af4ebef0825b23c806cfedbe7adf9642
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8192a2d731104fe898ca128a1d989783698567da
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404825"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559156"
 ---
 # <a name="ship-an-application"></a>Skicka ett program
 

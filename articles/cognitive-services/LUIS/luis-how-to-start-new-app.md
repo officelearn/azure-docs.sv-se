@@ -1,6 +1,6 @@
 ---
-title: Skapa en ny app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Skapa en ny app-LUIS
+titleSuffix: Azure Cognitive Services
 description: Skapa och hantera dina program på webbsidan för Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 7f9809fde088a03d4b20b5c739253f446c7a84b6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341863"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563615"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i den [LUIS](https://www.luis.ai) portal, eller via LUIS redigering [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -56,36 +56,36 @@ Du kan skapa en ny app med redigering API: er på ett par olika sätt:
     > [!NOTE]
     > Kulturen kan inte ändras när appen har skapats. 
 
-## <a name="import-an-app-from-file"></a>Importera en app från fil
+## <a name="import-an-app-from-file"></a>Importera en app från en fil
 
-1. På **Mina appar** väljer **importera ny app**.
-1. Välj en giltig app JSON-fil i en dialogruta, och välj sedan **klar**.
+1. På sidan **Mina appar** väljer du **Importera ny app**.
+1. I popup-dialogrutan väljer du en giltig app JSON-fil och väljer sedan **färdig**.
 
-### <a name="import-errors"></a>Importfel
+### <a name="import-errors"></a>Import fel
 
 Möjliga fel är: 
 
-* Det finns redan en app med det namnet. Lös problemet genom att importera appen och ange den **valfritt namn** till ett nytt namn. 
+* Det finns redan en app med det namnet. Du kan åtgärda detta genom att importera appen igen och ange det **valfria namnet** som ett nytt namn. 
 
-## <a name="export-app-for-backup"></a>Exportera app för säkerhetskopiering
+## <a name="export-app-for-backup"></a>Exportera app för säkerhets kopiering
 
-1. På **Mina appar** väljer **exportera**.
-1. Välj **exportera som JSON**. Webbläsaren laddar ned den aktiva versionen av appen.
-1. Lägga till den här filen i ditt system för säkerhetskopiering att arkivera modellen.
+1. På sidan **Mina appar** väljer du **Exportera**.
+1. Välj **Exportera som JSON**. Din webbläsare laddar ned den aktiva versionen av appen.
+1. Lägg till den här filen i säkerhets kopierings systemet för att arkivera modellen.
 
 ## <a name="export-app-for-containers"></a>Exportera app för behållare
 
-1. På **Mina appar** väljer **exportera**.
-1. Välj **exportera som behållare** sedan välja vilka publicerade fack (produktion eller scenen) som du vill exportera.
-1. Använd den här filen med din [LUIS behållare](luis-container-howto.md). 
+1. På sidan **Mina appar** väljer du **Exportera**.
+1. Välj **Exportera som behållare** och välj sedan vilken Publicerad plats (produktion eller fas) som du vill exportera.
+1. Använd den här filen med din [Luis-behållare](luis-container-howto.md). 
 
-    Om du vill exportera en tränad men inte ännu publicerade modell ska använda med LUIS-behållaren, går du till den **versioner** sidan och exportera därifrån. 
+    Om du är intresse rad av att exportera en utbildad men ännu inte publicerad modell som ska användas med LUIS-behållaren går du till sidan **versioner** och exporterar därifrån. 
 
-## <a name="delete-app"></a>Ta bort appen
+## <a name="delete-app"></a>Ta bort app
 
-1. På **Mina appar** väljer du de tre punkterna (...) i slutet av appraden.
+1. På sidan **Mina appar** väljer du de tre punkterna (...) i slutet av raden app.
 1. Välj **ta bort** på menyn.
-1. Välj **Ok** i bekräftelsefönstret.
+1. Välj **OK** i bekräftelse fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätta tal, C++ (Windows) – Speech Services'
+title: 'Snabbstart: Översätt tal- C++ , (Windows)-tal-service'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten skapar du ett enkelt C++-program för att registrera användarens tal, översätta det till ett annat språk och mata ut texten till kommandoraden. Den här guiden är utformad för Windows-användare.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ff577bc0fe7db05c71aab04f0aaa5525f30b255c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 099d167e14d58f2239b4e86cb01bf0ab3621daa7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602901"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553568"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Snabbstart: Översätta tal med Speech SDK för C++
 
-Snabbstarter kan också användas för [taligenkänning](quickstart-cpp-windows.md) och [text till tal](quickstart-text-to-speech-cpp-windows.md).
+Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-cpp-windows.md) och [text till tal](quickstart-text-to-speech-cpp-windows.md).
 
 I den här snabbstarten skapar du ett enkelt C++-program som registrerar användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är utformat för att köras på 64-bitars Windows och är skapat med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
 

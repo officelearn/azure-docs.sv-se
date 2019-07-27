@@ -1,5 +1,5 @@
 ---
-title: Vad är nytt - Språkförståelse
+title: Vad är nytt – Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller nyheter om Language Understanding.
 author: diberry
@@ -11,43 +11,43 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 2efc48df906117a8d01ea8c309f001d2f623444f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 63a898bd807b168ae17ec90e442c6ee6c001c715
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485079"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559891"
 ---
-# <a name="whats-new-in-language-understanding"></a>Vad är nytt i Språkförståelse
+# <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
-Läs mer om nyheterna i tjänsten. De här objekten kan viktig information, videor, blogginlägg och andra typer av information. Bokmärk den här sidan för att hålla dig uppdaterad med tjänsten.  
+Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.  
 
 ## <a name="release-notes"></a>Viktig information 
 
 ### <a name="june-24-2019"></a>24 juni 2019
 
-* [OrdinalV2 fördefinierade entitet](luis-reference-prebuilt-ordinal-v2.md) för sortering, till exempel nästa, föregående och efternamn. Engelska kultur.
+* [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md) -fördefinierad entitet som stöd för sortering, till exempel nästa, föregående och sista. Endast engelsk kultur.
 
-### <a name="may-6-2019---build-conference"></a>6 maj 2019 - konferensen med //Build
+### <a name="may-6-2019---build-conference"></a>6 maj 2019-build-konferens
 
-Följande funktioner har släppts på 2019 Utvecklarkonferens:
+Följande funktioner släpptes på Build 2019-konferensen:
 
-* [Förhandsgranskning av V3 API-Migreringsguide](luis-migration-api-v3.md)
-* [Förbättrad analysinstrumentpanel](luis-how-to-use-dashboard.md)
-* [Förbättrad fördefinierade domäner](luis-reference-prebuilt-domains.md) 
-* [Listan med dynamiskt entiteter](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
-* [Externa enheter](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+* [För hands version av v3 API migration guide](luis-migration-api-v3.md)
+* [Förbättrad analys instrument panel](luis-how-to-use-dashboard.md)
+* [Förbättrade fördefinierade domäner](luis-reference-prebuilt-domains.md) 
+* [Dynamiska List enheter](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Externa entiteter](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 ## <a name="blogs"></a>Bloggar
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 
-### <a name="2019-build-videos"></a>2019 build-videor
+### <a name="2019-build-videos"></a>2019 Bygg videor
 
-[Hur du använder Azure Konversationsanpassad AI att skala upp din verksamhet för nästa generations](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+[Så här använder du Azure Conversation AI för att skala din verksamhet för nästa generation](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="service-updates"></a>Tjänstuppdateringar
 
-[Uppdatering av Azure-meddelanden för Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure Update-meddelanden för Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)

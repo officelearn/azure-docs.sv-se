@@ -1,6 +1,6 @@
 ---
-title: Samarbete
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Samarbete – LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS appar kräver en enda ägaren och valfritt medarbetare så att flera personer kan skriva en enda app.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53ba9f24e40837a823e6012340358113d490f46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473528"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560797"
 ---
 # <a name="collaborating-with-other-authors"></a>Samarbeta med andra
 
@@ -31,7 +31,7 @@ Se [Azure Active Directory-klientanvändare](luis-how-to-collaborate.md#azure-ac
 
 ## <a name="luis-app-owner"></a>LUIS appägare
 
-Det konto som skapar en app är ägare och varje app har en enda ägare. Ägaren anges på appen **[inställningar](luis-how-to-collaborate.md)** sidan. Ägare får e-postmeddelande när slutpunkten kvoten är nådd 75% av den månatliga begränsningen. 
+Det konto som skapar en app är ägare och varje app har en enda ägare. Ägaren visas på sidan app- **[Inställningar](luis-how-to-collaborate.md)** . Ägaren får ett e-postmeddelande när slut punkts kvoten når 75% av månads gränsen. 
 
 ## <a name="authorization-roles"></a>Auktoriseringsroller
 LUIS stöder inte olika roller för ägare och medarbetare med ett undantag. Ägaren är det enda kontot som kan ta bort appen.
@@ -52,7 +52,7 @@ Den [LUIS](luis-reference-regions.md#luis-website) webbplats omfattas inte för 
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>Hantera flera versioner i samma app
 Börja med att [kloning](luis-how-to-manage-versions.md#clone-a-version), från en grundläggande version för varje författare. 
 
-Var och gör ändringar i sin egen version av appen. När var och är nöjd med modellen kan du exportera de nya versionerna till JSON-filer.  
+Varje författare gör ändringar i sin egen version av appen. När var och är nöjd med modellen kan du exportera de nya versionerna till JSON-filer.  
 
 Exporterade appar är JSON-formaterade filer som kan jämföras för ändringar. Kombinera filer för att skapa en JSON-fil för den nya versionen. Ändra den **versionId** egenskap i JSON för att ange den nya sammanfogade versionen att. Importera den här versionen till den ursprungliga appen. 
 
@@ -63,9 +63,9 @@ Den här metoden låter dig ha en aktiv version, en steg-version och en publicer
 
 Exporterade appar är JSON-formaterade filer som kan jämföras med den grundläggande exporten av ändringar. Kombinera filer för att skapa en JSON-fil för den nya versionen. Ändra den **versionId** egenskap i JSON för att ange den nya sammanfogade versionen att. Importera den här versionen till den ursprungliga appen.
 
-## <a name="collaborator-roles-vs-entity-roles"></a>Medarbetare roller vs entitet roller
+## <a name="collaborator-roles-vs-entity-roles"></a>Samarbets roller jämfört med enhets roller
 
-[Entiteten roller](luis-concept-roles.md) gäller för datamodellen på LUIS-app. Medarbetare roller gäller nivåer av redigeringen av åtkomst. 
+[Enhets roller](luis-concept-roles.md) gäller för Luis-appens data modell. Samarbets roller gäller för nivåer av redigerings åtkomst. 
 
 ## <a name="next-steps"></a>Nästa steg
 

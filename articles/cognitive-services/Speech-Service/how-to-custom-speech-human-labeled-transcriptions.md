@@ -1,7 +1,7 @@
 ---
-title: Riktlinjer för mänskligt etikett avskrifter – Speech Services
-titlesuffix: Azure Cognitive Services
-description: Om du behöver för att förbättra noggrannheten, särskilt problem som orsakas när ord tas bort eller felaktigt ersätta kommer du vill använda mänskliga etikett avskrifter tillsammans med din ljuddata. Vad är mänskliga etikett avskrifter? Det är lätt, de är ord för ord, ordagrant avskrifter av en ljudfil.
+title: Rikt linjer för mänsklig avskrift – tal tjänst
+titleSuffix: Azure Cognitive Services
+description: Om du vill förbättra igenkännings precisionen, särskilt problem som orsakas när ord tas bort eller på ett felaktigt sätt, bör du använda välmärkta avskrifter tillsammans med dina ljuddata. Vad är medmärkta avskrifter? Det är enkelt, de är ord för ord, orda Grant avskrifter av en ljudfil.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,113 +10,113 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1fca2a21758a060dbfdc4acb2123a59fcae585fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1645e97e5648032a1281e7cb410c42f0a28b6767
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606553"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559651"
 ---
-# <a name="how-to-create-human-labeled-transcriptions"></a>Så här skapar du mänskliga etikett avskrifter
+# <a name="how-to-create-human-labeled-transcriptions"></a>Så här skapar du medmärkade avskrifter
 
-Om du behöver för att förbättra noggrannheten, särskilt problem som orsakas när ord tas bort eller felaktigt ersätta kommer du vill använda mänskliga etikett avskrifter tillsammans med din ljuddata. Vad är mänskliga etikett avskrifter? Det är lätt, de är ord för ord, ordagrant avskrifter av en ljudfil.
+Om du vill förbättra igenkännings precisionen, särskilt problem som orsakas när ord tas bort eller på ett felaktigt sätt, bör du använda välmärkta avskrifter tillsammans med dina ljuddata. Vad är medmärkta avskrifter? Det är enkelt, de är ord för ord, orda Grant avskrifter av en ljudfil.
 
-Ett stort urval av avskrift data krävs för att förbättra taligenkänning, föreslår vi att tillhandahålla mellan 10 och 1 000 timmar efter avskrift data. Vi ska gå igenom riktlinjer som hjälper dig att skapa högkvalitativa avskrifter på den här sidan. Den här guiden har delats upp av nationell inställning med avsnitt för engelska (USA), Mandarin kinesiska och tyska.
+Ett stort exempel på avskrifts data krävs för att förbättra igenkänningen. vi föreslår att du tillhandahåller mellan 10 och 1 000 timmar med avskrifts data. På den här sidan kommer vi att gå igenom rikt linjerna som är utformade för att hjälpa dig att skapa hög kvalitets avskrifter. Den här guiden är uppdelad efter nationella inställningar, med avsnitt för amerikansk engelska, mandariner kinesiska och tyska.
 
-## <a name="us-english-en-us"></a>Amerikansk engelska (en-US)
+## <a name="us-english-en-us"></a>AMERIKANSK engelska (en-US)
 
-Du måste tillhandahålla mänskliga etikett avskrifter för engelska ljud som oformaterad text, endast med ASCII-tecken. Undvik att använda Latin-1 eller Unicode skiljetecken. De här tecknen läggs ofta oavsiktligt när du kopierar text från ett ordbehandlingsprogram eller skrapning data från webbsidor. Om de här tecknen finns, se till att uppdatera dem med lämplig ASCII ersättningen.
-
-Några exempel:
-
-| Tecken för att undvika | Ersättning | Anteckningar |
-|---------------------|--------------|-------|
-| ”Hello world” | ”Hello world” | De inledande och avslutande citattecken har ersatts med rätt ASCII-tecken. |
-| Johns dag | Johns dag | Har bytts ut mot apostrofen med rätt ASCII-tecken. |
-| Det var bra – Nej, det var bra! | Det var bra--inte, det var bra! | Tankstrecket har ersatts med två bindestreck. |
-
-### <a name="text-normalization-for-us-english"></a>Text normalisering för engelska (USA)
-
-Text normalisering är omvandlingen av orden i ett enhetligt format som används för att träna en modell. Vissa normalisering reglerna tillämpas på text automatiskt, men vi rekommenderar att använda dessa riktlinjer när du förbereder dina mänskliga etikett avskrift data:
-
-* Skriva ut förkortningar i orden.
-* Skriva ut inte är standard numeriska strängar med ord (till exempel redovisning villkor).
-* Icke-alfabetiska tecken eller blandade alfanumeriska tecken ska transkriberas som uttalas.
-* Förkortningar som uttalas ord bör inte redigeras (till exempel ”webbplats”, ”laserskrivare”, ”RAM” eller ”NATO”).
-* Skriv ut förkortningar som uttalas separat bokstäver med varje bokstav avgränsade med blanksteg.
-
-Här följer några exempel på normalisering som du bör utföra på utskrift:
-
-| Originaltexten | Text efter normalisering |
-|---------------|--------------------------|
-| Dr. Bruce Banner | Läkare Bruce banderoll |
-| James Bond, 007 | James Bond dubbelklicka ojsan sju |
-| KE$ hög tillgänglighet | Kesha |
-| Hur lång är 2 × 4 | Hur lång är två av fyra |
-| Mötets går från 1-15: 00 | Mötets går från en till tre pm |
-| Min blodgrupp är O + | Min blodgrupp är positivt O |
-| Water är H20 | Water är H 2 O |
-| spela upp OU812 genom Van Halen | spela upp O U 8 1 2 av Van Halen |
-| UTF-8 med BOM | U T F 8 med BOM |
-
-Följande normalisering regler tillämpas automatiskt på avskrifter:
-
-* Använd gemena bokstäver.
-* Ta bort alla skiljetecken utom apostrofer inom orden.
-* Expandera siffror till ord/sägs format, till exempel kronor.
-
-Här följer några exempel på Normalisering utförs automatiskt på utskrift:
-
-| Originaltexten | Text efter normalisering |
-|---------------|--------------------------|
-| ”Heliga ko”! Dessa Batman. | Heliga ko SA batman |
-| ”Vad”? said Batman's sidekick, Robin. | vilka nämnda batman sidekick robin |
-| Gå få - em! | Gå get em |
-| Jag är double-jointed | Jag är dubbelt sammankopplade |
-| 104 Elm Street | en ojsan fyra alm gata |
-| Justera till 102.7 | Justera till en ojsan två sju |
-| Pi är ungefär 3,14 | Pi är cirka tre punkt en fyra |
-Det kostar $3,14| Det kostar tre fjorton |
-
-## <a name="mandarin-chinese-zh-cn"></a>Mandarin kinesiska (zh-CN)
-
-Human etikett avskrifter för Mandarin kinesiska ljud måste vara kodad med en byte-ordningsmarkering markör UTF-8. Undvik att använda halv bredd skiljetecken. Dessa tecken kan ingå oavsiktligt när du förbereder data i ett ordbehandlingsprogram eller skrapa data från webbsidor. Om de här tecknen finns, se till att uppdatera dem med lämplig full bredd ersättningen.
+Välmärkta avskrifter för engelska ljud måste anges som oformaterad text, endast med ASCII-tecken. Undvik att använda latinska-1-eller Unicode-skiljetecken. De här tecknen läggs ofta till när du kopierar text från ett ordbehandlingsprogram eller OLE-data från webb sidor. Om dessa tecken finns, se till att uppdatera dem med lämplig ASCII-ersättning.
 
 Några exempel:
 
 | Tecken för att undvika | Ersättning | Anteckningar |
 |---------------------|--------------|-------|
-| "你好" | "你好" | De inledande och avslutande citattecken har ersatts med rätt tecken. |
-| 需要什么帮助? | 需要什么帮助？ | Har bytts ut mot frågetecknet med rätt tecken. |
+| "Hello World" | "Hello world" | De inledande och avslutande citat tecknen har ersatts med lämpliga ASCII-tecken. |
+| John dag | John dag | Apostrofen har ersatts med lämpligt ASCII-tecken. |
+| Det var bra, nej, det var bra! | Det var bra – Nej, det var bra! | Tank strecket ersattes med två bindestreck. |
 
-### <a name="text-normalization-for-mandarin-chinese"></a>Text normalisering Mandarin kinesiska
+### <a name="text-normalization-for-us-english"></a>Text normalisering för amerikansk engelska
 
-Text normalisering är omvandlingen av orden i ett enhetligt format som används för att träna en modell. Vissa normalisering reglerna tillämpas på text automatiskt, men vi rekommenderar att använda dessa riktlinjer när du förbereder dina mänskliga etikett avskrift data:
+Text normalisering är en transformering av ord i ett konsekvent format som används vid inlärning av en modell. Vissa normaliserings regler tillämpas automatiskt i text, men vi rekommenderar att du använder dessa rikt linjer när du förbereder dina person uppgifter:
 
-* Skriva ut förkortningar i orden.
-* Skriva ut numeriska strängar i talat form.
+* Skriv ut förkortningar i ord.
+* Skriva ut numeriska strängar som inte är standard i ord (till exempel redovisnings villkor).
+* Icke-alfabetiska tecken eller blandade alfanumeriska tecken ska skrivas av som uttalade.
+* Förkortningar som uttalats som ord bör inte redige ras (till exempel "polärdiagram", "Laser", "RAM" eller "NATO").
+* Skriv ut förkortningar som uttalas som separata bokstäver med varje bokstav avgränsat med ett blank steg.
 
-Här följer några exempel på normalisering som du bör utföra på utskrift:
+Här följer några exempel på normalisering som du bör utföra på avskriften:
 
-| Originaltexten | Text efter normalisering |
+| Ursprunglig text | Text efter normalisering |
+|---------------|--------------------------|
+| Dr. Bruce banderoll | Bruce-banderoll för läkare |
+| Jonas obligation, 007 | Jonas obligation, dubbelt så sju |
+| Ke $ ha | Kesha |
+| Hur länge är 2x4 | Hur lång tid är två av fyra |
+| Mötet går från 1 – 3pm | Mötet går från en till tre PM |
+| Min blod typ är O + | Min blod typ är O-positiv |
+| Vattnet är H20 | Vatten är H 2 O |
+| Spela OU812 av Van Halen | Spela upp O U 8 1 2 av Van Halen |
+| UTF-8 med struktur | U T F 8 med struktur |
+
+Följande normaliserings regler tillämpas automatiskt på avskrifter:
+
+* Använd små bokstäver.
+* Ta bort alla skiljetecken utom apostrofer i ord.
+* Expandera tal i ord/talade form, till exempel dollar belopp.
+
+Här följer några exempel på normalisering som utförs automatiskt på avskriften:
+
+| Ursprunglig text | Text efter normalisering |
+|---------------|--------------------------|
+| "Heliga ko!" Detta Batman. | heliga ko Batman |
+| "Vad?" Detta Batmans sidekick, Tax. | Vad sägs om Batmans sidekick Tax |
+| Gå till get-EM! | Go-Hämta EM |
+| Jag är dubbelt gemensam | Jag är dubbelt gemensam |
+| 104 Elm Street | 1 0 4, gymnasium, gata |
+| Justera till 102,7 | Justera till 1 0 2 7 |
+| PI är cirka 3,14 | PI är cirka tre punkter 1 4 |
+IT-kostnader $3,14| IT-kostnader 3 14 |
+
+## <a name="mandarin-chinese-zh-cn"></a>Mandariner, kinesiska (zh-CN)
+
+Välmärkta avskrifter för ett mandariner kinesiskt ljud måste vara UTF-8-kodad med en byte-ordning markör. Undvik att använda skiljetecken med halv bredd. Dessa tecken kan tas med oavsiktligt när du förbereder data i ett ordbehandlingsprogram eller klipper data från webb sidor. Om dessa tecken finns, måste du uppdatera dem med lämplig full bredds ersättning.
+
+Några exempel:
+
+| Tecken för att undvika | Ersättning | Anteckningar |
+|---------------------|--------------|-------|
+| "你好" | "你好" | De inledande och avslutande citat tecknen har ersatts av lämpliga tecken. |
+| 需要什么帮助? | 需要什么帮助？ | Frågetecknet har ersatts av rätt tecken. |
+
+### <a name="text-normalization-for-mandarin-chinese"></a>Text normalisering för mandariner kinesiska
+
+Text normalisering är en transformering av ord i ett konsekvent format som används vid inlärning av en modell. Vissa normaliserings regler tillämpas automatiskt i text, men vi rekommenderar att du använder dessa rikt linjer när du förbereder dina person uppgifter:
+
+* Skriv ut förkortningar i ord.
+* Skriv ut numeriska strängar i tal form.
+
+Här följer några exempel på normalisering som du bör utföra på avskriften:
+
+| Ursprunglig text | Text efter normalisering |
 |---------------|--------------------------|
 | 我今年21 | 我今年二十一 |
 | 3号楼504 | 三号 楼 五 零 四 |
 
-Följande normalisering regler tillämpas automatiskt på avskrifter:
+Följande normaliserings regler tillämpas automatiskt på avskrifter:
 
 * Ta bort alla skiljetecken
-* Expandera siffror i talat formulär
-* Konvertera full bredd bokstäver till halv bredd bokstäver
-* Med versaler för alla svenska ord
+* Expandera tal till talade form
+* Konvertera hel bredds bokstäver till halv bredds bokstäver
+* Använda versaler för alla engelska ord
 
-Här följer några exempel på Normalisering utförs automatiskt på utskrift:
+Här följer några exempel på normalisering som utförs automatiskt på avskriften:
 
-| Originaltexten | Text efter normalisering |
+| Ursprunglig text | Text efter normalisering |
 |---------------|--------------------------|
-| 3.1415 | 三 点 一 四 一 五 |
-| ￥3.5 | 三 元 五 角 |
-| w f y z |W F Y Z |
+| 3,1415 | 三 点 一 四 一 五 |
+| ¥3,5 | 三 元 五 角 |
+| v f y z |V F Y Z |
 | 1992年8月8日 | 一 九 九 二 年 八 月 八 日 |
 | 你吃饭了吗? | 你 吃饭 了 吗 |
 | 下午5:00的航班 | 下午 五点 的 航班 |
@@ -124,48 +124,48 @@ Här följer några exempel på Normalisering utförs automatiskt på utskrift:
 
 ## <a name="german-de-de-and-other-languages"></a>Tyska (de-DE) och andra språk
 
-Human etikett avskrifter tyska ljud (och andra icke-engelska eller Mandarin kinesiska språk) måste vara kodad med en byte-ordningsmarkering markör UTF-8. En etikett mänskliga avskrift bör anges för varje ljudfil.
+Välmärkta avskrifter för tyska ljud (och andra icke-engelska eller mandariner-kinesiska språk) måste vara UTF-8-kodad med en byte-ordning markör. En meddelad avskrift bör tillhandahållas för varje ljudfil.
 
 ### <a name="text-normalization-for-german"></a>Text normalisering för tyska
 
-Text normalisering är omvandlingen av orden i ett enhetligt format som används för att träna en modell. Vissa normalisering reglerna tillämpas på text automatiskt, men vi rekommenderar att använda dessa riktlinjer när du förbereder dina mänskliga etikett avskrift data:
+Text normalisering är en transformering av ord i ett konsekvent format som används vid inlärning av en modell. Vissa normaliserings regler tillämpas automatiskt i text, men vi rekommenderar att du använder dessa rikt linjer när du förbereder dina person uppgifter:
 
-*   Write decimal points as "," and not ".".
-*   Skriva tidsavgränsare som ”:” och inte ””. (till exempel: 12:00 Uhr).
-*   Förkortningar, till exempel ”ca”. ersätts inte. Vi rekommenderar att du använder den fullständiga talat formen.
-*   De fyra huvudsakliga matematiska operatörerna (+, -, \*, och /) tas bort. Vi rekommenderar att ersätta dem med skriftlig form: ”plus”, ”minus”, ”skadlig” och ”geteilt”.
-*   Jämförelseoperatorer tas bort (=, <, och >). Vi rekommenderar att ersätta dem med ”gleich” ”, kleiner sensorn”, och ”grösser sensorn”.
-*   Skriva bråkdelar, till exempel 3 och 4 i skriftlig form (till exempel: ”drei viertel” i stället för 3 och 4).
-*   Ersätt symbolen ”€” med dess skriftlig form ”Euro”.
+*   Skriv decimal tecken som "," och inte ".".
+*   Skriv tids avgränsare som ":" och inte "." (till exempel: 12:00 Uhr).
+*   Förkortningar som "ca". ersätts inte. Vi rekommenderar att du använder det fullständigt talade formuläret.
+*   De fyra viktigaste matematiska operatorerna (+,- \*, och/) tas bort. Vi rekommenderar att du ersätter dem med det skrivna formatet: "plus," "minus," "felskadligt" och "Geteilt".
+*   Jämförelse operatorer tas bort (=, < och >). Vi rekommenderar att du ersätter dem med "gleich", "Kleiner-sensorn" och "grösser-sensorn".
+*   Skriv bråktal, till exempel 3/4, i skrivet format (till exempel: "Drei Viertel" i stället för 3/4).
+*   Ersätt "€"-symbolen med dess skrivna form "euro".
 
-Här följer några exempel på normalisering som du bör utföra på utskrift:
+Här följer några exempel på normalisering som du bör utföra på avskriften:
 
-| Originaltexten | Text efter användaren normalisering | Text efter system normalisering |
+| Ursprunglig text | Text efter användar normalisering | Text efter system-normalisering |
 |---------------|-------------------------------|---------------------------------|
-| ES ist 12.23 Uhr | ES ist 12:23 Uhr | ES ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf |
-| 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier |
+| ES IST 12,23 Uhr | ES IST 12:23 Uhr | ES IST zwölf Uhr Drei und zwanzig Uhr |
+| {12,45} | {12,45} | zwölf komma vier fünf |
+| 2 + 3-4 | 2 plus 3 minus 4 | Zwei plus Drei minus Vier |
 
-Följande normalisering regler tillämpas automatiskt på avskrifter:
+Följande normaliserings regler tillämpas automatiskt på avskrifter:
 
 * Använd gemener för all text.
-* Ta bort alla skiljetecken, inklusive olika typer av citattecken (”test”, 'test', ”test” och «testa» är OK).
-* Ta bort rader med specialtecken från den här uppsättningen: ¢ ¤ ¥... § © ª ¬® ° + ² µ × ÿ Ø¬¬.
-* Expandera siffror i talat formulär, inklusive dollar eller Euro tillsammans.
-* Acceptera umlauts endast för en, o och du. Andra kommer att ersättas av ”e” eller tas bort.
+* Ta bort alla skiljetecken, inklusive olika typer av citat tecken ("test", "test", "test" och «test» är OK).
+* Ignorera rader med specialtecken från den här uppsättningen: ¢ ¤ ¥ ¦ § © ª ¬® ° ± ² μ × ÿ Ø ¬ ¬.
+* Expandera tal till talade form, inklusive dollar eller euro belopp.
+* Acceptera umlauts endast för a, o och du. Andra kommer att ersättas med "th" eller tas bort.
 
-Här följer några exempel på Normalisering utförs automatiskt på utskrift:
+Här följer några exempel på normalisering som utförs automatiskt på avskriften:
 
-| Originaltexten | Text efter normalisering |
+| Ursprunglig text | Text efter normalisering |
 |---------------|--------------------------|
-| Frankfurter Ring | frankfurter ring |
+| Frankfurter-Ring | Frankfurter-Ring |
 | ¡Eine Frage! | eine frage |
-| WIR haben | WIR haben |
+| wir, haben | wir haben |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förbereda och testa dina data](how-to-custom-speech-test-data.md)
-* [Granska dina data](how-to-custom-speech-inspect-data.md)
+* [Förbered och testa dina data](how-to-custom-speech-test-data.md)
+* [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 * [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
 * [Träna din modell](how-to-custom-speech-train-model.md)
 * [Distribuera din modell](how-to-custom-speech-deploy-model.md)

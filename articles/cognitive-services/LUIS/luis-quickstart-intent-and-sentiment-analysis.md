@@ -1,5 +1,5 @@
 ---
-title: Sentimentanalys
+title: Sentiment-analys – LUIS
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en app som visar hur det går till att hämta positiva, negativa och neutrala attityder från yttranden. Sentimenten bestäms utifrån hela yttrandet.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ad1dba3c35c0f1fa5640e484319b584731843dd8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479809"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563585"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Självstudier:  Hämta attityder för yttranden
 
@@ -54,7 +54,7 @@ Eftersom det är en publiceringsinställning ser du den inte på sidor för avsi
 
 ## <a name="add-personname-prebuilt-entity"></a>Lägg till den fördefinierade entiteten PersonName 
 
-1. Välj **skapa** i navigationsmenyn.
+1. Välj **build** på navigerings menyn.
 
 1. Välj **Entities** (Entiteter) på den vänstra navigeringsmenyn.
 
@@ -91,7 +91,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
     |Mark Mathews gjorde ett fantastiskt jobb med säljpresentationen på Harvard|
     |Walter Williams gjorde ett riktigt bra jobb med presentationen på Stanford|
 
-    Välj den **Visningsalternativ**väljer **visa entitetsvärden** att se namnen.
+    Välj **visnings alternativ**, Välj **Visa enhets värden** om du vill se namnen.
 
     [![Skärmbild på LUIS-appen med exempelyttranden i avsikten EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
@@ -107,7 +107,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
 1. Välj **Hantera** i det övre högra navigeringsfältet och välj sedan **Publiceringsinställningar** i den vänstra menyn.
 
-1. Välj **använda attitydanalys för att avgöra om en användares uttryck är positivt, negativt eller neutral.** Aktivera den här inställningen. 
+1. Välj **Använd sentiment analys för att fastställa om en användares uttryck är positiv, negativ eller neutral.** för att aktivera den här inställningen. 
 
     ![Aktivera Attitydanalys som en publiceringsinställning](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -119,7 +119,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Gå till i slutet av URL-adressen och ange följande uttryck:
+1. Gå till slutet av URL: en i adressen och ange följande uttryck:
 
     `Jill Jones work with the media team on the public portal was amazing` 
 
@@ -159,7 +159,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
     sentimentAnalysis är positiv med ett poängresultat på 86 %. 
 
-    Prova ett annat uttryck genom att ta bort värdet för `q` i adressfältet i webbläsaren: `William Jones did a terrible job presenting his ideas.` Sentimentresultatet indikerar negativ attityd genom att returnera en låg poäng `0.18597582`.
+    Försök med en annan uttryck genom att ta `q` bort värdet för i webbläsarens Adress fält: `William Jones did a terrible job presenting his ideas.`Sentiment-poängen indikerar ett negativt sentiment genom att returnera en låg `0.18597582`poäng.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

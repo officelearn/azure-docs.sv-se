@@ -1,7 +1,7 @@
 ---
-title: Anpassade röst första virtuella assistenter (förhandsversion) – Speech Services
+title: Anpassad röst för första virtuella assistenter (för hands version) – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: En översikt över de funktioner, funktioner och begränsningar för anpassade voice-först-virtuella assistenter med tal för Direct Line-kanalen på Bot Framework och den Cognitive Services tal Software Development Kit (SDK).
+description: En översikt över funktionerna, funktionerna och begränsningarna för anpassade röst-och första virtuella assistenter med hjälp av den direkta rad igenkännings kanalen i bot Framework och Cognitive Services Speech Software Development Kit (SDK).
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,47 +10,47 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: c9b85895e701ff74e025d6f7895bc32513bc29a1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806907"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552544"
 ---
-# <a name="about-custom-voice-first-virtual-assistants-preview"></a>Om anpassade röst första virtuella assistenter förhandsversionen
+# <a name="about-custom-voice-first-virtual-assistants-preview"></a>Om anpassad röst för hands version för första och andra virtuella assistenter
 
-Anpassade virtuella assistenter med hjälp av Azure Speech Services gör att utvecklare kan skapa naturlig, människoliknande konversationsanpassade gränssnitt för sina program och upplevelser. I Bot Framework Direct Line tal kanal förbättrar funktionerna genom att tillhandahålla en samordnad, dirigerad startpunkten till en kompatibel robot som gör det möjligt för röst i röst ut interaktion med låg fördröjning och hög tillförlitlighet. Dessa robotar kan använda Microsofts Språkförståelse (LUIS) för interaktion med naturligt språk. Direct Line tal används av enheter med hjälp av tal Software Development Kit (SDK).
+Anpassade virtuella assistenter som använder Azure Speech Services ger utvecklare möjlighet att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Robot Framework: s direkta rad tal kanal förbättrar dessa funktioner genom att tillhandahålla en samordnad, dirigerad start punkt till en kompatibel robot som möjliggör röst i, röst ut-interaktion med låg latens och hög tillförlitlighet. Dessa robotar kan använda Microsofts Language Understanding (LUIS) för att interagera med naturligt språk. Direkt linje tal kan nås av enheter med hjälp av Speech Software Development Kit (SDK).
 
-   ![Begreppsmässiga diagram över direktlinje tal orchestration service flödet](media/voice-first-virtual-assistants/overview.png "The tal kanal flöde")
-
-
-Direct Line tal och dess associerade funktioner för anpassad röst första virtuella assistenter är ett perfekt komplement till den [virtuella Assistant lösningen och företagets mall](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Även om Direct Line-tal kan arbeta med valfri kompatibel bot, ange resurserna en återanvändbara baslinje för högkvalitativa konversationsanpassade upplevelser som vanliga stödjande kunskaper och modeller för att komma igång snabbt.
+   ![Konceptuellt diagram över det direkta linje flödet för dirigering av tal Orchestration-tjänsten](media/voice-first-virtual-assistants/overview.png "Tal kanal flödet")
 
 
-## <a name="core-features"></a>Kärnfunktioner
+Direkt linje tal och dess tillhör ande funktioner för anpassade röst-och första virtuella assistenter är ett idealiskt tillägg till den [virtuella assistentens lösning och företags mal len](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Även om det direkta linje talet kan fungera med alla kompatibla bot, ger dessa resurser en åter användnings bar bas linje för konversationer med hög kvalitet samt vanliga support kunskaper och modeller för att komma igång snabbt.
+
+
+## <a name="core-features"></a>Kärn funktioner
 
 | Category | Funktioner |
 |----------|----------|
-|[Anpassad aktivering word](speech-devices-sdk-create-kws.md) | Du kan aktivera användare kan börja konversationer med robotar med hjälp av ett anpassat nyckelord som ”Hey Contoso”. Den här uppgiften utförs med en anpassad aktivering word-motorn i tal SDK, som kan konfigureras med en anpassad aktivering word [som du kan skapa här](speech-devices-sdk-create-kws.md). Direct Line tal kanalen innehåller tjänstsidan wake word verifiering som förbättrar precisionen i wake word aktiveringen jämfört med den fristående enheten.
-|[Tal till text](speech-to-text.md) | Direct Line tal kanalen innehåller i realtid avskrift med ljud i tolkade texten med [tal till text](speech-to-text.md) från Azure Speech Services. Den här texten är tillgänglig för både din robot och klientprogrammet som den är transkriberas.
-|[Text till tal](text-to-speech.md) | Textbaserade svaren från din robot ska syntetiseras med [text till tal](text-to-speech.md) från Azure Speech Services. Den här syntes görs sedan tillgänglig för klientprogrammet som en ljudström. Microsoft ger dig möjlighet att skapa din egen anpassade, hög kvalitet Neural text till tal-röst som ger en röst till ditt varumärke, mer [Kontakta oss](mailto:mstts@microsoft.com).
-|[Direct Line-tal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Direct Line-tal kan en sömlöst anslutning mellan ditt klientprogram och en kompatibel robot funktionerna i Azure Speech Services som en kanal i Bot Framework. Läs mer om hur du konfigurerar din robot för att använda Direct Line tal kanalen [appens sida i Bot Framework-dokumentationen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+|[Anpassat aktiverings ord](speech-devices-sdk-create-kws.md) | Du kan göra det möjligt för användare att starta konversationer med robotar med ett anpassat nyckelord som "Hej contoso". Den här uppgiften utförs med en anpassad aktiverings ord motor i tal-SDK, som kan konfigureras med ett anpassat aktiverings ord [som du kan generera här](speech-devices-sdk-create-kws.md). Den direkta linjens tal kanal innehåller kontroll av inaktive rad ord på tjänst sidan som förbättrar precisionen vid aktivering av aktiverings ord listan jämfört med enbart enheten.
+|[Tal till text](speech-to-text.md) | Den direkta rad igenkännings kanalen innehåller ljud avskrifter i tolkad text med [tal-till-text](speech-to-text.md) från Azure Speech Services. Den här texten är tillgänglig för både roboten och klient programmet som det har tilldelats.
+|[Text till tal](text-to-speech.md) | Text svar från roboten kommer att syntetiseras med [text till tal](text-to-speech.md) från Azure Speech Services. Denna syntes kommer sedan att göras tillgänglig för klient programmet som en ljud ström. Microsoft erbjuder möjlighet att bygga din egen anpassade, högkvalitativa neurala TTS-röst som ger en röst till ditt varumärke, för att lära dig mer om [kontakten oss](mailto:mstts@microsoft.com).
+|[Direkt linje tal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Som en kanal i bot-ramverket aktiverar direkt linje tal en smidig och sömlös anslutning mellan klient programmet, en kompatibel bot och funktionerna i Azure Speech Services. Mer information om hur du konfigurerar din robot för att använda den direkta rad igenkännings kanalen finns på [sidan i dokumentationen för bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="sample-code"></a>Exempelkod
 
-Exempelkod för att skapa en röst-första virtuella assistenter är tillgänglig på GitHub. De här exemplen omfattar klientprogram för att ansluta till din robot i flera vanliga programmeringsspråk.
+Exempel kod för att skapa en röst-första virtuell assistent finns på GitHub. Dessa exempel avser klient programmet för att ansluta till din robot i flera populära programmeringsspråk.
 
-* [Röst första virtuella assistenter exempel (SDK)](https://aka.ms/csspeech/samples)
-* [Snabbstart: röst-första virtuella assistenter (C#)](quickstart-virtual-assistant-csharp-uwp.md)
-* [Snabbstart: röst första virtuella assistenter (Java)](quickstart-virtual-assistant-java-jre.md)
-* [Dirigera rad tal klient (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
+* [Röst-första exempel på virtuella assistenter (SDK)](https://aka.ms/csspeech/samples)
+* [Snabb start: röst-första virtuella assistenterC#()](quickstart-virtual-assistant-csharp-uwp.md)
+* [Snabb start: röst – första virtuella assistenter (Java)](quickstart-virtual-assistant-java-jre.md)
+* [Direkt linje tal klient (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
 
 ## <a name="customization"></a>Anpassning
 
-Röst första virtuella assistenter som skapats med Azure Speech Services kan använda ett komplett utbud av tillgängliga för anpassningsalternativ [tal till text](speech-to-text.md), [text till tal](text-to-speech.md), och [anpassade nyckelord val av](speech-devices-sdk-create-kws.md).
+Röst-första virtuella assistenter som skapats med Azure Speech Services kan använda det fullständiga intervallet av anpassnings alternativ som är tillgängliga för [tal-till-text](speech-to-text.md), [text till tal](text-to-speech.md)och [anpassad val av nyckelord](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
-> Anpassningsalternativ varierar beroende på språk och nationella (se [språk som stöds](supported-languages.md)).
+> Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
 
 ## <a name="reference-docs"></a>Referensdokument
 
@@ -59,7 +59,7 @@ Röst första virtuella assistenter som skapats med Azure Speech Services kan an
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skaffa en prenumerationsnyckel för Speech Services utan kostnad](get-started.md)
-* [Hämta tal SDK](speech-sdk.md)
+* [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+* [Hämta tal-SDK](speech-sdk.md)
 * [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [Hämta virtuell Assistant lösningen och företagets mall](https://github.com/Microsoft/AI)
+* [Hämta lösningen för virtuella assistenter och företags mallar](https://github.com/Microsoft/AI)

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Anpassade röst första virtuella assistenter (förhandsversion), C# (UWP) – Speech Services'
+title: 'Snabbstart: Anpassad röst – första virtuella assistenten (för hands C# version), (UWP) – tal tjänsten'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln skapar du en C# Universal Windows Platform (UWP)-program med hjälp av den Cognitive Services tal Software Development Kit (SDK). Du ansluter ditt klientprogram till en tidigare skapade Bot Framework-robot som konfigurerats för att använda tal för Direct Line-kanalen. Programmet har skapats med Speech SDK NuGet-paketet och Microsoft Visual Studio 2017.
+description: I den här artikeln skapar du ett C# universell Windows-plattform-program (UWP) med hjälp av Cognitive Services Speech Software Development Kit (SDK). Du ansluter ditt klient program till en tidigare skapad bot Framework-robot som kon figurer ATS för att använda den direkta rad igenkännings kanalen. Programmet har skapats med Speech SDK NuGet-paketet och Microsoft Visual Studio 2017.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d61040e740c06fc336e3764a0d972640443a6de5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604965"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553381"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuella assistenter med tal SDK, UWP
+# <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuell assistent med talet SDK, UWP
 
-Snabbstarter kan också användas för [tal till text](quickstart-csharp-uwp.md), [text till tal](quickstart-text-to-speech-csharp-uwp.md) och [talöversättning](quickstart-translate-speech-uwp.md).
+Snabb Starter är också tillgängliga för [tal-till-text](quickstart-csharp-uwp.md), [text till tal](quickstart-text-to-speech-csharp-uwp.md) och [tal översättning](quickstart-translate-speech-uwp.md).
 
-I den här artikeln ska du utveckla en C# Universal Windows Platform (UWP)-program med hjälp av den [tal SDK](speech-sdk.md). Programmet ansluter till en tidigare skapade och konfigurerade robot att aktivera en röst-första virtuella assistenter upplevelse från klientprogrammet. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
+I den här artikeln ska du utveckla ett C# universell Windows-plattform-program (UWP) med hjälp av [tal-SDK](speech-sdk.md). Programmet ansluter till en tidigare skapad och konfigurerad bot för att aktivera en röst-och första funktion i den virtuella assistenten från klient programmet. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
 
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
@@ -31,15 +31,15 @@ I den här artikeln ska du utveckla en C# Universal Windows Platform (UWP)-progr
 För den här snabbstarten krävs:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* En Azure-prenumeration-nyckel för Speech Services. [Skaffa ett kostnadsfritt](get-started.md) eller skapa den på den [Azure-portalen](https://portal.azure.com).
-* En tidigare skapad robot som konfigurerats med den [tal för Direct Line-kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+* En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
+* En tidigare skapad robot som kon figurer ATS med den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att resurserna distribueras i någon av dessa regioner.
+    > Direkt linje tal (för hands version) är för närvarande tillgängligt i en delmängd av tal Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
 ## <a name="optional-get-started-fast"></a>Valfritt: Kom igång snabbt
 
-Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram att ansluta till din talbaserade robot. Om du vill sätta igång direkt i, fullständiga och redo att kompilera källkoden används i den här snabbstarten finns i den [tal SDK-prov](https://aka.ms/csspeech/samples) under den `quickstart` mapp.
+I den här snabb starten beskrivs steg för steg hur du gör ett enkelt klient program att ansluta till din tal-aktiverade bot. Om du föredrar att använda den fullständiga käll koden för färdig att kompilera som används i den här snabb starten finns den i exemplen för [tal-SDK](https://aka.ms/csspeech/samples) under `quickstart` mappen.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
@@ -47,7 +47,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
 
 ## <a name="add-sample-code"></a>Lägga till exempelkod
 
-1. Programmets användargränssnitt definieras med hjälp av XAML. Öppna `MainPage.xaml` i Solution Explorer. Ersätt hela innehållet med i den designer XAML visas den nedan.
+1. Programmets användargränssnitt definieras med hjälp av XAML. Öppna `MainPage.xaml` i Solution Explorer. I designerns XAML-vy ersätter du hela innehållet med nedan.
 
     ```xml
     <Page
@@ -80,14 +80,14 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     </Page>
     ```
 
-1. Öppna källfilen bakomliggande kod `MainPage.xaml.cs`. Du hittar det grupperade under `MainPage.xaml`. Ersätt innehållet med koden nedan. Här är vad som beskrivs i det här exemplet:
+1. Öppna käll filen `MainPage.xaml.cs`bakomliggande kod. Du hittar den grupperad under `MainPage.xaml`. Ersätt innehållet med koden nedan. Det här exemplet omfattar:
 
-    * Med hjälp av uttryck för tal- och Speech.Dialog-namnområden
-    * En enkel implementeras, så att åtkomst till mikrofonen, anslutna till en knapp-hanterare
-    * Grundläggande Användargränssnittet inlärningsverktyg att visa meddelanden och fel i programmet
-    * En startsida tidpunkt för initiering kod sökvägen som fylls senare
-    * En hjälp att spela upp tillbaka text till tal (utan stöd för direktuppspelning)
-    * En tom knappen hanterare påbörja avlyssning som fylls senare
+    * Använda instruktioner för namn områden för tal-och tal-och-dialog rutor
+    * En enkel implementering för att säkerställa mikrofon åtkomst, kabelansluten till en knapp hanterare
+    * Grundläggande användar gränssnitt hjälper dig att presentera meddelanden och fel i programmet
+    * En landnings punkt för den initierings kod Sök väg som kommer att fyllas i senare
+    * En hjälpare som kan spela upp text till tal (utan strömnings stöd)
+    * En tom knapp hanterare för att starta lyssningen som kommer att fyllas i senare
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -239,13 +239,13 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     }
     ```
 
-1. Därefter skapar du den `DialogServiceConnector` med din prenumerationsinformation. Lägg till följande metodbrödtexten i `InitializeDialogServiceConnector`, ersätta strängarna `YourChannelSecret`, `YourSpeechSubscriptionKey`, och `YourServiceRegion` med dina egna värden för din robot, tal-prenumeration och [region](regions.md).
+1. Därefter skapar `DialogServiceConnector` du med din prenumerations information. Lägg till följande i metod bröd texten i `InitializeDialogServiceConnector`, Ersätt strängarna `YourChannelSecret`, `YourSpeechSubscriptionKey`och `YourServiceRegion` med dina egna värden för robot-, tal-och [region](regions.md).
 
     > [!NOTE]
-    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att resurserna distribueras i någon av dessa regioner.
+    > Direkt linje tal (för hands version) är för närvarande tillgängligt i en delmängd av tal Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
     > [!NOTE]
-    > Information om hur du konfigurerar din robot och hämta en hemlighet channel finns i Bot Framework-dokumentationen för [Direct Line tal kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+    > Information om hur du konfigurerar roboten och hämtar en kanal hemlighet finns i dokumentationen till bot Framework för [den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
     // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
@@ -259,7 +259,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `DialogServiceConnector` förlitar sig på flera händelser att kommunicera aktiviteterna bot, tal resultat och annan information. Lägg till hanterare för dessa händelser, lägga till följande i slutet av metodbrödtexten i `InitializeDialogServiceConnector`.
+1. `DialogServiceConnector`förlitar sig på flera händelser för att kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information. Lägg till hanterare för dessa händelser och Lägg till följande i slutet av metod texten i `InitializeDialogServiceConnector`.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
@@ -303,7 +303,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     };
     ```
 
-1. Med den konfiguration som upprättats och händelsehanterare registrerad, den `DialogServiceConnector` nu bara måste lyssna. Lägg till följande till i brödtexten för den `ListenButton_ButtonClicked` -metod i den `MainPage` klass.
+1. När konfigurationen är upprättad och händelse hanterarna har registrerats behöver du `DialogServiceConnector` nu bara lyssna. Lägg till följande i bröd texten `ListenButton_ButtonClicked` i-metoden `MainPage` i-klassen.
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
@@ -336,31 +336,31 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-1. Skapa programmet. Från menyn fältet för Visual Studio, Välj **skapa** > **skapa lösning**. Koden bör nu kompileras utan fel.
+1. Skapa programmet. Välj **bygge** > **build-lösning**från meny raden i Visual Studio. Koden bör nu kompileras utan fel.
 
     ![Skärmbild av Visual Studio-programmet med Skapa lösning markerat](media/sdk/qs-csharp-uwp-08-build.png "Slutförd byggprocess")
 
-1. Starta programmet. Från menyn fältet för Visual Studio, Välj **felsöka** > **Starta felsökning**, eller tryck på **F5**.
+1. Starta programmet. Från meny raden i Visual Studio väljer du **Felsök** > **Starta fel sökning**eller trycker på **F5**.
 
     ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-uwp-09-start-debugging.png "Starta appen i felsökningsläge")
 
-1. Ett fönster öppnas. I ditt program, Välj **Aktivera mikrofon**, och bekräfta behörighet-begäran som visas.
+1. Ett fönster öppnas. I ditt program väljer du **aktivera mikrofon**och bekräftar den behörighets förfrågan som visas.
 
     ![Skärmbild av behörighetsbegäran](media/sdk/qs-csharp-uwp-10-access-prompt.png "Starta appen i felsökningsläge")
 
-1. Välj **tala med din robot**, och talar ett engelska fras eller en mening i enhetens mikrofon. Ditt tal är överförda till tal för Direct Line-kanal och transkriberas till text som visas i fönstret.
+1. Välj **prata med din robot**och tala om en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till den direkta linjens tal kanal och skrivs till text, som visas i fönstret.
 
-    ![Skärmbild av lyckade bot aktivera](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "en lyckad bot-aktivera")
+    ![Skärm bild av lyckad bot-turn](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "En lyckad robot-turn")
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa och distribuera en grundläggande bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+> [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Se också
 
-- [Om röst första virtuella assistenter](voice-first-virtual-assistants.md)
-- [Skaffa en prenumerationsnyckel för Speech Services utan kostnad](get-started.md)
-- [Anpassad aktivering ord](speech-devices-sdk-create-kws.md)
-- [Anslut direkt rad tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Om röst-första virtuella assistenter](voice-first-virtual-assistants.md)
+- [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+- [Anpassade Väcknings ord](speech-devices-sdk-create-kws.md)
+- [Anslut direkt linje tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)

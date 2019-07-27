@@ -1,7 +1,7 @@
 ---
-title: Fras listor – Speech Services
-titlesuffix: Azure Cognitive Services
-description: Lär dig hur du förmedling tal med en fras listan med hjälp av den `PhraseListGrammar` objekt för att förbättra resultat tal till text.
+title: Fras listor – tal tjänst
+titleSuffix: Azure Cognitive Services
+description: Lär dig att tillhandahålla tal tjänsterna med en fras lista med hjälp `PhraseListGrammar` av objektet för att förbättra tal-till-text-igenkännings resultatet.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 0e552d502184d1b537263c2c1f6b2a8562cdf791
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226353"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562780"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Fras listor för tal till text
 
-Genom att tillhandahålla Taltjänster med en fras-lista, kan du förbättra taligenkänning. Fras listor för att identifiera kända fraser i ljuddata, t.ex. ett namn eller en specifik plats.
+Genom att tillhandahålla tal tjänster med en fras lista kan du förbättra tal igenkänningens precision. Fras listor används för att identifiera kända fraser i ljuddata, t. ex. en persons namn eller en viss plats.
 
-Till exempel om du har ett kommando ”flytta till” och ”Ward” som kan läsas som möjligt mål du kan lägga till en post för ”Flytta till Ward”. Att lägga till en fras ökar sannolikheten som när ljudet känns att ”flytta till Ward” tolkas i stället för ”steg mot”.
+Om du till exempel har ett kommando "flytta till" och ett möjligt mål för "inåt" som kan bli talade kan du lägga till en post för "flytta till inåt". Om du lägger till en fras ökar sannolikheten att när ljudet identifieras som "flytta till inåt" identifieras i stället för "flytta till".
 
-Enstaka ord eller fraser som fullständig kan läggas till i en lista med frasen. Under erkännande används en post i en lista med frasen om en exakt matchning som ingår i ljuduppspelningen. Utifrån föregående exempel om listan frasen innehåller ”flytta till Ward” och frasen avbildas är ”flytta mot långsamt” så att igenkänningsresultatet kommer att vara ”flytta till Ward långsamt”.
+Enstaka ord eller fullständiga fraser kan läggas till i en fras lista. Under igenkänning används en post i en fras lista om en exakt matchning ingår i ljudet. Skapa i föregående exempel, om fras listan innehåller "flytta till inåt", och frasen som fångats är "övergår mot långsamt", blir igenkännings resultatet "flytta till inåt långsamt".
 
 >[!Note]
-> Stöder för närvarande frasen visas endast på engelska för tal till text.
+> För närvarande stöder fras listor bara engelska för tal till text.
 
-## <a name="how-to-use-phrase-lists"></a>Hur du använder frasen visar en lista över
+## <a name="how-to-use-phrase-lists"></a>Använda fras listor
 
-I exemplen nedan visar hur du skapar en fras listan med hjälp av den `PhraseListGrammar` objekt.
+Exemplen nedan visar hur du skapar en fras lista med hjälp `PhraseListGrammar` av objektet.
 
 ```C++
 auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
@@ -68,9 +68,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> Det maximala antalet frasen listor som Speech-tjänsten använder för att matcha tal är 1024 fraser.
+> Det maximala antalet fras listor som tal tjänsten använder för att matcha tal är 1024-fraser.
 
-Du kan även radera fraser som är associerade med den `PhraseListGrammar` genom att anropa Rensa().
+Du kan också ta bort fraserna som är `PhraseListGrammar` kopplade till genom att anropa Clear ().
 
 ```C++
 phraselist->Clear();
@@ -93,8 +93,8 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> Ändringar i en `PhraseListGrammar` objekt gör påverkar om nästa erkännande eller efter återanslutning till Speech Services.
+> Ändringar i ett `PhraseListGrammar` objekt börjar gälla vid nästa igenkänning eller efter en åter anslutning till tal tjänsterna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tal SDK referensdokumentation](speech-sdk.md)
+* [Dokumentation om tal SDK-referens](speech-sdk.md)

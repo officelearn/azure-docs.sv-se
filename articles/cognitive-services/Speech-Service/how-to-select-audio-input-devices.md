@@ -1,5 +1,5 @@
 ---
-title: Så här väljer du en enhet för ljudinspelning med Speech SDK – Speech Services
+title: Så här väljer du en enhet för ljud inspelning med tjänsten Speech SDK-tal
 titleSuffix: Azure Cognitive Services
 description: Läs mer om att välja enheter för ljudinspelning i Speech SDK.
 services: cognitive-services
@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 16b8f81a09efc60f1214a2dc6ac60da9155e7794
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8324f9fccbe46cf6fc0ce297aac29b0d8025b078
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605101"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562736"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Välj en enhet för ljudinspelning med Speech SDK
 
-Version 1.3.0 av tal SDK innehåller en API för att välja ljudindata.
-Den här artikeln beskriver hur du skaffar ID: N för ljudenheter som är ansluten till ett system.
+Version 1.3.0 av talet SDK introducerar ett API för att välja ljud indata.
+Den här artikeln beskriver hur du hämtar ID: n för ljud enheterna som är anslutna till ett system.
 Dessa kan sedan användas i Speech SDK genom att du konfigurerar ljudenheten med `AudioConfig`-objektet:
 
 ```C++
@@ -47,7 +47,7 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 >[!Note]
-> Mikrofon användning är inte tillgänglig för JavaScript körs i Node.js
+> Mikrofon användning är inte tillgängligt för Java Script som körs i Node. js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Ljudenhets-ID:n i Windows för datorprogram
 
@@ -372,9 +372,9 @@ Till exempel instruktionen
 
 innebär att ett Bluetooth-headset kan användas för en talaktiverad app.
 
-## <a name="audio-device-ids-in-javascript"></a>Ljudenhet ID: N i JavaScript
+## <a name="audio-device-ids-in-javascript"></a>Ljud enhets-ID: n i Java Script
 
-I JavaScript i [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) metoden kan användas för att räkna upp mediaenheter och hitta en enhets-ID för att skicka till `fromMicrophone(...)`.
+I Java Script kan metoden [MediaDevices. enumerateDevices ()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) användas för att räkna upp medie enheter och hitta ett enhets-ID att skicka `fromMicrophone(...)`till.
 
 ## <a name="next-steps"></a>Nästa steg
 

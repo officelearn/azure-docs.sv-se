@@ -1,6 +1,6 @@
 ---
-title: LUIS förskapade entiteter e-referens – Azure | Microsoft Docs
-titleSuffix: Azure
+title: E-postreferens för LUIS-fördefinierade entiteter
+titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller e-post fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2b11446c84ede0e8ecfce23eda1026919777fc66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c9c7b373f820dd23c70a67a1de8545935a1d93c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072081"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560249"
 ---
-# <a name="email-prebuilt-entity-for-a-luis-app"></a>E-fördefinierade entitet för en LUIS-app
+# <a name="email-prebuilt-entity-for-a-luis-app"></a>Fördefinierad e-postentitet för en LUIS-app
 Extrahering av e-post innehåller hela e-postadressen från ett uttryck. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller e-postmeddelande till programmet avsikter. E-entitet stöds i `en-us` kultur endast. 
 
 ## <a name="resolution-for-prebuilt-email"></a>Lösning för fördefinierade e-post
 
-### <a name="api-version-2x"></a>API-version 2.x
+### <a name="api-version-2x"></a>API-version 2. x
 
 I följande exempel visas av lösningen på den **builtin.email** entitet.
 
@@ -54,9 +54,9 @@ I följande exempel visas av lösningen på den **builtin.email** entitet.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
 
-Följande JSON är med i `verbose` parameteruppsättning till `false`:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 {
@@ -79,7 +79,7 @@ Följande JSON är med i `verbose` parameteruppsättning till `false`:
 ```
 
 
-Följande JSON är med i `verbose` parameteruppsättning till `true`:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 {

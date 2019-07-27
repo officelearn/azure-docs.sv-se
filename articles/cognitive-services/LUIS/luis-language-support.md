@@ -1,5 +1,5 @@
 ---
-title: Stöd för språk
+title: Språk stöd – LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS har olika funktioner i tjänsten. Alla funktioner är inte på samma språkparitet. Kontrollera att de funktioner som du är intresserad av stöds i kulturen för språk som du arbetar med. En LUIS-app är kultur-specifika och kan inte ändras när den är inställd.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26127f9f6ed718e33a77b986f2edb0d2dc81b2c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072383"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563561"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -30,7 +30,7 @@ Om du behöver ett klientprogram för flera språk LUIS som en chattrobot finns 
 
 LUIS förstår yttranden på följande språk:
 
-| Språk |Nationell inställning  |  Fördefinierade domän | Fördefinierade entitet | Fras lista rekommendationer | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)|
+| Språk |Nationell inställning  |  Fördefinierade domän | Fördefinierade entitet | Rekommendationer för fras lista | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)|
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
 | *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -53,7 +53,7 @@ Språkstöd varierar för [förskapade entiteter](luis-reference-prebuilt-entiti
 
  - I den `zh-cn` kulturen, LUIS förväntar sig förenklad kinesiska teckenuppsättningen i stället för den traditionella teckenuppsättningen.
  - Namn på avsikter, entiteter, funktioner och reguljära uttryck kan vara i kinesiska eller latinska tecken.
- - Se den [fördefinierade domäner referens](luis-reference-prebuilt-domains.md) information där fördefinierade domäner som stöds i den `zh-cn` kultur.
+ - Se den [fördefinierade domän referensen](luis-reference-prebuilt-domains.md) för information om vilka färdiga domäner som stöds i `zh-cn` kulturen.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>\* Japanska stöder anteckningar
@@ -95,16 +95,16 @@ Om du vill utföra maskininlärning LUIS delar ett uttryck i [token](luis-glossa
 |Spanska (es-ES)|✔||||
 |Spanska (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>Anpassade tokenizer versioner
+### <a name="custom-tokenizer-versions"></a>Anpassade tokenizer-versioner
 
-Följande kulturer har anpassade tokenizer versioner:
+Följande kulturer har anpassade tokenizer-versioner:
 
 |Kultur|Version|Syfte|
 |--|--|--|
-|Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en dator maskininlärningsbaserade tokenizer som används för att bryta ned sammansatta ord i sina enda komponenter.<br>Om en användare anger `Ich fahre einen krankenwagen` som ett uttryck som den är aktiverad `Ich fahre einen kranken wagen`. Att tillåta märkning av `kranken` och `wagen` oberoende av varandra som olika entiteter.|
-|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela in dem på blanksteg.<br> Om en användare anger `Ich fahre einen krankenwagen` som ett uttryck, den är en enskild token. Därför `krankenwagen` har markerats som en enda enhet. |
+|Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare anger `Ich fahre einen krankenwagen` som en uttryck, `Ich fahre einen kranken wagen`aktive ras den. Tillåta markering av `kranken` och `wagen` oberoende som olika entiteter.|
+|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på blank steg.<br> om en användare anges `Ich fahre einen krankenwagen` som en uttryck, förblir den en enda token. Markeras därför `krankenwagen` som en enskild entitet. |
 
-### <a name="migrating-between-tokenizer-versions"></a>Migrering mellan tokenizer versioner
+### <a name="migrating-between-tokenizer-versions"></a>Migrera mellan tokenizer-versioner
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
@@ -207,6 +207,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Tokenisering sker på app-nivå. Det finns inget stöd för version på servernivå tokenisering. 
+Tokenisering sker på App-nivå. Det finns inget stöd för tokenisering på versions nivå. 
 
-[Importera filen som en ny app](luis-how-to-start-new-app.md#import-an-app-from-file), i stället för en version. Den här åtgärden innebär att den nya appen har en annan app-ID men använder tokenizer version anges i filen. 
+[Importera filen som en ny app](luis-how-to-start-new-app.md#import-an-app-from-file)i stället för en version. Den här åtgärden innebär att den nya appen har ett annat app-ID men använder den tokenizer-version som anges i filen. 

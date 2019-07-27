@@ -1,7 +1,7 @@
 ---
-title: Lär dig granska verktyget begrepp - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Läs mer om Content Moderator granskar-verktyg, en webbplats som samordnar en kombinerad AI och mänsklig granskning moderering arbete.
+title: Lär dig att granska verktygs koncept – Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Lär dig mer om Content Moderator gransknings verktyget, en webbplats som samordnar en kombinerad AI-och mänsklig gransknings ansträngning.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -10,43 +10,43 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: sajagtap
-ms.openlocfilehash: b7ec997fd3e9bfe294050893d80fd57a96a47aae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f20b9c824045ac2f8c13df3ed8f776195de611a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61270012"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564511"
 ---
-# <a name="content-moderator-review-tool"></a>Content Moderator-granskningsverktyget
+# <a name="content-moderator-review-tool"></a>Content Moderator gransknings verktyget
 
-Azure Content Moderator tillhandahåller tjänster för att kombinera machine learning-innehållsmoderering med mänsklig granskning och [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) webbplats är en användarvänlig klientdel som ger detaljerad åtkomst till dessa tjänster.
+Azure Content Moderator tillhandahåller tjänster för att kombinera maskin inlärnings innehåll med mänsklig granskning och webbplatsen för [gransknings verktyg](https://contentmoderator.cognitive.microsoft.com) är en användarvänlig klient del som ger detaljerad åtkomst till dessa tjänster.
 
-![Granska verktyget instrumentpanelen i en webbläsare](./images/0-dashboard.png)
+![Instrument panelen för gransknings verktyg i en webbläsare](./images/0-dashboard.png)
 
 ## <a name="what-it-does"></a>Vad läget gör
 
-Den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com), när de används tillsammans med datorstödd moderering API: er, kan du utföra följande uppgifter i innehållsmoderering processen:
+I [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com), när det används tillsammans med de verktyg för redigering av datorbaserade redigerings program, kan du utföra följande uppgifter i innehålls moderator processen:
 
-- Använda en uppsättning verktyg för att hantera innehåll i flera format (text, bild och video).
-- Automatisera skapandet av mänskliga [granskar](../review-api.md#reviews) när moderering API resulterar kommer i.
-- Tilldela eller eskalera innehåll granskningar till flera granska team, ordnade i nivåer för innehåll kategori eller upplevelse.
-- Använd standard eller anpassad logik filter ([arbetsflöden](../review-api.md#workflows)) att sortera och spåra innehåll, utan att behöva skriva någon kod.
-- Använd [kopplingar](./configure.md#connectors) bearbetning av innehåll med Microsoft PhotoDNA, textanalys och Ansikts-API: er förutom Moderator-API: er för innehåll.
-- Skapa din egen anslutning för att skapa arbetsflöden för alla API: er eller affärsprocess.
-- Få viktiga prestandamått innehållsmoderering-processer.
+- Använd en uppsättning verktyg för att måttligt innehåll i flera format (text, bild och video).
+- Automatisera skapandet av mänsklig [granskningar](../review-api.md#reviews) när du får kontroll-API-resultat.
+- Tilldela eller eskalera innehålls granskningar till flera gransknings grupper, sorterade efter innehålls kategori eller miljö nivå.
+- Använd standard-eller anpassade logik filter ([arbets flöden](../review-api.md#workflows)) för att sortera och spåra innehåll utan att skriva någon kod.
+- Använd [kopplingar](./configure.md#connectors) för att bearbeta innehåll med Microsoft PhotoDNA, textanalys och ansikts-API: er utöver Content moderator-API: er.
+- Skapa en egen anslutning för att skapa arbets flöden för alla API: er och affärs processer.
+- Hämta viktiga prestanda mått för dina innehålls moderator processer.
 
-## <a name="review-tool-dashboard"></a>Granska verktyget instrumentpanel
+## <a name="review-tool-dashboard"></a>Instrument panel för gransknings verktyg
 
-På den **instrumentpanelen** fliken som du kan se viktiga mått för innehåll granskning görs verktyget. Se hur många av totalen, klar och väntar på granskning av bild, text och videoinnehåll. Du kan också se detaljer för användare och team som har slutfört granskningar, samt moderering-taggar som har tillämpats.
+På fliken **instrument panel** kan du se viktiga mått för innehålls granskningar som har gjorts i verktyget. Se antalet totala, fullständiga och väntande recensioner för bild-, text-och video innehåll. Du kan också se en nedbrytning av användare och team som har slutfört granskningar, samt vilka redigerings etiketter som har tillämpats.
 
-![Visa instrumentpanelen](images/0-dashboard.png)
+![Visa instrumentpanel](images/0-dashboard.png)
 
-## <a name="review-tool-credentials"></a>Granska verktyget autentiseringsuppgifter
+## <a name="review-tool-credentials"></a>Granska autentiseringsuppgifterna för verktyget
 
-När du registrerar dig med den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com), uppmanas du att välja en Azure-region för du kontot. Detta beror på den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) genererar en kostnadsfri utvärderingsversion nyckel för Azure Content Moderator-tjänster; du behöver den här nyckeln för åtkomst till alla tjänster från en REST-anrop eller klient-SDK. Du kan visa din nyckel och API: et slutpunkts-URL genom att välja **inställningar** > **autentiseringsuppgifter**.
+När du registrerar dig med [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com)uppmanas du att välja en Azure-region för ditt konto. Detta beror på att [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) genererar en kostnads fri utvärderings nyckel för Azure Content moderator Services; du behöver den här nyckeln för att få åtkomst till alla tjänster från ett REST-anrop eller klient-SDK. Du kan visa URL: en för din nyckel och API-slutpunkt genom att välja **Inställningar** > **autentiseringsuppgifter**.
 
-![Content Moderator-autentiseringsuppgifter](images/settings-6-credentials.png)
+![Content Moderator autentiseringsuppgifter](images/settings-6-credentials.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [konfigurera granskningsverktyget](./configure.md) och lär dig att komma åt granska verktyget resurser och ändra inställningarna.
+Se [Konfigurera gransknings verktyget](./configure.md) för att lära dig att komma åt resurser för gransknings verktyget och ändra inställningar.

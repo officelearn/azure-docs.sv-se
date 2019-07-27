@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Använda anpassad logotypdetektor för att känna igen Azure-tjänster – Custom Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: I de här självstudierna ska du gå igenom en exempelapp som använder Azure Custom Vision som en del av ett scenario för identifiering av logotyper. Lär dig hur Custom Vision ska användas med andra komponenter för att leverera ett program för slutpunkt till slutpunkt.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: ab3dc89b90636c90564803c6a91350a75c3181cd
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517075"
+ms.locfileid: "68564211"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudier: Identifiera Azure-tjänstens logotyper i bilder med kameran
 

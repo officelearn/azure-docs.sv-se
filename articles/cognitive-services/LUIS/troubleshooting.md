@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar (FAQ)
+title: Vanliga frågor och svar – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller svar på vanliga frågor och svar om Språkförståelse (LUIS).
 author: diberry
@@ -11,20 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bccdcce52b9e62048d7eb307a4783abda0f9d17c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204108"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563166"
 ---
-# <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
 Den här artikeln innehåller svar på vanliga frågor och svar om Språkförståelse (LUIS).
 
 ## <a name="whats-new"></a>Nyheter
 
-[Läs mer](whats-new.md) om vad som är nytt i Språkförståelse.
+[Läs mer](whats-new.md) om vad som är nytt i language Understanding.
 
 <a name="luis-authoring"></a>
 
@@ -68,21 +68,21 @@ Cortana färdiga appar tagits bort 2017. De stöds inte längre.
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Hur jag för att överföra ägarskapet för en LUIS-app?
 Exportera en LUIS-app för att överföra en LUIS-app till Azure-prenumeration, och importera det med ett nytt konto. Uppdatera LUIS-app-ID i klientprogram som anropar den. Den nya appen kan returnera något annorlunda LUIS poäng från den ursprungliga appen.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>En fördefinierade entitet markeras i en exempel-uttryck i stället för min anpassad entitet. Hur jag för att åtgärda detta? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>En fördefinierad entitet är taggad i ett exempel-uttryck i stället för min anpassade entitet. Hur åtgärdar jag detta? 
 
-Se [felsökning förskapade entiteter](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+Se [fel sökning av](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)förbyggda entiteter.
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Jag försökte importera en app eller version men jag får ett felmeddelande, vad som hände? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Jag försökte importera en app-eller versions fil, men jag fick ett fel meddelande, vad hände? 
 
-Läs mer om [version importfel](luis-how-to-manage-versions.md#import-errors) och [app importfel](luis-how-to-start-new-app.md#import-errors).
+Läs mer om [versions import fel](luis-how-to-manage-versions.md#import-errors) och [import fel för appar](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating"></a>Samarbeta
+## <a name="collaborating"></a>Samar beta
 
-### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Hur jag för att ge medarbetare åtkomst till LUIS med Azure Active Directory (AD Azure) eller rollbaserad åtkomstkontroll (RBAC)?
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Hur gör jag för att ge medarbetarna åtkomst till LUIS med Azure Active Directory (Azure AD) eller rollbaserad åtkomst kontroll (RBAC)?
 
-Se [resurser i Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) och [Azure Active Directory-klientanvändare](luis-how-to-collaborate.md#azure-active-directory-tenant-user) och lär dig att ge medarbetare åtkomst. 
+Se [Azure Active Directory resurser](luis-how-to-collaborate.md#azure-active-directory-resources) och [Azure Active Directory klient användare](luis-how-to-collaborate.md#azure-active-directory-tenant-user) för att lära dig hur du ger samarbets åtkomst. 
 
 <a name="luis-endpoint"></a>
 
@@ -90,7 +90,7 @@ Se [resurser i Azure Active Directory](luis-how-to-collaborate.md#azure-active-d
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Min endpoint-frågan returnerade ett oväntat resultat. Vad ska jag göra?
 
-Oväntad fråga förutsagda resultaten som baseras på tillståndet för den publicerade modellen. Åtgärda modellen genom kanske du måste ändra modellen, träna och publicera igen. 
+Oväntad fråga förutsagda resultaten som baseras på tillståndet för den publicerade modellen. Om du vill korrigera modellen kan du behöva ändra modellen, träna och publicera igen. 
 
 Korrigera modellen börjar med [aktiv inlärning](luis-how-to-review-endpoint-utterances.md).
 
@@ -110,13 +110,13 @@ Systemet bör använda högsta bedömnings avsikten oavsett dess värde. Till ex
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Varför ser jag min endpoint träffar i instrumentpanelen för min app?
 Totala endpoint träffar i din app instrumentpanelen uppdateras regelbundet, men de mått som är associerade med din LUIS slutpunktsnyckeln i Azure-portalen uppdateras oftare.
 
-Om du inte ser uppdaterade endpoint träffar på instrumentpanelen, logga in på Azure-portalen och hitta den resurs som är associerade med din LUIS slutpunktsnyckeln och öppna **mått** att välja den **totala anrop** mått. Om slutpunktsnyckeln används för mer än en LUIS-app, visar det sammanlagda antalet anrop från alla LUIS-appar som använder den mått i Azure-portalen.
+Om du inte ser uppdaterade slut punkts träffar på instrument panelen loggar du in på Azure Portal och letar upp den resurs som är kopplad till din LUIS-slutpunkt nyckel och öppnar **mått** för att välja det **totala anrops** måttet. Om slutpunktsnyckeln används för mer än en LUIS-app, visar det sammanlagda antalet anrop från alla LUIS-appar som använder den mått i Azure-portalen.
 
-### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Finns det ett PowerShell kommando komma till slutpunkten kvoten?
+### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Finns det ett PowerShell-kommando som får slut punkts kvoten?
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan använda ett PowerShell-kommando för att se endpoint-kvot:
+Du kan använda ett PowerShell-kommando för att Visa slut punkts kvoten:
 
 ```powershell
 Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
@@ -183,17 +183,17 @@ Om din app fanns innan LUIS var allmänt tillgänglig (GA), tilldelas LUIS endpo
 
 ## <a name="key-management"></a>Nyckelhantering
 
-### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hur vet jag vilken nyckel som jag behöver, där jag får den, och hur jag använda det? 
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hur gör jag för att vet du vilken nyckel jag behöver, var jag får den och vad jag gör med det? 
 
-Se [redigering och fråga förutsägelse endpoint nycklar i LUIS](luis-concept-keys.md) vill veta mer om skillnaderna mellan de [redigering nyckel](luis-how-to-account-settings.md) och [förutsägelse slutpunktsnyckeln](luis-how-to-azure-subscription.md). 
+Se [Redigera och fråga efter slut punkts nycklar i Luis](luis-concept-keys.md) för att lära dig mer om skillnaderna mellan [redigerings nyckeln](luis-how-to-account-settings.md) och [nyckeln för slut punkts förutsägelse](luis-how-to-azure-subscription.md). 
 
-### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Jag får ett felmeddelande om att vara slut på kvot. Hur jag för att åtgärda det? 
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Jag har fått ett fel meddelande om att kvoten är felaktig. Hur jag för att åtgärda det? 
 
-Se, [åtgärda HTTP-statuskod 403 och 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) vill veta mer.
+Se, [korrigera HTTP-statuskod 403 och 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) för mer information.
 
-### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Jag vill hantera fler endpoint-frågor. Hur gör jag det? 
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Jag behöver hantera fler slut punkts frågor. Hur gör jag för att? 
 
-Se, [åtgärda HTTP-statuskod 403 och 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) vill veta mer.
+Se, [korrigera HTTP-statuskod 403 och 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) för mer information.
 
 
 
@@ -237,32 +237,32 @@ Din nyckel för redigering/starter får bara 1000 endpoint frågar en månad. Sk
 
 ## <a name="bots"></a>Robotar
 
-### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Min LUIS-bot fungerar inte. Vad gör jag nu?
+### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Min LUIS-robot fungerar inte. Vad gör jag nu?
 
-Första problemet är att isolera om problemet är relaterat till LUIS eller händer utanför LUIS mellanprogram. 
+Det första problemet är att isolera om problemet är relaterat till LUIS eller sker utanför LUIS mellan. 
 
-#### <a name="resolve-issue-in-luis"></a>Lösa problem i LUIS
-Skicka samma uttryck till LUIS från den [LUIS endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Om du får ett fel, Lös problemet i LUIS tills felet returneras inte längre. Vanliga fel är:
+#### <a name="resolve-issue-in-luis"></a>Lös problem i LUIS
+Skicka samma uttryck till LUIS från [Luis](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)-slutpunkten. Om du får ett fel meddelande kan du lösa problemet i LUIS tills felet inte längre returneras. Vanliga fel är:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` – Det här problemet anger du måste antingen ändra från en redigering nyckel till en [slutpunktsnyckeln](luis-how-to-azure-subscription.md) eller om du behöver ändra [tjänstnivåer](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.`– Det här problemet indikerar att du antingen måste ändra från en redigerings nyckel till en [slut punkts nyckel](luis-how-to-azure-subscription.md) eller ändra [tjänst nivåerna](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
-#### <a name="resolve-issue-in-azure-bot-service"></a>Lösa problem i Azure Bot Service
+#### <a name="resolve-issue-in-azure-bot-service"></a>Lös problem i Azure Bot Service
 
-Om du använder Azure Bot Service och problemet är att den **Test i Web Chat** returnerar `Sorry, my bot code is having an issue`, finns i loggarna:
+Om du använder Azure bot service och problemet är att **testet i Web Chat** returnerar `Sorry, my bot code is having an issue`, kontrollerar du loggarna:
 
-1. Azure-portalen för din robot från den **Bot management** väljer **skapa**.
-1. Öppna kodredigeraren online. 
-1. I det övre, blå navigeringsfältet väljer du botnamn (det andra objektet till höger).
-1. I den nedrullningsbara listan, Välj **öppna Kudu-konsolen**.
-1. Välj **LogFiles**och välj sedan **program**. Granska alla loggfiler. Om du inte ser felet i programmappen, läsa alla loggfiler under **LogFiles**. 
-1. Kom ihåg att återskapa projektet om du använder ett kompilerade språk som C#.
+1. I Azure Portal för din robot, i avsnittet **robot Management** , väljer du **build**.
+1. Öppna kod redigeraren online. 
+1. I det övre, blå navigerings fältet väljer du namnet på bot (det andra objektet till höger).
+1. I den resulterande List rutan väljer du **Öppna kudu-konsolen**.
+1. Välj **loggfiler**och välj sedan **program**. Granska alla loggfiler. Om du inte ser felet i programmappen granskar du alla loggfiler under loggfiler . 
+1. Kom ihåg att återskapa projektet om du använder ett kompilerat språk som C#.
 
 > [!Tip] 
-> I konsolen kan även installera paket. 
+> -Konsolen kan även installera paket. 
 
-#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Lösa problem när du felsöker på lokal dator med Bot Framework. 
+#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Lös problemet vid fel sökning på den lokala datorn med bot Framework. 
 
-Mer information om lokal felsökning av en robot finns [felsöka en robot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Mer information om lokal fel sökning av en bot finns i [Felsöka en bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrera LUIS
 
@@ -274,11 +274,11 @@ Om du väljer en LUIS-mall och välj den **Välj** knappen i panelen fönstret v
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Vilka LUIS-regioner har stöd för Bot Framework tal promotor?
 [Tal promotor](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) stöds bara för LUIS-appar i den centrala (USA)-instansen.
 
-## <a name="api-programming-strategies"></a>Strategier för API-programmering
+## <a name="api-programming-strategies"></a>API-programmerings strategier
 
-### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Hur får jag en LUIS-region för en resurs via programmering? 
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Hur gör jag för att program mässigt Hämta LUIS-regionen för en resurs? 
 
-Använd LUIS-exemplet för att [hitta region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programmässigt med C# eller Node.Js. 
+Använd LUIS-exemplet för att [hitta region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) program mässigt med C# hjälp av eller Node. js. 
 
 ## <a name="luis-service"></a>LUIS-tjänsten
 
@@ -288,23 +288,23 @@ Ja, du kan använda LUIS [behållare](luis-container-howto.md) för dessa scenar
 
 ## <a name="migrating-to-the-next-version"></a>Migrera till nästa version
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Hur migrerar du förhandsgranskar V3 API? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Hur gör jag för att migrera till Preview v3 API? 
 
-Se [API v2 till v3 Migration guide för LUIS-appar](luis-migration-api-v3.md)
+Se [API v2 till v3 migration guide för Luis-appar](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>Build-konferensen 2019 meddelanden
+## <a name="build-2019-conference-announcements"></a>Bygg 2019 konferens meddelanden
 
-Följande funktioner har släppts på 2019 Utvecklarkonferens:
+Följande funktioner släpptes på Build 2019-konferensen:
 
-* [Förhandsgranskning av V3 API-Migreringsguide](luis-migration-api-v3.md)
-* [Förbättrad analysinstrumentpanel](luis-how-to-use-dashboard.md)
-* [Förbättrad fördefinierade domäner](luis-reference-prebuilt-domains.md) 
-* [Listan med dynamiskt entiteter](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
-* [Externa enheter](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+* [För hands version av v3 API migration guide](luis-migration-api-v3.md)
+* [Förbättrad analys instrument panel](luis-how-to-use-dashboard.md)
+* [Förbättrade fördefinierade domäner](luis-reference-prebuilt-domains.md) 
+* [Dynamiska List enheter](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Externa entiteter](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Videor:
 
-* [Hur du använder Azure Konversationsanpassad AI att skala upp din verksamhet för nästa generations](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Så här använder du Azure Conversation AI för att skala din verksamhet för nästa generation](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Nästa steg
 

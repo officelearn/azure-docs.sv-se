@@ -1,6 +1,6 @@
 ---
-title: Hämta avsikt, Node.js
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Hämta avsikt, Node. js-LUIS
+titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext. Skicka med hjälp av Node.js användarens avsikt som text till den offentliga appens HTTP-slutpunkt för förutsägelse.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 51ba4935afc2713fb0dc92ebbf6ca31f7c60355a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 084d717c1001604a7fb8ed60518777f956dec8b9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276091"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563808"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>Snabbstart: Hämta avsikt med Node.js
 

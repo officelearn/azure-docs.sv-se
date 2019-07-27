@@ -1,6 +1,6 @@
 ---
-title: Lägg till avsikter
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Lägg till avsikter – LUIS
+titleSuffix: Azure Cognitive Services
 description: Lägg till avsikter att LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 639079a43e75741d78496939f90324b076b164d5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148171"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563690"
 ---
-# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter att fastställa användarens avsikt är att yttranden
+# <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter för att fastställa användar avsikt för yttranden
 
 Lägg till [avsikter](luis-concept-intent.md) till din LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt. 
 
@@ -44,29 +44,29 @@ Exempel yttranden är text-exempel på användarnas frågor eller kommandon. Om 
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
-## <a name="intent-prediction-errors"></a>Avsiktshantering förutsägelse fel 
+## <a name="intent-prediction-errors"></a>Fel vid förutsägelse av avsikt 
 
-En exempel-uttryck i ett intent som kan ha ett avsikt förutsägelse fel mellan avsikten exempel uttryck är för närvarande och förutsägelse avsikten bestäms vid träning. 
+Ett exempel på en uttryck i ett avsikt kan ha ett förutsägelse fel mellan avsikten med exempel uttryck för närvarande i och den förutsägelse avsikt som fastställs under utbildningen. 
 
-För att hitta uttryck förutsägelse fel och åtgärda dem, använda den **Filter** alternativet **utvärdering** alternativen felaktig och Unclear kombineras med den **visa** möjlighet att **Detaljerad vy**. 
+Om du vill hitta uttryck förutsägelse fel och åtgärda dem kan du använda alternativet alternativ för **utvärdering** av **filter** alternativ för felaktig och oklar kombination med **visnings** alternativet i **detaljerad vy**. 
 
-![För att hitta uttryck förutsägelse fel och åtgärda dem, använder du filtret.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+![Använd filter alternativet om du vill hitta uttryck förutsägelse fel och åtgärda dem.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Om filter och visa tillämpas och det finns exempel yttranden med fel, visar listan med exempel uttryck talade och problemen.
+När filtren och vyn används och det finns exempel yttranden med fel visas yttranden och problemen i exempel uttryck-listan.
 
-![! [När filter och visa tillämpas och det finns exempel yttranden med fel, exempel uttryck listan visar talade och problemen.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![! [När filtren och vyn används och det finns exempel yttranden med fel visas yttranden och problemen i exempel uttryck-listan.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-Varje rad visar aktuella utbildningen förutsägelse poäng för exempel-uttryck, den närmaste rival poäng, som är skillnaden mellan dessa två poäng. 
+Varje rad visar den aktuella inlärningens förutsägelse Poäng för exemplet uttryck, närmsta rival, vilket är skillnaden i dessa två resultat. 
 
 ### <a name="fixing-intents"></a>Åtgärda avsikter
 
-Om du vill lära dig mer om att korrigera avsikt förutsägelse fel, Använd den [instrumentpanelens sammanfattning](luis-how-to-use-dashboard.md). Instrumentpanel för sammanfattning ger analys för den aktiva versionen senaste träning och erbjuder de högsta förslag för att åtgärda din modell.  
+Om du vill lära dig hur du åtgärdar förutsägelse fel för avsikt använder du [sammanfattnings instrument panelen](luis-how-to-use-dashboard.md). Sammanfattnings instrument panelen innehåller analys för den aktiva versionens senaste utbildning och erbjuder de vanligaste förslagen för att åtgärda din modell.  
 
 ## <a name="add-a-custom-entity"></a>Lägg till en anpassad entitet
 
 När ett uttryck har lagts till en avsikt, kan du välja text från uttryck att skapa en anpassad entitet. En anpassad entitet är ett sätt att tagga text för extrahering, tillsammans med rätt avsikten. 
 
-Se [lägga till entitet i uttryck](luis-how-to-add-example-utterances.md) vill veta mer.
+Läs mer i [lägga till entitet till uttryck](luis-how-to-add-example-utterances.md) .
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Entiteten förutsägelse avvikelse fel 
 
@@ -82,7 +82,7 @@ Mer information finns i [fördefinierade entitet](luis-how-to-add-entities.md#ad
 
 ## <a name="using-the-contextual-toolbar"></a>Med hjälp av sammanhangsbaserad verktygsfältet
 
-När en eller flera exempel yttranden har markerats i listan genom att markera kryssrutan till vänster om ett uttryck kan i verktygsfältet ovanför listan uttryck du utföra följande åtgärder:
+När ett eller flera exempel yttranden har marker ATS i listan, genom att markera rutan till vänster om en uttryck, i verktygsfältet ovanför uttryck-listan kan du utföra följande åtgärder:
 
 * Omtilldela avsikt: flytta utterance(s) till olika avsikt
 * Ta bort utterance(s)
@@ -97,7 +97,7 @@ Följande åtgärder kan utföras på en enskild uttryck från ellips-menyn till
 
 * Redigera: ändra texten i uttryck
 * Ta bort: ta bort uttryck från avsikten. Om du fortfarande vill uttryck, en bättre metod är att flytta den till den **ingen** avsikt. 
-* Lägg till ett mönster: Ett mönster kan du ta en vanliga uttryck och markera replaceable ignorable text, vilket minskar behovet av flera uttryck i avsikten. 
+* Lägg till ett mönster: Ett mönster gör att du kan använda en gemensam uttryck och markera text och text som kan ignoreras, vilket minskar behovet av mer yttranden i avsikten. 
 
 Den **märkta avsikt** kolumn kan du ändra syftet med uttryck.
 

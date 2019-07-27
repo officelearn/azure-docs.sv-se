@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Taligenkänning, .NET Framework (Windows) – Speech Services'
+title: 'Snabbstart: Identifiera tal-, .NET Framework-(Windows)-tal-service'
 titleSuffix: Azure Cognitive Services
 description: Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av .NET-ramverket för Windows och Speech SDK. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
@@ -10,25 +10,25 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d8738357a3bad6626ef6d79248aef1c4d2cb1ead
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 47f955734070be4adfe7f58da98265b976e643d5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603078"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554159"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Taligenkänning med Speech SDK för .NET Framework (Windows)
 
-Snabbstarter kan också användas för [text till tal](quickstart-text-to-speech-dotnet-windows.md) och [talöversättning](quickstart-translate-speech-dotnetframework-windows.md).
+Snabb Starter är också tillgängliga för [text till tal](quickstart-text-to-speech-dotnet-windows.md) och [tal översättning](quickstart-translate-speech-dotnetframework-windows.md).
 
-Om du vill kan du välja olika programmeringsspråk och/eller miljön:<br/>
+Om du vill kan du välja ett annat programmeringsspråk och/eller miljö:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av .NET-ramverket för Windows och Speech SDK. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 
-För en snabb demonstration (utan att skapa Visual Studio-projektet på egen hand enligt nedan):
+För en snabb demonstration (utan att skapa Visual Studio-projektet själv som det visas nedan):
 
-Få senaste [Cognitive Services tal SDK-exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk) från GitHub.
+Hämta de senaste [Cognitive Services tal SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) -exemplen från GitHub.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -48,7 +48,7 @@ För att slutföra det här projektet behöver du:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Leta upp och ersätta strängen `YourSubscriptionKey` med din prenumerationsnyckel för Speech Services.
+1. Leta upp och ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster.
 
 1. Leta upp och ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration. Om du till exempel använder den kostnadsfria utvärderingsversionen är regionen `westus`.
 
@@ -64,7 +64,7 @@ För att slutföra det här projektet behöver du:
 
     ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Starta appen i felsökningsläge")
 
-1. Ett konsolfönster visas, där du uppmanas att tala. Säg nu något på engelska. Ditt tal överförs till Speech Services och transkriberas till text i realtid. Resultatet skrivs till konsolen.
+1. Ett konsolfönster visas, där du uppmanas att tala. Säg nu något på engelska. Ditt tal överförs till tal tjänsterna och skrivs till text i real tid. Resultatet skrivs till konsolen.
 
     ![Skärmbild av konsolens utdata efter lyckad taligenkänning](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Konsolens utdata efter lyckad taligenkänning")
 

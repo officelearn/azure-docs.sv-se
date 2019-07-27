@@ -2,23 +2,23 @@
 title: Registrera dig för Azure Active Directory Premium-versioner | Microsoft Docs
 description: Anvisningar om hur du registrerar dig för Azure Active Directory Premium-versionerna.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/07/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 016fbc8808c11f861dd4388ea5fb062c840187ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249680"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561980"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Registrera dig för Azure Active Directory Premium
 Du kan köpa och associera Azure Active Directory (Azure AD) Premium till din Azure-prenumeration. Om du behöver skapa en ny Azure-prenumeration måste du även aktivera din licensieringsplan och åtkomst till Azure AD-tjänsten.
@@ -65,17 +65,17 @@ Om du har registrerat dig med hjälp av en ny Azure AD-licensieringsplan måste 
 ### <a name="to-activate-your-license-plan"></a>Aktivera din licensplan
 - Öppna den e-postbekräftelse som du har fått från Microsoft när du registrerat dig och klicka sedan på **Logga In** eller **Registrera dig**.
    
-    ![E-postbekräftelsen med att logga in och registrera sig länkar](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![Bekräftelse på e-post med inloggnings-och registrerings länkar](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **Logga in.** Välj den här länken om du har en befintlig klient, och logga sedan in med ditt befintliga administratörskonto. Du måste vara global administratör i den klientorganisation där licenserna aktiveras.
 
     - **Registrera dig.** Välj den här länken om du vill öppna sidan **Skapa kontoprofil** och skapa en ny Azure AD-klientorganisation för din licensieringsplan.
 
-        ![Skapa kontot profilsida med exempelinformation](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![Sidan Skapa konto profil med exempel information](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 När du är klar visas en bekräftelsedialogruta som tackar dig för att du aktiverat licensplanen för din klient.
 
-![Dialogrutan med tack](media/active-directory-get-started-premium/MOLSThankYou.png)
+![Bekräftelse ruta med tack](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>Aktivera din Azure AD-åtkomst
 Om du lägger till nya Azure AD Premium-licenser i en befintlig prenumeration, är din Azure AD-åtkomst förmodligen redan aktiverad. Annars måste du aktivera Azure AD-åtkomst när du har fått **välkomstmeddelandet**.  
@@ -89,11 +89,11 @@ När dina köpta licenser har etablerats i din katalog får du ett **välkomstme
 
 1. Öppna **välkomstmeddelandet** och klicka sedan på **Logga in**.
    
-    ![Välkommen till e-postmeddelande med markerade länken logga in](media/active-directory-get-started-premium/AADEmail.png)
+    ![Välkommen e-postmeddelande, med markerad inloggnings länk](media/active-directory-get-started-premium/AADEmail.png)
 
 2. När du har loggat in går du igenom en tvåstegsverifieringsprocess med hjälp av en mobil enhet.
    
-    ![Tvåstegsverifiering verifiering sida med mobil verifiering](media/active-directory-get-started-premium/SignUppage.png)
+    ![Sidan tvåstegsverifiering med mobil verifiering](media/active-directory-get-started-premium/SignUppage.png)
 
 Aktiveringsprocessen tar normalt bara några minuter och sedan kan du använda din Azure AD-klient. 
 

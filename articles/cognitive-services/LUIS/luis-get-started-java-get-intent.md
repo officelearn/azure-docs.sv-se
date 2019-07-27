@@ -1,6 +1,6 @@
 ---
-title: Hämta avsikt, Java
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Hämta avsikt, Java-LUIS
+titleSuffix: Azure Cognitive Services
 description: I den här Java-snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext.
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 42240c7b45029684e51c25419eab7f4378785a4d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7a80aefd7a88727cf3a2261115c076853bd45b3f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276147"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563821"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Snabbstart: Hämta avsikt med Java
 
@@ -44,7 +44,7 @@ I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få av
 
 ## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
-Du kan använda Java för att komma åt samma resultat som du såg i webbläsarfönstret i föregående steg. Glöm inte att lägga till de Apache-biblioteken i projektet.
+Du kan använda Java för att komma åt samma resultat som du såg i webbläsarfönstret i föregående steg. Se till att lägga till Apache-biblioteken i projektet.
 
 1. Kopiera följande kod för att skapa en klass i en fil som heter `LuisGetRequest.java`:
 
@@ -52,9 +52,9 @@ Du kan använda Java för att komma åt samma resultat som du såg i webbläsarf
 
 2. Ersätt värdet för variabeln `YOUR-KEY` med din LUIS-nyckel.
 
-3. Ersätt med din sökväg och kompilera java-program från en kommandorad: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
+3. Ersätt med din fil Sök väg och kompilera Java-programmet från en kommando rad `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`:.
 
-4. Ersätt med din sökväg till filen och kör programmet från en kommandorad: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. Det visar samma JSON som du såg tidigare i webbläsarfönstret.
+4. Ersätt med din fil Sök väg och kör programmet från en kommando rad: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. Det visar samma JSON som du såg tidigare i webbläsarfönstret.
 
     ![Konsolfönstret visar JSON-resultat från LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -64,7 +64,7 @@ Du kan använda Java för att komma åt samma resultat som du såg i webbläsarf
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort fil/projektmapp med Java.
+Ta bort mappen Java-fil/-projekt.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

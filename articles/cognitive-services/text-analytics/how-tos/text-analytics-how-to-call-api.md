@@ -1,7 +1,7 @@
 ---
 title: Anropa API:t för textanalys
-titlesuffix: Azure Cognitive Services
-description: Lär dig hur du anropar den REST API för textanalys.
+titleSuffix: Azure Cognitive Services
+description: Läs om hur du anropar Textanalys REST API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,86 +10,86 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: e98979ac43945ebc9af82d5f89db01855429ca70
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2aa43318eab9a8d1beb2b133ab9802d390de8a7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304208"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552452"
 ---
-# <a name="how-to-call-the-text-analytics-rest-api"></a>Hur du anropar den REST API för textanalys
+# <a name="how-to-call-the-text-analytics-rest-api"></a>Så här anropar du Textanalys REST API
 
-Anrop till den **Textanalys** är HTTP POST/GET-anrop, vilket du kan formulera på valfritt språk. I den här artikeln använder vi REST och [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) att demonstrera nyckelbegrepp.
+Anrop till **API för textanalys** är http post/GET-anrop, som du kan formulera på valfritt språk. I den här artikeln använder vi REST och [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) för att demonstrera viktiga begrepp.
 
-Varje begäran måste innehålla din åtkomstnyckel och en HTTP-slutpunkt. Slutpunkten som anger den region som du valde när du registrerade dig, tjänstens URL och en resurs som används på begäran: `sentiment`, `keyphrases`, `languages`, och `entities`. 
+Varje begäran måste innehålla din åtkomst nyckel och en HTTP-slutpunkt. Slut punkten anger den region som du valde under registreringen, tjänst-URL: en och en resurs som används på begäran `sentiment`: `keyphrases`, `languages`, och `entities`. 
 
-Kom ihåg att Text Analytics är tillståndslösa så att det finns inga datatillgångar som du hanterar. Texten har överförts kan analyseras vid mottagning, och resultaten returneras direkt till det anropande programmet.
+Kom ihåg att Textanalys är tillstånds lös så att det inte finns några data till gångar att hantera. Texten laddas upp, analyseras vid inleverans och resultaten returneras omedelbart till det anropande programmet.
 
 > [!Tip]
-> För oneoff-anrop och se hur API: et fungerar, kan du skicka POST-förfrågningar från inbyggt **API testkonsolen**, tillgängligt på valfri [API doc-sidan](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Det finns inga inställningar och de enda kraven är att klistra in en åtkomstnyckel och JSON-dokument i begäran. 
+> För ett anrop för att se hur API: et fungerar kan du skicka POST-förfrågningar från den inbyggda API- **testkonsolen**, som är tillgänglig på valfri [API-dokument sida](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Det finns ingen konfiguration och de enda kraven är att klistra in en åtkomst nyckel och JSON-dokument i begäran. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API för textanalys, och [slutpunkt och åtkomstnyckel](text-analytics-how-to-access-key.md) som genererades när du registrerar dig för Cognitive Services. 
+Du måste ha ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API för textanalys och [slut punkten och åtkomst nyckeln](text-analytics-how-to-access-key.md) som genereras åt dig när du registrerar dig för Cognitive Services. 
 
 <a name="json-schema"></a>
 
-## <a name="json-schema-definition"></a>Schemadefinitionen för JSON
+## <a name="json-schema-definition"></a>Definition av JSON-schema
 
-Indata måste vara JSON i raw ostrukturerad text. XML stöds inte. Schemat är enkel, som består av de delar som beskrivs i följande lista. 
+Indata måste vara JSON i rå ostrukturerad text. XML stöds inte. Schemat är enkelt, bestående av de element som beskrivs i följande lista. 
 
-För närvarande kan du skicka samma dokumenten för alla åtgärder för textanalys: sentiment, diskussionsämne, språkidentifiering och enhetens identifiering. (Schemat är kan variera för varje analys i framtiden.)
+Du kan för närvarande skicka samma dokument för alla Textanalys åtgärder: sentiment, nyckel fras, språk identifiering och enhets identifiering. (Schemat kan troligt vis variera för varje analys i framtiden.)
 
-| Element | Giltiga värden | Krävs? | Användning |
+| Element | Giltiga värden | Obligatorisk? | Användning |
 |---------|--------------|-----------|-------|
-|`id` |Datatypen är sträng, men i praktiken dokument-ID: N tenderar att vara heltal. | Krävs | Systemet använder ID: N som du anger för att strukturera utdata. Språkkoder, nyckelfraser och sentimentpoäng genereras för varje-ID i begäran.|
-|`text` | Ostrukturerade rå text, upp till 5,120 tecken. | Krävs | För språkidentifiering, kan text uttryckas i valfritt språk. För attitydanalys, extrahering av diskussionsämne och enhetens identifiering texten måste vara i en [språk som stöds](../text-analytics-supported-languages.md). |
-|`language` | 2 tecken [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) Platskod för en [språk som stöds](../text-analytics-supported-languages.md) | Varierar | Krävs för attitydanalys, extrahering av diskussionsämne och entitetslänkning; valfritt för språkidentifiering. Det finns inget fel om du utesluter den, men analysen lägre utan den. Språkkoden ska motsvara den `text` du anger. |
+|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Obligatorisk | Systemet använder de ID: n som du anger för att strukturera utdata. Språk koder, nyckel fraser och sentiment resultat genereras för varje ID i begäran.|
+|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Obligatorisk | För språk identifiering kan text uttryckas på valfritt språk. För sentiment analys, extrahering av nyckel fraser och enhets identifiering måste texten vara på ett [språk som stöds](../text-analytics-supported-languages.md). |
+|`language` | 2 teckens [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) -kod för ett [språk som stöds](../text-analytics-supported-languages.md) | Varierar | Krävs för sentiment-analys, extrahering av nyckel fraser och länkning av entiteter. valfritt för språk identifiering. Det finns inget fel om du exkluderar det, men analysen har minskats utan den. Språk koden ska motsvara den `text` du anger. |
 
-Mer information om begränsningar finns i [Text Analytics översikt > databegränsningar](../overview.md#data-limits). 
+Mer information om gränser finns i [textanalys översikt > data begränsningar](../overview.md#data-limits). 
 
-## <a name="set-up-a-request-in-postman"></a>Ställa in en begäran i Postman
+## <a name="set-up-a-request-in-postman"></a>Konfigurera en begäran i Postman
 
-Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (eller något annat verktyg för test av webb-API) Konfigurera slutpunkten för att inkludera den resurs som du vill använda och ange åtkomstnyckel i en rubrik för begäran. Varje åtgärd som kräver att du lägger till lämplig resursen till slutpunkten. 
+Tjänsten accepterar en begäran på upp till 1 MB. Om du använder Postman (eller något annat verktyg för webb-API-testning), ställer du in slut punkten för att inkludera den resurs som du vill använda och anger åtkomst nyckeln i ett begär ande huvud. Varje åtgärd kräver att du lägger till en lämplig resurs till slut punkten. 
 
 1. I Postman:
 
-   + Välj **Post** som typ av begäran.
-   + Klistra in den slutpunkt som du kopierade i portalsidan.
+   + Välj **post** som typ av begäran.
+   + Klistra in den slut punkt som du kopierade från Portal sidan.
    + Lägg till en resurs.
 
-   Resursen slutpunkter finns på följande sätt (din region kan variera):
+   Resurs slut punkter är följande (din region kan variera):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
-2. Ställ in tre begärandehuvuden:
+2. Ange de tre begärandehuvuden:
 
-   + `Ocp-Apim-Subscription-Key`: din åtkomstnyckel hämtade Azure portal.
-   + `Content-Type`: application/json.
-   + `Accept`: application/json.
+   + `Ocp-Apim-Subscription-Key`: din åtkomst nyckel, hämtas från Azure Portal.
+   + `Content-Type`: Application/JSON.
+   + `Accept`: Application/JSON.
 
-   Din begäran bör likna följande skärmbild, förutsatt att en **/keyPhrases** resurs.
+   Din begäran bör se ut ungefär som på följande skärm, förutsatt att en **/keyPhrases** -resurs används.
 
-   ![Skärmbild med slutpunkt och sidhuvuden för begäran](../media/postman-request-keyphrase-1.png)
+   ![Skärm bild för begäran med slut punkt och sidhuvud](../media/postman-request-keyphrase-1.png)
 
-4. Klicka på **brödtext** och välj **raw** för formatet.
+4. Klicka på **brödtext** och välj **RAW** som format.
 
-   ![Begäran skärmbild med brödtext inställningar](../media/postman-request-body-raw.png)
+   ![Skärm bild för begäran med inställningar för brödtext](../media/postman-request-body-raw.png)
 
-5. Klistra in några JSON-dokument i ett format som är giltig för den avsedda analysen. Mer information om en viss analys finns i följande avsnitt:
+5. Klistra in vissa JSON-dokument i ett format som är giltigt för den avsedda analysen. Mer information om en viss analys finns i avsnitten nedan:
 
-  + [Språkidentifiering](text-analytics-how-to-language-detection.md)  
-  + [Extrahering av diskussionsämne](text-analytics-how-to-keyword-extraction.md)  
-  + [Attitydanalys](text-analytics-how-to-sentiment-analysis.md)  
-  + [Igenkänning av entiteter](text-analytics-how-to-entity-linking.md)  
+  + [Språk identifiering](text-analytics-how-to-language-detection.md)  
+  + [Extrahering av nyckel fraser](text-analytics-how-to-keyword-extraction.md)  
+  + [Sentiment-analys](text-analytics-how-to-sentiment-analysis.md)  
+  + [Enhets igenkänning](text-analytics-how-to-entity-linking.md)  
 
 
-6. Klicka på **skicka** att skicka begäran. Se den [databegränsningar](../overview.md#data-limits) avsnittet i översikten för information om antalet begäranden som du kan skicka per minut och sekund.
+6. Klicka på **Skicka** för att skicka begäran. I avsnittet [data begränsningar](../overview.md#data-limits) i översikt finns information om antalet förfrågningar som du kan skicka per minut och sekund.
 
-   I Postman visas svaret i fönstret nästa ned, som ett enda JSON-dokument med ett objekt för varje dokument-ID som tillhandahölls i begäran.
+   I Postman visas svaret i nästa fönster, som ett enda JSON-dokument, med ett objekt för varje dokument-ID som anges i begäran.
 
 ## <a name="see-also"></a>Se också 
 

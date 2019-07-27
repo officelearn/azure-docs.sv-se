@@ -1,6 +1,6 @@
 ---
-title: Träna appen
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Träna app-LUIS
+titleSuffix: Azure Cognitive Services
 description: Utbildning är lära din appversion för Språkförståelse (LUIS) att förbättra förståelse för naturliga språk. Träna LUIS-appen efter uppdateringar till modellen, till exempel att lägga till, redigera, etiketter eller ta bort entiteter, avsikter eller yttranden.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70c29769da2ec092b2b27b83f2f83200d4e727af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195867"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560374"
 ---
-# <a name="train-your-active-version-of-the-luis-app"></a>Träna din aktiva version av LUIS-app 
+# <a name="train-your-active-version-of-the-luis-app"></a>Träna din aktiva version av LUIS-appen 
 
 Utbildning är lära appen Språkförståelse (LUIS) för att förbättra förståelse för naturliga språk. Träna LUIS-appen efter uppdateringar till modellen, till exempel att lägga till, redigera, etiketter eller ta bort entiteter, avsikter eller yttranden. 
 
@@ -44,9 +44,9 @@ Starta iterativ process i den [LUIS portal](https://www.luis.ai), måste du för
 >[!NOTE]
 >Om du har en eller flera avsikter i din app som inte innehåller exempel yttranden, kan du träna din app. Lägg till yttranden för alla dina avsikter. Mer information finns i [lägger du till exempel yttranden](luis-how-to-add-example-utterances.md).
 
-## <a name="training-date-and-time"></a>Utbildning datum och tid
+## <a name="training-date-and-time"></a>Datum och tid för utbildning
 
-Utbildning datum och tid är GMT + 2. 
+Datum och tid för utbildning är GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Träna med alla data
 

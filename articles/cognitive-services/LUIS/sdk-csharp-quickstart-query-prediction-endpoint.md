@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: C# SDK-slutpunkt för förutsägelsefråga'
+title: 'Snabbstart: C#Slut punkt för SDK-fråga för förutsägelse – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Använd C# SDK till att skicka talindata för användaren till LUIS och ta emot en förutsägelse.
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c0b534848232d60929722e2036f69f4b6e670a4a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275813"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563162"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Snabbstart: Slutpunkt för förutsägelsefråga med C# .NET SDK
 

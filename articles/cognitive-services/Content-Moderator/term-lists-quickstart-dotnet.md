@@ -1,6 +1,6 @@
 ---
 title: Kontrollera text mot en anpassad termlista i C# – Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Moderera text med anpassade termlistor med hjälp av Content Moderator SDK för C#.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604088"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564415"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Kontrollera texten mot en anpassad termlista i C#
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Compose Main-metoden
+## <a name="compose-the-main-method"></a>Skapa main-metoden
 
 Lägg till **Main**-metoddefinitionen till namnrymden **TermLists**, klassen **Program**. Slutligen stänger du **Program**-klassen och namnrymden **TermLists**.
 
@@ -415,7 +415,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Visa resultatet genom att köra programmet
 
-Konsolens utdata ser ut så här:
+Konsolens utdata kommer att se ut ungefär så här:
 
 ```console
 Creating term list.

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Känna igen tal, C# (.NET Core) – Speech Services'
+title: 'Snabbstart: Identifiera tal, C# (.net Core) – tal service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig att känna igen tal i C# under .NET Core för Windows- eller macOS med hjälp av tal-SDK
+description: Lär dig att känna igen tal C# i under .net Core på Windows eller MacOS med hjälp av tal-SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9c445ea685518cec77089ce644a79305ff7f3e9e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3ba82f2bb3d8325b7cf77f357471dc4f25382ff6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606591"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559509"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Snabbstart: Taligenkänning med Speech SDK för .NET Core
 
-Snabbstarter kan också användas för [text till tal](quickstart-text-to-speech-dotnetcore.md) och [talöversättning](quickstart-translate-speech-dotnetcore-windows.md).
+Snabb Starter är också tillgängliga för [text till tal](quickstart-text-to-speech-dotnetcore.md) och [tal översättning](quickstart-translate-speech-dotnetcore-windows.md).
 
-Om du vill kan du välja olika programmeringsspråk och/eller miljön:<br/>
+Om du vill kan du välja ett annat programmeringsspråk och/eller miljö:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln skapar du en C# konsolapp för .NET Core för Windows- eller macOS med hjälp av Cognitive Services [tal SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet har skapats med [NuGet-paketets tal-SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
+I den här artikeln skapar du ett C# konsol program för .net Core på Windows eller MacOS med hjälp av COGNITIVE Services [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet har skapats med [NuGet-paketets tal-SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
 
 > [!NOTE]
 > .NET Core är en plattformsoberoende plattform med öppen källkod som implementerar [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specifikationen.
 
-Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
+Du behöver en prenumerations nyckel för tal tjänster för att slutföra den här snabb starten. Du kan skaffa en utan kostnad. Mer information finns i [testa tal tjänsterna kostnads fritt](get-started.md) .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -65,7 +65,7 @@ För den här snabbstarten krävs:
 
     ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Starta appen i felsökningsläge")
 
-1. Ett konsolfönster öppnas där du uppmanas att säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech Services och transkriberas till text som visas i samma fönster.
+1. Ett konsolfönster öppnas där du uppmanas att säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till tal tjänsterna och skrivs till text som visas i samma fönster.
 
     ![Skärmbild av konsolens utdata efter lyckad taligenkänning](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Konsolens utdata efter lyckad taligenkänning")
 

@@ -1,7 +1,7 @@
 ---
-title: Språkstöd – Speech Services
+title: Språk stöd – tal tjänsten
 titleSuffix: Azure Cognitive Services
-description: Azure Speech Services stöder flera språk för tal till text och text till tal konvertering, tillsammans med talöversättning. Den här artikeln innehåller en omfattande lista över språk som stöds av tjänsten.
+description: Tal tjänsten har stöd för flera språk för konvertering från tal till text och text till tal, tillsammans med tal översättning. Den här artikeln innehåller en omfattande lista över språk stöd för tjänst funktionen.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 006b9401a3418e3b2b3803fa0b7897b28887d14a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606610"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559398"
 ---
-# <a name="language-and-region-support-for-the-speech-services"></a>Stöd för språk och din region för Speech Services
+# <a name="language-and-region-support-for-the-speech-services"></a>Språk-och region stöd för tal tjänsterna
 
-Olika språk stöds för olika Speech Services-funktioner. Följande tabeller sammanfattar språkstöd.
+Olika språk stöds för olika funktioner i tal tjänster. Följande tabeller sammanfattar språkstöd.
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Både Microsoft-taligenkänning SDK och REST-API: et stöder följande språk (språk). Olika typer av anpassningar är tillgängliga för varje språk.
+Både Microsoft Speech igenkänning SDK och REST API stöder följande språk (lokala). Olika typer av anpassningar är tillgängliga för varje språk.
 
   Kod | Språk | [Akustisk anpassning](how-to-customize-acoustic-models.md) | [Språk-anpassning](how-to-customize-language-model.md) | [Uttal av anpassning](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
@@ -55,46 +55,46 @@ Både Microsoft-taligenkänning SDK och REST-API: et stöder följande språk (s
  ru-RU | Ryska (Ryssland) | Ja | Ja | Nej
  SV-SE | Svenska (Sverige) | Nej | Nej | Nej
  zh-CN | Kinesiska (Mandarin, förenklad) | Ja | Ja | Nej
- zh-HK | Kinesiska (Kantonesiska, traditionell) | Nej | Ja | Nej
+ zh-HK | Kinesiska (kantonesiska, traditionell) | Nej | Ja | Nej
  zh-TW | Kinesiska (Mandarin Taiwanesiska) | Nej | Ja | Nej
  TH-TH | Thailändska (Thailand) | Nej | Nej | Nej
 
 
 ## <a name="text-to-speech"></a>Text till tal
 
-Text till tal REST API har stöd för dessa röster som stöder ett visst språk och dialekt som identifieras av nationella inställningar.
+Text till tal-REST API stöder dessa röster, som var och en har stöd för ett särskilt språk och dialekt, som identifieras av locale.
 
 > [!IMPORTANT]
-> Priset varierar för standard och anpassade neurala röster. Besök den [priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) för ytterligare information.
+> Prissättningen varierar för standard-, anpassade och neurala röster. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) .
 
-### <a name="neural-voices"></a>Neural röster
+### <a name="neural-voices"></a>Neurala-röster
 
-Neural text till tal är en ny typ av talsyntes som drivs av djupa neurala nätverk. När du använder en neural röst är syntetiskt tal nästan identiska med mänsklig inspelningar.
+Neurala text till tal är en ny typ av tal syntes som drivs av djup neurala nätverk. När du använder en neurala-röst är syntetiskt tal nästan lätt att skilja från de mänskliga inspelningarna.
 
-Neural röster kan användas för att göra interaktion med chattrobotar och virtuella assistenter mer naturligt och engagerande och konverterar digitala texter, till exempel e-böcker till audiobooks och förbättra navigering i bilen system. Med människoliknande naturlig prosody och rensa rörlighet ord minska neural röster avsevärt lyssnande utmattning när användare interagerar med AI-system.
+Neurala röster kan användas för att göra interaktioner med chattrobotar och virtuella assistenter mer naturligt och engagerande, konvertera digitala texter som e-böcker till Audiobooks och förbättra navigerings systemen i bilen. Med den humana naturliga prosody och tydligare utsättande av ord, minskar neurala-röster avsevärt lyssnings utmattning när användarna interagerar med AI-system.
 
-En fullständig lista över neural röster och regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
+En fullständig lista över neurala-röster och regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-Nationell inställning | Språk | Kön | Fullständiga namnmappning | Namn på kort röst
+Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | Kort röst namn
 --------|----------|--------|---------|------------
-de-DE | Tyska (Tyskland) | Kvinna | ”Microsoft Server tal Text till tal-röst (de-DE, KatjaNeural)” | "de-DE-KatjaNeural"
-en-US | English (US) | Man | ”Microsoft Server tal Text till tal-röst (en-US, GuyNeural)” | "en-US-GuyNeural"
-en-US | English (US) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, JessaNeural)” | "en-US-JessaNeural"
-IT-IT | Italienska (Italien) | Kvinna |”Microsoft Server tal Text till tal-röst (it-IT, ElsaNeural)” | "it-IT-ElsaNeural"
-zh-CN | Kinesiska (fastlandet) | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-CN, XiaoxiaoNeural)” | "zh-CN-XiaoxiaoNeural"
+de-DE | Tyska (Tyskland) | Kvinna | "Microsoft Server Speech Text till tal Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
+en-US | English (US) | Man | "Microsoft Server Speech Text till tal Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
+en-US | English (US) | Kvinna | "Microsoft Server Speech Text till tal Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
+IT-IT | Italienska (Italien) | Kvinna |"Microsoft Server Speech Text till tal Voice (IT-IT, ElsaNeural)" | "IT-ElsaNeural"
+zh-CN | Kinesiska (fastlandet) | Kvinna | "Microsoft Server Speech Text till tal Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
 > [!NOTE]
-> Du kan använda Namnmappningen tjänster eller kort voice-namnet i dina tal syntes begäranden.
+> Du kan antingen använda den fullständiga tjänst namns mappningen eller det korta röst namnet i ditt tal syntes begär Anden.
 
 ### <a name="standard-voices"></a>Standard röster
 
-Mer än 75 standard röster är tillgängliga i över 45 språk och nationella inställningar, där du kan omvandla text till syntetiskt tal. Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
+Det finns fler än 75 standard röster i över 45 språk och nationella inställningar, vilket gör att du kan konvertera text till syntetiskt tal. Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-Nationell inställning | Språk | Kön | Fullständiga namnmappning | Namn på kort röst
+Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | Kort röst namn
 -------|----------|---------|----------|----------
 ar-t.ex.\* | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)” | "ar-EG-Hoda"
 ar-SA | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)” | "ar-SA-Naayf"
-BG-BG | Bulgariska | Man | ”Microsoft Server tal Text till tal röst (bg-BG, Ivan)” | "bg-BG-Ivan"
+BG-BG | Bulgariska | Man | ”Microsoft Server tal Text till tal röst (bg-BG, Ivan)” | "BG-BG-Ivan"
 CA-ES | Katalanska (Spanien) | Kvinna | ”Microsoft Server tal Text till tal röst (ca-ES, HerenaRUS)” | "ca-ES-HerenaRUS"
 CS-CZ | Tjeckiska | Man | ”Microsoft Server tal Text till tal-röst (cs-CZ, Jakub)” | "cs-CZ-Jakub"
 da-DK | Danska | Kvinna | ”Microsoft Server tal Text till tal-röst (da-DK, HelleRUS)” | "da-DK-HelleRUS"
@@ -103,7 +103,7 @@ Tyskland – CH | Tyska (Schweiz) | Man | ”Microsoft Server tal Text till tal-
 de-DE | Tyska (Tyskland) | Kvinna | ”Microsoft Server tal Text till tal-röst (de-DE, Hedda)” | "de-DE-Hedda"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (de-DE, HeddaRUS)” | "de-DE-HeddaRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (de-DE, Stefan, Apollo)” | "de-DE-Stefan-Apollo"
-el GR | Grekiska | Man | ”Microsoft Server tal Text till tal-röst (el-GR, Stefanos)” | "el-GR-Stefanos"
+el GR | Grekiska | Man | ”Microsoft Server tal Text till tal-röst (el-GR, Stefanos)” | "El-GR-Stefanos"
 SV-Australien | Engelska (Australien) | Kvinna | ”Microsoft Server tal Text till tal-röst (en AU, Catherine)” | "en-AU-Catherine"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en AU, HayleyRUS)” | "en-AU-HayleyRUS"
 en CA: N | Engelska (Kanada) | Kvinna | ”Microsoft Server tal Text till tal-röst (en CA, Johan)” | "en-CA-Linda"
@@ -111,7 +111,7 @@ en CA: N | Engelska (Kanada) | Kvinna | ”Microsoft Server tal Text till tal-r�
 en-GB | English (UK) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-GB, Susan, Apollo)” | "en-GB-Susan-Apollo"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en-GB, HazelRUS)” | "en-GB-HazelRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (en-GB, George, Apollo)” | "en-GB-George-Apollo"
-en IE | Engelska (Irland) | Man | ”Microsoft Server tal Text till tal-röst (en IE, Stefan)” | "en-IE-Sean"
+en IE | Engelska (Irland) | Man | ”Microsoft Server tal Text till tal-röst (en IE, Stefan)” | "en-IE-Stefan"
 en Indien | English (India) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, Heera, Apollo)” | "en-IN-Heera-Apollo"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, PriyaRUS)” | "en-IN-PriyaRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (en-IN-, Ravi, Apollo)” | "en-IN-Ravi-Apollo"
@@ -134,8 +134,8 @@ fr-FR | Franska (Frankrike)| Kvinna | ”Microsoft Server tal Text till tal rös
 | | | Man | ”Microsoft Server tal Text till tal röst (fr-FR, Paul, Apollo)” | "fr-FR-Paul-Apollo"
 han IL| Hebreiska (Israel) | Man| ”Microsoft Server tal Text till tal-röst (he IL-Asaf)” | "he-IL-Asaf"
 Hej Indien | Hindi (Indien) | Kvinna | ”Microsoft Server tal Text till tal-röst (Hej-IN-, Kalpana, Apollo)” | "hi-IN-Kalpana-Apollo"
-| | |Kvinna | ”Microsoft Server tal Text till tal-röst (Hej-IN-, Kalpana)” | "hi-IN-Kalpana"
-| | | Man | ”Microsoft Server tal Text till tal-röst (Hej-IN-, Hemant)” | ”Hej-IN-Hemant”
+| | |Kvinna | ”Microsoft Server tal Text till tal-röst (Hej-IN-, Kalpana)” | "Hi-IN-Kalpana"
+| | | Man | ”Microsoft Server tal Text till tal-röst (Hej-IN-, Hemant)” | "Hi-IN-Hemant"
 HR-HR | Kroatiska | Man | ”Microsoft Server tal Text till tal röst (hr-HR, Matej)” | "hr-HR-Matej"
 hu-HU | Ungerska | Man | ”Microsoft Server tal Text till tal-röst (hu-HU, Szabolcs)” | "hu-HU-Szabolcs"
 ID-ID | Indonesiska| Man | ”Microsoft Server tal Text till tal-röst (id-ID, Andika)” | "id-ID-Andika"
@@ -177,18 +177,18 @@ zh-TW | Kinesiska (Taiwan) | Kvinna | ”Microsoft Server tal Text till tal-rös
 \* *ar T.ex stöder moderna Standard arabiska (MSA).*
 
 > [!NOTE]
-> Du kan använda Namnmappningen tjänster eller kort voice-namnet i dina tal syntes begäranden.
+> Du kan antingen använda den fullständiga tjänst namns mappningen eller det korta röst namnet i ditt tal syntes begär Anden.
 
 ### <a name="customization"></a>Anpassning
 
-Röst anpassning är tillgängliga för de-DE, en-GB, SV – Indien, en-US, es-MX, fr-FR, it-IT, pt-BR och zh-CN. Välj rätt språk som matchar träningsdata som du behöver träna en modell för anpassade röst. Till exempel om inspelning-data som du har som sägs i engelska med en British accent, Välj en-GB.  
+Röst anpassning är tillgänglig för de-DE, en-GB, en-i, en-US, ES-MX, fr-FR, IT-IT, pt-BR och zh-CN. Välj rätt språk version som matchar de tränings data du behöver för att träna en anpassad röst modell. Om till exempel de inspelnings data du har talas på engelska med en brittisk accent väljer du en-GB.  
 
 > [!NOTE]
-> Vi stöder inte bi språkgränserna modellträning i anpassade röst, förutom den kinesiska engelska bi språkgränserna. Välj ”kinesiska engelska tvåspråkig' om du vill att träna en kinesiska röst som också kan prata engelska. Röst utbildning i alla språk som börjar med en uppsättning av över 2 000 yttranden, förutom en-US och zh-CN, där du kan börja med valfri storlek på träningsdata.
+> Vi har inte stöd för dubbelriktad modell utbildning i anpassad röst, förutom kinesiska-engelska bi-språk. Välj kinesiskt "kinesiskt" (tvåspråkig) "om du vill träna en kinesisk röst som även kan tala med engelska. Röst träning i alla lokala platser börjar med en data uppsättning av 2000 + yttranden, med undantag för en-US och zh-CN där du kan börja med valfri storlek på tränings data.
 
 ## <a name="speech-translation"></a>Talöversättning
 
-Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Källspråk måste alltid vara från tabellen tal till Text språk. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). En delmängd av dessa språk är tillgängliga för [talsyntes](language-support.md#text-languages).
+Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Käll språket måste alltid vara från språk tabellen för tal till text. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). En delmängd av dessa språk är tillgängliga för [talsyntes](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Språken för mobilapptext
 

@@ -1,7 +1,7 @@
 ---
-title: Ändra, träna appen, Go
+title: Ändra, träna app, go-LUIS
+titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten för språket Go lägger du till exempelyttranden till en app för hemautomatisering och tränar appen.
-titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 973323cd14d9472d9845f0709fc6d2924efc56f5
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 690ea26cb5c6effda71ec1d8236c6dabd02f02ee
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357157"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560561"
 ---
 # <a name="quickstart-change-model-using-go"></a>Snabbstart: Ändra modell med hjälp av Go
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * Programmeringsspråket [Go](https://golang.org/) installerat.

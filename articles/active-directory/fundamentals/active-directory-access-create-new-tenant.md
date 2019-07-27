@@ -2,22 +2,22 @@
 title: Snabbstart för att få åtkomst till och skapa en ny klient – Azure Active Directory | Microsoft Docs
 description: Instruktioner om hur du hittar Azure Active Directory och hur du skapar en ny klient för din organisation.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f970e9d43bc6dd67fe55ca9cdcfcae716c9f166a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bc3e3bb178efbbc8f4cee6d81417ce70bd7a662
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110608"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562060"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snabbstart: Skapa en ny klientorganisation i Azure Active Directory
 Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Directory (Azure AD)-portalen, inklusive att skapa en ny klient för din organisation. 
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på din organisations [Azure-portal](https://portal.azure.com/) med ett konto som global administratör.
 
-![Azure portal fönster, där Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+![Azure Portal skärm, med alternativet Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Så här skapar du en ny klient för din organisation
 När du har loggat in på Azure-portalen kan du skapa en ny klient för din organisation. Den nya klientorganisationen representerar din organisation och hjälper dig att hantera en specifik instans av Microsoft-molntjänster för dina interna och externa användare.
@@ -60,7 +60,7 @@ Om du inte planerar att fortsätta använda det här programmet kan du ta bort k
 
     Klienten och dess tillhörande information tas bort.
 
-    ![Översiktssidan för med markerade directory borttagningsknappen](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Översikts sida med markerad ta bort katalog-knapp](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Nästa steg
 - Information om att ändra eller lägga till fler domännamn finns i [Lägga till ett anpassat domännamn i Azure Active Directory](add-custom-domain.md)
@@ -69,6 +69,6 @@ Om du inte planerar att fortsätta använda det här programmet kan du ta bort k
 
 - Se [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md) för att lägga till grupper och medlemmar
 
-- Lär dig mer om [rollbaserad åtkomst med hjälp av Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) och [villkorlig åtkomst](../../role-based-access-control/conditional-access-azure-management.md) för att hantera din organisations program- och åtkomst.
+- Lär dig mer om [rollbaserad åtkomst med hjälp av Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) och [villkorlig åtkomst](../../role-based-access-control/conditional-access-azure-management.md) för att hantera organisationens program-och resurs åtkomst.
 
 - Lär dig mer om Azure AD, bland annat [grundläggande licensinformation, terminologi och associerade funktioner](active-directory-whatis.md).

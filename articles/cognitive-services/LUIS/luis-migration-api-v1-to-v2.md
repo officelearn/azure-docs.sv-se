@@ -1,7 +1,7 @@
 ---
 title: V1 till v2 API-migrering
 titleSuffix: Azure Cognitive Services
-description: 'Version 1-slutpunkten och redigera Language Understanding API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2-slutpunkten och redigera API: er.'
+description: 'Slut punkten för version 1 och redigering Language Understanding-API: er är inaktuella. Använd den här guiden för att lära dig hur du migrerar till version 2 Endpoint och redigerar API: er.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522364"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560310"
 ---
-# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2-Migreringsguide för LUIS-appar
-Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) API: er. 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2 migration guide för LUIS-appar
+[Slut punkten](https://aka.ms/v1-endpoint-api-docs) för version 1 och [redigerings](https://aka.ms/v1-authoring-api-docs) -API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) API: er. 
 
 ## <a name="new-azure-regions"></a>Nya Azure-regioner
-LUIS har nya [regioner](https://aka.ms/LUIS-regions) för LUIS APIs. LUIS innehåller en annan portal för regionsgrupper. Programmet måste skrivas i samma region som du förväntar dig att fråga. Program migreras inte automatiskt regioner. Du kan exportera en app från en region och sedan importera till en annan för att vara tillgängligt i en ny region.
+LUIS har nya [regioner](https://aka.ms/LUIS-regions) för LUIS APIs. LUIS tillhandahåller en annan portal för region grupper. Programmet måste skrivas i samma region som du förväntar dig att fråga. Program migreras inte automatiskt regioner. Du kan exportera en app från en region och sedan importera till en annan för att vara tillgängligt i en ny region.
 
 ## <a name="authoring-route-changes"></a>Redigera vägen ändringar
 Redigering API vägen ändras från att använda den **prog** väg till med hjälp av den **api** väg.
@@ -35,7 +35,7 @@ Redigering API vägen ändras från att använda den **prog** väg till med hjä
 
 
 ## <a name="endpoint-route-changes"></a>Slutpunkten vägen ändringar
-Slutpunkten API har nya parametrar för frågesträngen som ett annat svar. Om flaggan utförlig är true, returneras alla avsikter oavsett poäng, i en matris med namnet avsikter, förutom topScoringIntent.
+Slut punkts-API: et har nya parametrar för frågesträng och ett annat svar. Om flaggan utförlig är true, returneras alla avsikter oavsett poäng, i en matris med namnet avsikter, förutom topScoringIntent.
 
 | version | Hämta väg |
 |--|--|
@@ -153,7 +153,7 @@ LUIS föreslår yttranden från befintliga [endpoint yttranden](luis-how-to-revi
 |/ luis/api/v2.0/apps/customprebuiltdomains/{culture}  |Hämta|
 
 ## <a name="importing-1x-app-into-2x"></a>Importera 1.x-app till 2.x
-Exporterade 1.x appens JSON har vissa områden som du behöver ändra innan du importerar till [LUIS] [ LUIS] 2.0. 
+Den exporterade 1. x-appens JSON har vissa områden som du måste ändra innan du importerar till [LUIS][LUIS] 2,0. 
 
 ### <a name="prebuilt-entities"></a>Fördefinierade entiteter 
 Den [förskapade entiteter](luis-prebuilt-entities.md) har ändrats. Kontrollera att du använder V2 förskapade entiteter. Detta inkluderar med [datetimeV2](luis-reference-prebuilt-datetimev2.md), i stället för datum/tid. 

@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Analysera bilder för stötande innehåll i C# – Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Hur du analyserar bildinnehåll för olika stötande material med innehåll Moderator SDK för .NET
+titleSuffix: Azure Cognitive Services
+description: Analysera bild innehåll för olika stötande material med hjälp av Content Moderator SDK för .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: d9a28dcd4af68cf9c00eb3d338c4bd83c8d89ecc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9bfe5f21da6418f82b2099a5da4ba8c3c32c25f3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604126"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564504"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Snabbstart: Analysera bilder för stötande innehåll iC#
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du lär dig att söka efter vuxet eller olämpligt innehåll, extraheras text och ansikten i syfte att kontrollera potentiellt stötande material.
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du får lära dig att söka efter vuxna eller vågat innehåll, extraherings bara text och mänskliga ansikten i syfte att kontrol lera potentiellt stötande material.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -60,7 +60,7 @@ Lägg till följande kod i filen *Program.cs* för att skapa en Content Moderato
 
 ### <a name="set-up-input-and-output-targets"></a>Konfigurera inkommande och utgående mål
 
-Lägg till följande statiska fält till klassen **Program** i _Program.cs_. De här fälten ange filer för avbildning av innehåll och utdata JSON-innehåll.
+Lägg till följande statiska fält till klassen **Program** i _Program.cs_. De här fälten anger filerna för innehåll för indata och JSON-innehåll.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
 
@@ -86,13 +86,13 @@ Lägg till följande metod i klassen **Program**. Den här metoden utvärderar e
 
 ### <a name="load-the-input-images"></a>Läsa in indatabilder
 
-Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden konfigurerar programmet att hämta utvärdering av data för varje bild-URL i filen. Sedan skriver dessa data till en enda utdatafil.
+Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden konfigurerar programmet för att hämta utvärderings data för varje bild-URL i indatafilen. Sedan skriver dessa data till en enda utdatafil.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 
 ## <a name="run-the-program"></a>Köra programmet
 
-Programmet skriver JSON-strängdata till filen _ModerationOutput_. Exempelbilderna som används i den här snabbstarten ger följande utdata. Varje avbildning har olika avsnitt för `ImageModeration`, `FaceDetection`, och `TextDetection`, som motsvarar de tre API-anrop i din **EvaluateImage** metod.
+Programmet skriver JSON-strängdata till filen _ModerationOutput_. Exempelbilderna som används i den här snabbstarten ger följande utdata. Varje avbildning har olika avsnitt för `ImageModeration`, `FaceDetection`och `TextDetection`, som motsvarar de tre API-anropen i **EvaluateImage** -metoden.
 
 ```json
 [{

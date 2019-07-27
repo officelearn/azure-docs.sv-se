@@ -1,7 +1,7 @@
 ---
-title: Förbereda testdata för anpassat tal – Speech Services
-titlesuffix: Azure Cognitive Services
-description: Om du testar om du vill se hur exakt Microsoft taligenkänning är eller utbildning egna modeller och du behöver data (i form av ljud och/eller text). Vi beskriver vilka typer av data, hur de används och hur du hanterar dem på den här sidan.
+title: Förbered test data för Custom Speech Speech service
+titleSuffix: Azure Cognitive Services
+description: Oavsett om du testar för att se hur korrekt Microsoft tal igenkänning är eller tränar dina egna modeller, behöver du data (i form av ljud och/eller text). På den här sidan tar vi upp typer av data, hur de används och hur de hanteras.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,80 +10,80 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6e1ffa11456fc6a021e370d674624d297463ac73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8821ce46c65ac8bca36f006ef77bcaf475b0573d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603188"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559616"
 ---
-# <a name="prepare-data-for-custom-speech"></a>Förbereda data för anpassat tal
+# <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
-Om du testar om du vill se hur exakt Microsoft taligenkänning är eller utbildning egna modeller och du behöver data i form av ljud och text. Vi beskriver vilka typer av data, hur de används och hur du hanterar dem på den här sidan.
+Oavsett om du testar för att se hur korrekt Microsoft tal igenkänning är eller tränar dina egna modeller, behöver du data i form av ljud och text. På den här sidan tar vi upp typer av data, hur de används och hur de hanteras.
 
 ## <a name="data-types"></a>Datatyper
 
-Den här tabellen visar en lista över godkända datatyper, när varje datatyp som ska användas och den rekommendera mängden. Inte alla datatypen krävs för att skapa en modell. Data-kraven varierar beroende på om du skapar ett test eller träna en modell.
+I den här tabellen listas godkända data typer, när varje datatyp ska användas och den rekommenderade kvantiteten. Det krävs inte alla data typer för att skapa en modell. Data kraven varierar beroende på om du skapar ett test eller tränar en modell.
 
-| Datatyp | Används för testning | Kvantitet | Används för utbildning | Kvantitet |
+| Datatyp | Används för testning | Antal | Används för utbildning | Antal |
 |-----------|-----------------|----------|-------------------|----------|
-| [Ljud](#audio-data-for-testing) | Ja<br>Används för granskning | 5 + ljudfiler | Nej | Ej tillämpligt |
-| [Ljud + mänskliga etikett avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmar med ljud | Ja | 1 – 1 000 timmar med ljud |
-| [Relaterade text](##related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1 200 MB relaterade text |
+| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | Ej tillämpligt |
+| [Ljud + medmärkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmars ljud | Ja | 1 – 1 000 timmars ljud |
+| [Relaterad text](##related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1-200 MB relaterad text |
 
-Filer bör grupperade efter typ till en datauppsättning och laddas upp som en zip-fil. Varje datamängd kan bara innehålla en enda datatyp.
+Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip-fil. Varje data uppsättning får bara innehålla en enda datatyp.
 
 ## <a name="upload-data"></a>Ladda upp data
 
-När du är redo att ladda upp data, klickar du på **ladda upp data** att starta guiden och skapa din första datauppsättning. Du kommer att uppmanas att välja en tal-datatyp för din datauppsättning innan så att du kan ladda upp data.
+När du är redo att ladda upp dina data klickar du på **överför data** för att starta guiden och skapa din första data uppsättning. Du uppmanas att välja en tal data typ för din data uppsättning innan du tillåter att du överför dina data.
 
-![Välj ljud från portalen tal](./media/custom-speech/custom-speech-select-audio.png)
+![Välj ljud från tal portalen](./media/custom-speech/custom-speech-select-audio.png)
 
-Varje datauppsättning som du överför måste uppfylla kraven för den datatyp som du väljer. Det är viktigt att korrekt formatera dina data innan det överförs. Detta garanterar att data bearbetas korrekt av Custom Speech-tjänsten. Kraven finns i följande avsnitt.
+Varje data uppsättning som du överför måste uppfylla kraven för den datatyp som du väljer. Det är viktigt att du formaterar dina data korrekt innan de överförs. Detta säkerställer att data bearbetas korrekt av tjänsten Custom Speech. Kraven visas i följande avsnitt.
 
-När din datauppsättning har överförts, har du några alternativ:
+När din data uppsättning har laddats upp har du några alternativ:
 
-* Du kan navigera till den **testning** fliken och visuellt inspektera endast ljud eller ljud + mänskliga etikett avskrift data.
-* Du kan navigera till den **utbildning** fliken och använder ljud + mänskliga avskrift data eller relaterade textdata för att träna en anpassad modell.
+* Du kan navigera till fliken **test** och visuellt inspektera enbart ljud eller ljud + mänskligt avskrifts data.
+* Du kan navigera till fliken **utbildning** och använda ljud-och färg SKRIFTS data eller relaterade text data för att träna en anpassad modell.
 
-## <a name="audio-data-for-testing"></a>Ljuddata för testning
+## <a name="audio-data-for-testing"></a>Ljud data för testning
 
-Ljuddata är optimalt för att testa det arbete du utfört Microsofts baslinje tal till text modell eller en anpassad modell. Tänk på, ljuddata används för att kontrollera korrektheten i tal för en viss modell prestanda. Om du vill kvantifiera korrektheten i en modell, använda [ljud + mänskliga etikett avskrift data](#audio--human-labeled-transcript-data-for-testingtraining).
+Ljuddata är optimala för att testa noggrannheten hos Microsofts bas linje tal-till-text-modell eller en anpassad modell. Kom ihåg att ljuddata används för att kontrol lera precisionen för tal med avseende på en speciell modells prestanda. Om du vill kvantifiera precisionen för en modell använder du [ljud + mänskligt avskrifts data](#audio--human-labeled-transcript-data-for-testingtraining).
 
-Använd den här tabellen för att säkerställa att dina ljudfiler formateras på rätt sätt för användning med anpassat tal:
+Använd den här tabellen för att se till att ljudfilerna är korrekt formaterade för användning med Custom Speech:
 
-| Egenskap | Värde |
+| Egenskap | Value |
 |----------|-------|
-| Filformat | RIFF (WAV) |
-| Samplingshastighet | 8 000 eller 16 000 Hz |
+| Fil format | RIFF (WAV) |
+| Samplingshastighet | 8 000 Hz eller 16 000 Hz |
 | Kanaler | 1 (mono) |
 | Maximal längd per ljud | 2 timmar |
-| Exempelformat | PCM, 16-bitars |
-| Arkivformat | .zip |
-| Maximal arkivstorlek | 2 GB |
+| Exempel format | PCM, 16-bitars |
+| Arkiv format | .zip |
+| Maximal Arkiv storlek | 2 GB |
 
-Om din ljud inte uppfyller de här egenskaperna eller om du vill kontrollera om den gör, vi rekommenderar att ladda ned [sox](http://sox.sourceforge.net) att kontrollera eller konvertera ljudet. Nedan visas några exempel på hur var och en av dessa aktiviteter kan göras via kommandoraden:
+Om ljudet inte uppfyller dessa egenskaper eller om du vill kontrol lera om det gör det rekommenderar vi att du hämtar [SOX](http://sox.sourceforge.net) för att kontrol lera eller konvertera ljudet. Nedan visas några exempel på hur var och en av dessa aktiviteter kan göras via kommando raden:
 
-| Aktivitet | Beskrivning | SOx kommando |
+| Aktivitet | Beskrivning | SOX-kommando |
 |----------|-------------|-------------|
-| Kontrollera ljudformatet | Du kan använda det här kommandot för att kontrollera formatet ljud. | `sox --i <filename>` |
-| Konvertera ljudformatet | Använd kommandot för att konvertera filen till en kanal, 16-bitars, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+| Kontrol lera ljud formatet | Använd det här kommandot för att kontrol lera ljud fil formatet. | `sox --i <filename>` |
+| Konvertera ljud format | Använd det här kommandot för att konvertera ljud filen till en kanal, 16-bitars 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
-## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Ljud + mänskliga etikett avskrift data för testning/utbildning
+## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Ljud + mänskligt avskrifts data för testning/utbildning
 
-För att mäta korrektheten i Microsofts tal till text precision vid bearbetning av din ljudfiler, måste du ange mänskliga etikett avskrifter (ord för ord) för jämförelse. Human etikett avskrift är ofta tidskrävande, är det nödvändigt att utvärdera Precision och för att träna modellen för ditt användningsfall. Tänk på, förbättringarna i Taligenkänning kommer bara att lika bra som tillhandahålls. Därför är det viktigt att endast högkvalitativa avskrifter överförs.  
+För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetning av ljudfiler, måste du tillhandahålla medmärkta avskrifter (ord för ord) för jämförelse. Även om det ofta finns tids krävande avskrifter, är det nödvändigt att utvärdera precisionen och träna modellen för dina användnings fall. Kom ihåg att förbättringarna i igenkänningen bara är lika lämpliga som de data som tillhandahålls. Därför är det viktigt att endast avskrifter av hög kvalitet överförs.  
 
-| Egenskap | Värde |
+| Egenskap | Value |
 |----------|-------|
-| Filformat | RIFF (WAV) |
-| Samplingshastighet | 8 000 eller 16 000 Hz |
+| Fil format | RIFF (WAV) |
+| Samplingshastighet | 8 000 Hz eller 16 000 Hz |
 | Kanaler | 1 (mono) |
 | Maximal längd per ljud | 60 s |
-| Exempelformat | PCM, 16-bitars |
-| Arkivformat | .zip |
+| Exempel format | PCM, 16-bitars |
+| Arkiv format | .zip |
 | Maximal zip-storlek | 2 GB |
 
-Att åtgärda problem med som word borttagning eller ersättningen, en betydande mängd data krävs för att förbättra taligenkänning. I allmänhet rekommenderar vi för att tillhandahålla ord för ord avskrifter för ungefär 10 och 1 000 timmar med ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
+För att lösa problem som Word-borttagning eller ersättning krävs en stor mängd data för att förbättra igenkänningen. I allmänhet rekommenderar vi att du ger ord för ord-avskrifter i ungefär 10 till 1 000 timmar av ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
 
   Exempel:
 ```
@@ -94,76 +94,76 @@ Att åtgärda problem med som word borttagning eller ersättningen, en betydande
 > [!NOTE]
 > Transkriptionen ska kodas som UTF-8-byteordningsmärke (BOM).
 
-Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock vissa viktiga normaliseringar som måste utföras av användaren _innan_ data laddas upp till Custom Speech Service. Lämplig språket som ska användas när du förbereder din avskrifter, se [så här skapar du en etikett mänskliga avskrift](how-to-custom-speech-human-labeled-transcriptions.md)
+Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock vissa viktiga normaliseringar som måste utföras av användaren _innan_ data laddas upp till Custom Speech Service. För det språk som ska användas när du förbereder dina avskrifter, se [så här skapar du en](how-to-custom-speech-human-labeled-transcriptions.md) medhjälpad avskrift
 
-När du har samlat in dina ljudfiler och motsvarande avskrifter, bör de paketerad som en enda .zip-fil innan du laddar upp till portalen för anpassat tal. Det här är en exempel-datauppsättning med tre ljudfiler och en etikett mänskliga avskrift-fil:
+När du har samlat in dina ljudfiler och motsvarande avskrifter bör de paketeras som en enda zip-fil innan de överförs till Custom Speech Portal. Detta är ett exempel på en data uppsättning med tre ljudfiler och en fil med mänsklig märkning:
 
-![Välj ljud från portalen tal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+![Välj ljud från tal portalen](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-## <a name="related-text-data-for-training"></a>Relaterade textdata för träning
+## <a name="related-text-data-for-training"></a>Relaterade text data för utbildning
 
-Om du har produktnamn eller funktioner som är unika och du vill kontrollera att de identifieras korrekt, är det viktigt att inkludera relaterade textdata för utbildning. Två typer av relaterade textdata kan anges för att förbättra taligenkänning:
+Om du har produkt namn eller funktioner som är unika och vill se till att de identifieras korrekt, är det viktigt att inkludera relaterade text data för utbildning. Två typer av relaterade text data kan tillhandahållas för att förbättra igenkänningen:
 
-| Datatyp | Hur dessa data förbättrar taligenkänning |
+| Datatyp | Hur dessa data förbättrar igenkänningen |
 |-----------|------------------------------------|
-| Yttranden och/eller meningar | Dessa kan förbättra noggrannheten vid tolkning av produktnamn eller branschspecifika ordförråd inom ramen för en mening. |
-| Uttal | Dessa kan förbättra uttal för ovanliga termer eller förkortningar andra ord med odefinierat uttal. |
+| Yttranden och/eller meningar | Dessa kan förbättra precisionen vid igenkänning av produkt namn eller branschspecifika ord listor inom ramen för en mening. |
+| Uttal | Dessa kan förbättra uttal av ovanliga termer, akronymer eller andra ord med odefinierade uttal. |
 
-Yttranden kan anges som en eller flera textfiler. Ju närmare text data är att det ska vara sägs, desto större sannolikhet att bättre noggrannhet. Uttal bör anges som en enda textfil. Allt kan vara paketerad som en enda zip-fil och laddas upp till portalen för anpassat tal.
+Yttranden kan anges som en enda eller flera textfiler. Mer exakta text data är att talas, desto större sannolikhet att noggrannheten förbättras. Uttal ska anges som en enskild textfil. Allt kan paketeras som en enda zip-fil och överföras till Custom Speech Portal.
 
-### <a name="guidelines-to-create-an-utterances-file"></a>Riktlinjer för att skapa en yttranden-fil
+### <a name="guidelines-to-create-an-utterances-file"></a>Rikt linjer för att skapa en yttranden-fil
 
-Om du vill skapa en anpassad modell med relaterade text, måste du ange en lista över exemplet yttranden. Dessa yttranden behöver inte fullständiga meningar eller korrigera grammatiskt, men de måste korrekt speglar talat indata som du förväntar dig i produktion. Om du vill att vissa villkor ha ökat vikt, kan du lägga till flera meningar relaterade datafilen som innehåller dessa specifika villkor.
+Om du vill skapa en anpassad modell med relaterad text måste du ange en lista över yttranden. Dessa yttranden behöver inte vara fullständiga meningar eller grammatiskt korrekt, men de måste avspegla den talade ingången som du förväntar dig i produktionen. Om du vill att vissa villkor har ökat vikt kan du lägga till flera meningar till din relaterade datafil som innehåller dessa specifika villkor.
 
-Använd den här tabellen för att se till att datafilen relaterade för yttranden har formaterats korrekt:
+Använd den här tabellen för att se till att din relaterade datafil för yttranden är korrekt formaterad:
 
-| Egenskap | Värde |
+| Egenskap | Value |
 |----------|-------|
 | Textkodning | UTF-8 BOM |
 | antal yttrande per rad | 1 |
 | Maximal filstorlek | 200 MB |
 
-Dessutom bör du hänsyn till följande begränsningar:
+Dessutom bör du ta hänsyn till följande begränsningar:
 
-* Undvika upprepade tecken mer än fyra gånger. Till exempel: ”aaaa” eller ”uuuu”.
-* Använd inte specialtecken eller UTF-8 tecken utöver U + 00A1.
+* Undvik upprepade tecken mer än fyra gånger. Till exempel: "AAAA" eller "uuuu".
+* Använd inte specialtecken eller UTF-8-tecken över U + 00A1.
 * URI: er kommer att avvisas.
 
-### <a name="guidelines-to-create-a-pronunciation-file"></a>Riktlinjer för att skapa en uttal av fil
+### <a name="guidelines-to-create-a-pronunciation-file"></a>Rikt linjer för att skapa en uttal-fil
 
-Om det är ovanligt villkor utan standard uttal som användarna stöter på eller använda kan ange du en anpassad uttal-fil för att förbättra taligenkänning.
+Om det finns ovanliga termer utan standard uttal som användarna kommer att stöta på eller använder, kan du ange en anpassad uttal-fil för att förbättra igenkänningen.
 
 > [!IMPORTANT]
-> Du bör inte använda den här funktionen för att ändra uttal för vanliga ord.
+> Vi rekommenderar inte att du använder den här funktionen för att ändra uttal av vanliga ord.
 
-Det innehåller exempel på en talat uttryck och en anpassad uttal för var och en:
+Detta inkluderar exempel på en talade uttryck och ett anpassat uttal för var och en:
 
-| Identifieras/visas formuläret | Talat formulär |
+| Identifierat/visat formulär | Talat formulär |
 |--------------|--------------------------|
-| 3CPO | tre c-p-o |  
-| CNTK | s n t k |
-| IEEE | i tredubbla e |
+| 3CPO | tre c p o |  
+| CNTK | c n t k |
+| STANDARDEN | i tredubbel e |
 
-Formuläret talat är fonetiska sekvensen med bokstäver. Det kan bestå av bokstäver, ord, stavelser eller en kombination av alla tre.
+Det talade formuläret är den fonetiska sekvensen som har stavats ut. Det kan bestå av bokstäver, ord, stavelser eller en kombination av alla tre.
 
-Anpassade uttal är tillgänglig på engelska (en-US) och tyska (de-DE). Den här tabellen visar tecken som stöds av språk:
+Anpassat uttal är tillgängligt på engelska (en-US) och tyska (de-DE). I den här tabellen visas tecken som stöds efter språk:
 
 | Språk | Nationell inställning | Karaktärer |
 |----------|--------|------------|
-| Svenska | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, frågor och, r, s, t, u, v, w, x, y, z |
-| Tyska | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Svenska | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Tyska | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, b, x, y, z |
 
-Använd den här tabellen för att säkerställa att din relaterade datafil för uttal har formaterats korrekt. Uttal av filer är små och får inte överstiga några KB-artiklar.
+Använd den här tabellen för att kontrol lera att din relaterade datafil för uttal är korrekt formaterad. Uttal-filerna är små och bör inte överstiga några få KB.
 
 | Egenskap | Värde |
 |----------|-------|
-| Textkodning | UTF-8 BOM (ANSI stöds också för engelska) |
-| Antal uttal per rad | 1 |
-| Maximal filstorlek | 1 MB (1 KB för den kostnadsfria nivån) |
+| Textkodning | UTF-8-struktur (ANSI stöds också för engelska) |
+| antal uttal per rad | 1 |
+| Maximal filstorlek | 1 MB (1 KB ledig nivå) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Granska dina data](how-to-custom-speech-inspect-data.md)
+* [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 * [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
 * [Träna din modell](how-to-custom-speech-train-model.md)
 * [Distribuera din modell](how-to-custom-speech-deploy-model.md)

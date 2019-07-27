@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en app'
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Snabb start: skapa app-LUIS'
+titleSuffix: Azure Cognitive Services
 description: Skapa en LUIS-app där den fördefinierade domänen `HomeAutomation` används till att släcka lampor och stänga av apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6d3b4d23ae1ad04142b0dec01a1abccbd2f81942
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e53f8d6e08b345d417ce54deacd658275cb1cd00
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150142"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563924"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda fördefinierad hemautomatisering
 
 I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade domänen `HomeAutomation` för att släcka lampor och stänga av apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här artikeln behöver du ett kostnadsfritt LUIS-konto som skapas på LUIS-portalen på [https://www.luis.ai](https://www.luis.ai). 
 
@@ -58,7 +58,7 @@ När domänen har lagts till visar rutan för den fördefinierade domänen knapp
 
 Välj **Intents** i navigeringsfönstret till vänster för att granska avsikter för domänen HomeAutomation. Varje avsikt har exempelyttranden.
 
-![Skärmbild av HomeAutomation avsikter lista](media/luis-quickstart-new-app/home-automation-intents.png "skärmbild HomeAutomation avsikter lista")]
+![Skärm bild av listan med HomeAutomation] -intentor (media/luis-quickstart-new-app/home-automation-intents.png "Skärm bild av listan med HomeAutomation")-intentor]
 
 > [!NOTE]
 > **None** (Ingen) är en avsikt som tillhandahålls av alla LUIS-appar. Du kan använda den till att hantera yttranden som inte motsvarar funktioner som finns i din app. 

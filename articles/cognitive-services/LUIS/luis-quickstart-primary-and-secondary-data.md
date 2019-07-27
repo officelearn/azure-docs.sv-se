@@ -1,5 +1,5 @@
 ---
-title: Enkel entitet, fraslista
+title: Enkel entitet, fras lista – LUIS
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien extraherar du data med jobbnamn via maskininlärning ur ett yttrande med hjälp av en enkel entitet. Om du vill öka noggrannheten i extraheringen lägger du till en fraslista med villkor som är specifika för den enkla entiteten.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 786c5725046885a0321696e95703c53081e96979
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276212"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560339"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Självstudier: Extrahera namn med en enkel entitet och en fraslista
 
@@ -48,7 +48,7 @@ En enkel entitet passar bra till den här typen av data i följande fall:
 * Data är inte välformade som i reguljära uttryck.
 * Data är inte enhetliga som i en fördefinierad entitet med telefonnummer eller data.
 * Data kan inte matchas exakt mot en lista med kända ord, som i en listentitet.
-* Data innehåller inte andra dataobjekt som en sammansatt entitet eller sammanhangsberoende roller.
+* Data innehåller inte andra data objekt, till exempel en sammansatt entitet eller sammanhangsbaserade roller.
 
 Ta till exempel följande yttranden från en chattrobot:
 
@@ -237,7 +237,7 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 
     Se till att **These values are interchangeable** (Dessa värden är utbytbara) är markerad eftersom alla dessa värden ska behandlas som synonymer för jobb. Läs mer om utbytbara och icke utbytbara [begrepp i fraslistan](luis-concept-feature.md#how-to-use-phrase-lists).
 
-1. Välj **klar** att aktivera listan fras.
+1. Välj **Done** för att aktivera listan fras.
 
     [![Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

@@ -1,7 +1,7 @@
 ---
-title: Moderera text med anpassad termlistor - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Använd listan Management-API för att skapa anpassade listor av termer som du använder med Moderering av Text-API.
+title: Måttlig text med anpassade term listor – Content Moderator
+titleSuffix: Azure Cognitive Services
+description: 'Använd API för List hantering för att skapa anpassade listor med villkor som ska användas med API: et för text redigering.'
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097954"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564402"
 ---
-# <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Måttlig med anpassade termlistor i API-konsol
+# <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Måttlig med anpassade term listor i API-konsolen
 
 Den standardmässiga globala listan med termer i Azure Content Moderator räcker för de flesta modereringsbehov. Du kan dock behöva kontrollera termer som är specifika för din organisation. Till exempel vill du kanske tagga namn på konkurrenter för vidare granskning. 
 
-Använd den [listan Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) att skapa anpassade listor av termer som du använder med Moderering av Text-API. Den **Text - skärmen** åtgärden söker igenom din text med avseende på svordomar och jämför också texten mot anpassade och delade svartlistor.
+Använd [API för List hantering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) för att skapa anpassade listor med villkor som ska användas med API: et för text redigering. **Text skärms** åtgärden söker igenom texten efter svordomar och jämför även text mot anpassade och delade Black lister.
 
 > [!NOTE]
 > Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer**.
 >
 
-Du kan använda listan Management-API för att utföra följande uppgifter:
+Du kan använda API: et för List hantering för att utföra följande uppgifter:
 - Skapa en lista.
 - Lägga till termer i en lista.
 - Kontrollera termer mot termer i en lista.
@@ -36,46 +36,46 @@ Du kan använda listan Management-API för att utföra följande uppgifter:
 - Redigera listinformation.
 - Uppdatera indexet så att ändringar i listan inkluderas i en ny genomsökning.
 
-## <a name="use-the-api-console"></a>Använd API-konsol
+## <a name="use-the-api-console"></a>Använda API-konsolen
 
-Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den här nyckeln finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [Översikt](overview.md).
+Innan du kan testa API: et i online-konsolen behöver du din prenumerations nyckel. Den här nyckeln finns på fliken **Inställningar** i rutan **OCP-APIM-Subscription-Key** . Mer information finns i [Översikt](overview.md).
 
-## <a name="refresh-search-index"></a>Uppdatera search-index
+## <a name="refresh-search-index"></a>Uppdatera Sök index
 
-När du gör ändringar i en termlista, måste du uppdatera dess index för ändringar som ska ingå i framtida skanningar. Det här steget liknar hur en sökmotor på skrivbordet (om aktiverat) eller en sökmotor för kontinuerligt uppdaterar dess index med nya filer eller sidor.
+När du har gjort ändringar i en term lista måste du uppdatera dess index för att ändringarna ska ingå i framtida genomsökningar. Det här steget påminner om hur en sökmotor på Skriv bordet (om den är aktive rad) eller en Webbs öknings motor kontinuerligt uppdaterar sitt index för att inkludera nya filer eller sidor.
 
-1. I den [termen listan Management API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), i den vänstra menyn väljer du **termen visar en lista över**, och välj sedan **uppdatera sökindex**. 
+1. Välj **term listor**på den vänstra menyn i [term List HANTERINGs-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)-referensen och välj sedan **Uppdatera Sök index**. 
 
-   Den **termen - uppdatera Search Index över** öppnas.
+   Sidan **giltighets listor – uppdatera Sök index** öppnas.
 
-2. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
+2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-   ![Termlistor - uppdatering sökindex sidan val](images/test-drive-region.png)
+   ![Term listor – uppdatera Sök index sidan Val av område](images/test-drive-region.png)
 
-   Den **termen - uppdatera Search Index över** API-konsolen öppnas.
+   **Term listor – uppdatera API-** konsolen för sökindex öppnas.
 
-3. I den **listId** anger list-ID. Ange din prenumerationsnyckel och välj sedan **skicka**.
+3. I rutan **listId** anger du List-ID. Ange din prenumerations nyckel och välj sedan **Skicka**.
 
-   ![Termlistor API - uppdatering sökindex konsolen svar innehållsrutan](images/try-terms-list-refresh-1.png)
+   ![Term visar API – uppdatera Sök index konsol rutan svar innehåll](images/try-terms-list-refresh-1.png)
 
 ## <a name="create-a-term-list"></a>Skapa en termlista
-1. Gå till den [termen listan Management API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
+1. Gå till [term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)-referensen. 
 
-   Den **termen visar - skapa** öppnas.
+   Sidan **villkors listor – skapa** öppnas.
 
-2. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
+2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-   ![Långsiktig listor – skapa val av region](images/test-drive-region.png)
+   ![Term listor – skapa val av sid region](images/test-drive-region.png)
 
-   Den **termen visar - skapa** API-konsolen öppnas.
+   **Termen listor – skapa API-** konsolen öppnas.
  
-3. I den **Ocp-Apim-Subscription-Key** anger din prenumerationsnyckel.
+3. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
 
-4. I den **Begärandetext** anger värden för **namn** (till exempel MyList) och **beskrivning**.
+4. I rutan **begär ande innehåll** anger du värden för **namn** (till exempel min lista) och **Beskrivning**.
 
-   ![Långsiktig listor – skapa konsolen brödtext namn och beskrivning](images/try-terms-list-create-1.png)
+   ![Term listor – namn och beskrivning för begäran om att skapa konsolen](images/try-terms-list-create-1.png)
 
-5. Använda nyckel / värde-par platshållare för att tilldela mer beskrivande metadata till din lista.
+5. Använd plats hållare för nyckel/värde-par för att tilldela mer beskrivande metadata till listan.
 
        {
           "Name": "MyExclusionList",
@@ -87,89 +87,89 @@ När du gör ändringar i en termlista, måste du uppdatera dess index för änd
           }
        }
 
-   Lägg till metadata för lista som nyckel / värde-par och inte faktiska villkor.
+   Lägg till List-metadata som nyckel/värde-par och inte faktiska villkor.
  
-6. Välj **Skicka**. Listan skapas. Obs den **ID** värde som är associerat med den nya listan. Du behöver detta ID för andra hanteringsfunktioner för termen lista.
+6. Välj **Skicka**. Listan har skapats. Observera det **ID-** värde som är associerat med den nya listan. Du behöver detta ID för andra hanterings funktioner för term listor.
 
-   ![Långsiktig listor – skapa konsolen svar innehåll rutan visar list-ID](images/try-terms-list-create-2.png)
+   ![Term listor – innehålls rutan skapa konsol svar visar List-ID](images/try-terms-list-create-2.png)
  
-7. Lägg till villkor i MyList. I den vänstra menyn under **termen**väljer **Lägg till Term**. 
+7. Lägg till termer till min-lista. På den vänstra menyn väljer du **Lägg till term**under **term**. 
 
-   Den **Term – Lägg till Term** öppnas. 
+   Sidan **term – Lägg till term** öppnas. 
 
-8. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
+8. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-   ![Långsiktig – lägga till termen sidan val](images/test-drive-region.png)
+   ![Term – Lägg till term för sidans regions val](images/test-drive-region.png)
 
-   Den **Term – Lägg till Term** API-konsolen öppnas.
+   **Termen – Lägg till term-** API-konsolen öppnas.
  
-9. I den **listId** , ange list-ID som du skapade och väljer ett värde för **språk**. Ange din prenumerationsnyckel och välj sedan **skicka**.
+9. I rutan **listId** anger du det List-ID som du genererade och väljer ett värde för **språk**. Ange din prenumerations nyckel och välj sedan **Skicka**.
 
-   ![Långsiktig – lägga till termen konsolen frågeparametrar](images/try-terms-list-create-3.png)
+   ![Term – Lägg till terms-konsolens frågeparametrar](images/try-terms-list-create-3.png)
  
-10. Om du vill kontrollera att termen har lagts till i listan, i den vänstra menyn, Välj **termen**, och välj sedan **hämta alla villkor**. 
+10. Om du vill kontrol lera att villkoret har lagts till i listan väljer du **term**i den vänstra menyn och väljer sedan **Hämta alla villkor**. 
 
-    Den **termen - hämta alla villkor** API-konsolen öppnas.
+    **Termen-hämta alla villkor-** API-konsolen öppnas.
 
-11. I den **listId** , ange list-ID och sedan ange din prenumerationsnyckel. Välj **Skicka**.
+11. I rutan **listId** anger du List-ID och anger sedan din prenumerations nyckel. Välj **Skicka**.
 
-12. I den **svarsinnehåll** kontrollerar du de villkor som du har angett.
+12. I rutan **svars innehåll** kontrollerar du de villkor som du har angett.
 
-    ![Termen - Get alla villkor konsolen svar innehållsrutan listor termer som du angav](images/try-terms-list-create-4.png)
+    ![Term: rutan hämta alla villkors svars innehåll visar de villkor som du har angett](images/try-terms-list-create-4.png)
  
-13. Lägg till några flera villkor. Nu när du har skapat en anpassad lista med termer [genomsöka text](try-text-api.md) med hjälp av anpassade termen-listan. 
+13. Lägg till några fler villkor. Nu när du har skapat en anpassad lista med villkor kan du prova att [Skanna lite text](try-text-api.md) med hjälp av listan med anpassade villkor. 
 
 ## <a name="delete-terms-and-lists"></a>Ta bort termer och listor
 
-Det är enkelt att ta bort en term eller en lista. Du kan använda API: et för att utföra följande uppgifter:
+Det är enkelt att ta bort en term eller en lista. Du använder API: et för att utföra följande uppgifter:
 
-- Ta bort en term. (**Term – ta bort**)
+- Ta bort en term. (**Term-Delete**)
 - Ta bort alla termer i en lista utan att ta bort listan. (**Term – ta bort alla villkor**)
-- Ta bort en lista och allt dess innehåll. (**Termlistor - ta bort**)
+- Ta bort en lista och allt dess innehåll. (**Term listor – ta bort**)
 
-Det här exemplet tar bort en enskild term.
+I det här exemplet tas en enstaka term bort.
 
-1. I den [termen listan Management API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), i den vänstra menyn väljer du **termen**, och välj sedan **ta bort**. 
+1. I [term List hanterings-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)-referensen väljer du **term**i den vänstra menyn och väljer sedan **ta bort**. 
 
-   Den **Term – ta bort** öppnas.
+   **Termen-Delete** öppnas.
 
-2. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
+2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-   ![Termen - ta bort sidan val](images/test-drive-region.png)
+   ![Term – ta bort val av sid område](images/test-drive-region.png)
 
-   Den **Term – ta bort** API-konsolen öppnas.
+   **Termen-ta bort** API-konsolen öppnas.
   
-3. I den **listId** anger ID för listan som du vill ta bort en term från. Detta ID är antalet (i vårt exempel **122**) som returneras i de **termen visas – hämta information** konsolen för MyList. Ange perioden och välj ett språk.
+3. I rutan **listId** anger du ID: t för den lista som du vill ta bort en term från. Detta ID är det tal (i vårt exempel **122**) som returneras i **term listorna – hämta information** konsol för listan. Ange termen och välj ett språk.
  
-   ![Termen - ta bort konsolen frågeparametrar](images/try-terms-list-delete-1.png)
+   ![Term – ta bort parametrar för konsol frågor](images/try-terms-list-delete-1.png)
 
-4. Ange din prenumerationsnyckel och välj sedan **skicka**.
+4. Ange din prenumerations nyckel och välj sedan **Skicka**.
 
-5. Kontrollera att termen har tagits bort genom att använda den **termen visar - hämta alla** konsolen.
+5. För att kontrol lera att villkoret har tagits bort använder du **term listorna – hämta alla** konsoler.
 
-   ![Långsiktig listor – hämta alla konsolen svar innehåll rutan visar att termen tas bort](images/try-terms-list-delete-2.png)
+   ![Term listor-rutan hämta alla konsol svars innehåll visar att termen tas bort](images/try-terms-list-delete-2.png)
  
-## <a name="change-list-information"></a>Ändra listinformation
+## <a name="change-list-information"></a>Ändra List information
 
-Du kan redigera namn och beskrivning för en lista och lägga till för metadataobjekt.
+Du kan redigera en listas namn och beskrivning och lägga till objekt i metadata.
 
-1. I den [termen listan Management API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), i den vänstra menyn väljer du **termen visar en lista över**, och välj sedan **Uppdateringsdetaljer**. 
+1. I [term List hanterings-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)-referensen går du till den vänstra menyn och väljer **term listor**och väljer sedan **uppdaterings information**. 
 
-   Den **termen visar - Uppdateringsdetaljer** öppnas.
+   Sidan **villkors listor – uppdaterings information** öppnas.
 
-2. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
+2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-   ![Termlistor - Uppdateringsdetaljer sidan val](images/test-drive-region.png)
+   ![Term listor-val av sid region för uppdaterings information](images/test-drive-region.png)
 
-   Den **termen visar - Uppdateringsdetaljer** API-konsolen öppnas.
+   **Term listor – API-** konsolen för uppdaterings information öppnas.
 
-3. I den **listId** , ange list-ID och sedan ange din prenumerationsnyckel.
+3. I rutan **listId** anger du List-ID och anger sedan din prenumerations nyckel.
 
-4. I den **Begärandetext** , gör ändringarna och sedan väljer **skicka**.
+4. I rutan **begär ande innehåll** , gör dina ändringar och välj sedan **Skicka**.
 
-   ![Termlistor - Uppdateringsdetaljer konsolen begäran brödtext redigeringar](images/try-terms-list-change-1.png)
+   ![Term listor – information om hur du redigerar begär ande brödtext i uppdaterings konsolen](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använda REST-API i koden eller börja med den [termen visar Snabbstart för .NET](term-lists-quickstart-dotnet.md) att integrera med ditt program.
+Använd REST API i koden eller börja med villkoret som [listar .net snabb start](term-lists-quickstart-dotnet.md) för att integrera med ditt program.

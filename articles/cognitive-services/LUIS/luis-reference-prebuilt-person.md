@@ -1,5 +1,5 @@
 ---
-title: PersonName fördefinierade entitet
+title: PersonName-fördefinierad entitet – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller personName fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3b12c69b7c6710e774d50e631d2423fd72ce828a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63e32fe79d1f3f6d2573d9a8f94f937cb9eb31ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072181"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560181"
 ---
-# <a name="personname-prebuilt-entity-for-a-luis-app"></a>PersonName fördefinierade entitet för en LUIS-app
+# <a name="personname-prebuilt-entity-for-a-luis-app"></a>PersonName-fördefinierad entitet för en LUIS-app
 Entiteten fördefinierade personName identifierar namn på kontakter. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller personName till programmet avsikter. personName entiteten har stöd för engelska och kinesiska [kulturer](luis-reference-prebuilt-entities.md).
 
 ## <a name="resolution-for-personname-entity"></a>Lösning för personName entitet
 
-### <a name="api-version-2x"></a>API-version 2.x
+### <a name="api-version-2x"></a>API-version 2. x
 
 I följande exempel visas av lösningen på den **builtin.personName** entitet.
 
@@ -45,9 +45,9 @@ I följande exempel visas av lösningen på den **builtin.personName** entitet.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsversionen av API 3.x
+### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
 
-Följande JSON är med i `verbose` parameteruppsättning till `false`:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 {
@@ -69,7 +69,7 @@ Följande JSON är med i `verbose` parameteruppsättning till `false`:
 }
 ```
 
-Följande JSON är med i `verbose` parameteruppsättning till `true`:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 {

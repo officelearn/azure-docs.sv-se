@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätta tal, Java (Windows, Linux) – Taltjänster'
+title: 'Snabbstart: Översätta tal-, Java-(Windows-, Linux)-tal-service'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten skapar du ett enkelt Java-program för att samla in användarens tal, översätta det till ett annat språk och mata ut texten till kommandoraden. Den här guiden är utformad för Windows- och Linux-användare.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604957"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553388"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Omvandla tal med Speech-SDK för Java
 
-Snabbstarter kan också användas för [tal till text](quickstart-java-jre.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-java-jre.md).
+Snabb Starter är också tillgängliga för [tal-till-text](quickstart-java-jre.md) och [röst-första virtuella assistent](quickstart-virtual-assistant-java-jre.md).
 
-I den här snabbstarten skapar du ett enkelt Java-program som samlar in användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är avsedd att köras på Windows 64-bitars eller 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) eller på macOS 10.13 eller senare. Den är byggd med tal SDK Maven-paketet och Eclipse IDE för Java.
+I den här snabbstarten skapar du ett enkelt Java-program som samlar in användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet har utformats för att köras på 64-bitars Windows eller 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) eller på macOS 10,13 eller senare. Den är byggd med talet SDK maven-paketet och Sol förmörkelse Java IDE.
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
@@ -29,12 +29,12 @@ En fullständig lista över språk som är tillgängliga för talöversättning 
 
 För den här snabbstarten krävs:
 
-* Operativsystem: 64-bitars Windows 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) eller macOS 10.13 eller senare
+* Operativsystem: 64-bitars Windows, 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) eller macOS 10,13 eller senare
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * En Azure-prenumerationsnyckel för taltjänsten. [Skaffa en kostnadsfritt](get-started.md).
 
-Om du kör Linux måste du kontrollera att dessa beroenden är installerade innan du startar Eclipse.
+Om du kör Linux kontrollerar du att dessa beroenden är installerade innan du startar Sol förmörkelse.
 
  * I Ubuntu:
 
@@ -43,7 +43,7 @@ Om du kör Linux måste du kontrollera att dessa beroenden är installerade inna
    sudo apt-get install libssl1.0.0 libasound2
    ```
 
- * On Debian 9:
+ * På Debian 9:
 
    ```sh
    sudo apt-get update

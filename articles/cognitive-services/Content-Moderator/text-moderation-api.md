@@ -1,6 +1,7 @@
 ---
-title: Textmoderering - Content Moderator
-description: Använd textmoderering för möjligt oönskad text, personligt identifierbar information, och anpassade listor med villkor.
+title: Text moderator – Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Använd text redigering för möjlig oönskad text, personligt identifierbar information och anpassade listor med villkor.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -9,31 +10,31 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607130"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564370"
 ---
-# <a name="learn-text-moderation-concepts"></a>Lär dig principerna för moderering av text
+# <a name="learn-text-moderation-concepts"></a>Lär dig om text moderator koncept
 
-Använd Content Moderator datorstödd textmoderering och [mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) funktioner för begränsad textinnehåll.
+Använd Content Moderator datorns stöd för text redigering och [mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) för att förstå text innehåll.
 
-Du antingen blockera, godkänna eller granska innehållet baserat på principer och tröskelvärden. Använda den för att förbättra människors moderering av miljöer där partners, anställda och konsumenter genererar textinnehåll. Dessa inkluderar chattrum, diskussionstavlor, chattrobotar, e-handel kataloger och dokument. 
+Du kan antingen blockera, godkänna eller granska innehållet baserat på dina principer och tröskelvärden. Använd den för att förstärka mänsklig kontroll av miljöer där partner, anställda och konsumenter genererar text innehåll. Dessa omfattar chattrum, diskussions tavlor, chattrobotar, e-Commerce-kataloger och dokument. 
 
-Tjänstsvaret innehåller följande information:
+Tjänste svaret innehåller följande information:
 
-- Svordomar: termen-baserade matchar med inbyggda termlista olämpliga på olika språk
-- Klassificering: datorstödd klassificering i tre kategorier
-- Personliga data
-- Korrigeras automatiskt text
-- Originaltexten
+- Svordomar: term-baserad matchning med inbyggd lista över flera svordomar på olika språk
+- Klassificering: maskinvarustödd klassificering i tre kategorier
+- Person uppgifter
+- Automatiskt korrigerad text
+- Ursprunglig text
 - Språk
 
-## <a name="profanity"></a>Olämpligt språk
+## <a name="profanity"></a>Svordomar
 
-Om API: et identifierar eventuella olämpliga villkor i någon av de [språk som stöds](Text-Moderation-API-Languages.md), dessa villkor som ingår i svaret. Svaret innehåller även deras plats (`Index`) i den ursprungliga texten. Den `ListId` i följande exempel JSON som refererar till villkor finns i [anpassade termlistor](try-terms-list-api.md) om det är tillgängligt.
+Om API: n identifierar eventuella svordomar i något av de [språk som stöds](Text-Moderation-API-Languages.md), inkluderas dessa villkor i svaret. Svaret innehåller också deras plats (`Index`) i den ursprungliga texten. I `ListId` följande exempel-JSON refererar de termer som finns i [anpassade term listor](try-terms-list-api.md) om de är tillgängliga.
 
     "Terms": [
     {
@@ -44,15 +45,15 @@ Om API: et identifierar eventuella olämpliga villkor i någon av de [språk som
     }
 
 > [!NOTE]
-> För den **språk** parameter, tilldela `eng` eller lämna det tomt om du vill se den maskinassisterad **klassificering** svar (förhandsgranskningsfunktion). **Den här funktionen stöder endast engelska**.
+> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
 >
-> För **svordomar villkoren** identifiering, Använd den [ISO 639-3-kod](http://www-01.sil.org/iso639-3/codes.asp) språk som stöds visas i den här artikeln eller lämna det tomt.
+> För  identifiering av svordomar kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
 ## <a name="classification"></a>Klassificering
 
-Content Moderator är maskinassisterad **text klassificering funktionen** stöder **endast engelska**, och hjälper dig identifiera potentiellt oönskade innehåll. Flaggade innehållet kan utvärderas som olämplig beroende på sammanhang. Den ger sannolikheten för varje kategori och rekommendera en mänsklig granskning. Funktionen använder en tränad modell för att identifiera möjliga missbruk, uttrycker sig nedsättande eller diskriminerande språk. Detta inkluderar slang, förkortat ord och stötande och avsiktligt felstavade ord för granskning. 
+Content Moderator funktionen för maskin stöd för **text klassificering** stöder **endast engelska**och hjälper till att identifiera potentiellt oönskat innehåll. Det flaggade innehållet kan utvärderas som olämpligt beroende på kontext. Den förmedlar sannolikheten för varje kategori och kan rekommendera en mänsklig granskning. Funktionen använder en tränad modell för att identifiera eventuellt stötande, avvikande eller diskriminerande språk. Detta omfattar slang, förkortade ord, stötande och avsiktligt felstavade ord för granskning. 
 
-Följande extrahera i JSON-extrahera visar ett exempel på utdata:
+Följande utdrag i JSON-extraheringen visar ett exempel på utdata:
 
     "Classification": {
         "ReviewRecommended": true,
@@ -69,24 +70,24 @@ Följande extrahera i JSON-extrahera visar ett exempel på utdata:
 
 ### <a name="explanation"></a>Förklaring
 
-- `Category1` refererar till potentiella förekomst av språk som kan uppfattas som sexuellt explicit eller är olämpligt för barn i vissa situationer.
-- `Category2` refererar till potentiella förekomst av språk som kan uppfattas som sexuellt något eller mogen i vissa situationer.
-- `Category3` refererar till potentiella förekomst av språk som kan uppfattas som stötande i vissa situationer.
-- `Score` är mellan 0 och 1. Ju högre poäng desto högre modellen är att förutsäga att kategorin kan användas. Den här funktionen är beroende av en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll att avgöra hur varje kategori stämmer överens med dina behov.
-- `ReviewRecommended` är true eller false beroende på den interna poängen tröskelvärden. Kunder bör utvärdera om du vill använda det här värdet eller välja anpassade tröskelvärden baserat på deras innehåll principer.
+- `Category1`avser potentiell närvaro av ett språk som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
+- `Category2`avser potentiell närvaro av ett språk som kan anses vara sexuellt eller mogna i vissa situationer.
+- `Category3`avser potentiell närvaro av ett språk som kan betraktas som stötande i vissa situationer.
+- `Score`är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här funktionen förlitar sig på en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
+- `ReviewRecommended`är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
 
-## <a name="personal-data"></a>Personliga data
+## <a name="personal-data"></a>Person uppgifter
 
-Funktionen PII identifierar potentiella förekomst av den här informationen:
+Funktionen PII identifierar potentiell närvaro av den här informationen:
 
 - E-postadress
-- USA-postadress
+- E-postadress till oss
 - IP-adress
-- Amerikanskt telefonnummer
-- Storbritannien telefonnummer
-- Social Security Number (SSN)
+- Telefonnummer till USA
+- BRITTISKt telefonnummer
+- Person nummer (SSN)
 
-I följande exempel visas en exempelsvaret:
+I följande exempel visas ett exempel svar:
 
     "PII": {
         "Email": [{
@@ -134,25 +135,25 @@ I följande exempel visas en exempelsvaret:
             }]
         }
 
-## <a name="auto-correction"></a>Autokorrigering
+## <a name="auto-correction"></a>Automatisk korrigering
 
-Anta att indatatexten är ('lzay' och 'f0x ”är avsiktlig):
+Anta att indatamängden är ("lzay" och "f0x" är avsiktliga):
 
     The qu!ck brown f0x jumps over the lzay dog.
 
-Om du ber om Autokorrigering innehåller svaret korrigerad version av texten:
+Om du ber om automatisk korrigering innehåller svaret den korrigerade versionen av texten:
 
     The quick brown fox jumps over the lazy dog.
 
-## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Skapa och hantera dina anpassade listor av villkoren
+## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Skapa och hantera dina anpassade listor med villkor
 
-Medan standardvärdet, global termlista fungerar bra för de flesta fall kan du skärmen mot termer som är specifika för dina affärsbehov. Du kanske vill filtrera bort alla konkurrenskraftiga homofoner från inlägg av användare.
+Standardinställningen är att den globala listan över termer fungerar bra i de flesta fall, men du kanske vill skärmen mot de villkor som är specifika för dina affärs behov. Du kanske till exempel vill filtrera bort eventuella konkurrens märkes namn från inlägg av användare.
 
 > [!NOTE]
 > Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer**.
 >
 
-I följande exempel visas den matchande List-ID:
+I följande exempel visas matchnings List-ID:
 
     "Terms": [
     {
@@ -162,8 +163,8 @@ I följande exempel visas den matchande List-ID:
         "Term": "crap"
     }
 
-Content Moderator tillhandahåller en [termen lista API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) med åtgärder för att hantera anpassade villkor visas. Börja med den [termen visar en lista över API-konsol](try-terms-list-api.md) och använda REST API-kodexempel. Se även de [Snabbstart för termen visar .NET](term-lists-quickstart-dotnet.md) om du är bekant med Visual Studio och C#.
+Content Moderator innehåller ett [API för term listor](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) med åtgärder för att hantera anpassade term listor. Börja med [villkoret listar API-konsolen](try-terms-list-api.md) och Använd REST API kod exempel. Ta också en titt på [termen listar .net snabb start](term-lists-quickstart-dotnet.md) om du är bekant med Visual C#Studio och.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testkör den [Text moderering API konsolen](try-text-api.md) och använda REST API-kodexempel. Se även de [Text moderering .NET Snabbstart](text-moderation-quickstart-dotnet.md) om du är bekant med Visual Studio och C#.
+Testa API- [konsolen för text redigering](try-text-api.md) och Använd REST API kod exempel. Ta också en titt på [text redigerings processen .net snabb start](text-moderation-quickstart-dotnet.md) om du är bekant med Visual C#Studio och.

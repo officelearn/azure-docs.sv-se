@@ -1,7 +1,7 @@
 ---
-title: Skapa en kunskapsbas
-titleSuffix: QnA Maker API - Azure Cognitive Services
-description: Använd QnA Maker API-tjänstportalen måste du lägger till kan du skapa en kunskapsbas med chit-chatt. Detta gör att din app engagerande. Lägg till en i förväg uppsättning övre chit-chatt i din Kunskapsbas som utgångspunkt för din robot chit-chatt och spara tid och pengar på att skriva dem från grunden.
+title: Skapa kunskaps bas – QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Använd API för QnA Maker service portal för att lägga till en kunskaps bas med en CHI2TEST-chatt. Detta gör din app intressant. Lägg till en i förväg ifylld uppsättning av den främsta CHI2TEST i din KB som utgångs punkt för din robots CHI2TEST och spara tid och kostnad för att skriva dem från grunden.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 8c674d33d7f0958fbce8f080f43404c480c7410c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dfd0663c09b78539a1d6b78aa7820385b9ddbdca
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447451"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563093"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Snabbstart: Skapa en kunskapsbas med QnA Maker API service-portalen
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Snabbstart: Skapa en kunskaps bas med hjälp av API för QnA Maker service portal
 
-QnA Maker API service-portalen gör det enkelt att lägga till befintliga datakällor när du skapar en kunskapsbas. Du kan skapa en ny QnA Maker-kunskapsbas från följande dokumenttyper:
+API för QnA Maker service portal gör det enkelt att lägga till befintliga data källor när du skapar en kunskaps bas. Du kan skapa en ny QnA Maker-kunskapsbas från följande dokumenttyper:
 
 <!-- added for scanability -->
 * Vanliga frågor och svar-sidor
 * Produkter handböcker
 * Strukturerade dokument
 
-Inkludera en chit-chatt personlighet om du vill göra dina kunskaper mer engagerande med dina användare.
+Ta med en användare av en CHI2TEST för att göra din kunskap mer engagerande med dina användare.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -50,9 +50,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     - Ladda upp filer för data som du vill extrahera. Se den [prisinformation](https://aka.ms/qnamaker-pricing) att se hur många dokument som du kan lägga till.
     - Om du vill lägga till kunskapsbaser manuellt kan du hoppa över **steg 4** visas i föregående bild.
 
-1. Lägg till **Chit-chatt** till din KB. Välja att lägga till chit chat-supporten för din robot genom att välja någon av personer. 
+1. Lägg till **Chit-chatt** till din KB. Välj att lägga till stöd för CHI2TEST för din robot genom att välja någon av dina personliga. 
 
-    ![Lägg till chit-chatt i KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Lägga till en CHI2TEST-chatt i KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Välj **skapa din Kunskapsbas**.
 
@@ -66,11 +66,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med kunskapsbasen kan du ta bort den i QnA Maker-portalen.
+När du är färdig med kunskaps basen tar du bort den i QnA Maker-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För kostnaden besparingar mått, kan du [dela](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) vissa men inte alla Azure-resurser skapas för QnA Maker.
+För kostnads besparingar kan du [dela](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) några men inte alla Azure-resurser som skapats för QNA Maker.
 
 > [!div class="nextstepaction"]
 > [Lägg till personliga chit-chatt](./chit-chat-knowledge-base.md)

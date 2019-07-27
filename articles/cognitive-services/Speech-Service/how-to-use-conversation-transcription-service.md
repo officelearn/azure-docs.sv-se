@@ -1,7 +1,7 @@
 ---
-title: Transkribera flera deltagare konversationer med tal SDK - Speech Services
+title: Skriva över konversationer med flera deltagare med tal SDK-tal tjänsten
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om att använda konversationen avskrift med tal SDK. Tillgänglig för C++, C#, och Java.
+description: Lär dig hur du använder en konversations avskrift med talet SDK. Tillgängligt för C++, C#och Java.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,40 +10,40 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 215209a5b8e3ed46b25fbfa492c305785a9a0070
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606472"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559459"
 ---
-# <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transkribera flera deltagare konversationer med Speech-SDK
+# <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Skriva över konversationer med flera deltagare med talet SDK
 
-Tal-SDK **ConversationTranscriber** API kan du transkribera möten/konversationer med möjlighet att lägga till, ta bort och identifiera deltagarna genom strömning av ljud till Speech Services med `PullStream` eller `PushStream`.
+Talet SDK: s **ConversationTranscriber** -API gör att du kan lägga upp möten/samtal med möjlighet att lägga till, ta bort och identifiera deltagare genom att strömma ljud till tal tjänsterna `PullStream` med `PushStream`hjälp av eller.
 
 ## <a name="limitations"></a>Begränsningar
 
-* Konversationen transkribering stöds för C++, C#, och Java på Windows, Linux och Android.
-* ROOBO DevKit är miljön maskinvara som stöds för att skapa konversationen avskrifter som ger cirkulär flera mikrofon matris som kan användas effektivt för talaridentifiering. [Mer information finns i tal Devices SDK](speech-devices-sdk.md).
-* Tal SDK stöd för konversationen avskrift är begränsad till användning av ljud pull och push-läge strömmar med åtta kanaler med 16-bitars 16 kHz PCM ljud.
-* Konversationen avskrift är för närvarande tillgängligt i ”en-US” och ”zh-CN” språk i följande regioner: centralus och asienöstra.
+* Konversations-inskrivare stöds C++för C#, och Java på Windows, Linux och Android.
+* ROOBO-DevKit är den maskin varu miljö som stöds för att skapa konversations avskrifter som ger en cirkulär matris med flera mikrofoner som kan användas effektivt för högtalar identifiering. [Mer information finns i avsnittet om tal enheter SDK](speech-devices-sdk.md).
+* Stöd för tal-SDK för konversations avskrift är begränsat till användning av strömnings-och push-läge i ljud med åtta kanaler på 16-bitars 16 kHz PCM-ljud.
+* Konversations avskrift är för närvarande tillgängligt i språken "en-US" och "zh-CN" i följande regioner: Central-och asienöstra.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Lär dig hur du använder tal till text med tal SDK.](quickstart-csharp-dotnet-windows.md)
-* [Få en kostnadsfri prenumeration tal.](https://azure.microsoft.com/try/cognitive-services/)
+* [Lär dig hur du använder tal-till-text med talet SDK.](quickstart-csharp-dotnet-windows.md)
+* [Hämta din utvärderings prenumeration för tal.](https://azure.microsoft.com/try/cognitive-services/)
 * Tal SDK-version 1.5.1 eller senare krävs.
 
-## <a name="create-voice-signatures-for-participants"></a>Skapa röst signaturer för deltagare
+## <a name="create-voice-signatures-for-participants"></a>Skapa röst under skrifter för deltagare
 
-Det första steget är att skapa röst signaturer för konversationen deltagare. Skapa röst signaturer krävs för effektiv talaridentifiering.
+Det första steget är att skapa röst signaturer för konversations deltagarna. Du måste skapa röst signaturer för att kunna identifiera en effektiv talare.
 
-### <a name="requirements-for-input-wave-file"></a>Krav för inkommande ljudfil
+### <a name="requirements-for-input-wave-file"></a>Krav för ingångs Wave-fil
 
-* Inkommande ljud wave-filen för att skapa röst signaturer skall vara i 16-bitars exempel, 16 kHz samplingshastighet och ett enda kanal (Mono)-format.
-* Det rekommenderade antalet för varje ljud exempel är mellan 30 sekunder och två minuter.
+* Indata-ljudwave-filen för att skapa röst under skrifter måste vara i 16-bitars exempel, 16 kHz samplings frekvens och ett enda kanal format (mono).
+* Den rekommenderade längden för varje ljud sampling är mellan 30 sekunder och två minuter.
 
-I följande exempel visas två olika sätt att skapa röst signatur genom [med hjälp av REST-API](https://aka.ms/cts/signaturegenservice) från C#:
+I följande exempel visas två olika sätt att skapa röst signatur med [hjälp av REST API](https://aka.ms/cts/signaturegenservice) från C#:
 
 ```csharp
 class Program
@@ -85,11 +85,11 @@ class Program
 }
 ```
 
-## <a name="transcribing-conversations"></a>Transkribera konversationer
+## <a name="transcribing-conversations"></a>Skriva över konversationer
 
-För att transkribera konversationer med flera deltagare, skapa den `ConversationTranscriber` objekt som är associerad med den `AudioConfig` objekt som skapats för konversationen sessionen och ljud med hjälp av `PullAudioInputStream` eller `PushAudioInputStream`.
+Om du vill skriva över konversationer med flera deltagare skapar `ConversationTranscriber` du objektet som är associerat `AudioConfig` med objektet som har skapats för konversationen och strömma `PullAudioInputStream` ljud `PushAudioInputStream`med eller.
 
-Anta att du har en ConversationTranscriber klass med namnet `MyConversationTranscriber`. Din kod kan se ut så här:
+Vi antar att du har en ConversationTranscriber-klass som `MyConversationTranscriber`heter. Din kod kan se ut så här:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

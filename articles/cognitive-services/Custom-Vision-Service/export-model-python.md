@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Köra en TensorFlow-modell i Python – Custom Vision Service'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Kör en TensorFlow-modell i Python.
 services: cognitive-services
 author: areddish
@@ -10,19 +10,19 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: ba8cf3392ac2bd3d371e5e1910c6671feba9dedf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c6e7cf770e5f1639e676d232564809121a8c4e4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606872"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561105"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudier: Köra TensorFlow-modellen i Python
 
 När du har [exporterat din TensorFlow-modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) från Custom Vision Service visar den här snabbstarten hur du använder den här modellen lokalt för att klassificera bilder.
 
 > [!NOTE]
-> Den här självstudien gäller endast för modeller som exporteras från avbildningen klassificering projekt.
+> Den här självstudien gäller endast för modeller som exporteras från bild klassificerings projekt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -31,7 +31,7 @@ För att kunna använda självstudiekursen behöver du göra följande:
 - Installera Python 2.7+ eller Python 3.5+.
 - Installera pip.
 
-Därefter behöver du installera följande paket:
+Sedan måste du installera följande paket:
 
 ```
 pip install tensorflow
@@ -88,7 +88,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="handle-images-with-a-dimension-1600"></a>Hantera avbildningar med en dimension > 1 600
+### <a name="handle-images-with-a-dimension-1600"></a>Hantera bilder med en dimension > 1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -172,7 +172,7 @@ def update_orientation(image):
 
 ## <a name="predict-an-image"></a>Förutsäga en bild
 
-När du har förberett som en tensor, kan vi skicka den via modellen för en förutsägelse:
+När avbildningen har bearbetats som en beskrivare kan vi skicka den via modellen för en förutsägelse:
 
 ```Python
 
@@ -210,7 +210,7 @@ Resultatet av körningen av bildtensorn genom modellen behöver sedan mappas til
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lärt dig hur du omsluter din modell i ett mobilt program:
+Sedan lär du dig hur du omsluter din modell till ett mobil program:
 * [Använda din exporterade Tensorflow-modell i ett Android-program](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Använda din exporterade CoreML-modell i ett Swift iOS-program](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Använda din exporterade CoreML-modell i ett iOS-program med Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

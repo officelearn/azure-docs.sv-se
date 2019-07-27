@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Custom Vision?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lär dig att använda Custom Vision Service för att skapa anpassade bildklassificerare i Azure-molnet.
 services: cognitive-services
 author: PatrickFarley
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 8a5dd16948724e3a79863450212702aa8aeb2347
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605147"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560964"
 ---
 # <a name="what-is-azure-custom-vision"></a>Vad är Azure Custom Vision?
 
-Azure Custom Vision är en cognitive tjänst som gör det möjligt att bygga, distribuera och förbättra dina egna bildklassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar _klasser_) på bilder utefter deras visuella egenskaper. Till skillnad från tjänsten [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) gör Custom Vision att du kan bestämma vilka etiketter som ska appliceras.
+Azure Custom Vision är en kognitiv tjänst som gör att du kan bygga, distribuera och förbättra dina egna avbildnings klassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar _klasser_) på bilder utefter deras visuella egenskaper. Till skillnad från tjänsten [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) gör Custom Vision att du kan bestämma vilka etiketter som ska appliceras.
 
 ## <a name="what-it-does"></a>Vad läget gör
 
@@ -31,9 +31,9 @@ Anpassade funktioner för Custom Vision kan delas in i två funktioner. **Bildkl
 
 ### <a name="optimization"></a>Optimering
 
-Custom Vision service är optimerad för att snabbt identifiera viktiga skillnader mellan avbildningar, så att du kan börja skapa prototyper din modell med en liten mängd data. 50 bilder per etikett är vanligtvis en bra utgångspunkt. Tjänsten är inte optimala för att identifiera vissa skillnader i bilder (exempelvis upptäcka mindre sprickor eller bucklor i kvalitet assurance scenarier).
+Custom Visions tjänsten är optimerad för att snabbt identifiera större skillnader mellan bilder, så att du kan börja skapa prototyper för din modell med en liten mängd data. 50 bilder per etikett är vanligtvis en bra utgångspunkt. Tjänsten är dock inte optimal för att identifiera diskreta skillnader i bilder (till exempel att identifiera mindre sprickor eller indrag i kvalitets säkrings scenarier).
 
-Dessutom kan du välja bland flera olika typer av Custom Vision-algoritmen som är optimerade för bilder med vissa motiv&mdash; exempelvis landmärken eller detaljhandelsobjekt. Mer information finns i den [skapa en klassificerare](getting-started-build-a-classifier.md) guide.
+Dessutom kan du välja bland flera olika typer av Custom Vision-algoritmen som är optimerade för bilder med vissa motiv&mdash; exempelvis landmärken eller detaljhandelsobjekt. Mer information finns i guiden för att [bygga en klassificerings](getting-started-build-a-classifier.md) guide.
 
 ## <a name="what-it-includes"></a>Vad verktyget innehåller
 

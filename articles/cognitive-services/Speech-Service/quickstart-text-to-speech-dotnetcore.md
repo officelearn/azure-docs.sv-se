@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Syntetisera tal, C# (.NET Core) – Speech Services'
+title: 'Snabbstart: Syntetiskt tal, C# (.net Core) – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Lär dig att syntetisera tal i C# under .NET Core för Windows med hjälp av tal-SDK
+description: Lär dig att syntetisera tal i C# under .net core i Windows med hjälp av tal-SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 7b4a018e38ca625e38dc1658a95d3ce0e677f711
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: b298e66674753e33a28fb3404e36e63b5baa8dff
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467427"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559243"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Snabbstart: Syntetisera tal med Speech-SDK för .NET Core
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Snabbstart: Syntetisera tal med talet SDK för .NET Core
 
-Snabbstarter kan också användas för [taligenkänning](quickstart-csharp-dotnetcore-windows.md) och [talöversättning](quickstart-translate-speech-dotnetcore-windows.md).
+Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-csharp-dotnetcore-windows.md) och [tal översättning](quickstart-translate-speech-dotnetcore-windows.md).
 
-I den här artikeln skapar du ett C#-konsolprogram för .NET Core på Windows med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Du syntetisera tal från text i realtid till datorns högtalare. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
+I den här artikeln skapar du ett C#-konsolprogram för .NET Core på Windows med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Du kan syntetisera tal från text i real tid till DATORns högtalare. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
 
 > [!NOTE]
 > .NET Core är en plattformsoberoende plattform med öppen källkod som implementerar [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specifikationen.
 
-Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
+Du behöver en prenumerations nyckel för tal tjänster för att slutföra den här snabb starten. Du kan skaffa en utan kostnad. Mer information finns i [testa tal tjänsterna kostnads fritt](get-started.md) .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -62,18 +62,18 @@ För den här snabbstarten krävs:
 
     ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Starta appen i felsökningsläge")
 
-1. Ett konsolfönster visas där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till Speech Services och syntetiskt till tal som spelar upp på högtalaren.
+1. Ett konsol fönster visas där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till tal tjänsterna och syntetiskt till tal, som spelas upp på din talare.
 
-    ![Skärmbild av konsolens utdata efter lyckad syntes](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "konsolens utdata efter lyckad syntes")
+    ![Skärm bild av konsol utdata efter lyckad syntes](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Konsol utdata efter lyckad syntes")
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare exempel, till exempel att syntetisera tal till en ljudfil, är tillgängliga på GitHub.
+Ytterligare exempel, till exempel hur du kan syntetisera tal till en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
 > [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se också
 
-- [Anpassa rösttyper](how-to-customize-voice-font.md)
-- [Post voice-exempel](record-custom-voice-samples.md)
+- [Anpassa röst teckensnitt](how-to-customize-voice-font.md)
+- [Spela in röst exempel](record-custom-voice-samples.md)

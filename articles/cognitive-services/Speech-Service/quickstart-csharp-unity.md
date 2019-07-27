@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Taligenkänning, Unity – Speech Services'
+title: 'Snabbstart: Identifiera tal, uppunions tal-tjänsten'
 titleSuffix: Azure Cognitive Services
 description: Använd den här guiden till att skapa ett tal till text-program med Unity och Speech SDK för Unity (betaversion). När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 425cacb22865e64a996c653477120a5f7f410c9a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 06831fa933c04827c966e8f6e12aa817f5008b88
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405932"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554136"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Snabbstart: Taligenkänning med Speech SDK för Unity (betaversion)
 

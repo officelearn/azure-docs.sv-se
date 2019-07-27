@@ -1,6 +1,6 @@
 ---
 title: 'Exempel: Anropa API för att analysera bild – visuellt innehåll'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lär dig att anropa API för viuellt innehåll genom att använda REST i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 35e6ad922ab54748165fcf8e273d93ee44bc42cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202878"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564532"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exempel: Så här anropar du API för visuellt innehåll
 
@@ -25,7 +25,7 @@ Den här guiden visar hur du anropar ett API för visuellt innehåll med hjälp 
 - Hur du hämtar ”taggar”, ”beskrivning” och ”kategorier”.
 - Hur du hämtar ”domänspecifik” information (kändisar).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Bild-URL eller sökvägen till en lokalt lagrad bild.
 - Indatametoder som stöds: Binära rawbildfiler i form av ett program-/oktettflöde eller bild-URL
@@ -47,7 +47,7 @@ Funktionerna kan fördelas mellan:
 
 Varje anrop till ett API för visuellt innehåll kräver en prenumerationsnyckel. Nyckeln måste antingen skickas via en frågesträngparameter eller anges i begärans sidhuvud.
 
-För att få en kostnadsfri utvärderingsversion nyckel kan se [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+För att få en kostnads fri utvärderings nyckel, se [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel.
 
 1. Skicka prenumerationsnyckeln via en frågesträng. Nedan följer ett exempel med API för visuellt innehåll:
 
@@ -61,7 +61,7 @@ För att få en kostnadsfri utvärderingsversion nyckel kan se [prova Cognitive 
 
 ```var visionClient = new VisionServiceClient("Your subscriptionKey");```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Ladda upp en bild till tjänsten API för visuellt innehåll och få tillbaka taggar, beskrivningar och kändisar
+## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Ladda upp en avbildning till API för visuellt innehåll tjänsten och hämta etiketter, beskrivningar och kändisar
 
 Det grundläggande sättet att anropa et API för visuellt innehåll är genom att ladda upp en bild direkt. Detta sker genom att skicka en ”POST”-begäran med innehållstypen program-/oktettflöde tillsammans med de data som läses från avbildningen. För ”Taggar” och ”Beskrivning” kommer den här överföringsmetoden att vara samma för samtliga anrop till API för visuellt innehåll. Den enda skillnaden är vilka frågeparametrar som användaren anger. 
 
@@ -89,14 +89,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 **Alternativ två:** Hämta endast listan över ”Taggar” eller endast listan med ”Beskrivning”:
 
-###### <a name="tags-only"></a>Taggar:
+###### <a name="tags-only"></a>Endast Taggar:
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag&subscription-key=<Your subscription key>
 var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
 ```
 
-###### <a name="description-only"></a>Beskrivning:
+###### <a name="description-only"></a>Endast Beskrivning:
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe&subscription-key=<Your subscription key>
@@ -106,7 +106,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-### <a name="get-domain-specific-analysis-celebrities"></a>Hämta domänspecifika analysis (kändisar)
+### <a name="get-domain-specific-analysis-celebrities"></a>Hämta domänbaserad analys (kändisar)
 
 **Alternativ ett:** Databasomfattande analys – analysera endast en viss modell
 ```
@@ -164,9 +164,9 @@ Här är ett exempel:
 }
 ```
 
-Fält | Typ | Innehåll
+Fält | type | Innehåll
 ------|------|------|
-Taggar  | `object` | Huvudobjekt för taggmatris
+Tags  | `object` | Huvudobjekt för taggmatris
 tags[].Name | `string`  | Nyckelord från taggklassificerare
 tags[].Score    | `number`  | Förtroendepoäng, mellan 0 och 1.
 description  | `object` | Huvudobjekt för beskrivning
@@ -174,7 +174,7 @@ description.tags[] |    `string`    | Lista med taggar.  Om det finns inte tillr
 description.captions[].text | `string`  | En mening som beskriver bilden.
 description.captions[].confidence   | `number`  | Förtroende för frasen.
 
-## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Hämta och förstå JSON-utdata för domänspecifika modeller
+## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Hämta och förstå JSON-utdata för domänbaserade modeller
 
 **Alternativ ett:** Databasomfattande analys – analysera endast en viss modell
 
@@ -226,9 +226,9 @@ För domänspecifika modeller med alternativ två (utökad analys) utökas den r
 
 Kategorifältet är en lista över en eller flera av de [86 kategorierna](../Category-Taxonomy.md) i den ursprungliga taxonomin. Observera också att kategorier som slutar med ett understreck matchar den kategorin och dess underordnade (till exempel personer_ samt personer_grupp för kändismodellen).
 
-Fält   | Typ  | Innehåll
+Fält   | type  | Innehåll
 ------|------|------|
-kategorier | `object`   | Toppnivåobjekt
+categories | `object`   | Toppnivåobjekt
 categories[].name    | `string` | Namn från 86-kategoritaxonomi
 categories[].score  | `number`  | Förtroendepoäng, mellan 0 och 1
 categories[].detail  | `object?`      | Valfritt detaljobjekt

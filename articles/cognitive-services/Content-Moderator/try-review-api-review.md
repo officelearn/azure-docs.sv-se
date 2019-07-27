@@ -1,7 +1,7 @@
 ---
-title: Skapa moderering granskningar med REST API-konsolen – Content Moderator
-titlesuffix: Azure Cognitive Services
-description: 'Använda Azure Content Moderator granska API: erna för att skapa bild eller text granskningar för mänskliga moderering.'
+title: Skapa moderator granskningar med REST API konsol – Content Moderator
+titleSuffix: Azure Cognitive Services
+description: 'Använd Azure Content Moderator granska API: er för att skapa bilder eller text granskningar för mänsklig redaktör.'
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,44 +10,44 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 581ab488337cfecae3f5dd97610c7f92c75af8b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607505"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564340"
 ---
-# <a name="create-human-reviews-rest"></a>Skapa mänsklig granskning (REST)
+# <a name="create-human-reviews-rest"></a>Skapa mänsklig granskningar (REST)
 
-[Granskningar](./review-api.md#reviews) lagra och visa innehållet för mänskliga moderatorer att utvärdera. När en användare har slutfört en granskning, skickas resultaten till en slutpunkt för angivna återanrop. I den här guiden får du lära dig hur du ställer in granskningar som använder granska REST API: er via API-konsolen. När du förstår hur API: er kan portera du enkelt dessa anrop till valfri REST-kompatibel plattform.
+[Granskar](./review-api.md#reviews) lagring och visning av innehåll för de mänskliga moderatorerna att utvärdera. När en användare slutför en granskning skickas resultatet till en angiven slut punkt för motringning. I den här guiden får du lära dig hur du ställer in granskningar med hjälp av API-konsolen för att granska REST-API: er. När du förstår API: ernas struktur kan du enkelt Porta dessa anrop till alla REST-kompatibla plattformar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
+- Logga in eller skapa ett konto på webbplatsen för Content Moderator [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) .
 
 ## <a name="create-a-review"></a>Skapa en granskning
 
-Om du vill skapa en granskning, går du till den **[granska – skapa](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API refererar till sidan och klicka på knappen för din nyckel region (du hittar den i slutpunkts-URL på den **autentiseringsuppgifter** sidan av den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/)). Detta startar API-konsol, där du kan enkelt skapa och köra REST API-anrop.
+Om du vill skapa en granskning går du till sidan **[Granska – skapa API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** referens och väljer knappen för nyckel regionen (du hittar det i slut punkts-URL: en på sidan **autentiseringsuppgifter** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/)). Detta startar API-konsolen där du enkelt kan skapa och köra REST API-anrop.
 
-![Granska - Get valet](images/test-drive-region.png)
+![Granska – Hämta regions val](images/test-drive-region.png)
 
-### <a name="enter-rest-call-parameters"></a>Ange parametrar för REST-anrop
+### <a name="enter-rest-call-parameters"></a>Ange REST-anrops parametrar
 
-Ange värden för **teamName**, och **Ocp-Apim-Subscription-Key**:
+Ange värden för **teamName**och **OCP-APIM-Subscription-Key**:
 
-- **teamName**: Lag-ID som du skapade när du ställer in din [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) konto (finns i den **Id** på din granskningsverktyget autentiseringsuppgifter skärmen).
-- **Ocp-Apim-Subscription-Key**: Din nyckel för Content Moderator. Du hittar den på den **inställningar** fliken den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com).
+- **teamName**: Det team-ID som du skapade när du konfigurerade kontot för [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) (finns i fältet **ID** på skärmens inloggnings inställningar).
+- **OCP-APIM-Subscription-Key**: Din Content Moderator-nyckel. Du hittar detta på fliken **Inställningar** i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com).
 
-### <a name="enter-a-review-definition"></a>Ange en definition för granskning
+### <a name="enter-a-review-definition"></a>Ange en gransknings definition
 
-Redigera den **Begärandetext** om du vill ange JSON-begäran med följande fält:
+Redigera rutan **begär ande text** för att ange JSON-begäran med följande fält:
 
-- **Metadata**: Anpassad nyckel / värde-par som ska returneras till slutpunkten återanrop. Om nyckeln är en kort kod som har definierats i den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com), visas den som en tagg.
-- **Innehåll**: När det gäller bild och videoinnehåll innehåll är det här en URL-sträng som pekar på innehållet. Det här är den faktiska textsträngen för textinnehåll.
-- **ContentId**: En anpassad ID-sträng. Den här strängen skickas till API: et och returneras via motringningen. Det är användbart för att associera interna identifierare eller metadata med resultatet från ett jobb för moderering.
-- **CallbackEndpoint**: (Valfritt) URL till får återanrop information när granskningen har slutförts.
+- **Metadata**: Anpassade nyckel/värde-par som ska returneras till återanrops slut punkten. Om nyckeln är en kort kod som definieras i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com)visas den som en tagg.
+- **Innehåll**: Om det finns bild-och video innehåll är detta en URL-sträng som pekar på innehållet. För text innehåll är detta den faktiska text strängen.
+- **ContentId**: En anpassad ID-sträng. Den här strängen skickas till API: et och returneras via återanropet. Det är användbart för att associera interna identifierare eller metadata med resultatet av ett redigerings jobb.
+- **CallbackEndpoint**: Valfritt URL: en som tar emot information om motringning när granskningen är klar.
 
-Standard-begärandetexten visar exempel på de olika typerna av granskningar som du kan skapa:
+Standard texten för begäran visar exempel på olika typer av granskningar som du kan skapa:
 
 ```json
 [Image]
@@ -127,29 +127,29 @@ Standard-begärandetexten visar exempel på de olika typerna av granskningar som
 ]
 ```
 
-### <a name="submit-your-request"></a>Skicka din begäran
+### <a name="submit-your-request"></a>Skicka in din begäran
   
-Välj **Skicka**. Om åtgärden lyckas den **svarsstatus** är `200 OK`, och **svarsinnehåll** visar ett ID för granskningen. Kopiera detta ID ska användas i följande steg.
+Välj **Skicka**. Om åtgärden lyckas, är `200 OK`svars **statusen** och i rutan svars **innehåll** visas ett ID för granskningen. Kopiera detta ID så att det används i följande steg.
 
-![Granska – skapa konsolen svar innehåll visar åtkomstgransknings-ID](images/test-drive-review-2.PNG)
+![Granska – skapa innehålls rutan för konsol svar visar gransknings-ID: t](images/test-drive-review-2.PNG)
 
-### <a name="examine-the-new-review"></a>Undersök ny granskning
+### <a name="examine-the-new-review"></a>Granska den nya granskningen
 
-I den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com)väljer **granska** > **bild**/**Text** / **Video** (beroende på vilket innehåll du används). Det innehåll som du överförde bör visas och redo för mänsklig granskning.
+I [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com)väljer du **Granska** > **bild**/**text**/**video** (beroende på vilket innehåll du använde). Det innehåll som du överförde bör visas, redo för mänsklig granskning.
 
-![Kontrollera att verktyget avbildning av en fotboll](images/test-drive-review-5.PNG)
+![Granska verktygs bild av en fotboll](images/test-drive-review-5.PNG)
 
-## <a name="get-review-details"></a>Hämta information om granskning
+## <a name="get-review-details"></a>Visa gransknings information
 
-Om du vill hämta information om en befintlig granskning, går du till den [granska – hämta](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) API refererar till sidan och klicka på knappen för din region (den region där din nyckel administreras).
+Om du vill hämta information om en befintlig granskning går du till sidan [Granska – Hämta API-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) referens och väljer knappen för din region (den region där nyckeln administreras).
 
-![Arbetsflöde – Get valet](images/test-drive-region.png)
+![Arbets flöde – Hämta regions val](images/test-drive-region.png)
 
-Ange parametrar för REST-anrop som i avsnittet ovan. Det här steget **reviewId** är en unik ID-sträng som du fick när du skapade granskningen.
+Ange resten anrops parametrar som i avsnittet ovan. I det här steget är **reviewId** den unika ID-strängen som du fick när du skapade granskningen.
 
-![Granska – skapa konsolen Get-resultat](images/test-drive-review-3.PNG)
+![Granska – skapa konsol hämta resultat](images/test-drive-review-3.PNG)
   
-Välj **Skicka**. Om åtgärden lyckas den **svarsstatus** är `200 OK`, och **svarsinnehåll** rutan visar Kontrollera informationen i JSON-format som liknar följande:
+Välj **Skicka**. Om åtgärden lyckas, är `200 OK`svars **statusen** och rutan **svars innehåll** visar gransknings informationen i JSON-format, t. ex. följande:
 
 ```json
 {  
@@ -187,9 +187,9 @@ Välj **Skicka**. Om åtgärden lyckas den **svarsstatus** är `200 OK`, och **s
 Anteckna följande fält i svaret:
 
 - **status**
-- **reviewerResultTags**: Det här visas om några taggar manuellt har lagts till av mänsklig granskning-teamet (visas den **createdBy** fältet).
-- **metadata**: Detta visar de taggar som ursprungligen har lagts till i granskningen innan mänsklig granskning team har gjort ändringar.
+- **reviewerResultTags**: Detta visas om några taggar har lagts till manuellt av gruppen mänsklig granskning (visas i fältet **createdBy** ).
+- **metadata**: Detta visar de taggar som ursprungligen lades till i granskningen, innan gruppen för mänsklig granskning gjorde ändringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här handboken beskrivs hur du skapar innehållsmoderering granskningar med hjälp av REST-API. Sedan integrera granskningar i ett scenario för slutpunkt till slutpunkt moderering som den [E-handel moderering](./ecommerce-retail-catalog-moderation.md) självstudien.
+I den här guiden har du lärt dig hur du skapar granskningar av innehålls granskning med hjälp av REST API. Sedan integrerar du granskningar i ett scenario från slut punkt till slut punkt, till exempel själv studie kursen om [E-](./ecommerce-retail-catalog-moderation.md) handelskontrollanter.

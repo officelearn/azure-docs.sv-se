@@ -1,7 +1,7 @@
 ---
-title: Felsökning av tal enheter SDK – Speech Services
+title: Fel sökning av tal enheter SDK-Speech service
 titleSuffix: Azure Cognitive Services
-description: 'Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder SDK: N för tal-enheter.'
+description: Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal enheter SDK.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: f55171a177dfcbebb9bc6df5ce125a8f29494946
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606304"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558899"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Felsöka Speech Devices SDK
 
-Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder SDK: N för tal-enheter.
+Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal enheter SDK.
 
 ## <a name="certificate-failures"></a>Certifikat-fel
 
-Om det uppstår fel certifikat när du använder Speech Services kan du kontrollera att du använder rätt datum och tid:
+Om du får certifikat fel när du använder tal tjänsterna kontrollerar du att enheten har rätt datum och tid:
 
 1. Gå till **inställningar**. Under **System**väljer **datum och tid**.
 

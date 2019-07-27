@@ -10,10 +10,10 @@ ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310508"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Självstudie: Automatisera containeravbildningsversioner när en basavbildning uppdateras i ett Azure-containerregister 
@@ -62,7 +62,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ## <a name="base-images"></a>Basavbildningar
 
-Docker-filer som definierar de flesta containeravbildningarna anger en överordnad avbildning som de är baserade på. Detta kallas ofta för en *basavbildning*. Bas avbildningar innehåller vanligt vis operativ systemet, till exempel [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows], där resten av behållarens lager används. De kan också innehålla ramverk för program som [Node. js][Base-Node] eller [.net Core][base-dotnet].
+Docker-filer som definierar de flesta containeravbildningarna anger en överordnad avbildning som de är baserade på. Detta kallas ofta för en *basavbildning*. Bas avbildningar innehåller vanligt vis operativ systemet, till exempel [Alpine Linux][base-alpine] eller [Windows Nano Server][base-windows], där resten av behållarens lager tillämpas. De kan även innehålla program ramverk som [Node. js][base-node] eller [.net Core][base-dotnet].
 
 ### <a name="base-image-updates"></a>Uppdateringar av basavbildningar
 

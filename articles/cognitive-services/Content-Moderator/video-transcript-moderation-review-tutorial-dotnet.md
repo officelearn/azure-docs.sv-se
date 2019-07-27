@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Moderera videor och avskrifter i .NET – Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: I den här självstudien visas hur du skapar en komplett modereringslösning för video och avskrift med maskinassisterad moderering och HITL-granskning (human-in-the-loop).
 services: cognitive-services
 author: PatrickFarley
@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e1c3d3d95261b959a7540aab73faf12f92801d4c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606953"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564274"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudier: Moderering av videor och avskrifter
 
-I den här självstudien får du lära dig hur du skapar en komplett video och avskrift moderering lösning med datorstödd moderering och human-i-the-loop granskning skapas.
+I den här självstudien får du lära dig hur du skapar en komplett video-och avskrifts redigerings lösning med hjälp av dator redigering och granskning med mänsklig granskning.
 
 I den här självstudiekursen lär du dig att:
 
@@ -34,15 +34,15 @@ I den här självstudiekursen lär du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Registrera dig för den [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) webbplats och skapa anpassade taggar. Se [använda taggar](Review-Tool-User-Guide/tags.md) om du behöver hjälp med det här steget.
+- Registrera dig för webbplatsen för [Content moderator gransknings verktyg](https://contentmoderator.cognitive.microsoft.com/) och skapa anpassade taggar. Se [använda Taggar](Review-Tool-User-Guide/tags.md) om du behöver hjälp med det här steget.
 
-    ![Skärmbild av videon moderering anpassade taggar](images/video-tutorial-custom-tags.png)
-- Om du vill köra exempelprogrammet, behöver du ett Azure-konto, en Azure Media Services-resurs, en Azure Content Moderator-resurs och Azure Active Directory-autentiseringsuppgifter. Anvisningar för hur du hämtar dessa resurser finns i den [Video-API för Bildmoderering](video-moderation-api.md) guide.
-- Ladda ned den [Video granska konsolprogram](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) från GitHub.
+    ![skärm bild av anpassade taggar för video moderator](images/video-tutorial-custom-tags.png)
+- Om du vill köra exempel programmet behöver du ett Azure-konto, en Azure Media Services resurs, en Azure Content Moderator-resurs och Azure Active Directory autentiseringsuppgifter. Instruktioner för hur du hämtar dessa resurser finns i [API](video-moderation-api.md) -guiden för videokontrollanter.
+- Hämta [video gransknings konsol programmet](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) från GitHub.
 
 ## <a name="enter-credentials"></a>Ange autentiseringsuppgifter
 
-Redigera den `App.config` filen och Lägg till den Active Directory-klientnamn och tjänstslutpunkter prenumerationsnycklar som anges av `#####`. Du behöver följande information:
+Redigera filen och Lägg till Active Directory klient namn, tjänst slut punkter och prenumerations nycklar som anges av `#####`. `App.config` Du behöver följande information:
 
 |Nyckel|Beskrivning|
 |-|-|
@@ -54,11 +54,11 @@ Redigera den `App.config` filen och Lägg till den Active Directory-klientnamn o
 |`ContentModeratorApiEndpoint`|Slutpunkt för Content Moderator-API:n|
 |`ContentModeratorTeamId`|Team-ID för Content Moderator|
 
-## <a name="examine-the-main-code"></a>Undersöka huvudsakliga koden
+## <a name="examine-the-main-code"></a>Granska huvud koden
 
 Klassen `Program` i `Program.cs` är den främsta startpunkten till videoändringsprogrammet.
 
-### <a name="methods-of-program-class"></a>Metoder för Program-klassen
+### <a name="methods-of-program-class"></a>Metoder för program klass
 
 |Metod|Beskrivning|
 |-|-|
@@ -135,7 +135,7 @@ Den här funktionen utför följande steg:
 
 Metoden returnerar filnamnet på den komprimerade utdatafilen.
 
-## <a name="upload-and-moderate-the-video"></a>Ladda upp och ändra videon
+## <a name="upload-and-moderate-the-video"></a>Ladda upp och måttlig videon
 
 Videon måste lagras i Azure Media Services innan den kan bearbetas av innehållsändringstjänsten. `Program`-klassen i `Program.cs` har en kort metod för `CreateVideoStreamingRequest()`. Den returnerar ett objekt som representerar den strömmande begäran som användes för att ladda upp videon.
 
@@ -151,7 +151,7 @@ Raderna utför följande uppgifter:
 - Ange `GenerateVTT`-flaggan för begäran om användaren har begärt en textavskrift
 - Anropar `CreateAzureMediaServicesJobToModerateVideo()` för att genomföra uppladdningen och ta emot resultatet
 
-## <a name="examine-video-moderation-code"></a>Granska videomoderering kod
+## <a name="examine-video-moderation-code"></a>Granska videokontrollantens kod
 
 Metoden `CreateAzureMediaServicesJobToModerateVideo()` finns i `VideoModerator.cs`, som innehåller den stora mängd kod som interagerar med Azure Media Services. Källkoden för metoden visas i följande extrahering.
 
@@ -164,7 +164,7 @@ Koden utför följande uppgifter:
 - Skickar jobbet, laddar upp filen och påbörjar bearbetningen
 - Hämtar modereringsresultaten, textavskriften (om det har begärts) och övrig information
 
-## <a name="sample-video-moderation-output"></a>Exempel på utdata videomoderering
+## <a name="sample-video-moderation-output"></a>Exempel på video moderator
 
 Resultatet från videoändringsjobbet (se [snabbstarten för videoändringar](video-moderation-api.md)) är en JSON-datastruktur som innehåller modereringsresultaten. En detaljerad analys av fragmenten (videobilderna) ingår i resultaten, där vart och ett innehåller händelser (klipp) med nyckelbildrutor som har flaggats för granskning. Varje nyckelbildruta bedöms med sannolikheten att den innehåller vuxet eller olämpligt innehåll. I följande exempel visas ett JSON-svar:
 
@@ -234,9 +234,9 @@ Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tills
 `CreateVideoReviewInContentModerator()` anropar flera andra metoder för att utföra följande uppgifter:
 
 > [!NOTE]
-> Konsolprogrammet använder [FFmpeg](https://ffmpeg.org/)-biblioteket till att generera miniatyrer. De här miniatyrbilderna (avbildningar) motsvarar ramens tidsstämplar i videomoderering utdata.
+> Konsolprogrammet använder [FFmpeg](https://ffmpeg.org/)-biblioteket till att generera miniatyrer. Dessa miniatyr bilder (bilder) motsvarar de tidsstämplade ramarna i videoinspelningens utdata.
 
-|Aktivitet|Metoder|Fil|
+|Uppgift|Metoder|Fil|
 |-|-|-|
 |Extraherar nyckelbildrutorna från videon och skapar miniatyrbilder av dem|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
 |Genomsöker textavskriften, om det finns någon, för att hitta vuxet eller olämpligt ljud|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
@@ -252,7 +252,7 @@ Fram tills nu har koden som visas i den här självstudien fokuserat på visuell
 
 Programmet utför följande uppgifter:
 
-|Aktivitet|Metoder|Fil|
+|Uppgift|Metoder|Fil|
 |-|-|-|
 |Bestämmer om textavskrifter ska genereras|`Main()`<br>`GetUserInputs()`|`Program.cs`|
 |I dessa fall skickas ett avskriftsjobb som en del av modereringen|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
@@ -279,7 +279,7 @@ Avskriften publiceras som en AMS-tillgång. Om du vill genomsöka avskriften eft
 
 Efter viss nödvändig AMS-konfiguration utförs den faktiska hämtningen genom att `DownloadAssetToLocal()` anropas. Det är en generisk funktion som kopierar en AMS-tillgång till en lokal fil.
 
-## <a name="moderate-the-transcript"></a>Måttlig avskriften
+## <a name="moderate-the-transcript"></a>Måttlig avskrift
 
 När avskriften har erhållits genomsöks den och används i granskningen. Att skapa granskningen ingår i `CreateVideoReviewInContentModerator()`, som anropar `GenerateTextScreenProfanity()` för att göra jobbet. Metoden anropar i sin tur `TextScreen()`, som innehåller de flesta funktionerna.
 
@@ -314,7 +314,7 @@ Därefter genomsöker vi de parsade bildtexterna med text-API:n i Content Modera
 
 [!code-csharp[TextScreen3](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=568-653)]
 
-### <a name="text-moderation-breakdown"></a>Uppdelning för moderering av text
+### <a name="text-moderation-breakdown"></a>Text redigerings analys
 
 `TextScreen()` är en omfattande metod, så vi delar upp den.
 
@@ -359,7 +359,7 @@ Total Elapsed Time: 00:05:56.8420355
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapar du ett program som ändrar videoinnehåll&mdash;inklusive avskrift innehåll&mdash;och skapar granskningar i granskningsverktyget. Därefter mer information om videomoderering.
+I den här självstudien skapar du ett program som förändrar&mdash;video innehåll,&mdash;inklusive avskrifts innehåll och skapar granskningar i gransknings verktyget. Nu ska du läsa mer om hur du kan få mer information om videoinspelning.
 
 > [!div class="nextstepaction"]
 > [Videomoderering](./video-moderation-human-review.md)

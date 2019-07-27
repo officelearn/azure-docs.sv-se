@@ -1,5 +1,5 @@
 ---
-title: Publicera app
+title: Publicera app – LUIS
 titleSuffix: Azure Cognitive Services
 description: När du är klar att skapa och testa active LUIS-appen blir tillgänglig för klientprogrammet genom att publicera den till slutpunkten.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdbdb2cd13d131019c4230aa369af31240d25f0d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194468"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563654"
 ---
-# <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicera din aktiva, tränade app till en slutpunkt för mellanlagring eller produktion
+# <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicera din aktiva, utbildade app till en mellanlagrings-eller produktions slut punkt
 
 När du är klar att skapa och testa active LUIS-appen blir tillgänglig för klientprogrammet genom att publicera den till slutpunkten. 
 
@@ -38,7 +38,7 @@ Appen har publicerats i alla regioner som associeras med LUIS-resurser som har l
 
 När din app har publicerats visas ett meddelande om grönt överst i webbläsaren. Grön meddelandefältet innehåller också en länk till slutpunkterna. 
 
-![Publicering av popup-fönster med länk till slutpunkten](./media/luis-how-to-publish-app/publish-success.png)
+![Publicera popup-fönster med länk till slut punkt](./media/luis-how-to-publish-app/publish-success.png)
 
 Välj länken om du behöver slutpunkts-URL. Du kan också få URL: er för slutpunkten genom att välja **hantera** i den översta menyn och markera **nycklar och slutpunkter** på den vänstra menyn. 
 
@@ -56,7 +56,7 @@ Attitydanalys kan LUIS för att integrera med [textanalys](https://azure.microso
 
 Du behöver inte ange en nyckel för textanalys och det är kostnadsfritt faktureringen för den här tjänsten på Azure-kontot. När du markerar den här inställningen får är det beständiga. 
 
-Åsiktsdata är ett värde mellan 1 och 0 som anger vilka positiva (närmare 1) eller ett negativt (närmare 0) känsla av data. Etikettens av `positive`, `neutral`, och `negative` per kultur som stöds. För närvarande stöder endast på engelska sentiment etiketter. 
+Åsiktsdata är ett värde mellan 1 och 0 som anger vilka positiva (närmare 1) eller ett negativt (närmare 0) känsla av data. Sentiment-etiketten för `positive`, `neutral`, och `negative` är per kultur som stöds. För närvarande stöder endast engelska sentiment-etiketter. 
 
 Läs mer om JSON-svar för slutpunkt med attitydanalys [attitydanalys](luis-concept-data-extraction.md#sentiment-analysis)
 

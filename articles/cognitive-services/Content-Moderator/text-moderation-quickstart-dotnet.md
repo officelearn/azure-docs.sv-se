@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Analysera textinnehåll i C# – Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Hur du analyserar textinnehåll för olika stötande material med innehåll Moderator SDK för .NET
+titleSuffix: Azure Cognitive Services
+description: Analysera text innehåll för olika stötande material med hjälp av Content Moderator SDK för .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 45ac641948531aa27334762704eba3333aebba4d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604051"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564334"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i C#
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du lär dig att köra termen-baserad filtrering och klassificering av innehåll i syfte att kontrollera potentiellt stötande material text.
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du lär dig hur du kör termbaserade filtrering och klassificering av text innehåll i syfte att kunna göra det potentiellt olämpligt material.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -57,11 +57,11 @@ Lägg till följande kod i filen *Program.cs* för att skapa en Content Moderato
 
 ### <a name="set-up-input-and-output-targets"></a>Konfigurera inkommande och utgående mål
 
-Lägg till följande statiska fält till klassen **Program** i _Program.cs_. De här fälten ange filer för indatatext innehåll och utdata JSON-innehåll.
+Lägg till följande statiska fält till klassen **Program** i _Program.cs_. De här fälten anger filerna för text innehåll och utdata-JSON-innehåll.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-Du måste skapa den *TextFile.txt* indatafil och uppdatera dess sökväg (sökvägar är relativa till körningskatalogen). Öppna _TextFile.txt_ och lägg till text som ska modereras. Den här snabbstarten använder följande exempeltext:
+Du måste skapa *TextFile. txt* -indatafilen och uppdatera sökvägen (sökvägar är i förhållande till körnings katalogen). Öppna _TextFile.txt_ och lägg till text som ska modereras. Den här snabbstarten använder följande exempeltext:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Lägg till följande kod i metoden **Main**. Metoden **ScreenText** är en viktig åtgärd. Dess parametrar anger vilka åtgärder för innehållsmoderering som kommer att göras. I det här exemplet konfigureras metoden för att:
 - Identifiera potentiellt olämpligt språk i texten.
 - Normalisera texten och autokorrigera stavfel.
-- Identifiera personliga data, t.ex. USA och Storbritannien telefonnummer, e-postadresser, och USA e-postadresser.
+- Identifiera personliga data, till exempel USA och Storbritannien, telefonnummer, e-postadresser och e-postadresser för oss.
 - Använd maskininlärningsbaserade modeller för att klassificera texten i tre kategorier.
 
 Om du vill veta mer om vad de här åtgärderna gör följer du länken i avsnittet [Nästa steg](#next-steps).

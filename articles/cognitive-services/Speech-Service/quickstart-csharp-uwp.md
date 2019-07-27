@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera tal, C# (UWP) – Speech Services'
+title: 'Snabbstart: Identifiera tal- C# , (UWP) – tal-service'
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln ska du skapa ett C#-baserat UWP-program (Universal Windows Platform) med hjälp av Cognitive Services Speech SDK. Du transkriberar tal till text i realtid från enhetens mikrofon. Programmet har skapats med Speech SDK NuGet-paketet och Microsoft Visual Studio 2017.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5505288a494aefe165e829f53c1869f4cc5f176f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405922"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559432"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i en UWP-app med hjälp av Speech SDK
 

@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309470"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure Portal
@@ -22,7 +22,7 @@ Ett Azure-containerregister är ett privat Docker-register i Azure där du kan l
 
 För att logga in i registret för att arbeta med containeravbildningar kräver den här snabbstarten att du kör Azure CLI (version 2.0.55 eller senare rekommenderas). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på [Mac][docker-mac], [Windows][docker-windows], eller [Linux][Docker-Linux-] system.
+Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-][docker-mac], [Windows-][docker-windows] eller [Linux-][docker-linux]dator.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

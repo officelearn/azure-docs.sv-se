@@ -4,40 +4,40 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187030"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562470"
 ---
-Välj **skapa**. I dialogrutan som öppnas väljer du en mapp som du vill exportera Xcode-projektet till.
+Välj **build**. I dialog rutan som öppnas väljer du en mapp att exportera Xcode-projektet till.
 
 När exporten är klar visas en mapp som innehåller det exporterade Xcode-projektet.
 
 > [!NOTE]
-> Om det visas ett fönster som frågar om du vill ersätta eller lägga till, rekommenderar vi att du väljer **Append** eftersom det är snabbare. Du behöver bara välja **Ersätt** om du ändrar tillgångar i din scen. (Till exempel om du vill lägga till, ta bort, ändra överordnade/underordnade relationer eller om du vill lägga till, ta bort eller ändra egenskaperna.) Om du endast gör ändringar av datakällan kod **Append** borde räcka.
+> Om ett fönster frågar dig om du vill ersätta eller lägga till visas, rekommenderar vi att du väljer **Lägg till** eftersom det är snabbare. Du behöver bara välja **Ersätt** om du byter till gångar i din scen. (Om du till exempel lägger till, tar bort eller ändrar överordnade/underordnade relationer eller om du lägger till, tar bort eller ändrar egenskaper.) Om du bara gör käll kods ändringar bör **tillägg** vara tillräckligt.
 
-### <a name="open-the-xcode-project"></a>Öppna Xcode-projektet
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Konvertera Xcode-projektet till xcworkspace som innehåller referenser till Azure spatiala ankare
 
-Kör följande kommando i terminalen för att installera nödvändiga CocoaPods för projektet i Xcode exporterade projektmappen:
+I den exporterade Xcode-projektmappen kör du det här kommandot i terminalen för att installera de nödvändiga CocoaPods för projektet:
 
 ```bash
 pod install --repo-update
 ```
 
-Nu kan du öppna `Unity-iPhone.xcworkspace` att öppna projektet i Xcode:
+Nu kan du öppna `Unity-iPhone.xcworkspace` projektet i Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Om du ser en `library not found for -lPods-Unity-iPhone` fel du förmodligen har öppnat den `.xcodeproj` fil i stället för den `.xcworkspace` filen. 
+> Om du ser ett `library not found for -lPods-Unity-iPhone` fel har du förmodligen `.xcodeproj` öppnat filen i stället för `.xcworkspace` filen. 
 
-Välj roten **Unity-iPhone** noden för att visa projektinställningarna för och välj sedan den **Allmänt** fliken.
+Välj den rot **Uppunions-iPhone-** noden för att visa projekt inställningarna och välj sedan fliken **Allmänt** .
 
-Under **signering**, se till att **automatiskt hantera signering** är aktiverad. Om den inte aktivera den och välj sedan **aktivera automatisk** i dialogrutan som visas för build-inställningar återställs.
+Under **signering**ser du till att **Hantera signering** är aktiverat automatiskt. Om det inte är det aktiverar du det och väljer sedan **Aktivera automatiskt** i dialog rutan som visas för att återställa build-inställningarna.
 
 Under **Deployment Info** (Distributionsinformation) ser du till att **Deployment Target** (Distributionsmål) är angett till `11.0`.
 

@@ -1,6 +1,6 @@
 ---
-title: Funktioner
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Funktioner – LUIS
+titleSuffix: Azure Cognitive Services
 description: Lägga till funktioner till en språkmodell ge tips om hur du identifierar indata som du vill märka eller klassificera.
 services: cognitive-services
 author: diberry
@@ -11,71 +11,71 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1aed6f9a0ceec18ca800e5030ec09bbb8d98cb76
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812934"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560727"
 ---
-# <a name="phrase-list-features-in-your-luis-app"></a>Fras funktioner i din LUIS-app
+# <a name="phrase-list-features-in-your-luis-app"></a>Fras List funktioner i LUIS-appen
 
 I machine learning, en *funktionen* är en särskiljande egenskap eller ett attribut av data där dina system. 
 
 Lägga till funktioner till en språkmodell ge tips om hur du identifierar indata som du vill märka eller klassificera. Funktionerna bidrar LUIS kunna identifiera både avsikter och entiteter, men funktioner är inte avsikter eller entiteter själva. Funktioner kan i stället innehåller exempel på relaterade villkor.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>Vad är en fras lista funktion?
-En fras lista är en lista över ord eller fraser som är relevanta för att din app, viktigare än andra ord i yttranden. En lista med frasen lägger till vokabulär app-domänen som en ytterligare signalen att LUIS om dessa ord. Vad LUIS lär sig om en av dem tillämpas automatiskt på alla andra program. Den här listan är inte en stängd [lista entitet](luis-concept-entity-types.md#types-of-entities) textens exakt matchar.
+En fras lista är en lista över ord eller fraser som är viktiga för din app, mer än andra ord i yttranden. En fras lista lägger till i program domänens vokabulär som en ytterligare signal för att LUIS om orden. Vad LUIS lär sig om en av dem tillämpas automatiskt på alla andra program. Den här listan är inte en stängd [list-entitet](luis-concept-entity-types.md#types-of-entities) med exakt text matchning.
 
-Fras listor hjälper inte med ordstamsigenkänning så du måste lägga till uttryck exempel som använder olika ordstamsigenkänning för några betydande ordförråd ord och fraser.
+Fras listorna bidrar inte till att du behöver lägga till uttryck-exempel som använder en rad olika ord listor och fraser.
 
-## <a name="phrase-lists-help-all-models"></a>Fras listorna hjälper att alla modeller
+## <a name="phrase-lists-help-all-models"></a>Fras listorna hjälper alla modeller
 
-Fras listor har länkats inte till en specifik avsikt eller enhet men har lagts till som en betydande boost till alla avsikter och entiteter. Syftet är att förbättra avsikt identifiering och entiteten klassificering.
+Fras listor är inte länkade till en speciell avsikt eller entitet, men läggs till som en betydande ökning av alla avsikter och entiteter. Syftet med detta är att förbättra identifieringen av avsikts identifiering och enhets klassificering.
 
 ## <a name="how-to-use-phrase-lists"></a>Hur du använder frasen listor
 
-Skapa en fras-lista när din app har ord eller fraser som är viktiga för appen som:
+Skapa en fras lista när din app har ord eller fraser som är viktiga för appen, till exempel:
 
-* branschvillkor
+* bransch villkor
 * slang
 * förkortningar
 * företagsspecifika språk
-* språk som är ett annat språk men ofta används i din app
-* nyckelord och fraser i exempel-uttryck
+* språk som är från ett annat språk men som ofta används i din app
+* nyckelord och fraser i ditt exempel yttranden
 
-När du har angett några ord eller fraser kan du använda den **rekommenderar** funktionen för att hitta relaterade värden. Granska relaterade värden innan du lägger till din frasen listvärden.
+När du har angett några ord eller fraser använder du den **rekommenderade** funktionen för att hitta relaterade värden. Granska de relaterade värdena innan du lägger till dem i dina fras List värden.
 
 |Listtyp|Syfte|
 |--|--|
-|Interchangeable|Synonymer eller ord, när ändrades till ett annat ord. i listan, har samma syfte och entitetextrahering.|
-|Icke-utbytbara|App ordförråd, specifika för din app mer så än Allmänt andra ord på det språket.|
+|Utbytbara|Synonymer eller ord som, när de ändras till ett annat ord i listan, har samma avsikts-och enhets extrahering.|
+|Icke-utbytbart|Appens vokabulär, som är specifik för din app, mer än vanligt vis andra ord på det språket.|
 
-### <a name="interchangeable-lists"></a>Utbytbara listor
+### <a name="interchangeable-lists"></a>Listor med utbytbara
 
-En *utbytbara* frasen listan är för värden som är synonymer. Om du vill hitta alla organ vatten och du har exempel yttranden som: 
+En  lista med utbytbara fraser är för värden som är synonymer. Om du till exempel vill att alla vatten förekomster hittas och du har exempel yttranden som: 
 
-* Vilka städer närmar sig bra sjöar? 
-* Vilken väg körs längs Lake Havasu?
-* Där Nile börja och sluta? 
+* Vilka städer är nära de fantastiska sjöarna? 
+* Vilken väg körs i sjön-Havasu?
+* Var börjar och slutar Nileen? 
 
-Varje uttryck ska fastställas för både avsikten och entiteter, oavsett mängd vatten: 
+Varje uttryck bör bestämmas för både avsikt och entiteter oavsett vatten förekomst: 
 
 * Vilka städer är nära [bodyOfWater]?
-* Vilken väg körs längs [bodyOfWater]?
-* Där [bodyOfWater] börja och sluta? 
+* Vilken väg körs tillsammans [bodyOfWater]?
+* Var börjar och slutar [bodyOfWater]? 
 
-Eftersom ord eller fraser för innehållet i water är synonyma och kan användas antingen i talade, använda den **utbytbara** på listan med fraser. 
+Eftersom ord eller fraser för bröd texten i vatten är synonyma och kan användas utbytbara i yttranden, använder du den utbytbara  inställningen på fras listan. 
 
-### <a name="non-interchangeable-lists"></a>Icke-utbytbara listor
+### <a name="non-interchangeable-lists"></a>Listor som inte är utbytbara
 
-En lista med icke-utbytbara frasen är en signal som förstärker identifiering till LUIS. Listan över frasen anger ord eller fraser som är viktigare att andra ord. Detta hjälper med både avsikten och entiteten identifiering av avgörande. Anta exempelvis att du har en domän för ämne som resa som är globala (vilket innebär att över kulturer men fortfarande i ett enda språk). Det finns ord och fraser som är viktiga för appen, men är inte synonymer. 
+En icke-utbytbar fras lista är en signal som höjer identifieringen till LUIS. Fras listan visar ord eller fraser som är mer betydande än andra ord. Detta hjälper både att identifiera matchning av avsikt och entitet. Anta till exempel att du har en ämnes domän som en global domän (vilket innebär att den är i flera kulturer men fortfarande på ett och samma språk). Det finns ord och fraser som är viktiga för appen, men som inte är synonyma. 
 
-För ett annat exempel är att använda en icke-utbytbara frasen lista för sällsynta, äganderätt och främmande ord. LUIS kanske inte att identifiera sällsynta och egna ord, samt främmande ord (utanför appen kultur). Icke-utbytbara inställningen anger att uppsättning sällsynta ord utgör en klass som LUIS bör lär sig att känna igen, men de är inte synonymer eller utbytbara med varandra.
+För ett annat exempel använder du en lista med icke-utbytbara fraser för ovanliga, tillverkarspecifika och främmande ord. LUIS kanske inte att identifiera sällsynta och egna ord, samt främmande ord (utanför appen kultur). Icke-utbytbara inställningen anger att uppsättning sällsynta ord utgör en klass som LUIS bör lär sig att känna igen, men de är inte synonymer eller utbytbara med varandra.
 
-Inte lägga till varje möjligt ord eller fraser i en fras-lista, lägga till några ord eller fraser i taget, och sedan träna och publicera. 
+Lägg inte till alla möjliga ord eller fraser i en fras lista, Lägg till några ord eller fraser i taget, och omträna och publicera. 
 
-När listan frasen ökar med tiden, kanske vissa begrepp att ha många formulär (synonymer). Bryt dessa till en annan frasen-lista som är utbytbara. 
+När fras listan växer med tiden kan det hända att vissa termer har många former (synonymer). Bryt ut dessa i en annan fras lista som är utbytbara. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
@@ -93,7 +93,7 @@ Att lägga till en fras lista är ett alternativ till att lägga till fler exemp
 ### <a name="use-a-phrase-list"></a>Använd en fras-lista
 Med en fras lista LUIS fortfarande ta hänsyn till kontext och generalisera för att identifiera objekt som liknar, men inte en exakt matchning som objekt i en lista. Om du behöver LUIS-appen för att kunna generalisera och identifiera nya objekt i en kategori kan du använda en fras-lista. 
 
-När du vill identifiera nya instanser av en entitet, som ett möte scheduler som ska identifiera namnen på nya kontakter eller en inventering-app som ska identifiera nya produkter, kan du använda en annan typ av dator lärt dig entiteten, till exempel en enkel enhet. Skapa sedan en lista över ord och fraser fras som hjälper dig att hitta andra ord liknar entiteten LUIS. Den här listan visar LUIS för att identifiera exempel på entiteten genom att lägga till ytterligare multipel till värdet för orden. 
+När du vill kunna identifiera nya instanser av en entitet, till exempel en schemaläggare för möten som ska identifiera namnen på nya kontakter, eller en inventerings app som ska identifiera nya produkter, använder du en annan typ av enhets medveten entitet, till exempel en enkel enhet. Skapa sedan en lista över ord och fraser fras som hjälper dig att hitta andra ord liknar entiteten LUIS. Den här listan visar LUIS för att identifiera exempel på entiteten genom att lägga till ytterligare multipel till värdet för orden. 
 
 Fras listor liknar domänspecifika ordförråd hjälp med att förbättra kvaliteten på förståelse för både avsikter och entiteter. En gemensam användning av en fras lista är egennamn, till exempel stadsnamn. Namnet på en stad kan vara flera ord, inklusive bindestreck eller apostrofer.
  

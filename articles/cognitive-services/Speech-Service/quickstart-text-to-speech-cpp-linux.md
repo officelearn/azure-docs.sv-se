@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Synthesize speech, C++ (Linux) - Speech Services'
+title: 'Snabbstart: Syntetisera tal, C++ (Linux) – tal service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig att syntetisera tal i C++ i Linux med hjälp av tal-SDK
+description: Lär dig att syntetisera tal i C++ på Linux med hjälp av tal-SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: fbc5f21bb97eabb234e2b3905796ae01877ed89f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: dbc9c2adc2663d3ba0ec3f9ea17b758ca2723441
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604944"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553707"
 ---
-# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i C++ i Linux med hjälp av tal-SDK
+# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal in C++ i Linux med hjälp av tal-SDK
 
-Snabbstarter kan också användas för [taligenkänning](quickstart-cpp-linux.md).
+Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-cpp-linux.md).
 
-I den här artikeln skapar du en C++ konsolen program för Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9). Du använder Cognitive Services [tal SDK](speech-sdk.md) att syntetisera tal från text i realtid och spela upp tal på datorns högtalare. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
+I den här artikeln skapar du ett C++ konsol program för Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9). Du använder Cognitive Services [tal-SDK](speech-sdk.md) för att syntetisera tal från text i real tid och spela upp talet på din dators högtalare. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
+Du behöver en prenumerations nyckel för tal tjänster för att slutföra den här snabb starten. Du kan skaffa en utan kostnad. Mer information finns i [testa tal tjänsterna kostnads fritt](get-started.md) .
 
 ## <a name="install-speech-sdk"></a>Installera Speech SDK
 
@@ -46,7 +46,7 @@ Ladda ned och installera SDK enligt följande:
      sudo apt-get install build-essential libssl1.0.0 libasound2 wget
      ```
 
-   * On Debian 9:
+   * På Debian 9:
 
      ```sh
      sudo apt-get update
@@ -88,7 +88,7 @@ Ladda ned och installera SDK enligt följande:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-linux/helloworld.cpp#code)]
 
-1. I den nya filen ersätter du strängen `YourSubscriptionKey` med din prenumerationsnyckel för Speech Services.
+1. Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster i den nya filen.
 
 1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
@@ -131,7 +131,7 @@ Ladda ned och installera SDK enligt följande:
    ./helloworld
    ```
 
-1. I konsolfönstret visas en fråga, där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till Speech Services och syntetiskt till tal som spelar upp på högtalaren.
+1. I konsol fönstret visas en uppslags ruta där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till tal tjänsterna och syntetiskt till tal, som spelas upp på din talare.
 
    ```text
    Type some text that you want to speak...
@@ -147,5 +147,5 @@ Ladda ned och installera SDK enligt följande:
 
 ## <a name="see-also"></a>Se också
 
-- [Anpassa rösttyper](how-to-customize-voice-font.md)
-- [Post voice-exempel](record-custom-voice-samples.md)
+- [Anpassa röst teckensnitt](how-to-customize-voice-font.md)
+- [Spela in röst exempel](record-custom-voice-samples.md)

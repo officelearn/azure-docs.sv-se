@@ -1,5 +1,5 @@
 ---
-title: Batch-test
+title: Batch-test – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här kursen visar hur du använder batch testning för att hitta uttryck förutsägelse problem i din app och korrigera detta.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6b3f864ded8b6f5ac0a1d839768801788d7d765
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146164"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560121"
 ---
-# <a name="tutorial-batch-test-data-sets"></a>Självstudier: Datauppsättningar för batch-test
+# <a name="tutorial-batch-test-data-sets"></a>Självstudier: Data uppsättningar för batch-test
 
 Den här kursen visar hur du använder batch testning för att hitta uttryck förutsägelse problem i din app och korrigera detta.  
 
@@ -28,7 +28,7 @@ Krav för att testa batch:
 
 * Högst 1000 yttranden per test. 
 * Inga dubbletter. 
-* Entitetstyper tillåts: endast bearbetas-lärt dig enheter av enkla och sammansatta. Batch testning är endast användbart för bearbetning-lärt dig avsikter och entiteter.
+* Tillåtna entitetstyper: endast enhets belärt entiteter för enkel och sammansatt. Batch testning är endast användbart för bearbetning-lärt dig avsikter och entiteter.
 
 När du använder en app än den här självstudien gör *inte* använder exemplet talade redan lagts till i en avsikt. 
 
@@ -169,7 +169,7 @@ För att verifiera att yttranden i batch-testet är korrekt förutse, kör du ba
 
 ## <a name="create-batch-file-with-entities"></a>Skapa en batchfil med entiteter 
 
-För att verifiera entiteter i ett batch-test, måste entiteterna ska förses i batch JSON-fil. Endast datorn lärt dig-entiteter som används: enkelt och sammansatta entiteter. Lägg inte till icke-machine-lärt dig entiteter, eftersom de finns alltid genom reguljära uttryck eller explicit text matchar.
+För att verifiera entiteter i ett batch-test, måste entiteterna ska förses i batch JSON-fil. Endast de enheter som har lärts från enheten används: enkla och sammansatta entiteter. Lägg inte till icke-machine-lärt dig entiteter, eftersom de finns alltid genom reguljära uttryck eller explicit text matchar.
 
 Variationen för entiteter för totalt antal ord ([token](luis-glossary.md#token)) antal kan påverka förutsägelse kvalitet. Kontrollera att träningsdata som angetts för avsikten med märkta yttranden innehåller en mängd längder för entiteten. 
 
@@ -205,11 +205,11 @@ Värdet för en **jobbet** entiteten i test-uttryck är vanligtvis en eller två
 
 ## <a name="review-entity-batch-results"></a>Granska batch-enhetsresultat
 
-Diagrammet öppnas med alla avsikter korrekt förutse. Rulla nedåt i höger filtret för att hitta entiteten förutsägelser med fel. 
+Diagrammet öppnas med alla avsikter korrekt förutse. Rulla nedåt i det högra filtret för att hitta enheten förutsägelser med fel. 
 
 1. Välj den **jobbet** entitet i filtret.
 
-    ![Fel entitet förutsägelser i filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Fel vid enhets förutsägelser i filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     Diagrammet ändras för att visa entitet förutsägelser. 
 

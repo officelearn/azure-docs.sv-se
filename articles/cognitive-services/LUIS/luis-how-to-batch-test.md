@@ -1,6 +1,6 @@
 ---
-title: Batch-test
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Batch-test – LUIS
+titleSuffix: Azure Cognitive Services
 description: Använd batch för Språkförståelse (LUIS) testningsuppsättningar för att hitta yttranden med felaktig avsikter och entiteter.
 services: cognitive-services
 author: diberry
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: d615eb2a23b953bad5e41859357d9ae9e9be2ba6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0910fedc9fd27af198f6a2b94b34daf57c050f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60197722"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563682"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testa med en uppsättning exempel yttranden batch
 
- Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. Datauppsättningar som används för att testa batch får inte innehålla exempel yttranden i avsikter eller yttranden som togs emot från slutpunkten för förutsägelse runtime. 
+ Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. De data uppsättningar som används för batch-testning bör inte innehålla exempel yttranden i de avsikter eller yttranden som tas emot från körnings slut punkten för förutsägelse. 
 
 <a name="batch-testing"></a>
 

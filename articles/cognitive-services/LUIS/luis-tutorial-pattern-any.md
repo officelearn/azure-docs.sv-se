@@ -1,5 +1,5 @@
 ---
-title: Entiteten Pattern.any
+title: Mönster. alla entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: Använd entiteten pattern.any för att extrahera data från yttranden som är välformade och där dataslutet lätt kan förväxlas med återstående ord i yttrandet.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 6007f88af4d1049a87851b3808c66693173a648a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 165163d0a889e0bd5f1faef8d7f6a17d28c2b4f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069254"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563279"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Självstudier: Extrahera friformsdata med Pattern.any-entiteten
 
@@ -68,7 +68,7 @@ Den varierande längden innehåller ord som kan förvirra LUIS om var entiteten 
 
 1. Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1. I den [LUIS portal](https://www.luis.ai)på den **Mina appar** sidan, importera JSON till en ny app.
+1. På sidan **Mina appar** i [Luis-portalen](https://www.luis.ai)importerar du JSON till en ny app.
 
 1. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `patt-any`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
@@ -96,7 +96,7 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 1. Välj **Skapa ny entitet**, ange namnet `FormName` och välj **Pattern.any** som typ. Välj **Done** (Klar). 
 
-    Du kan inte etiketten entiteten i ett intent exempel yttranden eftersom en Pattern.any är endast giltig i ett mönster. 
+    Du kan inte märka entiteten i ett yttranden-exempel eftersom det finns ett mönster. any är bara giltig i ett mönster. 
 
     Om du vill att extraherade data även ska omfatta andra entiteter, som antal eller datetimeV2, måste du skapa en sammansatt entitet som innehåller Pattern.any, antalet och datetimeV2.
 
@@ -134,7 +134,7 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 1. Stäng testpanelen genom att välja knappen **Testa** i det övre navigeringsfältet.
 
-## <a name="using-an-explicit-list"></a>Med hjälp av ett explicit lista
+## <a name="using-an-explicit-list"></a>Använda en explicit lista
 
 Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](luis-concept-patterns.md#explicit-lists).
 

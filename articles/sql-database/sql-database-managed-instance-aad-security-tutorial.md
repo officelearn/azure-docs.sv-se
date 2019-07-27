@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702255"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567668"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Självstudier: Säkerhet för hanterad instans i Azure SQL Database med hjälp av Azure AD-serverhuvudkonton (inloggningar)
 
@@ -42,7 +41,7 @@ I den här guiden får du lära dig att:
 
 Mer information finns i artiklarna [Azure SQL Database Managed Instance overview](sql-database-managed-instance-index.yml) (Översikt över Azure SQL Database Managed Instance) och [Funktioner](sql-database-managed-instance.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -56,7 +55,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Begränsa åtkomsten till din hanterade instans
 
-Hanterade instanser kan endast nås via en privat IP-adress. Det finns inga tjänstslutpunkter som är tillgängliga för att ansluta till en hanterad instans utanför instansens nätverk. Nästan samma sätt som en isolerad SQL-Server en lokal miljö, program eller användare behöver åtkomst till hanterad instans-nätverk (VNet) innan en anslutning kan upprättas. Mer information finns i artikeln [Ansluta program till en hanterad instans](sql-database-managed-instance-connect-app.md).
+Hanterade instanser kan endast nås via en privat IP-adress. Det finns inga tjänstslutpunkter som är tillgängliga för att ansluta till en hanterad instans utanför instansens nätverk. Ungefär som en isolerad SQL Server lokal miljö behöver program eller användare åtkomst till det virtuella nätverk som hanteras av en anslutning innan en anslutning kan upprättas. Mer information finns i artikeln [Ansluta program till en hanterad instans](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Eftersom hanterade instanser bara kan nås från sitt VNET gäller inte [SQL Database-brandväggsreglerna](sql-database-firewall-configure.md). Hanterade instanser har en egen [inbyggd brandvägg](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -172,7 +171,7 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
 
     Det här exemplet skapar en inloggning för Azure AD-användaren bob@aadsqlmi.net, vars domän aadsqlmi.net är federerad med Azure AD:s aadsqlmi.onmicrosoft.com.
 
-    Kör följande T-SQL-kommando. Federerad Azure AD-konton är hanterad instans-ersättningar för lokala Windows-inloggningar och användare.
+    Kör följande T-SQL-kommando. Federerade Azure AD-konton är de hanterade instansen för lokala Windows-inloggningar och användare.
 
     ```sql
     USE master
@@ -360,7 +359,7 @@ Hanterade instanser har stöd för personifiering av Azure AD-huvudkonton på se
     GO
     ```
 
-1. Använd följande kommando för att se när användare som du personifiera när du kör den lagrade proceduren **bob\@aadsqlmi.net**.
+1. Använd följande kommando för att se att den användare som du personifierar när du kör den lagrade proceduren är **Bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

@@ -1,7 +1,7 @@
 ---
-title: Kör Azure Container Instances
+title: Köra Azure Container Instances Speech service
 titleSuffix: Azure Cognitive Services
-description: Distribuera Taltjänst behållaren till en Azure Container-instans och testa den i en webbläsare.
+description: Distribuera tal tjänst behållaren till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 062765be22135b12abb29ff6f7ce8a772c67adae
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 41589a12f16f330188e2971e3069eb715d1a7163
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711520"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559720"
 ---
-# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Distribuera Taltjänst-behållare till Azure Container Instances
+# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Distribuera tal tjänst behållaren till Azure Container Instances
 
-Lär dig hur du distribuerar Cognitive Services [Speech Service](speech-container-howto.md) behållare till Azure [Behållarinstanser](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar skapandet av en Azure Speech Service-resurs. Därefter ska vi prata hämta associerade behållaravbildningen. Slutligen kan markerar vi du möjlighet att utöva dirigering av två från en webbläsare. Med hjälp av behållare kan du ändra den utvecklare uppmärksamhet från hantering av infrastruktur för att i stället fokusera på programutveckling.
+Lär dig hur du distribuerar Cognitive Services [Speech service-](speech-container-howto.md) behållaren till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar hur du skapar en Azure Speech service-resurs. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållarregistret
+## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Du måste först slutför och skicka den [Cognitive Services tal behållare formulär](https://aka.ms/speechcontainerspreview/) att begära åtkomst till behållaren. 
+Du måste först fylla i och skicka in [formuläret för begäran om Cognitive Services tal behållare](https://aka.ms/speechcontainerspreview/) för att begära åtkomst till behållaren. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Syntetisera tal, C++ (Windows) – Speech Services'
+title: 'Snabbstart: Syntetisera tal, C++ (Windows) – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Lär dig att syntetisera tal i C++ Windows-skrivbordet med hjälp av tal-SDK
+description: Lär dig att syntetisera tal i C++ på Windows-skrivbordet med hjälp av tal-SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: dfad425d6da2e3dabec138ef4f108957ebea7ee9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6936d8f93221402fca9b250d09a842ce753e0e12
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602918"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559320"
 ---
-# <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i C++ i Windows med hjälp av tal-SDK
+# <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal in i C++ Windows med hjälp av tal-SDK
 
-Snabbstarter kan också användas för [taligenkänning](quickstart-cpp-windows.md) och [talöversättning](quickstart-translate-speech-cpp-windows.md).
+Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-cpp-windows.md) och [tal översättning](quickstart-translate-speech-cpp-windows.md).
 
-I den här artikeln får skapa du ett C++-konsolprogram för Windows. Du använder Cognitive Services [tal SDK](speech-sdk.md) att syntetisera tal från text i realtid och spela upp tal på datorns högtalare. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
+I den här artikeln får skapa du ett C++-konsolprogram för Windows. Du använder Cognitive Services [tal-SDK](speech-sdk.md) för att syntetisera tal från text i real tid och spela upp talet på din dators högtalare. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
 
-Funktionen som beskrivs i den här artikeln är tillgänglig från [tal SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
+Funktionen som beskrivs i den här artikeln är tillgänglig från [1.5.0 för tal-SDK](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 
-En fullständig lista över språk/röster som är tillgängliga för talsyntes Se [språkstöd](language-support.md#text-to-speech).
+En fullständig lista över språk/röster som är tillgängliga för tal syntes finns i [språk stöd](language-support.md#text-to-speech).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
+Du behöver en prenumerations nyckel för tal tjänster för att slutföra den här snabb starten. Du kan skaffa en utan kostnad. Mer information finns i [testa tal tjänsterna kostnads fritt](get-started.md) .
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
@@ -57,18 +57,18 @@ Du behöver en Speech Services-prenumeration för att slutföra den här snabbst
 
    ![Skärmbild av Visual Studio-programmet med Starta felsökning markerat](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. Ett konsolfönster visas där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till Speech Services och syntetiskt till tal som spelar upp på högtalaren.
+1. Ett konsol fönster visas där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till tal tjänsterna och syntetiskt till tal, som spelas upp på din talare.
 
-   ![Skärmbild av konsolens utdata efter lyckad syntes](media/sdk/qs-tts-cpp-windows-console-output.png)
+   ![Skärm bild av konsol utdata efter lyckad syntes](media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare exempel, till exempel hur du sparar tal i en ljudfil, är tillgängliga på GitHub.
+Ytterligare exempel, till exempel hur du sparar tal till en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
 > [Utforska C++-exempel på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se också
 
-- [Anpassa rösttyper](how-to-customize-voice-font.md)
-- [Post voice-exempel](record-custom-voice-samples.md)
+- [Anpassa röst teckensnitt](how-to-customize-voice-font.md)
+- [Spela in röst exempel](record-custom-voice-samples.md)

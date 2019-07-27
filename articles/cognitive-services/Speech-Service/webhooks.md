@@ -1,7 +1,7 @@
 ---
-title: Webhooks - Taltjänster
-titlesuffix: Azure Cognitive Services
-description: Webhook är HTTP-återuppringningar perfekt för att optimera din lösning när du hanterar långa processer som import, anpassning, precisionstester eller avskrifter av tidskrävande filer som körs.
+title: Webhooks – tal tjänst
+titleSuffix: Azure Cognitive Services
+description: Webhooks är HTTP-anrop som är idealiska för att optimera lösningen vid hantering av långvariga processer som import, anpassning, precisions test eller avskrifter av långa filer.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a100049ddfc9d4859e303546c1b10e814cf96ebb
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3d07e540bf88c956f61b5d3b2a98702cad616985
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606208"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558808"
 ---
-# <a name="webhooks-for-speech-services"></a>Webhooks för Taltjänster
+# <a name="webhooks-for-speech-services"></a>Webhooks för tal tjänster
 
-Webhooks är som HTTP-återanrop som tillåter programmet att acceptera data från Speech Services när den blir tillgänglig. Du kan använda webhooks för att optimera din användning av våra REST-API: er genom att eliminera behovet av att kontinuerligt söka efter ett svar. I nästa avsnitt lär du dig att använda webhooks med Speech Services.
+Webhooks liknar HTTP-återanrop som gör det möjligt för ditt program att ta emot data från tal tjänsterna när de blir tillgängliga. Med Webhooks kan du optimera din användning av våra REST-API: er genom att eliminera behovet av att söka efter ett svar kontinuerligt. I kommande avsnitt får du lära dig hur du använder Webhooks med Speech Services.
 
 ## <a name="supported-operations"></a>Åtgärder som stöds
 
-Speech Services stöder webhooks för alla långvariga åtgärder. Var och en av åtgärderna i listan nedan kan utlösa en HTTP-motringning när åtgärden har slutförts.
+Tal tjänsterna stöder webhookar för alla tids krävande åtgärder. Varje åtgärd som anges nedan kan utlösa en HTTP-motringning när den har slutförts.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -36,11 +36,11 @@ Nu ska vi skapa en webhook.
 
 ## <a name="create-a-webhook"></a>Skapa en webhook
 
-Nu ska vi skapa en webhook för en offline avskrift. Scenariot: en användare har en lång körs ljudfil som de vill transkribera asynkront med API: et för Batch avskrift.
+Nu ska vi skapa en webhook för en offline-avskrift. Scenariot: en användare har en lång ljud fil som de vill skriva över asynkront med API: et för batch-avskriftering.
 
-Webhooks kan skapas genom att göra en POST-begäran till https://\<region\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
+Webhooks kan skapas genom att göra en post-begäran till\<https://\>region. Cris.AI/API/speechtotext/v2.1/Transcriptions/hooks.
 
-Konfigurationsparametrar för begäran tillhandahålls som JSON:
+Konfigurations parametrar för begäran anges som JSON:
 
 ```json
 {
@@ -60,17 +60,17 @@ Konfigurationsparametrar för begäran tillhandahålls som JSON:
 
 }
 ```
-Alla POST-förfrågningar till API: et för Batch avskrift kräver en `name`. Den `description` och `properties` parametrar är valfria.
+Alla POST-förfrågningar till API: et för batch- `name`avskrift kräver en. Parametrarna `description` och`properties` är valfria.
 
-Den `Active` egenskapen används för att växla ringa tillbaka till din URL: en och inaktivera utan att behöva ta bort och återskapa webhook-registreringen. Om du behöver bara anropa en gång när processen har slutförts kan sedan ta bort webhook och växel den `Active` egenskapen till false.
+`Active` Egenskapen används för att växla tillbaka till och från din URL utan att behöva ta bort och återskapa webhook-registreringen. Om du bara behöver logga tillbaka en gång efter att processen har slutförts tar du bort webhooken och växlar `Active` egenskapen till falsk.
 
-Händelsetyp `TranscriptionCompletion` tillhandahålls i matrisen händelser. Den anropar tillbaka till din slutpunkt när en avskrift hämtar i ett avslutat tillstånd (`Succeeded` eller `Failed`). När du anropar tillbaka till den registrerade URL, begäran innehåller ett `X-MicrosoftSpeechServices-Event` huvud som innehåller en av de registrerade händelsetyperna. Det finns ett anrop per registrerade händelsetyp.
+Händelse typen `TranscriptionCompletion` anges i arrayen events. Den kommer att gå tillbaka till din slut punkt när en avskrift får ett Terminal-`Succeeded` tillstånd `Failed`(eller). Vid anrop till den registrerade URL: en, kommer begäran att innehålla `X-MicrosoftSpeechServices-Event` ett huvud som innehåller en av de registrerade händelse typerna. Det finns en begäran per registrerad händelse typ.
 
-Det finns en händelsetyp som du inte kan prenumerera. Det är den `Ping` händelsetyp. En begäran med den här typen skickas till URL: en när du är klar skapar en webhook när med hjälp av ping-URL (se nedan).  
+Det finns en händelse typ som du inte kan prenumerera på. Det är `Ping` händelse typen. En begäran med den här typen skickas till URL: en när du har skapat en webhook när du använder ping-URL: en (se nedan).  
 
-I konfigurationen, den `url` egenskapen måste anges. POST-förfrågningar skickas till denna URL. Den `secret` används för att skapa en SHA256-hash för nyttolasten, med hemligheten som en HMAC-nyckel. Hash-värdet har angetts som den `X-MicrosoftSpeechServices-Signature` rubrik vid anrop tillbaka till den registrerade URL. Den här rubriken är Base64-kodad.
+`url` Egenskapen krävs i konfigurationen. POST-förfrågningar skickas till denna URL. `secret` Används för att skapa en SHA256-hash av nytto lasten, med hemligheten som en HMAC-nyckel. Hashen anges som `X-MicrosoftSpeechServices-Signature` rubrik vid anrop tillbaka till den registrerade URL: en. Den här rubriken är Base64-kodad.
 
-Det här exemplet visar hur du validerar en nyttolast med hjälp av C#:
+Det här exemplet illustrerar hur du verifierar en C#nytto last med:
 
 ```csharp
 
@@ -110,32 +110,32 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 }
 
 ```
-I det här kodstycket i `secret` är avkodas och verifieras. Du ser också att händelsetyp webhook har växlats. Det finns för närvarande en händelse per slutförda avskrift. Koden försöker fem gånger för varje händelse (med en sekunds fördröjning) innan den ger upp.
+I det här kodfragmentet `secret` avkodas och verifieras. Du ser också att händelse typen för webhooken har växlats. Det finns för närvarande en händelse per slutförd avskrift. Kod försöken fem gånger för varje händelse (med en fördröjning på en sekund) innan den ger upp.
 
 ### <a name="other-webhook-operations"></a>Andra webhook-åtgärder
 
-Hämta alla registrerade webhooks: GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+För att hämta alla registrerade webhookar: TA https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
-Hämta en specifika webhook: GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
+Så här hämtar du en enskild webhook: TA https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-Ta bort en specifika webhook: TA BORT https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
+Så här tar du bort en enskild webhook: TA BORT https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
 > [!Note]
-> I exemplet ovan är regionen ”westus”. Detta ska ersättas av den region där du har skapat din Speech Services-resurs i Azure-portalen.
+> I exemplet ovan är regionen "väst". Detta bör ersättas av den region där du har skapat din röst tjänst resurs i Azure Portal.
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping brödtext: tom
+Inläggs https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping text: Tom
 
-Skickar en POST-begäran till registrerade URL: en. Förfrågan innehåller en `X-MicrosoftSpeechServices-Event` huvud med ett värde ping. Om webhooken har registrerats med en hemlighet, den innehåller en `X-MicrosoftSpeechServices-Signature` huvud med en SHA256-hash för nyttolasten med hemligheten som HMAC-nyckel. Hash-värdet är Base64-kodad.
+Skickar en POST-begäran till den registrerade URL: en. Begäran innehåller ett `X-MicrosoftSpeechServices-Event` huvud med ett värde-ping. Om webhooken har registrerats med en hemlighet, kommer den att `X-MicrosoftSpeechServices-Signature` innehålla ett huvud med en SHA256-hash av nytto lasten med hemligheten som HMAC-nyckel. Hash-värdet är Base64-kodat.
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test brödtext: tom
+Inläggs https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test text: Tom
 
-Skickar en POST-begäran till registrerade URL: en om en entitet för prenumererade händelsetyp (avskrift) finns i systemet och är i rätt läge. Nyttolasten genereras från den sista enhet som skulle ha anropas webhook. Om ingen enhet finns svarar i INLÄGGET med 204. Om ett testbegäran kan göras, svarar med 200. Begärandetexten är av samma form som i GET-begäran för en specifik enhet webhook prenumererar för (till exempel avskrift). Begäran har den `X-MicrosoftSpeechServices-Event` och `X-MicrosoftSpeechServices-Signature` rubriker enligt beskrivningen innan.
+Skickar en POST-begäran till den registrerade URL: en om en entitet för den prenumerations händelse typ (avskrift) finns i systemet och är i rätt tillstånd. Nytto lasten kommer att genereras från den sista entiteten som skulle ha anropat webb-hooken. Om det inte finns någon entitet kommer inlägget att svara med 204. Om en testbegäran kan göras svarar den med 200. Begär ande texten är av samma form som i GET-begäran för en viss entitet som webbhooken prenumererar på (för instans avskrift). Begäran kommer att ha `X-MicrosoftSpeechServices-Event` -och `X-MicrosoftSpeechServices-Signature` -rubrikerna enligt beskrivningen ovan.
 
 ### <a name="run-a-test"></a>Kör ett test
 
-Ett snabbtest kan göras med hjälp av webbplatsen https://bin.webhookrelay.com. Därifrån kan du hämta anrop tillbaka URL: er ska skickas som parameter till HTTP-POST för att skapa en webhook som beskrivs tidigare i dokumentet.
+Ett snabb test kan göras med hjälp av webbplatsen https://bin.webhookrelay.com. Därifrån kan du hämta URL: er för uppringning för att skicka som parameter till HTTP-posten för att skapa en webhook som beskrivs tidigare i dokumentet.
 
-Klicka på Skapa Bucket och följ de anvisningarna på skärmen anvisningarna för att hämta en hook. Använd sedan informationen i den här sidan för att registrera hooken med Speech-tjänsten. Nyttolasten för ett relay-meddelande – i svar för slutförandet av en avskrift-ser ut så här:
+Klicka på "skapa Bucket" och följ anvisningarna på skärmen för att hämta en Hook. Använd sedan informationen på den här sidan för att registrera hooken med röst tjänsten. Nytto lasten för ett relä meddelande – som svar på slutförandet av en avskrift – ser ut så här:
 
 ```json
 {
@@ -177,7 +177,7 @@ Klicka på Skapa Bucket och följ de anvisningarna på skärmen anvisningarna f�
     }
 }
 ```
-Meddelandet innehåller inspelning URL och modeller som används för att transkribera att inspelningen.
+Meddelandet innehåller inspelnings-URL och modeller som används för att skriva av den inspelningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

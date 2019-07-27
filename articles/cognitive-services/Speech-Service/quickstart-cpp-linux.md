@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Känna igen tal, C++ (Linux) – Speech Services'
+title: 'Snabbstart: Identifiera tal- C++ , (Linux) – tal-service'
 titleSuffix: Azure Cognitive Services
 description: Lär dig att känna igen tal i C++ på Linux med hjälp av Speech SDK
 services: cognitive-services
@@ -10,25 +10,25 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: e7838fb2560cb51b2b50bbca0c89c5261df30b56
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: dfbf40ef422903069352e64340fe5e3cb960a105
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606434"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559449"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ på Linux med hjälp av Speech SDK
 
-Snabbstarter kan också användas för [text till tal](quickstart-text-to-speech-cpp-linux.md).
+Snabb Starter är också tillgängliga för [text till tal](quickstart-text-to-speech-cpp-linux.md).
 
-Om du vill kan du växla till en annan programmeringsspråk och/eller miljö:<br/>
+Om du vill kan du växla till ett annat programmeringsspråk och/eller miljö:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln skapar du en C++ konsolen program för Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9). Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att transkribera tal till text i realtid från datorns mikrofon. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
+I den här artikeln skapar du ett C++ konsol program för Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9). Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att transkribera tal till text i realtid från datorns mikrofon. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
+Du behöver en prenumerations nyckel för tal tjänster för att slutföra den här snabb starten. Du kan skaffa en utan kostnad. Mer information finns i [testa tal tjänsterna kostnads fritt](get-started.md) .
 
 ## <a name="install-speech-sdk"></a>Installera Speech SDK
 
@@ -49,7 +49,7 @@ Ladda ned och installera SDK enligt följande:
      sudo apt-get install build-essential libssl1.0.0 libasound2 wget
      ```
 
-   * On Debian 9:
+   * På Debian 9:
 
      ```sh
      sudo apt-get update
@@ -91,7 +91,7 @@ Ladda ned och installera SDK enligt följande:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. I den nya filen ersätter du strängen `YourSubscriptionKey` med din prenumerationsnyckel för Speech Services.
+1. Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för tal tjänster i den nya filen.
 
 1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
@@ -134,7 +134,7 @@ Ladda ned och installera SDK enligt följande:
    ./helloworld
    ```
 
-1. I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech Services och transkriberas till text som visas i samma fönster.
+1. I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till tal tjänsterna och skrivs till text som visas i samma fönster.
 
    ```text
    Say something...

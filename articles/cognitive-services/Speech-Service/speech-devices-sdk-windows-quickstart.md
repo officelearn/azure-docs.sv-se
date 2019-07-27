@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Kör tal enheter SDK på Windows - Taltjänster'
+title: 'Snabbstart: Kör tal enheter SDK i Windows-Speech-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: Krav och anvisningar för att komma igång med en Windows tal Devices SDK.
+description: Krav och anvisningar för att komma igång med en Windows Speech-enhet SDK.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ac0ed218aa27a36b3b8cd8ed8123e2baef6948c6
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ad90a6443cc1c94bcdb730e783b82dfdd4798676
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723386"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553040"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Snabbstart: Kör exempelappen tal Devices SDK på Windows
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Snabbstart: Kör exempel programmet för tal enheter SDK i Windows
 
-I den här snabbstarten får du lära dig hur du använder tal enheter SDK för Windows för att skapa en talbaserade produkt eller använda det som en [konversationen avskrift](conversation-transcription-service.md) enhet. För närvarande bara den [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) stöds.
+I den här snabb starten lär du dig att använda tal enheter SDK för Windows för att bygga en tal aktive rad produkt eller använda den som en avskrifts enhet för [konversation](conversation-transcription-service.md) . För närvarande stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) .
 
-Programmet har byggts med tal SDK-paketet och Eclipse Java IDE (v4) på 64-bitars Windows. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) på 64-bitars Windows. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
-Den här guiden kräver en [Azure Cognitive Services](get-started.md) konto med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
+Den här guiden kräver ett [Azure Cognitive Services](get-started.md) -konto med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-Källkoden för den [exempelprogrammet](https://aka.ms/sdsdk-download-JRE) ingår i SDK: N för tal-enheter. Det är också [finns på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
+Käll koden för [exempel programmet](https://aka.ms/sdsdk-download-JRE) ingår i tal enheter SDK. Det är också [finns på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,44 +34,44 @@ För den här snabbstarten krävs:
 * Operativsystem: 64-bitars Windows
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
-* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) endast.
+* Endast [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) .
 * [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 * En Azure-prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
-* Ladda ned den senaste versionen av den [tal Devices SDK](https://aka.ms/sdsdk-download-JRE) för Java och extrahera .zip till din arbetskatalog.
+* Ladda ned den senaste versionen av [tal enheter SDK](https://aka.ms/sdsdk-download-JRE) för Java och extrahera zip-filen till din arbets katalog.
    > [!NOTE]
-   > JRE-exempel – Release.zip-filen innehåller JRE-exempelapp och den här snabbstarten förutsätter att appen ska extraheras till C:\SDSDK\JRE-Sample-Release
+   > JRE-Sample-Release. zip-filen innehåller exempel appen JRE och den här snabb starten förutsätter att appen extraheras till C:\SDSDK\JRE-Sample-Release
 
-Konversationen avskrift finns för närvarande endast för ”en-US” och ”zh-CN”, i regionerna ”centralus” och ”asienöstra”. Du måste ha en tal-nyckel i någon av dessa regioner för att använda konversationen avskrift.
+Konversations avskrift är för närvarande endast tillgängligt för "en-US" och "zh-CN" i regionerna "Central" och "asienöstra". Du måste ha en tal nyckel i någon av dessa regioner för att kunna använda konversations avskrifter.
 
-Om du planerar att använda avsikter behöver du en [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) prenumeration. Läs mer om LUIS- och taligenkänning i [känna igen tal avsikter med LUIS kan C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). En [exempel LUIS-modellen](https://aka.ms/sdsdk-luis) är tillgänglig för den här appen.
+Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Language Understanding service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Mer information om LUIS och avsikts igenkänning finns i [känna igen tal C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)insikter med Luis. En [exempel modell för Luis](https://aka.ms/sdsdk-luis) är tillgänglig för den här appen.
 
 ## <a name="create-and-configure-the-project"></a>Skapa och konfigurera projektet
 
 1. Starta Eclipse.
 
-1. I den **Eclipse IDE starta**i den **arbetsytan** fältet, anger du namnet på en ny katalog för arbetsytan. Välj sedan **Starta**.
+1. I fältet **arbets yta** i **sol förmörkelses IDE-start**, anger du namnet på en ny arbets ytans katalog. Välj sedan **Starta**.
 
    ![Skärmbild av Eclipse-startfönstret](media/speech-devices-sdk/eclipse-launcher.png)
 
 1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
 
-1. Skapa ett nytt projekt genom att välja från menyraden Eclipse **filen** > **New** > **Java-projekt**. Om det är inte tillgängligt väljer **projekt** och sedan **Java-projekt**.
+1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv** > **nytt** > **Java-projekt**. Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt**.
 
-1. Den **ny Java-projekt** guiden startar. **Bläddra** för platsen för exempelprojektet. Välj **Slutför**.
+1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför**.
 
    ![Skärmbild av guiden Nytt Java-projekt](media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. I den **Package explorer**, högerklicka på ditt projekt. Välj **Konfigurera** > **Convert to Maven Project** (Konvertera till Maven-projekt) från snabbmenyn. Välj **Slutför**.
+1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Konfigurera** > **Convert to Maven Project** (Konvertera till Maven-projekt) från snabbmenyn. Välj **Slutför**.
 
    ![Skärmbild av Paketutforskaren](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
-1. Kopiera `kws.table`, `participants.properties` och `Microsoft.CognitiveServices.Speech.extension.pma.dll` till projektmappen **target\classes**
+1. Kopiera `kws.table`och  till projektmappen target\classes `participants.properties` `Microsoft.CognitiveServices.Speech.extension.pma.dll`
 
-## <a name="configure-the-sample-application"></a>Konfigurera exempelprogrammet
+## <a name="configure-the-sample-application"></a>Konfigurera exempel programmet
 
-1. Lägga till din prenumerationsnyckel för tal i källkoden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
+1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
 
-   För tal och LUIS informationen hamnar i `FunctionsList.java`:
+   För tal-och LUIS går din information till `FunctionsList.java`:
 
    ```java
     // Subscription
@@ -82,58 +82,58 @@ Om du planerar att använda avsikter behöver du en [Language Understanding Serv
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Om du använder konversationen avskrift krävs också informationen om tal nyckel och region i `Cts.java`:
+    Om du använder en konversations avskrift krävs även din information om din röst nyckel och region `Cts.java`i:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. Standard wake ordet (nyckelordet) är ”dator”. Du kan också prova något av de andra tillhandahålls wake ord, som till exempel ”dator” eller ”assistenten”. Resursfiler för dessa alternativa wake ord är i tal enheter SDK i mappen nyckelord. Till exempel `C:\SDSDK\JRE-Sample-Release\keyword\Computer` innehåller de filer som används för wake ordet ”dator”.
+1. Standard wake ordet (nyckelordet) är ”dator”. Du kan också prova något av de andra tillhandahålls wake ord, som till exempel ”dator” eller ”assistenten”. Resursfiler för dessa alternativa wake ord är i tal enheter SDK i mappen nyckelord. `C:\SDSDK\JRE-Sample-Release\keyword\Computer` Innehåller till exempel de filer som används för ordet "dator" i Wake.
 
    > [!TIP]
    > Du kan också [skapa en anpassad aktivering word](speech-devices-sdk-create-kws.md).
 
-    För att använda ett nytt wake ord, uppdaterar du följande två rader i `FunctionsList.java`, och kopiera wake word paketet till din app. Till exempel för att använda wake ordet ”Machine” från word-paketet wake `kws-machine.zip`:
+    Om du vill använda ett nytt aktiverings ord uppdaterar du följande två `FunctionsList.java`rader i och kopierar Väcknings ord paketet till din app. Om du till exempel vill använda Väcknings ordet "dator" från Väcknings ord paketet `kws-machine.zip`:
 
-   * Kopiera wake word paketet till projektmappen **målklasserna/** .
+   * Kopiera Väcknings ord paketet till projektmappen **/-klasserna**i Project-mappen.
 
-   * Uppdatera den `FunctionsList.java` med nyckelordet och paketets namn:
+   * `FunctionsList.java` Uppdatera med nyckelordet och paket namnet:
 
      ```java
      private static final String Keyword = "Machine";
      private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
-## <a name="run-the-sample-application-from-eclipse"></a>Kör exempelprogrammet från Eclipse
+## <a name="run-the-sample-application-from-eclipse"></a>Köra exempel programmet från Sol förmörkelse
 
-1. Från menyraden Eclipse **kör** > **kör som** > **Java-program**. Välj sedan **FunctionsList** och **OK**.
+1. I meny raden för Sol förmörkelse **Kör** > du**Kör som** > **Java-program**. Välj sedan **FunctionsList** och **OK**.
 
-   ![Skärmbild av väljer Java-program](media/speech-devices-sdk/eclipse-run-sample.png)
+   ![Skärm bild av Välj Java-program](media/speech-devices-sdk/eclipse-run-sample.png)
 
 1. Exempelprogram för tal Devices SDK startar och välja mellan följande alternativ:
 
    ![Exempelprogrammet tal Devices SDK exempel och alternativ](media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Prova den nya **konversationen avskrift** demo. Börja skriva med **Session** > **starta**. Som standard är alla gäst. Men om du har deltagarens röst signaturer de kan placeras i en fil `participants.properties` i projektmappen **målklasserna/** . Om du vill skapa signaturen som röst, titta på [transkribera konversationer (SDK)](how-to-use-conversation-transcription-service.md).
+1. Prova den nya  demonstrationen av konversations avskrift. Börja skriva med **session** > **Start**. Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `participants.properties` i projektmappen **mål/klasser**. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](how-to-use-conversation-transcription-service.md).
 
-   ![Konversationen avskrift demoprogram](media/speech-devices-sdk/cts-sample-app-windows.png)
+   ![Avskrifts program för demo konversation](media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>Skapa och köra ett fristående program
 
-1. I den **Package explorer**, högerklicka på ditt projekt. Välj **exportera**. 
+1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Exportera**. 
 
-1. Den **exportera** fönster visas. Expandera **Java** och välj **att köra flödet JAR-fil** och välj sedan **nästa**.
+1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa**.
 
-   ![Skärmbild av fönstret Export](media/speech-devices-sdk/eclipse-export-windows.png) 
+   ![Skärm bild av export fönstret](media/speech-devices-sdk/eclipse-export-windows.png) 
 
-1. Den **att köra flödet JAR-filen exportera** fönster visas. Välj en **exportera** för programmet och välj sedan **Slutför**.
+1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför**.
  
-   ![Skärmbild av Export för att köra flödet JAR-filen](media/speech-devices-sdk/eclipse-export-jar-windows.png)
+   ![Skärm bild av körbara JAR File export](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. . Placera `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` och `Microsoft.CognitiveServices.Speech.extension.pma.dll` i målmappen som valts ovan eftersom filerna som krävs av programmet.
+1. Lägg `kws.table`till `participants.properties` ,`pma.dll` , och imålmappensomväljsovansomdehärfilernabehövsavprogrammet.`Microsoft.CognitiveServices.Speech.extension.pma.dll` `unimic_runtime.dll`
 
-1. Att köra fristående program
+1. Köra det fristående programmet
 
      ```powershell
      java -jar SpeechDemo.jar

@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
-ms.date: 07/16/2019
-ms.openlocfilehash: 3a03829c39deb954a8baa908de63b9ff6f31238e
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.date: 07/26/2019
+ms.openlocfilehash: 626f71c3938b944cb705dfea4a964c6c33c42164
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297852"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565444"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -122,7 +122,7 @@ DocumentClient client = new DocumentClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
-Om du använder [Azure Cosmos DB s API för MongoDB](mongodb-introduction.md), använder du följande anslutnings sträng:
+När du har Azure Cosmos-emulatorn igång på Skriv bordet kan du använda [Azure Cosmos DBS API för MongoDB](mongodb-introduction.md) för att interagera med emulatorn. Starta emulator från kommando tolken som administratör med "/EnableMongoDbEndpoint". Använd sedan följande anslutnings sträng för att ansluta till MongoDB-API-kontot:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
@@ -254,7 +254,7 @@ Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` 
 |EnableTableEndpoint | Aktiverar Azure Tabell-API | CosmosDB. emulator. exe/EnableTableEndpoint | |
 |TablePort | Port nummer som ska användas för Azure Table-slutpunkten. Standardvärdet är 8902. | CosmosDB. emulator. exe/TablePort =\<port\> | \<port\>: Enskilt portnummer|
 | KeyFile | Läs verifierings nyckel från den angivna filen. Använd alternativet/GenKeyFile för att generera en KeyFile | CosmosDB. emulator. exe/KeyFile =\<fil namn\> | \<fil\>namn: Sökväg till filen |
-| ResetDataPath | Tar rekursivt bort alla filer på den angivna sökvägen. Om du inte anger en sökväg, används%LOCALAPPDATA%\CosmosDbEmulator som standard | CosmosDB. emulator. exe/ResetDataPath [=\<sökväg >] | \<sökväg\>: Fil Sök väg  |
+| ResetDataPath | Tar rekursivt bort alla filer på den angivna sökvägen. Om du inte anger en sökväg, används%LOCALAPPDATA%\CosmosDbEmulator som standard | CosmosDB. emulator. exe/ResetDataPath [=\<sökväg >] | \<sökväg\>: Filsökväg  |
 | StartTraces  |  Börja samla in fel söknings spårnings loggar. | CosmosDB. emulator. exe/StartTraces | |
 | StopTraces     | Avbryt insamlingen av fel söknings spårnings loggar. | CosmosDB. emulator. exe/StopTraces  | |
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat SSL-certifikat. | CosmosDB. emulator. exe/FailOnSslCertificateNameMismatch  | |

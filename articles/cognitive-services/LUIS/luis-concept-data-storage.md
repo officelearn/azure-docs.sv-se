@@ -1,6 +1,6 @@
 ---
-title: Datalagring
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Data lagring – LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS lagrar krypterade i ett Azure datalager som motsvarar den region som anges av nyckeln.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af0223db944f01346ddcbc1f198ac0c15a426be4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812948"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564013"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Datalagring och tas bort i Cognitive Services för Språkförståelse (LUIS)
 LUIS lagrar krypterade i ett Azure datalager som motsvarar den region som anges av nyckeln. Dessa data lagras i 30 dagar. 
@@ -26,14 +26,14 @@ Användarna har full kontroll över [exportera](luis-how-to-start-new-app.md#exp
 
 ## <a name="utterances"></a>Yttranden
 
-Yttranden kan lagras i två olika platser. 
+Yttranden kan lagras på två olika platser. 
 
-* Under **redigering processen**, yttranden skapas och lagras i avsikten. Yttranden i avsikter måste anges för en lyckad LUIS-app. När appen har publicerats och tar emot frågor på slutpunkten, endpoint-begäran querystring `log=false`, avgör om slutpunkt-uttryck lagras. Om slutpunkten lagras, blir det en del av aktiv inlärning talade finns i den **skapa** -avsnittet i portalen, i den **granska endpoint yttranden** avsnittet. 
-* När du **granska endpoint yttranden**, och lägger till ett uttryck till en avsikt, lagras uttryck inte längre som en del av slutpunkten yttranden granskas. Den har lagts till appens avsikter. 
+* Under **redigerings processen**skapas och lagras yttranden i avsikten. Yttranden i avsikter krävs för en lyckad LUIS-app. När appen har publicerats och tar emot frågor på slut punkten, bestämmer slut punktens begär `log=false`ande QueryString, om slut punktens uttryck är lagrad. Om slut punkten lagras blir den en del av den aktiva inlärnings-yttranden som finns i avsnittet **build** i portalen i avsnittet **Granska slut punkts yttranden** . 
+* När du **granskar slut punkts yttranden**och lägger till en uttryck till ett avsikts sätt, lagras uttryck inte längre som en del av slut punkten yttranden som ska granskas. Den läggs till i appens avsikter. 
 
 <a name="utterances-in-an-intent"></a>
 
-### <a name="delete-example-utterances-from-an-intent"></a>Ta bort exempel yttranden via ett intent
+### <a name="delete-example-utterances-from-an-intent"></a>Ta bort exempel yttranden från ett avsikts syfte
 Ta bort exempel yttranden som används för träning [LUIS](luis-reference-regions.md). Om du tar bort en exempel-uttryck från LUIS-appen tas bort från LUIS-webbtjänsten och är inte tillgänglig för export.
 
 <a name="utterances-in-review"></a>
@@ -42,10 +42,10 @@ Ta bort exempel yttranden som används för träning [LUIS](luis-reference-regio
 
 Du kan ta bort yttranden från listan över användare yttranden som LUIS föreslår i den  **[granskningssidan endpoint yttranden](luis-how-to-review-endpoint-utterances.md)** . Tar bort yttranden i den här listan förhindrar du att de ska visas som förslag, men ta bort inte dem från loggar.
 
-Om du inte vill aktiv inlärning yttranden, kan du [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Aktiv inlärning också inaktiverar loggning.
+Om du inte vill ha aktiva inlärnings yttranden kan du [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Om du inaktiverar aktiv inlärning inaktive ras även loggning.
 
 ### <a name="disable-logging-utterances"></a>Inaktivera loggning yttranden
-[Inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning) inaktiverar loggning.
+Om du [inaktiverar aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning) inaktive ras loggning.
 
 
 <a name="accounts"></a>

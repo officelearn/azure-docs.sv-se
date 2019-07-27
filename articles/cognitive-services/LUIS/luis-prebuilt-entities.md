@@ -1,5 +1,5 @@
 ---
-title: Fördefinierade entiteter
+title: Fördefinierade entiteter för Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information som datum, tider, nummer, mätningar och valuta. Fördefinierade entitet support varierar beroende på kultur LUIS-appen.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 0cfc4ff58cfeb65f80f9ac5ce2dd532defde5ef8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db0fb8962030b536b6ea73f4141da551434cd528
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596119"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560356"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Färdiga entiteter för att identifiera vanliga datatyper
 
@@ -60,7 +60,7 @@ Testa nya avsikten vid slutpunkten av lagt till ett värde för den **q** parame
 
  För att markera den här typen av token, där en del av den redan har markerats med en fördefinierade entitet, tar du bort fördefinierade entiteten från LUIS-app. Du behöver inte skapa appen. Markera sedan token med en egen anpassad entitet. Lägg sedan till den fördefinierade entitet tillbaka till LUIS-app.
 
- Överväg att uttryck som en lista över inställningar för klassen för ett annat exempel är: `I want first year spanish, second year calculus, and fourth year english lit.` Om LUIS-app har Prebuild ordningstalet lagts till, `first`, `second`, och `fourth` markeras redan med ordningstal. Om du vill avbilda ordningstalet och klassen kan du omsluta runt fördefinierade ordningstal och den anpassade entiteten för klassnamn skapar en sammansatt entitet.
+ För ett annat exempel bör du överväga uttryck som en lista över klass inställningar: `I want first year spanish, second year calculus, and fourth year english lit.`Om Luis-appen har det tillagda `first` `second`ordnings ordnings numret, `fourth` , och är redan markerat med ordnings tal. Om du vill avbilda ordningstalet och klassen kan du omsluta runt fördefinierade ordningstal och den anpassade entiteten för klassnamn skapar en sammansatt entitet.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

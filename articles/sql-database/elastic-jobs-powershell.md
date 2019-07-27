@@ -10,14 +10,13 @@ ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 064d55b96c8817f4b7ccc5f0925eeecfaf310424
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445379"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68550516"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
@@ -37,13 +36,13 @@ I den här självstudien får du lära dig de steg som krävs för att köra en 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Uppgradering av Elastic Database-jobb har en ny uppsättning PowerShell-cmdletar för användning under migreringen. Dessa nya cmdletarna överför alla dina befintliga jobbautentiseringsuppgifter mål (inklusive databaser, servrar, anpassade samlingar), jobb-utlösare, scheman för datalagerjobb, jobbet innehållet och jobb över till en ny elastisk jobbagent.
+Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installera de senaste elastiska jobb-cmdletarna
 
 Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Installera den **Az.Sql** 1.1.1-preview-modulen för att få de senaste Elastiskt jobb cmdletarna. Kör följande kommandon i PowerShell med administratörsbehörighet.
+Installera **AZ. SQL** 1.1.1-Preview-modulen för att hämta de senaste elastiska jobb-cmdletarna. Kör följande kommandon i PowerShell med administratörsbehörighet.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
@@ -64,14 +63,14 @@ Import-Module Az.Sql -RequiredVersion 1.1.1
 Get-Module Az.Sql
 ```
 
-- Förutom den **Az.Sql** 1.1.1-preview modulen, den här kursen kräver även den *sqlserver* PowerShell-modulen. Mer information finns i avsnittet om att [installera SQL Server PowerShell-modulen](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
+- Förutom **AZ. SQL** 1.1.1-Preview-modulen kräver den här kursen även *SQLServer* PowerShell-modulen. Mer information finns i avsnittet om att [installera SQL Server PowerShell-modulen](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
 
 
 ## <a name="create-required-resources"></a>Skapa nödvändiga resurser
 
 För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan användas som [jobbdatabas](sql-database-job-automation-overview.md#job-database). 
 
-*Skriptet nedan skapar en ny resursgrupp, server och databas som ska användas som jobbdatabas. Skriptet nedan skapar även en andra server med två tomma databaser för att köra jobb mot.*
+*Skriptet nedan skapar en ny resursgrupp, server och databas som ska användas som jobbdatabas. Skriptet nedan skapar också en andra server med två tomma databaser för att köra jobb mot.*
 
 Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -129,7 +128,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Aktivera förhandsversionen för elastiska jobb för din prenumeration
 
-Registrera funktionen i Azure-prenumerationen genom att köra följande kommando för att använda elastiska jobb. Kör det här kommandot en gång för den prenumeration som du vill etablera elastisk jobbagent. Prenumerationer som endast innehåller databaser som är mål för jobbet behöver inte registreras.
+Om du vill använda elastiska jobb registrerar du funktionen i din Azure-prenumeration genom att köra följande kommando. Kör det här kommandot en gång för den prenumeration där du vill etablera den elastiska jobb agenten. Prenumerationer som bara innehåller databaser som är jobb mål behöver inte registreras.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -139,7 +138,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 En agent för elastiska jobb är en Azure-resurs för att skapa, köra och hantera jobb. Agenten kör jobb baserat på ett schema eller som ett engångsjobb.
 
-Den **New-AzSqlElasticJobAgent** cmdlet kräver en Azure SQL database till redan finns, så den *ResourceGroupName*, *ServerName*, och  *DatabaseName* parametrar måste alla pekar mot befintliga resurser.
+Cmdlet: en **New-AzSqlElasticJobAgent** kräver att det redan finns en Azure SQL-databas, så parametrarna *ResourceGroupName*, *servername*och *databasename* måste alla peka på befintliga resurser.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -286,22 +285,22 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
-### <a name="job-execution-states"></a>Status för körning av jobb
+### <a name="job-execution-states"></a>Jobb körnings tillstånd
 
-I följande tabell visas möjliga jobbet körning tillstånd:
+I följande tabell visas möjliga tillstånd för jobb körning:
 
-|Status|Beskrivning|
+|Tillstånd|Beskrivning|
 |:---|:---|
-|**Skapat** | Jobbkörningen precis har skapats och är inte ännu pågår.|
-|**Pågår** | Jobbkörningen pågår just nu.|
-|**WaitingForRetry** | Jobbkörningen det gick inte att slutföra åtgärden och väntar på att försöka igen.|
-|**Lyckades** | Jobbkörningen har slutförts.|
-|**SucceededWithSkipped** | Jobbkörningen har slutförts, men några av dess underordnade hoppades över.|
-|**Misslyckades** | Jobbkörningen har misslyckades och Förbrukat dess återförsök.|
-|**TimedOut** | Tidsgränsen har nåtts för jobbkörningen.|
-|**Avbrutet** | Jobbkörningen avbröts.|
-|**Överhoppad** | Jobbkörningen hoppades över eftersom en annan körningen av samma jobbsteget redan körs på samma mål.|
-|**WaitingForChildJobExecutions** | Jobbkörningen väntar dess underordnade körningar att slutföra.|
+|**Create** | Jobb körningen har precis skapats och pågår ännu inte.|
+|**Pågår** | Jobb körningen pågår just nu.|
+|**WaitingForRetry** | Det gick inte att slutföra åtgärden för jobb körningen och väntar på att försöka igen.|
+|**Lyckades** | Jobb körningen har slutförts.|
+|**SucceededWithSkipped** | Jobb körningen har slutförts men vissa av dess underordnade hoppades över.|
+|**Misslyckades** | Jobb körningen har misslyckats och förbrukat sina återförsök.|
+|**TimedOut** | Tids gränsen nåddes för jobb körningen.|
+|**Avbrutet** | Jobb körningen avbröts.|
+|**Överhoppad** | Jobb körningen hoppades över eftersom en annan körning av samma jobb steg redan kördes på samma mål.|
+|**WaitingForChildJobExecutions** | Jobb körningen väntar på att de underordnade körningarna ska slutföras.|
 
 ## <a name="schedule-the-job-to-run-later"></a>Schemalägga jobb som ska köras senare
 

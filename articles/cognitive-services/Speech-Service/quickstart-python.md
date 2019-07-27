@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Taligenkänning, Python – Speech Services'
+title: 'Snabbstart: Identifiera tal, python-tal-tjänst'
 titleSuffix: Azure Cognitive Services
 description: Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av Speech SDK för Python. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
@@ -10,28 +10,28 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6b7cc275fc50fefbe0057620d315d1484c47745
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6cbe583ca59cb98ba233e58dc665c7e18c2a1f7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603018"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559298"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Snabbstart: Taligenkänning med Speech SDK för Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Den här artikeln visar hur du använder Taltjänster via tal SDK för Python. Den visar hur du kan känna igen tal från mikrofonens indata.
+Den här artikeln visar hur du använder tal tjänsterna via tal-SDK för python. Den visar hur du kan känna igen tal från mikrofonens indata.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration-nyckel för Speech Services. [Skaffa en kostnadsfritt](get-started.md).
+* En Azure-prenumerations nyckel för tal tjänsterna. [Skaffa en kostnadsfritt](get-started.md).
 * [Python 3.5 eller senare](https://www.python.org/downloads/).
 * Python Speech SDK-paketet är tillgängligt för dessa operativsystem:
     * Windows: x64 och x86.
     * Mac: Mac OS X version 10.12 eller senare.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 on x64.
-* På Linux, kör du följande kommandon för att installera de nödvändiga paketen:
+    * Linux: Ubuntu 16,04, Ubuntu 18,04, Debian 9 på x64.
+* Kör de här kommandona i Linux för att installera de nödvändiga paketen:
 
   * I Ubuntu:
 
@@ -40,14 +40,14 @@ Den här artikeln visar hur du använder Taltjänster via tal SDK för Python. D
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  * On Debian 9:
+  * På Debian 9:
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
 
-* På Windows, måste den [Microsoft Visual C++ Redistributable för Visual Studio-2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform.
+* I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform.
 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
@@ -101,7 +101,7 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
    ![Skapa en fil](media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Kopiera, klistra in och spara [Python-koden](#sample-code) till den nyskapade filen.
-1. Infoga Speech Services prenumerationsinformationen.
+1. Infoga prenumerations information för tal tjänster.
 1. Om en Python-tolk har valts visas den på statusfältets vänstra sida, längst ner i fönstret.
    Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommandopaletten (Ctrl + Skift + P) och ange **Python: Välj tolk**. Välj en som passar.
 1. Du kan installera Speech SDK Python-paketet i Visual Studio Code. Gör det om det inte är installerat än för Python-tolken som du valt.

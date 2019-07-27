@@ -1,6 +1,6 @@
 ---
-title: Enterprise-begrepp
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Enterprise-koncept – LUIS
+titleSuffix: Azure Cognitive Services
 description: Information om design-principerna för stora LUIS-appar eller flera appar, inklusive LUIS och QnA Maker tillsammans.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d51778473dc033bce3c58b1572f1e514a8b6327
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812857"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560768"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategier för en LUIS-app
 Granska dessa design-strategier för din enterprise-app.
@@ -42,13 +42,13 @@ Om din app är avsedd att förutsäga ett stort antal användare yttranden, Öve
 Schemalägga en regelbunden [granskning av slutpunkten yttranden](luis-how-to-review-endpoint-utterances.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>När du behöver ha fler än 500 intentioner
-Anta exempelvis att du utvecklar en office-assistent som har över 500 intentioner. Om 200 avsikter relaterade till att schemalägga möten, 200 är i färd påminnelser, 200 är om att få information om kollegor, och 200 är för att skicka e-post, gruppen avsikter så att varje grupp är i samma app, sedan skapa en översta app som innehåller varje avsikt. Använd den [skicka verktyget och arkitektur](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra din robot för att använda sammanhängande anropet som visas i den [dispatch självstudien][dispatcher-application-tutorial]. 
+Anta exempelvis att du utvecklar en office-assistent som har över 500 intentioner. Om 200 avsikter relaterade till att schemalägga möten, 200 är i färd påminnelser, 200 är om att få information om kollegor, och 200 är för att skicka e-post, gruppen avsikter så att varje grupp är i samma app, sedan skapa en översta app som innehåller varje avsikt. Använd den [skicka verktyget och arkitektur](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra sedan din robot till att använda det sammanhängande anropet som visas i [sändnings][dispatcher-application-tutorial]självstudien. 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>När du behöver att kombinera flera LUIS och QnA maker-appar
-Om du har flera LUIS och QnA maker-appar som måste svara på en robot, Använd den [dispatch verktyget](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra din robot för att använda sammanhängande anropet som visas i den [dispatch självstudien][dispatcher-application-tutorial]. 
+Om du har flera LUIS och QnA maker-appar som måste svara på en robot, Använd den [dispatch verktyget](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra sedan din robot till att använda det sammanhängande anropet som visas i [sändnings][dispatcher-application-tutorial]självstudien. 
 
 ## <a name="dispatch-tool-and-model"></a>Dispatch-verktyget och modell
-Använd den [Dispatch] [ dispatch-tool] kommandoradsverktyg, finns i [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) att kombinera flera LUIS och/eller QnA Maker appar i en överordnad LUIS-app. Den här metoden låter dig ha en överordnad domän, inklusive alla ämnen och olika underordnade ämnesdomäner i separata appar. 
+Använd kommando rads verktyget [Dispatch][dispatch-tool] som finns i [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) för att kombinera flera LUIS och/eller QNA Maker appar till en överordnad Luis-app. Den här metoden låter dig ha en överordnad domän, inklusive alla ämnen och olika underordnade ämnesdomäner i separata appar. 
 
 ![Bild av dispatch-arkitektur](./media/luis-concept-enterprise/dispatch-architecture.png)
 
@@ -56,7 +56,7 @@ Den överordnade domänen som anges i LUIS med en version med namnet `Dispatch` 
 
 Chattrobot för den tar emot uttryck och sedan skickar till överordnat LUIS-app för förutsägelse. Främsta förväntade avsikten från överordnade appen anger vilka underordnade LUIS-app kallas därefter. Chattrobot skickar uttryck i appen underordnade för en mer specifik förutsägelse.
 
-Förstå hur den här hierarkin för anrop görs från Bot Builder-v4 [dispatcher-program-tutorial][dispatcher-application-tutorial].  
+Förstå hur den här hierarkin av anrop görs från Bot Builder v4 [dispatcher-Application-självstudie][dispatcher-application-tutorial].  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Avsiktshantering gränser i dispatch-modellen
 En dispatch-programmet har 500 dispatch-källor, motsvarar 500 intentioner som maximum. 

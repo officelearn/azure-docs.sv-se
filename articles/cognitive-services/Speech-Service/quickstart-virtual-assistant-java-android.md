@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Anpassade röst första virtuella assistenter (förhandsversion), Java (Android) – Speech Services'
+title: 'Snabbstart: Anpassad röst för första virtuella assistenten (för hands version), Java (Android)-tal service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en röst-första virtuella assistenter program i Java på Azure med hjälp av tal-SDK
+description: Lär dig hur du skapar ett röst-första program för virtuella assistenter i Java på Android med hjälp av talet SDK
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: c62402faa1995e1e992c8251ed87160a8f33d3a7
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1c203bb39a90fdb1c77c3a2c844318a748df7c63
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602748"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559217"
 ---
-# <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Skapa en röst-första virtuella assistenter i Java på Azure med hjälp av tal-SDK
+# <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Skapa en röst-första virtuell assistent i Java på Android med hjälp av talet SDK
 
-Det finns även en Snabbstart för [tal till text](quickstart-java-android.md).
+Det finns även en snabb start för [tal till text](quickstart-java-android.md).
 
-I den här artikeln ska du skapa en röst-första virtuella assistenter med Java för Android med hjälp av den [tal SDK](speech-sdk.md). Det här programmet ska ansluta till en robot som du redan har skapats och konfigurerats med den [Direct Line tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). Den sedan skicka en röst-begäran till roboten och presentera en röst-aktiverade svar-aktivitet.
+I den här artikeln skapar du en röst-första virtuell assistent med Java för Android med hjälp av [talet SDK](speech-sdk.md). Det här programmet ansluter till en robot som du redan har skapat och konfigurerat med den [direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). Sedan skickas en röst förfrågan till roboten och visar en röst aktive rad svars aktivitet.
 
-Det här programmet har byggts med tal SDK Maven-paketet och Android Studio 3.3. Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer och Intel x86/x64-kompatibla processorer.
+Det här programmet har skapats med tal SDK maven-paketet och Android Studio 3,3. Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer och Intel x86/x64-kompatibla processorer.
 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration-nyckel för Speech Services. [Skaffa ett kostnadsfritt](get-started.md) eller skapa den på den [Azure-portalen](https://portal.azure.com).
-* En tidigare skapad robot som konfigurerats med den [tal för Direct Line-kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-* [Android Studio](https://developer.android.com/studio/) v3.3 eller senare
+* En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
+* En tidigare skapad robot som kon figurer ATS med den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+* [Android Studio](https://developer.android.com/studio/) v 3.3 eller senare
 
     > [!NOTE]
-    > Direct Line-tal (förhandsversion) är för närvarande tillgängligt i en delmängd av Speech Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#Voice-first virtual assistants) och se till att resurserna distribueras i någon av dessa regioner.
+    > Direkt linje tal (för hands version) är för närvarande tillgängligt i en delmängd av tal Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#Voice-first virtual assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
 ## <a name="create-and-configure-a-project"></a>Skapa och konfigurera ett projekt
 
@@ -43,9 +43,9 @@ Det här programmet har byggts med tal SDK Maven-paketet och Android Studio 3.3.
 
 ## <a name="create-user-interface"></a>Skapa användargränssnitt
 
-I det här avsnittet ska skapa vi ett grundläggande användargränssnitt (UI) för programmet. Låt oss börja med att öppna i huvudaktiviteten: `activity_main.xml`. Grundläggande mallen innehåller en namnlist med programmets namn och en `TextView` med meddelandet ”Hello world”!.
+I det här avsnittet ska vi skapa ett grundläggande användar gränssnitt (UI) för programmet. Vi börjar med att öppna huvud aktiviteten: `activity_main.xml`. Den grundläggande mallen innehåller en namn List med programmets namn och en `TextView` med meddelandet "Hello World!".
 
-Ersätt innehållet i den `activity_main.xml` med följande kod:
+Ersätt sedan innehållet i `activity_main.xml` med följande kod:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -94,11 +94,11 @@ Ersätt innehållet i den `activity_main.xml` med följande kod:
    </LinearLayout>
    ```
 
-Den här XML definierar ett enkelt gränssnitt för att interagera med din robot.
+I den här XML-koden definieras ett enkelt gränssnitt för att interagera med din robot.
 
-* Den `button` element initierar en interaktion och anropar den `onBotButtonClicked` metoden när du klickar på.
-* Den `recoText` element visas resultatet tal till text som du prata med din robot.
-* Den `activityText` element visas JSON-nyttolast för den senaste Bot Framework-aktiviteten från din robot.
+* Elementet initierar en interaktion och anropar `onBotButtonClicked` metoden vid klickning. `button`
+* I `recoText` elementet visas tal-till-text-resultatet när du pratar med din robot.
+* \- `activityText` Elementet visar JSON-nyttolasten för den senaste bot Framework-aktiviteten från din robot.
 
 Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här:
 
@@ -106,7 +106,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 ## <a name="add-sample-code"></a>Lägga till exempelkod
 
-1. Öppna `MainActivity.java`, och Ersätt innehållet med följande kod:
+1. Öppna `MainActivity.java`och ersätt innehållet med följande kod:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
@@ -250,19 +250,19 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
     }
    ```
 
-   * Den `onCreate` metoden innehåller kod som begär behörigheter mikrofon och internet.
+   * `onCreate` Metoden inkluderar kod som begär mikrofon-och Internet-behörigheter.
 
-   * Metoden `onBotButtonClicked` är, som tidigare nämnts, knappklickshanteraren. Tryck på en knapp utlöser en enda interaktion (”aktivera”) med din robot.
+   * Metoden `onBotButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapp tryckning utlöser en enda interaktion ("Vänd") med din robot.
 
-   * Den `registerEventListeners` metoden visar händelser som används av den `DialogServiceConnector` och grundläggande hantering av inkommande aktiviteter.
+   * Metoden visar de händelser som används `DialogServiceConnector` av och grundläggande hantering av inkommande aktiviteter. `registerEventListeners`
 
-1. Ersätt konfigurationssträngarna för att matcha dina resurser i samma fil:
+1. I samma fil ersätter du konfigurations strängarna så att de matchar dina resurser:
 
-    * Ersätt `YourChannelSecret` med Direct Line tal kanal hemligheten för din robot.
+    * Ersätt `YourChannelSecret` med den direkta linjens tal kanal hemlighet för din robot.
 
     * Ersätt `YourSpeechSubscriptionKey` med din prenumerationsnyckel.
 
-    * Ersätt `YourServiceRegion` med den [region](regions.md) som är associerade med prenumerationen endast en delmängd av Speech Services regioner stöds för närvarande med Direct Line-tal. Mer information finns i [regioner](regions.md#voice-first-virtual-assistants).
+    * Ersätt `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration endast en delmängd av tal Services-regioner stöds för närvarande med direkt linje tal. Mer information finns i [regioner](regions.md#voice-first-virtual-assistants).
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
@@ -276,18 +276,18 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
    ![Skärmbild av fönstret för att välja distributionsmål](media/sdk/qs-java-android-12-deploy.png)
 
-När programmet och dess aktiviteter har startats klickar du på knappen för att börja prata din robot. Transkriberade texten visas som du tala och den senaste aktiviteten har du fått från din bot kommer visas när den tas emot. Om din robot är konfigurerad för att tillhandahålla talat svar, spelas automatiskt tal till text.
+När programmet och dess aktivitet har startats klickar du på knappen för att börja prata med din robot. Texten som skrivs in visas när du talar och den senaste aktiviteten har du fått från din robot visas när den tas emot. Om din robot har kon figurer ATS för att ge talade svar spelas tal-till-text upp automatiskt.
 
 ![Skärmbild av Android-programmet](media/sdk/qs-java-android-assistant-completed-turn.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa och distribuera en grundläggande bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+> [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Se också
-- [Om röst första virtuella assistenter](voice-first-virtual-assistants.md)
-- [Skaffa en prenumerationsnyckel för Speech Services utan kostnad](get-started.md)
-- [Anpassad aktivering ord](speech-devices-sdk-create-kws.md)
-- [Anslut direkt rad tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Om röst-första virtuella assistenter](voice-first-virtual-assistants.md)
+- [Hämta en prenumerations nyckel för tal tjänster kostnads fritt](get-started.md)
+- [Anpassade Väcknings ord](speech-devices-sdk-create-kws.md)
+- [Anslut direkt linje tal till din robot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)

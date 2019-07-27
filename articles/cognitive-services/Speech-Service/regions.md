@@ -1,6 +1,6 @@
 ---
-title: Regioner – Speech Services
-titlesuffix: Azure Cognitive Services
+title: Regioner – tal tjänst
+titleSuffix: Azure Cognitive Services
 description: Referens för regioner Speech-tjänsten.
 services: cognitive-services
 author: mahilleb-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: c0414277b4851891911908ba4f42e92abedc86e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466995"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553185"
 ---
 # <a name="speech-service-supported-regions"></a>Med Taltjänsten regioner som stöds
 
@@ -26,17 +26,17 @@ Se till att du använder den slutpunkt som matchar regionen för din prenumerati
 
 ## <a name="speech-sdk"></a>Speech SDK
 
-I den [tal SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till `SpeechConfig.FromSubscription` i tal SDK för C#).
+I [talet SDK](speech-sdk.md)anges regioner som en sträng (till exempel som en parameter till `SpeechConfig.FromSubscription` i tal-SDK för C#).
 
-### <a name="speech-to-text-text-to-speech-and-translation"></a>Tal till text och text till tal översättning
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Tal till text, text till tal och översättning
 
-Tal-SDK är tillgänglig i dessa regioner för **taligenkänning**, **text till tal**, och **translation**:
+Talet SDK är tillgängligt i dessa regioner för **tal igenkänning**, **text till tal**och **översättning**:
 
   Region | Parametern för tal-SDK | Tal anpassning av portalen
  ------|-------|--------
  Västra USA | `westus` | https://westus.cris.ai
  Västra USA 2 | `westus2` | https://westus2.cris.ai
- Östra USA | `eastus` | https://eastus.cris.ai
+ East US | `eastus` | https://eastus.cris.ai
  USA, östra 2 | `eastus2` | https://eastus2.cris.ai
  Centrala USA | `centralus` | https://centralus.cris.ai
  Norra centrala USA | `northcentralus` | https://northcentralus.cris.ai
@@ -55,7 +55,7 @@ Tal-SDK är tillgänglig i dessa regioner för **taligenkänning**, **text till 
 
 ### <a name="intent-recognition"></a>Avsiktsigenkänning
 
-Tillgängliga regioner för **avsiktsigenkänning** via tal SDK är följande:
+Tillgängliga regioner för **avsikts igenkänning** via tal-SDK: n är följande:
 
  Global region | Region | Parametern för tal-SDK
  ------|-------|--------
@@ -64,7 +64,7 @@ Tillgängliga regioner för **avsiktsigenkänning** via tal SDK är följande:
  Australien | Östra Australien | `australiaeast`
  Europa | Norra Europa | `northeurope`
  Europa | Västra Europa | `westeurope`
- Nordamerika | Östra USA | `eastus`
+ Nordamerika | East US | `eastus`
  Nordamerika | USA, östra 2 | `eastus2`
  Nordamerika | Södra centrala USA | `southcentralus`
  Nordamerika | Västra centrala USA | `westcentralus`
@@ -72,17 +72,17 @@ Tillgängliga regioner för **avsiktsigenkänning** via tal SDK är följande:
  Nordamerika | Västra USA 2 | `westus2`
  Sydamerika | Södra Brasilien | `brazilsouth`
 
-Det här är en delmängd av publishing regioner som stöds av den [tjänst för Språkförståelse (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+Det här är en delmängd av de publicerings regioner som stöds av [language Understandings tjänsten (Luis)](/azure/cognitive-services/luis/luis-reference-regions).
 
-### <a name="voice-first-virtual-assistants"></a>Röst första virtuella assistenter
+### <a name="voice-first-virtual-assistants"></a>Röst-första virtuella assistenter
 
-Den [tal SDK](speech-sdk.md) stöder **röst första virtuella assistenter** funktioner i dessa regioner:
+[Tal-SDK: n](speech-sdk.md) stöder **röst-och första** funktioner i följande regioner:
 
 Region | Parametern för tal-SDK
 -------|---------------------
 Västra USA | `westus`
 Västra USA 2 | `westus2`
-Östra USA | `eastus`
+East US | `eastus`
 USA, östra 2 | `eastus2`
 Västra Europa | `westeurope`
 Norra Europa | `northeurope`
@@ -94,12 +94,12 @@ Speech-tjänsten exponerar även REST-slutpunkter för förfrågningar om tal ti
 
 ### <a name="speech-to-text"></a>Tal till text
 
-Tal till text referensdokumentation finns [tal till text REST API](rest-speech-to-text.md).
+För referens dokumentation för tal till text, se [tal-till-text-REST API](rest-speech-to-text.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>Text till tal
 
-För text till tal-referensdokumentation finns i [REST-API för text till tal](rest-text-to-speech.md).
+Dokumentation om text till tal-referenser finns i [text till tal-REST API](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

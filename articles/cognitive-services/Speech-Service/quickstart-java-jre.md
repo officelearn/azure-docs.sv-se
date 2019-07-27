@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Känna igen tal, Java (Windows, Linux) – Speech Services'
+title: 'Snabbstart: Identifiera tal-, Java-(Windows-, Linux) – tal-service'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten får lära du dig att skapa ett enkelt Java-program som samlar in och transkriberar användaren tal från datorns mikrofon.
+description: I den här snabb starten får du lära dig att skapa ett enkelt Java-program som fångar upp och omtilldelar användar tal från datorns mikrofon.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: dce0a1b2adf20b2301402f37307e7ee1284c9aee
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605159"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554116"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Känna igen tal med Speech Service SDK för Java
 
-Snabbstarter kan också användas för [tal till speech translation](quickstart-translate-speech-java-jre.md) och [röst första virtuella assistenter](quickstart-virtual-assistant-java-jre.md).
+Snabb Starter är också tillgängliga för [tal-till-tal-översättning](quickstart-translate-speech-java-jre.md) och [röst för första virtuella assistent](quickstart-virtual-assistant-java-jre.md).
 
-Om du vill kan du välja olika programmeringsspråk och/eller miljön:<br/>
+Om du vill kan du välja ett annat programmeringsspråk och/eller miljö:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Du har skapat programmet med tal SDK Maven-paketet och Eclipse Java IDE (v4.8) på 64-bitars Windows 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9), eller i macOS 10.13 eller senare. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet har skapats med tal SDK maven-paketet och Sol förmörkelse Java IDE (v 4.8) på 64-bitars Windows, 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) eller på macOS 10,13 eller senare. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
@@ -33,12 +33,12 @@ I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SD
 
 För den här snabbstarten krävs:
 
-* Operativsystem: 64-bitars Windows 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) eller macOS 10.13 eller senare
+* Operativsystem: 64-bitars Windows, 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) eller macOS 10,13 eller senare
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * En Azure-prenumerationsnyckel för taltjänsten. [Skaffa en kostnadsfritt](get-started.md).
 
-Om du kör Linux måste du kontrollera att dessa beroenden är installerade innan du startar Eclipse.
+Om du kör Linux kontrollerar du att dessa beroenden är installerade innan du startar Sol förmörkelse.
 
 * I Ubuntu:
 
@@ -47,15 +47,15 @@ Om du kör Linux måste du kontrollera att dessa beroenden är installerade inna
   sudo apt-get install libssl1.0.0 libasound2
   ```
 
-* On Debian 9:
+* På Debian 9:
 
   ```sh
   sudo apt-get update
   sudo apt-get install libssl1.0.2 libasound2
   ```
 
-Om du kör Windows (64-bitars), kan du kontrollera att du har installerat Microsoft Visual C++ Redistributable för din plattform.
-* [Ladda ned Microsoft Visual C++ Redistributable för Visual Studio-2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+Om du kör Windows (64-bitars) bör du kontrol lera att du har installerat C++ Microsoft Visual Redistributable för din plattform.
+* [Hämta Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="create-and-configure-project"></a>Skapa och konfigurera projektet
 

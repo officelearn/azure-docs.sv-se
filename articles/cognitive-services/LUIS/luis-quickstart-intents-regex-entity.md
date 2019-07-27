@@ -1,5 +1,5 @@
 ---
-title: Entitet med reguljärt uttryck
+title: Reguljär – uttrycks enhet – LUIS
 titleSuffix: Azure Cognitive Services
 description: Extrahera data med ett enhetligt format från ett yttrande med entiteten för reguljära uttryck.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 958d880829e9524389a25f029415786231644c04
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497029"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563596"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Självstudier: Hämta välformaterade data från yttrandet
 I den här självstudien skapar du en app för att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Reguljärt uttryck**.
@@ -125,7 +125,7 @@ Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-num
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Gå till i slutet av URL-adressen och ange följande uttryck:
+2. Gå till slutet av URL: en i adressen och ange följande uttryck:
 
     `When were HRF-123456 and hrf-234567 published in the last year?`
 

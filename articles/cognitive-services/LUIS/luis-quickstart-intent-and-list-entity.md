@@ -1,5 +1,5 @@
 ---
-title: Exakt textmatchning
+title: Exakt text matchning – LUIS
 titleSuffix: Azure Cognitive Services
 description: Hämta data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan ha synonymer som också matchar exakt
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a5aeeb74d26ce633beb0e9feef20a2315bc0ff1d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236422"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560395"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Självstudier: Hämta exakta textmatchade data från ett uttryck
 
@@ -181,5 +181,5 @@ I den här självstudien har du skapat en ny avsikt, lagt till exempelyttranden 
 Fortsätt med den här appen och [lägg till en sammansatt entitet](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
-> [Lägga till färdiga entitet med en roll i appen](tutorial-entity-roles.md)
+> [Lägg till en fördefinierad entitet med en roll i appen](tutorial-entity-roles.md)
 

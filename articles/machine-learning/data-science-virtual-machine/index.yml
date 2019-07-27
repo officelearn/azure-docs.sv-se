@@ -5,7 +5,7 @@ metadata:
   title: Dokumentation om Data Science Virtual Machine – Azure
   description: 'Lär dig hur du använder Data Science Virtual Machine, en experimenteringsmiljö i Azure-molnet som har utformats speciellt för datavetenskap. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser.'
   services: machine-learning
-  author: gopitk
+  author: vijetajo
   manager: cgronlun
   ms.service: machine-learning
   ms.subservice: data-science-vm
@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
-  ms.author: gokuma
+  ms.author: vijetaj
 abstract:
   description: Virtuella datorer för datavetenskap och djupinlärning är anpassade VM-avbildningar i Azure med verktyg för datavetenskap som används för att skapa intelligenta program för avancerade analyser.
 sections:

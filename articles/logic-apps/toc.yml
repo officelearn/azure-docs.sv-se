@@ -155,6 +155,8 @@
           href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: Ansluta till virtuella nätverk med isolerade miljöer
       href: connect-virtual-network-vnet-isolated-environment.md
+    - name: Lägga till artefakter i integreringstjänstmiljöer
+      href: add-artifacts-integration-service-environment-ise.md
     - name: Komma åt lokala data
       items:
         - name: Installera datagateway
@@ -295,6 +297,8 @@
           href: manage-logic-apps-with-visual-studio.md
         - name: Hantera integrationskonton
           href: logic-apps-enterprise-integration-accounts.md
+        - name: Hantera integreringstjänstmiljöer
+          href: ise-manage-integration-service-environment.md
         - name: Migrera till det senaste schemat
           href: ../connectors/connectors-schema-migration.md
     - name: Testa

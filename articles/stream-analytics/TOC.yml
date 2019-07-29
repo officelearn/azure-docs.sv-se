@@ -148,6 +148,8 @@
               href: stream-analytics-scale-jobs.md
         - name: Skala med ML-funktioner
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: Skala med ompartitionering
+          href: repartition.md
     - name: Automatisera
       items:
         - name: Använda .NET SDK

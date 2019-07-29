@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. I det här exemplet är URL:en **https://52.170.203.149**.
+Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. I det här exemplet är URL:en **https://52.170.203.149** .
 
 ![Säkerhetsvarning](./media/tutorial-ssl-cli/application-gateway-secure.png)
 

@@ -40,7 +40,7 @@ Mer information om mallar finns i [Översikt över Azure Resource Manager](https
 
 När du skapar en skalningsuppsättning med en mall definierar du lämpliga resurser. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
 
-| Egenskap                      | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
+| Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
 | namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |

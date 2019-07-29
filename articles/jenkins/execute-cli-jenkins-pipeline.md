@@ -49,7 +49,7 @@ sudo apt-get install -y maven
 
 En Azure-autentiseringsuppgift krävs för att Azure CLI ska kunna köras.
 
-* I instrumentpanelen för Jenkins klickar du på **Autentiseringsuppgifter -> System**. Klicka på **Globala autentiseringsuppgifter (obegränsade)**.
+* I instrumentpanelen för Jenkins klickar du på **Autentiseringsuppgifter -> System**. Klicka på **Globala autentiseringsuppgifter (obegränsade)** .
 * Klicka på **Lägg till autentiseringsuppgifter** för att lägga till ett [Microsoft Azure-tjänsthuvudnamn](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) genom att fylla i prenumerations-ID, klient-ID, klienthemlighet och OAuth 2.0 Token Endpoint. Ange ett ID för användning i senare steg.
 
 ![Ange autentiseringsuppgifter](./media/execute-cli-jenkins-pipeline/add-credentials.png)

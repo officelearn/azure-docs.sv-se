@@ -54,7 +54,7 @@ Följande avsnitt beskriver hur du utför de steg som krävs. Utför följande s
 3. Skapa en händelsehubb.
 
 > [!NOTE]
-> Det finns angivna variabler i varje skript som du behöver senare i den här självstudien. Det gäller namn på resursgrupp ($resourceGroup), namnområde för händelsehubb (**$eventHubNamespace**) och namn på händelsehubb (**$eventHubName**). Dessa är markerade med ett dollarteckenprefix ($) senare i den här artikeln så att du vet var de har angetts i skriptet.
+> Det finns angivna variabler i varje skript som du behöver senare i den här självstudien. Det gäller namn på resursgrupp ($resourceGroup), namnområde för händelsehubb ( **$eventHubNamespace**) och namn på händelsehubb ( **$eventHubName**). Dessa är markerade med ett dollarteckenprefix ($) senare i den här artikeln så att du vet var de har angetts i skriptet.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->

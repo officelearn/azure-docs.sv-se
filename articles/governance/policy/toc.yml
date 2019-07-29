@@ -274,6 +274,9 @@
     - name: Skapa principer för matrisegenskaper
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
+    - name: Skapa en princip för gästkonfiguration
+      displayName: 'powershell, dsc, chef, linux, windows'
+      href: ./how-to/guest-configuration-create.md
     - name: Hämta data för efterlevnad
       displayName: 'evaluation, scan, summarize, query, events, log analytics'
       href: ./how-to/get-compliance-data.md

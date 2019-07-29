@@ -1,0 +1,54 @@
+- name: Dokumentation om Azure Australien
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure Australien?
+      href: australia-overview.md
+- name: Begrepp
+  items:
+    - name: Säkerhet i Azure Australien
+      items:
+        - name: Datasäkerhet
+          href: secure-your-data.md
+        - name: Azure VPN Gateway-konfiguration
+          href: vpn-gateway.md
+        - name: Azure Key Vault
+          href: azure-key-vault.md
+        - name: Identitetsfederation
+          href: identity-federation.md
+        - name: RBAC och PIM
+          href: role-privileged.md
+        - name: Site Recovery och Backup för Essential 8
+          href: recovery-backup.md
+        - name: Azure-systemövervakning
+          href: system-monitor.md
+        - name: Azure Policy och Azure Blueprints
+          href: azure-policy.md
+    - name: Gatewayer i Azure Australien
+      items:
+        - name: 'Gateway-loggning, granskning och synlighet'
+          href: gateway-log-audit-visibility.md
+        - name: Säker fjärradministration för gateway
+          href: gateway-secure-remote-administration.md
+        - name: Kontroll av inkommande data för gateway
+          href: gateway-ingress-traffic.md
+        - name: Kontroll av utgående data för gateway
+          href: gateway-egress-traffic.md
+- name: Resurser
+  items:
+    - name: Så här fungerar säkerhet i Azure Australien
+      href: security-explained.md
+    - name: Ytterligare resurser för Azure Australien
+      href: reference-library.md
+    - name: Webbplats för ACSC (Australian Cyber Security Centre)
+      href: 'https://cyber.gov.au/'
+    - name: Australiensiska CCSL (Certified Cloud Services List)
+      href: 'https://acsc.gov.au/infosec/irap/certified_clouds.htm'
+    - name: Sidan om Australien på Microsoft Service Trust Portal
+      href: 'https://aka.ms/au-irap'
+    - name: PROTECTED-skisser för IaaS- och PaaS-webbprogram i Australien
+      href: 'https://aka.ms/au-protected'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'

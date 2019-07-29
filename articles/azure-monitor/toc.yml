@@ -308,7 +308,13 @@
               displayname: 'live, quickpulse, quick pulse, live metrics'
               href: app/live-stream.md
             - name: Mått
-              href: app/metrics-explorer.md
+              items:
+                - name: Loggbaserade och föraggregerade mått
+                  href: app/pre-aggregated-metrics-log-metrics.md
+                - name: Loggbaserade måttdefinitioner
+                  href: platform/app-insights-metrics.md
+                - name: Klassiska Metrics Explorer
+                  href: app/metrics-explorer.md
             - name: Search
               href: app/diagnostic-search.md
             - name: Profilerare
@@ -425,8 +431,6 @@
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
                   href: app/configuration-with-applicationinsights-config.md
-                - name: Loggbaserade och föraggregerade mått
-                  href: app/pre-aggregated-metrics-log-metrics.md
                 - name: Transaktionsdiagnostik
                   href: app/transaction-diagnostics.md
                 - name: Korrelera anpassade datakällor
@@ -659,15 +663,13 @@
                 - name: Samla in loggar
                   href: platform/diagnostic-logs-stream-log-store.md
                 - name: Samla in från Azure Storage
-                  href: platform/collect-azure-metrics-logs.md
+                  href: platform/azure-storage-iis-table.md
                 - name: Arkivera till lagring
                   href: platform/archive-diagnostic-logs.md
                 - name: Strömma data till Event Hubs
                   href: platform/diagnostic-logs-stream-event-hubs.md
                 - name: Aktivera med Resource Manager-mallar
                   href: platform/diagnostic-logs-stream-template.md
-                - name: Tjänstloggar och mått
-                  href: platform/azure-storage-iis-table.md
             - name: Strömma data till Event Hubs
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Key Vault-analys
@@ -736,8 +738,8 @@
               href: platform/metrics-getting-started.md
             - name: Avancerade funktioner i Metrics Explorer
               href: platform/metrics-charts.md
-            - name: Loggbaserade mått
-              href: platform/app-insights-metrics.md
+            - name: Exempel på måttdiagram
+              href: platform/metric-chart-samples.md
             - name: Felsöka måttdiagram
               href: platform/metrics-troubleshoot.md
         - name: Loggar

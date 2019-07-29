@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera tal, Java (Android) – Speech Services'
+title: 'Snabbstart: Identifiera tal-, Java-(Android) – tal-service'
 titleSuffix: Azure Cognitive Services
 description: Lär dig att känna igen tal i Java på Android med hjälp av Speech SDK
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 22970eb58dc244405e522d46fcaa380151076062
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603104"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559501"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig att utveckla ett Java-program för Android med hjälp av Speech SDK för Cognitive Services för att transkribera tal till text.
-Programmet baseras på tal SDK Maven-paketet, version 1.6.0 eller senare och Android Studio 3.3.
+Programmet baseras på tal SDK maven-paketet, version 1.6.0 och Android Studio 3,3.
 Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer och Intel x86/x64-kompatibla processorer.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
+Du behöver en prenumerations nyckel för tal tjänster för att slutföra den här snabb starten. Du kan skaffa en utan kostnad. Mer information finns i [testa tal tjänsterna kostnads fritt](get-started.md) .
 
 ## <a name="create-and-configure-a-project"></a>Skapa och konfigurera ett projekt
 
@@ -82,7 +82,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
    ![Skärmbild av fönstret för att välja distributionsmål](media/sdk/qs-java-android-12-deploy.png)
 
-Tryck på knappen i programmet för att starta en taligenkänningssession. Nästa 15 sekunder engelska tal ska skickas till tal-tjänsterna och transkriberas. Resultatet visas i Android-programmet och i fönstret logcat i Android Studio.
+Tryck på knappen i programmet för att starta en taligenkänningssession. De närmaste 15 sekunderna engelska talet skickas till tal tjänsterna och har tilldelats. Resultatet visas i Android-programmet och i fönstret logcat i Android Studio.
 
 ![Skärmbild av Android-programmet](media/sdk/qs-java-android-13-gui-on-device.png)
 

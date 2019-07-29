@@ -168,7 +168,7 @@ Webbläsarappen bör ha en offentlig URL i stället för en localhost-URL i prod
 
 ### <a name="enable-cors"></a>Aktivera CORS 
 
-I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt platshållaren _&lt;appname>_.
+I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt platshållaren _&lt;appname>_ .
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01

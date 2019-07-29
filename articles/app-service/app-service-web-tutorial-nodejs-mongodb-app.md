@@ -195,7 +195,7 @@ Kopiera värdet för `primaryMasterKey`. Du behöver den här informationen i n�
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Konfigurera anslutningssträngen i ditt Node.js-program
 
-I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_. Som standard konfigureras _.gitignore_ för att hålla filen utanför lagringsplatsen. 
+I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_ . Som standard konfigureras _.gitignore_ för att hålla filen utanför lagringsplatsen. 
 
 Kopiera följande kod till den. Se till att ersätta de två platshållarna *\<cosmosdb_name>* med ditt Cosmos DB-databasnamn och ersätt platshållaren *\<primary_master_key>* med nyckeln som du kopierade i föregående steg.
 
@@ -272,7 +272,7 @@ Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför
 
 Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. 
 
-I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt platshållarna *\<app_name>*, *\<cosmosdb_name>* och *\<primary_master_key>*.
+I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt platshållarna *\<app_name>* , *\<cosmosdb_name>* och *\<primary_master_key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -447,7 +447,7 @@ node server.js
 
 Gå till `http://localhost:8443` i en webbläsare och kontrollera att du är inloggad.
 
-Välj **Administratör > Hantera artiklar** och lägg sedan till en artikel genom att välja knappen **+**.
+Välj **Administratör > Hantera artiklar** och lägg sedan till en artikel genom att välja knappen **+** .
 
 Nu ser du den nya textrutan `Comment`.
 

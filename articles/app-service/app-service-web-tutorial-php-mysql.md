@@ -217,7 +217,7 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql_ser
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Ansluta lokalt till MySQL-produktionsservern
 
-Anslut till MySQL-server i Azure via det lokala terminalfönstret. Använd det värde du angav tidigare för _&lt;mysql_server_name>_. När du uppmanas att ange ett lösenord använder du lösenordet som du angav när du skapade databasen i Azure.
+Anslut till MySQL-server i Azure via det lokala terminalfönstret. Använd det värde du angav tidigare för _&lt;mysql_server_name>_ . När du uppmanas att ange ett lösenord använder du lösenordet som du angav när du skapade databasen i Azure.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
@@ -277,7 +277,7 @@ Spara ändringarna.
 
 ### <a name="configure-ssl-certificate"></a>Konfigurera ett SSL-certifikat
 
-Azure Database for MySQL använder som standard SSL-anslutningar från klienter. För att ansluta till din MySQL-databas i Azure måste du använda [_.pem_-certifikatet som tillhandahålls av Azure Database for MySQL](../mysql/howto-configure-ssl.md).
+Azure Database for MySQL använder som standard SSL-anslutningar från klienter. För att ansluta till din MySQL-databas i Azure måste du använda [ _.pem_-certifikatet som tillhandahålls av Azure Database for MySQL](../mysql/howto-configure-ssl.md).
 
 Öppna _config/database.php_ och lägg till parametrarna `sslmode` och `options` i `connections.mysql`, som i följande kod.
 
@@ -355,7 +355,7 @@ Som tidigare nämnts kan du ansluta till din Azure MySQL-databas med miljövaria
 
 Ange i Cloud Shell miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
-Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt platshållarna _&lt;appname>_ och _&lt;mysql_server_name>_.
+Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt platshållarna _&lt;appname>_ och _&lt;mysql_server_name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -384,7 +384,7 @@ Gå till det lokala terminalfönstret och använd `php artisan` för att generer
 php artisan key:generate --show
 ```
 
-Gå till Cloud Shell och ange programnyckeln i App Service-appen hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Ersätt platshållarna _&lt;appname>_ och _&lt;outputofphpartisankey:generate>_.
+Gå till Cloud Shell och ange programnyckeln i App Service-appen hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Ersätt platshållarna _&lt;appname>_ och _&lt;outputofphpartisankey:generate>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -396,13 +396,13 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Ange den virtuella sökvägen för appen. Det här steget är nödvändigt eftersom [Laravel-programmets livscykel](https://laravel.com/docs/5.4/lifecycle) börjar i den _offentliga_ katalogen i stället för programmets rotkatalog. Andra PHP-ramverk vilkas livscykel startar i rotkatalogen fungerar utan manuell konfiguration av den virtuella programsökvägen.
 
-Ange i Cloud Shell den virtuella sökvägen för appen med hjälp av kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt platshållaren _&lt;appname>_.
+Ange i Cloud Shell den virtuella sökvägen för appen med hjälp av kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt platshållaren _&lt;appname>_ .
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-Som standard pekar Azure App Service den virtuella rotsökvägen för appen (_/_) till rotkatalogen för de distribuerade programfilerna (_sites\wwwroot_).
+Som standard pekar Azure App Service den virtuella rotsökvägen för appen ( _/_ ) till rotkatalogen för de distribuerade programfilerna (_sites\wwwroot_).
 
 ### <a name="push-to-azure-from-git"></a>Skicka till Azure från Git
 

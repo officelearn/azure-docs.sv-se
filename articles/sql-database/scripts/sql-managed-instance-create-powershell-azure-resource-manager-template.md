@@ -1,6 +1,6 @@
 ---
-title: Exempel på PowerShell – skapa en hanterad instans i Azure SQL Database | Microsoft Docs
-description: Azure PowerShell-exempelskript för att skapa en hanterad instans i Azure SQL Database
+title: PowerShell-exempel – skapa en hanterad instans i Azure SQL Database | Microsoft Docs
+description: Azure PowerShell exempel skript för att skapa en hanterad instans i Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,16 +10,15 @@ ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: e8f59faea80237be2ac0b056db4fb8b95d4ab217
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5a60e8efad41c94deeedd545e6e0c1c96ff04e25
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875355"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569737"
 ---
-# <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Använda PowerShell med Azure Resource Manager-mall för att skapa en hanterad instans i Azure SQL Database
+# <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Använd PowerShell med Azure Resource Manager mall för att skapa en hanterad instans i Azure SQL Database
 
 Hanterad Azure SQL Database-instans kan skapas med hjälp av Azure PowerShell-biblioteket och Azure Resource Manager-mallar.
 
@@ -27,7 +26,7 @@ Hanterad Azure SQL Database-instans kan skapas med hjälp av Azure PowerShell-bi
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 Azure PowerShell-kommandon kan starta distribution med hjälp av en fördefinierad Azure Resource Manager-mall. Följande egenskaper kan anges i mallen:
 
@@ -41,7 +40,7 @@ Instansnamn, SQL-administratörsanvändarnamn, virtuellt nätverk/undernät och 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det här exemplet förutsätter att du har [skapat en giltig nätverksmiljö](../sql-database-managed-instance-create-vnet-subnet.md) eller [ändrat befintligt virtuellt nätverk](../sql-database-managed-instance-configure-vnet-subnet.md) för din hanterade instans. Exemplet använder cmdletarna [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) och [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) så se till att du har installerat följande PowerShell-moduler:
+Det här exemplet förutsätter att du har [skapat en giltig nätverksmiljö](../sql-database-managed-instance-create-vnet-subnet.md) eller [ändrat befintligt virtuellt nätverk](../sql-database-managed-instance-configure-vnet-subnet.md) för din hanterade instans. Exemplet använder cmdletarna [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) och [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) så kontrol lera att du har installerat följande PowerShell-moduler:
 
 ```powershell
 Install-Module Az.Network
@@ -101,7 +100,7 @@ Följande innehåll ska placeras i en fil som representerar en mall som används
 }
 ```
 
-Förutsättningen är att ett virtuellt Azure-nätverk med korrekt konfigurerat undernät redan finns. Om du inte har ett korrekt konfigurerade undernät, Förbered nätverksmiljön använder separata [mall för Azure Resource hanterade](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) som kan köras separat eller ingår i den här mallen.
+Förutsättningen är att ett virtuellt Azure-nätverk med korrekt konfigurerat undernät redan finns. Om du inte har ett korrekt konfigurerat undernät förbereder du nätverks miljön med hjälp av en separat [Azure-resurs hanterad mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) som kan köras oberoende eller inkluderas i den här mallen.
 
 Spara innehållet i den här filen som en .json-fil, placera filsökvägen i följande PowerShell-skript och ändra namnen på objekten i skriptet:
 

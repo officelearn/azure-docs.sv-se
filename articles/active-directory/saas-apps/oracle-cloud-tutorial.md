@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Oracle Cloud infrastruktur-konsolen | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och infrastrukturen Oracle Cloud-konsolen.
+title: 'Självstudier: Azure Active Directory integrering med Oracle Cloud Infrastructure Console | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Oracle Cloud Infrastructure-konsolen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,81 +13,81 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164157"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596433"
 ---
-# <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Självstudier: Integrera Oracle Cloud-konsolen för infrastruktur med Azure Active Directory
+# <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Självstudier: Integrera Oracle Cloud Infrastructure-konsolen med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera Oracle Cloud-konsolen för infrastruktur med Azure Active Directory (AD Azure). När du integrerar Oracle Cloud-konsolen för infrastruktur med Azure AD, kan du:
+I den här självstudien får du lära dig att integrera Oracle Cloud Infrastructure-konsolen med Azure Active Directory (Azure AD). När du integrerar en Oracle Cloud Infrastructure-konsol med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till Oracle Cloud infrastruktur-konsolen.
-* Ge dina användare att automatiskt inloggad till Oracle Cloud infrastruktur-konsolen med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till Oracle Cloud Infrastructure-konsolen.
+* Gör det möjligt för användarna att logga in automatiskt till Oracle Cloud Infrastructure-konsolen med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Aktiverat prenumeration Oracle Cloud-konsolen för infrastruktur för enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Prenumeration på Oracle Cloud Infrastructure Console enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Har stöd för Oracle Cloud infrastruktur-konsolen **SP** -initierad SSO.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. Oracle Cloud Infrastructure Console stöder **SP** -initierad SSO.
 
-## <a name="adding-oracle-cloud-infrastructure-console-from-the-gallery"></a>Att lägga till Oracle Cloud infrastruktur-konsolen från galleriet
+## <a name="adding-oracle-cloud-infrastructure-console-from-the-gallery"></a>Lägga till Oracle Cloud Infrastructure-konsolen från galleriet
 
-För att konfigurera integrering av infrastruktur Oracle Cloud-konsolen i Azure AD, som du behöver lägga till Oracle Cloud infrastruktur-konsolen från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Oracle Cloud Infrastructure-konsolen i Azure AD måste du lägga till Oracle Cloud Infrastructure-konsolen från galleriet till din lista över hanterade SaaS-appar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **Oracle Cloud infrastruktur-konsolen** i sökrutan.
-1. Välj **Oracle Cloud infrastruktur-konsolen** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **Oracle Cloud Infrastructure Console** i sökrutan.
+1. Välj **Oracle Cloud Infrastructure-konsolen** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-Konfigurera och testa Azure AD enkel inloggning med Oracle Cloud infrastruktur-konsolen med hjälp av en testanvändare kallas **B. Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Oracle Cloud infrastruktur-konsolen.
+Konfigurera och testa Azure AD SSO med en Oracle Cloud Infrastructure-konsol med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Oracle Cloud Infrastructure-konsolen.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Oracle Cloud infrastruktur-konsolen, utför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Oracle Cloud Infrastructure Console, slutför du följande Bygg stenar:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  vill tillåta att användarna använda den här funktionen.
-1. **[Konfigurera Oracle Cloud infrastruktur-konsolen](#configure-oracle-cloud-infrastructure-console)**  att konfigurera inställningar för enkel inloggning på programsidan.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B. Simon.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B. Simon att använda Azure AD enkel inloggning.
-1. **[Skapa testanvändare i Oracle Cloud infrastruktur-konsolen](#create-oracle-cloud-infrastructure-console-test-user)**  har en motsvarighet för B. Simon i Oracle Cloud infrastruktur-konsolen som är länkad till en Azure AD-representation av användaren.
-1. **[Testa SSO](#test-sso)**  att kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
+1. **[Konfigurera en Oracle Cloud Infrastructure-konsol](#configure-oracle-cloud-infrastructure-console)** för att konfigurera SSO-inställningar på program sidan.
+1. **[Skapa en Azure AD](#create-an-azure-ad-test-user)** -testanvändare för att testa enkel inloggning i Azure AD med B. Simon.
+1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testanvändaren att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+1. **[Skapa en administratörs konsol för Oracle Cloud-konsolen](#create-oracle-cloud-infrastructure-console-test-user)** så att den har en motsvarighet till B. Simon i Oracle Cloud Infrastructure-konsolen som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Oracle Cloud infrastruktur-konsolen** programsidan integration, hitta den **hantera** och väljer **enda inloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Oracle Cloud Infrastructure-konsolen** och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** ange värdena för följande fält:
+1. På sidan **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
    > [!NOTE]
-   > Du får tjänstleverantör metadatafilen från den **konfigurera Oracle Cloud Infrastructure konsolen enkel inloggning** avsnittet av självstudiekursen.
+   > Du hämtar metadata-filen för tjänst leverantören från avsnittet **Konfigurera enkel inloggning i Oracle Cloud Infrastructure-konsolen** i självstudien.
     
    1. Klicka på **ladda upp metadatafilen**.
 
    1. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
 
-   1. När metadatafilen har laddats upp den **identifierare** och **svars-URL** värden får automatiskt ifylld i **SAML grundkonfiguration** avsnittet textrutan.
+   1. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i text rutan **grundläggande SAML** -konfigurations avsnitt.
     
       > [!NOTE]
       > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
@@ -95,21 +95,21 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
       I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://console.<REGIONNAME>.oraclecloud.com/`
 
       > [!NOTE]
-      > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Oracle Cloud-konsolen Infrastrukturklienten supportteamet](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+      > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [support teamet för Oracle Cloud Infrastructure Console](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **XML-Metadata för Federation** och välj **hämta** att hämta certifikatet och spara den på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
    ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-1. Oracle Cloud Infrastructure konsolprogram förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+1. Program varan för Oracle Cloud Infrastructure-konsolen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
 
    ![image](common/edit-attribute.png)
 
-1. Dessutom ovan Oracle Cloud infrastruktur-konsolen program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I den **användarattribut och anspråk** avsnittet på den **gruppanspråk (förhandsversion)**  dialogrutan utför följande steg:
+1. Utöver ovan förväntar sig program för Oracle Cloud Infrastructure-konsolen att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)**  utför du följande steg:
 
-   1. Klicka på den **penna** bredvid **namnge identifierarvärde**.
+   1. Klicka på **pennan** bredvid **namn-ID-värde**.
 
-   1. Välj **beständiga** som **Välj format för namn på identifierare**.
+   1. Välj **beständigt** som **Välj namn identifierare format**.
  
    1. Klicka på **Spara**.
 
@@ -117,97 +117,97 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
     
       ![image](./media/oracle-cloud-tutorial/config11.png)
 
-   1. Klicka på den **penna** bredvid **grupper returneras i anspråk**.
+   1. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 
-   1. Välj **säkerhetsgrupper** från listan över radio.
+   1. Välj **säkerhets grupper** i alternativ listan.
 
-   1. Välj **källattributet** av **grupp-ID:** .
+   1. Välj **källattribut** för **grupp-ID**.
 
-   1. Kontrollera **har ändrat namnet på gruppanspråket**.
+   1. Markera **anpassa namnet på grupp**anspråket.
 
-   1. I den **namn** textruta, typ **groupName**.
+   1. Skriv **GroupName**i text rutan **namn** .
 
-   1. I den **Namespace (valfritt)** textruta, typ `https://auth.oraclecloud.com/saml/claims`.
+   1. I text rutan **namnrymd (valfritt)** skriver `https://auth.oraclecloud.com/saml/claims`du.
 
    1. Klicka på **Spara**.
 
       ![image](./media/oracle-cloud-tutorial/config08.png)
 
-1. På den **ställa in Oracle Cloud infrastruktur-konsolen** avsnittet, kopiera den lämpliga URL: er efter behov.
+1. I avsnittet **Konfigurera en Oracle Cloud Infrastructure-konsol** kopierar du lämpliga URL: er baserat på ditt krav.
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-oracle-cloud-infrastructure-console"></a>Konfigurera Oracle Cloud infrastruktur-konsolen
+### <a name="configure-oracle-cloud-infrastructure-console"></a>Konfigurera en Oracle Cloud Infrastructure-konsol
 
-1. I ett annat webbläsarfönster, loggar du in Oracle Cloud infrastruktur-konsolen som administratör.
+1. Logga in på Oracle Cloud Infrastructure-konsolen som administratör i ett annat webbläsarfönster.
 
-1. Klicka på menyn till vänster och klicka på **identitet** gå sedan till **Federation**.
+1. Klicka på den vänstra sidan av menyn och klicka på **identitet** och navigera sedan till **Federation**.
 
    ![Konfiguration](./media/oracle-cloud-tutorial/config01.png)
 
-1. Spara den **tjänstleverantör metadatafil** genom att klicka på den **ladda ned det här dokumentet** länka och överför den till den **grundkonfiguration SAML** på Azure portal och sedan Klicka på **Lägg till identitetsprovider**.
+1. Spara **metadata-filen för tjänst leverantören** genom att klicka på länken **Ladda ned det här dokumentet** och ladda upp den i avsnittet **grundläggande SAML-konfiguration** i Azure Portal och klicka sedan på **Lägg till identitets leverantör**.
 
    ![Konfiguration](./media/oracle-cloud-tutorial/config02.png)
 
-1. På den **Lägg till identitetsprovider** popup, utför följande steg:
+1. Utför följande steg på popup-sidan **Lägg till identitets leverantör** :
 
    ![Konfiguration](./media/oracle-cloud-tutorial/config03.png)
 
-   1. I den **namn** text, ange ditt namn.
+   1. I text rutan **namn** anger du ditt namn.
 
-   1. I den **beskrivning** text, ange en beskrivning.
+   1. Ange beskrivningen i text rutan **Beskrivning** .
 
-   1. Välj **MICROSOFT ACTIVE DIRECTORY FEDERATION SERVICE (AD FS) eller KOMPATIBLA SAML 2.0-IDENTITETSPROVIDER** som **typ**.
+   1. Välj **Microsoft Active Directory Federation Service (ADFS) eller SAML 2,0-kompatibel identitets leverantör** som **typ**.
 
-   1. Klicka på **Bläddra** att ladda upp Federation Metadata-XML som du har hämtat från Azure-portalen.
+   1. Klicka på **Bläddra** för att ladda upp XML-metadata för federationsmetadata som du har laddat ned från Azure Portal.
 
-   1. Klicka på **Fortsätt** på den **redigera identitetsprovider** avsnittet utför följande steg:
+   1. Klicka på **Fortsätt** och gå till avsnittet **Redigera identitetsprovider** och utför följande steg:
 
       ![Konfiguration](./media/oracle-cloud-tutorial/config09.png)
 
-   1. För **identitet PROVIDERN grupp** fält, anger du ett namn och grupp-ID som har ställts in på Azure-portalen. Gruppen måste mappas med motsvarande grupp i **OCI grupp** fält.
+   1. **Gruppen med identitets leverantörer** ska väljas som anpassad grupp. GRUPP-ID: t ska vara GUID för gruppen från Azure Active Directory. Gruppen måste mappas med motsvarande grupp i fältet **OCI-grupp** .
 
-   1. Du kan mappa flera grupper enligt inställningarna i Azure portal och din organisation behöver. Klicka på **+ Lägg till mappning** att lägga till så många grupper som du behöver.
+   1. Du kan mappa flera grupper efter installationen i Azure Portal och din organisation behöver. Klicka på **+ Lägg till mappning** för att lägga till så många grupper som du behöver.
 
    1. Klicka på **Skicka**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B. Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B. Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B. Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B. Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Oracle Cloud infrastruktur-konsolen.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Oracle Cloud Infrastructure-konsolen.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **Oracle Cloud infrastruktur-konsolen**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Oracle Cloud Infrastructure-konsol**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
    ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B. Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-oracle-cloud-infrastructure-console-test-user"></a>Skapa testanvändare i Oracle Cloud infrastruktur-konsolen
+### <a name="create-oracle-cloud-infrastructure-console-test-user"></a>Skapa test användare för Oracle Cloud Infrastructure-konsolen
 
- Oracle Cloud infrastruktur-konsolen stöder just-in-time-etablering, vilket är som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare inte skapas vid ett försök till åtkomst och även behöver inte skapa användaren.
+ Oracle Cloud Infrastructure Console stöder just-in-Time-etablering, som är som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas inte under ett försök att komma åt och behöver inte heller skapa användaren.
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen Oracle Cloud infrastruktur-konsolen i åtkomstpanelen, omdirigeras till inloggningssidan för Oracle Cloud infrastruktur-konsolen. Välj den **IDENTITETSPROVIDERN** från den nedrullningsbara menyn och klicka på **Fortsätt** som visas nedan för att logga in. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer konsol panelen för Oracle Cloud Infrastructure på åtkomst panelen omdirigeras du till Oracle Cloud Infrastructure-konsolens inloggnings sida. Välj **identitets leverantören** på den nedrullningsbara menyn och klicka på **Fortsätt** enligt beskrivningen nedan för att logga in. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ![Konfiguration](./media/oracle-cloud-tutorial/config10.png)
 

@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Finjustera och jämföra förutsägande modeller i R'
+title: 'Självstudier: Träna och jämför förutsägelse modeller i R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: I del två av den här självstudieserien med tre delar får du skapa två förutsägande modeller i R med Azure SQL Database Machine Learning Services (förhandsversion) och välj sedan den bästa modellen.
+description: I del två av den här själv studie serien i tre delar skapar du två förutsägande modeller i R med Azure SQL Database Machine Learning Services (förhands granskning) och väljer sedan den mest exakta modellen.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,38 +12,38 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d336d6a53b6d234048c56d8492d278bef6fed64
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 07/26/2019
+ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957612"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596807"
 ---
-# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudier: Skapa en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)
+# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudier: Skapa en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
 
-I del två av den här självstudieserien med tre delar får du skapa två förutsägande modeller i R med Azure SQL Database Machine Learning Services (förhandsversion) och välj sedan den bästa modellen.
+I del två av den här själv studie serien i tre delar skapar du två förutsägande modeller i R och väljer den mest exakta modellen. I nästa del av serien distribuerar du den här modellen i en SQL-databas med Azure SQL Database Machine Learning Services (för hands version).
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln får du lära dig att:
 
 > [!div class="checklist"]
-> * Träna två machine learning-modeller
-> * Göra förutsägelser från båda modellerna
-> * Jämför resultatet för att välja den bästa modellen
+> * Träna två Machine Learning-modeller
+> * Gör förutsägelser från båda modellerna
+> * Jämför resultaten för att välja den mest exakta modellen
 
-I [del ett](sql-database-tutorial-predictive-model-prepare-data.md), du har lärt dig hur du importerar en exempeldatabas till en Azure SQL database och sedan förbereda data som ska användas för att träna en förutsägande modell i R.
+I [del ett](sql-database-tutorial-predictive-model-prepare-data.md)har du lärt dig hur du importerar en exempel databas och sedan förbereder de data som ska användas för att träna en förutsägelse modell i R.
 
-I [del tre](sql-database-tutorial-predictive-model-deploy.md), du får lära dig hur du lagrar modellen i en databas och sedan skapa en lagrad procedur som kan göra förutsägelser utifrån nya data.
+I [del tre](sql-database-tutorial-predictive-model-deploy.md)får du lära dig hur du lagrar modellen i en databas och sedan skapar lagrade procedurer från de R-skript som du utvecklade i delar en och två. De lagrade procedurerna kommer att köras i en SQL-databas för att göra förutsägelser baserade på nya data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Del två av den här självstudien förutsätter att du har slutfört [ **del ett** ](sql-database-tutorial-predictive-model-prepare-data.md) och dess krav.
+* Del två i den här självstudien förutsätter att du har slutfört [**del en**](sql-database-tutorial-predictive-model-prepare-data.md) och dess krav.
 
-## <a name="train-two-models"></a>Skapa två modeller
+## <a name="train-two-models"></a>Träna två modeller
 
-Skapa två olika modeller (linjär regression och beslutsträd) för att hitta den bästa modellen för uci ski, och se vilken som är att förutsäga mer exakt. Du kommer att använda dataramen `rentaldata` som du skapade i del ett i den här serien.
+Om du vill hitta den bästa modellen för Ski hyr data skapar du två olika modeller (linjär regression och besluts träd) och ser vilken som är mer korrekt. Du använder data ramen `rentaldata` som du skapade i del en av den här serien.
 
 ```r
 #First, split the dataset into two different sets:
@@ -61,9 +61,9 @@ model_linmod <- rxLinMod(RentalCount ~  Month + Day + WeekDay + Snow + Holiday, 
 model_dtree  <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, data = train_data);
 ```
 
-## <a name="make-predictions-from-both-models"></a>Göra förutsägelser från båda modellerna
+## <a name="make-predictions-from-both-models"></a>Gör förutsägelser från båda modellerna
 
-Funktionen predict till predict hyra räknar med varje tränade modellen.
+Använd en predict-funktion för att förutsäga hyres antalet med hjälp av varje tränad modell.
 
 ```r
 #Use both models to make predictions using the test data set.
@@ -93,9 +93,9 @@ head(predict_dtree);
 6          40.0000          38       1     12     2      1       0
 ```
 
-## <a name="compare-the-results"></a>Jämför resultatet
+## <a name="compare-the-results"></a>Jämför resultaten
 
-Nu vill du se vilka av modeller ger bästa förutsägelser. Ett snabbt och enkelt sätt att göra detta är att använda en grundläggande ritområdet funktion för att visa skillnaden mellan de faktiska värdena i dina utbildningsdata och de förväntade värdena.
+Nu vill du se vilka modeller som ger bästa förutsägelser. Ett snabbt och enkelt sätt att göra detta är att använda en grundläggande ritnings funktion för att visa skillnaden mellan faktiska värden i tränings data och förväntade värden.
 
 ```r
 #Use the plotting functionality in R to visualize the results from the predictions
@@ -104,30 +104,30 @@ plot(predict_linmod$RentalCount_Pred - predict_linmod$RentalCount, main = "Diffe
 plot(predict_dtree$RentalCount_Pred  - predict_dtree$RentalCount,  main = "Difference between actual and predicted. rxDTree");
 ```
 
-![Jämföra två modeller](./media/sql-database-tutorial-predictive-model-build-compare/compare-models.png)
+![Jämföra de två modellerna](./media/sql-database-tutorial-predictive-model-build-compare/compare-models.png)
 
-Det verkar som beslut trädet modellen är desto mer exakt de två modellerna.
+Det verkar som besluts träd modellen är den mer exakta av de två modellerna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte planerar att fortsätta med den här självstudiekursen, kan du ta bort TutorialDB databasen från Azure SQL Database-servern.
+Om du inte kommer att fortsätta med den här självstudien tar du bort TutorialDB-databasen från Azure SQL Database-servern.
 
-Följ dessa steg från Azure-portalen:
+Följ de här stegen i Azure Portal:
 
-1. I den vänstra menyn i Azure portal, Välj **alla resurser** eller **SQL-databaser**.
-1. I den **filtrera efter namn...**  anger **TutorialDB**, och välj din prenumeration.
+1. Välj **alla resurser** eller **SQL-databaser**på den vänstra menyn i Azure Portal.
+1. I fältet **Filtrera efter namn...** anger du **TutorialDB**och väljer din prenumeration.
 1. Välj din TutorialDB-databas.
 1. Välj **Ta bort** på sidan **Översikt**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del två i den här självstudieserien får slutfört du de här stegen:
+I del två av den här själv studie serien slutförde du följande steg:
 
-* Träna två machine learning-modeller
-* Göra förutsägelser från båda modellerna
-* Jämför resultatet för att välja den bästa modellen
+* Träna två Machine Learning-modeller
+* Gör förutsägelser från båda modellerna
+* Jämför resultaten för att välja den mest exakta modellen
 
-Följ del tre i självstudieserien om du vill distribuera machine learning-modell som du har skapat:
+Om du vill distribuera Machine Learning-modellen som du har skapat följer du del tre i den här själv studie serien:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Distribuera en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-tutorial-predictive-model-deploy.md)
+> [Självstudier: Distribuera en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)](sql-database-tutorial-predictive-model-deploy.md)

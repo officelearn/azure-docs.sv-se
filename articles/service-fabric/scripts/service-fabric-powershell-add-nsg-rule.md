@@ -1,9 +1,9 @@
 ---
-title: Skriptexempel för Azure PowerShell – lägga till en regel för nätverkssäkerhetsgrupp | Microsoft Docs
-description: Azure PowerShell-skriptexempel – lägger till en nätverkssäkerhetsgrupp som tillåter inkommande trafik på en viss port.
+title: Azure PowerShell skript exempel – Lägg till en regel för nätverks säkerhets grupp | Microsoft Docs
+description: Azure PowerShell skript exempel – lägger till en nätverks säkerhets grupp som tillåter inkommande trafik på en speciell port.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,18 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/28/2017
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 92efd6c4e63959b6098829892c5cbbaeeabe9f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1418b85bfa2579ed2dee5211a79a75adf14f1547
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159986"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592289"
 ---
-# <a name="add-an-inbound-network-security-group-rule"></a>Lägg till en regel för inkommande nätverkssäkerhetsgrupper
+# <a name="add-an-inbound-network-security-group-rule"></a>Lägg till en regel för inkommande nätverks säkerhets grupp
 
-Det här exempelskriptet skapar en regel för nätverkssäkerhetsgrupp som tillåter inkommande trafik på port 8081.  Skriptet hämtar den `Microsoft.Network/networkSecurityGroups` resurs som klustret finns, skapar en ny konfiguration för nätverkssäkerhetsregeln och uppdaterar nätverkssäkerhetsgruppen. Anpassa parametrarna efter behov.
+Det här exempel skriptet skapar en regel för nätverks säkerhets grupp som tillåter inkommande trafik på port 8081.  Skriptet hämtar den `Microsoft.Network/networkSecurityGroups` resurs som klustret finns i, skapar en ny nätverks säkerhets konfigurations regel och uppdaterar nätverks säkerhets gruppen. Anpassa parametrarna efter behov.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -41,9 +41,9 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | Kommando | Anteckningar |
 |---|---|
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar `Microsoft.Network/networkSecurityGroups`-resursen. |
-|[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)| Hämtar nätverkssäkerhetsgruppen med namnet.|
-|[Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Lägger till en regel för nätverkssäkerhetskonfigurationen en nätverkssäkerhetsgrupp. |
-|[Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)| Konfigurerar målstatusen för en grupp.|
+|[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)| Hämtar nätverks säkerhets gruppen efter namn.|
+|[Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Lägger till en nätverks säkerhets regel konfiguration i en nätverks säkerhets grupp. |
+|[Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)| Anger mål tillstånd för en nätverks säkerhets grupp.|
 
 ## <a name="next-steps"></a>Nästa steg
 

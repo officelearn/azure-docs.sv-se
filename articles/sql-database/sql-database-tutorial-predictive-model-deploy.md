@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Distribuera en förutsägande modell i R'
+title: 'Självstudier: Distribuera en förutsägelse modell i R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: I den tredje delen av den här självstudiekursen i tre delar, ska du distribuera en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion).
+description: I del tre av den här självstudien i tre delar ska du distribuera en förutsägelse modell i R med Azure SQL Database Machine Learning Services (för hands version).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,41 +12,41 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 17b68f71f4034e5eb637d40b975cc22d94438fb7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978693"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596770"
 ---
-# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudier: Distribuera en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)
+# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudier: Distribuera en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
 
-I den tredje delen av den här självstudiekursen i tre delar, ska du distribuera en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion).
+I del tre av den här självstudien i tre delar ska du distribuera en förutsägelse modell som utvecklats i R till en SQL-databas med hjälp av Azure SQL Database Machine Learning Services (för hands version).
 
-Du skapar en lagrad procedur med en inbäddad R-skript som förutsägelser med hjälp av modellen. Eftersom din modell körs i Azure SQL database, tränas den enkelt mot data som lagras i databasen.
+Du skapar en lagrad procedur med ett inbäddat R-skript som gör förutsägelser med hjälp av modellen. Eftersom din modell körs i Azure SQL Database kan den enkelt tränas mot data som lagras i databasen.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln använder du R-skripten som du utvecklade i delar ett och två, så lär du dig att:
 
 > [!div class="checklist"]
-> * Store förutsägande modell i en databastabell.
-> * Skapa en lagrad procedur som genererar modellen
+> * Skapa en lagrad procedur som genererar Machine Learning-modellen
+> * Lagra modellen i en databas tabell
 > * Skapa en lagrad procedur som gör förutsägelser med modellen
-> * Köra modellen med nya data
+> * Kör modellen med nya data
 
-I [del ett](sql-database-tutorial-predictive-model-prepare-data.md), du har lärt dig hur du importerar en exempeldatabas till en Azure SQL database och sedan förbereda data som ska användas för att träna en förutsägande modell i R.
+I [del ett](sql-database-tutorial-predictive-model-prepare-data.md)har du lärt dig hur du importerar en exempel databas och sedan förbereder de data som ska användas för att träna en förutsägelse modell i R.
 
-I [del två](sql-database-tutorial-predictive-model-build-compare.md), du har lärt dig hur du skapar och skapa flera modeller och väljer sedan det mest korrekta.
+I [del två](sql-database-tutorial-predictive-model-build-compare.md)har du lärt dig hur du skapar och tränar flera Machine Learning-modeller i R och väljer den mest exakta.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Del tre i den här självstudien förutsätter att du har slutfört [ **del ett** ](sql-database-tutorial-predictive-model-prepare-data.md) och [ **del två**](sql-database-tutorial-predictive-model-build-compare.md).
+* Del tre i den här själv studie serien förutsätter att du har slutfört [**del ett**](sql-database-tutorial-predictive-model-prepare-data.md) och [**delar två**](sql-database-tutorial-predictive-model-build-compare.md).
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>Skapa en lagrad procedur som genererar modellen
 
-I del två i den här självstudieserien får du bestämt dig att en modell för beslut trädet (dtree) har det mest korrekta. Skapa nu en lagrad procedur (`generate_rental_rx_model`) som träna och genererar dtree modellen med rxDTree från RevoScaleR-paketet.
+I del två av den här själv studie serien beslutade du att en dtree-modell (besluts träd) var den mest exakta. Nu kan du använda de R-skript som du har utvecklat genom att`generate_rental_rx_model`skapa en lagrad procedur () som tågen och genererar dtree-modellen med rxDTree från RevoScaleR-paketet.
 
 Kör följande kommandon i Azure Data Studio eller SSMS.
 
@@ -88,11 +88,11 @@ END;
 GO
 ```
 
-## <a name="store-the-model-in-a-database-table"></a>Store modellen i en databastabell.
+## <a name="store-the-model-in-a-database-table"></a>Lagra modellen i en databas tabell
 
-Skapa en tabell i den TutorialDB som databasen och spara modellen till tabellen.
+Skapa en tabell i TutorialDB-databasen och spara sedan modellen i tabellen.
 
-1. Skapa en tabell (`rental_rx_models`) för lagring av modellen.
+1. Skapa en tabell (`rental_rx_models`) för att lagra modellen.
 
     ```sql
     USE TutorialDB;
@@ -105,7 +105,7 @@ Skapa en tabell i den TutorialDB som databasen och spara modellen till tabellen.
     GO
     ```
 
-1. Spara modellen till tabellen som ett binärt objekt med modellen namnet ”rxDTree”.
+1. Spara modellen i tabellen som ett binärt objekt med modell namnet "rxDTree".
 
     ```sql
     -- Save model to table
@@ -128,9 +128,9 @@ Skapa en tabell i den TutorialDB som databasen och spara modellen till tabellen.
     FROM rental_rx_models;
     ```
 
-## <a name="create-a-stored-procedure-that-makes-predictions"></a>Skapa en lagrad procedur som förutsägelser
+## <a name="create-a-stored-procedure-that-makes-predictions"></a>Skapa en lagrad procedur som gör förutsägelser
 
-Skapa en lagrad procedur (`predict_rentalcount_new`) som förutsägelser med hjälp av den tränade modellen och en uppsättning nya data.
+Skapa en lagrad procedur`predict_rentalcount_new`() som gör förutsägelser med hjälp av den tränade modellen och en uppsättning nya data.
 
 ```sql
 -- Stored procedure that takes model name and new data as input parameters and predicts the rental count for the new data
@@ -173,9 +173,9 @@ END;
 GO
 ```
 
-## <a name="execute-the-model-with-new-data"></a>Köra modellen med nya data
+## <a name="execute-the-model-with-new-data"></a>Kör modellen med nya data
 
-Nu kan du använda den lagrade proceduren `predict_rentalcount_new` att förutsäga antalet hyra från nya data.
+Nu kan du använda den lagrade proceduren `predict_rentalcount_new` för att förutsäga hyres antalet från nya data.
 
 ```sql
 -- Use the predict_rentalcount_new stored procedure with the model name and a set of features to predict the rental count
@@ -197,30 +197,30 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Du har skapat, tränas, och distribuerat en modell i en Azure SQL database. Du använde sedan den modellen i en lagrad procedur för att förutsäga värden baserat på nya data.
+Du har skapat, tränat och distribuerat en modell i en Azure SQL-databas. Sedan använder du modellen i en lagrad procedur för att förutsäga värden baserat på nya data.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med TutorialDB-databasen kan du ta bort den från Azure SQL Database-servern.
+När du är klar med TutorialDB-databasen tar du bort den från Azure SQL Database-servern.
 
-Följ dessa steg från Azure-portalen:
+Följ de här stegen i Azure Portal:
 
-1. I den vänstra menyn i Azure portal, Välj **alla resurser** eller **SQL-databaser**.
-1. I den **filtrera efter namn...**  anger **TutorialDB**, och välj din prenumeration.
+1. Välj **alla resurser** eller **SQL-databaser**på den vänstra menyn i Azure Portal.
+1. I fältet **Filtrera efter namn...** anger du **TutorialDB**och väljer din prenumeration.
 1. Välj din TutorialDB-databas.
 1. Välj **Ta bort** på sidan **Översikt**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del tre i den här självstudieserien får slutfört du de här stegen:
+I del tre i den här själv studie serien slutförde du följande steg:
 
-* Store förutsägande modell i en databastabell.
-* Skapa en lagrad procedur som genererar modellen
+* Skapa en lagrad procedur som genererar Machine Learning-modellen
+* Lagra modellen i en databas tabell
 * Skapa en lagrad procedur som gör förutsägelser med modellen
-* Köra modellen med nya data
+* Kör modellen med nya data
 
-Mer information om hur du använder R i Azure SQL Database Machine Learning Services (förhandsversion) finns:
+Mer information om hur du använder R i Azure SQL Database Machine Learning Services (för hands version) finns i:
 
-* [Skriva avancerade R-funktioner i Azure SQL Database med Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-functions.md)
-* [Arbeta med R och SQL-data i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-data-issues.md)
-* [Lägga till ett R-paket till Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-add-r-packages.md)
+* [Skriv avancerade R-funktioner i Azure SQL Database att använda Machine Learning Services (förhands granskning)](sql-database-machine-learning-services-functions.md)
+* [Arbeta med R-och SQL-data i Azure SQL Database Machine Learning Services (för hands version)](sql-database-machine-learning-services-data-issues.md)
+* [Lägg till ett R-paket i Azure SQL Database Machine Learning Services (förhands granskning)](sql-database-machine-learning-services-add-r-packages.md)

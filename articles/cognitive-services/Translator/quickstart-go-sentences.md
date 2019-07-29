@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du hämta längden på meningar i text med hjälp av Translator Text-API:et med Go.
 services: cognitive-services
 author: swmachan
-manager: erhopf
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 574f70f8f091e0f0df65f7d52df5ca73ac00b2c0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a71e0859d7d677865cbacbf24de8b0e17861a192
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704545"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595171"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängd med hjälp av Go
 
@@ -24,7 +24,7 @@ I den här snabbstarten lär du dig att fastställa meningslängder (i antal tec
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 >[!TIP]
-> Om du vill att all kod på samma gång källkoden för det här exemplet är tillgänglig i [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
+> Om du vill se all kod samtidigt är käll koden för det här exemplet tillgängligt på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -141,7 +141,7 @@ if err != nil {
 }
 ```
 
-Om du använder en flera tjänster Cognitive Services-prenumeration, måste du också inkludera den `Ocp-Apim-Subscription-Region` i dina begäranparametrar. [Mer information om autentisering med flera tjänster prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
 
 ## <a name="handle-and-print-the-response"></a>Hantera och skriva ut svaret
 
@@ -188,7 +188,7 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referens för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

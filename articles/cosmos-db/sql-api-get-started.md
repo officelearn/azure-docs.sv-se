@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 36d172daed487372401691c7046215fb6c4a63ee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384938"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598529"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
 
@@ -261,7 +261,7 @@ Grattis! Du har skapat en Azure Cosmos DB-databas.
 >
 >
 
-En behållare kan skapas med hjälp av antingen funktionen [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) eller [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) i klassen **CosmosDatabase** . En behållare består av objekt (JSON-dokument om SQL API) och tillhör ande program logik på Server sidan i Java Script, till exempel lagrade procedurer, användardefinierade funktioner och utlösare.
+En behållare kan skapas med hjälp av antingen funktionen [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) eller [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) i klassen **CosmosDatabase** . En behållare består av objekt (JSON-dokument om SQL API) och tillhör ande program logik på Server sidan i Java Script, till exempel lagrade procedurer, användardefinierade funktioner och utlösare.
 
 1. Kopiera och klistra in **CreateContainerAsync** -metoden under din **metoderna createdatabaseasync** -metod. **CreateContainerAsync** skapar en ny behållare med ID ``FamilyContainer`` om den inte redan finns, med det ``containerId`` ID som anges från fältet partitionerat av ``LastName`` egenskap.
 
@@ -286,7 +286,7 @@ En behållare kan skapas med hjälp av antingen funktionen [**CreateContainerIfN
 Grattis! Du har skapat en Azure Cosmos DB-container.  
 
 ## <a id="CreateDoc"></a>Steg 6: Lägga till objekt i containern
-Ett objekt kan skapas med hjälp av funktionen [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainer) i **CosmosContainer** -klassen. När du använder SQL-API:et projiceras objekt som dokument, som är användardefinierat (godtyckligt), JSON-innehåll. Nu kan du infoga ett objekt i Azure Cosmos DB-containern.
+Ett objekt kan skapas med hjälp av funktionen [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) i **CosmosContainer** -klassen. När du använder SQL-API:et projiceras objekt som dokument, som är användardefinierat (godtyckligt), JSON-innehåll. Nu kan du infoga ett objekt i Azure Cosmos DB-containern.
 
 Först ska vi skapa en **serie** klass som representerar objekt som lagras i Azure Cosmos db i det här exemplet. Vi kommer även att skapa underklasserna **Förälder**, **Barn**, **Husdjur** och **Adress** som används inom **Familj**. Antecknings objekt måste ha en **ID-** egenskap serialiserad som **ID** i JSON.
 

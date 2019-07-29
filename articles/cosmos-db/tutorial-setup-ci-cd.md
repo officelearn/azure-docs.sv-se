@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dad99a7e3d0463263e912aa05b5312edbcb89c0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069233"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597668"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurera en CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps
 
@@ -31,7 +31,7 @@ För att använda build-uppgiften måste vi först installera den i Azure DevOps
 Välj sedan den organisation där du vill installera tillägget. 
 
 > [!NOTE]
-> Om du vill installera ett tillägg till en Azure DevOps-organisation måste du vara Kontoägare eller samling projektadministratör. Om du saknar behörigheter, men du är kontomedlem, kan du istället begära tillägg. [Läs mer.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Om du vill installera ett tillägg i en Azure DevOps-organisation måste du vara konto ägare eller projekt samlings administratör. Om du saknar behörigheter, men du är kontomedlem, kan du istället begära tillägg. [Läs mer.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
 ![Välj en Azure DevOps-organisation där du vill installera ett tillägg](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -39,7 +39,7 @@ Välj sedan den organisation där du vill installera tillägget.
 
 Nu när tillägget har installerats loggar du på ditt Azure DevOps-konto och hitta ditt projekt i projektinstrumentpanelen. Du kan lägga till en [bygg-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) i projektet eller ändrar en befintlig bygg-pipeline. Om du redan har en bygg-pipeline kan du gå vidare till [Lägga till emulatorns build-uppgift i en build-definition](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Du kan skapa en ny build-definition genom att gå till fliken **Build** (Bygg) i Azure DevOps. Välj **+New** (Ny) \> **Skapa ny pipeline**
+1. Du kan skapa en ny build-definition genom att gå till fliken **Build** (Bygg) i Azure DevOps. Välj **+New** (Ny) \>**Ny pipeline** för bygge
 
    ![Skapa en ny bygg-pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -50,7 +50,7 @@ Nu när tillägget har installerats loggar du på ditt Azure DevOps-konto och hi
 3. Välj slutligen den mall du vill använda för bygg-pipeline. Vi väljer **ASP.NET**-mallen i den här kursen. 
 
 > [!NOTE]
-> Agentpoolen som ska väljas för den här CI bör ha Docker för Windows installerats, såvida inte installationen är klar manuellt i en tidigare aktivitet som en del av CI. Se [Microsoft värdbaserade agenter](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) artikel för ett urval av agentpooler; vi rekommenderar att börja med `Hosted VS2017` eller `Hosted VS2019`. 
+> Den agent-pool som ska väljas för det här CI ska ha Docker för Windows installerat om inte installationen görs manuellt i en tidigare aktivitet som en del av CI. Se artikeln [Microsoft Hosted](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) agents för ett urval av agent-pooler. Vi rekommenderar att du börjar `Hosted VS2017` med `Hosted VS2019`eller. 
 
 Nu har vi en bygg-pipeline som vi kan konfigurera att använda Azure Cosmos DB-emulatorns build-uppgift. 
 

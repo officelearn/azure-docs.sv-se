@@ -3,7 +3,7 @@ title: Distribuera ett .NET-program i en container till Azure Service Fabric | M
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/08/2019
-ms.author: aljo
-ms.openlocfilehash: 6c479553dcb6debe47a2b37ef85b6f3930e135c8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.author: atsenthi
+ms.openlocfilehash: 66d668821c47854d006f2efa425d38f9bf1df7d0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228124"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599517"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudier: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
@@ -41,14 +41,14 @@ I den här guiden får du lära dig att:
 1. Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installera [Docker CE för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) så att du kan köra containrar i Windows 10.
 3. Installera [Service Fabric Runtime version 6.2 eller senare](service-fabric-get-started.md) och [Service Fabric SDK version 3.1](service-fabric-get-started.md) eller senare.
-4. Installera [Visual Studio 2019 Version 16,1 tum](https://www.visualstudio.com/) eller senare med den **Azure development** och **ASP.NET och webbutveckling** arbetsbelastningar.
+4. Installera [Visual Studio 2019 Version 16,1](https://www.visualstudio.com/) eller senare med arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 5. Installera [Azure PowerShell][link-azure-powershell-install]
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Ladda ned och kör Fabrikam Fiber CallCenter
-Ladda ned den [Fabrikam Fiber CallCenter][link-fabrikam-github] exempelprogrammet.  Klicka på länken för att **ladda ned arkiv**.  Gå till katalogen *sourceCode* i filen *fabrikam.zip* och extrahera filen *sourceCode.zip* och sedan katalogen *VS2015* till datorn.
+Ladda ned exempel programmet [Fabrikam fiber callcenter][link-fabrikam-github] .  Klicka på länken för att **ladda ned arkiv**.  Gå till katalogen *sourceCode* i filen *fabrikam.zip* och extrahera filen *sourceCode.zip* och sedan katalogen *VS2015* till datorn.
 
-Kontrollera att Fabrikam Fiber CallCenter-programmet skapas och körs utan fel.  Starta Visual Studio som en **administratör** och öppna den [FabrikamFiber.CallCenter.sln][link-fabrikam-github] fil.  Tryck på F5 för att felsöka och köra programmet.
+Kontrollera att Fabrikam Fiber CallCenter-programmet skapas och körs utan fel.  Starta Visual Studio som **administratör** och öppna filen [projektet fabrikamfiber. callcenter. SLN][link-fabrikam-github] .  Tryck på F5 för att felsöka och köra programmet.
 
 ![Fabrikam-webbexempel][fabrikam-web-page]
 
@@ -235,7 +235,7 @@ Nu när programmet är klart kan du distribuera det till klustret i Azure direkt
 
 ![Publicera programmet][publish-app]
 
-Följ distributionsförloppet i utdatafönstret  När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Exempel: http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Följ distributionsförloppet i utdatafönstret  När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel http:\//fabrikamfibercallcenter.southcentralus.cloudapp.Azure.com:8659/.
 
 ![Fabrikam-webbexempel][fabrikam-web-page-deployed]
 

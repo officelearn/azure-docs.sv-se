@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 00cca0cbf500ea4e884a9f9334896a18fe7b0978
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541532"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597864"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudier: Använda Visuellt innehåll för att generera bildmetadata i Azure Storage
 
@@ -31,7 +31,7 @@ I den här självstudiekursen lär du dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) eller senare med arbetsbelastningarna ”ASP.NET and web development” (ASP.NET och webbutveckling) och ”Azure development” (Azure-utveckling) installerade.
 - Ett Azure Storage-konto med en blob-container som allokerats för bilder (följ [övningar 1 i Azure Storage-labbet](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) om du behöver hjälp med det här steget).
@@ -42,15 +42,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du behöver skapa en resurs för Visuellt innehåll för ditt Azure-konto. Den här resursen hanterar din åtkomst till Azure-tjänsten Visuellt innehåll. 
 
-1. Följ instruktionerna i [skapa en Azure Cognitive Services-resurs](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) att skapa en resurs för visuellt innehåll.
+1. Skapa en Visuellt innehåll resurs genom att följa anvisningarna i [skapa en Azure Cognitive Services-resurs](../../cognitive-services-apis-create-account.md#single-service-resource) .
 
-1. Sedan går du till menyn för din resursgrupp och klicka på den prenumeration för API för visuellt innehåll som du nyss skapade. Kopiera URL:en under **Slutpunkt** till en plats där du enkelt kan hämta den om en stund. Klicka sedan på **Visa åtkomstnycklar**.
+1. Gå sedan till menyn för resurs gruppen och klicka på den API för visuellt innehåll prenumeration som du nyss skapade. Kopiera URL:en under **Slutpunkt** till en plats där du enkelt kan hämta den om en stund. Klicka sedan på **Visa åtkomstnycklar**.
 
-    ![Azure-portalsidan med slutpunkt-URL och åtkomst till nycklar länken som beskrivs](../Images/copy-vision-endpoint.png)
+    ![Sidan Azure Portal med URL: en för slut punkts-och åtkomst nycklar som beskrivs](../Images/copy-vision-endpoint.png)
 
 1. I nästa fönstret kopierar du värdet för **KEY 1** (Nyckel 1) till Urklipp.
 
-    ![Hantera nycklar dialogrutan med kopieringsknappen beskrivs](../Images/copy-vision-key.png)
+    ![Dialog rutan Hantera nycklar med knappen Kopiera som beskrivs](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Lägg till autentiseringsuppgifter för Visuellt innehåll
 
@@ -130,7 +130,7 @@ Spara dina ändringar i Visual Studio och tryck på **Ctrl + F5** för att start
 
 Om du vill visa alla kopplade metadata kan använda Azure Storage Explorer för att visa den lagringscontainer som du använder för bilder. Högerklicka på någon av blobarna i containern och välj **Egenskaper**. I dialogrutan visas en lista över nyckel/värde-par. Den datorgenererade bildbeskrivningen lagras i objektet ”Caption” (Bildtext), och sökorden lagras i ”Tag0”, ”tagg1” och så vidare. När du är klar klickar du på **Avbryt** för att stänga dialogrutan.
 
-![Bild dialogrutan egenskapsfönstret med metadatataggar som anges](../Images/blob-metadata.png)
+![Dialog rutan bild egenskaper med metadata-Taggar i listan](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -10,56 +10,56 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4da4340176259265fd36c55d2b81ecfc3f4ed5f8
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 15abbfd8892464f3a2c21a85c07bc5b8e94e47ad
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657705"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594701"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Vad är API:et för visuell sökning i Bing?
 
-Bing Visual Search API returnerar insikter för en bild. Du kan ladda upp en bild, eller så kan du ange en URL till en. Insikterna är snarlika bilder, perioder källor, webbsidor som innehåller bilden och mycket mer. Insikter som returneras av Bing Visual Search API liknar de som visas på Bing.com/images.
+API för visuell sökning i Bing returnerar insikter för en bild. Du kan antingen ladda upp en avbildning eller ange en URL till en. Insikter är visuellt likartade bilder, shopping källor, webb sidor som innehåller avbildningen med mera. Insikter som returneras av API för visuell sökning i Bing liknar de som visas på Bing.com/images.
 
-Om du använder den [bildsökning i Bing](../bing-image-search/overview.md), du kan använda insight-token från det API: et sökresultaten för dina Bing Visual Search i stället för att ladda upp en avbildning.
+Om du använder [API för bildsökning i Bing](../bing-image-search/overview.md)kan du använda Insight-token från det API: s Sök Resultat för din visuell sökning i Bing i stället för att ladda upp en avbildning.
 
 > [!IMPORTANT]
 > Överväg att byta till ett API för visuell sökning i Bing, som ger mer omfattande insikter om du får information om bilder med hjälp av API för bildsökning i Bing.
 
 ## <a name="insights"></a>Insikter
 
-Du kan identifiera följande insikter med hjälp av Bing Visual Search:
+Du kan identifiera följande insikter genom att använda Visuell sökning i Bing:
 
-| Insight                              | Beskrivning |
+| Insikt                              | Beskrivning |
 |--------------------------------------|-------------|
 | Visuellt likartade bilder              | En lista med avbildningar som visuellt liknar den inmatade bilden. |
 | Visuellt liknande produkter            | Produkter som är visuellt likartade för produkten som visas.            |
 | Shoppingkällor                     | En lista över platser där du kan köpa objektet visas i den inmatade bilden.            |
 | Närliggande sökningar                     | Relaterade sökningar som har gjorts av andra eller som är baserat på innehållet i bilden.            |
-| Webbsidor som innehåller bilden     | Webbsidor som inkluderar den inmatade bilden.            |
-| Recept                              | Webbsidor som innehåller recept för att göra rätten på inkommande bild.            |
+| Webb sidor som innehåller avbildningen     | Webbsidor som inkluderar den inmatade bilden.            |
+| Recept                              | Webb sidor som innehåller recept för att göra den skål som visas i indatabilden.            |
 
-Utöver insyn returnerar Bing Visual Search en mängd olika termer (det vill säga taggar) som härletts från inmatad bild. Taggar kan du utforska koncepten finns i avbildningen. Till exempel om det är avbildningen av en berömda Idrottare, en av taggarna kan vara namnet på Idrottare, en annan tagg kan vara sport. Eller om det är avbildningen av ett apple-cirkel, taggarna kan vara Apple cirkel, Pies och efterrätter.
+Förutom insikter returnerar Visuell sökning i Bing en rad olika villkor (dvs. taggar) som härletts från indatabilden. Taggarna gör det möjligt för användare att utforska begrepp som finns i avbildningen. Om indata-bilden till exempel är av en berömda idrottare kan en av taggarna vara namnet på idrottare, en annan tagg kan vara idrotts. Eller, om indata-bilden är av en äpple cirkel, kan taggarna vara äpple cirkel-, pajer-och desserter.
 
-Bing Visual Search-resultat även innehålla avgränsar rutorna för regioner intressanta i avbildningen. Till exempel om avbildningen innehåller flera kändisar, kan resultaten omfatta avgränsar rutorna för var och en av de identifierade kändisarna. Eller, om Bing känner av en produkt eller kläder i avbildningen kan resultatet kan innehålla en avgränsningsruta för det identifierade objektet.
+Visuell sökning i Bing resultat inkluderar också avgränsnings rutor för intresse områden i bilden. Om bilden till exempel innehåller flera kändisar, kan resultaten omfatta avgränsnings rutor för var och en av de identifierade kändisar. Eller, om Bing känner igen en produkt eller kläder i bilden, kan resultatet innehålla en avgränsnings ruta för det identifierade objektet.
 
 ## <a name="workflow"></a>Arbetsflöde
 
-API:et för visuell sökning i Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. Du kan använda REST-API: et eller SDK: N för tjänsten.
+API:et för visuell sökning i Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. Du kan använda antingen REST API eller SDK för tjänsten.
 
-1. Skapa en [Cognitive Services-kontot](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att få åtkomst till API: er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/free/). Du kan hämta din prenumerationsnyckel från den [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#get-the-keys-for-your-subscription) när du har skapat ditt konto eller [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis) efter aktivering av en kostnadsfri utvärderingsversion.
-2. Skicka en begäran till API: et med en giltig sökfråga.
+1. Skapa ett [Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att få åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/free/). Du kan hämta din prenumerations nyckel från [Azure Portal](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) när du har skapat ditt konto eller [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis) efter att ha aktiverat en kostnads fri utvärderings version.
+2. Skicka en begäran till API: et med en giltig Sök fråga.
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Försök först Bing Visual Search API [Interaktiv demo](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/).
-Den här presentationen beskrivs hur du snabbt anpassa en sökfråga och finkamma webben i jakt avbildningar.
+Börja med att testa API för visuell sökning i Bing [interaktiva demonstrationen](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/).
+Demonstrationen visar hur du snabbt kan anpassa en Sök fråga och publicera webben efter bilder.
 
 Kom igång snabbt med din första begäran genom att läsa snabbstarterna: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
 ## <a name="see-also"></a>Se också
 
-* Den [avbildningar - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) ref definitioner och information om slutpunkter, begärandehuvuden, svar, och frågeparametrar som du kan använda på begäran avbildningsbaserad sökresultat.
+* Referensen [avbildnings visuell sökning](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) beskriver definitioner och information om slut punkterna, begärandehuvuden, svar och frågeparametrar som du kan använda för att begära bildbaserade Sök resultat.
 
-* Den [i Bing använder och visa kraven](../bing-web-search/use-display-requirements.md) Ange tillåten användning av innehåll och information som du får via API: er för Bing-sökning.
+* Användnings- [och visnings kraven för Bing-sökning-API](../bing-web-search/use-display-requirements.md) anger acceptabel användning av innehållet och information som erhålls via Bing Search-API: erna.

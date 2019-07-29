@@ -3,16 +3,16 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: Den här artikeln innehåller information om hur du skyddar Azure-filresurser.
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/31/2019
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e3f94badb3af2e3f26a857f27f0b68a78338db92
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466314"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601759"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Ja. Skydd av Azure-filresurser som är anslutna till synkroniseringsgrupper kan 
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>När jag försökte säkerhetskopiera filresurser klickade jag på ett lagringskonto för att identifiera filresurserna i kontot, men jag skyddade dem inte. Hur gör jag för att skydda de här filresurserna med ett annat valv?
 När du försöker säkerhetskopiera och väljer ett lagringskonto för att identifiera filresurser i kontot, registreras lagringskontot i det valv där detta görs från. Om du väljer att skydda filresurser med ett annat valv, måste du [avregistrera](troubleshoot-azure-files.md#configuring-backup) det valda lagringskontot från det här valvet.
 
-### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>Kan jag ändra det valv som jag säkerhetskopierar mina filresurser i?
+### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Kan jag ändra valvet till vilket jag säkerhetskopierar mina fil resurser?
 Ja. Men du måste [stoppa skyddet](backup-azure-files.md#stop-protecting-an-azure-file-share) från det anslutna valvet, [avregistrera](troubleshoot-azure-files.md#configuring-backup) det här lagringskontot och sedan skydda det från ett annat valv.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>I vilka geografiska områden kan jag säkerhetskopiera Azure-filresurser? <br/>
@@ -76,6 +76,9 @@ I förhandsversionen kan du skydda Azure-filresurser från upp till 50 lagringsk
 Nej. Filresurserna i ett lagringskonto kan endast skyddas med ett och samma valv.
 
 ## <a name="backup"></a>Säkerhetskopiera
+
+### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Hur många schemalagda säkerhets kopieringar kan jag konfigurera per fil resurs?
+Azure Backup stöder för närvarande att konfigurera schemalagda en gång – daglig säkerhets kopiering av Azure-filresurser. 
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Hur många säkerhetskopior på begäran kan jag göra per filresurs? <br/>
 Du kan ha upp till 200 ögonblicksbilder för en filresurs vid varje tidpunkt. Gränsen gäller ögonblicksbilderna som har tagits av Azure Backup enligt definitionen i din princip. Om dina säkerhetskopior börjar misslyckas när gränsen är nådd tar du bort återställningspunkter på begäran för lyckade säkerhetskopior i framtiden.

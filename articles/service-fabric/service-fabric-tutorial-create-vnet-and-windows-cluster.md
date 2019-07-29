@@ -3,7 +3,7 @@ title: Skapa ett Service Fabric kluster som kör Windows i Azure | Microsoft Doc
 description: I den här självstudien får du lära dig hur du distribuerar ett Windows Service Fabric-kluster till ett virtuellt Azure-nätverk och en nätverks säkerhets grupp med hjälp av PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 3e98b159443cec868040298d76e87a8de6b507ae
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385094"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598886"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric kluster som kör Windows till ett virtuellt Azure-nätverk
 

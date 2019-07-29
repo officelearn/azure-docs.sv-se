@@ -1,18 +1,18 @@
 ---
 title: Säkerhetskopiera Azure-filresurser
 description: Den här artikeln beskriver hur du säkerhetskopierar och återställer Azure-filresurser och förklarar hanteringsuppgifterna.
-author: rayne-wiselman
-ms.author: raynew
-ms.date: 01/31/2019
+author: dcurwin
+ms.author: dacurwin
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 7233db1e685c3edcdbd6a97bc2ae23706ad6f767
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9cb0150efcb4860af98b47aa5da4cfd24d2e9de9
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466549"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602024"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -34,6 +34,7 @@ Säkerhetskopiering för Azure-filresurser är i förhandsversion. Azure-filresu
 - Stöd för säkerhets kopiering av Azure-filresurser i lagrings konton med ZRS-replikering ( [Zone redundant Storage](../storage/common/storage-redundancy-zrs.md) ) är för närvarande begränsat till [dessa regioner](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
 - Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
 - Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
+- Azure Backup stöder för närvarande att konfigurera schemalagda en gång – daglig säkerhets kopiering av Azure-filresurser.
 - Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
 - Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.
 - Förhindra att säkerhetskopior i Recovery Services-valvet oavsiktligt tas bort genom att använda [resurslås](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) på lagringskontot.
@@ -49,7 +50,7 @@ Den här självstudien förutsätter att du redan har skapat en filresurs i Azur
 
     ![Välj Azure-filresursen som mål för säkerhetskopieringen](./media/backup-file-shares/overview-backup-page.png)
 
-2. I menyn **Säkerhetskopieringsmål**, **Vad vill du säkerhetskopiera?** väljer du Azure FileShare.
+2. På menyn **säkerhets kopierings mål** , från **vad vill du säkerhetskopiera? väljer du**Azure fileshare.
 
     ![Välj Azure-filresursen som mål för säkerhetskopieringen](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -65,7 +66,7 @@ Den här självstudien förutsätter att du redan har skapat en filresurs i Azur
 
    ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/discover-file-shares.png)
 
-5. I listan **Filresurser** väljer du en eller flera filresurser som du vill säkerhetskopiera. Klicka på **OK**.
+5. I listan **fil resurser** väljer du en eller flera av de fil resurser som du vill säkerhetskopiera och klickar på **OK**.
 
 6. När du har valt dina filresurser växlar säkerhetskopieringsmenyn över till **Säkerhetskopieringspolicy**. I den här menyn väljer du antingen en befintlig säkerhetskopieringspolicy eller skapar en ny. Klicka sedan på **Aktivera säkerhetskopiering**.
 

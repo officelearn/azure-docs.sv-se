@@ -1,9 +1,9 @@
 ---
-title: Skriptexempel för Azure PowerShell – distribuera program till ett kluster | Microsoft Docs
-description: Skriptexempel för Azure PowerShell – distribuera ett program till Service Fabric-kluster.
+title: Azure PowerShell skript exempel – distribuera program till ett kluster | Microsoft Docs
+description: Azure PowerShell skript exempel – distribuera ett program till ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,18 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6de7a721a5042a20537d3f09ea9b8de1cc0e7169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53c4d3c18072f2644c472e5b78f144faba4dce50
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622041"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597732"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Distribuera ett program till ett Service Fabric-kluster
 
-Det här exempelskriptet kopierar ett programpaket till ett kluster avbildningsarkivet, registrerar vilken typ av program i klustret, tar du bort onödiga programpaketet och skapar en programinstans från vilken typ av program.  Om alla standardtjänster har definierats i applikationsmanifestet av mål-programtyp, skapas de tjänsterna som just nu. Anpassa parametrarna efter behov. 
+Det här exempel skriptet kopierar ett programpaket till ett kluster avbildnings lager, registrerar program typen i klustret, tar bort det onödiga programpaketet och skapar en program instans från program typen.  Om några standard tjänster definierades i program manifestet för mål program typen, skapas dessa tjänster just nu. Anpassa parametrarna efter behov. 
 
 Installera, om så behövs, Service Fabric PowerShell-modulen installeras med [Service Fabric SDK](../service-fabric-get-started.md). 
 
@@ -34,7 +34,7 @@ Installera, om så behövs, Service Fabric PowerShell-modulen installeras med [S
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-När exempelskriptet har körts, skriptet [ta bort ett program](service-fabric-powershell-remove-application.md) kan användas för att ta bort programinstansen, avregistrera programtypen och ta bort programpaketet från avbildningsarkivet.
+När skript exemplet har körts kan skriptet i [ta bort ett program](service-fabric-powershell-remove-application.md) användas för att ta bort program instansen, avregistrera program typen och ta bort programpaketet från avbildnings arkivet.
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
@@ -43,13 +43,13 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | Kommando | Anteckningar |
 |---|---|
 |[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Skapar en anslutning till ett Service Fabric-kluster. |
-|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Kopior lagra för ett programpaket till kluster-avbildning.  |
-|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Registrerar en programtypen och versionen på klustret. |
-|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Skapar ett program från en registrerad programtypen. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Tar bort ett Service Fabric-programpaket från avbildningsarkivet.|
+|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Kopierar ett programpaket till klustrets avbildnings arkiv.  |
+|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Registrerar en program typ och en version av klustret. |
+|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Skapar ett program från en registrerad program typ. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Tar bort ett Service Fabric-programpaket från avbildnings arkivet.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Service Fabric PowerShell-modulen [Azure PowerShell-dokumentationen](/powershell/azure/service-fabric/?view=azureservicefabricps).
+Mer information om Service Fabric PowerShell-modulen finns i [Azure PowerShell dokumentation](/powershell/azure/service-fabric/?view=azureservicefabricps).
 
 Ytterligare Powershell-exempel för Azure Service Fabric finns i [Azure PowerShell-exemplen](../service-fabric-powershell-samples.md).

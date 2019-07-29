@@ -1,6 +1,6 @@
 ---
-title: Kör en spelbok i förhandsversionen av Azure Sentinel | Microsoft Docs
-description: Den här artikeln beskriver hur du kör en spelbok i Azure Sentinel.
+title: Köra en Spelbok i Azure Sentinel Preview | Microsoft Docs
+description: Den här artikeln beskriver hur du kör en Spelbok i Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,90 +14,111 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 7/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52346e2ff9c47e58f2bd040582bee29eaf08bb13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: cdfe22b67585221e2d7e17f47c6a09ba929d68ef
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621199"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599008"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Självstudier: Konfigurera automatisk threat svar i Sentinel-förhandsversionen av Azure
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Självstudier: Konfigurera automatiska hot svar i för hands versionen av Azure Sentinel
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här kursen hjälper dig att använda strategiböcker för säkerhet i Azure Sentinel för att ange automatiserade threat svar på säkerhetsrelaterade problem som identifieras av Azure Sentinel.
+Den här självstudien hjälper dig att använda säkerhets spel böcker i Azure Sentinel för att ställa in automatiserade hot svar på säkerhetsrelaterade problem som identifieras av Azure Sentinel.
 
 
 > [!div class="checklist"]
-> * Förstå spelböcker
-> * Skapa en spelbok
-> * Kör en spelbok
+> * Förstå spel böcker
+> * Skapa en Spelbok
+> * Kör en Spelbok
+> * Automatisera hot svar
 
 
-## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Vad är en säkerhetsspelbok i Azure Sentinel?
+## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>Vad är en säkerhets Spelbok i Azure Sentinel?
 
-En säkerhetsspelbok är en samling procedurer som kan köras från Azure Sentinel som svar på en avisering. En säkerhetsspelbok kan kan automatisera och dirigera svaret, och köras manuellt eller inställd på att köras automatiskt när specifika aviseringar har utlösts. Strategiböcker för säkerhet i Azure Sentinel baseras på [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), vilket innebär att du får all den kraft, anpassningsbarhet och inbyggda mallar för Logikappar. Varje spelboken har skapats för den specifika prenumerationen som du väljer, men när du tittar på sidan med Strategiböcker, visas alla spelböcker för alla valda prenumerationer.
+En säkerhets Spelbok är en samling procedurer som kan köras från Azure Sentinel som svar på en avisering. En säkerhets Spelbok kan hjälpa dig att automatisera och dirigera ditt svar och kan köras manuellt eller ställas in så att det körs automatiskt när vissa aviseringar utlöses. Säkerhets spel böcker i Azure Sentinel baseras på [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), vilket innebär att du får alla Power, anpassningsbarhet och inbyggda mallar av Logic Apps. Varje Spelbok skapas för den angivna prenumerationen som du väljer, men när du tittar på sidan spel böcker visas alla spel böcker i alla valda prenumerationer.
 
 > [!NOTE]
-> Spelböcker utnyttja Azure Logic Apps, därför tillkommer avgifter. Besök prissidan för [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) om du vill ha mer information.
+> Spel böcker utnyttjar Azure Logic Apps, och därför gäller avgifterna. Besök prissidan för [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) om du vill ha mer information.
 
-Om du oroar skadlig angripare som har åtkomst till nätverksresurserna, kan du ange en avisering som söker efter skadliga IP-adresser som kommer åt nätverket. Sedan skapar du en spelbok som gör följande:
-1. Skapa ett ärende i ServiceNow eller andra IT som biljettsystem när aviseringen utlöses.
-2. Skicka ett meddelande till din säkerhetskanal åtgärder i Microsoft Teams eller Slack för att kontrollera att din säkerhetsanalytiker är medvetna om incidenten.
-3. Skicka all information i aviseringen till din senior administratörs- och säkerhetsanvändare nätverksadministratör. E-postmeddelandet innehåller också alternativknapparna för användaren **blockera** eller **Ignorera**.
-4. Spelboken fortsätter att köras när ett svar tas emot från administratörer.
-5. Om administratörer väljer **blockera**, IP-adressen är blockerad i brandväggen och användaren är inaktiverad i Azure AD.
-6. Om administratörer väljer **Ignorera**, aviseringen stängs i Azure Sentinel och incidenten stängs i ServiceNow.
+Om du till exempel oroar dig om angripare som har åtkomst till dina nätverks resurser kan du ange en avisering som söker efter skadliga IP-adresser som har åtkomst till nätverket. Sedan kan du skapa en Spelbok som gör följande:
+1. När aviseringen utlöses öppnar du en biljett i ServiceNow eller något annat system för IT-biljetter.
+2. Skicka ett meddelande till din säkerhets åtgärds kanal i Microsoft Teams eller slack för att se till att dina säkerhetsanalytiker är medvetna om incidenten.
+3. Skicka all information i aviseringen till den erfarna nätverks administratören och säkerhets administratören. E-postmeddelandet innehåller också två alternativ knappar för användare **blockera** eller **Ignorera**.
+4. Spelbok fortsätter att köras när ett svar tas emot från administratörerna.
+5. Om administratörer väljer **blockera**BLOCKERAs IP-adressen i brand väggen och användaren inaktive ras i Azure AD.
+6. Om administratörer väljer **Ignorera**, stängs aviseringen i Azure Sentinel och incidenten stängs i ServiceNow.
 
-Strategiböcker för säkerhet kan köras manuellt eller automatiskt. Kör dem manuellt innebär att när du får en avisering kan du kör en spelbok på begäran som ett svar till den valda aviseringen. Köra dem automatiskt innebär att när du redigerar korrelation regeln du ställer in den för att automatiskt köra en eller flera spelböcker när aviseringen utlöses.
+Säkerhets spel böcker kan köras antingen manuellt eller automatiskt. Att köra dem manuellt innebär att när du får en avisering kan du välja att köra en Spelbok på begäran som ett svar på den valda aviseringen. Att köra dem innebär automatiskt att när du skapar korrelations regeln anger du att den automatiskt ska köra en eller flera spel böcker när aviseringen utlöses.
 
 
-## <a name="create-a-security-playbook"></a>Skapa en säkerhetsspelbok
+## <a name="create-a-security-playbook"></a>Skapa en säkerhets Spelbok
 
-Följ dessa steg för att skapa en ny säkerhetsspelbok i Azure Sentinel:
+Följ de här stegen för att skapa en ny säkerhets Spelbok i Azure Sentinel:
 
-1. Öppna den **Azure Sentinel** instrumentpanelen.
-2. Under **Management**väljer **Spelböcker**.
+1. Öppna instrument panelen för **Azure Sentinel** .
+2. Under **hantering**väljer du **spel böcker**.
 
    ![Logikapp](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. I den **Sentinel-Azure - Spelböcker (förhandsgranskning)** klickar du på **Lägg till** knappen.
+3. På sidan **Azure Sentinel-spel böcker (för hands version)** klickar du på knappen **Lägg till** .
 
    ![Skapa en logikapp](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 
-4. I den **skapa en logikapp** anger den begärda informationen för att skapa den nya logikappen och klicka på **skapa**. 
+4. På sidan **skapa logisk app** , ange den begärda informationen för att skapa din nya Logic app och klicka på **skapa**. 
 
-5. I den [ **Logic App Designer**](../logic-apps/logic-apps-overview.md), Välj den mall som du vill använda. Om du väljer en mall som kräver autentiseringsuppgifter som behöver du ange dem. Du kan också skapa en ny tom spelbok från grunden. Välj **tom Logikapp**. 
+5. I [**Logic App Designer**](../logic-apps/logic-apps-overview.md)väljer du den mall som du vill använda. Om du väljer en mall som kräver autentiseringsuppgifter måste du ange dem. Du kan också skapa en ny tom Spelbok från grunden. Välj **Tom Logic app**. 
 
    ![Designer för logikappar](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
-6. Du kommer till Logic App Designer där du kan skapa nya eller redigera mallen. Mer information om hur du skapar en spelbok med [Logikappar](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+6. Du kommer till Logic App Designer där du kan bygga en ny eller redigera mallen. Mer information om hur du skapar en Spelbok med [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. Om du skapar en tom spelbok i den **Sök alla anslutningsappar och utlösare** skriver *Azure Sentinel*, och välj **när ett svar till en Azure Sentinel avisering är utlöst**. <br>När den har skapats, ny spelbok visas i den **Spelböcker** lista. Om den inte visas klickar du på **uppdatera**. 
+7. Om du skapar en tom Spelbok i fältet **Sök alla anslutningar och** utlösare skriver du *Azure Sentinel*och väljer **när ett svar på en Azure Sentinel-avisering utlöses**. <br>När den har skapats visas den nya Spelbok i listan **spel böcker** . Om den inte visas klickar du på **Uppdatera**. 
 
-7. Nu kan du definiera vad som händer när du utlöser spelboken. Du kan lägga till en åtgärd, logiskt villkor, förhållanden växeln eller slingor.
+7. Nu kan du definiera vad som händer när du utlöser spelboken. Du kan lägga till en åtgärd, ett logiskt villkor, ett växlings Falls villkor eller slingor.
 
    ![Designer för logikappar](./media/tutorial-respond-threats-playbook/logic-app.png)
 
-## <a name="how-to-run-a-security-playbook"></a>Så här kör du en säkerhetsspelbok
+## <a name="how-to-run-a-security-playbook"></a>Så här kör du en säkerhets Spelbok
 
-Du kan köra en spelbok på begäran.
+Du kan köra en Spelbok på begäran.
 
-Kör en spelbok på begäran:
+Så här kör du en Spelbok på begäran:
 
-1. I den **fall** väljer du ett ärende och klicka på **Visa fullständig information**.
+1. På sidan **ärenden** väljer du ett ärende och klickar på **Visa fullständig information**.
 
-2. I den **aviseringar** fliken, klickar på den avisering du vill köra spelboken och rulla längst till höger och klicka på **visa spelböcker** och välj en spelbok till **kör** från den lista över tillgängliga spelböcker för prenumerationen. 
+2. På fliken **aviseringar** klickar du på den avisering som du vill köra Spelbok på och bläddrar sedan hela vägen till höger och klickar på **Visa spel böcker** och väljer en Spelbok som ska **köras** från listan över tillgängliga spel böcker i prenumerationen. 
+
+
+
+## <a name="automate-threat-responses"></a>Automatisera hot svar
+
+SIEM/SOC-team kan vara översvämmas med regelbundna säkerhets aviseringar. Volymen av de aviseringar som genereras är så stor att de tillgängliga säkerhets administratörerna är överbelastade. Detta resulterar i en alltför ofta i situationer där många aviseringar inte kan undersökas, vilket gör att organisationen blir sårbar för attacker som går förlorade. 
+
+Många, om inte de flesta, av dessa aviseringar följer återkommande mönster som kan åtgärdas med hjälp av bestämda och definierade reparations åtgärder. Med Azure Sentinel kan du definiera din reparation i spel böcker. Det är också möjligt att ställa in real tids automatisering som en del av din Spelbok-definition så att du fullständigt kan automatisera ett definierat svar på specifika säkerhets aviseringar. Genom att använda real tids automatisering kan svars grupper avsevärt minska sin arbets belastning genom att helt automatisera de rutinmässiga svaren på återkommande typer av aviseringar, så att du kan koncentrera dig på unika aviseringar, analysera mönster, Hot jakt och mycket annat.
+
+Automatisera svar:
+
+1. Välj den avisering som du vill automatisera svaret för.
+1. Från navigerings menyn i Azure Sentinel-arbetsytan väljer du **analys**.
+1. Välj den avisering som du vill automatisera. 
+1. På sidan **Redigera aviserings regel** under **real tids automatisering**väljer du den **Utlös ande Spelbok** som du vill köra när den här varnings regeln matchas.
+1. Välj **Spara**.
+
+   ![Real tids automatisering](./media/tutorial-detect-threats/rt-configuration.png)
+
+
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du kör en spelbok i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar: I den här självstudien har du lärt dig hur du kör en spelbok i Azure Sentinel. Fortsätta att den [hur proaktivt hitta hot](hunting.md) med hjälp av Azure Sentinel.
-> [!div class="nextstepaction"]
-> [Hitta hot](hunting.md) att hitta proaktivt hot i nätverket.
+
+I den här självstudien har du lärt dig hur du kör en Spelbok i Azure Sentinel. Fortsätt till [hur du proaktivt söker efter hot](hunting.md) med Azure Sentinel.
+
 

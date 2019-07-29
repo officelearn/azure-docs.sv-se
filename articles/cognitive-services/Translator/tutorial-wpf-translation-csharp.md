@@ -10,45 +10,45 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b929d0c0da2a812a1c8595536f09931e4edd0fd9
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657929"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594915"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Självstudier: Skapa en översättningsapp med WPF
 
 I den här självstudien skapar du en [WPF-app (Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2017) som använder Azure Cognitive Service för textöversättning, språkidentifiering och stavningskontroll med en enda prenumerationsnyckel. Specifikt kommer appen att anropa API:er från Translator Text och [Stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
-Vad är WPF? Det är ett användargränssnittsramverk som skapar appar för skrivbordsklienter. WPF-utvecklingsplattformen har stöd för många olika funktioner för apputveckling, däribland en appmodell, resurser, kontroller, grafik, layout, databindning, dokument och säkerhet. Det är en delmängd av .NET Framework, så om du tidigare har skapat appar med .NET Framework med hjälp av ASP.NET eller Windows Forms bör programmeringen kännas bekant. WPF använder XAML (Extensible Application Markup Language) för att tillhandahålla en deklarativ modell för programmering av appar, vilket vi går igenom i kommande avsnitt.
+Vad är WPF? Det är ett användargränssnittsramverk som skapar appar för skrivbordsklient. WPF-utvecklingsplattformen har stöd för många olika funktioner för apputveckling, däribland en appmodell, resurser, kontroller, grafik, layout, databindning, dokument och säkerhet. Det är en delmängd av .NET Framework, så om du tidigare har skapat appar med .NET Framework med hjälp av ASP.NET eller Windows Forms bör programmeringen kännas bekant. WPF använder XAML (Extensible Application Markup Language) för att tillhandahålla en deklarativ modell för programmering av appar, vilket vi går igenom i kommande avsnitt.
 
 I den här kursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * skapa ett WPF-projekt i Visual Studio
-> * lägga till sammansättningar och NuGet-paket i projektet
-> * skapa appens användargränssnitt med XAML
-> * använda Translator Text-API:et för att hämta språk, översätta text och identifiera källspråket
-> * använda API:et för stavningskontroll i Bing för att verifiera dina indata och öka noggrannheten för översättning
-> * köra WPF-appen.
+> * Skapa ett WPF-projekt i Visual Studio
+> * Lägga till sammansättningar och NuGet-paket i projektet
+> * Skapa appens användargränssnitt med XAML
+> * Använda Translator Text-API:et för att hämta språk, översätta text och identifiera källspråket
+> * Använda API:et för stavningskontroll i Bing för att verifiera dina indata och öka noggrannheten för översättning
+> * Köra WPF-appen
 
 ### <a name="cognitive-services-used-in-this-tutorial"></a>Cognitive Services som används i den här självstudien
 
 Den här listan innehåller de Cognitive Services som används i den här självstudien. Följ länken för att bläddra i API-referensen för varje funktion.
 
-| Tjänst | Funktion | Beskrivning |
+| Tjänsten | Funktion | Beskrivning |
 |---------|---------|-------------|
-| Translator Text | [Hämta språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Hämta en fullständig lista över språk som stöds för textöversättning. |
-| Translator Text | [Översätta](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Översätt text till fler än 60 språk. |
-| Translator Text | [Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Identifiera språket i indatatexten. Innehåller förtroendepoäng för identifiering. |
+| Textöversättning | [Hämta språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Hämta en fullständig lista över språk som stöds för textöversättning. |
+| Textöversättning | [Översätta](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Översätt text till fler än 60 språk. |
+| Textöversättning | [Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Identifiera språket i indatatexten. Innehåller förtroendepoäng för identifiering. |
 | Stavningskontroll i Bing | [Stavningskontroll](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Förbättra översättningens noggrannhet genom att rätta stavfel. |
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan vi fortsätter behöver du följande:
 
-* En Azure Cognitive Services-prenumeration. [Hämta en Cognitive Services-nyckel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
+* En Azure Cognitive Services-prenumeration. [Hämta en Cognitive Services-nyckel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
 * En Windows-dator
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) – Community eller Enterprise
 
@@ -62,7 +62,7 @@ Det första vi behöver göra är att konfigurera projektet i Visual Studio.
 1. Öppna Visual Studio. Välj sedan **Arkiv > Nytt > Projekt**.
 2. I den vänstra panelen letar du upp och väljer **Visual C#** . Välj sedan **WPF-App (.NET Framework)** i mittenpanelen.
    ![Skapa en WPF-app i Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Namnge projektet `MSTranslatorTextDemo`, inställd framework-version **.NET Framework 4.5.2 eller senare**, klicka sedan på **OK**.
+3. Namnge projektet `MSTranslatorTextDemo`, ange Ramverks versionen till **.NET Framework 4.5.2 eller senare**och klicka sedan på **OK**.
 4. Projektet har skapats. Lägg märke till att det finns två flikar öppna: `MainWindow.xaml` och `MainWindow.xaml.cs`. I den här självstudien lägger vi till kod i de här två filerna. Den första är till för appens användargränssnitt, och den andra är till för anropen till Translator Text och Stavningskontroll i Bing.
    ![Granska din miljö](media/blank-wpf-project.png)
 
@@ -245,7 +245,7 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
 
 I det här kodblocket har vi deklarerat två medlemsvariabler som innehåller information om tillgängliga språk för översättning:
 
-| Variabel | Type | Beskrivning |
+| Variabel | type | Beskrivning |
 |----------|------|-------------|
 |`languageCodes` | Matris med strängar |Cachelagrar språkkoderna. Translator-tjänsten använder korta koder som `en` för engelska, för att identifiera språk. |
 |`languageCodesAndTitles` | Sorterad ordlista | Mappar ”egna” namn i användargränssnittet tillbaka till de korta koderna som används i API:et. Sorteras alfabetiskt utan hänsyn till skiftläge. |
@@ -348,7 +348,7 @@ Användargränssnittet definieras med hjälp av XAML, så du behöver inte göra
    // In the following sections, we'll add code below this.
    ```
 
-Den här metoden itererar genom ordlistan `languageCodesAndTitles` och lägger till varje nyckel i båda menyerna. När menyerna har fyllts i anges de standardmässiga från- och till-språken till **Detect** (Identifiera) respektive **English** (engelska).
+Den här metoden itererar genom ordlistan `languageCodesAndTitles` och lägger till varje nyckel i båda menyerna. När menyerna har fyllts i anges de standardmässiga from- och to-språken till **Detect** (Identifiera) respektive **English** (engelska).
 
 > [!TIP]
 > Utan ett standardval för menyerna kan användaren klicka på **Translate** (Översätt) utan att först välja ett till- eller från-språk. Med standardinställningarna behöver du inte hantera det här problemet.
@@ -413,7 +413,7 @@ Dessutom utvärderar den här metoden förtroendepoäng i svaret. Om poängen ä
 
 ## <a name="spell-check-the-source-text"></a>Stavningskontrollera källtexten
 
-Nu skapar vi en metod för att stavningskontrollera källtexten med hjälp av API:et för stavningskontroll i Bing. Det här säkerställer att vi får tillbaka korrekta översättningar från Translator Text-API:et. Eventuella ändringar i källtexten skickas vidare i översättningsbegäran när knappen **Translate** (Översätt) klickas.
+Nu skapar vi en metod för att stavningskontrollera källtexten med hjälp av API:et för stavningskontroll i Bing. Det här säkerställer att vi får tillbaka korrekta översättningar från Translator Text-API:et. Eventuella ändringar i källtexten skickas vidare i översättningsbegäran när knappen **Översätt** klickas.
 
 1. I Visual Studio öppnar du fliken för `MainWindow.xaml.cs`.
 2. Lägg till den här koden i projektet nedanför metoden `DetectLanguage()`:
@@ -562,7 +562,7 @@ Koden för att översätta text bör se bekant ut: skapa URI, skapa en begäran,
 
 Efter en lyckad begäran ersätts `TranslatedTextLabel.Content` med `translation`, vilket uppdaterar användargränssnittet för att visa den översatta texten.
 
-## <a name="run-your-wpf-app"></a>köra WPF-appen.
+## <a name="run-your-wpf-app"></a>Köra WPF-appen
 
 Det var allt – du har en fungerande översättningsapp som skapats med hjälp av WPF. Du kan köra appen genom att klicka på knappen **Starta** i Visual Studio.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e910f2733a5485d50ad387a1e82ce27e0ba8fdea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562677"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594538"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -28,7 +28,7 @@ Med oövervakad inlärning kan modellen att förstå layout och relationer mella
 
 ## <a name="prebuilt-receipt-model"></a>Fördefinierad kvitto modell
 
-Formulär tolken innehåller också en modell för läsning av försäljnings kvitton. Den här modellen hämtar viktig information, till exempel tid och datum för transaktionen, handels information, belopp för skatter och total summor. Dessutom tränas den förinställda inbetalnings modellen att identifiera och returnera all text i ett kvitto.
+Formulär tolken innehåller också en modell för läsning av försäljnings kvitton. Den här modellen hämtar viktig information, till exempel tid och datum för transaktionen, handels information, belopp för skatter och total summor. Dessutom tränas den förskapade kvitto modellen att identifiera och returnera all text i ett kvitto.
 
 ## <a name="what-it-includes"></a>Vad verktyget innehåller
 

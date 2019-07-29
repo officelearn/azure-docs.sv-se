@@ -3,7 +3,7 @@ title: Skapa en .NET-app för Service Fabric i Azure | Microsoft Docs
 description: I den här självstudien får du se hur du skapar ett program med en ASP.NET Core-klientdel och en tillförlitlig serverdel med en tillståndskänslig tjänst, och hur du distribuerar programmet till ett kluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 4c73fe170d0b2cb6f12534de2ccc43bfc7b530f0
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228173"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598907"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudier: Skapa och distribuera ett program med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 
 Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).  Om du vill kan du visa en [videogenomgång](https://channel9.msdn.com/Events/Connect/2017/E100) av den här kursen.
 
-![AngularJS+ASP.NET API-klientdel, ansluter till en tillståndskänslig serverdelstjänst i Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS + ASP. NET API-klient del, ansluta till en tillstånds känslig Server dels tjänst på Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 I del ett i den här serien lärde du dig att:
 
@@ -47,7 +47,7 @@ I den här självstudieserien får du lära du dig att:
 
 Innan du börjar den här självstudien:
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15.5 eller senare med den **Azure development** och **ASP.NET och webbutveckling** arbetsbelastningar.
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15,5 eller senare med arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Skapa en ASP.NET Core Web API-tjänst som en tillförlitlig tjänst
@@ -466,7 +466,7 @@ I den här självstudien använder du [ASP.NET Core Web API](service-fabric-reli
         ],
 ```
 Porten för omvänd proxy som används i det lokala utvecklingsklustret visar elementet **HttpApplicationGatewayEndpoint** i det lokala Service Fabric-klustermanifestet:
-1. Öppna ett webbläsarfönster och gå till http:\//localhost:19080 att öppna verktyget Service Fabric Explorer.
+1. Öppna ett webbläsarfönster och gå till http:\//localhost: 19080 för att öppna Service Fabric Explorer-verktyget.
 2. Välj **Kluster -> Manifest**.
 3. Anteckna porten för elementet HttpApplicationGatewayEndpoint. Den bör vara 19081. Om den inte är 19081 måste du ändra porten i metoden GetProxyAddress i följande VotesController.cs-kod.
 

@@ -9,20 +9,20 @@ keywords: azure functions, functions, event processing, compute, serverless arch
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 07/19/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0288d9c0932d012bc83f23053b661c5a7ea2ef82
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 966be2d16615ba120287974201de5dd264fbbbcf
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872960"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594078"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Skapa din första beständiga funktion i C\#
 
 *Durable Functions* är en utökning av [Azure Functions](../functions-overview.md) som gör att du kan skriva tillståndskänsliga funktioner i en serverlös miljö. Tillägget hanterar tillstånd, kontrollpunkter och omstarter.
 
-I den här artikeln får du lära dig hur du använder 2019 för Visual Studio-verktyg för Azure Functions för att skapa och testa en hållbar ”hello world”-funktion lokalt.  Den här funktionen orkestrerar och kedjar samman anrop till andra funktioner. Du publicerar sedan funktionskoden till Azure. Dessa verktyg är tillgängliga som en del av arbetsbelastningen Azure development i Visual Studio 2019.
+I den här artikeln får du lära dig hur du använder Visual Studio 2019 för att lokalt skapa och testa en "Hello World"-beständig funktion.  Den här funktionen orkestrerar och kedjar samman anrop till andra funktioner. Du publicerar sedan funktionskoden till Azure. De här verktygen är tillgängliga som en del av arbets belastningen Azure Development i Visual Studio 2019.
 
 ![Köra beständiga funktioner i Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,9 +30,7 @@ I den här artikeln får du lära dig hur du använder 2019 för Visual Studio-v
 
 För att slutföra den här självstudien behöver du:
 
-* Installera [Visual Studio 2019](https://azure.microsoft.com/downloads/). Kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad.
-
-* Kontrollera att du har de [senaste Azure Functions-verktygen](../functions-develop-vs.md#check-your-tools-version).
+* Installera [Visual Studio 2019](https://visualstudio.microsoft.com/vs/). Kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad. Visual Studio 2017 har också stöd för Durable Functions utveckling, men användar gränssnittet och stegen är annorlunda.
 
 * Kontrollera att [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) är installerad och körs.
 
@@ -44,13 +42,15 @@ Med Azure Functions-mallen skapas ett projekt som kan publiceras till en funktio
 
 1. Välj **Nytt** > **Projekt** från **Arkiv**-menyn i Visual Studio.
 
-2. I dialogrutan **Nytt projekt** väljer du **Installerat**, expanderar **Visual C#** > **Cloud**, väljer **Azure Functions**, skriver ett **namn** för projektet och klickar sedan på **OK**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken.
+1. I dialog rutan **Lägg till ett nytt projekt** söker du `functions`efter, väljer mallen **Azure Functions** och väljer **Nästa**. 
 
     ![Dialogrutan Nytt projekt för att skapa en funktion i Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-3. Använd inställningarna som anges i tabellen under bilden.
+1. Skriv ett **projekt namn** för projektet och välj **OK**. Projekt namnet måste vara giltigt som ett C# namn område, så Använd inte under streck, bindestreck eller andra tecken som inte är alfanumeriska.
 
-    ![Dialogrutan Ny funktion i Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
+1. Använd de inställningar som anges i tabellen som följer efter bilden i **skapa ett nytt Azure Functions program**.
+
+    ![Skapa en ny Azure Functions program dialog i Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | Inställning      | Föreslaget värde  | Beskrivning                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -58,7 +58,7 @@ Med Azure Functions-mallen skapas ett projekt som kan publiceras till en funktio
     | **Mall** | Tomt | Detta skapar en tom funktionsapp. |
     | **Lagringskonto**  | Lagringsemulator | Det krävs ett lagringskonto för tillståndshanteringen för den beständiga funktionen. |
 
-4. Skapa ett tomt funktionsprojekt genom att klicka på **OK**. Det här projektet har grundläggande konfigurationsfiler som behövs för att köra dina funktioner.
+4. Välj **skapa** för att skapa ett tomt funktions projekt. Det här projektet har grundläggande konfigurationsfiler som behövs för att köra dina funktioner.
 
 ## <a name="add-functions-to-the-app"></a>Lägga till funktioner i appen
 
@@ -68,9 +68,9 @@ Följande steg använder en mall för att skapa varaktig funktionskod.
 
     ![Lägga till ny funktion](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
-2. Kontrollera att **Azure Function** är markerad på menyn Lägg till och ge C#-filen ett namn.  Tryck på **Lägg till**.
+1. Verifiera att **Azure Function** har marker ATS på menyn Lägg till, Skriv ett namn C# på filen och välj sedan **Lägg till**.
 
-3. Välj mallen **Durable Functions Orchestration** (Orkestrering av beständiga funktioner) och klicka på **Ok**
+1. Välj mallen **Durable Functions Orchestration** och välj sedan **OK**
 
     ![Välja mall för beständig](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 

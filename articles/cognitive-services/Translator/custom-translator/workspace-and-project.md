@@ -1,50 +1,50 @@
 ---
-title: Vad är en arbetsyta och projekt? – Anpassade Translator
+title: Vad är en arbets yta och ett projekt? – Anpassade Translator
 titleSuffix: Azure Cognitive Services
-description: En arbetsyta är en arbetsyta för att skapa och skapa dina anpassade översättningssystemet. En arbetsyta kan innehålla flera projekt, modeller och dokument. Ett projekt är en Omslutning för en modell, dokument och tester. Alla projekt som innehåller den automatiskt alla dokument som överförs till den arbetsytan som har rätt språk-par.
+description: En arbets yta är en arbets yta för att skriva och skapa ett anpassat översättnings system. En arbets yta kan innehålla flera projekt, modeller och dokument. Ett projekt är ett omslutnings gränssnitt för en modell, dokument och tester. Varje projekt innehåller automatiskt alla dokument som överförs till den arbets ytan som har rätt språk par.
 services: cognitive-services
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: c35f3911b591a0d9adccdc48dbdc17f8afb5ea00
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 23db27ba7b51b0f5a312498dbcb1d0f2741245bb
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447344"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595338"
 ---
-# <a name="what-is-a-custom-translator-workspace"></a>Vad är en anpassad Translator-arbetsyta?
+# <a name="what-is-a-custom-translator-workspace"></a>Vad är en anpassad översättare-arbetsyta?
 
-En arbetsyta är en arbetsyta för att skapa och skapa dina anpassade översättningssystemet. En arbetsyta kan innehålla flera projekt, modeller och dokument. Allt arbete du göra i anpassade Translator som finns i en viss arbetsyta.
+En arbets yta är en arbets yta för att skriva och skapa ett anpassat översättnings system. En arbets yta kan innehålla flera projekt, modeller och dokument. Allt arbete som du gör i en anpassad översättare är inuti en angiven arbets yta.
 
-Arbetsytan är privat för dig och de personer som du bjuder in på din arbetsyta. Mötesförfrågningarna personer har inte åtkomst till innehållet i din arbetsyta. Du kan bjuda in så många personer som du vill på din arbetsyta och ändra eller ta bort åtkomsten när som helst. Du kan också skapa en ny arbetsyta. Som standard innehåller en arbetsyta inte några projekt eller dokument som i dina andra arbetsytor.
+Arbets ytan är privat för dig och de personer som du bjuder in till din arbets yta. Ej inbjudna personer har inte åtkomst till innehållet i din arbets yta. Du kan bjuda in så många personer som du vill i din arbets yta och ändra eller ta bort åtkomsten när som helst. Du kan också skapa en ny arbets yta. Som standard kommer en arbets yta inte innehålla några projekt eller dokument som finns i dina andra arbets ytor.
 
-## <a name="what-is-a-custom-translator-project"></a>Vad är en anpassad Translator-projekt?
+## <a name="what-is-a-custom-translator-project"></a>Vad är ett anpassat översättare-projekt?
 
-Ett projekt är en Omslutning för en modell, dokument och tester. Alla projekt som innehåller den automatiskt alla dokument som överförs till den arbetsytan som har rätt språk-par. Om du har både en engelska till spanska projekt och en spanska till engelska projekt, till exempel tas samma dokument med i båda projekten. Varje projekt har en CategoryID kopplade till den som används vid frågor till den [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) för översättningar. CategoryID är parameter som används för att hämta översättningar från ett anpassat system som skapats med anpassade Translator.
+Ett projekt är ett omslutnings gränssnitt för en modell, dokument och tester. Varje projekt innehåller automatiskt alla dokument som överförs till den arbets ytan som har rätt språk par. Om du till exempel har både ett engelskt till spanska-projekt och ett spanskt till engelskt projekt, kommer samma dokument att inkluderas i båda projekten. Varje projekt har en associerad kategori kategori som används när du frågar [v3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) för översättningar. Kategorinr är en parameter som används för att hämta översättningar från ett anpassat system som skapats med anpassad översättare.
 
-## <a name="project-categories"></a>Projektkategorier
+## <a name="project-categories"></a>Projekt kategorier
 
-Kategorin identifierar domänen – området i terminologi och stil du vill använda – för ditt projekt. Välj kategorin som är mest relevant för dina dokument. I vissa fall påverkar ditt val av kategorin direkt beteendet för anpassad Translator.
+Kategorin identifierar domänen – det terminologi och den stil som du vill använda – för projektet. Välj den kategori som är mest relevant för dina dokument. I vissa fall påverkar ditt val av kategori direkt beteendet för den anpassade översättare.
 
-Vi har två uppsättningar basmodeller. De är allmän och teknik. Om kategorin **teknik** är markerat, basmodeller tekniken används. För alla andra Kategorival används allmänt basmodeller. Teknik baslinje modellen har bra i teknik domän, men den visar lägre kvalitet om meningar som används för översättning inte faller inom teknik-domänen. Vi rekommenderar att kunder för att välja kategori teknik endast om meningar strikt faller inom teknik-domänen.
+Vi har två uppsättningar bas linje modeller. De är allmänna och tekniska. Om kategori **tekniken** väljs används teknik bas linje modeller. För alla andra kategori val används de allmänna bas linje modellerna. Teknik bas linje modellen är väl i teknik domän, men den visar lägre kvalitet om meningarna som används för översättning inte hamnar inom teknik domänen. Vi föreslår att kunderna bara väljer kategori teknik om meningarna är strikta inom teknik domänen.
 
-På samma arbetsyta kan du skapa projekt för samma språk par i olika kategorier. Anpassade Translator går inte att skapa en duplicerad projekt med samma språk-par och kategori. Tillämpa en etikett till ditt projekt kan du undvika den här begränsningen. Använd inte etiketter, såvida inte du bygger översättningssystem för flera klienter, som att lägga till en unik etikett till ditt projekt återspeglas i dina projekt CategoryID.
+I samma arbets yta kan du skapa projekt för samma språk par i olika kategorier. Anpassad översättare förhindrar att ett duplicerat projekt skapas med samma språk par och kategori. Genom att använda en etikett i projektet kan du undvika den här begränsningen. Använd inte etiketter om du inte skapar översättnings system för flera klienter, som att lägga till en unik etikett i projektet visas i kategorin projekt.
 
-## <a name="project-labels"></a>Projekt-etiketter
+## <a name="project-labels"></a>Projekt etiketter
 
-Anpassade Translator kan du tilldela en etikett för projekt i projektet. Etikett för projekt skiljer mellan flera projekt med samma språk-par och kategori. Ett bra tips är att undvika att använda projekt etiketter, såvida inte behövs.
+Med anpassad översättare kan du tilldela en projekt etikett till projektet. Projekt etiketten skiljer sig mellan flera projekt med samma språk par och kategori. Vi rekommenderar att du inte använder Project-etiketter om det inte behövs.
 
-Projekt-etiketten används som en del av CategoryID. Om etiketten projekt lämnas Odefinierad eller ställts identiskt för projekt, sedan projekt med samma kategori och *olika* språkpar delar samma CategoryID. Den här metoden innebär stora fördelar eftersom det gör att du eller dina kunder att växla mellan språk när du använder Translator Text API utan att behöva bekymra dig om en CategoryID som är unik för varje projekt.
+Projekt etiketten används som en del av kategorin kategori. Om projekt etiketten lämnas kvar eller anges identiskt mellan projekt, kommer projekt med samma kategori och *olika* språk par att dela samma kategori. Den här metoden är fördelaktig eftersom det låter dig eller din kund växla mellan språk när du använder API: et för text översättning utan att oroa dig för en kategori som är unik för varje projekt.
 
-Om jag vill aktivera översättningar i teknik domänen från engelska till franska och från Franska till engelska jag till exempel skapar två projekt: en för engelska –\> franska och en för franska -\> engelska. Jag skulle ange samma kategori (teknik) för både och lämna det tomt projekt etiketten. CategoryID för båda projekten matchar, så att jag kan ställa frågor API: et för både engelska och franska översättningar utan att behöva ändra min CategoryID.
+Om jag till exempel ville aktivera översättningar i teknik domänen från engelska till franska och från franska till engelska, skulle jag skapa två projekt: ett för engelska\> och franska, och ett för franska –\> engelska. Jag skulle ange samma kategori (teknik) för båda och lämna projekt etiketten tom. Kategorin för båda projekten skulle matcha, så jag kan fråga API: t för både engelska och franska översättningar utan att behöva ändra min kategori.
 
-Om du är tjänstleverantör och språk och vill ge flera kunder med olika modeller som behåller samma kategori och språk-par, skulle det vara klokt beslut att sedan använda en etikett för projektet för att skilja mellan kunder.
+Om du är en språk tjänst leverantör och vill betjäna flera kunder med olika modeller som behåller samma kategori-och språk par, är det ett bra beslut att använda en projekt etikett för att skilja mellan kunderna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [utbildnings- och modellen](training-and-model.md) veta hur du skapar en översättningsmodellen effektivt.
+- Läs om [utbildning och modell](training-and-model.md) för att lära dig hur du effektivt skapar en översättnings modell.

@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: d61040e740c06fc336e3764a0d972640443a6de5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d88bcc6d9d2c2e46ef3a3cb841c9268a544e37c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553381"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609682"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuell assistent med talet SDK, UWP
 
 Snabb Starter är också tillgängliga för [tal-till-text](quickstart-csharp-uwp.md), [text till tal](quickstart-text-to-speech-csharp-uwp.md) och [tal översättning](quickstart-translate-speech-uwp.md).
 
-I den här artikeln ska du utveckla ett C# universell Windows-plattform-program (UWP) med hjälp av [tal-SDK](speech-sdk.md). Programmet ansluter till en tidigare skapad och konfigurerad bot för att aktivera en röst-och första funktion i den virtuella assistenten från klient programmet. Programmet skapas med [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (valfri version).
+I den här artikeln ska du utveckla ett C# universell Windows-plattform-program (UWP) med hjälp av [tal-SDK](speech-sdk.md). Programmet ansluter till en tidigare skapad och konfigurerad bot för att aktivera en röst-och första funktion i den virtuella assistenten från klient programmet. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 eller senare (alla versioner).
 
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
@@ -30,7 +30,7 @@ I den här artikeln ska du utveckla ett C# universell Windows-plattform-program 
 
 För den här snabbstarten krävs:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) eller senare
 * En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
 * En tidigare skapad robot som kon figurer ATS med den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 

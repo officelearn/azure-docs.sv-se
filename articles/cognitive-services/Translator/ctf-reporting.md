@@ -1,7 +1,7 @@
 ---
-title: Collaborative Translation Framework (CTF) Reporting - API för textöversättning
-titlesuffix: Azure Cognitive Services
-description: Så här använder Collaborative Translation Framework (CTF) reporting.
+title: CTF-rapportering (Collaborative Translation Framework) – Translator Text API
+titleSuffix: Azure Cognitive Services
+description: Använda CTF-rapportering (Collaborative Translation Framework).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,46 +10,46 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443449"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595935"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Så här använder du CTF-rapportering (Collaborative Translation Framework)
 
 > [!NOTE]
-> Den här metoden är inaktuell. Det är inte tillgängliga i version 3.0 av Translator Text API.
+> Den här metoden är föråldrad. Den är inte tillgänglig i V 3.0 för Translator Text API.
 > 
-> Den samverkande översättningar Framework (CTF), tidigare var tillgängliga för V2.0 av Translator Text API är inaktuell från och med 1 februari 2018. Funktionerna AddTranslation och AddTranslationArray låter användare aktivera korrigeringar via Collaborative Translation Framework. Dessa två funktioner godkände inte nya mening bidrag efter 31 januari 2018, och användarna får ett felmeddelande. Dessa funktioner har dragits tillbaka och ersätts inte.
+> Samarbets översättnings ramverket (CTF), som tidigare var tillgängligt för V 2.0 av Translator Text API, föråldrades den 1 februari 2018. Funktionerna AddTranslation och AddTranslationArray gör det möjligt för användarna att aktivera korrigeringar via ramverket för samarbets översättning. Efter den 31 januari 2018 accepterade inte dessa två funktioner nya menings bidrag och användare får ett fel meddelande. Dessa funktioner drogs tillbaka och kommer inte att ersättas.
 
-Collaborative Translation Framework (CTF) Reporting API: et returnerar statistik och det faktiska innehållet i arkivet CTF. Detta API skiljer sig från metoden GetTranslations() eftersom den:
-* Returnerar det översatta innehållet och det totala antalet från ditt konto (appId eller Azure Marketplace-konto).
-* Returnerar det översatta innehållet och det totala antalet utan en matchning av källa meningen.
-* Returnerar inte automatisk översättning (maskinöversättning).
+Rapporterings-API: t för CTF (Collaborative Translation Framework) returnerar statistik och det faktiska innehållet i CTF-lagret. Detta API skiljer sig från metoden GetTranslations () eftersom den:
+* Returnerar det översatta innehållet och dess totala antal endast från ditt konto (appId eller Azure Marketplace-konto).
+* Returnerar det översatta innehållet och dess totala antal utan att behöva matcha käll meningen.
+* Returnerar inte den automatiska översättningen (maskin översättning).
 
 ## <a name="endpoint"></a>Slutpunkt
-Slutpunkten för CTF Reporting API: et är https://api.microsofttranslator.com/v2/beta/ctfreporting.svc
+Slut punkten för CTF repor ting API är https://api.microsofttranslator.com/v2/beta/ctfreporting.svc
 
 
 ## <a name="methods"></a>Metoder
 | Namn |    Beskrivning|
 |:---|:---|
-| GetUserTranslationCounts Method | Hämta antalet översättningar som har skapats av användaren. |
-| GetUserTranslations Method | Hämtar översättningar som har skapats av användaren. |
+| GetUserTranslationCounts Method | Hämta antalet översättningar som skapas av användaren. |
+| GetUserTranslations Method | Hämtar de översättningar som skapats av användaren. |
 
-Dessa metoder kan du:
-* Hämta den fullständiga uppsättningen användare översättningar och ändringar under ditt konto-ID för hämtning.
-* Hämta lista över vanliga deltagare. Se till att rätt användarnamn har angetts i AddTranslation().
-* Skapa ett användargränssnitt (UI) som gör att dina betrodda användare att se alla tillgängliga kandidater, om det behövs begränsad till en del av din webbplats, baserat på URI-prefix.
+Med dessa metoder kan du:
+* Hämta den fullständiga uppsättningen användar översättningar och korrigeringar under ditt konto-ID för nedladdning.
+* Hämta listan över de frekventa deltagarna. Kontrol lera att rätt användar namn finns i AddTranslation ().
+* Bygg ett användar gränssnitt som gör att dina betrodda användare kan se alla tillgängliga kandidater, om det är nödvändigt att begränsa till en del av din plats, baserat på URI-prefixet.
 
 > [!NOTE]
-> Båda metoderna är relativt långsamt och dyrt. Det rekommenderas att använda dem sparsamt.
+> Båda metoderna är relativt långsamma och dyra. Vi rekommenderar att du använder dem sparsamt.
 
-## <a name="getusertranslationcounts-method"></a>GetUserTranslationCounts method
+## <a name="getusertranslationcounts-method"></a>GetUserTranslationCounts-metod
 
-Den här metoden hämtar antalet översättningar som har skapats av användaren. Den innehåller en lista över translation antal grupperade efter uriPrefix, från, till användare, minRating och parametrarna som maxRating.
+Den här metoden hämtar antalet översättningar som skapas av användaren. Den innehåller listan över översättnings antal grupperade efter parametrarna uriPrefix, from, to, User, minRating och maxRating Request.
 
 **Syntax**
 
@@ -74,53 +74,53 @@ Den här metoden hämtar antalet översättningar som har skapats av användaren
 
 | Parameter | Beskrivning |
 |:---|:---|
-| appId | **Krävs** om auktoriseringsrubriken används, lämna appid fältet tomt eller ange en sträng som innehåller ”ägar” + ”” + åtkomst-token.|
-| uriPrefix | **Valfritt** en sträng som innehåller prefixet för URI: N för översättningen.|
-| from | **Valfritt** en sträng som representerar språkkoden för Översättningstext. |
-| till | **Valfritt** en sträng som representerar språkkoden att översätta text i.|
-| minRating| **Valfritt** ett heltalsvärde som representerar minimikvalitet-klassificering för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| maxRating| **Valfritt** ett heltalsvärde som representerar den högsta kvalitet klassificeringen för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| Användare | **Valfritt** en sträng som används för att filtrera resultatet baserat på avsändaren av överföringen. |
-| category| **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet Allmänt.|
-| minDateUtc| **Valfritt** datum när du vill hämta översättningar. Datumet måste vara i UTC-format. |
-| maxDateUtc| **Valfritt** datum till när du vill hämta översättningar. Datumet måste vara i UTC-format. |
-| Hoppa över| **Valfritt** antalet resultat som du vill hoppa över på en sida. Till exempel om du vill alternativet Hoppa över de första 20 raderna i resultaten och vyn från 21 resultatposten, ange 20 för den här parametern. Standardvärdet för den här parametern är 0.|
-| ta | **Valfritt** antalet resultat som du vill hämta. Det maximala antalet för varje begärande är 100. Standardvärdet är 100.|
+| appId | **Krävs** Om Authorization-huvudet används, lämnar du fältet AppID tomt annars anger du en sträng som innehåller "Bearer" + "" + åtkomsttoken.|
+| uriPrefix | **Valfritt** En sträng som innehåller prefixet för URI för översättningen.|
+| from | **Valfritt** En sträng som representerar språk koden för översättnings texten. |
+| till | **Valfritt** En sträng som representerar språk koden som texten ska översättas till.|
+| minRating| **Valfritt** Ett heltals värde som representerar den översatta textens minsta kvalitets betyg. Det giltiga värdet är mellan-10 och 10. Standardvärdet är 1.|
+| maxRating| **Valfritt** Ett heltals värde som representerar den översatta textens maximala kvalitets betyg. Det giltiga värdet är mellan-10 och 10. Standardvärdet är 1.|
+| Användare | **Valfritt** En sträng som används för att filtrera resultatet baserat på överföringens upphovs man. |
+| category| **Valfritt** En sträng som innehåller översättningens kategori eller domän. Den här parametern stöder endast standard alternativet allmänt.|
+| minDateUtc| **Valfritt** Det datum då du vill hämta översättningarna. Datumet måste vara i UTC-format. |
+| maxDateUtc| **Valfritt** Datumet till när du vill hämta översättningarna. Datumet måste vara i UTC-format. |
+| hoppa över| **Valfritt** Antalet resultat som du vill hoppa över på en sida. Om du till exempel vill hoppa över de första 20 raderna i resultaten och Visa från den 21: a resultat posten, anger du 20 för den här parametern. Standardvärdet för den här parametern är 0.|
+| take | **Valfritt** Antalet resultat som du vill hämta. Det maximala antalet för varje begäran är 100. Standardvärdet är 100.|
 
 > [!NOTE]
-> Hoppa över och vidta parametrarna Aktivera sidnumrering för ett stort antal resultatposter.
+> Parametrar för att hoppa över och utföra begär Anden möjliggör sid brytning för ett stort antal resultat poster.
 
-**Returvärde**
+**Retur värde**
 
-Resultatet innehåller matris med de **UserTranslationCount**. Varje UserTranslationCount har följande element:
+Resultat uppsättningen innehåller en matris med **UserTranslationCount**. Varje UserTranslationCount har följande element:
 
 | Fält | Beskrivning |
 |:---|:---|
-| Count| Antalet resultat som har hämtats|
-| Från | Källspråk|
-| Klassificering| Den klassificering som tillämpas av jobbets avsändare i metodanropet AddTranslation()|
-| Till| Målspråket|
-| URI: N| Den URI som används i metodanropet AddTranslation()|
-| Användare| Användarnamnet|
+| Count| Antalet resultat som hämtas|
+| Från | Käll språket|
+| Klassificering| Den klassificering som används av avsändaren i metod anropet AddTranslation ()|
+| Till| Mål språket|
+| URI| Den URI som används i metod anropet AddTranslation ()|
+| Användare| Användar namnet|
 
 **Undantag**
 
 | Undantag | Message | Villkor |
 |:---|:---|:---|
-| ArgumentOutOfRangeException | Parametern '**maxDateUtc**'måste vara större än eller lika med'**minDateUtc**”.| Värdet för parametern **maxDateUtc** är mindre än värdet för parametern **minDateUtc**.|
-| TranslateApiException | IP-Adressen är över kvoten.| <ul><li>Gränsen för antalet begäranden per minut har nåtts.</li><li>Begäran är fortfarande begränsad 10000 tecken.</li><li>Begränsa antalet tecken som Microsoft Translator-API ska ta emot varje timme och en daglig kvot.</li></ul>|
-| TranslateApiException | AppId är över kvoten.| Program-ID överskridit kvoten timvis eller dagligen.|
+| ArgumentOutOfRangeException | Parametern**maxDateUtc**måste vara större än eller lika med**minDateUtc**.| Värdet för parametern **maxDateUtc** är mindre än värdet för parametern **minDateUtc**.|
+| TranslateApiException | IP är över kvoten.| <ul><li>Gränsen för antalet begär Anden per minut har nåtts.</li><li>Den begärda storleken är begränsad till 10000 tecken.</li><li>En timme och en daglig kvot gräns begränsar antalet tecken som Microsoft Translator-API: n accepterar.</li></ul>|
+| TranslateApiException | AppId är över kvoten.| Program-ID: t överskred tim-eller dags kvoten.|
 
 > [!NOTE]
-> Kvoten justeras för att säkerställa en rättvis av alla användare av tjänsten.
+> Kvoten justeras för att säkerställa skälighet mellan alla användare av tjänsten.
 
-**Visa kodexempel på GitHib**
+**Visa kod exempel på GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
-## <a name="getusertranslations-method"></a>GetUserTranslations metod
+## <a name="getusertranslations-method"></a>GetUserTranslations-metod
 
-Den här metoden hämtar översättningar som har skapats av användaren. Det ger översättningarna grupperade efter uriPrefix, från, till, användare, och minRating och maxRating parametrarna.
+Den här metoden hämtar översättningarna som skapas av användaren. Den innehåller översättningarna grupperade efter parametrarna uriPrefix, from, to, User och minRating och maxRating Request.
 
 **Syntax**
 
@@ -145,48 +145,48 @@ Den här metoden hämtar översättningar som har skapats av användaren. Det ge
 
 | Parameter | Beskrivning |
 |:---|:---|
-| appId | **Krävs** om auktoriseringsrubriken används, lämna appid fältet tomt eller ange en sträng som innehåller ”ägar” + ”” + åtkomst-token.|
-| uriPrefix| **Valfritt** en sträng som innehåller prefixet för URI: N för översättningen.|
-| from| **Valfritt** en sträng som representerar språkkoden för Översättningstext.|
-| till| **Valfritt** en sträng som representerar språkkoden att översätta text i.|
-| minRating| **Valfritt** ett heltalsvärde som representerar minimikvalitet-klassificering för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| maxRating| **Valfritt** ett heltalsvärde som representerar den högsta kvalitet klassificeringen för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| Användare| **Valfritt. En sträng som används för att filtrera resultatet baserat på avsändaren av överföringen**|
-| category| **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet Allmänt.|
-| minDateUtc| **Valfritt** datum när du vill hämta översättningar. Datumet måste vara i UTC-format.|
-| maxDateUtc| **Valfritt** datum till när du vill hämta översättningar. Datumet måste vara i UTC-format.|
-| Hoppa över| **Valfritt** antalet resultat som du vill hoppa över på en sida. Till exempel om du vill alternativet Hoppa över de första 20 raderna i resultaten och vyn från 21 resultatposten, ange 20 för den här parametern. Standardvärdet för den här parametern är 0.|
-| ta| **Valfritt** antalet resultat som du vill hämta. Det maximala antalet för varje begärande är 100. Standardvärdet är 50.|
+| appId | **Krävs** Om Authorization-huvudet används, lämnar du fältet AppID tomt annars anger du en sträng som innehåller "Bearer" + "" + åtkomsttoken.|
+| uriPrefix| **Valfritt** En sträng som innehåller prefixet för URI för översättningen.|
+| from| **Valfritt** En sträng som representerar språk koden för översättnings texten.|
+| till| **Valfritt** En sträng som representerar språk koden som texten ska översättas till.|
+| minRating| **Valfritt** Ett heltals värde som representerar den översatta textens minsta kvalitets betyg. Det giltiga värdet är mellan-10 och 10. Standardvärdet är 1.|
+| maxRating| **Valfritt** Ett heltals värde som representerar den översatta textens maximala kvalitets betyg. Det giltiga värdet är mellan-10 och 10. Standardvärdet är 1.|
+| Användare| **Valfritt. En sträng som används för att filtrera resultatet baserat på överföringens upphovs punkt**|
+| category| **Valfritt** En sträng som innehåller översättningens kategori eller domän. Den här parametern stöder endast standard alternativet allmänt.|
+| minDateUtc| **Valfritt** Det datum då du vill hämta översättningarna. Datumet måste vara i UTC-format.|
+| maxDateUtc| **Valfritt** Datumet till när du vill hämta översättningarna. Datumet måste vara i UTC-format.|
+| hoppa över| **Valfritt** Antalet resultat som du vill hoppa över på en sida. Om du till exempel vill hoppa över de första 20 raderna i resultaten och Visa från den 21: a resultat posten, anger du 20 för den här parametern. Standardvärdet för den här parametern är 0.|
+| take| **Valfritt** Antalet resultat som du vill hämta. Det maximala antalet för varje begäran är 100. Standardvärdet är 50.|
 
 > [!NOTE]
-> Hoppa över och vidta parametrarna Aktivera sidnumrering för ett stort antal resultatposter.
+> Parametrar för att hoppa över och utföra begär Anden möjliggör sid brytning för ett stort antal resultat poster.
 
-**Returvärde**
+**Retur värde**
 
-Resultatet innehåller matris med de **UserTranslation**. Varje UserTranslation har följande element:
+Resultat uppsättningen innehåller en matris med **UserTranslation**. Varje UserTranslation har följande element:
 
 | Fält | Beskrivning |
 |:---|:---|
-| CreatedDateUtc| Skapad i posten med AddTranslation()|
-| Från| Källspråk|
-| OriginalText| Källspråk texten som ska användas när du skickar in begäran|
-|Klassificering |Den klassificering som tillämpas av jobbets avsändare i metodanropet AddTranslation()|
-|Till|    Målspråket|
-|TranslatedText|    Översättningen som har skickats i metodanropet AddTranslation()|
-|URI: N|   Den URI som används i metodanropet AddTranslation()|
-|Användare   |Användarnamnet|
+| CreatedDateUtc| Datumet då posten skapades med AddTranslation ()|
+| Från| Käll språket|
+| OriginalText| Käll språks texten som används när begäran skickas|
+|Klassificering |Den klassificering som används av avsändaren i metod anropet AddTranslation ()|
+|Till|    Mål språket|
+|TranslatedText|    Översättningen som skickas i metod anropet AddTranslation ()|
+|URI|   Den URI som används i metod anropet AddTranslation ()|
+|Användare   |Användar namnet|
 
 **Undantag**
 
 | Undantag | Message | Villkor |
 |:---|:---|:---|
-| ArgumentOutOfRangeException | Parametern '**maxDateUtc**'måste vara större än eller lika med'**minDateUtc**”.| Värdet för parametern **maxDateUtc** är mindre än värdet för parametern **minDateUtc**.|
-| TranslateApiException | IP-Adressen är över kvoten.| <ul><li>Gränsen för antalet begäranden per minut har nåtts.</li><li>Begäran är fortfarande begränsad 10000 tecken.</li><li>Begränsa antalet tecken som Microsoft Translator-API ska ta emot varje timme och en daglig kvot.</li></ul>|
-| TranslateApiException | AppId är över kvoten.| Program-ID överskridit kvoten timvis eller dagligen.|
+| ArgumentOutOfRangeException | Parametern**maxDateUtc**måste vara större än eller lika med**minDateUtc**.| Värdet för parametern **maxDateUtc** är mindre än värdet för parametern **minDateUtc**.|
+| TranslateApiException | IP är över kvoten.| <ul><li>Gränsen för antalet begär Anden per minut har nåtts.</li><li>Den begärda storleken är begränsad till 10000 tecken.</li><li>En timme och en daglig kvot gräns begränsar antalet tecken som Microsoft Translator-API: n accepterar.</li></ul>|
+| TranslateApiException | AppId är över kvoten.| Program-ID: t överskred tim-eller dags kvoten.|
 
 > [!NOTE]
-> Kvoten justeras för att säkerställa en rättvis av alla användare av tjänsten.
+> Kvoten justeras för att säkerställa skälighet mellan alla användare av tjänsten.
 
-**Visa kodexempel på GitHib**
+**Visa kod exempel på GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)

@@ -1,78 +1,78 @@
 ---
-title: Träna en modell – anpassad Translator
+title: Träna en modell – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Träna en modell är ett viktigt steg när du skapar en modell för översättning. Utbildning sker baserat på dokument som du väljer för de utbildningar.
+description: Träna en modell är ett viktigt steg när du skapar en översättnings modell. Utbildning sker baserat på dokument som du väljer för den utbildningen.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 8804285bf419bce5ca85cc5070cd47ce9a87392a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447950"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595678"
 ---
 # <a name="train-a-model"></a>Träna en modell
 
-Träna en modell är viktigt att skapa en översättningsmodellen eftersom utan ett utbildnings modellen inte kan skapas. Utbildning sker baserat på dokument som du väljer för utbildningar.
+Träna en modell är det viktigaste steget för att skapa en översättnings modell, eftersom det inte går att skapa en modell utan någon utbildning. Utbildning sker baserat på dokument som du väljer för utbildningarna.
 
 För att träna en modell:
 
-1.  Välj det projekt där du vill skapa en modell.
+1.  Välj det projekt där du vill bygga en modell.
 
-2.  Data-fliken för projektet visas alla relevanta dokumenten för språk-par för projektet. Manuellt välja de dokument som du vill använda för att träna din modell. Du kan välja utbildning, justering och testningen dokument från den här skärmen. Även du bara väljer träningsmängden och har anpassade Translator skapa den justering och testa uppsättningar för dig.
+2.  På fliken data för projektet visas alla relevanta dokument för projekt språk paret. Välj de dokument som du vill använda för att träna din modell manuellt. Du kan välja utbildnings-, justerings-och test dokument från den här skärmen. Du behöver också bara välja inlärnings uppsättningen och har anpassad översättare skapa justerings-och test uppsättningarna åt dig.
 
-    -  Dokumentnamn: Namnet på dokumentet.
+    -  Dokument namn: Dokumentets namn.
 
-    -  Länkning: Om det här dokumentet är ett parallella eller enspråkig dokument. Enspråkig dokument har för närvarande inte stöd för utbildning.
+    -  Par koppling Om det här dokumentet är ett parallellt eller monolingual dokument. Monolingual-dokument stöds för närvarande inte för utbildning.
 
-    -  Typ av standarddokument: Kan vara utbildning, justering, testning eller ordlista.
+    -  Dokument typ: Kan vara utbildning, justering, testning eller ord lista.
 
-    -  Språk-par: Det här visas käll- och målspråk för projektet.
+    -  Språk par: Detta visar käll-och mål språk för projektet.
 
-    -  Källa meningar: Visar antalet meningar som extraheras från källfilen.
+    -  Käll meningar: Visar antalet meningar som extraherats från käll filen.
 
-    -  Target meningar: Visar antalet meningar som extraheras från målfilen.
+    -  Mål meningar: Visar antalet meningar som extraherats från målfilen.
 
     ![Träna modell](media/how-to/how-to-train-model.png)
 
 3.  Klicka på knappen träna.
 
-4.  I dialogrutan, ange ett namn för din modell.
+4.  Ange ett namn för din modell i dialog rutan.
 
-5.  Klicka på Train-modell.
+5.  Klicka på träna modell.
 
-    ![Träna modellen dialogrutan](media/how-to/how-to-train-model-2.png)
+    ![Dialog rutan träna modell](media/how-to/how-to-train-model-2.png)
 
-6.  Anpassade Translator kommer skicka utbildningen och visa status för utbildningen på fliken modeller.
+6.  Anpassad översättare kommer att skicka utbildningen och Visa status för utbildningen på fliken modeller.
 
-    ![Träna modellen sidan](media/how-to/how-to-train-model-3.png)
+    ![Träna modell sida](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->Anpassade Translator stöder 10 samtidiga utbildningar i en arbetsyta när som helst i tid.
+>Anpassad översättare stöder 10 samtidiga utbildningar inom en arbets yta vid varje tidpunkt.
 
 
 ## <a name="edit-a-model"></a>Redigera en modell
 
-Du kan redigera en modell med hjälp av länken Redigera på sidan med modellen.
+Du kan redigera en modell med hjälp av länken Redigera på sidan modell information.
 
-1.  Klicka på pennikonen.
+1.  Klicka på Penn ikonen.
 
     ![Redigera modell](media/how-to/how-to-edit-model.png)
 
-2.  I dialogrutan-ändring
+2.  I dialog rutan Ändra
 
-    1.  Modellnamn (krävs): Ge ett beskrivande namn för din modell.
+    1.  Modell namn (obligatoriskt): Ge din modell ett beskrivande namn.
 
-        ![Mer dialogrutan Redigera](media/how-to/how-to-edit-model-dialog.png)
+        ![Redigera mer dialog](media/how-to/how-to-edit-model-dialog.png)
 
 3.  Klicka på Spara.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig [visa modelldetaljer](how-to-view-model-details.md).
+- Lär dig [hur du visar modell information](how-to-view-model-details.md).

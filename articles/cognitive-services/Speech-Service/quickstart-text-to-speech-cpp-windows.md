@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 6936d8f93221402fca9b250d09a842ce753e0e12
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fdc5e540dd7e84d47aa139768fbfc2614f38b376
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559320"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607725"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal in i C++ Windows med hjälp av tal-SDK
 
 Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-cpp-windows.md) och [tal översättning](quickstart-translate-speech-cpp-windows.md).
 
-I den här artikeln får skapa du ett C++-konsolprogram för Windows. Du använder Cognitive Services [tal-SDK](speech-sdk.md) för att syntetisera tal från text i real tid och spela upp talet på din dators högtalare. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
+I den här artikeln får skapa du ett C++-konsolprogram för Windows. Du använder Cognitive Services [tal-SDK](speech-sdk.md) för att syntetisera tal från text i real tid och spela upp talet på din dators högtalare. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 eller senare (alla versioner).
 
 Funktionen som beskrivs i den här artikeln är tillgänglig från [1.5.0 för tal-SDK](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 

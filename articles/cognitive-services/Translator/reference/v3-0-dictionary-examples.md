@@ -1,7 +1,7 @@
 ---
-title: Translator Text API ordlista exempel metod
-titlesuffix: Azure Cognitive Services
-description: Använd exempel för Translator Text API ordlista-metoden.
+title: Exempel metod för Translator Text API-ordlista
+titleSuffix: Azure Cognitive Services
+description: Använd exempel metoden Translator Text API Dictionary.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: e4665157803409b884c3333d9a3514403e5630bd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 15d23016df9b0c85b9d252b4c4a9ea48d3608f75
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435109"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595061"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ordlisteexempel
+# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3,0: Ordlisteexempel
 
-Innehåller exempel som visar hur termer i ordlistan används i kontexten. Den här åtgärden används tillsammans med [ordlista lookup](./v3-0-dictionary-lookup.md).
+Innehåller exempel som visar hur termer i ord listan används i kontexten. Den här åtgärden används i tandem med [ord](./v3-0-dictionary-lookup.md)lists ökning.
 
 ## <a name="request-url"></a>URL för begäran
 
-Skicka en `POST` begäran om att:
+Skicka en `POST` begäran till:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0
@@ -31,55 +31,55 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 ## <a name="request-parameters"></a>Begäranparametrar
 
-Parametrarna som skickades mot frågesträngen är:
+Parametrarna för begäran som skickades till frågesträngen är:
 
 <table width="100%">
   <th width="20%">Frågeparameter</th>
   <th>Beskrivning</th>
   <tr>
     <td>API-versionen</td>
-    <td>*Obligatoriska parametern*.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara `3.0`.</td>
+    <td>*Obligatorisk parameter*.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`.</td>
   </tr>
   <tr>
     <td>from</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i indatatexten. Källspråk måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `dictionary` omfång.</td>
+    <td>*Obligatorisk parameter*.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary` omfånget.</td>
   </tr>
   <tr>
     <td>till</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `dictionary` omfång.</td>
+    <td>*Obligatorisk parameter*.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary` omfånget.</td>
   </tr>
 </table>
 
-Begärandehuvuden är:
+Begärandehuvuden innehåller:
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
-    <td>Rubriker för autentisering</td>
-    <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
+    <td>Authentication-huvud (er)</td>
+    <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
+    <td>Innehållstyp</td>
+    <td>*Begär ande huvud för begäran*.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`.</td>
   </tr>
   <tr>
-    <td>Content-Length</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Längden på det begärda innehållet.</td>
+    <td>Innehålls längd</td>
+    <td>*Begär ande huvud för begäran*.<br/>Längden på begär ande texten.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Valfritt*.<br/>En klientgenererade GUID för unik identifiering på begäran. Du kan utelämna den här rubriken om du inkluderar trace-ID i frågesträngen med hjälp av en frågeparameter som heter `ClientTraceId`.</td>
+    <td>*Valfritt*.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp `ClientTraceId`av en frågeparameter med namnet.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Begärandetext
 
-Brödtexten i begäran är en JSON-matris. Varje matriselement är ett JSON-objekt med följande egenskaper:
+Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med följande egenskaper:
 
-  * `Text`: En sträng som anger perioden för sökning. Detta bör vara värdet för en `normalizedText` från tillbaka-översättningar av ett tidigare [ordlista lookup](./v3-0-dictionary-lookup.md) begäran. Det kan också vara värdet för den `normalizedSource` fält.
+  * `Text`: En sträng som anger den term som ska sökas. Detta bör vara värdet för ett `normalizedText` fält från back-translations för en föregående [ord söknings](./v3-0-dictionary-lookup.md) förfrågan. Det kan också vara värdet för `normalizedSource` fältet.
 
-  * `Translation`: En sträng som anger den översatta texten som tidigare returnerats av den [ordlista lookup](./v3-0-dictionary-lookup.md) igen. Detta bör vara värdet från den `normalizedTarget` i den `translations` lista över de [ordlista lookup](./v3-0-dictionary-lookup.md) svar. Exempel för specifika källa / mål-ordpar returnerar tjänsten.
+  * `Translation`: En sträng som anger den översatta text som tidigare returnerades av [ord listans Sök](./v3-0-dictionary-lookup.md) åtgärd. Detta ska vara värdet från `normalizedTarget` fältet `translations` i listan över Sök svaret för [ord listan](./v3-0-dictionary-lookup.md) . Tjänsten kommer att returnera exempel för det specifika käll målets Word-par.
 
 Ett exempel är:
 
@@ -91,39 +91,39 @@ Ett exempel är:
 
 Följande begränsningar gäller:
 
-* Matrisen kan ha högst 10 element.
-* Textvärdet för ett matriselement får inte överskrida 100 tecken inklusive blanksteg.
+* Matrisen får innehålla högst 10 element.
+* Text värden för ett mat ris element får inte överstiga 100 tecken inklusive blank steg.
 
-## <a name="response-body"></a>Svarstext
+## <a name="response-body"></a>Svars text
 
-Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatamatrisen. En resultatobjektet innehåller följande egenskaper:
+Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den angivna matrisen. Ett resultat objekt innehåller följande egenskaper:
 
-  * `normalizedSource`: En sträng som ger formuläret normaliserade källa har löpt ut. I allmänhet bör detta vara identiskt med värdet för den `Text` fältet med det matchande lista indexet i brödtexten i begäran.
+  * `normalizedSource`: En sträng som ger en normaliserad form av käll termen. I allmänhet ska detta vara identiskt med värdet för `Text` fältet i det matchande List indexet i bröd texten i begäran.
     
-  * `normalizedTarget`: En sträng som ger formuläret normaliserade mål har löpt ut. I allmänhet bör detta vara identiskt med värdet för den `Translation` fältet med det matchande lista indexet i brödtexten i begäran.
+  * `normalizedTarget`: En sträng som ger en normaliserad form av mål termen. I allmänhet ska detta vara identiskt med värdet för `Translation` fältet i det matchande List indexet i bröd texten i begäran.
   
-  * `examples`: En lista med exempel (källa perioden, måltermen) par. Varje element i listan är ett objekt med följande egenskaper:
+  * `examples`: En lista med exempel på paret (käll termen, mål termen). Varje element i listan är ett objekt med följande egenskaper:
 
-    * `sourcePrefix`: Strängen att sammanfoga _innan_ värdet för `sourceTerm` för att bilda ett komplett exempel. Lägg inte till ett blanksteg eftersom det redan finns det när det ska vara. Det här värdet kan vara en tom sträng.
+    * `sourcePrefix`: Strängen som ska sammanfogas _innan_ värdet för `sourceTerm` ska utgöra ett fullständigt exempel. Lägg inte till ett blank stegs tecken eftersom det redan finns där. Det här värdet kan vara en tom sträng.
 
-    * `sourceTerm`: En sträng som motsvarar den faktiska termen söktes. Strängen läggs till med `sourcePrefix` och `sourceSuffix` för att skapa det fullständiga exemplet. Dess värde är avgränsat, så den kan markeras i ett användargränssnitt, t.ex. genom att fetstil den.
+    * `sourceTerm`: En sträng som motsvarar den faktiska term som har sökts upp. Strängen läggs till med `sourcePrefix` och `sourceSuffix` används för att skapa hela exemplet. Värdet är avgränsat så att det kan markeras i ett användar gränssnitt, t. ex. med fetstil.
 
-    * `sourceSuffix`: Strängen att sammanfoga _när_ värdet för `sourceTerm` för att bilda ett komplett exempel. Lägg inte till ett blanksteg eftersom det redan finns det när det ska vara. Det här värdet kan vara en tom sträng.
+    * `sourceSuffix`: Strängen som ska sammanfogas _efter_ värdet för `sourceTerm` att skapa ett fullständigt exempel. Lägg inte till ett blank stegs tecken eftersom det redan finns där. Det här värdet kan vara en tom sträng.
 
-    * `targetPrefix`: En sträng som liknar `sourcePrefix` men för målet.
+    * `targetPrefix`: En sträng som `sourcePrefix` liknar men för målet.
 
-    * `targetTerm`: En sträng som liknar `sourceTerm` men för målet.
+    * `targetTerm`: En sträng som `sourceTerm` liknar men för målet.
 
-    * `targetSuffix`: En sträng som liknar `sourceSuffix` men för målet.
+    * `targetSuffix`: En sträng som `sourceSuffix` liknar men för målet.
 
     > [!NOTE]
-    > Om det finns inga exempel i ordlistan, svaret är 200 (OK) men `examples` listan är en tom lista.
+    > Om det inte finns några exempel i ord listan är svaret 200 (OK), men `examples` listan är en tom lista.
 
 ## <a name="examples"></a>Exempel
 
-Det här exemplet visar hur du leta upp exempel för paret består av engelska termen `fly` och dess spanska translation `volar`.
+Det här exemplet visar hur du söker efter exempel för paret som består av den engelska `fly` och dess Spanska Översättning `volar`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[klammerparentes](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
@@ -131,7 +131,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?
 
 ---
 
-Svarstexten (förkortat för tydlighetens skull) är:
+Svars texten (förkortat för tydlighetens skull) är:
 
 ```
 [

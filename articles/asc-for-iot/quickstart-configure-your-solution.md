@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure Security Center för IoT-lösning förhandsversion | Microsoft Docs
-description: Lär dig hur du konfigurerar din IoT-lösning för slutpunkt till slutpunkt som använder Azure Security Center för IoT.
+title: Konfigurera din Azure Security Center för IoT-lösningen | Microsoft Docs
+description: Lär dig hur du konfigurerar din IoT-lösning från slut punkt till slut punkt med hjälp av Azure Security Center för IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,49 +13,45 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f90dba899651b677740e9ceb88bdd579ebb073c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 15c8aabbcb19d009bb202d111dc7f80da4cebff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616643"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597030"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Snabbstart: Konfigurera din IoT-lösning
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här artikeln innehåller en förklaring av hur du utför inledande konfiguration av din IoT-säkerhetslösning med Azure Security Center för IoT. 
 
-Den här artikeln innehåller en förklaring av hur du utför inledande konfiguration av din IoT-säkerhetslösning med ASC för IoT. 
+## <a name="azure-security-center-for-iot"></a>Azure Security Center för IoT
 
-## <a name="azure-security-center-asc-for-iot"></a>Azure Security Center (ASC) för IoT
+Azure Security Center for IoT ger omfattande säkerhet från slut punkt till slut punkt för Azure-baserade IoT-lösningar.
 
-ASC för IoT ger omfattande slutpunkt till slutpunkt för Azure-baserade IoT-lösningar.
+Med Azure Security Center för IoT kan du övervaka hela IoT-lösningen på en instrument panel, Visa alla IoT-enheter, IoT-plattformar och Server dels resurser i Azure.
 
-Med ASC för IoT, kan du övervaka hela IoT-lösningen i en instrumentpanel, visa alla dina IoT-enheter, IoT-plattformar och backend-resurser i Azure.
+När Azure Security Center for IoT har Aktiver ATS på IoT Hub identifieras andra Azure-tjänster automatiskt, även om de är anslutna till din IoT-hubb och är relaterade till din IoT-lösning.
 
-När du har aktiverat på din IoT-hubb, identifierar ASC för IoT automatiskt andra Azure-tjänster också ansluten till din IoT-hubb och relaterade till din IoT-lösning.
+Förutom automatisk Relations identifiering kan du också välja vilka andra Azure-resurs grupper som ska tagga som en del av din IoT-lösning.
 
-Förutom automatisk relationsidentifiering, kan du också välja vilka andra Azure-resurser till taggen som en del av din IoT-lösning.
-Dina val kan du lägga till hela prenumerationer, resursgrupper eller enkla resurser.
+Med dina val kan du lägga till hela prenumerationer, resurs grupper eller enskilda resurser.
 
-När du har definierat alla relationer resource utnyttjar ASC för IoT Azure Security Center för att ge säkerhetsrekommendationer och säkerhetsaviseringar för dessa resurser.
+När du har definierat alla resurs relationer använder Azure Security Center för IoT Azure Security Center för att ge dig säkerhets rekommendationer och aviseringar för dessa resurser.
 
-## <a name="add-azure-resources-to-your-iot-solution"></a>Lägga till Azure-resurser i din IoT-lösning
+## <a name="add-azure-resources-to-your-iot-solution"></a>Lägg till Azure-resurser i din IoT-lösning
 
-Lägg till ny resurs i din IoT-lösning genom att göra följande: 
+Gör så här om du vill lägga till en ny resurs i IoT-lösningen: 
 
-1. Öppna din **IoT Hub** i Azure-portalen. 
-2. Välj och öppna **resurser** under **Security** menyn till vänster. 
-3. Välj **Lägg till resurser**.
-4. Välj resurser som hör till din IoT-lösning.
+1. Öppna din **IoT Hub** i Azure Portal. 
+2. Välj och öppna **resurser** under **säkerhet** på den vänstra menyn. 
+3. Välj **Redigera** och välj de resurs grupper som hör till din IoT-lösning.
 5. Klicka på **Lägg till**. 
 
-Grattis! Du har lagt till en ny resurs till din IoT-lösning.
+Grattis! Du har lagt till en ny resurs grupp i IoT-lösningen.
 
-ASC för IoT nu Övervakare som du har nyligen lagt till resurser, och hämtar relevanta säkerhetsrekommendationer och säkerhetsaviseringar som en del av din IoT-lösning.
+Azure Security Center för IoT övervakar nu att du nyligen har lagt till resurs grupper och viktiga säkerhets rekommendationer och aviseringar som en del av din IoT-lösning.
 
 ## <a name="next-steps"></a>Nästa steg
 

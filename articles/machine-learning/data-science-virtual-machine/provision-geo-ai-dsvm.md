@@ -4,7 +4,7 @@ description: Lär dig hur du skapar och konfigurerar Geo AI Data Science Virtual
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, Geospatial analys
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/05/2018
-ms.author: gokuma
-ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 4772bf8341196485a91b3df30801b9714a4a64a8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578578"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591867"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Etablera en Geo artificiell intelligens virtuell dator på Azure 
 
@@ -49,24 +49,24 @@ Här följer stegen för att skapa en instans av Geo AI Data Science VM:
 
    - **Grundläggande inställningar**
 
-      1. **Namn på**: Namnet på data science-server som du skapar.
+      1. **Namn på**: Namnet på den data vetenskaps server som du skapar.
 
-      2. **Användarnamn**: Admin-konto inloggnings-id.
+      2. **Användarnamn**: Inloggnings-ID för administratörs konto.
 
-      3. **Lösenord**: Lösenord för administratörskonto.
+      3. **Lösenord**: Lösen ord för administratörs kontot.
 
       4. **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras.
 
-      5. **Resursgrupp**: Du kan skapa en ny eller Använd en **tom** befintliga Azure-resursgrupp i din prenumeration.
+      5. **Resursgrupp**: Du kan skapa en ny eller använda en **Tom** befintlig Azure-resurs grupp i din prenumeration.
 
-      6. **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast dina fysiska platsen för snabbaste nätverksåtkomst. Om du behöver göra deep learning på GPU, måste du välja någon av platser i Azure som har NC-serien GPU VM-instanser. Det finns för närvarande platser som har virtuella GPU-datorer: **Östra USA, norra centrala USA, södra centrala USA, västra USA 2, Norra Europa, Västeuropa**. Den senaste listan finns i [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) och leta efter **NC-serien** under **Compute**. 
+      6. **Plats**: Välj det data Center som passar bäst. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast dina fysiska platsen för snabbaste nätverksåtkomst. Om du behöver göra deep learning på GPU, måste du välja någon av platser i Azure som har NC-serien GPU VM-instanser. För närvarande är de platser som har GPU-virtuella datorer: **Östra USA, norra centrala USA, södra centrala USA, västra USA 2, norra Europa,** Västeuropa. Den senaste listan finns i [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) och leta efter **NC-serien** under **Compute**. 
 
 
-   - **Inställningar för**: Välj en av NC-serien GPU VM-storlek om du planerar att köra deep learning på GPU på Geo-DSVM. I annat fall kan du välja någon av Processorn baserad instans.  Skapa ett lagringskonto för den virtuella datorn. 
+   - **Inställningar för**: Välj en av de virtuella datorerna i NC-seriens virtuella dator om du planerar att köra djup inlärning på GPU på din geo-DSVM. I annat fall kan du välja någon av Processorn baserad instans.  Skapa ett lagringskonto för den virtuella datorn. 
    
    - **Sammanfattning av**: Kontrollera att all information du angett är korrekt.
 
-   - **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till användningsvillkor. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
+   - **Köpa**: Starta etableringen genom att klicka på **köp** . Det finns en länk till användningsvillkor. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
  
 >[!NOTE]
 > Etableringen tar cirka 20 – 30 minuter. Status för etableringen visas på Azure portal.
@@ -87,7 +87,7 @@ Annars kan du kan registrera dig för nya ArcGIS-konto och licens eller få en [
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-När du har registrerat dig för antingen ett Betal- och kostnadsfri utvärderingsversion ArcGIS-konto, du kan auktorisera ArcGIS Pro för ditt konto genom att följa instruktionerna i [komma igång med ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+När du har registrerat dig för ett betalt eller kostnads fritt ArcGIS-konto kan du auktorisera ArcGIS Pro för ditt konto genom att följa anvisningarna i [komma igång med ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 När du loggar in på ArcGIS Pro desktop med ArcGIS-konto är du redo att börja använda data science-verktygen som installeras och konfigureras på den virtuella datorn för geospatiala analytics och machine learning-projekt.
 

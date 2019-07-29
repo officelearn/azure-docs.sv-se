@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 099d167e14d58f2239b4e86cb01bf0ab3621daa7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 379087ca94eee6ce3d45bfd97b4771c5f08d6333
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553568"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607695"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Snabbstart: Översätta tal med Speech SDK för C++
 
 Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-cpp-windows.md) och [text till tal](quickstart-text-to-speech-cpp-windows.md).
 
-I den här snabbstarten skapar du ett enkelt C++-program som registrerar användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är utformat för att köras på 64-bitars Windows och är skapat med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
+I den här snabbstarten skapar du ett enkelt C++-program som registrerar användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är utformat för att köras på 64-bitars Windows och är byggt med [talet SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 eller senare.
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
@@ -29,7 +29,7 @@ En fullständig lista över språk som är tillgängliga för talöversättning 
 
 För den här snabbstarten krävs:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) eller senare
 * En Azure-prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt

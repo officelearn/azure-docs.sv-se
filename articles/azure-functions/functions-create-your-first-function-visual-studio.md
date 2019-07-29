@@ -4,39 +4,35 @@ description: Skapa och publicera en HTTP-utlöst Azure Function med Visual Studi
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, compute, serverless architecture
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 10/17/2018
+ms.date: 07/19/2019
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 1c07da0121b8e350c55b139901d56cfe2133386d
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 23caffd14ba37427869e8e5d0ab8d78c42d39f7d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864502"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68593797"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
 Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/solutions/serverless/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp.
 
-I den här artikeln får du lära dig hur du använder Visual Studio 2019 verktyg för Azure Functions för att skapa och testa en ”hello world”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. Dessa verktyg är tillgängliga som en del av arbetsbelastningen Azure development i Visual Studio 2019.
+I den här artikeln får du lära dig hur du använder Visual Studio 2019 för att skapa och testa en "Hello World"-funktion lokalt och sedan publicera den till Azure. Den här snabb starten är utformad för Visual Studio 2019. När du skapar ett Functions-projekt med Visual Studio 2017 måste du först installera de [senaste Azure Functions verktygen](functions-develop-vs.md#check-your-tools-version).
 
 ![Svar för funktion-localhost i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
-Det här avsnittet innehåller [en video](#watch-the-video) som visar samma grundläggande steg.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+För att slutföra den här självstudien måste du först installera [Visual Studio 2019](https://azure.microsoft.com/downloads/). Kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad.
 
-För att slutföra den här självstudien behöver du:
-
-* Installera [Visual Studio 2019](https://azure.microsoft.com/downloads/) och se till att den **Azure development** arbetsbelastning installeras också.
-
-* Kontrollera att du har de [senaste Azure Functions-verktygen](functions-develop-vs.md#check-your-tools-version).
+![Installera Visual Studio med arbets belastningen Azure Development](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,31 +40,23 @@ För att slutföra den här självstudien behöver du:
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio skapar ett projekt och i det en klass som innehåller formaterad exempelkod för den valda typen. Attributet **FunctionName** i metoden anger namnet på funktionen. Attributet **HttpTrigger** anger att funktionen utlöses av en HTTP-förfrågan. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen. Du kan lägga till bindningar för indata och utdata i en funktion genom att lägga till lämpliga attribut i metoden. Mer information finns i avsnittet [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) (Utlösare och bindningar) i [Azure Functions C# developer reference](functions-dotnet-class-library.md) (Azure Functions C#-referens för utvecklare).
+Visual Studio skapar ett projekt och en klass som innehåller en exempel kod för funktionen HTTP-utlösare. Attributet i metoden anger namnet på funktionen, som som standard är `HttpTrigger`. `FunctionName` `HttpTrigger` Attributet anger att funktionen utlöses av en http-begäran. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen.
+
+Du kan utöka funktionerna i din funktion med hjälp av in-och utdata-bindningar genom att använda lämpliga attribut för-metoden. Mer information finns i avsnittet [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) (Utlösare och bindningar) i [Azure Functions C# developer reference](functions-dotnet-class-library.md) (Azure Functions C#-referens för utvecklare).
 
 Nu när du har skapat ditt funktionsprojekt och en HTTP-utlöst funktion kan du testa den på en lokal dator.
 
-## <a name="test-the-function-locally"></a>Testa funktionen lokalt
+## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio.
+Visual Studio integreras med Azure Functions Core Tools så att du kan testa dina funktioner lokalt med hjälp av fullständig Functions-körning.  
 
-1. Tryck på F5 för att testa funktionen. Acceptera begäran från Visual Studio för att ladda ned och installera Azure Functions Core (CLI)-verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-förfrågningar.
-
-2. Kopiera URL:en för funktionen från dina Azure Functions-utdata.
-
-    ![Lokal Azure-körningsmiljö](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-debugging.png)
-
-3. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Lägg till frågesträngen `?name=<YOUR_NAME>` i webbadressen och kör din begäran. Nedan visas svaret på den lokala GET-begäran som returnerades av funktionen i webbläsaren: 
-
-    ![Svar för funktion-localhost i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local.png)
-
-4. Tryck på **Skift + F5** för att stoppa felsökningen.
+[!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
-Du måste ha en funktionsapp i din Azure-prenumeration innan du kan publicera projektet. Du kan skapa en funktionsapp direkt från Visual Studio.
+Du måste ha en funktionsapp i din Azure-prenumeration innan du kan publicera projektet. Visual Studio-publicering skapar en Function-app för första gången du publicerar projektet.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
@@ -84,13 +72,9 @@ Du måste ha en funktionsapp i din Azure-prenumeration innan du kan publicera pr
 
     ![Funktionssvar i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
 
-## <a name="watch-the-video"></a>Titta på videon
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
-
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu använt Visual Studio till att skapa och publicera en C#-funktionsapp med en enkel HTTP-utlöst funktion.
+Du har använt Visual Studio för att skapa och publicera C# en Function-app i Azure med en enkel http-utlöst funktion. Mer information om hur du utvecklar funktioner som .NET-klass bibliotek finns i [ C# Azure Functions Developer Reference](functions-dotnet-class-library.md).
 
-* [Läs hur du lägger till indata- och utdatabindningar som integreras med andra tjänster.](functions-develop-vs.md#add-bindings)
-* [Läs mer om hur du utvecklar funktioner som .NET-klassbibliotek](functions-dotnet-class-library.md).
+> [!div class="nextstepaction"]
+> [Lägg till en Azure Storage Queue-bindning till din funktion](functions-add-output-binding-storage-queue-vs.md)

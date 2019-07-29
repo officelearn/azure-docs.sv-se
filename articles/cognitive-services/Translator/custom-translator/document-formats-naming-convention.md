@@ -1,56 +1,56 @@
 ---
-title: Dokumentformat och namngivningskonventioner - anpassad Translator
+title: Dokument format och namngivnings konventioner – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Det här är en översikt över dokumentformat och namngivningskonvention i anpassade Translator. Detta begrepp hjälper dig för att hantera dokument namn bättre abd undvika namnkonflikter.
+description: Detta är en vägledning om dokument format och namngivnings konventioner i en anpassad översättare. Det här konceptet hjälper till att hantera dokument namn bättre i Abd Undvik namngivnings konflikter.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2f7a83be510e608bb3f630a2fb1860502d8e4475
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443415"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595851"
 ---
-# <a name="document-formats-and-naming-convention-guidance"></a>Dokumentera format och naming convention vägledning
+# <a name="document-formats-and-naming-convention-guidance"></a>Vägledning för dokument format och namngivnings konvention
 
-Alla filer som används för anpassade översättning måste vara minst **fyra** tecken långt.
+Alla filer som används för anpassad översättning måste vara minst **fyra** tecken långa.
 
-Den här tabellen innehåller alla filformat som stöds som du kan använda för att skapa din översättningssystemet:
+Den här tabellen innehåller alla fil format som stöds och som du kan använda för att bygga ditt översättnings system:
 
 | Format            | Tillägg   | Beskrivning                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| XLIFF             | .XLF, .XLIFF | En parallell dokumentformat, export av översättningsminnen system. De språk som används definieras i filen.                                                                                                                                                              |
-| TMX               | .TMX         | En parallell dokumentformat, export av översättningsminnen system. De språk som används definieras i filen.                                                                                                                                                              |
-| ZIP               | .ZIP         | ZIP är ett arkivfilformat.                                                                                                                                                                                                        |
-| Locstudio         | .LCL         | Ett Microsoft-format för parallell dokument                                                                                                                                                                                                                                      |
+| XLIFF             | . XLF, . XLIFF | Ett parallellt dokument format, export av översättnings minnes system. De språk som används definieras i filen.                                                                                                                                                              |
+| TMX               | .TMX         | Ett parallellt dokument format, export av översättnings minnes system. De språk som används definieras i filen.                                                                                                                                                              |
+| KOMPRIMERA               | .ZIP         | ZIP är ett Arkiv fil format.                                                                                                                                                                                                        |
+| Locstudio         | .LCL         | Ett Microsoft-format för parallella dokument                                                                                                                                                                                                                                      |
 | Microsoft Word    | .DOCX        | Microsoft Word-dokument                                                                                                                                                                                                                                                        |
-| Adobe Acrobat     | .PDF         | Adobe Acrobat bärbar dokumentet                                                                                                                                                                                                                                                |
+| Adobe Acrobat     | .PDF         | Adobe Acrobat Portable-dokument                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | HTML-dokument                                                                                                                                                                                                                                                                  |
-| Textfil         | .TXT         | UTF-16- eller UTF-8-kodade textfiler. Filnamnet får inte innehålla japanska tecken.                                                                                                                                                                                        |
-| Justerade textfil | .ALIGN       | Tillägget `.ALIGN` är ett särskilt tillägg som du kan använda om du vet att meningar i dokumentet paret perfekt justerad. Om du anger en `.ALIGN` fil, anpassade Translator inte anpassas meningarna åt dig. |
-| Excel-fil        | .XLSX        | Excel-fil (2013 eller senare). Första raden / raden i kalkylbladet bör vara språkkod.                                                                                                                                                                                                                                                      |
+| Textfil         | .TXT         | UTF-16-eller UTF-8-kodade textfiler. Fil namnet får inte innehålla japanska tecken.                                                                                                                                                                                        |
+| Justerad textfil | .ALIGN       | Tillägget `.ALIGN` är ett särskilt tillägg som du kan använda om du vet att meningarna i dokument paret är perfekt justerade. Om du anger en `.ALIGN` fil kommer den anpassade översättaren inte att justera meningarna åt dig. |
+| Excel-fil        | .XLSX        | Excel-fil (2013 eller senare). Första raden/raden i kalkyl bladet ska vara språkkod.                                                                                                                                                                                                                                                      |
 
-## <a name="dictionary-formats"></a>Ordlista format
+## <a name="dictionary-formats"></a>Ord lista format
 
-Ordlistor stöder anpassade Translator alla filformat som stöds för att träna uppsättningar. Om du använder en Excel-ordlista, den första raden / raden i kalkylbladet ska vara språkkoder.
+För ord listor stöder anpassad översättare alla fil format som stöds för inlärnings uppsättningar. Om du använder en Excel-ordlista ska den första raden/raden i kalkyl bladet vara språk koder.
 
-## <a name="zip-file-formats"></a>ZIP-filformat
+## <a name="zip-file-formats"></a>Zip-filformat
 
-Dokument kan grupperas i en enda zip-fil och laddat upp. Anpassad Translator stöder zip-format (ZIP GZ och TGZ).
+Dokument kan grupperas i en enda zip-fil och överföras. Den anpassade översättare stöder zip-filformat (ZIP, GZ och TGZ).
 
-Varje dokument i zip-filen med tillägget TXT, HTML, HTM, PDF, DOCX, JUSTERA måste följande namnkonvention:
+Varje dokument i zip-filen med fil namns tillägget TXT, HTML, HTM, PDF, DOCX måste följa denna namngivnings konvention:
 
-{dokumentnamn} \_{språkkod} där {dokumentnamn} är namnet på dokumentet, {språkkod} är ISO LanguageID (två tecken), som anger att dokumentet innehåller meningar på det språket. Det måste finnas ett understreck (_) innan språkkoden.
+{dokument namn} \_{språkkod} där {Document Name} är namnet på ditt dokument, {language Code} är ISO-LanguageID (två tecken), vilket indikerar att dokumentet innehåller meningar på det språket. Det måste finnas ett under streck (_) före språk koden.
 
-Till exempel för att ladda upp två parallella dokumenten i en zip för en engelska till spanska system ska filerna ha namnet ”data_en” och ”data_es”.
+Om du till exempel vill överföra två parallella dokument i ett zip för ett engelskt till spanska-system, ska filerna ha namnet "data_en" och "data_es".
 
-Minne översättningsfiler (TMX, XLF, XLIFF, LCL, XLSX) behöver inte följa namngivningskonventionen, specifikt språk.  
+Översättning av minnesobjektet (TMX, XLF, XLIFF, LCL, XLSX) krävs inte för att följa den specifika språk namngivnings konventionen.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om den [projekt](workspace-and-project.md#what-is-a-custom-translator-project) att skapa och hantera dem.
+- Läs om [projektet](workspace-and-project.md#what-is-a-custom-translator-project) för att skapa och hantera dem.

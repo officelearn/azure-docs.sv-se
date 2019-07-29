@@ -3,19 +3,17 @@ title: Självstudie – Skapa en programgateway med webbadressbaserad omdirigeri
 description: I den här självstudien lär du dig hur du skapar en programgateway med webbadressbaserad omdirigering av trafiken i Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 7/30/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e0b7995a8234ddb5927c4ef3e1ddd31fab9a00b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8453c236f83c4501587789e96545599f1e976eea
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233106"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608053"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Självstudier: Skapa en programgateway med webbadressbaserad omdirigering i Azure CLI
 
@@ -39,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -72,7 +70,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
@@ -87,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Lägga till standardmappning för webbadressen
 
-Med adressmappningar ser du till att specifika webbadresser dirigeras till specifika serverdelspooler. Du kan skapa webbadressmappningarna *imagePathRule* och *videoPathRule* med [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) och [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
+URL-sökvägar se till att vissa URL: er dirigeras till vissa backend-pooler. Du kan skapa webbadressmappningarna *imagePathRule* och *videoPathRule* med [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) och [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -283,7 +283,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. T.ex, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, eller `http://40.121.222.19:8081/images/test.htm`.
+Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm` `http://40.121.222.19:8081/images/test.htm`, ,eller.`http://40.121.222.19:8080/video/test.htm`
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -295,22 +295,22 @@ az network public-ip show \
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Ändra webbadressen till http://&lt;ip-adress&gt;:8080/images/test.htm och använd din IP-adress istället för &lt;ip-adress&gt;. Du bör se någonting som liknar följande exempel:
+Ändra URL: en till&lt;http://IP-&gt;Address: 8080/images/test.html, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Ändra webbadressen till http://&lt;ip-adress&gt;:8080/video/test.htm och använd din IP-adress istället för &lt;ip-adress&gt;. Du bör se någonting som liknar följande exempel:
+Ändra URL: en till&lt;http://IP-&gt;Address: 8080/video/test.html, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
 
 ![Testa videoadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Ändra webbadressen till http://&lt;ip-adress&gt;:8081/images/test.htm och använd din IP-adress istället för &lt;ip-adress&gt;. Du bör se att trafiken dirigeras om till serverdelspoolen för bilder på http://&lt;ip-adress&gt;:8080/images.
+Ändra nu URL: en till http://&lt;IP-address&gt;: 8081/images/test.htm, Ersätt IP-adressen för &lt;IP-adress&gt;och du bör se trafik som omdirigeras tillbaka till avbildningens backend-pool på http://&lt;IP-adress&gt;: 8080/images.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du inte behöver dem längre tar du bort resursgruppen, programgatewayen och alla relaterade resurser.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Translator Text API språk metod
-titlesuffix: Azure Cognitive Services
+title: Metod för Translator Text API språk
+titleSuffix: Azure Cognitive Services
 description: Använd metoden Translator Text API språk.
 services: cognitive-services
 author: swmachan
@@ -10,72 +10,72 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 7bac97b7edbfa0f7a03a65e462106b33160c6d1a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c5298c038f056942ddc754482cbf4ec8cd77b48b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435086"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595024"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Språk
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3,0: Languages
 
-Hämtar antal språk som stöds för närvarande av andra åtgärder för Translator Text API. 
+Hämtar de språk som för närvarande stöds av andra åtgärder i Translator Text API. 
 
 ## <a name="request-url"></a>URL för begäran
 
-Skicka en `GET` begäran om att:
+Skicka en `GET` begäran till:
 ```HTTP
 https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ```
 
 ## <a name="request-parameters"></a>Begäranparametrar
 
-Parametrarna som skickades mot frågesträngen är:
+Parametrarna för begäran som skickades till frågesträngen är:
 
 <table width="100%">
   <th width="20%">Frågeparameter</th>
   <th>Beskrivning</th>
   <tr>
     <td>API-versionen</td>
-    <td><em>Obligatoriska parametern</em>.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara `3.0`.</td>
+    <td><em>Obligatorisk parameter</em>.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`.</td>
   </tr>
   <tr>
     <td>scope</td>
-    <td>*Valfri parameter*.<br/>En kommaavgränsad lista med namn som definierar gruppen med språk som ska returneras. Tillåtna namn är: `translation`, `transliteration` och `dictionary`. Om ingen omfattning ges så returneras alla grupper, vilket motsvarar skicka `scope=translation,transliteration,dictionary`. För att bestämma vilken uppsättning språk som stöds är lämpliga för ditt scenario, finns i beskrivningen av den [svarsobjekt](#response-body).</td>
+    <td>*Valfri parameter*.<br/>En kommaavgränsad lista med namn som definierar den grupp av språk som ska returneras. Tillåtna grupp namn är: `translation`, `transliteration` och `dictionary`. Om ingen omfattning anges returneras alla grupper, vilket motsvarar att skicka `scope=translation,transliteration,dictionary`. Information om vilka språk som stöds är lämpliga för ditt scenario genom att se beskrivningen av [objektet Response](#response-body).</td>
   </tr>
 </table> 
 
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
-    <td>Accept-Language</td>
-    <td>*Begärandehuvud i valfritt*.<br/>Språket som ska användas för användargränssnittssträngar. Vissa av fälten i svaret är namnen på språk eller namnen på regioner. Använd den här parametern för att ange språket där dessa namn returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.<br/>Namn tillhandahålls på engelska när ett målspråk inte har angetts eller när lokalisering inte är tillgänglig.
+    <td>Acceptera-språk</td>
+    <td>*Valfritt huvud för begäran*.<br/>Språket som ska användas för användargränssnittssträngar. Några av fälten i svaret är namn på språk eller namn på regioner. Använd den här parametern för att definiera språket som namnen returneras i. Språket anges genom att tillhandahålla en välformulerad BCP 47-språktagg. Använd exempelvis värdet `fr` för att begära namn på franska eller Använd värdet `zh-Hant` för att begära namn på traditionell kinesiska.<br/>Namn anges på det engelska språket när ett mål språk inte anges eller när lokalisering inte är tillgängligt.
     </td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Begärandehuvud i valfritt*.<br/>En klientgenererade GUID för unik identifiering på begäran.</td>
+    <td>*Valfritt huvud för begäran*.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran.</td>
   </tr>
 </table> 
 
-Autentisering är inte nödvändigt att hämta språkresurser.
+Autentisering krävs inte för att hämta språk resurser.
 
-## <a name="response-body"></a>Svarstext
+## <a name="response-body"></a>Svars text
 
-En klient använder de `scope` frågeparameter för att definiera vilka grupper av språk som den är intresserad av.
+En klient använder `scope` Frågeparametern för att definiera vilka grupper av språk som den är intresse rad av.
 
-* `scope=translation` tillhandahåller språk som stöds för att översätta text från ett språk till ett annat språk.
+* `scope=translation`tillhandahåller språk som stöds för att översätta text från ett språk till ett annat språk.
 
-* `scope=transliteration` tillhandahåller funktioner för att konvertera text på ett språk från ett skript till ett annat skript;
+* `scope=transliteration`tillhandahåller funktioner för att konvertera text på ett språk från ett skript till ett annat skript.
 
-* `scope=dictionary` innehåller språkpar som `Dictionary` åtgärder att returnera data.
+* `scope=dictionary`innehåller språk par för vilka `Dictionary` åtgärder returnerar data.
 
-En klient kan hämta flera grupper samtidigt genom att ange en kommaavgränsad lista med namn. Till exempel `scope=translation,transliteration,dictionary` returnerar språk som stöds för alla grupper.
+En klient kan hämta flera grupper samtidigt genom att ange en kommaavgränsad lista med namn. `scope=translation,transliteration,dictionary` Skulle till exempel kunna returnera språk som stöds för alla grupper.
 
-Ett lyckat svar är ett JSON-objekt med en egenskap för varje begärda grupp:
+Ett lyckat svar är ett JSON-objekt med en egenskap för varje begärd grupp:
 
 ```json
 {
@@ -91,17 +91,17 @@ Ett lyckat svar är ett JSON-objekt med en egenskap för varje begärda grupp:
 }
 ```
 
-Värdet för varje egenskap är som följer.
+Värdet för varje egenskap är följande.
 
-* `translation` Egenskapen
+* `translation`immaterialrätt
 
-  Värdet för den `translation` egenskapen är en ordlista med (nyckel, värde) par. Varje nyckel är en BCP-47 som språktagg. En nyckel identifierar ett språk som text kan översättas till eller översättas från. Värdet kopplat till nyckeln är en JSON-objekt med egenskaper som beskriver språket:
+  `translation` Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. En nyckel identifierar ett språk för vilken text kan översättas till eller översättas från. Värdet som är kopplat till nyckeln är ett JSON-objekt med egenskaper som beskriver språket:
 
-  * `name`: Visningsnamnet för språket på det språk som begärs `Accept-Language` rubrik.
+  * `name`: Visnings namn för språket i det språk som begärs `Accept-Language` via rubrik.
 
-  * `nativeName`: Visningsnamnet för språket på språket som är interna för det här språket.
+  * `nativeName`: Visnings namnet för språket i det språkspecifika språket för det här språket.
 
-  * `dir`: Riktningen, vilket är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
+  * `dir`: Riktning, som är `rtl` för höger-till-vänster-språk eller `ltr` för vänster-till-höger-språk.
 
   Ett exempel är:
           
@@ -119,25 +119,25 @@ Värdet för varje egenskap är som följer.
   }
   ```
 
-* `transliteration` Egenskapen
+* `transliteration`immaterialrätt
 
-  Värdet för den `transliteration` egenskapen är en ordlista med (nyckel, värde) par. Varje nyckel är en BCP-47 som språktagg. En nyckel identifierar ett språk som text kan konverteras från ett skript till ett annat skript. Värdet kopplat till nyckeln är en JSON-objekt med egenskaper som beskriver språket och dess stöds skript:
+  `transliteration` Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. En nyckel identifierar ett språk för vilken text kan konverteras från ett skript till ett annat skript. Värdet som är kopplat till nyckeln är ett JSON-objekt med egenskaper som beskriver språket och skript som stöds:
 
-  * `name`: Visningsnamnet för språket på det språk som begärs `Accept-Language` rubrik.
+  * `name`: Visnings namn för språket i det språk som begärs `Accept-Language` via rubrik.
 
-  * `nativeName`: Visningsnamnet för språket på språket som är interna för det här språket.
+  * `nativeName`: Visnings namnet för språket i det språkspecifika språket för det här språket.
 
-  * `scripts`: Lista över skript för att konvertera från. Varje element i den `scripts` listan har egenskaper:
+  * `scripts`: Lista över skript som ska konverteras från. Varje element i `scripts` listan har egenskaper:
 
     * `code`: Kod som identifierar skriptet.
 
-    * `name`: Visningsnamnet för skriptet på det språk som begärs `Accept-Language` rubrik.
+    * `name`: Visnings namnet för skriptet i det språk som begärs `Accept-Language` via rubrik.
 
-    * `nativeName`: Visningsnamn för språket som visas på språket som är interna för språket.
+    * `nativeName`: Visnings namnet för språket i det språkspecifika språket för språket.
 
-    * `dir`: Riktningen, vilket är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
+    * `dir`: Riktning, som är `rtl` för höger-till-vänster-språk eller `ltr` för vänster-till-höger-språk.
 
-    * `toScripts`: Lista över skript som är tillgängliga för att omvandla text till. Varje element i den `toScripts` listan har egenskaper `code`, `name`, `nativeName`, och `dir` enligt beskrivningen ovan.
+    * `toScripts`: Lista över skript som är tillgängliga för att konvertera text till. `toScripts` Varje element i listan har egenskaper `name` `code`,, `nativeName`och `dir` enligt beskrivningen ovan.
 
   Ett exempel är:
 
@@ -184,25 +184,25 @@ Värdet för varje egenskap är som följer.
   }
   ```
 
-* `dictionary` Egenskapen
+* `dictionary`immaterialrätt
 
-  Värdet för den `dictionary` egenskapen är en ordlista med (nyckel, värde) par. Varje nyckel är en BCP-47 som språktagg. Nyckeln identifierar ett språk som alternativa översättningar och tillbaka översättningar som är tillgängliga. Värdet är ett JSON-objekt som beskriver en källspråket och mål-språk med tillgängliga översättningar:
+  `dictionary` Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. Nyckeln identifierar ett språk som alternativa översättningar och tillbaka översättningar är tillgängliga för. Värdet är ett JSON-objekt som beskriver käll språket och mål språken med tillgängliga översättningar:
 
-  * `name`: Visningsnamnet för källspråk på det språk som begärs `Accept-Language` rubrik.
+  * `name`: Visnings namnet för käll språket i det språk som begärdes `Accept-Language` via rubrik.
 
-  * `nativeName`: Visningsnamnet för språket på språket som är interna för det här språket.
+  * `nativeName`: Visnings namnet för språket i det språkspecifika språket för det här språket.
 
-  * `dir`: Riktningen, vilket är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
+  * `dir`: Riktning, som är `rtl` för höger-till-vänster-språk eller `ltr` för vänster-till-höger-språk.
 
-  * `translations`: Lista med alternativt översättningar och exempel för frågan som uttrycks i källspråket. Varje element i den `translations` listan har egenskaper:
+  * `translations`: Lista över språk med alterative-översättningar och exempel för frågan uttryckt i käll språket. Varje element i `translations` listan har egenskaper:
 
-    * `name`: Visningsnamnet för målspråk på det språk som begärs `Accept-Language` rubrik.
+    * `name`: Visnings namnet på mål språket i språkvarianten som begärs via `Accept-Language` rubrik.
 
-    * `nativeName`: Visningsnamn för målspråket på språket som är interna för mål-språk.
+    * `nativeName`: Visnings namnet på mål språket i det språkspecifika språket för mål språket.
 
-    * `dir`: Riktningen, vilket är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
+    * `dir`: Riktning, som är `rtl` för höger-till-vänster-språk eller `ltr` för vänster-till-höger-språk.
     
-    * `code`: Språkkoden som identifierar målspråket.
+    * `code`: Språk koden identifierar mål språket.
 
   Ett exempel är:
 
@@ -222,29 +222,29 @@ Värdet för varje egenskap är som följer.
   },
   ```
 
-Strukturen för objektet response ändras inte utan en ändring i API-versionen. För samma version av API: et, kan en lista med tillgängliga språk ändras över tid eftersom Microsoft Translator kontinuerligt utökar listan över språk som stöds av dess tjänster.
+Objektets struktur ändras inte utan en ändring i API-versionen. I samma version av API: t kan listan över tillgängliga språk ändras över tid eftersom Microsoft Translator kontinuerligt utökar listan över språk som stöds av tjänsterna.
 
-Listan över språk som stöds kommer inte ändras ofta. Spara nätverksbandbredd och förbättra svarstiden genom ett klientprogram bör cachelagring språkresurser och motsvarande enhetstagg (`ETag`). Sedan klientprogrammet kan med jämna mellanrum (till exempel en gång per dygn) skicka frågor till tjänsten för att hämta den senaste uppsättningen språk som stöds. Skicka aktuellt `ETag` värde i en `If-None-Match` huvudfältet gör att tjänsten för att optimera svaret. Om resursen inte har ändrats, returnerar tjänsten statuskod 304 och en tom svarstext.
+Listan över språk som stöds kommer inte att ändras ofta. Om du vill spara nätverks bandbredden och förbättra svars tiden bör ett klient program överväga att cachelagra språk resurser och motsvarande`ETag`enhets tag gen (). Sedan kan klient programmet regelbundet (till exempel en gång var 24: e timme) fråga tjänsten för att hämta den senaste uppsättningen språk som stöds. Om du skickar `ETag` det aktuella värdet `If-None-Match` i ett rubrik fält kan tjänsten optimera svaret. Om resursen inte har ändrats returnerar tjänsten status kod 304 och en tom svars text.
 
-## <a name="response-headers"></a>Svarshuvuden
+## <a name="response-headers"></a>Svarshuvud
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
     <td>eTag</td>
-    <td>Aktuella värdet för entitetstagg för de begärda grupperna med språk som stöds. Om du vill göra efterföljande förfrågningar effektivare klienten kan skicka den `ETag` värde i en `If-None-Match` huvudfältet.
+    <td>Aktuellt värde för enhets tag gen för de begärda språken som stöds. För att göra efterföljande begär Anden mer effektiva kan klienten skicka `ETag` värdet i ett `If-None-Match` rubrik fält.
     </td>
   </tr>
   <tr>
     <td>X-RequestId</td>
-    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används för felsökning.</td>
+    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används i fel söknings syfte.</td>
   </tr>
 </table> 
 
-## <a name="response-status-codes"></a>Svarsstatuskoder
+## <a name="response-status-codes"></a>Svars status koder
 
-Här följer möjliga HTTP-statuskoder som returnerar en begäran. 
+Följande är de möjliga HTTP-statuskod som en begäran returnerar. 
 
 <table width="100%">
   <th width="20%">Statuskod</th>
@@ -255,33 +255,33 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
   </tr>
   <tr>
     <td>304</td>
-    <td>Resursen har inte ändrats sedan den versionen som anges av begärandehuvuden `If-None-Match`.</td>
+    <td>Resursen har inte ändrats sedan den version som angavs av begärandehuvuden `If-None-Match`.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>En av frågeparametrarna är saknas eller är inte giltig. Korrigera parametrarna innan du försöker igen.</td>
+    <td>En av frågeparametrar saknas eller är ogiltig. Korrigera parametrarna för begäran innan du försöker igen.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>Servern avvisade begäran eftersom klienten har överskridit begärandebegränsningar.</td>
+    <td>Servern avvisade begäran på grund av att klienten har överskridit gränsen för begäran.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Det uppstod ett oväntat fel. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud `X-RequestId`, och klient-ID från begärandehuvudet `X-ClientTraceId`.</td>
+    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet `X-RequestId`och klient-ID: n från begär ande huvudet. `X-ClientTraceId`</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud `X-RequestId`, och klient-ID från begärandehuvudet `X-ClientTraceId`.</td>
+    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet `X-RequestId`och klient-ID: n från begär ande huvudet. `X-ClientTraceId`</td>
   </tr>
 </table> 
 
-Om ett fel inträffar, returneras också en JSON-felsvar i begäran. Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av ett 3-siffriga tal till ytterligare kategorisera felet. Vanliga felkoder finns på den [v3 Translator Text API-referenssida](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3-Translator text API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas hur du hämtar språk som stöds för textöversättning.
+I följande exempel visas hur du hämtar språk som stöds för text översättning.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[klammerparentes](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

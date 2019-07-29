@@ -1,7 +1,7 @@
 ---
-title: 'Omvandla text: Translator Text API'
-titlesuffix: Azure Cognitive Services
-description: Omvandla text med Translator Text API.
+title: Transformera text – Translator Text API
+titleSuffix: Azure Cognitive Services
+description: Transformera text med hjälp av Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 5caefad7b681970e79e727367619ca494335c390
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435011"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594907"
 ---
-# <a name="how-to-use-the-transformtext-method"></a>Hur du använder metoden TransformText
+# <a name="how-to-use-the-transformtext-method"></a>Använda metoden TransformText
 
 > [!NOTE]
-> Den här metoden är inaktuell. Det är inte tillgängliga i version 3.0 av Translator Text API.
+> Den här metoden är föråldrad. Den är inte tillgänglig i V 3.0 för Translator Text API.
 
-Metoden TransformText är en funktion för normalisering av text för sociala medier, som returnerar en normaliserad form av indata. Metoden kan användas som ett förbearbetning steg i maskinöversättning eller andra program som förväntar sig ren indatatext som inte finns vanligtvis i sociala medier eller användargenererat innehåll. Funktionen fungerar för närvarande bara på engelska indata.
+Metoden TransformText är en text normaliserings funktion för sociala medier, som returnerar en normaliserad form av indatamängden. Metoden kan användas som ett förbehandlings steg i dator översättning eller andra program som förväntar sig en ren indata-text som vanligt vis inte finns i sociala medier eller innehåll som skapats av användare. Funktionen fungerar för närvarande endast med engelska ingångar.
 
-Metoden är en RESTful-tjänst med hjälp av GET via HTTP. Det stöder enkel XML- och JSON-serialisering.
+Metoden är en RESTful-tjänst som använder GET över HTTP. Det stöder enkel XML-och JSON-serialisering.
 
 ## <a name="parameters"></a>Parametrar
 
 | Parameter | Beskrivning |
 |:---|:---|
-| Auktoriseringsrubrik | **Krävs** HTTP-huvud som används för att identifiera programmet. Använd nyckeln: ”Authorization” och värdet: ”Ägar” + ”” + åtkomst-token. Gå hit för mer information.|
-| language | **Krävs** en sträng som representerar språkkoden. Den här parametern stöder endast på engelska med **en** som språkets namn.|
-| category | **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet **Allmänt**.|
-| mening | **Krävs** en mening som du vill korrigera. |
+| Auktoriseringsrubrik | **Krävs** HTTP-huvud som används för att identifiera programmet. Använd nyckel: "Auktorisering" och värde: "Bearer" + "" + Access token. Mer information finns här.|
+| language | **Krävs** En sträng som representerar språk koden. Den här parametern stöder endast engelska med **en** som språk namn.|
+| category | **Valfritt** En sträng som innehåller översättningens kategori eller domän. Den här parametern stöder endast standard alternativet **Allmänt**.|
+| fras | **Krävs** En mening som du vill korrigera. |
 
 ## <a name="return-value"></a>Returvärde
 
-Returvärdet innehåller omvandlade meningen.
+Returvärdet innehåller den transformerade meningen.
 
 > [!div class="tabbedCodeSnippets"]
 > ```json

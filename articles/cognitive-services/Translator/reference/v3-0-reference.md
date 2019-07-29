@@ -1,7 +1,7 @@
 ---
-title: Referens för Translator Text API-version 3.0
-titlesuffix: Azure Cognitive Services
-description: Referensdokumentation för Translator Text API V3.0.
+title: Translator Text API V 3.0-referens
+titleSuffix: Azure Cognitive Services
+description: Referens dokumentation för Translator Text API V 3.0.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,40 +10,40 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868400"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595004"
 ---
-# <a name="translator-text-api-v30"></a>Translator Text API v3.0
+# <a name="translator-text-api-v30"></a>Translator Text API v 3.0
 
 ## <a name="whats-new"></a>Nyheter
 
-Version 3 av Translator Text API innehåller ett moderna JSON-baserade webb-API. Det förbättrar användbarhet och prestanda genom att konsolidera befintliga funktioner i färre åtgärder och innehåller nya funktioner.
+Version 3 av Translator Text API tillhandahåller ett modernt JSON-baserat webb-API. Det förbättrar användbarhet och prestanda genom att konsolidera befintliga funktioner i färre operationer och den innehåller nya funktioner.
 
- * Transkriberingsspråk att konvertera text på ett språk från ett skript till ett annat skript.
- * Översättning för flera språk i en begäran.
- * Språkidentifiering, översättning och transkriberingsspråk i en begäran.
- * Ordlista till alternativa översättningar för sökning av en period, att hitta tillbaka översättningar och exempel som visar termer som används i kontexten.
- * Mer informativt resultat för språk-identifiering.
+ * Transkriberingsspråk att konvertera text på ett språk från ett skript till ett annat.
+ * Översättning till flera språk i en begäran.
+ * Språk identifiering, översättning och transkriberingsspråk i en begäran.
+ * Ord lista för att söka efter alternativa översättningar av en term, för att hitta tillbaka – översättningar och exempel som visar termer som används i sammanhang.
+ * Fler informativa språk identifierings resultat.
 
-## <a name="base-urls"></a>Grundläggande URL: er
+## <a name="base-urls"></a>Bas-URL: er
 
-Microsoft Translator hanteras från flera datacenter-platser. För närvarande de befinner sig i 10 [geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator hanteras av flera data Center platser. De finns för närvarande i 10 [Azure-geografiska](https://azure.microsoft.com/global-infrastructure/regions)områden:
 
-* **Americas:** Östra USA, södra centrala USA, västra centrala USA och västra USA 2 
-* **Asien/Stillahavsområdet:** Södra Korea, östra Japan, Sydostasien och Östra Australien
-* **Europa:** Norra Europa och västra Europa
+* **Amerika** Östra USA, södra centrala USA, västra centrala USA och västra USA 2 
+* **Asien och stillahavsområdet:** Södra Korea, Östra Japan, Sydostasien och östra Australien
+* **Östeuropa** Nord Europa och Västeuropa
 
-Förfrågningar till Microsoft Translator Text API är oftast hanteras av datacentret som är närmast som begäran kom från. Om ett fel uppstår i datacenter, kan begäran skickas utanför Azure geografiska plats.
+Begär anden till Microsoft-Translator Text API hanteras i de flesta fall av data centret som är närmast den plats där begäran kommer. Om ett Data Center haveri skulle Miss lyckas kan begäran dirigeras utanför Azure-geografien.
 
-Om du vill tvinga begäran som ska hanteras av ett visst Azure geografiskt område, ändrar du Global slutpunkt i API-begäran till den önskade regionala slutpunkten:
+Om du vill tvinga begäran att hanteras av ett visst Azure-geografi ändrar du den globala slut punkten i API-begäran till önskad regional slut punkt:
 
-|Beskrivning|Azure geografi|Bas-URL|
+|Beskrivning|Azure geografi|Grundläggande URL|
 |:--|:--|:--|
-|Azure|Global (icke-regionalt)|   api.cognitive.microsofttranslator.com|
+|Azure|Global (icke-regional)|   api.cognitive.microsofttranslator.com|
 |Azure|USA|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asien och stillahavsområdet|    api-apc.cognitive.microsofttranslator.com|
@@ -51,27 +51,27 @@ Om du vill tvinga begäran som ska hanteras av ett visst Azure geografiskt områ
 
 ## <a name="authentication"></a>Authentication
 
-Prenumererar på Translator Text API eller [flera-tjänsten för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) i Microsoft Cognitive Services och använda din prenumeration tangent (tillgängligt i Azure-portalen) för att autentisera. 
+Prenumerera på Translator Text API eller [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) i Microsoft Cognitive Services och Använd din prenumerations nyckel (tillgänglig i Azure Portal) för att autentisera. 
 
-Det finns tre rubriker som du kan använda för att autentisera din prenumeration. Den här tabellen innehåller beskriver hur var och en används:
+Det finns tre huvuden som du kan använda för att autentisera din prenumeration. Den här tabellen innehåller information om hur varje används:
 
-|Rubriker|Beskrivning|
+|Huvuden|Beskrivning|
 |:----|:----|
-|OCP-Apim-Subscription-Key|*Använd med Cognitive Services-prenumeration om du skickar din hemliga nyckel*.<br/>Värdet är Azure hemlig nyckel för din prenumeration till Translator Text API.|
-|Authorization|*Använd med Cognitive Services-prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är ägartoken: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Använd med flera tjänster Cognitive Services-prenumeration om du skickar en flera tjänster hemlig nyckel.*<br/>Värdet är regionen för flera tjänster prenumerationen. Det här värdet är valfritt när du inte använder en prenumeration på flera tjänster.|
+|OCP-Apim-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
+|Authorization|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*Använd med Cognitive Services multi-service-prenumeration om du skickar en hemlig nyckel för flera tjänster.*<br/>Värdet är regionen för multi-service-prenumerationen. Det här värdet är valfritt när du inte använder en prenumeration på flera tjänster.|
 
 ###  <a name="secret-key"></a>Hemlig nyckel
-Det första alternativet är att autentisera med hjälp av den `Ocp-Apim-Subscription-Key` rubrik. Lägg bara till den `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` rubrik på din begäran.
+Det första alternativet är att autentisera med hjälp `Ocp-Apim-Subscription-Key` av-huvudet. Lägg bara till `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` rubriken i din begäran.
 
 ### <a name="authorization-token"></a>Autentiseringstoken
-Du kan också byta en hemlig nyckel för en åtkomsttoken. Denna token som ingår i varje begäran som den `Authorization` rubrik. Om du vill ha en autentiseringstoken, göra en `POST` begäran till följande URL:
+Alternativt kan du byta hemlig nyckel för en åtkomsttoken. Denna token ingår i varje begäran som `Authorization` rubrik. Om du vill hämta en autentiseringstoken gör du `POST` en begäran till följande URL:
 
-| Miljö     | Tjänst-URL för autentisering                                |
+| Miljö     | URL för autentiseringstjänst                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
-Här följer exempel begäranden att hämta en token som en hemlig nyckel:
+Här är exempel begär Anden om att hämta en token som har fått en hemlig nyckel:
 
 ```
 // Pass secret key using header
@@ -81,40 +81,40 @@ curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cog
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
 
-En lyckad begäran returnerar den kodade åtkomst-token som oformaterad text i svarstexten. Som en ägartoken i tillståndet skickades till tjänsten Translator är en giltig token.
+En lyckad begäran returnerar kodad åtkomsttoken som oformaterad text i svars texten. En giltig token skickas till Translator-tjänsten som en Bearer-token i auktoriseringen.
 
 ```
 Authorization: Bearer <Base64-access_token>
 ```
 
-En autentiseringstoken är giltig i 10 minuter. Token ska återanvändas när flera anrop till Translator-API: er. Men om ditt program gör begäranden till Translator API under en längre tid, måste sedan programmet begära en ny åtkomsttoken med jämna mellanrum (t.ex. var 8: e minut).
+En autentiseringstoken är giltig i 10 minuter. Token ska användas igen när du gör flera anrop till Translator-API: erna. Men om programmet skickar begär anden till Translator-API under en längre tid måste programmet begära en ny åtkomsttoken med jämna mellanrum (t. ex. var 8: e minut).
 
-### <a name="multi-service-subscription"></a>Flera tjänster prenumeration
+### <a name="multi-service-subscription"></a>Prenumeration på flera tjänster
 
-Alternativet senaste autentisering är att använda en Cognitive Service flera tjänster prenumeration. På så sätt kan du använda en enda hemlig nyckel för att autentisera begäranden för flera tjänster. 
+Alternativet senaste autentisering är att använda en kognitiv tjänsts prenumeration på flera tjänster. På så sätt kan du använda en enskild hemlig nyckel för att autentisera begär Anden för flera tjänster. 
 
-När du använder en flera tjänster hemlig nyckel, måste du inkludera två autentiseringshuvuden din förfrågan. Först skickar den hemliga nyckeln, andra anger regionen som är associerade med prenumerationen. 
+När du använder en hemlig nyckel för flera tjänster måste du inkludera två autentiseringsscheman med din begäran. Den första skickar den hemliga nyckeln, den andra anger den region som är associerad med din prenumeration. 
 * `Ocp-Apim-Subscription-Key`
 * `Ocp-Apim-Subscription-Region`
 
-Region måste anges för flera tjänster Text API-prenumeration. Den region som du väljer är den enda regionen som du kan använda för textöversättning när du använder flera tjänster prenumerationsnyckeln och måste vara i samma region som du valde när du registrerat dig för prenumerationen flera tjänster via Azure portal.
+Region krävs för multi-service text API-prenumerationen. Den region du väljer är den enda region som du kan använda för text översättning när du använder prenumerations nyckeln för flera tjänster och måste vara samma region som du valde när du registrerade dig för din prenumeration på flera tjänster via Azure Portal.
 
-Regioner är tillgängliga `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, och `westus2`.
+Tillgängliga regioner är `australiaeast` `brazilsouth` ,`canadacentral` `centralindia` `centraluseuap` ,,`eastasia`,,,, ,,,`eastus2` `eastus` `japaneast` `northeurope` `southcentralus` `southeastasia` `uksouth`, ,`westcentralus` ,och`westus2`. `westeurope` `westus`
 
-Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key`, måste du ange regionen med Frågeparametern `Subscription-Region`.
+Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key`måste du ange regionen med `Subscription-Region`Frågeparametern.
 
-Om du använder en ägartoken, måste du skaffa en token från den region-slutpunkten: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Om du använder en Bearer-token måste du hämta token från region slut punkten `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`:.
 
 
 ## <a name="errors"></a>Fel
 
-Ett felsvar som standard är ett JSON-objekt med namn/värde-par med namnet `error`. Värdet är också ett JSON-objekt med egenskaper:
+Ett standard fel svar är ett JSON-objekt med namnet/värde- `error`paret med namnet. Värdet är också ett JSON-objekt med egenskaper:
 
-  * `code`: En server-definierade felkod.
+  * `code`: En server-definierad felkod.
 
-  * `message`: En sträng som ger en läsbara representation av felet.
+  * `message`: En sträng som ger en läslig representation av felet.
 
-Exempelvis skulle en kund med en kostnadsfri utvärderingsprenumeration får följande fel när den lediga kvoten är slut:
+Till exempel skulle en kund med en kostnads fri utvärderings prenumeration få följande fel när den kostnads fria kvoten har uppnåtts:
 
 ```
 {
@@ -124,46 +124,46 @@ Exempelvis skulle en kund med en kostnadsfri utvärderingsprenumeration får fö
     }
 }
 ```
-Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av ett 3-siffriga tal till ytterligare kategorisera felet. Vanliga felkoder finns:
+Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga fel koder är:
 
 | Kod | Beskrivning |
 |:----|:-----|
-| 400000| En begäran om indata är inte giltig.|
-| 400001| ”Omfång”-parametern är ogiltig.|
-| 400002| ”Kategori”-parametern är ogiltig.|
-| 400003| Ett språk Specificerare är ogiltig eller saknas.|
-| 400004| En target skriptet specificerare (”till” skript ”) är ogiltig eller saknas.|
-| 400005| En indata-text är ogiltig eller saknas.|
-| 400006| Kombinationen av språket och skriptet är inte giltig.|
-| 400018| En källa skriptet specificerare (”från” skript ”) är ogiltig eller saknas.|
-| 400019| En av det angivna språket stöds inte.|
-| 400020| Ett av elementen i matrisen med-indata är inte giltig.|
-| 400021| Parametern API-versionen är ogiltig eller saknas.|
-| 400023| En parets angivet språk är inte giltig.|
-| 400035| Källspråk (”från” fält) är inte giltig.|
-| 400036| Målspråk (”till” fält) är ogiltig eller saknas.|
-| 400042| Någon av följande alternativ för angivna (”alternativ”) är inte giltig.|
-| 400043| Klienten trace-ID (ClientTraceId fält eller rubrik för X-ClientTranceId) är ogiltig eller saknas.|
-| 400050| Indatatexten är för långt. Visa [begärandebegränsningar](../request-limits.md).|
-| 400064| Parametern ”översättning” är ogiltig eller saknas.|
-| 400070| Antalet mål skript (ToScript parameter) matchar inte target språk (för att parametern).|
+| 400000| En av begärda indata är inte giltiga.|
+| 400001| Parametern "scope" är ogiltig.|
+| 400002| Parametern "Category" är ogiltig.|
+| 400003| En språk specifikation saknas eller är ogiltig.|
+| 400004| En mål skripts specifikation ("till skript") saknas eller är ogiltig.|
+| 400005| En inmatad text saknas eller är ogiltig.|
+| 400006| Kombinationen av språk och skript är ogiltig.|
+| 400018| En identifierare för käll skript (från skript) saknas eller är ogiltig.|
+| 400019| Ett av de angivna språken stöds inte.|
+| 400020| Ett av elementen i matrisen med inmatad text är inte giltigt.|
+| 400021| Parametern för API-versionen saknas eller är ogiltig.|
+| 400023| Ett av de angivna språk paret är inte giltigt.|
+| 400035| Käll språket ("från"-fältet) är inte giltigt.|
+| 400036| Mål språket ("till"-fältet) saknas eller är ogiltigt.|
+| 400042| Ett av de angivna alternativen ("alternativ"-fältet) är inte giltigt.|
+| 400043| ID för klient spårning (ClientTraceId-fält eller X-ClientTranceId-huvud) saknas eller är ogiltigt.|
+| 400050| Inmatad text är för lång. Visa [begränsningar för förfrågningar](../request-limits.md).|
+| 400064| Parametern "översättning" saknas eller är ogiltig.|
+| 400070| Antalet mål skript (ToScript parameter) matchar inte antalet mål språk (till parameter).|
 | 400071| Värdet är inte giltigt för TextType.|
-| 400072| Matris med indata-text har för många element.|
-| 400073| Skript-parametern är inte giltig.|
-| 400074| Brödtexten i begäran är inte giltig JSON.|
-| 400075| Språk-par och kategori kombinationen är inte giltig.|
-| 400077| Den tillåtna storleken har överskridits. Visa [begärandebegränsningar](../request-limits.md).|
-| 400079| Den anpassade system som begärdes för översättning av från och till språk finns inte.|
-| 400080| Transkriberingsspråk finns inte stöd för språk eller skript.|
-| 401000| Begäran har inte behörighet eftersom autentiseringsuppgifterna är saknas eller är ogiltig.|
-| 401015| ”De angivna autentiseringsuppgifterna är för API för taligenkänning. Den här begäran kräver autentiseringsuppgifter för Text-API. Använd en prenumeration på Translator Text API ”.|
-| 403000| Åtgärden tillåts inte.|
-| 403001| Åtgärden tillåts inte eftersom prenumerationen har överskridit den lediga kvoten.|
-| 405000| Begärandemetoden stöds inte för den begärda resursen.|
-| 408001| Den översättningssystemet begärt förbereds. Försök igen om några minuter.|
-| 408002| Tiden att vänta på inkommande dataström. Klienten kunde inte skapa en begäran inom den tid som servern var inställd på att vänta. Klienten kan upprepa begäran utan ändringar vid ett senare tillfälle.|
-| 415000| Content-Type-huvud är ogiltig eller saknas.|
-| 429000, 429001, 429002| Servern avvisade begäran eftersom klienten har överskridit begärandebegränsningar.|
-| 500000| Det uppstod ett oväntat fel. Om felet kvarstår kan du rapportera det med datum/tid för fel, begär identifierare från svarshuvud X-RequestId och klient-ID från begärandehuvudet X-ClientTraceId.|
-| 503000| Tjänsten är otillgänglig. Försök igen. Om felet kvarstår kan du rapportera det med datum/tid för fel, begär identifierare från svarshuvud X-RequestId och klient-ID från begärandehuvudet X-ClientTraceId.|
+| 400072| Matrisen med inmatad text innehåller för många element.|
+| 400073| Skript parametern är inte giltig.|
+| 400074| Bröd texten i begäran är inte giltig JSON.|
+| 400075| Kombinationen av språk par och kategori är ogiltig.|
+| 400077| Maximal storlek för begäran har överskridits. Visa [begränsningar för förfrågningar](../request-limits.md).|
+| 400079| Det anpassade systemet som begärdes för översättning mellan från och till språk finns inte.|
+| 400080| Transkriberingsspråk stöds inte för språket eller skriptet.|
+| 401000| Begäran är inte auktoriserad eftersom autentiseringsuppgifterna saknas eller är ogiltiga.|
+| 401015| "De angivna autentiseringsuppgifterna är för Speech API. Den här begäran kräver autentiseringsuppgifter för text-API: et. Använd en prenumeration för att Translator Text API. "|
+| 403000| Åtgärden är inte tillåten.|
+| 403001| Åtgärden tillåts inte eftersom prenumerationen har överskridit den kostnads fria kvoten.|
+| 405000| Metoden Request stöds inte för den begärda resursen.|
+| 408001| Det begärda översättnings systemet förbereds. Försök igen om några minuter.|
+| 408002| Tids gränsen för begäran överskreds i väntan på inkommande data ström. Klienten genererade inte någon begäran inom den tid då servern var beredd på att vänta. Klienten kan upprepa begäran utan ändringar vid ett senare tillfälle.|
+| 415000| Content-Type-huvudet saknas eller är ogiltigt.|
+| 429000, 429001, 429002| Servern avvisade begäran på grund av att klienten har överskridit gränsen för begäran.|
+| 500000| Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med datum/tid för felet, begärande-ID från svars huvudet X-RequestId och klient-ID: n från begär ande huvudet X-ClientTraceId.|
+| 503000| Tjänsten är otillgänglig. Försök igen. Om felet kvarstår rapporterar du det med datum/tid för felet, begärande-ID från svars huvudet X-RequestId och klient-ID: n från begär ande huvudet X-ClientTraceId.|
 

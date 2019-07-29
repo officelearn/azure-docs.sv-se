@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: bccdcce52b9e62048d7eb307a4783abda0f9d17c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5122a5a88f5a0d67799930999236f2993bc43f8f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563166"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609755"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -123,7 +123,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Min LUIS-app fungerar igår men idag jag får 403-fel. Appen ändras inte. Hur jag för att åtgärda det?
-Efter den [instruktioner](#how-do-i-create-and-assign-a-luis-endpoint-key) i nästa vanliga frågor om att skapa en LUIS-slutpunktsnyckeln och tilldela den till appen. Du måste ändra HTTP-begäran till slutpunkten till [använder den nya slutpunktsnyckeln](luis-concept-keys.md#use-endpoint-key-in-query).
+Följ de här [anvisningarna](#how-do-i-create-and-assign-a-luis-endpoint-key) för att skapa en Luis-slutpunkt-nyckel och tilldela den till appen. Sedan måste du ändra klient programmets HTTP-begäran till slut punkten för att kunna [använda den nya slut punkts nyckeln](luis-concept-keys.md#use-endpoint-key-in-query). Om du har skapat en ny resurs i en annan region, ändrar du även HTTP-klientbegärans region.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Hur skyddar jag min LUIS-slutpunkt
 Se [skydda slutpunkten](luis-concept-security.md#securing-the-endpoint).

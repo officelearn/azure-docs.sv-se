@@ -1,54 +1,54 @@
 ---
-title: Vanliga frågor och svar - anpassade Translator
+title: Vanliga frågor – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Innehåller svar på vanliga frågor om anpassade Translator.
+description: Innehåller svar på vanliga frågor om den anpassade översättare.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 00921eeb9f966ed62d1a2d7605419432a9fa50f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 25b7e7015b32609356eb138c86fbe537a87a7a22
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443407"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595815"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-Den här artikeln innehåller svar på vanliga frågor och svar om [anpassad Translator](https://portal.customtranslator.azure.ai).
+Den här artikeln innehåller svar på vanliga frågor om [anpassad översättare](https://portal.customtranslator.azure.ai).
 
-## <a name="what-are-the-current-restrictions-in-custom-translator"></a>Vilka är de aktuella begränsningarna i anpassade Translator?
+## <a name="what-are-the-current-restrictions-in-custom-translator"></a>Vilka är de aktuella begränsningarna i anpassad översättare?
 
-Det finns begränsningar och gränser med avseende på filstorlek, modellinlärning och distribution av modeller. Tänk på dessa begränsningar när du konfigurerar utbildning för att skapa en modell i anpassade Translator.
+Det finns begränsningar och begränsningar avseende fil storlek, modell utbildning och modell distribution. Tänk på följande begränsningar när du konfigurerar din utbildning för att skapa en modell i en anpassad översättare.
 
-- Skickade filerna måste vara mindre än 100 MB i storlek.
-- Enspråkig data stöds inte.
+- Skickade filer måste vara mindre än 100 MB stora.
+- Monolingual-data stöds inte.
 
-## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>När bör jag begära distribution för en översättningssystemet som har tränats?
+## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>När ska jag begära distribution för ett översättnings system som har tränats?
 
-Det kan ta flera utbildningar att skapa den optimala översättningssystemet för ditt projekt. Du kanske vill prova att använda fler träningsdata eller mer noggrant filtrerade data om BLEU poäng och / eller testresultaten inte är nöjd. Du bör vara strikt och noggrann i designa din justering uppsättning och testet inställda, ska vara helt representativt terminologi och stil material som du vill översätta. Du kan vara mer fria i skapa dina utbildningsdata och experimentera med olika alternativ. Begär system distribution när du är nöjd med översättningarna i testresultaten system, har inga fler data att lägga till i utbildning för att förbättra tränade systemet och du vill komma åt den tränade modellen via API: er.
+Det kan ta flera utbildningar att skapa det optimala översättnings systemet för ditt projekt. Du kanske vill prova att använda fler utbildnings data eller mer noggrant filtrerade data, om BLEU Poäng och/eller test resultaten inte är tillfredsställande. Du bör vara strikt och noggrann när du utformar din inställnings uppsättning och din test uppsättning för att vara helt representativ för terminologin och stilen för det material som du vill översätta. Du kan vara mer fria från att skriva dina utbildnings data och experimentera med olika alternativ. Begär en system distribution när du är nöjd med översättningarna i systemets test resultat, har inga mer data att lägga till i utbildningen för att förbättra det utbildade systemet och du vill ha åtkomst till den tränade modellen via API: er.
 
-## <a name="how-many-trained-systems-can-be-deployed-in-a-project"></a>Hur många tränade system kan distribueras i ett projekt?
+## <a name="how-many-trained-systems-can-be-deployed-in-a-project"></a>Hur många utbildade system kan distribueras i ett projekt?
 
-Endast en tränad system kan distribueras per projekt. Det kan ta flera utbildningar att skapa en lämplig översättningssystemet för ditt projekt och vi rekommenderar att du kan begära distribution av en utbildning som ger dig det bästa resultatet. Du kan fastställa kvaliteten på utbildningen BLEU poäng (högre är bättre), och med hjälp av med granskare innan du bestämmer dig att översättningskvaliteten är lämplig för distribution.
+Endast ett intränat system kan distribueras per projekt. Det kan ta flera utbildningar att skapa ett lämpligt översättnings system för ditt projekt och vi rekommenderar att du begär distribution av en utbildning som ger dig det bästa resultatet. Du kan fastställa kvaliteten på utbildningen genom BLEU-poängen (högre är bättre) och genom att konsultera granskarna innan du bestämmer att översättningens kvalitet är lämplig för distribution.
 
-## <a name="when-can-i-expect-my-trainings-to-be-deployed"></a>När kan jag förvänta mig Mina kurser som ska distribueras
+## <a name="when-can-i-expect-my-trainings-to-be-deployed"></a>När kan jag vänta på att mina utbildningar ska distribueras?
 
-Distributionen tar vanligtvis mindre än en timme.
+Distributionen tar vanligt vis mindre än en timme.
 
-## <a name="how-do-you-access-a-deployed-system"></a>Hur kommer du åt en distribuerade system?
+## <a name="how-do-you-access-a-deployed-system"></a>Hur kommer du åt ett distribuerat system?
 
-Distribuerade system kan nås via Microsoft Translator Text API V3 genom att ange CategoryID. Mer information om Translator Text API finns i den [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) webbsidan.
+Distribuerade system kan nås via Microsoft Translator Text API v3 genom att ange kategori kategori. Mer information om Translator Text API hittar du på webb sidan [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
 
-## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Hur jag hoppa över justering och meningen som större om Mina data redan mening justerad?
+## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Hur gör jag för att hoppa över justerings-och menings brytningar om mina data redan är meningen?
 
-Anpassad Translator hoppar över mening justering och de senaste mening för TMX filer och textfiler med den `.align` tillägget. `.align` filer som ger användarna en möjlighet att hoppa över anpassade Translator mening större och justering process för de filer som är perfekt justerad och behöver ingen ytterligare bearbetning. Vi rekommenderar att du använder `.align` filnamnstillägget endast för filer som är perfekt justerad.
+Den anpassade översättaren hoppar över menings justering och menings brytningar för TMX-filer `.align` och text-filer med tillägget. `.align`filer ger användarna möjlighet att hoppa över en anpassad översättares mening och justerings process för de filer som är perfekt justerade och behöver ingen ytterligare bearbetning. Vi rekommenderar att `.align` du bara använder tillägget för filer som är perfekt justerade.
 
-Om antalet extraherade meningar inte matchar de två filerna med samma grundläggande namn, anpassade Translator fortfarande körs mening aligner `.align` filer.
+Om antalet extraherade meningar inte stämmer överens med de två filerna med samma bas namn, kommer den anpassade översättningen fortfarande att köra `.align` menings justeringen på filer.
 
-## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Jag försökte överföra min TMX, men den säger ”Dokumentbearbetning misslyckades”.
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Jag försökte ladda upp min TMX, men det säger att dokument bearbetningen misslyckades.
 
-Se till att TMX motsvarar TMX 1.4b-specifikationen på <https://www.gala-global.org/tmx-14b>.
+Se till att TMX överensstämmer med TMX 1.4 b-specifikationen på <https://www.gala-global.org/tmx-14b>.

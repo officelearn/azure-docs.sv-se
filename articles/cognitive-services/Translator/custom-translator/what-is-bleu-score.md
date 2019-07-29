@@ -1,36 +1,36 @@
 ---
-title: Vad är en BLEU poäng? – Anpassade Translator
+title: Vad är en BLEU Poäng? – Anpassade Translator
 titleSuffix: Azure Cognitive Services
-description: BLEU är ett mått på skillnaderna mellan en automatisk översättning och en eller flera mänskliga skapade referens översättningar av samma källa mening. Algoritmen BLEU jämför på varandra följande fraser för automatisk översättning med på varandra följande fraser det hittar i referens översättning och räknar antalet matchningar i ett viktat sätt.
+description: BLEU är ett mått på skillnaderna mellan en automatisk översättning och en eller flera referens översättningar som skapats av en person som skapats av samma käll mening. BLEU-algoritmen jämför upprepade fraser i den automatiska översättningen med de efterföljande fraserna som hittas i referens översättningen och räknar antalet matchningar i viktat mode.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
-ms.openlocfilehash: a77fd1a84c1ffc18a1e0c74000c72db5cdbb00e1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1993819ad227d7e9aa5ef899045e00447a6740b8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447383"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595411"
 ---
-# <a name="what-is-a-bleu-score"></a>Vad är en BLEU poäng?
+# <a name="what-is-a-bleu-score"></a>Vad är en BLEU Poäng?
 
-[BLEU (tvåspråkig utvärdering Understudy)](https://en.wikipedia.org/wiki/BLEU) är ett mått på skillnaderna mellan en automatisk översättning och en eller flera mänskliga skapade referens översättningar av samma källa mening.
+[Bleu (tvåspråkig Evaluation destudie)](https://en.wikipedia.org/wiki/BLEU) är ett mått på skillnaderna mellan en automatisk översättning och en eller flera referens översättningar som skapats av en person som skapats av samma käll mening.
 
-## <a name="scoring-process"></a>Riskpoängprocessen
+## <a name="scoring-process"></a>Bedömnings process
 
-Algoritmen BLEU jämför på varandra följande fraser för automatisk översättning med på varandra följande fraser det hittar i referens översättning och räknar antalet matchningar i ett viktat sätt. Dessa matchningar är oberoende position. En högre grad matchning anger en högre grad av likheter med referens översättning och högre poäng. Uppfattbarheten avsevärt och grammatisk är korrekt beaktas inte.
+BLEU-algoritmen jämför upprepade fraser i den automatiska översättningen med de efterföljande fraserna som hittas i referens översättningen och räknar antalet matchningar i viktat mode. Dessa matchningar är placerade oberoende av varandra. En högre matchnings grad visar en högre grad av likhet med referens översättningen och högre poäng. Intelligibility och grammatiskhet har inte rätt att ta hänsyn till.
 
 ## <a name="how-bleu-works"></a>Hur fungerar BLEU?
 
-BLEUS styrkan är det korrelerar bra med mänsklig förfogande genom att räkna ut medelvärdet ut enskild mening förfogande fel över en test-Kristi i stället för att försök att utforma exakta mänskliga förfogande för varje mening.
+BLEU styrkan är att den korreleras bra med mänsklig bedömning genom att medelvärdet av enskilda menings fel överskrids med en test-sökkorpus i stället för att försöka utforma den exakta mänsklig domen för varje mening.
 
-En mer omfattande beskrivning av BLEU poäng är [här](https://youtu.be/-UqDljMymMg).
+En mer omfattande diskussion om BLEU resultat finns [här](https://youtu.be/-UqDljMymMg).
 
-BLEU resultat beroende starkt bredden på din domän, testdata med utbildningen och justera data, konsekvens och hur mycket data som finns tillgängliga för att träna. Om dina modeller har tränats på en smal domän och dina utbildningsdata är konsekvent med din testdata, du kan förvänta dig en hög BLEU poäng.
+BLEU-resultaten är beroende av din domän, konsekvensen av test data med inlärnings-och justerings data och hur mycket data som är tillgängliga för att träna. Om dina modeller har tränats på en smal domän och dina utbildnings data är konsekventa med dina test data, kan du vänta en hög BLEU poäng.
 
 >[!NOTE]
->En jämförelse mellan BLEU poäng är endast motiverade när BLEU resultat jämförs med samma uppsättning Test och samma språk par samma MT-motor. En BLEU poäng från en testmängd olika är bunden till vara olika.
+>En jämförelse mellan BLEU-poängen är bara motiverad när BLEU resultat jämförs med samma test uppsättning, samma språk par och samma MT-motor. En BLEU-Poäng från en annan test uppsättning är kopplad till en annan.

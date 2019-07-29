@@ -1,6 +1,6 @@
 ---
 title: Skapa en Cognitive Services resurs med hjälp av Azure CLI
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Kom igång med Azure Cognitive Services genom att skapa och prenumerera på en resurs med hjälp av Azures kommando rads gränssnitt.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: 05b679fd969dc766d697070979416312c3bad622
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0a89a61f50d245389c9cdbd8a0aa9ba09eec004
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334263"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594620"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
@@ -79,7 +79,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="vision"></a>Visuellt innehåll
 
-| Tjänsten                    | Metod                      |
+| Tjänsten                    | Typ                      |
 |----------------------------|---------------------------|
 | Visuellt innehåll            | `ComputerVision`          |
 | Custom Vision förutsägelse | `CustomVision.Prediction` |
@@ -90,24 +90,24 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="search"></a>Search
 
-| Tjänsten            | Metod                  |
+| Tjänsten            | Typ                  |
 |--------------------|-----------------------|
 | Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
 | Anpassad sökning i Bing | `Bing.CustomSearch`   |
 | Entitetssökning i Bing | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
+| Bing-sökmotor        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Tal
 
-| Tjänsten            | Metod                 |
+| Tjänsten            | Typ                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
 | Taligenkänning | `SpeakerRecognition` |
 
 ### <a name="language"></a>Språk
 
-| Tjänsten            | Metod                |
+| Tjänsten            | Typ                |
 |--------------------|---------------------|
 | Formulär förståelse | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -117,7 +117,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="decision"></a>Beslut
 
-| Tjänsten           | Metod               |
+| Tjänsten           | Typ               |
 |-------------------|--------------------|
 | Avvikelseidentifiering  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |

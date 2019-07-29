@@ -1,96 +1,96 @@
 ---
-title: Visa information om modellen - anpassad Translator
+title: Visa modell information – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Modeller fliken under alla projekt Visar information om varje modell, till exempel namn, status för modellen, BLEU poäng, utbildning, justering, testa mening antal.
+description: Fliken modeller under ett projekt visar information om varje modell, till exempel modell namn, modell status, BLEU poäng, utbildning, justering, antal test meningar.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 92f5275b85b4a257e8841f43424d356db702cacd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442473"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595557"
 ---
 # <a name="view-model-details"></a>Visa modellinformation
 
-Fliken modeller under projektet visas alla modeller i projektet. Alla modeller tränas för som projektet visas i den här fliken.
+På fliken modeller under projektet visas alla modeller i projektet. Alla modeller som har tränats för projektet visas på den här fliken.
 
-Informationen visas för varje modell i projektet.
+För varje modell i projektet visas dessa uppgifter.
 
-1.  Modellnamn: Visar modellnamnet på en viss modell.
+1.  Modell namn: Visar modell namnet för en specifik modell.
 
-2.  Status: Visar status för en viss modell. Ny utbildning har statusen Skickad tills accepterar. Statusen ändras till databearbetning medan tjänsten utvärderar innehållet i dokumenten. När utvärderingen av dina dokument är klar ändras statusen till körs och du kan se antalet meningar som ingår i utbildning, inklusive den justering och testning anger som skapas automatiskt åt dig. Nedan visas en lista över modellen status som beskriver tillståndet för modellerna.
+2.  Status: Visar status för en specifik modell. Din nya utbildning kommer att ha statusen skickad tills den accepteras. Statusen ändras till data bearbetning medan tjänsten utvärderar dokumentets innehåll. När utvärderingen av dokumenten har slutförts ändras statusen till körs och du kan se antalet meningar som är en del av utbildningen, inklusive de justerings-och test uppsättningar som skapas automatiskt. Nedan visas en lista med modell status som beskriver modellens tillstånd.
 
-    -  Skickad: Anger att serverdelen bearbetar dokument för den modellen.
+    -  Läggs Anger att Server delen bearbetar dokumenten för den modellen.
 
-    -  TrainingQueued: Anger att utbildningen har placerats i kö till MT för den modellen.
+    -  TrainingQueued: Anger att utbildningen har placerats i kö till MT-system för den modellen.
 
-    -  Kör: Anger att utbildningen körs i MT system för den modellen.
+    -  Körs: Anger att träningen körs i MT-system för den modellen.
 
-    -  Lyckades: Anger att utbildningen har skapats i MT-system och en modell är tillgänglig. I den här statusen visas en BLEU poäng för den modellen.
+    -  Brutit Anger att träningen lyckades i MT-systemet och att en modell är tillgänglig. I den här statusen visas en BLEU Poäng för den modellen.
 
-    -  Distribuerad: Anger att den lyckade tränade modellen har skickats till MT-systemet för distribution.
+    -  Distribueras Anger att lyckad tränad modell skickas till MT system för distribution.
 
-    -  Den kan avinstalleras: Anger att distribuerad modell den kan avinstalleras.
+    -  Avdistribuerar: Anger att den distribuerade modellen är avdistribuerad.
 
-    -  Avdistribuerats: Anger att processen undeployment för en modell har slutförts.
+    -  Odistribuerade Anger att processen för att distribuera en modell har slutförts korrekt.
 
-    -  Det gick inte att utbildning: Anger att utbildningen har misslyckats. Om ett utbildnings-fel uppstår, försöker du utbildningsjobbet. Om felet kvarstår, kontakta oss. Ta inte bort den misslyckade modellen.
+    -  Inlärningen misslyckades: Anger att träningen misslyckades. Om ett inlärnings fel inträffar försöker du igen med utbildnings jobbet. Om felet kvarstår kan du kontakta oss. Ta inte bort den misslyckade modellen.
 
-    - DataProcessingFailed: Anger att databearbetning misslyckades för en eller flera dokument som hör till modellen.
+    - DataProcessingFailed: Anger att data bearbetningen har misslyckats för ett eller flera dokument som tillhör modellen.
 
-    - DeploymentFailed: Anger att modellen distributionen misslyckades.
+    - DeploymentFailed Anger att modell distributionen har misslyckats.
 
-    - MigratedDraft: Anger att modellen inte är utkast efter migreringen från hubben till anpassad Translator.
+    - MigratedDraft: Anger att modellen är i utkast tillstånd efter migrering från hubb till anpassad översättare.
 
-4.  BLEU poäng: Visar BLEU (tvåspråkig utvärdering Understudy) poängen för modellen, som anger kvaliteten på översättningssystemet. Det här resultatet visar hur nära översättningar som görs av den översättningssystemet som härrör från denna utbildning matchar referens meningar i test-datauppsättningen. BLEU poäng visas om utbildning är slutförd. Om utbildning inte fullständig / misslyckade, visas inte några BLEU poäng.
+4.  BLEU Poäng: visar BLEU (tvåspråkig utvärdering understudie) av modellen, vilket anger kvaliteten på översättnings systemet. Det här resultatet visar hur nära översättnings systemet som är resultatet av den här utbildningen som matchar referens meningarna i test data uppsättningen. BLEU-poängen visas om träningen har slutförts. Om inlärningen inte är slutförd/misslyckad visas inga BLEU poäng.
 
-5.  Utbildning mening antal: Visar totalt antal meningar som används som träningsmängden.
+5.  Antal utbildnings meningar: Visar det totala antalet meningar som används som inlärnings uppsättning.
 
-6.  Justering mening antal: Visar totalt antal meningar som används som justering set.
+6.  Justera menings antal: Visar det totala antalet meningar som används som justerings uppsättning.
 
-7.  Utbildning mening antal: Visar totalt antal meningar som används som testar set.
+7.  Antal utbildnings meningar: Visar det totala antalet meningar som används som testnings uppsättning.
 
-8.  Mono mening antal: Visar totalt antal meningar som används som mono.
+8.  Antal svartvita meningar: Visar det totala antalet meningar som används som mono uppsättning.
 
-9.  Distribuera &: För en har tränad modell, den visar knappen ”distribuera” om inte distribuerats. Om en modell har distribuerats visas en ”Undeploy”-knapp.
+9.  Knappen distribuera åtgärd: För en lyckad tränad modell visas knappen distribuera om den inte har distribuerats. Om en modell distribueras visas en "avdistribuera"-knapp.
 
-10. Ta bort: Du kan använda den här knappen om du vill ta bort modellen. Om du tar bort en modell bort inte någon av de dokument som används för att skapa den modellen.
+10. Ta bort Du kan använda den här knappen om du vill ta bort modellen. Om du tar bort en modell raderas inte alla dokument som används för att skapa modellen.
 
     ![Visa modellinformation](media/how-to/how-to-view-model-details.png)
 
 >[!Note]
->Om du vill jämföra på varandra följande kurser för samma system, är det viktigt att hålla den justering ställa in och testa ange konstant.
+>För att jämföra efterföljande utbildningar för samma system är det viktigt att du behåller justerings uppsättningen och testnings uppsättnings konstanten.
 
-## <a name="view-model-training-details"></a>Visa modellen utbildningsinformation
+## <a name="view-model-training-details"></a>Visa information om modell utbildning
 
-När utbildning är klar kan granska du information om utbildning från sidan. Välj ett projekt, leta upp och välj fliken modeller och välj en modell.
+När din utbildning är klar kan du granska information om utbildningen från informations sidan. Välj ett projekt, leta upp och välj fliken modeller och välj en modell.
 
-Sidan modellen har två flikar: Information om utbildning och testning.
+Modell sidan har två flikar: Tränings information och test.
 
-1.  **Information om utbildning:** Den här fliken innehåller en lista över dokument som används i utbildningen:
+1.  **Tränings information:** På den här fliken visas en lista över dokument som används i utbildningen:
 
-    -  Namn på dokument: Det här fältet visar namnet på dokumentet
+    -  Dokument namn: Det här fältet visar namnet på dokumentet
 
-    -  Typ av standarddokument: Det här fältet visar om det här dokumentet är parallell / mono.
+    -  Dokument typ: Det här fältet visar om det här dokumentet är parallellt/mono.
 
-    -  Mening antal i källspråk: Det här fältet visas antalet meningar är det som en del av källspråk.
+    -  Antal meningar i käll språk: Det här fältet visar antalet meningar som finns som en del av käll språket.
 
-    -  Mening antal i målspråk: Det här fältet visas antalet meningar är det som en del av målspråk.
+    -  Antal meningar på mål språket: Det här fältet visar antalet meningar som finns som en del av mål språket.
 
-    -  Justerade meningar: Det här fältet visas antalet meningar har har justerats med anpassade Translator under justera processen.
+    -  Justerade meningar: Det här fältet visar antalet meningar som har justerats efter anpassad översättare under justerings processen.
 
-    -  Används meningar: Det här fältet visas antalet meningar har använts av anpassade Translator under den här kursen.
+    -  Använda meningar: Det här fältet visar antalet meningar som har använts av en anpassad översättare under den här utbildningen.
 
-    ![Modelldetaljer för utbildning](media/how-to/how-to-model-training-details.png)
+    ![Information om modell utbildning](media/how-to/how-to-model-training-details.png)
 
-2.  **Test:** Den här fliken visar test-information för en lyckad utbildning.
+2.  **Koncentration** På den här fliken visas test informationen för en lyckad utbildning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [testresultat](how-to-view-system-test-results.md) och analysera resultaten för utbildning.
+- Granska [test resultat](how-to-view-system-test-results.md) och analysera utbildnings resultatet.

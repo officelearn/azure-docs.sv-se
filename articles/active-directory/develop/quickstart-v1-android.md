@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6023e4bd4028cf1679051b6665297afd00b1eba7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f1ebfce2b96da51b9c33646c1626495d280d7b8a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482661"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592242"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -30,7 +30,7 @@ ms.locfileid: "67482661"
 
 Om du utvecklar ett Android-program gör Microsoft det enkelt att logga in Azure Active Directory-användare (Azure AD). Azure AD gör att ditt program kan komma åt användardata via Microsoft Graph eller ditt eget skyddade webb-API.
 
-Azure AD Authentication Library (ADAL) för Android gör att din app kan börja använda [Microsoft Azure Cloud](https://cloud.microsoft.com) och [Microsoft Graph API](https://developer.microsoft.com/graph) genom att stödja [Microsoft Azure Active Directory-konton](https://azure.microsoft.com/services/active-directory/) med hjälp av branschens standard-OAuth 2.0 och OpenID Connect.
+Azure AD Authentication Library (ADAL) för Android gör att din app kan börja använda [Microsoft Azure Cloud](https://azure.microsoft.com/free/cloud-services/) och [Microsoft Graph API](https://developer.microsoft.com/graph) genom att stödja [Microsoft Azure Active Directory-konton](https://azure.microsoft.com/services/active-directory/) med hjälp av branschens standard-OAuth 2.0 och OpenID Connect.
 
 I den här snabbstarten lär du dig att:
 
@@ -45,7 +45,7 @@ För att komma igång behöver du en Azure AD-klientorganisationen där du kan s
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scenario: Logga in användare och anropa Microsoft Graph
 
-![Visar Azure AD- och Android-topologi](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Visar Azure AD-och Android-topologin](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 Du kan använda den här appen för alla Azure AD-konton. Den stöder både scenarier med en enda klientorganisation och med flera klientorganisationer (beskrivs i steg). Den visar hur du kan skapa appar för att ansluta till företagsanvändare och få åtkomst till deras Azure- och O365-data via Microsoft Graph. Under autentiseringsflödet kommer slutanvändarna att behöva logga in och godkänna programmets behörigheter, och i vissa fall kan det krävas att en administratör godkänner appen. Merparten av logiken i det här exemplet visar hur du autentiserar slutanvändarna och gör ett grundläggande anrop till Microsoft Graph.
 
@@ -88,13 +88,13 @@ Du behöver ha ett internt klientprogram som har registrerats med Microsoft med 
     - Välj **ny registrering**.
     - Ange ett appnamn i fältet **Namn**.
     - Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-    - I **omdirigerings-URI**väljer **offentlig klient (mobila och stationära)** i listrutan och ange `http://localhost`.
-    - Klicka på **registrera**.
+    - I omdirigerings- **URI**väljer du **offentlig klient (mobil och stationär dator)** i `http://localhost`List rutan och anger.
+    - Klicka på **Registrera**.
 
 3. Konfigurera Microsoft Graph
     - Välj **API-behörigheter**.
-    - Välj **lägga till en behörighet**, inuti **Välj en API** Välj ***Microsoft Graph***.
-    - Under **delegerade behörigheter**, välj behörigheten **User.Read**, tryck sedan på **Lägg till** att spara.        
+    - Välj **Lägg till en behörighet**, inuti **Välj ett API** Välj ***Microsoft Graph***.
+    - Under **delegerade behörigheter**väljer du behörighets **användaren. Läs**och tryck sedan på **Lägg till** för att spara.        
     
 4. Gratulerar! Din app har konfigurerats. I nästa avsnitt behöver du:
     - `Application ID`

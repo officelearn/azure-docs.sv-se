@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf6ae32a61504dc344e140a0e27c5a17b5422073
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171557"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609870"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Skapa och publicera en definition för det hanterade programmet
 
@@ -85,20 +85,20 @@ Lägg till följande JSON i filen. Den definierar parametrarna för att skapa et
 
 Spara filen mainTemplate.json.
 
-## <a name="create-the-user-interface-definition"></a>Skapa definitionen för användargränssnittet
+## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definiera din skapa upplevelse med CreateUiDefinition. JSON
 
-Azure Portal använder filen **createUiDefinition.json** för att generera användargränssnittet för användare som skapar det hanterade programmet. Du definierar hur användare anger indata för varje parameter. Du kan använda alternativ som en listruta, textruta, lösenordsruta och andra inmatningsverktyg. Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.
+Som utgivare definierar du din skapa-upplevelse med hjälp av filen **createUiDefinition. JSON** som genererar gränssnittet för användare som skapar hanterade program. Du definierar hur användare anger indatatyper för varje parameter med [Control Elements] (create-uidefinition-elements.md), inklusive List rutor, text rutor och lösen ord.
 
-Skapa en fil med namnet **createUiDefinition.json**. Namnet är skiftlägeskänsligt.
+Skapa en fil med namnet **createUiDefinition. JSON** (detta namn är Skift läges känsligt)
 
-Lägg till följande JSON i filen.
+Lägg till följande start-JSON i filen och spara den.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
         "basics": [
             {}
         ],
@@ -139,10 +139,9 @@ Lägg till följande JSON i filen.
             "location": "[location()]"
         }
     }
-}
 ```
 
-Spara filen createUiDefinition.json.
+Mer information finns i [Kom igång med CreateUiDefinition](create-uidefinition-overview.md).
 
 ## <a name="package-the-files"></a>Paketera filerna
 

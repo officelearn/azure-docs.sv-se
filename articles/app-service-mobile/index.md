@@ -2,22 +2,19 @@
 title: Dokumentation om Azure Mobile Apps – Självstudier, API-referens | Microsoft Docs
 description: Lär dig hur du använder Mobile Apps i Azure App Service för att bygga och hantera interna iOS-, Android-, Windows- eller plattformsoberoende appar med hjälp av Xamarin eller Cordova.
 services: app-service-mobile
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
-ms.assetid: ''
 ms.service: app-service-mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2018
-ms.author: carolz
-ms.openlocfilehash: 5adf1f12bd2c7757bfde1408c52b0753bff64797
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: 5526f7ce11722469909adfaad11773bc2c8e4b66
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851575"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610223"
 ---
 # <a name="mobile-apps-documentation"></a>Dokumentation om Mobile Apps
 

@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Security Center för IoT-tjänsten i förhandsversionen av IoT Hub | Microsoft Docs
-description: Lär dig hur du aktiverar Azure Security Center för IoT-tjänsten i din IoT-hubb.
+title: Aktivera Azure Security Center för IoT-tjänsten i IoT Hub | Microsoft Docs
+description: Lär dig hur du aktiverar Azure Security Center för IoT-tjänsten i IoT Hub.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,54 +15,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: f81fb7aeed1b704ebdd82c1f5b83c33a4b05e9ca
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a794ccea13323f38b20906458e216f85652bfc3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618009"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596958"
 ---
-# <a name="quickstart-enable-service-in-iot-hub"></a>Snabbstart: Aktivera tjänsten i IoT Hub
+# <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Snabbstart: Publicera Azure Security Center för IoT-tjänsten i IoT Hub
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Den här artikeln innehåller en förklaring på hur du aktiverar Azure Security Center (ASC) för IoT-förhandsversioner på IoT Hub.  
+Den här artikeln innehåller en förklaring av hur du aktiverar Azure Security Center för IoT-tjänsten på din befintliga IoT Hub. Om du för närvarande inte har en IoT Hub kan du läsa [skapa ett IoT Hub med hjälp av Azure Portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) för att komma igång. 
 
 > [!NOTE]
-> Azure Security Center för IoT för närvarande endast stöd för standardnivån för IoT-hubbar.
-> Azure Security Center för IoT är en enda hubb-lösning. Om du behöver flera hubbar krävs flera lösningar. 
+> Azure Security Center for IoT stöder för närvarande bara IoT-hubbar på standard nivå.
+> Azure Security Center for IoT är en lösning för enkel hubb. Om du behöver flera hubbar krävs flera Azure Security Center för IoT-lösningar. 
 
-## <a name="prerequisites-for-enabling-the-service"></a>Förutsättningar för att aktivera tjänsten
+## <a name="prerequisites-for-enabling-the-service"></a>Krav för att aktivera tjänsten
 
 - Log Analytics-arbetsyta
-  - Två typer av information lagras som standard i Log Analytics-arbetsytan av ASC för IoT; **säkerhetsaviseringar** och **rekommendationer**. 
-  - Du kan välja att lägga till lagring av en typ för ytterligare information, **råhändelser**. Observera att lagra **råhändelser** innebär ytterligare lagringskostnader i Log Analytics. 
-- IoT Hub (standard-nivån)
-- Uppfyller alla [tjänsten krav](service-prerequisites.md) 
-- Stöds tjänstregioner
-  - Centrala USA
-  - Norra Europa
-  - Sydostasien
+  - Två typer av information lagras som standard i Log Analytics-arbetsytan med Azure Security Center för IoT; **säkerhets aviseringar** och **rekommendationer**. 
+  - Du kan välja att lägga till lagring av ytterligare en informations typ, **rå händelser**. Observera att lagring av **rå händelser** i Log Analytics medför ytterligare lagrings kostnader. 
+- IoT Hub (standard-nivå)
+- Uppfylla alla [tjänst krav](service-prerequisites.md) 
 
-## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Aktivera ASC för IoT i din IoT-hubb 
+|Azure Service-regioner som stöds | ||
+|---|---|---|
+| Centrala USA |East US |USA, östra 2 |
+| Västra centrala USA |Västra USA |USA, västra 2 |
+| Centrala USA, södra|Norra centrala USA | Centrala Kanada|
+| Östra Kanada| Norra Europa|Södra Brasilien|
+| Frankrike, centrala| Storbritannien, västra|Storbritannien, södra|
+|Västra Europa|Norra Europa| Västra Japan|
+|Östra Japan | Sydöstra Australien|Östra Australien|
+|Östasien| Sydostasien| Sydkorea, centrala|
+|Sydkorea, södra| Indien, centrala| Indien, södra|
+|
 
-Om du vill aktivera säkerheten på din IoT-hubb, gör du följande: 
+## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Aktivera Azure Security Center för IoT på din IoT Hub 
 
-1. Öppna din **IoT Hub** i Azure-portalen. 
-2. Under den **Security** -menyn klickar du på **översikt**, klicka sedan på **Start förhandsversion**. 
-3. Välj **aktivera IoT-säkerhet**. 
-4. Ange information om din Log Analytics-arbetsytan. 
-   - Välja att lagra **råhändelser** utöver typerna av information för lagring genom att låta den **raw händelse** växla **på**. 
-   - Välja att aktivera **twin samling** genom att låta den **twin samling** växla **på**. 
-5. Klicka på **Spara**. 
+Gör så här om du vill aktivera säkerhet på IoT Hub: 
 
-Grattis! Du har slutfört att aktivera ASC för IoT i din IoT-hubb. 
+1. Öppna din **IoT Hub** i Azure Portal. 
+1. Under menyn **säkerhet** klickar du på **skydda din IoT-lösning**
+1. Lämna **Aktivera** valt som standard. 
+1. Välj Log Analytics-arbetsytan.
+1. Ange Log Analytics arbets ytans information. 
+   - Välj om du vill aktivera en **delad samling** genom att låta den **dubbla samlingen** vara aktive **ras.**
+   - Välj att lagra **rå händelser** utöver standard informations typerna för lagring genom att välja lagrings **enhetens säkerhets händelser** i Log Analytics. Lämna den **råa händelsen** växling **vid**händelse. 
+    
+1. Klicka på **Spara**. 
+
+Grattis! Du har slutfört aktiveringen Azure Security Center för IoT på din IoT Hub. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa artikel om du vill lära dig hur du konfigurerar din lösning...
+Fortsätt till nästa artikel för att konfigurera din lösning...
 
 > [!div class="nextstepaction"]
 > [Konfigurera din lösning](quickstart-configure-your-solution.md)
+
+

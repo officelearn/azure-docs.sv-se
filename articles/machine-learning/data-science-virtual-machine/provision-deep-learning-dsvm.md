@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Konfigurera och skapa en Deep Learning Data Science Virtual Machine på Azure för analys och maskininlärning.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: b9d0f9aead6e2cedd3ca0884273bac0106a925a0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410443"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591911"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Etablera en virtuell dator på Azure för Djupinlärning 
 
@@ -39,22 +39,22 @@ Här följer stegen för att skapa en instans av Deep Learning Virtual Machine:
    <a name="basics"></a>   
    1. **Grundläggande inställningar**
       
-      1. **Namn på**: Namnet på data science-server som du skapar.
-      2. **Välj OS-typ för den Djupinlärning**: Välj Windows eller Linux (för Windows 2016 och Ubuntu Linux grundläggande DSVM)
-      2. **Användarnamn**: Admin-konto inloggnings-id.
-      3. **Lösenord**: Lösenord för administratörskonto.
+      1. **Namn på**: Namnet på den data vetenskaps server som du skapar.
+      2. **Välj OS-typ för den virtuella datorn för djup inlärning**: Välj Windows eller Linux (för Windows 2016 och Ubuntu Linux bas-DSVM)
+      2. **Användarnamn**: Inloggnings-ID för administratörs konto.
+      3. **Lösenord**: Lösen ord för administratörs kontot.
       4. **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras.
-      5. **Resursgrupp**: Du kan skapa en ny eller Använd en **tom** befintliga Azure-resursgrupp i din prenumeration.
-      6. **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast dina fysiska platsen för snabbaste nätverksåtkomst. 
+      5. **Resursgrupp**: Du kan skapa en ny eller använda en **Tom** befintlig Azure-resurs grupp i din prenumeration.
+      6. **Plats**: Välj det data Center som passar bäst. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast dina fysiska platsen för snabbaste nätverksåtkomst. 
       
       > [!NOTE]
       > DLVM stöder alla NC- och ND-serien GPU VM-instanser. När du etablerar DLVM, måste du välja någon av platser i Azure med GPU: er. Kontrollera den [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) för de tillgängliga platserna och leta efter **NC-serien**, **NCv2-serien**, **NCv3-serien** , eller **ND-serien** under **Compute**. 
 
-   1. **Inställningar för**: Välj en av NC-serien (NC, NCv2, NCv3) eller ND-serien GPU-storlekar för virtuella datorer som uppfyller dina funktionella krav och begränsningar för kostnad. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
+   1. **Inställningar för**: Välj en av de storlekar för virtuella datorer i NC-serien (NC, NCv2, NCv3) eller ND-serien som uppfyller dina funktions krav och kostnads begränsningar. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
    
    1. **Sammanfattning av**: Kontrollera att all information du angett är korrekt.
 
-   1. **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till villkoren för transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
+   1. **Köpa**: Starta etableringen genom att klicka på **köp** . Det finns en länk till villkoren för transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
 
 > [!NOTE]
 > Etableringen tar cirka 10-20 minuter. Status för etableringen visas på Azure portal.
@@ -68,7 +68,7 @@ När den virtuella datorn har skapats kan du fjärrskrivbord till den med hjälp
 
 ### <a name="linux-edition"></a>Linux-version
 
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den [ **grunderna** ](#basics) avsnittet i steg 3 för text shell-gränssnittet. Mer information om SSH-anslutningar till virtuella Azure-datorer finns i [installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-VM i Azure](/azure/virtual-machines/linux/use-remote-desktop). På en Windows-klient kan du ladda ned ett SSH-klientverktyg som [Putty](https://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System). 
+När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använd de kontoautentiseringsuppgifter som du skapade i avsnittet [**grundläggande**](#basics) i steg 3 för gränssnittet text gränssnitt. Mer information om SSH-anslutningar till virtuella Azure-datorer finns i [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md). På en Windows-klient kan du ladda ned ett SSH client-verktyg som [SparaTillFil](https://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System). 
 
 > [!NOTE]
 > Klienten X2Go presterade bättre än X11 vidarebefordran i våra tester. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
@@ -81,12 +81,12 @@ Linux DLVM är redan upprättad med X2Go server och redo att ta emot klientanslu
 1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Kör X2Go-klienten och välj **ny Session**. Det öppnar en konfiguration med flera flikar. Ange följande konfigurationsparametrar:
    * **Sessionen fliken**:
-     * **Värden**: Värdnamn eller IP-adressen för din Linux virtuell dator för datavetenskap.
-     * **logga in**: Användarnamn på Linux-VM.
-     * **SSH Port**: Lämna det på 22, standardvärdet.
-     * **Sessionstyp**: Ändra värdet till **XFCE**. Linux DSVM stöder för närvarande endast XFCE desktop.
-   * **Media-flik**: Du kan inaktivera stöd för ljud och skriva ut om du inte behöver använda dem-klienten.
-   * **Delade mappar**: Om du vill kataloger från dina klientdatorer som är monterad på Linux-VM, lägger du till de klienten datorn kataloger som du vill dela med den virtuella datorn på den här fliken.
+     * **Värd**: Ditt Linux-Data Science VM värd namn eller IP-adress.
+     * **Inloggning**: Användar namn på den virtuella Linux-datorn.
+     * **SSH-port**: Lämna det på 22 standardvärdet.
+     * **Typ av session**: Ändra värdet till **xfce**. Linux DSVM stöder för närvarande endast XFCE desktop.
+   * **Fliken Media**: Du kan stänga av ljud supporten och klient utskrift om du inte behöver använda dem.
+   * **Delade mappar**: Om du vill att kataloger från klient datorerna ska monteras på den virtuella Linux-datorn lägger du till de klient dator kataloger som du vill dela med den virtuella datorn på den här fliken.
 
 När du loggar in till den virtuella datorn med hjälp av SSH-klient eller XFCE grafiska desktop via X2Go klienten, är du redo att börja använda de verktyg som är installerade och konfigurerade på den virtuella datorn. På XFCE, kan du se genvägar på Program-menyn och ikoner på skrivbordet för många av verktygen.
 

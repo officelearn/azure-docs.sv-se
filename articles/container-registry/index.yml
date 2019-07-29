@@ -5,14 +5,12 @@ metadata:
   title: Dokumentation om Azure Container Registry – självstudier | Microsoft Docs
   description: 'Med Azure Container Registry kan du skapa, lagra och hantera avbildningar av alla typer av behållardistributioner. Lär dig hur du använder Azure Container Registry med de här snabbstarterna, självstudierna och exemplen.'
   services: container-registry
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Med Azure Container Registry kan du skapa, lagra och hantera avbildningar av alla typer av behållardistributioner. Lär dig hur du använder Azure Container Registry med de här snabbstarterna, självstudierna och exemplen.'
 sections:

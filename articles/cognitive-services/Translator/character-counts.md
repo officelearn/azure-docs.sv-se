@@ -1,7 +1,7 @@
 ---
-title: Tecken antal - API för textöversättning
-titlesuffix: Azure Cognitive Services
-description: Hur räknas Translator Text API tecken.
+title: Antal bokstäver – Translator Text API
+titleSuffix: Azure Cognitive Services
+description: Hur Translator Text API räknar tecken.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cfd5823009b66b6b525c7add1fb56953d3c1a507
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445266"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595982"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Hur Translator Text API räknar tecken
 
-Translator Text API räknas varje Unicode-kodpunkt av indatatexten som ett tecken. Varje översättning av en text till ett språk räknas som en separat översättning, även om en begäran har gjorts i en enda API anrop översattes till flera språk. Längden på svaret spelar ingen roll.
+Translator Text API räknar varje Unicode-kodtyp för inmatad text som ett tecken. Varje översättning av en text till ett språk räknas som en separat översättning, även om begäran gjordes i ett enda API-anrop översätts till flera språk. Svars tiden spelar ingen roll.
 
-Vad räknas är:
+Antalet är:
 
-* Texten som skickas till Translator Text API i brödtexten i begäran
-   * `Text` När du använder metoderna Översätt, Transliterate och ordlista sökning
-   * `Text` och `Translation` när du använder metoden ordlista exempel
-* Alla markeringar: HTML-, XML-taggar, o.s.v. i textfältet i begärandetexten. JSON-format som används för att skapa begäran (till exempel ”texten”:) räknas inte.
-* En bokstav
+* Text som skickats till Translator Text API i bröd texten i begäran
+   * `Text`När du använder Sök metoderna Översätt, translittererad och ord lista
+   * `Text`och `Translation` när du använder exempel metoden för ord listan
+* Alla markeringar: HTML-taggar, och så vidare i textfältet i begär ande texten. JSON-notation som används för att bygga begäran (för instans "text:") räknas inte.
+* En enskild bokstav
 * Skiljetecken
-* Ett blanksteg, fliken, markup och alla slags tecken för tomt utrymme
-* Varje kodpunkten som definierats i Unicode
-* En upprepad översättning, även om du tidigare har översatt samma text
+* Ett blank steg, en tabb, ett pålägg och en typ av blank stegs tecken
+* Varje kod punkt som definierats i Unicode
+* En upprepad översättning, även om du har översatt samma text tidigare
 
-För skript utifrån ideogram, till exempel kinesiska och japanska Kanji, kommer Translator Text API fortfarande räkna antalet Unicode-koderna, ett tecken per ideogram. Undantag: Unicode surrogat antal som två tecken.
+För skript som baseras på ideogram, till exempel kinesiska och japanska, kommer Translator Text API fortfarande räkna antalet Unicode-kodfragment, ett tecken per ideogram. Undantag: Unicode-surrogat räknas som två tecken.
 
-Antalet begäranden, ord, byte eller meningar är inte relevant i antal tecken.
+Antalet begär Anden, ord, byte eller meningar är irrelevant i antal tecken.
 
-Anrop till metoder för identifiering och BreakSentence räknas inte tecknet förbrukningen. Men förväntar vi sig att anropen för att identifiera och BreakSentence metoder är i en rimlig proportion till användningen av andra funktioner som räknas. Om antalet identifiera eller BreakSentence anrop du gör överskrider antalet andra räknade metoder av 100 gånger Microsoft förbehåller sig att begränsa användningen av identifierings- och BreakSentence metoder.
+Anrop till metoderna detect och BreakSentence räknas inte in i Character-förbrukningen. Vi förväntar sig dock att anropen till metoderna detektera och BreakSentence är i rimlig proportion till användningen av andra funktioner som räknas. Om antalet identifierings-eller BreakSentence-anrop du gör överstiger antalet andra räknade metoder med 100 gånger, förbehåller Microsoft sig rätten att begränsa din användning av metoderna identifiera och BreakSentence.
 
 
-Mer information om antalet tecken som tillhör den [Microsoft Translator FAQ](https://www.microsoft.com/en-us/translator/faq.aspx).
+Mer information om antal bokstäver finns i [vanliga frågor och svar om Microsoft Translator](https://www.microsoft.com/en-us/translator/faq.aspx).

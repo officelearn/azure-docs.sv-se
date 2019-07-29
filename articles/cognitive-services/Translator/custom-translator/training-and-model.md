@@ -1,56 +1,56 @@
 ---
-title: Vad är utbildning och modellen? – Anpassade Translator
+title: Vad är utbildning och modell? – Anpassade Translator
 titleSuffix: Azure Cognitive Services
-description: En modell är i systemet, vilket ger översättning för ett visst språk-par. Resultatet av en lyckad utbildning är en modell. När träna en modell, krävs tre ömsesidigt uteslutande datauppsättningar utbildning datauppsättning, justering datauppsättning och testningen datauppsättning.
+description: En modell är systemet, som tillhandahåller översättning för ett angivet språk par. Resultatet av en lyckad utbildning är en modell. När du tränar en modell, krävs tre ömsesidigt uteslutande data uppsättningar inlärnings data uppsättning, justerings data uppsättning och testning av data uppsättningar.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
-ms.openlocfilehash: 5d82baf3e7458a42429df9dafc9c8d5e16744716
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: af3f795dc5036b23b82562e7af4582bd90b44f47
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436117"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595427"
 ---
 # <a name="what-are-trainings-and-models"></a>Vad är utbildningar och modeller?
 
-En modell är i systemet, vilket ger översättning för ett visst språk-par.
-Resultatet av en lyckad utbildning är en modell. När träna en modell, tre ömsesidigt uteslutande datauppsättningar krävs: datauppsättning för träning, justering datauppsättning och test datauppsättning. Ordlista data kan också anges.
+En modell är systemet, som tillhandahåller översättning för ett angivet språk par.
+Resultatet av en lyckad utbildning är en modell. När du tränar en modell krävs tre ömsesidigt uteslutande data uppsättningar: tränings data uppsättning, justerings data uppsättning och testning av data uppsättning. Du kan också ange lexikon data.
 
-Om det bara träningsdata tillhandahålls när queuing en utbildning, Assemblera anpassad Translator automatiskt justera och testningsdatauppsättningar. Installationsprogrammet utesluta dina utbildningsdata 5 000 meningar och använder 2 500 varje sätta ihop en justering och testning uppsättningar.
+Om det bara finns tränings uppgifter när du har en utbildning, monterar anpassad översättare automatiskt justering och testning av data uppsättningar. Det kommer att utesluta 5 000 meningar från dina utbildnings data och använda 2 500 var och en för att sätta samman en justerings-och test uppsättning.
 
-## <a name="training-dataset-for-custom-translator"></a>Datauppsättning för träning för anpassad Translator
+## <a name="training-dataset-for-custom-translator"></a>Tränings data uppsättning för anpassad översättare
 
-Dokument som ingår i träningsmängden används av anpassade Translator som grund för att skapa din modell. Under körningen utbildning är meningar som finns i dessa dokument justerad (eller länkas). Du kan dra individens i Skapa en uppsättning Utbildningsdokument. Du kan inkludera dokument som du tror är tangerar relevanta i en modell. Undanta dem igen i en annan för att se hur i [BLEU (tvåspråkig utvärdering Understudy) poäng](what-is-bleu-score.md). Passa på att experimentera med sammansättning av träningsmängden så länge som du behåller justering set och test set konstant. Den här metoden är ett effektivt sätt att ändra kvaliteten på översättningssystemet.
+Dokument som ingår i inlärnings uppsättningen används av den anpassade översättaren som grund för att skapa din modell. Under övnings körningen är meningar som förekommer i dessa dokument justerade (eller paras ihop). Du kan ta Liberties i att skriva in dina utbildnings dokument. Du kan inkludera dokument som du tror är av Tangential relevans i en modell. Uteslut dem igen i en annan för att se effekten i [Bleu (tvåspråkig Evaluation understudie) Poäng](what-is-bleu-score.md). Så länge du behåller justerings uppsättningen och konstanten för test uppsättning, kan du experimentera med sammansättningen i inlärnings uppsättningen. Den här metoden är ett effektivt sätt att ändra kvaliteten på ditt översättnings system.
 
-Du kan köra flera utbildningar i ett projekt och jämför den [BLEU poäng](what-is-bleu-score.md) över alla träningskörningar. När du kör flera utbildningar för jämförelse, se till att samma justering / testdata anges varje gång. Se också till att även granska resultaten manuellt i den [”testning”](how-to-view-system-test-results.md) fliken.
+Du kan köra flera utbildningar i ett projekt och jämföra [Bleu-poängen](what-is-bleu-score.md) i alla utbildnings körningar. När du kör flera utbildningar för jämförelse bör du se till att samma justerings-/test data anges varje gång. Se även till att även granska resultaten manuellt på fliken ["testning"](how-to-view-system-test-results.md) .
 
-## <a name="tuning-dataset-for-custom-translator"></a>Justera datauppsättning för anpassad Translator
+## <a name="tuning-dataset-for-custom-translator"></a>Justerings data uppsättning för anpassad översättare
 
-Parallell dokument som ingår i den här uppsättningen som används av anpassade översättaren för att finjustera översättningssystemet för bästa möjliga resultat.
+Parallella dokument som ingår i den här uppsättningen används av den anpassade översättare för att justera översättnings systemet för optimala resultat.
 
-Justering uppsättningen används vid träning för att justera alla parametrar och vikter för översättningssystemet till optimala värden. Välj din justering Ställ in noggrant: justering uppsättningen ska vara representativ för innehållet i dokument som du planerar att översätta i framtiden. Justering uppsättningen har en större inverkan på kvaliteten på översättningarna genereras. Justering kan translation systemet för att ange översättningar som ligger närmast de exempel som du anger i justering datauppsättningen. Du behöver inte mer än 2 500 meningar som justering set. För optimala översättningen rekommenderar vi att du väljer justering uppsättningen manuellt genom att välja det mest representativa urvalet av meningar.
+Justerings uppsättningen används under träningen för att justera alla parametrar och vikter för översättnings systemet till de optimala värdena. Välj justerings uppsättningen noggrant: justerings uppsättningen bör vara representativ för innehållet i dokumenten som du tänker översätta i framtiden. Justerings uppsättningen har stor påverkan på kvaliteten på de översättningar som skapas. Med justering kan översättnings systemet tillhandahålla översättningar som är närmast de exempel som du anger i data uppsättningen för justering. Du behöver inte fler än 2500 meningar som justerings uppsättning. För optimal översättnings kvalitet rekommenderar vi att du väljer inställnings uppsättningen manuellt genom att välja det mest representativa valet av meningar.
 
-När du skapar din justering uppsättning, väljer du meningar som är en meningsfull och representativ längd på framtida meningar som du förväntar dig att översätta. Du bör även välja meningar som har ord och fraser som du avser att översätta i den ungefärliga distribution som du förväntar dig av dina framtida översättningar. I praktiken skapas en Meningslängd på 8-18 ord bästa resultat bör eftersom dessa meningar innehåller tillräckligt med kontext för att visa angripits och ange en fras längd som är betydande, utan att vara alltför komplex.
+När du skapar en justerings uppsättning väljer du meningar som är en meningsfull och representativ längd på de kommande meningarna som du förväntar dig att översätta. Du bör också välja meningar som innehåller ord och fraser som du tänker översätta i den ungefärliga distribution som du förväntar dig i dina framtida översättningar. I praktiken kommer en mening med 8 till 18 ord att producera de bästa resultaten, eftersom dessa meningar innehåller tillräckligt med kontext för att Visa Bryt och ger en fras längd som är signifikant, utan att vara alltför komplex.
 
-En bra beskrivning av typ av meningar som ska användas i justering uppsättningen är prose: faktiska fluent meningar. Inte tabellcellerna, inte dikter, inte en lista över saker, inte bara punkter eller siffror i en mening - vanliga språk.
+En lämplig Beskrivning av vilken typ av meningar som ska användas i justerings uppsättningen är Prose: faktiska Fluent-meningar. Inte tabell celler, inte poems, inte en lista med saker, inte bara interpunktion eller siffror i en mening – vanligt språk.
 
-Om du väljer manuellt justering datauppsättningen, bör det inte innehåller något av samma meningar som dina data med utbildning och testning. Justering uppsättningen har en betydande inverkan på kvaliteten på översättningarna – Välj meningarna noggrant.
+Om du väljer justerings data uppsättningen manuellt bör den inte ha någon av samma meningar som din utbildning och testning av data. Justerings uppsättningen har en betydande inverkan på översättningens kvalitet – Välj de meningarna noggrant.
 
-Om du inte är säker på vad du ska välja för din justering, bara välja träningsmängden och låt Custom Translator välja din justering uppsättning åt dig. När du ger anpassad översättaren väljer justering uppsättningen automatiskt den använder besvara vissa av meningar från dina Utbildningsdokument tvåspråkig och utesluta utbildningsmaterial själva dessa meningar.
+Om du inte är säker på vad du ska välja för justerings uppsättningen väljer du inlärnings uppsättningen och låter anpassad översättare välja din justerings uppsättning. När du låter den anpassade översättaren välja inställnings uppsättningen automatiskt, kommer den att använda en slumpmässig del av meningar från dina dokument med tvåspråkig utbildning och utesluta dessa meningar från själva utbildnings materialet.
 
-## <a name="testing-dataset-for-custom-translator"></a>Testa datauppsättning för anpassad Translator
+## <a name="testing-dataset-for-custom-translator"></a>Testar data uppsättning för anpassad översättare
 
-Parallell dokument som ingår i testmängden används för att beräkna poäng BLEU (tvåspråkig utvärdering Understudy). Det här resultatet anger kvaliteten på översättningssystemet. Det här resultatet faktiskt berättas hur nära översättningar som görs av den översättningssystemet som härrör från denna utbildning matchar referens meningar i test-datauppsättningen.
+Parallella dokument som ingår i test uppsättningen används för att beräkna BLEU (understudie av tvåspråkiga utvärderings resultat). Den här poängen indikerar översättnings systemets kvalitet. Den här poängen visar i själva verket hur nära översättnings systemet som är resultatet av den här utbildningen som matchar referens meningarna i test data uppsättningen.
 
-BLEU poängen är ett mått på delta mellan automatisk översättning och översättningen referens. Dess värdeintervall mellan 0 och 100. Ett resultat på 0 anger att inte ett enstaka ord referensens visas i översättningen. Ett resultat på 100 indikerar att automatisk översättning exakt matchar referensen: samma ord är på exakt samma plats. Du får poängen är BLEU poäng genomsnittet för alla meningar av testmängden.
+BLEU poängen är en mätning av delta mellan automatisk översättning och referens översättning. Värdet sträcker sig från 0 till 100. Poängen 0 anger att inte ett enskilt ord i referensen visas i översättningen. Poängen på 100 anger att den automatiska översättningen exakt matchar referensen: samma ord är i exakt samma position. Poängen du får är BLEU Poäng genomsnitt för alla meningar i test uppsättningen.
 
-Test-uppsättningen bör innehålla parallella dokument där målspråk meningarna är de lämpligaste översättningarna av motsvarande källspråk meningarna i paret. Du kanske vill använda samma villkor som du använde för att skapa uppsättningen justering. Dock påverkas testmängden inte över kvaliteten på översättningen-system. Den används uteslutande för att generera BLEU poängen för dig och inget annat.
+Test uppsättningen bör innehålla parallella dokument där meningarna med mål språk är de mest önskvärda översättningarna av motsvarande käll språks meningar i paret. Du kanske vill använda samma kriterier som du använde för att skapa justerings uppsättningen. Test uppsättningen påverkar dock inte översättnings systemets kvalitet. Den används exklusivt för att generera BLEU Poäng för dig, och inget annat.
 
-Du behöver inte mer än 2 500 meningar som testmängden. När du låter systemet väljer testmängden automatiskt den använder besvara vissa av meningar från dina Utbildningsdokument tvåspråkig, och utesluta utbildningsmaterial själva dessa meningar.
+Du behöver inte fler än 2 500 meningar som test uppsättning. När du låter systemet välja testnings uppsättning automatiskt, kommer det att använda en slumpmässig del av meningar från dina dokument med tvåspråkig utbildning och utesluta dessa meningar från själva utbildnings materialet.
 
-Du kan visa anpassade översättningar av testmängden och jämföra dem med översättningar som tillhandahålls i din testning, genom att gå till fliken test inom en modell.
+Du kan visa de anpassade översättningarna av test uppsättningen och jämföra dem med översättningarna som finns i din test uppsättning genom att gå till fliken test i en modell.

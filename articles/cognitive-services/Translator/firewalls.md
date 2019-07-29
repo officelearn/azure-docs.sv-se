@@ -1,7 +1,7 @@
 ---
-title: Översätt bakom brandväggar – Translator Text API
-titlesuffix: Azure Cognitive Services
-description: Översätt bakom brandväggar med Translator Text API.
+title: Översätt bakom brand väggar – Translator Text API
+titleSuffix: Azure Cognitive Services
+description: Översätt bakom IP-brandväggar med Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: d0ebce2dd41b170a18057ca76dd3ae4cf3ce0be2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 567e869ab9ccb2f29cd0e88ba2e44d7d1b4a296c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435988"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595268"
 ---
-# <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Så här att översätta bakom brandväggar med Translator Text API
+# <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Så här översätter du bakom IP-brandväggar med Translator Text API
 
-Translator Text API kan översätta bakom brandväggar med domännamn eller IP-filtrering. Domännamn filtrering är den bästa metoden. Vi **rekommenderar inte** som kör Microsoft Translator bakom en IP-adress filtrerade brandväggen. Installationen är troligt att bryta i framtiden utan föregående meddelande.
+Translator Text API kan översätta bakom brand väggar med antingen domän namn eller IP-filtrering. Filtrering av domän namn är den bästa metoden. Vi **rekommenderar inte** att du kör Microsoft Translator bakom en IP-filtrerad brand vägg. Installations programmet kommer sannolikt att brytas i framtiden utan föregående meddelande.
 
-## <a name="translator-ip-addresses"></a>Translator IP-adresser
-IP-adresser för api.cognitive.microsofttranslator.com - Microsoft Translator Text API från och med 20 November 2018:
+## <a name="translator-ip-addresses"></a>Översättnings-IP-adresser
+IP-adresserna för api.cognitive.microsofttranslator.com-Microsoft Translator Text API den 20 november 2018:
 
-* **Asien/Stillahavsområdet:** 40.90.139.163, 104.44.89.44
-* **Europa:** 40.90.138.4, 40.90.141.99
+* **Asien och stillahavsområdet:** 40.90.139.163, 104.44.89.44
+* **Östeuropa** 40.90.138.4, 40.90.141.99
 * **Nordamerika:** 40.90.139.36, 40.90.139.2
 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Översätt bakom brandväggar i din Translator API-anrop](reference/v3-0-translate.md)
+> [Översätt bakom IP-brandväggar i Translator API-anrop](reference/v3-0-translate.md)

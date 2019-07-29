@@ -1,90 +1,90 @@
 ---
-title: Hur du överför ett dokument - anpassad Translator
+title: Ladda upp ett dokument – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Du kan ladda upp parallella dokument för dina utbildningar med hjälp av funktionen för överföring. Parallell dokument är par i dokument om en sådan översättningen av den andra. Ett dokument i paret innehåller meningar i källspråket och det andra dokumentet innehåller dessa meningar översättas till mål-språk.
+description: Med hjälp av funktionen för dokument uppladdning kan du överföra parallell dokument för dina utbildningar. Parallella dokument är par med dokument där det ena är översättningen av det andra. Ett dokument i paret innehåller meningar i käll språket och det andra dokumentet innehåller de meningarna översatta till mål språket.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 948c9628147ae8cf869046b283601b939d35b290
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447929"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595641"
 ---
 # <a name="upload-a-document"></a>Ladda upp ett dokument
 
-I [anpassad Translator](https://portal.customtranslator.azure.ai), du kan ladda upp parallella dokument för att träna din översättningsmodeller. [Parallell dokument](what-are-parallel-documents.md) är par av dokument där en är en översättning av de andra. Ett dokument i paret innehåller meningar i källspråket och det andra dokumentet innehåller dessa meningar översättas till mål-språk.
+I en [anpassad översättare](https://portal.customtranslator.azure.ai)kan du överföra parallella dokument för att träna dina översättnings modeller. [Parallella dokument](what-are-parallel-documents.md) är par av dokument där en är en översättning av det andra. Ett dokument i paret innehåller meningar i käll språket och det andra dokumentet innehåller de meningarna översatta till mål språket.
 
-Innan du laddar upp dokument, granska de [dokumentera format och naming convention vägledning](document-formats-naming-convention.md) för att kontrollera att filen formatet stöds i anpassade Translator.
+Innan du överför dokumenten granskar du [rikt linjerna för dokument format och namngivnings konvention](document-formats-naming-convention.md) för att kontrol lera att fil formatet stöds i en anpassad översättare.
 
-## <a name="how-to-upload-document"></a>Hur du överför dokument?
+## <a name="how-to-upload-document"></a>Hur överför du dokument?
 
-Från [anpassad Translator](https://portal.customtranslator.azure.ai) portal, klicka på ”dokument” flik för att gå till dokumentsidan.
+Från den [anpassade översättnings](https://portal.customtranslator.azure.ai) portalen klickar du på fliken dokument för att gå till dokument sidan.
 
-![Länk till dokumentet uppladdning](media/how-to/how-to-upload-1.png)
+![Länk till dokument uppladdning](media/how-to/how-to-upload-1.png)
 
 
-1.  Klicka på knappen ladda upp filer på dokumentsidan.
+1.  Klicka på knappen Överför filer på sidan dokument.
 
-    ![Ladda upp dokumentsida](media/how-to/how-to-upload-2.png)
+    ![Ladda upp dokument sida](media/how-to/how-to-upload-2.png)
 
-2.  I dialogrutan fyller du i följande information:
+2.  Fyll i följande information i dialog rutan:
 
-    a.  Typ av standarddokument:
+    a.  Dokument typ:
 
-    -  Träning: Dessa dokument ska användas för träningsmängden.
-    -  Justering: Dessa dokument används för justering set.
-    -  Testning: Dessa dokument används för att testa set.
-    -  Fras ordlista: Dessa dokument ska användas för frasen ordlista.
-    -  Ordlista för meningen: Dessa dokument som ska användas för meningen ordlista
+    -  Träning: Dessa dokument kommer att användas för inlärnings uppsättningen.
+    -  Anpassa De här dokumenten kommer att användas för justerings uppsättningen.
+    -  Prestandatester De här dokumenten kommer att användas för testnings uppsättningen.
+    -  Fras ord lista: De här dokumenten kommer att användas för fras ord lista.
+    -  Menings ord lista: De här dokumenten kommer att användas för menings ord lista
 
-    b.  Språk-par
+    b.  Språk par
 
-    c.  Åsidosätta dokumentet om finns: Välj den här kryssrutan om du vill skriva över eventuella befintliga dokument med samma namn.
+    c.  Åsidosätt dokument om det finns: Markera den här kryss rutan om du vill skriva över befintliga dokument med samma namn.
 
-    d.  Fyll i relevanta avsnitt för parallella eller kombinationsruta för data.
+    d.  Fyll i det relevanta avsnittet för antingen parallell data eller kombinations data.
 
-    -  Parallell data:
-        -  Källfil: Välj källspråk fil från din lokala dator.
-        -  Målfilen: Välj målspråk fil från din lokala dator.
-        -  Dokumentnamn: Används endast om du laddar upp parallella filer.
+    -  Parallella data:
+        -  Källfil: Välj käll språk fil från den lokala datorn.
+        -  Målfil: Välj mål språk fil från den lokala datorn.
+        -  Dokument namn: Används endast om du överför parallella filer.
 
-    - Kombinationsruta för data:
-        -  Kombinationsruta för filen: Markera den kombinationsruta-fil från din lokala dator. Kombinationsruta för filen har både för källan och målspråk meningar. [Naming convention](document-formats-naming-convention.md) är viktigt för kombinationsruta för filer.
+    - Kombinations data:
+        -  Kombinations fil: Välj kombinations filen från den lokala datorn. Din kombinations fil har båda meningarna käll-och mål språk. [Namngivnings konvention](document-formats-naming-convention.md) är viktigt för kombinations filer.
 
     e.  Klicka på ladda upp
 
-    ![Ladda upp dokument dialogrutan](media/how-to/how-to-upload-dialog.png)
+    ![Dialog rutan Ladda upp dokument](media/how-to/how-to-upload-dialog.png)
 
-3.  Nu kan vi bearbeta dina dokument och skulle extraheras meningar. Du kan klicka på ”Visa uppladdningsförlopp” att kontrollera status för dina dokument som de bearbetar.
+3.  Nu bearbetar vi dina dokument och försöker extrahera meningar. Du kan klicka på "Visa uppladdnings förlopp" för att kontrol lera statusen för dina dokument när de bearbetas.
 
-    ![Ladda upp dokument bearbetning dialogrutan](media/how-to/how-to-upload-processing-dialog.png)
+    ![Dialog rutan Ladda upp dokument bearbetning](media/how-to/how-to-upload-processing-dialog.png)
 
-4.  Den här sidan visar status och eventuella fel för varje fil i ladda upp. Du kan visa tidigare Överföringsstatusen när som helst genom att klicka på fliken ”ladda upp historik”.
+4.  Den här sidan visar status och eventuella fel för varje fil i överföringen. Du kan visa tidigare överförings status när som helst genom att klicka på fliken "Ladda upp historik".
 
-    ![Ladda upp dokument historik dialogrutan](media/how-to/how-to-upload-document-history.png)
+    ![Dialog rutan Ladda upp dokument historik](media/how-to/how-to-upload-document-history.png)
 
 
-## <a name="view-upload-history"></a>Visa historik för uppladdning
+## <a name="view-upload-history"></a>Visa överförings historik
 
-I uppladdningssidan historik som du kan visa historiken för alla dokument uppladdningar information som typ av standarddokument, språk-par, för att överföra status osv.
+På sidan överförings historik kan du Visa historik för alla dokument överförings detaljer som dokument typ, språk par, uppladdnings status osv.
 
-1. Från den [anpassad Translator](https://portal.customtranslator.azure.ai) portal, ladda upp historik fliken om du vill visa historik.
+1. Från den [anpassade översättnings](https://portal.customtranslator.azure.ai) portalen klickar du på fliken Ladda upp historik för att visa historik.
 
-    ![Ladda upp fliken Historik](media/how-to/how-to-upload-history-1.png)
+    ![Fliken Ladda upp historik](media/how-to/how-to-upload-history-1.png)
 
-2. Den här sidan visar status för alla dina senaste uppladdningar. Den visar uppladdningar från det senaste till det tidigaste. För varje överföring visas dokumentnamnet, Överföringsstatusen, ladda upp datumet, antalet filer som överförts, typ av fil har laddats upp och språk-par med filen.
+2. Den här sidan visar status för alla tidigare överföringar. Den visar överföringar från senaste till minst senaste. För varje uppladdning visas dokument namn, överförings status, uppladdnings datum, antal överförda filer, typ av överförd fil och språkets fil namn.
 
-    ![Ladda upp sidan tidigare](media/how-to/how-to-document-history-2.png)
+    ![Sidan Ladda upp historik](media/how-to/how-to-document-history-2.png)
 
-3. Klicka på en post, ladda upp historik. Du kan visa de filer som laddas upp som en del av överföringen, överförda status för filen, språket i fil- och fel meddelandet (om det finns några fel i överföringen) överför historik information på sidan.
+3. Klicka på en post för överförings historik. På sidan information om överförings historik kan du Visa filerna som laddats upp som en del av överföringen, Uppladdad status för filen, språk för filen och fel meddelandet (om det finns några fel i överföringen).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd den [dokumentet informationssidan](how-to-view-document-details.md) att granska listan över extraherade meningar.
-- [Hur du tränar en modell](how-to-train-model.md).
+- Använd [sidan dokument information](how-to-view-document-details.md) för att granska listan över extraherade meningar.
+- [Hur man tränar en modell](how-to-train-model.md).

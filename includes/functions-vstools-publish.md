@@ -8,39 +8,41 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f1a8ecd0e53d28aed66546c41f95cc3855d1783a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a0cf557cec0f20d257c3c70290e2d74f077d881a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608386"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68593804"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
-2. Välj **Azure-funktionsapp**, välj **Skapa ny** och välj sedan **Publicera**.
+2. I dialog rutan **Välj ett publicerings mål** använder du de publicerings alternativ som anges i tabellen nedanför bilden: 
 
-    ![Välj ett publiceringsmål](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png) 
+    ![Välj ett publiceringsmål](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    När du klickar på **kör en paketfil (rekommenderas) från**, funktionsappen ska distribueras med [Zip distribuera](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) med [kör från paketet](../articles/azure-functions/run-functions-from-deployment-package.md) läge har aktiverats. Detta är det rekommenderade sättet för att köra dina funktioner och resulterar i bättre prestanda.
+    | Alternativ      | Beskrivning                                |
+    | ------------ |  -------------------------------------------------- |
+    | **Azure Functions förbruknings plan** |   När du publicerar projektet till en Function-app som körs i en [förbruknings plan](../articles/azure-functions/functions-scale.md#consumption-plan)betalar du bara för körningar av Functions-appen. Andra värd planer ådrar sig högre kostnader. Läs mer i [Azure Functions skala och vara värd](../articles/azure-functions/functions-scale.md). | 
+    | **Skapa ny** | En ny function-app med relaterade resurser skapas i Azure. När du väljer **Välj befintliga** skrivs alla filer i den befintliga funktionsappen i Azure över från det lokala projektet. Använd bara det här alternativet när du publicerar igen i en befintlig funktionsapp. |
+    | **Kör från paketfil** | Din Function-app distribueras med hjälp av [zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) med läget [Kör-från-Package](../articles/azure-functions/run-functions-from-deployment-package.md) aktiverat. Detta är det rekommenderade sättet att köra funktioner, vilket ger bättre prestanda. |
 
-    >[!CAUTION]
-    >När du väljer **Välj befintliga** skrivs alla filer i den befintliga funktionsappen i Azure över från det lokala projektet. Använd bara det här alternativet när du publicerar igen i en befintlig funktionsapp.
 
-3. Om du inte redan har anslutit Visual Studio till ditt Azure-konto väljer du **Lägg till ett konto**.
+3. Välj **Publicera**. Om du inte redan har loggat in på ditt Azure-konto från Visual Studio väljer du **Logga in**. Du kan också skapa ett kostnads fritt Azure-konto.
 
-4. I dialogrutan **Skapa App Service** använder du **värdinställningarna** som anges i tabellen under bilden:
+4. **I App Service: Skapa ny** dialog, Använd **värd** inställningarna som anges i tabellen nedanför bilden:
 
     ![Dialogrutan Skapa App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Inställning      | Föreslaget värde  | Beskrivning                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Appnamn** | Globalt unikt namn | Namn som unikt identifierar din nya funktionsapp. |
+    | **Namn** | Globalt unikt namn | Namn som unikt identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`. |
     | **Prenumeration** | Välj din prenumeration | Den Azure-prenumeration som ska användas. |
     | **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Namnet på resursgruppen som funktionsappen ska skapas i. Skapa en ny resursgrupp genom att välja **Ny**.|
-    | **[App Service-plan](../articles/azure-functions/functions-scale.md)** | Förbrukningsplan | Välj **Förbrukning** under **Storlek** efter att du klickat på **Nytt** för att skapa en serverlös plan. Välj också en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som används av dina funktioner. När du kör i en plan som inte är **Förbrukning** behöver du hantera [funktionsappens skalning](../articles/azure-functions/functions-scale.md).  |
-    | **[Lagringskonto](../articles/storage/common/storage-quickstart-create-account.md)** | Allmänt lagringskonto | Azure Functions-körmiljön kräver ett Azure Storage-konto. Klicka på **New** att skapa ett allmänt lagringskonto. Du kan också använda ett befintligt konto som uppfyller [kraven för ett lagringskonto](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
+    | **[Värd plan](../articles/azure-functions/functions-scale.md)** | Förbrukningsplan | Se till att välja **förbrukningen** under **storlek** när du har valt **ny** för att skapa en server lös plan. Välj också en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som används av dina funktioner. När du kör i en plan som inte är **Förbrukning** behöver du hantera [funktionsappens skalning](../articles/azure-functions/functions-scale.md).  |
+    | **[Azure Storage](../articles/storage/common/storage-quickstart-create-account.md)** | Allmänt lagrings konto | Azure Functions-körmiljön kräver ett Azure Storage-konto. Välj **ny** för att skapa ett allmänt lagrings konto. Du kan också använda ett befintligt konto som uppfyller [kraven för ett lagringskonto](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
 
-5. Klicka på **Skapa** för att skapa en funktionsapp och relaterade resurser i Azure med dessa inställningar och distribuera koden för funktionsprojektet. 
+5. Välj **skapa** för att skapa en Function-app och relaterade resurser i Azure med de här inställningarna och distribuera din funktions projekt kod. 
 
 6. När distributionen är klar skriver du ned värdet för **Plats-URL**. Det här är funktionsappens adress i Azure.
 

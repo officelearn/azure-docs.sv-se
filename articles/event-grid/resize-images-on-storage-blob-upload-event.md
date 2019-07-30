@@ -245,7 +245,7 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     | **Slutpunkt för prenumerant** | genereras automatiskt | Använd den slutpunktsadress som genereras åt dig. | 
 4. Växla till fliken **Filter** och gör följande:     
     1. Välj alternativet **Aktivera ämnesfiltrering**.
-    2. För **Ämne börjar med** anger du följande värde: **/blobServices/default/containers/images/blobs/**.
+    2. För **Ämne börjar med** anger du följande värde: **/blobServices/default/containers/images/blobs/** .
 
         ![Ange filter för händelseprenumeration](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
 2. Välj **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser funktionen `Thumbnail` när en blob läggs till i containern `images`. Funktionen ändrar storlek på avbildningarna och lägger till dem till containern `thumbnails`.

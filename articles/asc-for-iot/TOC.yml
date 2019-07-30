@@ -1,4 +1,4 @@
-- name: Dokumentation om förhandsversionen av Azure Security Center (ASC) för IoT
+- name: Dokumentation om Azure Security Center for IoT
   href: index.yml
 - name: Översikt
   href: overview.md
@@ -11,16 +11,21 @@
       href: security-edge-architecture.md
     - name: Förutsättningar för tjänsten
       href: service-prerequisites.md
-    - name: Komma igång med ASC för IoT
+    - name: Komma igång med Azure Security Center for IoT
       href: getting-started.md
+      items:
+        - name: IoT Hub
+          href: iot-hub-integration.md
+        - name: Säkerhetsagenter
+          href: security-agents.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Aktivera ASC för IoT i IoT Hub
+    - name: Aktivera Azure Security Center for IoT i IoT Hub
       href: quickstart-onboard-iot-hub.md
     - name: Konfigurera lösningen
       href: quickstart-configure-your-solution.md
-    - name: Skapa en ASC för IoT-modultvilling
+    - name: Skapa en Azure Security Center for IoT-modultvilling
       href: quickstart-create-security-twin.md
     - name: Skapa anpassade säkerhetsaviseringar
       href: quickstart-create-custom-alerts.md
@@ -34,6 +39,8 @@
       href: concept-security-alerts.md
     - name: Säkerhetsrekommendationer
       href: concept-recommendations.md
+    - name: Händelsesammansättning
+      href: event-aggregation.md
     - name: Prissättning och associerade kostnader
       href: concept-pricing.md
 - name: Instruktionsguider
@@ -48,6 +55,14 @@
           href: how-to-deploy-linux-cs.md
         - name: Distribuera en C-baserad säkerhetsagent på en Linux-enhet
           href: how-to-deploy-linux-c.md
+    - name: Felsöka en säkerhetsagent
+      items:
+        - name: Felsöka en Linux-säkerhetsagent för Azure Security Center for IoT
+          href: troubleshoot-agent.md
+        - name: Lokal konfiguration C
+          href: azure-iot-security-local-configuration-c.md
+        - name: 'Lokal konfiguration C#'
+          href: azure-iot-security-local-configuration-csharp.md
     - name: Distribuera Edge-säkerhetsmodul
       href: how-to-deploy-edge.md
     - name: Konfigurera säkerhetsagenter

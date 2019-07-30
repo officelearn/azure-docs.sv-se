@@ -286,6 +286,8 @@
           href: application-proxy-security.md
         - name: Nätverkstopologi
           href: application-proxy-network-topology.md
+        - name: Hög tillgänglighet och belastningsutjämning
+          href: application-proxy-high-availability-load-balancing.md
         - name: Jämförelse mellan fjärråtkomstlösningar
           href: application-proxy-migration.md
     - name: Instruktionsguider

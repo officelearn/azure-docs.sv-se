@@ -3,7 +3,7 @@ title: Distribuera ett containerprogram med CI/CD till ett Azure Service Fabric-
 description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio Azure DevOps.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 37305f27203986ce2e3d06276b5169ffd9b41287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720813"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598893"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudier: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
 
@@ -137,7 +137,7 @@ Klicka på **Docker Settings** (Docker-inställningar) och klicka sedan på **Co
 
 ![Agent för versionspipeline][release-pipeline-agent]
 
-Lägg sedan till en byggesartefakt i pipelinen så versionsdefinitionen kan hitta utdata från bygget. Välj **Pipeline** och **artefakter**->**+ Lägg till**.  I **Source (Build definition)** (Källa (byggesdefinition)) väljer du den byggesdefinition som du skapade tidigare.  Klicka på **Lägg till** för att spara byggesartefakten.
+Lägg sedan till en byggesartefakt i pipelinen så versionsdefinitionen kan hitta utdata från bygget. Välj **Pipeline** och **artefakter**-> **+ Lägg till**.  I **Source (Build definition)** (Källa (byggesdefinition)) väljer du den byggesdefinition som du skapade tidigare.  Klicka på **Lägg till** för att spara byggesartefakten.
 
 ![Lägg till artefakt][add-artifact]
 

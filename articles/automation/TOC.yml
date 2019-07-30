@@ -253,6 +253,9 @@
         - name: Kompilera DSC-konfigurationer
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
+        - name: Åtgärda icke-kompatibla DSC-servrar
+          href: automation-dsc-remediate.md
+          displayName: 'state configuration, DSC, remediate'
         - name: Skapa DSC-konfigurationer med sammansatta resurser
           href: compose-configurationwithcompositeresources.md
         - name: Kontinuerlig distribution med Chocolatey

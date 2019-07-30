@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: bd86b230d801f5fff8a9fb0de85f9f3025527382
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: be6a402673fd2d3ba01451c6ea04e723cbdfa292
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953448"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597501"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB: Tabell-API
 
@@ -22,26 +22,26 @@ ms.locfileid: "65953448"
 * [Dedikerat dataflöde](partition-data.md) över hela världen.
 * Latensvärden på enstaka millisekunder vid 99:e percentilen.
 * Garanterat hög tillgänglighet.
-* [Automatisk sekundär indexering](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* Automatisk sekundär indexering.
 
 Program som är skrivna för Azure Table Storage kan migrera till Azure Cosmos DB med hjälp av ett tabell-API och på så sätt dra nytta av premiumfunktioner, utan kodändringar. Tabell-API:t har tillgängliga klient-SDK:er för .NET, Java, Python och Node.js.
 
 > [!IMPORTANT]
-> .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) är i underhållsläge läge och det upphör att gälla snart. Uppgradera till det nya .NET Standard-biblioteket [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) fortsätta att få de senaste funktionerna som stöds av tabell-API.
+> .NET Framework SDK [Microsoft. Azure. CosmosDB. table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) är i underhålls läge och kommer snart att vara inaktuell. Uppgradera till det nya .NET standard-biblioteket [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) för att fortsätta hämta de senaste funktionerna som stöds av tabell-API.
 
 ## <a name="table-offerings"></a>Tabellerbjudanden
 Om du använder Azure Table Storage får du följande fördelar genom att byta till Azure Cosmos DB:s tabell-API:
 
 | | Azure Table Storage | Tabell-API för Azure Cosmos DB |
 | --- | --- | --- |
-| Svarstid | Snabb, men inga övre gränser för svarstid. | Ensiffrig millisekundsvarstid för läsningar och skrivningar med <10 ms svarstid för läsning och <15 ms svarstid vid skrivning vid 99:e percentilen, i valfri skala, var som helst i världen. |
+| Svarstid | Snabb, men inga övre gränser för svarstid. | Enkel svars tid i millisekunder för läsningar och skrivningar, med < 10 MS svars tid för läsningar och skrivningar i 99 percentilen, i valfri skala, var som helst i världen. |
 | Dataflöde | Modell med variabelt dataflöde. Tabeller har en gräns för skalbarhet på 20 000 åtgärder/s. | Mycket skalbara med [dedikerat reserverat dataflöde per tabell](request-units.md) som understöds av serviceavtal. Konton har ingen maxgräns för dataflöde och kan hantera >10 miljoner åtgärder/s per tabell. |
-| Global distribution | En enda region med en valfri läsbar sekundär läsregion för hög tillgänglighet. Du kan inte initiera redundans. | [Nyckelfärdig global distribution](distribute-data-globally.md) mellan 1 och 30+ regioner. Stöd för [automatisk och manuell redundans](high-availability.md) när som helst och var som helst i världen. |
-| Indexering | Ett primärt index för PartitionKey och RowKey. Inga sekundära index. | Automatisk och fullständig indexering för alla egenskaper, utan indexhantering. |
+| Global distribution | En enda region med en valfri läsbar sekundär läsregion för hög tillgänglighet. Du kan inte initiera redundans. | [Nyckel färdig global distribution](distribute-data-globally.md) från en till ett valfritt antal regioner. Stöd för [automatisk och manuell redundans](high-availability.md) när som helst och var som helst i världen. Funktioner med flera huvud servrar för att låta en region godkänna Skriv åtgärder. |
+| Indexering | Ett primärt index för PartitionKey och RowKey. Inga sekundära index. | Automatisk och fullständig indexering för alla egenskaper som standard, utan index hantering. |
 | Söka i data | Frågekörningen använder index för primär nyckel och genomsöker annars. | Frågor kan dra nytta av automatisk indexering av egenskaper för snabba frågetider. |
 | Konsekvens | Stark inom primär region. Eventuell inom sekundär region. | [Fem väldefinierade konsekvensnivåer](consistency-levels.md) för att balansera tillgänglighet, svarstid, dataflöde och konsekvens baserat på dina programbehov. |
 | Prissättning | Optimerad för lagring. | Optimerad för dataflöde. |
-| Serviceavtal | 99,99 % tillgänglighet. | Serviceavtal med 99,99 % tillgänglighet för alla konton med tillgång till en eller flera regioner med konsekvensmodellen ”relaxed” (avslappnad). 99,999 % läsningstillgänglighet för alla databaskonton med tillgång till flera regioner. [Branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) när detta blivit allmänt tillgängligt. |
+| Serviceavtal | 99,9% till 99,99% tillgänglighet, beroende på strategi för replikering. | 99,999% Läs tillgänglighet, 99,99% Skriv tillgänglighet för ett konto med en region och 99,999% Skriv tillgänglighet på flera region konton. [Omfattande service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) som täcker tillgänglighet, svars tid, data flöde och konsekvens. |
 
 ## <a name="get-started"></a>Kom igång
 

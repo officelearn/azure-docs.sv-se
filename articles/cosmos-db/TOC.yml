@@ -738,6 +738,12 @@
           maintainContext: true
         - name: ODBC-drivrutin
           href: odbc-driver.md
+    - name: Migrera data till Azure Cosmos DB
+      items:
+        - name: Migrera till SQL API med Striim
+          href: cosmosdb-sql-api-migrate-data-striim.md
+        - name: Migrera till API för Cassandra med Striim
+          href: cosmosdb-cassandra-api-migrate-data-striim.md
     - name: Massexecutor-bibliotek
       items:
         - name: Om bibliotek för massexecutor

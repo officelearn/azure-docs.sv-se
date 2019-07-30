@@ -1,7 +1,7 @@
 ---
-title: API för textöversättning transkribera metod
-titlesuffix: Azure Cognitive Services
-description: Använd metoden transkribera till Translator Text API.
+title: Translator Text API translittererad
+titleSuffix: Azure Cognitive Services
+description: Använd metoden Translator Text API translittererad.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: ddf4ca1939e09f5f63999657e7a751c9e53693e2
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 0be56bbd421bcd12e3c494a671db2f322e07c575
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357664"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594935"
 ---
-# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3,0: Transliterate
 
-Konverterar text på ett språk från ett skript till ett annat skript.
+Konverterar text på ett språk från ett skript till ett annat.
 
 ## <a name="request-url"></a>URL för begäran
 
-Skicka en `POST` begäran om att:
+Skicka en `POST` begäran till:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
@@ -31,55 +31,55 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 ## <a name="request-parameters"></a>Begäranparametrar
 
-Parametrarna som skickades mot frågesträngen är:
+Parametrarna för begäran som skickades till frågesträngen är:
 
 <table width="100%">
   <th width="20%">Frågeparameter</th>
   <th>Beskrivning</th>
   <tr>
     <td>API-versionen</td>
-    <td>*Obligatoriska parametern*.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara `3.0`.</td>
+    <td>*Obligatorisk parameter*.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`.</td>
   </tr>
   <tr>
     <td>language</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i texten som ska konverteras från ett skript till en annan. Möjliga språk visas i den `transliteration` omfång hämtas genom att fråga service för dess [språk som stöds](./v3-0-languages.md).</td>
+    <td>*Obligatorisk parameter*.<br/>Anger språket för texten som ska konverteras från ett skript till ett annat. Möjliga språk listas i omfånget som erhålls genom att `transliteration` fråga tjänsten för de språk som [stöds](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Obligatoriska parametern*.<br/>Anger det skript som används av indatatexten. Leta upp [språk som stöds](./v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta inkommande skript är tillgängliga för det valda språket.</td>
+    <td>*Obligatorisk parameter*.<br/>Anger det skript som används av inmatad text. Leta upp [språk som stöds](./v3-0-languages.md) med `transliteration` hjälp av omfånget för att hitta tillgängliga skript för det valda språket.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Obligatoriska parametern*.<br/>Anger det utgående skriptet. Leta upp [språk som stöds](./v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta utdata skript är tillgängliga för den valda kombinationen av språk och indata-skript.</td>
+    <td>*Obligatorisk parameter*.<br/>Anger utdata-skriptet. Leta upp [språk som stöds](./v3-0-languages.md) med `transliteration` hjälp av omfånget för att hitta de tillgängliga skripten för den valda kombinationen av inmatnings språk och indata-skript.</td>
   </tr>
 </table> 
 
-Begärandehuvuden är:
+Begärandehuvuden innehåller:
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
-    <td>Rubriker för autentisering</td>
-    <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
+    <td>Authentication-huvud (er)</td>
+    <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
+    <td>Innehållstyp</td>
+    <td>*Begär ande huvud för begäran*.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`.</td>
   </tr>
   <tr>
-    <td>Content-Length</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Längden på det begärda innehållet.</td>
+    <td>Innehålls längd</td>
+    <td>*Begär ande huvud för begäran*.<br/>Längden på begär ande texten.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Valfritt*.<br/>En klientgenererade GUID för unik identifiering på begäran. Observera att du kan utelämna den här rubriken om du inkluderar trace-ID i frågesträngen med hjälp av en frågeparameter som heter `ClientTraceId`.</td>
+    <td>*Valfritt*.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Observera att du kan utelämna detta sidhuvud om du inkluderar spårnings-ID: t i frågesträngen med hjälp av `ClientTraceId`en frågeparameter med namnet.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Begärandetext
 
-Brödtexten i begäran är en JSON-matris. Varje matriselement är ett JSON-objekt med en strängegenskap med namnet `Text`, som representerar strängen som ska konverteras.
+Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med namnet `Text`, som representerar strängen som ska konverteras.
 
 ```json
 [
@@ -90,19 +90,19 @@ Brödtexten i begäran är en JSON-matris. Varje matriselement är ett JSON-obje
 
 Följande begränsningar gäller:
 
-* Matrisen kan ha högst 10 element.
-* Textvärdet för ett matriselement får inte överskrida 1 000 tecken inklusive blanksteg.
-* Hela texten i begäran får inte överskrida 5 000 tecken inklusive blanksteg.
+* Matrisen får innehålla högst 10 element.
+* Text värden för ett mat ris element får inte överstiga 1 000 tecken inklusive blank steg.
+* Hela texten som ingår i begäran får inte överstiga 5 000 tecken inklusive blank steg.
 
-## <a name="response-body"></a>Svarstext
+## <a name="response-body"></a>Svars text
 
-Ett lyckat svar är en JSON-matris med ett resultat för varje element i Indatamatrisen. En resultatobjektet innehåller följande egenskaper:
+Ett lyckat svar är en JSON-matris med ett resultat för varje element i den angivna matrisen. Ett resultat objekt innehåller följande egenskaper:
 
-  * `text`: En sträng som är resultatet från konverteringen Indatasträngen till det utgående skriptet.
+  * `text`: En sträng som är resultatet av att konvertera Indatasträngen till utdata-skriptet.
   
-  * `script`: En sträng som anger skript som används i utdata.
+  * `script`: En sträng som anger det skript som används i utdata.
 
-Ett exempel JSON-svar är:
+Ett exempel på JSON-svar är:
 
 ```json
 [
@@ -111,20 +111,20 @@ Ett exempel JSON-svar är:
 ]
 ```
 
-## <a name="response-headers"></a>Svarshuvuden
+## <a name="response-headers"></a>Svarshuvud
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
     <td>X-RequestId</td>
-    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används för felsökning.</td>
+    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används i fel söknings syfte.</td>
   </tr>
 </table> 
 
-## <a name="response-status-codes"></a>Svarsstatuskoder
+## <a name="response-status-codes"></a>Svars status koder
 
-Här följer möjliga HTTP-statuskoder som returnerar en begäran. 
+Följande är de möjliga HTTP-statuskod som en begäran returnerar. 
 
 <table width="100%">
   <th width="20%">Statuskod</th>
@@ -135,45 +135,45 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
   </tr>
   <tr>
     <td>400</td>
-    <td>En av frågeparametrarna är saknas eller är inte giltig. Korrigera parametrarna innan du försöker igen.</td>
+    <td>En av frågeparametrar saknas eller är ogiltig. Korrigera parametrarna för begäran innan du försöker igen.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>Det gick inte att autentisera begäran. Kontrollera att autentiseringsuppgifterna är angivna och giltiga.</td>
+    <td>Det gick inte att autentisera begäran. Kontrol lera att autentiseringsuppgifterna har angetts och är giltiga.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>Begäran har inte behörighet. Finns information om felmeddelandet. Detta innebär ofta att alla kostnadsfria översättningar som medföljer en utvärderingsprenumeration har förbrukats.</td>
+    <td>Begäran har inte behörighet. Se fel meddelandet information. Detta indikerar ofta att alla kostnads fria översättningar som ingår i en utvärderings prenumeration har använts.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>Servern avvisade begäran eftersom klienten har överskridit begärandebegränsningar.</td>
+    <td>Servern avvisade begäran på grund av att klienten har överskridit gränsen för begäran.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Det uppstod ett oväntat fel. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud `X-RequestId`, och klient-ID från begärandehuvudet `X-ClientTraceId`.</td>
+    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet `X-RequestId`och klient-ID: n från begär ande huvudet. `X-ClientTraceId`</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud `X-RequestId`, och klient-ID från begärandehuvudet `X-ClientTraceId`.</td>
+    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet `X-RequestId`och klient-ID: n från begär ande huvudet. `X-ClientTraceId`</td>
   </tr>
 </table> 
 
-Om ett fel inträffar, returneras också en JSON-felsvar i begäran. Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av ett 3-siffriga tal till ytterligare kategorisera felet. Vanliga felkoder finns på den [v3 Translator Text API-referenssida](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3-Translator text API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas hur du konverterar två japanska strängar till Romanized japanska.
+I följande exempel visas hur du konverterar två japanska strängar till en romerskt japansk.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[klammerparentes](#tab/curl)
 
-JSON-nyttolast för begäran i det här exemplet:
+JSON-nyttolasten för begäran i det här exemplet:
 
 ```
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Om du använder cURL i ett kommandoradsfönster som inte stöder Unicode-tecken, vidta följande JSON-nyttolasten och spara den till en fil med namnet `request.txt`. Glöm inte att spara filen med `UTF-8` kodning.
+Om du använder en sväng i ett kommando rads fönster som inte stöder Unicode-tecken tar du följande JSON-nyttolast och sparar den i en fil med namnet `request.txt`. Se till att spara filen med `UTF-8` encoding.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

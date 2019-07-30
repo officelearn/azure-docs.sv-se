@@ -72,6 +72,8 @@
               href: connect-cisco.md
         - name: Ansluta till hotinformation
           href: connect-threat-intelligence.md
+        - name: Ansluta virtuella datorer i Azure Stack
+          href: connect-azure-stack.md
     - name: Hotjakt
       href: hunting.md
       items:

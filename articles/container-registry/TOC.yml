@@ -77,6 +77,8 @@
       items:
         - name: Begränsa åtkomst med virtuellt nätverk (förhandsversion)
           href: container-registry-vnet.md
+        - name: Åtkomst bakom en brandvägg
+          href: container-registry-firewall-access-rules.md
         - name: Autentisering
           items:
             - name: Översikt över autentisering

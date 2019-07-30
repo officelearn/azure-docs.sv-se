@@ -61,7 +61,7 @@
           href: container-instances-restart-policy.md
         - name: Ange miljövariabler (env)
           href: container-instances-environment-variables.md
-        - name: Åsidosätta containerns startpunkt
+        - name: Ange startkommando för container (entrypoint)
           href: container-instances-start-command.md
         - name: Köra ett kommando (exec)
           href: container-instances-exec.md

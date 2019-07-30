@@ -5,14 +5,12 @@ metadata:
   title: 'Dokumentation om Azure CDN – Självstudier, API-referens | Microsoft Docs'
   description: 'Azure Content Delivery Network (CDN) är en global CDN-lösning för att leverera innehåll med hög bandbredd. Den kan köras i Azure eller på någon annan plats. Med Azure CDN kan du cachelagra statiska objekt som läses in från Azure Blob Storage, en webbapp, eller valfri offentligt tillgänglig webbserver genom att använda den närmaste POP-servern. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverks- och routningsoptimeringar.'
   services: cdn
-  author: czeumault
-  manager: carolz
+  author: twooley
+  manager: twooley
   ms.service: azure-cdn
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/08/2018
-  ms.author: carolz
+  ms.author: twooley
 abstract:
   description: 'Azure Content Delivery Network (CDN) är en global CDN-lösning för att leverera innehåll med hög bandbredd. Den kan köras i Azure eller på någon annan plats. Med Azure CDN kan du cachelagra statiska objekt som läses in från Azure Blob Storage, en webbapp, eller valfri offentligt tillgänglig webbserver genom att använda den närmaste POP-servern. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverks- och routningsoptimeringar.'
 sections:

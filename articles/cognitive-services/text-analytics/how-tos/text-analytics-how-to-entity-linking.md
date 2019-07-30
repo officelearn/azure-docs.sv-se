@@ -1,7 +1,7 @@
 ---
-title: Använda igenkänning av entiteter med API för textanalys
+title: Använd entitets igenkänning med API för textanalys
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du känner igen entiteter med hjälp av den REST API för textanalys.
+description: Lär dig att identifiera entiteter med hjälp av Textanalys REST API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,60 +10,60 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: ff4f9af82024e9d39ad89a39bcb2fe4130de9101
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 5a5787504d72259354f9c5eba2e2f4e22402ef0b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304186"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619726"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Hur du använder med namnet Entitetsidentifiering i textanalys
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
-Den [med namnet entitet för Talarigenkänning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) tar ostrukturerad text och för varje JSON-dokument, returnerar du en lista över skiljas åt entiteter med länkar till mer information på webben (Wikipedia och Bing). 
+Det [namngivna identifierings-API: et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) för entiteten tar ostrukturerad text och returnerar en lista med disambiguated-entiteter med länkar till mer information på webben (Wikipedia och Bing) för varje JSON-dokument.
 
-## <a name="entity-linking-and-named-entity-recognition"></a>Entitetslänkning och igenkänning av namngivna entiteter
+## <a name="entity-linking-and-named-entity-recognition"></a>Enhets länkning och identifiering av namngiven entitet
 
-Text Analytics `entities` slutpunkt stöder både namngivna entitetsidentifiering (NER) och för entitetslänkning.
+`entities` Slut punkten för textanalys stöder både ner-och entitets igenkänning.
 
 ### <a name="entity-linking"></a>Entity Linking
-Entitetslänkning är möjligheten att identifiera och disambiguate identiteten för en entitet som påträffats i texten (till exempel bestämma om ”Mars” används som arrangemang eller latinska krigsguden). Den här processen kräver förekomsten av en knowledge base som känns igen entiteter är länkade – Wikipedia används som kunskapsbas för den `entities` endpoint textanalys.
+Enhets länkning är möjligheten att identifiera och disambiguate identiteten för en entitet som påträffas i text (till exempel att avgöra om "mars" används som planet eller som den romerska god). Den här processen kräver att det finns en kunskaps bas där kända entiteter är länkade – Wikipedia används som kunskaps bas för `entities` slut punkten textanalys.
 
-### <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna entiteter (NER)
-Med namnet entitetsidentifiering är (NER) möjligheten att identifiera olika enheter i text och kategorisera dem i fördefinierade klasser. Klasserna stöds av entiteter visas nedan.
+### <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
+Med namngiven enhets igenkänning (NER) kan du identifiera olika entiteter i text och kategorisera dem i fördefinierade klasser. De klasser av entiteter som stöds visas nedan.
 
-I textanalys [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), både entitetslänkning och igenkänning av namngivna entiteter (NER) är tillgängliga för flera språk. Se den [språkstöd](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) artikeln för mer information. 
+I Textanalys [Version 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)är både enhets länkning och namngiven entitets IGENKÄNNING (ner) tillgängliga för flera språk. Mer information finns i artikeln om [språk support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
 
 ### <a name="language-support"></a>Stöd för språk
 
-Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskapsbas på varje språk. För entitetslänkning i Text Analytics, det innebär att alla språk som stöds av den `entities` endpoint länkar till motsvarande Wikipedia-Kristi på det språket. Eftersom storleken på korpus varierar mellan olika språk, förväntas varierar även funktionens återkallande för entitetslänkning.
+Om du använder enhets länkning på olika språk måste du använda en motsvarande kunskaps bas på varje språk. För entitets länkning i textanalys innebär detta att varje språk som stöds av `entities` slut punkten länkar till motsvarande Wikipedia-sökkorpus på det språket. Eftersom storleken på Korpus varierar mellan olika språk, förväntas det att återställningen av enhetens länknings funktion också kan variera.
 
-## <a name="supported-types-for-named-entity-recognition"></a>Typer som stöds för igenkänning av namngivna entiteter
+## <a name="supported-types-for-named-entity-recognition"></a>Typer som stöds för identifiering av namngiven entitet
 
-| Typ  | Undertyp | Exempel |
+| type  | Undertyp | Exempel |
 |:-----------   |:------------- |:---------|
 | Person        | EJ TILLÄMPLIGT\*         | "Jeff", "Bill Gates"     |
 | Location      | EJ TILLÄMPLIGT\*         | ”Redmond, Washington”, ”Paris”  |
 | Organisation  | EJ TILLÄMPLIGT\*         | "Microsoft"   |
-| Kvantitet      | Tal        | "6", "six"     | 
-| Kvantitet      | Procent    | ”50 %”, ”femtio procent”| 
-| Kvantitet      | Ordningstal       | ”2:a”, ”andra”     | 
-| Kvantitet      | NumberRange   | ”4 till 8”     | 
-| Kvantitet      | Ålder           | ”90 dagar gamla”, ”30 år”    | 
-| Kvantitet      | Valuta      | ”10,99 USD”     | 
-| Kvantitet      | Dimension     | ”10 miles”, ”40 cm”     | 
-| Kvantitet      | Temperatur   | ”32 grader”    |
-| DateTime      | EJ TILLÄMPLIGT\*         | ”18.30 den 4 februari 2012”      | 
-| DateTime      | Date          | ”2 maj 2017”, ”2017-05-02”   | 
-| DateTime      | Tid          | "8am", "8:00"  | 
-| DateTime      | DateRange     | ”2 maj till 5 maj”    | 
-| DateTime      | TimeRange     | ”18 till 19”     | 
-| DateTime      | Duration      | ”1 minut och 45 sekunder”   | 
-| DateTime      | Ange           | ”varje tisdag”     | 
-| DateTime      | Tidszon      |    | 
-| URL           | EJ TILLÄMPLIGT\*         | "https:\//www.bing.com"    |
-| E-post         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
+| Antal      | Tal        | "6", "six"     |
+| Antal      | Procent    | ”50 %”, ”femtio procent”|
+| Antal      | Ordningstal       | ”2:a”, ”andra”     |
+| Antal      | NumberRange   | ”4 till 8”     |
+| Antal      | Ålder           | "90 dag gammal", "30 år gammal"    |
+| Antal      | Currency      | ”10,99 USD”     |
+| Antal      | Dimension     | ”10 miles”, ”40 cm”     |
+| Antal      | Temperatur   | ”32 grader”    |
+| DateTime      | EJ TILLÄMPLIGT\*         | ”18.30 den 4 februari 2012”      |
+| DateTime      | Date          | ”2 maj 2017”, ”2017-05-02”   |
+| DateTime      | Time          | "8.00", "8:00"  |
+| DateTime      | DateRange     | ”2 maj till 5 maj”    |
+| DateTime      | TimeRange     | ”18 till 19”     |
+| DateTime      | Duration      | ”1 minut och 45 sekunder”   |
+| DateTime      | Ange           | ”varje tisdag”     |
+| DateTime      | Tidszon      |    |
+| URL           | EJ TILLÄMPLIGT\*         | "https:\//www.Bing.com"    |
+| Email         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
 
-\* Beroende på indata- och extraherade entiteter, vissa entiteter kan utelämna den `SubType`.  Alla stöds entitetstyper som visas är endast tillgängliga för de engelska, förenklad kinesiska, franska, tyska och spanska språk.
+\*Beroende på inmatade och extraherade entiteter kan vissa entiteter `SubType`utelämna.  Alla entitetstyper som stöds visas bara för de engelska, kinesiska, kinesiska, franska, tyska och spanska språken.
 
 
 
@@ -71,30 +71,34 @@ Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskaps
 
 Du måste ha JSON-dokument i det här formatet: ID, text, språk
 
-Språk som stöds för närvarande visas i [listan](../text-analytics-supported-languages.md).
+Information om språk som stöds för närvarande finns i [den här listan](../text-analytics-supported-languages.md).
 
-Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. I följande exempel är en illustration av innehåll som du kan skicka till länkramverk entitetsänden.
+Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. Följande exempel är en illustration av innehåll som du kan skicka till entitetens länknings slut.
 
-```
-{"documents": [{"id": "1",
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
                 "language": "en",
                 "text": "Jeff bought three dozen eggs because there was a 50% discount."
-                },
-               {"id": "2",
+            },
+            {
+                "id": "2",
                 "language": "en",
                 "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
-                }
-               ]
-}
-```    
-    
+            }
+        ]
+    }
+```
+
 ## <a name="step-1-structure-the-request"></a>Steg 1: Strukturera begäran
 
 Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
-+ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för Entity Linking](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för entity Linking](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Ange HTTP-slutpunkt för entitetextrahering. Den måste innehålla `/entities`-resursen: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
++ Ange HTTP-slutpunkten för enhets extrahering. Den måste innehålla `/entities`-resursen: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 + Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 
@@ -105,7 +109,7 @@ Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et]
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
-Analysen utförs när begäran har tagits emot. Se den [databegränsningar](../overview.md#data-limits) avsnittet i översikten för information om storlek och antal begäranden som du kan skicka per minut och sekund.
+Analysen utförs när begäran har tagits emot. I avsnittet [data begränsningar](../overview.md#data-limits) i översikt finns information om storlek och antal begär Anden som du kan skicka per minut och sekund.
 
 Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
 
@@ -115,179 +119,178 @@ Alla POST-begäranden returnerar ett JSON-formaterat svar med ID:n och identifie
 
 Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data.
 
-Ett exempel på utdata för entitetslänkning visas nästa:
+Ett exempel på utdata för enhets länkning visas härnäst:
 
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
-}
+    {
+        "Documents": [
+            {
+                "Id": "1",
+                "Entities": [
+                    {
+                        "Name": "Jeff",
+                        "Matches": [
+                            {
+                                "Text": "Jeff",
+                                "Offset": 0,
+                                "Length": 4
+                            }
+                        ],
+                        "Type": "Person"
+                    },
+                    {
+                        "Name": "three dozen",
+                        "Matches": [
+                            {
+                                "Text": "three dozen",
+                                "Offset": 12,
+                                "Length": 11
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "50",
+                        "Matches": [
+                            {
+                                "Text": "50",
+                                "Offset": 49,
+                                "Length": 2
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "50%",
+                        "Matches": [
+                            {
+                                "Text": "50%",
+                                "Offset": 49,
+                                "Length": 3
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Percentage"
+                    }
+                ]
+            },
+            {
+                "Id": "2",
+                "Entities": [
+                    {
+                        "Name": "Great Depression",
+                        "Matches": [
+                            {
+                                "Text": "The Great Depression",
+                                "Offset": 0,
+                                "Length": 20
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "Great Depression",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                        "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                    },
+                    {
+                        "Name": "1929",
+                        "Matches": [
+                            {
+                                "Text": "1929",
+                                "Offset": 30,
+                                "Length": 4
+                            }
+                        ],
+                        "Type": "DateTime",
+                        "SubType": "DateRange"
+                    },
+                    {
+                        "Name": "By 1933",
+                        "Matches": [
+                            {
+                                "Text": "By 1933",
+                                "Offset": 36,
+                                "Length": 7
+                            }
+                        ],
+                        "Type": "DateTime",
+                        "SubType": "DateRange"
+                    },
+                    {
+                        "Name": "Gross domestic product",
+                        "Matches": [
+                            {
+                                "Text": "GDP",
+                                "Offset": 49,
+                                "Length": 3
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "Gross domestic product",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                        "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                    },
+                    {
+                        "Name": "United States",
+                        "Matches": [
+                            {
+                                "Text": "America",
+                                "Offset": 56,
+                                "Length": 7
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "United States",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                        "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                        "Type": "Location"
+                    },
+                    {
+                        "Name": "25",
+                        "Matches": [
+                            {
+                                "Text": "25",
+                                "Offset": 72,
+                                "Length": 2
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "25%",
+                        "Matches": [
+                            {
+                                "Text": "25%",
+                                "Offset": 72,
+                                "Length": 3
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Percentage"
+                    }
+                ]
+            }
+        ],
+        "Errors": []
+    }
 ```
-
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln beskrivs begrepp och arbetsflöde för entitetslänkning med textanalys i Cognitive Services. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för entitets länkning med Textanalys i Cognitive Services. Sammanfattningsvis:
 
-+ [Entiteter API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) är tillgänglig för valda språken.
-+ JSON-dokument i begärandetexten innehålla ett ID, text och språk-kod.
++ [Entitets-API: et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) är tillgängligt för valda språk.
++ JSON-dokument i begär ande texten innehåller ID, text och språkkod.
 + POST-begäran riktas till en `/entities`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för din prenumeration.
-+ Svarsutdata som består av länkade entiteter (inklusive säker poäng, förskjutningar och webblänkar, för varje dokument ID) kan användas i alla program
++ Svars utdata, som består av länkade entiteter (inklusive förtroende poäng, förskjutningar och webb Länkar för varje dokument-ID) kan användas i alla program
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [API för textanalys](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-* [Översikt över Textanalys](../overview.md)  
+* [Översikt över Textanalys](../overview.md)
 * [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)</br>
-* [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712) 
+* [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712)

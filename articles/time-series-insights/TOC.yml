@@ -5,6 +5,7 @@
     - name: Om Time Series Insights
       href: time-series-insights-update-overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Allmän tillgänglighet för Azure Time Series Insights
       items:

@@ -5,6 +5,7 @@
     - name: Vad är Azure IoT Hub?
       href: about-iot-hub.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skicka telemetri
       items:

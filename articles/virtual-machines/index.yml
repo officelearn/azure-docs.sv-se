@@ -6,14 +6,14 @@ metadata:
   title: 'Dokumentation om virtuella Linux-datorer i Azure – Självstudier, API-referens | Microsoft Docs'
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Lär dig skapa virtuella Azure-datorer. Självstudier, API-referenser och annan dokumentation visar hur du skapar och distribuerar virtuella Windows- och Linux-datorer och mallar för virtuella datorer.'
 sections:

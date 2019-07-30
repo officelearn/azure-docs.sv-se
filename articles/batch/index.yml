@@ -5,14 +5,12 @@ metadata:
   title: 'Dokumentation om Batch – Självstudier, API-referens | Microsoft Docs'
   description: 'Använd Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Definiera Azure-beräkningsresurser för att köra dina program parallellt eller i stor skala utan manuell konfigurering eller hantering av infrastrukturen. Schemalägg beräkningsintensiva uppgifter och lägg till eller ta bort beräkningsresurser dynamiskt utifrån dina krav. Lär dig hur du använder Azure Batch med våra snabbstarter, självstudier och exempel.'
   services: batch
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: batch
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/30/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Använd Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Definiera Azure-beräkningsresurser för att köra dina program parallellt eller i stor skala utan manuell konfigurering eller hantering av infrastrukturen. Schemalägg beräkningsintensiva uppgifter och lägg till eller ta bort beräkningsresurser dynamiskt utifrån dina krav. Lär dig hur du använder Azure Batch med våra snabbstarter, självstudier och exempel.'
 sections:

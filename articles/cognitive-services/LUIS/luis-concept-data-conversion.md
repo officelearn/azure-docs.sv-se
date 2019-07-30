@@ -9,19 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: bdce1a49ce6c6531ce344de5aa157717fe72c609
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aeb9094db83b14af988f70485788934a7854200c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560802"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619801"
 ---
 # <a name="convert-data-format-of-utterances"></a>Konvertera dataformatet för yttranden
-LUIS använder Cognitive Services tal-tjänsten för att konvertera yttranden från talat yttranden till text yttranden innan förutsägelse. 
+LUIS tillhandahåller följande konverteringar av en användar-uttryck innan du förutsäger "
 
-## <a name="speech-to-intent-conversion-concepts"></a>Tal till avsikt konvertering begrepp
+* Tal till text med hjälp av [Cognitive Services Speech](../Speech-Service/overview.md) service. 
+
+## <a name="speech-to-text"></a>Tal till text
+
+Tal till text tillhandahålls som en integrering med LUIS. 
+
+### <a name="intent-conversion-concepts"></a>Konverterings begrepp för avsikt
 Konvertera tal till text i LUIS kan du skicka talat yttranden till en slutpunkt och ta emot svar LUIS förutsägelse. Processen är en integrering av den [tal](https://docs.microsoft.com/azure/cognitive-services/Speech) tjänst med LUIS. Lär dig mer om tal till avsikt med en [själv studie kurs](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Viktiga krav

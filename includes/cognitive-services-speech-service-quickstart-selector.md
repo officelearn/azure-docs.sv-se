@@ -24,6 +24,6 @@ ms.locfileid: "67465560"
 > - [JavaScript: Webbläsare](~/articles/cognitive-services/speech-service/quickstart-js-browser.md)
 > - [JavaScript: Node.js](~/articles/cognitive-services/speech-service/quickstart-js-node.md)
 > - [Objective-C: iOS](~/articles/cognitive-services/speech-service/quickstart-objectivec-ios.md)
-> - [Objective-C: macOS](~/articles/cognitive-services/speech-service/quickstart-objective-c-macos.md)
+> - [Mål-C: macOS](~/articles/cognitive-services/speech-service/quickstart-objective-c-macos.md)
 > - [SWIFT: iOS](~/articles/cognitive-services/speech-service/quickstart-swift-ios.md)
 > - [Python](~/articles/cognitive-services/speech-service/quickstart-python.md)

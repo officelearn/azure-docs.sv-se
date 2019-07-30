@@ -6,14 +6,12 @@ metadata:
   title: Dokumentation om Azure Functions – Självstudier | Microsoft Docs
   meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: azure-functions
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/09/2018
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Azure Functions är en beräkningstjänst <a href="https://azure.microsoft.com/solutions/serverless/">utan server</a> som gör det möjligt att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser. Lär dig hur du använder Azure Functions med våra snabbstarter, självstudier och exempel.'
   aside:

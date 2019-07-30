@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: lbosq
-ms.openlocfilehash: 24d5c11eb32350b2c11584ca5fc75ed4b619b6cf
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 7f42f693f485a6d3e49c8b29529fb72062b2157b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978756"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619861"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Snabbstart: Skapa ett .NET Framework- eller Core-program med hjälp av Azure Cosmos DB Gremlin API-kontot
 
@@ -30,9 +30,9 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Den här snabbstarten demonstrerar hur du skapar ett Microsoft Azure Cosmos DB [Gremlin-API](graph-introduction.md)-konto, en databas och en graf (container) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) (öppen källkod).  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnadsfria** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -132,7 +132,7 @@ Följande kodfragment är alla hämtade från filen Program.cs.
 * Skapa ett nytt `GremlinClient`-objekt (rad 56):
 
     ```csharp
-    var gremlinClient = new GremlinClient(gremlinServer);
+    var gremlinClient = new GremlinClient(gremlinServer, new GraphSON2Reader(), new GraphSON2Writer(), GremlinClient.GraphSON2MimeType);
     ```
 
 * Kör varje Gremlin-fråga med objektet `GremlinClient` med en an Async Task (rad 63). Det gör att Gremlin-frågorna läses från ordlistan som definierades ovan (rad 26):
@@ -158,7 +158,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 1. Öppna [Azure Portal](https://portal.azure.com/) och navigera till ditt Graph-databaskonto. På fliken **Översikt** ser du två slutpunkter: 
  
-   **.NET SDK URI** – det här värdet används när du ansluter till graph-konto med hjälp av Microsoft.Azure.Graphs-biblioteket. 
+   **.NET SDK-URI** – det här värdet används när du ansluter till diagrammets konto med hjälp av Microsoft. Azure. graphs-biblioteket. 
 
    **Gremlin-slutpunkt** – Det här värdet används när du ansluter till Graph-kontot via biblioteket Gremlin.Net.
 

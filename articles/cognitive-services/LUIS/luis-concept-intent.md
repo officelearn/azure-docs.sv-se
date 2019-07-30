@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2b574e0a545091263fce7949f997a3ba2dc8e5a8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563972"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619914"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Begrepp om avsikter i din LUIS-app
 
@@ -42,12 +42,15 @@ Du kan tilldela ett uttryck för till en enda avsikt. När LUIS tar emot ett utt
 ## <a name="intent-compared-to-entity"></a>Avsikten jämfört med entiteten
 Avsikten representerar åtgärden chattrobot bör ta för användaren och baseras på hela uttryck. Entiteten representerar ord eller fraser som ingår i uttryck. Ett uttryck kan ha bara en övre bedömning avsikt, men den kan ha många entiteter. 
 
-<a name="how-do-intents-relate-to-entities"></a> Skapa ett intent när användarens _avsikt_ ska utlösa en åtgärd i ditt klientprogram, t.ex. ett anrop till funktionen checkweather(). Skapa sedan en entitet som representerar parametrar som krävs för att utföra åtgärden. 
+<a name="how-do-intents-relate-to-entities"></a>
+
+Skapa en avsikt när användarens _avsikt_ skulle utlösa en åtgärd i klient programmet, t. ex. ett anrop till funktionen checkweather (). Skapa sedan en entitet som representerar parametrar som krävs för att utföra åtgärden. 
 
 |Exempel avsikt   | Entitet | Entitet i exempel yttranden   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | {”type”: ”plats”, ”enhet”: ”seattle”}<br>{”type”: ”builtin.datetimeV2.date","entity”: ”morgon”, ”lösning”: ”2018-05-23”} | Vad är vädret som i `Seattle` `tomorrow`? |
 | CheckWeather | {”type”: ”date_range”, ”enhet”: ”den här helgen”} | Visa mig prognosen för `this weekend` | 
+||||
 
 ## <a name="custom-intents"></a>Anpassade avsikter
 

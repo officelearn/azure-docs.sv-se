@@ -6,14 +6,12 @@ metadata:
   title: 'Dokumentation om virtuella Linux-datorer i Azure - självstudier, API-referens'
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines-linux
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Virtuella Linux-datorer i Azure tillhandahåller en säker, virtualiserad infrastruktur på begäran och med hög skalbarhet med hjälp av Red Hat, Ubuntu eller valfri annan Linux-distribution. Lär dig hur du skapar, konfigurerar, hanterar, uppdaterar och skalar virtuella Linux-datorer med våra snabbstarter, självstudier och exempel.'
   aside:

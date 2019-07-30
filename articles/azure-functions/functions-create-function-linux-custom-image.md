@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: a8a216a7d2ce048ed5131997df762942998aaa88
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444142"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619607"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Skapa en funktion i Linux med en anpassad avbildning
 
@@ -190,7 +190,7 @@ Nu kan du använda avbildningen som distributionskälla för en ny funktionsapp 
 
 ## <a name="create-a-premium-plan"></a>Skapa en Premium-plan
 
-Linux-värd för anpassade funktions behållare som stöds på [dedikerade (App Service) planer](functions-scale.md#app-service-plan) och [Premium-planer](functions-scale.md#premium-plan). I den här självstudien används en Premium-plan som kan skalas efter behov. Mer information om värdfunktioner finns i [Azure Functions hosting plans comparison](functions-scale.md) (Jämförelse av Azure Functions-värdplaner).
+Linux-värd för anpassade funktions behållare som stöds på [dedikerade (App Service) planer](functions-scale.md#app-service-plan) och [Premium-planer](functions-premium-plan.md#features). I den här självstudien används en Premium-plan som kan skalas efter behov. Mer information om värdfunktioner finns i [Azure Functions hosting plans comparison](functions-scale.md) (Jämförelse av Azure Functions-värdplaner).
 
 I följande exempel skapas en Premium-plan `myPremiumPlan` med namnet i pris nivån **elastisk Premium 1** (`--sku EP1`) i regionen Västra USA (`-location WestUS`) och i en Linux-behållare (`--is-linux`).
 

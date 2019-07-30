@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3b23509197dd1d91dbd74c57b3c732151c51a97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8159cc8d0e00e830f52e1814ac770c4a16f6b957
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66142973"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619335"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Snabbstart: Skapa en server – PowerShell
 
 I den här snabbstarten beskrivs hur du använder PowerShell från kommandoraden för att skapa en Azure Analysis Services-server i din Azure-prenumeration.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Du använder modulen [Az.AnalysisServices](/powershell/module/az.analysisservice
 Import-Module Az.AnalysisServices
 ```
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på din Azure-prenumeration med hjälp av kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Följ anvisningarna på skärmen.
 

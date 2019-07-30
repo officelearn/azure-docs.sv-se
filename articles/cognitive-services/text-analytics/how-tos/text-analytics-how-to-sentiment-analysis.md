@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 383fdc1eb415b5aa6ae0cfc6eb5dae228ddc5ce2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ccf6756ddfd583b0bc0d23c7f6afecf1f47708f5
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562626"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619644"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exempel: Identifiera sentiment med Textanalys
 
@@ -42,7 +42,7 @@ Du måste ha JSON-dokument i det här formatet: ID, text och språk.
 
 Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp till 1 000 objekt (ID) per samling. Samlingen skickas i begäranstexten. Följande exempel är ett exempel på innehåll som du kan skicka för sentiment-analys:
 
-```
+```json
     {
         "documents": [
             {
@@ -64,7 +64,7 @@ Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp ti
                 "language": "en",
                 "id": "4",
                 "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },                
+            },
             {
                 "language": "en",
                 "id": "5",
@@ -105,41 +105,41 @@ Utdata returneras direkt. Du kan strömma resultaten till ett program som accept
 I följande exempel visas svaret på dokument samlingen i den här artikeln:
 
 ```json
-{
-    "documents": [
-        {
-            "score": 0.9999237060546875,
-            "id": "1"
-        },
-        {
-            "score": 0.0000540316104888916,
-            "id": "2"
-        },
-        {
-            "score": 0.99990355968475342,
-            "id": "3"
-        },
-        {
-            "score": 0.980544924736023,
-            "id": "4"
-        },
-        {
-            "score": 0.99996328353881836,
-            "id": "5"
-        }
-    ],
-    "errors": []
-}
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Attitydanalys v3 offentlig för hands version
 
-[Nästa version av Attitydanalys](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) är nu tillgänglig för offentlig för hands version. Den ger betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning. 
+[Nästa version av Attitydanalys](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) är nu tillgänglig för offentlig för hands version. Den ger betydande förbättringar av precisionen och detaljerna i API: ns text kategorisering och poängsättning.
 
 > [!NOTE]
 > * Formatet för förfrågnings formatet för Attitydanalys v3 och [data begränsningarna](../overview.md#data-limits) är desamma som i den tidigare versionen.
-> * Attitydanalys v3 vid detta tillfälle: 
->    * Stöder för närvarande endast Engelskt språk.  
+> * Attitydanalys v3 vid detta tillfälle:
+>    * Stöder för närvarande endast Engelskt språk.
 >    * Är tillgängligt i följande regioner: `Central US`, `Central Canada`och `East Asia`.
 
 |Funktion |Beskrivning  |
@@ -165,20 +165,20 @@ Attitydanalys v3 kan returnera Poäng och etiketter på en menings-och dokument 
 Följande JSON är ett exempel på en begäran som gjorts till den nya versionen av Attitydanalys. Den begärda formateringen är samma som den tidigare versionen:
 
 ```json
-{
-  "documents": [
     {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
+        "documents": [
+        {
+            "language": "en",
+            "id": "1",
+            "text": "Hello world. This is some input text that I love."
+        },
+        {
+            "language": "en",
+            "id": "2",
+            "text": "It's incredibly sunny outside! I'm so happy."
+        }
+        ],
     }
-  ]
-}
 ```
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Exempel svar för Attitydanalys v3
@@ -186,73 +186,73 @@ Följande JSON är ett exempel på en begäran som gjorts till den nya versionen
 Formatet för begäran är detsamma som i föregående version, men svars formatet har ändrats. Följande JSON är ett exempel på ett svar från den nya versionen av API: et:
 
 ```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
+    {
+        "documents": [
+            {
+                "id": "1",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.98570585250854492,
+                    "neutral": 0.0001625834556762,
+                    "negative": 0.0141316400840878
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
+                "sentences": [
+                    {
+                        "sentiment": "neutral",
+                        "sentenceScores": {
+                            "positive": 0.0785155147314072,
+                            "neutral": 0.89702343940734863,
+                            "negative": 0.0244610067456961
+                        },
+                        "offset": 0,
+                        "length": 12
                     },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.98570585250854492,
+                            "neutral": 0.0001625834556762,
+                            "negative": 0.0141316400840878
+                        },
+                        "offset": 13,
+                        "length": 36
+                    }
+                ]
             },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
+            {
+                "id": "2",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.89198976755142212,
+                    "neutral": 0.103382371366024,
+                    "negative": 0.0046278294175863
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
+                "sentences": [
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.78401315212249756,
+                            "neutral": 0.2067587077617645,
+                            "negative": 0.0092281140387058
+                        },
+                        "offset": 0,
+                        "length": 30
                     },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.99996638298034668,
+                            "neutral": 0.0000060341349126,
+                            "negative": 0.0000275444017461
+                        },
+                        "offset": 31,
+                        "length": 13
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ### <a name="example-c-code"></a>Exempel C# kod
@@ -268,11 +268,10 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för sentiment-an
 + POST-begäran är till en `/sentiment` slut punkt genom att använda en anpassad [åtkomst nyckel och en slut punkt](text-analytics-how-to-access-key.md) som är giltig för din prenumeration.
 + Svars utdata som består av en sentiment Poäng för varje dokument-ID kan strömmas till alla appar som accepterar JSON. Exempel på appar är Excel och Power BI, så att du kan namnge några.
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se också
 
- [Översikt över Textanalys](../overview.md)  
- [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)</br>
- [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)</br>
+ [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 98f7ef3e6ce6ce8569e6cf1fba1c939e470d4be7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1ecb4897811e63ea33936f080791f3abce3e0b32
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552475"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618707"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exempel: Identifiera språk med Textanalys
 
@@ -36,7 +36,7 @@ Du måste ha JSON-dokument i det här formatet: ID och text.
 
 Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp till 1 000 objekt (ID) per samling. Samlingen skickas i begäranstexten. Följande exempel är ett exempel på innehåll som du kan skicka för språk identifiering:
 
-   ```
+```json
     {
         "documents": [
             {
@@ -54,7 +54,7 @@ Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp ti
             {
                 "id": "4",
                 "text": "本文件为英文"
-            },                
+            },
             {
                 "id": "5",
                 "text": "Этот документ на английском языке."
@@ -95,116 +95,172 @@ Resultat för exempelbegäran bör se ut som följande JSON. Observera att det �
 
 Ett positivt resultat på 1.0 uttrycker högsta möjliga förtroendenivå för analysen.
 
-
-
-```
-{
-    "documents": [
-        {
-            "id": "1",
-            "detectedLanguages": [
-                {
-                    "name": "English",
-                    "iso6391Name": "en",
-                    "score": 1
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "detectedLanguages": [
-                {
-                    "name": "Spanish",
-                    "iso6391Name": "es",
-                    "score": 1
-                }
-            ]
-        },
-        {
-            "id": "3",
-            "detectedLanguages": [
-                {
-                    "name": "French",
-                    "iso6391Name": "fr",
-                    "score": 1
-                }
-            ]
-        },
-        {
-            "id": "4",
-            "detectedLanguages": [
-                {
-                    "name": "Chinese_Simplified",
-                    "iso6391Name": "zh_chs",
-                    "score": 1
-                }
-            ]
-        },
-        {
-            "id": "5",
-            "detectedLanguages": [
-                {
-                    "name": "Russian",
-                    "iso6391Name": "ru",
-                    "score": 1
-                }
-            ]
-        }
-    ],
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguages": [
+                    {
+                        "name": "English",
+                        "iso6391Name": "en",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "detectedLanguages": [
+                    {
+                        "name": "Spanish",
+                        "iso6391Name": "es",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "3",
+                "detectedLanguages": [
+                    {
+                        "name": "French",
+                        "iso6391Name": "fr",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "4",
+                "detectedLanguages": [
+                    {
+                        "name": "Chinese_Simplified",
+                        "iso6391Name": "zh_chs",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "5",
+                "detectedLanguages": [
+                    {
+                        "name": "Russian",
+                        "iso6391Name": "ru",
+                        "score": 1
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ### <a name="ambiguous-content"></a>Tvetydig innehåll
 
+I vissa fall kan det vara svårt att disambiguate språk baserat på indatamängden. Du kan använda `countryHint` -parametern för att ange en landskod på 2 bokstäver. Som standard använder API: t "US" som standard-countryHint, för att ta bort det här alternativet kan du återställa den här parametern genom att ange värdet `countryHint = ""` till en tom sträng.
+
+Till exempel är "omöjlig" gemensamt för både engelska och franska och om det ges med begränsad kontext, kommer svaret att baseras på "US"-lands tipset. Om texten är känd för att komma från Frankrike som kan ges som ett tips.
+
+**Indata**
+
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
+                "text": "impossible"
+            },
+            {
+                "id": "2",
+                "text": "impossible",
+                "countryHint": "fr"
+            }
+        ]
+    }
+```
+
+Tjänsten har nu ytterligare kontext för att göra en bättre bedömning: 
+
+**Resultat**
+
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguages": [
+                    {
+                        "name": "English",
+                        "iso6391Name": "en",
+                        "score": 1
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "detectedLanguages": [
+                    {
+                        "name": "French",
+                        "iso6391Name": "fr",
+                        "score": 1
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
+```
+
 Om analysen inte kan parsa inmataren returneras `(Unknown)`. Ett exempel är om du skickar ett textblock som består av enbart arabiska siffror.
 
-```
+```json
     {
-      "id": "5",
-      "detectedLanguages": [
-        {
-          "name": "(Unknown)",
-          "iso6391Name": "(Unknown)",
-          "score": "NaN"
-        }
-      ]
+        "id": "5",
+        "detectedLanguages": [
+            {
+                "name": "(Unknown)",
+                "iso6391Name": "(Unknown)",
+                "score": "NaN"
+            }
+        ]
+    }
 ```
+
 ### <a name="mixed-language-content"></a>Blandat språk innehåll
 
 Blandat språk innehåll i samma dokument returnerar det språk som har störst representation i innehållet, men med en lägre positiv klassificering. Omdömet visar marginal styrkan i utvärderingen. I följande exempel är indata en blandning av engelska, spanska och franska. Det dominerande språket fastställs genom att analysatorn räknar tecken i varje segment.
 
 **Indata**
 
-```
-{
-  "documents": [
+```json
     {
-      "id": "1",
-      "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
+      "documents": [
+        {
+          "id": "1",
+          "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
+        }
+      ]
     }
-  ]
-}
 ```
 
 **Resultat**
 
 Resultatet består av det dominerande språket, med en poäng på mindre än 1,0, vilket tyder på en svagare nivå av förtroende.
 
-```
-{
-  "documents": [
+```json
     {
-      "id": "1",
-      "detectedLanguages": [
+      "documents": [
         {
-          "name": "Spanish",
-          "iso6391Name": "es",
-          "score": 0.9375
+          "id": "1",
+          "detectedLanguages": [
+            {
+              "name": "Spanish",
+              "iso6391Name": "es",
+              "score": 0.9375
+            }
+          ]
         }
-      ]
+      ],
+      "errors": []
     }
-  ],
-  "errors": []
-}
 ```
 
 ## <a name="summary"></a>Sammanfattning
@@ -216,11 +272,10 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för språk ident
 + POST-begäran är till en `/languages` slut punkt genom att använda en anpassad [åtkomst nyckel och en slut punkt](text-analytics-how-to-access-key.md) som är giltig för din prenumeration.
 + Svars utdata består av språk identifierare för varje dokument-ID. Utdata kan strömmas till alla appar som accepterar JSON. Exempel på appar är Excel och Power BI, så att du kan namnge några.
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se också
 
- [Översikt över Textanalys](../overview.md)  
- [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)</br>
- [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)</br>
+ [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Nästa steg
 

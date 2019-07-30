@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f4b97dce3e0790596acc15005a0522953ae9cbed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a6b89b315c4cdb1438fc8256cfc01793b3c0f920
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560683"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619742"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Begrepp för att aktivera aktiv inlärning genom att granska endpoint yttranden
 Aktiv inlärning är en av tre strategier för att förbättra förutsägelsefunktionen och enklast. Med aktiv inlärning, din granska endpoint yttranden för rätt avsikt och entiteten. LUIS väljer endpoint yttranden som det är osäker på.
@@ -37,7 +37,7 @@ Slutpunkten yttranden är hämtade från slutanvändarens frågor på programmet
 Granska föreslagna yttranden behöver inte göras varje dag men bör vara en del av din regelbundet underhåll av LUIS. 
 
 ## <a name="delete-review-items-programmatically"></a>Ta bort granska objekt via programmering
-Använd den **[ta bort omärkta yttranden](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Säkerhetskopiera dessa yttranden före borttagning av  **[exportera loggfilerna](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** .
+Använd yttranden-API: et **[ta bort omärkta](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** . Säkerhetskopiera dessa yttranden före borttagning av  **[exportera loggfilerna](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Ruby-appar – Azure App Service
-description: Den här självstudien beskrivs alternativ för att redigera och konfigurera Ruby-appar för Azure App Service i Linux.
+title: Konfigurera ruby-appar – Azure App Service
+description: I den här självstudien beskrivs alternativ för att redigera och konfigurera ruby-appar för Azure App Service i Linux.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -16,45 +16,45 @@ ms.date: 03/28/2019
 ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 95a848ff7d74d35203c7e8377405c709f7fc7bd7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 222ded620610957e752e2081bda638d78eba4867
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617394"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619438"
 ---
-# <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Konfigurera en Linux-Ruby-app för Azure App Service
+# <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Konfigurera en Linux Ruby-app för Azure App Service
 
-Den här artikeln beskrivs hur [Azure App Service](app-service-linux-intro.md) kör Ruby-appar och hur du kan anpassa beteendet för App Service när det behövs. Ruby-appar måste distribueras med alla de nödvändiga [pip](https://pypi.org/project/pip/) moduler.
+I den här artikeln beskrivs hur [Azure App Service](app-service-linux-intro.md) kör ruby-appar och hur du kan anpassa app service när det behövs. Ruby-appar måste distribueras med alla nödvändiga [pip](https://pypi.org/project/pip/) -moduler.
 
-Den här guiden innehåller viktiga begrepp och instruktioner för Ruby-utvecklare som använder en inbyggd Linux-behållare i App Service. Om du aldrig har använt Azure App Service ska du följa den [Ruby Snabbstart](quickstart-ruby.md) och [Ruby med PostgreSQL självstudiekursen](tutorial-ruby-postgres-app.md) första.
+Den här guiden innehåller viktiga begrepp och instruktioner för ruby-utvecklare som använder en inbyggd Linux-behållare i App Service. Om du aldrig har använt Azure App Service bör du först följa anvisningarna för [ruby-snabb](quickstart-ruby.md) starten och [ruby med postgresql](tutorial-ruby-postgres-app.md) .
 
-## <a name="show-ruby-version"></a>Visa Ruby-version
+## <a name="show-ruby-version"></a>Visa ruby-version
 
-För att visa den aktuella versionen för Ruby, kör du följande kommando den [Cloud Shell](https://shell.azure.com):
+Om du vill visa den aktuella ruby-versionen kör du följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Kör följande kommando för att visa alla Ruby-versioner som stöds, den [Cloud Shell](https://shell.azure.com):
+Om du vill visa alla ruby-versioner som stöds kör du följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep RUBY
 ```
 
-Du kan köra en version av Ruby genom att skapa en egen behållaravbildning i stället. Mer information finns i [Använda anpassad Docker-avbildning](tutorial-custom-docker-image.md).
+Du kan köra en version av ruby som inte stöds genom att skapa en egen behållar avbildning i stället. Mer information finns i [Använda anpassad Docker-avbildning](tutorial-custom-docker-image.md).
 
-## <a name="set-ruby-version"></a>Ange Ruby-version
+## <a name="set-ruby-version"></a>Ange ruby-version
 
-Kör följande kommando den [Cloud Shell](https://shell.azure.com) att ställa in Ruby-version på 2.3:
+Kör följande kommando i [Cloud Shell](https://shell.azure.com) för att ange ruby-versionen till 2,3:
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "RUBY|2.3"
 ```
 
 > [!NOTE]
-> Om du ser fel som liknar följande under distributionen:
+> Om du ser fel som liknar följande under distributions tiden:
 > ```
 > Your Ruby version is 2.3.3, but your Gemfile specified 2.3.1
 > ```
@@ -62,89 +62,89 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
-> Det innebär att Ruby-versionen konfigureras i ditt projekt är annorlunda än den version som är installerad i behållaren som du kör (`2.3.3` i exemplet ovan). I exemplet ovan, markerar du båda *Gemfile* och *.ruby-version* och kontrollera att Ruby-version inte har angetts eller är inställd på den version som är installerad i behållaren som du kör (`2.3.3` i den exemplet ovan).
+> Det innebär att ruby-versionen som kon figurer ATS i projektet skiljer sig från den version som är installerad i den behållare som du`2.3.3` kör (i exemplet ovan). I exemplet ovan, kontrol lera både *Gemfile* och *. ruby-versionen* och kontrol lera att ruby-versionen inte har angetts eller har angetts till den version som är installerad i den behållare som du kör (`2.3.3` i exemplet ovan).
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [konfigurera appinställningar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför din Appkod. Du kan använda dem med hjälp av standard [ENV ['\<sökväg-name >']](https://ruby-doc.org/core-2.3.3/ENV.html) mönster. Om du till exempel vill få åtkomst till en appinställning med namnet `WEBSITE_SITE_NAME` använder du följande kod:
+I App Service kan du [Ange inställningar för appar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför appens kod. Sedan kan du komma åt dem med hjälp av standard- [kuvertets ["\<Path-Name >"]](https://ruby-doc.org/core-2.3.3/ENV.html) -mönster. Om du till exempel vill få åtkomst till en appinställning med namnet `WEBSITE_SITE_NAME` använder du följande kod:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
 ```
 
-## <a name="customize-deployment"></a>Anpassa distributionen
+## <a name="customize-deployment"></a>Anpassa distribution
 
-När du distribuerar en [Git-lagringsplats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), eller en [Zip-paketet](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) med produktionsprocesser påslaget, distributionsmotorn (Kudu) körs automatiskt efter distributionen följande som standard:
+När du distribuerar en [git-lagringsplats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), eller ett [zip-paket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) med skapande processer växlat, kör distributions motorn (kudu) automatiskt följande steg efter distributionen som standard:
 
-1. Kontrollera om en *Gemfile* finns.
+1. Kontrol lera om en *Gemfile* finns.
 1. Kör `bundle clean`. 
 1. Kör `bundle install --path "vendor/bundle"`.
-1. Kör `bundle package` till paketet gems till leverantör/cachemappen.
+1. Kör `bundle package` för att paketera Gems i mappen leverantör/cache.
 
-### <a name="use---without-flag"></a>Använd--utan flaggan
+### <a name="use---without-flag"></a>Använd--utan flagga
 
-Att köra `bundle install` med den [--utan](https://bundler.io/man/bundle-install.1.html) flaggan genom att ange den `BUNDLE_WITHOUT` [appinställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till en kommaavgränsad lista över grupper. Till exempel följande kommando anger till `development,test`.
+Om du `bundle install` vill köra med `BUNDLE_WITHOUT` flaggan [--utan](https://bundler.io/man/bundle-install.1.html) flagga anger du [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till en kommaavgränsad lista över grupper. Följande kommando ställer till exempel in det till `development,test`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
 ```
 
-Om den här inställningen har definierats så distributionsmotorn körs `bundle install` med `--without $BUNDLE_WITHOUT`.
+Om den här inställningen definieras körs `bundle install` distributions motorn med. `--without $BUNDLE_WITHOUT`
 
-### <a name="precompile-assets"></a>Förkompilera tillgångar
+### <a name="precompile-assets"></a>Förkompilera till gångar
 
-Steg efter distribution förkompilera inte tillgångar som standard. Om du vill aktivera tillgången precompilation, ange den `ASSETS_PRECOMPILE` [appinställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `true`. Sedan kommandot `bundle exec rake --trace assets:precompile` körs i slutet av stegen efter distributionen. Exempel:
+Stegen efter distributionen förkompilerar inte till gångar som standard. Om du vill aktivera för inkompilering av till `ASSETS_PRECOMPILE` gångar anger du `true` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till. Sedan körs kommandot `bundle exec rake --trace assets:precompile` i slutet av stegen efter distribution. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
 ```
 
-Mer information finns i [leverera statiska resurser](#serve-static-assets).
+Mer information finns i [Hantera statiska till gångar](#serve-static-assets).
 
 ## <a name="customize-start-up"></a>Anpassa start
 
-Som standard startar behållaren Ruby Rails-servern i följande ordning (Mer information finns i den [Start skriptet](https://github.com/Azure-App-Service/ruby/blob/master/2.3.8/startup.sh)):
+Som standard startar ruby-behållaren räler-servern i följande ordning (mer information finns i [Start skriptet](https://github.com/Azure-App-Service/ruby/blob/master/2.3.8/startup.sh)):
 
-1. Generera en [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security) värde, om det inte finns redan. Det här värdet krävs för programmet i Produktionsläge.
-1. Ange den `RAILS_ENV` miljövariabeln till `production`.
-1. Ta bort alla *.pid* fil i den *tmp/PID* katalog som återstår av en tidigare pågående Rails-server.
-1. Kontrollera om alla beroenden är installerade. Om inte, försök installera gems från lokalt *leverantör/cache* directory.
+1. Generera ett [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security) -värde, om det inte redan finns ett. Det här värdet krävs för att appen ska kunna köras i produktions läge.
+1. Ange miljövariabeln till `production`. `RAILS_ENV`
+1. Ta bort alla *. pid* -filer i katalogen *tmp/PID* som är kvar av en tidigare igång-räler-Server.
+1. Kontrol lera om alla beroenden är installerade. Annars kan du försöka installera Gems från den lokala katalogen *Vendor/cache* .
 1. Kör `rails server -e $RAILS_ENV`.
 
-Du kan anpassa startprocessen på följande sätt:
+Du kan anpassa start processen på följande sätt:
 
-- [Leverera statiska resurser](#serve-static-assets)
-- [Kör i läget för icke-produktion](#run-in-non-production-mode)
+- [Hantera statiska till gångar](#serve-static-assets)
+- [Kör i icke-produktions läge](#run-in-non-production-mode)
 - [Ange secret_key_base manuellt](#set-secret_key_base-manually)
 
-### <a name="serve-static-assets"></a>Leverera statiska resurser
+### <a name="serve-static-assets"></a>Hantera statiska till gångar
 
-Rails-servern i Ruby behållaren som körs i Produktionsläge som standard och [förutsätter att tillgångar är förkompilerad version och hanteras av webbservern](https://guides.rubyonrails.org/asset_pipeline.html#in-production). För att leverera statiska resurser från Rails-servern, måste du göra två saker:
+Räler-servern i ruby-behållaren körs som standard i produktions läge och [förutsätter att till gångar är förkompilerade och betjänas av webb servern](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Om du vill hantera statiska till gångar från räler-servern måste du göra två saker:
 
-- **Förkompilera tillgångar** - [förkompilera statiska resurser lokalt](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) och distribuera dem manuellt. Eller låt distributionsmotorn hantera den i stället (se [förkompilera tillgångar](#precompile-assets).
-- **Aktivera betjänar statiska filer** – för att leverera statiska resurser från behållaren Ruby genom att ange den `RAILS_SERVE_STATIC_FILES` [ange den `RAILS_SERVE_STATIC_FILES` appinställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `true`. Exempel:
+- **Förkompilera till gångar** - förkompilerar[de statiska resurserna lokalt](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) och distribuerar dem manuellt. Eller låt distributions motorn hantera den i stället (se [förkompilera till gångar](#precompile-assets).
+- **Aktivera betjäning av statiska filer** – om du vill betjäna statiska resurser från ruby-behållaren [ `RAILS_SERVE_STATIC_FILES` anger du appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till. `true` Exempel:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
     ```
 
-### <a name="run-in-non-production-mode"></a>Kör i läget för icke-produktion
+### <a name="run-in-non-production-mode"></a>Kör i icke-produktions läge
 
-Rails-servern körs i Produktionsläge som standard. Om du vill köra i utvecklingsläge, till exempel den `RAILS_ENV` [appinställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `development`.
+Räler-servern körs som standard i produktions läge. Om du vill köra i utvecklings läge anger `RAILS_ENV` du till exempel appens [inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till. `development`
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-Den här inställningen som enbart gör dock Rails-servern att starta i utvecklingsläge som tar emot localhost begär bara och inte är tillgängligt utanför behållaren. För att acceptera begäranden för fjärrklient, ange den `APP_COMMAND_LINE` [appinställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `rails server -b 0.0.0.0`. Den här appinställningen kan du köra ett kommando i behållaren Ruby. Exempel:
+Den här inställningen gör dock att räler-servern startar i utvecklings läge, som enbart accepterar localhost-begäranden och inte är tillgänglig utanför behållaren. Ange `APP_COMMAND_LINE` [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `rails server -b 0.0.0.0`om du vill acceptera förfrågningar om fjärrklienter. Med den här inställningen för appen kan du köra ett anpassat kommando i ruby-behållaren. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### <a name="set-secret_key_base-manually"></a> Ange secret_key_base manuellt
+### <a name="set-secret_key_base-manually"></a>Ange secret_key_base manuellt
 
-Att använda din egen `secret_key_base` värde i stället för att låta App Service Generera en åt dig genom att ange den `SECRET_KEY_BASE` [appinställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med värdet som du vill. Exempel:
+Om du vill använda `secret_key_base` ett eget värde i stället för att låta App Service generera ett åt `SECRET_KEY_BASE` dig, anger du [appens inställning](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med det värde som du vill använda. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"
@@ -161,7 +161,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Rails-app med PostgreSQL](tutorial-ruby-postgres-app.md)
+> [Självstudier: Räler-app med PostgreSQL](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux vanliga frågor och svar](app-service-linux-faq.md)
+> [Vanliga frågor och svar om App Service Linux](app-service-linux-faq.md)

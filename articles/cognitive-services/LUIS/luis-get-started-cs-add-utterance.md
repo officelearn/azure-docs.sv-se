@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58ec78f0c20d6a2d5d86a60c69cc934c8f3076c8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 55251a553921e947e7c6522677e51e4eb1d3fa5b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560636"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619949"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snabbstart: Ändra modell med hjälp av C#
 
@@ -115,7 +115,7 @@ För att hantera kommandoradsargumenten lägger du till huvudkoden. Lägg till m
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Kopiera utterances.json till utdatakatalogen
 
-I Solution Explorer lägger du till `utterances.json` genom att högerklicka på Solution Explorer projekt namn och sedan välja **Lägg till**och sedan på **befintligt objekt**. `utterances.json` Välj filen. Detta lägger till filen i projektet. Sedan måste den läggas till i utmatnings riktningen. Högerklicka på och välj egenskaper.  `utterances.json` I fönstret Properties (Egenskaper) märker du **Build Action** (Skapandeåtgärd) för `Content` och **Copy to Output Directory** (Kopiera till utdatakatalog) för `Copy Always`.  
+I Solution Explorer lägger du till `utterances.json` genom att högerklicka på Solution Explorer projekt namn och sedan välja **Lägg till**och sedan på **befintligt objekt**. `utterances.json` Välj filen. Detta lägger till filen i projektet. Sedan måste den läggas till i utdatakatalogen. Högerklicka på och välj egenskaper.  `utterances.json` I fönstret Properties (Egenskaper) märker du **Build Action** (Skapandeåtgärd) för `Content` och **Copy to Output Directory** (Kopiera till utdatakatalog) för `Copy Always`.  
 
 ![Märk JSON-filen som innehåll](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

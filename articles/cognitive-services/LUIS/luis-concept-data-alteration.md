@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 67b56f09663aca35ed0843f50e2420b531c82833
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 198ce98808c8a62a839d154c365518c9e8263056
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560830"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619907"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Ändra uttryck data före eller under förutsägelse
-LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. Dessa inkluderar åtgärda stavning och åtgärda problem med tidszonen för prebuild datetimeV2. 
+LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. Detta inkluderar att [åtgärda stavnings](luis-tutorial-bing-spellcheck.md)-och åtgärda tids zons problem för färdiga [datetimeV2](luis-reference-prebuilt-datetimev2.md). 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Rätta stavfel i uttryck
-LUIS använder [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) att rätta stavfel i uttryck. LUIS måste den nyckel som associeras med den tjänsten. Skapa nyckeln och sedan lägga till nyckeln som en frågesträngsparameter på den [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356). 
+LUIS använder [Bing stavningskontroll kontrollera API V7](../Bing-Spell-Check/overview.md) att rätta stavfel i uttryck. LUIS måste den nyckel som associeras med den tjänsten. Skapa nyckeln och sedan lägga till nyckeln som en frågesträngsparameter på den [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356). 
 
 Du kan också korrigera stavfel i den **Test** panelen av [att ange nyckeln](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas som en sessionsvariabel i webbläsaren till Test-panelen. Lägga till nyckeln i panelen Test i varje webbläsarsession som du vill att stavning korrigerats. 
 
@@ -49,11 +49,11 @@ När [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/ser
 }
 ```
  
-### <a name="whitelist-words"></a>Lista över tillåtna ord
-Stavningskontroll i Bing API som används i LUIS inte stöder en lista över tillåtna ord som ska förbises vid stavningskontroll kontrollera förändras. Stavningskontroll i Bing API som används i LUIS inte stöder en lista över tillåtna ord som ska förbises vid stavningskontrollsförändringar.
+### <a name="list-of-allowed-words"></a>Lista över tillåtna ord
+API för stavnings kontroll i Bing som används i LUIS stöder inte en lista (kallas även vitlista) för ord som ska ignoreras under stavnings kontrollen. Om du behöver tillåta en lista över ord eller akronymer, bearbetar du uttryck i klient programmet innan du skickar uttryck till LUIS för avsikts förutsägelse.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Ändra tidszonen för fördefinierade datetimeV2 entitet
-När en LUIS-app använder fördefinierade datetimeV2 entiteten, kan ett datetime-värde returneras i svaret förutsägelse. Tidszonen för begäran används för att fastställa rätt datum/tid att returnera. Om förfrågan kommer från en bot eller ett annat centraliserad program innan du kommer till LUIS, korrigera tidszonen LUIS använder. 
+När en LUIS-app använder den fördefinierade [datetimeV2](luis-reference-prebuilt-datetimev2.md) -entiteten kan ett datetime-värde returneras i förutsägelse svaret. Tidszonen för begäran används för att fastställa rätt datum/tid att returnera. Om förfrågan kommer från en bot eller ett annat centraliserad program innan du kommer till LUIS, korrigera tidszonen LUIS använder. 
 
 ### <a name="endpoint-querystring-parameter"></a>Frågeparametern slutpunkt
 Tidszonen korrigeras genom att lägga till användarens tidszon för den [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) med hjälp av den `timezoneOffset` param. Värdet för `timezoneOffset` ska vara positivt eller negativt tal, på bara några minuter att ändra tiden.  

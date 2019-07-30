@@ -1,29 +1,29 @@
 ---
 title: Extrahering av nyckel fraser med Textanalys REST API
 titleSuffix: Azure Cognitive Services
-description: Så här extraherar du nyckelfraser med hjälp av REST-API:et för textanalys från Azure Cognitive Services.
+description: Extrahera nyckel fraser genom att använda Textanalys REST API från Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: sample
-ms.date: 06/05/2019
+ms.topic: article
+ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: 58bfb889662a58aa02286c41a2e242e6a0e9a75c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dd3f0c5b82c1898d6e4bbe564556ee26e872dc94
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562640"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619675"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser med textanalys
 
-[API:et för extrahering av nyckelfras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) utvärderar ostrukturerad text och returnerar en lista med nyckelfraser för varje JSON-dokument. 
+[API:et för extrahering av nyckelfras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) utvärderar ostrukturerad text och returnerar en lista med nyckelfraser för varje JSON-dokument.
 
 Den här funktionen är användbar om du snabbt behöver identifiera de viktigaste punkterna i en samling av dokument. Exempel: med den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”.
 
-Mer information finns i artikeln [språk som stöds](../text-analytics-supported-languages.md) . 
+Mer information finns i [språk som stöds](../text-analytics-supported-languages.md).
 
 > [!TIP]
 > Textanalys ger även en Linux-baserad Docker-containeravbildning för nyckelfrasextrahering, så att du kan [installera och köra Textanalys-containern](text-analytics-how-to-install-containers.md) nära dina data.
@@ -32,9 +32,9 @@ Mer information finns i artikeln [språk som stöds](../text-analytics-supported
 
 Extrahering av nyckelfraser fungerar bäst när du ger den en större mängd text att arbeta med. Det här är motsatt från känsloanalys som fungerar bättre på mindre mängder text. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata därefter.
 
-Du måste ha JSON-dokument i följande format: id, text, språk
+Du måste ha JSON-dokument i det här formatet: ID, text, språk
 
-Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. Följande exempel är en illustration av innehåll som du kan skicka in för extrahering av nyckelfraser.
+Dokument storleken måste vara 5 120 eller färre tecken per dokument och du kan ha upp till 1 000 objekt (ID) per samling. Samlingen skickas i begäranstexten. Följande exempel är en illustration av innehåll som du kan skicka in för extrahering av nyckelfraser.
 
 ```json
     {
@@ -58,7 +58,7 @@ Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha up
                 "language": "en",
                 "id": "4",
                 "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },                
+            },
             {
                 "language": "en",
                 "id": "5",
@@ -66,26 +66,26 @@ Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha up
             }
         ]
     }
-```    
-    
+```
+
 ## <a name="step-1-structure-the-request"></a>Steg 1: Strukturera begäran
 
-Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
+Information om definition av begäran finns i [så här anropar du API för textanalys](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
-+ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för nyckelfraser](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
++ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för nyckel fraser](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
 
-+ Ange HTTP-slutpunkten för nyckelfrasextrahering, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/keyPhrases`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
++ Ange HTTP-slutpunkten för extrahering av nyckel fraser genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Den måste innehålla `/keyPhrases` resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`.
 
 + Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 
-+ Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten
++ Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten.
 
 > [!Tip]
 > Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) för att strukturera en begäran och skicka den till tjänsten.
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
-Analysen utförs när begäran har tagits emot. I avsnittet [data begränsningar](../overview.md#data-limits) i översikt finns information om storlek och antal begär Anden som du kan skicka per minut och sekund.
+Analysen utförs när begäran har tagits emot. Information om storlek och antal begär Anden som du kan skicka per minut eller per sekund finns i avsnittet [data begränsningar](../overview.md#data-limits) i översikten.
 
 Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
 
@@ -98,66 +98,69 @@ Utdata returneras direkt. Du kan strömma resultaten till ett program som stöde
 Ett exempel på utdata för extrahering av nyckelfraser visas här:
 
 ```json
-    "documents": [
-        {
-            "keyPhrases": [
-                "year",
-                "trail",
-                "trip",
-                "views"
-            ],
-            "id": "1"
-        },
-        {
-            "keyPhrases": [
-                "marked trails",
-                "Worst hike",
-                "goners"
-            ],
-            "id": "2"
-        },
-        {
-            "keyPhrases": [
-                "trail",
-                "small children",
-                "family"
-            ],
-            "id": "3"
-        },
-        {
-            "keyPhrases": [
-                "spectacular views",
-                "trail",
-                "area"
-            ],
-            "id": "4"
-        },
-        {
-            "keyPhrases": [
-                "places",
-                "beautiful views",
-                "favorite trail"
-            ],
-            "id": "5"
-        }
+    {
+        "documents": [
+            {
+                "keyPhrases": [
+                    "year",
+                    "trail",
+                    "trip",
+                    "views"
+                ],
+                "id": "1"
+            },
+            {
+                "keyPhrases": [
+                    "marked trails",
+                    "Worst hike",
+                    "goners"
+                ],
+                "id": "2"
+            },
+            {
+                "keyPhrases": [
+                    "trail",
+                    "small children",
+                    "family"
+                ],
+                "id": "3"
+            },
+            {
+                "keyPhrases": [
+                    "spectacular views",
+                    "trail",
+                    "area"
+                ],
+                "id": "4"
+            },
+            {
+                "keyPhrases": [
+                    "places",
+                    "beautiful views",
+                    "favorite trail"
+                ],
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
 ```
 
-Enligt vad som anges, hittar och ignorerar analysatorn ord som inte behövs och behåller enskilda termer eller fraser som verkar vara subjektet eller objektet i en mening. 
+Som anges söker analysen och tar bort icke-viktiga ord, och det behåller enkla termer eller fraser som visas som ämne eller objekt i en mening.
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt känna begrepp och arbetsflöden för extrahering av nyckelfraser med hjälp av textanalys i Cognitive Services. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för extrahering av nyckel fraser genom att använda Textanalys i Cognitive Services. Sammanfattningsvis:
 
 + [API för extrahering av nyckelfraser](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) är tillgängligt för utvalda språk.
-+ JSON-dokument i begärandetexten innehåller ID, text och språkkod.
++ JSON-dokument i begär ande texten innehåller ID, text och språkkod.
 + POST-begäran riktas till en `/keyphrases`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för din prenumeration.
-+ Svarsutdata, som består av nyckelord och fraser för varje dokument-ID, kan strömmas till valfri app som tar emot JSON, inklusive Excel och Power BI bara för att nämna några.
++ Svars resultatet, som består av viktiga ord och fraser för varje dokument-ID, kan strömmas till alla appar som accepterar JSON, inklusive Microsoft Office Excel och Power BI, för att ge några.
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se också
 
- [Översikt över Textanalys](../overview.md)  
- [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)</br>
- [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)</br>
+ [Produktsida för textanalys](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Nästa steg
 

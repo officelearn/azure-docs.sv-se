@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: af0223db944f01346ddcbc1f198ac0c15a426be4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564013"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639234"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Datalagring och tas bort i Cognitive Services för Språkförståelse (LUIS)
 LUIS lagrar krypterade i ett Azure datalager som motsvarar den region som anges av nyckeln. Dessa data lagras i 30 dagar. 
@@ -34,6 +34,7 @@ Yttranden kan lagras på två olika platser.
 <a name="utterances-in-an-intent"></a>
 
 ### <a name="delete-example-utterances-from-an-intent"></a>Ta bort exempel yttranden från ett avsikts syfte
+
 Ta bort exempel yttranden som används för träning [LUIS](luis-reference-regions.md). Om du tar bort en exempel-uttryck från LUIS-appen tas bort från LUIS-webbtjänsten och är inte tillgänglig för export.
 
 <a name="utterances-in-review"></a>

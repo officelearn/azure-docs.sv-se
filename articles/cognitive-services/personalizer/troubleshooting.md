@@ -1,34 +1,34 @@
 ---
-title: Felsökning – Personalizer
+title: Fel sökning – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: Felsökning av frågor om Personalizer finns i den här artikeln.
-author: edjez
+description: Fel söknings frågor om Personanpassare hittar du i den här artikeln.
+author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: article
 ms.date: 06/15/2019
-ms.author: edjez
-ms.openlocfilehash: be6119d96b89622f45db1099a47e858a5893c2cb
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 7f7a6a08b86d21287c644f6a851d465d97f32e74
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722259"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663688"
 ---
-# <a name="personalizer-troubleshooting"></a>Personalizer felsökning
+# <a name="personalizer-troubleshooting"></a>Fel sökning av personanpassa
 
-Den här artikeln innehåller svar på vanliga frågor om Personalizer som felsökning.
+Den här artikeln innehåller svar på vanliga fel söknings frågor om Personanpassare.
 
-## <a name="learning-loop"></a>Learning loop
+## <a name="learning-loop"></a>Inlärnings slinga
 
-### <a name="the-learning-loop-doesnt-seem-to-learn-how-do-i-fix-this"></a>Learning loopen verkar inte mer. Hur jag för att åtgärda detta?
+### <a name="the-learning-loop-doesnt-seem-to-learn-how-do-i-fix-this"></a>Inlärnings slingan verkar inte lära sig. Hur åtgärdar jag detta?
 
-Learning loopen måste några tusen utmärkelse anrop innan rangordnas anrop prioritera effektivt. 
+Inlärnings slingan behöver några tusen belönings samtal innan ranknings anropen prioriteras effektivt. 
 
-Om du är osäker på hur learning loopen för närvarande fungerar, kör en [offline utvärdering](concepts-offline-evaluation.md), och tillämpa principen korrigerad learning. 
+Om du är osäker på hur din inlärnings slinga för närvarande fungerar, kör du en [offline-utvärdering](concepts-offline-evaluation.md)och tillämpar den korrigerade inlärnings principen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera uppdateringsfrekvensen för modellen](how-to-settings.md#model-update-frequency)
+[Konfigurera modell uppdaterings frekvensen](how-to-settings.md#model-update-frequency)

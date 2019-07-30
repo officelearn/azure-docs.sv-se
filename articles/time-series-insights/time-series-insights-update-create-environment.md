@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824d24b97f192583a42192b3bb90eb1818e1aa18
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c6fdb9a993bc81feea5566ee5c10c2c727df1390
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273055"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638930"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights-miljö (förhandsversion)
 
@@ -23,14 +23,20 @@ Den här självstudien vägleder dig genom processen för att skapa en Azure Tim
 
 I den här guiden får du lära dig att:
 
-* Skapa en Azure Time Series Insights-miljö (förhandsversion).
-* Ansluta Azure Time Series Insights-miljön (förhandsversion) till en händelsehubb i Azure Event Hubs.
-* Kör ett lösningsacceleratorexempel för att sända data till förhandsversionen av Azure Time Series Insights-miljön.
-* Utföra grundläggande analys av data.
-* Definiera en typ av och hierarki för tidsseriemodell och associera dem med dina instanser.
+> [!div class="checklist"]
+> * Skapa en Azure Time Series Insights-miljö (förhandsversion).
+> * Ansluta Azure Time Series Insights-miljön (förhandsversion) till en händelsehubb i Azure Event Hubs.
+> * Kör ett lösningsacceleratorexempel för att sända data till förhandsversionen av Azure Time Series Insights-miljön.
+> * Utföra grundläggande analys av data.
+> * Definiera en typ av och hierarki för tidsseriemodell och associera dem med dina instanser.
 
 >[!TIP]
-> [IoT-Lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators) tillhandahåller företagsklass förkonfigurerade lösningar som du kan använda för att påskynda utvecklingen av anpassade IoT-lösningar.
+> [IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) tillhandahåller förkonfigurerade lösningar i företags klass som du kan använda för att påskynda utvecklingen av anpassade IoT-lösningar.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Ditt Azure-inloggningsnamn måste också vara medlem i prenumerationens **ägar** roll. Mer information finns i [Hantera åtkomst med hjälp av rollbaserad åtkomst kontroll och Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Skapa en enhetssimulering
 
@@ -38,104 +44,104 @@ I det här avsnittet skapar du tre simulerade enheter som skickar data till en A
 
 1. Gå till [Sidan för Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators). Sidan visar flera fördefinierade exempel. Logga in med ditt Azure-konto. Välj sedan **Enhetssimulering**.
 
-   [![Acceleratorer sida för Azure IoT-lösning](media/v2-update-provision/device-one-accelerator.png)](media/v2-update-provision/device-one-accelerator.png#lightbox)
+   [![Sidan Azure IoT Solution Accelerators](media/v2-update-provision/device-one-accelerator.png)](media/v2-update-provision/device-one-accelerator.png#lightbox)
 
    Välj **Testa nu**.
 
-1. På den **skapa Enhetssimulering lösning** ställer du in följande parametrar:
+1. På sidan **skapa lösning för enhets simulering** anger du följande parametrar:
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | --- |
-    | **Distributionsnamn** | Ange ett unikt värde för en ny resursgrupp. Angivna Azure-resurser skapas och tilldelas till resursgruppen. |
-    | **Azure-prenumeration** | Välj den prenumeration som du använde för att skapa en Time Series Insights-miljö. |
-    | **Azure-plats** | Välj den region som du använde för att skapa en Time Series Insights-miljö. |
-    | **Distributionsalternativ** | Välj **etablera nya IoT-hubben**. |
+    | **Distributions namn** | Ange ett unikt värde för en ny resurs grupp. Angivna Azure-resurser skapas och tilldelas till resursgruppen. |
+    | **Azure-prenumeration** | Välj den prenumeration som du använde för att skapa din Time Series Insightss miljö. |
+    | **Azure-plats** | Välj den region som du använde för att skapa din Time Series Insightss miljö. |
+    | **Distributions alternativ** | Välj **etablera ny IoT Hub**. |
  
     Välj **skapa lösning**. Det kan ta upp till 20 minuter för lösningen att slutföra distributionen.
 
-    [![Skapa Enhetssimulering lösningssida](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
+    [![Sidan skapa lösning för enhets simulering](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
 ## <a name="create-a-time-series-insights-preview-payg-environment"></a>Skapa en Time Series Insights-miljö (förhandsversion) med PAYG (betala per användning)
 
-Det här avsnittet beskrivs hur du skapar en förhandsversion av Azure Time Series Insights-miljö och ansluter den till IoT-hubb som skapats av IoT Solution Accelerator med hjälp av den [Azure-portalen](https://portal.azure.com/).
+I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights för hands versions miljö och ansluter den till IoT-hubben som skapats av IoT Solution Accelerator med hjälp av [Azure Portal](https://portal.azure.com/).
 
 1. Logga in på Azure-portalen med ditt prenumerationskonto.
 
-1. Välj **skapa en resurs** > **Internet of Things** > **Time Series Insights**.
+1. Välj **skapa en resurs** > **Sakernas Internet** > **Time Series Insights**.
 
    [![Välj Sakernas Internet och välj sedan Time Series Insights](media/v2-update-provision/payg-one-azure.png)](media/v2-update-provision/payg-one-azure.png#lightbox)
 
-1. I den **skapa Time Series Insights-miljö** fönstret på den **grunderna** fliken genom att ange följande parametrar:
+1. I fönstret **skapa Time Series Insights miljö** går du till fliken **grundläggande** och anger följande parametrar:
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | ---|
-    | **Miljönamn** | Ange ett unikt namn för förhandsversionen av Azure Time Series Insights-miljö. |
-    | **Prenumeration** | Anger du prenumerationen där du vill skapa förhandsversion av Azure Time Series Insights-miljö. Ett bra tips är att använda samma prenumeration som resten av IoT-resurser som skapas av enhetssimulatorn. |
-    | **Resursgrupp** | Välj en befintlig resursgrupp eller skapa en ny resursgrupp för resursen för förhandsversionen av Azure Time Series Insights-miljö. En resursgrupp är en container för Azure-resurser. Ett bra tips är att använda samma resursgrupp som de andra IoT-resurser som skapas av enhetssimulatorn. |
-    | **Location** | Välj en datacenterregion för förhandsversionen av Azure Time Series Insights-miljön. Det är bäst att skapa en förhandsversion av Azure Time Series Insights-miljö i samma region som andra IoT-resurser för att undvika ytterligare fördröjning. |
-    | **Nivå** |  Välj **PAYG** (*användningsbaserad*). Det här är SKU för Azure Time Series Insights-produkten (förhandsversion). |
-    | **Egenskaps-ID** | Ange ett värde som unikt identifierar din time series-instans. Du har angett i den **egenskaps-ID** box kan inte ändras. Du kan inte ändra den senare. Den här självstudien anger **iothub-anslutning-enhet-id**. Läs mer om Time Series-ID i [bästa praxis för att välja en Time-ID](./time-series-insights-update-how-to-id.md). |
-    | **Lagringskontonamn** | Ange ett globalt unikt namn för ett nytt lagringskonto att skapa. |
+    | **Miljönamn** | Ange ett unikt namn för förhands gransknings miljön för Azure Time Series Insights. |
+    | **Prenumeration** | Ange den prenumeration där du vill skapa Azure Time Series Insights för hands versions miljön. Ett bra tips är att använda samma prenumeration som resten av IoT-resurserna som skapas av enhets simulatorn. |
+    | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp för den Azure Time Series Insights för hands versions miljö resursen. En resursgrupp är en container för Azure-resurser. Ett bra tips är att använda samma resurs grupp som andra IoT-resurser som skapas av enhets simulatorn. |
+    | **Location** | Välj en data Center region för din Azure Time Series Insights Preview-miljö. För att undvika ytterligare latens, är det bäst att skapa Azure Time Series Insights för hands versions miljön i samma region som dina andra IoT-resurser. |
+    | **Nivå** |  Välj **PAYG** (*betala per*användning). Det här är SKU för Azure Time Series Insights-produkten (förhandsversion). |
+    | **Egenskaps-ID** | Ange ett värde som unikt identifierar tids serie instansen. Värdet som du anger i rutan **egenskaps-ID** är oföränderligt. Du kan inte ändra den senare. I den här självstudien anger du **iothub-Connection-Device-ID**. Mer information om Time Series ID finns i [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). |
+    | **Lagringskontonamn** | Ange ett globalt unikt namn för ett nytt lagrings konto som ska skapas. |
    
    Välj **Nästa: Händelsekälla**.
 
-   [![Fönstret för att skapa en Time Series Insights-miljö](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
+   [![Fönster för att skapa en Time Series Insightss miljö](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
 
-1. På den **händelsekälla** fliken genom att ange följande parametrar:
+1. Ange följande parametrar på fliken **händelse källa** :
 
-   | Parameter | Åtgärd |
+   | Parameter | Action |
    | --- | --- |
    | **Skapa en händelsekälla?** | Välj **Ja**.|
-   | **Namn** | Ange ett unikt värde för händelsekällans namn. |
-   | **Källtyp** | Välj **IoT-hubb**. |
+   | **Namn** | Ange ett unikt värde för händelse källans namn. |
+   | **Källtyp** | Välj **IoT Hub**. |
    | **Välj en hubb** | Välj **Välj befintlig**. |
-   | **Prenumeration** | Välj den prenumeration som du använde för enhetssimulatorn. |
-   | **IoT-hubbnamn** | Välj namnet på det IoT-hubb som du skapade för enhetssimulatorn. |
+   | **Prenumeration** | Välj den prenumeration som du använde för enhets simulatorn. |
+   | **IoT-hubbnamn** | Välj det IoT Hub-namn som du skapade för enhets simulatorn. |
    | **Åtkomstprincip för IoT-hubb** | Välj **iothubowner**. |
-   | **IoT Hub-konsumentgrupp** | Välj **Ny**, ange ett unikt namn och välj sedan **Lägg till**. Konsumentgruppen måste vara ett unikt värde i förhandsversionen av Azure Time Series Insights. |
-   | **Egenskap för tidsstämpel** | Det här värdet används för att identifiera den **tidsstämpel** -egenskapen i inkommande telemetridata. Den här självstudien lämnar du rutan tom. Den här simulatorn använder den inkommande tidsstämpeln från IoT Hub som är standardinställningen för Time Series Insights. |
+   | **IoT Hub konsument grupp** | Välj **Ny**, ange ett unikt namn och välj sedan **Lägg till**. Konsument gruppen måste vara ett unikt värde i Azure Time Series Insights Preview. |
+   | **Egenskap för tidsstämpel** | Det här värdet används för att identifiera **timestamp** -egenskapen i dina inkommande telemetridata. I den här självstudien lämnar du rutan tom. Den här simulatorn använder den inkommande tidsstämpeln från IoT Hub som är standardinställningen för Time Series Insights. |
 
    Välj **Granska + skapa**.
 
-   [![Konfigurera en händelsekälla](media/v2-update-provision/payg-five-event-source.png)](media/v2-update-provision/payg-five-event-source.png#lightbox)
+   [![Konfigurera en händelse källa](media/v2-update-provision/payg-five-event-source.png)](media/v2-update-provision/payg-five-event-source.png#lightbox)
 
-1. På den **granska + skapa** fliken Granska dina val och väljer sedan **skapa**.
+1. På fliken **Granska + skapa** granskar du dina val och väljer sedan **skapa**.
 
-    [![Granska + skapa sidan med knappen Skapa](media/v2-update-provision/payg-six-review.png)](media/v2-update-provision/payg-six-review.png#lightbox)
+    [![Granska + skapa sida med knappen Skapa](media/v2-update-provision/payg-six-review.png)](media/v2-update-provision/payg-six-review.png#lightbox)
 
-    Du kan se statusen för distributionen:
+    Du kan se statusen för din distribution:
 
-    [![Meddelandet att distributionen har slutförts](media/v2-update-provision/payg-seven-deploy.png)](media/v2-update-provision/payg-seven-deploy.png#lightbox)
+    [![Meddelande om att distributionen har slutförts](media/v2-update-provision/payg-seven-deploy.png)](media/v2-update-provision/payg-seven-deploy.png#lightbox)
 
-1. Du har åtkomst till förhandsversionen av Azure Time Series Insights-miljön om du äger klienten. Så här ser du till att du har åtkomst:
+1. Du har åtkomst till din Azure Time Series Insights Preview-miljö om du äger klienten. Så här ser du till att du har åtkomst:
 
-   1. Sök efter din resursgrupp och välj sedan din förhandsversion av Azure Time Series Insights-miljö:
+   1. Sök efter din resurs grupp och välj sedan din Azure Time Series Insights förhands gransknings miljö:
 
-      [![Valda miljön](media/v2-update-provision/payg-eight-environment.png)](media/v2-update-provision/payg-eight-environment.png#lightbox)
+      [![Vald miljö](media/v2-update-provision/payg-eight-environment.png)](media/v2-update-provision/payg-eight-environment.png#lightbox)
 
-   1. På sidan Azure Time Series Insights Preview väljer **Dataåtkomstprinciper**:
+   1. På sidan Azure Time Series Insights förhands granskning väljer du **data åtkomst principer**:
 
-      [![Principerna för dataåtkomst](media/v2-update-provision/payg-nine-data-access.png)](media/v2-update-provision/payg-nine-data-access.png#lightbox)
+      [![Principer för data åtkomst](media/v2-update-provision/payg-nine-data-access.png)](media/v2-update-provision/payg-nine-data-access.png#lightbox)
 
-   1. Kontrollera att dina autentiseringsuppgifter visas:
+   1. Kontrol lera att dina autentiseringsuppgifter visas:
 
-      [![Angivna autentiseringsuppgifter](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
+      [![Listade autentiseringsuppgifter](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
-   Om dina autentiseringsuppgifter inte visas i listan måste du ge dig själv behörighet att komma åt miljön. Läs [Bevilja åtkomst till data](./time-series-insights-data-access.md) om du vill veta mer om hur du anger behörigheter.
+   Om dina autentiseringsuppgifter inte visas måste du ge dig behörighet att komma åt miljön. Läs [Bevilja åtkomst till data](./time-series-insights-data-access.md) om du vill veta mer om hur du anger behörigheter.
 
-## <a name="stream-data-into-your-environment"></a>Stream-data i din miljö
+## <a name="stream-data-into-your-environment"></a>Strömma data till din miljö
 
-1. Gå tillbaka till den [Azure IoT-Lösningsacceleratorer sidan](https://www.azureiotsolutions.com/Accelerators). Leta upp din lösning i solution accelerator instrumentpanelen. Välj **starta**:
+1. Gå tillbaka till [sidan med Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators). Leta upp din lösning på din instrument panel för Solution Accelerator. Välj sedan **Starta**:
 
-    [![Starta enheten simulering lösningen](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+    [![Starta lösningen för enhets simulering](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
 
-1. Du omdirigeras till sidan **Enhetssimulering för Microsoft Azure IoT**. I det övre högra hörnet på sidan Välj **nya simulering**.
+1. Du omdirigeras till sidan **Enhetssimulering för Microsoft Azure IoT**. I det övre högra hörnet på sidan väljer du **ny simulering**.
 
-    [![Sida för Azure IoT-simulering](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+    [![Sidan Azure IoT-simulering](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
 
-1. I den **inställningar** fönstret, ange följande parametrar:
+1. I fönstret **simulerings konfiguration** anger du följande parametrar:
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | --- |
     | **Namn** | Ange ett unikt namn för en simulator. |
     | **Beskrivning** | Ange en definition. |
@@ -143,13 +149,13 @@ Det här avsnittet beskrivs hur du skapar en förhandsversion av Azure Time Seri
     | **Enhetsmodell** | **Namn på**: Ange **Kylaggregat**. <br />**Mängd**: Ange **3**. |
     | **Mål-IoT Hub** | Ange till **Använd i förväg etablerad IoT Hub**. |
 
-    [![Parametrar för att konfigurera](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+    [![Parametrar som ska anges](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
 
-    Välj **starta simulering**.
+    Välj **Starta simulering**.
 
-    Observera informationen som visas för instrumentpanelen för simulering enheten **aktiva enheter** och **meddelanden per sekund**.
+    På instrument panelen för enhets simulering noterar du informationen som visas för **aktiva enheter** och **meddelanden per sekund**.
 
-    [![Instrumentpanelen för Azure IoT-simulering](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
+    [![Instrument panel för Azure IoT-simulering](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## <a name="analyze-data-in-your-environment"></a>Analysera data i din miljö
 
@@ -157,94 +163,94 @@ I det här avsnittet utför du grundläggande analys på dina tidsseriedata med 
 
 1. Gå till din Azure Time Series Insights-utforskare (förhandsversion) genom att välja URL:en från resurssidan på [Azure Portal](https://portal.azure.com/).
 
-    [![URL: en för förhandsversionen av Time Series Insights explorer](media/v2-update-provision/analyze-one-portal.png)](media/v2-update-provision/analyze-one-portal.png#lightbox)
+    [![URL: en för för hands versionen av Time Series Insights](media/v2-update-provision/analyze-one-portal.png)](media/v2-update-provision/analyze-one-portal.png#lightbox)
 
-1. I Utforskaren, Välj den **Time Series-instanser** noden för att visa alla förhandsversion av Azure Time Series Insights-instanser i miljön.
+1. I Utforskaren väljer du noden **Time Series instances** för att se alla Azure Time Series Insights för hands versioner i miljön.
 
-    [![Lista över utan överordnat objekt instanser](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
+    [![Lista över överordnade instanser](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
 
-1. Välj den första gång serien instansen. Välj **visa tryck**.
+1. Välj den första Time Series-instansen. Välj sedan **Visa tryck**.
 
-    [![Valt time series-instans med kommandot visar genomsnittlig belastning](media/v2-update-provision/analyze-three-show-pressure.png)](media/v2-update-provision/analyze-three-show-pressure.png#lightbox)
+    [![Den valda Time Series-instansen med meny kommando för att Visa genomsnitts tryck](media/v2-update-provision/analyze-three-show-pressure.png)](media/v2-update-provision/analyze-three-show-pressure.png#lightbox)
 
-    En serie diagrammets visas. Ändra den **intervall** till **15 sek**.
+    Ett tids serie diagram visas. Ändra **intervallet** till **15s**.
 
-    [![Time series-diagram](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
+    [![Tids serie diagram](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
 
-1. Upprepa steg 3 med de andra två time series-instanser. Du kan visa alla time series-instanser, som visas i det här diagrammet:
+1. Upprepa steg 3 med de andra två tids serie instanserna. Du kan visa alla Time Series-instanser som visas i det här diagrammet:
 
-    [![Diagram för alla tidsserier](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
+    [![Diagram för alla tids serier](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
 
-1. I den **tidsram** kryssrutan måste du ändra tidsintervallet för att se trender för time series under den senaste timmen:
+1. I alternativ rutan **tidsram** ändrar du tidsintervallet för att se trender för tids serier under den senaste timmen:
 
-    [![Ange tidsintervall och en timme](media/v2-update-provision/analyze-six-time.png)](media/v2-update-provision/analyze-six-time.png#lightbox)
+    [![Ange tidsintervallet till en timme](media/v2-update-provision/analyze-six-time.png)](media/v2-update-provision/analyze-six-time.png#lightbox)
 
 ## <a name="define-and-apply-a-model"></a>Definiera och tillämpa en modell
 
-I det här avsnittet tillämpar du en modell för att strukturera data. För att slutföra modellen definierar du typer, hierarkier och instanser. Läs mer om datamodellering i [Tidsseriemodell](./time-series-insights-update-tsm.md).
+I det här avsnittet tillämpar du en modell för att strukturera data. För att slutföra modellen definierar du typer, hierarkier och instanser. Mer information om data modellering finns i [tids serie modell](./time-series-insights-update-tsm.md).
 
 1. I utforskaren väljer du fliken **Modell**:
 
-   [![Modellfliken i explorer](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
+   [![Fliken modell i Utforskaren](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
 
-1. Välj **Lägg till** att lägga till en typ:
+1. Välj **Lägg** till för att lägga till en typ:
 
    [![Knappen Lägg till för typer](media/v2-update-provision/define-two-add.png)](media/v2-update-provision/define-two-add.png#lightbox)
 
-1. Nu ska du definiera tre variablerna för typ: *tryck*, *temperatur*, och *fuktighet*. I den **lägga till en typ** fönstret, ange följande parametrar:
+1. Därefter definierar du tre variabler för typen: *tryck*, *temperatur*och *fuktighet*. I fönstret **Lägg till en typ** anger du följande parametrar:
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | ---|
     | **Namn** | Ange **Kylaggregat**. |
     | **Beskrivning** | Ange **Det här är en typdefinitionen för kylaggregat**. |
 
-   * Definiera *tryck*under **variabler**, ange följande parametrar:
+   * Ange följande parametrar under **variabler**för att definiera *trycket*:
 
-     | Parameter | Åtgärd |
+     | Parameter | Action |
      | --- | ---|
      | **Namn** | Ange **Genomsnittligt tryck**. |
-     | **Värde** | Välj **tryck (Double)** . Det kan ta några minuter **värdet** fyllas i automatiskt när Azure Time Series Insights Preview börjar ta emot händelser. |
+     | **Värde** | Välj **tryck (Double)** . Det kan ta några minuter innan **värdet** fylls i automatiskt när Azure Time Series Insights för hands versionen börjar ta emot händelser. |
      | **Sammansättningsåtgärd** | Välj **AVG**. |
 
-      [![Val för att definiera hög belastning](media/v2-update-provision/define-three-variable.png)](media/v2-update-provision/define-three-variable.png#lightbox)
+      [![Val för definition av tryck](media/v2-update-provision/define-three-variable.png)](media/v2-update-provision/define-three-variable.png#lightbox)
 
-      Om du vill lägga till nästa variabeln, Välj **lägga till variabeln**.
+      Om du vill lägga till nästa variabel väljer du **Lägg till variabel**.
 
    * Definiera *temperatur*:
 
-     | Parameter | Åtgärd |
+     | Parameter | Action |
      | --- | ---|
      | **Namn** | Ange **Genomsnittlig temperatur**. |
-     | **Värde** | Välj **temperatur (Double)** . Det kan ta några minuter **värdet** fyllas i automatiskt när Azure Time Series Insights Preview börjar ta emot händelser. |
+     | **Värde** | Välj **temperatur (Double)** . Det kan ta några minuter innan **värdet** fylls i automatiskt när Azure Time Series Insights för hands versionen börjar ta emot händelser. |
      | **Sammansättningsåtgärd** | Välj **AVG**.|
 
-      [![Val för att definiera temperatur](media/v2-update-provision/define-four-avg.png)](media/v2-update-provision/define-four-avg.png#lightbox)
+      [![Val för definition av temperatur](media/v2-update-provision/define-four-avg.png)](media/v2-update-provision/define-four-avg.png#lightbox)
 
-      Om du vill lägga till nästa variabeln, Välj **lägga till variabeln**.
+      Om du vill lägga till nästa variabel väljer du **Lägg till variabel**.
 
    * Definiera *fuktighet*:
 
       | | |
       | --- | ---|
-      | **Namn** | Ange **Max fuktighet** |
-      | **Värde** | Välj **fuktighet (Double)** . Det kan ta några minuter **värdet** fyllas i automatiskt när Azure Time Series Insights Preview börjar ta emot händelser. |
+      | **Namn** | Ange **maximal fuktighet** |
+      | **Värde** | Välj **fuktighet (Double)** . Det kan ta några minuter innan **värdet** fylls i automatiskt när Azure Time Series Insights för hands versionen börjar ta emot händelser. |
       | **Sammansättningsåtgärd** | Välj **MAX**.|
 
-      [![Val för att definiera temperatur](media/v2-update-provision/define-five-humidity.png)](media/v2-update-provision/define-five-humidity.png#lightbox)
+      [![Val för definition av temperatur](media/v2-update-provision/define-five-humidity.png)](media/v2-update-provision/define-five-humidity.png#lightbox)
 
     Välj **Skapa**.
 
     Du kan se den typ som du har lagt till:
 
-    [![Information om vilken typ som har lagts till](media/v2-update-provision/define-six-type.png)](media/v2-update-provision/define-six-type.png#lightbox)
+    [![Information om tillagd typ](media/v2-update-provision/define-six-type.png)](media/v2-update-provision/define-six-type.png#lightbox)
 
-1. Nästa steg är att lägga till en hierarki. Under **hierarkier**väljer **Lägg till**:
+1. Nästa steg är att lägga till en hierarki. Välj **Lägg till**under hierarkier:
 
     [![Fliken hierarkier med knappen Lägg till](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
 
-1. I den **Redigera hierarki** fönstret, ange följande parametrar:
+1. I fönstret **Redigera hierarki** anger du följande parametrar:
 
-   | Parameter | Åtgärd |
+   | Parameter | Action |
    | --- | ---|
    | **Namn** | Ange **Platshierarkin**. |
    | **Nivå 1** | Ange **Land**. |
@@ -253,28 +259,28 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
    Välj **Spara**.
 
-    [![Hierarkifält med knappen Skapa](media/v2-update-provision/define-eight-add-hierarchy.png)](media/v2-update-provision/define-eight-add-hierarchy.png#lightbox)
+    [![Hierarkiska fält med knappen Skapa](media/v2-update-provision/define-eight-add-hierarchy.png)](media/v2-update-provision/define-eight-add-hierarchy.png#lightbox)
 
    Du kan se den hierarki som du skapade:
 
     [![Information om hierarkin](media/v2-update-provision/define-nine-created.png)](media/v2-update-provision/define-nine-created.png#lightbox)
 
-1. Välj **instanser**. Välj den första instansen och välj sedan **redigera**:
+1. Välj **instanser**. Välj den första instansen och välj sedan **Redigera**:
 
-    [![Att välja Redigera-knappen för en instans](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
+    [![Välja knappen Redigera för en instans](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
 
-1. I den **redigera instanser** fönstret, ange följande parametrar:
+1. I fönstret **Redigera instanser** anger du följande parametrar:
 
-    | Parameter | Åtgärd |
+    | Parameter | Action |
     | --- | --- |
     | **Typ** | Välj **Kylaggregat**. |
     | **Beskrivning** | Ange **Instans för kylaggregat-01.1**. |
-    | **Hierarkier** | Välj **platshierarkin**. |
+    | **Hierarkier** | Välj **platshierarki**. |
     | **Land/region** | Ange **USA**. |
     | **Ort** | Ange **Seattle**. |
     | **Byggnad** | Ange **Space Needle**. |
 
-    [![Instansfält med knappen Spara](media/v2-update-provision/define-eleven-chiller.png)](media/v2-update-provision/define-eleven-chiller.png#lightbox)
+    [![Instans fält med knappen Spara](media/v2-update-provision/define-eleven-chiller.png)](media/v2-update-provision/define-eleven-chiller.png#lightbox)
 
    Välj **Spara**.
 
@@ -282,45 +288,53 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
    * För Kylaggregat 01.2:
 
-     | Parameter | Åtgärd |
+     | Parameter | Action |
      | --- | --- |
      | **Typ** | Välj **Kylaggregat**. |
      | **Beskrivning** | Ange **Instans för kylaggregat-01.2**. |
-     | **Hierarkier** | Välj **platshierarkin**. |
+     | **Hierarkier** | Välj **platshierarki**. |
      | **Land/region** | Ange **USA**. |
      | **Ort** | Ange **Seattle**. |
      | **Byggnad** | Ange **Pacific Science Center**. |
 
    * För Kylaggregat 01.3:
 
-     | Parameter | Åtgärd |
+     | Parameter | Action |
      | --- | --- |
      | **Typ** | Välj **Kylaggregat**. |
-     | **Beskrivning** | Ange **instans för kylaggregat 01.3**. |
-     | **Hierarkier** | Välj **platshierarkin**. |
+     | **Beskrivning** | Ange **instans för kylning-01,3**. |
+     | **Hierarkier** | Välj **platshierarki**. |
      | **Land/region** | Ange **USA**. |
      | **Ort** | Ange **New York**. |
      | **Byggnad** | Ange **Empire State Building**. |
 
-1. Välj den **analysera** fliken och sedan uppdatera sidan. Under **platshierarkin**, expandera alla hierarkinivåer om du vill visa time series-instanser:
+1. Välj fliken **analysera** och uppdatera sidan. Under **platshierarki**, expandera alla hierarkinivåer för att Visa tids serie instanserna:
 
    [![Fliken analysera](media/v2-update-provision/define-twelve.png)](media/v2-update-provision/define-twelve.png#lightbox)
 
-1. Om du vill utforska time series-instanser under den senaste timmen, ändra **Snabbgånger** till **senaste timmen**:
+1. Ändra **snabb tiderna** till **senaste timmen**för att utforska tids serie instanserna under den senaste timmen:
 
-    [![Rutan Snabbgånger med senaste timmen som valts](media/v2-update-provision/define-thirteen-explore.png)](media/v2-update-provision/define-thirteen-explore.png#lightbox)
+    [![Rutan snabb tider, med den senaste timmen valt](media/v2-update-provision/define-thirteen-explore.png)](media/v2-update-provision/define-thirteen-explore.png#lightbox)
 
-1. Under **Pacific Science Center**, väljer du den time series-instansen och välj sedan **Visa högsta fuktighet**.
+1. Under **Pacific Science Center**väljer du Time Series-instansen och väljer sedan **Visa Max fuktighet**.
 
-    [![Vald tid serien instans och menyalternativet Visa högsta fuktighet](media/v2-update-provision/define-fourteen-show-max.png)](media/v2-update-provision/define-fourteen-show-max.png#lightbox)
+    [![Valda Time Series-instanser och meny valet Visa Max fuktighet](media/v2-update-provision/define-fourteen-show-max.png)](media/v2-update-provision/define-fourteen-show-max.png#lightbox)
 
-1. Tidsserier för **högsta fuktighet** med en intervallstorlek för på **1 minut** öppnas. Välj en region för att filtrera ett intervall. Om du vill analysera händelser under tidsperioden, högerklickar du på diagrammet och välj sedan **Zooma**:
+1. Tids serien för **maximal fuktighet** med en intervall storlek på **1 minut** öppnas. Om du vill filtrera ett intervall väljer du en region. Om du vill analysera händelser i tids ramen högerklickar du på diagrammet och väljer sedan **Zooma**:
 
-   [![Markerade intervallet med zoomning kommando på en snabbmeny](media/v2-update-provision/define-fifteen-filter.png)](media/v2-update-provision/define-fifteen-filter.png#lightbox)
+   [![Markerat intervall med kommandot Zooma på en snabb meny](media/v2-update-provision/define-fifteen-filter.png)](media/v2-update-provision/define-fifteen-filter.png#lightbox)
 
-1. Om du vill se händelseinformationen, Välj en region och sedan högerklickar du på diagrammet:
+1. Om du vill visa händelse information väljer du en region och högerklickar sedan på diagrammet:
 
    [![Detaljerad lista över händelser](media/v2-update-provision/define-eighteen.png)](media/v2-update-provision/define-eighteen.png#lightbox)
+
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Nu när du har slutfört självstudien rensar du de resurser som du har skapat:
+
+1. På den vänstra menyn i [Azure Portal](https://portal.azure.com)väljer du **alla resurser**, letar reda på Azure Time Series Insights resurs gruppen.
+1. Ta antingen bort hela resurs gruppen (och alla resurser som ingår i den) genom att välja **ta bort** eller ta bort varje resurs individuellt.
 
 ## <a name="next-steps"></a>Nästa steg
 

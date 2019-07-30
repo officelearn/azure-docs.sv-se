@@ -10,19 +10,19 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 04/23/2019
-ms.openlocfilehash: 39ea967de1ad06fdf942a8e3a21dbea9f9f8f61f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566585"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640064"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Snabbstart: Skapa en enskild databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI
 
 Att skapa en [enkel databas](sql-database-single-database.md) är det snabbaste och enklaste distributionsalternativet för att skapa en databas i Azure SQL Database. Snabbstarten visar hur du skapar och sedan frågar en enkel databas Azure-portalen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
 
 Logga in på [Azure Portal](https://portal.azure.com/) för alla steg i den här snabbstarten.
 
@@ -36,7 +36,7 @@ En enskild databas kan antingen skapas i beräknings nivån etablerade eller uta
 När du skapar en enkel databas definierar du även en [SQL Database-server](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
 
 > [!NOTE]
-> I den här snabb starten används den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) och [Server](sql-database-serverless.md) lös beräknings nivån, men den [DTU-baserade inköps modellen](sql-database-service-tiers-DTU.md) är också tillgänglig.
+> I den här snabb starten används den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md), men den [DTU-baserade inköps modellen](sql-database-service-tiers-DTU.md) är också tillgänglig.
 
 Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempeldata:
 

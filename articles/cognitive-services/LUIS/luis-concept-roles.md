@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9c437450ead6f05a36725588215ac03b83790373
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b4bd61ea74055a04718d8a9d8d5ccd42671af2ac
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563933"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638344"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Enhets roller för Sammanhangs beroende under typer
 
@@ -48,14 +48,14 @@ I uttryck "schemalägger mötet från 8 till 9", och båda talen anger en tid, m
 Schedule the meeting from 8 to 9
 ```
 
-|Entitetstyp|Rollnamn|Värde|
+|Entitetstyp|Rollnamn|Value|
 |--|--|--|
 |Fördefinierade datetimeV2|/St|8|
 |Fördefinierade datetimeV2|Slut|9|
 
 ## <a name="are-multiple-entities-in-an-utterance-the-same-thing-as-roles"></a>Är flera entiteter i en uttryck samma sak som roller? 
 
-Flera entiteter kan finnas i en uttryck och kan extraheras utan att använda roller. Om meningen i meningen anger att entitetens version har ett värde, ska en roll användas. 
+Flera entiteter kan finnas i en uttryck och kan extraheras utan att använda roller. Om meningen i meningen visar vilken version av entiteten som har ett värde, ska en roll användas. 
 
 ### <a name="dont-use-roles-for-duplicates-without-meaning"></a>Använd inte roller för dubbletter utan betydelse
 

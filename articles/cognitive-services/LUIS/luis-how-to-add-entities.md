@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: fdf60a454aeb19b83ce455a771b8399c90af3bce
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b42ab9155f5b9719ef6477934722021e3fbac99
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563751"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638259"
 ---
 # <a name="create-entities-without-utterances"></a>Skapa entiteter utan yttranden
 
@@ -114,13 +114,13 @@ I uttryck `Where is Request relocation from employee new to the company on the s
 
 En roll är en namngiven under typ baserat på kontext. Den är tillgänglig i alla entiteter, inklusive förbyggda och icke-inlärda entiteter. 
 
-Syntaxen för en roll är **`{Entityname:Rolename}`** den plats där entitetsnamnet följs av ett kolon, sedan roll namnet. Till exempel `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+Syntaxen för en roll är **`{Entityname:Rolename}`** den plats där entitetsnamnet följs av ett kolon, sedan roll namnet. Till exempel `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. Från den **skapa** väljer **entiteter** på den vänstra panelen.
 
-1. Välj **Create new entity** (Skapa ny entitet). Ange namnet på `LocationUsingRoles`. Välj typ **enkel** och välj **klar**. 
+1. Välj **Create new entity** (Skapa ny entitet). Ange namnet på `Location`. Välj typ **enkel** och välj **klar**. 
 
-1. Välj **entiteter** i vänster panel, välj sedan den nya entiteten **LocationUsingRoles** skapade i föregående steg.
+1. Välj **entiteter** i den vänstra panelen och välj sedan den nya entitets **plats** som skapades i föregående steg.
 
 1. I den **rollnamn** textrutan anger du namnet på rollen `Origin` och ange. Lägg till ett andra rollnamn för `Destination`. 
 

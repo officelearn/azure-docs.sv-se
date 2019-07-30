@@ -145,6 +145,8 @@
           href: howto-data-in-replication.md
         - name: Skapa skrivskyddade repliker på Azure-portalen
           href: howto-read-replicas-portal.md
+        - name: Skapa skrivskyddade repliker i Azure CLI
+          href: howto-read-replicas-cli.md
     - name: Felsöka
       items:
         - name: Felsöka anslutningsfel

@@ -1,37 +1,37 @@
 ---
-title: Skalbarhet och prestanda – Personalizer
+title: Skalbarhet och prestanda – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: 'Höga prestanda och hög trafik webbplatser och program har två huvudsakliga faktorer att tänka på med Personalizer för skalbarhet och prestanda: svarstider och genomströmning för utbildning.'
+description: 'Webbplatser och program med höga prestanda och hög trafik har två huvudsakliga faktorer att tänka på när det gäller skalbarhet och prestanda: svars tid och inlärnings data flöde.'
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 06c2e65c723e18acc515dd7effc61aae0564f411
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: d116f6bd389b1404ea723c965111cd05880e6c30
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722416"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662820"
 ---
 # <a name="scalability-and-performance"></a>Skalbarhet och prestanda
 
-Höga prestanda och hög trafik webbplatser och program har två huvudsakliga faktorer att tänka på med Personalizer för skalbarhet och prestanda:
+Webbplatser och program med höga prestanda och hög trafik har två huvudsakliga faktorer att tänka på med en Personanpassare för skalbarhet och prestanda:
 
-* Att hålla låg svarstid när du gör rangordning API-anrop
-* Se till utbildning Dataflöde håller takten med händelsen indata
+* Hålla låg latens vid rang-API-anrop
+* Se till att inlärnings data flödet hålls igång med händelse indata
 
-Anpassning kan returnera en rangordning mycket snabbt med de flesta av de varaktighet för kommunikation via REST API. Azure kommer automatisk skalning kan svara på begäranden snabbt.
+Anpassningen kan snabbt returnera en rankning, med de flesta samtals varaktigheter som är avsedda för kommunikation via REST API. Azure skalar automatiskt möjligheten att svara på begär Anden snabbt.
 
 ##  <a name="low-latency-scenarios"></a>Scenarier med låg latens
 
-Vissa program kräver låg fördröjning när returnerar en rangordning. Detta är nödvändigt:
+Vissa program kräver låg fördröjning när en rang returneras. Detta är nödvändigt:
 
-* Rangordnas innehåll för att förhindra användaren från väntar på en märkbar tidsperiod innan den visas.
-* För att en server som har drabbats av extrem trafik undvika binda upp begränsade beräkning tid och nätverksanslutningar.
+* Att hindra användaren från att vänta en märkbart lång tid innan det rankade innehållet visas.
+* För att hjälpa en server som har extrem trafik undviker du att binda upp begränsade beräknings tid och nätverks anslutningar.
 
 <!--
 
@@ -47,21 +47,21 @@ If you require latencies under a millisecond, and have already tested using Pers
 
 -->
 
-## <a name="scalability-and-training-throughput"></a>Skalbarhet och utbildning Dataflöde
+## <a name="scalability-and-training-throughput"></a>Data flöde för skalbarhet och utbildning
 
-Personalizer fungerar genom att uppdatera en modell som är modellkomponenten baserat på meddelanden som skickats asynkront av Personalizer efter rangordning och API: er för trafik. Dessa meddelanden som skickas med en Azure-EventHub för programmet.
+Personanpassaren fungerar genom att uppdatera en modell som omtränas baserat på meddelanden som skickas asynkront av personanpassa efter rang-och belönings-API: er. Dessa meddelanden skickas med en Azure-EventHub för programmet.
 
- Det är osannolikt de flesta program når maximal koppla och utbildning genomströmning på Personalizer. När du når den här högsta värdet inte tar lång tid att programmet, skulle det Event Hub köer komma fylls internt snabbare än vad de kan rensas.
+ Det är osannolikt att de flesta program kommer att uppnå det högsta antalet anslutningar och sitt inlärnings flöde hos Personanpassaren. Om det här max värdet når det här maximala värdet går det inte att komma åt Event Hub-köer som är ifyllda internt snabbare än de kan rensas.
 
-## <a name="how-to-estimate-your-throughput-requirements"></a>Så här att uppskatta dina behov för dataflöde
+## <a name="how-to-estimate-your-throughput-requirements"></a>Beräkna dina data flödes krav
 
-* Beräkna det genomsnittliga antalet byte per rangordning händelse att lägga till längder av JSON-dokument kontext och åtgärd.
-* Dela upp 20MB per sekund av den här uppskattade Genomsnittligt antal byte.
+* Beräkna det genomsnittliga antalet byte per ranknings händelse som lägger till längderna för kontext-och åtgärds-JSON-dokument.
+* Dividera 20 MB/SEK med detta beräknade genomsnittliga byte.
 
-Exempel: om din genomsnittliga nyttolast har 500 funktioner och var och en är en beräknad 20 tecken, sedan varje händelse är ungefär 10kb. Med dessa beräkningar, 20 000 000 / 10 000 = 2 000 händelser/sekund, vilket är ungefär 173 miljoner händelser per dag. 
+Om din genomsnittliga nytto Last till exempel har 500 funktioner och var och en är en uppskattad 20 tecken, är varje händelse cirka 10 kB. Med dessa uppskattningar, 20 000 000/10 000 = 2 000 händelser/SEK, som är cirka 173 000 000 händelser/dag. 
 
-Om du ansluter till dessa gränser, kontakta Vårt supportteam för arkitekturen råd.
+Om du når dessa gränser kan du kontakta vårt support team för att få arkitektur råd.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa och konfigurera Personalizer](how-to-settings.md).
+[Skapa och konfigurera personanpassare](how-to-settings.md).

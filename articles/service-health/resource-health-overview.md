@@ -6,104 +6,99 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 05/10/2019
-ms.openlocfilehash: e79f2924448b69989cc563b7b3b30bca0540533f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c2096f94f38d13288c6ce3742252bc6d576835a
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067207"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854235"
 ---
-# <a name="azure-resource-health-overview"></a>Översikt över Azure Resource Health
+# <a name="resource-health-overview"></a>Översikt över Resource Health
  
-Azure Resource Health hjälper dig att diagnostisera och få support när ett Azure-tjänst-problem påverkar dina resurser. Informerar dig om nya och gamla hälsotillståndet för dina resurser. Och du får teknisk support för att hjälpa dig att lösa problem.
+Azure Resource Health hjälper dig att diagnostisera och få support för tjänst problem som påverkar dina Azure-resurser. Den rapporterar om resursernas aktuella och tidigare hälso tillstånd.
 
-Medan [Azure-Status](https://status.azure.com) meddelar dig om tjänstproblem med som påverkar en bred uppsättning Azure-kunder, Resource Health ger dig en anpassad instrumentpanel för hälsotillståndet för dina resurser. Resource Health visar alla gånger då dina resurser har varit otillgängliga på grund av problem med Azure-tjänster. Sedan är det enkelt för dig att förstå om serviceavtal (SLA) har överskridits. 
+[Azures status](https://status.azure.com) rapporter om tjänst problem som påverkar en rad olika Azure-kunder. Resource Health ger dig en anpassad instrument panel med hälso tillståndet för dina resurser. Resource Health visar alla tider som resurserna har varit otillgängliga på grund av problem med Azure-tjänsten. Dessa data gör det enkelt för dig att se om ett SLA bröts.
 
-## <a name="resource-definition-and-health-assessment"></a>Resursen definitions- och utvärdering
+## <a name="resource-definition-and-health-assessment"></a>Resurs definition och hälso bedömning
 
-En resurs är en specifik instans av en Azure-tjänst: till exempel en virtuell dator, en webbapp eller en SQL-databas.
+En *resurs* är en angiven instans av en Azure-tjänst, till exempel en virtuell dator, en webbapp eller en SQL-databas. Resource Health förlitar sig på signaler från olika Azure-tjänster för att bedöma om en resurs är felfri. Om en resurs inte är felfri analyserar Resource Health ytterligare information för att fastställa orsaken till problemet. Den rapporterar även om åtgärder som Microsoft vidtar för att åtgärda problemet och identifierar saker som du kan göra för att åtgärda det.
 
-Resource Health förlitar sig på signaler som orsakats av olika Azure-tjänster för att bedöma huruvida en resurs är felfri eller inte. Om en resurs är felaktiga, analyserar Resource Health ytterligare information för att fastställa orsaken till problemet. Den identifierar också åtgärder som Microsoft tar för att åtgärda problemet eller åtgärder som du kan vidta för att åtgärda orsaken till problemet. 
+Mer information om hur hälsa utvärderas finns i listan över resurs typer och hälso kontroller på [Azure Resource Health](resource-health-checks-resource-types.md).
 
-För ytterligare information om hur hälsotillstånd bedöms, Läs den fullständiga listan över resurstyper och hälsokontroller i [Azure Resource Health](resource-health-checks-resource-types.md).
+## <a name="health-status"></a>Hälso status
 
-## <a name="health-status"></a>Hälsostatus
-
-Hälsotillståndet för en resurs visas som en av följande statusar.
+Hälso tillståndet för en resurs visas som en av följande status värden.
 
 ### <a name="available"></a>Tillgängligt
 
-Statusen **tillgänglig** innebär att tjänsten inte har identifierats eventuella händelser som påverkar hälsotillståndet för resursen. I fall där resursen har återställts från oplanerade driftstopp under de senaste 24 timmarna, visas den **nyligen löst** meddelande.
+*Tillgängligt* innebär att det inte finns några händelser som påverkar resursens hälso tillstånd. I de fall då resursen återställdes från oplanerade drift stopp under de senaste 24 timmarna visas meddelandet "nyligen löst".
 
-![Status för ”tillgänglig” för en virtuell dator med ett meddelande om ”nyligen löst”](./media/resource-health-overview/Available.png)
+![Status för * tillgängligt * för en virtuell dator som har meddelandet "nyligen löst"](./media/resource-health-overview/Available.png)
 
 ### <a name="unavailable"></a>Ej tillgänglig
 
-Statusen **ej tillgänglig** innebär att tjänsten har identifierat en pågående eller icke-plattformen händelse som påverkar hälsotillståndet för resursen.
+*Otillgänglig* innebär att tjänsten har identifierat en pågående plattforms-eller icke-plattforms händelse som påverkar resursens hälso tillstånd.
 
-#### <a name="platform-events"></a>Plattformshändelser
+#### <a name="platform-events"></a>Plattforms händelser
 
-Plattformshändelser har utlösts av flera komponenter i Azure-infrastrukturen. De omfattar både schemalagda åtgärder (till exempel planerat underhåll) och oväntade händelser (till exempel en omstart för oplanerad värden).
+Plattforms händelser utlöses av flera komponenter i Azure-infrastrukturen. De omfattar både schemalagda åtgärder (till exempel planerat underhåll) och oväntade incidenter (till exempel en oplanerad värd omstart).
 
-Resource Health finns ytterligare information om händelsen och återställningsprocessen. Du kan också kontakta support även om du inte har en aktiv Microsoft supportavtal.
+Resource Health ger ytterligare information om händelsen och återställnings processen. Du kan också kontakta Microsoft Support även om du inte har ett aktivt support avtal.
 
-![Status för ”ej tillgänglig” för en virtuell dator på grund av en plattformshändelse](./media/resource-health-overview/Unavailable.png)
+![Status för * ej tillgängligt * för en virtuell dator på grund av en plattforms händelse](./media/resource-health-overview/Unavailable.png)
 
-#### <a name="non-platform-events"></a>Icke-plattformshändelser
+#### <a name="non-platform-events"></a>Händelser som inte är plattformar
 
-Icke-plattformshändelser utlöses av användarnas åtgärder. Exempel stoppa en virtuell dator eller når det maximala antalet anslutningar till en Azure Cache för Redis.
+Händelser som inte är plattformar utlöses av användar åtgärder. Exempel är att stoppa en virtuell dator eller nå maximalt antal anslutningar till Azure cache för Redis.
 
-![Status för ”ej tillgänglig” för en virtuell dator på grund av en plattformshändelse](./media/resource-health-overview/Unavailable_NonPlatform.png)
+![Status för "ej tillgänglig" för en virtuell dator på grund av en icke-plattforms händelse](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
 ### <a name="unknown"></a>Okänt
 
-Hälsostatus **okänd** indikerar att Resource Health inte har fått information om den här resursen för mer än 10 minuter. Denna status inte är en slutgiltig indikation på resursens tillstånd, är det en viktig datapunkt i felsökningen.
+*Okänd* innebär att Resource Health inte har tagit emot information om resursen i mer än 10 minuter. Även om denna status inte är en slutgiltig indikation på resursens tillstånd, är det en viktig data punkt för fel sökning.
 
-Om resursen körs som förväntat, ändras status för resursen till **tillgänglig** efter ett par minuter.
+Om resursen körs som förväntat ändras statusen för resursen till *tillgänglig* efter några minuter.
 
-Om du har problem med resursen, den **okänd** hälsostatus kan det vara att en händelse i plattformen påverkar resursen.
+Om du får problem med resursen kan den *okända* hälso statusen innebära att en händelse i plattformen påverkar resursen.
 
-![Status för ”okänt” för en virtuell dator](./media/resource-health-overview/Unknown.png)
+![Status för * okänd * för en virtuell dator](./media/resource-health-overview/Unknown.png)
 
 ### <a name="degraded"></a>Degraderad
 
-Hälsostatus **degraderad** anger att din resurs har identifierat en förlust i prestanda, även om det är fortfarande tillgängliga för användning.
-Olika resurser har sina egna kriterier för när de anger att en resurs har degraderats.
+Degraderad innebär att din resurs har upptäckt prestanda förlust, även om den fortfarande är tillgänglig för användning.
 
-![Status för ”degraderad” för en virtuell dator](./media/resource-health-overview/degraded.png)
+Olika resurser har sina egna kriterier när de rapporterar att de försämras.
 
-## <a name="reporting-an-incorrect-status"></a>Rapportering felaktig status
+![Status * degraderat * för en virtuell dator](./media/resource-health-overview/degraded.png)
 
-Om du tror att den aktuella hälsostatus är felaktigt, kan du berätta för oss genom att välja **Rapportera felaktig hälsostatus**. Vi uppmanar dig att kontakta support från Resource Health i fall där ett Azure-problem påverkar dig. 
+## <a name="reporting-an-incorrect-status"></a>Rapportera felaktig status
 
-![Kryssrutan för att skicka information om felaktig status](./media/resource-health-overview/incorrect-status.png)
+Om du tror att den aktuella hälso statusen är felaktig kan du berätta oss genom att välja **Rapportera felaktig hälso status**. I de fall där ett Azure-problem påverkar dig rekommenderar vi att du kontaktar supporten från Resource Health.
 
-## <a name="historical-information"></a>Historisk information
+![Formulär för att skicka in information om felaktig status](./media/resource-health-overview/incorrect-status.png)
 
-Du kan komma åt upp till 14 dagar efter hälsohistorik i den **hälsohistorik** avsnittet i Resource Health. 
+## <a name="history-information"></a>Historik information
 
-![Lista över Resource Health-händelser under de senaste två veckorna](./media/resource-health-overview/history-blade.png)
+Du kan komma åt historiken för 14 dagar i avsnittet **hälso historik** i Resource Health.
 
-## <a name="getting-started"></a>Komma igång
+![Lista över Resource Health händelser under de senaste två veckorna](./media/resource-health-overview/history-blade.png)
 
-Så här öppnar Resource Health för en resurs:
+## <a name="get-started"></a>Kom igång
+
+Öppna Resource Health för en resurs:
 
 1. Logga in på Azure Portal.
 2. Bläddra till resursen.
-3. Resurs-menyn i det vänstra fönstret, Välj **resurshälsa**.
+3. Välj **resurs hälsa**på resurs menyn i det vänstra fönstret.
 
-![Öppna Resource Health från vyn](./media/resource-health-overview/from-resource-blade.png)
+![Öppna Resource Health från resursvyn](./media/resource-health-overview/from-resource-blade.png)
 
-Du kan även använda Resource Health genom att välja **alla tjänster** och skriva **resurshälsa** i textrutan filter. I den **hjälp + support** väljer [resurshälsa](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+Du kan också komma åt Resource Health genom att välja **alla tjänster** och skriva **resurs hälsa** i text rutan filter. Välj [resurs hälsa](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth)i rutan **Hjälp + Support** .
 
-![Öppna Resource Health från ”alla tjänster”](./media/resource-health-overview/FromOtherServices.png)
+![Öppnar Resource Health från "alla tjänster"](./media/resource-health-overview/FromOtherServices.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in de här resurserna och lär dig mer om Resource Health:
--  [Resurstyper och hälsokontroller i Azure Resource Health](resource-health-checks-resource-types.md)
+Ta en titt på dessa referenser om du vill veta mer om Resource Health:
+-  [Resurs typer och hälso kontroller i Azure Resource Health](resource-health-checks-resource-types.md)
 -  [Vanliga frågor och svar om Azure Resource Health](resource-health-faq.md)
-
-
-
-

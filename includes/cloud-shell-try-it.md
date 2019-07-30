@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
 ms.openlocfilehash: 8b2a9561a0933e435649c81334706481531c9ce9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 07/30/2019
 ms.locfileid: "67836875"
 ---
 ## <a name="use-azure-cloud-shell"></a>Använda Azure Cloud Shell
@@ -26,7 +26,7 @@ Starta Azure Cloud Shell:
 För att köra koden i den här artikeln i Azure Cloud Shell:
 
 1. Starta Cloud Shell.
-1. Kopiera koden  genom att klicka på kopierings knappen på ett kodblock. 
+1. Kopiera koden genom att klicka på kopierings knappen på ett kodblock. 
 1. Klistra in koden i Cloud Shell-sessionen med **CTRL**+**Shift**+**V** på Windows och Linux, eller **cmd**+**Shift**+**v** på MacOS. 
 1. Tryck på **RETUR** för att köra koden.
 

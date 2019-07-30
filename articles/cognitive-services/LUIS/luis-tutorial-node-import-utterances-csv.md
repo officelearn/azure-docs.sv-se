@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9ca04bdd7f4ed577ad571e6a715201f8c3e2b6ee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 79a372087e162fedc5b2e014a5cd4976df3cb2ce
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559970"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637824"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en LUIS-app via programmering med hjälp av Node.js
 
@@ -24,23 +24,35 @@ LUIS ger en programmatisk API som gör allt som den [LUIS](luis-reference-region
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Logga in på den [LUIS](luis-reference-regions.md) webbplats och hitta din [redigering nyckeln](luis-concept-keys.md#authoring-key) i inställningarna för kontot. Du kan använda den här nyckeln för att anropa API: er redigering.
+* Logga in på [Luis](luis-reference-regions.md) -webbplatsen och hitta [redigerings nyckeln](luis-concept-keys.md#authoring-key) i konto inställningar. Du kan använda den här nyckeln för att anropa API: er redigering.
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Den här självstudien utgår från en CSV-fil för ett hypotetiskt företag loggfiler för användarbegäranden. Ladda ned den [här](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installera den senaste Node.js med NPM. Ladda ned det från [här](https://nodejs.org/en/download/).
 * **(Rekommenderas)**  Visual Studio Code för IntelliSense och felsökning kan du hämta det från [här](https://code.visualstudio.com/) utan kostnad.
 
+All kod i den här självstudien finns i [Azure-samples language Understanding GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv)-lagringsplatsen. 
+
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Mappa befintliga data till avsikter och entiteter
 Även om du har ett system som inte har skapats med LUIS i åtanke, om den innehåller textdata som mappas till olika saker användare vill göra kanske du kan få fram en mappning från de befintliga kategorierna av användarens indata till avsikter i LUIS. Om du kan identifiera viktiga ord eller fraser i vad användarna sägs, mappa dessa ord till entiteter.
 
-Öppna filen `IoT.csv`. Den innehåller en logg över användarfrågor ett hypotetiskt home automation-tjänsten, inklusive hur de har kategoriserat vad användaren sägs och vissa kolumner med användbar information som hämtas från dem. 
+[`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) Öppna filen. Den innehåller en logg över användarfrågor ett hypotetiskt home automation-tjänsten, inklusive hur de har kategoriserat vad användaren sägs och vissa kolumner med användbar information som hämtas från dem. 
 
 ![CSV-filen med befintliga data](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 Ser du att den **RequestType** kolumn kan vara avsikter, och **begära** kolumnen visar en exempel-uttryck. I andra fält kan vara entiteter om de sker i uttryck. Eftersom det finns avsikter och entiteter exempel yttranden kan ha kraven för en enkel, exempelapp.
 
 ## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>Steg för att skapa en LUIS-app från icke-LUIS-data
-Om du vill generera en ny LUIS-app från källfilen först parsa data från CSV-filen och omvandla dessa data till ett format som du kan överföra till LUIS med hjälp av API för redigering. Från den tolkade data du samla in information om vilka avsikter och entiteter är det inte. Sedan du göra API-anrop för att skapa appen och Lägg till avsikter och entiteter som har samlats in från tolkade data. När du har skapat LUIS-app, kan du lägga till exempel yttranden från tolkade data. Du kan se det här flödet i den sista delen av följande kod. Kopiera eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) denna kod och spara den i `index.js`.
+Så här skapar du en ny LUIS-app från CSV-filen:
+
+* Parsa data från CSV-filen:
+    * Konvertera till ett format som du kan överföra till LUIS med redigerings-API: et. 
+    * Samla in information om avsikter och entiteter från parsade data. 
+* Gör redigering av API-anrop till:
+    * Skapa appen.
+    * Lägg till avsikter och entiteter som har samlats in från parsade data. 
+    * När du har skapat LUIS-app, kan du lägga till exempel yttranden från tolkade data. 
+
+Du kan se det här program flödet i den sista delen av `index.js` filen. Kopiera eller [hämta](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) denna kod och spara den i `index.js`.
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
@@ -119,7 +131,7 @@ För att kunna använda det här programmet, måste du ändra värdena i filen i
 
 ```javascript
 // Change these values
-const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
+const LUIS_programmaticKey = "YOUR_AUTHORING_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
@@ -167,7 +179,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>Öppna LUIS-app
-När skriptet har slutförts kan du logga in på [LUIS](luis-reference-regions.md) och se LUIS-app som du skapade under **Mina appar**. Du bör kunna se yttranden som du har lagt till under den **aktivera**, **avstängning**, och **ingen** avsikter.
+När skriptet har slutförts kan du logga in på [Luis](luis-reference-regions.md) och se Luis-appen som du skapade under **Mina appar**. Du bör kunna se yttranden som du har lagt till under den **aktivera**, **avstängning**, och **ingen** avsikter.
 
 ![Aktivera avsikt](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 

@@ -1,205 +1,205 @@
 ---
-title: Etik och användning av ansvarig - Personalizer
+title: Etik och ansvarig användning – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: Dessa riktlinjer är avsedda att hjälpa dig att implementera anpassning på ett sätt som hjälper dig att skapa förtroende för företaget och tjänsten. Glöm inte att pausa till research, Lär dig och avsiktligt på effekten av anpassningen på människors liv. Om du tvekar, söker du efter vägledning.
+description: Dessa rikt linjer syftar till att hjälpa dig att implementera anpassning på ett sätt som hjälper dig att bygga upp förtroende för ditt företag och din tjänst. Se till att pausa till forskning, lär dig och ta del av hur anpassningen påverkar användarnas liv. Vid tvivel, Sök vägledning.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: edjez
-ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722406"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662791"
 ---
-# <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Riktlinjer för ansvarar implementering av Personalizer
+# <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Rikt linjer för ansvarig implementering av Personanpassare
 
-Implementeringar måste vara utformad så att de uppfyller förtroendet för dem att lägga till AI i sina program och användare av program som skapats med AI för personer och society att utnyttja hela potentialen i AI. Dessa riktlinjer är avsedda att hjälpa dig att implementera Personalizer på ett sätt som hjälper dig att skapa förtroende för företaget och tjänsten. Glöm inte att pausa till research, Lär dig och avsiktligt på effekten av anpassningen på människors liv. Om du tvekar, söker du efter vägledning.
+För att människor och samhället ska kunna utnyttja den fulla potentialen av AI måste implementeringarna utformas på ett sådant sätt att de får förtroende för de som lägger till AI i sina program och användare av program som skapats med AI. Dessa rikt linjer syftar till att hjälpa dig att implementera Personanpassare på ett sätt som hjälper dig att bygga upp förtroende för ditt företag och din tjänst. Se till att pausa till forskning, lär dig och ta del av hur anpassningen påverkar användarnas liv. Vid tvivel, Sök vägledning.
 
-Dessa riktlinjer är inte avsedda som juridisk rådgivning och separat bör du se till att ditt program överensstämmer med många demonstrationer utvecklingen i lag i det här området och i din sektor.
+Dessa rikt linjer är inte avsedda som juridiska råd och du bör separat se till att programmet uppfyller den snabba utvecklingen i lagen i det här området och i din sektor.
 
-Dessutom bör du överväga en rad olika ansvarsområden som du har när du utvecklar alla datacentrerade AI-system, inklusive ethics, sekretess, säkerhet, säkerhet, inkludering, transparens och redovisning utforma ditt program med Personalizer. Du kan läsa mer om dessa i den [rekommenderad läsning](#recommended-reading) avsnittet.
+När du designar ditt program med hjälp av Personanpassan bör du också fundera över en stor uppsättning ansvars områden som du har när du utvecklar datainriktade AI-system, inklusive etik, sekretess, säkerhet, upptagande, öppenhet och ansvar. Du kan läsa mer om dessa i det [rekommenderade](#recommended-reading) avsnittet om läsning.
 
-Du kan använda följande innehåll som en checklista för startprogrammet och anpassa och förfina ditt scenario. Det här dokumentet har två huvudavsnitt: Först är dedikerad till markering ansvarig Använd överväganden när du väljer scenarier, funktioner och poäng för Personalizer. Andra gör en värdeuppsättning som Microsoft anser bör övervägas när du skapar AI-system och ger användbara förslag och risker på hur din användning av Personalizer påverkar dem. 
+Du kan använda följande innehåll som en start check lista och anpassa och förfina den i ditt scenario. Det här dokumentet har två huvud avsnitt: Den första är dedikerad för att framhäva förhands användning av ansvar vid val av scenarier, funktioner och förmåner för Personanpassare. Den andra tar en uppsättning värden som Microsoft bedömer bör överväga när du skapar AI-system och ger förslag på åtgärder och risker för hur din användning av Personanpassan påverkar dem. 
 
 
 ## <a name="your-responsibility"></a>Ditt ansvar
 
-Alla riktlinjer för ansvarar implementering bygger på grunden att utvecklare och företag som använder Personalizer är ansvarig och hållas ansvariga för följderna av att använda dessa algoritmer i samhället. Om du utvecklar ett program som ska distribueras i organisationen, bör du känner igen din roll och ansvar för dess drift och hur den påverkar personer. Om du utvecklar ett program som ska distribueras av en tredje part, gå till en delad förståelse med dem som är slutgiltigt ansvariga för programmets beteende och dokumentera den förståelse.
+Alla rikt linjer för ansvarig implementering bygger på grunden att utvecklare och företag som använder en person som är ansvariga för att kunna använda dessa algoritmer i samhället. Om du utvecklar ett program som din organisation ska distribuera bör du känna igen din roll och ditt ansvar och hur det påverkar dem. Om du utvecklar ett program som ska distribueras av en tredje part, kommer du till en delad förståelse med dem som i slut ändan ansvarar för programmets beteende och dokument som förstår.
 
-Förtroende bygger på begreppet uppfyllda åtaganden, Överväg att dina användare och society och det regelverk som dina program fungerar i, identifiera direkta och indirekta åtaganden som de kan ha.
+Förtroende är byggt på begreppet uppfyllda åtaganden – Överväg dina användare, ditt samhälle och det juridiska ramverk som dina program arbetar i, för att identifiera tydliga och implicita åtaganden som de kan ha.
 
-Microsoft skapar kontinuerligt arbete i dess verktyg och dokument kan du agera utifrån dessa uppgifter. [Lämna feedback till Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) om du tror att ytterligare verktyg produktfunktioner och dokument kan hjälpa dig att implementera dessa riktlinjer för att använda Personalizer.
-
-
-## <a name="factors-for-responsibly-implementing-personalizer"></a>Faktorer för att implementera ett ansvarsfullt sätt Personalizer
-
-Implementera Personalizer kan vara värdefulla till användarna och din verksamhet. Starta genom att fundera över följande riktlinjer för att implementera Personalizer ansvarsfullt när:
-
-* Om du väljer objekt att tillämpa anpassning.
-* Att skapa [belöna funktioner](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
-* Välja vilket [funktioner](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) om kontext och möjliga åtgärder som ska användas för anpassning.
+Microsoft lägger kontinuerligt till sina verktyg och dokument för att hjälpa dig att agera på dessa ansvars områden. [Ge feedback till Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) om du anser att ytterligare verktyg, produkt funktioner och dokument kan hjälpa dig att implementera dessa rikt linjer för att använda personanpassare.
 
 
-## <a name="choosing-use-cases-for-personalizer"></a>Välja användningsområden för Personalizer
+## <a name="factors-for-responsibly-implementing-personalizer"></a>Faktorer för ett ansvarsfullt sätt implementera Personanpassare
 
-Det är praktiskt att använda en tjänst som lär sig att anpassa innehåll och användargränssnitt. Det kan också vara misapplied om hur anpassningen skapar negativa sidoeffekter i den verkliga världen, inklusive om användare inte känner till personanpassning av innehåll. 
+Att implementera personanpassa kan vara mycket bra för dina användare och ditt företag. Börja med att beakta följande rikt linjer när du ska implementera ett ansvarsfullt sätt:
 
-Exempel på användningsområden för Personalizer med förhöjd potential för negativa sidoeffekter eller brist på transparens är bland annat scenarier där ”utmärkelse” beror på många långsiktig komplex faktorer som, när över förenklad i en omedelbar trafik kan ha negativ resultat för enskilda användare. Detta brukar betraktas som ”följdskador” alternativ eller alternativ som omfattar en risk för. Exempel: 
-
-
-* **Finans**: Anpassa erbjuder på lån, finansiella institutioner och försäkring produkter, där riskfaktorer baseras på data enskilda användare vet om det går inte att hämta eller kan inte tvist. 
-* **Utbildning**: Anpassa rangordningar för skolan kurser och utbildningsinstitutioner där rekommendationer kan spridas eventuella fördomar och minska användarnas medvetenhet om andra alternativ.
-* **Demokratin och Civic deltagande**: Personalisering av innehåll för användare med målet att påverkande yttranden är följdskador och manipulative.
-* **Tredjeparts-utmärkelse utvärdering**: Anpassa objekt där trafik baserat på en senare 3 part utvärderingen av användaren, i stället för att en trafik som genereras av användarens egna beteende.
-* **Intolerans till utforskning**: Alla situationer där Personalizer utforskning beteende kan skada.
-
-När du väljer användningsfall för Personalizer:
-
-* Börja designprocessen överväger hur anpassningen hjälper dina användare.
-* Överväg negativa konsekvenser i verkligheten om vissa objekt inte rangordnas för användare på grund av personanpassning mönster eller utforskning.
-* Överväg att själva uppfylla prophecy slingor. Detta kan utföras om anpassning ersättning träna en modell så att det kan därefter ytterligare undanta en demografiska grupp från att komma åt relevant innehåll. Till exempel de flesta personer i ett annat stadsdel hämta inte en försäkring premium-erbjudande och långsamt ingen i området tenderar att ser Erbjudandet alls.
-* Spara kopior av modeller och learning principer om det är nödvändigt att återskapa Personalizer i framtiden. Du kan göra detta regelbundet eller uppdateringsperioden för varje modell.
-* Överväg att andelen utforskning tillräcklig för området och hur du använder det som ett verktyg för att minimera effekterna av ”echo lokaler”.
+* Välj användnings fall för att använda anpassningar.
+* Skapa [belönings funktioner](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
+* Välja vilka [funktioner](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) för kontext och möjliga åtgärder som du vill använda för anpassning.
 
 
-## <a name="selecting-features-for-personalizer"></a>Välja funktioner för Personalizer
+## <a name="choosing-use-cases-for-personalizer"></a>Välja användnings fall för Personanpassare
 
-Personalisering av innehåll är beroende av att användbar information om innehållet och användaren. Kom ihåg för vissa program och branscher, vissa funktioner kan direkt eller indirekt anses diskriminerande och potentiellt otillåten användare.
+Användning av en tjänst som lär sig att anpassa innehåll och användar gränssnitt är användbart. Det kan också vara fel om anpassningen skapar negativa sido effekter i verkligheten, inklusive om användarna inte kan anpassa innehållet. 
 
-Fundera över hur dessa funktioner:
-
-* **Användaren demografi**: Funktioner om kön, kön, ålder, RAS, religion: Dessa funktioner kan inte tillåtna i vissa program regulatoriska orsaker och det kanske inte etiska att skräddarsy utifrån dem eftersom anpassningen skulle spridas generaliseringar och bias. Ett exempel på den här inneslutning spridning är ett projekt för tekniker som inte visas för äldre eller kön-baserade målgrupper.
-* **Språkinformationen**: På många ställen i hela världen kan platsinformation (till exempel ett postnummer, postnummer eller stadsdel namn) mycket korreleras med intäkter, RAS och religion.
-* **Användarens uppfattning av rättvisa**: Överväg att effekten av användare perceiving innehållet visas i ditt program ändras på ett sätt som visas korreleras till funktioner som skulle vara diskriminerande även i fall där ditt program är att fatta välgrundade beslut.
-* **Oönskade Bias i funktioner**:  Det finns typer av eventuella fördomar som introduceras med hjälp av funktioner som påverkar endast en delmängd av populationen. Detta kräver extra uppmärksamhet om funktioner genereras algoritmiskt, till exempel när du använder avbildningsfilen objekt analys för att extrahera i en bild eller text analytics för att identifiera enheter i text. Göra dig medveten om egenskaperna för de tjänster du använder för att skapa de här funktionerna.
-
-Använd följande metoder när du väljer vilka funktioner du vill skicka i sammanhang och åtgärder till Personalizer:
-
-* Överväg att laglighet och etiska med att använda vissa funktioner för vissa program och om ofarliga försöker söker funktioner kan vara proxyservrar för andra som du vill eller bör undvika
-* Vara transparent för användarna att algoritmer och analys av data som används för att anpassa de alternativ som visas.
-* Fråga dig själv: Skulle användarna hand och dina om jag har använt den här informationen för att anpassa innehållet för dem? Skulle jag upplev bekvämligheten som visar hur beslutet gjordes att markera eller dölja vissa objekt?
-* Använd beteendeanalys i stället för klassificering eller segmentering data baserat på andra egenskaper. Demografisk information traditionellt har använts av återförsäljare historiska skäl – demografiska attribut visat sig enkelt att samla in och vidta åtgärder innan en digital era - men fråga hur relevanta demografisk information är när du har faktiska interaktion sammanhangsberoende och historiska data som rör närmare dina användarinställningar och identiteten för användare.
-* Överväg hur du förhindrar att funktioner ”falska” av obehöriga användare, som om de utnyttjas i stort kan leda till utbildning Personalizer i vilseledande sätt att avsiktligt störa, embarrass och trakassera vissa klasser av användare. 
-* När lämpligt och genomförbart, designa programmet så att dina användare att anmäla eller avanmäla dig från att ha vissa personliga funktioner som används. De kan grupperas, till exempel ”information” och ”enhetsinformation”, ”senaste inköpshistorik” osv.
+Exempel på användning av Personanpassare med förhöjd potential för negativa sido effekter eller brist på genomskinlighet är scenarier där "belöning" är beroende av många långsiktiga komplexa faktorer som, vid överanvändning i en omedelbar belöning, kan vara ofördelaktiga resultat för enskilda användare. Dessa tenderar att anses vara "sekventiella" alternativ eller val som innebär risk för skador. Exempel: 
 
 
-## <a name="computing-rewards-for-personalizer"></a>Databehandling poäng för Personalizer
+* **Ekonomi**: Att anpassa erbjudanden på låne-, finans-och försäkrings produkter, där riskfaktorer baseras på data som personer inte vet om, inte kan få eller inte kan ifrågasätta. 
+* **Utbildning**: Att anpassa rankningen för skol kurser och utbildnings institutioner där rekommendationer kan spridas över flera nivåer och minska användarnas medvetenhet om andra alternativ.
+* **Demokrati-och Civic-deltagande**: Att anpassa innehåll för användare med målet att påverka yttranden är både följden och manipulering.
+* **Utvärdering av tredje part**: Att anpassa objekt där belöningen baseras på en senare utvärdering av tredje part av användaren, i stället för att få en belöning som genereras av användarens eget beteende.
+* **Intolerans för utforskning**: Varje situation där en gransknings funktion för en Personanpassare kan orsaka skada.
 
-Personalizer strävar efter att förbättra valet av vilken åtgärd som ska trafik baserat på trafik poängen som tillhandahålls av affärslogiken program.
+När du väljer användnings fall för Personanpassare:
 
-En väl inbyggda utmärkelse poäng fungerar som en kortsiktig proxy till ett mål för företag som är kopplad till en organisations uppdrag.
-
-Till exempel gör nu belönar vi på klick Personalizer Service Målsökning klick på bekostnad av allt annat, även om vad klickas på är störande och inte bundet till ett affärsresultat.
-
-En kontrasterande exempel är vilja en nyhetswebbplats ange belöningar som är kopplad till något mer beskrivande än klickar, till exempel ”gjorde användaren tillräckligt med ägna tid åt att läsa innehållet”? ”De Klicka på relevanta artiklar eller referenser”?. Det är enkelt att knyta mått noga för att kunna fördelarna med Personalizer. Men var noga med att inte confound kortsiktig användarnas engagemang med bra resultat.
-
-### <a name="unintended-consequences-from-reward-scores"></a>Oönskade konsekvenser från utmärkelse poäng
-Utmärkelse poäng kan byggas med bäst från avsikter, men kan fortfarande skapa oväntade händelser eller oväntade resultat på hur Personalizer rangordnar innehåll. 
-
-Överväg följande exempel:
-
-* Nu belönar vi video personanpassning av innehåll på procentuella andelen Videolängd som bevakade kommer förmodligen tenderar att rangordnas kortare videor.
-* Nu belönar vi resurser för sociala medier, utan känsloanalys av hur de delas eller själva innehållet kan leda till rangordning stötande, utan eller inflammatoriska innehållet, vilket tenderar att stimulera mycket ”engagement”, men lägger till värde.
-* Nu belönar vi åtgärd på gränssnittselement som användare inte ska kunna ändra kan störa användbarhet och förutsägbarheten hos användargränssnittet, där knappar överraskande ändrar platsen eller ändamål utan varning, vilket gör det svårare för vissa grupper av användare att förbli produktiva.
-
-Implementera dessa metodtips:
-
-* Kör offline experiment med systemet med hjälp av olika utmärkelse metoder för att förstå effekten och sidoeffekter.
-* Utvärdera dina utmärkelse funktioner och fråga dig själv hur skulle en extremt naïve person böja dess tolkning och nå oönskade resultat med den.
+* Starta design processen och fundera över hur anpassningen hjälper dina användare.
+* Överväg de negativa konsekvenserna i verkligheten om några objekt inte rangordnas för användare på grund av anpassnings mönster eller utforskning.
+* Överväg att själv uppfylla Prophecy-slingor. Detta kan inträffa om en anpassnings belöning tågen en modell så att den senare kan utesluta en demografisk grupp från att komma åt relevant innehåll. De flesta personer i en låg inkomst verksamhet får till exempel inget bidrags försäkrings erbjudande, och långsamt utan att bara kunna se erbjudandet.
+* Spara kopior av modeller och inlärnings principer om det är nödvändigt att producera om Personanpassaren i framtiden. Du kan göra detta regelbundet eller varje modell uppdaterings period.
+* Tänk på vilken nivå av utforskning som är lämplig för utrymmet och hur du använder det som ett verktyg för att minimera effekten "eko kammare".
 
 
-## <a name="responsible-design-considerations"></a>Designöverväganden för ansvariga
+## <a name="selecting-features-for-personalizer"></a>Välja funktioner för Personanpassare
 
-Här följer delar av design för ansvarar implementeringar av AI. Lär dig mer om datorns ramverket i [i framtiden beräknad](https://news.microsoft.com/futurecomputed/).
+Att anpassa innehållet är beroende av att ha användbar information om innehållet och användaren. Tänk på att för vissa program och branscher kan vissa användar funktioner direkt eller indirekt betraktas som diskriminerande och potentiellt ogiltiga.
 
-![AI-värden från framtida beräknas](media/ethics-and-responsible-use/ai-values-future-computed.png)
+Överväg effekterna av dessa funktioner:
+
+* **Användar demografiska**: Funktioner för kön, kön, ålder, tävling, religion: Dessa funktioner kan inte tillåtas i vissa program av reglerings skäl, och det kan inte vara etiska att anpassa dem på grund av att anpassningen skulle sprida generaliseringar och bias. Ett exempel på denna kompensations spridning är en jobb publicering för teknik som inte visas för äldre eller kön-baserade mål grupper.
+* **Språk information**: På många platser i världen kan plats information (till exempel ett post nummer, post nummer eller namn) vara mycket korrelerad med intäkter, tävling och religion.
+* **Användar uppfattning om skälighet**: Även i de fall där ditt program fattar ett ljud beslut bör du fundera över hur användarna ser att innehållet visas i dina program ändringar på ett sätt som verkar korreleras med funktioner som skulle vara diskriminerande.
+* **Oavsiktlig förskjutning i funktioner**:  Det finns typer av fördomar som kan introduceras med hjälp av funktioner som bara påverkar en del av populationen. Detta kräver extra uppmärksamhet om funktionerna genereras algorithmically, till exempel när du använder bild analys för att extrahera objekt i en bild eller text analys för att identifiera entiteter i text. Ta reda på egenskaperna för de tjänster som du använder för att skapa de här funktionerna.
+
+Använd följande metoder när du väljer vilka funktioner som ska skickas i kontexter och åtgärder till Personanpassare:
+
+* Överväg att använda vissa funktioner för vissa program och om Innocent funktioner kan vara proxyservrar för andra som du vill eller bör undvika,
+* Var transparent för användare som algoritmer och data analys används för att anpassa de alternativ som de ser.
+* Fråga dig själv: Skulle mina användare vara försiktiga om jag använde den här informationen för att anpassa innehållet för dem? Vet jag att det var bra att visa hur beslutet har gjorts för att markera eller dölja vissa objekt?
+* Använd beteende i stället för klassificerings-eller segmenterings data baserat på andra egenskaper. Demografisk information användes traditionellt av åter försäljare av historiska skäl – demografiska attribut verkade vara enkla att samla in och agera på före en digital era,-men fråga hur relevant demografisk information är när du har verklig interaktion, sammanhangsbaserade och historiska data som är mer likt användarnas preferenser och identiteter.
+* Överväg att förhindra att funktioner "manipuleras" av illvilliga användare, som om de utnyttjas i stora tal kan leda till utbildning i tränare på ett missvisande sätt för att purposefully störa, embarrass och trakassera vissa användar klasser. 
+* När det är lämpligt och möjligt kan du utforma ditt program så att användarna kan välja att välja ut eller välja att låta vissa personliga funktioner användas. Dessa kan grupperas, till exempel "plats information", "enhets information", "tidigare inköps historik" osv.
+
+
+## <a name="computing-rewards-for-personalizer"></a>Beräknar förmåner för Personanpassare
+
+Med personanpassare kan du förbättra valet av vilken åtgärd du behöver för att få en belöning utifrån belönings poängen från din program affärs logik.
+
+En väl utformad belönings poäng kommer att fungera som en kortsiktig proxy till ett affärs mål, som är knutet till en organisations uppdrag.
+
+Om du till exempel betjänar klickningar blir det enklare för tjänsten personanpassa att klicka på kostnaden för allt annat, även om det som klickas på är störande eller inte är kopplat till ett affärs resultat.
+
+Som ett kontrast exempel kan en nyhets webbplats vilja ange förmåner som är knutna till något mer meningsfullt än klickningar, till exempel "gjorde användaren tillräckligt mycket tid för att läsa innehållet?" "Har de klickat på relevanta artiklar eller referenser?". Med Personanpassare är det enkelt att knyta måtten nära fördelar. Men var noga med att inte confound användar engagemang med lämpliga resultat.
+
+### <a name="unintended-consequences-from-reward-scores"></a>Oönskade följder från belönings resultat
+Belönings poängen kan skapas med det bästa av avsikten, men kan ändå skapa oväntade följder eller oönskade resultat på hur en Personanpassare rangordnar innehåll. 
+
+Tänk på följande exempel:
+
+* Att belöna anpassning av video innehåll i procent av den video längd som bevakas tenderar förmodligen att ranka kortare videor.
+* Att belöna sociala medie resurser, utan sentiment analys av hur den delas eller själva innehållet, kan leda till att det går att rangordna stötande, inte måttlig eller inflammatory innehåll, vilket är till för att Incite mycket av "engagemang", men ger lite värde.
+* Att belöna åtgärden för användar gränssnitts element som användare inte förväntar sig att ändra kan störa användar gränssnittets användbarhet och förutsägbarhet, där knappar är överraskande att ändra plats eller syfte utan varning, vilket gör det svårare för vissa grupper av användare för att vara produktiva.
+
+Implementera följande metod tips:
+
+* Kör offline-experiment med systemet med olika belönings metoder för att förstå påverkan och sido effekter.
+* Utvärdera dina belönings funktioner och fråga dig själv hur skulle en mycket naïve person böja sitt tolkning och uppnå oönskade resultat.
+
+
+## <a name="responsible-design-considerations"></a>Ansvariga design överväganden
+
+Följande är design områden för ansvariga implementeringar av AI. Lär dig mer om verifieringen det här ramverket i [framtiden](https://news.microsoft.com/futurecomputed/).
+
+![AI-värden från framtida Beräknad](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
 ### <a name="accountability"></a>Ansvarstagande
-*Personer som utforma och distribuera AI-system måste vara ansvariga för hur systemen fungerar*. 
+*Personer som utformar och distribuerar AI-system måste vara konto bara för hur deras system ska användas*. 
 
-* Skapa interna riktlinjer för hur du implementerar Personalizer, dokumentera och vidarebefordra dem till ditt team, chefer och leverantörer.
-* Utför regelbundna granskningar av hur trafik poängen beräknas, utföra offline utvärderingar för att se vilka funktioner påverkar Personalizer och använda resultatet för att eliminera onödiga och onödiga funktioner.
-* Informera tydligt användarna hur Personalizer används, vilket syfte och med vilken data.
-* Arkivera information och resurser – till exempel modeller, learning principer och andra data – som Personalizer använder ska fungera, för att kunna återge resultat.
+* Skapa interna rikt linjer för hur du implementerar Personanpassare, dokument och kommunicerar med ditt team, chefer och leverantörer.
+* Utför regelbundna granskningar av hur belönings poängen beräknas, utför offline-utvärderingar för att se vilka funktioner som påverkar personligare och Använd resultatet för att eliminera onödiga och onödiga funktioner.
+* Kommunicera tydligt med dina användare så att en Personanpassare används, i vilket syfte och med vilka data.
+* Arkivera information och till gångar – till exempel modeller, utbildnings principer och andra data – som Personanpassaren använder för att kunna återskapa resultat.
 
 ### <a name="transparency"></a>Transparens
-*AI-system bör vara Understandable*. Med Personalizer:
+*AI-system bör vara begripliga*. Med Personanpassare:
 
-* *Ger användare information om hur innehållet var personlig.* Exempel: du kan visa dina användare en knapp med etiketten `Why These Suggestions?` som visar vilka översta funktioner för användaren och åtgärder spelat en roll i resultatet av Personalizer.
-* Kontrollera att dina villkor för användning gör nämner som du ska använda information om användare och deras beteende för att anpassa upplevelsen.
+* *Ge användare information om hur innehållet har anpassats.* Du kan till exempel Visa dina användare en knapp `Why These Suggestions?` som visar vilka Top-funktioner i användaren och åtgärder som spelade en roll i resultatet av en personanpassare.
+* Se till att användnings villkoren är tänkta att du använder information om användare och deras beteende för att anpassa upplevelsen.
 
-### <a name="fairness"></a>Rättvisa
-*AI-system bör hantera alla personer ganska*.
+### <a name="fairness"></a>Skälighet
+*AI-system bör behandla alla personer*på ett ganska mycket.
 
-* Använd inte Personalizer för användningsfall där resultaten är långsiktiga, följdskador eller omfatta verkliga skada.
-* Använd inte funktioner som inte är lämpligt att anpassa innehåll med eller som kan hjälpa att sprida oönskad eventuella fördomar. Exempelvis bör alla med liknande finansiella ställning se samma personanpassade rekommendationer för finansiella produkter.
-* Förstå eventuella fördomar som kan finnas i funktioner som kommer från redigerare, algoritmiska verktyg eller användarna själva.
+* Använd inte Personanpassare för användnings fall där resultatet är långsiktigt, följd eller rör verklig skada.
+* Använd inte funktioner som inte är lämpliga för att anpassa innehåll med eller som kan hjälpa till att sprida oönskade kompensationer. Till exempel bör alla med liknande ekonomiska omständigheter se samma anpassade rekommendationer för finansiella produkter.
+* Förstå eventuella kompensationer som kan finnas i funktioner som har en källa från redigerare, algoritmiska verktyg eller användare själva.
 
 ### <a name="reliability-and-safety"></a>Tillförlitlighet och säkerhet
-*AI-system bör utföra på ett tillförlitligt och säkert*. För Personalizer:
+*AI-system bör utföras på ett tillförlitligt och säkert sätt*. För Personanpassare:
 
-* *Inte ge Personalizer inte bör väljas åtgärder*. Till exempel ska på ett olämpligt sätt filmer filtreras av åtgärder för att anpassa om gör en rekommendation för en anonym eller under ålder användare.
-* *Hantera din Personalizer-modell som en affärstillgång*.  Överväg hur ofta du vill spara och säkerhetskopiera modellen och lära dig principer bakom Personalizer loopen och behandlar det annars som en viktig affärstillgång. Det är viktigt för lokal granska och mätning förbättring efterliknar tidigare resultat.
-* *Ange kanal för att få direkt feedback från användare*. Förutom att koda säkerhet kontroller för att se till att se bara till rätt målgrupper rätt innehåll, tillhandahåller en mekanism för feedback för användare att rapportinnehåll som är så konstigt eller störa. Särskilt om innehållet kommer från användare eller 3 parter, Överväg att använda Microsoft Content Moderator eller fler verktyg att granska och validera innehåll.
-* *Utför ofta offline utvärderingar*. Detta hjälper dig att övervaka trender och se till att effektivitet är känd.
-* *Upprätta en process för att upptäcka och agera på manipulering av skadliga*. Det finns aktörer som drar nytta av machine learning och AI systems möjlighet att lära dig från deras miljö ska växlas resultatet mot sina mål. Om din användning av Personalizer är möjlighet att påverka viktiga alternativ, se till att ha lämpliga metoder för att upptäcka och åtgärda de här klasserna av attacker, inklusive mänsklig granskning under vissa omständigheter.
+* *Ange inte åtgärder för en personanpassare som inte*ska väljas. Till exempel bör filmer som inte är lämpligt filtreras bort från åtgärder för att anpassas vid rekommendation för en anonym användare eller under ålders användare.
+* *Hantera din personanpassa modell som en affärs till gång*.  Fundera över hur ofta du ska spara och säkerhetskopiera modell-och inlärnings principerna bakom din personliga loop och på annat sätt behandla den som en viktig affärs till gång. Det är viktigt att återge tidigare resultat för att själv kunna granska och mäta förbättringar.
+* *Tillhandahåll kanaler för att få direkt feedback från användarna*. Förutom att kunna koda säkerhets kontroller för att se till att endast rätt mål grupper ser rätt innehåll, ger du en feedback för användarna att rapportera innehåll som kan vara överraskande eller störa. I synnerhet om ditt innehåll kommer från användare eller tredje part, bör du överväga att använda Microsoft Content Moderator eller ytterligare verktyg för att granska och validera innehåll.
+* *Utföra frekventa utvärderingar offline*. På så sätt kan du övervaka trender och se till att effektiviteten är känt.
+* *Upprätta en process för att identifiera och agera vid skadlig behandling*. Det finns aktörer som kan dra nytta av Machine Learning-och AI-systemets förmåga att lära sig från deras miljö för att flytta ut resultatet mot deras mål. Om din användning av Personanpassan är i ett läge för att påverka viktiga val bör du se till att ha lämpliga metoder för att upptäcka och minimera dessa klasser av attacker, inklusive mänsklig granskning under lämpliga omständigheter.
 
 ### <a name="security-and-privacy"></a>Säkerhet och sekretess
-*AI-system bör vara säkra och värnar om integritet*. När du använder Personalizer:
+*AI-system bör vara säkra och respektera sekretess*. När du använder Personanpassare:
 
-* *Meddela användare direkt om de data som samlas in och hur de används och få deras medgivande i förväg*, följa dina lokala regler och branschstandarder föreskrifter.
-* *Ger skydd av sekretess användarkontroller.* Överväg att tillhandahålla ett enkelt att hitta knappen för funktioner såsom för program som lagrar personuppgifter: 
+* *Informera användarna om de data som samlas in och hur de används och få sitt samtycke i förväg*efter dina lokala och bransch bestämmelser.
+* *Ge integritets skydd – skydda användar kontroller.* För program som lagrar personlig information bör du överväga att tillhandahålla en enkel att hitta-knapp för funktioner som: 
    * `Show me all you know about me`    
    * `Forget my last interaction` 
    * `Delete all you know about me`
 
-I vissa fall kan krävas dessa enligt lag. Du överväga kompromisserna i träna modeller regelbundet så att de inte innehåller spår av borttagna data.
+I vissa fall kan detta vara obligatoriskt. Fundera över kompromisserna i omtränings modeller regelbundet så att de inte innehåller några spårningar av borttagna data.
 
-### <a name="inclusiveness"></a>Inclusiveness
-*Åtgärda ett brett utbud av mänskliga behov och upplevelser*.
-* *Ange anpassade upplevelser för hjälpmedel gränssnitt.* Effektiviteten som kommer från bra personanpassning - används för att minska mängden arbete-, rörelse- och onödiga upprepningar i interaktioner kan vara särskilt bra för personer med funktionshinder.
-* *Ändra programmets beteende kontext*. Du kan använda Personalizer för att undvika tvetydigheten mellan avsikter i en chattrobot, till exempel som rätt tolkning kan vara sammanhangsberoende och en lösning kanske inte passar alla. 
-
-
-## <a name="proactive-readiness-for-increased-data-protection-and-governance"></a>Proaktiv beredskap för ökad dataskydd och styrning
-
-Det är svårt att förutse vissa ändringar i föreskrifter kontexter, men i allmänhet skulle det vara klokt att gå längre än den minsta ram säkerställer respekt användning av personliga data och ge transparens och val som rör algoritmiska beslutsfattande.
+### <a name="inclusiveness"></a>Inklusiv
+*Hantera ett brett utbud av mänskliga behov och erfarenheter*.
+* *Tillhandahålla anpassade funktioner för hjälpmedels aktiverade gränssnitt.* Den effektivitet som kommer från bra anpassning – används för att minska mängden arbete, förflyttning och behöver ingen upprepning i interaktioner – kan vara särskilt fördelaktigt för personer med funktions nedsättning.
+* *Justera programmets beteende till kontexten*. Du kan använda en Personanpassare för att disambiguate mellan avsikter i en chatt-robot, till exempel när den högra tolkningen kan vara kontextuell och en storlek kanske inte passar alla. 
 
 
-* Överväg att planera hur du ska en situation där det nya krav på data som samlas in från enskilda användare och det finns ett behov att visa hur den används för att fatta beslut.
-* Överväg att extra beredskap där användarna kan inkludera marginalized sårbara populations, barn, användare i ekonomiska säkerhetsproblem eller användare annars kan påverka från algoritmiska manipulering.
-* Överväg att utökas frustrerande program och algoritmer med hur målgrupper och påverkan på målgrupp insamling av data har spelat och hur du undviker beprövade strategiska fel.
+## <a name="proactive-readiness-for-increased-data-protection-and-governance"></a>Proaktiv beredskap för ökad data skydd och styrning
+
+Det är svårt att förutse vissa ändringar i reglerande sammanhang, men i allmänhet skulle det vara klokt att gå utöver det lägsta juridiska ramverket för att säkerställa respectful användning av person uppgifter och att tillhandahålla insyn och valmöjligheter relaterade till algoritmiska besluts fattande.
 
 
-## <a name="proactive-assessments-during-your-project-lifecycle"></a>Proaktiva utvärderingar under livscykeln projekt
+* Överväg att planera till en situation där det kan finnas nya begränsningar för data som samlas in från enskilda användare, och det finns behov av att visa hur den användes för att fatta beslut.
+* Överväg extra beredskap där användare kan inkludera marginal känsliga populationer, barn, användare i ekonomisk sårbarhet eller användare som på annat sätt är känsliga för att påverka algoritmens manipulering.
+* Fundera på den omfattande missnöjning med hur mål grupps mål och mål grupp som påverkar data insamlings program och algoritmer har spelat ut och hur man undviker beprövade strategiska fel.
 
-Överväg att skapa metoder för gruppmedlemmar, användare och företag till rapporten frågor angående ansvarig användning och skapa en process som prioriterar sin lösning och förhindrar retaliation.
 
-En person har du funderingar kring sidoeffekter för användning av teknik begränsas av sina perspektiv och livscykelhantering upplevelse. Utöka utbudet av yttranden som är tillgängliga genom att ta in mer diversifierad röster i team, användare och organisationer; så att det är möjligt och rekommenderas att tala. Överväg att utbildning och utbildningsmaterial att ytterligare utöka team-kunskaper i den här domänen och lägga till möjligheten att diskutera komplexa och känslig information.
+## <a name="proactive-assessments-during-your-project-lifecycle"></a>Proaktiva utvärderingar under projektets livs cykel
 
-Överväg att behandla uppgifter om ansvarig användande precis som andra crosscutting uppgifter i programmets hela livscykel, t.ex. uppgifter som rör användare får, säkerhet eller devops. Dessa uppgifter och deras krav får inte vara en eftertanke. Ansvarig användning ska beskrivs och verifieras under hela programmets livscykel.
+Överväg att skapa metoder för grupp medlemmar, användare och företags ägare för att rapportera om den ansvariga användningen, och skapa en process som prioriterar sin lösning och förhindrar Retaliation.
+
+En person som tänker på sido effekter av att använda en teknik begränsas av deras perspektiv-och livs miljö. Utöka det tillgängliga antalet åsikter genom att ta in mer skiftande röster i dina team, användare eller rådgivnings tavlor. så att det är möjligt och uppmuntras att kontakta dig. Överväg att använda utbildnings-och utbildnings material för att ytterligare utöka team kunskaper i den här domänen och för att lägga till funktioner för att diskutera komplexa och känsliga ämnen.
+
+Överväg att behandla uppgifter om ansvarig användning precis som andra crosscutting uppgifter i programmets livs cykel, till exempel uppgifter som rör användar upplevelse, säkerhet eller DevOps. Dessa uppgifter och deras krav kan inte vara en efterhand. Den ansvariga användningen bör diskuteras och kontrol leras under hela programmets livs cykel.
  
 ## <a name="questions-and-feedback"></a>Frågor och feedback
 
-Microsoft skapar kontinuerligt arbete i verktyg och dokument kan du agera utifrån dessa uppgifter. Vårt team bjuder in dig till [ger feedback till Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) om du tror att fler verktyg, produktfunktioner, och dokument kan hjälpa dig att implementera dessa riktlinjer för att använda Personalizer.
+Microsoft lägger kontinuerligt till insatser i verktyg och dokument som hjälper dig att agera på dessa ansvars områden. Vårt team uppmanar dig att [ge feedback till Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) om du anser att ytterligare verktyg, produkt funktioner och dokument kan hjälpa dig att implementera dessa rikt linjer för att använda personanpassare.
 
 ## <a name="recommended-reading"></a>Rekommenderad läsning
 
-* Se Microsofts sex principer för ansvarar utvecklingen av AI som publicerats i januari 2018-bok [i framtiden beräknas](https://news.microsoft.com/futurecomputed/)
-* [Vem äger framtiden? ](https://www.goodreads.com/book/show/15802693-who-owns-the-future) av Jaron Lanier.
-* [Vapen av matematiska destruktion](https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction) genom - Cathy O'Neil
-* [Etik och datavetenskap](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) av DJ Patil, Hilary Mason, Mike Loukides.
-* [ACM koden för Ethics](https://www.acm.org/code-of-ethics)
-* [Genetisk Information Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML principer för att hantera algoritmer](https://www.fatml.org/resources/principles-for-accountable-algorithms)
+* Se Microsofts sex principer för den ansvariga utvecklingen av AI som publicerats i januari 2018-boken, [den framtida beräknade](https://news.microsoft.com/futurecomputed/)
+* [Vem äger framtiden?](https://www.goodreads.com/book/show/15802693-who-owns-the-future) av Jaron Lanier.
+* Cathy-O'Neil [för att avdöda matematik](https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction)
+* [Etik-och data vetenskap](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) från DJ Patil, Hilary Mason, Mike Loukides.
+* [ACM-kod för etik](https://www.acm.org/code-of-ethics)
+* [Genetisk information undiskriminering Act-GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
+* [FATML-principer för konto bara algoritmer](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Funktioner: åtgärden och kontext](concepts-features.md).
+[Funktioner: åtgärd och kontext](concepts-features.md).

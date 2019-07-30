@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: c1a0afc909aa7ef16fa54b931e1601c2ce7304cc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 31d979b92bdf050f28ac5d7549218016dc5e473c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560416"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638019"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Testa din LUIS-app i LUIS-portalen
 <a name="train-your-app"></a>
-[Testa](luis-concept-test.md) en app är en iterativ process. Testa den efter utbildning LUIS-appen, med exempel yttranden om avsikter och entiteter identifieras korrekt. Om de inte gör uppdateringar till LUIS-app, träna och testa igen. 
+
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Testa din LUIS-app i LUIS-portalen
+
+[Testning](luis-concept-test.md) av en app är en iterativ process. Testa den efter utbildning LUIS-appen, med exempel yttranden om avsikter och entiteter identifieras korrekt. Om de inte gör uppdateringar till LUIS-app, träna och testa igen. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -31,13 +33,13 @@ ms.locfileid: "68560416"
 
 1. Få åtkomst till din app genom att välja dess namn på den **Mina appar** sidan. 
 
-2. Åtkomst till den **Test** bild ut fönstret väljer **Test** i övre panelen för ditt program.
+1. Åtkomst till den **Test** bild ut fönstret väljer **Test** i övre panelen för ditt program.
 
     ![Träna och testa appen](./media/luis-how-to-interactive-test/test.png)
 
-3. Ange ett uttryck i textrutan och tryck på RETUR. Du kan skriva som många testa yttranden som du vill ha i den **testa**, men endast ett uttryck i taget.
+1. Ange ett uttryck i textrutan och tryck på RETUR. Du kan skriva som många testa yttranden som du vill ha i den **testa**, men endast ett uttryck i taget.
 
-4. Uttryck, dess främsta syftet och poäng läggs till i listan över yttranden under textrutan.
+1. Uttryck, dess främsta syftet och poäng läggs till i listan över yttranden under textrutan.
 
     ![Interaktiv testning identifierar fel avsikten](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ Du kan se mer information om testresultat i den **granska** panelen.
 
     ![Klicka på granska om du vill visa mer information om test resultaten](./media/luis-how-to-interactive-test/inspect.png)
 
-2. Den **inspektion** visas panelen. Panelen visas den översta bedömning avsikt, samt alla identifierade entiteter. På panelen visas resultatet av den valda uttryck.
+1. Den **inspektion** visas panelen. Panelen visas den översta bedömning avsikt, samt alla identifierade entiteter. På panelen visas resultatet av den valda uttryck.
 
     ![Panelen visas den översta bedömning avsikt, samt alla identifierade entiteter. På panelen visas resultatet av den valda uttryck.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +59,7 @@ Du kan se mer information om testresultat i den **granska** panelen.
 
 1. Om upp bedömning avsikten är felaktig, väljer du den **redigera** knappen.
 
-2.  I listrutan, väljer du den rätta uttryck som används.
+1.  I listrutan, väljer du den rätta uttryck som används.
 
     ![Välj rätt avsikt](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -103,16 +105,14 @@ Använd följande procedur för att inkludera den [stavningskontroll i Bing v7](
 
 1. I den **Test** rutan Ange ett uttryck. När uttryck förväntas, välja **[granska](#inspect-score)** under uttryck som du har angett. 
 
-2. När den **granska** panelen öppnas, Välj  **[Jämför med publicerad](#compare-with-published-version)** . 
+1. När den **granska** panelen öppnas, Välj  **[Jämför med publicerad](#compare-with-published-version)** . 
 
-3. När den **publicerad** panelen öppnas, Välj  **[ytterligare inställningar](#additional-settings-in-test-panel)** .
+1. När den **publicerad** panelen öppnas, Välj  **[ytterligare inställningar](#additional-settings-in-test-panel)** .
 
-4. I popup-dialogrutan, ange din **stavningskontroll i Bing** tjänstnyckeln. 
-    ![Ange nyckel för tjänstens stavningskontroll i Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. I popup-dialog rutan markerar du **aktivera stavningskontroll i Bing** och anger nyckeln och väljer sedan **Slutför**. 
+    ![Ange nyckel för tjänstens stavningskontroll i Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. Ange en fråga med en felaktig stavning som `book flite to seattle` och välj Ange. Felaktig stavningen av ordet `flite` ersätts i den fråga som skickats till LUIS och den resulterande JSON visar både den ursprungliga frågan som `query`, och korrigerade stavningen i frågan, som `alteredQuery`.
-
-    ![Korrigerad stavning JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. Ange en fråga med en felaktig stavning som `book flite to seattle` och välj Ange. Felaktig stavningen av ordet `flite` ersätts i den fråga som skickats till LUIS och den resulterande JSON visar både den ursprungliga frågan som `query`, och korrigerade stavningen i frågan, som `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

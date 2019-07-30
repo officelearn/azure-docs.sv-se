@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 75764fd0a3f862157d9377d7dc886334ef1231db
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0ce1fb182320b04aebb45b0f848d8c8f6c965fd9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563709"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638161"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Använd frasen visar att boost signaler med ordlistan
 
 Du kan lägga till funktioner till din LUIS-app för att förbättra dess noggrannhet. Funktionerna bidrar LUIS genom att tillhandahålla tips att vissa ord och fraser är en del av en app domän ordförråd. 
 
-En [frasen lista](luis-concept-feature.md) innehåller en grupp med värden (ord eller fraser) som tillhör samma klass och måste behandlas på samma sätt (t.ex, namn på städer eller produkter). Vad LUIS lär sig om en av dem tillämpas automatiskt på alla andra program. Den här listan är inte en stängd lista entitet (exakt denna matchar) av ord som matchade.
+En [frasen lista](luis-concept-feature.md) innehåller en grupp med värden (ord eller fraser) som tillhör samma klass och måste behandlas på samma sätt (t.ex, namn på städer eller produkter). Vad LUIS lär sig om en av dem tillämpas automatiskt på alla andra program. Den här listan är inte samma sak som en [list-entitet](reference-entity-list.md) (exakta text matchningar) med matchade ord.
 
 En lista med frasen lägger till vokabulär app-domänen som en signal för andra att LUIS om dessa ord.
 
@@ -32,21 +32,21 @@ LUIS tillåter upp till 10 fras listor per app.
 
 1. Öppna din app genom att klicka på namnet på **Mina appar** , och klicka sedan på **skapa**, klicka sedan på **fras listor** i vänster panel i din app. 
 
-2. På den **fras listor** klickar du på **Skapa ny frasen lista**. 
+1. På den **fras listor** klickar du på **Skapa ny frasen lista**. 
  
-3. I den **lägga till frasen lista** dialogrutan skriver du ”städer” som namn på listan med fraser. I den **värdet** skriver värdena i listan med fraser. Du kan ange ett värde i taget eller en uppsättning värden, avgränsade med kommatecken och tryck sedan på **RETUR**.
+1. Skriv`Cities` som namn på fras listan i dialog rutan **Lägg till fras lista** . I den **värdet** skriver värdena i listan med fraser. Du kan ange ett värde i taget eller en uppsättning värden, avgränsade med kommatecken och tryck sedan på **RETUR**.
 
     ![Lägg till frasen lista städer](./media/luis-add-features/add-phrase-list-cities.png)
 
-4. LUIS kan föreslå relaterade värden för att lägga till i listan fras. Klicka på **rekommenderar** att hämta en grupp med föreslagna värden från relaterade till added value(s). Du kan klicka på någon av de föreslagna värdena eller klicka på **Lägg till alla** att lägga till dem alla.
+1. LUIS kan föreslå relaterade värden för att lägga till i listan fras. Klicka på **rekommenderar** att hämta en grupp med föreslagna värden från relaterade till added value(s). Du kan klicka på någon av de föreslagna värdena eller klicka på **Lägg till alla** att lägga till dem alla.
 
     ![Föreslagna värden för fras lista – Lägg till alla](./media/luis-add-features/related-values.png)
 
-5. Klicka på **dessa värden är utbytbara** om listvärden har lagts till frasen finns alternativ som är utbytbara.
+1. Klicka på **dessa värden är utbytbara** om listvärden har lagts till frasen finns alternativ som är utbytbara.
 
     ![Föreslagna värden för fras lista – Välj utbytbar ruta](./media/luis-add-features/interchangeable.png)
 
-6. Klicka på **Spara**. Listan med frasen ”städer” har lagts till i den **fras listor** sidan.
+1. Klicka på **Klar**. Listan med frasen ”städer” har lagts till i den **fras listor** sidan.
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

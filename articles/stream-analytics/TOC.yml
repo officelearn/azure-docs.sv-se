@@ -7,6 +7,7 @@
     - name: Lösningsmönster från slutpunkt till slutpunkt
       href: stream-analytics-solution-patterns.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa ett jobb – Azure Portal
       href: stream-analytics-quick-create-portal.md

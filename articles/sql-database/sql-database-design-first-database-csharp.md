@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-ms.date: 02/08/2019
-ms.openlocfilehash: f6f0160e06ac10a6f1e4e51c93bfa133818117c8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568960"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640110"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Självstudier: Utforma en relationsdatabas i en enskild databas i Azure SQL Database C&#x23; och ADO.NET
 
@@ -29,6 +29,9 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > * Fråga efter data med ADO.NET
 
 *Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+
+> [!TIP]
+> Följande Microsoft Learn-modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som skickar frågor till en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inklusive skapandet av en enkel databas.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5dd49035414c7e717c3d60ab9bc185f42dcac408
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560854"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639243"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -76,7 +76,7 @@ Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slut
 |Language Understanding [prenumeration][pricing] – S0 – Basic-nivå|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
 |Kognitiv tjänst [prenumeration][pricing] – S0 – standard nivå|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
 |[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|Ogiltig|utan kostnad|Att lägga till sentiment information, inklusive extrahering av diskussionsämne data |
-|Tal-integrering|Ogiltig|5\.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
+|[Tal integrering](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|Ogiltig|5\.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
 
 ## <a name="keyboard-controls"></a>Keyboard kontroller
 
@@ -84,7 +84,7 @@ Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slut
 |--|--|
 |Ctrl + E|växlar mellan token och entiteter på yttranden lista|
 
-## <a name="website-sign-in-time-period"></a>Webbplatsen logga under en tidsperiod
+## <a name="website-sign-in-time-period"></a>Inloggnings tids period för webbplats
 
 Din inloggning åtkomst är för **60 minuter**. Efter denna tidsperiod får du det här felet. Du måste logga in igen.
 

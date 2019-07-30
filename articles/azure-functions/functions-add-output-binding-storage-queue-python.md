@@ -1,6 +1,6 @@
 ---
-title: Lägg till en Azure Storage-kö-bindning till din Python-funktion
-description: Lär dig hur du lägger till ett Azure Storage-köutdata bindning till din Python-funktion med Azure CLI och Functions Core Tools.
+title: Lägg till en Azure Storage Queue-bindning till python-funktionen
+description: Lär dig hur du lägger till en Azure Storage utgående bindning för en python-funktion med hjälp av Azure CLI-och Functions Core-verktyg.
 services: functions
 keywords: ''
 author: ggailey777
@@ -11,28 +11,28 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443204"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639152"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Lägg till en Azure Storage-kö-bindning till din Python-funktion
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Lägg till en Azure Storage Queue-bindning till python-funktionen
 
-Azure Functions kan du ansluta Azure-tjänster och andra resurser på funktioner utan att skriva egen kod för integrering. Dessa *bindningar*, som representerar både indata och utdata, har deklarerats i definitionen. Data från bindningar har angetts för funktionen som parametrar. En utlösare är en särskild typ av indatabindning. En funktion har bara en utlösare, kan den ha flera indatafiler och utdatabindningar. Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md).
+Med Azure Functions kan du ansluta Azure-tjänster och andra resurser till funktioner utan att behöva skriva din egen integrerings kod. Dessa *bindningar*, som representerar både indata och utdata, deklareras i funktions definitionen. Data från bindningar tillhandahålls till funktionen som parametrar. En utlösare är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
-Den här artikeln visar hur du integrerar funktionen som du skapade i den [tidigare snabbstartsartikel](functions-create-first-function-python.md) med ett Azure Storage-kö. Utdatabindningen som du lägger till den här funktionen skriver data från HTTP-begäran till ett meddelande i kön. 
+Den här artikeln visar hur du integrerar funktionen som du skapade i [föregående snabb starts artikel](functions-create-first-function-python.md) med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
 
-De flesta bindningar kräver en lagrade anslutningssträng som Functions använder för att komma åt bundna tjänsten. Om du vill göra det enklare, kan du använda det lagringskonto som du skapade med din funktionsapp. Anslutningen till det här kontot lagras redan i en app som inställning med namnet `AzureWebJobsStorage`.  
+De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra anslutningen enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app- `AzureWebJobsStorage`inställning med namnet.  
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar den här artikeln bör du slutföra stegen i [del 1 av Python-quickstart](functions-create-first-function-python.md).
+Innan du börjar den här artikeln slutför du stegen i [del 1 av python-snabb](functions-create-first-function-python.md)starten.
 
-## <a name="download-the-function-app-settings"></a>Ladda ned funktionsappinställningarna
+## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
-I tidigare i snabbstartsartikeln skapat du en funktionsapp i Azure tillsammans med nödvändiga Storage-konto. Anslutningssträngen för det här kontot lagras på ett säkert sätt i appen inställningar i Azure. I den här artikeln får skriva du meddelanden till en lagringskö i samma konto. För att ansluta till ditt Storage-konto när du kör funktionen lokalt, måste du hämta app-inställningar i filen local.settings.json. Kör följande Azure Functions Core Tools-kommando för att hämta inställningar i local.settings.json, ersätta `<APP_NAME>` med namnet på din funktionsapp från föregående artikel:
+I föregående snabb starts artikel skapade du en Function-app i Azure, tillsammans med det nödvändiga lagrings kontot. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. För att ansluta till ditt lagrings konto när funktionen körs lokalt måste du hämta appinställningar till filen Local. Settings. JSON. Kör följande Azure Functions Core tools-kommando för att ladda ned inställningar till Local. Settings. `<APP_NAME>` JSON och Ersätt med namnet på din Function-app från föregående artikel:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -41,31 +41,31 @@ func azure functionapp fetch-app-settings <APP_NAME>
 Du kan behöva logga in på ditt Azure-konto.
 
 > [!IMPORTANT]  
-> Eftersom den innehåller hemligheter filen local.settings.json publiceras aldrig och den bör undantas från källkontroll.
+> Eftersom den innehåller hemligheter publiceras inte filen Local. Settings. JSON och den bör undantas från käll kontrollen.
 
-Du behöver värdet `AzureWebJobsStorage`, vilket är anslutningssträngen för Lagringskonto. Du kan använda den här anslutningen för att kontrollera att utdatabindningen fungerar som förväntat.
+Du behöver värdet `AzureWebJobsStorage`, vilket är anslutnings strängen för lagrings kontot. Använd den här anslutningen för att kontrol lera att utgående bindning fungerar som förväntat.
 
-## <a name="enable-extension-bundles"></a>Aktivera tillägget paket
+## <a name="enable-extension-bundles"></a>Aktivera tilläggs paket
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-Nu kan du lägga till en lagringen utdatabindning i projektet.
+Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
-I funktioner, varje typ av bindning kräver en `direction`, `type`, och ett unikt `name` definieras i filen function.json. Beroende på bindningstyp av kan eventuellt ytterligare egenskaper som krävs. Den [kö utdata configuration](functions-bindings-storage-queue.md#output---configuration) beskriver de fält som krävs för en bindning för Azure Storage-kö.
+I functions kräver varje typ av bindning att a `direction`, a `type`, och en unik `name` definieras i function. JSON-filen. Beroende på bindnings typen kan ytterligare egenskaper krävas. I [kös Ekö konfigurationen](functions-bindings-storage-queue.md#output---configuration) beskrivs de fält som krävs för en Azure Storage Queue-bindning.
 
-För att skapa en bindning måste du lägga till ett konfigurationsobjekt för bindningen till den `function.json` filen. Redigera filen function.json i mappen HttpTrigger att lägga till ett objekt för att den `bindings` matris som har följande egenskaper:
+Om du vill skapa en bindning lägger du till ett bindnings konfigurations objekt i function. JSON-filen. Redigera filen function. json i mappen HttpTrigger för att lägga till ett objekt i `bindings` matrisen som har följande egenskaper:
 
 | Egenskap | Värde | Beskrivning |
 | -------- | ----- | ----------- |
-| **`name`** | `msg` | Namn som identifierar bindningsparametern som refereras till i din kod. |
-| **`type`** | `queue` | Bindningen är en bindning för Azure Storage-kö. |
-| **`direction`** | `out` | Bindningen är en utdatabindning. |
-| **`queueName`** | `outqueue` | Namnet på kön som bindningen skriver till. När den *queueName* inte finns några bindningen skapar den första användningen. |
-| **`connection`** | `AzureWebJobsStorage` | Namnet på en appinställning som innehåller anslutningssträngen för lagringskontot. Den `AzureWebJobsStorage` inställningen innehåller anslutningssträngen för lagringskontot som du skapade med appen. |
+| **`name`** | `msg` | Namnet som identifierar bindnings parametern som refereras i din kod. |
+| **`type`** | `queue` | Bindningen är en Azure Storage Queue-bindning. |
+| **`direction`** | `out` | Bindningen är en utgående bindning. |
+| **`queueName`** | `outqueue` | Namnet på kön som bindningen skriver till. `queueName` När inte finns skapar bindningen den när den används första gången. |
+| **`connection`** | `AzureWebJobsStorage` | Namnet på en app-inställning som innehåller anslutnings strängen för lagrings kontot. `AzureWebJobsStorage` Inställningen innehåller anslutnings strängen för det lagrings konto som du skapade med Function-appen. |
 
-Filen function.json bör nu se ut som i följande exempel:
+Din function. JSON-fil bör nu se ut som i det här exemplet:
 
 ```json
 {
@@ -99,7 +99,7 @@ Filen function.json bör nu se ut som i följande exempel:
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-När den har konfigurerats kan du börja använda den `name` om bindningen till åtkomst till den som ett metodattribut i funktionssignaturen. I följande exempel `msg` är en instans av den [ `azure.functions.InputStream class` ](/python/api/azure-functions/azure.functions.httprequest).
+`name` När har kon figurer ATS kan du börja använda den för att få åtkomst till bindningen som ett method-attribut i Function-signaturen. I följande exempel `msg` är en instans [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest)av.
 
 ```python
 import logging
@@ -128,75 +128,75 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         )
 ```
 
-Genom att använda en utdatabindning kan du inte använder Azure Storage SDK-koden för autentisering, lägga till en referens för kön eller skriva data. Functions-körningen och utdata bindning utföra dessa uppgifter åt dig.
+När du använder en utgående bindning behöver du inte använda Azure Storage SDK-koden för autentisering, hämta en referens till kön eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Som tidigare använder du följande kommando för att starta funktionskörningen lokalt:
+Som tidigare använder du följande kommando för att starta Functions-körningen lokalt:
 
 ```bash
 func host start
 ```
 
 > [!NOTE]  
-> Eftersom föregående artikel hade du aktivera tillägget paket i host.json, den [Storage bindningstillägget](functions-bindings-storage-blob.md#packages---functions-2x) har hämtats och installerats för dig under starten, tillsammans med andra Microsoft-bindning tillägg.
+> Eftersom i den tidigare snabb starten som du har aktiverat tillägg i Host. JSON laddades [lagrings bindnings tillägget](functions-bindings-storage-blob.md#packages---functions-2x) ned och installerades åt dig under starten, tillsammans med de andra Microsoft binding-tilläggen.
 
-Kopiera URL:en till din funktion `HttpTrigger` från körtidutdatan och klistra in den i webbläsarens adressfält. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. Du bör se samma svaret i webbläsaren som du gjorde i föregående artikel.
+Kopiera URL:en till din funktion `HttpTrigger` från körtidutdatan och klistra in den i webbläsarens adressfält. Lägg till frågesträngen `?name=<yourname>` till denna URL och kör begäran. Du bör se samma svar i webbläsaren som du gjorde i föregående artikel.
 
-Den här gången utdatabindningen skapar även en kö med namnet `outqueue` i ditt Storage-kontot och lägger till ett meddelande med det här samma sträng.
+Den här gången skapar bindningen för utdata också en kö `outqueue` med namnet i ditt lagrings konto och lägger till ett meddelande med samma sträng.
 
-Därefter använder Azure CLI för att visa den nya kön och kontrollera att meddelandet har lagts till. Du kan också visa din kö med hjälp av den [Microsoft Azure Lagringsutforskaren][Azure Storage Explorer] eller i den [Azure-portalen](https://portal.azure.com).
+Sedan använder du Azure CLI för att visa den nya kön och kontrol lera att ett meddelande har lagts till. Du kan också visa din kö med hjälp av [Microsoft Azure Storage Explorer][Azure Storage Explorer] eller i [Azure Portal](https://portal.azure.com).
 
-### <a name="set-the-storage-account-connection"></a>Ange lagringskontoanslutning
+### <a name="set-the-storage-account-connection"></a>Ange lagrings konto anslutningen
 
-Öppna filen local.settings.json och kopiera värdet för `AzureWebJobsStorage`, vilket är anslutningssträngen för Lagringskonto. Ange den `AZURE_STORAGE_CONNECTION_STRING` miljövariabel på den anslutningssträng som hjälp av följande Bash-kommando:
+Öppna filen Local. Settings. JSON och kopiera värdet för `AzureWebJobsStorage`, vilket är anslutnings strängen för lagrings kontot. `AZURE_STORAGE_CONNECTION_STRING` Ställ in miljövariabeln på anslutnings strängen genom att använda det här bash-kommandot:
 
 ```azurecli-interactive
 export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
 ```
 
-Med anslutningssträngen som angetts i den `AZURE_STORAGE_CONNECTION_STRING` miljövariabeln, du kan komma åt ditt lagringskonto utan att behöva ange autentisering varje gång.
+När du anger anslutnings strängen i `AZURE_STORAGE_CONNECTION_STRING` miljövariabeln, kan du komma åt ditt lagrings konto utan att behöva tillhandahålla autentisering varje gång.
 
-### <a name="query-the-storage-queue"></a>Fråga Storage-kö
+### <a name="query-the-storage-queue"></a>Fråga lagrings kön
 
-Du kan använda den [ `az storage queue list` ](/cli/azure/storage/queue#az-storage-queue-list) kommando för att visa Storage-köer i ditt konto, som i följande exempel:
+Du kan använda [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) kommandot för att Visa lagrings köer i ditt konto, som i följande exempel:
 
 ```azurecli-interactive
 az storage queue list --output tsv
 ```
 
-Utdata från det här kommandot innehåller en kö med namnet `outqueue`, vilket är den kö som skapades när funktionen kördes.
+Utdata från det här kommandot innehåller en kö med `outqueue`namnet, som är kön som skapades när funktionen kördes.
 
-Använd sedan den [ `az storage message peek` ](/cli/azure/storage/message#az-storage-message-peek) kommando för att visa meddelanden i kön, som i följande exempel.
+Använd [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) sedan kommandot för att visa meddelanden i den här kön, som i det här exemplet:
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
 ```
 
-Strängen som returneras ska vara samma som meddelandet du skickat till att testa funktionen.
+Den returnerade strängen ska vara samma som det meddelande som du skickade för att testa funktionen.
 
 > [!NOTE]  
-> I föregående exempel avkodar den returnerade strängen från base64. Queue storage-bindningar skriva till och läsa från Azure Storage som är [base64 strängar](functions-bindings-storage-queue.md#encoding).
+> I föregående exempel avkodas den returnerade strängen från base64. Detta beror på att Queue Storage-bindningarna skriver till och läser från Azure Storage som [base64-strängar](functions-bindings-storage-queue.md#encoding).
 
-Nu är det dags att publicera uppdaterade function-app till Azure.
+Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
-Igen, kan du använda cURL eller en webbläsare för att testa den distribuerade funktionen. Lägg till frågesträngen som tidigare `&name=<yourname>` till URL: en, som i följande exempel:
+Igen kan du använda en sväng eller en webbläsare för att testa den distribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` i URL: en, som i det här exemplet:
 
 ```bash
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
 ```
 
-Du kan [undersöka lagringskömeddelande](#query-the-storage-queue) att verifiera att utdatabindning igen genererar ett nytt meddelande i kön.
+Du kan kontrol lera [lagrings köns meddelande](#query-the-storage-queue) för att kontrol lera att utgående bindningen igen genererar ett nytt meddelande i kön.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagringskö. Mer information om hur du utvecklar Azure Functions med Python finns i [utvecklarguide för Azure Functions Python](functions-reference-python.md) och [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md).
+Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Mer information om hur du utvecklar Azure Functions med python finns i [Azure Functions python Developer Guide](functions-reference-python.md) och [Azure Functions utlösare och bindningar](functions-triggers-bindings.md).
 
-Därefter bör du aktivera Application Insights-övervakning för din funktionsapp:
+Sedan bör du aktivera Application Insights övervakning för din Function-app:
 
 > [!div class="nextstepaction"]
 > [Aktivera Application Insights-integrering](functions-monitoring.md#manually-connect-an-app-insights-resource)

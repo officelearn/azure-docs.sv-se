@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a9a6e7ae48a51ab10e6ba2e5d3996e61938c6f3a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560849"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639300"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Batch-testning med 1000 yttranden i LUIS-portalen
 
-Batch testning validerar din [active](luis-concept-version.md#active-version) tränade modellen att mäta dess prognosens noggrannhet kan förbättras. Ett batch-test kan du visa det arbete du utfört varje avsikt och entiteten i din aktuella tränade modellen i ett diagram. Granska resultaten av batch för att vidta lämpliga åtgärder för att förbättra noggrannhet, som att lägga till fler exempel yttranden till en avsikt om din app ofta inte kan identifiera rätt avsikten.
+Batch testning validerar din [active](luis-concept-version.md#active-version) tränade modellen att mäta dess prognosens noggrannhet kan förbättras. Ett batch-test hjälper dig att Visa precisionen för varje avsikt och enhet i din aktuella utbildade modell, vilket visar resultat med ett diagram. Granska resultaten av batch för att vidta lämpliga åtgärder för att förbättra noggrannhet, som att lägga till fler exempel yttranden till en avsikt om din app ofta inte kan identifiera rätt avsikten.
 
 ## <a name="group-data-for-batch-test"></a>Gruppera data för batch-test
 
-Det är viktigt att yttranden som används för att testa batch har LUIS. Om du har en datauppsättning för yttranden dela yttranden i tre grupper: yttranden som lagts till i en avsikt, yttranden som togs emot från den publicerade slutpunkten och yttranden som används för att testa batch LUIS när den har installerats. 
+Det är viktigt att yttranden som används för att testa batch har LUIS. Om du har en data uppsättning med yttranden kan du dela upp yttranden i tre mängder: exempel på yttranden som har lagts till i avsikt, yttranden som tagits emot från den publicerade slut punkten och yttranden som används för batch-test LUIS efter att det har tränats. 
 
-## <a name="a-dataset-of-utterances"></a>En datauppsättning för yttranden
+## <a name="a-data-set-of-utterances"></a>En data uppsättning yttranden
 
-Skicka en kommandofil av yttranden som kallas en *datauppsättning*, för att testa batch. Datauppsättningen är en JSON-formaterad fil som innehåller högst 1 000 märkta **icke dubblett** yttranden. Du kan testa upp till 10 datauppsättningar i en app. Om du vill testa mer, ta bort en datauppsättning och sedan lägga till en ny.
+Skicka en batch-fil med yttranden, som kallas för en *data uppsättning*, för batch-testning. Data uppsättningen är en JSON-formaterad fil som innehåller högst 1 000 märkt **icke-duplicerade** yttranden. Du kan testa upp till 10 data uppsättningar i en app. Om du behöver testa mer tar du bort en data uppsättning och lägger till en ny.
 
 |**Regler**|
 |--|
@@ -106,7 +106,7 @@ Vanliga fel är:
 
 ## <a name="batch-test-state"></a>Batch testtillstånd
 
-LUIS spårar tillståndet för varje datauppsättning senaste testet. Detta inkluderar storleken (antal yttranden i batchen) för senaste körning datum och senaste resultat (antal har förväntade yttranden).
+LUIS spårar statusen för varje data uppsättnings senaste test. Detta inkluderar storleken (antal yttranden i batchen) för senaste körning datum och senaste resultat (antal har förväntade yttranden).
 
 <a name="sections-of-the-results-chart"></a>
 
@@ -114,7 +114,7 @@ LUIS spårar tillståndet för varje datauppsättning senaste testet. Detta inkl
 
 Testresultat för batch är ett punktdiagram som kallas en matris med fel. Det här diagrammet är en 4-vägs-jämförelse av yttranden i kommandofilen och förväntade syftet för den aktuella modellen och entiteter. 
 
-Data som pekar på den **falskt positivt** och **falska negativa** avsnitt visar fel, som bör undersökas. Om alla datapunkter som finns på den **sanna positiva** och **SANT negativt** avsnitt, och sedan din app är perfekt för den här datauppsättningen.
+Data som pekar på den **falskt positivt** och **falska negativa** avsnitt visar fel, som bör undersökas. Om alla data punkter finns på det **sanna positiva** och **sanna negativa** avsnittet är appens noggrannhet perfekt i den här data uppsättningen.
 
 ![Fyra delar av diagram](./media/luis-concept-batch-test/chart-sections.png)
 

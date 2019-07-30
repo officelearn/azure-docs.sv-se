@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f02f50eef971e774236f534c0d664dfcf090dcae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04f0944173df59989745ee9167984b493f202b14
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563733"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638230"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Lägga till en entitet till exempel yttranden 
 
@@ -57,7 +57,7 @@ Lista entiteter representerar en uppsättning exakta text matchningar av relater
 
 Ett företag avdelning lista du kan ha normalized värden: `Accounting` och `Human Resources`. Varje normaliserade namn har synonymer. För en avdelning, kan dessa synonymer innehåller alla avdelning förkortningar, tal eller slang. Du behöver veta alla värden när du har skapat entiteten. Du kan lägga till fler när du har granskat hur användarna yttranden med synonymer.
 
-1. I ett exempel på uttryck på  sidan avsikter väljer du ordet eller frasen som du vill ha i den nya listan. När List rutan entitet visas anger du namnet på den nya List-entiteten i den översta text rutan och väljer sedan **Skapa ny entitet**.   
+1. I ett exempel på uttryck på sidan avsikter väljer du ordet eller frasen som du vill ha i den nya listan. När List rutan entitet visas anger du namnet på den nya List-entiteten i den översta text rutan och väljer sedan **Skapa ny entitet**.   
 
 1. I den **vilken typ av enhet vill du skapa?** popup-rutan, namn på entiteten och väljer **lista** som typ av. Lägga till synonymer för det här listobjektet och välj sedan **klar**. 
 
@@ -67,7 +67,7 @@ Ett företag avdelning lista du kan ha normalized värden: `Accounting` och `Hum
 
 ## <a name="add-a-composite-entity"></a>Lägg till en sammansatt entitet
 
-Sammansatta entiteter skapas  från befintliga entiteter för att bilda en överordnad entitet. 
+Sammansatta entiteter skapas från befintliga entiteter för att bilda en överordnad entitet. 
 
 Vid antagandet av uttryck `Does John Smith work in Seattle?`kan en sammansatt uttryck returnera enhets information om medarbetarens namn `John Smith`och platsen `Seattle` i en sammansatt entitet. De underordnade entiteterna måste redan finnas i appen och markeras i exemplet uttryck innan den sammansatta entiteten skapas.
 
@@ -159,4 +159,4 @@ När du lägger till, redigera eller ta bort yttranden, [träna](luis-how-to-tra
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har märkt yttranden i dina avsikter kan du nu skapa en [sammansatt entitet](luis-how-to-add-entities.md).
+När du har märkt yttranden idina avsikter kan du nu skapa en [sammansatt entitet](luis-how-to-add-entities.md).

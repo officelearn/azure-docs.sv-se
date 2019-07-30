@@ -53,6 +53,8 @@
       href: use-editor-create-project.md
     - name: Bädda in widgetar i programmet
       href: video-indexer-embed-widgets.md
+    - name: Haveriberedskap
+      href: video-indexer-disaster-recovery.md
     - name: Anpassa innehållsmodeller
       items:
         - name: Person

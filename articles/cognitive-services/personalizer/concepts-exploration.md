@@ -1,55 +1,55 @@
 ---
-title: Utforskning - Personalizer
+title: Utforskning – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: Med undersökning är Personalizer kan fortsätta leverera bra resultat, även när användarbeteende ändras. Att välja en inställning för utforskning är ett affärsbeslut om andelen användarinteraktioner att utforska med, för att förbättra modellen.
+description: Med utforskningen kan du fortsätta att leverera bättre resultat, även om användar beteendet ändras. Att välja en utforsknings inställning är ett affärs beslut om den andel av användar interaktioner som kan utforskas med, för att förbättra modellen.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: edjez
-ms.openlocfilehash: ebb59b6bb7c36f4558b2bd63d2d55fa95823c4c3
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722476"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663400"
 ---
 # <a name="exploration-and-exploitation"></a>Utforskning och utnyttjande
 
-Med undersökning är Personalizer kan fortsätta leverera bra resultat, även när användarbeteende ändras.
+Med utforskningen kan du fortsätta att leverera bättre resultat, även om användar beteendet ändras.
 
-När Personalizer tar emot ett rangordnas anrop, returneras en RewardActionID som antingen:
-* Använder utnyttjande för att matcha den mest sannolika användarnas beteende baserat på den aktuella machine learning-modellen.
-* Använder undersökning, vilket inte matchar den åtgärd som har det bästa skyddet i rangordningen.
+När en Personanpassare får ett rang anrop, returnerar den en RewardActionID som antingen:
+* Använder utnyttjande för att matcha det mest sannolika användar beteendet baserat på den aktuella Machine Learning-modellen.
+* Använder utforskning, som inte matchar den åtgärd som har högst sannolikhet i rangordningen.
 
 <!--
 Returning the most probable action is called *exploit* behavior. Returning a different action is called *exploration*.
 -->
-Personalizer för närvarande använder en algoritm som kallas *epsilon girig* att utforska. 
+I en personanpassare används en algoritm som heter *Epsilon girig* för att utforska. 
 
-## <a name="choosing-an-exploration-setting"></a>Välja en inställning för Kunskapsutveckling
+## <a name="choosing-an-exploration-setting"></a>Välja en utforsknings inställning
 
-Du konfigurerar procentandel av trafiken för Kunskapsutveckling i Azure portal **inställningar** för Personalizer. Den här inställningen anger procentandelen rangordnas anrop som utför utforskning. 
+Du konfigurerar den procent andel av trafiken som ska användas för utforskning på Azure Portals inställnings sida för personanpassare. Den här inställningen anger procent andelen rang anrop som utför utforskning. 
 
-Personalizer avgör om du vill utforska eller utnyttja med sannolikheten på varje rangordnas anrop. Detta skiljer sig från beteendet i vissa A / B-ramverk som låser en behandling på specifika användar-ID.
+Personanpassaren bestämmer om du vill utforska eller utnyttja sannolikheten för varje rang anrop. Detta skiljer sig från beteendet i vissa A/B-ramverk som låser en behandling på vissa användar-ID: n.
 
-## <a name="best-practices-for-choosing-an-exploration-setting"></a>Bästa metoder när du väljer en inställning för Kunskapsutveckling
+## <a name="best-practices-for-choosing-an-exploration-setting"></a>Metod tips för att välja en utforsknings inställning
 
 <!--
 @edjez - you say what not to do, but make no recommendations of what **to** do. 
 -->
 
-Att välja en inställning för utforskning är ett affärsbeslut om andelen användarinteraktioner att utforska med, för att förbättra modellen. 
+Att välja en utforsknings inställning är ett affärs beslut om den andel av användar interaktioner som kan utforskas med, för att förbättra modellen. 
 
-Inställningen noll ska negeras många av fördelarna med Personalizer. Med den här inställningen använder Personalizer inga användarinteraktioner för att upptäcka bättre användarinteraktioner. Detta leder till modellen stagnation, drift och slutligen lägre prestanda.
+En inställning på noll kommer att negera många av fördelarna med en Personanpassare. Med den här inställningen använder Personanpassaren inga användar interaktioner för att upptäcka bättre användar interaktioner. Detta leder till modell stagnation, drift, och slutligen lägre prestanda.
 
-En inställning för hög ska negeras fördelarna med att lära användarbeteende. Ange värdet till 100% innebär en konstant slumpmässig och eventuella inlärda beteende hos användare inte skulle påverka resultatet.
+En inställning som är för hög, kommer att negera fördelarna med inlärning från användar beteendet. Att ställa in det på 100% innebär en konstant slumpmässig het och alla inlärda beteenden från användarna påverkar inte resultatet.
 
-Det är viktigt att inte ändra programmets beteende baserat på om du ser om Personalizer utforska eller utnyttjar. Detta skulle leda till learning eventuella fördomar som slutligen skulle minska potentiella prestanda.
+Det är viktigt att inte ändra program beteendet beroende på om du ser om en Personanpassare utforskar eller utnyttjar. Detta leder till inlärnings fördomar som i slut ändan skulle minska den potentiella prestandan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Förstärkande inlärning](concepts-reinforcement-learning.md) 
+[Förstärka inlärning](concepts-reinforcement-learning.md) 

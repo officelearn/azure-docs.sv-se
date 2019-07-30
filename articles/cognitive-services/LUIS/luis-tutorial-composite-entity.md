@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 6d54b46ff8b0c8a987653b4fc0344377c0115b58
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 610a7ee677771777c9bd88e5747ff766f284ae3e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560101"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637910"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Självstudier: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -69,7 +69,7 @@ Flyttnings förfrågan ska innehålla avdelnings namnet och namnet på den anst�
 
 LUIS har flera fördefinierade entiteter för extrahering av data. 
 
-1. Välj **build (Bygg** ) i det övre navigerings  fältet och välj sedan entiteter i den vänstra navigerings menyn.
+1. Välj **build (Bygg** ) i det övre navigerings fältet och välj sedan entiteter i den vänstra navigerings menyn.
 
 1. Välj knappen **Manage prebuilt entity** (Hantera fördefinierad entitet).
 

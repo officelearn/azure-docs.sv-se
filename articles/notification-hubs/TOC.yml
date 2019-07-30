@@ -7,6 +7,7 @@
     - name: Integrering med Mobilappar i Apptjänst
       href: notification-hubs-app-service.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa en meddelandehubb – Azure-portalen
       href: create-notification-hub-portal.md

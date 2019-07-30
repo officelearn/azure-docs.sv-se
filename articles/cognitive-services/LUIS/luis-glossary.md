@@ -7,26 +7,26 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 595a835018475ed3aa915971f5ff2b78981e7bdf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560497"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638287"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
 Den Språkförståelse (LUIS) ordlista förklarar villkor som du kan stöta på när du arbetar med LUIS API Service.
 
 ## <a name="active-version"></a>Aktiva versionen
 
-Den aktiva LUIS-versionen är den version som tar emot alla ändringar i modellen. I den [LUIS](luis-reference-regions.md) webbplats, om du vill göra ändringar i en version som inte är den aktiva versionen måste du först ställa in den här versionen som aktiv.
+Den aktiva LUIS-versionen är den version som tar emot alla ändringar i modellen. Om du vill göra ändringar i en version som inte är den aktiva versionen i [Luis](luis-reference-regions.md) -portalen måste du först ange den versionen som aktiv.
 
 ## <a name="authoring"></a>Redigering
 
-Redigera är möjligheten att skapa, hantera och distribuera en [LUIS-app](#luis-app), antingen med hjälp av den [LUIS](luis-reference-regions.md) webbplats eller [redigera API: er](https://go.microsoft.com/fwlink/?linkid=2092087).
+Redigering är möjligheten att skapa, hantera och distribuera en Luis- [app](#luis-app), antingen med hjälp av [Luis](luis-reference-regions.md) -portalen eller [redigerings-API: er](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Redigera nyckel
 
@@ -34,30 +34,12 @@ Tidigare kallades ”Programmatic” nyckel. Används för att redigera appen. A
 
 ## <a name="batch-test-json-file"></a>Batch text JSON-fil
 
-Batchfilen är en JSON-matris. Varje element i matrisen har tre egenskaper: `text`, `intent`, och `entities`. Den `entities` egenskapen är en matris. Matrisen kan vara tom. Om den `entities` matrisen är inte tom, som behövs för att korrekt identifiera entiteterna.
+Batch-testning är möjligheten att verifiera en aktuell LUIS-Apps modell med en konsekvent och känd test uppsättning av användar-yttranden. Batch-testet definieras i en [JSON-formaterad fil](luis-concept-batch-test.md#batch-file-format).
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+Se även: 
+* [Koncept](luis-concept-batch-test.md)
+* [Anvisningar](luis-how-to-batch-test.md)
+* [Självstudie] Luis – självstudier – batch-testing.md)
 
 
 ## <a name="collaborator"></a>Medarbetare
@@ -114,7 +96,7 @@ En [avsikt](luis-concept-intent.md) representerar en aktivitet eller åtgärd so
 
 ## <a name="labeling"></a>Märkning
 
-Etiketter är en process för att associera ett ord eller fraser i ett intent [uttryck](#utterance) med en [entitet](#entity) (datatype).
+Etikettering, eller markering, är en process för att associera ett ord eller en fras i en avsikts [uttryck](#utterance) med en [entitet](#entity) (datatyp).
 
 ## <a name="luis-app"></a>LUIS-app
 

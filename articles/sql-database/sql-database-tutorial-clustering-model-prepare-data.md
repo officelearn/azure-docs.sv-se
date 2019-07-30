@@ -1,7 +1,7 @@
 ---
 title: 'Självstudier: Förbereda data för att utföra klustring i R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: I del ett av självstudieserien i tre delar förbereder du data från en Azure SQL-databasen för att utföra klustring i R med Azure SQL Database Machine Learning Services (förhandsversion).
+description: I del ett av den här själv studie serien i tre delar förbereder du data från en Azure SQL-databas för att utföra klustring i R med Azure SQL Database Machine Learning Services (för hands version).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -12,74 +12,76 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 83ef25f04012933c2665e63e4617d480eb336f7b
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66419463"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639968"
 ---
-# <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudier: Förbereda data för att utföra klustring i R med Azure SQL Database Machine Learning Services (förhandsversion)
+# <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudier: Förbereda data för att utföra klustring i R med Azure SQL Database Machine Learning Services (förhands granskning)
 
-I del ett av självstudieserien i tre delar förbereder du data från en Azure SQL-databasen för att utföra klustring i R med Azure SQL Database Machine Learning Services (förhandsversion).
+I del ett av den här själv studie serien i tre delar ska du importera och förbereda data från en Azure SQL-databas med R. Senare i den här serien använder du dessa data för att träna och distribuera en kluster modell i R med Azure SQL Database Machine Learning Services (för hands version).
 
-*Klustring* kan förklaras som att ordna data i grupper där medlemmar i en grupp är liknande på något sätt.
-Du kommer att använda den **K-Means** algoritmen för att genomföra klustring av kunder i en datauppsättning för produkten köper och returnerar. Av klustring kunder, kan du fokusera marknadsföringsarbetet effektivare genom att rikta specifika grupper.
-K-Means klustring är en *oövervakad inlärning* algoritmen som söker efter mönster i data baserat på likheter.
+*Klustring* kan förklaras som att organisera data i grupper där medlemmarna i en grupp liknar varandra på något sätt.
+Du använder algoritmen **K-=** för att utföra klustringen av kunder i en data uppsättning av produkt inköp och returer. Genom att klustra kunderna kan du fokusera dina marknadsförings ansträngningar mer effektivt genom att rikta in dig på specifika grupper.
+K-betyder klustring är en *övervakad utbildningskurs* som söker efter mönster i data baserat på likheter.
 
-I den här artikeln får du lära dig hur du:
+I delar en och två av serien utvecklar du några R-skript i RStudio för att förbereda dina data och träna en maskin inlärnings modell. Sedan kan du i del tre köra dessa R-skript i en SQL-databas med hjälp av lagrade procedurer.
+
+I den här artikeln får du lära dig att:
 
 > [!div class="checklist"]
-> * Importera en exempeldatabas till en Azure SQL database
-> * Separata kunder i dimensioner
-> * Läs in data från Azure SQL-databas till en dataram med R
+> * Importera en exempel databas till en Azure SQL-databas
+> * Separera kunder med olika dimensioner med R
+> * Läsa in data från Azure SQL-databasen till en R data-ram
 
-I [del två](sql-database-tutorial-clustering-model-build.md), får du lära dig hur du skapar och träna en klustringsmodell för K-Means.
+I [del två](sql-database-tutorial-clustering-model-build.md)får du lära dig hur du skapar och tränar en K-metod kluster modell i R.
 
-I [del tre](sql-database-tutorial-clustering-model-deploy.md), får du lära dig hur du skapar en lagrad procedur i en Azure SQL-databas som kan utföra klustring baserat på nya data.
+I [del tre](sql-database-tutorial-clustering-model-deploy.md)får du lära dig hur du skapar en lagrad procedur i en Azure SQL-databas som kan utföra klustring i R baserat på nya data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Azure-prenumeration – om du inte har någon Azure-prenumeration [skapa ett konto](https://azure.microsoft.com/free/) innan du börjar.
+* Azure-prenumeration – om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* Azure SQL Database-Server med Machine Learning-tjänster aktiveras - under den offentliga förhandsversionen kan integrera Microsoft kommer du och aktivera machine learning för dina befintliga eller nya databaser. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+* Azure SQL Database Server med Machine Learning Services aktive rad – under den offentliga för hands versionen kommer Microsoft att publicera dig och aktivera maskin inlärning för befintliga eller nya databaser. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 
-* RevoScaleR paket - Se [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) om alternativ för att installera det här paketet lokalt.
+* RevoScaleR-paket – se [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) för alternativ för att installera det här paketet lokalt.
 
-* R-IDE - den här självstudien används [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
+* R IDE – i den här självstudien används [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
 
-* Verktyget för SQL-fråga – den här självstudiekursen förutsätter vi att du använder [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) eller [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+* Verktyget SQL-fråga – den här självstudien förutsätter att du använder [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) eller [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure Portal](https://portal.azure.com/).
 
-## <a name="import-the-sample-database"></a>Importera exempeldatabasen
+## <a name="import-the-sample-database"></a>Importera exempel databasen
 
-Exempel-datauppsättningen som används i den här självstudien har sparats till en **.bacpac** säkerhetskopian av databasen som du kan hämta och använda. Den här datauppsättningen härleds från den [tpcx bb](http://www.tpc.org/tpcx-bb/default.asp) datauppsättning som tillhandahålls av den [transaktion bearbetning av prestanda rådet (TPC)](http://www.tpc.org/default.asp).
+Exempel data uppsättningen som används i den här självstudien har sparats i en **. bacpac** -databas som du kan hämta och använda. Den här data uppsättningen härleds från [tpcx-BB-](http://www.tpc.org/tpcx-bb/default.asp) datauppsättningen som tillhandahålls av tjänsten [Transaction Processing Performance (TPC)](http://www.tpc.org/default.asp).
 
-1. Ladda ned filen [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
+1. Hämta filen [tpcxbb_1gb. bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
-1. Följ anvisningarna i [importera en BACPAC-fil för att skapa en Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-import), med hjälp av följande information:
+1. Följ anvisningarna i [Importera en BACPAC-fil för att skapa en Azure SQL-databas](https://docs.microsoft.com/azure/sql-database/sql-database-import)med hjälp av följande uppgifter:
 
-   * Importera från den **tpcxbb_1gb.bacpac** filen du laddade ned
-   * Under den offentliga förhandsversionen kan välja den **Gen5/vCore** konfigurationen för den nya databasen
-   * Namnge den nya databasen ”tpcxbb_1gb”
+   * Importera från **tpcxbb_1gb. bacpac** -filen som du laddade ned
+   * Under den allmänt tillgängliga för hands versionen väljer du konfigurationen **Gen5/vCore** för den nya databasen
+   * Namnge den nya databasen "tpcxbb_1gb"
 
 ## <a name="separate-customers"></a>Separata kunder
 
 Skapa en ny RScript-fil i RStudio och kör följande skript.
-Du är att avgränsa kunder i följande dimensioner i SQL-frågan:
+I SQL-frågan ska du åtskilja kunderna i följande dimensioner:
 
-* **orderRatio** = batch-förhållande (totalt antal beställningar helt eller delvis returnerade jämfört med det totala antalet beställningar)
-* **itemsRatio** = Returnerad artikel-förhållande (totalt antal objekt som returneras jämfört med antal objekt som har köpt)
-* **monetaryRatio** = returnerade belopp-förhållande (totala beloppet för objekt som returneras jämfört med den mängd som har köpt)
-* **frekvens** = returnerade frekvens
+* **orderRatio** = retur order kvot (totalt antal beställningar som delvis eller helt returnerade jämfört med det totala antalet beställningar)
+* **itemsRatio** = returnera objekts kvot (totalt antal returnerade objekt jämfört med antalet köpta objekt)
+* **monetaryRatio** = retur belopps kvot (total belopps summa för artiklar som returneras jämfört med det belopp som köpts)
+* **frekvens** = retur frekvens
 
-I den **klistra in** fungera, Ersätt **Server**, **UID**, och **PWD** med din egen anslutningsinformation.
+I funktionen **Klistra in** ersätter du **Server**, **UID**och **PWD** med din egen anslutnings information.
 
 ```r
 # Define the connection string to connect to the tpcxbb_1gb database
@@ -154,10 +156,10 @@ LEFT OUTER JOIN (
 "
 ```
 
-## <a name="load-the-data-into-a-data-frame"></a>Läsa in data i en dataram
+## <a name="load-the-data-into-a-data-frame"></a>Läsa in data i en data ram
 
-Nu använda följande skript för att returnera resultat från frågan till en R data frame med hjälp av den **rxSqlServerData** funktion.
-Som en del av processen, ska du definiera typ för de markerade kolumnerna (med colClasses) att se till att typerna överförs korrekt till R.
+Använd nu följande skript för att returnera resultatet från frågan till en R data-ram med funktionen **rxSqlServerData** .
+Som en del av processen definierar du typen för de markerade kolumnerna (med colClasses) för att se till att typerna överförs korrekt till R.
 
 ```r
 # Query SQL Server using input_query and get the results back
@@ -193,24 +195,24 @@ Du bör se resultat som liknar följande.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-***Om du inte planerar att fortsätta med den här självstudien***, ta bort tpcxbb_1gb databasen från Azure SQL Database-servern.
+***Om du inte kommer att fortsätta med den här***självstudien tar du bort tpcxbb_1gb-databasen från Azure SQL Database-servern.
 
-Följ dessa steg från Azure-portalen:
+Följ de här stegen i Azure Portal:
 
-1. I den vänstra menyn i Azure portal, Välj **alla resurser** eller **SQL-databaser**.
-1. I den **filtrera efter namn...**  anger **tpcxbb_1gb**, och välj din prenumeration.
-1. Välj din **tpcxbb_1gb** databas.
+1. Välj **alla resurser** eller **SQL-databaser**på den vänstra menyn i Azure Portal.
+1. I fältet **Filtrera efter namn...** anger du **tpcxbb_1gb**och väljer din prenumeration.
+1. Välj din **tpcxbb_1gb** -databas.
 1. Välj **Ta bort** på sidan **Översikt**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del ett av den här självstudieserien får slutfört du de här stegen:
+I del ett av den här själv studie serien slutförde du följande steg:
 
-* Importera en exempeldatabas till en Azure SQL database
-* Separata kunder i dimensioner
-* Läs in data från Azure SQL-databas till en dataram med R
+* Importera en exempel databas till en Azure SQL-databas
+* Separera kunder med olika dimensioner med R
+* Läsa in data från Azure SQL-databasen till en R data-ram
 
-Om du vill skapa en machine learning-modell som använder den här kunddata, följer du del två i den här självstudien:
+Om du vill skapa en maskin inlärnings modell som använder den här kund informationen följer du del två i den här själv studie serien:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Skapa en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-tutorial-clustering-model-build.md)
+> [Självstudier: Skapa en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)](sql-database-tutorial-clustering-model-build.md)

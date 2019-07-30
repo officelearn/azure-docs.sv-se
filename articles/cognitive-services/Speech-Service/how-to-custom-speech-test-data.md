@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8821ce46c65ac8bca36f006ef77bcaf475b0573d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559616"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663587"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
@@ -29,7 +29,7 @@ I den här tabellen listas godkända data typer, när varje datatyp ska använda
 |-----------|-----------------|----------|-------------------|----------|
 | [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | Ej tillämpligt |
 | [Ljud + medmärkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmars ljud | Ja | 1 – 1 000 timmars ljud |
-| [Relaterad text](##related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1-200 MB relaterad text |
+| [Relaterad text](#related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1-200 MB relaterad text |
 
 Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip-fil. Varje data uppsättning får bara innehålla en enda datatyp.
 
@@ -52,7 +52,7 @@ Ljuddata är optimala för att testa noggrannheten hos Microsofts bas linje tal-
 
 Använd den här tabellen för att se till att ljudfilerna är korrekt formaterade för användning med Custom Speech:
 
-| Egenskap | Value |
+| Egenskap | Värde |
 |----------|-------|
 | Fil format | RIFF (WAV) |
 | Samplingshastighet | 8 000 Hz eller 16 000 Hz |
@@ -155,7 +155,7 @@ Anpassat uttal är tillgängligt på engelska (en-US) och tyska (de-DE). I den h
 
 Använd den här tabellen för att kontrol lera att din relaterade datafil för uttal är korrekt formaterad. Uttal-filerna är små och bör inte överstiga några få KB.
 
-| Egenskap | Värde |
+| Egenskap | Value |
 |----------|-------|
 | Textkodning | UTF-8-struktur (ANSI stöds också för engelska) |
 | antal uttal per rad | 1 |

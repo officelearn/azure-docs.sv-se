@@ -1,74 +1,74 @@
 ---
-title: 'Snabbstart: Skapa en feedbackloop - Personalizer'
+title: 'Snabbstart: Skapa en feedback-slinga – Personanpassare'
 titleSuffix: Azure Cognitive Services
-description: Anpassa innehållet i den här C# Snabbstart med Personalizer-tjänsten.
+description: Anpassa innehållet i den C# här snabb starten med tjänsten personanpassa.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 06/11/2019
-ms.author: edjez
-ms.openlocfilehash: 0b856b8d134cc160b8bb759fce0408204cf0ba61
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 54aa23071fef09058a1702218d6b7fc920363518
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722433"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662801"
 ---
-# <a name="quickstart-personalize-content-using-c"></a>Snabbstart: Anpassa innehåll med hjälp avC# 
+# <a name="quickstart-personalize-content-using-c"></a>Snabbstart: Anpassa innehåll medC# 
 
-Visa anpassat innehåll i den här C# Snabbstart med Personalizer-tjänsten.
+Visa personligt innehåll i den C# här snabb starten med tjänsten personanpassa.
 
-Det här exemplet visar hur du använder klientbiblioteket Personalizer för C# att utföra följande åtgärder: 
+Det här exemplet visar hur du använder det personliga klient biblioteket för C# för att utföra följande åtgärder: 
 
- * Rangordning en lista med åtgärder för anpassning.
- * Rapportera trafik att allokera överst rangordnas åtgärder baserat på användarens val för den angivna händelsen.
+ * Rangordna en lista med åtgärder för anpassning.
+ * Rapportera belöning för att allokera till den främsta rangordnade åtgärden baserat på val av användare för den angivna händelsen.
 
-Komma igång med Personalizer omfattar följande steg:
+Att komma igång med Personanpassare omfattar följande steg:
 
-1. Refererar till SDK: N 
-1. Skriva kod för att rangordna de åtgärder som du vill visa till dina användare
-1. Skriva kod för att skicka alla för att träna loopen.
+1. Referera till SDK 
+1. Skriva kod för att rangordna de åtgärder som du vill visa för användarna,
+1. Skriva kod för att skicka fördelar för att träna slingan.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du behöver en [Personalizer service](how-to-settings.md) att få din prenumeration nyckel och slutpunkt-url. 
+* Du behöver en [personanpassa tjänst](how-to-settings.md) för att hämta din prenumerations nyckel och URL för slut punkts tjänst. 
 * [Visual Studio 2015 eller 2017](https://visualstudio.microsoft.com/downloads/).
-* Den [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272) NuGet-paketet SDK. Installationsinstruktioner finns nedan.
+* Paketet [Microsoft. Azure. CognitiveServices. personanpassa](https://go.microsoft.com/fwlink/?linkid=2092272) SDK NuGet. Installationsinstruktioner finns nedan.
 
-## <a name="change-the-model-update-frequency"></a>Ändra uppdateringsfrekvensen för modellen
+## <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
-I Personalizer resursen i Azure-portalen, ändra den **modellen uppdateringsfrekvensen** till 10 sekunder. Detta kommer träna tjänsten snabbt, så att du kan se hur den översta åtgärden ändras för varje iteration.
+Ändra uppdaterings frekvensen för **modellen** till 10 sekunder i den personliga resursen i Azure Portal. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
 
-När en Personalizer Loop instantieras först, finns det ingen modell eftersom det har ingen ersättning API-anrop för att träna från. Rangordnas anrop returnerar lika sannolikhet för varje objekt. Ditt program bör fortfarande alltid ranka innehåll med utdata från RewardActionId.
+När en säkerhetsslinga först instansieras finns det ingen modell eftersom det inte har skett några belönings-API-anrop att träna från. Ranknings anrop returnerar lika många sannolikheter för varje objekt. Ditt program borde fortfarande alltid rangordna innehåll med hjälp av utdata från RewardActionId.
 
-![Ändra uppdateringsfrekvensen för modellen](./media/settings/configure-model-update-frequency-settings.png)
+![Ändra modell uppdaterings frekvens](./media/settings/configure-model-update-frequency-settings.png)
 
-## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Skapa en ny konsolapp och refererar till Personalizer-SDK 
+## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Skapa en ny konsol app och referera till personanpassa SDK 
 
 <!--
 Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. Skapa en ny Visual C#-konsolapp i Visual Studio.
-1. Installera Personalizer klienten bibliotekets NuGet-paket. På menyn, Välj **verktyg**väljer **Nuget package Manager**, sedan **hantera NuGet-paket för lösningen**.
-1. Kontrollera **inkludera förhandsversion**.
-1. Välj den **Bläddra** fliken och i den **Search** skriver `Microsoft.Azure.CognitiveServices.Personalizer`.
-1. Välj **Microsoft.Azure.CognitiveServices.Personalizer** när den visas.
-1. Markera kryssrutan bredvid ditt projektnamn och välj **installera**.
+1. Installera NuGet-paketet för personanpassa klient bibliotek. Välj **verktyg**på menyn, Välj **NuGet Package Manager**och sedan **Hantera NuGet-paket för lösningen**.
+1. Markera **Inkludera för hands version**.
+1. Välj fliken **Bläddra** och skriv `Microsoft.Azure.CognitiveServices.Personalizer`i rutan **Sök** .
+1. Välj **Microsoft. Azure. CognitiveServices. personanpassare** när den visas.
+1. Markera kryss rutan bredvid ditt projekt namn och välj **Installera**.
 
-## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Lägg till kod och placera i dina Personalizer och Azure-nycklar
+## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Lägg till koden och Lägg i din personligare och Azure-nycklar
 
 1. Ersätt Program.cs med följande kod. 
-1. Ersätt `serviceKey` värdet med prenumerationsnyckeln giltig Personalizer.
-1. Ersätt `serviceEndpoint` med tjänstens slutpunkt. Ett exempel är `https://westus2.api.cognitive.microsoft.com/`.
+1. Ersätt `serviceKey` värdet med din giltiga prenumerations nyckel för din personliga nyckel.
+1. Ersätt `serviceEndpoint` med tjänstens slut punkt. Ett exempel är `https://westus2.api.cognitive.microsoft.com/`.
 1. Kör programmet.
 
-## <a name="add-code-to-rank-the-actions-you-want-to-show-to-your-users"></a>Lägg till kod för att rangordna de åtgärder som du vill visa dina användare
+## <a name="add-code-to-rank-the-actions-you-want-to-show-to-your-users"></a>Lägg till kod som rangordnar de åtgärder som du vill ska visas för användarna
 
-Följande C# koden är en komplett lista att skicka information om användare, _features och information om ditt innehåll _åtgärder_, att Personalizer med hjälp av SDK. Personalizer returnerar upp rangordnas åtgärd för att visa dina användare.  
+Följande C# kod är en komplett lista för att skicka användar information, _features och information om ditt innehåll, _åtgärder_till personanpassare med hjälp av SDK. Personanpassare returnerar den främsta rangordnade åtgärden för att visa din användare.  
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -256,15 +256,15 @@ namespace PersonalizerExample
 
 ## <a name="run-the-program"></a>Köra programmet
 
-Skapa och kör programmet. Snabbstart ombeds några frågor att samla in användarinställningar, kallas funktioner, sedan ger den översta åtgärden.
+Skapa och kör programmet. Snabb start programmet ber några frågor om att samla in användar inställningar, kallas funktioner, och ger sedan den främsta åtgärden.
 
-![Snabbstart ombeds några frågor att samla in användarinställningar, kallas funktioner, sedan ger den översta åtgärden.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+![Snabb start programmet ber några frågor om att samla in användar inställningar, kallas funktioner, och ger sedan den främsta åtgärden.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar med snabbstarten tar du bort alla filer som skapas i den här snabbstarten. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hur Personalizer fungerar](how-personalizer-works.md)
+[Så här fungerar Personanpassaren](how-personalizer-works.md)
 
 

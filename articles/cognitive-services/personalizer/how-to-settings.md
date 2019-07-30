@@ -1,95 +1,95 @@
 ---
-title: Konfigurera inställningar – Personalizer
+title: Konfigurera inställningar – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: Tjänstkonfigurationen innehåller hur tjänsten behandlar belöningar, hur ofta tjänsten utforskar, hur ofta modellen modellkomponenten och hur mycket data lagras.
+description: Tjänst konfigurationen omfattar hur tjänsten behandlar förmåner, hur ofta tjänsten utforskar, hur ofta modellen omtränas och hur mycket data som lagras.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722331"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663900"
 ---
-# <a name="personalizer-settings"></a>Personalizer inställningar
+# <a name="personalizer-settings"></a>Inställningar för personanpassa
 
-Tjänstkonfigurationen innehåller hur tjänsten behandlar belöningar, hur ofta tjänsten utforskar, hur ofta modellen modellkomponenten och hur mycket data lagras.
+Tjänst konfigurationen omfattar hur tjänsten behandlar förmåner, hur ofta tjänsten utforskar, hur ofta modellen omtränas och hur mycket data som lagras.
 
-## <a name="create-personalizer-resource"></a>Skapa Personalizer resurs
+## <a name="create-personalizer-resource"></a>Skapa en personanpassa resurs
 
-Skapa en Personalizer resurs för varje feedbackloop. 
+Skapa en personanpassa resurs för varje feedback-slinga. 
 
-1. Logga in på [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Den föregående länken tar dig till den **skapa** för tjänsten Personalizer. 
-1. Ange tjänstnamnet, Välj en prenumeration, plats, prisnivå, och resursgruppen.
-1. Välj bekräftelsen och välj **skapa**.
+1. Logga in på [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Föregående länk tar dig till sidan **skapa** för tjänsten personanpassa. 
+1. Ange tjänstens namn, Välj en prenumeration, plats, pris nivå och resurs grupp.
+1. Välj bekräftelse och välj **skapa**.
 
-## <a name="configure-service-settings-in-the-azure-portal"></a>Konfigurera inställningar för tjänsten i Azure portal
+## <a name="configure-service-settings-in-the-azure-portal"></a>Konfigurera tjänst inställningar i Azure Portal
 
 1. Logga in på [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Hitta Personalizer-resursen. 
-1. I den **resurshantering** väljer **inställningar**.
+1. Hitta din personanpassa resurs. 
+1. I avsnittet **resurs hantering** väljer du **Inställningar**.
 
-    Innan de lämnar Azure-portalen, kan du kopiera en av dina resursnycklar från den **nycklar** sidan. Du behöver detta för att använda den [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
+    Kopiera en av resurs nycklarna från sidan **nycklar** innan du lämnar Azure Portal. Du behöver detta för att kunna använda [PERSONANPASSA SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
-### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Konfigurera inställningar för ersättning för feedbackloopen baserat på användningsfall
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Konfigurera belönings inställningar för feedback-slingan baserat på användnings fall
 
-Konfigurera inställningar för den tjänsten för din feedback-loop användning av fördelarna. Ändringar av följande inställningar kommer återställa den aktuella Personalizer-modellen och omtrimma med de senaste 2 dagarna av data:
+Konfigurera tjänstens inställningar för din feedback-Slings användning av förmåner. Ändringar av följande inställningar kommer att återställa den aktuella personanpassa modellen och träna den med de senaste två dagarna med data:
 
-![Konfigurera inställningar för ersättning för feedback-loop](media/settings/configure-model-reward-settings.png)
+![Konfigurera belönings inställningarna för feedback-slingan](media/settings/configure-model-reward-settings.png)
 
 |Inställning|Syfte|
 |--|--|
-|Väntetid för ersättning|Anger hur lång tid under vilken Personalizer samlar in räkning värden för rangordnas samtal, med början från den tidpunkt då rangordnas anropet sker. Det här värdet anges genom att be: ”Hur länge ska Personalizer vänta på att alla anrop”? Alla trafik som kommer efter det här fönstret kommer logga men inte använts för utbildning.|
-|Standard-utmärkelse|Om ingen ersättning samtal tas emot med Personalizer under utmärkelse vänta tidsperioden som är kopplad till en rangordning anropa, Personalizer tilldelar som standard-utmärkelse. Som standard och i de flesta fall är standard-utmärkelse noll.|
-|Trafik-aggregering|Om flera belöningar tas emot samma rangordning API anropa används den här sammansättningsmetod: **summan** eller **tidigaste**. Tidigaste hämtar den tidigaste poäng och ignorerar resten. Detta är användbart om du vill att unika trafik mellan eventuellt duplicerade anrop. |
+|Vänte tid för belöning|Anger efter hur lång tid som Personanpassaren samlar in belönings värden för ett rang samtal, från det ögonblick då rang anropet inträffar. Det här värdet anges genom att fråga: "Hur lång tid ska personanpassa att vänta på belönings samtal?" Alla ersättningar som anländer efter att det här fönstret loggas men inte används för inlärning.|
+|Standard belöning|Om inget belönings samtal tas emot av en Personanpassare under fönstret för fördröjnings vänte tid som är associerat med ett rang samtal, tilldelar Personanpassaren standard belöningen. Som standard, och i de flesta fall, är standard belöningen noll.|
+|Belönings agg regering|Om flera fördelar tas emot för samma rang-API-anrop används denna agg regerings metod: **Sum** eller **tidigast**. Tidigaste plockning av den tidigaste poängen och tar bort resten. Detta är användbart om du vill ha unika belöningar bland eventuella dubbla samtal. |
 
-När du har ändrat dessa inställningar, se till att välja **spara**.
+När du har ändrat de här inställningarna ska du se till att välja **Spara**.
 
-### <a name="exploration-setting"></a>Inställningen för Kunskapsutveckling 
+### <a name="exploration-setting"></a>Utforsknings inställning 
 
-Anpassning kan identifiera nya mönster och anpassa sig till användaren beteendeförändringar över tid genom att utforska alternativ. Den **utforskning** inställningen bestämmer vilken procentandel av rangordnas samtal besvaras med utforskning. 
+Anpassningar kan identifiera nya mönster och anpassa sig till användar beteende förändringar över tid genom att utforska alternativ. Inställningen **för att avgöra** hur stor procent andel rang samtal besvaras med utforskning. 
 
-Ändringar i den här inställningen kommer återställa den aktuella Personalizer-modellen och träna om den med de senaste 2 dagarna av data.
+Ändringar av den här inställningen återställer den aktuella personanpassa modellen och tränar den med de senaste två dagarnas data.
 
-![Utforskning-inställningen bestämmer vilken procentandel av rangordnas samtal besvaras med utforskning](media/settings/configure-exploration-setting.png)
+![Inställningen för att avgöra hur stor procent andel rang samtal besvaras med utforskning](media/settings/configure-exploration-setting.png)
 
-När du har ändrat den här inställningen, se till att välja **spara**.
+När du har ändrat den här inställningen, se till att välja **Spara**.
 
-### <a name="model-update-frequency"></a>Uppdateringsfrekvensen för modellen
+### <a name="model-update-frequency"></a>Uppdaterings frekvens för modell
 
-Den senaste modellen tränas från utmärkelse API-anrop från varje händelse som active används inte automatiskt av Personalizer rangordnas anrop. Den **modellen uppdateringsfrekvensen** anger hur ofta modellen som rangordnas anropet uppdateras. 
+Den senaste modellen, som tränas från belönings-API-anrop från varje aktiv händelse, används inte automatiskt av ett personligt rang anrop. Uppdaterings frekvensen för **modellen** anger hur ofta modellen som används av ranknings anropet uppdateras. 
 
-Hög modellen update frekvenser är användbara för situationer där du vill spåra ändringar i användarbeteenden noggrant. Exempel innefattar webbplatser som körs på live nyheter, viral innehåll eller live produkten budgivning. Du kan använda en 15 minuters frekvens i dessa scenarier. En lägre uppdateringsfrekvensen är effektiva för de flesta användningsfall. En minut frekvenser som uppdateringen är användbart när du felsöker ett program kod med hjälp av Personalizer, göra demonstrationer eller interaktivt testa machine learning aspekter.
+Hög modell uppdaterings frekvens är användbart i situationer där du vill spåra ändringar i användar beteenden. Exempel på detta är webbplatser som körs på direktsända nyheter, virus innehåll eller Live Product-budgivning. Du kan använda en frekvens på 15 minuter i dessa scenarier. För de flesta användnings fall är en lägre uppdaterings frekvens effektiv. Uppdaterings frekvensen på en minut är användbar när du felsöker ett programs kod med hjälp av personanpassa, gör demonstrationer eller interaktivt testar maskin inlärnings aspekter.
 
-![Uppdateringsfrekvensen för modellen anger hur ofta en ny modell för Personalizer modellkomponenten.](media/settings/configure-model-update-frequency-settings.png)
+![Modell uppdaterings frekvens anger hur ofta en ny personanpassa modell ska omtränas.](media/settings/configure-model-update-frequency-settings.png)
 
-När du har ändrat den här inställningen, se till att välja **spara**.
+När du har ändrat den här inställningen, se till att välja **Spara**.
 
 ### <a name="data-retention"></a>Datakvarhållning
 
-**Datalagringsperiod** anger hur många dagar Personalizer håller dataloggar. Senaste data loggar som krävs för att utföra [offline utvärderingar](concepts-offline-evaluation.md), som används för att mäta effektiviteten i Personalizer och optimera Learning principen.
+**Data lagrings period** anger hur många dagars personanpassare som ska behålla data loggar. Tidigare data loggar krävs för att utföra [offline](concepts-offline-evaluation.md)-utvärderingar som används för att mäta effektiviteten hos personanpassare och optimera inlärnings policyn.
 
-När du har ändrat den här inställningen, se till att välja **spara**.
+När du har ändrat den här inställningen, se till att välja **Spara**.
 
-## <a name="export-the-personalizer-model"></a>Exportera Personalizer modellen
+## <a name="export-the-personalizer-model"></a>Exportera en personanpassa modell
 
-Från den resurshantering avsnittet **modell och principen**, granska modellskapandet och datum för senaste uppdatering och exportera den aktuella modellen. Du kan använda Azure-portalen eller Personalizer-API: er för att exportera en modellfil för arkivering. 
+I resurs hanteringens avsnitt för **modell och princip**, granska modell skapande och senaste uppdaterade datum och exportera den aktuella modellen. Du kan använda Azure Portal eller anpassade API: er för att exportera en modell fil för arkivering. 
 
-![Exportera den aktuella Personalizer modellen](media/settings/export-current-personalizer-model.png)
+![Exportera aktuell personanpassa modell](media/settings/export-current-personalizer-model.png)
 
-## <a name="import-and-export-learning-policy"></a>Importera och exportera learning princip
+## <a name="import-and-export-learning-policy"></a>Importera och exportera utbildnings princip
 
-Från den resurshantering avsnittet **modell och principen**, importera en ny princip för learning eller exportera den aktuella learning-principen.
+Från resurs hanteringens avsnitt för **modell och princip**importerar du en ny utbildnings princip eller exporterar den aktuella inlärnings principen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 <!--
 [How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 -->
-[Lär dig mer om regiontillgänglighet](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+[Lär dig mer om regions tillgänglighet](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

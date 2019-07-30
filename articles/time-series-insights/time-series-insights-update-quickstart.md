@@ -10,120 +10,126 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-ms.openlocfilehash: 547edb194ffdf52a805f573d338f61edff80623a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/29/2019
+ms.openlocfilehash: 3e93fdc903b8e0d4ee4233e007014bb82ea22b6b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164885"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638893"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snabbstart: Utforska demomiljön för förhandsversionen av Azure Time Series Insights
 
-Den här snabbstarten kommer du igång med förhandsversionen av Azure Time Series Insights-miljö. I den kostnadsfria demon rundtur viktiga funktioner som har lagts till Time Series Insights Preview.
+Den här snabb starten hjälper dig att komma igång med Azure Time Series Insights för hands versions miljön. I den kostnads fria demonstrationen guidar vi dig att guida viktiga funktioner som har lagts till i Time Series Insights för hands versionen.
 
-Time Series Insights Preview demomiljö innehåller ett scenario företaget Contoso, som körs två vind turbinen servergrupper. Varje grupp har 10 syfte. Varje turbin har 20 sensorer som rapporterar data varje minut till Azure IoT Hub. Sensorerna samla in information om väderförhållanden, bladet försäljningsargument och yaw position. Information om generator prestanda, växellåda beteende och säkerhet Övervakare också registreras.
+Time Series Insights demonstrations miljö för förhands granskning innehåller ett scenario företag, contoso, som fungerar med två lindnings turbin-servergrupper. Varje server grupp har 10 turbiner. Varje turbin har 20 sensorer som rapporterar data varje minut till Azure IoT Hub. Sensorer samlar in information om väder förhållanden, bladets färgdjup och Yaw position. Information om Generator prestanda, växel lådans beteende och säkerhets övervakare registreras också.
 
-I den här snabbstarten får du lära dig hur du använder Time Series Insights för att hitta värdefulla insikter i Contoso-data. Du genomför också en kort Rotorsaksanalys att bättre förutse kritiska problem och för att utföra underhåll.
+I den här snabb starten får du lära dig hur du använder Time Series Insights för att hitta åtgärds bara insikter i Contoso-data. Du utför även en kort rotor Saks analys för att bättre förutse kritiska fel och utföra underhåll.
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Se Time Series Insights-utforskaren i en demomiljö
 
-Förhandsversionen av Time Series Insights explorer visar historiska data och analys av rotorsaker. Så här kommer du igång:
+I Time Series Insights Preview Explorer visas historiska data och Rotors Aker analys. Så här kommer du igång:
 
-1. Skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) om du inte har något.
+1. Skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) om du inte har något.
 
-1. Gå till den [Contoso vind servergruppen demo](https://insights.timeseries.azure.com/preview/samples) miljö.  
+1. Gå till [Contosos grupp demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö.  
 
-1. Om du uppmanas logga Time Series Insights explorer med hjälp av dina Azure-autentiseringsuppgifter.
+1. Om du uppmanas till det loggar du in i Time Series Insights Explorer genom att använda dina autentiseringsuppgifter för Azure-kontot.
 
 ## <a name="work-with-historical-data"></a>Arbeta med historiska data
 
-1. I **Contoso anläggning 1**, titta på vindturbin **W7**.  
+1. I **contoso-anläggningar 1**tittar du på lindning turbin **W7**.  
 
-   1. Ändra vy intervallet till **1/1/17 20:00 till 17/10/3 20:00 (UTC)** .
-   1. Om du vill välja en sensor **Contoso anläggning 1** > **W7** > **Generator System** > **GeneratorSpeed** . Granska de värden som visas.
+   1. Ändra visnings intervallet till **1/1/17 20:00 till 3/10/17 20:00 (UTC)** .
+   1. Välj en sensor genom att välja **contoso planta 1** > **W7** > **Generator system** > **GeneratorSpeed**. Granska sedan värdena som visas.
 
-      [![W7 på Contoso anläggningen 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 i Contoso-anläggning 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
-1. Contoso upptäckte nyligen en brand i vindturbin **W7**. Yttranden variera om vad som orsakade fire. Vi kan se att fire avisering sensorn har aktiverats vid fire i Time Series Insights.
+1. Contoso upptäckte nyligen en brand i vindturbin **W7**. Åsikterna varierar om vad som orsakade branden. I Time Series Insights kan vi se att brand varnings sensorn har Aktiver ATS under branden.
 
-   1. Ändra vy intervallet till **3/9/17 20:00 till 17/10/3 20:00 (UTC)** .
-   1. Välj **säkerhetssystem** > **FireAlert**.
+   1. Ändra visnings intervallet till **3/9/17 20:00 till 3/10/17 20:00 (UTC)** .
+   1. Välj **säkerhets system** > **FireAlert**.
 
-      [![Contoso finns fire i vindturbin W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso hittade en brand i lindning turbin W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
-1. Granska andra händelser ungefär samma tidpunkt som fire att förstå vad som hänt. Tryck för olja och aktiva varningar som högst nådde precis före fire.
+1. Granska andra händelser kring tiden för brand för att förstå vad som hände. Olje tryck och aktiva varningar som tillsätts precis före branden.
 
-   1. Välj **luta System** > **HydraulicOilPressure**.
-   1. Välj **luta System** > **ActiveWarning**.
+   1. Välj **system** > **HydraulicOilPressure**.
+   1. Välj **system** > **ActiveWarning**.
 
-      [![Granska andra händelser ungefär samma tidpunkt](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Granska andra händelser ungefär samma gång](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
-1. Olja hög belastning och aktiva varningen sensorer som högst nådde strax innan startar. Expandera visas tidsserien om du vill se andra tecken som var tydligt ledde till fire. Båda sensorer växlade konsekvent under tiden. På grund av variationer tyda på ett beständigt och lite nervöst mönster.
+1. Olje trycket och aktiva varnings sensorer förtäta sig direkt före branden. Expandera den visade tids serien för att se andra tecken som skulle leda till en tydligare introduktion. Båda sensorer varierar konsekvent över tid. Fluktuationerna indikerar ett beständigt och Worrisome mönster.
 
-    * Ändra vy intervallet till **2/24/17 20:00 till 17/10/3 20:00 (UTC)** .
+    * Ändra visnings intervallet till **2/24/17 20:00 till 3/10/17 20:00 (UTC)** .
 
-      [![Tryck för olja och den aktiva varningen sensorer också högst nådde](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Olje tryck och aktiva varnings sensorer är också förtätade](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
-1. Undersöka två år av historiska data visar en annan fire-händelse som hade samma sensor variationer.
+1. Om du undersöker två års historik data upptäcks en annan Fire-händelse som hade samma sensor variationer.
 
-    * Ändra vy intervallet till **1/1/16 till 12/31/17** (alla data).
+    * Ändra visnings intervallet till **1/1/16 till 12/31/17** (alla data).
 
-      [![Leta efter historiska mönster](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Sök efter historiska mönster](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Med hjälp av Time Series Insights och våra sensor telemetri, har vi upptäckt en långsiktig och problematiska trend som är dolda i historiska data. Med dessa nya insikter kan vi:
+Med hjälp av Time Series Insights och vår sensor telemetri har vi upptäckt en långsiktig och problematisk trend som är dold i historiska data. Med dessa nya insikter kan vi:
 
-> [!div class="checklist"]
-> * Beskriver vad som verkligen inträffade.
-> * Rätta till problemet.
-> * Placera överlägsen avisering om system på plats.
+* Förklara vad som faktiskt hände.
+* Rätta till problemet.
+* Placera överlägsna varnings system på plats.
 
 ## <a name="root-cause-analysis"></a>Rotorsaksanalys
 
-1. Vissa scenarier kräver avancerad analys för att få fram diskret ledtrådar i data. Välj windmill **W6** på datum **6/25**.
+1. Vissa scenarier kräver avancerad analys för att få fram diskreta LED trådar i data. Välj Windmill- **W6** på datumet **6/25**.
 
-    1. Ändra vy intervallet till **6/1/17 20:00-7/1/17 20:00 (UTC)** .
-    1. Välj **Contoso anläggning 1** > **W6** > **säkerhetssystem** > **VoltageActuatorSwitchWarning**.
+    1. Ändra visnings intervallet till **6/1/17 20:00 till 7/1/17 20:00 (UTC)** .
+    1. Välj **contoso plantera 1** > **W6** > **säkerhets system** > **VoltageActuatorSwitchWarning**.
 
-       [![Ändra intervallet vyn och välj W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![Ändra visnings intervallet och välj W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. Varningen anger ett problem med spänningen från generatorn. Totala effekt av generatorn arbetar inom normal parametrar i det aktuella intervallet. Genom att öka våra intervall, växer en annan mönstret. En bestämd Samlingsbibliotek är påtaglig.
+1. Varningen anger ett problem med spänningen från generatorn. Den totala strömförbrukningen för generatorn är i normala parametrar i det aktuella intervallet. Ett annat mönster uppstår genom att öka intervallet. En bestämd kombination är tydlig.
 
-    1. Ta bort den **VoltageActuatorSwitchWarning** sensorn.
-    1. Välj **Generator System** > **ActivePower**.
-    1. Ändra intervallet **3d**.
+    1. Ta bort **VoltageActuatorSwitchWarning** -sensorn.
+    1. Välj **Generator system** > **ActivePower**.
+    1. Ändra intervallet till **3D**.
 
-       [![Ändra intervallet till 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![Ändra intervallet till 3D](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
-1. Genom att expandera tidsintervallet kan vi fastställa om problemet är stoppad eller om det fortsätter.
+1. Genom att expandera tidsintervallet kan vi avgöra om problemet har stoppats eller om det fortsätter.
 
-    * Utöka tidsintervallet till 60 dagar.
+    * Förläng tids perioden till 60 dagar.
 
-      [![Utöka tidsintervallet till 60 dagar](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Förläng tids perioden till 60 dagar](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
 
-1. Andra sensorn datapunkter kan läggas till att ge större sammanhang. Flera sensorer vi visa, desto mer fullständig vår förståelse för problemet är. Vi släpper en markör för att se de faktiska värdena. 
+1. Andra sensor data punkter kan läggas till för att ge större kontext. De fler sensorer som vi visar, desto en fullständig förståelse för problemet är. Vi släpper en markör för att se de faktiska värdena. 
 
-    1. Välj **Generator System**, och välj sedan tre sensorer: **GridVoltagePhase1**, **GridVoltagePhase2**, och **GridVoltagePhase3**.
+    1. Välj **Generator system**och välj sedan tre sensorer: **GridVoltagePhase1**, **GridVoltagePhase2**och **GridVoltagePhase3**.
     1. Släpp en markör på den sista datapunkten i det synliga området.
 
-       [![Ta bort en markör](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![Släpp en markör](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
 
-    Två av spänningssensorer fungerar samma prestanda och inom normal parametrar. Det ser ut som den **GridVoltagePhase3** sensorn är orsaken.
+    Två av spännings sensorerna fungerar på ett jämförbart och inom normala parametrar. Det verkar som om **GridVoltagePhase3** -sensorn är orsaken.
 
-1. Fas 3-Samlingsbibliotek visas ännu mer till problem med hög kontextuella data som har lagts till. Nu har vi ett bra lead på orsaken till varningen. Vi är redo att referera problemet till vårt underhållsteam för.  
+1. Med mycket kontextuella data som lagts till, är fas 3-programmenyen ännu mer som problemet. Nu har vi en bättre introduktion till orsaken till varningen. Vi är redo att referera till vårt underhålls team.  
 
-    * Ändra skärmen för att täcka över alla **Generator System** sensorer på samma diagram skala.
+    * Ändra visningen så att alla **Generator system** sensorer på samma diagram skala läggs till.
 
-      [![Ändra skärmen för att omfatta allt](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![Ändra visningen så att den innehåller allt](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Nu när du har slutfört självstudien rensar du de resurser som du har skapat:
+
+1. På den vänstra menyn i [Azure Portal](https://portal.azure.com)väljer du **alla resurser**, letar reda på Azure Time Series Insights resurs gruppen.
+1. Ta antingen bort hela resurs gruppen (och alla resurser som ingår i den) genom att välja **ta bort** eller ta bort varje resurs individuellt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du är redo att skapa en egen Time Series Insights Preview-miljö. Så här startar:
+Du är redo att skapa din egen Time Series Insights för hands versions miljö. Starta:
 
 > [!div class="nextstepaction"]
 > [Planera en förhandsversion av Time Series Insights-miljön](time-series-insights-update-plan.md)
 
-Lär dig att navigera demon och dess funktioner:
+Lär dig att navigera i demonstrationen och dess funktioner:
 
 > [!div class="nextstepaction"]
-> [I förhandsversionen av Time Series Insights-Utforskaren](time-series-insights-update-explorer.md)
+> [Time Series Insights Preview Explorer](time-series-insights-update-explorer.md)

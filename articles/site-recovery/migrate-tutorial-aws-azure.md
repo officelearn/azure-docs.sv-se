@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400057"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663499"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -31,7 +31,7 @@ I de här självstudien får du lära dig hur du migrerar virtuella Amazon Web S
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - Kontrollera att de virtuella datorer du vill migrera körs på en OS-version som stöds. Versioner som stöds inkluderar: 
   - Windows Server 2016 
   - Windows Server 2012 R2
@@ -96,8 +96,10 @@ När de virtuella Azure-datorerna skapats efter migreringen (redundans) ansluts 
 6. För **Resursgrupp** väljer du **Använd befintlig** och sedan **migrationRG**.
 7. För **Plats** väljer du **Europa, västra**.
 8. Under **undernät** lämnar du standardvärdena för **Namn** och **IP-intervall**.
-9. Lämna alternativet **Tjänsteslutpunkter** inaktiverat.
-10. När du är klar väljer du **Skapa**.
+9. Lägg till instruktioner för DDoS-skydds inställningar.
+10. Lämna alternativet **Tjänsteslutpunkter** inaktiverat.
+11. Lägg till instruktioner för brand Väggs inställningar.
+12. När du är klar väljer du **Skapa**.
 
 ## <a name="prepare-the-infrastructure"></a>Förbered infrastrukturen
 
@@ -157,7 +159,7 @@ I det här avsnittet anger du information om de resurser som du skapade i [Förb
 
 Innan du kan aktivera replikering, måste du skapa en replikeringsprincip.
 
-1. Klicka på **Replikera och associera**.
+1. Välj **skapa och associera**.
 2. I **Namn** anger du **myReplicationPolicy**.
 3. Låt resten av standardinställningarna vara som de är och klicka på **OK** för att skapa principen. Den nya principen associeras automatiskt med konfigurationsservern.
 
@@ -246,7 +248,7 @@ Kör en riktig redundansväxling för EC2-instanserna för att migrera dem till 
    - Detta avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
    - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna. 
 
-     ![Slutföra migrering](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Slutför migrering](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Avbryt inte en redundansväxling som pågår*. Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikera igen.  

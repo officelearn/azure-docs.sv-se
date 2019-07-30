@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 1aed6f9a0ceec18ca800e5030ec09bbb8d98cb76
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560727"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639205"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Fras List funktioner i LUIS-appen
 
@@ -35,7 +35,7 @@ Fras listor är inte länkade till en speciell avsikt eller entitet, men läggs 
 
 ## <a name="how-to-use-phrase-lists"></a>Hur du använder frasen listor
 
-Skapa en fras lista när din app har ord eller fraser som är viktiga för appen, till exempel:
+[Skapa en fras](luis-how-to-add-features.md) lista när din app har ord eller fraser som är viktiga för appen, till exempel:
 
 * bransch villkor
 * slang
@@ -53,7 +53,7 @@ När du har angett några ord eller fraser använder du den **rekommenderade** f
 
 ### <a name="interchangeable-lists"></a>Listor med utbytbara
 
-En  lista med utbytbara fraser är för värden som är synonymer. Om du till exempel vill att alla vatten förekomster hittas och du har exempel yttranden som: 
+En lista med utbytbara fraser är för värden som är synonymer. Om du till exempel vill att alla vatten förekomster hittas och du har exempel yttranden som: 
 
 * Vilka städer är nära de fantastiska sjöarna? 
 * Vilken väg körs i sjön-Havasu?
@@ -65,7 +65,7 @@ Varje uttryck bör bestämmas för både avsikt och entiteter oavsett vatten fö
 * Vilken väg körs tillsammans [bodyOfWater]?
 * Var börjar och slutar [bodyOfWater]? 
 
-Eftersom ord eller fraser för bröd texten i vatten är synonyma och kan användas utbytbara i yttranden, använder du den utbytbara  inställningen på fras listan. 
+Eftersom ord eller fraser för bröd texten i vatten är synonyma och kan användas utbytbara i yttranden, använder du den utbytbara inställningen på fras listan. 
 
 ### <a name="non-interchangeable-lists"></a>Listor som inte är utbytbara
 
@@ -79,7 +79,7 @@ När fras listan växer med tiden kan det hända att vissa termer har många for
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Fras Visar hjälp med att identifiera enkla utbytbara enheter
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Fras listor hjälper till att identifiera enkla utbytbara entiteter
 Utbytbara frasen listor är ett bra sätt att finjustera prestanda för LUIS-appen. Om din app har problem med att förutsäga yttranden till rätt avsikt eller känna igen entiteter kan du tänka på om talade innehålla ovanliga ord eller ord som kan vara tvetydiga i betydelse. Dessa ord är bra kandidater ska ingå i en fras-lista.
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Fras Visar hjälp med att identifiera avsikter genom att bättre förstå kontexten
@@ -88,7 +88,7 @@ En lista med frasen är inte en instruktion till LUIS för att utföra strikt ma
 Att lägga till en fras lista är ett alternativ till att lägga till fler exempel yttranden till en avsikt. 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>När du ska använda frasen listor jämfört med listan över entiteter
-Även om både en fras-lista och listan över entiteter kan påverka yttranden över alla avsikter, gör de detta på ett annat sätt. Använda en fras ska påverka avsikt förutsägelse poäng. Använd en entitet i listan för att påverka entitetextrahering efter en exakt denna matchning. 
+Både en fras lista och en [lista över entiteter](reference-entity-list.md) kan påverka yttranden i alla avsikter, varje gör detta på ett annat sätt. Använda en fras ska påverka avsikt förutsägelse poäng. Använd en entitet i listan för att påverka entitetextrahering efter en exakt denna matchning. 
 
 ### <a name="use-a-phrase-list"></a>Använd en fras-lista
 Med en fras lista LUIS fortfarande ta hänsyn till kontext och generalisera för att identifiera objekt som liknar, men inte en exakt matchning som objekt i en lista. Om du behöver LUIS-appen för att kunna generalisera och identifiera nya objekt i en kategori kan du använda en fras-lista. 

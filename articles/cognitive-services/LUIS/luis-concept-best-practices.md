@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5cbdf94ef1899c4963f6ebe0149024baed4916a7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564046"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639285"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
-Använd appredigeringsprocessen för att skapa LUIS-appen. 
+Använd redigerings processen för appar för att skapa LUIS-appen: 
 
 * Skapa språkmodell
 * Lägg till några få utbildning exempel yttranden (10 – 15 per avsikt)
@@ -27,7 +27,7 @@ Använd appredigeringsprocessen för att skapa LUIS-appen.
 * Testa från slutpunkten 
 * Lägga till funktioner
 
-När din app är [publicerade](luis-how-to-publish-app.md), använda rutinen redigering av Lägg till funktioner, publicera och testa från slutpunkten. Börja inte nästa redigering cykel genom att lägga till fler exempel yttranden. Som tillåter inte LUIS Läs din modell med riktiga användare yttranden. 
+När din app har [publicerats](luis-how-to-publish-app.md)använder du redigerings cykeln för att lägga till funktioner, publicera och testa från slut punkten. Börja inte nästa redigering cykel genom att lägga till fler exempel yttranden. Som tillåter inte LUIS Läs din modell med riktiga användare yttranden. 
 
 För LUIS för att effektivt på dess jobbet i utbildning du inte expandera talade tills den aktuella uppsättningen både exempel och slutpunkt yttranden returnerar trygg, hög förutsägelse poäng. Förbättra poängen med [aktiva inlärnings](luis-concept-review-endpoint-utterances.md)-, [mönster](luis-concept-patterns.md)-och [fras listor](luis-concept-feature.md). 
 
@@ -78,7 +78,7 @@ Mer information:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Lägg till frasen listor och mönster i senare iterationer
 
-Vi rekommenderar att du inte tillämpar dessa metoder innan appen har testats. Du bör förstå hur appen beter sig innan du lägger till fras listor och mönster, eftersom de här funktionerna viktas mer kraftigt än yttranden och kommer att skeva förtroendet. 
+Vi rekommenderar att du inte tillämpar dessa metoder innan appen har testats. Du bör förstå hur appen beter sig innan du lägger till [fras listor](luis-concept-feature.md) och [mönster](luis-concept-patterns.md) , eftersom de här funktionerna viktas mer kraftigt än yttranden och kommer att skeva förtroendet. 
 
 När du förstår hur appen beter sig utan dessa kan du lägga till var och en av dessa funktioner som de gäller för din app. Du behöver inte lägga till dessa funktioner med varje [iteration](luis-concept-app-iteration.md) eller ändra funktionerna med respektive version. 
 

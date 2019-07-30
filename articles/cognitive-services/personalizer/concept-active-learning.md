@@ -1,71 +1,71 @@
 ---
-title: Aktiv inlärning - Personalizer
+title: Aktiv inlärning – Personanpassare
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: edjez
-ms.openlocfilehash: c44afc81a7ec9d05cdc04cc8bc46c77cd51ceaf8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722524"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663716"
 ---
-# <a name="active-learning-and-learning-policies"></a>Aktiv inlärning och utbildning principer 
+# <a name="active-learning-and-learning-policies"></a>Aktiva principer för inlärning och inlärning 
 
-När programmet anropar API: et för rankning, får du en rangordningen för innehållet. Affärslogik kan använda rangordningen för att fastställa om innehållet ska visas för användaren. När du visar det översta innehållet, det vill säga en _active_ rangordnas händelse. När ditt program visas inte som rangordnas innehåll, det vill säga en _inaktiva_ rangordnas händelse. 
+När programmet anropar rang-API: et får du en rangordning av innehållet. Affärs logik kan använda den här rangordningen för att avgöra om innehållet ska visas för användaren. När du visar det rankade innehållet, är det ett _aktivt_ rang-händelse. När programmet inte visar det rankade innehållet, är det ett inaktivt rang-händelse. 
 
-Aktiva rangordnas händelseinformation returneras till Personalizer. Den här informationen används för att fortsätta att träna modellen via den aktuella learning-principen.
+Information om aktiva ranknings händelser returneras till Personanpassaren. Den här informationen används för att fortsätta träna modellen genom den aktuella inlärnings principen.
 
 ## <a name="active-events"></a>Aktiva händelser
 
-Aktiva händelser bör alltid att visas för användaren och utmärkelse anropet ska returneras till cirkeln learning. 
+Aktiva händelser bör alltid visas för användaren och belönings anropet ska returneras för att stänga inlärnings slingan. 
 
 ### <a name="inactive-events"></a>Inaktiva händelser 
 
-Inaktiva händelser bör inte ändra den underliggande modellen eftersom användaren inte få möjlighet att välja från det översta innehållet.
+Inaktiva händelser bör inte ändra den underliggande modellen eftersom användaren inte fick möjlighet att välja från det rankade innehållet.
 
-## <a name="dont-train-with-inactive-rank-events"></a>Inte träna med inaktiva rangordnas händelser 
+## <a name="dont-train-with-inactive-rank-events"></a>Träna inte med inaktiva ranknings händelser 
 
-För vissa program, kan du behöva anropa rangordning API utan att känna ännu om ditt program visas resultaten för användaren. 
+För vissa program kan du behöva anropa rang-API: et utan att veta om ditt program kommer att visa resultatet för användaren. 
 
-Det här inträffar när:
+Detta händer när:
 
-* Du kan redan återgivningen vissa användargränssnitt som användaren har eller inte kan ta emot att se. 
-* Ditt program kan göra förutseende anpassning som rangordnas anrop görs med mindre i realtid kontext och sina utdata kan eller inte kan användas av programmet. 
+* Du kanske för hands återger ett användar gränssnitt som användaren kanske inte kan se. 
+* Ditt program kan göra en förutsägelse anpassning i vilka Rangbaserade anrop görs med mindre real tids sammanhang och deras utdata kan eventuellt inte användas av programmet. 
 
-### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>Inaktivera aktiv inlärning för inaktiva rangordnas händelser under rangordnas anrop
+### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>Inaktivera aktiv inlärning för inaktiva ranknings händelser under rang anrop
 
-Inaktiverar automatisk inlärning, anropa rangordning med `learningEnabled = False`.
+Om du vill inaktivera automatisk inlärning, anropa `learningEnabled = False`rangordning med.
 
-Utbildning för en inaktiv händelse aktiveras implicit om du skickar en ersättning för rangordningen.
+Inlärningen för en inaktiv händelse aktive ras implicit om du skickar en belöning för rankningen.
 
-## <a name="learning-policies"></a>Learning principer
+## <a name="learning-policies"></a>Utbildnings principer
 
-Learning princip anger specifikt *hyperparametrar* modell-utbildning. Två modeller av samma data, tränats på olika learning principer fungerar på olika sätt.
+Inlärnings policyn avgör de speciella *disponeringsparametrarna* för modell träningen. Två modeller av samma data, tränade på olika inlärnings principer, fungerar annorlunda.
 
-### <a name="importing-and-exporting-learning-policies"></a>Importera och exportera Learning principer
+### <a name="importing-and-exporting-learning-policies"></a>Importera och exportera utbildnings principer
 
-Du kan importera och exportera learning principfiler från Azure-portalen. På så sätt kan du spara befintliga principer, testa dem, ersätta dem och arkivera dem i din källkodskontroll som artefakter för framtida bruk och granskning.
+Du kan importera och exportera learning policy-filer från Azure Portal. På så sätt kan du spara befintliga principer, testa dem, ersätta dem och arkivera dem i käll kods kontrollen som artefakter för framtida referens och granskning.
 
-### <a name="learning-policy-settings"></a>Learning principinställningar
+### <a name="learning-policy-settings"></a>Policy inställningar för inlärning
 
-Inställningarna i den **Learning princip** är inte avsedda att ändras. Endast ändra inställningarna när du förstår hur de påverkar Personalizer. Ändra inställningar utan den här kunskapen genereras sidoeffekter, inklusive ogiltigförklara Personalizer modeller.
+Inställningarna i inlärnings **principen** är inte avsedda att ändras. Ändra bara inställningarna när du förstår hur de påverkar Personanpassaren. Om du ändrar inställningar utan den här kunskapen kan det orsaka sido effekter, inklusive invalidering av anpassnings modeller.
 
-### <a name="comparing-effectiveness-of-learning-policies"></a>Jämföra effektivitet learning principer
+### <a name="comparing-effectiveness-of-learning-policies"></a>Jämför effektiviteten för utbildnings principer
 
-Du kan jämföra hur olika principer för Learning skulle ha utfört mot de senaste data i Personalizer loggar rent praktiskt [offline utvärderingar](concepts-offline-evaluation.md).
+Du kan jämföra hur olika inlärnings principer har utförts mot tidigare data i personanpassa loggar genom att göra [offline](concepts-offline-evaluation.md)-utvärderingar.
 
-[Ladda upp dina egna Learning principer](how-to-offline-evaluation.md) ska jämföras med den aktuella learning-principen.
+[Ladda upp dina egna utbildnings principer](how-to-offline-evaluation.md) för att jämföra med den aktuella inlärnings policyn.
 
-### <a name="discovery-of-optimized-learning-policies"></a>Identifiering av optimerade learning principer
+### <a name="discovery-of-optimized-learning-policies"></a>Identifiering av optimerade utbildnings principer
 
-Personalizer kan skapa en mer optimerade learning princip när du gör en [offline utvärdering](how-to-offline-evaluation.md). En mer optimerade learning princip som visas har bättre fördelarna i en offline utvärdering, kommer att ge bättre resultat när det används online i Personalizer.
+En personanpassare kan skapa en mer optimerad inlärnings princip när du gör en [offline-utvärdering](how-to-offline-evaluation.md). En mer optimerad inlärnings policy, som visas som en bättre belöning i en offline-utvärdering, ger bättre resultat när de används online i Personanpassaren.
 
-När du har skapat en princip för optimerad learning tillämpa du den direkt till Personalizer så att den ersätter den aktuella principen direkt eller du kan spara den för framtida utvärderingar och i framtiden bestämma om du vill ta bort, spara eller använda det senare.
+När en optimerad inlärnings princip har skapats kan du tillämpa den direkt på en Personligre så att den ersätter den aktuella principen omedelbart, eller så kan du spara den för ytterligare utvärdering och besluta i framtiden om du vill ta bort, Spara eller tillämpa den senare.

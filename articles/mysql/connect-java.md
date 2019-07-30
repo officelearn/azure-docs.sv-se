@@ -1,26 +1,26 @@
 ---
-title: Ansluta till Azure Database for MySQL med Java
-description: Den här snabbstarten finns ett Java-kodexempel som du kan använda för att ansluta och fråga efter data från en Azure Database for MySQL-databas.
+title: Använd Java för att ansluta till Azure Database for MySQL
+description: Den här snabb starten innehåller ett Java-kod exempel som du kan använda för att ansluta och fråga efter data från en Azure Database for MySQL databas.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-july2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: 7ad24a691153161ff2283030a4a597544205de6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96f793031f39e051d3cbe21bfd192a4d914239a8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61091877"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640719"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL: Använda Java för att ansluta och skicka frågor till data
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett Java-program och JDBC-drivrutinen [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Den här artikeln förutsätter att du är van att utveckla i Java och att du saknar erfarenhet av Azure Database for MySQL.
 
 Det finns många andra exempel och exempelkod på [sidan med exempel för MySQL Connector](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 1. I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
    - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
    - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)

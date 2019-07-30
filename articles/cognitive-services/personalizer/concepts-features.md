@@ -3,19 +3,19 @@ title: 'Funktioner: Åtgärd och kontext – Personanpassare'
 titleSuffix: Azure Cognitive Services
 description: Personanpassare använder funktioner, information om åtgärder och kontext för att göra bättre rangordnings förslag. Funktioner kan vara mycket generiska eller bara för ett objekt.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: edjez
-ms.openlocfilehash: 2dab7447e6051d4559f7f3985579cac9376ac7be
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.author: diberry
+ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423283"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663848"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -153,7 +153,7 @@ Varje åtgärd:
 * Har ett ID.
 * Innehåller en lista med funktioner.
 * Listan över funktioner kan vara stor (hundratals) men vi rekommenderar att du utvärderar funktions effektiviteten för att ta bort funktioner som inte bidrar till att få några fördelar. 
-* Funktionerna i **åtgärderna** kan eller kanske inte har någon korrelation med funktioner i kontexten som  används av personanpassan.
+* Funktionerna i **åtgärderna** kan eller kanske inte har någon korrelation med funktioner i kontexten som används av personanpassan.
 * Funktioner för åtgärder kan finnas i vissa åtgärder och inte andra. 
 * Funktioner för ett visst åtgärds-ID kan vara tillgängliga en dag, men senare blir det otillgängligt. 
 

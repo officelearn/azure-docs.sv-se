@@ -1,73 +1,73 @@
 ---
-title: Scenario-utvärderingen - Personalizer
+title: Scenario utvärdering – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: Personalizer kan användas i alla situationer där ditt program kan välja rätt artikeln, åtgärd eller produkt att visa – för att förbättra upplevelsen, uppnå bättre affärsresultat eller förbättra produktiviteten.
+description: Du kan använda en personanpassare i alla situationer där ditt program kan välja rätt objekt, åtgärd eller produkt som ska visas för att förbättra upplevelsen, uppnå bättre affärs resultat eller förbättra produktiviteten.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: a5bf0d7d0478ad836ed1921b302ab01b004ec73c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 465fba3a466aceaf9ef7b71e4b1957bfdbcad766
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722210"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663646"
 ---
 # <a name="where-can-you-use-personalizer"></a>Var kan du använda Personanpassning?
 
-Använd Personalizer i alla situationer där programmet behöver för att välja rätt artikeln, åtgärd eller produkt som ska visa – för att förbättra upplevelsen, uppnå bättre affärsresultat eller förbättra produktiviteten. 
+Använd Personanpassare i alla situationer där ditt program behöver välja rätt objekt, åtgärd eller produkt för att visa för att förbättra upplevelsen, uppnå bättre affärs resultat eller förbättra produktiviteten. 
 
-Personalizer använder maskininlärning att välja vilken åtgärd som ska visas för användaren. Markeringen kan variera mycket beroende på kvantitet, kvalitet och fördelning av data som skickas till tjänsten.
+I personanpassaren används Machine Learning för att välja vilken åtgärd som ska visas för användaren. Valet kan variera drastiskt beroende på kvantitet, kvalitet och distribution av data som skickas till tjänsten.
 
-### <a name="checklist-for-applying-personalizer"></a>Checklista för att tillämpa Personalizer
+### <a name="checklist-for-applying-personalizer"></a>Check lista för att använda Personanpassare
 
 
-Du kan använda Personalizer i situationer där:
+Du kan använda Personanpassare i situationer där:
 
-* Du har en företags- eller användbarhet målet för ditt program.
-* Du har en plats i ditt program där beslutet sammanhangsberoende av vad som ska visas för användarna att förbättra målet.
-* Det bästa valet kan och ska hämtas från kollektiva användaren beteende och Totalt antal utmärkelse poäng.
-* Användningen av maskininlärning för anpassning följer [ansvarig Använd riktlinjer](ethics-responsible-use.md) och val som du har valt.
-* Sammanhangsberoende beslutet kan uttryckas som rangordning det bästa alternativet (åtgärd) från en begränsad uppsättning alternativ.
-* Hur väl rankad valet arbetat för ditt program kan fastställas genom att mäta någon aspekt av användarnas beteende och anges i en _belöna poäng_. Det här är ett tal mellan 1 och 1.
-* Poängen trafik Importera inte för många confounding eller externa faktorer. Experimentlängd är låg trafik poängen kan beräknas när den är fortfarande relevanta.
-* Du kan uttrycka kontext för rangordningen som en lista på minst 5 [funktioner](concepts-features.md) som du tror att kunna fatta rätt beslut och som inte innehåller personligt identifierbar information. (PII).
-* Du har information om varje innehåll alternativ _åtgärd_, som en lista på minst 5 [funktioner](concepts-features.md) som du tror att hjälp Personalizer fatta rätt beslut.
-* Programmet kan behålla data för långvariga tillräckligt för att lagra en historik över minst 100 000 interaktioner.
+* Du har ett affärs-eller användbarhets mål för ditt program.
+* Du har en plats i ditt program där du får ett Sammanhangs beroende beslut av vad som ska visas för användarna att förbättra det målet.
+* Det bästa valet kan och bör registreras från kollektivt användar beteende och total belönings poäng.
+* Användningen av Machine Learning för anpassning följer de [rikt linjer](ethics-responsible-use.md) och alternativ som du väljer.
+* Det sammanhangsbaserade beslutet kan uttryckas som rangordning av det bästa alternativet (åtgärd) från en begränsad uppsättning alternativ.
+* Hur väl det rankade valet av program kan bestämmas genom att mäta viss aspekt av användar beteendet och uttrycka det i en _belönings Poäng_. Detta är ett tal mellan-1 och 1.
+* Belönings poängen tar inte upp för många påträffande eller externa faktorer. Experimentets varaktighet är för låg nog att belönings poängen kan beräknas när den fortfarande är relevant.
+* Du kan uttrycka kontexten för rang som en lista över minst 5 [funktioner](concepts-features.md) som du tror kan hjälpa dig att välja rätt och som inte innehåller personligt identifierbar information. (PII).
+* Du har information om varje innehålls val, _åtgärd_, som en lista över minst 5 [funktioner](concepts-features.md) som du tror att du kan göra rätt val.
+* Ditt program kan lagra data tillräckligt länge för att samla en historik på minst 100 000 interaktioner.
 
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>Machine learning-överväganden för att tillämpa Personalizer
+## <a name="machine-learning-considerations-for-applying-personalizer"></a>Maskin inlärnings överväganden för att använda Personanpassare
 
-Personalizer baseras på förstärkt learning, en metod till machine learning som undervisats av feedback du ge den. 
+Personanpassa är baserad på utlösnings inlärning, en metod för maskin inlärning som är inlärt av feedback som du ger dem. 
 
-Personalizer lära dig bäst i situationer där:
+Personanpassare kommer att lära sig bäst i situationer där:
 
-* Det finns tillräckligt med händelser för att hålla koll på optimal personanpassning om problemet drifts över tid (t.ex inställningar i nyheter eller Mode). Personalizer anpassas automatiskt löpande ändringar i verkligheten, men resultatet inte inte bra om det inte finns tillräckligt med händelser och data kan lära sig från att identifiera och reglera på nya mönster. Du bör välja ett användningsfall som sker tillräckligt ofta. Överväg att söker användningsfall som sker på minst 500 gånger per dag.
-* Kontext och åtgärder ha tillräckligt med [funktioner](concepts-features.md) att förenkla inlärningen.
-* Det finns färre än 50 åtgärder att rangordning per anrop.
-* Dina inställningar för kvarhållning av data att Personalizer att samla in tillräckligt med data för att utföra offline utvärderingar och optimering av Grupprincip. Detta är vanligtvis minst 50 000 datapunkter.
+* Det finns tillräckligt många händelser för att få bästa möjliga anpassning om problemet uppstår över tid (t. ex. inställningar i nyheter eller mode). Personanpassaren anpassas efter kontinuerliga förändringar i verkligheten, men resultatet blir inte optimalt om det inte finns tillräckligt med händelser och data för att lära sig att identifiera och lösa nya mönster. Du bör välja ett användnings fall som ofta är tillräckligt. Överväg att söka efter användnings fall som inträffar minst 500 gånger per dag.
+* Kontext och åtgärder har tillräckligt med [funktioner](concepts-features.md) för att under lätta inlärningen.
+* Det finns färre än 50 åtgärder att rangordna per anrop.
+* Med dina inställningar för datakvarhållning kan du samla in tillräckligt med data för att utföra offline-utvärdering och optimering av principer. Detta är vanligt vis minst 50 000 data punkter.
 
-## <a name="monitor-effectiveness-of-personalizer"></a>Övervaka effektiviteten i Personalizer
+## <a name="monitor-effectiveness-of-personalizer"></a>Övervaka effektiviteten hos Personanpassare
 
-Du kan övervaka effektiviteten i Personalizer regelbundet genom att utföra [offline utvärderingar](concepts-offline-evaluation.md).
+Du kan övervaka effektiviteten för Personanpassare regelbundet genom att utföra [offline](concepts-offline-evaluation.md)-utvärderingar.
 
-## <a name="use-personalizer-with-recommendation-engines"></a>Använda Personalizer med rekommendationsmotorer
+## <a name="use-personalizer-with-recommendation-engines"></a>Använda Personanpassare med rekommendations motorer
 
-Många företag använder rekommendationsmotorer, marknadsföring och campaigning verktyg segmentering av målgruppen och klustring, samarbetsfunktioner filtrering och annat sätt för att rekommendera produkter från en stor katalog till kunder.
+Många företag använder rekommendations motorer, marknadsförings-och kampanj verktyg, mål grupp segmentering och klustring, samordnad filtrering och andra metoder för att rekommendera produkter från en stor katalog till kunder.
 
-Den [Microsoft Recommenders GitHub-lagringsplatsen](https://github.com/Microsoft/Recommenders) innehåller exempel och bästa praxis för att skapa recommendation-system, tillhandahålls som Jupyter-anteckningsböcker. Den innehåller exempel för att förbereda data, skapa modeller, utvärderar, justering och operationalisera rekommendationsmotorer för många vanliga metoder för bland annat xDeepFM, SAR, Sensorn, Ringpärmsmekanismer, DKN.
+[Microsoft-rekommendationerna GitHub](https://github.com/Microsoft/Recommenders) -lagringsplatsen innehåller exempel och bästa metoder för att skapa rekommendations system, som tillhandahålls som Jupyter notebook-datorer. Den innehåller exempel på hur du förbereder data, bygger modeller, utvärderar, justerar och genomför rekommendationer för att använda rekommendationer för många vanliga metoder, inklusive xDeepFM, SAR, sensorn, RINGPÄRMSMEKANISMER, DKN.
 
-Personalizer kan arbeta med en rekommendationsmotor om den finns.
+Personanpassaren kan arbeta med en rekommendations motor när den är närvarande.
 
-* Rekommendationsmotorer ta stora mängder objekt (exempelvis 500 000) och rekommenderar en delmängd (till exempel översta 20) från hundratals eller tusentals alternativ.
-* Personalizer tar ett litet antal åtgärder med mycket information om dem och rankar i realtid för ett visst omfattande sammanhang, medan de flesta rekommendationsmotorer använder endast några attribut om användare, produkter och hur fungerar.
-* Personalizer är utformad för att utforska självständigt användarinställningar hela tiden, vilket ger bättre resultat där innehållet ändras snabbt, t.ex nyheter, händelser, live community-innehåll, innehåll med dagliga uppdateringar eller säsongens innehåll.
+* Rekommendations motorer tar stora mängder objekt (till exempel 500 000) och rekommenderar en delmängd (till exempel de 20 främsta) från hundratals eller tusentals alternativ.
+* Personanpassaren tar ett litet antal åtgärder med mycket information om dem och rangordnar dem i real tid för en viss rik kontext, medan de flesta rekommendations motorer bara använder några få attribut om användare, produkter och deras interaktioner.
+* Personanpassaren är utformad för att på ett autonomt sätt utforska användar inställningarna hela tiden, vilket ger bättre resultat om innehållet ändras snabbt, till exempel nyheter, direktsända evenemang, innehåll i levande community, innehåll med dagliga uppdateringar eller säsongs innehåll.
 
-Ett vanligt användningsområde är att ta utdata från en rekommendationsmotor (till exempel de 20 främsta produkterna för en viss kund) och använda det som indata åtgärder för Personalizer.
+Ett vanligt användnings sätt är att ta ut utdata från en rekommendations motor (till exempel de 20 främsta produkterna för en viss kund) och använda dem som ingångs åtgärder för Personanpassaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ethics & ansvarig Använd](ethics-responsible-use.md).
+[Etik & ansvarig användning](ethics-responsible-use.md).

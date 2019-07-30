@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 121423682bbd9bbb32f2ab1d02e48d3237ee830d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563765"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638305"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planera din LUIS-app med ämnes domän, avsikter och entiteter
 
-Det är viktigt att planera din app. Identifiera din domän, inklusive möjliga avsikter och entiteter som är relevanta för ditt program.  
+För att planera din app, identifiera din ämnes områdes domän. Detta inkluderar möjliga avsikter och entiteter som är relevanta för ditt program.  
 
 ## <a name="identify-your-domain"></a>Identifiera din domän
 
@@ -39,11 +39,13 @@ Tänk på hur den [avsikter](luis-concept-intent.md) som är viktiga för ditt p
 
 ## <a name="create-example-utterances-for-each-intent"></a>Skapa exempel yttranden för varje avsikt
 
-När du har bestämt avsikter, skapa 10 eller 15 exempel yttranden för varje avsikt. Börjar med inte har färre än det här talet eller skapa många yttranden för varje avsikt. Varje uttryck ska skilja sig från föregående uttryck. En bra rad i talade innehåller övergripande ordräkning, word-val, verb Tempus och skiljetecken. 
+När du har fastställt avsikterna skapar du 15 till 30 exempel yttranden för varje avsikt. För att börja med har du inte färre än det här antalet eller så skapar du för många yttranden för varje avsikt. Varje uttryck ska skilja sig från föregående uttryck. En bra rad i talade innehåller övergripande ordräkning, word-val, verb Tempus och skiljetecken. 
+
+Granska [yttranden](luis-concept-utterance.md) för mer information.
 
 ## <a name="identify-your-entities"></a>Identifiera dina entiteter
 
-Identifiera de entiteter som du vill extrahera i exempel-yttranden. För att boka en flygning behöver viss information som mål, datum, flygbolag, biljett kategori och reser klass. Du skapar entiteter för dessa datatyper och markera sedan den [entiteter](luis-concept-entity-types.md) i exempel-yttranden eftersom de är viktiga för att utföra en avsikt. 
+Identifiera de entiteter som du vill extrahera i exempel-yttranden. Om du vill boka en flygning behöver du information som mål, datum, flyg, biljett kategori och rese klass. Skapa entiteter för dessa data typer och markera sedan [entiteterna](luis-concept-entity-types.md) i exemplet yttranden eftersom de är viktiga för att utföra ett avsikts sätt. 
 
 När du bestämmer vilka entiteter som ska använda i din app, Kom ihåg att det finns olika typer av enheter för att samla in relationer mellan olika typer av objekt. [Entiteter i LUIS](luis-concept-entity-types.md) innehåller mer information om de olika typerna.
 

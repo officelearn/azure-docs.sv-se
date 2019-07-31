@@ -526,6 +526,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
     - name: Kör SSIS-paket i Azure
       items:
+        - name: Köra SSIS-paket i Azure från SSDT
+          href: how-to-invoke-ssis-package-ssdt.md
         - name: Köra SSIS-paket med aktiviteten Kör SSIS-paket
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Köra SSIS-paket med en lagrad proceduraktivitet

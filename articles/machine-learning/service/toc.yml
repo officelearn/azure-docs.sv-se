@@ -33,6 +33,12 @@
   items:
     - name: Python SDK
       items:
+        - name: Skapa ett första ML-experiment
+          items:
+            - name: 1. Konfigurera arbetsytan och utvecklingsmiljön
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Träna din första modell
+              href: tutorial-1st-experiment-sdk-train.md
         - name: Klassificering av avbildning (MNIST-data)
           items:
             - name: 1. Träna en modell

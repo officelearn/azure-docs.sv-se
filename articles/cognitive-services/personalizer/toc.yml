@@ -43,6 +43,8 @@
         - name: Offlineutvärdering
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+        - name: Funktionsutvärdering
+          href: concept-feature-evaluation.md
     - name: Skalbarhet och prestanda
       href: concepts-scalability-performance.md
 - name: Instruktionsguider

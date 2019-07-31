@@ -56,12 +56,18 @@
           items:
             - name: Otillräckligt heapminne
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
+            - name: Java-heaputrymme
+              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+        - name: Långsamma Apache Spark-jobb – lagringscontainer
+          href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: IllegalArgumentException-undantag
           href: ./apache-spark-troubleshoot-illegalargumentexception.md
         - name: Apache Spark-direktuppspelningsprogramstopp
           href: ./apache-spark-troubleshoot-application-stops.md
         - name: RpcTimeoutException-undantag
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+        - name: Blockerande API för korsande ursprung
+          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: Gör så här för att
   items:
     - name: Använda klusterlagring

@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 07/29/2019
   ms.author: nitinme
 abstract:
   description: 'API:et för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, identifiering av teckenentitet och språkidentifiering. Lär dig hur du analyserar innehåll på olika sätt med våra snabbstarter, självstudier och exempel.'
@@ -34,11 +34,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: Registrera dig för API för textanalys
-          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-            html: <p>Lär dig att få åtkomstnycklar och slutpunkter för API för textanalys.</p>
+          - href: /azure/cognitive-services/text-analytics/whats-new
+            html: '<p>Håll dig uppdaterad med den senaste utvecklingen i API:et för textanalys.</p>'
             image:
               src: ../media/index/i_tasks.svg
-            title: Åtkomstnycklar för API för textanalys
+            title: 'Vad är nytt i API:et för textanalys?'
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph

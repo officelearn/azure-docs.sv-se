@@ -74,6 +74,7 @@
     - name: Stöd för språk och region
       href: language-support.md
     - name: Analys för API för automatiska förslag i Bing
-      href: bing-autosuggest-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

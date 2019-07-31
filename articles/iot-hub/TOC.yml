@@ -91,6 +91,8 @@
       href: iot-hub-scaling.md
     - name: Hög tillgänglighet och haveriberedskap
       href: iot-hub-ha-dr.md
+    - name: Förstå IP-adresser för IoT Hub
+      href: iot-hub-understand-ip-address.md
     - name: Stöd för ytterligare protokoll
       href: iot-hub-protocol-gateway.md
     - name: Jämföra meddelande- och händelsedirigering

@@ -52,7 +52,8 @@
     - name: Användning av insikter i Bing
       href: bing-insights-usage.md
     - name: Analys för API för Bing Visual Search
-      href: bing-visual-search-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
 - name: Instruktionsguider
   items:
     - name: Få insikter med token

@@ -75,8 +75,6 @@
       href: security-center-provide-security-contact-details.md
     - name: Prisnivå
       href: security-center-pricing.md
-    - name: Säkerhetskonfigurationer
-      href: security-center-customize-os-security-config.md
     - name: Synlighet i hela klientorganisationen
       href: security-center-management-groups.md
     - name: Implementera säkerhetsrekommendationer
@@ -183,6 +181,8 @@
           href: security-center-alerts-type.md
         - name: UEBA för Azure-resurser och användare
           href: security-center-ueba-mcas.md
+        - name: Åtgärda säkerhetskonfigurationer
+          href: security-center-customize-os-security-config.md
 - name: Referens
   items:
     - name: 'REST API:er'

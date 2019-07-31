@@ -93,6 +93,7 @@
     - name: Slutpunkt för entitetsökning i Bing
       href: entity-search-endpoint.md
     - name: Analys för API för entitetssökning i Bing
-      href: bing-entity-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

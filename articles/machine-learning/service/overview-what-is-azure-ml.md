@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9ebacd8caf992874969106df58531538ea399ed
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c1ec9db2b026dd1853eceb1f110878d6b2beb4d4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510438"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678036"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -29,71 +29,71 @@ Prognoser eller förutsägelser från maskininlärning kan göra appar och enhet
 
 ## <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
-Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att förbereda data och träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Börja öva på den lokala datorn och sedan skala ut till molnet. Tjänsten har fullständigt stöd för tekniker för öppen källkod som PyTorch, TensorFlow och scikit-Läs och kan användas för alla typer av machine learning, från klassisk ml som djupinlärning, övervakad och oövervakad inlärning. 
+Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att förbereda data och träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Starta utbildningen på den lokala datorn och skala sedan ut till molnet. Tjänsten har fullt stöd för tekniker med öppen källkod som PyTorch, TensorFlow och scikit – lära sig och kan användas för alla typer av maskin inlärning, från klassisk ml till djup inlärning, övervakad och oövervakad inlärning. 
 
-Utforska och förbereda data, träna och testa modeller och distribuera dem med hjälp av omfattande verktyg som:
-+ En [visuella gränssnittet](ui-quickstart-run-experiment.md) i som du kan dra och släpp-moduler för att skapa experiment och distribuera modeller
-+ [Jupyter-anteckningsböcker](https://jupyter.org) i som du använder den [SDK: er](https://docs.microsoft.com/azure/machine-learning/service/#reference) att skriva egen kod som [dessa exempelanteckningsböcker](https://aka.ms/aml-notebooks)
+Utforska och Förbered data, träna och testa modeller och distribuera dem med hjälp av omfattande verktyg som:
++ Ett [visuellt gränssnitt](ui-tutorial-automobile-price-train-score.md) där du kan dra-n-släpp-moduler för att bygga experiment och sedan distribuera modeller
++ [Jupyter-anteckningsböcker](https://jupyter.org) där du använder [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) : er för att skriva din egen kod, till exempel [de här exempel antecknings böckerna](https://aka.ms/aml-notebooks)
 + [Visual Studio Code-tillägg](how-to-vscode-tools.md)
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Vad kan jag göra med tjänsten Azure Machine Learning?
 
-Använd den <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> med öppen källkod Python-paket eller Använd den [visuella gränssnittet (förhandsversion)](ui-quickstart-run-experiment.md) att skapa och träna mycket exakta machine learning och modeller för djupinlärning själv i en arbetsyta för Azure Machine Learning-tjänsten.
+Använd <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning python SDK</a> med python-paket med öppen källkod, eller Använd [Visual Interface (för hands version)](ui-tutorial-automobile-price-train-score.md) för att skapa och träna bättre maskin inlärnings-och djup inlärnings modeller själv i en Azure Machine Learning tjänst Platsen.
 
-Du kan välja bland många machine learning komponenter som finns tillgängliga i Python-paket med öppen källkod, till exempel <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-Läs</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, och <a href="https://mxnet.io" target="_blank">MXNet</a>.
+Du kan välja bland flera Machine Learning-komponenter som är tillgängliga i python-paket med öppen källkod, till exempel <a href="https://scikit-learn.org/stable/" target="_blank">Scikit – lära</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>och <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
-Oavsett om du skriver kod eller Använd det visuella gränssnittet kan du spåra flera körningar eftersom för att hitta den bästa lösningen samt hantera distribuerade modeller.
+Oavsett om du skriver kod eller använder det visuella gränssnittet kan du spåra flera körningar när du experimenterar för att hitta den bästa lösningen och hantera de distribuerade modellerna.
 
-### <a name="code-first-experience"></a>Kod först upplevelse
+### <a name="code-first-experience"></a>Kod-första upplevelse
 
-Börja öva på din lokala dator med hjälp av den <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> och sedan skala ut till molnet. Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-targets.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
+Starta utbildningen på den lokala datorn med <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning python SDK</a> och skala sedan ut till molnet. Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-targets.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
 
-Du kan också [automatisera modellträning och justera](tutorial-auto-train-models.md) med hjälp av SDK.
+Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-models.md) med hjälp av SDK.
 
-### <a name="code-free--low-code-experience"></a>Kodlös / låg kodupplevelse
+### <a name="code-free--low-code-experience"></a>Kod för kostnads fri/låg kod
 
-För kodfria utbildning, Prova:
+Prova följande för kod fri utbildning:
 
-+ Det visuella gränssnittet för att dra och släpp experimentera och distribution
++ Det visuella gränssnittet för experimentering och distribution med dra-n-drop
     
-    ![Visuella gränssnittet för Azure Machine Learning-tjänsten](media/overview-what-is-azure-ml/visual-interface.png)
+    ![Visuellt gränssnitt för Azure Machine Learning tjänst](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ Alternativet för Azure portal för automatiserade ML-experiment
++ Alternativet Azure Portal för automatiserade ML-experiment
 
 ### <a name="operationalization-mlops"></a>Driftsättning (MLOps)
 
-När du har rätt modellen kan använda du enkelt den i en webbtjänst på en IoT-enhet eller från Power BI. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md). 
+När du har rätt modell kan du enkelt använda den i en webb tjänst, på en IoT-enhet eller från Power BI. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md). 
 
 Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) eller [Azure-portalen](https://portal.azure.com/). 
 
-Dessa modeller kan användas och returnerar förutsägelser i [realtid](how-to-consume-web-service.md) eller [asynkront](how-to-run-batch-predictions.md) på stora mängder data.
+Dessa modeller kan förbrukas och returnera förutsägelser i [real tid](how-to-consume-web-service.md) eller [asynkront](how-to-run-batch-predictions.md) på stora mängder data.
 
-Och med avancerade [machine learning-pipelines](concept-ml-pipelines.md), kan samarbeta kring varje steg från dataförberedelser, modellinlärning och utvärdering till distribution.
+Och med avancerade [maskin inlärnings pipeliner](concept-ml-pipelines.md)kan du samar beta med varje steg från förberedelse av data, modell utbildning och utvärdering, via distribution.
 
 Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg](#next-steps).
 
-## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>Hur skiljer sig Azure Machine Learning-tjänsten från Studio?
+## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>Hur skiljer sig Azure Machine Learning tjänsten från Studio?
 
-[Machine Learning Studio](../studio/what-is-ml-studio.md) är en gemensam, dra och släpp visual arbetsyta där du kan skapa, testa och distribuera maskininlärningslösningar utan att behöva skriva kod. Den använder fördefinierade och förkonfigurerade machine learning-algoritmer och moduler för datahantering, samt en egen compute-plattformen.
+[Machine Learning Studio](../studio/what-is-ml-studio.md) är en gemensam, dra och släpp visuell arbets yta där du kan bygga, testa och distribuera maskin inlärnings lösningar utan att behöva skriva kod. Den använder förinställda och förkonfigurerade Machine Learning-algoritmer och data hanterings moduler samt en patentskyddad beräknings plattform.
 
-Azure Machine Learning-tjänsten tillhandahåller både SDK: er **- och -** en visual interface(preview) att snabbt Förbered data, träna och distribuera machine learning-modeller. Den här visuella gränssnittet (förhandsversion) ger en liknande dra och släpp-upplevelse till Studio. Dock använder egna beräkningsresurser det visuella gränssnittet till skillnad från den egna beräkningsplattformen Studio och är helt integrerat i Azure Machine Learning-tjänsten.
+Azure Machine Learning-tjänsten tillhandahåller både SDK **-och-** ett visuellt gränssnitt (för hands version) för att snabbt kunna utveckla data, träna och distribuera maskin inlärnings modeller. Det här visuella gränssnittet (för hands version) innehåller en liknande dra-och-släpp-upplevelse till Studio. Till skillnad från den patentskyddade beräknings plattformen i Studio använder Visual-gränssnittet dock dina egna beräknings resurser och är helt integrerade i Azure Machine Learning-tjänsten.
 
 Här är en snabb jämförelse.
 
-|| Machine Learning Studio | Azure Machine Learning-tjänsten:<br/>Visuellt gränssnitt|
+|| Machine Learning Studio | Azure Machine Learning tjänst:<br/>Visuellt gränssnitt|
 |---| --- | --- |
 || Allmänt tillgänglig (GA) | Förhandsversion|
-|Moduler för gränssnittet| Många | Inledande uppsättning populära moduler|
-|Beräkningsmål för utbildning| Upphovsrättsskyddad beräkningsmål, CPU-stöd| Har stöd för Azure Machine Learning-beräkning, GPU eller CPU.<br/>(Andra beräkningar som stöds i SDK)|
-|Beräkningsmål för distribution| Upphovsrättsskyddad web service-format, inte kan anpassas | Enterprise säkerhetsalternativ & Azure Kubernetes Service. <br/>([Andra beräkningarna](how-to-deploy-and-where.md) stöds i SDK) |
-|Automatiserad träning och finjustering av hyperparametrar | Nej | Ännu ej i visuella gränssnittet. <br/> (Stöds i SDK och Azure-portalen.) | 
+|Moduler för gränssnitt| Mycket | Inledande uppsättning populära moduler|
+|Inlärnings mål| Patentskyddat beräknings mål, endast CPU-stöd| Stöder Azure Machine Learning Compute, GPU eller CPU.<br/>(Andra beräkningar som stöds i SDK)|
+|Beräknings mål för distribution| Eget webb tjänst format, inte anpassningsbart | Företags säkerhets alternativ & Azure Kubernetes-tjänsten. <br/>([Andra beräkningar](how-to-deploy-and-where.md) som stöds i SDK) |
+|Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i Visual Interface. <br/> (Stöds i SDK och Azure Portal.) | 
 
-Prova att använda det visuella gränssnittet (förhandsversion) med [snabbstarten: Förbereda och visualisera data utan att skriva kod](ui-quickstart-run-experiment.md)
+Prova Visual Interface (för hands version) med [Självstudier: Förutsäg bil priset med det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
 
 > [!NOTE]
-> Modeller som skapats i Studio kan inte distribueras eller hanteras av Azure Machine Learning-tjänsten. Modeller som skapas och distribueras i det visuella gränssnittet för tjänsten kan dock hanteras via arbetsytan Azure Machine Learning-tjänsten.
+> Modeller som skapats i Studio kan inte distribueras eller hanteras av Azure Machine Learning tjänsten. Modeller som skapas och distribueras i tjänstens visuella gränssnitt kan dock hanteras via Azure Machine Learning-tjänstens arbets yta.
 
-## <a name="free-trial"></a>Gratis utvärderingsversion
+## <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
@@ -101,7 +101,7 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en arbetsyta för Machine Learning-tjänsten](setup-create-workspace.md) att komma igång.
+- Kom igång genom att [skapa en Machine Learning service-arbetsyta](setup-create-workspace.md) .
 
 - Följ de fullständiga självstudierna: 
   + [Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md) 

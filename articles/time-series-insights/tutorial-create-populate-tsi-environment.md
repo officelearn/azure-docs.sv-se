@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Skapa en Azure Time Series Insights-miljö | Microsoft Docs'
-description: Lär dig hur du skapar en Time Series Insights miljö som är ifylld med data från simulerade enheter.
+description: Självstudie för att lära dig hur du skapar en Time Series Insights miljö som är ifylld med data från simulerade enheter.
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
@@ -9,12 +9,12 @@ ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 39226498316de9359394ca7953ab34012b595116
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638899"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677738"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
 
@@ -27,16 +27,18 @@ Den här självstudien vägleder dig genom processen att skapa en Azure Time Ser
 > * Kör en enhets simulering för att strömma data till Time Series Insightss miljön.
 > * Verifiera simulerade telemetridata.
 
+> [!IMPORTANT]
+> Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Ditt Azure-inloggningsnamn måste också vara medlem i prenumerationens **ägar** roll. Mer information finns i [Hantera åtkomst med hjälp av rollbaserad åtkomst kontroll och Azure Portal](../role-based-access-control/role-assignments-portal.md).
+
 ## <a name="video"></a>Video
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Lär dig hur du använder en Azure IoT Solution Accelerator för att generera data och komma igång med Time Series Insights. </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
-
-## <a name="prerequisites"></a>Förutsättningar
-
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Ditt Azure-inloggningsnamn måste också vara medlem i prenumerationens **ägar** roll. Mer information finns i [Hantera åtkomst med hjälp av rollbaserad åtkomst kontroll och Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="overview"></a>Översikt
 

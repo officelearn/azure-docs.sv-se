@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights | Microsoft Docs'
-description: Läs mer om JavaScript-klientbiblioteket i Azure Time Series Insights och dess relaterade programmeringsmodell.
+description: Självstudie för att lära dig om klient biblioteket för Azure Time Series Insights Java Script och den relaterade programmerings modellen.
 author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 1ae37636a2caf108221be2240a9517a547945096
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638842"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677669"
 ---
-# <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudie: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
+# <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudier: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 
 Java Script D3-baserade Azure Time Series Insights klient biblioteket utvecklades för att hjälpa webbutvecklare att fråga och visualisera data som lagrats i Time Series Insights. Den här självstudien vägleder dig genom Time Series Insights klient bibliotek och programmerings modell med hjälp av en värdbaserad exempel App.
 
@@ -34,9 +34,9 @@ Mer specifikt får du lära dig om:
 > * Källfilerna för Time Series Insights exempel-appen finns i [GitHub-exempel lagrings platsen](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * Läs [referens dokumentationen för Time Series Insights-klienten](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
 
-* Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
+## <a name="prerequisites"></a>Förutsättningar
 
 * I den här självstudien används webbläsarens **utvecklarverktyg** funktion. Moderna webbläsare ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/)och andra) ger vanligt vis åtkomst till webbkontrollanten via F12-snabb tangenten på tangent bordet. Ett annat sätt att komma åt vyn är att högerklicka på en webb sida och sedan välja **Undersök element**.
 
@@ -46,8 +46,6 @@ I den här videon introducerar vi Time Series Insights Java Script SDK med öppe
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
-
-
 
 ## <a name="time-series-insights-sample-application"></a>Time Series Insights-exempelprogram
 
@@ -104,7 +102,7 @@ Först ska vi visa [HTML-och JavaScript-källkoden](https://github.com/Microsoft
 
 ## <a name="time-series-insights-javascript-client-library-concepts"></a>Time Series Insights JavaScript-koncept för klient bibliotek
 
-Time Series Insights klient biblioteket (*tsclient. js*) tillhandahåller abstraktioner för två viktiga JavaScript-funktioner:
+Time Series Insights klient biblioteket (*tsiclient. js*) tillhandahåller abstraktioner för två viktiga JavaScript-funktioner:
 
 * **Omslutnings metoder för att anropa API: er för Time Series Insights frågor**: REST API: er som du kan använda för att fråga efter Time Series Insights data genom att använda mängd uttryck. Metoderna är ordnade under TsiClient. Server namespace i biblioteket.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Utforska demomiljön för förhandsversionen av Azure Time Series Insights | Microsoft Docs'
-description: Förstå demomiljön för förhandsversionen av Azure Time Series Insights.
+description: Snabb start för att förstå Azure Time Series Insights demonstrations miljö för förhands granskning.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 07/29/2019
-ms.openlocfilehash: 3e93fdc903b8e0d4ee4233e007014bb82ea22b6b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3d098b1806e4fdf5b45030dfebf3dfe5959b7d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638893"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677719"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Snabbstart: Utforska demomiljön för förhandsversionen av Azure Time Series Insights
 
@@ -26,11 +26,12 @@ Time Series Insights demonstrations miljö för förhands granskning innehåller
 
 I den här snabb starten får du lära dig hur du använder Time Series Insights för att hitta åtgärds bara insikter i Contoso-data. Du utför även en kort rotor Saks analys för att bättre förutse kritiska fel och utföra underhåll.
 
+> [!IMPORTANT]
+> Skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) om du inte har något.
+
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Se Time Series Insights-utforskaren i en demomiljö
 
 I Time Series Insights Preview Explorer visas historiska data och Rotors Aker analys. Så här kommer du igång:
-
-1. Skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) om du inte har något.
 
 1. Gå till [Contosos grupp demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö.  
 

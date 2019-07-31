@@ -36,7 +36,6 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">Köra ett experiment i molnet</a> (ingen installation krävs).
           - html: <a href="quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK).
-          - html: <a href="ui-quickstart-run-experiment">Förbereda och visualisera data utan att skriva kod</a> i det visuella gränssnittet.
   - title: Steg för steg-självstudier
     items:
       - type: paragraph

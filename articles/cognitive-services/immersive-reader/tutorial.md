@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73f9ee597682cc995f3a2cc783abeee92bf11bd2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ea9728ac54ae357925bd666ffecf270172137f77
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501146"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688308"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudier: Starta Avancerad läsare (Node.js)
 
@@ -126,7 +126,7 @@ router.get('/subdomain', function (req, res) {
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-1. Öppna _views\layout.pug_och Lägg till följande kod under `head` `body` taggen innan taggen. Dessa `script` Taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/Microsoft/immersive-reader-sdk) .
+1. Öppna _views\layout.pug_och Lägg till följande kod under `head` `body` taggen innan taggen. Dessa `script` Taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) .
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
@@ -264,5 +264,5 @@ Du kan inkludera matematik innehåll i den fördjupade läsaren med hjälp av [m
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska SDK: [n för avancerad läsare](https://github.com/Microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)
-* Visa kod exempel på [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/advanced-csharp)
+* Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)
+* Visa kod exempel på [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

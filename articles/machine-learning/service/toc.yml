@@ -24,11 +24,6 @@
         - name: Köra experimentet lokalt
           displayName: 'workspace, install, sdk'
           href: quickstart-run-local-notebook.md
-    - name: Visuellt gränssnitt
-      items:
-        - name: Förbereda och visualisera data
-          displayName: experiment drag-and-drop
-          href: ui-quickstart-run-experiment.md
 - name: Självstudier
   items:
     - name: Python SDK

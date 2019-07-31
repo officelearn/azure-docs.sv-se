@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: ce1e5f349f55074b53cf447126c411a7a1cd3394
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 4ec9cff652bf1badf526d490547ad78de31ac5da
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516912"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678002"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
@@ -44,7 +44,7 @@ Ladda ned diagrammet **Översikt över funktioner i Microsoft Azure Machine Lear
 ![Översikt av funktioner i Microsoft Azure Machine Learning Studio](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Kom igång med Machine Learning Studio
-När du först anger Machine Learning Studio] (https://studio.azureml.net) du ser **Start** sidan. Härifrån kan du titta på dokumentation, videor, webbseminarier och hitta andra användbara resurser.
+Första gången du anger [Machine Learning Studio](https://studio.azureml.net)visas **Start** sidan. Härifrån kan du Visa dokumentation, videor och webb seminarier och hitta andra värdefulla resurser.
 
 Klicka på menyn uppe till vänster ![Meny](./media/what-is-ml-studio/menu.png) och du ser flera alternativ.
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -123,7 +123,7 @@ Här är en snabb jämförelse.
 |Beräknings mål för distribution| Eget webb tjänst format, inte anpassningsbart | Företags säkerhets alternativ & Azure Kubernetes-tjänsten. <br/>([Andra beräkningar](../service/how-to-deploy-and-where.md) som stöds i SDK) |
 |Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i Visual Interface. <br/> (Stöds i SDK och Azure Portal.) | 
 
-Prova Visual Interface (för hands version) med [snabb start: Förbereda och visualisera data utan att skriva kod](../service/ui-quickstart-run-experiment.md)
+Prova Visual Interface (för hands version) med [Självstudier: Förutsäg bil pris med Visual Interface](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
 > Modeller som skapats i Studio kan inte distribueras eller hanteras av Azure Machine Learning tjänsten. Modeller som skapas och distribueras i tjänstens visuella gränssnitt kan dock hanteras via Azure Machine Learning-tjänstens arbets yta.

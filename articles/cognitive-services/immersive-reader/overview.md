@@ -1,7 +1,7 @@
 ---
-title: 'Vad är uppslukande läsare API: et?'
+title: Vad är API för avancerad läsare?
 titleSuffix: Azure Cognitive Services
-description: Läs mer om uppslukande läsaren API.
+description: 'Läs mer om API: t för avancerad läsare.'
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,38 +10,38 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 4500b6213c549ab9977fe8f2d849ffa8089d04b9
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f84804fbad07357706e786fc449fce9e42a5ec4a
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718430"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688338"
 ---
 # <a name="what-is-immersive-reader"></a>Vad är Avancerad läsare?
 
-Den [uppslukande läsare](https://www.onenote.com/learningtools) är ett portintervallet utformade verktyg som implementerar beprövade metoder för att förbättra läsbarheten för kommande läsare, språk-inlärning och personer med learning skillnader, till exempel dyslexi.
+Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra Läs förståelse för nya läsare, språkutbildningar och personer med inlärnings skillnader som Dyslexia.
 
 Du kan använda Avancerad läsare i ditt webbprogram genom att använda SDK:t för Avancerad läsare.
 
-## <a name="what-does-immersive-reader-do"></a>Vad gör uppslukande läsare?
+## <a name="what-does-immersive-reader-do"></a>Vad gör avancerad läsare?
 
-Uppslukande läsaren är utformad för att göra läser mer tillgängligt för alla.
+Den fördjupade läsaren är utformad för att läsa mer tillgänglig för alla.
 
-* Visar innehållet i en minimal läsvyn
+* Visar innehåll i minimal Läsvy
 
   ![Avancerad läsare](./media/immersive-reader.png)
 
 * Visar bilder av vanliga ord
 
-  ![Bild-ordlista](./media/picture-dictionary.png)
+  ![Bild ord lista](./media/picture-dictionary.png)
 
-* Höjdpunkter substantiv, verb, adjektiv och adverb
+* Markerar substantiv, verb, adjektiv och adverb
 
   ![Delar av tal](./media/parts-of-speech.png)
 
 * Läser upp ditt innehåll till dig
 
-  ![Läsa upp](./media/read-aloud.png)
+  ![Läs upp](./media/read-aloud.png)
 
 * Översätter ditt innehåll till ett annat språk
 
@@ -51,14 +51,14 @@ Uppslukande läsaren är utformad för att göra läser mer tillgängligt för a
 
   ![Syllabification](./media/syllabification.png)
 
-## <a name="how-does-immersive-reader-work"></a>Hur fungerar den uppslukande läsare?
+## <a name="how-does-immersive-reader-work"></a>Hur fungerar den fördjupade läsaren?
 
-Uppslukande läsaren är en fristående webbapp som, när anropas med hjälp av uppslukande läsare JavaScript SDK, visas ovanpå ditt befintliga webbprogram via en `iframe`. När du anropar API för att starta uppslukande läsaren, anger du det innehåll som du vill visa i uppslukande läsaren. Våra SDK: N hanterar skapandet och formatering av den `iframe` och kommunikation med serverdelstjänsten uppslukande läsare som bearbetar innehållet för delar av tal, text till tal, översättning och så vidare.
+Den fördjupade läsaren är en fristående webbapp som, när den anropas med avancerad läsares JavaScript SDK, visas ovanpå din befintliga webbapp via en `iframe`. När du anropar API: et för att starta den fördjupade läsaren anger du det innehåll som du vill visa i den fördjupade läsaren. Vår SDK hanterar skapandet och utformningen av `iframe` och kommunikationen med Server dels tjänsten för avancerad läsare, som bearbetar innehållet för delar av tal, text till tal, översättning och så vidare.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång med Avancerad läsare:
 
-* Gå vidare till den [Snabbstart](./quickstart.md)
-* Utforska den [uppslukande läsare SDK på GitHub](https://github.com/Microsoft/immersive-reader-sdk)
-* Läs den [uppslukande läsare SDK-referens](./reference.md)
+* Hoppa till [snabb](./quickstart.md) starten
+* Utforska [SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk)
+* Läs SDK-referensen för [Avancerad läsare](./reference.md)

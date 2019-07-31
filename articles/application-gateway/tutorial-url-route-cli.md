@@ -1,23 +1,23 @@
 ---
-title: Dirigera webbtrafik baserat på URL – Azure CLI
-description: 'I den här artikeln lär du dig hur du dirigerar Internet-trafik baserat på URL: en till specifika skalbar pooler för servrar med hjälp av Azure CLI.'
+title: Dirigera webb trafik baserat på URL – Azure CLI
+description: 'I den här artikeln lär du dig hur du dirigerar webb trafik baserat på URL: en till vissa skalbara pooler för servrar med hjälp av Azure CLI.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955518"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688184"
 ---
-# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Dirigera webbtrafik baserat på URL: en med hjälp av Azure CLI
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Dirigera webb trafik baserat på URL: en med hjälp av Azure CLI
 
-Som en IT-administratör som hanterar webbtrafik vill du hjälpa dina kunder eller användare att få den information de behöver så snabbt som möjligt. Ett sätt som du kan optimera deras erfarenheter är genom att dirigera olika typer av Internet-trafik till olika serverresurser. Den här artikeln visar hur du använder Azure CLI för att installera och konfigurera Application Gateway-routning för olika typer av trafik från ditt program. Routningen dirigerar sedan trafiken till olika serverpooler baserat på webbadressen.
+Som en IT-administratör som hanterar webbtrafik vill du hjälpa dina kunder eller användare att få den information de behöver så snabbt som möjligt. Ett sätt som du kan optimera deras erfarenheter är genom att dirigera olika typer av Internet-trafik till olika serverresurser. Den här artikeln visar hur du använder Azure CLI för att konfigurera och konfigurera Application Gateway routning för olika typer av trafik från ditt program. Routningen dirigerar sedan trafiken till olika serverpooler baserat på webbadressen.
 
 ![URL-routningsexempel](./media/tutorial-url-route-cli/scenario.png)
 
@@ -31,13 +31,13 @@ I den här artikeln kan du se hur du:
 > * Skapa en skalningsuppsättning för varje pool så att poolen kan skalas automatiskt
 > * Kör ett test så att du kan kontrollera att de olika typerna av trafik går till rätt pool
 
-Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-url-route-powershell.md) eller [Azure-portalen](create-url-route-portal.md).
+Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-url-route-powershell.md) eller [Azure Portal](create-url-route-portal.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, i den här artikeln måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -70,12 +70,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>Skapa App Gateway med en webbadressmappning
 
-Använd `az network application-gateway create` för att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myAGPublicIPAddress* som du skapade tidigare.
+Använd `az network application-gateway create` för att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -85,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -180,9 +182,9 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-vm-scale-sets"></a>Skapa skalningsuppsättningar för virtuella datorer
+## <a name="create-virtual-machine-scale-sets"></a>Skapa VM-skalningsuppsättningar
 
-I den här artikeln skapar du tre skalningsuppsättningar för virtuella datorer som har stöd för tre serverdelspooler som du skapade. Skalningsuppsättningarna du skapar har namnen *myvmss1*, *myvmss2* och *myvmss3*. Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar NGINX.
+I den här artikeln skapar du tre skalnings uppsättningar för virtuella datorer som stöder de tre Server dels pooler som du skapade. Skalningsuppsättningarna du skapar har namnen *myvmss1*, *myvmss2* och *myvmss3*. Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -234,7 +236,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Hämta den offentliga IP-adressen för programgatewayen med az network public-ip show. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. T.ex, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, eller `http://40.121.222.19:8080/video/test.htm`.
+Hämta den offentliga IP-adressen för programgatewayen med az network public-ip show. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel,, eller `http://40.121.222.19:8080/video/test.htm`. `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm`
 
 ```azurecli-interactive
 az network public-ip show \
@@ -246,11 +248,11 @@ az network public-ip show \
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Ändra webbadressen till http://&lt;ip-adress&gt;:8080/images/test.htm och använd din IP-adress istället för &lt;ip-adress&gt;. Du bör se någonting som liknar följande exempel:
+Ändra URL: en till&lt;http://IP-&gt;Address: 8080/images/test.html, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Ändra webbadressen till http://&lt;ip-adress&gt;:8080/video/test.htm och använd din IP-adress istället för &lt;ip-adress&gt;. Du bör se någonting som liknar följande exempel:
+Ändra URL: en till&lt;http://IP-&gt;Address: 8080/video/test.html, Ersätt IP-adressen &lt;för IP-&gt;adress och se något som liknar följande exempel.
 
 ![Testa videoadressen i programgatewayen](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
@@ -259,9 +261,9 @@ az network public-ip show \
 När du inte behöver dem längre tar du bort resursgruppen, programgatewayen och alla relaterade resurser.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en programgateway med webbadressbaserad omdirigering](./tutorial-url-redirect-cli.md)
+[Skapa en programgateway med webbadressbaserad omdirigering](./tutorial-url-redirect-cli.md)

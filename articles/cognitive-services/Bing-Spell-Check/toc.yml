@@ -70,7 +70,8 @@
 - name: Resurser
   items:
     - name: Analys för API för stavningskontroll i Bing
-      href: bing-spell-check-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Stöd för språk och region
       href: language-support.md
     - name: Prissättning

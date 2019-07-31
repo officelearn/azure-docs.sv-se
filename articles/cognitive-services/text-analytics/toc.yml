@@ -7,6 +7,8 @@
       href: overview.md
     - name: Exempel på användarscenarier
       href: text-analytics-user-scenarios.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   expanded: true
   items:

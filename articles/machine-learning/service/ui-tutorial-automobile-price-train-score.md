@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/21/2019
-ms.openlocfilehash: 09d81e281b92b662572cefc220f2227651b69838
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371733"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668411"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Självstudier: Förutsäg bil pris med Visual Interface
 
@@ -94,8 +94,6 @@ Maskin inlärningen är beroende av data. Som tur är finns flera exempel data u
 ## <a name="run-the-experiment"></a>Kör experimentet
 
 Du kan när som helst klicka på utdataporten för en data uppsättning eller modul för att se hur data ser ut som vid den punkten i data flödet. Om alternativet **visualisera** är inaktiverat, måste du först köra experimentet.
-
-Ett experiment körs på ett beräknings mål, vilket är en beräknings resurs som är kopplad till din arbets yta. När du har skapat ett beräknings mål kan du återanvända det för framtida körningar.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 

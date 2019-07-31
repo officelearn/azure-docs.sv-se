@@ -1,6 +1,6 @@
 ---
-title: Azure Diagnostics-tillägget configuration version schemahistorik
-description: Relevant för insamling av prestandaräknare i Azure Virtual Machines, VM Scale Sets, Service Fabric och Cloud Services.
+title: Versions historik för Azure-diagnostik tilläggets konfigurations schema
+description: Relevant för att samla in prestanda räknare i Azure Virtual Machines VM Scale Sets, Service Fabric och Cloud Services.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -10,34 +10,34 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60527302"
 ---
-# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-tillägget configuration schemat versioner och historik
-Den här sidan index Azure Diagnostics-tillägg-schemat versioner levereras som en del av Microsoft Azure SDK.  
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure-diagnostik tilläggs konfiguration schema versioner och historik
+Den här sidan indexerar Azure-diagnostik tilläggs schema versioner som ingår i Microsoft Azure SDK.  
 
 > [!NOTE]
-> Azure Diagnostics-tillägget är den komponent som används för att samla in prestandaräknare och annan statistik från:
-> - Azure Virtual Machines
+> Azure-diagnostik-tillägget är den komponent som används för att samla in prestanda räknare och annan statistik från:
+> - Azure virtuella maskiner
 > - Virtual Machine Scale Sets
 > - Service Fabric
 > - Cloud Services
 > - Nätverkssäkerhetsgrupper
 >
-> Den här sidan gäller endast om du använder någon av dessa tjänster.
+> Den här sidan är bara relevant om du använder någon av dessa tjänster.
 
-Azure Diagnostics-tillägget används med andra Microsoft-produkter för diagnostik som Azure Monitor, som innehåller Application Insights och Log Analytics. Mer information finns i [övervakning verktyg översikt över Microsoft](../../azure-monitor/overview.md).
+Azure-diagnostik-tillägget används med andra Microsoft-diagnostiska produkter som Azure Monitor, som innehåller Application Insights och Log Analytics. Mer information finns i [Översikt över Microsofts övervaknings verktyg](../../azure-monitor/overview.md).
 
-## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK och diagnostik versioner leverans diagram  
+## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Diagram över Azure SDK-och diagnostik-versioner som levereras  
 
-|Azure SDK version | Diagnostik-tilläggsversion | Modell|  
+|Azure SDK-version | Version för diagnostik-tillägg | Modell|  
 |------------------|-------------------------------|------|  
 |1.x               |1.0                            |plug-in|  
 |2.0 - 2.4         |1.0                            |plug-in|  
-|2.5               |1.2                            |extension|  
+|2.5               |1.2                            |utöka|  
 |2.6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
 |2.8               |1.5                            |"|  
@@ -46,31 +46,31 @@ Azure Diagnostics-tillägget används med andra Microsoft-produkter för diagnos
 |2.96              |1.8                            |"|
 |2.96              |1.8.1                          |"|
 |2.96              |1.9                            |"|
-|2.96              |1.11                           |"|
+|2.96              |1,11                           |"|
 
 
- Azure Diagnostics version 1.0 första leverans i en plugin-programmet modell – vilket innebär att du fick versionen av Azure-diagnostik vid installation av Azure SDK levereras med den.  
+ Azure-diagnostik version 1,0 först levererades i en plugin-modell, vilket innebär att när du installerade Azure SDK fick du den version av Azure Diagnostics som levererades med den.  
 
- Från och med SDK 2.5 (diagnostics version 1.2), Azure-diagnostik ledde till en modell för tillägget. Verktyg för att använda nya funktioner bara var tillgängliga i nyare Azure SDK: er, men någon tjänst med hjälp av Azure-diagnostik skulle hämta den senaste versionen levereras direkt från Azure. Till exempel skulle alla som fortfarande använder SDK 2.5 laddas den senaste versionen som visas i föregående tabell, oavsett om de använder de nya funktionerna.  
+ Från och med SDK 2,5 (diagnostisk version 1,2), gick Azure Diagnostics till en tilläggs modell. Verktygen för att använda nya funktioner fanns bara tillgängliga i nyare Azure SDK: er, men alla tjänster som använder Azure Diagnostics skulle hämta den senaste leverans versionen direkt från Azure. Till exempel skulle alla som fortfarande använder SDK 2,5 läsa in den senaste versionen som visas i föregående tabell, oavsett om de använder de nya funktionerna.  
 
-## <a name="schemas-index"></a>Scheman index  
-Olika versioner av Azure-diagnostik använder olika konfigurationsscheman.
+## <a name="schemas-index"></a>Schema index  
+Olika versioner av Azure Diagnostics använder olika konfigurations scheman.
 
-[Diagnostik 1.0-konfigurationsschema](diagnostics-extension-schema-1dot0.md)  
+[Konfigurations schema för diagnostik 1,0](diagnostics-extension-schema-1dot0.md)  
 
-[Diagnostik 1.2 konfigurationsschema](diagnostics-extension-schema-1dot2.md)  
+[Konfigurations schema för diagnostik 1,2](diagnostics-extension-schema-1dot2.md)  
 
-[Diagnostik 1.3 och senare konfigurationsschema](diagnostics-extension-schema-1dot3.md)  
+[Konfigurations schema för diagnostik 1,3 och senare](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Versionshistorik
 
-### <a name="diagnostics-extension-111"></a>Diagnostiktillägget 1.11
-Tillagt stöd för Azure Monitor-mellanlagringsplatsen. Den här mottagare kan bara användas till prestandaräknare. Gör det möjligt att skicka prestandaräknare som samlats in på din VM, VMSS eller tjänst i molnet till Azure Monitor som anpassade mått. Azure Monitor-mellanlagringsplatsen har stöd för:
-* Hämtar alla prestandaräknare skickas till Azure Monitor via den [Azure Monitor metrics API: er.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Varna vid alla prestandaräknare skickas till Azure Monitor via den nya [unified aviseringsgränssnittet](../../azure-monitor/platform/alerts-overview.md) i Azure Monitor
-* Behandla jokertecken operator i prestandaräknare som dimensionen ”instans” på din mått. Till exempel om du samlat in den ”logisk disk (\*) / DiskWrites/sek” räknare du skulle kunna filtrera och dela upp på dimensionen ”instans” för diagram eller Varna vid den Diskskrivningar/sek för varje logisk Disk (C:, D: osv.)
+### <a name="diagnostics-extension-111"></a>Diagnostik-tillägg 1,11
+Stöd har lagts till för Azure Monitor mottagare. Denna mottagare kan bara användas för prestanda räknare. Möjliggör sändning av prestanda räknare som samlas in på din virtuella dator, VMSS eller moln tjänst till Azure Monitor som anpassade mått. Azure Monitor-mottagaren stöder:
+* Hämta alla prestanda räknare som skickats till Azure Monitor via [API: er för Azure Monitor mått.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+* Aviseringar om alla prestanda räknare som skickas till Azure Monitor via den nya [enhetliga aviserings upplevelsen](../../azure-monitor/platform/alerts-overview.md) i Azure Monitor
+* Behandlar operator med jokertecken i prestanda räknare som "instance"-dimensionen på måttet. Om du till exempel har samlat in räknaren "logisk disk (\*)/DiskWrites/SEC" kan du filtrera och dela på "instance"-dimensionen för att rita eller varna på disk skrivningar/s för varje logisk disk (C:, D: osv.)
 
-Definiera Azure Monitor som en ny mottagare i konfigurationen av diagnostiktillägget
+Definiera Azure Monitor som ny mottagare i konfiguration av diagnostiska tillägg
 ```json
 "SinksConfig": {
     "Sink": [
@@ -90,11 +90,11 @@ Definiera Azure Monitor som en ny mottagare i konfigurationen av diagnostiktill�
 </SinksConfig>
 ```
 > [!NOTE]
-> Konfigurera Azure Monitor-kanalmottagare för klassiska virtuella datorer och klassiskt Molntjänsten kräver fler parametrar ska definieras i diagnostik tilläggets privata konfiguration.
+> Att konfigurera Azure Monitor-mottagare för klassiska virtuella datorer och den klassiska moln tjänsten kräver att fler parametrar definieras i tillägget för diagnostik-tilläggets privata konfiguration.
 >
-> För mer information kan du referens i [detaljerad diagnostik tillägget schemat dokumentation.](diagnostics-extension-schema-1dot3.md)
+> Mer information finns i dokumentationen om [schemat för den detaljerade tillägget för diagnostik.](diagnostics-extension-schema-1dot3.md)
 
-Du kan därefter konfigurera dina prestandaräknare som ska vidarebefordras till mottagare för Azure Monitor.
+Sedan kan du konfigurera dina prestanda räknare så att de dirigeras till den Azure Monitor mottagaren.
 ```json
 "PerformanceCounters": {
     "scheduledTransferPeriod": "PT1M",
@@ -114,12 +114,12 @@ Du kan därefter konfigurera dina prestandaräknare som ska vidarebefordras till
 </PerformanceCounters>
 ```
 
-### <a name="diagnostics-extension-19"></a>Diagnostiktillägget 1.9
+### <a name="diagnostics-extension-19"></a>Diagnostik-tillägg 1,9
 Docker-stöd har lagts till.
 
 
-### <a name="diagnostics-extension-181"></a>Diagnostiktillägget 1.8.1
-Ange en SAS-token i stället för en lagringskontonyckel i privata config. Om en SAS-token anges, ignoreras lagringskontonyckeln.
+### <a name="diagnostics-extension-181"></a>1\.8.1 för Diagnostics-tillägg
+Kan ange en SAS-token i stället för en lagrings konto nyckel i den privata konfigurationen. Om en SAS-token anges ignoreras lagrings konto nyckeln.
 
 
 ```json
@@ -149,8 +149,8 @@ Ange en SAS-token i stället för en lagringskontonyckel i privata config. Om en
 ```
 
 
-### <a name="diagnostics-extension-18"></a>Diagnostiktillägget 1.8
-Har lagts till lagringstyp som ska PublicConfig. StorageType kan vara *tabell*, *Blob*, *TableAndBlob*. *Tabellen* är standard.
+### <a name="diagnostics-extension-18"></a>Diagnostik-tillägg 1,8
+Lagrings typen har lagts till i PublicConfig. StorageType kan vara *Table*, *BLOB*, *TableAndBlob*. *Tabellen* är standard.
 
 
 ```json
@@ -171,43 +171,43 @@ Har lagts till lagringstyp som ska PublicConfig. StorageType kan vara *tabell*, 
 ```
 
 
-### <a name="diagnostics-extension-17"></a>Diagnostiktillägget 1.7
-Lagt till möjligheten att dirigera till EventHub.
+### <a name="diagnostics-extension-17"></a>Diagnostik-tillägg 1,7
+Har lagt till möjligheten att dirigera till EventHub.
 
-### <a name="diagnostics-extension-15"></a>Diagnostiktillägget 1.5
-Lagt till elementet mottagare och möjligheten att skicka diagnostikdata till [Application Insights](../../azure-monitor/app/cloudservices.md) vilket gör det enklare att diagnostisera problem i ditt program, samt nivån system och infrastruktur.
+### <a name="diagnostics-extension-15"></a>Diagnostik-tillägg 1,5
+Du har lagt till Sinks-elementet och möjligheten att skicka diagnostikdata till [Application Insights](../../azure-monitor/app/cloudservices.md) göra det enklare att diagnostisera problem i ditt program och system-och infrastruktur nivå.
 
-### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 och diagnostik-tillägg 1.3
-Följande ändringar har gjorts för Cloud Service-projekt i Visual Studio. (Dessa ändringar gäller även för senare versioner av Azure SDK.)
+### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2,6 och diagnostiskt tillägg 1,3
+Följande ändringar har gjorts för moln tjänst projekt i Visual Studio. (Dessa ändringar gäller även senare versioner av Azure SDK.)
 
-* Den lokala emulatorn har nu stöd för diagnostik. Den här ändringen innebär att du kan samla in diagnostikdata och se till att programmet skapar rätt spårningarna när du utvecklar och testar i Visual Studio. Anslutningssträngen `UseDevelopmentStorage=true` aktiverar diagnostik datainsamling när du kör cloud service-projekt i Visual Studio med hjälp av Azure storage-emulatorn. Alla diagnostics-data som samlas in i storage-konto (Utvecklingslagring).
-* Den diagnostik anslutningssträngen för lagringskonto (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) lagras igen i tjänstekonfigurationsfilen (.cscfg). Lagringskonto för startdiagnostik har angetts i filen diagnostics.wadcfgx i Azure SDK 2.5.
+* Den lokala emulatorn stöder nu diagnostik. Den här ändringen innebär att du kan samla in diagnostikdata och se till att programmet skapar rätt spår när du utvecklar och testar i Visual Studio. Anslutnings strängen `UseDevelopmentStorage=true` möjliggör insamling av diagnostikdata medan du kör ditt moln tjänst projekt i Visual Studio med hjälp av Azure Storage-emulatorn. Alla diagnostikdata samlas in i lagrings kontot (utvecklings lagring).
+* Anslutnings strängen för det diagnostiska lagrings kontot (Microsoft. WindowsAzure. plugin-program. Diagnostics. ConnectionString) lagras en gång i tjänst konfigurations filen (. cscfg). I Azure SDK 2,5 angavs ditt lagrings konto för diagnostik i filen Diagnostics. wadcfgx.
 
-Det finns några viktiga skillnader mellan hur anslutningssträngen fungerade i Azure SDK 2.4 och tidigare och hur det fungerar i Azure SDK 2.6 och senare.
+Det finns några viktiga skillnader mellan hur anslutnings strängen fungerade i Azure SDK 2,4 och tidigare och hur den fungerar i Azure SDK 2,6 och senare.
 
-* I Azure SDK 2.4 och tidigare användes anslutningssträngen vid körning av diagnostik-plugin-programmet att hämta information om storage-konto för att överföra diagnostikloggar.
-* I Azure SDK 2.6 och senare, använder Visual Studio anslutningssträngen diagnostik för att konfigurera diagnostiktillägget med lämpliga lagringskontoinformation under publiceringen. Anslutningssträngen kan du definiera olika lagringskonton för olika konfigurationer som Visual Studio ska använda när du publicerar. Eftersom diagnostik plugin-programmet inte längre är tillgängliga (efter Azure SDK 2.5) kan inte .cscfg-filen påverkar i sig aktivera Diagnostiktillägget. Du måste aktivera tillägget separat via verktyg som Visual Studio eller PowerShell.
-* Paketet utdata från Visual Studio innehåller också den offentliga konfigurationen-XML för diagnostics-tillägg för varje roll för att förenkla konfigureringen av diagnostiktillägget med PowerShell. Visual Studio använder anslutningssträngen diagnostik för att fylla i informationen om lagring finns i den offentliga konfigurationen. De offentliga konfigurationsfilerna skapas i mappen tillägg och följer mönstret `PaaSDiagnostics.<RoleName>.PubConfig.xml`. PowerShell-baserade distributioner kan använda det här mönstret för att mappa varje konfiguration tilldelas en roll.
-* Anslutningssträngen i .cscfg-filen används också av Azure portal på dataåtkomst diagnostik så visas den i den **övervakning** fliken. Strängen som behövs för att konfigurera tjänsten för att visa utförlig övervakningsdata i portalen.
+* I Azure SDK 2,4 och tidigare användes anslutnings strängen vid körning av diagnostik-plugin-programmet för att hämta lagrings konto informationen för överföring av diagnostikloggar.
+* I Azure SDK 2,6 och senare använder Visual Studio diagnostik-anslutningssträngen för att konfigurera tillägget för diagnostik med lämplig lagrings konto information under publiceringen. Med anslutnings strängen kan du definiera olika lagrings konton för olika tjänst konfigurationer som ska användas i Visual Studio vid publicering. Men eftersom diagnostik-plugin-programmet inte längre är tillgängligt (efter Azure SDK 2,5) kan inte. cscfg-filen av sig själv aktivera diagnostik-tillägget. Du måste aktivera tillägget separat via verktyg som Visual Studio eller PowerShell.
+* För att förenkla processen med att konfigurera diagnostik-tillägget med PowerShell innehåller paket utmatningen från Visual Studio även XML-filen för den offentliga konfigurationen för diagnostikprogrammet för varje roll. Visual Studio använder anslutnings strängen för diagnostik för att fylla i informationen om lagrings kontot som finns i den offentliga konfigurationen. De offentliga konfigurationsfiler skapas i mappen tillägg och följer mönstret `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Alla PowerShell-baserade distributioner kan använda det här mönstret för att mappa varje konfiguration till en roll.
+* Anslutnings strängen i. cscfg-filen används också av Azure Portal för att få åtkomst till diagnostikdata så att den kan visas på fliken **övervakning** . Anslutnings strängen krävs för att konfigurera tjänsten för att Visa utförliga övervaknings data i portalen.
 
-#### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrerar projekt till Azure SDK 2.6 och senare
-När du migrerar från Azure SDK 2.5 Azure SDK 2.6 eller senare om du hade en diagnostiklagringskonto som anges i filen .wadcfgx, sedan förblir den det. Om du vill dra nytta av flexibiliteten i att använda olika konton för olika lagringskonfigurationer, måste du manuellt lägger till anslutningssträngen i projektet. Om du migrerar ett projekt från Azure SDK 2.4 eller tidigare till Azure SDK 2.6, bevaras anslutningssträngar för diagnostik. Observera dock att ändras i hur anslutningssträngar behandlas på Azure SDK 2.6 som anges i föregående avsnitt.
+#### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrera projekt till Azure SDK 2,6 och senare
+När du migrerar från Azure SDK 2,5 till Azure SDK 2,6 eller senare, om du hade ett diagnostiskt lagrings konto som angetts i. wadcfgx-filen, förblir den där. Om du vill dra nytta av flexibiliteten med att använda olika lagrings konton för olika lagrings konfigurationer måste du manuellt lägga till anslutnings strängen i projektet. Om du migrerar ett projekt från Azure SDK 2,4 eller tidigare till Azure SDK 2,6 bevaras anslutnings strängarna för diagnostik. Observera dock att ändringarna i hur anslutnings strängar behandlas i Azure SDK 2,6 enligt vad som anges i föregående avsnitt.
 
-#### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Hur Visual Studio anger lagringskonto för diagnostik
-* Om en anslutningssträng för diagnostik har angetts i .cscfg-filen använder den för att konfigurera diagnostics-tillägg när du publicerar och när du genererar offentliga XML-konfigurationsfilerna under paketering i Visual Studio.
-* Om inga diagnostik anslutningssträngen har angetts i .cscfg-filen, sedan återgår Visual Studio till att använda storage-konto som anges i filen .wadcfgx för att konfigurera diagnostiktillägget när du publicerar och generera xml-filer för offentliga konfiguration När paketering.
-* Diagnostik-anslutningssträngen i .cscfg-filen har företräde framför storage-konto i filen .wadcfgx. Om en anslutningssträng för diagnostik har angetts i .cscfg-filen, Visual Studio använder som och ignorerar lagringskontot i .wadcfgx.
+#### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Så här identifierar Visual Studio-diagnostikens lagrings konto
+* Om en diagnostik-anslutningssträng anges i. cscfg-filen använder Visual Studio den för att konfigurera tillägget för diagnostik vid publicering, och när du genererar XML-filer för den offentliga konfigurationen under packningen.
+* Om ingen anslutnings sträng för diagnostik har angetts i. cscfg-filen går det inte att använda det lagrings konto som anges i. wadcfgx-filen för att konfigurera diagnostik-tillägget när du publicerar och genererar XML-filer för den offentliga konfigurationen När du packar.
+* Anslutnings strängen för diagnostik i. cscfg-filen har företräde framför lagrings kontot i. wadcfgx-filen. Om en diagnostik-anslutningssträng anges i. cscfg-filen använder Visual Studio det och ignorerar lagrings kontot i. wadcfgx.
 
-#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Vad gör kryssrutan ”Uppdatera utveckling storage-anslutningssträngar...”?
-Kryssrutan för **uppdatera utveckling storage-anslutningssträngar för diagnostik- och cachelagring med autentiseringsuppgifterna för Microsoft Azure storage-konto när du publicerar till Microsoft Azure** blir det lättare att uppdatera alla utveckling lagringskontots anslutningssträngar med Azure storage-kontot som angavs vid publicering.
+#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Vad gör "uppdatera utvecklings lagrings anslutnings strängarna..." kryss rutan gör?
+Kryss rutan för att **Uppdatera utvecklings lagrings anslutnings strängar för diagnostik och cachelagring med Microsoft Azure lagrings konto uppgifter vid publicering till Microsoft Azure** ger dig ett bekvämt sätt att uppdatera alla utvecklings lagrings konton anslutnings strängar med det Azure Storage-konto som angavs under publiceringen.
 
-Anta exempelvis att du väljer den här kryssrutan och diagnostik anslutningssträngen anger `UseDevelopmentStorage=true`. När du publicerar projektet till Azure, uppdateras automatiskt diagnostik anslutningssträngen med storage-konto som du angav i guiden Publicera i Visual Studio. Men om en verklig storage-konto har angetts som anslutningssträng för diagnostik används detta konto i stället.
+Anta till exempel att du markerar den här kryss rutan och att anslutnings strängen `UseDevelopmentStorage=true`för diagnostik anger. När du publicerar projektet till Azure uppdaterar Visual Studio automatiskt den diagnostiska anslutnings strängen med det lagrings konto som du angav i publicerings guiden. Men om ett verkligt lagrings konto har angetts som anslutnings sträng för diagnostik, används detta konto i stället.
 
-### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Diagnostik funktioner skillnader mellan Azure SDK 2.4 och tidigare och Azure SDK 2.5 och senare
-Om du uppgraderar ditt projekt från Azure SDK 2.4 till Azure SDK 2.5 eller senare, bör du ha i åtanke följande diagnostik funktioner skillnader.
+### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Skillnader i diagnostiken mellan Azure SDK 2,4 och tidigare och Azure SDK 2,5 och senare
+Om du uppgraderar projektet från Azure SDK 2,4 till Azure SDK 2,5 eller senare bör du tänka på följande skillnader i diagnostiken.
 
-* **Konfiguration av API: er är inaktuella** – programkonfiguration av diagnostik är tillgänglig i Azure SDK 2.4 eller tidigare versioner, men är inaktuell i Azure SDK 2.5 och senare. Om din diagnostik-konfiguration har definierats i koden, måste du konfigurera om inställningarna från början i migrerade projektet för diagnostik kan fortsätta att arbeta. Konfigurationsfilen diagnostik för Azure SDK 2.4 är diagnostics.wadcfg och diagnostics.wadcfgx för Azure SDK 2.5 och senare.
-* **Diagnostik för molnprogram för tjänsten kan endast konfigureras på rollnivå, inte på instansnivå.**
-* **Varje gång som du har distribuerat din app diagnostikkonfigurationen uppdateras** – om du ändrar konfigurationen diagnostik från Server Explorer och distribuera om din app kan det medföra problem för paritet.
-* **I Azure SDK 2.5 och senare, kraschdumpar är konfigurerade i inte i kod i konfigurationsfilen diagnostik** – om du har kraschdumpar som konfigurerats i koden, måste du manuellt överföra konfigurationen från kod till konfigurationsfil, eftersom den kraschdumpar överförs inte under migreringen till Azure SDK 2.6.
+* **Konfigurations-API: er är inaktuella** – program konfigurationen för diagnostik är tillgänglig i azure SDK 2,4 eller tidigare versioner, men är inaktuell i azure SDK 2,5 och senare. Om din diagnostiska konfiguration för närvarande är definierad i kod måste du konfigurera om inställningarna från grunden i det migrerade projektet för att diagnostiken ska fortsätta att fungera. Konfigurations filen för diagnostik för Azure SDK 2,4 är Diagnostics. wadcfg och Diagnostics. wadcfgx för Azure SDK 2,5 och senare.
+* **Diagnostik för moln tjänst program kan bara konfigureras på roll nivå, inte på instans nivå.**
+* **Varje gång du distribuerar appen uppdateras diagnostiken** – detta kan orsaka paritets problem om du ändrar din diagnostiska konfiguration från Server Explorer och sedan distribuerar om din app.
+* **I Azure SDK 2,5 och senare konfigureras krasch dum par i diagnostikens konfigurations fil, inte i kod** – om du har krasch dum par som kon figurer ATS i kod måste du manuellt överföra konfigurationen från kod till konfigurations filen, eftersom kraschen dum par överförs inte under migreringen till Azure SDK 2,6.
 

@@ -1,6 +1,6 @@
 ---
-title: Lägg till övervakning och diagnostik i Azure-datorer | Microsoft Docs
-description: Använda en Azure Resource Manager-mall för att skapa en ny Windows-dator med Azure diagnostics-tillägg.
+title: Lägg till övervakning & Diagnostik till en virtuell Azure-dator | Microsoft Docs
+description: Använd en Azure Resource Manager mall för att skapa en ny virtuell Windows-dator med Azure Diagnostics-tillägget.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -17,19 +17,19 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8d1c5598bd7ea5b3f35d5447935953d4cd55664a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67706760"
 ---
-# <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använda övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager-mallar
-Azure Diagnostics-tillägget innehåller funktioner för övervakning och diagnostik på en Windows-baserade Azure--dator. Du kan aktivera de här funktionerna på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Se [redigera Azure Resource Manager-mallar med VM-tillägg](../windows/template-description.md#extensions) för mer information om bland annat alla tillägg som en del av en mall för virtuella datorer. Den här artikeln beskrivs hur du kan lägga till Azure-diagnostiktillägget i en windows-mall för virtuella datorer.  
+# <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar
+Azure-diagnostik-tillägget innehåller funktioner för övervakning och diagnostik på en Windows-baserad virtuell Azure-dator. Du kan aktivera dessa funktioner på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Mer information om hur du inkluderar tillägg som en del av en mall för virtuella datorer finns i [redigera Azure Resource Manager mallar med VM-tillägg](../windows/template-description.md#extensions) . I den här artikeln beskrivs hur du kan lägga till Azure-diagnostik-tillägget i en mall för virtuella Windows-datorer.  
 
-## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Lägg till Azure Diagnostics-tillägget i VM-resursdefinitionen
-Om du vill aktivera diagnostiktillägget på en Windows-dator som du behöver lägga till tillägget som en VM-resurs i Resource Manager-mallen.
+## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Lägg till Azure-diagnostik-tillägget till resurs definitionen för virtuell dator
+Om du vill aktivera tillägget för diagnostik på en virtuell Windows-dator måste du lägga till tillägget som en VM-resurs i Resource Manager-mallen.
 
-För en enkel resurshanterare baserat VM Lägg till tilläggskonfigurationen till den *resurser* matris för den virtuella datorn: 
+För en enkel Resource Manager-baserad virtuell dator lägger du till tilläggs konfigurationen till *resurs* -matrisen för den virtuella datorn: 
 
 ```json
 "resources": [
@@ -63,29 +63,29 @@ För en enkel resurshanterare baserat VM Lägg till tilläggskonfigurationen til
 ]
 ```
 
-En annan vanliga konventionen är att lägga till tilläggskonfigurationen på rotnoden för resurser i mallen i stället för att definiera den under noden för den virtuella datorns resurser. Med den här metoden måste du uttryckligen ange en hierarkisk relation mellan tillägget och den virtuella datorn med den *namn* och *typ* värden. Exempel: 
+En annan vanlig konvention är att lägga till tilläggs konfigurationen i noden rot resurser i mallen i stället för att definiera den under noden resurser för den virtuella datorn. Med den här metoden måste du uttryckligen ange en hierarkisk relation mellan tillägget och den virtuella datorn med värdena *namn* och *typ* . Exempel: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
 "type": "Microsoft.Compute/virtualMachines/extensions",
 ```
 
-Tillägget är alltid kopplad till den virtuella datorn kan du antingen direkt definiera den under noden för den virtuella datorns resursen direkt eller definiera den på den grundläggande nivån och använda hierarkisk namngivningskonvention för att associera det med den virtuella datorn.
+Tillägget är alltid associerat med den virtuella datorn. du kan antingen definiera det direkt under nodens datornod direkt eller definiera det på bas nivå och använda den hierarkiska namngivnings konventionen för att koppla den till den virtuella datorn.
 
-För Virtual Machine Scale Sets tillägg-konfiguration har angetts i den *extensionProfile* egenskapen för den *VirtualMachineProfile*.
+För Virtual Machine Scale Sets anges tilläggets konfiguration i egenskapen *extensionProfile* för *VirtualMachineProfile*.
 
-Den *publisher* egenskapen med värdet för **Microsoft.Azure.Diagnostics** och *typ* egenskapen med värdet för **IaaSDiagnostics**identifiera Azure Diagnostics-tillägget.
+*Utgivar* egenskapen med värdet **Microsoft. Azure. Diagnostics** och *Type* -egenskapen med värdet **IaaSDiagnostics** identifierar Azure-diagnostik-tillägget unikt.
 
-Värdet för den *namn* egenskapen kan användas för att referera till tillägget i resursgruppen. Ange den specifikt till **Microsoft.Insights.VMDiagnosticsSettings** gör det möjligt att lätt identifieras av Azure-portalen att säkerställa att övervakningen diagram visar upp korrekt i Azure-portalen.
+Värdet för egenskapen *Name* kan användas för att referera till tillägget i resurs gruppen. Om du ställer in det på **Microsoft. Insights. VMDiagnosticsSettings** kan det enkelt identifieras av Azure Portal se till att övervaknings diagrammen visas korrekt i Azure Portal.
 
-Den *typeHandlerVersion* anger vilken version av tillägget som du vill använda. Ange *autoUpgradeMinorVersion* minor-version till **SANT** säkerställer att du får den senaste lägre versionen av tillägget som är tillgänglig. Vi rekommenderar starkt att du alltid ange *autoUpgradeMinorVersion* ska alltid vara **SANT** så att du alltid får du använder det senaste tillgängliga diagnostics-tillägget med alla nya funktioner och felkorrigeringar. 
+*TypeHandlerVersion* anger vilken version av tillägget som du vill använda. Genom att ange den lägre versionen av *aktiverat autoupgrademinorversion* till **True** ser du till att du får den senaste lägre versionen av tillägget som är tillgänglig. Vi rekommenderar starkt att du alltid ställer in *aktiverat autoupgrademinorversion* så att du alltid är **sann** så att du alltid kommer att använda det senaste tillgängliga diagnostikprogrammet med alla nya funktioner och fel korrigeringar. 
 
-Den *inställningar* element innehåller konfigurationer egenskaper för det tillägg som kan ange och läsa tillbaka från tillägget (kallas ibland offentliga konfiguration). Den *xmlcfg* egenskapen innehåller XML-baserad konfiguration för diagnostikloggar, prestandaräknare osv som samlas in av diagnostics-agenten. Se [diagnostik konfigurationsschema](https://msdn.microsoft.com/library/azure/dn782207.aspx) för mer information om det xml-schemat. En vanlig metod är att lagra den faktiska xml-konfigurationen som en variabel i Azure Resource Manager-mallen och sedan Sammanfoga och base64-koda dem att ange ett värde för *xmlcfg*. Se avsnittet om [diagnostik configuration variabler](#diagnostics-configuration-variables) vill veta mer om hur du lagrar XML-filen i variabler. Den *storageAccount* egenskapen anger namnet på lagringskontot på vilka felsökning data överförs. 
+Elementet *Settings* innehåller konfigurations egenskaper för det tillägg som kan ställas in och läsas tillbaka från tillägget (kallas ibland för offentlig konfiguration). Egenskapen *xmlcfg* innehåller XML-baserad konfiguration för diagnostikloggar, prestanda räknare som samlas in av Diagnostics-agenten. Se [konfigurations schema för diagnostik](https://msdn.microsoft.com/library/azure/dn782207.aspx) om du vill ha mer information om själva XML-schemat. En vanlig metod är att lagra den faktiska XML-konfigurationen som en variabel i Azure Resource Manager-mallen och sedan sammanfoga och base64 koda dem för att ange värdet för *xmlcfg*. Information om hur du lagrar XML i variabler finns i avsnittet om [konfigurations variabler för diagnostik](#diagnostics-configuration-variables) . Egenskapen *storageAccount* anger namnet på det lagrings konto som diagnostikdata överförs till. 
 
-Egenskaperna i *protectedSettings* (ibland hänvisade till som privat konfiguration) kan anges men går inte att läsa tillbaka efter anges. Den lässkyddad natur *protectedSettings* är det praktiskt för att lagra hemligheter som lagringskontonyckeln där diagnostics-data skrivs.    
+Egenskaperna i *protectedSettings* (kallas ibland privat konfiguration) kan anges men kan inte läsas tillbaka när de har angetts. Den skrivskyddade typen av *protectedSettings* gör det användbart för att lagra hemligheter som lagrings konto nyckel där diagnostikdata skrivs.    
 
-## <a name="specifying-diagnostics-storage-account-as-parameters"></a>Anger att diagnostiklagringskonto parametrar
-Diagnostik tillägget json-kodfragmentet ovan förutsätter två parametrar *existingdiagnosticsStorageAccountName* och *existingdiagnosticsStorageResourceGroup* ange lagring för diagnostik konto diagnostikdata ska lagras. Anger diagnostiklagringskonto som en parameter gör det enkelt att ändra lagringskontot för gatewaydiagnostik i olika miljöer, till exempel vilja använda en annan diagnostiklagringskonto för testning och en för din Produktionsdistribution.  
+## <a name="specifying-diagnostics-storage-account-as-parameters"></a>Ange ett lagrings konto för diagnostik som parametrar
+JSON-kodfragmentet för Diagnostics Extension ovan förutsätter två parametrar *existingdiagnosticsStorageAccountName* och *existingdiagnosticsStorageResourceGroup* för att ange det lagrings konto för diagnostik där diagnostikdata lagras. Genom att ange ett lagrings konto för diagnostik som en parameter är det enkelt att ändra diagnostikens lagrings konto i olika miljöer, till exempel kanske du vill använda ett annat konto för diagnostik-lagring för att testa och en annan för din produktions distribution.  
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -102,23 +102,23 @@ Diagnostik tillägget json-kodfragmentet ovan förutsätter två parametrar *exi
 }
 ```
 
-Det är bäst att ange ett lagringskonto för diagnostik i en annan resursgrupp än resursgruppen för den virtuella datorn. En resursgrupp kan betraktas som en distributionsenhet med sin egen livslängd, en virtuell dator kan distribueras och omdistribueras som nya konfigurationer uppdateringar blir det till den, men du kanske vill fortsätta lagra diagnostics-data i samma lagringskonto i dessa distributioner av virtuella datorer. Med storage-konto i en annan resurs kan lagringskontot för att ta emot data från olika distributioner av virtuella datorer som gör det enkelt att Felsök problem i olika versioner.
+Det är bäst att ange ett lagrings konto för diagnostik i en annan resurs grupp än resurs gruppen för den virtuella datorn. En resurs grupp kan anses vara en distributions enhet med en egen livs längd, en virtuell dator kan distribueras och omdistribueras eftersom nya konfigurationer av konfigurationer görs till den, men du kanske vill fortsätta att lagra diagnostikdata i samma lagrings konto över dessa distributioner av virtuella datorer. Om du har lagrings kontot i en annan resurs kan lagrings kontot ta emot data från olika distributioner av virtuella datorer, vilket gör det enkelt att felsöka problem i olika versioner.
 
 > [!NOTE]
-> Om du skapar en mall för virtuell dator av windows från Visual Studio kan standardkontot för lagring anges att använda samma lagringskonto där den virtuella datorn virtuella Hårddisk har laddats upp. Det här är att underlätta installationen av den virtuella datorn. Ändra faktorerna mallen om du vill använda ett annat lagringskonto som kan skickas som en parameter. 
+> Om du skapar en mall för virtuella Windows-datorer från Visual Studio kan standard lagrings kontot vara inställt på att använda samma lagrings konto där den virtuella hård disken har laddats upp. Detta är för att förenkla den första installationen av den virtuella datorn. Omvärdera mallen till att använda ett annat lagrings konto som kan skickas som en parameter. 
 > 
 > 
 
 ## <a name="diagnostics-configuration-variables"></a>Variabler för konfiguration av diagnostik
-Föregående diagnostik tillägget json-kodfragmentet definierar en *accountid* variabeln för att förenkla komma lagringskontots åtkomstnyckel för lagring för diagnostik:   
+Föregående JSON-kodfragment för diagnostik definierar en *accountid* -variabel för att förenkla hämtningen av lagrings konto nyckeln för diagnostik-lagringen:   
 
 ```json
 "accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
 ```
 
-Den *xmlcfg* -egenskapen för diagnostiktillägget definieras med hjälp av flera variabler som sammanfogas tillsammans. Värdena för dessa variabler finns i xml så de måste undantas korrekt när du ställer in json-variabler.
+*Xmlcfg* -egenskapen för Diagnostics-tillägget definieras med flera variabler som sammanfogas tillsammans. Värdena för dessa variabler är i XML så att de måste undantas korrekt när du anger JSON-variablerna.
 
-I följande exempel beskrivs den diagnostik i XML-format som samlar in standard system på prestandaräknare tillsammans med vissa windows-händelseloggar och diagnostikinfrastrukturloggar. Det har undantaget och formaterats korrekt så att konfigurationen direkt kan klistras in i variabelavsnitt i mallen. Se den [diagnostik konfigurationsschema](https://msdn.microsoft.com/library/azure/dn782207.aspx) ett mänskligare läsbara exempel på XML-konfigurationsfil.
+I följande exempel beskrivs XML för diagnostik-konfiguration som samlar in prestanda räknare på standard system nivå tillsammans med vissa Windows-händelseloggar och infrastruktur loggar för diagnostik. Den har avvisats och formaterats korrekt, så att konfigurationen kan klistras in direkt i avsnittet variabler i mallen. I [konfigurations schema för diagnostik](https://msdn.microsoft.com/library/azure/dn782207.aspx) finns ett mer lättläst exempel på konfigurations-XML.
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
@@ -129,14 +129,14 @@ I följande exempel beskrivs den diagnostik i XML-format som samlar in standard 
 "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 ```
 
-Mått definition xml-nod i konfigurationen ovan är en viktig konfigurationsinformation del eftersom den definierar hur räknarna som definierats tidigare i XML-koden i *PerformanceCounter* noden aggregeras och lagras. 
+XML-noden för mått definition i ovanstående konfiguration är ett viktigt konfigurations element som definierar hur de prestanda räknare som definierats tidigare i XML-filen i *PerformanceCounter* -noden aggregeras och lagras. 
 
 > [!IMPORTANT]
-> De här måtten enhet övervakning av diagram och aviseringar i Azure-portalen.  Den **mått** nod med den *resourceID* och **MetricAggregation** måste inkluderas i diagnostikkonfigurationen för den virtuella datorn om du vill se den virtuella datorn övervakningsdata i Azure-portalen. 
+> Dessa mått styr övervaknings diagrammen och aviseringarna i Azure Portal.  Noden **mått** med *resourceID* och **MetricAggregation** måste ingå i diagnostik-konfigurationen för din virtuella dator om du vill se data för VM-övervakning i Azure Portal. 
 > 
 > 
 
-I följande exempel visas xml för måttdefinitioner av: 
+I följande exempel visas XML för mått definitioner: 
 
 ```xml
 <Metrics resourceId="/subscriptions/subscription().subscriptionId/resourceGroups/resourceGroup().name/providers/Microsoft.Compute/virtualMachines/vmName">
@@ -145,39 +145,39 @@ I följande exempel visas xml för måttdefinitioner av:
 </Metrics>
 ```
 
-Den *resourceID* attribut som unikt identifierar den virtuella datorn i din prenumeration. Se till att använda funktionerna subscription() och resourceGroup() så att mallen uppdateras automatiskt dessa värden baserat på prenumerationen och resursgruppen som du distribuerar till.
+Attributet *resourceID* identifierar unikt den virtuella datorn i din prenumeration. Se till att använda funktionerna Subscription () och resourceGroup () så att mallen automatiskt uppdaterar dessa värden baserat på den prenumeration och resurs grupp som du distribuerar till.
 
-Om du skapar flera virtuella datorer i en loop, måste du fylla i den *resourceID* värde med en funktionen copyIndex() korrekt skilja mellan varje enskild virtuell dator. Den *xmlCfg* kan uppdateras för att stödja detta på följande sätt:  
+Om du skapar flera Virtual Machines i en slinga måste du fylla i värdet *resourceID* med en copyIndex ()-funktion för att kunna särskilja varje enskild virtuell dator. *XmlCfg* -värdet kan uppdateras för att stödja detta på följande sätt:  
 
 ```json
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-Värdet för MetricAggregation *PT1M* och *PT1H* en obestämd en samling under en minut och en sammanställning över en timme.
+MetricAggregation-värdet för *PT1M* och *PT1H* indikerar en agg regering över en minut och en agg regering över en timme.
 
-## <a name="wadmetrics-tables-in-storage"></a>WADMetrics tabeller i storage
-Mått konfigurationen ovan skapar tabeller i ditt lagringskonto för diagnostik med följande namngivningsregler:
+## <a name="wadmetrics-tables-in-storage"></a>WADMetrics-tabeller i lagring
+Måtts konfigurationen ovan genererar tabeller i ditt diagnostik lagrings konto med följande namn konventioner:
 
-* **WADMetrics**: Standard-prefix för alla WADMetrics tabeller
-* **PT1H** eller **PT1M**: Innebär det att tabellen innehåller aggregerade data över en timme eller minut
-* **P10D**: Innebär det att tabellen innehåller data för 10 dagar från när tabellen startade insamling av data
+* **WADMetrics**: Standardprefix för alla WADMetrics-tabeller
+* **PT1H** eller **PT1M**: Indikerar att tabellen innehåller sammanställda data över 1 timme eller 1 minut
+* **P10D**: Visar att tabellen innehåller data i 10 dagar från det att tabellen började samla in data
 * **V2S**: Strängkonstant
-* **yyyymmdd**: Det datum då tabellen igång insamling av data
+* **yyyymmdd**: Datumet då tabellen började samla in data
 
-Exempel: *WADMetricsPT1HP10DV2S20151108* innehåller mätvärden samman under en timme för 10 dagar från och med 11 november 2015    
+Exempel: *WADMetricsPT1HP10DV2S20151108* innehåller mått data som sammanställs under en timme för 10 dagar med början den 11-Nov-2015    
 
-Varje WADMetrics tabell innehåller följande kolumner:
+Varje WADMetrics-tabell innehåller följande kolumner:
 
-* **PartitionKey**: Partitionsnyckeln skapas utifrån den *resourceID* värde att identifiera den Virtuella datorresursen. Exempel: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey**: Följer formatet `<Descending time tick>:<Performance Counter Name>`. Fallande tid skalstreck beräkningen är max tid ticken minus tidpunkten för början av sammanställningsperioden. Till exempel om exemplet period igång på 10 november 2015 och 00:00Hrs UTC sedan beräkningen är: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Prestandaräknaren Radnyckeln ser ut för minne tillgängliga byte: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName**: Är namnet på prestandaräknaren. Detta matchar den *counterSpecifier* definieras i xml-konfigurationen.
-* **Maximal**: Det högsta värdet för prestandaräknaren för över sammanställningsperioden.
-* **Minimum**: Minimivärdet för prestandaräknare över sammanställningsperioden.
-* **Totalt antal**: Summan av alla värden i prestandaräknaren rapporterat under sammanställningsperioden.
-* **Antal**: Det totala antalet värden som rapporterats för prestandaräknaren.
-* **Genomsnittlig**: Värdet för prestandaräknaren över sammanställningsperioden medelvärde (totalt/antal).
+* **PartitionKey**: Partitionsnyckel konstrueras baserat på värdet *resourceID* för att unikt identifiera VM-resursen. Exempel: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **RowKey**: Följer formatet `<Descending time tick>:<Performance Counter Name>`. Tids Skale beräkningen för fallande timmar är Max tids skal minus tiden i början av agg regerings perioden. Exempel: om exempel perioden startades 10-nov-2015 och 00:00Hrs UTC skulle beräkningen vara: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. För prestanda räknaren tillgängliga minnes byte kommer rad nyckeln att se ut så här:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **CounterName**: Är namnet på prestanda räknaren. Detta matchar den *counterSpecifier* som definierats i XML-konfigurationen.
+* **Max**: Det maximala värdet för prestanda räknaren över samlings perioden.
+* **Lägsta**: Det minimala värdet för prestanda räknaren över samlings perioden.
+* **Totalt**: Summan av alla värden för prestanda räknaren som rapporter ATS under samlings perioden.
+* **Antal**: Det totala antalet värden som rapporter ATS för prestanda räknaren.
+* **Genomsnitt**: Genomsnitt svärdet (total/Count) för prestanda räknaren över samlings perioden.
 
 ## <a name="next-steps"></a>Nästa steg
-* En komplett exempelmall med en Windows-dator med diagnostiktillägget finns [201-vm-övervakning-diagnostics-tillägg](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Distribuera Azure Resource Manager-mall med [Azure PowerShell](../windows/ps-template.md) eller [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Läs mer om [skapa Azure Resource Manager-mallar](../../resource-group-authoring-templates.md)
+* En fullständig exempel mall för en virtuell Windows-dator med diagnostik-tillägg finns i [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+* Distribuera Azure Resource Manager-mallen med [Azure PowerShell](../windows/ps-template.md) eller [Azure kommando rad](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Läs mer om hur du [redigerar Azure Resource Manager mallar](../../resource-group-authoring-templates.md)

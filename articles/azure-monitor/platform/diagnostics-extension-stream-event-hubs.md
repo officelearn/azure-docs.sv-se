@@ -1,6 +1,6 @@
 ---
-title: Stream Azure Diagnostics-data till Event Hubs
-description: Konfigurera Azure Diagnostics-data med Event Hubs slutpunkt till slutpunkt, inklusive riktlinjer för vanliga scenarier.
+title: Strömma Azure-diagnostik data till Event Hubs
+description: Konfigurera Azure-diagnostik med Event Hubs slut punkt till slut punkt, inklusive vägledning för vanliga scenarier.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -10,16 +10,16 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "64922808"
 ---
-# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs
-Azure-diagnostik tillhandahåller flexibelt sätt att samla in mått och loggar från cloud services-datorer (VM) och överför resultatet till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsram, kan du skickar diagnostik till anpassade datakällor och överföra heta sökvägen data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
+# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Strömma Azure-diagnostik data i den aktiva sökvägen med Event Hubs
+Azure-diagnostik ger flexibla sätt att samla in mått och loggar från virtuella datorer i moln tjänster och överföra resultat till Azure Storage. Med början i tids ramen 2016 mars (SDK 2,9) kan du skicka diagnostik till anpassade data källor och överföra frekventa Sök vägs data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
-Datatyper som stöds är:
+Data typer som stöds är:
 
 * ETW-händelser (Event Tracing for Windows)
 * Prestandaräknare
@@ -27,25 +27,25 @@ Datatyper som stöds är:
 * Programloggar
 * Azure Diagnostics-infrastrukturloggar
 
-Den här artikeln visar hur du konfigurerar Azure Diagnostics-data med Event Hubs från slutpunkt till slutpunkt. Du får också information i följande vanliga scenarier:
+Den här artikeln visar hur du konfigurerar Azure-diagnostik med Event Hubs från slut punkt till slut punkt. Vägledning finns också för följande vanliga scenarier:
 
-* Hur du anpassar loggar och mått som skickas till Event Hubs
-* Hur du ändrar konfigurationer i varje miljö
-* Så här visar du dataströmmar med Event Hubs
+* Så här anpassar du de loggar och mått som skickas till Event Hubs
+* Ändra konfigurationer i varje miljö
+* Visa Event Hubs strömmande data
 * Så här felsöker du anslutningen  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Händelsehubbar ta emot data från Azure-diagnostik har stöd för molntjänster, virtuella datorer, Virtual Machine Scale Sets och Service Fabric från och med Azure SDK 2.9 och motsvarande Azure Tools för Visual Studio.
+## <a name="prerequisites"></a>Förutsättningar
+Event Hubs att ta emot data från Azure-diagnostik stöds i Cloud Services, virtuella datorer, Virtual Machine Scale Sets och Service Fabric som börjar i Azure SDK 2,9 och motsvarande Azure-verktyg för Visual Studio.
 
-* Azure Diagnostics-tillägg 1.6 ([Azure SDK för .NET 2.9 eller senare](https://azure.microsoft.com/downloads/) riktar sig mot det som standard)
+* Azure-diagnostik tillägget 1,6 ([Azure SDK för .net 2,9 eller senare](https://azure.microsoft.com/downloads/) riktar detta som standard)
 * [Visual Studio 2013 eller senare](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* Befintliga konfigurationer av Azure Diagnostics-data i ett program med hjälp av en *.wadcfgx* fil- och en av följande metoder:
-  * Visual Studio: [Konfigurera diagnostik för Azure-molntjänster och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
-  * Windows PowerShell: [Aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md)
-* Event Hubs-namnområde etablerat per artikel, [Kom igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* Befintliga konfigurationer av Azure-diagnostik i ett program med hjälp av en *. wadcfgx* -fil och en av följande metoder:
+  * Visual Studio: [Konfigurera diagnostik för Azure Cloud Services och Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+  * Windows PowerShell: [Aktivera diagnostik i Azure Cloud Services med PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md)
+* Event Hubs namn område som tillhandahålls per artikel, [Kom igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
-## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Ansluta Azure Diagnostics-data till Event Hubs-mottagare
-Som standard skickar Azure Diagnostics alltid loggar och mått till ett Azure Storage-konto. Ett program kan också skicka data till Event Hubs genom att lägga till en ny **egenskaperna** avsnittet den **PublicConfig** / **WadCfg** elementet i den *. wadcfgx* fil. I Visual Studio i *.wadcfgx* lagras i följande sökväg: **Cloud Service-projekt** > **roller** >  **(RoleName)**  > **diagnostics.wadcfgx** fil.
+## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Ansluta Azure-diagnostik till Event Hubs mottagare
+Som standard skickar Azure-diagnostik alltid loggar och mått till ett Azure Storage konto. Ett program kan också skicka data till Event Hubs genom att lägga till ett nytt Sinks-avsnitt under **PublicConfig** / **WadCfg** -elementet i *. wadcfgx* -filen. I Visual Studio lagras *. wadcfgx* -filen på följande sökväg: > **Rolename-diagnostik (**  > Cloud Service Project**roles** > ).**wadcfgx** -filen.
 
 ```xml
 <SinksConfig>
@@ -68,18 +68,18 @@ Som standard skickar Azure Diagnostics alltid loggar och mått till ett Azure St
 }
 ```
 
-I det här exemplet anges URL: en för event hub till fullständigt kvalificerade namnområdet för event hub: Event Hubs-namnområde + ”/” + event hub-namn.  
+I det här exemplet är Event Hub-URL: en inställd på det fullständigt kvalificerade namn området för händelsehubben: Event Hubs namnrymd + "/" + namn på händelsehubben.  
 
-Event hub URL-Adressen visas i den [Azure-portalen](https://go.microsoft.com/fwlink/?LinkID=213885) på instrumentpanelen för Event Hubs.  
+Hubb-URL: en för händelsehubben visas i [Azure Portal](https://go.microsoft.com/fwlink/?LinkID=213885) på instrument panelen för Event Hubs.  
 
-Den **mottagare** namnet kan vara samma som en giltig sträng så länge samma värde används konsekvent i hela konfigurationsfilen.
+**Mottagar** namnet kan anges till en giltig sträng så länge samma värde används konsekvent i hela konfigurations filen.
 
 > [!NOTE]
-> Det kan finnas ytterligare mottagare, till exempel *applicationInsights* konfigurerats i det här avsnittet. Azure-diagnostik kan en eller flera mottagare definieras om varje mottagare deklareras också i den **PrivateConfig** avsnittet.  
+> Det kan finnas ytterligare mottagare, till exempel *applicationInsights* som kon figurer ATS i det här avsnittet. Azure-diagnostik tillåter att en eller flera handfat definieras om varje Sink också deklareras i avsnittet **PrivateConfig** .  
 >
 >
 
-Event Hubs-mottagare måste också deklarerats och definieras i den **PrivateConfig** delen av den *.wadcfgx* konfigurationsfilen.
+Event Hubs Sink måste också deklareras och definieras i avsnittet **PrivateConfig** i *. wadcfgx* -konfigurations filen.
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -100,19 +100,19 @@ Event Hubs-mottagare måste också deklarerats och definieras i den **PrivateCon
 }
 ```
 
-Den `SharedAccessKeyName` värdet måste överensstämma med en signatur för delad åtkomst (SAS)-nyckel och en princip som har definierats i den **Händelsehubbar** namnområde. Bläddra till Event Hubs-instrumentpanelen i den [Azure-portalen](https://portal.azure.com), klickar du på den **konfigurera** fliken och skapa en namngiven princip (till exempel ”SendRule”) som har *skicka* behörigheter. Den **StorageAccount** deklareras också i **PrivateConfig**. Det finns ingen anledning att ändra värden här om de arbetar. I det här exemplet lämna vi värdena tomt, vilket är ett tecken på att en underordnad tillgång kommer att ange värden. Till exempel den *ServiceConfiguration.Cloud.cscfg* miljö konfigurationsfilen anger miljö som är lämpliga namn och nycklar.  
+Värdet måste matcha en nyckel och princip för signatur för delad åtkomst (SAS) som har definierats i Event Hubs-namnområdet. `SharedAccessKeyName` Bläddra till Event Hubs instrument panelen i [Azure Portal](https://portal.azure.com), klicka på fliken **Konfigurera** och konfigurera en namngiven princip (till exempel "SendRule") som har *send* -behörighet. **StorageAccount** har också deklarerats i **PrivateConfig**. Du behöver inte ändra värdena här om de fungerar. I det här exemplet lämnar vi värdena tomma, vilket är ett tecken på att en efterföljande till gång kommer att ange värdena. Till exempel anger miljö konfigurations filen *ServiceConfiguration. Cloud. cscfg* miljö-lämpliga namn och nycklar.  
 
 > [!WARNING]
-> Event Hubs SAS-nyckeln lagras i klartext i den *.wadcfgx* fil. Ofta den här nyckeln har checkats in för källkodskontroll eller är tillgänglig som en tillgång i build-servern, så att du ska skydda den efter behov. Vi rekommenderar att du använder en SAS-nyckel här med *Skicka endast* behörigheter så att en obehörig användare inte kan skriva till händelsehubb, men lyssna på den eller hantera den.
+> Event Hubs SAS-nyckeln lagras som oformaterad text i *. wadcfgx* -filen. Den här nyckeln är ofta incheckad till käll kods kontroll eller är tillgänglig som en till gång i din build-Server, så du bör skydda den efter behov. Vi rekommenderar att du använder en SAS-nyckel här med *endast skicka* behörigheter så att en obehörig användare kan skriva till händelsehubben, men inte lyssna på den eller hantera den.
 >
 >
 
-## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Konfigurera Azure Diagnostics för att skicka loggar och mått till Event Hubs
-Enligt beskrivningen tidigare alla standard- och anpassade diagnostikdata, det vill säga skickas mått och loggar, automatiskt till Azure Storage i de konfigurerade intervallen. Du kan ange en rot- eller löv nod i hierarkin som ska skickas till event hub med Event Hubs och eventuella ytterligare mottagare. Detta inkluderar ETW-händelser, prestandaräknare, Windows-händelseloggar och programloggar.   
+## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Konfigurera Azure-diagnostik för att skicka loggar och mått till Event Hubs
+Som tidigare nämnts, skickas alla standard-och anpassade diagnostikdata, det vill säga mått och loggar, automatiskt till Azure Storage i de konfigurerade intervallen. Med Event Hubs och ytterligare mottagare kan du ange valfri rot-eller lövnod i hierarkin som ska skickas till händelsehubben. Detta inkluderar ETW-händelser, prestanda räknare, Windows-händelseloggar och program loggar.   
 
-Det är viktigt att tänka på hur många datapunkter faktiskt ska överföras till Event Hubs. Vanligtvis dataöverföring utvecklare med låg latens frekvent sökväg som används och tolkas snabbt. System som övervakar aviseringar eller regler för automatisk skalning är exempel. Utvecklare kan också konfigurera en annan analysis-store eller Sök store – till exempel Azure Stream Analytics, Elasticsearch, ett anpassat övervakningssystem eller en favorit övervakningssystemet från andra.
+Det är viktigt att tänka på hur många data punkter som faktiskt ska överföras till Event Hubs. Normalt överför utvecklare låg latens med låg latens data som måste förbrukas och tolkas snabbt. System som övervakar varningar eller regler för autoskalning är exempel. En utvecklare kan också konfigurera ett alternativt analys lager eller Sök Arkiv, till exempel Azure Stream Analytics, ElasticSearch, ett anpassat övervaknings system eller ett favorit övervaknings system från andra.
 
-Här följer några exempelkonfigurationer.
+Här följer några exempel på konfigurationer.
 
 ```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
@@ -142,7 +142,7 @@ Här följer några exempelkonfigurationer.
 }
 ```
 
-I exemplet ovan sink används för överordnat **PerformanceCounters** nod i hierarkin, vilket innebär att alla underordnade **PerformanceCounters** kommer att skickas till Event Hubs.  
+I ovanstående exempel tillämpas sinken på den överordnade **PerformanceCounters** -noden i-hierarkin, vilket innebär att alla underordnade **PerformanceCounters** skickas till Event Hubs.  
 
 ```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M">
@@ -184,9 +184,9 @@ I exemplet ovan sink används för överordnat **PerformanceCounters** nod i hie
 }
 ```
 
-I exemplet ovan är sink tillämpas endast tre räknare: **Begäranden i kö**, **begäranden avvisas**, och **% processortid**.  
+I föregående exempel används sinken bara för tre räknare: **Begär anden i kö**, **begär Anden**avvisade och **% processor tid**.  
 
-I följande exempel visar hur utvecklare kan begränsa mängden skickade data ska vara viktiga mått som används för den här tjänstens hälsa.  
+I följande exempel visas hur en utvecklare kan begränsa mängden data som skickas till kritiska mått som används för den här tjänstens hälsa.  
 
 ```XML
 <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
@@ -199,32 +199,32 @@ I följande exempel visar hur utvecklare kan begränsa mängden skickade data sk
 }
 ```
 
-I det här exemplet sink tillämpas loggar och är filtrerad endast för fel på spårningen.
+I det här exemplet används sinken för loggar och filtreras endast till spårning på fel nivå.
 
-## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuera och uppdatera en Cloud Services-konfiguration i programmet och diagnostik
-Visual Studio har det enklaste sättet för att distribuera det program- och Event Hubs mottagare. Om du vill visa och redigera filen, öppna den *.wadcfgx* i Visual Studio, redigera den och spara den. Sökvägen är **Molntjänstprojekt** > **roller** >  **(RoleName)**  > **diagnostics.wadcfgx**.  
+## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuera och uppdatera ett Cloud Services program och diagnostik-konfiguration
+Visual Studio är den enklaste sökvägen till att distribuera program-och Event Hubs Sink-konfigurationen. Om du vill visa och redigera filen öppnar du *. wadcfgx* -filen i Visual Studio, redigerar den och sparar den. Sökvägen är**rolename-diagnostik (**  >  **Cloud Service Project** > **roles** > ) **. wadcfgx**.  
 
-Nu kan alla och distributionen uppdatera åtgärder i Visual Studio, Visual Studio Team System, och alla kommandon eller skript som är baserade på MSBuild och Använd den **/t: publicera** mål är den *.wadcfgx* paketering pågår. Dessutom distribuera distributioner och uppdateringar filen till Azure med hjälp av Azure Diagnostics-tillägget för lämplig agent på dina virtuella datorer.
+Nu är alla distributions-och distributions uppdaterings åtgärder i Visual Studio, Visual Studio Team system och alla kommandon eller skript som baseras på MSBuild och använder kommandot **/t: Publish:** *. wadcfgx* i förpacknings processen. Distributioner och uppdateringar distribuerar dessutom filen till Azure med hjälp av lämpligt Azure-diagnostik agent tillägg på dina virtuella datorer.
 
-När du har distribuerat programmet och Azure Diagnostics-konfiguration visas direkt aktivitet i instrumentpanelen för event hub. Detta anger att du är redo att gå vidare till att visa frekvent sökväg-data i lyssnaren klient- eller verktyg som helst.  
+När du har distribuerat programmet och Azure-diagnostik konfiguration kommer du direkt se aktivitet i instrument panelen för Event Hub. Det betyder att du är redo att gå vidare för att visa data för frekventa sökvägar i den lyssnare-klient eller det analys verktyg du väljer.  
 
-I följande bild visar Event Hubs-instrumentpanelen felfria sändning av diagnostikdata till händelsehubben startar en stund efter 23: 00. Det är då programmet distribuerades med en uppdaterad *.wadcfgx* fil- och mottagaren har konfigurerats korrekt.
+I följande bild visar Event Hubs instrument panelen felfritt sändning av diagnostikdata till händelsehubben startar en stund efter 11 PM. Det är när programmet distribuerades med en uppdaterad *. wadcfgx* -fil och Sink har kon figurer ATS korrekt.
 
 ![][0]  
 
 > [!NOTE]
-> När du gör uppdateringar i Azure Diagnostics-konfigurationsfilen (.wadcfgx) rekommenderar vi att du har överfört uppdateringarna till hela programmet, samt konfigurationen med hjälp av Visual Studio-publicering eller ett Windows PowerShell-skript.  
+> När du gör uppdateringar i Azure-diagnostik konfigurations filen (. wadcfgx) rekommenderar vi att du skickar uppdateringarna till hela programmet och konfigurationen med hjälp av Visual Studio-publicering eller ett Windows PowerShell-skript.  
 >
 >
 
-## <a name="view-hot-path-data"></a>Visa frekvent sökväg data
-Som beskrivs tidigare kan finns det många användningsområden för att lyssna på och bearbeta data i Händelsehubbar.
+## <a name="view-hot-path-data"></a>Visa data för frekventa sökvägar
+Som tidigare nämnts finns det många användnings fall för att lyssna på och bearbeta Event Hubs data.
 
-En enkel metod är att skapa ett litet test-konsolprogram för att lyssna på händelsehubben och skriva ut utdataströmmen. Du kan placera följande kod, vilket förklaras i detalj i [Kom igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), i ett konsolprogram.  
+En enkel metod är att skapa ett litet test konsol program för att lyssna på händelsehubben och skriva ut utdataströmmen. Du kan placera följande kod, som beskrivs i mer detalj i [komma igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), i ett konsol program.  
 
-Observera att konsolprogrammet måste innehålla den [Event Processor Host NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
+Observera att konsol programmet måste innehålla [Event processors Host NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
-Kom ihåg att ersätta värdena i vinkelparenteser i den **Main** funktionen med värden för dina resurser.   
+Kom ihåg att ersätta värdena i vinkelparenteser i **huvud** funktionen med värden för dina resurser.   
 
 ```csharp
 //Console application code for EventHub test client
@@ -307,21 +307,21 @@ namespace EventHubListener
 }
 ```
 
-## <a name="troubleshoot-event-hubs-sinks"></a>Felsöka Händelsehubbar mottagare
-* Event hub visar inte inkommande eller utgående evenemang aktivitet som förväntat.
+## <a name="troubleshoot-event-hubs-sinks"></a>Felsöka Event Hubs-mottagare
+* Event Hub visar inte inkommande eller utgående händelse aktivitet som förväntat.
 
-    Kontrollera att din händelsehubb har etablerats. Alla anslutningsinformation i den **PrivateConfig** delen av *.wadcfgx* måste matcha värdena för din resurs som visas i portalen. Se till att du har en princip för Signatur för definierats (”SendRule” i det här exemplet) i portalen och som *skicka* behörigheten.  
-* Efter en uppdatering visar event hub inte längre inkommande eller utgående evenemang aktivitet.
+    Kontrol lera att händelsehubben har kon figurer ATS. All anslutnings information i **PrivateConfig** -avsnittet i *. wadcfgx* måste matcha värdena i resursen som visas i portalen. Kontrol lera att du har definierat en SAS-princip ("SendRule" i exemplet) i portalen och att *send* -behörighet beviljas.  
+* Efter en uppdatering visar händelsehubben inte längre inkommande eller utgående händelse aktivitet.
 
-    Kontrollera först att event hub och konfiguration information är korrekt enligt beskrivningen ovan. Ibland den **PrivateConfig** återställs i en uppdatering i distributionen. Rekommenderade korrigeringen är att göra alla ändringar i *.wadcfgx* i projektet och sedan push en uppdatering för hela appen. Om det inte är möjligt, se till att uppdateringen diagnostik skickar ett komplett **PrivateConfig** som innehåller SAS-nyckeln.  
-* Jag försökte förslagen och event hub fortfarande fungerar inte.
+    Kontrol lera först att händelsehubben och konfigurations informationen är korrekt enligt beskrivningen ovan. Ibland återställs **PrivateConfig** i en distributions uppdatering. Den rekommenderade korrigeringen är att göra alla ändringar i *. wadcfgx* i projektet och sedan skicka en fullständig program uppdatering. Om detta inte är möjligt kontrollerar du att uppdateringen av diagnostiken pushar en fullständig **PrivateConfig** som innehåller SAS-nyckeln.  
+* Jag försökte förslaget, och händelsehubben fungerar fortfarande inte.
 
-    Testa att titta i Azure Storage-tabell som innehåller loggarna och fel för Azure-diagnostik själva: **WADDiagnosticInfrastructureLogsTable**. Ett alternativ är att använda ett verktyg som [Azure Storage Explorer](https://www.storageexplorer.com) för att ansluta till det här lagringskontot, visa den här tabellen och Lägg till en fråga för tidsstämpel under de senaste 24 timmarna. Du kan använda verktyget för att exportera en CSV-fil och öppna den i ett program, till exempel Microsoft Excel. Excel är det enkelt att söka efter strängar kort, till exempel **EventHubs**, för att se vilka fel rapporteras.  
+    Försök att leta i Azure Storages tabellen som innehåller loggar och fel för Azure-diagnostik sig själv: **WADDiagnosticInfrastructureLogsTable**. Ett alternativ är att använda ett verktyg som [Azure Storage Explorer](https://www.storageexplorer.com) för att ansluta till det här lagrings kontot, Visa den här tabellen och lägga till en fråga för timestamp under de senaste 24 timmarna. Du kan använda verktyget för att exportera en. csv-fil och öppna den i ett program, till exempel Microsoft Excel. Excel gör det enkelt att söka efter telefon korts strängar, till exempel **EventHubs**, för att se vilket fel som rapporteras.  
 
 ## <a name="next-steps"></a>Nästa steg
 • [Läs mer om Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
-## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Tillägg: Slutför Azure Diagnostics Konfigurationsexempel för filen (.wadcfgx)
+## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Fjärde Slutför Azure-diagnostik konfigurations fil (. wadcfgx)-exempel
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -375,7 +375,7 @@ namespace EventHubListener
 </DiagnosticsConfiguration>
 ```
 
-Den kompletterande *ServiceConfiguration.Cloud.cscfg* för det här exemplet ser ut som följande.
+Den kompletterande *ServiceConfiguration. Cloud. cscfg* -filen för det här exemplet ser ut så här.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -491,7 +491,7 @@ Offentliga inställningar:
 
 ```
 
-Inställningarna för replikeringsskyddade:
+Skyddade inställningar:
 ```JSON
 {
     "storageAccountName": "{account name}",

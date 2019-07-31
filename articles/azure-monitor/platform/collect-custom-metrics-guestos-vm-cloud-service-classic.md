@@ -1,6 +1,6 @@
 ---
-title: Skicka gäst-OS mått av Azure Monitor-måtten lagra klassiska molntjänster
-description: Skicka gäst-OS mått av Azure Monitor-måtten lagra Cloud Services
+title: Skicka gäst operativ systemets mått till Azure Monitor mått lagrets klassiska Cloud Services
+description: Skicka gäst operativ systemets mått till Azure Monitor Metric Store Cloud Services
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,56 +9,56 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129477"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Skicka gäst-OS mått av Azure Monitor-måtten lagra klassiska molntjänster 
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Skicka gäst operativ systemets mått till Azure Monitor mått lagrets klassiska Cloud Services 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Med Azure Monitor [diagnostiktillägget](diagnostics-extension-overview.md), du kan samla in mått och loggar från gästoperativsystemet (gäst-OS) som körs som en del av en virtuell dator, en molntjänst eller ett Service Fabric-kluster. Tillägget kan skicka telemetri till [många olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+Med Azure Monitor [Diagnostics-tillägget](diagnostics-extension-overview.md)kan du samla in mått och loggar från gäst operativ systemet (gäst operativ system) som körs som en del av en virtuell dator, moln tjänst eller Service Fabric kluster. Tillägget kan skicka telemetri till [flera olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-Den här artikeln beskriver processen för att skicka gäst-OS-prestandamått för Azure klassiska molntjänster till arkivet som Azure Monitor-mått. Från och med diagnostik version 1.11, kan du skriva mått direkt till i Azure Monitor mått store, där standardplattform mått är redan har samlats in. 
+Den här artikeln beskriver processen för att skicka gäst operativ systemets prestanda mått för den klassiska Azure-Cloud Services till Azure Monitor Metric-lagret. Från och med diagnostik version 1,11 kan du skriva mått direkt till lagrings platsen Azure Monitor mått, där standard plattforms mått redan har samlats in. 
 
-Lagra dem i den här platsen kan du komma åt samma åtgärder som du kan för plattformen mått. Åtgärder omfattar nästan i realtid avisering, diagram, routning, åtkomst från ett REST-API och mycket mer.  Tidigare skrev Diagnostics-tillägg till Azure Storage, men inte till Azure Monitor-datalager.  
+Genom att lagra dem på den här platsen kan du komma åt samma åtgärder som du kan använda för plattforms mått. Åtgärder är nästan real tids avisering, diagram, routning, åtkomst från en REST API med mera.  Tidigare skrev diagnostikprogrammet-tillägget till Azure Storage, men inte till Azure Monitor data lager.  
 
-Processen som beskrivs i den här artikeln fungerar endast för prestandaräknare i Azure Cloud Services. Det fungerar inte för andra anpassade mått. 
+Processen som beskrivs i den här artikeln fungerar bara för prestanda räknare i Azure Cloud Services. Det fungerar inte för andra anpassade mått. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Du måste vara en [tjänstadministratör eller delad administratör](~/articles/billing/billing-add-change-azure-subscription-administrator.md) på din Azure-prenumeration. 
+- Du måste vara [tjänst administratör eller delad administratör](~/articles/billing/billing-add-change-azure-subscription-administrator.md) på din Azure-prenumeration. 
 
-- Prenumerationen måste vara registrerad med [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Din prenumeration måste vara registrerad med [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Du måste ha antingen [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerad.
+- Du måste antingen ha [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerat.
 
-## <a name="provision-a-cloud-service-and-storage-account"></a>Etablera en cloud service och storage-konto 
+## <a name="provision-a-cloud-service-and-storage-account"></a>Etablera en moln tjänst och ett lagrings konto 
 
-1. Skapa och distribuera en klassisk molntjänst. Ett exempel klassiska Cloud Services-program och distribution finns på [Kom igång med Azure Cloud Services och ASP.NET](../../cloud-services/cloud-services-dotnet-get-started.md). 
+1. Skapa och distribuera en klassisk moln tjänst. Ett exempel på ett klassiskt Cloud Services-program och-distribution finns i [Kom igång med Azure Cloud Services och ASP.net](../../cloud-services/cloud-services-dotnet-get-started.md). 
 
-2. Du kan använda ett befintligt lagringskonto eller distribuera ett nytt lagringskonto. Det är bäst om lagringskontot tillhör samma region som den klassiska molntjänst som du skapade. I Azure-portalen går du till den **lagringskonton** resursbladet och välj sedan **nycklar**. Anteckna namnet på lagringskontot och lagringskontonyckeln. Du behöver den här informationen i senare steg.
+2. Du kan använda ett befintligt lagrings konto eller distribuera ett nytt lagrings konto. Det är bäst om lagrings kontot finns i samma region som den klassiska moln tjänsten som du har skapat. I Azure Portal går du till resurs bladet **lagrings konton** och väljer sedan **nycklar**. Anteckna lagrings kontots namn och lagrings konto nyckeln. Du behöver den här informationen i senare steg.
 
    ![Lagringskontonycklar](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten 
 
-Skapa tjänstens huvudnamn i Azure Active Directory-klienten med hjälp av anvisningarna i [Använd portalen för att skapa en Azure Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Observera följande när du ska via den här processen: 
+Skapa en tjänst princip i din Azure Active Directory-klient genom att följa anvisningarna på [Använd Portal för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tänk på följande när du går igenom den här processen: 
 
-- Du kan placera i valfri URL för URL-inloggningen.  
-- Skapa nya klienthemligheten för den här appen.  
-- Spara den och klient-ID för användning i senare steg.  
+- Du kan ange valfri URL för inloggnings-URL: en.  
+- Skapa ny klient hemlighet för den här appen.  
+- Spara nyckeln och klient-ID: t för användning i senare steg.  
 
-Ge appen skapades i föregående steg *övervakning mått Publisher* behörigheter till resursen som du vill generera måtten mot. Om du planerar att använda appen för att skapa anpassade mått mot många resurser, kan du ge behörigheterna resource group eller på prenumerationsnivån.  
+Ge appen som skapats i föregående steg *övervaknings mått utgivar* behörigheter till den resurs som du vill skapa mått för. Om du planerar att använda appen för att generera anpassade mått för många resurser kan du bevilja dessa behörigheter på resurs gruppen eller prenumerations nivån.  
 
 > [!NOTE]
-> Diagnostiktillägget använder tjänstens huvudnamn för att autentisera mot Azure Monitor och skapa mått för din molntjänst.
+> Tillägget för diagnostik använder tjänstens huvud namn för att autentisera mot Azure Monitor och genererar mått för moln tjänsten.
 
-## <a name="author-diagnostics-extension-configuration"></a>Redigera konfigurationen för Diagnostiktillägg 
+## <a name="author-diagnostics-extension-configuration"></a>Redigera konfiguration av Diagnostics-tillägg 
 
-Förbered din konfigurationsfil för diagnostik-tillägget. Den här filen avgör vilka loggar och prestandaräknare diagnostiktillägget bör samla in för din molntjänst. Nedan följer ett exempel på diagnostik konfigurationsfil:  
+Förbered konfigurations filen för Diagnostics Extension. Den här filen avgör vilka loggar och prestanda räknare som Diagnostics-tillägget ska samla in för din moln tjänst. Följande är ett exempel på en diagnostisk konfigurations fil:  
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?> 
@@ -100,7 +100,7 @@ Förbered din konfigurationsfil för diagnostik-tillägget. Den här filen avgö
 </DiagnosticsConfiguration> 
 ```
 
-Definiera en ny Azure Monitor-kanalmottagare i avsnittet ”SinksConfig” i filen diagnostik: 
+I avsnittet "SinksConfig" i diagnostik-filen definierar du en ny Azure Monitor mottagare: 
 
 ```XML
   <SinksConfig> 
@@ -113,7 +113,7 @@ Definiera en ny Azure Monitor-kanalmottagare i avsnittet ”SinksConfig” i fil
   </SinksConfig> 
 ```
 
-I avsnittet i konfigurationsfilen där du lista prestandaräknarna som samlar in, lägger du till Azure Monitor-mellanlagringsplatsen. Den här posten säkerställer att alla prestandaräknare som du har angett dirigeras till Azure Monitor som mått. Du kan lägga till eller ta bort prestandaräknare efter dina behov. 
+I avsnittet i konfigurations filen där du listar de prestanda räknare som ska samlas in lägger du till Azure Monitor-mottagaren. Den här posten säkerställer att alla prestanda räknare som du har angett dirigeras till Azure Monitor som mått. Du kan lägga till eller ta bort prestanda räknare efter dina behov. 
 
 ```xml
     <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink">
@@ -122,7 +122,7 @@ I avsnittet i konfigurationsfilen där du lista prestandaräknarna som samlar in
     </PerformanceCounters>
 ```
 
-Slutligen i konfigurationen för privata lägger du till en *Azure-Övervakningskontot* avsnittet. Ange tjänstens huvudnamn klient-ID och hemlighet som du skapade tidigare. 
+Slutligen lägger du till ett *Azure Monitor konto* -avsnitt i den privata konfigurationen. Ange klient-ID och hemlighet för tjänstens huvud namn som du skapade tidigare. 
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
@@ -136,9 +136,9 @@ Slutligen i konfigurationen för privata lägger du till en *Azure-Övervaknings
 </PrivateConfig> 
 ```
 
-Spara diagnostik filen lokalt.  
+Spara den här diagnostik-filen lokalt.  
 
-## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Distribuera Diagnostics-tillägg till din molntjänst 
+## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Distribuera tillägget för diagnostik till moln tjänsten 
 
 Starta PowerShell och logga in på Azure. 
 
@@ -146,49 +146,49 @@ Starta PowerShell och logga in på Azure.
 Login-AzAccount 
 ```
 
-Använd följande kommandon för att lagra information om storage-kontot som du skapade tidigare. 
+Använd följande kommandon för att lagra information om det lagrings konto som du skapade tidigare. 
 
 ```powershell
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
 
-På samma sätt, ange sökvägen till diagnostik till en variabel med hjälp av följande kommando:
+På samma sätt anger du filens diagnostiska sökväg till en variabel med hjälp av följande kommando:
 
 ```powershell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
 
-Distribuera Diagnostics-tillägg till din molntjänst med diagnostik-fil med Azure Monitor-mellanlagringsplatsen som konfigurerats med följande kommando:  
+Distribuera tillägget till din moln tjänst med diagnostik-filen med den Azure Monitor-mottagare som kon figurer ATS med följande kommando:  
 
 ```powershell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
 
 > [!NOTE] 
-> Det är fortfarande obligatoriskt att ange ett lagringskonto som en del av installationen av Diagnostics-tillägg. Alla loggar eller prestandaräknare som anges i konfigurationsfilen diagnostik skrivs till det angivna lagringskontot.  
+> Det är fortfarande obligatoriskt att tillhandahålla ett lagrings konto som en del av installationen av tillägget för diagnostik. Loggar eller prestanda räknare som anges i konfigurations filen för diagnostik skrivs till det angivna lagrings kontot.  
 
-## <a name="plot-metrics-in-the-azure-portal"></a>Rita mått i Azure portal 
+## <a name="plot-metrics-in-the-azure-portal"></a>Rita mått i Azure Portal 
 
 1. Gå till Azure Portal. 
 
-   ![Mått Azure-portalen](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
+   ![Mått Azure Portal](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
-2. På menyn till vänster väljer **övervakaren.**
+2. På den vänstra menyn väljer du **övervaka.**
 
-3. På den **övervakaren** bladet och välja den **mått förhandsversion** fliken.
+3. På bladet **övervakning** väljer du fliken **förhands granskning av mått** .
 
-4. Välj din klassiska molntjänst i listrutan resurser.
+4. I den nedrullningsbara menyn resurser väljer du den klassiska moln tjänsten.
 
-5. Välj i listrutan namnområden **azure.vm.windows.guest**. 
+5. I den nedrullningsbara menyn namn områden väljer du **Azure. VM. Windows. gäst**. 
 
-6. Välj i listrutan mått **minne\dedikerade byte som används**. 
+6. I den nedrullningsbara menyn mått väljer du **Minne\dedikerade byte som används**. 
 
-Du kan använda dimensionen filtrering och dela funktioner för att visa den totala mängden minne som används av en viss roll eller rollinstans. 
+Du kan använda funktionerna för dimensions filtrering och delning för att visa den totala mängden minne som används av en speciell roll eller roll instans. 
 
- ![Mått Azure-portalen](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
+ ![Mått Azure Portal](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [anpassade mått](metrics-custom-overview.md).
+- Lär dig mer om [anpassade mått](metrics-custom-overview.md).
 

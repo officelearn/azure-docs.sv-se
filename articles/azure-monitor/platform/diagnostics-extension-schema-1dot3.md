@@ -1,6 +1,6 @@
 ---
-title: Azure Diagnostics-tillägg 1.3 och senare konfigurationsschema
-description: Schemaversion 1.3 och senare Azure-diagnostik levereras som en del av Microsoft Azure SDK 2.4 och senare.
+title: Konfigurations schema för Azure-diagnostik-tillägg 1,3 och senare
+description: Schema version 1,3 och senare Azure-diagnostik levereras som en del av Microsoft Azure SDK 2,4 och senare.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -10,41 +10,41 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60238057"
 ---
-# <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
+# <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Konfigurations schema för Azure-diagnostik 1,3 och senare
 > [!NOTE]
-> Azure Diagnostics-tillägget är den komponent som används för att samla in prestandaräknare och annan statistik från:
-> - Azure Virtual Machines
+> Azure-diagnostik-tillägget är den komponent som används för att samla in prestanda räknare och annan statistik från:
+> - Azure virtuella maskiner
 > - Virtual Machine Scale Sets
 > - Service Fabric
 > - Cloud Services
 > - Nätverkssäkerhetsgrupper
 >
-> Den här sidan gäller endast om du använder någon av dessa tjänster.
+> Den här sidan är bara relevant om du använder någon av dessa tjänster.
 
-Den här sidan är giltig för versioner 1.3 och senare (Azure SDK 2.4 och nyare). Nyare konfigurationsavsnitt kommenterade ska visas i vilken version de har lagts till.  
+Den här sidan är giltig för version 1,3 och senare (Azure SDK 2,4 och senare). Nyare konfigurations avsnitt är kommenterade för att visa i vilken version de lades till.  
 
-Konfigurationsfilen som beskrivs här används för att ange inställningar för diagnostik när diagnostik monitor startar.  
+Konfigurations filen som beskrivs här används för att ange konfigurations inställningar för diagnostik När diagnostikprogrammet startar.  
 
-Tillägget används tillsammans med andra produkter som Azure Monitor, som innehåller Application Insights och Log Analytics-diagnostik.
+Tillägget används tillsammans med andra Microsoft Diagnostics-produkter som Azure Monitor, som innehåller Application Insights och Log Analytics.
 
 
 
-Hämta offentliga konfiguration filen schemadefinitionen genom att köra följande PowerShell-kommando:  
+Hämta schema definitionen för den offentliga konfigurations filen genom att köra följande PowerShell-kommando:  
 
 ```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
-Läs mer om hur du använder Azure Diagnostics [Azure Diagnostics-tillägget](diagnostics-extension-overview.md).  
+Mer information om hur du använder Azure-diagnostik finns i [Azure-diagnostik tillägg](diagnostics-extension-overview.md).  
 
-## <a name="example-of-the-diagnostics-configuration-file"></a>Exempel på konfigurationsfilen diagnostik  
- I följande exempel visas en typisk diagnostik konfigurationsfil:  
+## <a name="example-of-the-diagnostics-configuration-file"></a>Exempel på konfigurations filen för diagnostik  
+ I följande exempel visas en typisk konfigurations fil för diagnostik:  
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>  
@@ -167,13 +167,13 @@ Läs mer om hur du använder Azure Diagnostics [Azure Diagnostics-tillägget](di
 
 ```  
 > [!NOTE]
-> Offentliga konfig definition för Azure Monitor-mottagare har två egenskaper, resourceId och region. Detta är endast krävs för klassiska virtuella datorer och klassiskt molntjänster. De här egenskaperna ska inte användas för Resource Manager Virtual Machines eller skalningsuppsättningar för virtuella datorer.
-> Det finns också ett ytterligare privata Config-element för Azure Monitor-mellanlagringsplatsen, som skickas i ett huvudkonto-Id och hemlighet. Detta är endast krävs för klassiska virtuella datorer och klassiskt molntjänster. För Resource Manager virtuella datorer och VMSS i Azure Monitor kan-definitionen i det privata config-elementet undantas.
+> Den offentliga konfigurations Azure Monitor mottagar definitionen har två egenskaper, resourceId och region. Dessa krävs endast för klassiska virtuella datorer och klassiska moln tjänster. Dessa egenskaper bör inte användas för Resource Manager-Virtual Machines eller skalnings uppsättningar för virtuella datorer.
+> Det finns också ett ytterligare privat konfigurations element för Azure Monitor-mottagaren, som passerar i ett ägar-ID och hemligt. Detta krävs endast för klassiska virtuella datorer och klassiska Cloud Services. För virtuella Resource Manager-datorer och VMSS kan Azure Monitors definitionen i det privata konfigurations elementet undantas.
 >
 
-JSON motsvarande tidigare XML-konfigurationsfilen.
+JSON motsvarande den tidigare XML-konfigurationsfilen.
 
-PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de skickas som olika variabler. Dessa objekt omfattar ofta Resource Manager-mallar, VM-skalningsuppsättningen PowerShell och Visual Studio.
+PublicConfig och PrivateConfig separeras eftersom i de flesta JSON-användnings fall skickas de som olika variabler. Dessa fall inkluderar Resource Manager-mallar, skalnings uppsättning för virtuella datorer och Visual Studio.
 
 ```json
 "PublicConfig" {
@@ -351,8 +351,8 @@ PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de
 ```
 
 > [!NOTE]
-> Offentliga konfig definition för Azure Monitor-mottagare har två egenskaper, resourceId och region. Detta är endast krävs för klassiska virtuella datorer och klassiskt molntjänster.
-> De här egenskaperna ska inte användas för Resource Manager Virtual Machines eller skalningsuppsättningar för virtuella datorer.
+> Den offentliga konfigurations Azure Monitor mottagar definitionen har två egenskaper, resourceId och region. Dessa krävs endast för klassiska virtuella datorer och klassiska moln tjänster.
+> Dessa egenskaper bör inte användas för Resource Manager-Virtual Machines eller skalnings uppsättningar för virtuella datorer.
 >
 
 ```json
@@ -396,301 +396,301 @@ PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de
 ```
 
 > [!NOTE]
-> Det finns en ytterligare privata Config-element för Azure Monitor-mellanlagringsplatsen, som skickas i ett huvudkonto-Id och hemlighet. Detta är endast krävs för klassiska virtuella datorer och klassiskt molntjänster. För Resource Manager virtuella datorer och VMSS i Azure Monitor kan-definitionen i det privata config-elementet undantas.
+> Det finns ett ytterligare privat konfigurations element för Azure Monitor-mottagaren, som passerar i ett ägar-ID och hemligt. Detta krävs endast för klassiska virtuella datorer och klassiska Cloud Services. För virtuella Resource Manager-datorer och VMSS kan Azure Monitors definitionen i det privata konfigurations elementet undantas.
 >
 
 
-## <a name="reading-this-page"></a>Läsa den här sidan  
- De taggar som följer är ungefär i ordning som visas i föregående exempel.  Om du inte ser en fullständig beskrivning där du förväntar dig, söksida för elementet eller attributet.  
+## <a name="reading-this-page"></a>Läser den här sidan  
+ Taggarna nedan är ungefär i den ordning som visas i föregående exempel.  Om du inte ser en fullständig beskrivning där du förväntar dig kan du söka på sidan efter elementet eller attributet.  
 
 ## <a name="common-attribute-types"></a>Vanliga attributtyper  
- **scheduledTransferPeriod** attributet visas i flera element. Det är intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)
+ **scheduledTransferPeriod** -attributet visas i flera element. Det är intervallet mellan schemalagda överföringar till lagrings utrymmet, avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp)
 
 
-## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration Element  
- *Trädet: Rot - DiagnosticsConfiguration*
+## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration-element  
+ *Dekompositionsträdet Rot – DiagnosticsConfiguration*
 
-Har lagts till i version 1.3.  
+Tillagt i version 1,3.  
 
-Det översta elementet i konfigurationsfilen för diagnostik.  
+Elementet på den översta nivån i konfigurations filen för diagnostik.  
 
-**Attributet** xmlns - XML-namnområdet för diagnostik-konfigurationsfilen är:  
+**Attribut** för xmlns – XML-namnområdet för diagnostikens konfigurations fil är:  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**PublicConfig**|Krävs. Se beskrivning någon annanstans på den här sidan.|  
-|**PrivateConfig**|Valfri. Se beskrivning någon annanstans på den här sidan.|  
-|**IsEnabled**|Booleskt värde. Se beskrivning någon annanstans på den här sidan.|  
+|**PublicConfig**|Obligatoriskt. Se beskrivningen på en annan plats på den här sidan.|  
+|**PrivateConfig**|Valfri. Se beskrivningen på en annan plats på den här sidan.|  
+|**IsEnabled**|Booleskt. Se beskrivningen på en annan plats på den här sidan.|  
 
-## <a name="publicconfig-element"></a>PublicConfig Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig*
+## <a name="publicconfig-element"></a>PublicConfig-element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration – PublicConfig*
 
- Beskriver offentliga diagnostikkonfigurationen.  
+ Beskriver konfigurationen för den offentliga diagnostiken.  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**WadCfg**|Krävs. Se beskrivning någon annanstans på den här sidan.|  
-|**StorageAccount**|Namnet på Azure Storage-konto för att lagra data i. Kan också anges som en parameter när du kör cmdleten Set-AzureServiceDiagnosticsExtension.|  
-|**StorageType**|Kan vara *tabell*, *Blob*, eller *TableAndBlob*. Tabellen är standard. När du har valt TableAndBlob skrivs diagnostiska data två gånger – en gång till varje typ av.|  
-|**LocalResourceDirectory**|Katalogen på den virtuella datorn där Monitoring Agent lagrar händelsedata. Om du inte har angetts standardkatalogen:<br /><br /> För en Worker/web-roll: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökvägen** -katalogen på system som ska användas av Azure Diagnostics.<br /><br /> - **expandEnvironment** – styr om miljövariabler expanderas i Sökvägens namn.|  
+|**WadCfg**|Obligatoriskt. Se beskrivningen på en annan plats på den här sidan.|  
+|**StorageAccount**|Namnet på det Azure Storage konto som data ska lagras i. Kan också anges som en parameter när cmdleten Set-AzureServiceDiagnosticsExtension körs.|  
+|**StorageType**|Kan vara *Table*, *BLOB*eller *TableAndBlob*. Tabellen är standard. När TableAndBlob väljs skrivs diagnostikdata två gånger – en gång till varje typ.|  
+|**LocalResourceDirectory**|Katalogen på den virtuella datorn där övervaknings agenten lagrar händelse data. Om inte, ange, används standard katalogen:<br /><br /> För en Worker/Web-roll:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökväg** – katalogen i systemet som ska användas av Azure-diagnostik.<br /><br /> - **expandEnvironment** – styr om miljövariablerna expanderas i Sök vägs namnet.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG*
 
- Identifierar och konfigurerar telemetridata som ska samlas in.  
+ Identifierar och konfigurerar telemetri-data som ska samlas in.  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
 
- Obligatoriskt
+ Obligatorisk
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | Längsta lokalt diskutrymme som kan användas av de olika typerna av diagnostiska data som samlas in av Azure Diagnostics. Standardinställningen är 4 096 MB.<br />
-|**useProxyServer** | Konfigurera Azure Diagnostics-data om du vill använda inställningarna för proxyservern som angetts i Internet Explorer-inställningarna.|
-|**mottagare** | Har lagts till i 1.5. Valfri. Pekar på en plats för mottagaren att även skicka diagnostikdata för alla underordnade element som har stöd för mottagare. Mottagare exempel är Application Insights eller Event Hubs.|  
+| **overallQuotaInMB** | Den maximala mängd lokalt disk utrymme som kan användas av de olika typerna av diagnostikdata som samlas in av Azure-diagnostik. Standardvärdet är 4096 MB.<br />
+|**useProxyServer** | Konfigurera Azure-diagnostik att använda inställningarna för proxyservern som anges i IE-inställningar.|
+|**mottagare** | Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata för alla underordnade element som stöder mottagare. Sink-exemplet är Application Insights eller Event Hubs.|  
 
 
 <br /> <br />
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**CrashDumps**|Se beskrivning någon annanstans på den här sidan.|  
-|**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure Diagnostics. Diagnostic infrastructure-loggar är användbara vid felsökning av själva systemet diagnostik. Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – konfigurerar den lägsta allvarlighetsgraden för loggarna som samlas in.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**Kataloger**|Se beskrivning någon annanstans på den här sidan.|  
-|**EtwProviders**|Se beskrivning någon annanstans på den här sidan.|  
-|**Mått**|Se beskrivning någon annanstans på den här sidan.|  
-|**PerformanceCounters**|Se beskrivning någon annanstans på den här sidan.|  
-|**WindowsEventLog**|Se beskrivning någon annanstans på den här sidan.|
-|**DockerSources**|Se beskrivning någon annanstans på den här sidan. |
+|**CrashDumps**|Se beskrivningen på en annan plats på den här sidan.|  
+|**DiagnosticInfrastructureLogs**|Aktivera samling av loggar som genereras av Azure-diagnostik. De diagnostiska infrastruktur loggarna är användbara för att felsöka själva diagnostik systemet. Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – konfigurerar den lägsta allvarlighets graden för loggarna som samlas in.<br /><br /> - **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**Kataloger**|Se beskrivningen på en annan plats på den här sidan.|  
+|**EtwProviders**|Se beskrivningen på en annan plats på den här sidan.|  
+|**Mått**|Se beskrivningen på en annan plats på den här sidan.|  
+|**PerformanceCounters**|Se beskrivningen på en annan plats på den här sidan.|  
+|**WindowsEventLog**|Se beskrivningen på en annan plats på den här sidan.|
+|**DockerSources**|Se beskrivningen på en annan plats på den här sidan. |
 
 
 
-## <a name="crashdumps-element"></a>CrashDumps Element  
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
+## <a name="crashdumps-element"></a>CrashDumps-element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-CrashDumps*
 
- Aktivera insamling av kraschdumpar.  
+ Aktivera samlingen av krasch dum par.  
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
-|**containerName**|Valfri. Namnet på blobbehållaren i ditt Azure Storage-konto som används för att lagra kraschdumpar.|  
-|**crashDumpType**|Valfri.  Konfigurerar Azure-diagnostik för att samla in Dumpar mini eller fullständig krasch.|  
-|**directoryQuotaPercentage**|Valfri.  Konfigurerar procentandelen **overallQuotaInMB** som ska reserveras för kraschdumpar på den virtuella datorn.|  
+|**containerName**|Valfri. Namnet på BLOB-behållaren i Azure Storage kontot som ska användas för att lagra krasch dum par.|  
+|**crashDumpType**|Valfri.  Konfigurerar Azure-diagnostik att samla in mini-eller fullständiga krasch dum par.|  
+|**directoryQuotaPercentage**|Valfri.  Konfigurerar procent andelen av **overallQuotaInMB** som ska reserveras för krasch dum par på den virtuella datorn.|  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Krävs. Definierar konfigurationsvärden för varje process.<br /><br /> Det krävs också följande attribut:<br /><br /> **processName** -namnet på processen som du vill att Azure-diagnostik för att samla in en kraschdumpfil för.|  
+|**CrashDumpConfiguration**|Obligatoriskt. Definierar konfigurations värden för varje process.<br /><br /> Följande attribut krävs också:<br /><br /> **processName** – namnet på den process som du vill Azure-diagnostik för att samla in en kraschdump för.|  
 
-## <a name="directories-element"></a>Directories Element
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - kataloger*
+## <a name="directories-element"></a>Katalog element
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger*
 
- Aktiverar insamlingen av innehållet i en katalog, IIS misslyckades åtkomstloggar för begäran och/eller IIS-loggar.  
+ Aktiverar insamling av innehållet i en katalog, IIS nekade åtkomst till begär ande loggar och/eller IIS-loggar.  
 
- Valfritt **scheduledTransferPeriod** attribut. Se tidigare förklaring.  
-
-|Underordnade element|Beskrivning|  
-|--------------------|-----------------|  
-|**IISLogs**|Inkludera det här elementet i konfigurationen aktiverar insamlingen av IIS-loggar:<br /><br /> **containerName** -namnet på blobbehållaren i ditt Azure Storage-konto som används för att lagra IIS-loggar.|   
-|**FailedRequestLogs**|Inkludera det här elementet i konfigurationen kan loggsamlingar om misslyckade förfrågningar till ett IIS-webbplats eller ett program. Du måste även aktivera spårningsalternativ under **system. Webbserver** i **Web.config**.|  
-|**Datakällor**|En lista över kataloger som ska övervaka.|
-
-
-
-
-## <a name="datasources-element"></a>DataSources Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - kataloger - datakällor*
-
- En lista över kataloger som ska övervaka.  
+ Valfritt **scheduledTransferPeriod** -attribut. Se förklaring tidigare.  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Krävs. Obligatoriskt attribut:<br /><br /> **containerName** -namnet på blob-behållare i Azure Storage-konto som ska användas för att lagra loggfilerna.|  
+|**IISLogs**|Genom att inkludera det här elementet i konfigurationen möjliggörs insamling av IIS-loggar:<br /><br /> **containerName** – namnet på BLOB-behållaren i Azure Storage-kontot som ska användas för att lagra IIS-loggarna.|   
+|**FailedRequestLogs**|Genom att inkludera det här elementet i konfigurationen kan du samla in loggar över misslyckade förfrågningar till en IIS-webbplats eller ett program. Du måste också aktivera spårnings alternativ under **system. Webb server** i **Web. config**.|  
+|**Data källor**|En lista över kataloger som ska övervakas.|
 
 
 
 
+## <a name="datasources-element"></a>Data källa element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger-data källor*
 
-## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - kataloger - datakällor - DirectoryConfiguration*
-
- Kan innehålla antingen den **absolut** eller **LocalResource** element, men inte båda.  
-
-|Underordnade element|Beskrivning|  
-|--------------------|-----------------|  
-|**Absolut**|Den absoluta sökvägen till katalogen som ska övervakas. Det krävs följande attribut:<br /><br /> - **Sökvägen** -den absoluta sökvägen till katalogen som ska övervakas.<br /><br /> - **expandEnvironment** – konfigurerar om miljövariabler i sökvägen expanderas.|  
-|**LocalResource**|Sökväg i förhållande till en lokal resurs du övervakar. Obligatoriska attribut är:<br /><br /> - **Namn på** – den lokala resursen som innehåller katalogen som ska övervakas<br /><br /> - **relativePath** -sökväg i förhållande till namn som innehåller katalogen som ska övervakas|  
-
-
-
-## <a name="etwproviders-element"></a>EtwProviders Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
-
- Konfigurerar insamling av ETW-händelser från EventSource och/eller ETW Manifest baserade providers.  
+ En lista över kataloger som ska övervakas.  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet händelsens EventSource.<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID för händelseprovider<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**DirectoryConfiguration**|Obligatoriskt. Nödvändigt attribut:<br /><br /> **containerName** – namnet på BLOB-behållaren i Azure Storage-kontot som ska användas för att lagra loggfilerna.|  
+
+
+
+
+
+## <a name="directoryconfiguration-element"></a>DirectoryConfiguration-element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-kataloger-data källor-DirectoryConfiguration*
+
+ Kan innehålla antingen det **absoluta** eller **LocalResource** -elementet, men inte båda.  
+
+|Underordnade element|Beskrivning|  
+|--------------------|-----------------|  
+|**Absolutvärde**|Den absoluta sökvägen till den katalog som ska övervakas. Följande attribut krävs:<br /><br /> - **Sökväg** – den absoluta sökvägen till den katalog som ska övervakas.<br /><br /> - **expandEnvironment** – konfigurerar om miljövariabler i sökvägen ska expanderas.|  
+|**LocalResource**|Sökvägen i förhållande till en lokal resurs som ska övervakas. Obligatoriska attribut är:<br /><br /> - **Namn** – den lokala resurs som innehåller den katalog som ska övervakas<br /><br /> - **relativePath** – sökvägen är relativ till det namn som innehåller den katalog som ska övervakas|  
+
+
+
+## <a name="etwproviders-element"></a>EtwProviders-element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders*
+
+ Konfigurerar insamling av ETW-händelser från EventSource och/eller ETW-manifest baserade providers.  
+
+|Underordnade element|Beskrivning|  
+|--------------------|-----------------|  
+|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource-klassen](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Nödvändigt attribut:<br /><br /> **Provider** – klass namnet för EventSource-händelsen.<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – den minsta allvarlighets grad som ska överföras till ditt lagrings konto.<br /><br /> - **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Nödvändigt attribut:<br /><br /> **Provider** – GUID för händelse leverantören<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – den minsta allvarlighets grad som ska överföras till ditt lagrings konto.<br /><br /> - **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwEventSourceProviderConfiguration*
 
- Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
+ Konfigurerar insamling av händelser som genereras från [EventSource-klassen](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**DefaultEvents**|Valfritt attribut:<br/><br/> **eventDestination** -namnet på tabellen för att lagra händelser i|  
-|**Händelse**|Obligatoriskt attribut:<br /><br /> **ID** -id för händelsen.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
+|**DefaultEvents**|Valfritt attribut:<br/><br/> **eventDestination** – namnet på den tabell där händelserna ska lagras|  
+|**Händelse**|Nödvändigt attribut:<br /><br /> **ID** – händelsens ID.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** – namnet på den tabell där händelserna ska lagras|  
 
 
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwManifestProviderConfiguration*
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**DefaultEvents**|Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
-|**Händelse**|Obligatoriskt attribut:<br /><br /> **ID** -id för händelsen.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
+|**DefaultEvents**|Valfritt attribut:<br /><br /> **eventDestination** – namnet på den tabell där händelserna ska lagras|  
+|**Händelse**|Nödvändigt attribut:<br /><br /> **ID** – händelsens ID.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** – namnet på den tabell där händelserna ska lagras|  
 
 
 
-## <a name="metrics-element"></a>Metrics Element  
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
+## <a name="metrics-element"></a>Mått element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-Metrics*
 
- Kan du skapa en tabell med prestandaräknaren som är optimerad för snabba frågor. Varje prestandaräknare som definieras i den **PerformanceCounters** elementet lagras i tabellen mått förutom tabellen prestandaräknaren.  
+ Gör att du kan generera en prestanda räknar tabell som är optimerad för snabba frågor. Varje prestanda räknare som definieras i **PerformanceCounters** -elementet lagras i mått tabellen förutom prestanda räknar tabellen.  
 
- Den **resourceId** attributet är obligatoriskt.  Resurs-ID för den virtuella datorn eller Virtual Machine Scale Sets du distribuerar Azure Diagnostics-data till. Hämta den **resourceID** från den [Azure-portalen](https://portal.azure.com). Välj **Bläddra** -> **resursgrupper** ->  **< namn\>** . Klicka på den **egenskaper** panelen och kopiera värdet från den **ID** fält.  
+ Attributet **resourceId** måste anges.  Resurs-ID för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn som du distribuerar Azure-diagnostik till. Hämta **resourceID** från [Azure Portal](https://portal.azure.com). Välj **Bläddra** -> **resurs grupper** ->  **< namn.\>** Klicka på panelen **Egenskaper** och kopiera värdet från fältet **ID** .  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**MetricAggregation**|Nödvändigt attribut:<br /><br /> **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
-## <a name="performancecounters-element"></a>PerformanceCounters Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
+## <a name="performancecounters-element"></a>PerformanceCounters-element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-PerformanceCounters*
 
- Aktiverar insamling av prestandaräknare.  
+ Aktiverar insamling av prestanda räknare.  
 
  Valfritt attribut:  
 
- Valfritt **scheduledTransferPeriod** attribut. Se tidigare förklaring.
+ Valfritt **scheduledTransferPeriod** -attribut. Se förklaring tidigare.
 
-|Child Element|Beskrivning|  
+|Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Det krävs följande attribut:<br /><br /> - **counterSpecifier** -namnet på prestandaräknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestandaräknare på din värd kör du kommandot `typeperf`.<br /><br /> - **sampleRate** -hur ofta räknaren ska aktiveras.<br /><br /> Valfritt attribut:<br /><br /> **enhet** -måttenhet för räknaren.|
-|**mottagare** | Har lagts till i 1.5. Valfri. Pekar på en plats för mottagaren att också skicka diagnostikdata. Azure Monitor eller Event Hubs.|    
+|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf`.<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren.|
+|**mottagare** | Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Azure Monitor eller Event Hubs.|    
 
 
 
 
-## <a name="windowseventlog-element"></a>WindowsEventLog Element
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
+## <a name="windowseventlog-element"></a>WindowsEventLog-element
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-WindowsEventLog*
 
- Aktiverar insamlingen av Windows-händelseloggar.  
+ Aktiverar insamling av händelse loggar i Windows.  
 
- Valfritt **scheduledTransferPeriod** attribut. Se tidigare förklaring.  
+ Valfritt **scheduledTransferPeriod** -attribut. Se förklaring tidigare.  
 
-|Child Element|Beskrivning|  
+|Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**DataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namn på** – XPath-frågan som beskriver windows-händelser som ska samlas in. Exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser, ange ”*”|  
+|**DataSource**|Händelse loggarna i Windows som ska samlas in. Nödvändigt attribut:<br /><br /> **namn** – XPath-frågan som beskriver de Windows-händelser som ska samlas in. Exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser anger du "*"|  
 
 
 
 
-## <a name="logs-element"></a>Loggar Element  
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
+## <a name="logs-element"></a>Loggar element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-Logs*
 
- Presentera i version 1.0 och 1.1. Saknas i 1.2. Har lagts till i 1.3.  
+ Förekommer i version 1,0 och 1,1. Saknas i 1,2. Lades tillbaka i 1,3.  
 
- Definierar konfigurationen buffert för grundläggande Azure loggar.  
+ Definierar buffertens konfiguration för grundläggande Azure-loggar.  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|type|Beskrivning|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
-|**scheduledTransferLogLevelFilter**|**sträng**|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**scheduledTransferPeriod**|**Varaktighet**|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
-|**mottagare** |**sträng**| Har lagts till i 1.5. Valfri. Pekar på en plats för mottagaren att också skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
+|**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
+|**scheduledTransferLogLevelFilter**|**string**|Valfri. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**scheduledTransferPeriod**|**Varaktighet**|Valfri. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**mottagare** |**string**| Tillagt i 1,5. Valfri. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
 
- Har lagts till i 1.9.
+ Tillagt i 1,9.
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**Statistik**|Anger att samla in statistik för Docker-behållare|  
+|**Spelarna**|Instruerar systemet att samla in statistik för Docker-behållare|  
 
-## <a name="sinksconfig-element"></a>SinksConfig Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+## <a name="sinksconfig-element"></a>SinksConfig-element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig*
 
- En lista över platser för att skicka diagnostikdata till och den konfiguration som associeras med dessa platser.  
+ En lista med platser för att skicka diagnostikdata till och konfigurationen som är kopplad till dessa platser.  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**mottagare**|Se beskrivning någon annanstans på den här sidan.|  
+|**mottagare**|Se beskrivningen på en annan plats på den här sidan.|  
 
-## <a name="sink-element"></a>Sink Element
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - mottagare*
+## <a name="sink-element"></a>Sink-element
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink*
 
- Har lagts till i version 1.5.  
+ Tillagt i version 1,5.  
 
- Definierar platser för att skicka diagnostikdata till. Till exempel Application Insights-tjänsten.  
+ Definierar platser för att skicka diagnostikdata till. Till exempel tjänsten Application Insights.  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|type|Beskrivning|  
 |---------------|----------|-----------------|  
-|**name**|string|En sträng som identifierar sinkname.|  
+|**name**|sträng|En sträng som identifierar sinkname.|  
 
-|Element|Typ|Beskrivning|  
+|Element|type|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|Används endast när data skickas till Application Insights. Innehåller Instrumenteringsnyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
-|**kanaler**|string|En för varje ytterligare filtrering som strömmar som du|  
+|**Application Insights**|sträng|Används endast när du skickar data till Application Insights. Innehåller Instrumentation-nyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
+|**Kanal**|sträng|En för varje ytterligare filtrering som strömmar som du|  
 
-## <a name="channels-element"></a>Channels Element  
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
+## <a name="channels-element"></a>Element för kanaler  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels*
 
- Har lagts till i version 1.5.  
+ Tillagt i version 1,5.  
 
- Definierar filter för strömmar av loggdata som passerar genom en mottagare.  
+ Definierar filter för data strömmar av loggdata som passerar genom en mottagare.  
 
-|Element|Typ|Beskrivning|  
+|Element|type|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Kanal**|string|Se beskrivning någon annanstans på den här sidan.|  
+|**Kanalig**|sträng|Se beskrivningen på en annan plats på den här sidan.|  
 
-## <a name="channel-element"></a>Channel Element
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
+## <a name="channel-element"></a>Kanal element
+ *Dekompositionsträdet Root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels-Channel*
 
- Har lagts till i version 1.5.  
+ Tillagt i version 1,5.  
 
- Definierar platser för att skicka diagnostikdata till. Till exempel Application Insights-tjänsten.  
+ Definierar platser för att skicka diagnostikdata till. Till exempel tjänsten Application Insights.  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|type|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**name**|**sträng**|Ett unikt namn för kanalen att referera till|  
+|**logLevel**|**string**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**name**|**string**|Ett unikt namn på den kanal som ska referera till|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element
- *Trädet: Rot - DiagnosticsConfiguration - PrivateConfig*
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration – PrivateConfig*
 
- Har lagts till i version 1.3.  
+ Tillagt i version 1,3.  
 
- Valfri  
+ Valfritt  
 
- Lagrar privat information om storage-konto (namn, nyckel och slutpunkt). Den här informationen skickas till den virtuella datorn, men kan inte hämtas från den.  
+ Lagrar privat information om lagrings kontot (namn, nyckel och slut punkt). Den här informationen skickas till den virtuella datorn, men kan inte hämtas från den.  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**StorageAccount**|Storage-konto du använder. Följande attribut krävs<br /><br /> - **namn på** -namnet på lagringskontot.<br /><br /> - **nyckeln** -nyckeln till lagringskontot.<br /><br /> - **slutpunkten** -slutpunkt för att komma åt lagringskontot. <br /><br /> -**sasToken** (läggs till 1.8.1)-som du kan ange en SAS-token i stället för en lagringskontonyckel in privat-konfigurationen. Om anges, ignoreras lagringskontonyckeln. <br />Krav för SAS-Token: <br />– Stöder endast konto SAS-token <br />- *b*, *t* tjänsttyper krävs. <br /> - *en*, *c*, *u*, *w* behörigheter som krävs. <br /> - *c*, *o* resurstyper krävs. <br /> – Stöder HTTPS-protokollet <br /> -Starta och förfallotiden måste vara giltigt.|  
+|**StorageAccount**|Det lagrings konto som ska användas. Följande attribut krävs<br /><br /> - **namn** – namnet på lagrings kontot.<br /><br /> - **nyckel** – nyckeln till lagrings kontot.<br /><br /> - **slut punkt** – slut punkten för åtkomst till lagrings kontot. <br /><br /> -**sasToken** (lade till 1.8.1) – du kan ange en SAS-token i stället för en lagrings konto nyckel i den privata konfigurationen. Om det här alternativet anges ignoreras lagrings konto nyckeln. <br />Krav för SAS-token: <br />– Stöder endast SAS-token för konto <br />- *b*, *t* . ex. krävs tjänst typer. <br /> - *a*, *c*, *u*, *w* behörigheter krävs. <br /> - *c*, *o* resurs typer krävs. <br /> -Stöder endast HTTPS-protokollet <br /> -Start-och utgångs tid måste vara giltiga.|  
 
 
-## <a name="isenabled-element"></a>IsEnabled Element  
- *Trädet: Rot - DiagnosticsConfiguration - IsEnabled*
+## <a name="isenabled-element"></a>IsEnabled-element  
+ *Dekompositionsträdet Rot-DiagnosticsConfiguration – IsEnabled*
 
- Booleskt värde. Använd `true` att aktivera diagnostiken eller `false` att inaktivera diagnostiken.
+ Booleskt. Använd `true` om du vill aktivera diagnostiken eller `false` inaktivera diagnostiken.
 

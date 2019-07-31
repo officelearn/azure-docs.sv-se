@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric diagnostisera vanliga scenarier | Microsoft Docs
-description: Lär dig att felsöka vanliga scenarier med Azure Service Fabric
+description: Lär dig hur du felsöker vanliga scenarier med Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -15,137 +15,137 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60394258"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
-Den här artikeln beskrivs vanliga scenarier som användare har uppstått i området för övervakning och diagnostik med Service Fabric. De scenarier som visas omfattar alla 3 nivåer av service fabric: Program, kluster och infrastruktur. Varje lösning använder Application Insights och Azure Monitor-loggar, Azure övervakningsverktyg, för att slutföra varje scenario. Stegen i varje lösning som ger användarna en introduktion om hur du använder Application Insights och Azure Monitor-loggar i samband med Service Fabric.
+Den här artikeln visar vanliga scenarier som användare har påträffat i övervaknings-och diagnostik-avsnittet med Service Fabric. De scenarier som presenteras gäller alla tre lager av Service Fabric: Program, kluster och infrastruktur. Varje lösning använder Application Insights och Azure Monitor loggar, Azure övervaknings verktyg, för att slutföra varje scenario. Stegen i varje lösning ger användarna en introduktion till hur du använder Application Insights och Azure Monitor loggar i samband med Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites-and-recommendations"></a>Krav och rekommendationer
 
-Lösningar i den här artikeln använder följande verktyg. Vi rekommenderar att du har dessa igång och konfigurerade:
+Lösningarna i den här artikeln kommer att använda följande verktyg. Vi rekommenderar att du har dessa inställningar och konfigurerade:
 
 * [Application Insights med Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
-* [Aktivera Azure Diagnostics på ditt kluster](service-fabric-diagnostics-event-aggregation-wad.md)
+* [Aktivera Azure-diagnostik i ditt kluster](service-fabric-diagnostics-event-aggregation-wad.md)
 * [Konfigurera en Log Analytics-arbetsyta](service-fabric-diagnostics-oms-setup.md)
-* [Logga Analytics-agenten för att spåra prestandaräknare](service-fabric-diagnostics-oms-agent.md)
+* [Log Analytics agent för att spåra prestanda räknare](service-fabric-diagnostics-oms-agent.md)
 
-## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Hur ser jag ett ohanterat undantag i mitt program?
+## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Hur kan jag se ohanterade undantag i mitt program?
 
-1. Gå till Application Insights-resursen som ditt program är konfigurerad med.
-2. Klicka på *Search* längst upp till vänster. Klicka på filtret på nästa panel.
+1. Navigera till Application Insights resurs som ditt program har kon figurer ATS med.
+2. Klicka på *Sök* längst upp till vänster. Klicka sedan på filter på nästa panel.
 
-    ![AI-översikt](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
+    ![Översikt över AI](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
 
-3. Många olika typer av händelser (spårningar, begäranden, anpassade händelser) visas. Välj ”undantag” som filter.
+3. Du kan se flera typer av händelser (spår, begär Anden, anpassade händelser). Välj "undantag" som filter.
 
-    ![AI-filterlista](media/service-fabric-diagnostics-common-scenarios/ai-filter-list.png)
+    ![Filter lista för AI](media/service-fabric-diagnostics-common-scenarios/ai-filter-list.png)
 
-    Genom att klicka på ett undantag i listan, kan du titta på mer information, inklusive tjänstkontext om du använder Service Fabric Application Insights SDK.
+    Genom att klicka på ett undantag i listan kan du titta närmare på mer information, inklusive tjänstens kontext om du använder Service Fabric Application Insights SDK.
 
     ![AI-undantag](media/service-fabric-diagnostics-common-scenarios/ai-exception.png)
 
-## <a name="how-do-i-view-which-http-calls-are-used-in-my-services"></a>Hur gör jag för att visa för HTTP-anrop som används i Mina tjänster?
+## <a name="how-do-i-view-which-http-calls-are-used-in-my-services"></a>Hur gör jag för att visar vilka HTTP-anrop som används i mina tjänster?
 
-1. I samma Application Insights-resurs, kan du filtrera efter ”requests” i stället för undantag och visa alla begäranden som görs
-2. Om du använder Service Fabric Application Insights SDK kan du kan se en visuell representation av dina tjänster som är anslutna till varandra och antalet lyckades och misslyckade begäranden. Till vänster klickar du på ”Programkartan”
+1. I samma Application Insights resurs kan du filtrera efter "förfrågningar" i stället för undantag och Visa alla begär Anden som gjorts
+2. Om du använder Service Fabric Application Insights SDK kan du se en visuell representation av dina tjänster som är anslutna till varandra och antalet lyckade och misslyckade förfrågningar. Till vänster klickar du på "program karta"
 
-    ![Nu visas Programkartan med AI-bladet](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI Programkarta](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![AI app Map blad](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI-app Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    Mer information om programkartan finns i [Programkartan dokumentation](../azure-monitor/app/app-map.md)
+    Mer information om program kartan finns i [dokumentationen till program kartan](../azure-monitor/app/app-map.md)
 
-## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Hur skapar jag en avisering när en nod stängs av
+## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Hur gör jag för att skapa en avisering när en nod slutar fungera
 
-1. Noden händelser spåras med Service Fabric-klustret. Gå till Service Fabric-analys lösning resursen med namnet **ServiceFabric(NameofResourceGroup)**
-2. Klicka på diagrammet längst ned på bladet med rubriken ”översikt”
+1. Node-händelser spåras av Service Fabric-klustret. Navigera till Service Fabric-analys lösnings resurs med namnet **ServiceFabric (NameofResourceGroup)**
+2. Klicka på diagrammet längst ned på bladet "Sammanfattning"
 
-    ![Azure Monitor loggar lösning](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Lösning för Azure Monitor loggar](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
-3. Här har du många diagram och paneler som visar olika mått. Klicka på diagrammet och det tar dig till Loggsökningen. Här kan du fråga efter alla klusterhändelser eller prestandaräknare.
-4. Ange följande fråga. Dessa händelse-ID: N finns i den [nod-händelser](service-fabric-diagnostics-event-generation-operational.md#application-events)
+3. Här finns många grafer och paneler som visar olika mått. Klicka på ett av diagrammen så tas du till loggs ökningen. Här kan du fråga efter eventuella kluster händelser eller prestanda räknare.
+4. Ange följande fråga. Dessa händelse-ID: n finns i [noden händelse referens](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
     ```kusto
     ServiceFabricOperationalEvent
     | where EventID >= 25622 and EventID <= 25626
     ```
 
-5. Klicka på ”ny Aviseringsregel” högst upp och nu när en händelse anländer baserat på den här frågan, du får en avisering i utvecklingsmetod för kommunikation.
+5. Klicka på "ny varnings regel" längst upp och när som helst när en händelse tas emot baserat på den här frågan får du en avisering i den valda kommunikations metoden.
 
     ![Azure Monitor loggar ny avisering](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
-## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Hur kan jag få aviseringar programmet uppgradera återställningar?
+## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Hur kan jag få aviseringar om återställningar av program uppgraderingar?
 
-1. På samma Log Search-fönster som innan du anger du följande fråga för uppgradering återställningar. Dessa händelse-ID: N hittas [programreferens-händelser](service-fabric-diagnostics-event-generation-operational.md#application-events)
+1. I samma logg Sök fönster som innan du anger följande fråga för återställnings återställningar. Dessa händelse-ID: n finns under [program händelse referens](service-fabric-diagnostics-event-generation-operational.md#application-events)
 
     ```kusto
     ServiceFabricOperationalEvent
     | where EventID == 29623 or EventID == 29624
     ```
 
-2. Klicka på ”ny Aviseringsregel” högst upp och nu när en händelse anländer baserat på den här frågan, du får en avisering.
+2. Klicka på "ny varnings regel" längst upp och när som helst när en händelse tas emot baserat på den här frågan får du en avisering.
 
-## <a name="how-do-i-see-container-metrics"></a>Hur ser jag behållarmätvärden?
+## <a name="how-do-i-see-container-metrics"></a>Hur gör jag för att se container mått?
 
-I samma vy med alla diagram ser du vissa paneler för prestanda för dina behållare. Du behöver Log Analytics-agenten och [lösning för övervakning av behållare](service-fabric-diagnostics-oms-containers.md) för dessa paneler för att fylla i.
+I samma vy med alla grafer visas vissa paneler för dina behållares prestanda. Du behöver en [övervaknings lösning](service-fabric-diagnostics-oms-containers.md) för Log Analytics agent och behållare för att dessa paneler ska fyllas i.
 
-![Behållarmätvärden för log Analytics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
+![Log Analytics container mått](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
->Att instrumentera telemetri från **inuti** din behållare som du måste lägga till den [nuget-paketet för Application Insights för behållare](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
+>För att kunna instrumentera telemetri inifrån **din behållare** måste du lägga till [Application Insights NuGet-paketet för behållare](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
 
-## <a name="how-can-i-monitor-performance-counters"></a>Hur övervakar jag prestandaräknare
+## <a name="how-can-i-monitor-performance-counters"></a>Hur kan jag övervaka prestanda räknare?
 
-1. När du har lagt till Log Analytics-agenten till ditt kluster, måste du lägga till specifika prestandaräknare som du vill spåra. Gå till arbetsytan Log Analytics-sidan i portalen – från lösningens sidan fliken arbetsyta finns på den vänstra menyn.
+1. När du har lagt till Log Analytics agenten i klustret måste du lägga till de aktuella prestanda räknare som du vill spåra. Gå till sidan Log Analytics arbets yta i portalen – från lösningens sida finns fliken arbets yta på den vänstra menyn.
 
-    ![Fliken för log Analytics-arbetsyta](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
+    ![Fliken Log Analytics arbets yta](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
-2. När du är på den arbetsytan sidan klickar du på ”Avancerade inställningar” i samma vänstra meny.
+2. När du är på arbets ytans sida klickar du på "avancerade inställningar" på samma vänstra meny.
 
     ![Log Analytics avancerade inställningar](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
 
-3. Klicka på Data > Windows-prestandaräknare (Data > Linux-prestandaräknare för Linux-datorer) börjar samla in-specifika räknare från noderna via Log Analytics-agenten. Här följer exempel på formatet för räknare att lägga till
+3. Klicka på data > prestanda räknare i Windows (data > Linux prestanda räknare för Linux-datorer) för att börja samla in vissa räknare från noderna via Log Analytics agenten. Här följer exempel på formatet för räknare som ska läggas till
 
    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
    * `Processor(_Total)\\% Processor Time`
 
-     I snabbstarten, VotingData och VotingWeb är processnamn används, så att spåra dessa räknare skulle se ut
+     I snabb starten är VotingData och VotingWeb de process namn som används, så spårning av dessa räknare skulle se ut
 
    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-     ![Prestandaräknare för log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Log Analytics prestanda räknare](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
-4. Detta kommer att du kan se hur din infrastruktur hanterar dina arbetsbelastningar och ställa in relevanta aviseringar baserat på Resursanvändning. Till exempel – kan du ställa in en avisering om den totala processoranvändningen går över 90% eller mindre än 5%. Räknarnamnet som du använder för detta är ”% processortid”. Du kan göra detta genom att skapa en aviseringsregel för följande fråga:
+4. På så sätt kan du se hur infrastrukturen hanterar dina arbets belastningar och ange relevanta aviseringar baserat på resursutnyttjande. Till exempel – du kanske vill ange en avisering om den totala processor belastningen sträcker sig över 90% eller lägre än 5%. Det räknar namn som du skulle använda för detta är "% processor tid". Du kan göra detta genom att skapa en varnings regel för följande fråga:
 
     ```kusto
     Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | where CounterValue >= 90 or CounterValue <= 5.
     ```
 
-## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Hur jag för att spåra prestanda Mina Reliable Services och aktörer?
+## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Hur gör jag för att du spåra prestanda för mina Reliable Services och aktörer?
 
-Du bör samla in Service Fabric-aktör, Aktörsmetod, Service och tjänsten metoden räknare samt för att spåra prestanda för Reliable Services eller aktörer i dina program. Här följer exempel på tillförlitlig tjänst och aktören prestandaräknare som samlar in
+Om du vill spåra prestanda för Reliable Services eller aktörer i dina program, bör du samla in Service Fabric aktör, aktörs metod, tjänst och tjänst metod räknare också. Här följer några exempel på pålitliga prestanda räknare för tjänst och skådespelare som samlas in
 
 >[!NOTE]
->Prestandaräknare för Service Fabric kan inte samlas in av Log Analytics-agenten för närvarande, men kan samlas in av [andra diagnostiska lösningar](service-fabric-diagnostics-partners.md)
+>Service Fabric prestanda räknare kan inte samlas in av Log Analytics agent för närvarande, men kan samlas in av [andra diagnostiska lösningar](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
 * `Service Fabric Actor(*)\\Average milliseconds per request`
 * `Service Fabric Actor Method(*)\\Invocations/Sec`
 
-Kontrollera dessa länkar för en fullständig lista över prestandaräknare på pålitliga [Services](service-fabric-reliable-serviceremoting-diagnostics.md) och [aktörer](service-fabric-reliable-actors-diagnostics.md)
+Se dessa länkar för en fullständig lista över prestanda räknare för pålitliga [tjänster](service-fabric-reliable-serviceremoting-diagnostics.md) och [aktörer](service-fabric-reliable-actors-diagnostics.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) meddelas om ändringar i prestanda och användning
-* [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI att varna dig om potentiella prestandaproblem
-* Läs mer om Azure Monitor-loggar [avisering](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
-* För lokala kluster erbjuder Azure Monitor-loggar en gateway (HTTP framåt Proxy) som kan användas för att skicka data till Azure Monitor-loggar. Läs mer om att [ansluter datorer utan Internetåtkomst till Azure Monitor-loggar med Log Analytics-gateway](../azure-monitor/platform/gateway.md)
-* Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Azure Monitor-loggar
-* Få en mer detaljerad översikt över Azure Monitor-loggar och den erbjuder, läsa [vad är Azure Monitor-loggar?](../operations-management-suite/operations-management-suite-overview.md)
+* [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) för att få meddelanden om förändringar i prestanda eller användning
+* [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI för att varna dig om potentiella prestanda problem
+* Läs mer om hur du Azure Monitor loggar [varningar](../log-analytics/log-analytics-alerts.md) till hjälp vid identifiering och diagnostik.
+* För lokala kluster erbjuder Azure Monitor-loggar en gateway (HTTP Forward proxy) som kan användas för att skicka data till Azure Monitor loggar. Läs mer om det i [ansluta datorer utan Internet åtkomst till Azure Monitor loggar med hjälp av Log Analytics Gateway](../azure-monitor/platform/gateway.md)
+* Bekanta dig med funktionerna för [loggs ökning och frågor](../log-analytics/log-analytics-log-searches.md) som erbjuds som en del av Azure Monitor loggar
+* Få en mer detaljerad översikt över Azure Monitor loggar och vad den erbjuder, Läs [Vad är Azure Monitor loggar?](../operations-management-suite/operations-management-suite-overview.md)

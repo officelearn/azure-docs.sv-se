@@ -1,6 +1,6 @@
 ---
-title: Vanliga mått för autoskalning
-description: Lär dig vilka mått används ofta för automatisk skalning dina molntjänster, virtuella datorer och Webbappar.
+title: Autoskala vanliga mått
+description: Lär dig vilka mått som används ofta för automatisk skalning av Cloud Services, Virtual Machines och Web Apps.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,41 +9,41 @@ ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129737"
 ---
-# <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoskalning vanliga mått
+# <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor vanliga mått för autoskalning
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Automatisk skalning med Azure Monitor kan du skala antalet instanser som körs upp eller ned, baserat på dessa data (mått). Det här dokumentet beskriver vanliga mått som du kanske vill använda. Du kan välja mått på resursen att skala genom att i Azure-portalen. Du kan också välja vilka mått som helst från en annan resurs kan skala med.
+Med Azure Monitor autoskalning kan du skala upp eller ned antalet instanser som körs, baserat på telemetridata (mått). Det här dokumentet beskriver vanliga mått som du kanske vill använda. I Azure Portal kan du välja måttet för den resurs som ska skalas efter. Du kan dock också välja mått från en annan resurs som ska skalas efter.
 
-Automatisk skalning i Azure Monitor gäller endast [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Andra Azure-tjänster använder olika metoder för skalning.
+Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Andra Azure-tjänster använder olika skalnings metoder.
 
-## <a name="compute-metrics-for-resource-manager-based-vms"></a>Compute mått för Resource Manager-baserade virtuella datorer
-Som standard Resource Manager-baserade virtuella datorer och VM-Skalningsuppsättningar kan du generera basmått (värdnivå). Dessutom, när du konfigurerar insamling av diagnostik för en virtuell Azure-dator och VMSS, genererar Azure-diagnostiktillägget också gäst-OS-prestandaräknare (kallas ofta ”gäst-OS mått”).  Du använder de här måtten i regler för automatisk skalning.
+## <a name="compute-metrics-for-resource-manager-based-vms"></a>Beräknings mått för Resource Manager-baserade virtuella datorer
+Som standard, Resource Manager-baserad Virtual Machines och Virtual Machine Scale Sets genererar grundläggande mått (värdnivå). När du konfigurerar diagnostik-datainsamling för en virtuell Azure-dator och VMSS, genererar dessutom Azure Diagnostic-tillägget även gäst-OS-prestandaräknare (kallas vanligt vis "gäst-OS-mått").  Du kan använda alla dessa mått i regler för autoskalning.
 
-Du kan använda den `Get MetricDefinitions` API/PoSH/CLI för att visa mått som är tillgängliga för VMSS-resursen.
+Du kan använda `Get MetricDefinitions` API/PoSH/CLI för att visa de mått som är tillgängliga för din VMSS-resurs.
 
-Om du använder VM-skalningsuppsättningar och du inte ser ett viss mått anges så är det sannolikt *inaktiverat* i diagnostiktillägget.
+Om du använder skalnings uppsättningar för virtuella datorer och du inte ser ett visst mått i listan, är det förmodligen inaktiverat i tillägget för diagnostik.
 
-Om ett visst mått inte håller på att samplas eller överföras på hur ofta du vill, kan du uppdatera diagnostikkonfigurationen.
+Om ett visst mått inte inhämtas eller överförs enligt den frekvens du vill ha, kan du uppdatera konfigurationen för diagnostik.
 
-Om båda föregående fallen är sant, granskar [Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator med Windows](../../virtual-machines/extensions/diagnostics-windows.md) om PowerShell för att konfigurera och uppdatera din Azure VM Diagnostics-tillägg om du vill aktivera måttet. Den här artikeln innehåller också en exempelfil diagnostik konfiguration.
+Om något av föregående fall är sant kan du läsa igenom [Använd PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows](../../virtual-machines/extensions/diagnostics-windows.md) PowerShell för att konfigurera och uppdatera tillägget för Azure VM-diagnostik för att aktivera måttet. Artikeln innehåller även en exempel på en diagnostisk konfigurations fil.
 
-### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Värdmått för Resource Manager-baserade Windows och Linux-datorer
-Följande värdnivå mått genereras som standard för virtuella Azure-datorer och VMSS i både Windows och Linux-instanser. De här måtten beskrivs Azure VM, men har samlats in från Virtuella Azure-värd i stället för via agent installeras på den Virtuella gästdatorn. Du kan använda de här måtten i reglerna för automatisk skalning.
+### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Värd mått för Resource Manager-baserade virtuella Windows-och Linux-datorer
+Följande mått på värdnivå genereras som standard för virtuella Azure-datorer och VMSS i både Windows-och Linux-instanser. Dessa mått beskriver din virtuella Azure-dator, men samlas in från Azure VM-värden i stället för via agent som är installerad på den virtuella gäst datorn. Du kan använda dessa mått i regler för automatisk skalning.
 
-- [Värdmått för Resource Manager-baserade Windows och Linux-datorer](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Värdmått för Resource Manager-baserade Windows och Linux VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Värd mått för Resource Manager-baserade virtuella Windows-och Linux-datorer](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Värd mått för Resource Manager-baserade Windows-och Linux-VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Gäst-OS mått Resource Manager-baserade Windows virtuella datorer
-När du skapar en virtuell dator i Azure kan aktiveras diagnostik genom att använda Diagnostics-tillägg. Diagnostiktillägget genererar en uppsättning mått som kommer från inuti den virtuella datorn. Det innebär att du kan skalas automatiskt på mått som inte genereras som standard.
+### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Gäst operativ system mått Resource Manager-baserade virtuella Windows-datorer
+När du skapar en virtuell dator i Azure aktive ras diagnostik med hjälp av tillägget Diagnostics. Tillägget Diagnostics ger en uppsättning mått som tas från den virtuella datorn. Det innebär att du kan Autoskala av mått som inte genereras som standard.
 
-Du kan skapa en lista över mått med hjälp av följande kommando i PowerShell.
+Du kan skapa en lista över måtten med hjälp av följande kommando i PowerShell.
 
 ```
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -53,38 +53,38 @@ Du kan skapa en avisering för följande mått:
 
 | Måttnamn | Enhet |
 | --- | --- |
-| \Processor(_Total)\% processortid |Procent |
-| \Processor(_Total)\% privilegierad tid |Procent |
-| \Processor(_Total)\% användartid |Procent |
-| \Processor information (_Total) \Processor frekvens |Count |
+| \Processor(_Total)\% processortid |Percent |
+| \Processor (_ total\% ) privilegie rad tid |Percent |
+| \Processor (_ total\% ) användar tid |Percent |
+| \Processor information (_ total) \Processor frekvens |Count |
 | \System\Processes |Count |
-| \Process (_Total) \Thread antal |Antal |
-| \Process(_Total)\Handle Count |Count |
-| \Memory\% allokerade byte som används |Procent |
+| \Process (_ total) \Thread antal |Count |
+| \Process (_ total) \Handle antal |Count |
+| \Memory\% allokerade byte som används |Percent |
 | \Memory\Tillgängliga byte |Byte |
 | \Memory\Committed byte |Byte |
-| \Memory\Commit gräns |Byte |
-| \Memory\Pool systemminne-byte |Byte |
-| \Memory\Pool växlingsbart systemminne-byte |Byte |
-| \PhysicalDisk(_Total)\% disk tid |Procent |
-| \PhysicalDisk(_Total)\% Disk Read Time |Procent |
-| \PhysicalDisk(_Total)\% disk-skrivtid |Procent |
-| \PhysicalDisk (_Total) \Disk disköverföringar/sek |CountPerSecond |
-| \PhysicalDisk (_Total) \Disk Diskläsningar/sek |CountPerSecond |
-| \PhysicalDisk (_Total) \Disk Diskskrivningar/sek |CountPerSecond |
-| \PhysicalDisk (_Total) \Disk byte/sek |BytesPerSecond |
-| \PhysicalDisk (_Total) \Disk-lästa byte/s |BytesPerSecond |
-| \PhysicalDisk (_Total) \Disk skrivna byte/sek |BytesPerSecond |
-| \PhysicalDisk(_Total)\Avg. Disk Queue Length |Count |
-| \PhysicalDisk(_Total)\Avg. Läs diskkölängd |Count |
-| \PhysicalDisk(_Total)\Avg. Diskkölängd för skrivning |Antal |
-| \LogicalDisk(_Total)\% ledigt utrymme |Procent |
-| \LogicalDisk (_Total) \Free utrymme i MB |Count |
+| \Memory\Commit-gräns |Byte |
+| \Memory\Pool växlade byte |Byte |
+| \Memory\Pool byte som inte har Pages |Byte |
+| \PhysicalDisk (_ total\% ), disk tid |Percent |
+| Läs tid för \PhysicalDisk\% (_ total) |Percent |
+| Skriv tid för \PhysicalDisk\% (_ total) |Percent |
+| \PhysicalDisk (_ total) \ disk överföringar/SEK |CountPerSecond |
+| \PhysicalDisk (_ total) \ disk läsningar/s |CountPerSecond |
+| \PhysicalDisk (_ total) \ disk skrivningar/s |CountPerSecond |
+| \PhysicalDisk (_ total) \ Disk byte/s |BytesPerSecond |
+| \PhysicalDisk (_ total) \ disk lästa byte/s |BytesPerSecond |
+| \PhysicalDisk (_ total) \ disk skrivna byte/s |BytesPerSecond |
+| \PhysicalDisk (_ total) \Avg. Diskkölängd |Count |
+| \PhysicalDisk (_ total) \Avg. Längd på disk läsnings kön |Count |
+| \PhysicalDisk (_ total) \Avg. Längd på disk skrivnings kön |Count |
+| \Logisk disk (totalt)\% ledigt utrymme |Percent |
+| \Logisk disk (_ total) \Ledigt megabyte |Count |
 
-### <a name="guest-os-metrics-linux-vms"></a>Gäst-OS mått virtuella Linux-datorer
-När du skapar en virtuell dator i Azure, är diagnostik aktiverat som standard med hjälp av diagnostiktillägget.
+### <a name="guest-os-metrics-linux-vms"></a>Gäst operativ system mått virtuella Linux-datorer
+När du skapar en virtuell dator i Azure aktive ras diagnostik som standard med hjälp av tillägget Diagnostics.
 
-Du kan skapa en lista över mått med hjälp av följande kommando i PowerShell.
+Du kan skapa en lista över måtten med hjälp av följande kommando i PowerShell.
 
 ```
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -95,25 +95,25 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | Måttnamn | Enhet |
 | --- | --- |
 | \Memory\AvailableMemory |Byte |
-| \Memory\PercentAvailableMemory |Procent |
+| \Memory\PercentAvailableMemory |Percent |
 | \Memory\UsedMemory |Byte |
-| \Memory\PercentUsedMemory |Procent |
-| \Memory\PercentUsedByCache |Procent |
+| \Memory\PercentUsedMemory |Percent |
+| \Memory\PercentUsedByCache |Percent |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Byte |
-| \Memory\PercentAvailableSwap |Procent |
+| \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |Byte |
-| \Memory\PercentUsedSwap |Procent |
-| \Processor\PercentIdleTime |Procent |
-| \Processor\PercentUserTime |Procent |
-| \Processor\PercentNiceTime |Procent |
-| \Processor\PercentPrivilegedTime |Procent |
-| \Processor\PercentInterruptTime |Procent |
-| \Processor\PercentDPCTime |Procent |
-| \Processor\PercentProcessorTime |Procent |
-| \Processor\PercentIOWaitTime |Procent |
+| \Memory\PercentUsedSwap |Percent |
+| \Processor\PercentIdleTime |Percent |
+| \Processor\PercentUserTime |Percent |
+| \Processor\PercentNiceTime |Percent |
+| \Processor\PercentPrivilegedTime |Percent |
+| \Processor\PercentInterruptTime |Percent |
+| \Processor\PercentDPCTime |Percent |
+| \Processor\PercentProcessorTime |Percent |
+| \Processor\PercentIOWaitTime |Percent |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -133,33 +133,33 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |Count |
 | \NetworkInterface\TotalCollisions |Count |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Vanliga mätvärden från webben (servergrupp)
-Du kan också utföra automatisk skalning baserat på vanliga web servermått, till exempel Http-kölängd. Tjänstmåttets namn är **HttpQueueLength**.  I följande avsnitt visas tillgängliga serverstatistik för servergruppen (Webbappar).
+## <a name="commonly-used-web-server-farm-metrics"></a>Vanliga mått för webb Server grupper
+Du kan också utföra autoskalning baserat på vanliga webb server mått, till exempel http-köns längd. IT-måttets namn är **HttpQueueLength**.  I följande avsnitt visas tillgängliga mått för Server grupp (Web Apps).
 
 ### <a name="web-apps-metrics"></a>Web Apps mått
-Du kan skapa en lista över mått för Web Apps med hjälp av följande kommando i PowerShell.
+Du kan generera en lista med Web Apps måtten med hjälp av följande kommando i PowerShell.
 
 ```
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Du kan Avisera om och av de här måtten.
+Du kan varna för eller skala med dessa mått.
 
 | Måttnamn | Enhet |
 | --- | --- |
-| CpuPercentage |Procent |
-| MemoryPercentage |Procent |
+| CpuPercentage |Percent |
+| MemoryPercentage |Percent |
 | DiskQueueLength |Count |
-| HttpQueueLength |Antal |
+| HttpQueueLength |Count |
 | BytesReceived |Byte |
-| BytesSent |Byte |
+| Bytes sent |Byte |
 
-## <a name="commonly-used-storage-metrics"></a>Vanliga lagringsmått
-Du kan skala genom Kölängd för lagring, vilket är antalet meddelanden i kö för lagring. Kölängd för lagring är en särskild måttet och tröskelvärdet är antalet meddelanden per instans. Till exempel inträffar om det finns två instanser och om tröskelvärdet är inställt på 100, skalning när det totala antalet meddelanden i kön är 200. Det kan vara 100 meddelanden per instans, 120 och 80 eller någon annan kombination som lägger till upp till 200 eller mer.
+## <a name="commonly-used-storage-metrics"></a>Ofta använda lagrings mått
+Du kan skala efter lagrings köns längd, vilket är antalet meddelanden i lagrings kön. Längden på lagrings kön är ett speciellt mått och tröskelvärdet är antalet meddelanden per instans. Om det till exempel finns två instanser och om tröskelvärdet är inställt på 100 uppstår skalning när det totala antalet meddelanden i kön är 200. Det kan vara 100 meddelanden per instans, 120 och 80, eller någon annan kombination som lägger till upp till 200 eller mer.
 
-Konfigurera den här inställningen i Azure-portalen i den **inställningar** bladet. Du kan uppdatera autoskalningsinställning i Resource Manager-mallen som du använder för VM scale sets *metricName* som *ApproximateMessageCount* och skicka ID för storage-kö som  *metricResourceUri*.
+Konfigurera den här inställningen i Azure Portal på bladet **Inställningar** . För VM Scale-uppsättningar kan du uppdatera inställningen för autoskalning i Resource Manager-mallen för att använda *metricName* som *ApproximateMessageCount* och skicka ID: t för lagrings kön som *metricResourceUri*.
 
-Med ett klassiskt Lagringskonto till exempel även Autoskala inställningen metricTrigger:
+Till exempel, med ett klassiskt lagrings konto, inkluderar metricTrigger för autoskalning följande:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -167,7 +167,7 @@ Med ett klassiskt Lagringskonto till exempel även Autoskala inställningen metr
  "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
-För ett lagringskonto med (inte klassisk) omfattar i metricTrigger:
+För ett (icke-klassiskt) lagrings konto skulle metricTrigger innehålla:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -175,10 +175,10 @@ För ett lagringskonto med (inte klassisk) omfattar i metricTrigger:
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.Storage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
 ```
 
-## <a name="commonly-used-service-bus-metrics"></a>Vanliga mått för Service Bus
-Du kan skala genom Kölängd för Service Bus, vilket är antalet meddelanden i Service Bus-kö. Kölängd för Service Bus är en särskild måttet och tröskelvärdet är antalet meddelanden per instans. Till exempel inträffar om det finns två instanser och om tröskelvärdet är inställt på 100, skalning när det totala antalet meddelanden i kön är 200. Det kan vara 100 meddelanden per instans, 120 och 80 eller någon annan kombination som lägger till upp till 200 eller mer.
+## <a name="commonly-used-service-bus-metrics"></a>Ofta använda Service Bus mått
+Du kan skala efter Service Bus Kölängd, vilket är antalet meddelanden i Service Bus kön. Service Bus Kölängd är ett särskilt mått och tröskelvärdet är antalet meddelanden per instans. Om det till exempel finns två instanser och om tröskelvärdet är inställt på 100 uppstår skalning när det totala antalet meddelanden i kön är 200. Det kan vara 100 meddelanden per instans, 120 och 80, eller någon annan kombination som lägger till upp till 200 eller mer.
 
-Du kan uppdatera autoskalningsinställning i Resource Manager-mallen som du använder för VM scale sets *metricName* som *ApproximateMessageCount* och skicka ID för storage-kö som  *metricResourceUri*.
+För VM Scale-uppsättningar kan du uppdatera inställningen för autoskalning i Resource Manager-mallen för att använda *metricName* som *ApproximateMessageCount* och skicka ID: t för lagrings kön som *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -187,7 +187,7 @@ Du kan uppdatera autoskalningsinställning i Resource Manager-mallen som du anv�
 ```
 
 > [!NOTE]
-> Konceptet för resurs-grupp finns inte för Service Bus, men Azure Resource Manager skapas en resursgrupp för standard per region. Resursgruppen är vanligtvis i formatet ”standard - ServiceBus-[region]”. Till exempel ”standard-ServiceBus-EastUS”, ”standard-ServiceBus-WestUS', 'Standard-ServiceBus-AustraliaEast” osv.
+> För Service Bus finns inte det här konceptet för resurs grupp, men Azure Resource Manager skapar en standard resurs grupp per region. Resurs gruppen är vanligt vis i formatet default-Service Bus-[region]. Till exempel "default-Service Bus-öster", "default-Service Bus-väst", "default-Service Bus-AustraliaEast" osv.
 >
 >
 

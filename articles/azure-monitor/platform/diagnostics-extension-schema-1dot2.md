@@ -1,6 +1,6 @@
 ---
-title: Azure Diagnostics-tillägg 1.2 konfigurationsschema
-description: Detta gäller endast om du använder Azure SDK 2.5 med Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric och Cloud Services.
+title: Konfigurations schema för Azure-diagnostik-tillägg 1,2
+description: ENDAST relevant om du använder Azure SDK 2,5 med Azure Virtual Machines Virtual Machine Scale Sets, Service Fabric eller Cloud Services.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -10,32 +10,32 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60237844"
 ---
-# <a name="azure-diagnostics-12-configuration-schema"></a>Schema för Azure Diagnostics 1.2-konfiguration
+# <a name="azure-diagnostics-12-configuration-schema"></a>Azure-diagnostik 1,2-konfigurations schema
 > [!NOTE]
-> Azure-diagnostik är den komponent som används för att samla in prestandaräknare och annan statistik från Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric och Cloud Services.  Den här sidan gäller endast om du använder någon av dessa tjänster.
+> Azure-diagnostik är den komponent som används för att samla in prestanda räknare och annan statistik från Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric och Cloud Services.  Den här sidan är bara relevant om du använder någon av dessa tjänster.
 >
 
-Azure-diagnostik används med andra Microsoft-produkter för diagnostik som Azure Monitor, som innehåller Application Insights och Log Analytics.
+Azure-diagnostik används med andra Microsoft Diagnostics-produkter som Azure Monitor, som innehåller Application Insights och Log Analytics.
 
-Det här schemat definierar de möjliga värdena som du kan använda för att initiera diagnostiska inställningar när diagnostik monitor startar.  
+Det här schemat definierar de möjliga värden som du kan använda för att initiera diagnostiska konfigurations inställningar när diagnostikprogrammet startar.  
 
 
- Hämta offentliga konfiguration filen schemadefinitionen genom att köra följande PowerShell-kommando:  
+ Hämta schema definitionen för den offentliga konfigurations filen genom att köra följande PowerShell-kommando:  
 
 ```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
- Läs mer om hur du använder Azure Diagnostics [hur du aktiverar diagnostik i Azure Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
+ Mer information om hur du använder Azure-diagnostik finns i [Aktivera diagnostik i Azure Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
 
-## <a name="example-of-the-diagnostics-configuration-file"></a>Exempel på konfigurationsfilen diagnostik  
- I följande exempel visas en typisk diagnostik konfigurationsfil:  
+## <a name="example-of-the-diagnostics-configuration-file"></a>Exempel på konfigurations filen för diagnostik  
+ I följande exempel visas en typisk konfigurations fil för diagnostik:  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -86,118 +86,118 @@ Det här schemat definierar de möjliga värdena som du kan använda för att in
 
 ```  
 
-## <a name="diagnostics-configuration-namespace"></a>Diagnostik Configuration Namespace  
- XML-namnområdet för diagnostik-konfigurationsfilen är:  
+## <a name="diagnostics-configuration-namespace"></a>Namn område för diagnostik-konfiguration  
+ XML-namnområdet för konfigurations filen för diagnostik är:  
 
 ```  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 ```  
 
-## <a name="publicconfig-element"></a>PublicConfig Element  
- Översta elementet i konfigurationsfilen för diagnostik. I följande tabell beskriver elementen i konfigurationsfilen.  
+## <a name="publicconfig-element"></a>PublicConfig-element  
+ Toppnivå element i konfigurations filen för diagnostik. I följande tabell beskrivs elementen i konfigurations filen.  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**WadCfg**|Krävs. Konfigurationsinställningar för telemetridata samlas in.|  
-|**StorageAccount**|Namnet på Azure Storage-konto för att lagra data i. Detta kan också anges som en parameter när du kör cmdleten Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|Katalogen på den virtuella datorn som ska användas av Monitoring Agent för att lagra händelsedata. Om inte mängd standardkatalogen används:<br /><br /> För en Worker/web-roll: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> -                      **sökvägen** -katalogen på system som ska användas av Azure Diagnostics.<br /><br /> -                      **expandEnvironment** – styr om miljövariabler expanderas i Sökvägens namn.|  
+|**WadCfg**|Obligatoriskt. Konfigurations inställningar för telemetri-data som ska samlas in.|  
+|**StorageAccount**|Namnet på det Azure Storage konto som data ska lagras i. Detta kan också anges som en parameter när du kör cmdleten Set-AzureServiceDiagnosticsExtension.|  
+|**LocalResourceDirectory**|Den katalog på den virtuella datorn som ska användas av övervaknings agenten för att lagra händelse data. Om den inte anges används standard katalogen:<br /><br /> För en Worker/Web-roll:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> -                      **sökväg** – katalogen i systemet som ska användas av Azure-diagnostik.<br /><br /> -                      **expandEnvironment** – styr om miljövariablerna expanderas i Sök vägs namnet.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
-Definierar konfigurationsinställningar för dessa data som ska samlas in. I följande tabell beskrivs underordnade element:  
+Definierar konfigurations inställningar för telemetri-data som ska samlas in. I följande tabell beskrivs underordnade element:  
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**DiagnosticMonitorConfiguration**|Krävs. Valfritt attribut är:<br /><br /> -                     **overallQuotaInMB** -maximal mängd lokalt diskutrymme som kan användas av de olika typerna av diagnostiska data som samlas in av Azure Diagnostics. Standardinställningen är 5 120 MB.<br /><br /> -                     **useProxyServer** – konfigurera Azure Diagnostics för att använda inställningarna för proxyservern som angetts i Internet Explorer-inställningarna.|  
-|**CrashDumps**|Aktivera insamling av kraschdumpar. Valfritt attribut är:<br /><br /> -                     **containerName** -namnet på blobbehållaren i ditt Azure Storage-konto som används för att lagra kraschdumpar.<br /><br /> -                     **crashDumpType** -konfigurerar Azure Diagnostics för att samla in Mini eller fullständig kraschen Dumpar.<br /><br /> -                     **directoryQuotaPercentage**-konfigurerar procentandelen **overallQuotaInMB** som ska reserveras för kraschdumpar på den virtuella datorn.|  
-|**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure Diagnostics. Diagnostic infrastructure-loggar är användbara vid felsökning av själva systemet diagnostik. Valfritt attribut är:<br /><br /> -                     **scheduledTransferLogLevelFilter** – konfigurerar den lägsta allvarlighetsgraden för loggarna som samlas in.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**Kataloger**|Aktiverar insamlingen av innehållet i en katalog, IIS misslyckades åtkomstloggar för begäran och/eller IIS-loggar. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**EtwProviders**|Konfigurerar insamling av ETW-händelser från EventSource och/eller ETW Manifest baserade providers.|  
-|**Mått**|Det här elementet kan du skapa en tabell med prestandaräknaren som är optimerad för snabba frågor. Varje prestandaräknare som definieras i den **PerformanceCounters** elementet lagras i tabellen mått förutom tabellen prestandaräknaren. Obligatoriskt attribut:<br /><br /> **resourceId** – detta är resurs-ID för den virtuella datorn som du distribuerar Azure Diagnostics-data till. Hämta den **resourceID** från den [Azure-portalen](https://portal.azure.com). Välj **Bläddra** -> **resursgrupper** ->  **< namn\>** . Klicka på den **egenskaper** panelen och kopiera värdet från den **ID** fält.|  
-|**PerformanceCounters**|Aktiverar insamling av prestandaräknare. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatypen”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Aktiverar insamlingen av Windows-händelseloggar. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatypen”.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**DiagnosticMonitorConfiguration**|Obligatoriskt. Valfria attribut är:<br /><br /> -                     **overallQuotaInMB** – den maximala mängden lokalt disk utrymme som kan användas av de olika typerna av diagnostikdata som samlas in av Azure-diagnostik. Standardvärdet är 5120MB.<br /><br /> -                     **useProxyServer** – konfigurera Azure-diagnostik att använda inställningarna för proxyservern som anges i IE-inställningar.|  
+|**CrashDumps**|Aktivera samling av krasch dum par. Valfria attribut är:<br /><br /> -                     **containerName** – namnet på BLOB-behållaren i Azure Storage-kontot som ska användas för att lagra krasch dum par.<br /><br /> -                     **crashDumpType** – konfigurerar Azure-diagnostik att samla in mini-eller fullständiga krasch dum par.<br /><br /> -                     **directoryQuotaPercentage**– konfigurerar procent andelen **overallQuotaInMB** som ska reserveras för krasch dum par på den virtuella datorn.|  
+|**DiagnosticInfrastructureLogs**|Aktivera samling av loggar som genereras av Azure-diagnostik. De diagnostiska infrastruktur loggarna är användbara för att felsöka själva diagnostik systemet. Valfria attribut är:<br /><br /> -                     **scheduledTransferLogLevelFilter** – konfigurerar den lägsta allvarlighets graden för loggarna som samlas in.<br /><br /> -                     **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Kataloger**|Aktiverar insamling av innehållet i en katalog, IIS nekade åtkomst till begär ande loggar och/eller IIS-loggar. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**EtwProviders**|Konfigurerar insamling av ETW-händelser från EventSource och/eller ETW-manifest baserade providers.|  
+|**Mått**|Med det här elementet kan du generera en prestanda räknar tabell som är optimerad för snabba frågor. Varje prestanda räknare som definieras i **PerformanceCounters** -elementet lagras i mått tabellen förutom prestanda räknar tabellen. Nödvändigt attribut:<br /><br /> **resourceId** – detta är resurs-ID för den virtuella dator som du distribuerar Azure-diagnostik till. Hämta **resourceID** från [Azure Portal](https://portal.azure.com). Välj **Bläddra** -> **resurs grupper** ->  **< namn.\>** Klicka på panelen **Egenskaper** och kopiera värdet från fältet **ID** .|  
+|**PerformanceCounters**|Aktiverar insamling av prestanda räknare. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Aktiverar insamling av händelse loggar i Windows. Valfritt attribut:<br /><br /> **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 
-## <a name="crashdumps-element"></a>CrashDumps Element  
- Aktiverar insamling av kraschdumpar. I följande tabell beskrivs underordnade element:  
+## <a name="crashdumps-element"></a>CrashDumps-element  
+ Aktiverar samling av krasch dum par. I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**CrashDumpConfiguration**|Krävs. Obligatoriskt attribut:<br /><br /> **processName** -namnet på processen som du vill att Azure-diagnostik för att samla in en kraschdumpfil för.|  
-|**crashDumpType**|Konfigurerar Azure-diagnostik för att samla in Dumpar mini eller fullständig krasch.|  
-|**directoryQuotaPercentage**|Konfigurerar procentandelen **overallQuotaInMB** som ska reserveras för kraschdumpar på den virtuella datorn.|  
+|**CrashDumpConfiguration**|Obligatoriskt. Nödvändigt attribut:<br /><br /> **processName** – namnet på den process som du vill Azure-diagnostik för att samla in en kraschdump för.|  
+|**crashDumpType**|Konfigurerar Azure-diagnostik att samla in mini-eller fullständiga krasch dum par.|  
+|**directoryQuotaPercentage**|Konfigurerar procent andelen av **overallQuotaInMB** som ska reserveras för krasch dum par på den virtuella datorn.|  
 
-## <a name="directories-element"></a>Directories Element  
- Aktiverar insamlingen av innehållet i en katalog, IIS misslyckades åtkomstloggar för begäran och/eller IIS-loggar. I följande tabell beskrivs underordnade element:  
+## <a name="directories-element"></a>Katalog element  
+ Aktiverar insamling av innehållet i en katalog, IIS nekade åtkomst till begär ande loggar och/eller IIS-loggar. I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**Datakällor**|En lista över kataloger som ska övervaka.|  
-|**FailedRequestLogs**|Inkludera det här elementet i konfigurationen kan loggsamlingar om misslyckade förfrågningar till ett IIS-webbplats eller ett program. Du måste även aktivera spårningsalternativ under **system. Webbserver** i **Web.config**.|  
-|**IISLogs**|Inkludera det här elementet i konfigurationen aktiverar insamlingen av IIS-loggar:<br /><br /> **containerName** -namnet på blobbehållaren i ditt Azure Storage-konto som används för att lagra IIS-loggar.|  
+|**Data källor**|En lista över kataloger som ska övervakas.|  
+|**FailedRequestLogs**|Genom att inkludera det här elementet i konfigurationen kan du samla in loggar över misslyckade förfrågningar till en IIS-webbplats eller ett program. Du måste också aktivera spårnings alternativ under **system. Webb server** i **Web. config**.|  
+|**IISLogs**|Genom att inkludera det här elementet i konfigurationen möjliggörs insamling av IIS-loggar:<br /><br /> **containerName** – namnet på BLOB-behållaren i Azure Storage-kontot som ska användas för att lagra IIS-loggarna.|  
 
-## <a name="datasources-element"></a>DataSources Element  
- En lista över kataloger som ska övervaka. I följande tabell beskrivs underordnade element:  
+## <a name="datasources-element"></a>Data källa element  
+ En lista över kataloger som ska övervakas. I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**DirectoryConfiguration**|Krävs. Obligatoriskt attribut:<br /><br /> **containerName** -namnet på blobbehållaren i ditt Azure Storage-konto som används för att lagra loggfilerna.|  
+|**DirectoryConfiguration**|Obligatoriskt. Nödvändigt attribut:<br /><br /> **containerName** – namnet på BLOB-behållaren i Azure Storage-kontot som ska användas för att lagra loggfilerna.|  
 
-## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
- **DirectoryConfiguration** kan innehålla antingen den **absolut** eller **LocalResource** element, men inte båda. I följande tabell beskrivs underordnade element:  
+## <a name="directoryconfiguration-element"></a>DirectoryConfiguration-element  
+ **DirectoryConfiguration** kan innehålla antingen det **absoluta** eller **LocalResource** -elementet, men inte båda. I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**Absolut**|Den absoluta sökvägen till katalogen som ska övervakas. Det krävs följande attribut:<br /><br /> -                     **Sökvägen** -den absoluta sökvägen till katalogen som ska övervakas.<br /><br /> -                      **expandEnvironment** – konfigurerar om miljövariabler i sökvägen expanderas.|  
-|**LocalResource**|Sökväg i förhållande till en lokal resurs du övervakar. Obligatoriska attribut är:<br /><br /> -                     **Namn på** – den lokala resursen som innehåller katalogen som ska övervakas<br /><br /> -                     **relativePath** -sökväg i förhållande till namn som innehåller katalogen som ska övervakas|  
+|**Absolutvärde**|Den absoluta sökvägen till den katalog som ska övervakas. Följande attribut krävs:<br /><br /> -                     **Sökväg** – den absoluta sökvägen till den katalog som ska övervakas.<br /><br /> -                      **expandEnvironment** – konfigurerar om miljövariabler i sökvägen ska expanderas.|  
+|**LocalResource**|Sökvägen i förhållande till en lokal resurs som ska övervakas. Obligatoriska attribut är:<br /><br /> -                     **Namn** – den lokala resurs som innehåller den katalog som ska övervakas<br /><br /> -                     **relativePath** – sökvägen är relativ till det namn som innehåller den katalog som ska övervakas|  
 
-## <a name="etwproviders-element"></a>EtwProviders Element  
- Konfigurerar insamling av ETW-händelser från EventSource och/eller ETW Manifest baserade providers. I följande tabell beskrivs underordnade element:  
+## <a name="etwproviders-element"></a>EtwProviders-element  
+ Konfigurerar insamling av ETW-händelser från EventSource och/eller ETW-manifest baserade providers. I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet händelsens EventSource.<br /><br /> Valfritt attribut är:<br /><br /> -                     **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID för händelseprovider<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> -                     **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource-klassen](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Nödvändigt attribut:<br /><br /> **Provider** – klass namnet för EventSource-händelsen.<br /><br /> Valfria attribut är:<br /><br /> -                     **scheduledTransferLogLevelFilter** – den minsta allvarlighets grad som ska överföras till ditt lagrings konto.<br /><br /> -                     **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Nödvändigt attribut:<br /><br /> **Provider** – GUID för händelse leverantören<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – den minsta allvarlighets grad som ska överföras till ditt lagrings konto.<br /><br /> -                     **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
- Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). I följande tabell beskrivs underordnade element:  
+ Konfigurerar insamling av händelser som genereras från [EventSource-klassen](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**DefaultEvents**|Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
-|**Händelse**|Obligatoriskt attribut:<br /><br /> **ID** -id för händelsen.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
+|**DefaultEvents**|Valfritt attribut:<br /><br /> **eventDestination** – namnet på den tabell där händelserna ska lagras|  
+|**Händelse**|Nödvändigt attribut:<br /><br /> **ID** – händelsens ID.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** – namnet på den tabell där händelserna ska lagras|  
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
  I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**DefaultEvents**|Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
-|**Händelse**|Obligatoriskt attribut:<br /><br /> **ID** -id för händelsen.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
+|**DefaultEvents**|Valfritt attribut:<br /><br /> **eventDestination** – namnet på den tabell där händelserna ska lagras|  
+|**Händelse**|Nödvändigt attribut:<br /><br /> **ID** – händelsens ID.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** – namnet på den tabell där händelserna ska lagras|  
 
-## <a name="metrics-element"></a>Metrics Element  
- Kan du skapa en tabell med prestandaräknaren som är optimerad för snabba frågor. I följande tabell beskrivs underordnade element:  
+## <a name="metrics-element"></a>Mått element  
+ Gör att du kan generera en prestanda räknar tabell som är optimerad för snabba frågor. I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**MetricAggregation**|Obligatoriskt attribut:<br /><br /> **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [varaktighet för XML-datatyp](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Nödvändigt attribut:<br /><br /> **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
-## <a name="performancecounters-element"></a>PerformanceCounters Element  
- Aktiverar insamling av prestandaräknare. I följande tabell beskrivs underordnade element:  
+## <a name="performancecounters-element"></a>PerformanceCounters-element  
+ Aktiverar insamling av prestanda räknare. I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Det krävs följande attribut:<br /><br /> -                     **counterSpecifier** -namnet på prestandaräknaren. Till exempel `\Processor(_Total)\% Processor Time`. För att hämta en lista över prestanda räknare på din värd kör kommandot `typeperf`.<br /><br /> -                     **sampleRate** -hur ofta räknaren ska aktiveras.<br /><br /> Valfritt attribut:<br /><br /> **enhet** -måttenhet för räknaren.|  
+|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> -                     **counterSpecifier** – namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du `typeperf`kommandot.<br /><br /> -                     **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren.|  
 
-## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration Element  
+## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration-element  
  I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**annotation**|Obligatoriskt attribut:<br /><br /> **displayName** – visningsnamnet för räknaren<br /><br /> Valfritt attribut:<br /><br /> **nationella inställningar** -språket som används vid visning av räknarnamnet|  
+|**antecknings**|Nödvändigt attribut:<br /><br /> **DisplayName** – visnings namnet för räknaren<br /><br /> Valfritt attribut:<br /><br /> **locale** – det språk som ska användas när räknarens namn visas|  
 
-## <a name="windowseventlog-element"></a>WindowsEventLog Element  
+## <a name="windowseventlog-element"></a>WindowsEventLog-element  
  I följande tabell beskrivs underordnade element:  
 
-|Elementnamn|Beskrivning|  
+|Element namn|Beskrivning|  
 |------------------|-----------------|  
-|**DataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namn på** – XPath-frågan som beskriver windows-händelser som ska samlas in. Exempel:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Om du vill samla in alla händelser, ange ”*”.|
+|**DataSource**|Händelse loggarna i Windows som ska samlas in. Nödvändigt attribut:<br /><br /> **namn** – XPath-frågan som beskriver de Windows-händelser som ska samlas in. Exempel:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Om du vill samla in alla händelser anger du "*".|
 

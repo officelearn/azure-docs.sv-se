@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - prestandaövervakning med Windows Azure-diagnostiktillägget | Microsoft Docs
-description: Använda Windows Azure-diagnostik för att samla in prestandaräknare för Azure Service Fabric-kluster.
+title: Azure Service Fabric-prestanda övervakning med Windows Azure-diagnostik-tillägget | Microsoft Docs
+description: Använd Windows Azure-diagnostik för att samla in prestanda räknare för Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -15,29 +15,29 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66110304"
 ---
-# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Övervakning av programprestanda med Windows Azure Diagnostics-tillägget
+# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestanda övervakning med Windows Azure-diagnostik-tillägget
 
-Det här dokumentet beskriver steg som krävs för att ställa in insamling av prestandaräknare via Windows Azure Diagnostics SÄKERHETSSPECIFIKA-tillägg för Windows-kluster. För Linux-kluster, konfigurerar du den [Log Analytics-agenten](service-fabric-diagnostics-oms-agent.md) att samla in prestandaräknare för noderna. 
+Det här dokumentet beskriver steg som krävs för att konfigurera insamling av prestanda räknare via Windows Azure-diagnostik-tillägget (WAD) för Windows-kluster. För Linux-kluster ställer du in [Log Analytics agenten](service-fabric-diagnostics-oms-agent.md) för att samla in prestanda räknare för noderna. 
 
  > [!NOTE]
-> Tillägget WAD ska distribueras i klustret för de här stegen arbeta åt dig. Om det inte har ställts in, gå till [händelse aggregering och samling med Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  
+> WAD-tillägget bör distribueras i klustret för att de här stegen ska fungera. Om den inte har kon figurer ATS ska du gå över till [händelse agg regering och insamling med Windows Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md).  
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="collect-performance-counters-via-the-wadcfg"></a>Samla in prestandaräknare via WadCfg
+## <a name="collect-performance-counters-via-the-wadcfg"></a>Samla in prestanda räknare via WadCfg
 
-Om du vill samla in prestandaräknare via WAD, måste du ändra konfigurationen på rätt sätt i ditt kluster Resource Manager-mall. Följ dessa steg för att lägga till en prestandaräknare som du vill samla in i mallen och Resource Manager resource uppgraderas.
+Om du vill samla in prestanda räknare via WAD måste du ändra konfigurationen på lämpligt sätt i klustrets Resource Manager-mall. Följ dessa steg om du vill lägga till en prestanda räknare som du vill samla in i mallen och köra en resurs hanterings resurs uppgradering.
 
-1. Hitta WAD konfigurationen i ditt kluster mall – hitta `WadCfg`. Du kommer att lägga till prestandaräknare enligt den `DiagnosticMonitorConfiguration`.
+1. Hitta WAD-konfigurationen i klustrets mall – hitta `WadCfg`. Du kommer att lägga till prestanda räknare som ska samlas `DiagnosticMonitorConfiguration`in under.
 
-2. Konfigurera din konfiguration för att samla in prestandaräknare genom att lägga till följande avsnitt för att din `DiagnosticMonitorConfiguration`. 
+2. Konfigurera konfigurationen för att samla in prestanda räknare genom att lägga till följande avsnitt i `DiagnosticMonitorConfiguration`. 
 
     ```json
     "PerformanceCounters": {
@@ -46,11 +46,11 @@ Om du vill samla in prestandaräknare via WAD, måste du ändra konfigurationen 
     }
     ```
 
-    Den `scheduledTransferPeriod` definierar hur ofta värdena för de räknare som samlas in överförs till Azure storage-tabell och till alla konfigurerade mottagare. 
+    `scheduledTransferPeriod` Definierar hur ofta värdena för de räknare som samlas in överförs till din Azure Storage-tabell och till alla konfigurerade mottagare. 
 
-3. Lägg till prestandaräknare som du vill samla in till den `PerformanceCounterConfiguration` som har deklarerats i föregående steg. Varje räknare du vill samla in definieras med en `counterSpecifier`, `sampleRate`, `unit`, `annotation`, och alla relevanta `sinks`.
+3. Lägg till de prestanda räknare som du vill samla in till `PerformanceCounterConfiguration` som har deklarerats i föregående steg. Varje räknare som du vill samla in definieras med en `counterSpecifier` `unit`, `sampleRate` `annotation`,, och relevant `sinks`.
 
-Här är ett exempel på en konfiguration med räknaren för de *Total processortid* (hur lång tid som Processorn användes för bearbetningsåtgärder) och *metodanropen för Service Fabric-aktör per sekund*, en av de anpassa prestandaräknarna för Service Fabric. Referera till [Reliable Actor-prestandaräknare](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) och [prestandaräknare för tillförlitlig](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) för en fullständig lista över anpassade prestandaräknare för Service Fabric.
+Här är ett exempel på en konfiguration med räknaren för den *totala processor tiden* (den tid som processorn användes för bearbetning) och *Service Fabric aktör metod anrop per sekund*, en av de Service Fabric anpassade prestanda räknare. Se [tillförlitliga aktörs prestanda räknare](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) och [tillförlitliga tjänst prestanda räknare](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) för en fullständig lista över Service Fabric anpassade prestanda räknare.
 
  ```json
  "WadCfg": {
@@ -107,9 +107,9 @@ Här är ett exempel på en konfiguration med räknaren för de *Total processor
        },
   ```
 
- Du kan ändra samplingsfrekvensen för räknaren enligt dina behov. Formatet för den är `PT<time><unit>`, så om du vill att den räknare som varje sekund sedan bör du ange den `"sampleRate": "PT15S"`.
+ Samplings frekvensen för räknaren kan ändras efter behov. Formatet för det är `PT<time><unit>`, så om du vill att räknaren ska samlas in varje sekund ska du `"sampleRate": "PT15S"`ange.
 
- Du kan också använda variabler i ARM-mall för att samla in en matris med prestandaräknare som kan är användbar när du samlar in prestandaräknare processer. I det exemplet nedan vi samlar in processortid och skräpinsamlaren tid per process och sedan 2 prestandaräknare på noderna alla med hjälp av variabler. 
+ Du kan också använda variabler i ARM-mallen för att samla in en matris med prestanda räknare, vilket kan vara praktiskt när du samlar in prestanda räknare per process. I exemplet nedan samlar vi in processor tid och skräp insamlings tid per process och sedan 2 prestanda räknare på noderna alla med hjälp av variabler. 
 
  ```json
 "variables": {
@@ -193,17 +193,17 @@ Här är ett exempel på en konfiguration med räknaren för de *Total processor
 ```
 
  >[!NOTE]
- >Även om du kan använda `*` om du vill ange grupper av prestandaräknare som namnges på samma sätt skicka räknare via en mottagare (till Application Insights) kräver att de deklareras individuellt. 
+ >Även om du kan `*` använda för att ange grupper med prestanda räknare som har samma namn som du skickar räknare via en Sink (till Application Insights) kräver att de är individuellt deklarerade. 
 
-1. När du har lagt till lämplig prestandaräknare som behöver samlas in, måste du uppgradera din klusterresursen så att de här ändringarna i ditt kluster som körs. Spara den ändrade `template.json` och öppna PowerShell. Du kan uppgradera ditt kluster med hjälp av `New-AzResourceGroupDeployment`. Anropet kräver namnet på resursgruppen och uppdaterade mallfilen parameterfilen och uppmanar Resource Manager för att göra lämpliga ändringar i de resurser som du har uppdaterat. När du är inloggad på ditt konto och är i rätt prenumeration, använder du följande kommando med uppgraderingen:
+1. När du har lagt till lämpliga prestanda räknare som behöver samlas in måste du uppgradera kluster resursen så att dessa ändringar visas i det kluster som körs. Spara din ändrade `template.json` och öppna PowerShell. Du kan uppgradera klustret med hjälp `New-AzResourceGroupDeployment`av. Anropet kräver namnet på resurs gruppen, den uppdaterade mallfilen och parameter filen och begär Resource Manager för att göra lämpliga ändringar i de resurser som du har uppdaterat. När du har loggat in på ditt konto och har rätt prenumeration använder du följande kommando för att köra uppgraderingen:
 
     ```sh
     New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-1. När uppgraderingen har slutförts ska lansera (tar mellan 15-45 minuter beroende på om det är den första distributionen och storleken på din resursgrupp) WAD samla in prestandaräknare och skicka dem till tabellen med namnet WADPerformanceCountersTable i lagringskontot som associerats med klustret. Se dina prestandaräknare i Application Insights genom [lägger till AI-mottagare i Resource Manager-mall](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
+1. När uppgraderingen är klar (tar mellan 15-45 minuter beroende på om det är den första distributionen och storleken på resurs gruppen) ska WAD samla in prestanda räknarna och skicka dem till tabellen med namnet WADPerformanceCountersTable i det lagrings konto som är associerat med klustret. Se dina prestanda räknare i Application Insights genom [att lägga till AI-Sink i Resource Manager-mallen](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Nästa steg
-* Samla in mer prestandaräknare för klustret. Se [prestandamått](service-fabric-diagnostics-event-generation-perf.md) för en lista över räknare som du bör samla in.
-* [Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager-mallar](../virtual-machines/windows/extensions-diagnostics-template.md) göra ytterligare ändringar i din `WadCfg`, inklusive hur du konfigurerar ytterligare lagringskonton för att skicka diagnostikdata.
-* Gå till den [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) att skapa en mall från början och kontrollera att din syntax är korrekt. () https://azure.github.io/azure-diagnostics-tools/config-builder/) att skapa en mall från början och kontrollera att din syntax är korrekt.
+* Samla in fler prestanda räknare för klustret. Se [prestanda mått](service-fabric-diagnostics-event-generation-perf.md) för en lista med räknare som du bör samla in.
+* `WadCfg` [Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar](../virtual-machines/windows/extensions-diagnostics-template.md) för att göra ytterligare ändringar i, inklusive att konfigurera ytterligare lagrings konton för att skicka diagnostikdata till.
+* Besök [WadCfg Builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) för att skapa en mall från grunden och kontrol lera att syntaxen är korrekt. (https://azure.github.io/azure-diagnostics-tools/config-builder/) om du vill skapa en mall från grunden och kontrol lera att syntaxen är korrekt.

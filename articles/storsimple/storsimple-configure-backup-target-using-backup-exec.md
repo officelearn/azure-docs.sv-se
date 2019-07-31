@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67876790"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple som ett säkerhets kopierings mål med Backup Exec
@@ -312,9 +312,9 @@ Här är ett exempel på ett GFS rotations schema för fyra veckor, varje månad
 
 | Typ av frekvens/säkerhets kopiering | Fullständig | Stegvis (dagar 1-5)  |   
 |---|---|---|
-| Varje vecka (veckor 1-4) | Söndag | Måndag-fredag |
-| Månadsvis  | Söndag  |   |
-| Flerårig | Söndag  |   |
+| Varje vecka (veckor 1-4) | Lördag | Måndag-fredag |
+| Månadsvis  | Lördag  |   |
+| Varje år | Lördag  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Tilldela StorSimple-volymer till ett säkerhets kopierings jobb med säkerhets kopierings körning
@@ -388,7 +388,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 | Vecka 3 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Månadsvis | StorSimple varje månad |   |   |   |   |   |
-| Flerårig | StorSimple varje år  |   |   |   |   |   |
+| Varje år | StorSimple varje år  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Tilldela StorSimple-volymer till ett Backup Exec-Arkiv och Deduplicerings jobb

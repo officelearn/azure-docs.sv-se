@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67875308"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple som ett säkerhets kopierings mål med Veeam
@@ -318,9 +318,9 @@ Här är ett exempel på ett GFS rotations schema för fyra veckor, varje månad
 
 | Typ av frekvens/säkerhets kopiering | Fullständig | Stegvis (dagar 1-5)  |   
 |---|---|---|
-| Varje vecka (veckor 1-4) | Söndag | Måndag-fredag |
-| Månadsvis  | Söndag  |   |
-| Flerårig | Söndag  |   |
+| Varje vecka (veckor 1-4) | Lördag | Måndag-fredag |
+| Månadsvis  | Lördag  |   |
+| Varje år | Lördag  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Tilldela StorSimple-volymer till ett säkerhets kopierings jobb med Veeam
@@ -400,7 +400,7 @@ GFS rotation, varje vecka, månads vis och årligt schema
 | Vecka 3 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Månadsvis | StorSimple varje månad |   |   |   |   |   |
-| Flerårig | StorSimple varje år  |   |   |   |   |   |
+| Varje år | StorSimple varje år  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Tilldela StorSimple-volymer till ett Veeam kopierings jobb
 

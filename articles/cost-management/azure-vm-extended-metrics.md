@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
 ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66242450"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Lägga till utökade mått för Azure-datorer
@@ -28,10 +28,10 @@ När du har aktiverat mått samling kan du:
 - Styra kostnaderna genom storlek beroende på användningen.
 - Hämta kostnad effektiva Bedömningsrekommendationer optimering från Cloudyn.
 
-Du kanske exempelvis vill övervaka processor och minne-% av virtuella datorer i Azure. Azure VM-mått som motsvarar _procent CPU_ och _\Memory\% använda dedikerade byte_.
+Du kanske exempelvis vill övervaka processor och minne-% av virtuella datorer i Azure. Azures virtuella Azure-mått motsvarar _procent CPU_ och _\Memory\% allokerade byte som används_.
 
 > [!NOTE]
-> Datainsamling för utökade mått stöds bara med Azure-övervakning på gästnivå. Cloudyn är inte kompatibel med Azure Monitor-loggar VM-tillägg.
+> Datainsamling för utökade mått stöds bara med Azure-övervakning på gästnivå. Cloudyn är inte kompatibel med Azure Monitor loggar VM-tillägget.
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Avgöra om utökade mått har aktiverats
 
@@ -44,7 +44,7 @@ En begränsad uppsättning standardmått är tillgängliga för värdar i föreg
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Aktivera utökad mätvärden i Azure portal
 
-Standardmått är värdmått för datorn. Den _procent CPU_ mått är ett exempel. Det finns också basmått för virtuella gästdatorer och de också kallas utökade mått. Exempel på utökade mått är _\Memory\% använda dedikerade byte_ och _\Memory\Available byte_.
+Standardmått är värdmått för datorn. _Procent andel CPU_ -mått är ett exempel. Det finns också basmått för virtuella gästdatorer och de också kallas utökade mått. Exempel på utökade mått är _\Memory\% -allokerade byte som används_ och _\Memory\Available byte_.
 
 Det är enkelt att aktivering av utökad mått. Aktivera övervakning på gästnivå för varje virtuell dator. När du aktiverar övervakning på gästnivå, är Azure diagnostics-agenten installerad på den virtuella datorn. Som standard läggs en grundläggande uppsättning utökade mått. Följande process är samma för virtuella datorer i klassiska och regelbundna och likadan ut för Windows och Linux-datorer.
 

@@ -108,6 +108,8 @@
           href: compute-benchmark-scores.md
         - name: vCPU-kvoter
           href: quotas.md
+    - name: Dedikerade värdar
+      href: dedicated-hosts.md
     - name: Underhåll och uppdateringar
       href: maintenance-and-updates.md
     - name: Disklagring
@@ -146,6 +148,12 @@
   items:
     - name: 'Skapa VM:ar'
       items:
+        - name: Använda dedikerade värdar
+          items:
+            - name: PowerShell
+              href: dedicated-hosts-powershell.md
+            - name: Portalen
+              href: dedicated-hosts-portal.md
         - name: 'Använda C#'
           href: csharp.md
         - name: Använda specialiserad disk

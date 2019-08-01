@@ -71,6 +71,8 @@
               href: billing-prepay-app-service-isolated-stamp.md
             - name: Programvaruplaner för Azure
               href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+            - name: Förnya reservationer
+              href: billing-reservation-renew.md
         - name: Så här tillämpas rabatter
           items:
             - name: Reserverade VM-instanser

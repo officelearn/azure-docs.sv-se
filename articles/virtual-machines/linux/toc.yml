@@ -105,10 +105,14 @@
           href: sizes-previous-gen.md
         - name: Azure-beräkningsenheter (ACU)
           href: acu.md
+        - name: vCPU-kvoter
+          href: quotas.md
         - name: Benchmark-poäng
           href: compute-benchmark-scores.md
     - name: Godkända distributioner
       href: endorsed-distros.md
+    - name: Dedikerade värdar
+      href: dedicated-hosts.md
     - name: Underhåll och uppdateringar
       href: maintenance-and-updates.md
     - name: Disklagring
@@ -139,12 +143,8 @@
       href: monitor.md
     - name: Säkerhetskopiering och återställning
       href: backup-recovery.md
-    - name: Distributionsöverväganden
-      items:
-        - name: Riktlinjer för infrastruktur
-          href: infrastructure-example.md
-        - name: vCPU-kvoter
-          href: quotas.md
+    - name: Riktlinjer för infrastruktur
+      href: infrastructure-example.md
     - name: Säkerhetsattribut
       href: virtual-machines-linux-security-attributes.md
 - name: Instruktionsguider
@@ -160,6 +160,12 @@
           href: create-vm-rest-api.md
         - name: Kopiera eller klona en virtuell dator
           href: copy-vm.md
+        - name: Använda dedikerade värdar
+          items:
+            - name: CLI
+              href: dedicated-hosts-cli.md
+            - name: Portalen
+              href: dedicated-hosts-portal.md
     - name: Säkra virtuella datorer
       items:
         - name: Just-in-time-åtkomst

@@ -258,6 +258,8 @@
           href: resource-group-template-functions-string.md
     - name: Borttagning i complete-läget
       href: complete-mode-deletion.md
+    - name: Resursinstansgräns
+      href: resources-without-rg-limit.md
     - name: Resursprovidrar som stöds av tjänsten
       href: azure-services-resource-providers.md
     - name: REST – Resource Manager

@@ -175,7 +175,7 @@
           href: sql-database-service-tier-hyperscale-faq.md
     - name: Enkla databaser
       items:
-        - name: Översikt över enkel databas
+        - name: Dokumentation om enkel databas
           href: sql-database-single-index.yml
         - name: Funktioner för enkel databas
           href: sql-database-single-database.md
@@ -215,7 +215,7 @@
           href: sql-database-elastic-pool-manage.md
     - name: Hanterade instanser
       items:
-        - name: Översikt över hanterade instanser
+        - name: Dokumentation om hanterad instans
           href: sql-database-managed-instance-index.yml
         - name: Hanterade instansfunktioner
           href: sql-database-managed-instance.md
@@ -235,7 +235,7 @@
           href: sql-database-managed-instance-public-endpoint-securely.md
     - name: Plattform som en tjänst
       items:
-        - name: Översikt över Plattform som en tjänst
+        - name: Dokumentation om PaaS (Platform as a Service)
           href: sql-database-paas.yml
         - name: Verksamhetskontinuitet
           href: sql-database-business-continuity.md
@@ -324,7 +324,7 @@
           href: sql-database-feature-restrictions.md
     - name: Skalbarhet
       items:
-        - name: Översikt över skalbarhet
+        - name: Dokumentation om skalbarhet
           href: sql-database-scalability-index.yml
         - name: Skala upp/ned
           href: sql-database-scale-resources.md
@@ -354,7 +354,7 @@
           href: sql-database-elastic-transactions-overview.md
     - name: Övervakning och justering
       items:
-        - name: Översikt över övervakning och justering
+        - name: Dokumentation om att övervaka och justera
           href: sql-database-monitoring-tuning-index.yml
         - name: Övervakning och prestandajustering
           href: sql-database-monitor-tune-overview.md
@@ -378,7 +378,7 @@
               href: sql-database-advisor.md
     - name: Databasfunktioner
       items:
-        - name: Översikt
+        - name: Dokumentation om SQL Database-funktion
           href: sql-database-features-index.yml
         - name: Jämförelse av SQL-funktioner
           href: sql-database-features.md

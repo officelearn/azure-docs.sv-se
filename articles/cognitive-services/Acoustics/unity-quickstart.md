@@ -1,7 +1,7 @@
 ---
-title: Projektet Akustik Snabbstart med Unity
+title: Snabb start för Project-ljud med enhets enhet
 titlesuffix: Azure Cognitive Services
-description: Med hjälp av exemplen, experimentera med projekt Akustik design kontroller i Unity och distribuera Windows-skrivbordet.
+description: Med hjälp av exempel innehåll kan du experimentera med projektets design kontroller i Unity och distribuera dem till Windows-skrivbordet.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,72 +10,73 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ROBOTS: NOINDEX
+ms.openlocfilehash: 93eb44bf91bc2c8346660a4d770ee6d83501c3ae
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917109"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706607"
 ---
-# <a name="project-acoustics-unity-quickstart"></a>Snabbstart för projektet Akustik Unity
-Använd projektet Akustik exempelinnehåll för Unity att experimentera med kontroller som backas upp av simulering design.
+# <a name="project-acoustics-unity-quickstart"></a>Snabb start för projekt akustiskt
+Använd projekt akustiska exempel innehåll för att kunna experimentera med simulerings design kontroller.
 
-Programvarukrav:
+Program varu krav:
 * [Unity 2018.2 +](https://unity3d.com) för Windows
-* [Projektet Akustik exempel innehållspaket](https://www.microsoft.com/download/details.aspx?id=57346)
+* [Innehålls paket för projekt akustiska exempel](https://www.microsoft.com/download/details.aspx?id=57346)
 
-Vad ingår i exemplet paketet?
-* Unity-scen med geometri, ljud källor och spelupplevelse kontroller
-* Projektet Akustik plugin-programmet 
-* Bakade Akustik tillgångar för scenen
+Vad ingår i exempel paketet?
+* Unity-scen med geometri, ljud källor och spel kontroller
+* Plugin-program för projekt akustiskt 
+* Bakade akustiska till gångar för scenen
 
-## <a name="import-the-sample-package"></a>Importera exempelpaketet
-Importera exempelpaketet till ett nytt Unity-projekt. 
-* I Unity, går du till **tillgångar > Importera paket > anpassat paket...**
+## <a name="import-the-sample-package"></a>Importera exempel paketet
+Importera exempel paketet till ett nytt Unity-projekt. 
+* I Unity går du till **till gångar > importera paket > anpassat paket...**
 
-    ![Skärmbild av Unity Importera paket alternativ](media/import-package.png)  
+    ![Skärm bild av alternativen för Unity import Package](media/import-package.png)  
 
-* Choose **ProjectAcoustics.unitypackage**
+* Välj **ProjectAcoustics. unitypackage**
 
-Om du importerar paketet till ett befintligt projekt, se [Unity-integrering](unity-integration.md) för ytterligare åtgärder och anteckningar.
+Om du importerar paketet till ett befintligt projekt, se unions [integrering](unity-integration.md) för ytterligare steg och anmärkningar.
 
-## <a name="restart-unity"></a>Starta om Unity
-Ändamålet delen av verktyget Akustik kräver .NET 4.x scripting runtime-versionen. Paketimport uppdaterar dina Unity player-inställningar. Starta om Unity för den här inställningen ska börja gälla.
+## <a name="restart-unity"></a>Omstarts enhet
+Bageri delen av akustiskt Toolkit kräver .NET 4. x skript körnings version. Paket import uppdaterar inställningarna för enhets spelaren. Omstarts-Unit för att den här inställningen ska börja gälla.
 
-Du kan kontrollera den här inställningen tog effekt genom att öppna den **Player-inställningar**:
+Du kan kontrol lera att den här inställningen träder i funktion genom att öppna **Player-inställningarna**:
 
-![Skärmbild av Unity Player inställningspanelen](media/player-settings.png)
+![Skärm bild av inställnings panelen i Unit Player](media/player-settings.png)
 
-![Skärmbild av Unity Player inställningspanelen med .NET 4.5 har valts](media/net45.png)
+![Skärm bild av inställnings panelen för Unit Player med .NET 4,5 valt](media/net45.png)
 
 ## <a name="experiment-with-design-controls"></a>Experimentera med design kontroller
-Öppna exemplet scen i den **ProjectAcousticsSample** mappen och klicka på uppspelningsknappen i Unity-redigeraren. Använd W, A, S, D och musen för att flytta. Om du vill jämföra hur scenen låter med och utan akustik trycker du på knappen **R** tills överläggstexten blir röd och spelar upp ”Acoustics: Disabled.” (”Akustik: inaktiverad”.) Om du vill se tangentbordsgenvägar för fler kontroller trycker du på **F1**. Kontroller är också användbar genom att högerklicka för att välja åtgärden som ska utföras, sedan vänsterklicka på för att utföra åtgärden.
+Öppna exempel scenen i **ProjectAcousticsSample** -mappen och klicka på knappen Spela upp i Unity-redigeraren. Använd W, A, S, D och musen för att flytta runt. Om du vill jämföra hur scenen låter med och utan akustik trycker du på knappen **R** tills överläggstexten blir röd och spelar upp ”Acoustics: Disabled.” (”Akustik: inaktiverad”.) Om du vill se tangentbordsgenvägar för fler kontroller trycker du på **F1**. Kontroller är också användbara genom att högerklicka för att välja vilken åtgärd som ska utföras och sedan klicka på för att utföra åtgärden.
 
-Skriptet **AcousticsAdjust** är kopplad till ljud källor i exemplet scenen, vilket gör att parametrarna per källkod design. 
+Skriptet **AcousticsAdjust** är kopplat till ljud källorna i exempel scenen, vilket möjliggör design parametrar per källa. 
 
-![Skärmbild av Unity AcousticsAdjust skript](media/acoustics-adjust.png)
+![Skärm bild av Unit AcousticsAdjust-skriptet](media/acoustics-adjust.png)
 
-Följande utforskar några av de effekter som kan produceras med de angivna kontrollerna. Detaljerad information om varje kontroll finns i den [projekt Akustik Unity Design självstudien](unreal-workflow.md).
+Följande utforskar några av de effekter som kan skapas med de angivna kontrollerna. Detaljerad information om varje kontroll finns i [själv studie kursen om projekt akustiska](unreal-workflow.md)enhets design.
 
-### <a name="modify-distance-based-attenuation"></a>Ändra avståndet-baserade dämpning
-Ljudet DSP tillhandahålls av den **projekt Akustik** Unity spatializer plugin-programmet respekterar de per källkod avståndet-baserade dämpning bygger i Unity-redigeraren. Kontroller för avståndet-baserade dämpning finns i den **ljud källa** komponent finns i den **Inspector** med ljud datakällor under **3D-ljudinställningar**:
+### <a name="modify-distance-based-attenuation"></a>Ändra avstånds beroende dämpning
+Ljud-DSP som tillhandahålls av Spatializer-plugin-programmet för **Project Akustiske** units följer den avstånds dämpning per källa som är inbyggd i Unity-redigeraren. Kontroller för avstånds dämpare finns i komponenten **ljud källa** som finns på panelen **kontrollant** i ljud källor, under **Inställningar för 3D-ljud**:
 
-![Skärmbild av Unity avståndet dämpning panelen](media/distance-attenuation.png)
+![Skärm bild av panel alternativ för försvagat avstånd](media/distance-attenuation.png)
 
-Projektet Akustik utför beräkning i en ”simulering region” heldag player-platsen. Ljud dämpning bör utformas för att växla till 0 på ungefär 45 m eftersom Akustik tillgångar i exempelpaketet har inbyggd med en storlek för simulering av 45m omgivande spelaren.
+Project-Akustisker utför beräkningar i rutan "simulerings region" centrerad runt Player-platsen. Eftersom de akustiska till gångarna i exempel paketet var bakade med en simulerings region storlek på 45m som omger spelaren, ska ljud dämpningen vara utformad för att falla 0 vid cirka 45 m.
 
 ### <a name="modify-occlusion-and-transmission"></a>Ändra ocklusion och överföring
-* Om den **ocklusion** multiplikatorn är större än 1 (standardvärdet är 1), är spärrat vara överdrivna. Ange den mindre än 1 gör ocklusion i kraft mer diskreta.
+* Om **ocklusion** multiplikator är större än 1 (Standardvärdet är 1) blir ocklusion exaggerated. Om du anger den som mindre än 1 blir ocklusion-effekterna mer diskret.
 
-* Om du vill aktivera via vägg överföring, flytta den **överföring (dB)** skjutreglaget av sin lägsta nivå. 
+* Om du vill aktivera överföring via vägg flyttar du skjutreglaget för **överföring (dB)** från den lägsta nivån. 
 
 ### <a name="modify-wetness-for-a-source"></a>Ändra wetness för en källa
-* Du kan ändra hur snabbt wetness ändras med avståndet med den **Perceptuell avståndet tänja**. **Projektet Akustik** beräkningarna provmaterialet nivåer i hela adressutrymmet från simulering, som kan variera smidigt med avståndet och ger Perceptuell avståndet tips. Öka avståndet otroligt blir detta genom att öka avståndet-relaterade våt nivåer. Kontrollera avståndet-baserade genljudet ändra mer diskreta skev värden är mindre än 1. Detta kan också justeras i mer detaljerad information genom att justera den **Wetness (dB)**.
+* Om du vill ändra hur snabbt wetness ändringar med avstånd använder du **perceptuellens avstånds tänjning**. **Projekt akustiskt** beräknar de våta nivåerna i hela utrymmet från simuleringen, vilket kan vara smidigt med avstånd och ge perceptuell avstånds ikoner. Genom att öka avstånds förvrängningen exaggerates du den här påverkan genom att öka avstånds våta nivåer. Om du tänjer värden som är mindre än 1 blir det avstånds Reverberation mer diskret. Den här funktionen kan också justeras i detalj rikedom genom att justera **wetness (dB)** .
 
-* Öka tid som decay i hela utrymmet genom att justera den **Decay skala**. Om simulering resultatet för en viss källa-lyssnare plats par är en decay tid på 1,5s, och **Decay skala** anges till 2, decay-tiden som tillämpas på källan är 3s.
+* Öka minsknings tiden i hela utrymmet genom att justera **tids skalan för minskning**. Om simulerings resultatet för ett visst plats par för en viss plats lyssnar är en minsknings tid på 1,5 s, och **tids skalan för minskning** är inställd på 2, är den minsknings tid som tillämpas på källan 3 s.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läsa fullständig information på den [Unity-baserade projekt Akustik utforma kontroller](unity-workflow.md)
-* Utforska ytterligare koncepten bakom den [utforma processen](design-process.md)
-* [Skapa ett Azure-konto](create-azure-account.md) att utforska före ändamålet och skapa processer
+* Läs fullständig information om enhets design kontroller för enhets [drivna projekt](unity-workflow.md)
+* Lär dig mer om koncepten bakom [design processen](design-process.md)
+* [Skapa ett Azure-konto](create-azure-account.md) för att utforska för-och bak-processerna
 

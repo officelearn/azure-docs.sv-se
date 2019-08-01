@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe19ea2d8946d645704139bbf2faa80f21e84039
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4c55d3d92faf854952b609287bb16a30ed1e30ec
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708066"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717473"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure PowerShell
 
@@ -33,6 +33,8 @@ Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
+
+I offentlig för hands version har vi tjänsten [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) . Du behöver bara beskriva dina anpassningar i en mall så att du kan hantera stegen för att skapa avbildningar i den här artikeln. [Prova Azure Image Builder (för hands version)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -65,7 +67,7 @@ Sysprep tar bland annat bort all din personliga kontoinformation och förbereder
 
 När du skapar en avbildning måste den virtuella datorn frigöras och markeras som generaliserad i Azure.
 
-Frigöra en virtuell dator med hjälp av [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Frigör den virtuella datorn med [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `

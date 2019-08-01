@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ROBOTS: NOINDEX
+ms.openlocfilehash: 022fe002057f157d4d9fe6e6cad03fc79810888c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "61473187"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706910"
 ---
 # <a name="what-is-project-url-preview"></a>Vad är förhandsversion av projekt-URL?
 Slutpunkten för URL-förhandsgranskningen tar en URL-frågeparameter och returnerar ett JSON-svar med namnet på målresursen, en kort beskrivning och en länk till en bild som ska visas i en förhandsgranskning. Svaret innehåller även flaggan [isFamilyFriendly](url-preview-reference.md#query-parameters), som anger huruvida URL:en innehåller innehåll för vuxna eller piratkopierat eller annat olagligt innehåll. 

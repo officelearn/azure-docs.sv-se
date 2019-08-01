@@ -10,18 +10,19 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 1f3c37e770c2edd76bd299771648b2de29d42dd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: ec8a7ceef8cd938984b8eedc8397f6f67294c990
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712653"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706933"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>Snabbstart: URL-förhandsgranskning i JavaScript 
 
 Följande enkelsidiga program använder JavaScript för att skapa en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 

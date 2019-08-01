@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: f4a0f519fe83162e7e161c3fda2b78a94b1d4bd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 073b2bf6df21e05481cde043d8ddcfd49822e94f
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507835"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704251"
 ---
 # <a name="what-is-custom-decision-service"></a>Vad är Custom Decision Service?
 

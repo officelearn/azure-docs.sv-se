@@ -10,12 +10,13 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b283103920230a0d2aae98c83f75fb03679a675
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60816598"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706816"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>Självstudier: Skapa en Entity Linking-app med C#
 
@@ -23,7 +24,7 @@ Microsofts Entity Linking är ett verktyg för bearbetning av naturligt språk s
 
 Den här guiden utforskar entitetslänkning med hjälp av Entity Linking-klientbiblioteket som ett NuGet-paket. 
 
-### <a name="Prerequisites">Förutsättningar</a>
+### <a name="Prerequisites">Krav</a>
 
 - Visual Studio 2015
 - En API-nyckel för Microsoft Cognitive Services

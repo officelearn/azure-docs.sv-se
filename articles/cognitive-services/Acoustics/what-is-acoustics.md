@@ -1,7 +1,7 @@
 ---
-title: Projektet Akustik översikt
+title: Översikt över Project-Akustiskhet
 titlesuffix: Azure Cognitive Services
-description: Projektet Akustik är en Akustik motor för 3D-interaktiva upplevelser, integrera inbyggd wave fysik simulering med interaktiva design kontroller.
+description: Project-Akustisker är en akustisk motor för interaktiva 3D-upplevelser, som integrerar bakade Wave fysik-simulering med interaktiva design kontroller.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,51 +10,52 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ROBOTS: NOINDEX
+ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502949"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704759"
 ---
 # <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
-Projektet Akustik är en wave Akustik motor för 3D-interaktiva upplevelser. Wave effekter som diffraction, portaling och eko effekterna i komplexa bakgrunder modellerar utan manuell zon markup. Den innehåller också game engine och ljud mellanprogram integration. Projektet Akustik filosofin liknar statiska belysning: Skapa detaljerade fysik offline för att tillhandahålla en fysisk baslinje, och använda en enkel körning med lättfattliga design kontroller för konstnärlig ändamålet.
+Project-Akustisker är en våg akustisk motor för interaktiva 3D-upplevelser. Den modellerar våg effekter som Diffraction, portaling och reverb-effekter i komplexa scener utan att det krävs någon manuell zon markering. Den omfattar också integrering av spel motor och ljud mellan mellanprogram. Projektets akustiska filosofi liknar statisk belysning: bagerien detaljerad fysik offline för att tillhandahålla en fysisk bas linje och Använd en förenklad körning med lättfattliga programspecifika design kontroller för att möta dina konstnärliga mål.
 
-![Skärmbild från Gears of War 4 visar Akustik voxels](media/gears-with-voxels.jpg)
+![Skärm bild från växlar av krigs 4 visar akustiska voxels](media/gears-with-voxels.jpg)
 
-## <a name="using-wave-physics-for-interactive-acoustics"></a>Med wave fysik för interaktiva Akustik
-Ray-baserade Akustik metoder kan söka efter ocklusion med hjälp av en enda källa till lyssnaren ray cast eller enhet eko genom att uppskatta lokala scen volym med några strålar. Men dessa metoder kan vara otillförlitliga eftersom en pebble occludes så mycket som en boulder. Strålar hänsyn inte till den vägen ljud böjningar runt objekt, ett fenomen som kallas diffraction. Projektet Akustik simulering samlar in dessa effekter med hjälp av en wave-baserade simulering. Resultatet är mer förutsägbar och tillförlitlig.
+## <a name="using-wave-physics-for-interactive-acoustics"></a>Använda Wave fysik för interaktiva akustiska ljud
+Raybaserade akustiska metoder kan söka efter ocklusion med en enda källa-till-lyssnande Ray-Cast eller driva reverb genom att uppskatta den lokala scen volymen med några strålar. Men dessa tekniker kan vara otillförlitliga eftersom en Pebble occludes så mycket som en Boulder. Strålar tar inte hänsyn till hur ljudet böjer sig runt objekt, ett fenomen som kallas Diffraction. Simuleringen av Project-Akustisker fångar dessa effekter med en Wave-baserad simulering. Resultatet är mer förutsägbart och tillförlitligt.
 
-Projektet Akustik viktiga innovation är att par akustiska simulering med traditionella ljud designbegrepp. Den översätter simuleringsresultat till traditionella ljud DSP-parametrar för ocklusion, portaling och eko. Designern använder kontroller över den här process för översättning. Mer information om kärntekniker bakom projekt Akustik på den [research projektsida](https://www.microsoft.com/en-us/research/project/project-triton/).
+Project-akustiska nyckel innovationer är till och med en bra akustisk simulering med traditionella design koncept för ljudet. Den översätter simulerings resultat till traditionella ljud-DSP-parametrar för ocklusion, portaling och reverb. Designern använder kontroller över den här översättnings processen. Mer information om kärn teknikerna bakom projekt akustiskt finns på sidan om [forsknings projekt](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-![Animering av en vågrät 2D sektor i wave-spridning via en scen](media/wave-simulation.gif)
+![Animering som visar ett vågrätt 2D-segment av våg-spridningen via en scen](media/wave-simulation.gif)
 
 ## <a name="setup"></a>Konfiguration
-[Projektet Akustik Unity-integrering](unity-integration.md) är dra och släpp och innehåller ett plugin-program för Unity ljud-motorn. Utöka Unity ljudkälla kontroller genom att koppla ett projekt Akustik C# kontroller komponenten till varje ljud-objektet.
+[Project Akustiske Uniting-integrering](unity-integration.md) är dra och släpp och innehåller ett enhets ljud motor plugin-program. Utöka enhetens bild käll kontroller genom att koppla ett projekt akustiskt C# kontroll komponent till varje ljud objekt.
 
-[Projektet Akustik Unreal integrering](unreal-integration.md) innehåller redigerare och spelskript plugin-program för Unreal och en Wwise mixer-plugin-programmet. En anpassad ljud komponent utökar välkända Wwise funktioner inom Unreal med live Akustik design. Design kontroller är också tillgängliga i Wwise på mixer-plugin-programmet.
+[Project Akustiske Unreal-integrering](unreal-integration.md) innehåller redigerings-och spel-plugin-program för Unreal och ett Wwise mixer-pluginprogram. En anpassad ljud komponent utökar bekanta Wwise-funktioner i Unreal med direkt akustiska design kontroller. Design kontroller visas också i Wwise i mixer-plugin-programmet.
 
 ## <a name="workflow"></a>Arbetsflöde
-* **Skapa före:** Börja med att konfigurera ändamålet genom att välja vilka geometri besvarar Akustik, av, till exempel ignorerar ljus axlar. Redigera sedan automatisk samband tilldelningar och välja navigeringsområden att guiden lyssnare sampling. Det finns ingen manuell markup för eko/portal/rummet zoner.
-* **Skapa:** En analysis-steget körs lokalt, vilket gör voxelization och andra geometriska analyser på scenen baserat på ovanstående val. Resultaten visualiseras i Redigeraren för att verifiera scen installationen. Voxel data skickas till Azure på ändamålet bidrag, och du kommer tillbaka en Akustik spel tillgång.
-* **Körtid:** Läs in tillgången till din nivå och du är redo att lyssna på Akustik i din nivå. Design i Akustik live i redigeringsprogrammet med hjälp av detaljerade per källkod kontroller. Kontroller kan också styras från nivån skript.
+* **Före bageri:** Börja med att konfigurera bagerien genom att välja vilken geometri som svarar på akustisker, t. ex. ignorerar ljusa axlar. Redigera sedan automatiska material tilldelningar och välj navigerings områden för att vägleda lyssnings sampling. Det finns ingen manuell markering för reverb/Portal/Room-zoner.
+* **Skapa** Ett analys steg körs lokalt, som voxelization och annan geometrisk analys på scenen baserat på valen ovan. Resultaten visualiseras i redigerings programmet för att verifiera scen inställningarna. Vid insändningen skickas Voxel data till Azure och du får tillbaka en akustisk spel till gång.
+* **Flöde** Läs in till gången till din nivå och du är redo att lyssna på akustiska på din nivå. Utforma de akustiska ljuden i redigeraren med detaljerade kontroller per källa. Kontrollerna kan också köras från nivå skript.
 
 ## <a name="platforms"></a>Plattformar
-Plugin-program för projektet Akustik runtime kan för närvarande distribueras till följande plattformar:
+Plugin-program för Project Akustiske runtime kan för närvarande distribueras till följande plattformar:
 * Windows
 * Android
 * Xbox One
 
 ## <a name="download"></a>Ladda ned
-* [Projektet Akustik Unity-plugin-programmet och exempel](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
-* [Projektet Akustik Unreal & Wwise plugin-program och exempel](https://www.microsoft.com/download/details.aspx?id=58090)
-  * Xbox-binärfiler och support kontakta oss via registrera dig formuläret nedan
+* [Plugin-program och exempel för Project Akustiske Uniting](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Projekt akustiska Unreal & Wwise-plugin-program och exempel](https://www.microsoft.com/download/details.aspx?id=58090)
+  * För stöd för Xbox-binärfiler och support, kontakta oss via registrerings formuläret nedan
 
 ## <a name="contact-us"></a>Kontakta oss
-* [Projektet Akustik diskussion och utfärda reporting](https://github.com/microsoft/ProjectAcoustics/issues)
-* [Registrera dig för att få uppdateringar om projektet Akustik](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
+* [Projekt-akustiskt diskussion och ärende rapportering](https://github.com/microsoft/ProjectAcoustics/issues)
+* [Registrera dig för att ta emot uppdateringar om projekt akustiskt](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Nästa steg
-* Prova en [projekt Akustik Snabbstart för Unity](unity-quickstart.md) eller för [Unreal](unreal-quickstart.md)
-* Utforska den [ljud designfilosofin av projektet Akustik](design-process.md)
+* Prova ett [projekt akustiskt snabb start för](unity-quickstart.md) enhets-eller [Unreal](unreal-quickstart.md)
+* Utforska [ljud design filosofin om projekt akustiska data](design-process.md)
 

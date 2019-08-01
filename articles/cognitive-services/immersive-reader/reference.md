@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488819"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688316"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Avancerad läsare SDK-referens
 
@@ -136,5 +136,5 @@ Använd de senaste versionerna av följande webbläsare för bästa möjliga upp
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [SDK för avancerad läsare på GitHub](https://github.com/Microsoft/immersive-reader-sdk)
+* Utforska [SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * [Snabbstart: Skapa en webbapp som startar den fördjupade läsarenC#()](./quickstart.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 07/30/2019
 ms.author: assafi
-ms.openlocfilehash: 5e5246ab46d00e0b62b3dee321c6cea893e6a5d3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6bd3907392dad626c1eeb1823c929f1a35d544dd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619625"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697680"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Snabbstart: Använd .NET SDK och C# för att anropa tjänsten textanalys
 <a name="HOLTop"></a>
@@ -35,8 +35,6 @@ Teknisk information finns i SDK för .NET [textanalys referens](https://docs.mic
 * Textanalys [SDK för .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Du behöver också [slut punkten och åtkomst nyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig under registreringen.
 
 ## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Skapa Visual Studio-lösningen och installera SDK: n
 

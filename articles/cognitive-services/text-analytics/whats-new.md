@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c090d7c5de4261891fdb3833c7ffec920f8de5b0
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: b5b7d43fc5a53bcf46874a48914bcda565a41c3e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668706"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697072"
 ---
-# <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API för textanalys?
+# <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
 API för textanalys uppdateras regelbundet. Den här artikeln innehåller information om nya versioner och funktioner för att hålla dig uppdaterad med den senaste utvecklingen.
 
@@ -40,5 +40,5 @@ Den stöder engelska och är tillgänglig i tre regioner: Centrala Kanada, Asien
 * [Exempel på användar scenarier](text-analytics-user-scenarios.md)
 * [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
-* [Länkning av entitet](how-tos/text-analytics-how-to-entity-linking.md)
+* [Enhets igenkänning](how-tos/text-analytics-how-to-entity-linking.md)
 * [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)

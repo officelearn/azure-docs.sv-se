@@ -1,38 +1,36 @@
 ---
-title: 'Snabbstart: Anropa tjänsten Text Analytics med hjälp av Go SDK'
+title: 'Snabbstart: Anropa tjänsten Textanalys med go SDK'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Microsoft Cognitive Services.
+description: Hämta information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Microsoft Cognitive Services.
 services: cognitive-services
 author: laramume
 manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/23/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 44def29292bc882fdaa08ff76667742756f178b8
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d3644022e1877369368953b9f147c64aaae2d459
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299613"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697635"
 ---
-# <a name="quickstart-call-the-text-analytics-service-using-the-go-sdk"></a>Snabbstart: Anropa tjänsten Text Analytics med hjälp av Go SDK 
+# <a name="quickstart-call-the-text-analytics-service-using-the-go-sdk"></a>Snabbstart: Anropa tjänsten Textanalys med go SDK 
 <a name="HOLTop"></a>
 
-Använd den här snabbstarten om du vill analysera språk med Text Analytics SDK för Go. Den här artikeln visar hur du identifiera språk, analysera sentiment, extrahera nyckelfraser och identifiera länkade entiteter. REST API är kompatibla med de flesta programmeringsspråk, innehåller SDK ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices).
+Använd den här snabb starten för att börja analysera språk med Textanalys SDK för go. Den här artikeln visar hur du kan identifiera språk, analysera sentiment, extrahera nyckel fraser och identifiera länkade entiteter. Även om REST API är kompatibel med de flesta programmeringsspråk, är SDK ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Text Analytics [SDK för Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)
+* Textanalys [SDK för go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
+## <a name="set-up-a-new-project"></a>Skapa ett nytt projekt
 
-## <a name="set-up-a-new-project"></a>Konfigurera ett nytt projekt
-
-Skapa ett nytt Go-projekt i Kodredigerare eller IDE. Lägg sedan till följande importuttryck i Go-filen.
+Skapa ett nytt go-projekt i din favorit kod redigerare eller IDE. Lägg sedan till följande import uttryck i go-filen.
 
 ```golang
 import (
@@ -44,7 +42,7 @@ import (
 )
 ```
 
-Lägg till följande funktioner i projektet som de flesta parametrar och egenskaper för den här snabbstarten förväntar dig sträng och bool pekare.
+Lägg till följande funktioner i projektet som de flesta av parametrarna och egenskaperna för den här snabb starten förväntar sig sträng och bool-pekare.
 
 ```golang
 // returns a pointer to the string value passed in.
@@ -58,16 +56,16 @@ func BoolPointer(v bool) *bool {
 }
 ```
 
-## <a name="create-text-analytics-client-and-authenticate-credentials"></a>Skapa Text Analytics-klient och autentisera autentiseringsuppgifter
+## <a name="create-text-analytics-client-and-authenticate-credentials"></a>Skapa Textanalys klient och autentisera autentiseringsuppgifter
 
-I huvudfunktionen i ditt projekt, skapa en ny `TextAnalytics` objekt. Använd rätt Azure-regionen för din Text Analytics-prenumeration. Till exempel: `https://eastus.api.cognitive.microsoft.com`. Om du använder en utvärderingsversion nyckel, behöver du inte uppdatera platsen.
+Skapa ett nytt `TextAnalytics` objekt i projektets huvud funktion. Använd rätt Azure-region för din Textanalys prenumeration. Till exempel: `https://eastus.api.cognitive.microsoft.com`. Om du använder en utvärderings nyckel behöver du inte uppdatera platsen.
 
 ```golang
 //Replace 'eastus' with the correct region for your Text Analytics subscription
 textAnalyticsClient := textanalytics.New("https://eastus.api.cognitive.microsoft.com")
 ```
 
-Skapa en variabel för din nyckel och skickar den till funktionen `autorest.NewCognitiveServicesAuthorizer` som sedan skickas till klientens `authorizer` egenskapen.
+Skapa en variabel för nyckeln och skicka den till funktionen `autorest.NewCognitiveServicesAuthorizer` som skickas sedan till `authorizer` klientens egenskap.
 
 ```golang
 subscriptionKey := "<<subscriptionKey>>"
@@ -76,7 +74,7 @@ textAnalyticsClient.Authorizer = autorest.NewCognitiveServicesAuthorizer(subscri
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Skapa en ny funktion som kallas `SentimentAnalysis()` som tar klienten som skapade tidigare. Skapa en lista över `MultiLanguageInput` objekt, som innehåller de dokument som du vill analysera. Varje objekt innehåller en `id`, `Language` och en `text` attribut. Den `text` attributet lagrar texten som ska analyseras, `language` är språket för dokumentet och `id` kan vara vilket värde. 
+Skapa en ny funktion `SentimentAnalysis()` som gör att klienten skapas tidigare. Skapa en lista med `MultiLanguageInput` objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att `id`innehålla `Language` ett- `text` och-attribut. Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. `text` 
 
 ```golang
 func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
@@ -109,7 +107,7 @@ func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-I samma funktion, anropa `textAnalyticsclient.Sentiment()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och attitydsresultatet. Ett värde närmare 0 anger negativ känsla, medan en poäng närmare 1 anger positiv känsla.
+Anropa `textAnalyticsclient.Sentiment()` och hämta resultatet i samma funktion. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 
 ```golang
 result, _ := textAnalyticsclient.Sentiment(ctx, BoolPointer(false), &batchInput)
@@ -130,9 +128,9 @@ for _,error := range *batchResult.Errors {
 }
 ```
 
-I huvudfunktionen i ditt projekt, anropa `SentimentAnalysis()`.
+I projektets huvud funktion anropar `SentimentAnalysis()`du.
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -141,9 +139,9 @@ Document ID: 3 , Sentiment Score: 0.44
 Document ID: 4 , Sentiment Score: 1.00
 ```
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="language-detection"></a>Språkidentifiering
 
-Skapa en ny funktion som kallas `LanguageDetection()` som tar klienten som skapade tidigare. Skapa en lista över `LanguageInput` objekt, som innehåller de dokument som du vill analysera. Varje objekt innehåller en `id` och en `text` attribut. Den `text` attributet lagrar texten som ska analyseras, och `id` kan vara vilket värde. 
+Skapa en ny funktion `LanguageDetection()` som gör att klienten skapas tidigare. Skapa en lista med `LanguageInput` objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att `id` innehålla ett `text` -och-attribut. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
 
 ```golang
 func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
@@ -168,7 +166,7 @@ func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-I samma funktion, anropa `textAnalyticsclient.DetectLanguage()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och identifierat språk.
+Anropa `textAnalyticsclient.DetectLanguage()` och hämta resultatet i samma funktion. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och identifierat språk.
 
 ```golang
 result, _ := textAnalyticsclient.DetectLanguage(ctx, BoolPointer(false), &batchInput)
@@ -190,9 +188,9 @@ for _,error := range *result.Errors {
 }
 ```
 
-I huvudfunktionen i ditt projekt, anropa `LanguageDetection()`.
+I projektets huvud funktion anropar `LanguageDetection()`du.
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0 Detected Languages with Score: English 1.000000,
@@ -200,9 +198,9 @@ Document ID: 1 Detected Languages with Score: Spanish 1.000000,
 Document ID: 2 Detected Languages with Score: Chinese_Simplified 1.000000,
 ```
 
-## <a name="entity-recognition"></a>Igenkänning av entiteter
+## <a name="entity-recognition"></a>Enhets igenkänning
 
-Skapa en ny funktion som kallas `ExtractEntities()` som tar klienten som skapade tidigare. Skapa en lista över `MultiLanguageInput` objekt, som innehåller de dokument som du vill analysera. Varje objekt innehåller en `id`, `language`, och en `text` attribut. Den `text` attributet lagrar texten som ska analyseras, `language` är språket för dokumentet och `id` kan vara vilket värde. 
+Skapa en ny funktion `ExtractEntities()` som gör att klienten skapas tidigare. Skapa en lista med `MultiLanguageInput` objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att `id`innehålla `language`ett,- `text` och-attribut. Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. `text` 
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -225,7 +223,7 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-I samma funktion, `call textAnalyticsclient.Entities()` och få resultatet. Iterera sedan resultaten och Skriv ut varje dokument är ID: T och extraherade entiteter poäng.
+I samma funktion `call textAnalyticsclient.Entities()` och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och resultat för extraherade enheter.
 
 ```golang
     result, _ := textAnalyticsclient.Entities(ctx, BoolPointer(false), &batchInput)
@@ -254,9 +252,9 @@ I samma funktion, `call textAnalyticsclient.Entities()` och få resultatet. Iter
     }
 ```
 
-I huvudfunktionen i ditt projekt, anropa `ExtractEntities()`.
+I projektets huvud funktion anropar `ExtractEntities()`du.
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0
@@ -292,7 +290,7 @@ Document ID: 1
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-Skapa en ny funktion som kallas `ExtractKeyPhrases()` som tar klienten som skapade tidigare. Skapa en lista över `MultiLanguageInput` objekt, som innehåller de dokument som du vill analysera. Varje objekt innehåller en `id`, `language`, och en `text` attribut. Den `text` attributet lagrar texten som ska analyseras, `language` är språket för dokumentet och `id` kan vara vilket värde.
+Skapa en ny funktion `ExtractKeyPhrases()` som gör att klienten skapas tidigare. Skapa en lista med `MultiLanguageInput` objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att `id`innehålla `language`ett,- `text` och-attribut. Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. `text`
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -325,7 +323,7 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-Anropa textAnalyticsclient.KeyPhrases() i samma funktion, och få resultat. Sedan gå igenom resultat och skriva ut varje dokument-ID och extrahera nyckelfraser.
+I samma funktion anropar du textAnalyticsclient. get-fraser () och ger resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och extraherade nyckel fraser.
 
 ```golang
     result, _ := textAnalyticsclient.KeyPhrases(ctx, BoolPointer(false), &batchInput)
@@ -347,9 +345,9 @@ Anropa textAnalyticsclient.KeyPhrases() i samma funktion, och få resultat. Seda
     }
 ```
 
-I huvudfunktionen i ditt projekt, anropa `ExtractKeyPhrases()`.
+I projektets huvud funktion anropar `ExtractKeyPhrases()`du.
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0

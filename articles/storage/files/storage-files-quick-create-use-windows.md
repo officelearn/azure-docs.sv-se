@@ -1,19 +1,18 @@
 ---
 title: Azure-snabb – Skapa och använda en Azure Files-resurs på virtuella Windows-datorer | Microsoft Docs
 description: I den här snabbstarten konfigurerar du en Azure Files-resurs i Azure-portalen och ansluter den till en virtuell Windows-dator. Du ansluter till Files-resursen och laddar upp en fil till Files-resursen. Sedan tar du en ögonblicksbild av Files-resursen, ändrar filen Files-resursen och återställer en tidigare ögonblicksbild av Files-resursen.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5109f4e801c1e34b2026cff8f8dd83558618e153
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61482603"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699743"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabbstart: Skapa och hantera Azure Files-resurs med virtuella Windows-datorer
 
@@ -55,7 +54,7 @@ Därefter skapar du en filresurs.
 1. Skapa en ny txt-fil med namnet *qsTestFile* på den lokala datorn.
 1. Välj den nya filresursen och välj sedan **Överför** på filresursens plats.
 
-    ![Överför en fil](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+    ![Ladda upp en fil](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
 1. Bläddra till platsen där du skapade din txt-fil > välj *qsTestFile.txt* > välj **Överför**.
 

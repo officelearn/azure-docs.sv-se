@@ -1,6 +1,6 @@
 ---
-title: Skicka transaktioner med Azure Blockchain-tjänsten
-description: Självstudier om hur du använder Azure Blockchain-tjänsten för att distribuera ett smarta kontrakt och skicka en privat transaktion.
+title: Skicka transaktioner med Azure blockchain-tjänsten
+description: Själv studie kurs om hur du använder Azure blockchain-tjänsten för att distribuera ett smart kontrakt och skicka en privat transaktion.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,131 +10,118 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 3cfbbdc5b95d1607738b132980320d2ff7c99788
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417481"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698389"
 ---
-# <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Självstudier: Skicka transaktioner med Azure Blockchain-tjänsten
+# <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Självstudier: Skicka transaktioner med Azure blockchain-tjänsten
 
-I den här självstudien måste du skapa transaktionen noder om du vill testa kontrakt och transaktionen sekretess.  Du använder Truffle för att skapa en lokal utvecklingsmiljö och distribuera ett smarta kontrakt och skicka en privat transaktion.
+I den här självstudien skapar du transaktions noder för att testa kontrakt och transaktions sekretess.  Du använder Truffle för att skapa en lokal utvecklings miljö och distribuera ett smart kontrakt och skicka en privat transaktion.
 
 Du lär dig följande:
 
 > [!div class="checklist"]
-> * Lägga till noder i transaktion
-> * Använda Truffle för att distribuera ett smarta kontrakt
+> * Lägg till Transaction Nodes
+> * Använda Truffle för att distribuera ett smart kontrakt
 > * Skicka en transaktion
-> * Verifiera transaktion sekretess
+> * Validera transaktions sekretess
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Fullständig [skapa medlem blockchain med Azure portal](create-member.md)
-* Fullständig [Snabbstart: Använd Truffle för att ansluta till ett konsortienätverk](connect-truffle.md)
-* Installera [Truffle](https://github.com/trufflesuite/truffle). Truffle kräver flera verktyg installeras inklusive [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-* Installera [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för Web3.
+* Slutför [skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md)
+* Slutför [snabb start: Använda Truffle för att ansluta till ett konsortiums nätverk](connect-truffle.md)
+* Installera [Truffle](https://github.com/trufflesuite/truffle). Truffle kräver att flera verktyg installeras, inklusive [Node. js](https://nodejs.org), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Installera [python-2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för web3.
 * Installera [Visual Studio Code](https://code.visualstudio.com/Download)
-* Installera [Solidity för Visual Studio Code-tillägg](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+* Installera [tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) engradion
 
-## <a name="create-transaction-nodes"></a>Skapa transaktion noder
+## <a name="create-transaction-nodes"></a>Skapa Transaction Nodes
 
-Som standard har en transaktion nod. Vi ska lägga till ytterligare två. En av noderna deltar i privata transaktionen. Den andra ingår inte i den privata transaktionen.
+Som standard har du en transaktions nod. Vi ska lägga till ytterligare två. En av noderna ingår i den privata transaktionen. Den andra ingår inte i den privata transaktionen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Gå till din Azure Blockchain-medlem och välj **transaktion noder > Lägg till**.
-1. Slutföra inställningarna för en ny transaktion nod med namnet `alpha`.
+1. Navigera till din Azure blockchain-medlem och välj **Transaction nodes > Lägg till**.
+1. Slutför inställningarna för en ny Transaction-nod med `alpha`namnet.
 
-    ![Skapa transaktion nod](./media/send-transaction/create-node.png)
+    ![Skapa Transaction-nod](./media/send-transaction/create-node.png)
 
     | Inställning | Värde | Beskrivning |
     |---------|-------|-------------|
-    | Namn | `alpha` | Nodnamnet för transaktionen. Namnet används för att skapa DNS-adressen för transaktionen noden slutpunkten. Till exempel `alpha-mymanagedledger.blockchain.azure.com`. |
-    | Lösenord | starkt lösenord | Lösenordet används för att komma åt noden transaktion slutpunkten med grundläggande autentisering.
+    | Namn | `alpha` | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Till exempel `alpha-mymanagedledger.blockchain.azure.com`. |
+    | lösenordsinställning | Starkt lösen ord | Lösen ordet används för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
 
 1. Välj **Skapa**.
 
-    Etablera en ny transaktion nod tar cirka 10 minuter.
+    Det tar cirka 10 minuter att tillhandahålla en ny transaktions nod.
 
-1. Upprepa steg 2 till 4 för att lägga till en transaktion nod med namnet `beta`.
+1. Upprepa steg 2 till 4 för att lägga till en Transaction `beta`-nod med namnet.
 
-Du kan fortsätta med självstudiekursen medan noderna har etablerats. När etableringen är klar har du tre noder för transaktionen.
+Du kan fortsätta med självstudien när noderna har allokerats. När etableringen har slutförts har du tre transaktions noder.
 
 ## <a name="open-truffle-console"></a>Öppna Truffle-konsolen
 
-1. Öppna en kommandotolk för Node.js eller shell.
-1. Ändra sökvägen till projektkatalogen Truffle från nödvändiga [Snabbstart: Använd Truffle för att ansluta till ett konsortienätverk](connect-truffle.md). Exempel:
+1. Öppna en Node. js-kommandotolk eller Shell.
+1. Ändra sökvägen till Truffle-projekt katalogen från den nödvändiga [snabb starten: Använd Truffle för att ansluta till ett konsortiums nätverk](connect-truffle.md). Exempel:
 
     ```bash
     cd truffledemo
     ```
 
-1. Starta Truffle interaktiv distribuering konsol.
+1. Använd Truffle-konsolen för att ansluta till noden standard transaktion.
 
     ``` bash
-    truffle develop
+    truffle console --network defaultnode
     ```
 
-    Truffle skapar en lokal utveckling blockchain och en interaktiv konsol.
+    Truffle ansluter till noden standard transaktion och tillhandahåller en interaktiv konsol.
 
 ## <a name="create-ethereum-account"></a>Skapa Ethereum-konto
 
-Använd Web3 för att ansluta till noden standard transaktion och skapa ett Ethereum-konto. Du kan hämta Web3 anslutningssträngen från Azure-portalen.
+Använd Web3 för att ansluta till noden standard transaktion och skapa ett Ethereum-konto. Du kan anropa metoder på Web3-objektet för att interagera med din Transaction-nod.
 
-1. I Azure-portalen går du till noden standard transaktion och välj **transaktion noder > exempelkoden > Web3**.
-1. Kopiera JavaScript från **HTTPS (åtkomstnyckel 1)** ![Web3 exempelkod](./media/send-transaction/web3-code.png)
-
-1. Klistra in Web3 JavaScript-koden för transaktionen standardnoden i konsolen Truffle interaktiv distribuering. Koden skapar ett Web3-objekt som är ansluten till din Azure Blockchain Service transaktion nod.
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
-    ```
-
-    Du kan anropa metoder på Web3-objektet för att interagera med din nod för transaktionen.
-
-1. Skapa ett nytt konto på transaktion standardnoden. Ersätt Lösenordsparametern med din egen starkt lösenord.
+1. Skapa ett nytt konto på noden standard transaktion. Ersätt parametern Password med ditt eget starka lösen ord.
 
     ```bash
     web3.eth.personal.newAccount("1@myStrongPassword");
     ```
 
-    Kontrollera anteckna den returnerade postadress och lösenord. Du behöver Ethereum-adressen för kontot och lösenordet i nästa avsnitt.
+    Anteckna konto adressen som returneras och lösen ordet. Du behöver Ethereum-kontots adress och lösen ord i nästa avsnitt.
 
-1. Avsluta Truffle-utvecklingsmiljö.
+1. Avsluta Truffle Development Environment.
 
     ```bash
     .exit
     ```
 
-## <a name="configure-truffle-project"></a>Konfigurera Truffle projekt
+## <a name="configure-truffle-project"></a>Konfigurera Truffle-projekt
 
-Om du vill konfigurera Truffle projektet måste vissa transaktion nodinformation från Azure-portalen.
+Om du vill konfigurera Truffle-projektet behöver du en del transaktionsinformation från Azure Portal.
 
-### <a name="transaction-node-public-key"></a>Offentlig nyckel för noden för transaktion
+### <a name="transaction-node-public-key"></a>Offentlig nyckel för Transaction Node
 
-Varje transaktion-nod har en offentlig nyckel. Den offentliga nyckeln kan du skicka en privat transaktion till noden. För att kunna skicka en transaktion från transaktionen standardnoden till den *alpha* transaktion nod, måste den *alpha* transaktion nodens offentlig nyckel.
+Varje Transaction-nod har en offentlig nyckel. Med den offentliga nyckeln kan du skicka en privat transaktion till noden. För att kunna skicka en transaktion från noden standard transaktion till noden för *alpha* -transaktioner, behöver du noden för noden med *alpha* -transaktioner.
 
-Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopiera den offentliga nyckeln för noden alpha och spara värdet för senare under kursen.
+Du kan hämta den offentliga nyckeln från listan över transaktions noder. Kopiera den offentliga nyckeln för alpha-noden och spara värdet för senare i självstudien.
 
-![Lista över nod](./media/send-transaction/node-list.png)
+![Lista över transaktions noder](./media/send-transaction/node-list.png)
 
-### <a name="transaction-node-endpoint-addresses"></a>Slutpunktsadresser för transaktionen nod
+### <a name="transaction-node-endpoint-addresses"></a>Slut punkts adresser för Transaction Node
 
-1. Gå till varje transaktion nod i Azure-portalen och välj **transaktion noder > anslutningssträngar**.
-1. Kopiera och spara slutpunkts-URL från **HTTPS (åtkomstnyckel 1)** för varje transaktion-nod. Du behöver slutpunktsadresser för konfigurationsfilen smarta kontrakt senare under kursen.
+1. I Azure Portal navigerar du till varje Transaction-nod och väljer **transaktions noder > anslutnings strängar**.
+1. Kopiera och spara slut punkts-URL: en från **https (åtkomst nyckel 1)** för varje Transaction-nod. Du behöver slut punkts adresserna för konfigurations filen för smarta kontrakt senare i självstudien.
 
-    ![Slutpunktsadress för transaktion](./media/send-transaction/endpoint.png)
+    ![Slut punkts adress för transaktion](./media/send-transaction/endpoint.png)
 
-### <a name="edit-configuration-file"></a>Redigera konfigurationsfilen
+### <a name="edit-configuration-file"></a>Redigera konfigurations fil
 
-1. Starta Visual Studio Code och öppna Truffle projektet directory mappen med den **fil > Öppna mappen** menyn.
-1. Öppna konfigurationsfilen Truffle `truffle-config.js`.
-1. Ersätt innehållet i filen med följande konfigurationsinformation. Lägg till variabler som innehåller slutpunkter adresser och kontoinformation. Ersätt vinkelparentes avsnitt med värden som du samlat in från föregående avsnitt.
+1. Starta Visual Studio Code och öppna mappen Truffle-projekt katalog med hjälp av menyn **fil > Öppna mapp** .
+1. Öppna konfigurations filen `truffle-config.js`för Truffle.
+1. Ersätt innehållet i filen med följande konfigurations information. Lägg till variabler som innehåller slut punkts adresserna och konto informationen. Ersätt avsnittet vinkel paren tes med värden som du har samlat in från föregående avsnitt.
 
     ``` javascript
     var defaultnode = "<default transaction node connection string>";
@@ -159,21 +146,21 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
           })(),
     
           network_id: "*",
-          gas: 0,
           gasPrice: 0,
           from: myAccount
         },
         alpha: {
           provider: new Web3.providers.HttpProvider(alpha),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
         },
         beta: {
           provider: new Web3.providers.HttpProvider(beta),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
+        }
+      },
+      compilers: {
+        solc: {
+          evmVersion: "byzantium"
         }
       }
     }
@@ -181,9 +168,9 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
 
 1. Spara ändringarna i `truffle-config.js`.
 
-## <a name="create-smart-contract"></a>Skapa smarta kontrakt
+## <a name="create-smart-contract"></a>Skapa ett smart kontrakt
 
-1. I den **kontrakt** mapp, skapa en ny fil med namnet `SimpleStorage.sol`. Lägg till följande kod.
+1. I mappen **kontrakt** skapar du en ny fil med namnet `SimpleStorage.sol`. Lägg till följande kod.
 
     ```solidity
     pragma solidity >=0.4.21 <0.6.0;
@@ -205,7 +192,7 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
     }
     ```
     
-1. I den **migreringar** mapp, skapa en ny fil med namnet `2_deploy_simplestorage.js`. Lägg till följande kod.
+1. I mappen **migreringar** skapar du en ny fil med namnet `2_deploy_simplestorage.js`. Lägg till följande kod.
 
     ```solidity
     var SimpleStorage = artifacts.require("SimpleStorage.sol");
@@ -217,28 +204,28 @@ Du kan hämta den offentliga nyckeln från transaktionslistan för noden. Kopier
     };
     ```
 
-1. Ersätt värdena i hakparenteser.
+1. Ersätt värdena i vinkelparenteser.
 
     | Värde | Beskrivning
     |-------|-------------
-    | \<alpha node public key\> | Offentlig nyckel för noden alpha
-    | \<Ethereum account address\> | Ethereum kontoadress som skapats i transaktionen standardnoden
+    | \<alpha node public key\> | Den offentliga nyckeln för alpha-noden
+    | \<Ethereum account address\> | Ethereum-Kontoreferensen som skapats i noden för förvalda transaktioner
 
-    I det här exemplet är det första värdet i den **storeData** värdet är inställt på 42.
+    I det här exemplet är det inledande värdet för **Store data** -värdet inställt på 42.
 
-    **privateFor** definierar noderna som kontraktet är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du kan lägga till offentliga nycklar för alla privata transaktion deltagare. Om du inte anger **privateFor:** och **från:** , smarta kontrakt transaktioner är offentliga och kan ses av alla medlemmarna.
+    **privateFor** definierar de noder som kontraktet är tillgängligt för. I det här exemplet kan nodens standardnods konto skicka privata transaktioner till **alpha** -noden. Du lägger till offentliga nycklar för alla deltagare i privata transaktioner. Om du inte inkluderar **privateFor:** och **från:** , är transaktionerna för smarta kontrakt offentliga och kan ses av alla medlemmar i konsortiet.
 
-1. Spara alla filer genom att välja **fil > Spara allt**.
+1. Spara alla filer genom att välja **fil > Spara alla**.
 
-## <a name="deploy-smart-contract"></a>Distribuera smarta kontrakt
+## <a name="deploy-smart-contract"></a>Distribuera Smart kontrakt
 
-Använda Truffle för att distribuera `SimpleStorage.sol` till standardnätverk transaktion noden.
+Använd Truffle för att `SimpleStorage.sol` distribuera till standard-Transaction Node Network.
 
 ```bash
 truffle migrate --network defaultnode
 ```
 
-Truffle först kompilerar och distribuerar sedan den **SimpleStorage** smarta kontrakt.
+Truffle kompilerar först och distribuerar sedan det smarta **SimpleStorage** -kontraktet.
 
 Exempel på utdata:
 
@@ -273,23 +260,23 @@ Summary
 > Final cost:          0 ETH
 ```
 
-## <a name="validate-contract-privacy"></a>Verifiera kontrakt sekretess
+## <a name="validate-contract-privacy"></a>Validera kontrakt sekretess
 
-På grund av kontrakt sekretess kontraktsvärden endast kan efterfrågas från noder som vi har deklarerat i **privateFor**. I det här exemplet frågar vi transaktion standardnoden eftersom kontot finns i noden. 
+På grund av kontrakts sekretess kan kontrakt värden bara frågas från noder som vi har deklarerat i **privateFor**. I det här exemplet kan vi fråga noden standardnode eftersom kontot finns i noden. 
 
-1. Anslut till transaktion standardnoden med Truffle-konsolen.
+1. Anslut till noden förvald transaktion med Truffle-konsolen.
 
     ```bash
     truffle console --network defaultnode
     ```
 
-1. Köra kod som returnerar värdet för kontrakt-instans i Truffle-konsolen.
+1. Kör kod som returnerar värdet för kontrakt instansen i Truffle-konsolen.
 
     ```bash
     SimpleStorage.deployed().then(function(instance){return instance.get();})
     ```
 
-    Om frågor transaktion standardnoden lyckas, returneras värdet 42. Exempel:
+    Om du har lyckats köra en fråga till noden standard transaktion returneras värdet 42. Exempel:
 
     ```
     admin@desktop:/mnt/c/truffledemo$ truffle console --network defaultnode
@@ -303,21 +290,21 @@ På grund av kontrakt sekretess kontraktsvärden endast kan efterfrågas från n
     .exit
     ```
 
-Eftersom vi har deklarerat **alpha** nodens offentliga nyckeln i **privateFor**, vi kan fråga den **alpha** noden.
+Eftersom vi har deklarerat den här **alpha** -nodens offentliga nyckel i **privateFor**kan vi fråga **alpha** -noden.
 
-1. Med hjälp av konsolen Truffle ansluta till den **alpha** noden.
+1. Använd Truffle-konsolen för att ansluta till **alpha** -noden.
 
     ```bash
     truffle console --network alpha
     ```
 
-1. Köra kod som returnerar värdet för kontrakt-instans i Truffle-konsolen.
+1. Kör kod som returnerar värdet för kontrakt instansen i Truffle-konsolen.
 
     ```bash
     SimpleStorage.deployed().then(function(instance){return instance.get();})
     ```
 
-    Om frågar den **alpha** noden lyckas, returneras värdet 42. Exempel:
+    Om du har lyckats skicka en fråga till **alpha** -noden returneras värdet 42. Exempel:
 
     ```
     admin@desktop:/mnt/c/truffledemo$ truffle console --network alpha
@@ -331,21 +318,21 @@ Eftersom vi har deklarerat **alpha** nodens offentliga nyckeln i **privateFor**,
     .exit
     ```
 
-Eftersom vi inte har deklarera **beta** nodens offentliga nyckeln i **privateFor**, vi kommer inte att fråga den **beta** noden på grund av kontrakt sekretess.
+Eftersom vi inte deklarerade den offentliga nyckeln för **beta** -noden i **privateFor**kan vi inte fråga **beta** -noden på grund av kontrakt sekretess.
 
-1. Med hjälp av konsolen Truffle ansluta till den **beta** noden.
+1. Använd Truffle-konsolen för att ansluta till **beta** -noden.
 
     ```bash
     truffle console --network beta
     ```
 
-1. Köra en kod som returnerar värdet för kontrakt-instans.
+1. Kör en kod som returnerar värdet för kontrakt instansen.
 
     ```bash
     SimpleStorage.deployed().then(function(instance){return instance.get();})
     ```
 
-1. Fråga den **beta** nod misslyckas eftersom kontraktet är privat. Exempel:
+1. Det går inte att fråga **beta** -noden eftersom kontraktet är privat. Exempel:
 
     ```
     admin@desktop:/mnt/c/truffledemo$ truffle console --network beta
@@ -366,8 +353,8 @@ Eftersom vi inte har deklarera **beta** nodens offentliga nyckeln i **privateFor
     
 ## <a name="send-a-transaction"></a>Skicka en transaktion
 
-1. Skapa en fil med namnet `sampletx.js`. Spara den i roten av projektet.
-1. Följande skript anger kontraktet **storedData** variabelvärde till 65. Lägg till kod till den nya filen.
+1. Skapa en fil med `sampletx.js`namnet. Spara den i roten för projektet.
+1. Följande skript anger värdet för kontrakts **storedData** variabel till 65. Lägg till koden i den nya filen.
 
     ```javascript
     var SimpleStorage = artifacts.require("SimpleStorage");
@@ -388,22 +375,22 @@ Eftersom vi inte har deklarera **beta** nodens offentliga nyckeln i **privateFor
     };
     ```
 
-    Ersätt värdena i hakparenteser och spara sedan filen.
+    Ersätt värdena i vinkelparenteser och spara sedan filen.
 
-    | Värde | Beskrivning
+    | Value | Beskrivning
     |-------|-------------
-    | \<alpha node public key\> | Offentlig nyckel för noden alpha
-    | \<Ethereum account address\> | Ethereum kontoadress har skapats i transaktionen standardnoden.
+    | \<alpha node public key\> | Den offentliga nyckeln för alpha-noden
+    | \<Ethereum account address\> | Ethereum-konto adress som skapats i noden standard transaktion.
 
-    **privateFor** definierar noderna som transaktionen är tillgänglig. I det här exemplet standard transaktion nodens konto kan omvandla privata transaktionerna till den **alpha** noden. Du måste lägga till offentliga nycklar för alla privata transaktion deltagare.
+    **privateFor** definierar de noder som transaktionen är tillgänglig för. I det här exemplet kan nodens standardnods konto skicka privata transaktioner till **alpha** -noden. Du måste lägga till offentliga nycklar för alla privata transaktions deltagare.
 
-1. Använd Truffle för att köra skriptet för transaktionen standardnoden.
+1. Använd Truffle för att köra skriptet för noden för förvalda transaktioner.
 
     ```bash
     truffle exec sampletx.js --network defaultnode
     ```
 
-1. Köra kod som returnerar värdet för kontrakt-instans i Truffle-konsolen.
+1. Kör kod som returnerar värdet för kontrakt instansen i Truffle-konsolen.
 
     ```bash
     SimpleStorage.deployed().then(function(instance){return instance.get();})
@@ -424,17 +411,17 @@ Eftersom vi inte har deklarera **beta** nodens offentliga nyckeln i **privateFor
     .exit
     ```
     
-## <a name="validate-transaction-privacy"></a>Verifiera transaktion sekretess
+## <a name="validate-transaction-privacy"></a>Validera transaktions sekretess
 
-På grund av transaktionen sekretess transaktioner bara kan utföras på noder som vi har deklarerat i **privateFor**. I det här exemplet vi utföra transaktioner eftersom vi har deklarerat **alpha** nodens offentliga nyckeln i **privateFor**. 
+På grund av transaktions sekretess kan transaktioner endast utföras på noder som vi har deklarerat i **privateFor**. I det här exemplet kan vi utföra transaktioner eftersom vi har deklarerat den offentliga nyckeln för **alpha** -noden i **privateFor**. 
 
-1. Använda Truffle för att köra transaktionen på den **alpha** noden.
+1. Använd Truffle för att köra transaktionen på **alpha** -noden.
 
     ```bash
     truffle exec sampletx.js --network alpha
     ```
     
-1. Köra kod som returnerar värdet för kontrakt-instans.
+1. Kör kod som returnerar värdet för kontrakt instansen.
 
     ```bash
     SimpleStorage.deployed().then(function(instance){return instance.get();})
@@ -457,16 +444,16 @@ På grund av transaktionen sekretess transaktioner bara kan utföras på noder s
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort resurserna genom att ta bort den `myResourceGroup` resursgruppen du skapade med Azure Blockchain-tjänsten.
+När de inte längre behövs kan du ta bort resurserna genom att ta `myResourceGroup` bort resurs gruppen som du skapade i Azure blockchain-tjänsten.
 
-Ta bort resursgruppen:
+Ta bort resurs gruppen:
 
-1. I Azure-portalen går du till **resursgrupp** i det vänstra navigeringsfönstret och välj den resursgrupp som du vill ta bort.
-1. Välj **Ta bort resursgrupp**. Kontrollera borttagningen genom att ange resursgruppens namn och välj **ta bort**.
+1. I Azure Portal navigerar du till **resurs grupp** i det vänstra navigerings fönstret och väljer den resurs grupp som du vill ta bort.
+1. Välj **Ta bort resursgrupp**. Verifiera borttagning genom att ange resurs gruppens namn och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien får du har lagt till två transaktion noder för att demonstrera kontrakt och transaktionen sekretess. Du använde standardnoden för att distribuera ett privat smarta kontrakt. Du har testat sekretess genom förfrågningar till kontraktsvärden och utför transaktioner på blockchain.
+I den här självstudien har du lagt till två transaktionsloggfiler för att demonstrera avtals-och transaktions sekretess. Du använde standard-noden för att distribuera ett privat Smart kontrakt. Du har testat sekretess genom att fråga kontrakts värden och utföra transaktioner på blockchain.
 
 > [!div class="nextstepaction"]
-> [Utveckla blockchain-program med Azure Blockchain-tjänsten](develop.md)
+> [Utveckla blockchain-program med Azure blockchain service](develop.md)

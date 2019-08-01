@@ -1,7 +1,7 @@
 ---
 title: Exempel på Jupyter Notebooks
 titleSuffix: Azure Machine Learning service
-description: Hitta och använda exempel Jupyter-anteckningsböcker för att utforska Python SDK för Azure Machine Learning-tjänsten.
+description: Hitta och Använd exempel Jupyter Notebooks för att utforska Azure Machine Learning service python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,56 +9,61 @@ ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 05/29/2019
+ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea4d5a807c25ea0406b49dac8a83ef1a34e0e8b3
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 7fdf9c52df502bc94519ab6c65be2e9fb546ce48
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391802"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699140"
 ---
-# <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Använd Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten
+# <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Utforska Azure Machine Learning-tjänsten med Jupyter-anteckningsböcker
 
-Den [lagringsplatsen för Azure Machine Learning anteckningsböcker](https://github.com/azure/machinelearningnotebooks) innehåller de senaste Azure Machine Learning Python SDK-exempel. Dessa Juypter datorer har utformats för att utforska SDK: N och fungera som modeller för din egen machine learning-projekt.
+[Exemplet Azure Machine Learning Notebooks](https://github.com/azure/machinelearningnotebooks) -lagringsplatsen innehåller de senaste Azure Machine Learning python SDK-exemplen. Dessa Juypter-anteckningsböcker är utformade för att hjälpa dig att utforska SDK och fungerar som modeller för dina egna Machine Learning-projekt.
 
 Den här artikeln visar hur du kommer åt databasen från följande miljöer:
 
-- [Azure Machine Learning-anteckningsbok VM](#azure-machine-learning-notebook-vm)
-- [Ta med din egen notebook-server](#bring-your-own-jupyter-notebook-server)
-- [Virtuell dator för datavetenskap](#data-science-virtual-machine)
-- [Azure Notebooks](#azure-notebooks)
+- [Azure Machine Learning Notebook VM](#notebookvm)
+- [Ta med din egen Notebook-Server](#byo)
+- [Data Science Virtual Machine](#dsvm)
+- [Azure Notebooks](#aznb)
 
 > [!NOTE]
-> När du har klonat lagringsplatsen, hittar du självstudien anteckningsböcker i den **självstudier** mappen och funktionsspecifika anteckningsböcker i den **How-to-till-användning – azureml** mapp.
+> När du har klonat lagrings platsen hittar du själv studie **kurser** i självstudierna och de funktionsbaserade antecknings böckerna i mappen **How-to-use-azureml** .
 
-## <a name="azure-machine-learning-notebook-vm"></a>Azure Machine Learning-anteckningsbok VM
+<a name="notebookvm"></a>
+## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Hämta exempel på Azure Machine Learning Notebook VM
 
-Det enklaste sättet att komma igång med exemplen är att slutföra den [molnbaserade notebook Snabbstart](quickstart-run-cloud-notebook.md). När klar har du en dedikerad notebook-server med SDK och exempellagringsplatsen. Inga nedladdningar eller installeras.
+Det enklaste sättet att komma igång med exemplen är att slutföra den [molnbaserade snabb starten för bärbara datorer](quickstart-run-cloud-notebook.md). När du är klar har du en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats. Inga hämtningar eller installationer krävs.
 
-## <a name="bring-your-own-jupyter-notebook-server"></a>Ta med din egen Jupyter Notebook-server
+<a name="byo"></a>
 
-Följ dessa steg om du vill ta med din egen notebook-server för lokal utveckling:
+## <a name="get-samples-on-your-notebook-server"></a>Hämta exempel på din Notebook-Server
+
+Följ dessa steg om du vill ta med din egen Notebook-Server för lokal utveckling:
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-De här anvisningarna installera de grundläggande SDK-paket krävs för Snabbstart och självstudier anteckningsböcker. Andra exempelanteckningsböcker som kan kräva att du kan installera ytterligare komponenter. Mer information finns i [installera Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+De här anvisningarna installerar de grundläggande SDK-paket som krävs för de bärbara datorerna för snabb start och självstudier. Andra exempel på antecknings böcker kan kräva att du installerar extra komponenter. Mer information finns i [installera Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
-## <a name="data-science-virtual-machine"></a>Virtuell dator för datavetenskap
+<a name="dsvm"></a>
+## <a name="get-samples-on-dsvm"></a>Hämta exempel på DSVM
 
-Den virtuella datorn på datavetenskap (DSVM) är en anpassad VM-avbildning som skapats specifikt för datavetenskap. Om du [skapar en DSVM](how-to-configure-environment.md#dsvm), SDK och notebook-server är installerat och konfigurerat åt dig. Du måste dock fortfarande skapa en arbetsyta och klona exempellagringsplatsen.
+Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning som skapats specifikt för data vetenskap. Om du [skapar en DSVM](how-to-configure-environment.md#dsvm)installeras och konfigureras SDK-och Notebook-servern för dig. Du måste dock fortfarande skapa en arbets yta och klona exempel lagrings platsen.
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-## <a name="azure-notebooks"></a>Azure Notebooks
+<a name="aznb"></a>
+## <a name="get-samples-on-azure-notebooks"></a>Hämta exempel på Azure Notebooks
 
-På [Azure anteckningsböcker](https://notebooks.azure.com/), SDK och notebook-server är installerat och konfigurerat åt dig. Azure-anteckningsböcker ger en fullständigt hanterad och lättviktig notebook-miljö för att utforska.
+På [Azure Notebooks](https://notebooks.azure.com/)installeras och konfigureras SDK: n och Notebook-servern för dig. Azure Notebooks ger en fullständigt hanterad, lätt bärbar miljö som du kan utforska.
 
-För att komma åt lagringsplatsen för exemplet på Azure-datorer, navigera till din Azure Machine Learning-arbetsyta via den [Azure-portalen](https://portal.azure.com). Från den **översikt** väljer **Kom igång i Azure anteckningsböcker**.
+Du kommer åt exempel lagrings platsen på Azure Notebooks genom att gå till arbets ytan Azure Machine Learning via [Azure Portal](https://portal.azure.com). I avsnittet **Översikt** väljer du **kom igång i Azure Notebooks**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska den [exempel anteckningsböcker](https://aka.ms/aml-notebooks) för att identifiera vilka Azure Machine Learning service kan göra eller prova de här självstudierna:
+Utforska [exempel antecknings böckerna](https://aka.ms/aml-notebooks) och se vilka Azure Machine Learning-tjänster som kan utföras, eller prova de här självstudierna:
 
 - [Träna och distribuera en modell för avbildningsklassificering med MNIST](tutorial-train-models-with-aml.md)
 

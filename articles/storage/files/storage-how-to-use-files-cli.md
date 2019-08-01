@@ -1,19 +1,18 @@
 ---
 title: Snabbstart för hantering av Azure-filresurser med hjälp av Azure CLI
 description: I den här snabbstarten lär du dig hur du använder Azure CLI till att hantera Azure Files.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 43a5a72ac32d8ed3510cecb505f5e62cf91d7106
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 93baf275e93c28283836a92c71eb9b24151392fc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710810"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699600"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snabbstart: Skapa och hantera Azure-filresurser med hjälp av Azure CLI
 Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med hjälp av Azure CLI. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
@@ -45,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Ett lagringskonto är en delad lagringspool i vilken du kan distribuera en Azure-filresurs eller andra lagringsresurser, t.ex. blobar eller köer. Ett lagringskonto kan innehålla ett obegränsat antal filresurser. En resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot.
 
-I följande exempel skapas ett lagringskonto med namnet *mystorageaccount\< med det slumpmässiga talet\>* med kommandot [az storage account create](/cli/azure/storage/account), varefter lagringskontots namn läggs till i variabeln `$STORAGEACCT`. Lagringskontonamn måste vara unikt, så se till att ersätta ”mystorageacct” med ett unikt namn.
+I följande exempel skapas ett lagringskonto med namnet *mystorageaccount\< med det slumpmässiga talet\>* med kommandot [az storage account create](/cli/azure/storage/account), varefter lagringskontots namn läggs till i variabeln `$STORAGEACCT`. Lagrings konto namn måste vara unika, så se till att ersätta "mystorageacct" med ett unikt namn.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -87,12 +86,12 @@ Om du vill montera en filresurs med SMB läser du följande dokument baserat på
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Använda en Azure-filresurs med fil-REST-protokollet 
-Det är möjligt work direkt med fil-REST-protokollet direkt (handcrafting HTTP REST-anrop själv), men det vanligaste sättet att använda fil-REST-protokoll är att använda Azure CLI, den [Azure PowerShell-modulen](storage-how-to-use-files-powershell.md), eller ett Azure Storage SDK , som ger en bra adapter för fil-REST-protokollet i valfritt skript/programmering språk.  
+Det är möjligt att arbeta direkt med fil REST-protokollet direkt (handcrafting REST HTTP-anrop själv), men det vanligaste sättet att använda fil REST-protokollet är att använda Azure CLI, [Azure PowerShell-modulen](storage-how-to-use-files-powershell.md)eller en Azure Storage-SDK som alla tillhandahåller en ett snyggt gränssnitt runt fil REST-protokollet i det skript/programmeringsspråk som du väljer.  
 
 Vi förväntar att de flesta som använder Azure Files vill arbeta med sin Azure-filresurs via SMB-protokollet, eftersom det gör att de kan använda de befintliga programmen och verktygen som de förväntar sig att kunna använda. Men det finns flera anledningar till varför det är fördelaktigt att använda fil-REST-API:et istället för SMB, till exempel:
 
 - Du bläddrar efter filresursen från Azure Bash Cloud Shell (som inte kan montera filresurser via SMB).
-- Du måste köra ett skript eller program från en klient som inte kan montera en SMB-resurs, t.ex lokala klienter som inte har port 445 avblockerad.
+- Du måste köra ett skript eller ett program från en klient som inte kan montera en SMB-resurs, t. ex. lokala klienter som inte har port 445 avblockerad.
 - Du utnyttjar serverlösa resurser såsom [Azure Functions](../../azure-functions/functions-overview.md). 
 
 I följande exempel visas hur du använder Azure CLI till att ändra din Azure-filresurs med fil-REST-protokollet. 
@@ -108,7 +107,7 @@ az storage directory create \
    --name "myDirectory" 
 ```
 
-### <a name="upload-a-file"></a>Överför en fil
+### <a name="upload-a-file"></a>Ladda upp en fil
 För att visa hur du laddar upp en fil med kommandot [`az storage file upload`](/cli/azure/storage/file) skapar du först en fil som ska laddas upp på den tillfälliga Cloud Shell-enheten. I följande exempel ska du skapa och ladda upp filen:
 
 ```azurecli-interactive
@@ -135,7 +134,7 @@ az storage file list \
     --output table
 ```
 
-### <a name="download-a-file"></a>Hämta en fil
+### <a name="download-a-file"></a>Ladda ned en fil
 Du kan hämta en kopia av filen du laddade upp till Cloud Shell-enheten genom att använda kommandot [`az storage file download`](/cli/azure/storage/file):
 
 ```azurecli-interactive

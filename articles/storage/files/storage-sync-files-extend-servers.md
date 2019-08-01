@@ -1,19 +1,18 @@
 ---
 title: Självstudie – Utöka Windows-filservrar med Azure File Sync | Microsoft Docs
 description: Lär dig hur du utökar Windows-filservrar med Azure File Sync, från början till slut.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: df3850a839ac789957a9adffb7122a0b58987781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705065"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699492"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Självstudier: Utöka Windows-filservrar med Azure File Sync
 
@@ -70,7 +69,7 @@ När du har distribuerat ett Azure Storage-konto skapar du en filresurs.
 
 1. Välj den nya filresursen. På filresursplatsen väljer du **Ladda upp**.
 
-    ![Överför en fil](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
+    ![Ladda upp en fil](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
 1. Bläddra till mappen _FilesToSync_, där du har skapat .txt-filen, välj _mytestdoc.txt_ och välj **Ladda upp**.
 
@@ -100,7 +99,7 @@ Nu har du skapat ett lagringskonto och en filresurs med en fil i det. Nu ska du 
    1. På fliken **Diskar** och sedan under **Diskalternativ** lämnar du kvar standardinställningarna.
    1. Under **DATADISKAR** väljer du **Skapa och anslut en ny disk**.
 
-   1. Använd standardinställningarna förutom för **Storlek (GiB)**, som du kan ändra till **1 GB** för den här självstudien.
+   1. Använd standardinställningarna förutom för **Storlek (GiB)** , som du kan ändra till **1 GB** för den här självstudien.
 
       ![Datadiskinformation](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -223,7 +222,7 @@ För att distribuera Azure File Sync placerar först en resurs för **tjänsten 
    | **Namn** | Ett unikt namn (per prenumeration) för tjänsten för synkronisering av lagring.<br><br>Använd _afssyncservice02_ för den här självstudien. |
    | **Prenumeration** | Den Azure-prenumeration som du använder för den här kursen. |
    | **Resursgrupp** | Den resursgrupp som innehåller tjänsten för synkronisering av lagring.<br><br>Använd _afsresgroup101918_ för den här självstudien. |
-   | **Plats** | Östra USA |
+   | **Location** | East US |
 
 1. När du är klar väljer du **Skapa** för att distribuera **tjänsten för synkronisering av lagring**.
 1. Välj fliken **Meddelanden** > **Gå till resurs**.
@@ -283,7 +282,7 @@ En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning
 
 1. Ange följande information för att skapa en synkroniseringsgrupp med en molnslutpunkt:
 
-   | Värde | Beskrivning |
+   | Value | Beskrivning |
    | ----- | ----- |
    | **Namn på synkroniseringsgrupp** | Det här namnet måste vara unikt i tjänsten för synkronisering av lagring men kan vara vilket namn som helst som är logiskt för dig. Använd *afssyncgroup* för den här självstudien.|
    | **Prenumeration** | Prenumerationen där du har distribuerat tjänsten för synkronisering av lagring för den här kursen. |

@@ -1,24 +1,23 @@
 ---
 title: Introduktion till Azure Files | Microsoft Docs
 description: En översikt över Azure Files, en tjänst som gör att du kan skapa och använda nätverksfilresurser i molnet med SMB-protokollet som är branschstandard.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: overview
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 075a3cea426fd5f54ef142648754fa9a9e2810b4
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 7fe95a35a6b78bae66521a09d63d376ec8757479
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508308"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699677"
 ---
 # <a name="what-is-azure-files"></a>Vad är Azure Files?
 Azure Files erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via [Server Message Block-protokollet (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) som är branschstandard. Azure-filresurser kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. Azure-filresurser kan dessutom cachelagras på Windows-servrar med Azure File Sync för snabb åtkomst nära den plats där data används.
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 | Introduktion till Azure File Sync (2 m) | Azure Files med Sync (Ignite 2017) (85 m)  |
 |-|-|
 | [![Skärmbild av videon Introduktion till Azure File Sync – klicka för att spela upp!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Skärmbild av Azure Files med Sync-presentationen – klicka för att spela upp!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |

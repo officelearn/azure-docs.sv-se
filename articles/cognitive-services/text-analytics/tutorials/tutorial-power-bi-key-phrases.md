@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e56926b9a23e0dd649fb85347e521a6dda7863a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479879"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697351"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudier: Integrera Power BI med den kognitiva tjänsten för textanalys
 
@@ -36,7 +36,7 @@ I den här kursen får du lära du dig att:
 - Microsoft Power BI Desktop. [Hämta utan kostnad](https://powerbi.microsoft.com/get-started/).
 - Ett Microsoft Azure-konto. [Starta en kostnadsfri utvärdering](https://azure.microsoft.com/free/) eller [Logga in](https://portal.azure.com/).
 - Ett API-konto för Cognitive Services med textanalys-API. Om du inte har ett kan du [registrera dig](../../cognitive-services-apis-create-account.md) och använda den kostnadsfria nivån för 5 000 transaktioner/månad (se [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) för att slutföra den här självstudien.
-- [Åtkomstnyckeln textanalys](../how-tos/text-analytics-how-to-access-key.md) som har skapats för dig under inloggningen.
+- [Åtkomstnyckeln textanalys](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som har skapats för dig under inloggningen.
 - Kundkommentarer. Du kan använda [våra exempeldata](https://aka.ms/cogsvc/ta) eller dina egna data. Den här självstudien utgår från att du använder våra exempeldata.
 
 ## <a name="load-customer-data"></a>Hämta kundinformation

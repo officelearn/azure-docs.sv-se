@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 12/13/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 372f2ffc6b64cefb93f8dfa17e1ba752fd81b538
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8562d37d81ce02e150e6ad1cc2a440cf7bb1e5e3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477843"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693364"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurera global distribution i Azure Cosmos DB med tabell-API
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver följande uppgifter:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Ansluta till en önskad region med hjälp av tabell-API
 
-I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Detta kan göras genom att ange egenskapen [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations). Tabell-API:ns SDK i Azure Cosmos DB väljer den bästa slutpunkten för kommunikationen baserat på kontokonfiguration, aktuell regional tillgänglighet och listan med inställningar.
+I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Detta kan göras genom att ange egenskapen [TableConnectionPolicy.PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet). Tabell-API:ns SDK i Azure Cosmos DB väljer den bästa slutpunkten för kommunikationen baserat på kontokonfiguration, aktuell regional tillgänglighet och listan med inställningar.
 
 PreferredLocations ska innehålla en kommaavgränsad lista med önskade (flera värdar) platser för läsningar. Varje klientinstans kan ange en delmängd av dessa regioner i önskad ordning för läsningar med låg latens. Regionerna måste namnges med sina [visningsnamn](https://msdn.microsoft.com/library/azure/gg441293.aspx), till exempel `West US`.
 

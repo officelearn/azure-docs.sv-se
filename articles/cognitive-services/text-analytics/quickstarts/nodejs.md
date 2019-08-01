@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Node.js'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 4c77477e31e7513cb806dda968a68fc1ac5030ed
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eadac393a7224876e3cb494dd39116bd3b5b0eb7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694964"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697384"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Node.js  
 <a name="HOLTop"></a>
@@ -24,11 +24,9 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar attit
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
 
 <a name="Detect"></a>
 
@@ -36,11 +34,11 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-h
 
 API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
-2. Lägg till koden nedan till en ny `.js` fil.
-3. Ersätt den `accessKey` värde med en prenumerationsnyckel från din Text Analytics-resurs i Azure.
+1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
+2. Lägg till den kod som anges nedan till `.js` en ny fil.
+3. `accessKey` Ersätt värdet med en prenumerations nyckel från din textanalys-resurs i Azure.
 4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet från den IDE eller från kommandoraden, till exempel `npm start` eller `node detect.js`.
+5. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node detect.js`
 
 ```javascript
 'use strict';
@@ -156,13 +154,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). Attitydanalys kan användas för att ta reda på vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. I följande exempel ger poäng för två dokument, en på engelska och en annan på spanska.
+API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). Sentiment-analys kan användas för att ta reda på vad kunderna tycker om ditt varumärke eller ämne genom att analysera rå text för LED trådar om positiv eller negativ sentiment. I följande exempel visas poängen för två dokument, ett på engelska och ett annat på spanska.
 
-1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
-2. Lägg till koden nedan till en ny `.js` fil.
-3. Ersätt den `accessKey` värde med en prenumerationsnyckel från din Text Analytics-resurs i Azure.
+1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
+2. Lägg till den kod som anges nedan till `.js` en ny fil.
+3. `accessKey` Ersätt värdet med en prenumerations nyckel från din textanalys-resurs i Azure.
 4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet från den IDE eller från kommandoraden, till exempel `npm start` eller `node sentiment.js`.
+5. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node sentiment.js`
 
 ```javascript
 'use strict';
@@ -229,7 +227,7 @@ get_sentiments (documents);
 
 **Svar vid attitydanalys**
 
-Resultatet mäts som positivt om den får närmare 1.0 och negativt om det beräknas närmare 0,0.
+Resultatet mäts som positivt om det beräknas närmare 1,0 och negativt om det beräknas närmare 0,0.
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
@@ -252,13 +250,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
 
-API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av diskussionsämne används för att snabbt identifiera de viktigaste aspekterna av ett dokument eller text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
+API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av nyckel fraser används för att snabbt identifiera huvud punkterna i ett dokument eller en text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
-2. Lägg till koden nedan till en ny `.js` fil.
-3. Ersätt den `accessKey` värde med en prenumerationsnyckel från din Text Analytics-resurs i Azure.
+1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
+2. Lägg till den kod som anges nedan till `.js` en ny fil.
+3. `accessKey` Ersätt värdet med en prenumerations nyckel från din textanalys-resurs i Azure.
 4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet från den IDE eller från kommandoraden, till exempel `npm start` eller `node key-phrases.js`.
+5. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node key-phrases.js`
 
 ```javascript
 'use strict';
@@ -368,13 +366,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-linked-entities"></a>Identifiera länkade entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrahera ord i texten, som ”USA”, och sedan typ och/eller Wikipedia länk ger dig den här Ordfilter. Typen för ”USA” är `location`, medan en länk till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är. `https://en.wikipedia.org/wiki/United_States`  I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
-2. Lägg till koden nedan till en ny `.js` fil.
-3. Ersätt den `accessKey` värde med en prenumerationsnyckel från din Text Analytics-resurs i Azure.
+1. Skapa ett nytt Node. JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
+2. Lägg till den kod som anges nedan till `.js` en ny fil.
+3. `accessKey` Ersätt värdet med en prenumerations nyckel från din textanalys-resurs i Azure.
 4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet från den IDE eller från kommandoraden, till exempel `npm start` eller `node entities.js`.
+5. Kör programmet från IDE-eller kommando raden, till exempel `npm start` eller. `node entities.js`
 
 ```javascript
 'use strict';

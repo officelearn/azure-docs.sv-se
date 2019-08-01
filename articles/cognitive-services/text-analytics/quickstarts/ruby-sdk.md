@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Anropa den Text Analytics Cognitive Service med hjälp av Ruby SDK'
+title: 'Snabbstart: Anropa tjänsten Textanalys kognitiv med hjälp av ruby SDK'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: raymondl
 manager: nitinme
@@ -10,50 +10,48 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 3f18b77fe436328e79df351b9c5edcf6dc289ad7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297777"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697275"
 ---
-# <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Snabbstart: Anropa Text Analytics-tjänsten med hjälp av Ruby SDK
+# <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Snabbstart: Anropa tjänsten Textanalys med hjälp av ruby SDK
 
 <a name="HOLTop"></a>
 
 
-Använd den här snabbstarten om du vill analysera språk med Text Analytics SDK för Ruby. Medan den [textanalys](//go.microsoft.com/fwlink/?LinkID=759711) REST API är kompatibelt med de flesta programmeringsspråk, SDK innehåller ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples/blob/master/samples/text_analytics.rb).
+Använd den här snabb starten för att börja analysera språk med Textanalys SDK för ruby. Även om [Textanalys](//go.microsoft.com/fwlink/?LinkID=759711) REST API är kompatibel med de flesta programmeringsspråk, är SDK ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples/blob/master/samples/text_analytics.rb).
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Ruby 2.5.5 eller senare](https://www.ruby-lang.org/)
-* Text analytics [SDK för Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
+* Text Analytics [SDK för ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
  
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
-
 <a name="RubyProject"></a>
 
-## <a name="create-a-ruby-project-and-install-the-sdk"></a>Skapa en Ruby-projekt och installera SDK
+## <a name="create-a-ruby-project-and-install-the-sdk"></a>Skapa ett ruby-projekt och installera SDK: n
 
-1. Skapa ett nytt projekt för ruby och lägga till en ny fil med namnet `Gemfile`.
-2. Lägg till Text Analytics SDK: N i projektet genom att lägga till i koden nedan för att `Gemfile`.
+1. Skapa ett nytt ruby-projekt och Lägg till en ny `Gemfile`fil med namnet.
+2. Lägg till Textanalys SDK till projektet genom att lägga till nedanstående kod i `Gemfile`.
 
     ```ruby
     source 'https://rubygems.org'
     gem 'azure_cognitiveservices_textanalytics', '~>0.17.3'
     ```
 
-## <a name="create-a-text-analytics-client"></a>Skapa en Text analytics-klient
+## <a name="create-a-text-analytics-client"></a>Skapa en text Analytics-klient
 
-1. Skapa en ny fil med namnet `TextAnalyticsExamples.rb` i din favoritredigerare eller IDE. Importera SDK för textanalys.
+1. Skapa en ny fil med `TextAnalyticsExamples.rb` namnet i din favorit redigerare eller IDE. Importera Textanalys SDK.
 
-2. Ett objekt för autentiseringsuppgifter ska användas av klienten för textanalys. Skapa den med `CognitiveServicesCredentials.new()` och för att skicka din prenumerationsnyckel.
+2. Ett inloggnings objekt kommer att användas av Textanalys-klienten. Skapa den med `CognitiveServicesCredentials.new()` och skicka din prenumerations nyckel.
 
-3. Skapa klienten med rätt Text Analytics-slutpunkten.
+3. Skapa klienten med rätt Textanalys slut punkt.
 
     ```ruby
     require 'azure_cognitiveservices_textanalytics'
@@ -76,11 +74,11 @@ Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analyt
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Med Text Analytics SDK eller API kan utföra du attitydanalys på en uppsättning textposter. I följande exempel visar sentimentpoäng för flera dokument.
+Med hjälp av Textanalys SDK eller API kan du utföra sentiment analyser på en uppsättning text poster. I följande exempel visas de sentiment poängen för flera dokument.
 
-1. Skapa en ny funktion som kallas `SentimentAnalysisExample()` som tar text analytics-klient som skapades ovan som en parameter.
+1. Skapa en ny funktion `SentimentAnalysisExample()` som använder den text Analytics-klient som skapades ovan som en parameter.
 
-2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och text för varje objekt. ID: T kan vara vilket värde.
+2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och en text för varje objekt. ID: t kan vara vilket värde som helst.
 
     ```ruby
     def SentimentAnalysisExample(client)
@@ -106,9 +104,9 @@ Med Text Analytics SDK eller API kan utföra du attitydanalys på en uppsättnin
       input_4.text = "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
     ```
 
-3. Kombinera dokumenten i en lista i samma funktion. Lägger till den i den `documents` i en `MultiLanguageBatchInput` objekt. 
+3. I samma funktion kombinerar du dokumenten till en lista. Lägg till den i `documents` fältet för ett `MultiLanguageBatchInput` objekt. 
 
-4. Anropa klientens `sentiment()` fungerar med den `MultiLanguageBatchInput` -objektet som en parameter för att skicka dokument. Skriva ut dem om inga resultat returneras.
+4. Anropa klientens `sentiment()` funktion `MultiLanguageBatchInput` med objektet som en parameter för att skicka dokumenten. Skriv ut alla resultat som returneras.
     ```ruby
       input_documents =  MultiLanguageBatchInput.new
       input_documents.documents = [input_1, input_2, input_3, input_4]
@@ -132,7 +130,7 @@ Med Text Analytics SDK eller API kan utföra du attitydanalys på en uppsättnin
     SentimentAnalysisExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 ===== SENTIMENT ANALYSIS =====
@@ -144,13 +142,13 @@ Document ID: 4 , Sentiment Score: 1.00
 
 <a name="LanguageDetection"></a>
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="language-detection"></a>Språkidentifiering
 
-Text Analytics-tjänsten kan identifiera språket i ett textdokument över ett stort antal språk och nationella inställningar. I följande exempel visas som flera dokument har skrivits i språket.
+Textanalyss tjänsten kan identifiera språket i ett text dokument på ett stort antal språk och nationella inställningar. I följande exempel visas språket som flera dokument skrevs i.
 
-1. Skapa en ny funktion som kallas `DetectLanguageExample()` som tar text analytics-klient som skapades ovan som en parameter. 
+1. Skapa en ny funktion som `DetectLanguageExample()` anropar den text Analytics-klient som har skapats ovan som en parameter. 
 
-2. Definiera en uppsättning `LanguageInput` objekt som ska analyseras. Lägg till ett språk och text för varje objekt. ID: T kan vara vilket värde.
+2. Definiera en uppsättning `LanguageInput` objekt som ska analyseras. Lägg till ett språk och en text för varje objekt. ID: t kan vara vilket värde som helst.
 
     ```ruby
     def DetectLanguageExample(client)
@@ -168,9 +166,9 @@ Text Analytics-tjänsten kan identifiera språket i ett textdokument över ett s
        language_input_3.text = '这是一个用中文写的文件'
     ```
 
-3. Kombinera dokumenten i en lista i samma funktion. Lägger till den i den `documents` i en `LanguageBatchInput` objekt. 
+3. I samma funktion kombinerar du dokumenten till en lista. Lägg till den i `documents` fältet för ett `LanguageBatchInput` objekt. 
 
-4. Anropa klientens `detect_language()` fungerar med den `LanguageBatchInput` -objektet som en parameter för att skicka dokument. Skriva ut dem om inga resultat returneras.
+4. Anropa klientens `detect_language()` funktion `LanguageBatchInput` med objektet som en parameter för att skicka dokumenten. Skriv ut alla resultat som returneras.
     ```ruby
        input_documents = LanguageBatchInput.new
        input_documents.documents = [language_input_1, language_input_2, language_input_3]
@@ -191,13 +189,13 @@ Text Analytics-tjänsten kan identifiera språket i ett textdokument över ett s
      end
     ```
 
-5. Anropa funktionen `DetectLanguageExample`
+5. Anropa funktionen`DetectLanguageExample`
 
     ```ruby
     DetectLanguageExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -208,13 +206,13 @@ Document ID: 3 , Language: Chinese_Simplified
 
 <a name="EntityRecognition"></a>
 
-## <a name="entity-recognition"></a>Igenkänning av entiteter
+## <a name="entity-recognition"></a>Enhets igenkänning
 
-Text Analytics-tjänsten kan skilja och extrahera olika enheter (personer, platser och saker) i textdokument. I följande exempel visar de entiteter som finns i flera dokument.
+Textanalyss tjänsten kan särskilja och extrahera olika entiteter (personer, platser och saker) i text dokument. I följande exempel visas de entiteter som finns i flera exempel dokument.
 
-1. Skapa en ny funktion som kallas `Recognize_Entities()` som tar text analytics-klient som skapades ovan som en parameter.
+1. Skapa en ny funktion `Recognize_Entities()` som använder den text Analytics-klient som skapades ovan som en parameter.
 
-2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och text för varje objekt. ID: T kan vara vilket värde.
+2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och en text för varje objekt. ID: t kan vara vilket värde som helst.
 
     ```ruby
       def RecognizeEntitiesExample(client)
@@ -230,9 +228,9 @@ Text Analytics-tjänsten kan skilja och extrahera olika enheter (personer, plats
         input_2.text = 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'
     ```
 
-3. Kombinera dokumenten i en lista i samma funktion. Lägger till den i den `documents` i en `MultiLanguageBatchInput` objekt. 
+3. I samma funktion kombinerar du dokumenten till en lista. Lägg till den i `documents` fältet för ett `MultiLanguageBatchInput` objekt. 
 
-4. Anropa klientens `entities()` fungerar med den `MultiLanguageBatchInput` -objektet som en parameter för att skicka dokument. Skriva ut dem om inga resultat returneras.
+4. Anropa klientens `entities()` funktion `MultiLanguageBatchInput` med objektet som en parameter för att skicka dokumenten. Skriv ut alla resultat som returneras.
 
     ```ruby
         input_documents =  MultiLanguageBatchInput.new
@@ -260,12 +258,12 @@ Text Analytics-tjänsten kan skilja och extrahera olika enheter (personer, plats
       end
     ```
 
-5. Anropa funktionen `RecognizeEntitiesExample`
+5. Anropa funktionen`RecognizeEntitiesExample`
     ```ruby
     RecognizeEntitiesExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 ===== ENTITY RECOGNITION =====
@@ -309,11 +307,11 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-Text Analytics-tjänsten kan extrahera nyckelfraser i meningar. I följande exempel visar de entiteter som finns i flera dokument på flera språk.
+Textanalyss tjänsten kan extrahera nyckel fraser i meningar. I följande exempel visas de entiteter som finns i flera exempel dokument på flera språk.
 
-1. Skapa en ny funktion som kallas `KeyPhraseExtractionExample()` som tar text analytics-klient som skapades ovan som en parameter.
+1. Skapa en ny funktion `KeyPhraseExtractionExample()` som använder den text Analytics-klient som skapades ovan som en parameter.
 
-2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och text för varje objekt. ID: T kan vara vilket värde.
+2. Definiera en uppsättning `MultiLanguageInput` objekt som ska analyseras. Lägg till ett språk och en text för varje objekt. ID: t kan vara vilket värde som helst.
 
     ```ruby
     def KeyPhraseExtractionExample(client)
@@ -339,9 +337,9 @@ Text Analytics-tjänsten kan extrahera nyckelfraser i meningar. I följande exem
       input_4.text = 'A mi me encanta el fútbol!'
       ```
 
-3. Kombinera dokumenten i en lista i samma funktion. Lägger till den i den `documents` i en `MultiLanguageBatchInput` objekt. 
+3. I samma funktion kombinerar du dokumenten till en lista. Lägg till den i `documents` fältet för ett `MultiLanguageBatchInput` objekt. 
 
-4. Anropa klientens `key_phrases()` fungerar med den `MultiLanguageBatchInput` -objektet som en parameter för att skicka dokument. Skriva ut dem om inga resultat returneras.
+4. Anropa klientens `key_phrases()` funktion `MultiLanguageBatchInput` med objektet som en parameter för att skicka dokumenten. Skriv ut alla resultat som returneras.
 
     ```ruby
       input_documents =  MultiLanguageBatchInput.new
@@ -365,13 +363,13 @@ Text Analytics-tjänsten kan extrahera nyckelfraser i meningar. I följande exem
     end
     ```
 
-5. Anropa funktionen `KeyPhraseExtractionExample`
+5. Anropa funktionen`KeyPhraseExtractionExample`
 
     ```ruby
     KeyPhraseExtractionExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1

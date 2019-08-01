@@ -10,21 +10,21 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: fc0f8519644c5b9f722ab67f2e9d600a0be7960b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26a9fc60c90f536e4ef9f03e96545e493a60f206
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708336"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698103"
 ---
 # <a name="quickstart-project-answer-search-query-in-java"></a>Snabbstart: Project Answer Search-fråga i Java
 Den här artikeln använder Java för att demonstrera Bing Answer Search API, som är en del av Microsoft Cognitive Services i Azure. API:et är en REST-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
  
 Exempelkoden använder Java med minimala externa beroenden.  Du kan också köra den på Linux eller Mac OS X med Mono.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="request"></a>Förfrågan 
 

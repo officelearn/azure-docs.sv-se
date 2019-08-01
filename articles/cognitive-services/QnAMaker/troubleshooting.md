@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/31/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b0b9a5e0797a105d7fe61c95b28a6c5f462e7255
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 85c6ff59b5f73e88c82ee8b788bd9f35d18bc0ed
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414754"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697956"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -24,7 +24,7 @@ Den granskade listan med de vanligaste frågorna om QnA Maker tjänsten hjälper
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Använd hjälp roboten i QnA Maker Portal
 
-QnA Maker ger en **Hjälp** robot på QNA Maker portal som hjälp. Hjälp roboten är tillgänglig på alla webb sidor. Roboten använder QNA Maker för att ge svar och ger [ C# bot Framework](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) -kodfragmentet till roboten så att du snabbt kan komma igång med din egen svars robot. 
+QnA Maker ger en **Hjälp** robot på QNA Maker portal som hjälp. Hjälp roboten är tillgänglig på alla webb sidor. Roboten använder QNA Maker för att ge svar och ger [ C# bot Framework](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) -kodfragmentet till roboten så att du snabbt kan komma igång med din egen svars robot. 
 
 ![! [QnA Maker innehåller en * *-hjälp * * bot i QnA Maker portalen som hjälp.] (./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 

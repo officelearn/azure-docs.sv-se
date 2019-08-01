@@ -9,20 +9,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21dda323cf465f56fb3f43160dd04c27a81d5590
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861777"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698079"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>Snabbstart: Project Answer Search med Node
 
 I följande exempel med Node skapas en fråga för information om Yosemite National Park.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 I det här exemplet används Node v8.9.4
 

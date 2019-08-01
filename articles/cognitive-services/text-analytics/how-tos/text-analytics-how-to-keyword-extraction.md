@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: dd3f0c5b82c1898d6e4bbe564556ee26e872dc94
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 1d94cff3eb3299692fc4172f5bb5211532ef1002
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619675"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697825"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser med textanalys
 
@@ -76,7 +76,7 @@ Information om definition av begäran finns i [så här anropar du API för text
 
 + Ange HTTP-slutpunkten för extrahering av nyckel fraser genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Den måste innehålla `/keyPhrases` resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`.
 
-+ Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
++ Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 
 + Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten.
 
@@ -154,7 +154,7 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för extrahering 
 
 + [API för extrahering av nyckelfraser](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) är tillgängligt för utvalda språk.
 + JSON-dokument i begär ande texten innehåller ID, text och språkkod.
-+ POST-begäran riktas till en `/keyphrases`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för din prenumeration.
++ POST-begäran riktas till en `/keyphrases`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som är giltig för din prenumeration.
 + Svars resultatet, som består av viktiga ord och fraser för varje dokument-ID, kan strömmas till alla appar som accepterar JSON, inklusive Microsoft Office Excel och Power BI, för att ge några.
 
 ## <a name="see-also"></a>Se också

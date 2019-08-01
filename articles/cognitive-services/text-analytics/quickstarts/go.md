@@ -1,21 +1,21 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Go'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e6d641109bafdc3dba05a30fd627a3246c7edef5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85eae936cf86d144f0baf91623b7be9f69eb4dbb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828638"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697548"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Go 
 <a name="HOLTop"></a>
@@ -24,11 +24,11 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar attit
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
+Du måste även ha [slutpunkten och åtkomstnyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som genererades åt dig vid registreringen.
 
 <a name="Detect"></a>
 
@@ -41,7 +41,7 @@ API:et för språkidentifiering identifierar språket i ett textdokument, med me
 1. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
 1. Ersätt platsen i `uriBase` (för närvarande `westcentralus`) till den region du har registrerat dig för.
 1. Spara filen med tillägget .go.
-1. Öppna en kommandotolk på en dator med gå installerade från rotmappen.
+1. Öppna en kommando tolk på en dator med go installerat från rotmappen.
 1. Skapa filen, till exempel: `go build detect.go`.
 1. Kör filen, till exempel: `go run detect.go`.
 
@@ -184,7 +184,7 @@ API:et för attitydanalys identifierar attityden i en uppsättning textposter, m
 1. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
 1. Ersätt platsen i `uriBase` (för närvarande `westcentralus`) till den region du har registrerat dig för.
 1. Spara filen med tillägget .go.
-1. Öppna en kommandotolk på en dator med gå installerade från rotmappen.
+1. Öppna en kommando tolk på en dator med go installerat från rotmappen.
 1. Skapa filen, till exempel: `go build sentiment.go`.
 1. Kör filen, till exempel: `go run sentiment.go`.
 
@@ -272,7 +272,7 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Svar från attitydanalys
 
-Resultatet mäts som positivt om den får närmare 1.0 och negativt om det beräknas närmare 0,0.
+Resultatet mäts som positivt om det beräknas närmare 1,0 och negativt om det beräknas närmare 0,0.
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
@@ -433,7 +433,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrahera ord i texten, som ”USA”, och sedan typ och/eller Wikipedia länk ger dig den här Ordfilter. Typen för ”USA” är `location`, medan en länk till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är. `https://en.wikipedia.org/wiki/United_States`  I följande exempel identifieras entiteter för engelska dokument.
 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 1. Lägg till koden nedan.

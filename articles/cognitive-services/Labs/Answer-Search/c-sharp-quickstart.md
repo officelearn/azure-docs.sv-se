@@ -10,22 +10,22 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: fe6758cb6b8d120862cbbe593574360c1bc7b17b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823263"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698106"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>Snabbstart: Project Answer Search-fråga i C#
 
 Följande C#-exempel skapar och skickar en fråga för information om den tredje lagen för kalkyl.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/) att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
+Du behöver [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/) för att köra den här koden i Windows. (Den kostnadsfria Community Edition fungerar.)
 
-Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Kodscenario
 

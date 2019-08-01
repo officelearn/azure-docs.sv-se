@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Använda Ruby för att anropa API för textanalys'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 56a482ae4eab4cde3cf39fcc187b703f253e0cbb
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: cc6f0a4c3fda2c5e474295704f3edddb678e9ed2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990251"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697194"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Ruby
 <a name="HOLTop"></a>
@@ -24,11 +24,9 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar senti
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
 
 <a name="Detect"></a>
 
@@ -308,7 +306,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ```
 <a name="Entities"></a>
 
-## <a name="entity-recognition"></a>Igenkänning av entiteter
+## <a name="entity-recognition"></a>Enhets igenkänning
 
 API:et för entiteter identifierar entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
 

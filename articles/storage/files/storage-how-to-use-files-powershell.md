@@ -1,19 +1,18 @@
 ---
 title: Snabbstart för hantering av Azure-filresurser med Azure PowerShell
 description: Använd den här snabbstarten för att lära dig hur du hanterar Azure-filresurser med Azure PowerShell.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e32aead791fb84415da1b00f1e979a6ac0f28155
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 802ad497f95a43665665d7e7dbd06c9081eba74a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729026"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699510"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snabbstart: Skapa och hantera en Azure-filresurs med Azure PowerShell 
 Den här guiden går igenom grunderna med att arbeta med [Azure-filresurser](storage-files-introduction.md) med PowerShell. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
@@ -40,7 +39,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Ett lagringskonto är en delad lagringspool som du kan använda för att distribuera Azure-filresurser eller andra lagringsresurser, t.ex. blobar eller köer. Ett lagringskonto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagringskontots kapacitetsgräns.
 
-I det här exemplet skapas ett lagringskonto med cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Lagringskontot har namnet *mystorageaccount\<slumptal >* och en referens till det lagringskontot lagras i variabeln **$storageAcct**. Lagringskontonamn måste vara unika så använd `Get-Random` för att lägga till ett tal till namnet som gör det unikt. 
+I det här exemplet skapas ett lagringskonto med cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Lagrings kontot har namnet *mystorageaccount\<Random Number >* och en referens till lagrings kontot lagras i variabeln **$storageAcct**. Lagringskontonamn måste vara unika så använd `Get-Random` för att lägga till ett tal till namnet som gör det unikt. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `
@@ -90,7 +89,7 @@ New-AzStorageDirectory `
    -Path "myDirectory"
 ```
 
-#### <a name="upload-a-file"></a>Överför en fil
+#### <a name="upload-a-file"></a>Ladda upp en fil
 För att visa dig hur du överför en fil med hjälp av cmdleten [Set-AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent), måste vi först skapa en fil på din tillfälliga PowerShell Cloud Shell-enhet att ladda upp. 
 
 Det här exemplet placerar aktuellt datum och tid i en ny fil på din tillfälliga enhet och överför sedan filen till filresursen.
@@ -115,7 +114,7 @@ När du har överfört filen kan du använda cmdleten [Get-AzStorageFile](/power
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
-#### <a name="download-a-file"></a>Hämta en fil
+#### <a name="download-a-file"></a>Ladda ned en fil
 Du kan hämta en kopia av filen du laddade upp till den tillfälliga Cloud Shell-enheten genom att använda cmdleten [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent).
 
 ```azurepowershell-interactive
@@ -166,7 +165,7 @@ Du bör nu se den kopierade filen om du visar filerna i den nya resursen.
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-Medan den `Start-AzStorageFileCopy` cmdlet är praktiskt för ad hoc-filförflyttningar mellan Azure-filresurser och Azure Blob storage-behållare, rekommenderar vi AzCopy för större flyttar (sett till antal eller storleken på filer som flyttas). Läs mer om [AzCopy för Windows](../common/storage-use-azcopy.md) och [AzCopy för Linux](../common/storage-use-azcopy-linux.md). AzCopy måste installeras lokalt – det är inte tillgängligt i Cloud Shell. 
+Även om `Start-AzStorageFileCopy` cmdleten är bekväm för ad hoc-filflyttningar mellan Azure-filresurser och Azure Blob Storage-behållare, rekommenderar vi AzCopy för större flytter (vad gäller antal eller storlek på filer som flyttas). Läs mer om [AzCopy för Windows](../common/storage-use-azcopy.md) och [AzCopy för Linux](../common/storage-use-azcopy-linux.md). AzCopy måste installeras lokalt – det är inte tillgängligt i Cloud Shell. 
 
 ## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera resursögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en tidpunkt för en Azure-filresurs. Ögonblicksbilder av resurser liknar de operativsystemtekniker som du kanske redan är bekant med såsom:

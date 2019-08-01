@@ -1,21 +1,18 @@
 ---
 title: Kontrollera måtten för dataflöde och svarstid för ett lagringskonto i Azure Portal | Microsoft Docs
 description: Lär dig hur du kontrollerar måtten för dataflöde och svarstid för ett lagringskonto i Portal.
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 2fde9b2b88b4c758065ba4b38da48724bfbfcd75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61427787"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698975"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Kontrollera måtten för dataflöde och svarstid för ett lagringskonto
 

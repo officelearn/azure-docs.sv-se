@@ -10,22 +10,22 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ec0c8ad06480cd596365f43f13ca57fb242d364c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827153"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698038"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>Snabbstart: URL-förhandsgranskningsfråga i C#
 
 Följande C#-exempel skapar en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/) att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
+Du behöver [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/) för att köra den här koden i Windows. (Den kostnadsfria Community Edition fungerar.)
 
-Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Kodscenario
 

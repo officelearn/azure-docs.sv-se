@@ -1,21 +1,18 @@
 ---
 title: Ladda ned stora mängder slumpmässiga data från Azure Storage  | Microsoft Docs
 description: Lär dig hur du använder Azure SDK för att ladda ned stora mängder slumpmässiga data från ett Azure Storage-konto
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 541d406d7416ff5f50fdcca7e85b8f87f6f377df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794584"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699022"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Ladda ned stora mängder slumpmässiga data från Azure Storage
 
@@ -28,9 +25,9 @@ I den tredje delen i serien får du lära dig att:
 > * Köra programmet
 > * Verifiera antalet anslutningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien måste du ha slutfört den tidigare Storage-kursen: [Överföra stora mängder slumpmässiga data parallellt till Azure Storage][previous-tutorial].
+För att slutföra den här självstudien måste du ha slutfört den tidigare Storage-kursen: [Överför stora mängder slumpmässiga data parallellt till Azure Storage][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Fjärranslut till din virtuella dator
 
@@ -101,7 +98,7 @@ dotnet run
 Programmet läser de containrar i lagringskontot som anges i **storageconnectionstring**. Den går igenom 10 blobar åt gången med hjälp av metoden [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) i containrarna och laddar ned dem till den lokala datorn med hjälp av metoden [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync).
 I följande tabell visas de [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) som har definierats för varje blob när den hämtas.
 
-|Egenskap |Value|Beskrivning|
+|Egenskap|Value|Beskrivning|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Den här egenskapen anger om en MD5-hash beräknas och sparas.   |

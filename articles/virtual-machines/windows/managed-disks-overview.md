@@ -1,21 +1,18 @@
 ---
 title: Översikt över Azure-disklagring Managed disk för virtuella Windows-datorer | Microsoft Docs
 description: Översikt över Azure Managed disks, som hanterar lagrings kontona åt dig när du använder virtuella Azure-datorer i Windows
-services: virtual-machines-windows,storage
 author: roygara
 ms.service: virtual-machines-windows
-ms.workload: storage
-ms.tgt_pltfrm: vm-windows
 ms.topic: overview
 ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: fb1ee8556935b141dfee6a18c96ecafb476aa584
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: f86937feb7061950084a8b5bdb532075c7f93869
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "64725814"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693713"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed disks
 

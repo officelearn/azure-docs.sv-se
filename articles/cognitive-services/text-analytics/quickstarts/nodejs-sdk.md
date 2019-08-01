@@ -8,55 +8,55 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/11/2019
+ms.date: 07/30/2019
 ms.author: shthowse
-ms.openlocfilehash: 7e43d53c0916cf7fdc684c9e044e632015662c3b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9b8a713d58d5753e04de050e0bc961b5e8388123
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081521"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697485"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Node.js
 <a name="HOLTop"></a>
 
-Använd den här snabbstarten om du vill analysera språk med Text Analytics SDK för Node.js. Medan den [textanalys](//go.microsoft.com/fwlink/?LinkID=759711) REST API är kompatibelt med de flesta programmeringsspråk, SDK innehåller ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
+Använd den här snabb starten för att börja analysera språk med Textanalys SDK för Node. js. Även om [Textanalys](//go.microsoft.com/fwlink/?LinkID=759711) REST API är kompatibel med de flesta programmeringsspråk, är SDK ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js](https://nodejs.org/)
-* Text Analytics [SDK för Node.js](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) du kan installera SDK: N med:
+* Textanalys [SDK för Node. js](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) du kan installera SDK: n med:
 
     `npm install azure-cognitiveservices-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
+Du måste även ha [slutpunkten och åtkomstnyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som genererades åt dig vid registreringen.
 
-## <a name="create-a-nodejs-application-and-install-the-sdk"></a>Skapa en Node.js-program och installera SDK
+## <a name="create-a-nodejs-application-and-install-the-sdk"></a>Skapa ett Node. js-program och installera SDK: n
 
-När du har installerat Node.js, skapa ett nod-projekt. Skapa en ny katalog för din app och navigera till programmets katalog.
+När du har installerat Node. js skapar du ett Node-projekt. Skapa en ny katalog för din app och navigera till dess katalog.
 
 ```mkdir myapp && cd myapp```
 
-Kör ```npm init``` att skapa en node-App med en package.json-fil. Installera den `ms-rest-azure` och `azure-cognitiveservices-textanalytics` NPM-paket:
+Kör ```npm init``` för att skapa ett Node-program med en Package. JSON-fil. `ms-rest-azure` Installera och `azure-cognitiveservices-textanalytics` NPM-paketen:
 
 ```npm install azure-cognitiveservices-textanalytics ms-rest-azure```
 
-Appens package.json-fil kommer att uppdateras med beroenden.
+Appens Package. JSON-fil kommer att uppdateras med beroenden.
 
 ## <a name="authenticate-your-credentials"></a>Autentisera dina autentiseringsuppgifter
 
-Skapa en ny fil `index.js` i projektet rot och importera de installerade bibliotek
+Skapa en ny fil `index.js` i projekt roten och importera de installerade biblioteken
 
 ```javascript
 const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
 const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
 ```
 
-Skapa en variabel för din prenumerationsnyckel för textanalys.
+Skapa en variabel för din Textanalys prenumerations nyckel.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials(
@@ -65,12 +65,12 @@ let credentials = new CognitiveServicesCredentials(
 ```
 
 > [!Tip]
-> För säker distribution av hemligheter i produktionssystem bör du använda [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
+> Vi rekommenderar att du använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)för säker distribution av hemligheter i produktions system.
 >
 
-## <a name="create-a-text-analytics-client"></a>Skapa en Text Analytics-klient
+## <a name="create-a-text-analytics-client"></a>Skapa en Textanalys-klient
 
-Skapa en ny `TextAnalyticsClient` objekt med `credentials` som en parameter. Använd rätt Azure-regionen för din Text Analytics-prenumeration.
+Skapa ett nytt `TextAnalyticsClient` objekt med `credentials` som en parameter. Använd rätt Azure-region för din Textanalys prenumeration.
 
 ```javascript
 //Replace 'westus' with the correct region for your Text Analytics subscription
@@ -82,7 +82,7 @@ let client = new TextAnalyticsAPIClient(
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Skapa en lista med objekt, som innehåller de dokument som du vill analysera. Nyttolasten i API: n består av en lista över `documents`, som innehåller en `id`, `language`, och `text` attribut. Den `text` attributet lagrar texten som ska analyseras, `language` är språket för dokumentet och `id` kan vara vilket värde. 
+Skapa en lista med objekt som innehåller dokumenten som du vill analysera. Nytto lasten till API: et består av en `documents`lista över, som `id`innehåller `language`ett, `text` -och-attribut. Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. `text` 
 
 ```javascript
 const inputDocuments = {documents:[
@@ -93,7 +93,7 @@ const inputDocuments = {documents:[
 ]}
 ```
 
-Anropa `client.sentiment` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och attitydsresultatet. Ett värde närmare 0 anger negativ känsla, medan en poäng närmare 1 anger positiv känsla.
+Anropa `client.sentiment` och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 
 ```javascript
 const operation = client.sentiment({multiLanguageBatchInput: inputDocuments})
@@ -106,9 +106,9 @@ operation
 });
 ```
 
-Köra din kod med `node index.js` i konsolfönstret.
+Kör din kod med `node index.js` i konsol fönstret.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Output
 
 ```console
 [ { id: '1', score: 0.8723785877227783 },
@@ -117,9 +117,9 @@ Köra din kod med `node index.js` i konsolfönstret.
   { id: '4', score: 1 } ]
 ```
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="language-detection"></a>Språkidentifiering
 
-Skapa en lista med objekt som innehåller dina dokument. Nyttolasten i API: n består av en lista över `documents`, som innehåller en `id` och `text` attribut. Den `text` attributet lagrar texten som ska analyseras, och `id` kan vara vilket värde.
+Skapa en lista med objekt som innehåller dina dokument. Nytto lasten till API: et består av en `documents`lista över, som `id` innehåller `text` ett-och-attribut. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text`
 
 ```javascript
 // The documents to be submitted for language detection. The ID can be any value.
@@ -132,7 +132,7 @@ const inputDocuments = {
     };
 ```
 
-Anropa `client.detectLanguage()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och det första språket som returneras.
+Anropa `client.detectLanguage()` och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och det första returnerade språket.
 
 ```javascript
 const operation = client.detectLanguage({
@@ -152,9 +152,9 @@ operation
     });
 ```
 
-Köra din kod med `node index.js` i konsolfönstret.
+Kör din kod med `node index.js` i konsol fönstret.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -163,9 +163,9 @@ ID: 2 Language Spanish
 ID: 3 Language Chinese_Simplified
 ```
 
-## <a name="entity-recognition"></a>Igenkänning av entiteter
+## <a name="entity-recognition"></a>Enhets igenkänning
 
-Skapa en lista med objekt, som innehåller dina dokument. Nyttolasten i API: n består av en lista över `documents`, som innehåller en `id`, `language`, och `text` attribut. Den `text` attributet lagrar texten som ska analyseras, `language` är språket för dokumentet och `id` kan vara vilket värde.
+Skapa en lista med objekt som innehåller dina dokument. Nytto lasten till API: et består av en `documents`lista över, som `id`innehåller `language`ett, `text` -och-attribut. Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. `text`
 
 ```javascript
 
@@ -177,7 +177,7 @@ Skapa en lista med objekt, som innehåller dina dokument. Nyttolasten i API: n b
 }
 ```
 
-Anropa `client.entities()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID. För varje identifierad entitet, skriva ut sitt wikipedia-namn, typ och undertyper (om det finns) samt platser i den ursprungliga texten.
+Anropa `client.entities()` och få resultatet. Iterera sedan igenom resultaten och skriv ut dokumentets ID. För varje identifierad entitet skriver du ut dess Wikipedia-namn, typ och under typer (om de finns) samt platserna i den ursprungliga texten.
 
 ```javascript
 const operation = client.entities({
@@ -200,9 +200,9 @@ operation
     });
 ```
 
-Köra din kod med `node index.js` i konsolfönstret.
+Kör din kod med `node index.js` i konsol fönstret.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1
@@ -233,7 +233,7 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-Skapa en lista med objekt, som innehåller dina dokument. Nyttolasten i API: n består av en lista över `documents`, som innehåller en `id`, `language`, och `text` attribut. Den `text` attributet lagrar texten som ska analyseras, `language` är språket för dokumentet och `id` kan vara vilket värde.
+Skapa en lista med objekt som innehåller dina dokument. Nytto lasten till API: et består av en `documents`lista över, som `id`innehåller `language`ett, `text` -och-attribut. Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. `text`
 
 ```javascript
     let inputLanguage = {
@@ -246,7 +246,7 @@ Skapa en lista med objekt, som innehåller dina dokument. Nyttolasten i API: n b
     };
 ```
 
-Anropa `client.keyPhrases()` och få resultatet. Sedan gå igenom resultat och skriva ut varje dokument-ID och alla identifierade viktiga fraser.
+Anropa `client.keyPhrases()` och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och alla identifierade nyckel fraser.
 
 ```javascript
     let operation = client.keyPhrases({
@@ -261,9 +261,9 @@ Anropa `client.keyPhrases()` och få resultatet. Sedan gå igenom resultat och s
     });
 ```
 
-Köra din kod med `node index.js` i konsolfönstret.
+Kör din kod med `node index.js` i konsol fönstret.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Output
 
 ```console
 [ 

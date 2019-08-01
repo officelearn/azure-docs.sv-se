@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 5fa3b723b184e6c20ee678e7ef750d6a9d18f2c6
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 29418ec8ce12033dc576c61a73301dec13d457cc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592842"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698036"
 ---
 # <a name="quickstart-url-preview-with-java"></a>Snabbstart: URL-förhandsgranskning med Java
 
@@ -23,11 +23,11 @@ Java-exemplet nedan skapar en URL-förhandsgranskning för webbplatsen SwiftKey:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="request"></a>Förfrågan 
 
-Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en frågesträng för ”https:\//swiftkey.com/en”.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
+Följande kod skapar en `WebRequest`, ställer in åtkomst nyckel rubriken och lägger till en frågesträng för "https:\//SwiftKey.com/en".  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
 ```
     // construct URL of search request (endpoint + query string)

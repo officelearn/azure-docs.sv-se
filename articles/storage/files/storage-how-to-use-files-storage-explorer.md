@@ -1,19 +1,18 @@
 ---
 title: Snabbstart för hantering av Azure-filresurser med hjälp av Azure Storage Explorer
 description: I den här snabbstarten lär du dig hur du använder Azure Storage Explorer till att hantera Azure Files.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bf87704a8055b5725178c846df71ed4d873417e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713871"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699438"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure Storage Explorer
 Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med Azure Storage Explorer. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
@@ -22,7 +21,7 @@ Azure Storage Explorer är ett populärt klientverktyg som finns för Windows, m
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För den här snabbstarten krävs det att Storage Explorer är installerat. Hämta och installera det genom att gå till [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
@@ -67,7 +66,7 @@ Om du lägger till en katalog får du en hierarkisk struktur där du kan hantera
 
 Katalogen *myDirectory* visas på fliken för filresursen *myshare*.
 
-### <a name="upload-a-file"></a>Överför en fil 
+### <a name="upload-a-file"></a>Ladda upp en fil 
 Du kan överföra en fil från din lokala dator till den nya katalogen i filresursen. Du kan ladda upp en hel mapp eller en enda fil.
 
 1. I menyn högst upp väljer du **Ladda upp**. Den här åtgärden ger dig möjlighet att ladda upp en mapp eller fil.
@@ -76,7 +75,7 @@ Du kan överföra en fil från din lokala dator till den nya katalogen i filresu
 
 När du är klar visas filen i fönstret *myDirectory*.
 
-### <a name="download-a-file"></a>Hämta en fil
+### <a name="download-a-file"></a>Ladda ned en fil
 Om du vill ladda ned en kopia av en fil från din filresurs högerklickar du på filen och väljer därefter **Ladda ned**. Ange var du vill placera filen på den lokala datorn och klicka sedan på **Spara**.
 
 Hämtningsförloppet visas i rutan **Aktiviteter** längst ned i fönstret.

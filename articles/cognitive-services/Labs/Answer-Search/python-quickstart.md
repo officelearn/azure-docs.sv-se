@@ -10,20 +10,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2eaf07e041998efade1091861144a2dc4d78c56d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0da596e84ac827b55affd5545c516e7623980f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60721546"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698069"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Snabbstart för Project Answer Search med Python
 
 I följande Python-exempel skapas och skickas en begäran om information om ”Gibraltarklippan”.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 I det här exemplet används Python 3.6.4
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/28/2019
+ms.date: 07/28/2019
 ms.author: aahi
-ms.openlocfilehash: 69f22d92cc586942d3e368a164d6e95f52aa3eea
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3987441ea7c28136750149d3fa66afe061b7d783
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356893"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697259"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Använda python-REST API för att anropa tjänsten Textanalys kognitivt 
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk d
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.x](https://python.org)
-
-* [Slut punkten och åtkomst nyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig under registreringen.
 
 * Biblioteket python-begäranden
     

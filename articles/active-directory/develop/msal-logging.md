@@ -1,6 +1,6 @@
 ---
-title: Logga in MSAL program | Azure
-description: Lär dig om att logga in Microsoft Authentication Library (MSAL) program.
+title: Logga in MSAL-program | Azure
+description: Lär dig mer om loggning i MSAL-program (Microsoft Authentication Library).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,35 +17,35 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f18995d46ca61ae68a7b226bbfc9a286e73a0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4288ff4aba216a214d10c56ba448fc03e13b81f2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544101"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693934"
 ---
 # <a name="logging"></a>Loggning
-Microsoft Authentication Library (MSAL) appar att generera loggmeddelanden som kan hjälpa dig att diagnostisera problem och ange information. En app kan konfigurera loggning med några rader kod och anpassad kontroll över information och huruvida privata och organisationens data loggas. Vi rekommenderar att du ange ett återanrop i MSAL loggning och gör det möjligt för användare att skicka loggar när de har problem med autentisering.
+MSAL-appar (Microsoft Authentication Library) för att generera logg meddelanden som kan hjälpa till att diagnostisera problem och ange information. En app kan konfigurera loggning med några rader kod och har anpassad kontroll över detalj nivån och huruvida personliga och organisatoriska data loggas. Vi rekommenderar att du ställer in ett återanrop för MSAL-loggning och ger användarna möjlighet att skicka loggar när de har problem med autentiseringen.
 
-## <a name="logging-levels"></a>Loggningsnivåer
+## <a name="logging-levels"></a>Loggnings nivåer
 
-MSALS loggaren möjliggör flera olika detaljnivåer ska avbilda:
+MSAL: s loggar gör det möjligt att samla flera detalj nivåer:
 
-- Fel: Anger har något gått fel och ett fel genereras. Använd för att felsöka och identifiera problem.
-- Varning: Händelser som har en fråga och appen behöver mer information på. Det har inte nödvändigtvis har ett fel eller fel, men avsett för diagnostik- och lokalisera problem.
-- Info: MSAL loggar händelser som är avsedd för endast i informationssyfte inte alltid är avsett för felsökning.
-- utförlig: Standard. MSAL ska logga en stor mängd information och ge fullständig information till vilka bibliotek beteende.
+- Fel: Indikerar att något har gått fel och ett fel har genererats. Använd för fel sökning och identifiering av problem.
+- Varning: Händelser som är av fråga och appen behöver mer information om. Det har inte nödvändigt vis uppstått något fel eller fel, men är avsett för diagnostik och att hitta problem.
+- Statusinformation MSAL kommer att logga händelser som är avsedda för informations ändamål som inte nödvändigt vis är avsedda för fel sökning.
+- Utförlig Standard. MSAL kommer att logga en stor mängd information och ge fullständig information om vilka bibliotek som fungerar.
 
-## <a name="personal-and-organizational-data"></a>Privata och organisationens data
-Som standard in MSAL loggaren inte alla mycket känslig personlig eller organisationens data. Biblioteket ger dig möjlighet att aktivera loggning privata och organisationens data om du vill göra detta.
+## <a name="personal-and-organizational-data"></a>Personliga och organisatoriska data
+Som standard fångar MSAL-loggaren inte in mycket känsliga personliga eller organisatoriska data. Biblioteket ger dig möjlighet att aktivera loggning av personliga och organisatoriska data om du väljer att göra det.
 
 ## <a name="logging-in-msalnet"></a>Logga in MSAL.NET
-I MSAL 3.x loggning anges per program vid skapas med hjälp av den `.WithLogging` builder modifieraren. Den här metoden tar följande valfria parametrar:
+I MSAL 3. x anges loggning per program när appen skapas med hjälp av `.WithLogging` Builder-modifieraren. Den här metoden kräver valfria parametrar:
 
-- *Nivå* kan du bestämma vilken nivå av loggning som du vill. Ange den till fel får endast fel
-- *PiiLoggingEnabled* kan du logga privata och organisationens data om värdet är true. Detta är som standard till false, så att ditt program inte loggar personliga data.
-- *LogCallback* har angetts till ett ombud som utför loggning. Om *PiiLoggingEnabled* är sant, den här metoden tar emot meddelanden två gånger: en gång med den *containsPii* parametern är lika med false och ett meddelande utan att personliga data och en andra gång med *containsPii* parametern är lika med SANT och meddelandet kan innehålla personuppgifter. I vissa fall (när meddelandet innehåller inga personliga data), kommer meddelandet att vara samma.
-- *DefaultLoggingEnabled* aktiverar Standardloggning för plattformen. Som standard är FALSKT. Om du ställer in värdet till SANT det du använder händelsespårning i Desktop/UWP program, NSLog på iOS- och logcat på Android.
+- \- *Nivå* kan du bestämma vilken loggnings nivå du vill ha. Om du ställer in det på fel får du bara fel meddelanden
+- Med *PiiLoggingEnabled* kan du logga personliga och organisatoriska data om värdet är true. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data.
+- *LogCallback* har angetts till ett ombud som utför loggningen. Om *PiiLoggingEnabled* är true får den här metoden meddelandena två gånger: en gång med parametern *containsPii* är lika med falskt och meddelandet utan personliga data, och en andra gång med *containsPii* -parametern lika med sant och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+- *DefaultLoggingEnabled* aktiverar standard loggning för plattformen. Som standard är det falskt. Om du anger värdet till sant används händelse spårning i Desktop/UWP-program, NSLog på iOS och logcat på Android.
 
 ```csharp
 class Program
@@ -69,22 +69,22 @@ class Program
                       .Build();
 
     AuthenticationResult result = application.AcquireTokenInteractive(scopes)
-                                             .ExecuteAsnc();
+                                             .ExecuteAsync().Result;
   }
  }
  ```
 
- ## <a name="logging-in-msaljs"></a>Logga in MSAL.js
+ ## <a name="logging-in-msaljs"></a>Logga in MSAL. js
 
- Du kan aktivera loggning i MSAL.js genom att skicka en logger-objekt under konfiguration för att skapa en `UserAgentApplication` instans. Det här logger-objektet har följande egenskaper:
+ Du kan aktivera loggning i MSAL. js genom att skicka ett loggnings objekt under konfigurationen för att `UserAgentApplication` skapa en instans. Detta loggnings objekt har följande egenskaper:
 
-- *localCallback*: en motringningsinstansen som kan tillhandahållas av utvecklaren att förbruka och publicera loggar på ett anpassat sätt. Implementera metoden localCallback beroende på hur du vill omdirigera loggar.
+- *localCallback*: en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Implementera localCallback-metoden beroende på hur du vill dirigera om loggarna.
 
-- *nivå* (valfritt): konfigurerbara loggningsnivån. Stöds Loggnivåerna är: Fel, varning, information, utförlig. Standardvärdet är information.
+- *nivå* (valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: Fel, varning, info, verbose. Standardvärdet är info.
 
-- *piiLoggingEnabled* (valfritt): gör att du kan logga privata och organisationens data om värdet är true. Som standard är detta inställt på FALSKT så att ditt program inte loggar personliga data. Personliga data loggarna skrivs aldrig till standard-utdata som konsolen, Logcat eller NSLog. Standard är inställd på false.
+- *piiLoggingEnabled* (valfritt): gör att du kan logga personliga och organisatoriska data om värdet är true. Som standard är detta inställt på falskt så att programmet inte loggar personliga data. Personliga data loggar skrivs aldrig till standardutdata som konsol, logcat eller NSLog. Standardvärdet är inställt på falskt.
 
-- *correlationId* (valfritt): en unik identifierare som används för att mappa förfrågan med svar för felsökning. Standardvärdet är guid för RFC4122 version 4 (128 bitar).
+- *correlationId* (valfritt): en unik identifierare som används för att mappa begäran med svar på fel söknings syfte. Standardvärdet är RFC4122 version 4 GUID (128 bitar).
 
 ```javascript
 

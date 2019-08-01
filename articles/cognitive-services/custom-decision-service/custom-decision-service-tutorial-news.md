@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: d8ddafe20ff93e7ae4d51e2180bbd40447729234
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ROBOTS: NOINDEX
+ms.openlocfilehash: f7eafed9db25fba904d98ddea652671dc45aa01d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863396"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707225"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Självstudier: Artikelanpassning för kontextuellt beslutsfattande
 

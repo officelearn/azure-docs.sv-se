@@ -1,7 +1,7 @@
 ---
-title: Projektet Akustik Unity ändamålet självstudien
+title: Själv studie kurs om projekt akustiska enhet
 titlesuffix: Azure Cognitive Services
-description: Den här självstudien beskrivs Akustik gräddning med projekt Akustik i Unity.
+description: I den här självstudien beskrivs akustiska ljud med projekt akustiska i Unity.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,223 +10,224 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2362b3916d1b1f430350d975dc0b61914a777be2
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916991"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706694"
 ---
-# <a name="project-acoustics-unity-bake-tutorial"></a>Projektet Akustik Unity ändamålet självstudien
-Den här självstudien beskrivs Akustik gräddning med projekt Akustik i Unity.
+# <a name="project-acoustics-unity-bake-tutorial"></a>Själv studie kurs om projekt akustiska enhet
+I den här självstudien beskrivs akustiska ljud med projekt akustiska i Unity.
 
-Programvarukrav:
+Program varu krav:
 * [Unity 2018.2 +](https://unity3d.com) för Windows
-* [Projektet Akustik plugin-programmet integreras i dina Unity-projekt](unity-integration.md) eller [projekt Akustik Unity-exemplen](unity-quickstart.md)
-* Valfritt: En [Azure Batch-konto](create-azure-account.md) för att påskynda bakes med molnbaserad databehandling
+* [Project Akustiske-plugin-program som är integrerad i ditt Unity-projekt](unity-integration.md) eller i avsnittet [Project akustisker union exempel innehåll](unity-quickstart.md)
+* Valfritt: Ett [Azure Batch konto](create-azure-account.md) för att påskynda bagerier med molnbaserad data behandling
 
-## <a name="open-the-project-acoustics-bake-window"></a>Öppna projektet Akustik skapa fönster
-Välj **Fönster > Akustik** Unity-menyn:
+## <a name="open-the-project-acoustics-bake-window"></a>Öppna fönstret projekt akustiskt i bak-fönstret
+Välj **fönster > ljud** från menyn uppmenyn:
 
-![Skärmbild av Unity-redigerare med menyalternativet för Akustik fönstret markerat](media/window-acoustics.png)
+![Skärm bild av meny alternativet Unitbar Editor med akustiskt fönster markerat](media/window-acoustics.png)
 
-## <a name="create-a-navigation-mesh"></a>Skapa en navigering nät
-Projektet Akustik använder ett navigering nät så att lyssnare avsökningen punkter för simulering. Du kan använda Unity's [navigering nät arbetsflöde](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), eller använda en annan 3D-modellering paketet för att utforma din egen nät. 
+## <a name="create-a-navigation-mesh"></a>Skapa ett navigerings nät
+Projekt akustiska använder ett navigerings nät för att placera lyssnar avsöknings punkter för simulering. Du kan använda enhetens [navigerings nät arbets flöde](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html)eller använda ett annat 3D-modellerings paket för att utforma ditt eget nät. 
 
 ## <a name="mark-acoustic-scene-objects"></a>Markera akustiska scen objekt
-Projektet Akustik förlitar sig på två typer av objekt som scen simulering: de objekt som ska visas och occlude ljud i simuleringen och navigering player-nät som avgränsar lyssnare avsökningen punkter i simuleringen. Båda objekttyperna av markeras med hjälp av den **objekt** fliken. 
+Projekt akustiskt förlitar sig på två typer av scen objekt för simulering: objekten som reflekterar och occlude ljud i simuleringen och navigerings nätet i Media Player som begränsar lyssnar avsöknings punkter i simuleringen. Båda objekt typerna markeras med hjälp av fliken **objekt** . 
 
-Eftersom Markera objekt lägger bara till den **AcousticsGeometry** eller **AcousticsNavigation** komponenter till objektet, du kan också använda den [standard Unity komponenten arbetsflöde](https://docs.unity3d.com/Manual/UsingComponents.html)att markera eller avmarkera objekt. Endast nät renderare och Terrains kan markeras. Alla andra typer av objekt ignoreras. Kryssrutorna ska markera eller avmarkera alla påverkade objekt.
+Eftersom märkning av objekt bara lägger till **AcousticsGeometry** -eller **AcousticsNavigation** -komponenterna i objektet, kan du också använda [arbets flödet standard Unity Component](https://docs.unity3d.com/Manual/UsingComponents.html) för att markera eller avmarkera objekt. Endast nät åter givning och terränger kan markeras. Alla andra objekt typer kommer att ignoreras. Kryss rutorna markerar eller avmarkerar alla berörda objekt.
 
-### <a name="mark-acoustic-occlusion-and-reflection-geometry"></a>Markera akustiska är spärrat och reflektion geometri
-Öppna den **objekt** fliken den **Akustik** fönster. Markera alla objekt som **Akustik geometri** om de ska occlude återspeglar eller absorbera ljud. Akustik geometri kan vara grunden, väggar, tak, windows och fönstret glas, mattor och stora möbler. Du kan använda en valfri nivå av komplexitet för dessa objekt. Eftersom scenen är voxelized innan simulering, är mycket detaljerad nät, till exempel träd med många små bladen inte dyrare att skapa än förenklad objekt.
+### <a name="mark-acoustic-occlusion-and-reflection-geometry"></a>Markera akustiskt ocklusion och reflektions geometri
+Öppna fliken **objekt** i fönstret **akustiska** objekt. Markera alla objekt som **akustiska geometrier** om de ska occlude, reflektera eller absorbera ljud. Akustiska geometrier kan innehålla saker som mark, väggar, tak, Windows & fönster glas, Rugs och stora möbler. Du kan använda valfri godtycklig komplexitets nivå för dessa objekt. Eftersom scenen är voxelized före simuleringen är mycket detaljerade maskor, t. ex. träd med många små löv, inte mer kostsamt för att kunna flyttas över enkla objekt.
 
-Omfatta inte saker som inte ska påverka Akustik, till exempel osynligt kollision nät.
+Inkludera inte saker som inte påverkar akustiskt, t. ex. osynliga kollisions nät.
 
-Ett objekts transformeringen vid tidpunkten för avsökning beräkningen (via den **avsökningar** fliken nedan) har lösts i resultaten för ändamålet. Flytta någon av de markerade objekten i scenen behöver göra om avsökningen beräkningen och rebaking scenen.
+Ett objekts transformering vid tidpunkten för avsöknings beräkningen (via fliken avsökningar nedan) åtgärdas i bageri resultatet. Om du flyttar något av de markerade objekten i scenen måste du göra om avsöknings beräkningen och flytta scenen.
 
-### <a name="mark-the-navigation-mesh"></a>Markera navigering nät
-Navigering nät som skapats med arbetsflödet för Unitys hämtas av Akustik systemet. Om du vill använda din egen nät, markera dem från den **objekt** fliken.
+### <a name="mark-the-navigation-mesh"></a>Markera navigerings nätet
+Navigations nät som skapats med enhets arbets flödet hämtas av akustiskt system. Om du vill använda dina egna nät markerar du dem på fliken **objekt** .
 
-### <a name="for-reference-the-objects-tab-parts"></a>Referens: Objekt fliken delar
-Delar av sidan är:
+### <a name="for-reference-the-objects-tab-parts"></a>Som referens: Fliken objekt delar
+Webb sidans delar är:
 
-1. Fliken val av knapparna (**objekt** fliken markerad). Använd knapparna för att gå igenom de olika stegen för att göra en Akustik ändamålet från vänster till höger.
-2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan.
-3. Tillgängliga filter för hierarkin fönster. Används för att filtrera fönstret hierarkin till objekt av den angivna typen så att du enkelt kan markera dem. Om du inte ännu har markerats för Akustik visas att välja de sista två alternativ inget. De kan dock vara användbar för att hitta markerade objekt när du har gjort det.
-4. Det här avsnittet visas status för alla objekt i scenen när inga objekt har markerats:
-    * Totalt - det totala antalet aktiva, icke-dolda objekt i scenen.
-    * Ignoreras – antal objekt som inte är nät renderare eller Terrains.
-    * Nät - antal Återgivare nät objekt i scenen
-    * Terräng - terräng antalet objekt i scenen
-    * Geometry - antalet nät eller terräng objekt i scenen som markerats som ”Akustik geometri”
-    * Navigering – antalet nät eller terräng objekt i scenen som markerats som ”Akustik navigering”. Det här talet omfattar inte Unity's NavMesh.
-5. Visar det totala antalet ”mark-kan-objekt i scenen, vilket är endast nät renderare och Terrains. Visar du kan använda för att markera kryssrutorna (Lägg till lämplig komponent till) de objekt som geometry eller navigeringen för Akustik
-6. När inget är markerat, påminner dig om att välja objekt för märkning om det behövs i den här anteckningen. Du kan också kontrollera ena eller båda kryssrutorna för att markera alla objekt i scenen utan att välja vad som helst.
-7. När objekt har markerats i det här avsnittet visas status för endast de valda objekten.
-8. Visar det totala antalet ”mark-” valda objekt. Markera eller avmarkera kryssrutorna Markera eller avmarkera bara de valda objekten.
+1. Fliken Val knappar (fliken**objekt** har valts). Använd dessa knappar för att gå igenom de olika stegen för att göra en akustiskt bak från vänster till höger.
+2. En kort beskrivning av vad du behöver göra med den här sidan.
+3. Tillgängliga filter för fönstret hierarki. Använd detta för att filtrera hierarkifönstret till objekt av den angivna typen så att du enkelt kan markera dem. Om du ännu inte har markerat något för akustiska alternativ visas inga av de två sista alternativen. De kan dock vara användbara för att hitta markerade objekt när du har gjort det.
+4. När inga objekt har marker ATS visar det här avsnittet status för alla objekt i scenen:
+    * Totalt-totalt antal aktiva, icke-dolda objekt i scenen.
+    * Ignoreras – antalet objekt som inte är nät åter givningar eller terränger.
+    * Nät – antalet nät åter givnings objekt i scenen
+    * Terräng – antalet terräng objekt i scenen
+    * Geometry – antalet nät-eller terräng objekt i den scen som har marker ATS som "akustisk geometri"
+    * Navigering – antalet nät-eller terräng objekt i scenen som har marker ATS som "akustiska navigering". Det här talet inkluderar inte units NavMesh.
+5. Visar det totala antalet objekt som kan markeras i scenen, som endast är nät åter givning och terräng. Visar kryss rutor som du kan använda för att markera (lägga till lämplig komponent till) objekt som geometri eller navigering för akustiska enheter
+6. När inget är markerat påminner den här kommentaren dig om att välja objekt som ska markeras vid behov. Du kan också markera en eller båda kryss rutorna för att markera alla objekt i scenen utan att välja något.
+7. När objekt är markerat visar det här avsnittet endast status för de valda objekten.
+8. Visar det totala antalet markerade objekt som kan markeras. Genom att markera eller avmarkera kryss rutan markeras eller avmarkeras bara de markerade objekten.
 
-Om du har inget valt på scenen ser fliken objekt som på följande bild:
+Om du inte har valt något i din scen kommer fliken objekt att se ut som på följande bild:
 
-![Skärmbild av Akustik objekt fliken med ingen markering](media/objects-tab-no-selection-detail.png)
+![Skärm bild av fliken akustiska objekt utan något val](media/objects-tab-no-selection-detail.png)
 
-Om du har något valde i fönstret scen eller hierarki, ser den ut som på följande bild:
+Om du har valt något i din scen-eller hierarki-fönster ser det ut som på följande bild:
 
-![Skärmbild av Akustik objekt fliken med val av visas](media/objects-tab-selection-detail.png)
+![Skärm bild av fliken akustiska objekt med markering visas](media/objects-tab-selection-detail.png)
 
-Om vissa objekt markeras och andra inte, visas en ”blandat” värdet i respektive kryssruta:
+Om några objekt har marker ATS och vissa inte är det visas ett "blandat" värde i motsvarande kryss ruta:
 
-![Skärmbild av Akustik objekt fliken med blandad val av ikonen markerat](media/mixed-object-selection-detail.png)
+![Skärm bild av fliken akustiska objekt med blandad markerings ikon markerad](media/mixed-object-selection-detail.png)
 
-Klicka på kryssrutan tvingar alla objekt har markerats och klickar på igen kommer avmarkera alla objekt.
+Om du klickar på kryss rutan tvingas alla objekt att markeras och om du klickar på igen avmarkeras alla objekt.
 
 Objekt kan markeras för både geometri och navigering.
 
-## <a name="select-acoustic-materials"></a>Välj akustiska material
-När dina objekt markeras, klickar du på den **material** knappen och tilldela akustiska material. Projektet Akustik material systemet är kopplad till Unity visual material systemet: två objekt ha separata akustiska material, måste de har separata visual material.
+## <a name="select-acoustic-materials"></a>Välj akustiskt material
+När dina objekt har marker ATS klickar du på knappen **material** och tilldelar akustiskt material. Projektet akustiskt material system är knutet till system för enhetens visuella material: för att två objekt ska ha separat akustiskt material måste de ha separata visuella material.
 
-Akustiska material styra mängden ljud energi som visas från varje ytan. Det akustiska materialet som standard har absorption liknar konkret. Projektet Akustik föreslår material baserat på det visuella samband namnet. Du kan tilldela en material som du kan aktivera en absorption koefficienten skjutreglage akustiska material ”anpassad”.
+Akustiskt material styr mängden ljud energi som återspeglas från varje yta. Standard akustiska materialet har absorption på liknande sätt som betong. Projekt akustiska förslag ger material baserat på namnet på det visuella materialet. Du kan tilldela det akustiska materialet "anpassat" till ett material för att aktivera ett absorptions effektivt skjutreglage.
 
-Genljudet tidpunkten för ett visst material i ett rum är relaterat till dess absorptionskoefficient, med de flesta material med absorption värden i intervallet 0,01 0.20 omvänt. Material med absorptionskoefficient utanför det här intervallet är mycket absorberande.
+Reverberation tiden för ett material i ett rum är i motsatt förhållande till dess absorptions-koefficient, med merparten av materialet med absorptions värden i 0,01 till 0,20-intervallet. Material med absorptions koefficienter utanför det här intervallet är mycket absorberande.
 
-![Diagram som visar negativt korrelation genljudet tid med större](media/reverb-time-graph.png)
+![Diagram över negativ korrelation av Reverberation tid med absorptions koefficient](media/reverb-time-graph.png)
 
-### <a name="for-reference-parts-of-the-materials-tab"></a>Referens: Delar av fliken material
-![Skärmbild av Akustik material flik i Unity](media/materials-tab-detail.png)
+### <a name="for-reference-parts-of-the-materials-tab"></a>Som referens: Delar av fliken material
+![Skärm bild av fliken akustiskt material i Unity](media/materials-tab-detail.png)
 
-1. Den **material** fliken knapp, som används för att få fram den här sidan.
-2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan.
-3. Markera endast material som används av objekt som markerats som **Akustik geometri** visas. I annat fall visas allt material som används i scenen.
-4. Använd dessa alternativ för att ändra ordningen på den nedrullningsbara menyn som visas när du klickar på en listruta i kolumnen Akustik nedan (6). **Namn på** sorterar akustiska material efter namn. ”Absorptivity” sorterade efter absorptivity från låg till hög.
-5. Lista över material som används i scenen sorteras alfabetiskt. Om den **markerats Visa endast** kryssrutan är markerad (#3), endast material som används av objekt som markerats som **Akustik geometri** visas. När du klickar på ett material här Markera alla objekt i scenen som använder materialet.
-6. Visar det akustiska materialet att scen materialet har tilldelats. Klicka på en listruta för att tilldela en scen material till en annan akustiska material. Du kan ändra sorteringsordningen av menyn som visas när du klickar på ett objekt här med den **sortera Akustik efter:** alternativ ovan (#4).
-7. Visar den akustiska absorptionskoefficienten material som valde i föregående kolumn. Värdet noll innebär perfekt reflekterande (inga absorption), samtidigt som värdet 1 innebär perfekt absorptive (inga reflektion). Absorptionskoefficienten kan inte ändras, såvida inte det valda materialet är ”anpassad”.
-8. För ett material som tilldelats till ”anpassad”, skjutreglaget inaktiveras inte längre och du kan välja absorptionskoefficienten med hjälp av skjutreglaget eller genom att skriva in ett värde.
+1. Knappen **material** -fliken som används för att öppna den här sidan.
+2. En kort beskrivning av vad du behöver göra med den här sidan.
+3. När det här alternativet markeras visas endast material som används av objekt som är markerade som **akustiska geometri** . Annars visas allt material som används i scenen.
+4. Använd de här alternativen om du vill ändra ordningen på list menyn som visas när du klickar på en listruta i den akustiska kolumnen nedan (#6). **Namn** sorterar akustiskt material efter namn. "Absorptivity" sorterar dem i ordningen av Absorptivity från låg till hög.
+5. Listan med material som används i scenen, sorterad i alfabetisk ordning. Om kryss rutan **Visa endast markerade** är markerad (#3) visas endast material som används av objekt som är markerade som **akustiska geometri** . Om du klickar på ett material här markeras alla objekt i den scen som använder det materialet.
+6. Visar det akustiska material som scen materialet har tilldelats. Klicka på en listruta för att omtilldela ett scen material till ett annat akustiskt material. Du kan ändra sorterings ordningen för den meny som visas när du klickar på ett objekt här med hjälp av **sorterings ljuden genom att:** alternativen ovan (#4).
+7. Visar koefficienten för akustisk absorption för det material som valts i föregående kolumn. Värdet noll innebär en perfekt reflekterande (ingen absorption) medan värdet 1 innebär en perfekt absorptive (ingen reflektion). Det går inte att ändra absorptions koefficienten om inte det valda materialet är "anpassat".
+8. För ett material som har tilldelats "Custom" är skjutreglaget inte längre inaktiverat och du kan välja absorptions koefficienten med skjutreglaget eller genom att skriva in ett värde.
 
-## <a name="calculate-and-review-listener-probe-locations"></a>Beräkna och granska lyssnare avsökningen platser
-När du har tilldelat material, växla till den **avsökningar** fliken och klicka på **Calculate** att placera lyssnare avsökningen punkter för simulering.
+## <a name="calculate-and-review-listener-probe-locations"></a>Beräkna och granska lyssnare avsöknings platser
+När du har tilldelat materialet växlar du till fliken avsökningar och klickar på **Beräkna** för att placera lyssnar avsöknings punkter för simulering.
 
-### <a name="what-the-calculate-button-calculates"></a>Knappen ”beräkna...” beräknar
-Den **beräkna...**  knappen använder din valda akustiska scen geometri för att förbereda din scen för simulering:
+### <a name="what-the-calculate-button-calculates"></a>Vad är "beräkna..." knappen beräknar
+Med hjälp av knappen **Beräkna...** används din valda akustiska scens geometri för att förbereda din scen för simulering:
 
-1. Det tar geometrin från scenen nät och beräknar en voxel volym. Voxel volymen är en 3-dimensionell volym som omsluter din hela scen och består av små m3 ”voxels”. Storleken på voxels bestäms av simulering frekvens, vilket anges genom den **simulering lösning** inställningen. Varje voxel har markerats som antingen ”öppna luften” eller som innehåller scen geometri. Om en voxel innehåller geometri märks voxel med absorptionskoefficienten material som tilldelats den geometrin.
-2. Navigering mesh(es) används för att placera lyssnare avsökningen punkter. Algoritmen balanserar konkurrerande frågor för rumsliga täckning och simulering och storlek, samtidigt som begränsar korridorer och små utrymmen har alltid vissa delar av täckning. Vanliga avsökningen punkt räknar sträcker sig från 100 för små scener till några tusen för stora scener.
+1. Den tar geometrin från scenens maskor och beräknar en Voxel volym. Voxel-volymen är en 3-dimensionell volym som omsluter hela scenen och består av liten kubisk "voxels". Storleken på voxels bestäms av simulerings frekvensen, som anges av inställningen för **simulerings upplösning** . Varje Voxel markeras som antingen "öppen luft" eller innehåller en scen geometri. Om en Voxel innehåller geometri taggas Voxel med absorptions koefficienten för det material som har tilldelats den geometrin.
+2. Det använder navigations nät (ES) för att placera lyssnar avsöknings punkter. Algoritmen balanserar de konkurrerande problemen med Spatial täckning och simulerings tid och fil storlek, samtidigt som du ser till att smala korridorer och små utrymmen alltid har en viss mängd täckning. En typisk avsöknings punkt räknar mellan 100 för små scener till några tusen för stora scener.
 
-Dessa beräkningar kan ta flera minuter beroende på storleken på din scen och hastigheten på din dator.
+Beroende på storleken på din scen och datorns hastighet kan dessa beräkningar ta flera minuter.
 
-### <a name="review-voxel-and-probe-placement"></a>Granska voxel och avsökning placering
-Förhandsgranska både voxel data och objekt så är du redo att skapa din scen avsökningen. En ofullständig navigering nät eller saknas eller är extra akustiska geometri syns vanligtvis snabbt i förhandsversionen. Placering av Voxel och avsökning kan aktiveras eller inaktiveras med hjälp av menyn Gizmos:
+### <a name="review-voxel-and-probe-placement"></a>Granska Voxel och avsöknings placering
+Förhandsgranska både Voxel-data och platsen för avsöknings punkter för att se till att du är redo att klistra in din scen. Ett ofullständigt navigations nät eller en extra akustisk geometri visas vanligt vis snabbt i förhands granskningen. Placering av Voxel och avsökning kan aktive ras eller inaktive ras med Gizmos-menyn:
 
-![Skärmbild av Gizmos menyn i Unity](media/gizmos-menu.png)
+![Skärm bild av Gizmos-menyn i Unity](media/gizmos-menu.png)
 
-Voxels som innehåller akustiska geometri visas som grön kuber. Utforska din scen och kontrollera att allt som ska vara geometri har voxels. Scen kameran måste vara inom cirka 5 taxor för objektet för voxels ska visas.
+Voxels som innehåller akustisk geometri visas som gröna kuber. Utforska din scen och kontrol lera att allt som ska vara geometri har voxels. Scen kameran måste vara inom cirka 5 meter av objektet för att voxels ska kunna visas.
 
-Om du jämför voxels som skapats med grov upplösning vs bra lösning, visas grov voxels är två gånger så stora.
+Om du jämför voxels som har skapats med grov upplösning jämfört med fin upplösning ser du att de grova voxels är två gånger stora.
 
-![Skärmbild av grov voxels förhandsversion i Unity-redigeraren](media/voxel-cubes-preview.png)
+![Skärm bild av grov voxels Preview i Unity Editor](media/voxel-cubes-preview.png)
 
-Simuleringsresultat interpolerade mellan lyssnare avsökningen platser vid körning. Kontrollera att det finns avsökningen poäng nära helst spelaren förväntas färdas i scenen.
+Simulerings resultat interpoleras mellan lyssnar platsens platser vid körning. Kontrol lera att det finns avsöknings punkter nära vilken plats som spelaren förväntas resa i scenen.
 
-![Skärmbild av avsökningar förhandsversion i Unity-redigeraren](media/probes-preview.png)
+![Skärm bild av för hands versionen av avsökningar i Unity Editor](media/probes-preview.png)
 
-### <a name="take-care-with-scene-renames"></a>Var noga med scen byter namn på
-Scennamnet används för att ansluta scenen till lagring avsökningen punkt placering och voxelization-filer. Om scenen har bytt namn när avsökningen beräknas, material tilldelning och placering av data går förlorad och ska köras igen.
+### <a name="take-care-with-scene-renames"></a>Ta hand om motivets namn
+Scen namnet används för att ansluta scenen till filer som lagrar avsöknings punktens placering och voxelization. Om scenen har fått ett nytt namn när avsöknings punkterna har beräknats, går material tilldelningen och placerings data förlorade och ska köras igen.
 
-### <a name="for-reference-parts-of-the-probes-tab"></a>Referens: Delar av fliken avsökningar
-![Skärmbild av Akustik avsökningar flik i Unity](media/probes-tab-detail.png)
+### <a name="for-reference-parts-of-the-probes-tab"></a>Som referens: Delar av fliken avsökningar
+![Skärm bild av fliken akustiska avsökningar i Unity](media/probes-tab-detail.png)
 
-1. Den **avsökningar** fliken knapp som används för att få fram den här sidan
-2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan
-3. Du kan använda dessa för att välja en grov eller bra simulering upplösning. Grov är snabbare, men har vissa kompromisser. Se [skapa upplösning](bake-resolution.md) nedan för information.
-4. Välj platsen där Akustik datafiler ska placeras med hjälp av det här fältet. Klicka på knappen med ”...” för att använda en Mappväljare för. Standardvärdet är **tillgångar/AcousticsData**. En **redigeraren** undermapp skapas även under den här platsen. Läs mer om datafiler [datafiler](#Data-Files) nedan.
-5. Datafilerna för den här scen namnges med prefixet som anges här. Standardvärdet är ”Acoustics_ [scen Name]”.
-6. När avsökningar har beräknats, inaktiveras kontrollerna som ovan. Klicka på den **Rensa** knappen för att radera beräkningar och aktivera kontroller så att du kan beräkna om med nya inställningarna.
-7. Klicka på den **beräkna...**  för att voxelize scenen och beräkna avsökningen-objekt. Detta utförs lokalt på din dator och måste göras innan du gör en ändamålet.
+1. Fliken avsökningar som används för att öppna den här sidan
+2. En kort beskrivning av vad du behöver göra med den här sidan
+3. Använd dessa för att välja en grov simulerings upplösning. Grovheten går snabbare, men har vissa kompromisser. Mer information finns i artikeln om [problemlösning](bake-resolution.md) nedan.
+4. Välj den plats där akustiska datafiler ska placeras med det här fältet. Klicka på knappen med "..." använda en mapp väljare. Standardvärdet är **till gångar/AcousticsData**. En **redigerare** -undermapp kommer också att skapas på den här platsen. Mer information om datafiler finns i [datafiler](#Data-Files) nedan.
+5. Datafilerna för den här scenen får namnet med hjälp av det prefix som anges här. Standardvärdet är "Acoustics_ [scen namn]".
+6. När avsökningarna har beräknats kommer kontrollerna ovan att inaktive ras. Klicka på **Rensa** om du vill radera beräkningarna och aktivera kontrollerna så att du kan beräkna om med hjälp av nya inställningar.
+7. Klicka på knappen **Beräkna...** för att voxelize scenen och beräkna avsöknings platsens platser. Detta görs lokalt på din dator och måste utföras innan du gör en bageri.
 
-I den här versionen av projektet Akustik avsökningar kan inte placeras manuellt och måste placeras via den automatiska processen som anges i den **avsökningar** fliken.
+I den här versionen av projekt Akustisker går det inte att placera avsökningar manuellt och måste placeras genom den automatiserade processen som finns på fliken avsökningar.
 
-Se [skapa lösning](bake-resolution.md) för mer information om grov vs funkar lösning.
+Se [problemlösning](bake-resolution.md) för att få mer information om grova vs-lösningar.
 
-## <a name="bake-your-scene-using-azure-batch"></a>Skapa din scen med Azure Batch
-Du kan skapa din scen med ett beräkningskluster i molnet med Azure Batch-tjänsten. Projektet Akustik Unity-plugin-programmet ansluter direkt till Azure Batch för att skapa en instans av, hantera och plocka ner ett Azure Batch-kluster för varje ändamålet. På den **skapa** fliken, ange dina autentiseringsuppgifter för Azure, Välj en typ av kluster-dator och storlek och klicka på **skapa**.
+## <a name="bake-your-scene-using-azure-batch"></a>Bageri din scen med Azure Batch
+Du kan gå till din scen med ett beräknings kluster i molnet med hjälp av tjänsten Azure Batch. Plugin-programmet för Project Akustiske Unit ansluter direkt till Azure Batch för att instansiera, hantera och riva ned ett Azure Batch-kluster för varje bak. På fliken hemskrivet anger du dina autentiseringsuppgifter för Azure, väljer en kluster dator typ och storlek och klickar på **bak**sidan.
 
-### <a name="for-reference-parts-of-the-bake-tab"></a>Referens: Delar av fliken ändamålet
-![Skärmbild av Akustik skapa flik i Unity](media/bake-tab-details.png)
+### <a name="for-reference-parts-of-the-bake-tab"></a>Som referens: Delar av fliken bageri
+![Skärm bild av fliken akustiskt i enhet](media/bake-tab-details.png)
 
-1. Knappen Skapa flik används för att ta fram den här sidan.
-2. En kort beskrivning av vad du gör på den här sidan.
-3. Fält att ange dina autentiseringsuppgifter för Azure när du har skapat ditt Azure-konto. Mer information finns i [skapa ett Azure Batch-konto](create-azure-account.md).
-4. Docker bildtagg för Akustik verktygsuppsättningen.
-5. Starta Azure-portalen för att hantera dina prenumerationer, övervaka användning och visa faktureringsinformation osv. 
-6. Azure batch-beräkningsnod nodtyp för beräkningen. Nodtypen måste stödjas av din Azure data center plats. Om det inte att lämna på **Standard_F8s_v2**.
-7. Antalet noder som ska användas för den här beräkningen. Det antal som du anger här påverkar hur lång tid att slutföra ändamålet och begränsas av Azure Batch core allokeringen. Standardallokeringen kan du bara tillåter två 8 kärnor noder eller ett 16 kärnor nod, men kan utökas. Mer information om core allokering begränsningar finns i [skapa ett Azure Batch-konto](create-azure-account.md).
-8. Markera kryssrutan för att konfigurera din beräknings-pool för att använda [lågprioritetsnoder](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Beräkningsnoder med låg prioritet har mycket lägre kostnad, men de kanske inte alltid är tillgänglig eller kan avbrytas när som helst.
-9. Antalet avsökning för din scen som beräknas på den **avsökningar** fliken. Antal avsökningar avgör hur många simuleringar som måste köras i molnet. Du kan inte ange fler noder än vad som finns på avsökningar.
-10. Mängden tid som gått för det förväntas ta innan jobbet ska köras i molnet. Detta inkluderar inte starttiden för noden. Detta är om hur lång tid det bör vara innan du kommer tillbaka resultaten när jobbet börjar köras. Observera att detta är endast en uppskattning.
-11. Den totala arbetstiden som behövs för att köra simuleringar. Det här är den totala mängden noden beräkningstiden som ska användas i Azure. Se [Estimating ändamålet kostnaden](#Estimating-bake-cost) nedan för mer information om hur du använder det här värdet.
-12. Det här meddelandet visar var resultatet av ändamålet ska sparas när jobbet har slutförts.
-13. (Endast för avancerad användning) Om du skickat av någon anledning att tvinga Unity att glömma en ändamålet (t.ex. du har hämtat resultat i en annan dator), klickar du på den **rensa tillstånd** knappen att glömma om jobbet som har skickats. Alltså resultatfilen, när du är klar, kommer **inte** laddas ned och **detta är inte detsamma som att avbryta jobbet**. Jobbet fortsätter om kör, att köras i molnet.
-14. Klicka på den **skapa** knapp för att skicka ändamålet till molnet. När ett jobb körs, visar detta **Avbryt jobb** i stället.
-15. Förbereder för bearbetning [Akustik simulering på din dator](#Local-bake).
-16. Det här området visar status för ändamålet. När du är klar bör du se **hämtade**.
+1. Fliken bageri som används för att öppna den här sidan.
+2. En kort beskrivning av vad du kan göra på den här sidan.
+3. Fält för att ange dina Azure-autentiseringsuppgifter när ditt Azure-konto har skapats. Mer information finns i [skapa ett Azure Batch-konto](create-azure-account.md).
+4. Docker-bildtagg för akustiska verktyg.
+5. Starta Azure Portal för att hantera dina prenumerationer, övervaka användning och Visa fakturerings information osv. 
+6. Azure Batch Compute Node-nodtyp som ska användas för beräkningen. Nodtypen måste stödjas av Azure Data Center-platsen. Om du inte är säker lämnar du på **Standard_F8s_v2**.
+7. Antal noder som ska användas för den här beräkningen. Numret du anger här påverkar tiden för att slutföra bagerien och begränsas av din Azure Batch Core-allokering. Standardallokeringen tillåter bara två 8 core-noder eller 1 16 core-nod, men kan expanderas. Mer information om begränsningar för kärn allokering finns i [skapa ett Azure Batch-konto](create-azure-account.md).
+8. Markera den här kryss rutan om du vill konfigurera din Compute-pool för att använda [noder med låg prioritet](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Compute-noder med låg prioritet har mycket lägre kostnad men de kanske inte alltid är tillgängliga eller kan aktive ras när som helst.
+9. Antalet avsökningar för din scen enligt beräkningen på fliken avsökningar. Antalet avsökningar bestämmer hur många simuleringar som behöver köras i molnet. Du kan inte ange fler noder än vad som finns i avsökningar.
+10. Hur lång tid det förväntas ta för jobbet att köras i molnet. Detta inkluderar inte start tid för nod. När jobbet börjar köras är det hur lång tid det tar innan du får tillbaka resultatet. Observera att detta bara är en uppskattning.
+11. Den totala mängden bearbetnings tid som krävs för att köra simuleringarna. Detta är den totala mängden beräknings tid för noder som ska användas i Azure. Mer information om hur du använder det här värdet finns i avsnittet om [uppskattning av bageri kostnader](#Estimating-bake-cost) nedan.
+12. Det här meddelandet visar var du kommer att spara resultatet av bagerien när jobbet har slutförts.
+13. (Endast avancerad användning) Om du av någon anledning behöver tvinga fram en enhet att glömma bort en bageri som du har skickat (t. ex. hämtade resultat med en annan dator) klickar du på knappen **Rensa tillstånd** för att glömma bort det jobb som har skickats. Observera att det innebär att resultat filen, när det är klart, **inte** laddas ned och att **det inte är detsamma som att avbryta jobbet**. Jobbet fortsätter att köras i molnet om det körs.
+14. Klicka på knappen **bak** för att skicka in hembakat till molnet. När ett jobb körs visar detta **Avbryt jobb** i stället.
+15. Förbereder bearbetning av [ljud simulering på din dator](#Local-bake).
+16. Det här avsnittet visar status för bak sidan. När det är klart bör det Visa **laddat ned**.
 
-Du kan alltid få fullständig information om aktiva jobb, beräkningspooler och lagring på den [Azure-portalen](https://portal.azure.com).
+Du kan alltid få fullständig information om aktiva jobb, Compute-pooler och lagring på [Azure Portal](https://portal.azure.com).
 
-När ett jobb körs den **skapa** knappen ändras till **Avbryt jobb**. Använd den här knappen för att avbryta pågående jobb. Du blir ombedd att bekräfta innan jobbet avbryts. Avbryter ett jobb kan inte ångra, inga resultat att bli tillgänglig och du kommer fortfarande att debiteras för alla Azure beräkningstiden som används.
+När ett jobb körs på **bak** -knappen ändras till **Avbryt jobb**. Använd den här knappen om du vill avbryta pågående jobb. Du uppmanas att bekräfta innan jobbet avbryts. Det går inte att ångra ett jobb, inga resultat är tillgängliga och du kommer fortfarande att debiteras för alla Azure-beräknings tider som används.
 
-När du har startat en ändamålet, kan du stänga Unity. En cloud-ändamålet kan ta flera timmar beroende på projektet, nodtyp och antalet noder. Ändamålet jobbets status kommer att uppdateras när du uppdatera projektet och öppna fönstret Akustik. Om jobbet har slutförts, laddas utdatafilen ned.
+När du har startat en bageri kan du stänga Unity. Det kan ta flera timmar, beroende på projektet, nodtypen och antalet noder. Status för jobbet uppdateras när du laddar om projektet och öppnar fönstret akustiska. Om jobbet har slutförts kommer utdatafilen att hämtas.
 
-Azure-autentiseringsuppgifterna lagras på ett säkert sätt på den lokala datorn och som är associerade med dina Unity-redigeraren. De används endast för att upprätta en säker anslutning till Azure.
+Azure-autentiseringsuppgifterna lagras på ett säkert sätt på din lokala dator och är kopplade till din Unity-redigerare. De används enbart för att upprätta en säker anslutning till Azure.
 
-### <a name="Estimating-bake-cost"></a> Beräknar Azure ändamålet kostnad
+### <a name="Estimating-bake-cost"></a>Uppskatta kostnad för Azure-bageri
 
-Om du vill beräkna vad en viss ändamålet kostar måste ta värdet som visas för **beräknade Compute kostnad**, vilket är en varaktighet och multiplicera som av de varje timme kostar i din lokala valuta av den **VM nodtyp** du har valt. Resultatet innehåller inte noden tiden behövs för att komma noderna och körs. Exempel: Om du väljer **Standard_F8s_v2** för nodtypen, vilket kostar $ 0,40/timme, och den uppskattade kostnaden för Compute är 3 timmar och 57 minuter, den uppskattade kostnaden för att köra jobbet kommer att $0,40 * ~ 4 timmar = ~ 1,60. Verklig kostnad kommer antagligen vara lite högre på grund av den extra tid att hämta de noder som är igång. Du kan hitta noden per timme kostnaden på den [priser för Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Välj ”Beräkningsoptimerad” eller ”databehandling med höga prestanda” för kategorin).
+För att uppskatta vad en viss bageri kostar, tar du det värde som visas för uppskattad **beräknings kostnad**, vilket är en varaktighet och multiplicerar det med Tim kostnaden i din lokala valuta för den **VM-nodtyp** som du har valt. I resultatet ingår inte den Node-tid som krävs för att få noderna igång. Om du till exempel väljer **Standard_F8s_v2** för nodtypen, som har kostnaden $0.40/tim, och den uppskattade beräknings kostnaden är 3 timmar och 57 minuter, blir den uppskattade kostnaden för att köra jobbet $0,40 * ~ 4 timmar = ~ $1,60. Den faktiska kostnaden är förmodligen lite högre på grund av extra tiden för att hämta noderna. Du hittar kostnaden för varje timme på sidan [Azure Batch prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Välj "Compute-optimerad" eller "hög prestanda beräkning" för kategorin).
 
-## <a name="Local-bake"></a> Skapa din scen på din dator
-Du kan skapa din scen på din dator. Detta kan vara användbart för att experimentera med Akustik med små scener innan du skapar ett Batch-konto. Obs Akustik simuleringen kan ta lång tid beroende på storleken på scenen.
+## <a name="Local-bake"></a>Bageri din scen på din dator
+Du kan använda din scen på din egen dator. Detta kan vara användbart för att experimentera med akustiska scener med små scener innan du skapar ett Azure Batch-konto. Observera att den akustiska simuleringen kan ta lång tid beroende på scenens storlek.
 
-### <a name="minimum-hardware-requirements"></a>Minsta maskinvarukrav
+### <a name="minimum-hardware-requirements"></a>Minimi krav för maskin vara
 * En x86-64-processor med minst 8 kärnor och 32 GB RAM
 
-Till exempel i våra tester på en dator 8 kärnor med Intel Xeon E5-1660 @ 3 GHz och 32 GB RAM-
-* En liten scen med 100 avsökningar kan ta ungefär två timmar för en grov ändamålet eller 32 timmar för en bra ändamålet.
-* En medelstor scen med 1000 avsökningar kan ta ungefär 20 timmar för en grov ändamålet eller 21 dagar för en bra ändamålet.
+Som exempel i vårt test på en dator med 8 kärnor med Intel Xeon E5-1660 @ 3 GHz och 32 GB RAM-
+* En liten scen med 100 avsökningar kan ta ungefär 2 timmar för en grov bageri eller 32 timmar för en fin bageri.
+* En medels Tor scen med 1000 avsökningar kan ta ungefär 20 timmar för en grov bageri eller 21 dagar.
 
 ### <a name="setup-docker"></a>Konfigurera Docker
-Installera och konfigurera Docker på den dator som kommer att bearbeta simuleringen-
-1. Installera den [Docker verktygsuppsättningen](https://www.docker.com/products/docker-desktop).
-2. Starta Docker-inställningar, navigera till ”avancerat”-alternativ och konfigurera resurser för att ha minst 8GB RAM-minne. Fler processorer som du kan allokera till Docker, desto snabbare ändamålet slutförs. ![Skärmbild av exempel på Docker-inställningar](media/docker-settings.png)
-3. Navigera till ”delade enheter” och aktivera delning av enheten som används för bearbetning.![Skärmbild av Docker delade Enhetsalternativ](media/docker-shared-drives.png)
+Installera och konfigurera Docker på den dator som ska bearbeta simuleringen –
+1. Installera Docker- [verktyg](https://www.docker.com/products/docker-desktop).
+2. Starta Docker-inställningar, navigera till alternativen Avancerat och konfigurera resurser så att de har minst 8 GB RAM-minne. Ju fler processorer du kan allokera till Docker, desto snabbare kommer bagerien att slutföras. ![Skärm bild av exempel på Docker-inställningar](media/docker-settings.png)
+3. Navigera till delade enheter och aktivera delning för den enhet som används för bearbetning.![Skärm bild av alternativ för delad enhet i Docker](media/docker-shared-drives.png)
 
-### <a name="run-local-bake"></a>Kör lokala ändamålet
-1. Klicka på ”förbereda lokala skapa” på den **skapa** fliken och välj en mapp där indatafiler och köra skript kommer att sparas. Du kan sedan köra ändamålet på valfri dator så länge som den uppfyller minimikraven på maskinvara och har Docker installerat genom att kopiera mappen till den datorn.
-2. Starta simuleringen med hjälp av ”runlocalbake.bat”-skriptet. Det här skriptet ska hämta projektet Akustik Docker-avbildning med verktyg som behövs för simulering bearbetning och starta simuleringen. 
-3. När simuleringen har slutförts kan du kopiera den resulterande filen .ace tillbaka till ditt Unity-projekt. Kontrollera Unity tolkas som en binär fil genom att lägga till ”.bytes” filnamnstillägget (till exempel ”Scene1.ace.bytes”). Detaljerade loggar för simuleringen lagras i ”AcousticsLog.txt”. Om du stöter på problem, kan du dela den här filen som hjälper till med diagnos.
+### <a name="run-local-bake"></a>Kör lokalt bak
+1. Klicka på knappen "Förbered lokal inbaka" på fliken **bageri** och välj en mapp där indatafilerna och körnings skripten ska sparas. Du kan sedan köra bagerien på valfri dator så länge den uppfyller minimi kraven på maskin vara och har Docker installerat genom att kopiera mappen till den datorn.
+2. Starta simuleringen med hjälp av skriptet "runlocalbake. bat". Det här skriptet hämtar Docker-avbildningen för projektet akustiskt med de verktyg som krävs för simulerings bearbetning och starta simuleringen. 
+3. När simuleringen är klar kopierar du den resulterande. ACE-filen tillbaka till ditt Unity-projekt. För att se till att Unit känner igen detta som en binär fil lägger du till ". byte" i fil namns tillägget (till exempel "SCENE1. ACE. byte"). Detaljerade loggar för simuleringen lagras i "AcousticsLog. txt". Om du stöter på problem kan du dela den här filen för att hjälpa till med diagnostiseringen.
 
-## <a name="Data-Files"></a> Filer har lagts till av ändamålet-process
+## <a name="Data-Files"></a>Datafiler som lagts till av processen vid bagerien
 
-Det finns fyra datafiler som skapades under processen för ändamålet. En innehåller simulering resultatet och levereras tillsammans med rubriken. De andra lagra redigeringsprogram för Unity-relaterade data.
+Det finns fyra datafiler som skapas under bageri processen. En innehåller simulerings resultatet och medföljer din rubrik. De andra lagrar enhets beroende redigerings data.
 
-Simuleringsresultat:
-* **Tillgångar/AcousticsData/Akustik\_[SceneName].ace.bytes**: Detta är uppslagstabellen och innehåller simuleringsresultat och voxelized akustiska scen element. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
+Simulerings resultat:
+* **Till gångar/AcousticsData/akustisker\_[SceneName]. ACE. byte**: Det här är uppslags tabellen för körning och innehåller simulerings resultat och voxelized akustiska scen element. Du kan ändra plats och namn på den här filen med hjälp av fälten på fliken avsökningar.
 
-Var noga så att inte ta bort resultatfilen simulering. Det är inte återställningsbara utom av rebaking scenen.
+Ta hand om att inte ta bort simulerings resultat filen. Den går inte att återvinna, förutom genom att inning av scenen.
 
-Redigeraren för filer:
-* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: Den här filen lagrar du anger i fälten i Användargränssnittet för Akustik. Platsen och namnet på den här filen kan inte ändras.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: Den här filen lagras voxelized Akustik geometrin och samband egenskaperna som beräknas med hjälp av den **Calculate...**  på fliken avsökningar. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
-* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: Den här filen lagras simulering parametrar beräknas med hjälp av den **Calculate...**  knappen på den **avsökningar** fliken. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
+Editor-datafiler:
+* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: Den här filen lagrar de data som du anger i fält i akustiskt användar gränssnitt. Det går inte att ändra den här filens plats och namn.
+* **Till gångar/AcousticsData/redaktör/Acoustics_ [SceneName]. VOX**: Den här filen lagrar voxelized akustiska geometri och de material egenskaper som beräknas med hjälp av knappen **Beräkna...** på fliken avsökningar. Du kan ändra plats och namn på den här filen med hjälp av fälten på fliken avsökningar.
+* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: Den här filen lagrar simulerings parametrar som beräknats med hjälp av knappen **Beräkna...** på fliken avsökningar. Du kan ändra plats och namn på den här filen med hjälp av fälten på fliken avsökningar.
 
-## <a name="set-up-the-acoustics-lookup-table"></a>Konfigurera Akustik uppslagstabell
-Dra och släpp den **projekt Akustik** prefab från projektpanelen i din scen:
+## <a name="set-up-the-acoustics-lookup-table"></a>Konfigurera ljud uppslags tabellen
+Dra och släpp **projektet akustiska** Prefab från projekt panelen till din scen:
 
-![Skärmbild av Akustik prefab i Unity](media/acoustics-prefab.png)
+![Skärm bild av akustiska Prefab i Unity](media/acoustics-prefab.png)
 
-Klicka på den **ProjectAcoustics** spel objektet och gå till dess inspector panel. Ange platsen för ändamålet resultatet (. FÖRBERED-fil i **tillgångar/AcousticsData**) genom att dra och släppa den till skriptet Akustik Manager eller genom att klicka på knappen cirkel bredvid textrutan.
+Klicka på **ProjectAcoustics** Game-objektet och gå till panelen kontrollant. Ange platsen för ditt bageri resultat (. ACE-fil, i **till gångar/AcousticsData**) genom att dra och släppa den i skriptet akustiskt Manager eller genom att klicka på cirkel knappen bredvid text rutan.
 
-![Skärmbild av Akustik Manager prefab i Unity](media/acoustics-manager.png)  
+![Skärm bild av akustiska Prefab i Unity](media/acoustics-manager.png)  
 
 ## <a name="next-steps"></a>Nästa steg
-* Utforska den [utforma kontroller för Unity](unity-workflow.md)
-* Utforska den [projekt Akustik designbegrepp](design-process.md)
+* Utforska [design kontrollerna för Unity](unity-workflow.md)
+* Utforska [design koncepten för projekt akustiska metoder](design-process.md)
 

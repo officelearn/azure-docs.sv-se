@@ -1,7 +1,7 @@
 ---
-title: Projektet Akustik Unreal Design självstudien
+title: Självstudier om projekt akustiska Unreal-design
 titlesuffix: Azure Cognitive Services
-description: Den här självstudien beskrivs arbetsflödet för design för projektet Akustik i Unreal och Wwise.
+description: I den här självstudien beskrivs design arbets flödet för projekt akustiska i Unreal och Wwise.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,136 +10,137 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5061370f43947341bb05bc30fa596604bc27ce74
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477835"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706577"
 ---
-# <a name="project-acoustics-unrealwwise-design-tutorial"></a>Projektet Akustik Unreal/Wwise Design självstudien
-Den här självstudien beskriver design, installation och arbetsflöde för projektet Akustik i Unreal och Wwise.
+# <a name="project-acoustics-unrealwwise-design-tutorial"></a>Själv studie kurs om projekt akustiska Unreal/Wwise-design
+I den här självstudien beskrivs design konfigurationen och arbets flödet för projekt akustiska i Unreal och Wwise.
 
-Nödvändiga program:
-* Ett Unreal projekt med det projekt Akustik Wwise och Unreal plugin-program
+Program varu krav:
+* Ett Unreal-projekt med projektet akustiska Wwise-och Unreal-plugin-program
 
-För att få ett Unreal projekt med projekt Akustik, kan du:
-* Följ den [projekt Akustik Unreal integrering](unreal-integration.md) anvisningar för att lägga till projektet Akustik i projektet Unreal
-* Du kan också använda den [projekt Akustik exempelprojektet](unreal-quickstart.md).
+För att få ett Unreal-projekt med projekt akustiska kan du:
+* Följ anvisningarna för att lägga till projekt akustiskt i ditt Unreal-projekt genom att följa [Unreal för projekt akustiskt](unreal-integration.md)
+* Eller Använd [projektet akustiska exempel projekt](unreal-quickstart.md).
 
-## <a name="setup-project-wide-wwise-properties"></a>Konfigurera projektet hela Wwise egenskaper
-Wwise har globala hinder och ocklusion kurvor som påverkar hur projekt Akustik plugin-programmet styr Wwise ljud DSP.
+## <a name="setup-project-wide-wwise-properties"></a>Konfigurera Wwise egenskaper för hela projektet
+Wwise har globala hinder och ocklusiona kurvor som påverkar hur projektet akustiskt plugin-programmet driver Wwise-ljudet DSP.
 
-### <a name="design-wwise-occlusion-curves"></a>Utforma Wwise ocklusion kurvor
-När projektet Akustik är aktiv den svarar på volymen är spärrat, låg pass filter (LPF) och hög pass filter (HPF) kurvor du anger i Wwise. Rekommenderar vi att ställa in din kurvan volymtyp linjär med värdet-100 dB för en ocklusion värdet 100.
+### <a name="design-wwise-occlusion-curves"></a>Utforma Wwise ocklusion-kurvor
+När Project-Akustisker är aktiva svarar den på ocklusion volym, LPF (Low-pass filter) och HPF-kurvor (High-pass filter) som du anger i Wwise. Vi rekommenderar att du anger typ av volym kurva till linjärt med värdet-100 dB för ett ocklusion-värde på 100.
 
-Med den här inställningen om projektet Akustik simuleringen beräknar ett ocklusion av-18 dB det kommer är indata för den nedan kurvan vid X = 18 och motsvarande Y-värdet är dämpning tillämpas. Om du vill göra en halv ocklusion in-50 dB i stället för-100 dB och-200 dB till exaggerate ocklusion. Du kan anpassa och finjustera en kurva som fungerar bäst för ditt spel.
+Med den här inställningen, om projektets akustiska simulering beräknar en ocklusion på-18 dB, kommer den att indata anges till nedanstående kurva vid X = 18, och motsvarande Y-värde är den dämpade som används. Om du vill göra en halv ocklusion anger du slut punkten till-50 dB i stället för-100 dB eller till-200 dB till exaggerate ocklusion. Du kan skräddarsy och finjustera vilken kurva som passar bäst för ditt spel.
  
-![Skärmbild av Wwise är spärrat kurvan redigeraren](media/wwise-occlusion-curve.png)
+![Skärm bild av Wwise ocklusion Curve Editor](media/wwise-occlusion-curve.png)
 
-### <a name="disable-wwise-obstruction-curves"></a>Inaktivera Wwise hinder kurvor
-Wwise hinder kurvor påverkar torr avskilt men projekt Akustik använder kontroller för design och simulering framtvinga igång/torr förhållanden. Vi rekommenderar att du inaktiverar hinder volym kurvan. Om du vill hantera wetness, använder du kontrollen Wetness justera beskrivs senare.
+### <a name="disable-wwise-obstruction-curves"></a>Inaktivera Wwise som hindrar kurvor
+Wwise-hinder påverkar den torra nivån i isoleringen men projekt akustiska använder design kontroller och simulering för att framtvinga våta/torra förhållanden. Vi rekommenderar att du inaktiverar volym kurvan för hinder. Om du vill utforma wetness använder du wetness justera kontroll som beskrivs senare.
  
-Om du använder hinder LPF/HPF kurvor för andra ändamål, kontrollerar du att du har angett dem till Y = 0 X = 0 (dvs, det finns inga LPF eller HPF när det finns inga hinder).
+Om du använder LPF/HPF-kurvor i andra syfte, se till att du har angett dem till Y = 0 vid X = 0 (det vill säga det inte finns någon LPF eller HPF när det inte finns något hinder).
 
-![Skärmbild av Wwise hinder kurvan redigeraren](media/wwise-obstruction-curve.png)
+![Skärm bild av Wwise-böjd kurv redigerare](media/wwise-obstruction-curve.png)
 
-### <a name="design-project-acoustics-mixer-parameters"></a>Utforma projekt Akustik mixer-parametrar
-Du kan styra globala eko egenskaper genom att gå till fliken mixer-plugin-programmet i projektet Akustik Bus. Dubbelklicka på ”projekt Akustik Mixer (anpassat)” om du vill öppna mixer plugin-programmets inställningspanelen.
+### <a name="design-project-acoustics-mixer-parameters"></a>Utforma projekt akustiska mixer parametrar
+Du kan styra globala reverb-egenskaper genom att gå till fliken mixer-plugin i projektets akustiska buss. Dubbelklicka på "Project Akustisker mixer (anpassad)" om du vill öppna Inställningar panelen för mixer-plugin-programmet.
 
-Du kan också se att mixer-plugin-programmet har ett ”utföra Spatialization”-alternativ. Om du föredrar att använda projekt akustiska inbyggda spatialization, markera kryssrutan ”utföra Spatialization” och välja bland HRTF eller panorering. Se till att inaktivera alla torr Aux bussar som du har konfigurerat, annars du höra direkta sättet två gånger. Använd ”Wetness justera” och ”skalfaktor eko tid” till global kontroll på blandningen av eko. Observera att du måste starta om Unreal och sedan återskapa ljudbank innan du stöter på play för att hämta mixer-plugin-programmet config ändringar, till exempel utföra Spatialization kryssrutan.
+Du kan också se att mixer-plugin-programmet har alternativet "utföra spatialization". Om du hellre vill använda en inbyggd spatialization i Project kan du markera kryss rutan "utföra spatialization" och välja från HRTF eller panorering. Se till att inaktivera alla torra AUX-Busses som du har skapat, annars hör du direkt sökvägen två gånger. Använd "wetness justera" och "reverb Time Scale Factor" för att träna global kontroll över reverb-mixen. Obs! Du måste starta om Unreal och sedan återskapa soundbanks innan du trycker på Play för att hämta konfigurations ändringar för mixer-plugin, till exempel kryss rutan utföra spatialization.
 
-![Skärmbild av projektet Akustik Wwise mixer-plugin-programmet alternativ](media/mixer-plugin-global-settings.png)
+![Skärm bild av plugin-alternativ för Wwise-mixer i Project](media/mixer-plugin-global-settings.png)
 
-## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Ange projektet Akustik design kontroller i hierarkin Wwise aktören mixer
-Dubbelklicka på aktören-Mixer till kontrollparametrar för en enskild aktör mixer och sedan klickar du på fliken dess Mixer-plugin-programmet. Här kommer du att kunna ändra eventuella parametrar på nivån per ljud. Dessa värden kombinera med de som angetts på Unreal sida (beskrivs nedan). Till exempel om projektet Akustik Unreal plugin-programmet anger Outdoorness justering på ett objekt till 0,5 och Wwise uppsättningar tillämpas den till-0.25 resulterande Outdoorness justering för som ljud är 0,25.
+## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Ange projekt akustiska design kontroller i hierarkin Wwise aktör – mixer
+Om du vill kontrol lera parametrar för en enskild aktörs mixer dubbelklickar du på aktör-mixer och klickar sedan på dess mixer-plugin-flik. Här kan du ändra parametrar på nivån per ljud. Dessa värden kombineras med de som anges från Unreal-sidan (beskrivs nedan). Om till exempel ett projekt akustiskt Unreal-plugin-program ställer in utöknings justering för ett objekt till 0,5 och Wwise ställer in det på-0,25, är den resulterande återställnings justeringen som tillämpas på det ljudet 0,25.
 
-![Skärmbild av per ljud mixer-inställningar i Wwise aktören mixer hierarki](media/per-sound-mixer-settings.png)
+![Skärm bild av inställningarna per ljud mixer i Wwise aktör – mixer-hierarki](media/per-sound-mixer-settings.png)
 
-### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>Kontrollera att aux bus har torr skicka och utdata bus har provmaterialet skicka
-Kom ihåg att nödvändiga aktör-mixer-installationsprogrammet utbyten vanligt torr- och routning i Wwise. Den genererar eko signal på aktören-mixers utdata-buss (inställd på projekt Akustik Bus) och torr signalen längs en användardefinierad aux bus. Den här routning krävs på grund av funktioner för plugin-programmet API för Wwise mixer som projektet Akustik Wwise plugin-programmet använder.
+### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>Se till att AUX-bussen har torr sändning och att utmatnings bussen har våt överföring
+Kom ihåg att den obligatoriska aktörs mixer-installationen förändrar den vanliga torra och våta routningen i Wwise. Den producerar reverb-signal på aktörens utmatnings buss (anges till Project Akustiske Bus) och torr signal längs den användardefinierade AUX-bussen. Den här dirigeringen krävs på grund av funktionerna i API: t Wwise mixer plugin som Project Akustiskr Wwise-pluginprogrammet använder.
 
-![Skärmbild av Wwise redigerare som visar röst designriktlinjer för projektet Akustik](media/voice-design-guidelines.png)
+![Skärm bild av Wwise-redigeraren med röst design rikt linjer för projekt akustiskt](media/voice-design-guidelines.png)
  
-### <a name="set-up-distance-attenuation-curves"></a>Konfigurera avståndet dämpning kurvor
-Se till att alla dämpning kurva som används av aktör blandare, med hjälp av projektet Akustik har egna aux skicka inställd på ”utdata bus volym”. Wwise sker som standard för nya dämpning kurvor. Om du migrerar ett befintligt projekt, kontrollera inställningarna kurvan.
+### <a name="set-up-distance-attenuation-curves"></a>Konfigurera avstånds dämpade kurvor
+Se till att det finns en användardefinierad AUX-överförings uppsättning för "utgående buss volym" med hjälp av en dämpad kurva som används av aktör-mixers med hjälp av projekt ljud. Wwise gör detta som standard för nyligen skapade dämpnings kurvor. Om du migrerar ett befintligt projekt kontrollerar du inställningarna för kurvan.
 
-Projektet Akustik simulering har en radie av 45 taxor runt player-plats som standard. I allmänhet rekommenderar vi ställa in din dämpning kurvan-200 dB runt det avståndet. Den här avståndet är inte ett villkor. För vissa låter som förespråkar du en större radie. I sådana fall är villkor för att endast geometri inom 45 m för player-platsen ska delta. Om programmet är i ett rum och en bra källa är utanför utrymme och direkt 100 miljoner, ska det vara korrekt occluded. Om källan är i ett rum och spelaren är utanför och direkt 100 miljoner, vara det inte korrekt occluded.
+Som standard har projektets akustiska simulering en radie på 45 meter runt Player-platsen. Vi rekommenderar vanligt vis att ställa in en dämpnings kurva till-200 dB runt det avståndet. Det här avståndet är inte ett fast villkor. För vissa ljud som vapen kanske du vill ha en större radie. I sådana fall är det villkoret att endast geometrin inom 45 m från Player-platsen kommer att delta. Om spelaren är i ett rum och en ljud källa är utanför rummet och 100 miljoner kommer den att vara korrekt Occluded. Om källan är i ett rum och spelaren ligger utanför och 100 m, kommer den inte att vara korrekt Occluded.
 
-![Skärmbild av Wwise dämpning kurvor](media/atten-curve.png)
+![Skärm bild av Wwise-dämpade kurvor](media/atten-curve.png)
 
-### <a name="post-mixer-equalization"></a>Publicera Mixer Utjämning ###
- En annan sak du kanske vill göra är att lägga till en post mixer equalizer. Du kan hantera projekt Akustik bus som en typisk eko buss (i standardläget för eko) och placera ett filter på den för att göra utjämning. Du kan se ett exempel på detta i projektet Akustik Wwise exempelprojektet.
+### <a name="post-mixer-equalization"></a>Post mixer-equalizer ###
+ En annan sak som du kanske vill göra är att lägga till en equalizer för posts mixer. Du kan behandla projektets akustiska buss som en typisk reverb-buss (i standard läget för reverb) och ange ett filter för att utföra en utjämning. Du kan se ett exempel på detta i Project Akustisker Wwise-exempelprojektet.
 
-![Skärmbild av Wwise efter mixer EQ](media/wwise-post-mixer-eq.png)
+![Skärm bild av Wwise post-mixer EQ](media/wwise-post-mixer-eq.png)
 
-Till exempel kan ett hög pass filter hantera bas från närfälts-inspelningar som returnerar boomy, orealistiskt eko. Du kan också få mer efter ändamålet kontroll genom att justera EQ via RTPCs, så att du kan ändra färg på eko på spel-tid.
+Ett högt pass-filter kan till exempel användas för att hantera basen från inspelade inspelningar som ger boomy, reverb. Du kan också få mer kontroll efter bakgrunds kontroll genom att justera EQ genom RTPCs, så att du kan ändra färgen på reverb vid speltidpunkt.
 
-## <a name="set-up-scene-wide-project-acoustics-properties"></a>Konfigurera scen hela projektet Akustik egenskaper
+## <a name="set-up-scene-wide-project-acoustics-properties"></a>Konfigurera egenskaper för projekt akustiskt för hela scenen
 
-Akustik utrymme aktören visar många av kontrollerna som ändrar funktionssättet för systemet och är användbara vid felsökning.
+Skådespelaren för akustiskt utrymme visar många kontroller som ändrar systemets funktion och är användbara vid fel sökning.
 
-![Skärmbild av Unreal Akustik utrymme kontroller](media/acoustics-space-controls.png)
+![Skärm bild av Unreal-akustiskt utrymmes kontroller](media/acoustics-space-controls.png)
 
-* **Akustik Data:** Det här fältet måste tilldelas en tillgång för bakade Akustik från katalogen innehåll/Akustik. Plugin-programmet projekt Akustik läggs automatiskt innehåll/Akustik katalogen till ditt projekt paketerade kataloger.
-* **Storlek på panelen:** Omfattningen av region som helst den lyssnare som du vill att Akustik data läses in i RAM-minne. Så länge lyssnare avsökningar omedelbart runt spelaren läses in i, resultatet är samma som läser in akustiska data för alla avsökningar. Större paneler använder mer RAM-minne, men minska disk-i/o
-* **Automatisk Stream:** När aktiverad, laddas automatiskt i nya paneler som lyssnaren når gränsen på en inlästa region. När inaktiverad, behöver du läsa in nya paneler manuellt via kod eller skisser
-* **Cache-skala:** styr storleken på cacheminnet används för akustiska frågor. En mindre cache använder mindre minne men kan öka CPU-användning för varje fråga.
-* **Akustik aktiverat:** En debug-kontroll för att aktivera snabb A / B växla för Akustik simuleringen. Den här kontrollen ignoreras i levererade konfigurationer. Kontrollen är användbart för att söka efter om en viss ljud bugg har sitt ursprung på Akustik beräkningar eller några andra problem i Wwise-projektet.
-* **Uppdatera avstånd:** Använd det här alternativet om du vill använda i förväg bakade Akustik-information för avståndet frågor. De här frågorna liknar ray-sändningar, men de har förberäknade så ta mycket mindre CPU. Det är ett exempel på användning för diskreta reflektioner från närmaste ytan till lyssnaren. Om du vill utnyttja det här fullständigt måste du använder kod eller skisser för att fråga avstånd.
-* **Rita statistik:** Medan UE'S `stat Acoustics` får du med CPU-information, visa den här statusen visas som lästs in ACE-filen, RAM-användning och annan statusinformation längst upp till vänster på skärmen.
-* **Rita Voxels:** Företagsdataskydd voxels Stäng om du vill som visar voxel rutnätet används under körning interpolering lyssnaren. Om underkänt finns i en runtime voxel, misslyckas den akustiska frågor.
-* **Rita avsökningar:** Visa alla avsökningar för den här scen. De kommer att olika färger beroende på deras tillstånd för inläsning.
-* **Rita avstånd:** Om uppdateringen avstånd är aktiverat, då visas en ruta närmaste yta till lyssnare i quantized riktningar runt lyssnaren.
+* **Akustiska data:** Det här fältet måste tilldelas en bakade-akustisk till gång från innehålls-/akustiska katalogen. Plugin-programmet för Project-akustiskt lägger automatiskt till katalogen innehåll/akustiskt i projektets paketerade kataloger.
+* **Panel storlek:** Omfattningen av regionen runt den lyssnare som du vill att akustiska data ska läsas in i RAM-minnet. Så länge som lyssnare avsökningar omedelbart runt spelaren läses in, är resultatet detsamma som att läsa in akustiska data för alla avsökningar. Större paneler använder mer RAM-minne, men minska disk-I/O
+* **Automatisk ström:** När aktive rad läses automatiskt in i nya paneler när lyssnaren når kanten på en inläst region. När du har inaktiverat måste du läsa in nya paneler manuellt via kod eller ritningar
+* **Skalning av cache:** styr storleken på cacheminnet som används för akustiska frågor. En mindre cache använder mindre RAM-minne, men kan öka processor användningen för varje fråga.
+* **Akustiska funktioner:** En fel söknings kontroll för att aktivera snabb A/B-växling av den akustiska simuleringen. Den här kontrollen ignoreras i skeppnings konfigurationer. Kontrollen är användbar för att ta reda på om ett visst ljud fel uppstår i de akustiska beräkningarna eller något annat problem i Wwise-projektet.
+* **Uppdaterings avstånd:** Använd det här alternativet om du vill använda den bakade akustiska informationen för distans frågor. Dessa frågor liknar Ray-sändningar, men de har förberäknats för att ta mycket mindre processor kraft. Ett exempel på användningen är för diskreta reflektioner från den närmaste ytan till lyssnaren. För att helt utnyttja detta måste du använda kod eller skisser för att fråga avstånd.
+* **Rita statistik:** Även om UE `stat Acoustics` kan förse dig med CPU-information visar denna status visar den inlästa ACE-filen, RAM-användningen och annan statusinformation längst upp till vänster på skärmen.
+* **Rita Voxels:** Överläggs voxels nära lyssnaren som visar Voxel-rutnätet som används under körnings interpolation. Om en sändare är inuti en runtime-Voxel, kommer den att Miss känna sig akustiska frågor.
+* **Rita avsökningar:** Visa alla avsökningar för den här scenen. De kommer att vara olika färger beroende på inläsnings tillstånd.
+* **Rita avstånd:** Om uppdaterings avstånd är aktiverat visas en ruta på den närmaste ytan för lyssnaren i quantized riktningar runt lyssnaren.
 
-## <a name="actor-specific-acoustics-design-controls"></a>Aktör-specifika Akustik design kontroller
-Kontrollerna design är begränsade till en enskild ljud komponent i Unreal.
+## <a name="actor-specific-acoustics-design-controls"></a>Kontroll av skådespelare-speciella akustiska symboler
+Dessa design kontroller är begränsade till en enskild ljud komponent i Unreal.
 
-![Skärmbild av Unreal ljud Component-kontroller](media/audio-component-controls.png)
+![Skärm bild av kontroller för Unreal Audio-komponenter](media/audio-component-controls.png)
 
-* **Multiplikatorn som är spärrat:** Styr ocklusion effekten. Värden > 1 kommer förstärker ocklusion. Värden < 1 minimerar den.
-* **Wetness justering:** Ytterligare eko dB
-* **Multiplikatorn som decay tid:** RT60 multiplicatively, baserat på utdata från Akustik-simulering
-* **Outdoorness justering:** Styr hur utomhus genljudet är. Värden närmare 0 är mer inne, närmare 1 är mer utomhus. Den här justeringen är additiva, så ange den till -1 framtvingar inne, ange värdet till + 1 framtvingar utomhus.
-* **Överföringen Db:** Rendera en ytterligare via vägg ljud med den här loudness kombineras med rad med för att se baserat avståndet dämpning.
-* **Våt förhållande avståndet otroligt:** Justerar genljudet egenskaper på källan som om det vore närmare/ytterligare direkt utan att påverka den direkta sökvägen.
-* **Spela upp vid Start:** Växla för att ange om ljudet ska spelas upp automatiskt på scen start. Aktiverad som standard.
-* **Visa akustiska parametrar:** Visa felsökningsinformation direkt ovanpå komponenten i spelet. (endast för icke-leveranser konfigurationer)
+* **Ocklusion multiplikator:** Styr ocklusion-påverkan. Värdena > 1 kommer att utvidga ocklusion. Värdena < 1 kommer att minimeras.
+* **Wetness justering:** Ytterligare reverb-databas
+* **Nedbrytnings tids multiplikator:** Styr RT60-multiplicatively, baserat på utdata från den akustiska simuleringen
+* **Justering av dörren:** Styr hur utomhus Reverberation är. Värden närmare 0 är fler indörrer, närmare 1 är mer utomhus. Den här justeringen är additiv, så om du anger den till-1 framtvingas inaktive ras inaktive ras.
+* **Överförings databas:** Rendera ett extra "t-The-vägg"-ljud med den här loudness kombinerat med insikter som baseras på branschspecifika avstånd.
+* **Avstånd för våt ratio:** Justerar Reverberation egenskaper på källan som om det var närmare/längre bort, utan att den direkta sökvägen påverkas.
+* **Spela upp vid start:** Växla för att ange om ljudet ska spelas upp automatiskt när scenen startas. Aktiverat som standard.
+* **Visa akustiska parametrar:** Visa felsöknings information direkt ovanpå komponenten i spelet. (endast för konfigurationer som inte är leverans)
 
-## <a name="blueprint-functionality"></a>Skissen funktioner
-Akustik utrymme aktören är tillgängliga via skiss, tillhandahåller funktioner såsom läser in en karta eller ändra inställningar via skript för nivå. Vi tillhandahåller två exempel här.
+## <a name="blueprint-functionality"></a>Skiss funktioner
+Den akustiska utrymmes aktören kan nås via skissen, vilket ger funktioner som att läsa in en karta eller ändra inställningar via nivå skript. Vi tillhandahåller två exempel här.
 
-### <a name="add-finer-grained-control-over-streaming-load"></a>Lägg till mer detaljerad kontroll över belastningen för direktuppspelning
-Du kan använda funktionen Force belastningen panel skissen för att hantera den akustiska data som strömmas själv i stället för direktuppspelning automatiskt utifrån player position:
+### <a name="add-finer-grained-control-over-streaming-load"></a>Lägg till detaljerad kontroll över strömnings belastning
+Om du vill hantera uppspelningen av akustiska data själv i stället för strömning automatiskt baserat på spelarens position kan du använda den tvingande inläsnings panelens skiss funktion:
 
-![Skärmbild av skiss Streaming alternativen i Unreal](media/blueprint-streaming.png)
+![Skärm bild av alternativen för direkt uppspelning av skisser i Unreal](media/blueprint-streaming.png)
 
-* **Mål:** AcousticsSpace aktör
-* **Center Position:** I mitten av den region som behöver data som lästs in
-* **Ta bort avsökningar utanför panelen:** Om alternativet är markerat kan tas alla avsökningar inte i det nya området bort från minnet från RAM-minne. Om alternativet är avmarkerat läses det nya området in i minnet medan lämnar befintliga avsökningar också inlästa i minnet
-* **Blockera vid slutförande:** Gör panelen läsa in en synkron åtgärd
+* **Fokusera** AcousticsSpace-aktören
+* **Mitt position:** Mitten av regionen som kräver inlästa data
+* **Ta bort avsökningar utanför panelen:** Om det här alternativet markeras tas alla avsökningar inte i den nya regionen bort från RAM-minnet. Om alternativet är avmarkerat läses den nya regionen in i minnet samtidigt som befintliga avsökningar också läses in i minnet
+* **Blockera vid slut för ande:** Gör att panelen läser in en synkron åtgärd
 
-Panelen måste redan anges innan du anropar Force belastningen panel. Exempelvis kan göra du något som liknar detta för att läsa in en ACE-fil, ange storleken på din panel och strömma i en region:
+Panel storleken måste redan anges innan Tvingad load-panel anropas. Du kan till exempel göra något som liknar detta för att läsa in en ACE-fil, ange storlek på din panel och strömma i en region:
 
-![Skärmbild av strömning installationsalternativ i Unreal](media/streaming-setup.png)
+![Skärm bild av installations alternativ för strömning i Unreal](media/streaming-setup.png)
 
-Läs in Akustik Data skissen funktionen som används i det här exemplet har följande parametrar:
+Data skiss funktionen Load akustiska data som används i det här exemplet har följande parametrar:
 
-* **Mål:** AcousticsSpace aktören.
-* **Ny ändamålet:** Akustik datatillgången ska läsas in. Lämna tomt/inställningen den till null tas det bort från den aktuella ändamålet utan att läsa in en ny.
+* **Fokusera** AcousticsSpace-aktören.
+* **Nytt bak:** Den akustiska data till gången ska läsas in. Om du lämnar den här tomma/inställningen till null inaktive ras den aktuella bagerien utan att en ny inläsning görs.
 
-### <a name="optionally-query-for-surface-proximity"></a>Du kan också fråga om surface närhet
-Om du vill se hur nära Surface-enheter finns i en viss riktning runt lyssnaren kan du använda funktionen fråga avstånd. Den här funktionen kan vara användbar för att driva riktad fördröjd reflektioner, eller för andra spel logik som drivs av surface närhet. Frågan är billigare än en ray-cast eftersom resultaten hämtas från Akustik uppslagstabellen.
+### <a name="optionally-query-for-surface-proximity"></a>Fråga efter Surface-närhet
+Om du vill se hur nära lyssnare är i en viss riktning, kan du använda funktionen för att sträcka ut. Den här funktionen kan vara användbar för vägbeskrivning av försenade reflektioner eller för annan spel logik som styrs av Surface närhet. Frågan är billigare än en Ray-Cast eftersom resultaten hämtas från ljud uppslags tabellen.
 
-![Skärmbild av exempelfråga skissen avstånd](media/distance-query.png)
+![Skärm bild av exempel på skiss avstånds fråga](media/distance-query.png)
 
-* **Mål:** AcousticsSpace aktör
-* **Se ut riktning:** Riktning att fråga, centreras lyssnaren
-* **Avståndet:** Om frågan lyckas avståndet till närmaste ytan
-* **Returvärdet:** Booleska – SANT om frågan lyckades, annars false
+* **Fokusera** AcousticsSpace-aktören
+* **Utseende riktning:** Riktningen att fråga i, centrerad vid lyssnaren
+* **Mellanrummet** Om frågan lyckas, avståndet till närmaste yta
+* **Retur värde:** Boolesk-True om frågan lyckades, annars FALSE
 
 ## <a name="next-steps"></a>Nästa steg
-* Utforska koncepten bakom den [utforma processen](design-process.md)
-* [Skapa ett Azure-konto](create-azure-account.md) att skapa din egen scen
+* Utforska koncepten bakom [design processen](design-process.md)
+* [Skapa ett Azure-konto](create-azure-account.md) för att bageria din egen scen
 
 

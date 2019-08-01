@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 07/31/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 9154bc749f7db337de67f501d5e5049dfd466156
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6768c1e26435ace60b26adb46c9955d080029828
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698474"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705160"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-an-azure-blockchain-service-network"></a>Snabbstart: Använda Truffle för att ansluta till ett Azure blockchain service-nätverk
 
@@ -28,8 +28,6 @@ Truffle är en blockchain utvecklings miljö som du kan använda för att anslut
 * [Skapa en Azure blockchain-medlem](create-member.md)
 * Installera [Truffle](https://github.com/trufflesuite/truffle). Truffle kräver att flera verktyg installeras, inklusive [Node. js](https://nodejs.org), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Installera [python-2.7.15](https://www.python.org/downloads/release/python-2715/). Python krävs för web3.
-* Installera [Visual Studio Code](https://code.visualstudio.com/download).
-* Installera [Visual Studio Code fastity-tillägg](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity).
 
 ## <a name="create-truffle-project"></a>Skapa Truffle-projekt
 
@@ -62,15 +60,16 @@ Om du vill konfigurera Truffle-projektet behöver du en del transaktionsinformat
 
 ### <a name="transaction-node-endpoint-addresses"></a>Slut punkts adresser för Transaction Node
 
-1. I Azure Portal navigerar du till varje Transaction-nod och väljer **transaktions noder > anslutnings strängar**.
-1. Kopiera och spara slut punkts-URL: en från **https (åtkomst nyckel 1)** för varje Transaction-nod. Du behöver slut punkts adresserna för konfigurations filen för smarta kontrakt senare i självstudien.
+1. I Azure Portal navigerar du till noden standardtransaktion och väljer Transaction Nodes **> anslutnings strängar**.
+1. Kopiera och spara slut punkts-URL: en från **https (åtkomst nyckel 1)** . Du behöver slut punkts adresserna för konfigurations filen för smarta kontrakt senare i självstudien.
 
-    ![Slut punkts adress för transaktion](./media/send-transaction/endpoint.png)
+    ![Slut punkts adress för transaktion](./media/connect-truffle/endpoint.png)
 
 ### <a name="edit-configuration-file"></a>Redigera konfigurations fil
 
-1. Starta Visual Studio Code och öppna mappen Truffle-projekt katalog med hjälp av menyn **fil > Öppna mapp** .
-1. Öppna konfigurations filen `truffle-config.js`för Truffle.
+Sedan måste du uppdatera konfigurations filen för Truffle med Transaction Node-slutpunkten.
+
+1. Öppna konfigurations filen `truffle-config.js` Truffle i en redigerare i **truffledemo** -projektmappen.
 1. Ersätt innehållet i filen med följande konfigurations information. Lägg till en variabel som innehåller slut punkts adressen. Ersätt vinkel paren med värden som du har samlat in från föregående avsnitt.
 
     ``` javascript
@@ -93,7 +92,7 @@ Om du vill konfigurera Truffle-projektet behöver du en del transaktionsinformat
 
 Använd *Web3* för att ansluta till Transaction-noden.
 
-1. Använd Truffle-konsolen för att ansluta till noden standard transaktion.
+1. Använd Truffle-konsolen för att ansluta till noden standard transaktion. Kör följande kommando i en kommando tolk eller ett gränssnitt:
 
     ``` bash
     truffle console --network defaultnode
@@ -115,7 +114,7 @@ Använd *Web3* för att ansluta till Transaction-noden.
     truffle(defaultnode)> web3.eth.getBlockNumber();
     18567
     ```
-1. Avsluta Truffle Development-konsolen.
+1. Avsluta Truffle-konsolen.
 
     ```bash
     .exit
@@ -125,7 +124,7 @@ Använd *Web3* för att ansluta till Transaction-noden.
 
 I den här snabb starten skapade du ett Truffle-projekt för att ansluta till din Azure blockchain-tjänst som standard transaktions nod.
 
-Testa nästa självstudie om du vill använda Truffle för att skicka en transaktion till ditt konsortium blockchain-nätverk.
+Testa nästa självstudie för att använda Azure blockchain Development Kit för Ethereum och Truffle för att köra en smart kontrakts funktion via en transaktion i ett konsortium blockchain-nätverk.
 
 > [!div class="nextstepaction"]
-> [Skicka en transaktion](send-transaction.md)
+> [Använda smarta kontrakt i Azure blockchain-tjänsten](send-transaction.md)

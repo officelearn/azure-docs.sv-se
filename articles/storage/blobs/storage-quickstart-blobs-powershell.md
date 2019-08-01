@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: tamram
-ms.openlocfilehash: 4ffa4319fa2691469899ff038eeedc7ef30ccebe
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b0e9cc37f6269c3b878e16b754ec3a49aee13f72
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565002"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699006"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure PowerShell
 
@@ -39,7 +39,7 @@ Ange containernamnet och skapa sedan containern med hjälp av [New-AzStorageCont
 
 ```powershell
 $containerName = "quickstartblobs"
-new-AzStoragecontainer -Name $containerName -Context $ctx -Permission blob
+New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 ```
 
 ## <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
@@ -52,13 +52,13 @@ I följande exempel laddas *Image001.jpg* och *Image002.png* upp från mappen *D
 
 ```powershell
 # upload a file
-set-AzStorageblobcontent -File "D:\_TestImages\Image001.jpg" `
+Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
 # upload another file
-set-AzStorageblobcontent -File "D:\_TestImages\Image002.png" `
+Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
@@ -82,13 +82,13 @@ I det här exemplet laddas blobarna ned till *D:\\_TestImages\Downloads* på den
 
 ```powershell
 # download first blob
-Get-AzStorageblobcontent -Blob "Image001.jpg" `
+Get-AzStorageBlobContent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx 
 
 # download another blob
-Get-AzStorageblobcontent -Blob "Image002.png" `
+Get-AzStorageBlobContent -Blob "Image002.png" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx

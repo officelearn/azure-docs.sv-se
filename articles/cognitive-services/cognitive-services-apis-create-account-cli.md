@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: c0a89a61f50d245389c9cdbd8a0aa9ba09eec004
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 8f3d30866ac6db0cdece9af8144fcfa266871172
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594620"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697895"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
@@ -162,6 +162,14 @@ Använd kommandot [AZ cognitiveservices Account Keys List](https://docs.microsof
 ```
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>Pris nivåer och fakturering
+
+Pris nivåerna (och den mängd du debiteras) baseras på antalet transaktioner som du skickar med hjälp av autentiseringsinformationen. Varje pris nivå anger:
+* maximalt antal tillåtna transaktioner per sekund (TPS).
+* tjänst funktioner som Aktiver ATS inom pris nivån.
+* Kostnaden för en fördefinierad mängd transaktioner. Om du fortsätter över den här mängden kommer du att få en extra avgift som anges i [pris informationen](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för din tjänst.
+
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

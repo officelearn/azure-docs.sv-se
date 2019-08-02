@@ -1,7 +1,7 @@
 ---
 title: Vad är Conversation Learner? -Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Läs mer om Konversationsdeltagare och hur det fungerar.
+description: Lär dig mer om Conversation Learner och hur det fungerar.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,38 +10,39 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: f8bc7590f2d7a622b4b1ffb21bfeccef89691fd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 725a1d3628fb320a58e073fe2d825af23b02c0bd
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389498"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707006"
 ---
 # <a name="what-is-conversation-learner"></a>Vad är Conversation Learner?
 
-Konversationsdeltagare kan du skapa och undervisa konversationsanpassade gränssnitt som lär sig från exemplet interaktioner. 
+Med Conversation Learner kan du bygga och lära ut konversations gränssnitt som lär sig av exempel på interaktioner. 
 
-Till skillnad från traditionella metoder överväger Konversationsdeltagare slutpunkt till slutpunkt-kontexten för en dialogruta för att förbättra svar och leverera mer engagerande användarupplevelser. Med en bred uppsättning uppgiftsorienterade användningsfall, Konversationsdeltagare gäller maskininlärning i bakgrunden och gör robotar och intelligent agenter som är mindre troligt att vara frustrerande för användare att vara avgiftsbelagd kundernas service och spur mer intuitiv användning interaktioner.
+Till skillnad från traditionella metoder kan Conversation Learner beakta kontexten från slut punkt till slut punkt för en dialog ruta för att förbättra svaren och leverera mer övertygande användar upplevelser. Conversation Learner använder maskin inlärning bakom kulisserna för att skapa robotar och intelligenta agenter som är mindre sannolika för användarna, ådra sig ytterligare kund tjänst kostnader och Spur mer intuitiva interaktioner.
 
-Utvecklare börja genom att ange prototypical dialogrutorna för att efterlikna. Modellen lär sig när flera dialogrutor anges. När modellen fungerar bra, kan roboten distribueras till slutanvändare. Konversationsdeltagare loggar konversationer med användare och utvecklaren kan granska dem. Om misstag är spotted utvecklaren kan göra en korrigering på plats och modellen är modellkomponenten och kan användas direkt.
+Utvecklare börjar med att ange prototyp dialog rutor som de vill imitera. Modellen lär sig allt eftersom fler dialog rutor har angetts. När modellen fungerar bra kan bot-roboten distribueras till slutanvändare. Conversation Learner loggar konversationer med användare och utvecklaren kan granska dem. Om misstag är Spotted kan utvecklaren göra en korrigering på plats och modellen omtränas och vara tillgänglig för användning direkt.
 
-Den här metoden minskar manuell kodning av dialog logik och möjliggör företagsägare eller områdesexperter att bidra till ett konversationsanpassade gränssnitt utan tidigare kunskaper för maskininlärning. Om den distribueras som en del av en bot, smarta enheter eller intelligent agent Konversationsdeltagare snabbt kan iterera nya kunskaper eller beteenden kompetenser och snabbt förbättra deras kvalitet. 
+Den här metoden minskar manuell kodning av dialog kontroll logik och gör det möjligt för företags ägare eller domän experter att bidra till ett konversations gränssnitt utan föregående information om Machine Learning. Oavsett om den har distribuerats som en del av en robot, smart enhet eller intelligent agent kan Conversation Learner snabbt iterera nya kunskaper, beteenden eller kompetenser och snabbt förbättra deras kvalitet. 
 
-Konversationsdeltagare gör det möjligt för utvecklare att öka snabbt till marknaden och drive lyckad dialoger i flera konversationsanpassade kanaler via Microsoft Bot Framework eller separat med sin egen infrastruktur.
+Conversation Learner gör det möjligt för utvecklare att öka hastigheten till marknaden och driva klara dialoger över flera konversations kanaler via Microsoft bot Framework eller fristående med hjälp av sin egen infrastruktur.
 
-Sammanfattning och viktiga funktioner:
+Sammanfattning och höjd punkter:
 
-- Konversationsdeltagare är ett AI-första sätt att skapa åtgärds-inriktade robotar.
+- Conversation Learner är ett AI-första sätt att skapa aktivitets orienterade robotar.
 
-- Den bygger på en slutpunkt till slutpunkt återkommande neurala nätverk (LSTM) och lär sig direkt från flera aktivera exempel på konversationer. 
+- Den förlitar sig på ett neurala-nätverk (LSTM) från slut punkt till slut punkt och lär dig direkt från flera olika exempel på konversationer. 
 
-- Möjliggör designers, utvecklare, företagsanvändare och anrop center arbeten att bygga och underhålla robotar. 
+- Gör det möjligt för designers, utvecklare, företags användare och Call Center-arbetare att bygga och underhålla robotar. 
 
-- Ger möjlighet att uttrycka affärsregler och sunt förnuft i kod.
+- Ger möjlighet att uttrycka affärs regler och vanliga i kod.
 
-- Under undervisa sessioner, används neuralt nätverk modellen för att bedöma nästa uppsättning förväntade åtgärder i konversationen. Bot utvecklaren kan sedan välja rätt åtgärd och träna nätverket för att ge rätt svar.
+- Under undervisnings-sessioner används nätverks modellen neurala för att visa nästa uppsättning förväntade åtgärder i konversationen. Bot-utvecklaren kan sedan välja rätt åtgärd och träna nätverket att tillhandahålla rätt svar.
  
-- När utbildning har slutförts kan utvecklaren använda log dialogrutorna från användarinteraktioner att göra korrigeringar bot svar och träna om modellen. 
+- När utbildningen är klar kan utvecklaren använda logg dialog rutorna från användarnas interaktioner för att göra ändringar i robot svar och omträna modellen. 
 
-- Anropa domänspecifika och tredjeparts-API: er för att slutföra uppgifter.
+- Kan anropa platsspecifika och tredjeparts-API: er för att slutföra uppgifter.
 

@@ -1,9 +1,9 @@
 ---
-title: Reliable Collection-objekt-serialisering i Azure Service Fabric | Microsoft Docs
-description: Azure Service Fabric Reliable Collections objektserialisering
+title: Tillförlitlig serialisering av samlings objekt i Azure Service Fabric | Microsoft Docs
+description: Azure Service Fabric Reliable Collections-objekt serialisering
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
@@ -13,34 +13,34 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
-ms.author: aljo
-ms.openlocfilehash: 2445b37e8152d8f55dad6eff057d273851dc2209
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: atsenthi
+ms.openlocfilehash: d5e7dfb84f6e8a8fbd029ccc0b15c17f68216c33
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340685"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599305"
 ---
-# <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Reliable Collection-objekt-serialisering i Azure Service Fabric
-Tillförlitliga samlingar replikera och bevara sina objekt att kontrollera att de är beständig mellan datorn fel och strömavbrott.
-Både att replikera och att bevara objekt måste tillförlitliga samlingar att serialisera dem.
+# <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Tillförlitlig serialisering av samlings objekt i Azure Service Fabric
+Reliable Collections replikerar och bevarar sina objekt för att se till att de är varaktiga över maskin haverier och strömavbrott.
+Både för att replikera och spara objekt, måste pålitliga samlingar serialisera dem.
 
-Tillförlitliga samlingar hämta lämplig serialiserare för en viss typ från Reliable State Manager.
-Gör att anpassade serializers registreras för en viss typ Reliable State Manager eftersom det innehåller inbyggda serializers.
+Reliable Collections hämta lämplig serialisering för en specifik typ från en pålitlig tillstånds hanterare.
+Reliable State Manager innehåller inbyggda serialiserare och gör det möjligt att registrera anpassade serialiserare för en specifik typ.
 
-## <a name="built-in-serializers"></a>Inbyggda Serializers
+## <a name="built-in-serializers"></a>Inbyggda serialiserare
 
-Reliable State Manager omfattar inbyggd serialisering för några vanliga typer, så att de kan serialiseras effektivt som standard. För andra typer av Reliable State Manager faller tillbaka om du vill använda den [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
-Inbyggda serializers är effektivare eftersom de redan känner till deras typer kan inte ändra och de inte behöver inkludera information om vilken typ som dess namn.
+Reliable State Manager innehåller inbyggd serialisering för några vanliga typer, så att de kan serialiseras effektivt som standard. För andra typer är Reliable State Manager tillbaka för att använda [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
+Inbyggda serialiserare är mer effektiva eftersom de vet att deras typer inte kan ändras och att de inte behöver inkludera information om typen, t. ex. typ namn.
 
-Reliable State Manager har inbyggda serialisering för följande typer: 
+En tillförlitlig tillstånds hanterare har inbyggd serialisering för följande typer: 
 - Guid
 - bool
-- Mottagna byte
-- sbyte
 - byte
+- SByte
+- byte[]
 - char
-- string
+- sträng
 - decimal
 - double
 - float
@@ -48,14 +48,14 @@ Reliable State Manager har inbyggda serialisering för följande typer:
 - uint
 - long
 - ulong
-- kort
+- blank
 - ushort
 
 ## <a name="custom-serialization"></a>Anpassad serialisering
 
-Anpassade serializers används ofta för att öka prestanda eller för att kryptera data i rörelse och på disk. En av anledningarna är anpassade serializers ofta mer effektiva än allmänna serialiserare eftersom de inte behöver att serialisera information om vilken typ. 
+Anpassade serialiserare används ofta för att öka prestandan eller för att kryptera data via kabeln och på disk. Bland annat är anpassade serialiserare ofta mer effektiva än allmän serialisering eftersom de inte behöver serialisera information om typen. 
 
-[IReliableStateManager.TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialisering för den angivna typen T. Denna registrering ska inträffa i konstruktion StatefulServiceBase så att alla Reliable Collections innan återställningen påbörjas har åtkomst till relevanta serialiserare att läsa deras beständiga data.
+[IReliableStateManager. TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) används för att registrera en anpassad serialiserare för den aktuella typen T. Registreringen bör ske i StatefulServiceBase för att säkerställa att innan återställningen startar, har alla pålitliga samlingar åtkomst till den relevanta serialiseraren för att läsa sina sparade data.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -69,16 +69,16 @@ public StatefulBackendService(StatefulServiceContext context)
 ```
 
 > [!NOTE]
-> Anpassade serializers ges företräde över inbyggda serializers. Till exempel när en anpassad serialisering för int registreras används för att serialisera heltal i stället för inbyggd serialisering för int.
+> Anpassade serialiserare prioriteras framför inbyggda serialiserare. Till exempel, när en anpassad serialisering för int registreras, används den för att serialisera heltal i stället för den inbyggda serialiseraren för int.
 
-### <a name="how-to-implement-a-custom-serializer"></a>Så här implementerar du en anpassad serialiserare
+### <a name="how-to-implement-a-custom-serializer"></a>Implementera en anpassad serialiserare
 
-En anpassad serialiserare måste implementera de [IStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) gränssnitt.
+En anpassad serialisering måste implementera [\<IStateSerializer T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) -gränssnittet.
 
 > [!NOTE]
-> IStateSerializer\<T > innehåller en överlagring för Skriv- och läsåtgärder som tar en ytterligare ton kallas basvärdet. Detta API är för differentiell serialisering. Differentiell serialisering funktionen exponeras för närvarande inte. Dessa två överlagringar kallas därför inte förrän differentiell serialisering är tillgängliga och aktiverade.
+> IStateSerializer\<T > innehåller en överlagring för skrivning och läsning som tar i ett ytterligare T-kallat bas värde. Detta API är för differentiell serialisering. Funktionen för för närvarande differentiell serialisering visas inte. Dessa två överlagringar anropas därför inte förrän differentiell serialisering exponeras och aktive ras.
 
-Följande är ett exempel anpassade typer kallas OrderKey som innehåller fyra egenskaper
+Följande är ett exempel på en anpassad typ som heter OrderKey som innehåller fyra egenskaper
 
 ```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
@@ -96,8 +96,8 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Följande är ett exempel på en implementering av IStateSerializer\<OrderKey >.
-Observera att läsa och skriva överlagringar som i baseValue, anropa sina respektive överlagring för vidarebefordran kompatibilitet.
+Följande är ett exempel på en implementering\<av IStateSerializer OrderKey >.
+Observera att Läs-och skriv överföringar som tar i baseValue anropar deras respektive överlagring för vidarebefordring av kompatibilitet.
 
 ```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
@@ -135,24 +135,24 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 }
 ```
 
-## <a name="upgradability"></a>Möjligheterna
-I en [löpande uppgradering av programmet](service-fabric-application-upgrade.md), uppgraderingen gäller för en delmängd av noderna, en uppgraderingsdomän i taget. Vissa uppgraderingsdomäner blir den nyare versionen av ditt program under den här processen och vissa uppgraderingsdomäner ska innehålla den äldre versionen av ditt program. Den nya versionen av ditt program måste kunna läsa den gamla versionen av dina data under distributionen, och den gamla versionen av ditt program måste kunna läsa den nya versionen av dina data. Om dataformatet inte är kompatibel med framåt och bakåt, misslyckas uppgraderingen eller ännu värre data kan försvinna eller skadas.
+## <a name="upgradability"></a>Försämring
+I en [uppgradering av rullande program](service-fabric-application-upgrade.md)tillämpas uppgraderingen på en delmängd noder, en uppgraderings domän i taget. Under den här processen kommer vissa uppgraderings domäner att finnas på den nyare versionen av programmet och vissa uppgraderings domäner kommer att finnas på den äldre versionen av programmet. Under distributionen måste den nya versionen av programmet kunna läsa den gamla versionen av dina data och den gamla versionen av programmet måste kunna läsa den nya versionen av dina data. Om data formatet inte vidarebefordras och är bakåtkompatibelt, kan uppgraderingen Miss lyckas eller vara sämre, data kan gå förlorade eller skadas.
 
-Om du använder inbyggda serialiserare, behöver du inte bekymra dig om kompatibilitet.
-Men om du använder en anpassad serialiserare eller DataContractSerializer måste data vara oändligt bakåt och framåt kompatibel.
-Med andra ord måste varje version av serialiserare kan serialisera och deserialisera någon version av typen.
+Om du använder inbyggd serialisering behöver du inte bekymra dig om kompatibilitet.
+Men om du använder en anpassad serialiserare eller DataContractSerializer måste data vara oändligt baklänges och vidarebefordras.
+Med andra ord måste varje version av serialiseraren kunna serialisera och deserialisera alla versioner av typen.
 
-Data kontrakt användare bör följa väldefinierade versionshantering regler för att lägga till, ta bort och ändra fält. Datakontrakt har också stöd för behandlar okänt fält, anslutning i processen för serialisering och deserialisering och ta itu med klassarv. Mer information finns i [med datakontrakt](https://msdn.microsoft.com/library/ms733127.aspx).
+Data kontrakts användare bör följa de väldefinierade versions reglerna för att lägga till, ta bort och ändra fält. Data kontrakt har också stöd för att hantera okända fält, ansluta till serialiserings-och avserialiserings processen och hantera klass arvet. Mer information finns i [använda data kontrakt](https://msdn.microsoft.com/library/ms733127.aspx).
 
-Anpassade serialiserare användare bör följer riktlinjerna av serialiserare som de använder för att se till att den är bakåtkompatibilitet och vidarebefordrar kompatibel.
-Vanliga sätt att stödja alla versioner är att lägga till information om urvalsstorlek i början och endast att lägga till valfria egenskaper.
-Det här sättet varje version kan läsa som mycket kan och hoppa över resten av dataströmmen.
+Anpassade serialiserare måste följa rikt linjerna för den serialiserare som de använder för att kontrol lera att de är baklänges och vidarebefordrar kompatibla.
+Vanliga sätt att stödja alla versioner är att lägga till storleks information i början och bara lägga till valfria egenskaper.
+På så sätt kan varje version läsa så mycket som möjligt och hoppa över den återstående delen av data strömmen.
 
 ## <a name="next-steps"></a>Nästa steg
   * [Serialisering och uppgradering](service-fabric-application-upgrade-data-serialization.md)
-  * [Utvecklarreferens för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-  * [Uppgradera ditt program med hjälp av Visual Studio](service-fabric-application-upgrade-tutorial.md) vägleder dig genom en uppgradering av programmet med Visual Studio.
-  * [Uppgradera ditt program med hjälp av Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vägleder dig genom en uppgradering av programmet med hjälp av PowerShell.
-  * Styra hur programmet uppgraderas med hjälp av [uppgradera parametrar](service-fabric-application-upgrade-parameters.md).
-  * Lär dig hur du använder avancerade funktioner när du uppgraderar ditt program genom att referera till [avancerade ämnen](service-fabric-application-upgrade-advanced.md).
-  * Åtgärda vanliga problem i programuppgraderingar genom att referera till stegen i [felsöka programuppgraderingar](service-fabric-application-upgrade-troubleshooting.md).
+  * [Referens för utvecklare för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * Genom [att uppgradera programmet med Visual Studio](service-fabric-application-upgrade-tutorial.md) går du igenom en program uppgradering med Visual Studio.
+  * Genom [att uppgradera ditt program med hjälp av PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) får du en program uppgradering med PowerShell.
+  * Styr hur programmet uppgraderas med hjälp av [uppgraderings parametrar](service-fabric-application-upgrade-parameters.md).
+  * Lär dig hur du använder avancerade funktioner när du uppgraderar ditt program genom att titta på [avancerade ämnen](service-fabric-application-upgrade-advanced.md).
+  * Åtgärda vanliga problem i program uppgraderingar genom att följa stegen i [Felsöka program uppgraderingar](service-fabric-application-upgrade-troubleshooting.md).

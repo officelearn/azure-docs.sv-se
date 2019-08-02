@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314798"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717457"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API för anpassade händelser och mått
 
@@ -54,7 +54,7 @@ Om du inte har en referens på Application Insights SDK ännu:
   * [Java-projekt](../../azure-monitor/app/java-get-started.md)
   * [Node. js-projekt](../../azure-monitor/app/nodejs.md)
   * [Java Script på varje webb sida](../../azure-monitor/app/javascript.md) 
-* I enhets-eller webb server koden inkluderar du:
+* Inkludera följande i din enhets eller webbservers kod:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -163,8 +163,6 @@ Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
@@ -300,7 +298,7 @@ Telemetrin är tillgänglig i `customMetrics` tabellen i [Application Insights A
 * `valueSum`– Det här är summan av måtten. Hämta medelvärdet genom att dividera med `valueCount`.
 * `valueCount`-Antalet mått som samlats in i det här `trackMetric(..)` anropet.
 
-## <a name="page-views"></a>Sid visningar
+## <a name="page-views"></a>Sidvisning
 
 I en enhets-eller webb Side app skickas telemetri om sid visning som standard när varje skärm eller sida läses in. Men du kan ändra det för att spåra sid visningar vid ytterligare eller olika tidpunkter. I en app som till exempel visar flikar eller blad kan du vilja spåra en sida när användaren öppnar ett nytt blad.
 

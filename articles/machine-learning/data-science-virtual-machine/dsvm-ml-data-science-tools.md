@@ -4,7 +4,7 @@ description: Läs mer om de machine learning-verktyg och ramverk som redan är i
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 3b05d076a61593e8c34ce642f2fe2fd137e07109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502117"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565254"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine learning och data science-verktyg
 Azure virtuella datorer för datavetenskap har en omfattande uppsättning verktyg och bibliotek för machine learning (ML) tillgänglig för populära språk, till exempel Python, R och Julia. 
@@ -32,7 +32,7 @@ Här är några av ML-verktyg och bibliotek på virtuella datorer för dataveten
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   |   Azure Machine Learning är en molnbaserad tjänst som du kan använda för att utveckla och distribuera maskininlärningsmodeller. Du kan spåra dina modeller som du skapa, träna, skala och hantera dem med hjälp av Python-SDK. Distribuera modeller som behållare och köra dem i molnet, lokalt eller på Azure IoT Edge.   |
-| Versioner som stöds     | Windows (conda-miljö: AzureML), Linux (conda-miljö: py36)    |
+| Versioner som stöds     | Windows (Conda-miljö: AzureML), Linux (Conda-miljö: py36)    |
 | Vanliga användningsområden      | Allmän ML-plattform      |
 | Hur är det konfigurerade eller installerad?      |  Installeras med GPU-stöd   |
 | Hur du använder eller köra den      | Som Python SDK och Azure CLI. Aktivera conda-miljö `AzureML` på Windows-version *eller* till `py36` på Linux-versionen.      |

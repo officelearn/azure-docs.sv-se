@@ -1,20 +1,18 @@
 ---
 title: Utveckla för Azure Files med python | Microsoft Docs
 description: Lär dig hur du utvecklar python-program och-tjänster som använder Azure Files för att lagra fildata.
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3a741216b50811868687b124463e10e65355094
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360061"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699385"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Utveckla för Azure Files med python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -112,7 +110,7 @@ file_service.create_file_from_path(
 ## <a name="download-a-file"></a>Ladda ned en fil
 Använd `get_file_to_path` ,`get_file_to_stream`, eller`get_file_to_text`för att hämta data från en fil. `get_file_to_bytes` De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
 
-I följande exempel `get_file_to_path` visas hur du hämtar innehållet i filen i  filen och lagrar det till filen **out-Sunset. png** .
+I följande exempel `get_file_to_path` visas hur du hämtar innehållet i filen i filen och lagrar det till filen **out-Sunset. png** .
 
 ```python
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')

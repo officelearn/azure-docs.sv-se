@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du skapar och använder databaser, 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467756"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598493"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Arbeta med databaser, behållare och objekt i Azure Cosmos DB
 
@@ -124,6 +124,9 @@ Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende p
 |\_ständiga | System-generated | Adresserbara URI: N för objektet | Ja | Nej | Nej | Nej | Nej |
 |id | Antingen | Användardefinierat unikt namn i en logisk partition. Om användaren inte anger något ID genererar systemet automatiskt ett. | Ja | Ja | Ja | Ja | Ja |
 |Godtycklig användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som representeras i API – intern representation (inklusive JSON, BSON och CQL) | Ja | Ja | Ja | Ja | Ja |
+
+> [!NOTE]
+> `id` Egenskapens unikhet är endast tvingande inom varje logisk partition. Flera dokument kan ha samma `id` egenskap med olika nyckel värden.
 
 ### <a name="operations-on-items"></a>Åtgärder på objekt
 

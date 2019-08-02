@@ -1,7 +1,7 @@
 ---
-title: Hur du använder branchning och ångra åtgärder med en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
+title: Använda branchning och ångra åtgärder med en Conversation Learner modell – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du använder branchning och ångra åtgärder med en Konversationsdeltagare-modell.
+description: Lär dig hur du använder förgreningar och åtgärder för att ångra med en Conversation Learner modell.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,78 +10,79 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: f4f3024451696dbd0244d9da39cba67b49447af1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389896"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703624"
 ---
-# <a name="how-to-use-branching-and-undo-operations"></a>Hur du använder branchning och ångra åtgärder
-I den här självstudien ska vi gå igenom Ångra och branchning åtgärder.
+# <a name="how-to-use-branching-and-undo-operations"></a>Använda branchning och ångra åtgärder
+I den här självstudien kommer vi att gå igenom åtgärder för att ångra och förgrena.
 
 
 ## <a name="details"></a>Information
 ### <a name="undo"></a>Ångra
-Kan utvecklare ”Ångra” senaste användarens indata eller åtgärd val. I bakgrunden ”Ångra” faktiskt skapar en ny dialogruta och spelar upp det upp till föregående steg.  Det innebär att entiteten identifiering av återanrop och API-anrop i dialogrutan anropas igen.
+Tillåter utvecklare att "ångra" den senaste användarindata eller åtgärds val. "Ångra" i bakgrunden skapar i själva verket en ny dialog ruta och spelas upp i föregående steg.  Det innebär att entitetens identifierings-och API-anrop i dialog rutan kommer att anropas igen.
 
-### <a name="branch"></a>Branch
-Skapar en ny dialogruta träna börjar på samma sätt som en befintlig träna dialogrutan – detta sparar arbetet med manuellt återinföra dialogrutan stängs. I bakgrunden ”gren” skapar en ny dialogruta och spelar upp dialogrutan befintliga träna upp till det valda steget.  Det innebär att entiteten identifiering av återanrop och API-anrop i dialogrutan anropas igen.
+### <a name="branch"></a>Gren
+Skapar en ny träna-dialog ruta som börjar på samma sätt som en befintlig träna-dialog – det här sparar arbetet med att manuellt ange dialog rutan igen. I bakgrunden skapar "gren" en ny dialog ruta och spelar upp den befintliga träna-dialog rutan upp till det valda steget.  Det innebär att entitetens identifierings-och API-anrop i dialog rutan kommer att anropas igen.
 
 
 ## <a name="requirements"></a>Krav
-Den här självstudien krävs att roboten som tar pizza order körs:
+Den här självstudien kräver att roboten som tar pizza-beställningar körs:
 
     npm run demo-pizza
 
-### <a name="open-or-import-the-demo"></a>Öppna eller importera demon
+### <a name="open-or-import-the-demo"></a>Öppna eller importera demonstrationen
 
-Om du redan har arbetat självstudien pizza skrivordning, helt enkelt öppna sedan den modellen i listan i webbgränssnittet. Annars måste du klicka på ”Importera Tutorials” och välja modellen med namnet ”Demo-PizzaOrder”.
+Om du redan har arbetat genom självstudien om pizza-beställning öppnar du bara den modellen från listan i webb gränssnittet. Annars måste du klicka på "Importera självstudier" och välja modellen "demo-PizzaOrder".
 
 ## <a name="undo"></a>Ångra
 
-Här är ett exempel på hur du ser den `Undo` funktionen fungerar i praktiken:
+Här är ett exempel på hur du kan se `Undo` hur funktionen fungerar:
 
-### <a name="training-dialogs"></a>Dialogrutor för utbildning
-1. Klicka på ”Train-dialogrutor” på den vänstra rutan och klicka sedan på den `New Train Dialog` knappen.
-2. Skriv ”Order en platt”.
+### <a name="training-dialogs"></a>Tränings dialog rutor
+1. Klicka på "träna dialog rutor" i den vänstra panelen och klicka sedan på `New Train Dialog` knappen.
+2. Skriv "Beställ a pizza".
 3. Klicka på knappen `Score Actions`.
-4. Klicka för att väljer ”vad du vill på din pizza”?
-5. Skriv ”allt”.
+4. Klicka för att välja "Vad vill du ha på din pizza?"
+5. Skriv "vad".
 6. Klicka på knappen `Undo`.
-    - Den sista posten tas bort, lämna det senaste Bot-svaret för ”vad du vill på din pizza”?
+    - Den sista posten tas bort och lämnar det sista robot svaret "Vad vill du ha på din pizza?"
 
-## <a name="branch"></a>Branch
+## <a name="branch"></a>Gren
 
-Den här demonstrationen vi öppna en befintlig Train-dialogruta och skapa en ny Train-dialogruta från den av förgrening.
+I den här demon öppnar vi en befintlig träna-dialog och skapar en ny träna-dialog ruta från den genom förgrening.
 
-1. Klicka på ”Train-dialogrutor” på den vänstra panelen.
-2. Lägg märke till rutnätet visas endast en utbildning som börjar med ”nya order”.
-3. Klicka på ”nya order” i rutnätet för att öppna dialogrutan befintliga träna.
-4. Klicka på sist ”Nej” i dialogrutan.
-5. Klicka på ikonen ”gren”, det är inringat i rött i den här bilden:
+1. Klicka på "träna dialoger" i den vänstra panelen.
+2. Observera rutnätet. du bör bara se en utbildning som börjar med "ny beställning".
+3. I rutnätet klickar du på "ny ordning" för att öppna dialog rutan befintliga träna.
+4. Klicka på den sista i dialog rutan.
+5. Klicka på ikonen "gren", den är inringad i rött i den här bilden:
     - ![](../media/tutorial15_branch.PNG)
-    - Dialogrutan hela träna före ”Nej” kopieras till en ny Train-dialogruta.
-    - Detta sparar du behöva ange föregående aktiverar för att utforska en ny konversation ”gren” från och med nu.
-6. Skriv ”Ja”, träffar ange.
+    - Hela träna-dialog rutan före "nej" kopieras till en ny träna-dialog ruta.
+    - På så sätt slipper du att ange föregående åter för att utforska en ny konversation "gren" från den här punkten.
+6. Skriv "Ja" och tryck på RETUR.
 7. Klicka på knappen `Score Actions`.
-    - I det här läget roboten hämtar ett svar automatiskt, men du vill använda inte svaret vi kommer att ändra den.
-8. Klicka på det senaste Bot-svaret.
-    - Detta väljer kan vi ett annat svar.
-9. Select "UseLastToppings".
+    - I det här läget väljer bot automatiskt ett svar, men vi gillar inte svaret så vi ska ändra det.
+8. Klicka på det sista robot svaret.
+    - På så sätt kan vi välja ett annat svar.
+9. Välj "UseLastToppings".
 10. Klicka på knappen `Score Actions`.
-    - Roboten hämtar igen automatiskt ett svar. Det bör stå, ”du har köttråvara, ost och svamp på din pizza”. 
-    - Den här gången vi gillar svaret så vi kommer att behålla.
+    - Återigen väljer roboten ett svar automatiskt. Det bör stå "du har korv, ost och svamp på din pizza.". 
+    - Den här gången vill vi att vi ska behålla svaret.
 11. Klicka på knappen `Score Actions`.
-    - Igen hämtar roboten automatiskt ett svar, det ska stå ”vill du göra något annat”?
-12. Skriv ”Nej”.
+    - Om bot-roboten automatiskt väljer ett svar, bör det stå "vill du ha något annat?"
+12. Skriv "nej".
 13. Klicka på knappen `Save Branch`.
-14. Observera att rutnätet nu har två utbildningar som börjar med ”nya order”.
-    - En av dem är det du använde för att förgrening av.
-    - Och den andra är den förgrenade versionen som du just har sparat.
-    - Klicka på var och en av dem att verifiera förväntningarna.
+14. Observera att rutnätet nu har två utbildningar som börjar med "ny beställning".
+    - En av dem är den som du använde för att förgrena ut från.
+    - Och den andra är den Grenade version som du nyss sparade.
+    - Klicka på var och en av dem för att kontrol lera förväntningarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Versionshantering och taggning](./18-version-tag.md)
+> [Versions hantering och taggning](./18-version-tag.md)

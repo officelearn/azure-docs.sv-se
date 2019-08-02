@@ -16,10 +16,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5967f2ac8c766005cee876b5b42109062abad6a1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323838"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur du överför och hanterar programpaket
 > [!NOTE]
 > Programpaket kan användas för alla Batch-pooler som skapats efter 5 juli 2017. De kan användas för Batch-pooler som skapats mellan 10 mars 2016 och 5 juli 2017, men endast om poolen skapades med en molntjänstkonfiguration. Programpaket kan inte användas för Batch-pooler som har skapats före 10 mars 2016.
 >
-> API: erna för att skapa och hantera programpaket ingår i [batch Management .net][api_net_mgmt] library. The APIs for installing application packages on a compute node are part of the [Batch .NET][api_net] -biblioteket. Jämförbara funktioner finns i de tillgängliga batch-API: erna för andra språk. 
+> API: erna för att skapa och hantera programpaket ingår i [batch Management .net][api_net_mgmt] -biblioteket. API: erna för att installera programpaket på en Compute-nod är en del av [batch .net][api_net] -biblioteket. Jämförbara funktioner finns i de tillgängliga batch-API: erna för andra språk. 
 >
 > Funktionen programpaket som beskrivs här ersätter funktionen batch apps som finns i tidigare versioner av tjänsten.
 
@@ -179,7 +179,7 @@ Om du vill lägga till en programpaket version för ett befintligt program välj
 Som du kan se matchar fälten de i fönstret **nytt program** , men rutan **program-ID** är inaktive rad. När du har gjort det nya programmet anger du **versionen** för ditt nya paket, bläddrar till din **programpaket** . zip-fil och klickar sedan på **OK** för att ladda upp paketet.
 
 ### <a name="update-or-delete-an-application-package"></a>Uppdatera eller ta bort ett programpaket
-Om du vill uppdatera eller ta bort ett befintligt programpaket öppnar du informationen för programmet, klickar på **paket**,  klickar på ellipsen i raden i det programpaket som du vill ändra och väljer den åtgärd som du vill utföra.
+Om du vill uppdatera eller ta bort ett befintligt programpaket öppnar du informationen för programmet, klickar på **paket**, klickar på ellipsen i raden i det programpaket som du vill ändra och väljer den åtgärd som du vill utföra.
 
 ![Uppdatera eller ta bort paket i Azure Portal][7]
 
@@ -201,7 +201,7 @@ Nu när du har lärt dig hur du hanterar programpaket med Azure Portal kan vi di
 ### <a name="install-pool-application-packages"></a>Installera poolens programpaket
 Om du vill installera ett programpaket på alla Compute-noder i en pool anger du ett eller flera Programpakets *referenser* för poolen. De programpaket som du anger för en pool installeras på varje Compute-nod när noden ansluter till poolen, och när noden startas om eller avbildningas om.
 
-I batch .net anger du en eller flera [CloudPool][net_cloudpool] .[ApplicationPackageReferences][net_cloudpool_pkgref] när du skapar en ny pool eller för en befintlig pool. [ApplicationPackageReference][net_pkgref] -klassen anger ett program-ID och en version som ska installeras på poolens datornoder.
+I batch .NET anger du en eller flera [CloudPool][net_cloudpool]. [ApplicationPackageReferences][net_cloudpool_pkgref] när du skapar en ny pool eller för en befintlig pool. [ApplicationPackageReference][net_pkgref] -klassen anger ett program-ID och en version som ska installeras i en Pools datornoder.
 
 ```csharp
 // Create the unbound CloudPool
@@ -233,7 +233,7 @@ await myCloudPool.CommitAsync();
 ### <a name="install-task-application-packages"></a>Installera programpaket för uppgift
 På samma sätt som en pool anger du programpaket- *referenser* för en aktivitet. När en aktivitet har schemalagts för körning på en nod laddas paketet ned och extraheras precis innan aktivitetens kommando rad körs. Om ett angivet paket och version redan är installerat på noden laddas inte paketet ned och det befintliga paketet används.
 
-Om du vill installera ett uppgifts program paket konfigurerar du aktivitetens [CloudTask][net_cloudtask] .[ApplicationPackageReferences][net_cloudtask_pkgref] -egenskap:
+Konfigurera aktivitetens [CloudTask][net_cloudtask]om du vill installera ett uppgifts program paket. [ApplicationPackageReferences][net_cloudtask_pkgref] -egenskap:
 
 ```csharp
 CloudTask task =
@@ -309,7 +309,7 @@ Om en befintlig pool redan har kon figurer ATS med ett programpaket kan du ange 
 * Compute-noder som redan finns i poolen när du uppdaterar paket referenserna installerar inte automatiskt det nya programpaketet. De här Compute-noderna måste startas om eller avbildningas om för att det nya paketet ska kunna tas emot.
 * När ett nytt paket distribueras återspeglar de skapade miljövariablerna de nya programpaket referenserna.
 
-I det här exemplet har den befintliga poolen version 2,7 av *över gångs* programmet som kon figurer ATS som en av dess [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Om du vill uppdatera poolens noder med version 2.76 b anger du en ny [ApplicationPackageReference]-[net_pkgref] med den nya versionen och genomför ändringen.
+I det här exemplet har den befintliga poolen version 2,7 av *över gångs* programmet som kon figurer ATS som en av dess [CloudPool][net_cloudpool]. [ApplicationPackageReferences][net_cloudpool_pkgref]. Om du vill uppdatera poolens noder med version 2.76 b anger du en ny [ApplicationPackageReference][net_pkgref] med den nya versionen och genomför ändringen.
 
 ```csharp
 string newVersion = "2.76b";
@@ -326,7 +326,7 @@ await boundPool.CommitAsync();
 Nu när den nya versionen har kon figurer ATS installerar batch-tjänsten version 2.76 b till en *ny* nod som ansluter till poolen. Om du vill installera 2.76 b på noderna som *redan* finns i poolen startar du om eller återavbildningar dem. Observera att omstartade noder behåller filerna från tidigare paket distributioner.
 
 ## <a name="list-the-applications-in-a-batch-account"></a>Visa en lista över programmen i ett batch-konto
-Du kan visa en lista över program och deras paket i ett batch-konto med hjälp av metoden [ApplicationOperations][net_appops] .[ListApplicationSummaries][net_appops_listappsummaries] .
+Du kan visa en lista över program och deras paket i ett batch-konto med hjälp av [ApplicationOperations][net_appops]. [ListApplicationSummaries][net_appops_listappsummaries] -metod.
 
 ```csharp
 // List the applications and their application packages in the Batch account.
@@ -346,7 +346,7 @@ foreach (ApplicationSummary app in applications)
 Med programpaket kan du hjälpa dina kunder att välja program för sina jobb och ange den exakta versionen som ska användas för bearbetning av jobb med din batch-aktiverade tjänst. Du kan också ge dina kunder möjlighet att ladda upp och spåra sina egna program i din tjänst.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Batch REST API][api_rest] also provides support to work with application packages. For example, see the [applicationPackageReferences][rest_add_pool_with_packages] -elementet i [lägga till en pool till ett konto][rest_add_pool] för information om hur du anger paket som ska installeras med hjälp av REST API. Se [program][rest_applications] för information om hur du hämtar programinformation med Batch-REST API.
+* [Batch-REST API][api_rest] tillhandahåller också stöd för att arbeta med programpaket. Se till exempel elementet [applicationPackageReferences][rest_add_pool_with_packages] i [lägga till en pool till ett konto][rest_add_pool] för information om hur du anger paket som ska installeras med hjälp av REST API. Se [program][rest_applications] för information om hur du hämtar programinformation med Batch-REST API.
 * Lär dig hur du program mässigt [hanterar Azure Batch konton och kvoter med batch Management .net](batch-management-dotnet.md). Med [batch Management .net][api_net_mgmt] -biblioteket kan du aktivera funktioner för att skapa och ta bort konton för ditt batch-program eller-tjänst.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet

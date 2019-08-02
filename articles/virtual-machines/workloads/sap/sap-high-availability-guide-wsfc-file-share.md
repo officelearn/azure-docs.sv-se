@@ -18,10 +18,10 @@ ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f9264357ca1a0c1a612481f4254e86f05e41d8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479181"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -312,11 +312,11 @@ Om du vill använda en skalbar fil resurs måste systemet uppfylla följande kra
 * Du måste använda Azure Premium-diskar.
 * Vi rekommenderar att du använder Azure Managed Disks.
 * Vi rekommenderar att du formaterar volymer med hjälp av ReFS (elastiskt fil system).
-    * Mer information finns i [SAP NOTE 1869038-SAP-stöd för ReFs-filsystem][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] kapitel i artikeln Planera volymer i Lagringsdirigering.
+    * Mer information finns i [SAP Note 1869038-SAP-stöd för ReFs-filsystem][1869038] och [Välj fil system][planning-volumes-s2d-choosing-filesystem] kapitlet i artikeln Planera volymer i Lagringsdirigering.
     * Se till att du installerar den [kumulativa uppdateringen av Microsoft KB4025334][kb4025334].
 * Du kan använda VM-storlekar i DS-eller DSv2-serien.
 * Använd en VM-typ som har minst en "hög" nätverks bandbredd för bästa nätverks prestanda mellan virtuella datorer, vilket krävs för att Lagringsdirigering synkronisering av disk.
-    Mer information finns i specifikationer för [DSv2-serien][dv2-series] and [DS-Series][ds-series] .
+    Mer information finns i specifikationer för [DSv2-serien][dv2-series] och [DS-serien][ds-series] .
 * Vi rekommenderar att du reserverar en del ej allokerad kapacitet i lagringspoolen. Om du lämnar en icke-allokerad kapacitet i lagringspoolen får du volym utrymme att reparera på plats. om en enhet kraschar. Detta förbättrar data säkerhet och prestanda.  Mer information finns i [välja volym storlek][choosing-the-size-of-volumes-s2d].
 * Du behöver inte konfigurera den interna Azure-belastningsutjämnaren för den skalbara fil resursens nätverks namn, t. ex. för \<SAP global-\>värd. Detta görs för det \<virtuella ASCS/SCS-\> värdnamnet för SAP ASCS/SCS-instansen eller för DBMS. En skalbar fil resurs skalar upp belastningen på alla klusternoder. \<SAP global Host\> använder den lokala IP-adressen för alla klusternoder.
 

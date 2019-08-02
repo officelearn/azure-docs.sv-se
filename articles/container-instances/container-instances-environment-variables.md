@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326042"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Ange miljövariabler i behållar instanser
@@ -33,7 +33,7 @@ Om du behöver skicka hemligheter som miljövariabler stöder Azure Container In
 
 ## <a name="azure-cli-example"></a>Azure CLI-exempel
 
-Så här visar du standardutdata för kommandot [ACI-WORDCOUNT][aci-wordcount] container, run it first with this [az container create][az-container-create] (inga miljövariabler har angetts):
+Om du vill se standardutdata för behållaren [ACI-WORDCOUNT][aci-wordcount] kör du det först med detta [AZ][az-container-create] -behållar kommandot CREATE (inga miljövariabler har angetts):
 
 ```azurecli-interactive
 az container create \
@@ -54,7 +54,7 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-När båda behållarens status visas som *avslutad* (Använd [AZ container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] för att visa utdata.
+När båda behållar status visas som *avslutad* (Använd [AZ container Visa][az-container-show] för att kontrol lera tillstånd) visar deras loggar med [AZ container-loggar][az-container-logs] för att se utdata.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -88,7 +88,7 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 Att ställa in miljövariabler i PowerShell liknar CLI, men använder `-EnvironmentVariable` kommando rads argumentet.
 
-Starta först kommandot [ACI-WORDCOUNT][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] :
+Börja med att starta behållaren [ACI-WORDCOUNT][aci-wordcount] i standard konfigurationen med detta [nya-AzContainerGroup-][new-Azcontainergroup] kommando:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `

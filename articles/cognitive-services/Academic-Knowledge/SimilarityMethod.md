@@ -1,7 +1,7 @@
 ---
-title: Likhet metoden – Academic Knowledge API
+title: Likhets metod – Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Du kan använda metoden likheter för att beräkna akademiska likheten mellan två strängar.
+description: Använd likhets metoden för att beräkna den akademiska likheten hos två strängar.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,16 +10,17 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 855d29d2c55b841bbbe4e9eadce8c29ad85fad90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61336525"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704854"
 ---
-# <a name="similarity-method"></a>Likhet metod
+# <a name="similarity-method"></a>Likhets metod
 
-Den **likheter** REST-API används för att beräkna academic-likheten mellan två strängar. 
+**Likhets** REST API används för att beräkna den akademiska likheten mellan två strängar. 
 <br>
 
 **REST-slutpunkt:**
@@ -27,46 +28,46 @@ Den **likheter** REST-API används för att beräkna academic-likheten mellan tv
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
-## <a name="request-parameters"></a>Parametrar för begäran
+## <a name="request-parameters"></a>Begäranparametrar
 
-Parameter        |Datatyp      |Obligatoriskt | Beskrivning
+Parameter        |Datatyp      |Obligatorisk | Beskrivning
 ----------|----------|----------|------------
-**s1**        |String   |Ja  |Sträng * som ska jämföras
-**s2**        |String   |Ja  |Sträng * som ska jämföras
+**s1**        |Sträng   |Ja  |Sträng * som ska jämföras
+**s2**        |Sträng   |Ja  |Sträng * som ska jämföras
 
-<sub> * Strängar att jämföra har en maximal längd på 1MB. </sub>
+<sub>* Strängarna som ska jämföras har en maximal längd på 1 MB.</sub>
 <br>
 
 ## <a name="response"></a>Svar
 
 Namn | Beskrivning
 --------|---------
-**SimilarityScore**        |En flytande peka värde som representerar cosinus-likheten för s1 och s2 med värden närmare 1.0 betydelsen mer liknande och värden för närmare att-1.0 vilket innebär att mindre
+**SimilarityScore**        |Ett flytt ALS värde som representerar cosinus på samma sätt som S1 och S2, och värden närmare 1,0 innebär mer likartade värden, närmare-1,0 vilket innebär mindre
 
 <br>
 
-## <a name="successerror-conditions"></a>Lyckade/felvillkor
+## <a name="successerror-conditions"></a>Lyckade/Felaktiga villkor
 
-HTTP Status | Reason | Svar
+HTTP-status | Reason | Svar
 -----------|----------|--------
-**200**         |Klart | Flyttalsnummer
-**400**         | Felaktig begäran eller är ogiltigt för begäran | Felmeddelande      
+**200**         |Klart | Flytt ALS nummer
+**400**         | Felaktig begäran eller begäran ogiltig | Felmeddelande      
 **500**         |Internt serverfel | Felmeddelande
-**Tidsgränsen uppnåddes**     | Begäran uppnådde sin tidsgräns.  | Felmeddelande
+**Tids gränsen uppnåddes**     | Förfrågan uppnådde sin tidsgräns.  | Felmeddelande
 
 <br>
 
-## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Exempel: Beräkna likheten mellan två partiella sammanfattningar
+## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Exempel: Beräkna likheten mellan två delvis abstrakta
 #### <a name="request"></a>Begäran:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?s1=Using complementary priors, we derive a fast greedy algorithm that can learn deep directed belief networks one layer at a time, provided the top two layers form an undirected associative memory
 &s2=Deepneural nets with a large number of parameters are very powerful machine learning systems. However, overfitting is a serious problem in such networks
 ```
-I det här exemplet vi genererar poängen likheter mellan två partiella sammanfattningar med hjälp av den **likheter** API.
+I det här exemplet genererar vi likhets poängen mellan två delar av sammanfattningen med **likhets** -API: et.
 #### <a name="response"></a>Svar:
 ```
 0.520
 ```
-#### <a name="remarks"></a>Anmärkning:
-Likhet poängen bestäms genom att uppskatta akademiska begreppen via word bädda in. I det här exemplet innebär 0.52 att två partiella sammanfattningar något liknande.
+#### <a name="remarks"></a>!
+Likhets poängen bestäms genom att utvärdera de akademiska begreppen genom Word-inbäddning. I det här exemplet innebär 0,52 att de två partiella abstraktarna är något likartade.
 <br>

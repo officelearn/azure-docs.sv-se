@@ -1,6 +1,6 @@
 ---
 title: Övervakning av SAP HANA på Azure (stora instanser) | Microsoft Docs
-description: Övervakare för SAP HANA på Azure (stora instanser).
+description: Övervaka SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -14,41 +14,41 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93b8a03a46645683c98b6be3f7af83b3c7ac0e06
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: de7066004c4baa6e3086f2909d9d5150b50d8e41
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708962"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570539"
 ---
-# <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Så här övervakar du SAP HANA (stora instanser) på Azure
+# <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Övervaka SAP HANA (stora instanser) i Azure
 
-SAP HANA på Azure (stora instanser) skiljer sig från andra IaaS-distribution – du behöver övervaka vad Operativsystemet och programmet gör och hur program som använder följande resurser:
+SAP HANA på Azure (stora instanser) skiljer sig inte från någon annan IaaS-distribution – du måste övervaka vad operativ systemet och programmet gör och hur programmen använder följande resurser:
 
 - Processor
 - Minne
-- Nätverkets bandbredd
+- Nätverks bandbredd
 - Diskutrymme
 
-Med Azure virtuella datorer du behöver ta reda på om resursklasser som anges ovan är tillräckliga eller de få förbrukat. Här är mer information om var och en av de olika klasserna:
+Med Azure Virtual Machines måste du ta reda på om resurs klasserna som heter ovan räcker till eller om de blir uttömda. Här är mer information om var och en av de olika klasserna:
 
-**CPU-användning för resursen:** Förhållandet mellan att SAP har definierats för vissa arbetsbelastningar mot HANA tillämpas för att se till att det ska finnas tillräckligt med CPU-resurser som är tillgängliga för att gå igenom de data som lagras i minnet. Dock kan det finnas fall där HANA förbrukar många processorer som köra frågor på grund av saknar index eller liknande problem. Det innebär att du ska övervaka CPU resurser som används för HANA stora instanser enhet samt CPU-resurser som används av de specifika HANA-tjänsterna.
+**Förbrukning av processor resurser:** Förhållandet att SAP som definierats för viss arbets belastning mot HANA upprätthålls för att säkerställa att det finns tillräckligt med tillgängliga processor resurser för att arbeta genom de data som lagras i minnet. Det kan dock finnas fall där HANA förbrukar många processorer som kör frågor på grund av saknade index eller liknande problem. Det innebär att du bör övervaka användningen av CPU-resurser för den stora instans enheten HANA och CPU-resurser som förbrukas av de aktuella HANA-tjänsterna.
 
-**Minnesförbrukning:** Är viktigt att övervaka från inom HANA, samt utanför HANA på enheten. Övervaka hur data förbrukar allokerat minne för att hålla sig inom de nödvändiga storlek riktlinjerna för SAP HANA i HANA. Du bör också övervaka minnesförbrukning på stor instans-nivå om du vill se till att ytterligare installerade icke-HANA klientprogramvaran inte förbrukar för mycket minne och därför konkurrera med HANA om minne.
+**Minnes förbrukning:** Är viktigt att övervaka inifrån HANA, samt utanför HANA på enheten. I HANA kan du övervaka hur data använder HANA-allokerat minne för att ligga inom de nödvändiga storleks rikt linjerna för SAP. Du vill också övervaka minnes användningen på den stora instansen för att se till att ytterligare installerad icke-HANA-programvara inte förbrukar för mycket minne och därmed konkurrerar med HANA för minne.
 
-**Nätverkets bandbredd:** Azure VNet-gateway har begränsad bandbredd för data som flyttas till det virtuella nätverket i Azure, så är det bra att övervaka de data som tas emot av alla Azure virtuella datorer inom ett virtuellt nätverk för att ta reda på hur nära du kommer att gränserna för Azure-gateway SKU som du har valt. På stora HANA-instansen-enhet det vara klokt att övervaka inkommande och utgående nätverkstrafik samt och för att hålla reda på de volymer som hanteras med tiden.
+**Nätverks bandbredd:** Azure VNet-gatewayen är begränsad till data bandbredden som flyttas till Azure VNet, så det är bra att övervaka de data som tas emot av alla virtuella Azure-datorer i ett VNet för att ta reda på hur nära du är i gränserna för den Azure Gateway-SKU som du har valt. På den stora volymen HANA är det viktigt att övervaka inkommande och utgående nätverks trafik även och att hålla koll på de volymer som hanteras över tid.
 
-**Diskutrymme:** Förbrukningen av diskutrymme ökar vanligtvis över tid. De vanligaste orsakerna är: datavolym ökar, körning av säkerhetskopieringar av transaktionsloggen kan lagra spårningsfiler och utför ögonblicksbilder av lagring. Det är därför viktigt att övervaka användning av diskutrymme och hantera det diskutrymme som är associerade med den stora HANA-instansen-enheten.
+**Disk utrymme:** Användningen av disk utrymme ökar ofta över tid. De vanligaste orsakerna är: data volym ökar, körning av transaktions logg säkerhets kopior, lagring av spårningsfiler och lagring av ögonblicks bilder. Därför är det viktigt att övervaka användningen av disk utrymme och hantera disk utrymmet som är associerat med den stora volymen HANA-instans.
 
-För den **typ II-SKU: er** av HANA stora instanser, servern medföljer förinlästa system diagnostiska verktyg. Du kan använda dessa diagnostiska verktyg för att utföra hälsokontroll system. Kör följande kommando för att genererar hälsotillstånd Kontrollera loggfilen på /var/log/health_check.
+För **typ II-SKU: er** i de stora instanserna av Hana, levereras servern med de förinstallerade system diagnos verktygen. Du kan använda dessa diagnostiska verktyg för att utföra system hälso kontrollen. Kör följande kommando för att generera hälso kontroll logg filen på/var/log/health_check.
 ```
 /opt/sgi/health_check/microsoft_tdi.sh
 ```
-När du arbetar med Microsoft Support-teamet för att felsöka ett problem kan du också bli ombedd att tillhandahålla filerna med hjälp av dessa diagnostiska verktyg. Du kan zip-filen med följande kommando.
+När du arbetar med Microsoft Support-teamet för att felsöka ett problem kan du också uppmanas att tillhandahålla loggfilerna med hjälp av dessa diagnostikverktyg. Du kan zippa filen med hjälp av följande kommando.
 ```
 tar  -czvf health_check_logs.tar.gz /var/log/health_check
 ```
 
 **Nästa steg**
 
-- Se [övervaka SAP HANA (stora instanser) på Azure](troubleshooting-monitoring.md).
+- Se [hur du övervakar SAP HANA (stora instanser) i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot).

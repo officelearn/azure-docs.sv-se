@@ -1,104 +1,114 @@
 ---
 title: Förstå livscykeln för en skiss
-description: Läs mer om livscykel som passerar en skiss och information om varje steg.
+description: Lär dig mer om livs cykeln som en skiss går igenom och information om varje steg.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683197"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678990"
 ---
-# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Förstå livscykeln för en Azure-skiss
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Förstå livs cykeln för en Azure Blueprint
 
-Precis som många resurser i Azure har en skiss i Azure skisser en typisk och naturlig livscykel. De är skapade, distribueras och slutligen bort när inte längre behövs eller relevanta.
-Skisser stöder standard livscykelåtgärder. Den sedan bygger på dem för att ge extra kontrollnivåer status som har stöd för vanliga kontinuerlig integrering och kontinuerlig distribution pipelines för organisationer som hanterar sin infrastruktur som kod – en nyckelfaktor i DevOps.
+Precis som många resurser i Azure har en skiss i Azure-ritningar en typisk och naturlig livs cykel. De skapas, distribueras och tas slutligen bort när de inte längre behövs eller är relevanta.
+Ritningar har stöd för standard livs cykel åtgärder. Det bygger sedan vidare på dem för att tillhandahålla ytterligare nivåer av status som stöder vanlig kontinuerlig integrering och kontinuerliga distributions pipeliner för organisationer som hanterar sin infrastruktur som kod – ett nyckel element i DevOps.
 
-För att helt förstå en skiss och stegen kan går vi igenom en standard livscykel:
+För att helt förstå en skiss och stegen tar vi upp en standard livs cykel:
 
 > [!div class="checklist"]
 > - Skapa och redigera en skiss
 > - Publicera skissen
 > - Skapa och redigera en ny version av skissen
 > - Publicera en ny version av skissen
-> - Tar bort en specifik version av skissen
-> - Tar bort skissen
+> - Ta bort en enskild version av skissen
+> - Ta bort skissen
 
 ## <a name="creating-and-editing-a-blueprint"></a>Skapa och redigera en skiss
 
-När du skapar en skiss, Lägg till artefakter, spara till en hanteringsgrupp eller prenumeration och tillhandahålls ett unikt namn och en unik version. Skissen är nu i en **Draft** läge och kan ännu inte tilldelas. I den **Draft** läge, det kan fortsätta att uppdateras och ändras.
+När du skapar en skiss kan du lägga till artefakter till den, Spara till en hanterings grupp eller prenumeration och ange ett unikt namn och en unik version. Skissen är nu i ett **utkast** läge och kan inte tilldelas ännu. I **utkast** läge kan du fortsätta att uppdatera och ändra det.
 
-En publicerad aldrig skissen i **Draft** läge visar en annan ikon på den **Skissdefinitioner** sidan än de som har **publicerad**. Den **senaste versionen** visas som **Draft** för dessa publicerade aldrig skisser.
+En aldrig publicerad skiss i **utkast** läge visar en annan ikon på sidan **skiss definitioner** än de som har publicerats. Den **senaste versionen** visas som **utkast** för dessa aldrig publicerade skisser.
 
-Skapa och redigera en skiss med den [Azure-portalen](../create-blueprint-portal.md#create-a-blueprint) eller [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
+Skapa och redigera en skiss med [Azure Portal](../create-blueprint-portal.md#create-a-blueprint) eller [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
 
 ## <a name="publishing-a-blueprint"></a>Publicera en skiss
 
-När alla planerade ändringar har gjorts till en skiss i **Draft** läge, det kan vara **publicerad** och blir tillgängliga för tilldelning. Den **publicerad** version av skissen kan inte ändras.
-En gång **publicerad**, skissen visas med en annan ikon än **Draft** skisser och visar det angivna versionsnumret i den **senaste versionen** kolumn.
+När alla planerade ändringar har gjorts i en skiss i **utkast** läge kan den **publiceras** och göras tillgänglig för tilldelning. Den **publicerade** versionen av skissen kan inte ändras.
+När du har **publicerat**ritningen visas den med en annan ikon än **utkast** ritningar och det angivna versions numret visas i den **senaste versions** kolumnen.
 
-Publicera en skiss med den [Azure-portalen](../create-blueprint-portal.md#publish-a-blueprint) eller [REST API](../create-blueprint-rest-api.md#publish-a-blueprint).
+Publicera en skiss med [Azure Portal](../create-blueprint-portal.md#publish-a-blueprint) eller [REST API](../create-blueprint-rest-api.md#publish-a-blueprint).
 
 ## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Skapa och redigera en ny version av skissen
 
-En **publicerad** version av en skiss kan inte ändras. Dock kan en ny version av skissen har lagts till i befintliga skissen och ändras efter behov. Göra ändringar i en befintlig skissen genom att redigera den. När de nya ändringarna sparas skissen har nu **opublicerade ändringar**. Dessa ändringar är en ny **Draft** version av skissen.
+En **publicerad** version av en skiss kan inte ändras. En ny version av skissen kan dock läggas till i den befintliga skissen och ändras efter behov. Ändra en befintlig skiss genom att redigera den. När de nya ändringarna sparas innehåller skissen nu opublicerade **ändringar**. Dessa ändringar är en ny **utkast** version av skissen.
 
-Redigera en skiss med den [Azure-portalen](../create-blueprint-portal.md#edit-a-blueprint).
+Redigera en skiss med [Azure Portal](../create-blueprint-portal.md#edit-a-blueprint).
 
 ## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicera en ny version av skissen
 
-Varje redigerade version av en skiss måste vara **publicerad** innan den kan tilldelas. När **opublicerade ändringar** har gjorts i en skiss men inte **publicerad**, **publicera skiss** knappen är tillgänglig på sidan Redigera skiss. Om knappen inte visas, skissen redan har **publicerad** och inte har någon **opublicerade ändringar**.
+Varje redige rad version av en skiss måste **publiceras** innan den kan tilldelas. När **opublicerade ändringar** har gjorts i en skiss men inte **publicerat**, är knappen **publicera skiss** tillgänglig på sidan Redigera skiss. Om knappen inte visas har skissen redan publicerats och inga **opublicerade ändringar**har gjorts.
 
 > [!NOTE]
-> En enda skiss kan ha flera **publicerad** versioner som kan varje tilldelas prenumerationer.
+> En enda skiss kan ha flera **publicerade** versioner som var och en kan tilldelas till prenumerationer.
 
-Publicera en skiss med **opublicerade ändringar**, använder du samma steg för att publicera en ny skiss.
+Om du vill publicera en skiss med **opublicerade ändringar**använder du samma steg för att publicera en ny skiss.
 
-## <a name="deleting-a-specific-version-of-the-blueprint"></a>Tar bort en specifik version av skissen
+## <a name="deleting-a-specific-version-of-the-blueprint"></a>Ta bort en enskild version av skissen
 
-Varje version av en skiss är ett unikt objekt och kan vara individuellt **publicerad**. Varje version av en skiss kan därför också tas bort. Tar bort en version av en skiss har inte någon inverkan på andra versioner av den skissen.
+Varje version av en skiss är ett unikt objekt och kan **publiceras**separat. Därför kan varje version av en skiss också tas bort. Att ta bort en version av en skiss påverkar inte andra versioner av den ritningen.
 
 > [!NOTE]
-> Det går inte att ta bort en skiss som har aktiva uppgifter. Ta bort tilldelningar först och sedan ta bort den version som du vill ta bort.
+> Det går inte att ta bort en skiss som har aktiva tilldelningar. Ta bort tilldelningarna först och ta sedan bort den version som du vill ta bort.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj **skiss definitioner** från sidan till vänster och Använd filteralternativ för att hitta skissen som du vill ta bort en version av. Klicka på det för att öppna sidan Redigera.
+1. Välj **skiss definitioner** på sidan till vänster och Använd filter alternativen för att hitta den skiss som du vill ta bort en version av. Öppna sidan Redigera genom att klicka på den.
 
-1. Klicka på den **publicerade versioner** fliken och leta upp den version som du vill ta bort.
+1. Klicka på fliken **publicerade versioner** och leta upp den version som du vill ta bort.
 
-1. Högerklicka på versionen för att ta bort och välj **ta bort den här versionen**.
+1. Högerklicka på den version som du vill ta bort och välj **ta bort den här versionen**.
 
-## <a name="deleting-the-blueprint"></a>Tar bort skissen
+## <a name="deleting-the-blueprint"></a>Ta bort skissen
 
-Core-skissen kan också tas bort. Tar core skissen även bort eventuella skissen versioner av den skiss, inklusive både **Draft** och **publicerad** skisser. Som med att ta bort en version av en skiss, tar bort skissen core tas inte bort de befintliga tilldelningarna av skiss-versionerna.
+Kärn skissen kan också tas bort. När du tar bort kärn skissen tas även skiss versioner av den ritningen bort, inklusive både **utkast** -och **publicerings** ritningar. När du tar bort en version av en skiss tas inte de befintliga uppdragen bort från någon av skiss versionerna när du tar bort huvud ritningen.
 
 > [!NOTE]
-> Det går inte att ta bort en skiss som har aktiva uppgifter. Ta bort tilldelningar först och sedan ta bort den version som du vill ta bort.
+> Det går inte att ta bort en skiss som har aktiva tilldelningar. Ta bort tilldelningarna först och ta sedan bort den version som du vill ta bort.
 
-Ta bort en skiss med den [Azure-portalen](../create-blueprint-portal.md#delete-a-blueprint) eller [REST API](../create-blueprint-rest-api.md#delete-a-blueprint).
+Ta bort en skiss med [Azure Portal](../create-blueprint-portal.md#delete-a-blueprint) eller [REST API](../create-blueprint-rest-api.md#delete-a-blueprint).
 
 ## <a name="assignments"></a>Tilldelningar
 
-Det finns flera punkter under livscykeln en skiss kan tilldelas till en prenumeration. När läget för en version av skissen är **publicerad**, och sedan på den här versionen kan tilldelas till en prenumeration. Den här livscykeln gör det möjligt för versioner av en skiss som ska användas och aktivt tilldelas när en nyare version utvecklas.
+Det finns flera punkter i livs cykeln som en skiss kan tilldelas till en prenumeration. När läget i en version av skissen **publiceras**, kan den versionen tilldelas till en prenumeration. Den här livs cykeln gör det möjligt att använda versioner av en skiss och aktivt tilldelas medan en nyare version utvecklas.
 
-När versioner av skisser tilldelas, är det viktigt att förstå där de är tilldelade och med vilka parametrar som de har tilldelats. Parametrarna kan antingen vara statisk eller dynamisk. Mer information finns i [Statiska och dynamiska parametrar](parameters.md).
+När versioner av ritningar tilldelas är det viktigt att förstå var de är tilldelade och med vilka parametrar de har tilldelats. Parametrarna kan antingen vara statiska eller dynamiska. Läs mer i [statiska och dynamiska parametrar](parameters.md).
 
-### <a name="updating-assignments"></a>Uppdatering av tilldelningar
+### <a name="updating-assignments"></a>Uppdaterar tilldelningar
 
-När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera orsaker till att uppdatera en befintlig tilldelning, inklusive:
+När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera anledningar till att uppdatera en befintlig tilldelning, inklusive:
 
-- Lägg till eller ta bort [resource låsning](resource-locking.md)
+- Lägg till eller ta bort [resurs låsning](resource-locking.md)
 - Ändra värdet för [dynamiska parametrar](parameters.md#dynamic-parameters)
-- Uppgradera tilldelning till en nyare **publicerad** version av skissen
+- Uppgradera tilldelningen till en nyare **publicerad** version av skissen
 
-Läs hur genom att läsa [uppdatera befintliga tilldelningar](../how-to/update-existing-assignments.md).
+Mer information finns i [Uppdatera befintliga tilldelningar](../how-to/update-existing-assignments.md).
+
+### <a name="unassigning-assignments"></a>Ta bort tilldelningar
+
+Om skissen inte längre behövs kan den tas bort från hanterings gruppen eller prenumerationen. Följande inträffar under skiss tilldelningen:
+
+- Borttagning av [skiss resurs låsning](resource-locking.md)
+- Borttagning av skiss tilldelnings objekt
+- Före Om en **systemtilldelad hanterad identitet** användes, tas den också bort
+
+> [!NOTE]
+> Alla resurser som distribueras av skiss tilldelningen förblir på plats, men skyddas inte längre av Azure-ritningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

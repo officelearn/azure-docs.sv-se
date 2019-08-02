@@ -1,6 +1,6 @@
 ---
 title: Arbeta med JSON-data i Azure SQL Database | Microsoft Docs
-description: Azure SQL Database kan du parsa-, fråge- och formatera data i JavaScript Object Notation (JSON)-notation.
+description: Med Azure SQL Database kan du parsa, fråga och formatera data i JavaScript Object Notation (JSON).
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,26 +10,25 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a09fba3f01eec6c712bad67ef10b8b5c55fb33e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702965"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567850"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
-Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](https://www.json.org/) formatera och exportera din relationsdata som JSON-texten. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
-- [Formatering i relationsdata i JSON-format](#formatting-relational-data-in-json-format) med `FOR JSON` satsen.
+Med Azure SQL Database kan du analysera och fråga data som representeras i JavaScript Object Notation [(JSON)](https://www.json.org/) -format och exportera Relations data som JSON-text. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
+- [Formatera Relations data i JSON](#formatting-relational-data-in-json-format) -format `FOR JSON` med hjälp av satsen.
 - [Arbeta med JSON-data](#working-with-json-data)
-- [Hämtar data från JSON](#querying-json-data) med hjälp av JSON skalära funktioner.
-- [Transformera JSON till tabellformat](#transforming-json-into-tabular-format) med `OPENJSON` funktion.
+- [Fråga JSON-data](#querying-json-data) med hjälp av JSON skalära funktioner.
+- [Transformering av JSON i tabell format](#transforming-json-into-tabular-format) med `OPENJSON` funktion.
 
-## <a name="formatting-relational-data-in-json-format"></a>Formatering i relationsdata i JSON-format
-Om du har en webbtjänst som tar data från databasen layer och ger ett svar i JSON-format eller klientens JavaScript-ramverk och bibliotek som accepterar data formaterade som JSON, kan du formatera innehållet i databasen som JSON direkt i en SQL-fråga. Du inte längre skriva programkod som formaterar resultaten från Azure SQL Database som JSON eller innehåller vissa JSON-serialiseringsbiblioteket för att konvertera tabellfråga resultat och sedan serialisera objekt till JSON-format. Använd istället FOR JSON-satsen för att formatera resultatet för SQL-frågan som JSON i Azure SQL-databas och använda den direkt i ditt program.
+## <a name="formatting-relational-data-in-json-format"></a>Formatera Relations data i JSON-format
+Om du har en webb tjänst som tar data från databas skiktet och tillhandahåller ett svar i JSON-format eller på klient sidans JavaScript-ramverk eller bibliotek som accepterar data som är formaterade som JSON, kan du formatera databas innehållet som JSON direkt i en SQL-fråga. Du behöver inte längre skriva program kod som formaterar resultat från Azure SQL Database som JSON, eller inkludera vissa JSON-serialiserande bibliotek för att konvertera resultat från tabell frågor och sedan serialisera objekt till JSON-format. I stället kan du använda FOR JSON-satsen för att formatera SQL-frågeresultat som JSON i Azure SQL Database och använda det direkt i ditt program.
 
-I följande exempel formaterade rader från tabellen Sales.Customer som JSON med FOR JSON-sats:
+I följande exempel formateras rader från tabellen Sales. Custom som JSON med hjälp av FOR JSON-satsen:
 
 ```
 select CustomerName, PhoneNumber, FaxNumber
@@ -37,7 +36,7 @@ from Sales.Customers
 FOR JSON PATH
 ```
 
-Instruktionen FOR JSON PATH formaterar resultatet av frågan som JSON-texten. Kolumnnamn som används som nycklar, medan cellvärden genereras som JSON-värden:
+Satsen FOR JSON PATH formaterar resultatet från frågan som JSON-text. Kolumn namn används som nycklar, medan cell värden genereras som JSON-värden:
 
 ```
 [
@@ -47,9 +46,9 @@ Instruktionen FOR JSON PATH formaterar resultatet av frågan som JSON-texten. Ko
 ]
 ```
 
-Resultatet formateras som en JSON-matris där varje rad formateras som ett separat JSON-objekt.
+Resultat uppsättningen formateras som en JSON-matris där varje rad formateras som ett separat JSON-objekt.
 
-SÖKVÄG anger att du kan anpassa utdataformat JSON-resultat med hjälp av punktnotation i kolumnalias. Följande fråga som ändrar namnet på nyckeln ”kundnamn” i JSON-formatet för utdata och placerar telefon-och faxnummer i det underordnade objektet ”kontakta”:
+SÖKVÄG indikerar att du kan anpassa utdataformatet för JSON-resultatet med hjälp av punkt notation i kolumnalias. Följande fråga ändrar namnet på nyckeln "CustomerName" i JSON-formatet för utdata och placerar telefon-och fax nummer i under objekt för "kontakt":
 
 ```
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
@@ -70,9 +69,9 @@ Utdata från den här frågan ser ut så här:
 }
 ```
 
-I det här exemplet vi returnerade ett enda JSON-objekt i stället för en matris genom att ange den [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) alternativet. Du kan använda det här alternativet om du vet att du returnerar ett enda objekt till följd av frågan.
+I det här exemplet returnerade vi ett enda JSON-objekt i stället för en matris genom att ange alternativet [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) . Du kan använda det här alternativet om du vet att du returnerar ett enskilt objekt som ett resultat av en fråga.
 
-Det huvudsakliga värdet för FOR JSON-satsen är att du kan returnera komplexa hierarkiska data från databasen formaterade som kapslad JSON-objekt eller matriser. I följande exempel visas hur du lägger till rader från den `Orders` tabellen som tillhör den `Customer` som en kapslad mängd `Orders`:
+Huvudvärdet för FOR JSON-satsen är att du kan returnera komplexa hierarkiska data från databasen som har formaterats som kapslade JSON-objekt eller matriser. I följande exempel visas hur du tar med rader från `Orders` tabellen som tillhör `Customer` som en kapslad matris med `Orders`:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -85,7 +84,7 @@ FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 
 ```
 
-I stället för att separera frågor och få kunddata och för att hämta en lista över relaterade order, kan du sedan hämta alla nödvändiga data med en enda fråga, enligt följande exempel på utdata:
+I stället för att skicka separata frågor för att hämta kund information och sedan hämta en lista över relaterade order, kan du hämta alla nödvändiga data med en enda fråga, som du ser i följande exempel på utdata:
 
 ```
 {
@@ -101,9 +100,9 @@ I stället för att separera frågor och få kunddata och för att hämta en lis
 ```
 
 ## <a name="working-with-json-data"></a>Arbeta med JSON-data
-Om du inte har strikt strukturerade data, om du har komplexa underordnade objekt, matriser eller hierarkiska data, eller om din datastrukturer utvecklas över tid, kan JSON-format hjälpa dig att representera alla komplexa datastruktur.
+Om du inte har rent strukturerade data, om du har komplexa underordnade objekt, matriser eller hierarkiska data, eller om dina data strukturer utvecklas över tid, kan JSON-formatet hjälpa dig att representera en komplex data struktur.
 
-JSON är ett text-format som kan användas som en annan strängtyp i Azure SQL Database. Du kan skicka eller lagra JSON-data som en standard NVARCHAR:
+JSON är ett text format som kan användas som vilken annan sträng typ som helst i Azure SQL Database. Du kan skicka eller lagra JSON-data som en standard NVARCHAR:
 
 ```
 CREATE TABLE Products (
@@ -119,18 +118,18 @@ AS BEGIN
 END
 ```
 
-JSON-data som används i det här exemplet representeras med hjälp av typen NVARCHAR(MAX). JSON kan infogas i den här tabellen eller anges som ett argument av den lagrade proceduren med standard Transact-SQL-syntax som du ser i följande exempel:
+De JSON-data som används i det här exemplet representeras med hjälp av typen NVARCHAR (MAX). JSON kan infogas i den här tabellen eller anges som ett argument för den lagrade proceduren med hjälp av standarden Transact-SQL syntax, som visas i följande exempel:
 
 ```
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Alla på klientsidan språk eller biblioteket som fungerar med strängdata i Azure SQL Database fungerar även med JSON-data. JSON kan lagras i en tabell som har stöd för typen NVARCHAR, till exempel en minnesoptimerad tabell eller en systemversionstabell. JSON införs inte eventuella villkor i koden för klientsidan eller i databas-lagret.
+Alla språk eller bibliotek på klient sidan som fungerar med sträng data i Azure SQL Database kommer också att fungera med JSON-data. JSON kan lagras i vilken tabell som helst som stöder typen NVARCHAR, till exempel en Minnesoptimerade tabell eller en tabell med System version. JSON introducerar inte någon begränsning antingen i kod på klient sidan eller i databas skiktet.
 
-## <a name="querying-json-data"></a>Köra frågor mot JSON-data
-Om du har data formaterade som JSON som lagras i Azure SQL-tabeller, kan du använda dessa data i en SQL-fråga i JSON-funktioner.
+## <a name="querying-json-data"></a>Fråga JSON-data
+Om du har data som är formaterade som JSON-lagrade i Azure SQL-tabeller kan du använda JSON-funktioner för att använda dessa data i alla SQL-frågor.
 
-JSON-funktioner som är tillgängliga i Azure SQL database kan du hantera data formaterade som JSON som alla andra SQL-datatyper. Du kan enkelt extrahera värden från JSON-texten och använda JSON-data i alla frågor:
+JSON-funktioner som är tillgängliga i Azure SQL Database gör att du kan behandla data formaterade som JSON som andra SQL-datatyper. Du kan enkelt extrahera värden från JSON-texten och använda JSON-data i alla frågor:
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -142,13 +141,13 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-Funktionen JSON_VALUE extraherar ett värde från JSON-texten som lagras i kolumnen Data. Den här funktionen använder en JavaScript-liknande sökväg för att referera till ett värde i JSON-texten att extrahera. Det extrahera värdet kan användas i någon del av SQL-fråga.
+Funktionen JSON_VALUE extraherar ett värde från JSON-text som lagras i data kolumnen. Den här funktionen använder en JavaScript-liknande sökväg för att referera till ett värde i JSON-text att extrahera. Det extraherade värdet kan användas i valfri del av SQL-frågan.
 
-Funktionen JSON_QUERY liknar JSON_VALUE. Till skillnad från JSON_VALUE extraherar komplexa underordnade objekt, till exempel matriser eller objekt som är placerade i JSON-texten i den här funktionen.
+Funktionen JSON_QUERY liknar JSON_VALUE. Till skillnad från JSON_VALUE extraherar den här funktionen komplexa under objekt, till exempel matriser eller objekt som placeras i JSON-text.
 
-Funktionen JSON_MODIFY kan du ange sökvägen till värdet i JSON-texten som ska uppdateras, samt ett nytt värde som skriver över den gamla servern. Det här sättet kan du enkelt uppdatera JSON-texten utan reparsing hela strukturen.
+Med funktionen JSON_MODIFY kan du ange sökvägen till värdet i JSON-texten som ska uppdateras, samt ett nytt värde som skriver över det gamla. På så sätt kan du enkelt uppdatera JSON-text utan att parsa om hela strukturen.
 
-Eftersom JSON finns i en standardtext, finns det inga garantier att värdena som lagrats i kolumner med text är korrekt formaterade. Du kan verifiera att text som lagras i JSON-kolumnen är korrekt formaterade med hjälp av standard Kontrollbegränsningar för Azure SQL Database och funktionen ISJSON:
+Eftersom JSON lagras i en vanlig text, finns det inga garantier för att värdena som lagras i text kolumner är korrekt formaterade. Du kan kontrol lera att texten som lagras i JSON-kolumnen är korrekt formaterad genom att använda standard Azure SQL Database kontroll begränsningar och funktionen ISJSON:
 
 ```
 ALTER TABLE Products
@@ -156,18 +155,18 @@ ALTER TABLE Products
         CHECK (ISJSON(Data) > 0)
 ```
 
-Om den inmatade texten är korrekt formaterad JSON, returnerar funktionen ISJSON värdet 1. På varje insert eller uppdatering av JSON-kolumn, kommer den här begränsningen Kontrollera att nya textvärdet inte är felaktiga JSON.
+Om den inmatade texten är korrekt formaterad JSON, returnerar funktionen ISJSON värdet 1. Vid varje infogning eller uppdatering av JSON-kolumnen, verifierar den här begränsningen att det nya textvärdet inte är en felaktig JSON.
 
-## <a name="transforming-json-into-tabular-format"></a>Transformera JSON i tabellformat
-Azure SQL Database kan du omvandla JSON-samlingar till tabelldata för JSON-format och belastning eller frågan.
+## <a name="transforming-json-into-tabular-format"></a>Omvandla JSON till tabell format
+Med Azure SQL Database kan du också transformera JSON-samlingar till tabell format och läsa in eller fråga JSON-data.
 
-OPENJSON är en tabell / värde-funktion som Parsar JSON-text, söker efter en matris av JSON-objekt, upprepas element i matrisen och returnerar en rad i utdata resultatet för varje element i matrisen.
+Openjson är en tabell värdes funktion som analyserar JSON-text, letar upp en matris med JSON-objekt, itererar igenom elementen i matrisen och returnerar en rad i resultatet för varje element i matrisen.
 
-![JSON tabular](./media/sql-database-json-features/image_2.png)
+![JSON-tabell](./media/sql-database-json-features/image_2.png)
 
-I exemplet ovan kan vi ange var du vill placera den JSON-matris som ska öppnas (i $. Order sökväg), vilka kolumner som ska returneras som resultat och var du hittar de JSON-värden som returneras som celler.
+I exemplet ovan kan vi ange var du vill hitta den JSON-matris som ska öppnas (i $. Order Sök väg), vilka kolumner som ska returneras som resultat och var du hittar de JSON-värden som ska returneras som celler.
 
-Vi kan omvandla en JSON-matris på den @orders variabel till en uppsättning rader, analysera resultat eller infoga rader i en standardtabell:
+Vi kan omvandla en JSON-matris i @orders variabeln till en rad med rader, analysera den här resultat uppsättningen eller infoga rader i en standard tabell:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
@@ -185,14 +184,14 @@ AS BEGIN
 
 END
 ```
-Insamling av order formaterade som en JSON-matris och tillhandahålls som en parameter till den lagrade proceduren kan parsas och infogas i tabellen Order.
+Samlingen med order som formaterats som en JSON-matris och anges som en parameter till den lagrade proceduren kan parsas och infogas i tabellen Orders.
 
 ## <a name="next-steps"></a>Nästa steg
-Kolla in dessa resurser om du vill veta hur du integrerar JSON i ditt program:
+Mer information om hur du integrerar JSON i ditt program finns i följande resurser:
 
-* [TechNet-bloggen](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
-* [MSDN-dokumentationen](https://msdn.microsoft.com/library/dn921897.aspx)
-* [Channel 9-video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
+* [TechNet-blogg](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
+* [MSDN-dokumentation](https://msdn.microsoft.com/library/dn921897.aspx)
+* [Video om kanal 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-Mer information om olika scenarier för att integrera JSON i ditt program, se demonstrationer i det här [Channel 9-video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) eller hitta ett scenario som passar ditt användningsområde i [JSON blogginlägg](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+Mer information om olika scenarier för integrering av JSON i programmet finns i demonstrationerna i den här [kanalen 9-videon](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) eller hitta ett scenario som matchar ditt användnings fall i [JSON-blogg inlägg](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

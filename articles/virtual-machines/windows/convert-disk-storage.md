@@ -1,44 +1,35 @@
 ---
-title: Konvertera Azure managed disks-lagring från Standard till Premium- eller Premium till Standard | Microsoft Docs
-description: Så här konverterar du Azure hanterade diskar från Standard till Premium- eller Premium till Standard med hjälp av Azure PowerShell.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Konvertera Azure Managed disks Storage från standard till Premium eller Premium till standard | Microsoft Docs
+description: Så här konverterar du Azure Managed disks från standard till Premium eller Premium till standard med hjälp av Azure PowerShell.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5687e6d0094083a9ee58455cc72b0b2e4da32d65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa6b005be91f47f5976dace7fd1e76f6ea7e0b29
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417149"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698849"
 ---
-# <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagringstypen för en hanterad disk
+# <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagrings typen för en hanterad disk
 
-Det finns fyra disktyper Azure hanterade diskar: Azure ultra SSD: er (förhandsversion), premium SSD, standard SSD och HDD-standard. Du kan växla mellan tre GA-disktyper (premium SSD, standard SSD och HDD-standard) baserat på dina behov. Du har ännu inte kan växla från eller till ett ultra SSD, måste du distribuera en ny.
+Det finns fyra disk typer av Azure Managed disks: Azure Ultra SSD (för hands version), Premium SSD, standard SSD och standard-HDD. Du kan växla mellan de tre GA disk typerna (Premium SSD, standard SSD och standard-HDD) utifrån dina prestanda behov. Du kan inte byta från eller till en ultra SSD, men du måste distribuera en ny.
 
-Den här funktionen stöds inte för ohanterade diskar. Men du kan enkelt [konvertera en ohanterad disk till en hanterad disk](convert-unmanaged-to-managed-disks.md) för att kunna växla mellan disktyper.
+Den här funktionen stöds inte för ohanterade diskar. Men du kan enkelt [konvertera en ohanterad disk till en hanterad disk](convert-unmanaged-to-managed-disks.md) för att kunna växla mellan disk typer.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* Eftersom konverteringen kräver en omstart av den virtuella datorn (VM), bör du schemalägga migreringen av din disklagring under en schemalagd underhållstid.
-* Om disken inte är hanterad, först [konvertera den till en hanterad disk](convert-unmanaged-to-managed-disks.md) så att du kan växla mellan lagringsalternativ.
+* Eftersom konverteringen kräver en omstart av den virtuella datorn (VM) bör du schemalägga migreringen av disk lagringen under ett redan befintligt underhålls fönster.
+* Om disken är ohanterad måste du först [konvertera den till en hanterad disk](convert-unmanaged-to-managed-disks.md) så att du kan växla mellan lagrings alternativen.
 
-## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Växla alla hanterade diskar på en virtuell dator mellan Premium och Standard
+## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Växla alla hanterade diskar för en virtuell dator mellan Premium och standard
 
-Det här exemplet visar hur du konverterar alla diskar på en virtuell dator från Standard till Premium storage eller från Premium till Standard storage. Om du vill använda Premium-hanterade diskar, den virtuella datorn måste använda en [VM-storlek](sizes.md) som har stöd för premiumlagring. Det här exemplet växlar också till en storlek som har stöd för premium storage:
+I det här exemplet visas hur du konverterar alla diskar från standard till Premium Storage eller från Premium till standard lagring. Om du vill använda Premium Managed disks måste den virtuella datorn använda en [VM-storlek](sizes.md) som har stöd för Premium Storage. Det här exemplet växlar också till en storlek som har stöd för Premium Storage:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -81,9 +72,9 @@ foreach ($disk in $vmDisks)
 Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Växla enskilda hanterade diskar mellan Standard och Premium
+## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Växla mellan de enskilda hanterade diskarna mellan standard och Premium
 
-Du kanske vill en blandning av Standard och Premium-diskar för att minska kostnaderna för utveckling/testning-arbetsbelastning. Du kan välja att uppgradera de diskar som behöver bättre prestanda. Det här exemplet visar hur du konverterar en enskild datordisk för virtuell från Standard till Premium storage eller från Premium till Standard storage. Om du vill använda Premium-hanterade diskar, den virtuella datorn måste använda en [VM-storlek](sizes.md) som har stöd för premiumlagring. Det här exemplet visar också hur du växlar till en storlek som har stöd för Premium storage:
+För din arbets belastning för utveckling/testning kanske du vill ha en blandning av standard-och Premium-diskar för att minska kostnaderna. Du kan välja att bara uppgradera de diskar som behöver bättre prestanda. Det här exemplet visar hur du konverterar en enskild virtuell dator disk från standard till Premium Storage eller från Premium till standard lagring. Om du vill använda Premium Managed disks måste den virtuella datorn använda en [VM-storlek](sizes.md) som har stöd för Premium Storage. I det här exemplet visas också hur du växlar till en storlek som har stöd för Premium Storage:
 
 ```azurepowershell-interactive
 
@@ -118,24 +109,24 @@ Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Konvertera hanterade diskar från Standard till Premium i Azure portal
+## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Konvertera Managed disks från standard till Premium i Azure Portal
 
 Följ de här stegen:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj den virtuella datorn från listan över **virtuella datorer** i portalen.
-3. Om den virtuella datorn inte är stoppad väljer **stoppa** överst i VM **översikt** fönstret och vänta tills den virtuella datorn att stoppa.
-3. I fönstret för den virtuella datorn, väljer **diskar** på menyn.
+2. Välj den virtuella datorn i listan över **virtuella datorer** i portalen.
+3. Om den virtuella datorn inte är stoppad väljer du **stoppa** längst upp i **översikts** fönstret för den virtuella datorn och väntar på att den virtuella datorn ska stoppas.
+3. I fönstret för den virtuella datorn väljer du **diskar** på menyn.
 4. Välj den disk som du vill konvertera.
-5. Välj **Configuration** på menyn.
-6. Ändra den **kontotyp** från **Standard HDD** till **Premium SSD**.
-7. Klicka på **spara**, och Stäng fönstret disk.
+5. Välj **konfiguration** på menyn.
+6. Ändra **konto typen** från **standard HDD** till **Premium SSD**.
+7. Klicka på **Spara**och Stäng disk fönstret.
 
-Typkonvertering disk är omedelbart. Du kan starta om den virtuella datorn efter konverteringen.
+Disk typs konverteringen är omedelbar. Du kan starta om den virtuella datorn efter konverteringen.
 
-## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>Växla hanterade diskar mellan Standard HDD- och Standard SSD 
+## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>Växla Managed disks mellan Standard HDD och Standard SSD 
 
-Det här exemplet visar hur du konverterar en enskild datordisk för virtuell från Standard Hårddisk till Standard SSD eller från Standard SSD till Standard HDD:
+Det här exemplet visar hur du konverterar en enskild virtuell dator disk från Standard HDD till Standard SSD eller från Standard SSD till Standard HDD:
 
 ```azurepowershell-interactive
 
@@ -165,4 +156,4 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa en skrivskyddad kopia av en virtuell dator med hjälp av en [ögonblicksbild](snapshot-copy-managed-disk.md).
+Gör en skrivskyddad kopia av en virtuell dator med hjälp av en [ögonblicks bild](snapshot-copy-managed-disk.md).

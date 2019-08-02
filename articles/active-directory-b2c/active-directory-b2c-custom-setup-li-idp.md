@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9f854e1771eec1d02fd14e040510688bf33c59c8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9465c1991418c7ebef8c4eed825affc7b1d93492
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442438"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693333"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett LinkedIn-konto med anpassade principer i Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du aktiverar inloggning för användare från ett Li
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - LinkedIn-konto – om du inte redan har ett [konto kan du skapa ett konto](https://www.linkedin.com/start/join).
-- LinkedIn-sida – du behöver en [LinkedIn-sida](https://www.linkedin.com/company/setup/new/) för att koppla till LinkedIn-programmet som du skapar i nästa avsnitt.
+- LinkedIn-sida – du behöver en [LinkedIn-sida](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page) för att koppla till LinkedIn-programmet som du skapar i nästa avsnitt.
 
 ## <a name="create-an-application"></a>Skapa ett program
 
@@ -260,7 +260,7 @@ Till:
 
 ### <a name="add-items-to-the-metadata"></a>Lägg till objekt i metadata
 
-I TechnicalProfile **metadata** lägger du till följande **objekt** element:
+I TechnicalProfile **metadata** lägger dutill följande **objekt** element:
 
 ```XML
 <Item Key="external_user_identity_claim_id">id</Item>

@@ -5,25 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/21/2019
+ms.date: 07/25/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f9a828e5233c88db2106bc648c07578927e0d29
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187017"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514873"
 ---
-Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till blob och kö med hjälp av Azure AD och OAuth:
+Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till blob-och Queue-data med hjälp av Azure AD och OAuth:
 
-- [Storage Blob Data ägare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Använd för att ange ägarskap och hantera POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2 (förhandsversion). Mer information finns i [åtkomstkontroll i Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
-- [Storage Blob Data-deltagare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Använd för att bevilja behörigheter för Läs/Skriv/ta bort till Blob storage-resurser.
-- [Storage Blob Data-läsare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader): Använd det här alternativet om du vill ge läsbehörighet till Blob storage-resurser.
-- [Lagringsködata-deltagare](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Använd för att ge Läs/Skriv/ta bort behörighet till Azure-köer.
-- [Lagringsködata-läsare](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): Använd det här alternativet om du vill ge läsbehörighet till Azure-köer.
-- [Storage-kö Data meddelande Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Använd för att bevilja peek, hämta och ta bort behörigheter till meddelanden i Azure Storage-köer.
-- [Kön lagringsdata meddelande avsändaren](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Använd för att bevilja lägga till behörigheter till meddelanden i Azure Storage-köer.
+- [Ägare till Storage BLOB-data](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Använd för att ange ägarskap och hantera POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2. Mer information finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
+- [Data deltagare i Storage BLOB](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Används för att bevilja läs-/skriv-/borttagnings behörigheter till Blob Storage-resurser.
+- [Storage BLOB data Reader](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader): Används för att bevilja Läs behörighet till Blob Storage-resurser.
+- [Deltagare i Storage Queue-data](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Används för att bevilja läs-/skriv-/borttagnings behörigheter till Azure-köer.
+- [Data läsare för lagrings köer](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): Använd för att ge Läs behörighet till Azure-köer.
+- [Processor för data meddelande i lagrings köer](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Används för att ge behörighet att granska, hämta och ta bort meddelanden i Azure Storage köer.
+- Avsändare av [data meddelande i lagrings köer](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Används för att bevilja Lägg till behörigheter till meddelanden i Azure Storage köer.
 
 > [!NOTE]
-> Tänk på att RBAC-rolltilldelningar kan ta upp till fem minuter att sprida.
+> Tänk på att det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar.

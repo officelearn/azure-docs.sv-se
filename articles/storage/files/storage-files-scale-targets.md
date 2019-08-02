@@ -1,19 +1,18 @@
 ---
 title: Skalbarhets- och prestandamål i Azure filer | Microsoft Docs
 description: Läs mer om mål för skalbarhet och prestanda för Azure Files, inklusive kapaciteten, förfrågningar och gränser för inkommande och utgående bandbredd.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542653"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699630"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 
@@ -30,30 +29,30 @@ Den överordnade resursen för en Azure-filresurs är ett Azure storage-konto. E
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> Generell användning konto lagringsanvändningen från andra lagringstjänster påverkar Azure-filresurser i lagringskontot. Till exempel om du når den maximala lagringskapaciteten konto med Azure Blob storage kan kommer du inte att skapa nya filer på din Azure-filresurs, även om din Azure-filresurs är lägre än maximala filresursens storlek.
+> Generell användning av lagrings konto användningen från andra lagrings tjänster påverkar dina Azure-filresurser i ditt lagrings konto. Till exempel om du når den maximala lagringskapaciteten konto med Azure Blob storage kan kommer du inte att skapa nya filer på din Azure-filresurs, även om din Azure-filresurs är lägre än maximala filresursens storlek.
 
 ## <a name="azure-files-scale-targets"></a>Azure filer skala mål
 
-Det finns tre typer av begränsningar att överväga för Azure Files: storage-konton, resurser och filer.
+Det finns tre typer av begränsningar att överväga för Azure Files: lagrings konton, resurser och filer.
 
-Exempel: En enda resurs kan uppnå 100 000 IOPS med premium-filresurser och en enskild fil kan skala upp till 5 000 IOPS. Så om du har tre filer i en resurs är den högsta IOPS som du kan hämta från resursen 15 000.
+Exempel: Med Premium-filresurser kan en enda resurs uppnå 100 000 IOPS och en enda fil kan skala upp till 5 000 IOPS. Så om du har tre filer i en resurs är det högsta antalet IOPS som du kan hämta från resursen 15 000.
 
-### <a name="standard-storage-account-limits"></a>Standard lagringskontogränser
+### <a name="standard-storage-account-limits"></a>Standard gränser för lagrings konto
 
-Se den [prestandamål för Azure storage-konto skala](#azure-storage-account-scale-targets) för dessa gränser.
+I avsnittet om [skalnings mål för Azure Storage-konto](#azure-storage-account-scale-targets) finns dessa gränser.
 
-### <a name="premium-filestorage-account-limits"></a>Premium FileStorage gränser
+### <a name="premium-filestorage-account-limits"></a>Konto gränser för Premium-FileStorage
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Lagringskontogränser gäller för alla resurser. Skala upp till är max för FileStorage konton endast möjligt om det finns bara en resurs per FileStorage konto.
+> Lagrings konto gränser gäller för alla resurser. Det går bara att skala upp till max för FileStorage-konton om det bara finns en resurs per FileStorage-konto.
 
-### <a name="file-share-and-file-scale-targets"></a>Filresursen och filen skala mål
+### <a name="file-share-and-file-scale-targets"></a>Fil resurs-och fil skalnings mål
 
 > [!NOTE]
-> Standard filresurser som är större än 5 TiB är i förhandsversion och har vissa begränsningar.
-> En lista av begränsningar och kom igång med förhandsversionen av dessa större filstorlekar för resursen finns i den [Standard filresurser](storage-files-planning.md#standard-file-shares) avsnitt av Planeringsguiden.
+> Standard fil resurser som är större än 5 TiB finns i för hands versionen och har vissa begränsningar.
+> En lista över begränsningar och att publicera i för hands versionen av dessa större fil resurs storlekar finns i avsnittet [standard fil resurser](storage-files-planning.md#standard-file-shares) i planerings guiden.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -61,18 +60,18 @@ Se den [prestandamål för Azure storage-konto skala](#azure-storage-account-sca
 
 ## <a name="azure-file-sync-scale-targets"></a>Azure File Sync skala mål
 
-Azure File Sync har utformats med målet att obegränsad användning, men obegränsad användning är inte alltid möjligt. I följande tabell anger gränserna för Microsofts testning och anger även vilken riktar sig gränser:
+Azure File Sync har utformats med målet obegränsad användning, men obegränsad användning är inte alltid möjlig. Följande tabell visar gränserna för Microsofts testning och indikerar även vilka mål som är hårda gränser:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Azure File Sync-prestandamått
 
-Eftersom Azure File Sync-agenten körs på en Windows Server-dator som ansluter till Azure-filresurser kan beror den effektiva synkroniseringsprestanda på ett antal faktorer i din infrastruktur: Windows Server och den underliggande diskkonfigurationen nätverksbandbredden mellan servern och Azure storage, file storlek, totalt antal datauppsättningens storlek och aktiviteten på datauppsättningen. Eftersom Azure File Sync fungerar på filnivå, mäts bättre prestandaegenskaperna för en Azure File Sync-baserad lösning av antalet objekt (filer och kataloger) som bearbetas per sekund.
+Eftersom Azure File Sync-agenten körs på en Windows Server-dator som ansluter till Azure-filresurser, beror den effektiva synkroniseringen på ett antal faktorer i infrastrukturen: Windows Server och den underliggande disk konfigurationen, nätverks bandbredden mellan servern och Azure-lagring, fil storlek, total data uppsättnings storlek och aktivitet på data uppsättningen. Eftersom Azure File Sync fungerar på filnivå, mäts bättre prestandaegenskaperna för en Azure File Sync-baserad lösning av antalet objekt (filer och kataloger) som bearbetas per sekund.
 
 För Azure File Sync är prestanda viktiga i två steg:
 
-1. **Den första etableringen enstaka**: För att optimera prestanda på den första etableringen, referera till [registrering med Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) för optimal distributionsinformationen.
-2. **Pågående synkronisering**: När data är inledningsvis dirigeras i Azure-filresurser, behåller Azure File Sync flera slutpunkter synkroniserade.
+1. **Första etablering vid ett tillfälle**: För att optimera prestanda vid inledande etablering, se onboarding [med Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) för den optimala distributions informationen.
+2. **Pågående synkronisering**: När data ursprungligen har dirigerats i Azure-filresurserna behålls Azure File Sync flera slut punkter i synkroniseringen.
 
 När du planerar distributionen för vart och ett av stegen, observeras nedan resultaten under intern testning av ett system med en konfiguration
 
@@ -86,9 +85,9 @@ När du planerar distributionen för vart och ett av stegen, observeras nedan re
 
 | Den första enstaka etableringen  |  |
 |-|-|
-| Antal objekt | 25 miljoner objekt |
-| Datauppsättningens storlek| ~4.7 TiB |
-| Genomsnittlig filstorlek | ~ 200 KiB (största filen: 100 GiB) |
+| Antal objekt | 25 000 000 objekt |
+| Datauppsättningens storlek| ~ 4,7 TiB |
+| Genomsnittlig filstorlek | ~ 200 KiB (största fil: 100 GiB) |
 | Ladda upp dataflöde | 20 objekt per sekund |
 | Namespace Download dataflöde * | 400 objekt per sekund |
 

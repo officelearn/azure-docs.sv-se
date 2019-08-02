@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Account - autentisering i Azure App Service
-description: Lär dig hur du konfigurerar Account autentisering för App Services-appen.
+title: Konfigurera autentisering av Microsoft-konto – Azure App Service
+description: Lär dig hur du konfigurerar autentisering med Microsoft-konto för ditt App Services-program.
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -15,49 +15,49 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e3da856efd7d44f15f9de27c9e38375d40dc211d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10b661f0c4b7dc45284b907e83df3c0372f97cab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60850978"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561538"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Så här konfigurerar du App Service-programmet att använda Microsoft Account login
+# <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Så här konfigurerar du ditt App Service program för att använda inloggning med Microsoft-konto
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Det här avsnittet visar hur du konfigurerar Azure App Service för att använda Account som en autentiseringsprovider. 
+Det här avsnittet visar hur du konfigurerar Azure App Service att använda Microsoft-konto som autentiseringsprovider. 
 
 ## <a name="register-microsoft-account"> </a>Registrera din app med Microsoft-konto
-1. Logga in på den [Azure Portal], och navigera till ditt program. Kopiera din **URL**, som senare användas för att konfigurera din app med Account.
-2. Navigera till den [Mina program] i Microsoft Account Developer Center och logga in med ditt Microsoft-konto om det behövs.
-3. Klicka på **lägga till en app**skriver du namnet på ett program och klicka på **skapa**.
-4. Anteckna den **program-ID**, som du behöver senare. 
-5. Klicka på under ”plattformar”, **Lägg till plattform** och välj ”Web”.
-6. Ange slutpunkten för ditt program under ”omdirigerings-URI” och sedan på **spara**. 
+1. Logga in på [Azure Portal]och navigera till ditt program. Kopiera din **URL**, som senare används för att konfigurera din app med Microsoft-konto.
+2. Gå till [**Appregistreringar**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)och logga in med ditt Microsoft-konto, om det behövs.
+3. Klicka på **Lägg till en app**och skriv sedan ett program namn och klicka på **skapa**.
+4. Anteckna **program-ID: t**eftersom du kommer att behöva det senare. 
+5. Under "plattformar" klickar du på **Lägg till plattform** och väljer "webb".
+6. Under "omdirigerings-URI" anger du slut punkten för ditt program och klickar sedan på **Spara**. 
    
    > [!NOTE]
-   > Din omdirigerings-URI: N är URL: en för ditt program läggas till med sökvägen */.auth/login/microsoftaccount/callback*. Till exempel `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
-   > Kontrollera att du använder HTTPS-schema.
+   > Din omdirigerings-URI är URL: en för ditt program som lagts till med sökvägen */.auth/login/MicrosoftAccount/callback*. Till exempel `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
+   > Kontrol lera att du använder HTTPS-schemat.
    
-7. Klicka på under ”Programhemligheter” **generera nytt lösenord**. Anteckna värdet som visas. När du lämnar sidan, kommer det inte att visas igen.
+7. Under "program hemligheter" klickar du på **Skapa nytt lösen ord**. Anteckna värdet som visas. När du lämnar sidan visas den inte igen.
 
     > [!IMPORTANT]
-    > Lösenordet är en viktig säkerhetsuppgift för autentisering. Inte dela lösenordet med vem som helst och distribuera det i ett klientprogram.
+    > Lösen ordet är en viktig säkerhets autentiseringsuppgift. Dela inte lösen ordet med någon eller distribuera det i ett klient program.
     
 8. Klicka på **Spara**
 
-## <a name="secrets"> </a>Lägga till information om Account App Service-programmet
-1. I den [Azure Portal]navigerar du till ditt program, klicka på **inställningar** > **autentisering / auktorisering**.
-2. Om autentisering / auktorisering är inte aktiverad, stänga av **på**.
-3. Klicka på **Microsoftkonto**. Klistra in i program-ID och lösenord värden som du hämtade tidigare och välja att eventuella scope som krävs för ditt program. Klicka sedan på **OK**.
+## <a name="secrets"> </a>Lägg till information om Microsoft-konto till ditt App Service program
+1. Gå tillbaka till ditt program i [Azure Portal], klicka på **Inställningar** > **autentisering/auktorisering**.
+2. Om funktionen autentisering/auktorisering inte är aktive rad, så aktivera **den.**
+3. Klicka på **Microsoft-konto**. Klistra in värdena för program-ID och lösen ord som du har fått tidigare, och eventuellt aktivera alla omfattningar som programmet kräver. Klicka sedan på **OK**.
    
     ![][1]
    
-    Som standard, App Service ger autentisering, men begränsar inte auktoriserad åtkomst till webbplatsens innehåll och API: er. Du måste auktorisera användare i din kod.
-4. (Valfritt) Om du vill begränsa åtkomsten till din plats för att endast användare som autentiseras av Microsoft-konto, ange **åtgärd att vidta när begäran inte har autentiserats** till **Account**. Detta kräver att alla förfrågningar autentiseras och alla oautentiserade begäranden omdirigeras till Microsoft-konto för autentisering.
+    Som standard tillhandahåller App Service autentisering men begränsar inte tillåten åtkomst till ditt webbplats innehåll och API: er. Du måste auktorisera användare i din app-kod.
+4. Valfritt Om du vill begränsa åtkomsten till din webbplats till endast användare som autentiserats av Microsoft-konto anger **du åtgärd som ska vidtas när förfrågan inte autentiseras** till **Microsoft-kontot**. Detta kräver att alla begär Anden autentiseras och att alla oautentiserade begär Anden omdirigeras till Microsoft-konto för autentisering.
 5. Klicka på **Spara**.
 
-Du är nu redo att använda Account för autentisering i din app.
+Du är nu redo att använda Microsoft-kontot för autentisering i din app.
 
 ## <a name="related-content"> </a>Relaterat innehåll
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
@@ -69,5 +69,5 @@ Du är nu redo att använda Account för autentisering i din app.
 
 <!-- URLs. -->
 
-[Mina program]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure Portal]: https://portal.azure.com/

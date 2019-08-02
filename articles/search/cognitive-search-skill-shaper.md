@@ -1,6 +1,6 @@
 ---
-title: Formaren kognitiv sökning färdigheter – Azure Search
-description: Extrahera metadata och strukturerad information från Ostrukturerade data och forma dem som en komplex typ i en Azure Search berikande pipeline.
+title: Formaren kognitiva Sök kunskaper – Azure Search
+description: Extrahera metadata och strukturerad information från ostrukturerade data och forma den som en komplex typ i en Azure Search anriknings pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,41 +11,34 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a970bb2c33db1ad78dca088b7d9b2430984df96
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540835"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698871"
 ---
 #   <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
 
-Den **formaren** färdighet konsoliderar flera indata i en [komplex typ](search-howto-complex-data-types.md) som kan referera till senare i berikande pipelinen. Den **formaren** färdighet kan du skapa en struktur, ange namnet på medlemmarna i denna struktur och tilldela värden till varje medlem i stort sett. Exempel på konsoliderade fält som är användbart i sökscenarier är att kombinera ett första och sista namn till en enda struktur, stad och tillstånd i en enda struktur, eller ett namn och födelsedatum i en enda struktur att upprätta en unik identitet.
+**Formaren** -kompetensen konsoliderar flera indata till en [komplex typ](search-howto-complex-data-types.md) som kan refereras till senare i pipelinen för anrikning. Med **formaren** -kompetensen kan du i princip skapa en struktur, definiera namnet på medlemmarna i strukturen och tilldela värden till varje medlem. Exempel på konsoliderade fält som är användbara i Sök scenarier är att kombinera ett förnamn och efter namn i en enda struktur, stad och stat till en enda struktur, eller namn och födelse datum i en enda struktur för att upprätta unik identitet.
 
-API-versionen avgör djup vi att du kan uppnå. 
+Dessutom lägger **formaren** -kunskapen som illustreras i [Scenario 3](#nested-complex-types) till en valfri *sourceContext* -egenskap i indatamängden. Egenskaperna *Source* och *sourceContext* kan inte anges samtidigt. Om indatamängden är i kontexten för kunskapen använder du bara *källa*. Om indatatypen är i ett *annat* sammanhang än kunskaps kontexten använder du *sourceContext*. *SourceContext* kräver att du definierar en kapslad indatamängd med det angivna elementet som ska hanteras som källa. 
 
-| API-version | Forma beteenden | 
-|-------------|-------------------|
-| 2019-05-06-preview REST-API-versionen (.NET SDK stöds inte) | Komplexa objekt flera nivåer djup, i en **formaren** färdighet definition. |
-| 2019-05-06 ** (allmänt tillgänglig), 2017-11-11-förhandsversion| Komplexa objekt, en nivå. Formen med flera nivåer kräver länkning av flera formaren steg.|
-
-Som tillhandahålls av `api-version=2019-05-06-Preview`, **formaren** färdighet illustreras i [scenario 3](#nested-complex-types) lägger till en ny valfri *sourceContext* som indata. Den *källa* och *sourceContext* egenskaper kan inte anges samtidigt. Om indata är i samband med kunskaper kan bara använda *källa*. Om indata är på en *olika* kontext än färdighet kontext, Använd den *sourceContext*. Den *sourceContext* måste du definiera en kapslad indata med specifika elementet håller på att åtgärdas som källa. 
-
-I svaret, för alla API-versioner, är utdatanamnet alltid ”utdata”. Internt pipelinen kan mappa ett annat namn, till exempel ”analyzedText” som du ser i exemplen nedan, men **formaren** färdighet själva returnerar ”utdata” i svaret. Det kan vara viktigt om du felsöker avancerad och dokument och notera avvikelsen namngivning, eller om du bygger en anpassad kunskap och strukturerar svaret själv.
+Utdatafilens namn är alltid "output". I ett internt sätt kan pipelinen mappa ett annat namn, till exempel "analyzedText" som visas i exemplen nedan, men **formaren** -skickligheten returnerar "output" i svaret. Detta kan vara viktigt om du felsöker omfattande dokument och märker namngivnings avvikelsen, eller om du skapar en anpassad färdighet och strukturerar svaret själv.
 
 > [!NOTE]
-> Den **formaren** färdighet är inte bunden till en Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md), men att åsidosätta den **kostnadsfri** resurs-alternativ som begränsar du till ett litet antal dagliga enrichments per dag.
+> **Formaren** -kompetensen är inte kopplad till ett COGNITIVE Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md), men för att åsidosätta det **kostnads fria** resurs alternativet som begränsar dig till ett litet antal dagliga berikare per dag.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.ShaperSkill
+Microsoft. färdigheter. util. ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Scenario 1: komplexa typer
 
-Tänk dig ett scenario där du vill skapa en struktur som kallas *analyzedText* som har två medlemmar: *text* och *sentiment*respektive. I ett Azure Search-index, en flerdelad sökbart fält kallas en *komplex typ* och skapas ofta när källdatan har en motsvarande komplex struktur som mappar till den.
+Tänk dig ett scenario där du vill skapa en struktur med namnet *analyzedText* som har två medlemmar: *text* respektive *sentiment*. I ett Azure Search-index kallas ett sökbart fält med flera delar som en *komplex typ* och det skapas ofta när källdata har en motsvarande komplex struktur som mappar till den.
 
-En annan metod för att skapa komplexa typer är dock via den **formaren** färdigheter. Genom att inkludera kompetensen i en kompetens kan i minnet åtgärder under kompetens bearbetning skickas datastrukturer med kapslade strukturer, vilket kan sedan mappas till en komplex typ i ditt index. 
+En annan metod för att skapa komplexa typer är dock genom **formaren** -kompetensen. Genom att inkludera den här kunskapen i en färdigheter, kan åtgärder i minnet under färdigheter-bearbetningen mata ut data former med kapslade strukturer, som sedan kan mappas till en komplex typ i indexet. 
 
-Följande exempel färdighet definition innehåller medlemmen namn som indata. 
+Följande exempel på kunskaps definition ger medlems namnen som inmatade. 
 
 
 ```json
@@ -71,9 +64,9 @@ Följande exempel färdighet definition innehåller medlemmen namn som indata.
 }
 ```
 
-### <a name="sample-index"></a>Exempelindex
+### <a name="sample-index"></a>Exempel index
 
-En kompetens anropas av en indexerare och en indexerare kräver ett index. En representation för komplexa fält i indexet kan se ut som i följande exempel. 
+En färdigheter anropas av en indexerare och en indexerare kräver ett index. En komplex fälts representation i indexet kan se ut som i följande exempel. 
 
 ```json
 
@@ -98,9 +91,9 @@ En kompetens anropas av en indexerare och en indexerare kräver ett index. En re
                 },
 ```
 
-### <a name="skill-input"></a>Färdighet indata
+### <a name="skill-input"></a>Kompetens ingång
 
-Ett inkommande JSON-dokument som tillhandahåller användbar indata för den här **formaren** färdighet kan vara:
+Ett inkommande JSON-dokument som tillhandahåller användbara ininformation för den här **formaren** -kompetensen kan vara:
 
 ```json
 {
@@ -117,9 +110,9 @@ Ett inkommande JSON-dokument som tillhandahåller användbar indata för den hä
 ```
 
 
-### <a name="skill-output"></a>Färdighet utdata
+### <a name="skill-output"></a>Kompetens utmatning
 
-Den **formaren** färdighet genererar ett nytt element som kallas *analyzedText* med de kombinerade delarna av *text* och *sentiment*. Dessa utdata överensstämmer med indexschemat. Det ska importeras och indexeras i ett Azure Search-index.
+**Formaren** -kompetensen genererar ett nytt element med namnet *analyzedText* med de kombinerade elementen *text* och *sentiment*. Dessa utdata följer index schemat. Den importeras och indexeras i ett Azure Search-index.
 
 ```json
 {
@@ -139,11 +132,11 @@ Den **formaren** färdighet genererar ett nytt element som kallas *analyzedText*
 }
 ```
 
-## <a name="scenario-2-input-consolidation"></a>Scenario 2: inkommande konsolidering
+## <a name="scenario-2-input-consolidation"></a>Scenario 2: inmatad konsolidering
 
-Tänk dig att i olika faser av pipeline-bearbetning, du har extraherat rubriken för en bok och kapitelrubriker på olika sidor i en bok i ett annat exempel. Du kan nu skapa en enkel struktur som består av dessa olika indata.
+I ett annat exempel kan du anta att du har extraherat titeln på en bok och kapitel rubriker på olika sidor i boken. Nu kan du skapa en enda struktur som består av dessa olika indata.
 
-Den **formaren** färdighet definitionen för det här scenariot kan se ut som i följande exempel:
+**Formaren** kompetens definition för det här scenariot kan se ut som i följande exempel:
 
 ```json
 {
@@ -168,8 +161,8 @@ Den **formaren** färdighet definitionen för det här scenariot kan se ut som i
 }
 ```
 
-### <a name="skill-output"></a>Färdighet utdata
-I det här fallet den **formaren** plattar ut alla kapitelrubriker för att skapa en enskild matris. 
+### <a name="skill-output"></a>Kompetens utmatning
+I det här fallet fören klar **formaren** alla kapitel rubriker för att skapa en enda matris. 
 
 ```json
 {
@@ -193,14 +186,11 @@ I det här fallet den **formaren** plattar ut alla kapitelrubriker för att skap
 
 <a name="nested-complex-types"></a>
 
-## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: inkommande konsolidering från kapslade kontexter
+## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scenario 3: indatamängds konsolidering från kapslade kontexter
 
-> [!NOTE]
-> Kapslade strukturer som stöds i den [REST API-version 2019-05-06-Preview](search-api-preview.md) kan användas i en [knowledge store](knowledge-store-concept-intro.md) eller i ett Azure Search-index.
+Tänk dig att du har rubriken, kapitlen och innehållet i en bok och att du har kört enhets igenkänning och nyckel fraser på innehållet. nu måste du samla in resultat från de olika färdigheterna i en enda form med kapitel namn, entiteter och nyckel fraser.
 
-Anta att du har den rubrik, kapitel och innehållet i en bok och har kört entitet erkännande och nyckeln fraser på innehållet och nu måste du aggregera resultat från olika färdigheter till en enda form med KAPITELNAMN, entiteter och viktiga fraser.
-
-Den **formaren** färdighet definitionen för det här scenariot kan se ut som i följande exempel:
+**Formaren** kompetens definition för det här scenariot kan se ut som i följande exempel:
 
 ```json
 {
@@ -236,8 +226,8 @@ Den **formaren** färdighet definitionen för det här scenariot kan se ut som i
 }
 ```
 
-### <a name="skill-output"></a>Färdighet utdata
-I det här fallet den **formaren** skapar en komplex typ. Den här strukturen finns i minnet. Om du vill spara den till en knowledge store bör du skapa en projektion i din kompetens som definierar lagringsegenskaper.
+### <a name="skill-output"></a>Kompetens utmatning
+I det här fallet skapar **formaren** en komplex typ. Den här strukturen finns i minnet. Om du vill spara den i ett [kunskaps lager](knowledge-store-concept-intro.md)bör du skapa en projektion i färdigheter som definierar lagrings egenskaper.
 
 ```json
 {
@@ -262,7 +252,7 @@ I det här fallet den **formaren** skapar en komplex typ. Den här strukturen fi
 ## <a name="see-also"></a>Se också
 
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
-+ [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
-+ [Hur du använder komplexa typer](search-howto-complex-data-types.md)
-+ [Översikt över Knowledge](knowledge-store-concept-intro.md)
-+ [Hur du kommer igång med knowledge store](knowledge-store-howto.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Använda komplexa typer](search-howto-complex-data-types.md)
++ [Översikt över kunskaps lager](knowledge-store-concept-intro.md)
++ [Så här kommer du igång med kunskaps lager](knowledge-store-howto.md)

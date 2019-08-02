@@ -1,5 +1,5 @@
 ---
-title: Skapa en Programgateway med flera webbplatser – Azure CLI | Microsoft Docs
+title: Skapa en Programgateway med flera plats värdar – Azure CLI | Microsoft Docs
 description: Lär dig hur du skapar en Programgateway som är värd för flera platser med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 5508a1dbd105fc47a4ed7b3484f55532904956ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407137"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717269"
 ---
-# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Skapa en Programgateway med flera webbplatser med hjälp av Azure CLI
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Skapa en Programgateway med flera webbplats värdar med hjälp av Azure CLI
 
-Du kan använda Azure CLI för att konfigurera [som är värd för flera webbplatser](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med skalningsuppsättningar för virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. I den här självstudien förutsätts att du äger flera domäner. Vi använder *www.contoso.com* och *www.fabrikam.com* som exempel.
+Du kan använda Azure CLI för att konfigurera [värd för flera webbplatser](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudien skapar du backend-pooler med Virtual Machines Scale Sets. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. I den här självstudien förutsätts att du äger flera domäner. Vi använder *www.contoso.com* och *www.fabrikam.com* som exempel.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en programgateway
-> * Skapa lyssnare och regler för Routning
+> * Skapa lyssnare och regler för routning
 > * Skapa VM-skalningsuppsättningar med serverdelspoolerna
 > * Skapa en CNAME-post i domänen
 
@@ -102,7 +102,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ### <a name="add-the-backend-pools"></a>Lägga till serverdelspoolerna
 
-Lägg till backend-pooler med namnet *contosoPool* och *fabrikamPool* som behövs för att innehålla backend-servrarna med hjälp av [az network application-gateway adresspool skapa](/cli/azure/network/application-gateway).
+Lägg till backend-poolerna med namnet *contosoPool* och *fabrikamPool* som behövs för att innehålla backend [-servrarna med AZ Network Application-Gateway Address-pool Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -119,7 +119,7 @@ az network application-gateway address-pool create \
 
 Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet skapas lyssnare för domänerna *www.contoso.com* och *www.fabrikam.com*. 
 
-Lägg till lyssnare med namnet *contosoListener* och *fabrikamListener* som behövs för att dirigera trafik med hjälp av [az network application-gateway http-listener skapa](/cli/azure/network/application-gateway).
+Lägg till lyssnarna med namnet *contosoListener* och *fabrikamListener* som behövs för att dirigera trafik med hjälp av [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -140,7 +140,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Lägga till routningsregler
 
-Regler bearbetas i den ordning som de skapas och trafik dirigeras med hjälp av den första regeln som matchar URL som skickas till application gateway. Om du till exempel har en regel med en grundläggande lyssnare och en regel med en lyssnare för flera webbplatser för samma port så måste regeln med lyssnare för flera platser stå innan regeln med den grundläggande lyssnaren om regeln för flera platser ska fungera som förväntat. 
+Regler bearbetas i den ordning som de skapas, och trafiken dirigeras med hjälp av den första regeln som matchar den URL som skickas till programgatewayen. Om du till exempel har en regel med en grundläggande lyssnare och en regel med en lyssnare för flera webbplatser för samma port så måste regeln med lyssnare för flera platser stå innan regeln med den grundläggande lyssnaren om regeln för flera platser ska fungera som förväntat. 
 
 I det här exemplet skapar du två nya regler och tar bort standardregeln som skapades när du skapade programgatewayen. Du kan lägga till regeln med [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
@@ -227,7 +227,7 @@ Du bör inte använda A-poster eftersom den virtuella IP-adressen kan ändras n�
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contoso.com.
+Ange domännamnet i adressfältet i webbläsaren. Till exempel http\://www.contoso.com.
 
 ![Testa contoso-webbplatsen i programgatewayen](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
@@ -242,7 +242,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Konfigurera nätverket
 > * Skapa en programgateway
-> * Skapa lyssnare och regler för Routning
+> * Skapa lyssnare och regler för routning
 > * Skapa VM-skalningsuppsättningar med serverdelspoolerna
 > * Skapa en CNAME-post i domänen
 

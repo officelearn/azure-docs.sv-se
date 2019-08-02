@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 66b54c027cde6341b23aef2c10b43fa21bf357da
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383459"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554684"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Förstå villkoren i din Azure-användning och avgifts fil
 
@@ -28,7 +28,7 @@ Kontotyp | Azure-användning | Marketplace-användning | Inköp | Åter betalnin
 --- | --- | --- | --- | ---
 Enterprise-avtal (EA) | Ja | Ja | Ja | Nej
 Microsofts kundavtal | Ja | Ja | Ja | Ja
-Betala per användning (PAYG) | Ja | Nej | Nej | Nej
+Betala per användning (PAYG) | Ja | Ja | Nej | Nej
 
 Mer information om Marketplace-beställningar (även kallade externa tjänster) finns i [förstå dina avgifter för Azures externa tjänster](billing-understand-your-azure-marketplace-charges.md).
 
@@ -65,8 +65,6 @@ EffectivePrice | Alla | Blandat enhets pris för perioden. Blandade priser tar u
 ExchangeRateDate | MCA | Datum då valutakursen upprättades.
 ExchangeRatePricingToBilling | MCA | Växelkurs som används för att konvertera kostnaden i pris valutan till fakturerings valutan.
 Frekvens | Alla | Anger om en avgift förväntas upprepas. Avgifter kan antingen ske en gång (**Databasmigrering**), upprepas per månad eller per år (**återkommande**) eller baseras på användning (**UsageBased**).
-IncludedQuantity | PAYG | Den mängd mätare som ingår utan kostnad i den aktuella fakturerings perioden.
-Instans-ID | PAGY | Se ResourceId.
 InvoiceId | PAYG, MCA | Det unika dokument-ID som visas på PDF-filen för fakturor.
 InvoiceSection | MCA | Se InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Unik identifierare för avsnittet EA-avdelning eller MCA-faktura.
@@ -105,6 +103,7 @@ ServicePeriodStartDate | MCA | Start datumet för den klassificerings period som
 SubscriptionId | Alla | Unikt ID för Azure-prenumerationen.
 Prenumerationsnamn | Alla | Namnet på Azure-prenumerationen.
 Tags | Alla | Taggar som tilldelats resursen. Innehåller inte taggar för resurs grupper. Kan användas för att gruppera eller distribuera kostnader för intern åter betalning. Mer information finns i [ordna dina Azure-resurser med Taggar](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+Term | Alla | Visar giltighets tiden för erbjudandet. Exempel: I händelse av reserverade instanser visas 12 månader som villkor. För ett engångs köp eller återkommande inköp är termen 1 månad (SaaS, Marketplace-support). Detta gäller inte för Azure-förbrukning.
 Måttenhet | Alla | Mått enheten för fakturering av tjänsten. Till exempel debiteras beräknings tjänster per timme.
 UnitPrice | EA, PAYG | Priset per enhet för avgiften.
 

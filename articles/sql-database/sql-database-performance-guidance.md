@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database prestandajusteringsvägledning | Microsoft Docs
-description: Lär dig mer om hur du manuellt justera prestanda för din Azure SQL Database-frågor med rekommendationer.
+title: Vägledning för Azure SQL Database prestanda justering | Microsoft Docs
+description: Lär dig hur du använder rekommendationer för att manuellt finjustera dina Azure SQL Database frågans prestanda.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,57 +10,56 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585142"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567119"
 ---
-# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Manuell justering av frågeprestanda i Azure SQL Database
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Justera prestanda för manuell prestanda i Azure SQL Database
 
-När du har identifierat prestandaproblem som du får med SQL-databas som den här artikeln hjälper dig att:
+När du har identifierat ett prestanda problem som du följer SQL Database är den här artikeln utformad för att hjälpa dig:
 
-- Finjustera dina program och tillämpa några metodtips som kan förbättra prestanda.
-- Justera databasen genom att ändra index och frågor för att arbeta mer effektivt med data.
+- Finjustera ditt program och tillämpa några metod tips som kan förbättra prestandan.
+- Finjustera databasen genom att ändra index och frågor till mer effektivt arbete med data.
 
-Den här artikeln förutsätter att du redan har arbetat med Azure SQL Database [databasen advisor-rekommendationer](sql-database-advisor.md) och Azure SQL Database [automatisk justering rekommendationer](sql-database-automatic-tuning.md). Det förutsätts även att du har granskat [en översikt över övervakning och justering](sql-database-monitor-tune-overview.md) och dess relaterade artiklar som rör Felsöka prestandaproblem. Dessutom kan förutsätter den här artikeln att du inte har en CPU-resurser, köra minnesrelaterade prestandaproblem som kan lösas genom att öka beräkningsstorleken eller tjänstnivån att tillhandahålla mer resurser till din databas.
+Den här artikeln förutsätter att du redan har arbetat med rekommendationerna i Azure SQL Database [Database Advisor](sql-database-advisor.md) och de Azure SQL Database [automatiska justeringarna](sql-database-automatic-tuning.md). Det förutsätter också att du har granskat [en översikt över övervakning och justering](sql-database-monitor-tune-overview.md) och dess relaterade artiklar som rör fel sökning av prestanda problem. Den här artikeln förutsätter att du inte har några processor resurser, ett prestanda problem som kan lösas genom att öka beräknings storleken eller tjänst nivån för att ge fler resurser till din databas.
 
-## <a name="tune-your-application"></a>Finjustera dina program
+## <a name="tune-your-application"></a>Finjustera ditt program
 
-I traditionella lokala SQL Server, är processen inledande kapacitetsplanering ofta avgränsade från processen att köra ett program i produktion. Maskin- och licenser som köps först och prestandajustering görs efteråt. När du använder Azure SQL Database är en bra idé att interweave processen med att köra en App och anpassar den. Med modellen för att betala för kapacitet vid behov kan finjustera du programmet så att de lägsta resurser som krävs nu, i stället för överetablering på maskinvara, utifrån gissningar för framtida tillväxt planer för ett program, vilket ofta är felaktiga. Vissa kunder kan välja att inte Finjustera ett program och i stället välja att etablera maskinvaruresurser. Den här metoden kan vara bra om du inte vill ändra ett viktiga program under en upptagen period. Men justering ett program kan minimera resurskraven och lägre månatliga fakturor när du använder tjänstnivåerna i Azure SQL Database.
+I traditionella lokala SQL Server separeras processen för inledande kapacitets planering ofta från processen för att köra ett program i produktion. Maskin-och produkt licenser köps först och prestanda justering görs efteråt. När du använder Azure SQL Database, är det en bra idé att använda processen att köra ett program och justera det. Med modellen för att betala för kapacitet på begäran kan du anpassa ditt program till att använda de lägsta resurserna som behövs nu, i stället för att få mer information om maskin vara baserat på gissningar på framtida tillväxt planer för ett program, vilket ofta är felaktigt. Vissa kunder kan välja att inte justera ett program och i stället välja att överetablera maskin varu resurser. Den här metoden kan vara en bra idé om du inte vill ändra ett nyckel program under en upptagen period. Men att justera ett program kan minimera resurs kraven och minska månads räkningar när du använder tjänst nivåerna i Azure SQL Database.
 
-### <a name="application-characteristics"></a>Programegenskaper
+### <a name="application-characteristics"></a>Program egenskaper
 
-Även om Azure SQL Database-servicenivåerna är utformade för att förbättra stabiliteten för prestanda och förutsägbarhet för ett program, några rekommendationer kan hjälpa dig att finjustera programmets bättre dra nytta av resurser i en beräkning storlek. Även om många program har betydande prestandavinster genom att byta till ett högre beräkna storleken eller tjänstnivån, vissa program behöver ytterligare justering för att gynnas av en högre säkerhetsnivå för tjänsten. Överväg att ytterligare justering för program som har följande egenskaper för bättre prestanda:
+Även om Azure SQL Database tjänst nivåerna är utformade för att förbättra prestanda stabiliteten och förutsägbarheten för ett program, kan vissa metod tips hjälpa dig att finjustera ditt program så att det bättre utnyttjar resurserna i en beräknings storlek. Även om många program har avsevärda prestanda vinster genom att växla till en högre beräknings storlek eller tjänst nivå, behöver vissa program ytterligare justering för att dra nytta av en högre tjänst nivå. Överväg ytterligare program justering för program som har följande egenskaper för bättre prestanda:
 
-- **Program som har långsam prestanda på grund av ”trafikintensiva” beteende**
+- **Program som har långsamma prestanda på grund av "chatty"-beteende**
 
-  Trafikintensiva program drar onödigt stora datamängder åtkomståtgärder som är känsliga för fördröjningar i nätverket. Du kan behöva ändra dessa typer av program för att minska antalet åtgärder för dataåtkomst till SQL-databasen. Du kan till exempel förbättra programmets prestanda med hjälp av teknik som batchbearbetning ad hoc-frågor eller flytta frågorna till lagrade procedurer. Mer information finns i [Batch-frågor](#batch-queries).
+  Samtals program gör stora data åtkomst åtgärder känsliga för nätverks fördröjning. Du kan behöva ändra dessa typer av program för att minska antalet data åtkomst åtgärder till SQL-databasen. Du kan till exempel förbättra programmets prestanda genom att använda metoder som att gruppera ad hoc-frågor eller flytta frågor till lagrade procedurer. Mer information finns i [batch-frågor](#batch-queries).
 
-- **Databaser med en intensiv arbetsbelastning som inte stöds av en hel enskild dator**
+- **Databaser med en intensiv arbets belastning som inte stöds av en hel enskild dator**
 
-   Databaser som överskrider resurser på den högsta Premium compute storlek kan ha nytta av att skala ut arbetsbelastningen. Mer information finns i [databasöverskridande horisontell partitionering](#cross-database-sharding) och [funktionell partitionering](#functional-partitioning).
+   Databaser som överskrider den högsta Premium Compute-storleken kan ha nytta av att skala ut arbets belastningen. Mer information finns i horisontell partitionering och [funktionell partitionering](#functional-partitioning) [mellan databaser](#cross-database-sharding) .
 
-- **Program som har icke-optimala frågor**
+- **Program som har under optimala frågor**
 
-  Program, särskilt de som finns i dataåtkomstlagret som har dåligt anpassad frågor kan inte dra nytta av en högre beräkningsstorleken. Detta inkluderar frågor som saknar en WHERE-sats, saknar index eller vara inaktuell statistik. Dessa program dra nytta av standard-prestandajustering frågetekniker. Mer information finns i [saknas index](#identifying-and-adding-missing-indexes) och [fråga justering och bl a](#query-tuning-and-hinting).
+  Program, särskilt de i data åtkomst skiktet, som har dåligt anpassade frågor kanske inte har en högre beräknings storlek. Detta inkluderar frågor som saknar en WHERE-sats, har saknade index eller har inaktuell statistik. De här programmen drar nytta av standard metoder för prestanda justering för frågor. Mer information finns i [saknade index](#identifying-and-adding-missing-indexes) och inställning av [frågor och tips](#query-tuning-and-hinting).
 
-- **Program som har icke-optimala data access-design**
+- **Program som har under optimal data åtkomst design**
 
-   Program som har inbyggd data samtidighet åtkomstproblem, till exempel deadlocking kan inte dra nytta av en högre beräkningsstorleken. Överväg att minska sändningar mot Azure SQL-databas av cachelagring på klientsidan med tjänsten Azure Caching eller en annan cachelagringsteknik. Se [programmet nivån cachelagring](#application-tier-caching).
+   Program som har samtidiga data åtkomst samtidighets problem, till exempel död läge, har kanske inte nytta av en högre beräknings storlek. Överväg att minska antalet tur och utdata mot Azure SQL Database genom att cachelagra data på klient sidan med Azure caching service eller någon annan teknik för cachelagring. Se [cachelagring av program nivå](#application-tier-caching).
 
-## <a name="tune-your-database"></a>Finjustera din databas
+## <a name="tune-your-database"></a>Finjustera databasen
 
-I det här avsnittet ska titta vi på vissa tekniker som du kan använda för att finjustera Azure SQL Database för att få bästa möjliga prestanda för ditt program och köra den på den lägsta möjliga beräkningsstorleken. Vissa av dessa metoder matchar den traditionella SQL Server justering metodtips, men andra är specifika för Azure SQL Database. I vissa fall kan undersöka du förbrukade resurser för en databas att hitta områden för att ytterligare finjustera och utöka traditionella tekniker för SQL Server att fungera i Azure SQL Database.
+I det här avsnittet tittar vi på några tekniker som du kan använda för att finjustera Azure SQL Database för att få bästa möjliga prestanda för ditt program och köra det med minsta möjliga beräknings storlek. Några av dessa tekniker stämmer överens med traditionella SQL Server justerings metoder, men andra är bara för Azure SQL Database. I vissa fall kan du undersöka de förbrukade resurserna för en databas för att hitta områden för att ytterligare justera och utöka traditionella SQL Server tekniker för att arbeta i Azure SQL Database.
 
-### <a name="identifying-and-adding-missing-indexes"></a>Identifiera och lägga till index som saknas
+### <a name="identifying-and-adding-missing-indexes"></a>Identifiera och lägga till saknade index
 
-Ett vanligt problem i OLTP databasprestanda relaterar till den fysiska databasen-design. Ofta databasscheman designas och levereras utan att testa i skala (antingen belastning eller datavolym). Prestanda för en frågeplan kan tyvärr vara godtagbar i liten skala men försämras avsevärt under produktionsnivån datavolymer. Den vanligaste orsaken till problemet är bristen på rätt index för att uppfylla filter eller andra begränsningar i en fråga. Saknas index manifest som en tabell skanna ofta när ett index Målsökning kunde räcker.
+Ett vanligt problem i OLTP-databasens prestanda relaterar till den fysiska databas designen. Databas scheman är ofta utformade och levererade utan testning i skala (antingen i belastning eller på data volym). Tyvärr kan prestandan för en frågeplan vara acceptabel i en liten skala men försämras kraftigt under data volymer på produktions nivå. Den vanligaste orsaken till det här problemet är att det inte finns tillräckligt med index för att uppfylla filter eller andra begränsningar i en fråga. Ofta manifest som saknas indexeras som en tabells ökning när det kan vara tillräckligt med index sökning.
 
-I det här exemplet använder den valda frågeplanen en genomsökning när en Målsökning skulle räcker:
+I det här exemplet använder den valda fråg en sökning när en sökning skulle räcka:
 
 ```sql
 DROP TABLE dbo.missingindex;
@@ -80,9 +79,9 @@ SELECT m1.col1
     WHERE m1.col2 = 4;
 ```
 
-![En frågeplan med index som saknas](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
+![En frågeplan med saknade index](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
 
-Azure SQL Database kan hjälpa dig att hitta och åtgärda vanliga saknas index-villkor. DMV: er som är inbyggda i Azure SQL Database titta på frågekompileringar där skulle ett index avsevärt minska den uppskattade kostnaden för att köra en fråga. Under frågekörningskoden spårar SQL Database hur ofta varje frågeplan körs och spårar uppskattade mellanrummet mellan verkställande frågeplanen och det imagined där som indexerar fanns. Du kan använda dessa DMV: er för att snabbt gissa vilka ändringar av utformningen av den fysiska databasen kan förbättra den övergripande arbetsbelastningen kostnaden för en databas och dess faktiska arbetsbelastningen.
+Azure SQL Database kan hjälpa dig att hitta och åtgärda vanliga saknade index villkor. DMV: er som är inbyggda i Azure SQL Database ta en titt på de frågor i frågan som ett index avsevärt minskar den beräknade kostnaden för att köra en fråga. Under frågekörningen, SQL Database spårar hur ofta varje frågeplan utförs och spårar det uppskattade avståndet mellan den pågående frågeplan och den tänkta var indexet fanns. Du kan använda dessa DMV: er för att snabbt gissa vilka ändringar av den fysiska databas designen som kan förbättra den totala arbets belastnings kostnaden för en databas och dess verkliga arbets belastning.
 
 Du kan använda den här frågan för att utvärdera potentiella index som saknas:
 
@@ -111,25 +110,25 @@ FROM sys.dm_db_missing_index_groups AS mig
  ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 ```
 
-Frågan resulterade i den här förslag i det här exemplet:
+I det här exemplet resulterade frågan i det här förslaget:
 
 ```sql
 CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 ```
 
-När den har skapats, hämtar ett annat schema, som använder en Målsökning i stället för en genomsökning och utför planen mer effektivt att samma SELECT-instruktion:
+När den har skapats väljer samma SELECT-instruktion en annan plan, som använder en sökning i stället för en genomsökning och kör sedan planen mer effektivt:
 
-![En frågeplan med korrigerad index](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
+![En frågeplan med korrigerade index](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-Viktig information är att i/o-kapaciteten för ett delat, vanlig system är mer begränsad än den som en dedikerad server-dator. Det finns en premium på minimerar onödig i/o för att dra maximal nytta av systemet i DTU för varje beräkningsstorleken för Azure SQL Database-tjänstnivåer. Lämplig fysiska databasdesign val kan avsevärt förbättra svarstiden för enskilda frågor, förbättra dataflödet för samtidiga begäranden som hanteras per skalningsenhet och minska kostnaderna som krävs för att uppfylla frågan. Mer information om indexet som saknas DMV: er finns i [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+Den viktigaste insikten är att IO-kapaciteten för ett delat, råvaru system är mer begränsad än för en dedikerad server maskin. Det finns ett bidrag för att minimera onödig i/o för att dra nytta av systemet i DTU för varje beräknings storlek för Azure SQL Database tjänst nivåerna. Lämpliga alternativ för fysisk databas design kan avsevärt förbättra svars tiden för enskilda frågor, förbättra data flödet för samtidiga förfrågningar som hanteras per skalnings enhet och minimera de kostnader som krävs för att uppfylla frågan. Mer information om det saknade indexet DMV: er finns i [sys. DM _db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
-### <a name="query-tuning-and-hinting"></a>Frågejusteringar och bl a
+### <a name="query-tuning-and-hinting"></a>Fråga om justering och tips
 
-Frågeoptimeringen i Azure SQL Database liknar traditionella SQL Server-Frågeoptimeringen. De flesta av de bästa metoderna för att anpassa frågor och förstå resonemang modellen begränsningar för Frågeoptimeringen gäller även för Azure SQL Database. Om du justera frågor i Azure SQL Database, kan du få den ytterligare fördelen av att minska behovet av sammanställda resursdata. Ditt program kan eventuellt för till en lägre kostnad än icke ögonen öppna motsvarande eftersom det kan köras på en lägre beräkningsstorleken.
+Frågans optimering i Azure SQL Database liknar den traditionella SQL Server frågans optimering. De flesta av de bästa metoderna för att justera frågor och förstå de orsaker till modell begränsningarna för frågans optimering gäller även för Azure SQL Database. Om du ställer in frågor i Azure SQL Database kan du få ytterligare fördelar med att minska de sammanställda resurs kraven. Ditt program kanske kan köras till en lägre kostnad än en avpassad motsvarighet eftersom det kan köras med en lägre beräknings storlek.
 
-Ett exempel som är vanliga i SQL Server och som gäller även för Azure SQL Database är hur Frågeoptimeringen ”lyssnar” parametrar. Under kompilering utvärderar Frågeoptimeringen det aktuella värdet för en parameter för att avgöra om det kan generera en mer optimala frågeplan. Även om den här strategin kan ofta leda till en frågeplan som är betydligt snabbare än en plan som kompileras utan kända parametervärden, fungerar för närvarande den imperfectly både i SQL Server och i Azure SQL Database. Parametern är ibland inte någon lyssnar, och ibland parametern någon lyssnar men genererade planen är icke-optimala för den fullständiga uppsättningen parametervärden i en arbetsbelastning. Microsoft omfattar frågetips (direktiv) så att du kan ange avsikt mer avsiktligt och åsidosätta standardbeteendet för parametern kontroll. Om du använder tips kan åtgärda du ofta fall där standardbeteendet för SQL Server eller Azure SQL Database är perfekt för en viss kund-arbetsbelastning.
+Ett exempel som är vanligt i SQL Server och som även gäller för Azure SQL Database är hur parametrarna för frågans optimering "sniffer". Vid kompileringen utvärderar Query Optimering det aktuella värdet för en parameter för att avgöra om den kan generera en mer optimal frågeplan. Även om den här strategin ofta kan leda till en frågeplan som är betydligt snabbare än en plan som kompilerats utan kända parameter värden, fungerar den för närvarande i SQL Server och i Azure SQL Database. Ibland går det inte att använda parametern, och ibland identifieras parametern, men den genererade planen är under optimal för den fullständiga uppsättningen parameter värden i en arbets belastning. Microsoft innehåller frågetipset (direktiv) så att du kan ange avsikten mer avsiktligt och åsidosätta standard beteendet för parameter avlyssning. Om du använder tips kan du ofta åtgärda fall där standard SQL Server eller Azure SQL Database beteende är perfekt för en specifik kund arbets belastning.
 
-I nästa exempel visas hur frågeprocessorn kan generera en plan som är icke-optimala både för prestanda- och resursbehov. Det här exemplet visar också att du kan minska Frågekörningen och krav för SQL-databasen om du använder en frågetipset:
+I nästa exempel visas hur frågeprocessorn kan generera en plan som är under optimal både för prestanda-och resurs krav. I det här exemplet visas även att om du använder ett frågeuttryck kan du minska körnings tid och resurs krav för fråga för SQL-databasen:
 
 ```sql
 DROP TABLE psptest1;
@@ -169,7 +168,7 @@ CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
 GO
 ```
 
-Installationsprogrammet koden skapar en tabell som har förvrängd Datadistribution. Den optimala frågeplanen skiljer sig beroende på vilken parameter är markerad. Planen funktionssätt för cachelagring inte tyvärr alltid kompilera om frågan baserat på de vanligaste parametervärdet. Det är därför möjligt för en icke-optimala plan för att cachelagras och används för många värden, även om ett annat schema kan vara ett bättre alternativ för planen i genomsnitt. Frågeplanen skapas två lagrade procedurer som är identiska, förutom att en har en särskild frågetipset.
+Installations koden skapar en tabell som har skevad data distribution. Den optimala fråge planen varierar beroende på vilken parameter som väljs. Tyvärr kan inte plan caching-beteendet kompilera om frågan utifrån det vanligaste parametervärdet. Därför är det möjligt att ett under optimalt schema cachelagras och används för många värden, även om en annan plan kan vara ett bättre plan val i genomsnitt. Sedan skapar fråge planen två lagrade procedurer som är identiska, förutom att en har ett särskilt frågeuttryck.
 
 ```sql
 -- Prime Procedure Cache with scan plan
@@ -186,7 +185,7 @@ WHILE @i < 1000
     END
 ```
 
-Vi rekommenderar att du väntar minst 10 minuter innan du börjar del 2 av det här exemplet så att resultatet är distinkt i den resulterande telemetridata.
+Vi rekommenderar att du väntar minst 10 minuter innan du börjar del 2 av exemplet, så att resultaten är distinkta i de resulterande telemetridata.
 
 ```sql
 EXEC psp2 @param2=1;
@@ -201,21 +200,21 @@ DECLARE @i int = 0;
     END
 ```
 
-Varje del av det här exemplet försöker att köra en parametriserade insert-instruktionen 1 000 gånger (om du vill generera en tillräcklig belastning ska användas som en datauppsättning för testning). När lagrade procedurer körs, undersöker frågeprocessorn parametervärdet som skickas till proceduren under sin första kompilering (parametern ”identifiering”). Processorn cachelagrar planen och använder den för senare anrop, även om parametervärdet är olika. En optimal plan kan inte användas i samtliga fall. Ibland behöver att vägleda optimering för att välja en plan som är bättre för genomsnittlig fallet i stället för specifika fallet från när frågan kompilerades först. I det här exemplet genererar den ursprungliga planen en ”genomsökning”-plan som läser alla rader om du vill hitta alla värden som matchar parametern:
+Varje del av det här exemplet försöker köra en parameter INSERT-instruktion 1 000 gånger (för att generera en tillräckligt stor belastning för att använda som en test data uppsättning). När den kör lagrade procedurer undersöker frågeprocessorn det parameter värde som skickas till proceduren under den första kompileringen (parameter "Sniffing"). Processorn cachelagrar den resulterande planen och använder den för senare anrop, även om parametervärdet är annorlunda. Den optimala planen kanske inte används i samtliga fall. Ibland behöver du guida optimeringen för att välja en plan som är bättre för det genomsnittliga fallet snarare än det speciella fallet från när frågan först kompilerades. I det här exemplet skapar den ursprungliga planen en "skanning"-plan som läser alla rader för att hitta varje värde som matchar parametern:
 
-![Fråga efter justering med hjälp av en plan för genomsökning](./media/sql-database-performance-guidance/query_tuning_1.png)
+![Fråga efter justering med hjälp av en skannings plan](./media/sql-database-performance-guidance/query_tuning_1.png)
 
-Eftersom vi körde proceduren med hjälp av värdet 1 i planen var optimala för värdet 1 men var icke-optimala för alla andra värden i tabellen. Resultatet förmodligen inte vad du vill ha om du skulle välja varje plan slumpmässigt, eftersom planen som utför långsammare och använder mer resurser.
+Eftersom vi körde proceduren genom att använda värdet 1, var den resulterande planen optimal för värdet 1 men var under optimal för alla andra värden i tabellen. Resultatet är troligen inte vad du skulle vilja om du väljer att välja varje plan slumpmässigt, eftersom planen presterar långsammare och använder fler resurser.
 
-Om du kör testet med `SET STATISTICS IO` inställd `ON`, logiska genomsökning arbetet i det här exemplet utförs i bakgrunden. Du kan se att det inte finns 1,148 läsningar som utförs av planen (vilket är ineffektiv, om den genomsnittliga är att returnera bara en rad):
+Om du kör testet med `SET STATISTICS IO` inställt på `ON`, utförs den logiska genomsökningen i det här exemplet i bakgrunden. Du kan se att det finns 1 148 läsningar som utförs av planen (vilket är ineffektivt, om det genomsnittliga fallet är att returnera bara en rad):
 
-![Fråga efter justering genom att använda en logisk sökning](./media/sql-database-performance-guidance/query_tuning_2.png)
+![Fråga efter justering med hjälp av en logisk sökning](./media/sql-database-performance-guidance/query_tuning_2.png)
 
-Den andra delen av exemplet använder en frågetipset ska berätta för optimering att använda ett specifikt värde under kompilering. I så fall tvingas frågeprocessorn att ignorera det värde som skickas som parameter, och i stället att anta `UNKNOWN`. Detta refererar till ett värde som har genomsnittlig frekvens i tabellen (ignorera skeva). I planen är en plan med Målsökning som är snabbare och använder färre resurser i genomsnitt än planen i del 1 av det här exemplet:
+I den andra delen av exemplet används ett frågetipset för att se till att optimeringen använder ett speciellt värde under kompileringen. I det här fallet tvingar den Query-processorn att ignorera värdet som skickas som parameter och i stället för att anta `UNKNOWN`. Detta avser ett värde som har den genomsnittliga frekvensen i tabellen (ignorerar skevning). Den resulterande planen är en söknings baserad plan som är snabbare och använder färre resurser i genomsnitt än planen i del 1 av det här exemplet:
 
-![Frågejusteringar med hjälp av en frågetipset](./media/sql-database-performance-guidance/query_tuning_3.png)
+![Fråga efter justering med ett frågeuttryck](./media/sql-database-performance-guidance/query_tuning_3.png)
 
-Du kan se effekten i den **sys.resource_stats** tabell (det finns en fördröjning från det att du kör testet och när data fylls i tabell). För det här exemplet, del 1 körs under tidsperioden för 22:25:00 och del 2 som körs kl. 22:35:00. Tidigare tidsfönstret används mer resurser under den tidsperioden än det senare (på grund av plan prestationsförmågan).
+Du kan se effekterna i **sys. resource_stats** -tabellen (det uppstår en fördröjning från den tid som du utför testet och när data fyller tabellen). I det här exemplet körs del 1 under perioden 22:25:00 och del 2 körs vid 22:35:00. I det tidigare tidsfönstret användes fler resurser i den tids perioden än det senare (på grund av plan effektivitets förbättringar).
 
 ```sql
 SELECT TOP 1000 *
@@ -224,45 +223,45 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![Exempel på resultat om frågejustering](./media/sql-database-performance-guidance/query_tuning_4.png)
+![Exempel på frågeresultat för frågor](./media/sql-database-performance-guidance/query_tuning_4.png)
 
 > [!NOTE]
-> Även om volymen i det här exemplet är avsiktligt liten kan effekten av icke-optimala parametrar vara betydande, särskilt på större databaser. Skillnaden i extrema fall kan vara mellan sekunder för snabb fall och timmar för långsam fall.
+> Även om volymen i det här exemplet är avsiktligt liten, kan effekterna av under-optimala parametrar vara betydande, särskilt i större databaser. Skillnaden i extrema fall kan vara mellan några sekunder för snabba fall och timmar för långsamma fall.
 
-Du kan undersöka **sys.resource_stats** att avgöra om resursen för ett prov använder fler eller färre resurser än en annan virtuell test. När du jämför data avgränsa tidtagningen av testerna så att de inte finns i samma 5 minuter fönster i den **sys.resource_stats** vy. Målet med den här övningen är att minimera den totala mängden resurser som används och inte för att minimera de högsta resurserna. I allmänhet kan minskar optimera en typ av kod för svarstid också resursförbrukning. Se till att de ändringar du gör i ett program är nödvändiga, och att ändringarna inte negativt påverkar användarupplevelsen i någon som använder frågetips i programmet.
+Du kan undersöka **sys. resource_stats** för att avgöra om resursen för ett test använder mer eller färre resurser än ett annat test. När du jämför data, separerar du test tiden så att de inte är i samma 5-minuters fönster i vyn **sys. resource_stats** . Syftet med övningen är att minimera den totala mängden resurser som används och inte minimera de högsta resurserna. Att optimera en del av koden för svars tiden minskar vanligt vis resurs förbrukningen. Kontrol lera att de ändringar du gör i ett program är nödvändiga och att ändringarna inte negativt påverkar kund upplevelsen för någon som kanske använder frågetipset i programmet.
 
-Om en arbetsbelastning har en uppsättning frågor, är det ofta meningsfullt att avbilda och validera begränsningar av valen plan eftersom den styr den minsta resource storleksenheten som krävs för att vara värd för databasen. När du har validerat ibland på nytt granska planer för att hjälpa dig att kontrollera att de inte har nedgraderats. Du kan läsa mer om [fråga tips (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
+Om en arbets belastning har en uppsättning upprepade frågor, är det ofta klokt att samla in och validera den optimala planen för dina prenumerations val eftersom den innehåller den minsta resurs storleks enhet som krävs för att vara värd för databasen. När du har verifierat det kan du ibland undersöka planerna för att hjälpa dig att se till att de inte försämras. Du kan lära dig mer om [frågetipset (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
-### <a name="cross-database-sharding"></a>Horisontell partitionering över flera databaser
+### <a name="cross-database-sharding"></a>Horisontell partitionering mellan databaser
 
-Eftersom Azure SQL Database körs på vanlig maskinvara, är kapacitetsbegränsningarna för en individuell databas lägre än för en traditionella lokala SQL Server-installation. Vissa kunder använda horisontell partitionering för att sprida databasåtgärder över flera databaser när åtgärderna inte ryms inom ramen för en enskild databas i Azure SQL Database. De flesta kunder som använder tekniker för horisontell partitionering i Azure SQL Database dela sina data på en enda dimension över flera databaser. För den här metoden måste du förstå att OLTP ofta programmens transaktioner som gäller för bara en rad eller till en liten grupp av rader i schemat.
+Eftersom Azure SQL Database körs på råvaru maskin vara, är kapacitets gränserna för en enskild databas lägre än för en traditionell lokal SQL Server-installation. Vissa kunder använder horisontell partitionering-tekniker för att sprida databas åtgärder över flera databaser när åtgärderna inte ryms inom gränserna för en enskild databas i Azure SQL Database. De flesta kunder som använder horisontell partitionering-tekniker i Azure SQL Database dela sina data på en enskild dimension över flera databaser. För den här metoden måste du förstå att OLTP-programmen ofta utför transaktioner som endast gäller för en rad eller en liten grupp rader i schemat.
 
 > [!NOTE]
-> SQL-databasen innehåller nu ett bibliotek som hjälper till med horisontell partitionering. Mer information finns i [översikt över Elastic Database-klientbibliotek](sql-database-elastic-database-client-library.md).
+> SQL Database har nu ett bibliotek som hjälper dig med horisontell partitionering. Mer information finns i [Översikt över Elastic Database klient bibliotek](sql-database-elastic-database-client-library.md).
 
-Till exempel om en databas har kundens namn, ordning och beställningsinformation (till exempel traditionella exemplet Northwind-databasen som levereras med SQL Server), du kan dela upp dessa data i flera databaser genom att gruppera en kund med relaterade ordning och ordning information information. Du kan garantera att kundens data förblir i en enskild databas. Programmet kan dela upp olika kunder på databaser som effektivt kan sprida belastningen över flera databaser. Med horisontell partitionering, kunder inte bara kan undvika den maximala storleksgränsen, men Azure SQL Database kan också bearbeta arbetsbelastningar som är betydligt större än gränserna för de olika instansstorlekarna, förutsatt att varje enskild databas passar in i dess DTU.
+Om en databas till exempel har kund namn, order och beställnings information (t. ex. Northwind-databasen med SQL Server) kan du dela dessa data i flera databaser genom att gruppera en kund med relaterad order-och order information Mer. Du kan garantera att kundens data finns kvar i en enskild databas. Programmet skulle dela olika kunder över databaserna och på ett effektivt sätt sprida belastningen över flera databaser. Med horisontell partitionering kan kunder inte bara undvika den maximala gränsen för databas storlek, men Azure SQL Database också kan bearbeta arbets belastningar som är betydligt större än gränserna för de olika beräknings storlekarna, förutsatt att varje enskild databas passar in i dess DTU.
 
-Database sharding inte minska sammanställda resursdata kapaciteten för en lösning, är det mycket effektiva för att stödja mycket stora lösningar som är fördelade över flera databaser. Varje databas kan köra på en annan beräkningsstorleken för mycket stora ”effektiva” databaser med höga resurskrav.
+Även om databas horisontell partitionering inte minskar den sammanställda resurs kapaciteten för en lösning, är det mycket effektivt att stödja mycket stora lösningar som sprids över flera databaser. Varje databas kan köras med en annan beräknings storlek för att stödja mycket stora, "effektiva" databaser med höga resurs krav.
 
 ### <a name="functional-partitioning"></a>Funktionell partitionering
 
-SQL Server-användare kombinera ofta många funktioner i en enskild databas. Till exempel om ett program har logik för att hantera lager för en butik, kanske den databasen logiken som är associerad med inventeringssamling inköpsorder, lagrade procedurer och indexerade eller materialiserade vyer som hanterar rapportering i slutet av månaden. Den här tekniken blir det lättare att administrera databasen för åtgärder som säkerhetskopiering, men också måste du ändra storlek på maskinvara för att hantera den extra belastningen över alla funktioner i ett program.
+SQL Server användare kombinerar ofta många funktioner i en enskild databas. Om ett program exempelvis har logik för att hantera inventering för en butik, kan den databasen ha logik kopplad till inventering, spåra inköps order, lagrade procedurer och indexerade eller materialiserade vyer som hanterar månads rapportering. Den här tekniken gör det lättare att administrera databasen för åtgärder som säkerhets kopiering, men du måste också ändra maskin varans storlek för att hantera belastningen för alla funktioner i ett program.
 
-Om du använder en skalbar arkitektur i Azure SQL Database är en bra idé att dela upp olika funktioner i ett program i olika databaser. Med den här tekniken kan varje program kan skalas oberoende av varandra. Som ett program blir ju mer upptagen och ökar belastningen på databasen, kan administratören välja oberoende storlekar för varje funktion i programmet. Ett program kan vara större än en enda vanlig dator kan hantera eftersom belastningen sprids över flera datorer på gränsen med den här arkitekturen.
+Om du använder en skalbar arkitektur i Azure SQL Database, är det en bra idé att dela upp olika funktioner i ett program i olika databaser. Genom att använda den här metoden skalar varje program oberoende av varandra. När ett program blir busier (och belastningen på databasen ökar) kan administratören välja oberoende beräknings storlekar för varje funktion i programmet. I och med den här arkitekturen kan ett program vara större än en enda dator som kan hantera eftersom belastningen sprids över flera datorer.
 
 ### <a name="batch-queries"></a>Batch-frågor
 
-För program som har åtkomst till data med hjälp av stora volymer, frekventa, ad hoc-frågor kan avsevärt lång svarstid kan hänföras nätverkskommunikation mellan programnivån och Azure SQL Database-nivå. Även om både program- och Azure SQL Database finns i samma datacenter, kan Nätverksfördröjningen mellan två förstoras med ett stort antal åtgärder för dataåtkomst. För att minska nätverkets round sätts för åtgärder för dataåtkomst, Överväg att använda alternativet att antingen batch ad hoc-frågor eller för att sammanställa dem som lagrade procedurer. Om du batch ad hoc-frågor kan du skicka flera frågor som en stor grupp i en enda resa till Azure SQL Database. Om du kompilera ad hoc-frågor i en lagrad procedur kan du uppnå samma resultat som om du batch-dem. Använda en lagrad procedur ger dig också att kunna utnyttja ökar risken för cachelagring frågeplaner i Azure SQL Database så att du kan använda den lagrade proceduren igen.
+För program som har åtkomst till data med hjälp av hög volym, frekventa, ad hoc-frågor, ägnas en stor mängd svars tid på nätverkskommunikation mellan program nivån och Azure SQL Database nivån. Även om både programmet och Azure SQL Database finns i samma data Center, kan nätverks fördröjningen mellan två förstoras av ett stort antal data åtkomst åtgärder. Överväg att använda alternativet för att antingen gruppera ad hoc-frågorna eller kompilera dem som lagrade procedurer för att minska antalet nätverks fördröjningar för data åtkomst åtgärder. Om du batcherar ad hoc-frågorna kan du skicka flera frågor som en stor batch i en enda resa till Azure SQL Database. Om du kompilerar ad hoc-frågor i en lagrad procedur kan du få samma resultat som om du grupperar dem. Med hjälp av en lagrad procedur får du också fördelarna med att öka risken för att cachelagra fråge planerna i Azure SQL Database så att du kan använda den lagrade proceduren igen.
 
-Vissa program är skrivningsintensiva. Ibland kan du minska den totala i/o-belastningen på en databas genom att fundera över hur du batch-skrivningar tillsammans. Ofta är det lika enkelt som att använda explicita transaktioner i stället för automatiskt genomförande transaktioner i lagrade procedurer och ad hoc-batchar. En utvärdering av olika metoder som du kan använda finns i [batchbearbetning tekniker för SQL Database-program i Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experimentera med din egen arbetsbelastning för att hitta rätt modellen för batchbearbetning. Var noga med att förstå att en modell kan ha något annorlunda transaktionell konsekvensgarantier. Hitta rätt arbetsbelastningen som minimerar Resursanvändning kräver att hitta rätt kombination av konsekvens och prestanda med de.
+Vissa program är av Skriv intensiva. Ibland kan du minska den totala IO-belastningen på en databas genom att fundera över hur du skriver tillsammans. Detta är ofta lika enkelt som att använda explicita transaktioner i stället för transaktioner som ska genomföras automatiskt i lagrade procedurer och ad hoc-batchar. En utvärdering av olika tekniker som du kan använda finns i [batching-tekniker för SQL Database program i Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experimentera med din egen arbets belastning för att hitta rätt modell för batchbearbetning. Se till att förstå att en modell kan ha något annorlunda konsekvens garantier för transaktioner. Att hitta rätt arbets belastning som minimerar resursanvändningen kräver att du hittar rätt kombination av konsekvens-och prestanda kompromisser.
 
-### <a name="application-tier-caching"></a>Programnivå cachelagring
+### <a name="application-tier-caching"></a>Cachelagring på program nivå
 
-Vissa databasprogram har läs-tunga arbetsbelastningar. Cachelagring lager kan minska belastningen på databasen och kan minska beräkningsstorleken som krävs för att stödja en databas med hjälp av Azure SQL Database. Med [Azure Cache för Redis](https://azure.microsoft.com/services/cache/), om du har en Läs-intensiv arbetsbelastning, kan du läsa data en gång (eller kanske en gång på programnivå dator, beroende på hur det är konfigurerat), och sedan lagras utanför din SQL-databas. Detta är ett sätt att minska databasbelastningen (processor och Läs i/o), men det finns en effekt på transaktionell konsekvens eftersom de data som läses från cachen kanske är inte synkroniserade med data i databasen. Även om vissa andelen inkonsekvens i många program är godkänd, som gäller inte för alla arbetsbelastningar. Läs noggrant igenom alla programkrav innan du implementerar en cahelagringsstrategi hittar programmet-nivå.
+Vissa databas program har Läs-tunga arbets belastningar. Cachelagring av lager kan minska belastningen på databasen och kan eventuellt minska den beräknings storlek som krävs för att stödja en databas med hjälp av Azure SQL Database. Med [Azure cache för Redis](https://azure.microsoft.com/services/cache/)kan du, om du har en skrivskyddad arbets belastning, läsa data en gång (eller kanske en gång per dator på program nivå, beroende på hur den har kon figurer ATS) och sedan lagra dessa data utanför SQL-databasen. Detta är ett sätt att minska databas belastningen (CPU och Läs-i/o), men det finns en inverkan på transaktionell konsekvens eftersom data som läses från cachen inte kan synkroniseras med data i databasen. Även om i många program är en viss nivå av inkonsekvens acceptabel, men det är inte sant för alla arbets belastningar. Du bör fullständigt förstå alla program krav innan du implementerar en strategi för cachelagring på program nivå.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om DTU-baserade tjänstnivåer finns i [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md).
-- Mer information om vCore-baserade tjänstnivåer finns i [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
-- Mer information om elastiska pooler finns i [vad är en elastisk pool i Azure?](sql-database-elastic-pool.md)
-- Information om prestanda och elastiska pooler finns i [när du ska tänka på en elastisk pool](sql-database-elastic-pool-guidance.md)
+- Mer information om DTU-baserade tjänst nivåer finns i [DTU-baserad inköps modell](sql-database-service-tiers-dtu.md).
+- Mer information om vCore-baserade tjänst nivåer finns i [vCore-baserad inköps modell](sql-database-service-tiers-vcore.md).
+- Mer information om elastiska pooler finns i [Vad är en elastisk Azure-pool?](sql-database-elastic-pool.md)
+- Information om prestanda och elastiska pooler finns i [när du ska överväga en elastisk pool](sql-database-elastic-pool-guidance.md)

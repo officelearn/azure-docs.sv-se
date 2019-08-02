@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: cce5de98fe4914e18ee0154d4ac5f1af008d32a6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499940"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561305"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>Aktivera lösen ords utan lösen ord för Azure AD (för hands version)
 
@@ -109,7 +109,7 @@ Registrerings funktioner för FIDO2-säkerhetsnycklar är beroende av den kombin
 ### <a name="enable-new-passwordless-authentication-methods"></a>Aktivera nya metoder för lösen ords kryptering
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Bläddra till **Azure Active Directory** > **autentiseringsmetoder** > **metod (för hands version)**
+1. Bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder**metoderprincip > för**autentisering (för hands version)**
 1. Under varje **metod**väljer du följande alternativ
    1. **Aktivera** – Ja eller Nej
    1. **Mål** – alla användare eller Välj användare

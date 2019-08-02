@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6260a619ad3dfda65fcdfc1180cba4002dd23d0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499901"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514977"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
@@ -35,7 +35,7 @@ Några av de här inställningarna gäller för MFA Server, Azure MFA eller båd
 | Kontoutelåsning | Lås tillfälligt konton i Multi-Factor Authentication-tjänsten om det finns alltför många nekade autentiseringsförsök i en rad. Den här funktionen gäller endast för användare som anger en PIN-kod för autentisering. (MFA-Server) |
 | [Blockera/avblockera användare](#block-and-unblock-users) | Används för att blockera vissa användare från att kunna ta emot Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är fortfarande blockerade i 90 dagar från den tid som de är blockerade. |
 | [Bedrägeri avisering](#fraud-alert) | Konfigurera inställningar för användarnas möjlighet att rapportera falska verifierings begär Anden |
-| Aviseringar | Aktivera meddelanden om händelser från MFA Server. |
+| [Meddelanden](#notifications) | Aktivera meddelanden om händelser från MFA Server. |
 | [OATH-token](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Används i Cloud-baserade Azure MFA-miljöer för att hantera OATH-token för användare. |
 | [Telefonsamtals inställningar](#phone-call-settings) | Konfigurera inställningar för telefonsamtal och hälsningar för moln miljöer och lokala miljöer. |
 | Providers | Då visas befintliga autentiseringsproviders som du kan ha associerat med ditt konto. Nya autentiseringsproviders får inte skapas från den 1 september 2018 |
@@ -99,6 +99,12 @@ Konfigurera _bedrägeri aviserings_ funktionen så att användarna kan rapporter
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** > **inloggningar**. Bedrägeri rapporten är nu en del av standard rapporten för Azure AD-inloggningar.
+
+## <a name="notifications"></a>Aviseringar
+
+Konfigurera e-postadresser här för användare som ska få meddelanden om bedrägerier.
+
+![Avisering om meddelande bedrägerier e-exempel](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## <a name="phone-call-settings"></a>Inställningarna för telefonsamtal
 
@@ -189,7 +195,7 @@ Med funktionen för att _kringgå_ en funktion kan en användare autentisera en 
 
 ## <a name="caching-rules"></a>Cachelagringsregler
 
-Du kan ange en tids period för att tillåta autentiseringsförsök när en användare autentiseras med hjälp av funktionen  för cachelagring. Efterföljande autentiseringsförsök för användaren inom den angivna tids perioden slutförs automatiskt. Cachelagring används främst när lokala system, till exempel VPN, skickar flera verifierings begär Anden medan den första begäran fortfarande pågår. Den här funktionen gör att efterföljande begär Anden kan lyckas automatiskt när användaren har slutfört den första verifieringen.
+Du kan ange en tids period för att tillåta autentiseringsförsök när en användare autentiseras med hjälp av funktionen för cachelagring. Efterföljande autentiseringsförsök för användaren inom den angivna tids perioden slutförs automatiskt. Cachelagring används främst när lokala system, till exempel VPN, skickar flera verifierings begär Anden medan den första begäran fortfarande pågår. Den här funktionen gör att efterföljande begär Anden kan lyckas automatiskt när användaren har slutfört den första verifieringen.
 
 >[!NOTE]
 >Cachelagring-funktionen är inte avsedd att användas för inloggningar till Azure Active Directory (Azure AD).

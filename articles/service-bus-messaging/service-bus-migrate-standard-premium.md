@@ -1,6 +1,6 @@
 ---
-title: Migrera befintliga standard Azure Service Bus-namnområde till premium-nivån | Microsoft Docs
-description: Guide för att tillåta migrering av befintliga standard Azure Service Bus-namnområde till premium
+title: Migrera befintliga Azure Service Bus standard namn områden till Premium-nivån | Microsoft Docs
+description: Guide för att tillåta migrering av befintliga Azure Service Bus standard namn områden till Premium
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,47 +14,47 @@ ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67566063"
 ---
-# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga standard Azure Service Bus-namnområde till premium-nivån
-Azure Service Bus erbjuds tidigare namnområden endast på standard-nivån. Namnområden är inställningar för flera innehavare som är optimerade för utvecklarmiljöer och lågt dataflöde. Premium-nivån erbjuder dedikerade resurser per namnområde för förutsägbar latens och ökat genomflöde till ett fast pris. Premium-nivån är optimerat för stora dataflöden och produktionsmiljöer som kräver ytterligare företagsfunktioner.
+# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga Azure Service Bus standard namn områden till Premium-nivån
+Tidigare erbjöds endast namn områden på standard nivån för Azure Service Bus. Namn områden är installations program för flera innehavare som är optimerade för låg data flöde och utvecklings miljöer. Premium-nivån erbjuder dedikerade resurser per namnrymd för förutsägbar svars tid och större data flöde till ett fast pris. Premium nivån är optimerad för stora data flöden och produktions miljöer som kräver ytterligare företags funktioner.
 
-Den här artikeln beskriver hur du migrerar befintliga namnområden på standard-nivå till premium-nivån.  
+I den här artikeln beskrivs hur du migrerar befintliga namn områden på standard nivå till Premium nivån.  
 
 >[!WARNING]
-> Migreringen är avsedd för Service Bus standard-namnområden som ska uppgraderas till premium-nivån. Migreringsverktyget stöder inte nedgradering.
+> Migrering är avsedd för Service Bus standard namn områden som ska uppgraderas till Premium nivån. Migreringsverktyget stöder inte nedgradering.
 
-Några av de saker att Observera: 
-- Den här migreringen är avsedd att inträffa på plats, vilket innebär att befintliga program för avsändaren och mottagaren **inte kräver ändringar i koden eller konfigurationen**. Den befintliga anslutningssträngen kommer automatiskt att peka mot det nya premium-namnområdet.
-- Den **premium** namnområdet ska ha **inga entiteter** i den för migreringen ska lyckas. 
-- Alla **entiteter** i standard-namnområdet är **kopieras** premium-namnområdet under migreringsprocessen. 
-- Migrering stöder **1 000 entiteter per meddelandeenhet** på premium-nivån. Börja med antalet enheter som du har i din aktuella standardnamnområde för att identifiera hur många meddelanden enheter som du behöver. 
-- Du kan inte migrera direkt från **basic-nivån** till **premier nivån**, men du kan göra så indirekt genom att migrera från basic till standard först och sedan från standard till premium i nästa steg.
+Några av punkterna att Observera: 
+- Den här migreringen är avsedd att ske på plats, vilket innebär att befintliga avsändare och mottagar program **inte kräver några ändringar i koden eller konfigurationen**. Den befintliga anslutnings strängen pekar automatiskt på det nya Premium-namnområdet.
+- **Premium** -namnområdet får **inte ha några entiteter** för att migreringen ska lyckas. 
+- Alla **entiteter** i standard namn området **kopieras** till Premium-namnområdet under migreringsprocessen. 
+- Migrering stöder **1 000 entiteter per meddelande enhet** på Premium-nivån. För att identifiera hur många meddelande enheter du behöver börjar du med antalet entiteter som du har på din aktuella standard namn område. 
+- Du kan inte direkt migrera från **Basic-nivån** till Premier- **nivån**, men du kan göra detta indirekt genom att migrera från Basic till standard först och sedan från standard till Premium i nästa steg.
 
 ## <a name="migration-steps"></a>Migreringsanvisningar
-Vissa villkor är associerade med migreringen. Bekanta dig med följande steg för att minska risken för fel. Dessa steg beskriver migreringsprocessen och stegvis information finns i avsnitten som följer.
+Vissa villkor är kopplade till migreringsprocessen. Bekanta dig med följande steg för att minska risken för fel. De här stegen beskriver migreringsprocessen och stegvisa detaljer visas i de avsnitt som följer.
 
-1. Skapa ett nytt premium-namnområde.
-1. Koppla standard och premium-namnområden till varandra.
-1. Synkronisering (kopiera över) enheter från standard till premium-namnområde.
-1. Checka in migreringen.
-1. Töm entiteter i standard-namnområdet med hjälp av namnet på namnområdet efter migreringen.
-1. Ta bort standard-namnområdet.
+1. Skapa ett nytt Premium-namnområde.
+1. Para ihop standard-och Premium-namnrymderna med varandra.
+1. Synkronisera (kopiering över) entiteter från standard till Premium-namnområdet.
+1. Genomför migreringen.
+1. Töm entiteter i standard namn området genom att använda namnet efter migreringen för namn området.
+1. Ta bort standard namn området.
 
 >[!IMPORTANT]
-> När migreringen har bekräftats kan komma åt den gamla standardnamnområde och tömma köer och prenumerationer. När meddelandena har varit tömda, kan de skickas till det nya premium-namnområdet som ska bearbetas av mottagare-program. När du har varit tömda köer och prenumerationer, rekommenderar vi att du tar bort gamla standard-namnområdet.
+> När migreringen har genomförts, kan du komma åt den gamla standard namn rymden och tömma köer och prenumerationer. När meddelandena har tömts kan de skickas till det nya Premium-namnområdet som ska bearbetas av mottagar programmen. När köerna och prenumerationerna har tömts rekommenderar vi att du tar bort den gamla standard namn rymden.
 
 ### <a name="migrate-by-using-the-azure-cli-or-powershell"></a>Migrera med hjälp av Azure CLI eller PowerShell
 
-Följ dessa steg för att migrera standard Service Bus-namnområdet till premium med hjälp av Azure CLI eller PowerShell-verktyg.
+Följ dessa steg om du vill migrera Service Bus standard namn området till Premium med hjälp av Azure CLI eller PowerShell-verktyget.
 
-1. Skapa en ny Service Bus premium-namnområde. Du kan referera till den [Azure Resource Manager-mallar](service-bus-resource-manager-namespace.md) eller [använder Azure-portalen](service-bus-create-namespace-portal.md). Se till att välja **premium** för den **serviceBusSku** parametern.
+1. Skapa ett nytt Service Bus Premium-namnområde. Du kan referera till [Azure Resource Manager mallar](service-bus-resource-manager-namespace.md) eller [använda Azure Portal](service-bus-create-namespace-portal.md). Se till att välja **Premium** för parametern **serviceBusSku** .
 
-1. Ange följande miljövariabler för att förenkla migreringen-kommandon.
+1. Ange följande miljövariabler för att förenkla migrerings kommandona.
    ```azurecli
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
@@ -63,112 +63,112 @@ Följ dessa steg för att migrera standard Service Bus-namnområdet till premium
    ```
 
     >[!IMPORTANT]
-    > Uppgifter efter migrering/aliasnamnet (post_migration_dns_name) används för att få åtkomst till den gamla standardnamnområde efter migreringen. Används för att tömma köer och prenumerationer och sedan ta bort namnområdet.
+    > Alias/namn för efter migrering (post_migration_dns_name) kommer att användas för att få åtkomst till den gamla standard-namn området efter migreringen. Använd detta för att tömma köerna och prenumerationerna och sedan ta bort namn området.
 
-1. Koppla standard och premium-namnområden och starta synkroniseringen med hjälp av följande kommando:
+1. Para ihop standard-och Premium-namnområdena och starta synkroniseringen med hjälp av följande kommando:
 
     ```azurecli
     az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
     ```
 
 
-1. Kontrollera status för migreringen med hjälp av följande kommando:
+1. Kontrol lera status för migreringen med hjälp av följande kommando:
     ```azurecli
     az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
     ```
 
-    Migreringen anses slutförd när du ser följande värden:
-    * MigrationState = ”aktiv”
+    Migreringen betraktas som slutförd när följande värden visas:
+    * MigrationState = "Active"
     * pendingReplicationsOperationsCount = 0
-    * provisioningState = ”Succeeded”
+    * provisioningState = "lyckades"
 
-    Det här kommandot visar även konfigurationen för migrering. Kontrollera värdena är korrekta. Kontrollera också premium-namnområde i portalen för att se till att alla köer och ämnen har skapats och att de matchar vad var tillgängliga i standard-namnområdet.
+    Det här kommandot visar också migrerings konfigurationen. Kontrol lera att värdena är korrekt inställda. Kontrol lera också namn området Premium i portalen för att se till att alla köer och ämnen har skapats, och att de stämmer överens med det som fanns i standard namn området.
 
-1. Checka in migreringen genom att köra kommandot slutförts:
+1. Genomför migreringen genom att köra följande fullständiga kommando:
    ```azurecli
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
-### <a name="migrate-by-using-the-azure-portal"></a>Migrera med hjälp av Azure-portalen
+### <a name="migrate-by-using-the-azure-portal"></a>Migrera med hjälp av Azure Portal
 
-Migrering med hjälp av Azure portal har det samma logiska flödet som att migrera med hjälp av kommandon. Följ dessa steg om du vill migrera med hjälp av Azure portal.
+Migrering med hjälp av Azure Portal har samma logiska flöde som migreringen med hjälp av kommandona. Följ de här stegen för att migrera med hjälp av Azure Portal.
 
-1. På den **navigering** menyn till vänster, Välj **migrera till premium**. Klicka på den **börjar** för att fortsätta till nästa sida.
-    ![Landningssida för migrering][]
+1. I **navigerings** menyn i den vänstra rutan väljer **du migrera till Premium**. Klicka på knappen **Kom igång** för att fortsätta till nästa sida.
+    ![Landnings sida för migrering][]
 
-1. Fullständig **installationsprogrammet**.
-   ![Konfigurera namnområdet][]
-   1. Skapa och tilldela premium-namnområdet för att migrera befintliga standard-namnområdet till.
-        ![Konfigurera namnområdet – skapa premium-namnområde][]
-   1. Välj en **Postmigrering namn**. Du använder det här namnet för att få åtkomst till standard-namnområdet när migreringen är klar.
-        ![Konfigurera namnområdet – Välj efter migreringen namn][]
-   1. Välj **”nästa”** att fortsätta.
-1. Synkronisera enheter mellan standard och premium-namnområden.
-    ![Konfigurera namnområdet - sync-entiteter – start][]
+1. Slutför **installationen**.
+   ![Installations namn område][]
+   1. Skapa och tilldela Premium-namnområdet för att migrera det befintliga standard namn området till.
+        ![Installations namn namnrymd – skapa Premium-namnrymd][]
+   1. Välj ett **namn**för migreringen. Du kommer att använda det här namnet för att komma åt standard namn området när migreringen är klar.
+        ![Installations namn namnrymd-Välj efter namn på migrering][]
+   1. Fortsätt genom att välja **Nästa** .
+1. Synkronisera entiteter mellan standard-och Premium-namnområden.
+    ![Installations namn namnrymd-synkronisera entiteter-start][]
 
-   1. Välj **Starta synkronisering** att börja synkronisera entiteter.
-   1. Välj **Ja** i dialogrutan för att bekräfta och starta synkroniseringen.
-   1. Vänta tills synkroniseringen är klar. Statusen är tillgängliga i statusfältet.
-        ![Namnområde – synkronisera entiteter - Installationsförlopp][]
+   1. Välj **Starta synkronisering** för att börja synkronisera entiteterna.
+   1. Välj **Ja** i dialog rutan för att bekräfta och starta synkroniseringen.
+   1. Vänta tills synkroniseringen är klar. Statusen är tillgänglig i statusfältet.
+        ![Installations namn område – synkronisera entiteter – förlopp][]
         >[!IMPORTANT]
-        > Om du vill avbryta migreringen av någon anledning kan granska att avbryta flödet i avsnittet vanliga frågor och svar i det här dokumentet.
-   1. När synkroniseringen är klar, väljer **nästa** längst ned på sidan.
+        > Om du behöver avbryta migreringen av någon anledning kan du granska abort-flödet i avsnittet Vanliga frågor och svar i det här dokumentet.
+   1. När synkroniseringen är klar väljer du **Nästa** längst ned på sidan.
 
-1. Granska ändringar på sammanfattningssidan. Välj **fullständig migrering** att växla namnområden och slutföra migreringen.
-    ![Växla namnområde - växel menyn][] bekräftelsesidan som visas när migreringen är klar.
-    ![Växeln namnområde – lyckades][]
+1. Granska ändringarna på sidan Sammanfattning. Välj **fullständig migrering** för att byta namn rymder och slutföra migreringen.
+    ![Byt namn område – Byt][] meny sidan bekräftelse visas när migreringen är klar.
+    ![Switch-namnrymd-lyckad][]
 
 ## <a name="caveats"></a>Varningar
 
-Några av funktionerna som tillhandahålls av Azure Service Bus Standard-nivån stöds inte av Azure Service Bus Premium-nivån. Det här är avsiktligt eftersom premium-nivån erbjuder dedikerade resurser för förutsägbart dataflöde och svarstid.
+Några av de funktioner som tillhandahålls av Azure Service Bus standard-nivån stöds inte av Azure Service Bus Premium-nivån. Detta är avsiktligt eftersom Premium-nivån erbjuder dedikerade resurser för förutsägbart data flöde och svars tider.
 
-Här är en lista över funktioner som inte stöds av Premium och deras minskning- 
+Här är en lista över funktioner som inte stöds av Premium och deras minskning – 
 
 ### <a name="express-entities"></a>Expressenheter
 
-   Expressenheter som inte genomför någon meddelandedata till lagring stöds inte i Premium. Dedikerade resurser tillhandahålla förbättringar av betydande dataflödet samtidigt som man säkerställer att data sparas, som är förväntat från alla företags meddelandesystem.
+   Express entiteter som inte genomför några meddelande data till lagrings enheter stöds inte i Premium. Dedikerade resurser tillhandahöll betydande data flödes förbättringar samtidigt som de säkerställer att data sparas, som förväntas från alla företags meddelande system.
    
-   Under migreringen, kommer någon av dina expressenheter i Standard-namnområdet skapas på Premium-namnområde som en icke-express-enhet.
+   Under migreringen skapas alla dina Express-entiteter i standard namn området i Premium-namnområdet som en icke-Express-enhet.
    
-   Om du använder Azure Resource Manager (ARM)-mallar, se till att du tar bort flaggan 'enableExpress' från distributionskonfigurationen så att dina automatiserade arbetsflöden som körs utan fel.
+   Om du använder Azure Resource Manager (ARM) mallar, se till att du tar bort flaggan ' enableExpress ' från distributions konfigurationen så att dina automatiserade arbets flöden körs utan fel.
 
 ### <a name="partitioned-entities"></a>Partitionerade enheter
 
-   Partitionerade enheter har stöd för standardnivån för att ge bättre tillgänglighet i en inställning för flera innehavare. Med tillhandahållandet av dedikerade resurser som är tillgängliga per namnområde på Premium-nivån, är detta inte längre behövs.
+   Partitionerade entiteter stöds i standard-nivån för att ge bättre tillgänglighet i en installation av flera innehavare. Med tillhandahållande av dedikerade resurser som är tillgängliga per namnrymd på Premium-nivån behövs inte längre detta.
    
-   Under migreringen skapas en partitionerad entitet i Standard-namnområdet på Premium-namnområde som en icke-partitionerad entitet.
+   Under migreringen skapas en partitionerad entitet i standard namn området i Premium-namnområdet som en icke-partitionerad enhet.
    
-   Om din ARM-mall anger 'enablePartitioning' till 'true' för en viss kö eller ämne, kommer sedan den att ignoreras av den asynkrona meddelandekön.
+   Om din ARM-mall anger "enablePartitioning" till "true" för en speciell kö eller ämne ignoreras den av koordinatorn.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
-### <a name="what-happens-when-the-migration-is-committed"></a>Vad händer när migreringen är allokerade?
+### <a name="what-happens-when-the-migration-is-committed"></a>Vad händer när migreringen är genomförd?
 
-När migreringen genomförs pekar anslutningssträngen som pekar på standard-namnområdet till premium-namnområde.
+När migreringen har genomförts pekar den anslutnings sträng som pekade på standard namn området på Premium-namnområdet.
 
-Avsändaren och mottagaren program kommer att koppla från standard Namespace och automatiskt återansluta till premium-namnområde.
+Avsändaren och mottagar programmet kommer att kopplas från standard namn området och återansluta till Premium-namnområdet automatiskt.
 
-### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>Vad gör jag när standard till premium-migreringen är klar?
+### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>Vad gör jag när standard-till-Premium-migreringen har slutförts?
 
-Standard till premium-migreringen säkerställer att entitetens metadata, till exempel ämnen, prenumerationer och filter kopieras från standard-namnområdet till premium-namnområde. Meddelandedata som har utförts till standard-namnområdet kopieras inte från standard-namnområdet till premium-namnområde.
+Med standarden för Premium-migrering ser du till att entitetens metadata, till exempel ämnen, prenumerationer och filter, kopieras från standard namn området till Premium-namnområdet. De meddelande data som har allokerats till standard namn området kopieras inte från standard namn området till Premium-namnområdet.
 
-Standard-namnområdet kan ha några meddelanden som skickades och allokerat under migreringen pågår. Manuellt tömma meddelandena från standard Namespace och skicka dem manuellt till premium Namespace. Om du vill manuellt Rensa meddelanden, använder du en konsolapp eller ett skript som tömmer standardnamnområde entiteter genom att använda efter migreringen DNS-namnet som du angav i kommandona migrering. Skicka dessa meddelanden till premium-namnområde så att de kan bearbetas av mottagarna.
+Standard namn området kan ha vissa meddelanden som har skickats och genomförts medan migreringen genomfördes. Töm dessa meddelanden manuellt från standard namn området och skicka dem manuellt till Premium-namnområdet. Om du vill tömma meddelandena manuellt kan du använda en-konsol eller ett skript som tömmer standard namn områdets entiteter genom att använda DNS-namnet efter migreringen som du angav i migreringen. Skicka dessa meddelanden till Premium-namnområdet så att de kan bearbetas av mottagarna.
 
-När meddelandena har varit tömda, kan du ta bort standard-namnområdet.
+När meddelandena har tömts tar du bort standard namn området.
 
 >[!IMPORTANT]
-> När meddelanden från standard-namnområdet har tagits tömda, kan du ta bort standard-namnområdet. Detta är viktigt eftersom den anslutningssträng som ursprungligen avses standard-namnområdet nu refererar till premium-namnområde. Du behöver inte standard Namespace längre. Tar bort standard-namnområdet som du har migrerat bidrar till att minska senare förvirring.
+> När meddelandena från standard namn området har tömts tar du bort standard namn området. Detta är viktigt eftersom anslutnings strängen som ursprungligen refereras till standard namn området nu refererar till Premium-namnområdet. Du behöver inte längre standard namn området. Om du tar bort standard namn området som du migrerade bidrar det till att minska senare förvirring.
 
-### <a name="how-much-downtime-do-i-expect"></a>Hur stora driftstopp förväntar jag?
-Migreringsprocessen är avsedd att minska den förväntade stilleståndstiden för program. Avbrott minskar med hjälp av den anslutningssträng som programmen avsändaren och mottagaren använder för att peka på det nya premium-namnområdet.
+### <a name="how-much-downtime-do-i-expect"></a>Hur mycket stillestånd förväntar jag mig?
+Migreringsprocessen är avsedd att minska den förväntade stillestånds tiden för programmen. Stillestånds tiden minskas med anslutnings strängen som avsändaren och mottagar programmen använder för att peka på det nya Premium-namnområdet.
 
-Nedtid som uppstår av programmet är begränsad till den tid det tar för att uppdatera DNS-posten ska peka på premium-namnområde. Avbrottstid är cirka 5 minuter.
+Avbrotts tiden som programmet upplever är begränsad till den tid det tar att uppdatera DNS-posten så att den pekar på Premium-namnområdet. Stillestånds tiden är cirka 5 minuter.
 
-### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>Måste jag göra några konfigurationsändringar när du migrerar?
-Nej, det finns inga kodning eller ändringar som behövs för att göra migreringen. Anslutningssträngen som avsändaren och mottagaren program använda för att få åtkomst till standard Namespace mappas automatiskt för att fungera som ett alias för premium-namnområde.
+### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>Måste jag göra några konfigurations ändringar under migreringen?
+Nej, det finns inga kod-eller konfigurations ändringar som krävs för att utföra migreringen. Anslutnings strängen som avsändare och mottagar program använder för att komma åt standard namn området mappas automatiskt för att fungera som ett alias för Premium-namnområdet.
 
-### <a name="what-happens-when-i-abort-the-migration"></a>Vad händer när jag avbryta migreringen?
-Migreringen kan avbrytas antingen med hjälp av den `Abort` kommandot eller med hjälp av Azure-portalen. 
+### <a name="what-happens-when-i-abort-the-migration"></a>Vad händer när jag avbryter migreringen?
+Migreringen kan avbrytas antingen med hjälp `Abort` av kommandot eller med hjälp av Azure Portal. 
 
 #### <a name="azure-cli"></a>Azure CLI
 
@@ -178,49 +178,49 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Azure Portal
 
-![Avbryt flow – Avbryt synkronisering][]
-![avbryta flödet – avbryta klar][]
+![Avbrotts flöde –][]
+Avbryt synkronisering av synkronisering av synkronisering![-Avbryt slutförd][]
 
-När migreringen har avbrutits, avbryter processen att kopiera entiteter (ämnen, prenumerationer och filter) från standard till premium-namnområde och bryts kopplingen.
+När migreringsprocessen avbryts avbryts processen att kopiera entiteterna (ämnen, prenumerationer och filter) från standarden till Premium-namnområdet och bryter kopplingen.
 
-Anslutningssträngen är inte uppdaterats för att peka på premium-namnområde. Dina befintliga program fortsätta att fungera som de gjorde innan du börjar migreringen.
+Anslutnings strängen har inte uppdaterats till att peka på Premium-namnområdet. Dina befintliga program fortsätter att fungera som de gjorde innan du påbörjade migreringen.
 
-Dock inte det ta bort entiteter på premium-namnområde eller ta bort premium-namnområde. Ta bort entiteter manuellt om du inte valt att gå vidare med migreringen.
+Däremot tar det inte bort entiteterna i Premium-namnområdet eller så tar du bort Premium-namnområdet. Ta bort entiteterna manuellt om du valde att inte flytta framåt med migreringen.
 
 >[!IMPORTANT]
-> Ta bort premium Namespace som du har etablerat för migreringen så att du inte debiteras för resurserna om du vill avbryta migreringen.
+> Om du väljer att avbryta migreringen tar du bort Premium-namnområdet som du har allokerat för migreringen så att du inte debiteras för resurserna.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Jag vill inte behöva tömma meddelanden. Vad gör jag nu?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Jag vill inte behöva tömma meddelandena. Vad gör jag nu?
 
-Det kan finnas meddelanden som skickas av avsändaren program och paket för lagring på standard Namespace medan migreringen sker och precis innan strävar efter migreringen.
+Det kan finnas meddelanden som skickas av avsändar programmen och allokeras till lagrings utrymmet i standard namn området medan migreringen sker och strax innan migreringen genomförs.
 
-Under migreringen kopieras inte den faktiska data/meddelandenyttolast från standard till premium-namnområde. Meddelanden måste tömda manuellt och sedan skickas till premium-namnområde.
+Under migreringen kopieras inte faktiska meddelande data/nytto Last från standarden till Premium-namnområdet. Meddelandena måste tömmas manuellt och sedan skickas till Premium-namnområdet.
 
-Men om du kan migrera under ett planerat underhåll/Underhåll-fönster och du inte vill att tömma manuellt och skicka meddelanden, Följ dessa steg:
+Om du däremot kan migrera under ett planerat underhåll/underhåll-fönster och du inte vill tömma och skicka meddelandena manuellt, följer du dessa steg:
 
-1. Stoppa avsändar-program. Mottagare program kommer att bearbeta meddelanden som finns för närvarande i standard-namnområdet och kommer att tömma kön.
-1. När köer och prenumerationer i standard Namespace är tom, följer du proceduren som beskrivs tidigare för att köra migreringen från standard till premium-namnområde.
-1. När migreringen är klar kan du starta om avsändaren-program.
-1. Avsändarna och mottagarna nu ansluter automatiskt till premium-namnområde.
+1. Stoppa avsändar programmen. Mottagar programmen bearbetar de meddelanden som finns i standard namn området och tömmer kön.
+1. När köerna och prenumerationerna i standard namn området är tomma följer du proceduren som beskrivs ovan för att köra migreringen från standard till Premium-namnområdet.
+1. När migreringen är klar kan du starta om avsändar programmen.
+1. Avsändare och mottagare ansluter nu automatiskt till Premium-namnområdet.
 
     >[!NOTE]
-    > Du behöver inte stoppa mottagar-program för migreringen.
+    > Du behöver inte stoppa mottagar programmen för migreringen.
     >
-    > När migreringen är klar, koppla från standard-namnområdet mottagar-program och ansluter automatiskt till premium-namnområde.
+    > När migreringen är klar kopplas mottagar programmen från standard namn området och ansluter automatiskt till Premium-namnområdet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om den [skillnaderna mellan standard och premium Messaging](./service-bus-premium-messaging.md).
-* Lär dig mer om den [hög tillgänglighet och Geo-Disaster recovery-aspekter för Service Bus premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
+* Läs mer om [skillnaderna mellan standard-och Premium-meddelanden](./service-bus-premium-messaging.md).
+* Läs mer om [återställnings aspekterna med hög tillgänglighet och geo-haverier för Service Bus Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
-[Landningssida för migrering]: ./media/service-bus-standard-premium-migration/1.png
-[Konfigurera namnområdet]: ./media/service-bus-standard-premium-migration/2.png
-[Konfigurera namnområdet – skapa premium-namnområde]: ./media/service-bus-standard-premium-migration/3.png
-[Konfigurera namnområdet – Välj efter migreringen namn]: ./media/service-bus-standard-premium-migration/4.png
-[Konfigurera namnområdet - sync-entiteter – start]: ./media/service-bus-standard-premium-migration/5.png
-[Namnområde – synkronisera entiteter - Installationsförlopp]: ./media/service-bus-standard-premium-migration/8.png
-[Växla namnområde - switch-menyn]: ./media/service-bus-standard-premium-migration/9.png
-[Växeln namnområde – lyckades]: ./media/service-bus-standard-premium-migration/12.png
+[Landnings sida för migrering]: ./media/service-bus-standard-premium-migration/1.png
+[Installations namn område]: ./media/service-bus-standard-premium-migration/2.png
+[Installations namn namnrymd – skapa Premium-namnrymd]: ./media/service-bus-standard-premium-migration/3.png
+[Installations namn namnrymd-Välj efter namn på migrering]: ./media/service-bus-standard-premium-migration/4.png
+[Installations namn namnrymd-synkronisera entiteter-start]: ./media/service-bus-standard-premium-migration/5.png
+[Installations namn område – synkronisera entiteter – förlopp]: ./media/service-bus-standard-premium-migration/8.png
+[Byt namn område – Byt meny]: ./media/service-bus-standard-premium-migration/9.png
+[Switch-namnrymd-lyckad]: ./media/service-bus-standard-premium-migration/12.png
 
-[Avbryt flow – Avbryt synkronisering]: ./media/service-bus-standard-premium-migration/abort1.png
-[Avbryt flow – avbryta klar]: ./media/service-bus-standard-premium-migration/abort3.png
+[Avbryt flöde-Avbryt synkronisering]: ./media/service-bus-standard-premium-migration/abort1.png
+[Avbrotts flöde – avbrott slutfört]: ./media/service-bus-standard-premium-migration/abort3.png

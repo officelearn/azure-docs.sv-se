@@ -1,6 +1,6 @@
 ---
-title: Delegera program-administratörsroller – Azure Active Directory | Microsoft Docs
-description: Hantering av programåtkomst delegera roller att bevilja behörigheter i Azure Active Directory
+title: Delegera program administratörs skapande och hanterings behörigheter – Azure Active Directory | Microsoft Docs
+description: Bevilja behörigheter för program åtkomst hantering i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,95 +10,94 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 896bd7f9af3c319ec4190131036d8aa8ee49bb79
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60469136"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705441"
 ---
-# <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegera app administratörsroller i Azure Active Directory
+# <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegera registrerings behörigheter för app i Azure Active Directory
 
- Azure AD kan du delegera hantering av programåtkomst till en uppsättning inbyggda administrativa roller. Förutom minskar overhead för global administratör kan kan delegera särskild behörighet för att hantera uppgifter för åtkomst av programmet förbättra din säkerhetsposition och minska risken för obehörig åtkomst. Problem med delegering och allmänna riktlinjer diskuteras i [Delegera administration i Azure Active Directory](roles-concept-delegation.md).
+Den här artikeln beskriver hur du använder app-behörigheter i anpassade roller i Azure Active Directory (Azure AD) för att hantera dina program hanterings behov. Azure Active Directory (Azure AD) låter dig delegera skapande-och hanterings behörigheter för program på följande sätt:
 
-## <a name="delegate-app-administration"></a>Delegera administration av app
+- [Begränsa vem som kan skapa program](#restrict-who-can-create-applications) och hantera de program som de skapar. Som standard i Azure AD kan alla användare registrera program registreringar och hantera alla aspekter av program som de skapar. Detta kan begränsas till att endast tillåta valda personer som har behörighet.
+- [Tilldela en eller flera ägare till ett program](#assign-application-owners). Detta är ett enkelt sätt att ge någon möjlighet att hantera alla aspekter av Azure AD-konfigurationen för ett enskilt program.
+- [Tilldela en inbyggd administrativ roll](#assign-built-in-application-admin-roles) som beviljar åtkomst för att hantera konfiguration i Azure AD för alla program. Detta är det rekommenderade sättet att ge IT-experter åtkomst till att hantera omfattande program konfigurations behörigheter utan att bevilja åtkomst till att hantera andra delar av Azure AD som inte är relaterade till program konfigurationen.
+- [Skapa en anpassad roll](#create-and-assign-a-custom-role) som definierar mycket specifika behörigheter och tilldela den till någon antingen till omfånget för ett enskilt program som en begränsad ägare, eller i katalogens omfattning (alla program) som en begränsad administratör.
 
-Följande roller beviljar behörigheter att hantera programregistreringar, inställningar för enkel inloggning, användaren och grupptilldelningar och samtycker till att delegerade behörigheter och programbehörigheter (utom Microsoft Graph och Azure AD Graph). Den enda skillnaden är att en administratör för programmet även ger behörighet att hantera Application Proxy-inställningar. Varken rollen ger dig möjlighet att hantera inställningar för villkorlig åtkomst.
-> [!IMPORTANT]
-> Användare som är tilldelade den här rollen kan lägga till autentiseringsuppgifter i ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Den här personifiering av programmets identitet kan vara en höjning av privilegier över vad användaren kan göra under sin andra rolltilldelningar i Azure AD. En användare som tilldelats den här rollen kan eventuellt skapa eller uppdatera användare eller andra objekt medan personifieras programmet.
+Det är viktigt att överväga att bevilja åtkomst med hjälp av någon av ovanstående metoder av två orsaker. Innan du delegerar möjligheten att utföra administrativa uppgifter minskar du den globala administratörs belastningen. För det andra ökar säkerheten position med begränsade behörigheter och risken för obehörig åtkomst minskas. Delegerings problem och allmänna rikt linjer beskrivs i [delegerad administration i Azure Active Directory](roles-concept-delegation.md).
 
-Så här ger dig möjlighet att hantera åtkomsten till program i Azure portal:
+## <a name="restrict-who-can-create-applications"></a>Begränsa vem som kan skapa program
 
-1. Logga in på din [Azure AD-klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigade till den globala administratörsrollen i klienten.
-2. När du har tillräcklig behörighet kan öppna den [roller och administratörer sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
-3. Öppna en av följande roller för att se dess medlem tilldelningar:
-   * **Programadministratör**
-   * **Molnprogramadministratör**
-4. På den **medlemmar** för rollen, väljer **Lägg till medlem**.
-5. Välj en eller flera medlemmar som ska läggas till i rollen. <!--Members can be users or groups.-->
+Som standard i Azure AD kan alla användare registrera program registreringar och hantera alla aspekter av program som de skapar. Alla har också möjlighet att samtycka till appar som har åtkomst till företags information för deras räkning. Du kan välja att selektivt bevilja dessa behörigheter genom att ställa in globala växlar till "nej" och lägga till de valda användarna i rollen Application Developer.
 
-Du kan visa beskrivningen av de här rollerna i [tillgängliga roller](directory-assign-admin-roles.md#available-roles).
+### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Så här inaktiverar du standard möjligheten att skapa program registreringar eller medgivande till program
 
-## <a name="delegate-app-registration"></a>Delegera appregistrering
+1. Logga in på din Azure AD-organisation med ett konto som är berättigat till rollen global administratör i din Azure AD-organisation.
+1. När du har fått tillräckliga behörigheter anger du ett eller båda av följande:
 
-Alla användare kan skapa programregistreringar som standard, men du bevilja vill behörighet att skapa programregistreringar eller behörighet att ge samtycke att auktorisera en app.
+    - På [sidan användar inställningar för din organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)ställer du in inställningen för **användare kan registrera program** på Nej. Då inaktive ras standard möjligheten för användare att skapa program registreringar.
+    - I [användar inställningarna för företags program](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)ställer du in **användarnas medgivande till program som har åtkomst till företags data för deras ställe** -inställning till Nej. Detta inaktiverar standard möjligheten för användare att samtycka till program som har åtkomst till företags information för deras räkning.
 
-1. Logga in på din [Azure AD-klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigade till den globala administratörsrollen i klienten.
-2. När du har fått behörighet genom att ange en eller båda av följande:
-   * På den [användaren inställningssidan för din klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)anger **användare kan registrera program** Nej.
-   * På den [användarinställningar för företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)anger **användare kan samtycka till program som får åtkomst till företagsdata å deras vägnar** Nej.
-3. Sedan tilldela användare som behöver den här behörigheten ska vara medlemmar i rollen tillämpning developer efter behov.
+### <a name="grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled"></a>Bevilja enskilda behörigheter för att skapa och godkänna program när standard möjligheten är inaktive rad
 
-När en användare registrerar ett program, läggs de automatiskt som första ägare för programmet.
+Tilldela rollen programutvecklare för att ge möjlighet att skapa program registreringar när inställningen **användare kan registrera program** är inställd på Nej. Den här rollen beviljar också behörighet att godkännas för en persons räkning när **användarna kan godkänna att appar som har åtkomst till företagets data för deras räkning** är inställda på Nej. Som ett system beteende läggs de automatiskt till som första ägare när en användare skapar en ny program registrering. Ägarskaps behörigheter ger användaren möjlighet att hantera alla aspekter av en program registrering eller ett företags program som de äger.
 
-## <a name="delegate-app-ownership"></a>Delegera app ägarskap
+## <a name="assign-application-owners"></a>Tilldela program ägare
 
-Ägare för appen och appen registrering ägare kan varje hantera endast program eller app-registreringar som de äger. Till exempel när du lägger till en ägare till Salesforce-programmet kan som ägare hantera åtkomst till och konfiguration för Salesforce, men inte andra program. En app kan ha många ägare och en användare kan vara ägaren av många appar.
+Tilldelning av ägare är ett enkelt sätt att ge möjlighet att hantera alla aspekter av Azure AD-konfigurationen för en specifik program registrering eller ett företags program. När en användare skapar en ny program registrering läggs de automatiskt till som den första ägaren, som ett system beteende. Ägarskaps behörigheter ger användaren möjlighet att hantera alla aspekter av en program registrering eller ett företags program som de äger. Den ursprungliga ägaren kan tas bort och ytterligare ägare kan läggas till.
 
-En programägaren kan:
+### <a name="enterprise-application-owners"></a>Företags program ägare
 
-* Ändra programegenskaper, till exempel namn och behörigheter för app-begäranden
-* Hantera autentiseringsuppgifter
-* Konfigurera enkel inloggning
-* Tilldela användaråtkomst
-* Lägga till eller ta bort andra ägare
-* Redigera appmanifestet
-* Publicera appen i app-galleriet
+Som ägare kan en användare hantera den organisatoriska konfigurationen av företags programmet, till exempel konfiguration av enkel inloggning, etablering och användar tilldelning. En ägare kan också lägga till eller ta bort andra ägare. Till skillnad från globala administratörer kan ägarna bara hantera de företags program som de äger.
+
+I vissa fall inkluderar företags program som skapats från program galleriet både ett företags program och en program registrering. När detta är sant lägger till en ägare till företags programmet automatiskt ägaren till motsvarande program registrering som ägare.
+
+### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Tilldela en ägare till ett företags program
+
+1. Logga in på [din Azure AD-organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigat till program administratören eller moln program administratören för organisationen.
+1. På [sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) Appregistreringar för organisationen väljer du en app för att öppna översikts sidan för appen.
+1. Välj **ägare** om du vill se en lista över ägare för appen.
+1. Välj **Lägg till** för att välja en eller flera ägare som ska läggas till i appen.
 
 > [!IMPORTANT]
-> Användare som är tilldelade den här rollen kan lägga till autentiseringsuppgifter i ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Den här personifiering av programmets identitet kan vara en höjning av privilegier över vad användaren kan göra under sin andra rolltilldelningar i Azure AD. En användare som tilldelats den här rollen kan eventuellt skapa eller uppdatera användare eller andra objekt medan personifieras programmet.
+> Användare och tjänstens huvud namn kan vara ägare till program registreringar. Endast användare kan vara ägare till företags program. Grupper kan inte tilldelas som ägare till någon.
+>
+> Ägare kan lägga till autentiseringsuppgifter till ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Programmet kan ha fler behörigheter än ägaren och kan därför vara en höjning av behörighet över vad ägaren har åtkomst till som användare eller tjänstens huvud namn. En program ägare kan potentiellt skapa eller uppdatera användare eller andra objekt vid personifiering av programmet, beroende på programmets behörigheter.
 
-Ägaren av en appregistrering kan visa och redigera appregistreringen.
+## <a name="assign-built-in-application-admin-roles"></a>Tilldela inbyggda program administratörs roller
 
-<!-- ### To assign an enterprise app ownership role to a user
+Azure AD har en uppsättning inbyggda administratörs roller för att bevilja åtkomst till att hantera konfigurationen i Azure AD för alla program. Dessa roller är det rekommenderade sättet att ge IT-experter åtkomst till att hantera omfattande program konfigurations behörigheter utan att bevilja åtkomst till att hantera andra delar av Azure AD som inte är relaterade till program konfigurationen.
 
-1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
-2. On the [Roles and administrators page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators), open one of the following roles to see its member assignments:
-  * **Enterprise Application Owner**
-  * **Application Registration Owner**
-3. On the **Members** page for the role, select **Add member**.
-4. Select one or more members to add to the role. -->
+- Program administratör: Användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph och Azure AD Graph. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
+- Moln program administratör: Användare i den här rollen har samma behörigheter som program administratörs rollen, förutom möjligheten att hantera programproxyn. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
 
-### <a name="to-assign-an-owner-to-an-application"></a>Tilldela en ägare till ett program
+Mer information och se beskrivningen av dessa roller finns i [tillgängliga roller](directory-assign-admin-roles.md#available-roles).
 
-1. Logga in på din [Azure AD-klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigade till programadministratör eller molnprogramadministratör för klienten.
-2. På den [registreringar appsidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) för klienten, väljer du en app att öppna den **översikt** för appen.
-3. Välj **ägare** att se listan över ägare för appen.
-4. Välj **Lägg till** att välja en eller flera ägare att lägga till i appen.
+Följ anvisningarna i guiden [tilldela roller till användare med Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) instruktions guide för att tilldela rollen program administratör eller moln program administratör.
 
-### <a name="to-assign-an-owner-to-an-application-registration"></a>Att tilldela en ägare till en programregistrering
+> [!IMPORTANT]
+> Program administratörer och moln program administratörer kan lägga till autentiseringsuppgifter till ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Programmet kan ha behörigheter som är en utökning av behörighet över administratörs rollens behörigheter. En administratör i den här rollen kan potentiellt skapa eller uppdatera användare eller andra objekt vid personifiering av programmet, beroende på programmets behörigheter.
+> Ingen av rollerna ger möjlighet att hantera inställningar för villkorlig åtkomst.
 
-1. Logga in på din [Azure AD-klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigade till programadministratör eller Cloud application administratörsrollen i klienten.
-2. När du har tillräckliga behörigheter på den [företagsprogram sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) för klienten, väljer du en appregistrering för att öppna den.
-3. Välj **inställningar**.
-4. Välj **ägare** på den **inställningar** sidan för att se en lista över ägare för appen.
-5. Välj **Lägg till ägare** att välja en eller flera ägare att lägga till i appen.
+## <a name="create-and-assign-a-custom-role"></a>Skapa och tilldela en anpassad roll
+
+Att skapa anpassade roller och tilldela anpassade roller är separata steg:
+
+- [Skapa en anpassad *roll definition* ](roles-create-custom.md) och [Lägg till behörigheter till den från en för inställnings lista](roles-custom-available-permissions.md). Detta är samma behörigheter som används i de inbyggda rollerna.
+- [Skapa en *roll tilldelning* ](roles-assign-graph.md) för att tilldela den anpassade rollen.
+
+Den här separationen gör att du kan skapa en enda roll definition och sedan tilldela den flera gånger i olika *omfång*. En anpassad roll kan tilldelas i hela organisationen, eller så kan den tilldelas i omfånget om ett enskilt Azure AD-objekt. Ett exempel på ett objekt omfång är en registrering av en enda app. Med olika omfång kan samma roll definition tilldelas till Lisa över alla app-registreringar i organisationen och sedan till Naveen över enbart appen contoso utgifts rapporter.
+
+Mer information om grunderna för anpassade roller finns i [Översikt över anpassade roller](roles-custom-overview.md), samt hur du [skapar en anpassad roll](roles-create-custom.md) och hur du [tilldelar en roll](roles-assign-graph.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Rollen referens för Azure AD-administratör](directory-assign-admin-roles.md)
+- [Under typer och behörigheter för program registrering](roles-custom-available-permissions.md)
+- [Roll referens för Azure AD-administratör](directory-assign-admin-roles.md)

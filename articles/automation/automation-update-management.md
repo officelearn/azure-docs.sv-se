@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 150d30085976c89e9053d4715da98e487684e45c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498422"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717244"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -23,7 +23,7 @@ Du kan använda Uppdateringshantering lösning i Azure Automation för att hante
 Du kan aktivera Uppdateringshantering för virtuella datorer direkt från ditt Azure Automation-konto. Information om hur du aktiverar Uppdateringshantering för virtuella datorer från ditt Automation-konto finns i [Hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera Uppdateringshantering för en virtuell dator från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) -och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) -datorer.
 
 > [!NOTE]
-> Uppdateringshantering-lösningen kräver att du länkar en Log Analytics arbets yta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [./How-to/region-Mappings.MD]. Region mappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region än ditt Automation-konto.
+> Uppdateringshantering-lösningen kräver att du länkar en Log Analytics arbets yta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings ]. Region mappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region än ditt Automation-konto.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -99,6 +99,11 @@ I följande tabell visas operativsystem som inte stöds:
 #### <a name="windows"></a>Windows
 
 Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller så måste de ha åtkomst till Microsoft Update. Du kan använda Uppdateringshantering med System Center Configuration Manager. Mer information om integrations scenarier finns i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows](../azure-monitor/platform/agent-windows.md) -agenten krävs. Agenten installeras automatiskt om du registrerar en virtuell Azure-dator.
+
+> [!NOTE]
+> Det är möjligt för en användare att ändra grupprincip så att omstarter av datorn bara kan utföras av användaren, inte av systemet. Hanterade datorer kan fastna, om Uppdateringshantering inte har behörighet att starta om datorn utan manuell interaktion från användaren.
+>
+> Mer information finns i [konfigurera grupprincip inställningar för automatiska uppdateringar](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### <a name="linux"></a>Linux
 
@@ -621,7 +626,7 @@ I följande avsnitt beskrivs eventuella problem med Linux-korrigeringar.
 
 På vissa Linux-varianter, till exempel Red Hat Enterprise Linux, kan uppgraderingar av operativ Systems nivå ske via paket. Detta kan leda till att Uppdateringshantering körs där versions numret för operativ systemet ändras. Eftersom Uppdateringshantering använder samma metoder för att uppdatera paket som en administratör använder lokalt på Linux-datorn, är detta avsiktligt avsiktligt.
 
-Använd undantags funktionen om du vill undvika att uppdatera operativ system  versionen via uppdateringshantering körs.
+Använd undantags funktionen om du vill undvika att uppdatera operativ system versionen via uppdateringshantering körs.
 
 I Red Hat Enterprise Linux är paket namnet som ska undantas RedHat-release-Server. x86_64.
 

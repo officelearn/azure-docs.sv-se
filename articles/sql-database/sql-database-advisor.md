@@ -1,6 +1,6 @@
 ---
-title: Prestandarekommendationer – Azure SQL Database | Microsoft Docs
-description: Azure SQL Database innehåller rekommendationer för SQL-databaser som kan förbättra aktuella frågeprestanda.
+title: Prestanda rekommendationer – Azure SQL Database | Microsoft Docs
+description: Azure SQL Database ger rekommendationer för dina SQL-databaser som kan förbättra den aktuella frågans prestanda.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,92 +10,91 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61417591"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569520"
 ---
-# <a name="performance-recommendations-for-sql-database"></a>Prestandarekommendationer för SQL-databas
+# <a name="performance-recommendations-for-sql-database"></a>Prestanda rekommendationer för SQL Database
 
-Azure SQL Database lärdomar och tips med ditt program. Det ger anpassade rekommendationer som hjälper dig att maximera prestanda i dina SQL-databaser. SQL Database utvärderar kontinuerligt och analyserar användningshistorik för dina SQL-databaser. Rekommendationer som tillhandahålls är baserade på databasen unika arbetsbelastningmönster och hjälp oss att förbättra prestanda.
+Azure SQL Database lär sig och anpassar sig till ditt program. Den innehåller anpassade rekommendationer som hjälper dig att maximera prestandan hos dina SQL-databaser. SQL Database kontinuerligt utvärdera och analysera användnings historiken för dina SQL-databaser. Rekommendationerna som anges baseras på databasens unika arbets belastnings mönster och hjälper till att förbättra prestandan.
 
 > [!TIP]
-> [Automatisk justering](sql-database-automatic-tuning.md) är den rekommenderade metoden för att justera några av de vanligaste prestandaproblemen för databasen. [Fråga Prestandainsikter](sql-database-query-performance.md) är den rekommenderade metoden för grundläggande Azure SQL Database prestandaövervakningsbehov. [Azure SQL-analys](../azure-monitor/insights/azure-sql.md) är den rekommenderade metoden för avancerad övervakning av databasprestanda i skala, med inbyggd intelligens för prestandafelsökning av automatiserade.
+> [Automatisk justering](sql-database-automatic-tuning.md) är den rekommenderade metoden för att automatiskt justera några av de vanligaste problemen med databas prestanda. [Fråga prestanda](sql-database-query-performance.md) insikter är den rekommenderade metoden för grundläggande Azure SQL Database behov av prestanda övervakning. [Azure SQL-analys](../azure-monitor/insights/azure-sql.md) är den rekommenderade metoden för avancerad övervakning av databas prestanda i stor skala, med inbyggd intelligens för automatisk prestanda fel sökning.
 >
 
-## <a name="create-index-recommendations"></a>Skapa indexrekommendationer
-SQL Database övervakar de frågor som körs kontinuerligt och identifierar index som kan förbättra prestanda. När det finns tillräckligt med säker på att ett visst index saknas, en ny **skapa index** rekommendation skapas.
+## <a name="create-index-recommendations"></a>Skapa index rekommendationer
+SQL Database övervakar kontinuerligt de frågor som körs och identifierar de index som kan förbättra prestandan. När det är tillräckligt säkert att ett visst index saknas, skapas en ny rekommendation för **create index** .
 
- Azure SQL Database bygger förtroende genom att uppskatta prestandaökning indexet skulle ta genom tid. Beroende på den uppskattade prestandaökningen kategoriseras rekommendationer som hög, medel eller låg. 
+ Azure SQL Database bygger förtroende genom att uppskatta prestanda ökningen som indexet skulle ta genom tiden. Beroende på den beräknade prestanda vinsten kategoriseras rekommendationerna som hög, medel eller låg. 
 
-Index som skapas med hjälp av rekommendationer är alltid flaggade som automatiskt skapade index. Du kan se vilka index är automatiskt skapade genom att titta på vyn sys.indexes. Automatiskt skapade index blockera inte ALTER/Byt namn på kommandon. 
+Index som skapas med hjälp av rekommendationer flaggas alltid som automatiskt skapade index. Du kan se vilka index som skapas automatiskt genom att titta på vyn sys. index. Automatiskt skapade index blockerar inte ALTER/RENAME-kommandon. 
 
-Om du försöker ta bort kolumnen som har ett automatiskt skapade index över den skickar kommandot. Det automatiskt skapade indexet släpps med kommandot också. Vanliga index Blockera kommandot ALTER/Byt namn på kolumner som ska indexeras.
+Om du försöker släppa kolumnen som har ett automatiskt skapat index över den, skickas kommandot. Det automatiskt skapade indexet släpps även med kommandot. Vanliga index blockerar kommandot ALTER/RENAME på kolumner som är indexerade.
 
-När indexrekommendation skapa används, jämför Azure SQL Database prestanda för frågor med baslinje-prestanda. Om det nya indexet bättre prestanda, rekommendationen flaggas som slutförd och rapporten är tillgänglig. Om indexet inte förbättra prestanda, har det återställas automatiskt. SQL Database använder den här processen för att se till att rekommendationer förbättras databasens prestanda.
+När rekommendationen skapa index har tillämpats jämför Azure SQL Database prestanda för frågorna med bas linje prestanda. Om det nya indexet ger bättre prestanda flaggas rekommendationen som lyckad och effekt rapporten är tillgänglig. Om indexet inte förbättrar prestandan återställs det automatiskt. SQL Database använder den här processen för att säkerställa att rekommendationerna förbättrar databasens prestanda.
 
-Alla **skapa index** rekommendation har en backoff-princip som inte tillåter Tillämpandet av rekommendationen om resursanvändningen för en databas eller en pool är hög. Backoff-principen har i kontot CPU, Data-i/o, logg-i/o och tillgängligt lagringsutrymme. 
+En rekommendation om att **skapa index** har en princip för att inte tillåta att tillämpa rekommendationen om resursanvändningen för en databas eller pool är hög. Säkerhets kopierings principen tar hänsyn till CPU, data-IO, logg-i/o och tillgängligt lagrings utrymme. 
 
-Om CPU, Data-i/o och logg-i/o är högre än 80% i de föregående 30 minuterna, uppskjuten indexrekommendation skapa. Om tillgängligt lagringsutrymme kommer att vara under 10% när indexet har skapats, hamnar rekommendationen i ett feltillstånd. Om du efter ett par dagar, automatisk justering fortfarande anser att indexet skulle vara fördelaktigt, startar processen igen. 
+Om CPU, data-IO eller logg-IO är högre än 80% under de senaste 30 minuterna, senareläggs rekommendationen skapa index. Om det tillgängliga lagrings utrymmet är under 10% efter att indexet har skapats hamnar rekommendationen i ett fel tillstånd. Om du efter ett par dagar bedömer automatisk justering att indexet skulle bli fördelaktigt, startar processen igen. 
 
-Den här processen upprepas tills det finns tillräckligt med ledigt lagringsutrymme för att skapa ett index eller tills indexet inte ses som fördelaktigt längre.
+Den här processen upprepas tills det finns tillräckligt med tillgängligt lagrings utrymme för att skapa ett index, eller tills indexet inte visas som en fördelaktighet längre.
 
-## <a name="drop-index-recommendations"></a>Ta bort indexrekommendationer
-Förutom identifierar index som saknas, analyserar kontinuerligt prestanda för befintliga index i SQL-databas. Om ett index inte används, rekommenderar Azure SQL Database släppa den. Släppa ett index rekommenderas i två fall:
-* Indexet är en dubblett av ett annat index (samma indexerade och ingår kolumn, partition schemat och filter).
-* Indexet har inte använts för en längre period (93 dagar).
+## <a name="drop-index-recommendations"></a>Ta bort index rekommendationer
+Förutom att identifiera saknade index, SQL Database kontinuerligt analysera prestanda för befintliga index. Om ett index inte används rekommenderar Azure SQL Database att släppa det. Att släppa ett index rekommenderas i två fall:
+* Indexet är en dubblett av ett annat index (samma indexerad och inkluderad kolumn, partition schema och filter).
+* Indexet har inte använts under en längre period (93 dagar).
 
-Ta bort indexet rekommendationer också gå igenom verifiering efter implementering. Om prestandan förbättras är i rapporten tillgänglig. Om prestandaförsämringar är rekommendationen återställd.
+Ta bort index rekommendationer går också igenom verifieringen efter implementeringen. Om prestandan förbättras är effekt rapporten tillgänglig. Om prestanda försämras återställs rekommendationen.
 
 
-## <a name="parameterize-queries-recommendations"></a>Parameterisera frågorna-rekommendationer
-*Parameterisera frågorna* rekommendationer visas när du har en eller flera frågor som är ständigt som kompileras men slutet in med samma körning frågeplanen. Det här tillståndet skapar en möjlighet att tillämpa Tvingad parameterisering. Framtvingad parameterisering kan i sin tur frågeplaner för att cachelagras och återanvändas i framtiden, vilket förbättrar prestanda och minskar resursanvändningen. 
+## <a name="parameterize-queries-recommendations"></a>Rekommendationer för Parameterisera-frågor
+Rekommendationer för *Parameterisera-frågor* visas när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma körnings plan för frågan. Det här villkoret skapar en möjlighet att tillämpa Tvingad Parameterisering. Tvingad Parameterisering, i sin tur, tillåter att fråge planer cachelagras och återanvänds i framtiden, vilket förbättrar prestanda och minskar resursanvändningen. 
 
-Varje fråga som utfärdas mot SQL Server från början måste kompileras om du vill generera en Körningsplan. Varje genererad plan har lagts till plancachen. Efterföljande körningar av samma fråga kan återanvända den här planen från cachen, vilket eliminerar behovet av ytterligare kompilering. 
+Varje fråga som utfärdats mot SQL Server ursprungligen måste kompileras för att generera en körnings plan. Varje genererad plan läggs till i planens cacheminne. Efterföljande körningar av samma fråga kan återanvända den här planen från cachen, vilket eliminerar behovet av ytterligare kompilering. 
 
-Frågor med icke-parameteriserat värden kan leda till prestanda försämras eftersom körningsplanen är kompileras varje gång de icke-parameteriserat värdena är olika. I många fall kan generera samma frågor med olika parametervärden samma körningsplaner. De här planerna läggs dock fortfarande separat till plancachen. 
+Frågor med icke-parametriserade värden kan leda till prestanda kostnader eftersom körnings planen kompileras om varje gången de värden som inte har parameteras är olika. I många fall genererar samma frågor med olika parameter värden samma körnings planer. Dessa planer läggs dock fortfarande separat till i plan cacheminnet. 
 
-Processen för att kompilera körningsplaner använder databasresurser, ökar varaktigheten för frågan och flödar över plancachen. Dessa händelser i sin tur leda till planer på att tas bort från cachen. Den här SQL Server-beteende kan ändras genom att ange alternativet Tvingad parameterisering på databasen. 
+Processen för att kompilera om körnings planer använder databas resurser, ökar varaktigheten för frågan och flödar över planens cacheminne. Dessa händelser i sin tur gör att planer tas bort från cachen. Detta SQL Server beteende kan ändras genom att ange alternativet Tvingad Parameterisering i databasen. 
 
-För att beräkna effekten av den här rekommendationen, får du en jämförelse mellan faktiska CPU-användning och beräknade processoranvändningen (som om rekommendationen har tillämpats). Den här rekommendationen kan hjälpa dig få CPU-besparingar. Det kan också hjälpa dig minska frågevaraktigheten och omkostnader för plancachen, vilket innebär att flera av planerna kan vara kvar i cacheminnet och återanvändas. Du kan använda den här rekommendationen snabbt genom att välja den **tillämpa** kommando. 
+För att hjälpa dig att beräkna effekten av den här rekommendationen får du en jämförelse mellan den faktiska processor användningen och den beräknade processor användningen (som om rekommendationen tillämpades). Den här rekommendationen kan hjälpa dig att få CPU-besparingar. Det kan också hjälpa dig att minska frågans varaktighet och kostnader för planens cacheminne, vilket innebär att fler av planerna kan stanna kvar i cacheminnet och återanvändas. Du kan snabbt använda den här rekommendationen genom att välja kommandot **Apply** . 
 
-När du har installerat den här rekommendationen kan Tvingad parameterisering inom några minuter i databasen. Den startar övervakningsprocessen som varar i ungefär 24 timmar. Du kan se verifieringsrapporten efter denna period. Den här rapporten visar CPU-användningen för din databas 24 timmar innan och efter rekommendationen har tillämpats. SQL Database Advisor har en säkerhetsmekanism som återställs automatiskt tillämpad rekommendationen om prestanda regression har identifierats.
+När du har tillämpat den här rekommendationen aktiverar den Tvingad Parameterisering inom några minuter på din databas. Den startar övervaknings processen, som varar i cirka 24 timmar. Efter den här perioden kan du se verifierings rapporten. Den här rapporten visar CPU-användningen av databasen 24 timmar före och efter att rekommendationen har tillämpats. SQL Database Advisor har en säkerhetsmekanism som automatiskt återställer den tillämpade rekommendationen om prestanda regressionen har upptäckts.
 
-## <a name="fix-schema-issues-recommendations-preview"></a>Åtgärda problem med rekommendationer för schemat (förhandsversion)
+## <a name="fix-schema-issues-recommendations-preview"></a>Åtgärda rekommendationer för schema problem (förhands granskning)
 
 > [!IMPORTANT]
-> Microsoft för närvarande avvecklar ”åtgärda schemaproblemet” rekommendationer. Vi rekommenderar att du använder [smarta insikter](sql-database-intelligent-insights.md) att övervaka din databas prestandaproblem, inklusive problem med databasscheman som lyder under ”åtgärda schemaproblemet”-rekommendationer.
+> Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. Vi rekommenderar att du använder [intelligent Insights](sql-database-intelligent-insights.md) för att övervaka databas prestanda problem, inklusive schema problem som rekommendationerna "åtgärda schema problem" tidigare täckt.
 > 
 
-**Fixa schemaproblem** rekommendationer visas när SQL Database-tjänsten upptäcker avvikelser i antalet schema-relaterade SQL fel som händer på din SQL-databas. Den här rekommendationen visas normalt när databasen påträffar flera schema-relaterade fel (Ogiltigt kolumnnamn ogiltigt objektnamn och så vidare) inom en timme.
+**Åtgärda problem med schema problem** visas när SQL Database tjänsten meddelar en avvikelse i antalet schema-relaterade SQL-fel som inträffar i SQL-databasen. Den här rekommendationen visas vanligt vis när databasen påträffar flera schema-relaterade fel (Ogiltigt kolumn namn, ogiltigt objekt namn och så vidare) inom en timme.
 
-”Schemaproblem” är en klass av syntaxfel i SQL Server. De inträffar när definitionen av SQL-frågan och definitionen av databasschemat inte är justerade. Exempelvis kan kanske en av de kolumner som förväntas av frågan saknas i måltabellen eller vice versa. 
+"Schema problem" är en klass av syntaxfel i SQL Server. De inträffar när definitionen av SQL-frågan och definitionen av databasschemat inte är justerad. Till exempel kan en av de kolumner som förväntas av frågan saknas i mål tabellen eller vice versa. 
 
-Rekommendationen ”åtgärda schemaproblemet” visas när Azure SQL Database-tjänsten upptäcker avvikelser i antalet schema-relaterade SQL fel som händer på din SQL-databas. I följande tabell visas de fel som är relaterade till problem med databasscheman:
+Rekommendationen "åtgärda schema problem" visas när Azure SQL Database tjänsten meddelar en avvikelse i antalet schemabaserade SQL-fel som inträffar i SQL-databasen. I följande tabell visas de fel som rör schema problem:
 
 | SQL-felkod | Message |
 | --- | --- |
-| 201 |Proceduren eller funktionen ” *'förväntar sig parametern'* ', vilken inte tillhandahölls. |
-| 207 |Ogiltigt kolumnnamn ' *'. |
-| 208 |Ogiltigt objektnamn ' *'. |
-| 213 |Kolumnnamnet eller antalet angivna värden stämmer inte överens tabelldefinitionen. |
-| 2812 |Det gick inte att hitta lagrade proceduren ' *'. |
-| 8144 |Proceduren eller funktionen * har för många argument. |
+| 201 |Proceduren eller funktionen förväntar*sig parametern*, som inte tillhandahölls. |
+| 207 |Ogiltigt kolumn namn ' * '. |
+| 208 |Ogiltigt objekt namn ' * '. |
+| 213 |Kolumn namnet eller antalet angivna värden stämmer inte överens med tabell definitionen. |
+| 2812 |Det gick inte att hitta den lagrade proceduren *. |
+| 8144 |Procedur eller funktion * har för många angivna argument. |
 
 ## <a name="custom-applications"></a>Anpassade program
 
-Utvecklare kan överväga att utveckla anpassade program med hjälp av prestandarekommendationer för Azure SQL Database. Alla rekommendationer visas i portalen för en databas kan nås via [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
+Utvecklare kan överväga att utveckla anpassade program med hjälp av prestanda rekommendationer för Azure SQL Database. Alla rekommendationer som visas i portalen för en databas kan nås via [Get-AzSqlDatabaseRecommendedAction-](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API: et.
 
 ## <a name="next-steps"></a>Nästa steg
-Övervaka dina rekommendationer och fortsätta att använda dem för att förbättra prestanda. Databasarbetsbelastningar är dynamisk och ändras kontinuerligt. SQL Database Advisor fortsätter att övervaka och rekommendationer som kan förbättra databasens prestanda. 
+Övervaka dina rekommendationer och fortsätt att tillämpa dem för att förbättra prestanda. Databas arbets belastningar är dynamiska och ändras kontinuerligt. SQL Database Advisor fortsätter att övervaka och tillhandahålla rekommendationer som kan förbättra databasens prestanda. 
 
-* Läs mer om automatisk justering av databasindex och frågeplaner för körning [automatisk justering i Azure SQL Database](sql-database-automatic-tuning.md).
-* Mer information om hur du övervakar automatiskt databasprestanda med automatiserade diagnostik och analys av rotorsaker av prestandaproblem finns i [smarta insikter för Azure SQL](sql-database-intelligent-insights.md).
-*  Mer information om hur du använder prestandarekommendationer i Azure-portalen finns i [prestandarekommendationer i Azure-portalen](sql-database-advisor-portal.md).
-* Se [fråga Prestandainsikter](sql-database-query-performance.md) Lär dig mer om och visa prestandapåverkan från återställning av dina viktigaste frågor.
+* Mer information om automatisk justering av databas index och fråge körnings planer finns i [Azure SQL Database automatisk justering](sql-database-automatic-tuning.md).
+* Mer information om automatisk övervakning av databas prestanda med automatiserad diagnostik och rotor Saks analys av prestanda problem finns i [Azure SQL intelligent Insights](sql-database-intelligent-insights.md).
+*  Mer information om hur du använder prestanda rekommendationer i Azure Portal finns i rekommendationer för [prestanda i Azure Portal](sql-database-advisor-portal.md).
+* Läs mer i [frågor](sql-database-query-performance.md) och svar om du vill veta mer om och se prestanda påverkan för dina vanligaste frågor.
 
 

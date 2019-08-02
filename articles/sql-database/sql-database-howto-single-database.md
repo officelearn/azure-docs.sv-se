@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du Azure SQL Database - enda | Microsoft Docs
-description: Lär dig hur du konfigurerar och hanterar Azure SQL Database - databas
+title: Så här konfigurerar du Azure SQL Database-Single | Microsoft Docs
+description: Lär dig hur du konfigurerar och hanterar Azure SQL Database-enkel databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,68 +10,67 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4c6799372f203f021a07ae52a1d7f591aae5afad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2117a811f977230dd9c9eecf6ea09b9b7deda3be
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60339014"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568055"
 ---
-# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Hur du använder en enkel databas i Azure SQL Database
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Använda en enda databas i Azure SQL Database
 
-I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan hjälpa dig att hantera och konfigurera din databas i Azure SQL Database
+I det här avsnittet hittar du olika guider, skript och förklaringar som kan hjälpa dig att hantera och konfigurera en enskild databas i Azure SQL Database
 
 ## <a name="migrate"></a>Migrera
 
-- [Migrera till SQL Database](sql-database-single-database-migrate.md) – Lär dig mer om rekommenderade migreringsprocessen och verktyg för migrering till en hanterad instans.
-- Lär dig hur du [hanterar SQL-databas efter migreringen](sql-database-manage-after-migration.md).
+- [Migrera till SQL Database](sql-database-single-database-migrate.md) – Läs mer om den rekommenderade migreringsprocessen och verktyg för migrering till en hanterad instans.
+- Lär dig hur du [hanterar SQL Database efter migreringen](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Konfigurera funktioner
 
-- [Konfigurera Transaktionsreplikering](replication-to-sql-database.md) att replikera dina datum mellan databaser.
-- [Konfigurera hotidentifiering](sql-database-threat-detection.md) så att identifiera misstänkta aktiviteter, till exempel SQL-inmatning eller åtkomst från misstänkta platser för Azure SQL Database.
-- [Konfigurera dynamisk datamaskning](sql-database-dynamic-data-masking-get-started-portal.md) att skydda känsliga data.
-- [Konfigurera kvarhållning av säkerhetskopior](sql-database-long-term-backup-retention-configure.md) för en databas att hålla dina säkerhetskopior på Azure Blob Storage. Som ett alternativ som finns [konfigurera kvarhållning av säkerhetskopior med hjälp av Azure vault (inaktuell)](sql-database-long-term-backup-retention-configure-vault.md) metod.
-- [Konfigurera geo-replikering](sql-database-geo-replication-portal.md) håller en replik av databasen i en annan region.
-- [Konfigurera säkerhet för geo-repliker](sql-database-geo-replication-security-config.md).
+- [Konfigurera](replication-to-sql-database.md) Transaktionsreplikering för att replikera ditt datum mellan databaser.
+- [Konfigurera hot identifiering](sql-database-threat-detection.md) för att låta Azure SQL Database identifiera misstänkta aktiviteter som SQL-inmatning eller åtkomst från misstänkta platser.
+- [Konfigurera dynamisk data maskning](sql-database-dynamic-data-masking-get-started-portal.md) för att skydda känsliga data.
+- [Konfigurera kvarhållning av säkerhets kopior](sql-database-long-term-backup-retention-configure.md) för en databas om du vill behålla dina säkerhets kopior på Azure Blob Storage. Ett alternativ är att [Konfigurera kvarhållning av säkerhets kopior med Azure Vault (inaktuell)](sql-database-long-term-backup-retention-configure-vault.md) metod.
+- [Konfigurera geo-replikering](sql-database-geo-replication-portal.md) för att behålla en replik av databasen i en annan region.
+- [Konfigurera säkerhet för geo-Replicas](sql-database-geo-replication-security-config.md).
 
-## <a name="monitor-and-tune-your-database"></a>Övervaka och finjustera din databas
+## <a name="monitor-and-tune-your-database"></a>Övervaka och finjustera databasen
 
-- [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md) så att Azure SQL Database optimera prestandan för din arbetsbelastning.
-- [Aktivera e-postaviseringar för automatisk justering](sql-database-automatic-tuning-email-notifications.md) att få information om justeringsrekommendationer.
-- [Tillämpa prestandarekommendationer](sql-database-advisor-portal.md) och optimera din databas.
-- [Skapa aviseringar](sql-database-insights-alerts-portal.md) få meddelanden från Azure SQL Database.
-- [Felsökning av anslutningar](sql-database-troubleshoot-common-connection-issues.md) om du upptäcker några problem med nätverksanslutningen mellan program och databasen. Du kan också använda [Resource Health för problem med nätverksanslutningen](sql-database-resource-health.md).
-- [Hantera filutrymme](sql-database-file-space-management.md) att övervaka användning av lagringsutrymme i databasen.
+- [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md) för att låta Azure SQL Database optimera arbets Belastningens prestanda.
+- [Aktivera e-postaviseringar för automatisk justering](sql-database-automatic-tuning-email-notifications.md) för att få information om justerings rekommendationer.
+- [Använd prestanda rekommendationer](sql-database-advisor-portal.md) och optimera databasen.
+- [Skapa aviseringar](sql-database-insights-alerts-portal.md) för att få meddelanden från Azure SQL Database.
+- [Felsök anslutningen](sql-database-troubleshoot-common-connection-issues.md) om du märker några anslutnings problem mellan programmen och-databasen. Du kan också använda [Resource Health för anslutnings problem](sql-database-resource-health.md).
+- [Hantera fil utrymme](sql-database-file-space-management.md) för att övervaka lagrings användningen i databasen.
 
 ## <a name="query-distributed-data"></a>Fråga distribuerade data
 
 - [Fråga lodrätt partitionerade data](sql-database-elastic-query-getting-started-vertical.md) över flera databaser.
-- [Rapport över utskalad datanivå](sql-database-elastic-query-horizontal-partitioning.md).
-- [Fråga mellan tabeller med olika scheman](sql-database-elastic-query-vertical-partitioning.md).
+- [Rapport över skalade data nivåer](sql-database-elastic-query-horizontal-partitioning.md).
+- [Fråga över tabeller med olika scheman](sql-database-elastic-query-vertical-partitioning.md).
 
 ## <a name="elastic-database-jobs"></a>Elastic Database-jobb
 
-- [Skapa och hantera](elastic-jobs-powershell.md) Elastic Database-jobb med hjälp av PowerShell.
-- [Skapa och hantera](elastic-jobs-tsql.md) Elastic Database-jobb med hjälp av Transact-SQL.
-- [Migrera från gamla Elastiskt jobb](elastic-jobs-migrate.md).
+- [Skapa och hantera](elastic-jobs-powershell.md) Elastic Database jobb med PowerShell.
+- [Skapa och hantera](elastic-jobs-tsql.md) Elastic Database jobb med hjälp av Transact-SQL.
+- [Migrera från gammalt elastiskt jobb](elastic-jobs-migrate.md).
 
 ## <a name="database-sharding"></a>Horisontell partitionering av databas
 
-- [Uppgradera elastic database-klientbibliotek](sql-database-elastic-scale-upgrade-client-library.md).
-- [Skapa shardad app](sql-database-elastic-scale-get-started.md).
+- [Uppgradera klient biblioteket för Elastic Database](sql-database-elastic-scale-upgrade-client-library.md).
+- [Skapa shardade-app](sql-database-elastic-scale-get-started.md).
 - [Fråga vågrätt shardade data](sql-database-elastic-query-getting-started.md).
-- Kör [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md).
-- [Flytta shardade data](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-- [Konfigurera säkerhet](sql-database-elastic-scale-split-merge-security-configuration.md) i databasshards.
-- [Lägg till en shard](sql-database-elastic-scale-add-a-shard.md) till den aktuella uppsättningen databasshards.
-- [Lösa problem i shardkarta](sql-database-elastic-database-recovery-manager.md).
-- [Migrera shardad databas](sql-database-elastic-convert-to-use-elastic-tools.md).
+- Köra [multi-Shard-frågor](sql-database-elastic-scale-multishard-querying.md).
+- [Flytta shardade-data](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+- [Konfigurera säkerhet](sql-database-elastic-scale-split-merge-security-configuration.md) i Database Shards.
+- [Lägg till en Shard](sql-database-elastic-scale-add-a-shard.md) i den aktuella uppsättningen databas Shards.
+- [Åtgärda problem med Shard Map](sql-database-elastic-database-recovery-manager.md).
+- [Migrera SHARDADE DB](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Skapa räknare](sql-database-elastic-database-perf-counters.md).
-- [Använda entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) att fråga efter shardade data.
-- [Använd Dapper framework](sql-database-elastic-scale-working-with-dapper.md) att fråga efter shardade data.
+- [Använd Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) för att fråga shardade-data.
+- [Använd dapper Framework](sql-database-elastic-scale-working-with-dapper.md) för att fråga shardade-data.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [anvisningar hjälper för den hanterade instansen](sql-database-howto-managed-instance.md)
+- Lär dig mer om [instruktions guider för hanterad instans](sql-database-howto-managed-instance.md)

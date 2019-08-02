@@ -1,6 +1,6 @@
 ---
-title: Store Azure SQL Database-säkerhetskopior i upp till 10 år | Microsoft Docs
-description: Lär dig hur Azure SQL Database stöder lagring fullständiga databassäkerhetskopieringar för upp till 10 år.
+title: Lagra Azure SQL Database säkerhets kopior i upp till 10 år | Microsoft Docs
+description: Läs om hur Azure SQL Database har stöd för lagring av fullständiga säkerhets kopior av databaser i upp till 10 år.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -10,74 +10,73 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 05/18/2019
-ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: b43097dee6a3b4e8ec762e193dc2faf006ec796c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190552"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567763"
 ---
-# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store Azure SQL Database-säkerhetskopior i upp till 10 år
+# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Lagra Azure SQL Database säkerhets kopior i upp till 10 år
 
-Många program har föreskrifter, efterlevnad och andra affärsrelaterade syften som kräver att du behåller säkerhetskopior av databasen efter de 7-35 dagar som tillhandahålls av Azure SQL Database [automatiska säkerhetskopieringar](sql-database-automated-backups.md). Med hjälp av funktionen för långsiktig kvarhållning av säkerhetskopior (LTR), kan du lagra angiven SQL database fullständiga säkerhetskopieringar i [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob-lagring för upp till 10 år. Alla säkerhetskopior kan återställas till en ny databas.
+Många program har regler, efterlevnad eller andra affärs behov som kräver att du bevarar databas säkerhets kopiorna utöver de 7-35 dagar som tillhandahålls av Azure SQL Database [Automatisk säkerhets kopiering](sql-database-automated-backups.md). Med hjälp av funktionen för långsiktig kvarhållning (brv) kan du lagra angivna fullständiga säkerhets kopieringar i SQL Database i [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) Blob Storage i upp till 10 år. Alla säkerhetskopior kan återställas till en ny databas.
 
 > [!NOTE]
-> LTR kan aktiveras för enkel och delade databaser. Det är ännu inte tillgängliga för instans-databaser i hanterade instanser. Du kan använda SQL Agent-jobb för att schemalägga [endast kopiering databassäkerhetskopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till LTR utöver 35 dagar.
+> BRV kan aktive ras för enskilda databaser och databaser i pooler. Den är inte tillgänglig ännu för instans databaser i hanterade instanser. Du kan använda SQL Agent-jobb för att schemalägga [säkerhets kopiering av skrivskyddade databaser](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till vä-hö över 35 dagar.
 > 
 
-## <a name="how-sql-database-long-term-retention-works"></a>Hur fungerar SQL-databas med långsiktig kvarhållning
+## <a name="how-sql-database-long-term-retention-works"></a>Så här fungerar SQL Database långsiktig kvarhållning
 
-Långsiktig kvarhållning av säkerhetskopior (LTR) utnyttjar de fullständiga databassäkerhetskopieringar som är [automatiskt skapade](sql-database-automated-backups.md) att aktivera återställning av tid för återställningspunkt (PITR). Om en LTR-princip har ställts kopieras säkerhetskopiorna till olika BLOB för långsiktig lagring. Kopieringsåtgärden är ett bakgrundsjobb som inte påverkar prestanda på databas-arbetsbelastning. LTR-säkerhetskopior bevaras under en tidsperiod som angetts av en LTR-princip. LTR-princip för varje SQL-databas kan också ange hur ofta LTR-säkerhetskopieringar skapas. Så här aktiverar du den flexibiliteten du kan definiera principen med en kombination av fyra parametrar: kvarhållningsperiod för veckovisa säkerhetskopior (W) kvarhållningsperiod för månadsvisa säkerhetskopior (M), kvarhållningsperiod för årliga säkerhetskopior (Y) och veckan på året (WeekOfYear). Om du anger W, en säkerhetskopiering varje vecka ska kopieras till långsiktig lagring. Om du anger M, kopieras en säkerhetskopiering under den första veckan varje månad till långsiktig lagring. Om du anger Y, kopieras en säkerhetskopiering under veckan som anges av WeekOfYear till långsiktig lagring. Varje säkerhetskopia sparas i långsiktig lagring för den tid som anges av dessa parametrar. Ändringar av LTR-principen gäller för framtida säkerhetskopieringar. Till exempel om den angivna WeekOfYear har passerat när principen är konfigurerad, skapas den första säkerhetskopian för LTR nästa år. 
+Långsiktig kvarhållning av säkerhets kopior (brv) utnyttjar de fullständiga säkerhets kopiorna av databasen som [skapas automatiskt](sql-database-automated-backups.md) för att aktivera punkt-tids återställning (PITR). Om en LTR-princip har kon figurer ATS kopieras dessa säkerhets kopior till olika blobbar för långsiktig lagring. Kopierings åtgärden är ett bakgrunds jobb som inte påverkar databasens arbets belastning. Säkerhets kopiorna för säkerhets kopian bevaras under en tids period som anges av vä-hö-principen. Principen för vä-hö för varje SQL-databas kan också ange hur ofta säkerhets kopieringarna ska skapas. Om du vill aktivera flexibiliteten kan du definiera principen med en kombination av fyra parametrar: veckovis kvarhållning av säkerhets kopior (W), månatlig kvarhållning av säkerhets kopior (M), årlig kvarhållning av säkerhets kopior (Y) och vecka på år (WeekOfYear). Om du anger a kommer en säkerhets kopia varje vecka att kopieras till långsiktig lagring. Om du anger M kommer en säkerhets kopia under den första veckan varje månad att kopieras till långsiktig lagring. Om du anger Y kopieras en säkerhets kopia under den vecka som anges av WeekOfYear till långsiktig lagring. Varje säkerhets kopia sparas i långtids lagringen under den period som anges av dessa parametrar. Alla ändringar av LTR-principen gäller för framtida säkerhets kopieringar. Om t. ex. den angivna WeekOfYear har passerat när principen har kon figurer ATS skapas den första säkerhets kopian för LTR nästa år. 
 
-Exempel på LTR-princip:
+Exempel på LTR-principen:
 
 -  W = 0, M = 0, Y = 5, WeekOfYear = 3
 
-   Den tredje fullständig säkerhetskopieringen varje år sparas i fem år.
+   Den tredje fullständiga säkerhets kopian av varje år sparas i fem år.
    
-- W=0, M=3, Y=0
+- W = 0, M = 3, Y = 0
 
-   Den första fullständiga säkerhetskopian för varje månad sparas under tre månader.
+   Den första fullständiga säkerhets kopian av varje månad sparas i tre månader.
 
-- W=12, M=0, Y=0
+- W = 12, M = 0, Y = 0
 
-   Varje fullständig säkerhetskopiering varje vecka är kvar i 12 veckor.
+   Varje veckovis fullständig säkerhets kopiering sparas i 12 veckor.
 
-- W = 6, M = 12, Y = 10 WeekOfYear = 16
+- W = 6, M = 12, Y = 10, WeekOfYear = 16
 
-   Varje fullständig säkerhetskopiering varje vecka är kvar i sex veckor. Förutom första fullständig säkerhetskopiering varje månad, som är kvar i 12 månader. Förutom den fullständiga säkerhetskopior som gjorts på 16: e vecka på året, som är kvar i 10 år. 
+   Varje veckovis fullständig säkerhets kopiering sparas i sex veckor. Förutom första fullständiga säkerhets kopiering av varje månad, som sparas i 12 månader. Förutom den fullständiga säkerhets kopieringen som gjorts den sextonde veckan på året, som sparas i 10 år. 
 
-I följande tabell visar takt och förfallodatum för långsiktig säkerhetskopiering för följande princip:
+Följande tabell visar takt och förfallo datum för de långsiktiga säkerhets kopiorna för följande princip:
 
-W = 12 veckor (84 dagar), M = 12 månader (365 dagar), Y = 10 år (3650 dagar), WeekOfYear = 15 (veckan efter den 15 April)
+W = 12 veckor (84 dagar), M = 12 månader (365 dagar), Y = 10 år (3650 dagar), WeekOfYear = 15 (vecka efter 15 april)
 
-   ![LTR-exempel](./media/sql-database-long-term-retention/ltr-example.png)
+   ![vä-exempel](./media/sql-database-long-term-retention/ltr-example.png)
 
 
 
-Om du ändrar principen ovan och W = 0 (ingen veckovisa säkerhetskopior), intervall som uppsättning säkerhetskopior kommer att ändras som visas i tabellen ovan efter de markerade datum. Lagringsutrymmet som krävs för att dessa säkerhetskopior skulle minska därefter. 
+Om du ändrar principen ovan och anger W = 0 (inga vecko Visa säkerhets kopior), kommer takt för säkerhets kopior att ändras så som visas i tabellen ovan med de markerade datumen. Det lagrings utrymme som krävs för att behålla säkerhets kopiorna minskar därför. 
 
 > [!IMPORTANT]
-> Tidsinställningen för de enskilda LTR-säkerhetskopiorna styrs av Azure SQL Database. Du kan inte manuellt skapa en säkerhetskopia av LTR eller styra tidsinställningen för säkerhetskopian skapades. När du har konfigurerat en LTR-princip, kan det ta upp till 7 dagar innan den första säkerhetskopian för LTR visas på listan över tillgängliga säkerhetskopior.  
+> Tiden för de enskilda säkerhets kopieringarna i LTR styrs av Azure SQL Database. Du kan inte manuellt skapa en LTR-säkerhetskopiering eller kontrol lera tiden för att skapa säkerhets kopior. När du har konfigurerat en LTR-princip kan det ta upp till sju dagar innan den första säkerhets kopian i LTR visas i listan över tillgängliga säkerhets kopior.  
 > 
 
-## <a name="geo-replication-and-long-term-backup-retention"></a>GEO-replikering och långsiktig kvarhållning av säkerhetskopior
+## <a name="geo-replication-and-long-term-backup-retention"></a>Kvarhållning av geo-replikering och långsiktig säkerhets kopiering
 
-Om du använder aktiv geo-replikering eller redundansgrupper som kontinuitet för företag-lösning bör du förbereder för slutlig redundansväxlingar och konfigurera samma LTR-princip för geo-secondary-databas. Dina kostnader för lagring av LTR ökar vanligtvis inte eftersom säkerhetskopieringar inte genereras från de sekundära databaser. Först när sekundärt primära kommer säkerhetskopieringar att skapas. Det garanterar inte avbryts generering av LTR-säkerhetskopior när redundansen utlöses och primärt flyttar till den sekundära regionen. 
+Om du använder aktiv geo-replikering eller failover-grupper som verksamhets kontinuitets lösning bör du förbereda för eventuell redundans och konfigurera samma LTR-princip för den geo-sekundära databasen. Din LTR Storage-kostnad ökar inte när säkerhets kopiering inte genereras från sekundärerna. Endast när den sekundära blir primär kommer säkerhets kopiorna att skapas. Den säkerställer icke-avbruten generering av säkerhets kopian av LTR När redundansväxlingen utlöses och den primära flyttas till den sekundära regionen. 
 
 > [!NOTE]
-> När den ursprungliga primära databasen återställs från ett avbrott som orsakade växling vid fel, blir det en ny sekundär. Därför kommer inte att återuppta säkerhetskopian skapades och den befintliga principen för LTR börjar inte gälla förrän den blir primärt igen. 
+> När den ursprungliga primära databasen återställs från ett avbrott som orsakade redundansväxlingen, blir det en ny sekundär. Därför återupptas inte skapandet av säkerhets kopieringen och den befintliga LTR-principen börjar inte gälla förrän den blir primär igen. 
 
 ## <a name="configure-long-term-backup-retention"></a>Konfigurera långsiktig kvarhållning av säkerhetskopior
 
-Information om hur du konfigurerar långsiktig kvarhållning av säkerhetskopior med Azure portal eller PowerShell finns i [hantera Azure SQL Database långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-backup-retention-configure.md).
+Mer information om hur du konfigurerar långsiktig kvarhållning med hjälp av Azure Portal eller PowerShell finns i [hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-backup-retention-configure.md).
 
-## <a name="restore-database-from-ltr-backup"></a>Återställa databasen från LTR backup
+## <a name="restore-database-from-ltr-backup"></a>Återställ databas från LTR-säkerhetskopiering
 
-Om du vill återställa en databas från LTR-lagring, kan du välja en specifik säkerhetskopia baserat på dess tidsstämpel. Databasen kan återställas till en befintlig server i samma prenumeration som den ursprungliga databasen. Om du vill lära dig att återställa databasen från en LTR-säkerhetskopia med hjälp av Azure portal eller PowerShell, se [hantera Azure SQL Database långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-backup-retention-configure.md).
+Om du vill återställa en databas från den lokala lagrings platsen kan du välja en speciell säkerhets kopia baserat på dess tidsstämpel. Databasen kan återställas till en befintlig server under samma prenumeration som den ursprungliga databasen. Information om hur du återställer databasen från en LTR-säkerhetskopiering med hjälp av Azure Portal eller PowerShell finns i [hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Eftersom databassäkerhetskopior skydda data från oavsiktliga skador eller tas bort, är det en viktig del av alla företagskontinuitet och strategi för katastrofåterställning. Läs mer om de andra SQL-databas lösningarna för affärskontinuitet, i [översikt över affärskontinuitet](sql-database-business-continuity.md).
+Eftersom säkerhets kopiering av databasen skyddar data från oavsiktlig skada eller borttagning, är de en viktig del av all affärs kontinuitet och katastrof återställnings strategi. Mer information om andra SQL Database lösningar för företags kontinuitet finns i [Översikt över affärs kontinuitet](sql-database-business-continuity.md).

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera kubenet nätverk i Azure Kubernetes Service (AKS)
-description: Lär dig hur du konfigurerar kubenet (grundläggande) nätverk i Azure Kubernetes Service (AKS) att distribuera ett AKS-kluster till ett befintligt virtuellt nätverk och undernät.
+title: Konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS)
+description: Lär dig hur du konfigurerar Kubernetes-nätverk (Basic) i Azure Kubernetes service (AKS) för att distribuera ett AKS-kluster till ett befintligt virtuellt nätverk och undernät.
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -9,92 +9,92 @@ ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
 ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67615766"
 ---
-# <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använd kubenet nätverk med dina egna IP-adressintervall i Azure Kubernetes Service (AKS)
+# <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
-Som standard AKS-kluster används [kubenet][kubenet], och ett Azure-nätverk och undernät skapas åt dig. Med *kubenet*, noder hämta en IP-adress från det virtuella Azure-undernätet. Poddar ta emot en IP-adress från en logiskt olika adressutrymmen till undernätet för Azure-nätverk av noderna. Network adress translation (NAT) konfigureras sedan så att poddarna kan nå resurser på Azure-nätverket. Källans IP-adress av trafiken är skulle NAT till nodens primära IP-adress. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverk kan poddar att använda.
+Som standard använder AKS-kluster [Kubernetes][kubenet]och ett virtuellt Azure-nätverk och undernät skapas åt dig. Med *Kubernetes*hämtar noder en IP-adress från det virtuella nätverkets undernät i Azure. Poddar tar emot en IP-adress från ett logiskt annorlunda adress utrymme till nodernas virtuella Azure-undernät. NAT (Network Address Translation) konfigureras sedan så att poddar kan komma åt resurser i det virtuella Azure-nätverket. Käll-IP-adressen för trafiken är NAT till nodens primära IP-adress. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverks utrymme för att poddar ska kunna användas.
 
-Med [Azure behållare nätverk gränssnitt (CNI)][cni-networking], varje pod får en IP-adress från undernätet och kan nås direkt. Dessa IP-adresser måste vara unikt för ditt adressutrymme för nätverket och måste planeras i förväg. Varje nod har en konfigurationsparameter för det maximala antalet poddar som stöds. Det motsvarande antalet IP-adresser per nod reserveras sedan direkt för noden. Den här metoden kräver mer planering och leder ofta till IP-adress överbelastning eller att behöva återskapa kluster i ett större undernät allteftersom dina behov växer.
+Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod en IP-adress från under nätet och kan nås direkt. De här IP-adresserna måste vara unika i ditt nätverks utrymme och måste planeras i förväg. Varje nod har en konfigurations parameter för det maximala antalet poddar som stöds. Motsvarande antal IP-adresser per nod är sedan reserverade för den noden. Den här metoden kräver mer planering, och leder ofta till IP-prisslutning eller behovet av att återskapa kluster i ett större undernät när ditt program kräver en tillväxt.
 
-Den här artikeln visar hur du använder *kubenet* nätverk för att skapa och använda ett virtuellt nätverksundernät för ett AKS-kluster. Mer information om Nätverksalternativ och överväganden finns i [nätverk begrepp för Kubernetes och AKS][aks-network-concepts].
+Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
 > [!WARNING]
-> Om du vill använda Windows Server nodpooler (för närvarande i förhandsversion i AKS), måste du använda Azure CNI. Användningen av kubenet som nätverk modellen är inte tillgänglig för Windows Server-behållare.
+> Om du vill använda Windows Server Node-pooler (för närvarande i för hands version i AKS) måste du använda Azure CNI. Användningen av Kubernetes som nätverks modell är inte tillgänglig för Windows Server-behållare.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI version 2.0.65 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
+Du behöver Azure CLI-versionen 2.0.65 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Översikt över kubenet nätverk med ditt eget undernät
+## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Översikt över Kubernetes-nätverk med ditt eget undernät
 
-I många miljöer, har du definierat virtuella nätverk och undernät med allokerade IP-adressintervall. Dessa virtuella nätverksresurser används för att stödja flera tjänster och program. AKS-kluster kan använda för att ge nätverksanslutning, *kubenet* (grundläggande nätverk) eller Azure CNI (*avancerade nätverk*).
+I många miljöer har du definierat virtuella nätverk och undernät med allokerade IP-adressintervall. Dessa virtuella nätverks resurser används för att stödja flera tjänster och program. För att tillhandahålla nätverks anslutning kan AKS-kluster använda *Kubernetes* (grundläggande nätverk) eller Azure cni (*avancerade nätverk*).
 
-Med *kubenet*, endast noderna får en IP-adress i virtuella nätverkets undernät. Poddar kan inte kommunicera direkt med varandra. Användardefinierad routning (UDR) och IP-vidarebefordring används i stället för anslutningen mellan poddar mellan noder. Du kan också distribuera poddar bakom en tjänst som tar emot en tilldelad IP-adress och belastningsutjämnar trafik för programmet. Följande diagram visar hur AKS-nodernas får en IP-adress i virtuella nätverkets undernät, men inte poddarna:
+Med *Kubernetes*får bara noderna en IP-adress i det virtuella nätverkets undernät. Poddar kan inte kommunicera direkt med varandra. I stället används UDR (User Defined routing) och IP-vidarebefordring för anslutning mellan poddar över noder. Du kan också distribuera poddar bakom en tjänst som tar emot en tilldelad IP-adress och belastnings Utjämnings trafik för programmet. Följande diagram visar hur AKS-noder får en IP-adress i det virtuella nätverkets undernät, men inte poddar:
 
-![Kubenet nätverk modell med ett AKS-kluster](media/use-kubenet/kubenet-overview.png)
+![Kubernetes nätverks modell med ett AKS-kluster](media/use-kubenet/kubenet-overview.png)
 
-Azure stöder högst 400 vägar i en UDR så att du inte kan ha ett AKS-kluster som är större än 400 noder. AKS funktioner som [virtuella noder][virtual-nodes] eller nätverksprinciper stöds inte med *kubenet*.
+Azure har stöd för högst 400 vägar i en UDR, så du kan inte ha ett AKS-kluster som är större än 400 noder. AKS funktioner som [virtuella noder][virtual-nodes] eller nätverks principer stöds inte med *Kubernetes*.
 
-Med *Azure CNI*, varje pod tar emot en IP-adress i IP-undernät och kan kommunicera direkt med andra poddar och tjänster. Ditt kluster kan vara så stora som IP-adressintervall som du anger. Men det IP-adressintervallet måste planeras i förväg och alla IP-adresser används av AKS-noder baserat på det maximala antalet poddar som de kan stödja. Avancerade nätverksfunktioner och scenarier som [virtuella noder][virtual-nodes] eller nätverksprinciper stöds med *Azure CNI*.
+Med *Azure cni*får varje Pod en IP-adress i IP-undernätet och kan kommunicera direkt med andra poddar och tjänster. Klustren kan vara så stora som det IP-adressintervall som du anger. IP-adressintervallet måste dock planeras i förväg, och alla IP-adresser används av AKS-noderna baserat på det maximala antalet poddar som de kan stödja. Avancerade nätverksfunktioner och scenarier som [virtuella noder][virtual-nodes] eller nätverks principer stöds med *Azure cni*.
 
-### <a name="ip-address-availability-and-exhaustion"></a>IP-adressens tillgänglighet och resursuttömning
+### <a name="ip-address-availability-and-exhaustion"></a>Tillgänglighet och utbelastning för IP-adress
 
-Med *Azure CNI*, ett vanligt problem är det tilldelade IP-adressintervallet är för liten för att lägga till fler noder när du skalar eller uppgradera ett kluster. Nätverk-teamet kan också inte att utfärda en tillräckligt stor för IP-adressintervall för att stödja din förväntade programbegäran.
+Med *Azure cni*är ett vanligt problem att det tilldelade IP-adressintervallet är för litet för att lägga till ytterligare noder när du skalar eller uppgraderar ett kluster. Nätverks teamet kanske inte heller kan utfärda ett stort tillräckligt med IP-adressintervall för att stödja förväntade program krav.
 
-Som en svaghet, kan du skapa ett AKS-kluster som använder *kubenet* och Anslut till ett befintligt undernät för virtuellt nätverk. Den här metoden gör att noderna får definierade IP-adresser, utan att behöva reservera ett stort antal IP-adresser direkt för alla potentiella poddarna som kan köras i klustret.
+Som en kompromiss kan du skapa ett AKS-kluster som använder *Kubernetes* och ansluter till ett befintligt undernät för virtuella nätverk. Med den här metoden kan noderna ta emot definierade IP-adresser, utan att behöva reservera ett stort antal IP-adresser fram för alla potentiella poddar som kan köras i klustret.
 
-Med *kubenet*, du kan använda ett mycket mindre IP-adressintervall och att kunna stödja stora kluster och behov. Till exempel ännu med en */27* IP-adressintervall, du kan köra ett kluster med 20-25 noder med tillräckligt med utrymme för att skala eller uppgradera. Den här klusterstorleken stöder upp till *2200 2,750* poddar (med standard högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *kubenet* är 110 i AKS.
+Med *Kubernetes*kan du använda ett mycket mindre IP-adressintervall och kunna stödja stora kluster och program krav. Till exempel med ett */27* IP-adressintervall kan du köra ett 20-25-nods kluster med tillräckligt utrymme för att skala eller uppgradera. Den här kluster storleken har stöd för upp till *2200-2750* poddar (med ett standardvärde på högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *Kubernetes* i AKS är 110.
 
-Följande grundläggande beräkningar jämför skillnaden i nätverket modeller:
+Följande grundläggande beräkningar Jämför skillnaden i nätverks modeller:
 
-- **kubenet** – en enkel */24* IP-adressintervall har stöd för upp till *251* noder i klustret (varje Azure-nätverksundernät reserverar de första tre IP-adresserna för hanteringsåtgärder)
-  - Det här antalet kan ha stöd för upp till *27,610* poddar (med högst standard 110 poddar per nod med *kubenet*)
-- **Azure CNI** -den samma basic */24* intervall för undernät kan endast ha stöd för högst *8* noder i klustret
-  - Den här nodantal kan endast ha stöd för upp till *240* poddar (med högst standard 30 poddar per nod med *Azure CNI*)
+- **Kubernetes** – ett enkelt */24* -adressintervall har stöd för upp till *251* noder i klustret (varje Azure Virtual Network-undernät reserverar de första tre IP-adresserna för hanterings åtgärder)
+  - Antalet noder kan stödja upp till *27 610* poddar (med ett standardvärde som är högst 110 poddar per nod med *Kubernetes*)
+- **Azure-cni** – samma bas *-/24* -undernät kan bara stödja högst *8* noder i klustret
+  - Antalet noder kunde bara stödja upp till *240* poddar (med ett standardvärde som är högst 30 poddar per nod med *Azure cni*)
 
 > [!NOTE]
-> Dessa maximum inte tar uppgradera eller skalningsåtgärder. Du kan inte köra det maximala antalet noder som har stöd för IP-adressintervall för undernätet i praktiken. Du måste lämna vissa IP-adresser som är tillgängliga för användning under skalan för åtgärder för uppgradering.
+> Dessa maximum tar inte hänsyn till uppgradering eller skalnings åtgärder. I praktiken kan du inte köra det maximala antalet noder som under nätets IP-adressintervall stöder. Du måste lämna vissa IP-adresser tillgängliga för användning under skalningen av uppgraderings åtgärder.
 
-### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering av virtuella nätverk och ExpressRoute-anslutningar
+### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering-och ExpressRoute-anslutningar för virtuella nätverk
 
-För lokala anslutningar både *kubenet* och *Azure CNI* nätverk metoder kan använda [Azure virtuell nätverkspeering][vnet-peering] or [ExpressRoute connections][express-route]. Planera dina IP-adressintervall noggrant för att förhindra överlappning och routning av nätverkstrafik som felaktig. Till exempel många lokala nätverk använder en *10.0.0.0/8* adressintervall som annonseras via ExpressRoute-anslutning. Vi rekommenderar att du skapar AKS-kluster i Azure-nätverk undernät utanför den här adressintervall, till exempel *172.16.0.0/16*.
+För att tillhandahålla lokal anslutning kan både *Kubernetes* -och *Azure-cni-* nätverks metoder använda peering-eller ExpressRoute- [anslutningar][express-route]i [Azure Virtual Network][vnet-peering] . Planera IP-adressintervall noggrant för att förhindra överlappande och felaktig trafik dirigering. Många lokala nätverk använder till exempel ett *10.0.0.0/8* -adressintervall som annonseras via ExpressRoute-anslutningen. Vi rekommenderar att du skapar dina AKS-kluster i Azure Virtual Network-undernät utanför det här adress intervallet, till exempel *172.16.0.0/16*.
 
-### <a name="choose-a-network-model-to-use"></a>Välj en modell för nätverket att använda
+### <a name="choose-a-network-model-to-use"></a>Välj en nätverks modell som ska användas
 
-Valet av vilka nätverk-plugin-programmet för din AKS-kluster är vanligtvis en balans mellan flexibilitet och avancerad konfigurationsbehov. Följande överväganden hjälpa disposition när varje nätverk modell kan vara det lämpligaste.
+Valet av vilken nätverks-plugin som ska användas för AKS-klustret är vanligt vis ett balans mellan flexibilitet och avancerade konfigurations behov. Följande överväganden är hjälp disposition när varje nätverks modell kan vara den lämpligaste.
 
-Använd *kubenet* när:
+Använd *Kubernetes* när:
 
-- Du har begränsad IP-adressutrymme.
-- De flesta pod-kommunikationen är i klustret.
-- Du behöver inte avancerade funktioner, till exempel virtuella noder eller nätverksprincip.
+- Du har begränsat IP-adressutrymmet.
+- De flesta av Pod-kommunikationen är i klustret.
+- Du behöver inte avancerade funktioner som virtuella noder eller nätverks principer.
 
-Använd *Azure CNI* när:
+Använd *Azure-cni* när:
 
 - Du har tillgängliga IP-adressutrymme.
-- De flesta av pod-kommunikation är att resurser utanför klustret.
-- Du vill inte hantera de udr: er.
-- Du behöver avancerade funktioner, till exempel virtuella noder eller nätverksprincip.
+- De flesta av Pod-kommunikationen är till resurser utanför klustret.
+- Du vill inte hantera UDR.
+- Du behöver avancerade funktioner som virtuella noder eller nätverks principer.
 
-Läs mer om för att avgöra vilka nätverk modell ska använda [Jämför modeller för nätverk och deras supportens omfattning][network-comparisons].
+Mer information som hjälper dig att avgöra vilken nätverks modell som ska användas finns i [jämföra nätverks modeller och deras support omfång][network-comparisons].
 
 > [!NOTE]
-> Kuberouter gör det möjligt att aktivera principen för nätverk när du använder kubenet och kan installeras som en daemonset i ett AKS-kluster. Var medveten om kube-router är fortfarande i betaversioner och inget stöd erbjuds av Microsoft för projektet.
+> Kuberouter gör det möjligt att aktivera nätverks princip när du använder Kubernetes och kan installeras som en daemonset i ett AKS-kluster. Tänk på att Kube-routern fortfarande är beta och att det inte finns något stöd för projektet i Microsoft.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 
-Du kommer igång med hjälp av *kubenet* och egna undernät för virtuellt nätverk först skapa en resurs med den [az gruppen skapa][az-group-create] kommando. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Kom igång med att använda *Kubernetes* och ditt eget virtuella nätverks under nät genom att först skapa en resurs grupp med kommandot [AZ Group Create][az-group-create] . I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Om du inte har ett befintligt virtuellt nätverk och undernät som ska använda, skapa dessa nätverksresurser med hjälp av den [az network vnet skapa][az-network-vnet-create] kommando. I följande exempel visas det virtuella nätverket namnet *myVnet* med adressprefix *192.168.0.0/16*. Ett undernät skapas med ett namn *myAKSSubnet* med adressprefixet *192.168.1.0/24*.
+Om du inte har ett befintligt virtuellt nätverk och undernät att använda skapar du dessa nätverks resurser med hjälp av kommandot [AZ Network VNet Create][az-network-vnet-create] . I följande exempel heter det virtuella nätverket *myVnet* med adressprefixet *192.168.0.0/16*. Ett undernät skapas med namnet *myAKSSubnet* med adressprefixet *192.168.1.0/24*.
 
 ```azurecli-interactive
 az network vnet create \
@@ -105,15 +105,15 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="create-a-service-principal-and-assign-permissions"></a>Skapa ett tjänstobjekt och tilldela behörigheter
+## <a name="create-a-service-principal-and-assign-permissions"></a>Skapa ett huvud namn för tjänsten och tilldela behörigheter
 
-Om ett AKS-kluster ska kunna interagera med andra Azure-resurser behövs ett huvudnamn för tjänsten i Azure Active Directory. Tjänstens huvudnamn måste ha behörighet att hantera det virtuella nätverket och undernätet med AKS-noder. Du kan skapa ett huvudnamn för tjänsten med den [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] kommando:
+Om ett AKS-kluster ska kunna interagera med andra Azure-resurser behövs ett huvudnamn för tjänsten i Azure Active Directory. Tjänstens huvud namn måste ha behörighet att hantera det virtuella nätverk och undernät som AKS-noderna använder. Om du vill skapa ett huvud namn för tjänsten använder du kommandot [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] :
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
-Följande Exempelutdata visar program-ID och lösenord för tjänstens huvudnamn. De här värdena används i senare steg för att tilldela en roll till tjänstens huvudnamn och sedan skapa AKS-klustret:
+Följande exempel på utdata visar programmets ID och lösen ord för tjänstens huvud namn. Dessa värden används i ytterligare steg för att tilldela en roll till tjänstens huvud namn och sedan skapa AKS-klustret:
 
 ```console
 $ az ad sp create-for-rbac --skip-assignment
@@ -127,14 +127,14 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Om du vill tilldela rätt delegeringar i de återstående stegen använder den [az network vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show] kommandon för att hämta nödvändiga resurs-ID: N. Dessa resurs-ID lagras som variabler och refereras till i de återstående stegen:
+Om du vill tilldela rätt delegering i de återstående stegen använder du [AZ Network VNet show][az-network-vnet-show] och [AZ Network VNet Subnet show][az-network-vnet-subnet-show] commands för att hämta de resurs-ID: n som krävs. Dessa resurs-ID: n lagras som variabler och refereras till i de återstående stegen:
 
 ```azurecli-interactive
 VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Nu tilldela tjänstens huvudnamn för AKS-klustret *deltagare* behörigheter på virtuellt nätverk med hjälp av den [az-rolltilldelning skapa][az-role-assignment-create] kommando. Ange din egen  *\<appId >* som visas i utdata från det föregående kommandot för att skapa tjänstens huvudnamn:
+Tilldela nu tjänstens huvud namn för AKS- klustrets deltagar behörigheter på det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Ange ett eget  *\<appId->* som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -142,20 +142,20 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Du har nu skapat ett virtuellt nätverk och undernät, och skapas och behörigheter för ett huvudnamn för tjänsten för att kunna använda dessa nätverksresurser. Nu skapa ett AKS-kluster i ditt virtuella nätverk och undernät med hjälp av den [az aks skapa][az-aks-create] kommando. Definiera dina egna huvudnamn för tjänsten  *\<appId >* och  *\<lösenord >* , vilket visas i utdata från det föregående kommandot för att skapa tjänstens huvudnamn.
+Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget tjänst huvud namn  *\<>* och  *\<lösen ord >* , som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn.
 
-Följande IP-adressintervall också definieras som en del av klustret skapa processen:
+Följande IP-adressintervall definieras också som en del av klustret Create process:
 
-* Den *--service-cidr* används för att tilldela en IP-adress för interna tjänster i AKS-kluster. Den här IP-adressintervallet ska vara ett adressutrymme som inte används i din nätverksmiljö. Det här intervallet inkluderar alla lokala nätverksintervall om du ansluter eller planerar att ansluta dina Azure-nätverk med hjälp av Express Route eller en plats-till-plats-VPN-anslutning.
+* *--Service-CIDR* används för att tilldela interna tjänster i AKS-klustret en IP-adress. Detta IP-adressintervall ska vara ett adress utrymme som inte används någon annan stans i din nätverks miljö. Det här intervallet omfattar alla lokala nätverks intervall om du ansluter eller planerar att ansluta, dina virtuella Azure-nätverk med Express Route eller en VPN-anslutning från plats till plats.
 
-* Den *--dns-tjänst-IP-* adress ska vara den *.10* -adressen för ditt service IP-adressintervall.
+* IP-adressen för *--DNS-service-IP* måste vara *.10* -adressen till tjänstens IP-adressintervall.
 
-* Den *--pod-cidr* ska vara ett stort adressutrymme som inte används i din nätverksmiljö. Det här intervallet inkluderar alla lokala nätverksintervall om du ansluter eller planerar att ansluta dina Azure-nätverk med hjälp av Express Route eller en plats-till-plats-VPN-anslutning.
-    * Den här adressintervallet måste vara tillräckligt stor för att anpassa antalet noder som du förväntar dig att skala upp till. Du kan inte ändra den här adressintervall när klustret distribueras om du behöver fler adresser för ytterligare noder.
-    * Pod IP-adressintervall som används för att tilldela en */24* adressutrymme till varje nod i klustret. I följande exempel visas den *--pod-cidr* av *10.244.0.0/16* tilldelar den första noden *10.244.0.0/24*, den andra noden *10.244.1.0/24*, och den tredje nod *10.244.2.0/24*.
-    * Som klustret skalas eller uppgraderingar kan fortsätter Azure-plattformen att tilldela en pod IP-adressintervall till varje ny nod.
+* *--Pod-CIDR* bör vara ett stort adress utrymme som inte används någon annan stans i din nätverks miljö. Det här intervallet omfattar alla lokala nätverks intervall om du ansluter eller planerar att ansluta, dina virtuella Azure-nätverk med Express Route eller en VPN-anslutning från plats till plats.
+    * Adress intervallet måste vara tillräckligt stort för att rymma antalet noder som du förväntar dig att skala upp till. Du kan inte ändra det här adress intervallet när klustret har distribuerats om du behöver fler adresser för ytterligare noder.
+    * IP-adressintervallet Pod används för att tilldela ett */24* -adressutrymme till varje nod i klustret. I följande exempel tilldelar *--Pod-CIDR-* *10.244.0.0/16* den första noden *10.244.0.0/24*, den andra noden *10.244.1.0/24*och den tredje noden *10.244.2.0/24*.
+    * När klustret skalas eller uppgraderas fortsätter Azure-plattformen att tilldela ett Pod IP-adressintervall till varje ny nod.
     
-* Den *--docker-bridge-adress* tillåter AKS-noder kommunicerar med den underliggande hanteringsplattformen. Den här IP-adressen får inte vara inom det virtuella nätverket IP-adressintervallet på klustret och får inte överlappa med andra adressintervall som används i nätverket.
+* *--Docker-Bridge-Address* låter AKS-noderna kommunicera med den underliggande hanterings plattformen. Den här IP-adressen får inte ligga inom det virtuella nätverkets IP-adressintervall och får inte överlappa andra adress intervall som används i nätverket.
 
 ```azurecli-interactive
 az aks create \
@@ -172,11 +172,11 @@ az aks create \
     --client-secret <password>
 ```
 
-När du skapar ett AKS-kluster, skapas en network security group och dirigera tabell. Dessa nätverksresurser som hanteras av AKS kontrollplanet. Nätverkssäkerhetsgruppen associeras automatiskt med de virtuella nätverkskorten på noderna. Routningstabellen associeras automatiskt med virtuella nätverkets undernät. Regler för nätverkssäkerhetsgrupper och routningstabeller och kan uppdateras automatiskt när du skapar och exponera tjänster.
+När du skapar ett AKS-kluster skapas en nätverks säkerhets grupp och en routningstabell. Dessa nätverks resurser hanteras av AKS-kontroll planet. Nätverks säkerhets gruppen associeras automatiskt med de virtuella nätverkskorten på noderna. Routningstabellen associeras automatiskt med det virtuella nätverkets undernät. Regler för nätverks säkerhets grupper och routningstabeller och uppdateras automatiskt när du skapar och exponerar tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med ett AKS-kluster som distribueras till din befintliga undernät för virtuellt nätverk, kan du nu använda klustret som vanligt. Kom igång med [att skapa appar med Azure Dev blanksteg][dev-spaces] or [using Draft][use-draft], eller [distribuera appar med Helm][Använd helm].
+Med ett AKS-kluster som distribueras i ditt befintliga undernät för virtuella nätverk kan du nu använda klustret som vanligt. Kom igång med att [Skapa appar med hjälp av Azure dev Spaces][dev-spaces] eller genom att [använda Draft][use-draft]eller [distribuera appar med Helm][use-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/

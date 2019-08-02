@@ -1,6 +1,6 @@
 ---
 title: Etablera StorSimple virtuell matris i Hyper-V | Microsoft Docs
-description: Den här andra självstudien i StorSimple Virtual Array distribution innebär att etablera en virtuell matris i Hyper-V.
+description: Den här andra själv studie kursen om distribution av virtuella StorSimple-matriser innebär att en virtuell matris ingår i Hyper-V.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,95 +12,98 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61416337"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516799"
 ---
-# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuera StorSimple Virtual Array - etablera i Hyper-V
+# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuera StorSimple virtuell matris – etablera i Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>Översikt
-Den här självstudien beskrivs hur du etablerar en StorSimple Virtual Array i ett värdsystem som kör Hyper-V på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2. Den här artikeln gäller för distribution av StorSimple Virtual Array i Azure portal och Microsoft Azure Government-molnet.
 
-Du måste ha administratörsbehörighet för att etablera och konfigurera en virtuell matris. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra.
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
+I den här självstudien beskrivs hur du etablerar en virtuell StorSimple-matris på ett värd system som kör Hyper-V på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2. Den här artikeln gäller distributionen av virtuella StorSimple-matriser i Azure Portal och Microsoft Azure Government molnet.
+
+Du behöver administratörs behörighet för att etablera och konfigurera en virtuell matris. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra.
 
 ## <a name="provisioning-prerequisites"></a>Krav för etablering
-Här hittar du kraven för att etablera en virtuell matris i ett värdsystem som kör Hyper-V på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2.
+Här hittar du förutsättningarna för att etablera en virtuell matris på ett värd system som kör Hyper-V på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
 Innan du börjar ska du kontrollera att:
 
 * Du har slutfört alla steg i [förbereda portalen för StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* Du har hämtat den virtuella matrisavbildningen för Hyper-V från Azure-portalen. Mer information finns i **steg3: Ladda ned den virtuella matrisavbildningen** av [förbereda portalen för StorSimple Virtual Array för](storsimple-virtual-array-deploy1-portal-prep.md).
+* Du har laddat ned den virtuella mat ris avbildningen för Hyper-V från Azure Portal. Mer information finns i **steg 3: Ladda ned den virtuella mat** ris avbildningen av [förbereda portalen för StorSimple Virtual Array guide](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
-  > Programmet som körs på StorSimple Virtual Array kan bara användas med StorSimple Device Manager-tjänsten.
+  > Den program vara som körs på den virtuella StorSimple-matrisen kan bara användas med StorSimple Enhetshanteraren-tjänsten.
   >
   >
 
-### <a name="for-the-storsimple-virtual-array"></a>För StorSimple Virtual Array
-Kontrollera följande innan du distribuerar en virtuell matris:
+### <a name="for-the-storsimple-virtual-array"></a>För den virtuella StorSimple-matrisen
+Innan du distribuerar en virtuell matris måste du kontrol lera att:
 
-* Du har åtkomst till ett värdsystem som kör Hyper-V på Windows Server 2008 R2 eller senare som kan användas för att en etablera en enhet.
-* Värddatorn är att dedikera följande resurser för att etablera den virtuella matrisen:
+* Du har åtkomst till ett värd system som kör Hyper-V på Windows Server 2008 R2 eller senare och som kan användas för att etablera en enhet.
+* Värd systemet kan dedikera följande resurser för att etablera den virtuella matrisen:
 
   * Minst 4 kärnor.
-  * Minst 8 GB RAM. Om du vill konfigurera den virtuella matrisen som filserver stöder 8 GB mindre än 2 miljoner filer. Behöver du 16 GB RAM-minne till 2-4 miljoner stödfiler.
+  * Minst 8 GB RAM. Om du planerar att konfigurera den virtuella matrisen som fil Server stöder 8 GB färre än 2 000 000 filer. Du behöver 16 GB RAM-minne för att kunna hantera 2-4 miljoner filer.
   * Ett nätverksgränssnitt.
-  * En virtuell disk 500 GB för data.
+  * En virtuell disk på 500 GB för data.
 
 ### <a name="for-the-network-in-the-datacenter"></a>För nätverket i datacentret
-Innan du kan granska nätverkskraven för att distribuera en StorSimple Virtual Array och konfigurera datacenternätverket på lämpligt sätt. Mer information finns i [nätverkskraven för StorSimple Virtual Array](storsimple-ova-system-requirements.md#networking-requirements).
+Innan du börjar kan du läsa nätverks kraven för att distribuera en virtuell StorSimple-matris och konfigurera Data Center nätverket på lämpligt sätt. Mer information finns i [StorSimple-krav för virtuell nätverks mat ris](storsimple-ova-system-requirements.md#networking-requirements).
 
 ## <a name="step-by-step-provisioning"></a>Steg för steg-etablering
-För att etablera och ansluta till en virtuell matris, måste du utföra följande steg:
+Om du vill etablera och ansluta till en virtuell matris måste du utföra följande steg:
 
-1. Kontrollera att värddatorn har tillräckligt med resurser för att uppfylla krav för minsta virtual array.
-2. Etablera en virtuell matris i din hypervisor-program.
+1. Se till att värd systemet har tillräckligt med resurser för att uppfylla minimi kraven för virtuella matriser.
+2. Etablera en virtuell matris i hypervisor-programmets.
 3. Starta den virtuella matrisen och hämta IP-adressen.
 
-Var och en av de här stegen beskrivs i följande avsnitt.
+Vart och ett av dessa steg beskrivs i följande avsnitt.
 
-## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>Steg 1: Kontrollera att värddatorn uppfyller minsta virtuell matris
-Om du vill skapa en virtuell matris, behöver du:
+## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>Steg 1: Se till att värd systemet uppfyller minimi kraven för virtuella matriser
+Om du vill skapa en virtuell matris behöver du:
 
-* Hyper-V-rollen installerad på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2 SP1.
+* Hyper-V-rollen som är installerad på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2 SP1.
 * Microsoft Hyper-V Manager på en Microsoft Windows-klient som är ansluten till värden.
 
-Kontrollera att den underliggande maskinvaran (värdsystem) där du skapar den virtuella matrisen kan dedikera följande resurser till den virtuella matrisen:
+Kontrol lera att den underliggande maskin varan (värd systemet) som du skapar den virtuella matrisen på kan dedikera följande resurser till den virtuella matrisen:
 
 * Minst 4 kärnor.
-* Minst 8 GB RAM. Om du vill konfigurera den virtuella matrisen som filserver stöder 8 GB mindre än 2 miljoner filer. Behöver du 16 GB RAM-minne till 2-4 miljoner stödfiler.
+* Minst 8 GB RAM. Om du planerar att konfigurera den virtuella matrisen som fil Server stöder 8 GB färre än 2 000 000 filer. Du behöver 16 GB RAM-minne för att kunna hantera 2-4 miljoner filer.
 * Ett nätverksgränssnitt.
-* En virtuell disk 500 GB för systemdata.
+* En virtuell disk på 500 GB för system data.
 
-## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>Steg 2: Etablera en virtuell matris i hypervisor-program
+## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>Steg 2: Etablera en virtuell matris i hypervisor
 Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 
-#### <a name="to-provision-a-virtual-array"></a>Att etablera en virtuell matris
-1. Kopiera den virtuella matrisavbildningen till en lokal enhet på Windows Server-värd. Du har hämtat den här bilden (VHD eller VHDX) via Azure portal. Anteckna den plats dit du kopierade avbildningen eftersom du använder den här avbildningen senare under proceduren.
+#### <a name="to-provision-a-virtual-array"></a>Etablera en virtuell matris
+1. På Windows Server-värden kopierar du den virtuella mat ris avbildningen till en lokal enhet. Du laddade ned avbildningen (VHD eller VHDX) via Azure Portal. Anteckna den plats dit du kopierade avbildningen eftersom du använder den här avbildningen senare under proceduren.
 2. Öppna **Serverhanteraren**. I det övre högra hörnet klickar du på **Verktyg** och väljer **Hyper-V Manager**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
-   Om du kör Windows Server 2008 R2, öppnar du Hyper-V Manager. I Serverhanteraren klickar du på **roller > Hyper-V > Hyper-V Manager**.
+   Om du kör Windows Server 2008 R2 öppnar du Hyper-V Manager. I Serverhanteraren klickar du på **roller > Hyper-v > Hyper-v Manager**.
 3. I **Hyper-V Manager** går du till fönsterrutan för omfång, högerklickar på din systemnod för att öppna snabbmenyn och klickar sedan på **Ny** > **Virtuell dator**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. På sidan **Innan du börjar** i guiden för ny virtuell dator klickar du på **Nästa**.
-5. På den **ange namn och plats** anger en **namn** för din virtuella matris. Klicka på **Nästa**.
+5. På sidan **Ange namn och plats** anger du ett **namn** för den virtuella matrisen. Klicka på **Nästa**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
-6. På den **ange generation** sidan, Välj typ av enhet bild och klicka sedan på **nästa**. Den här sidan visas inte om du använder Windows Server 2008 R2.
+6. På sidan **Ange generation** väljer du enhets avbildnings typ och klickar sedan på **Nästa**. Den här sidan visas inte om du använder Windows Server 2008 R2.
 
-   * Välj **Generation 2** om du har hämtat en vhdx-avbildning för Windows Server 2012 eller senare.
-   * Välj **Generation 1** om du har hämtat en VHD-avbildning för Windows Server 2008 R2 eller senare.
+   * Välj **generation 2** om du har hämtat en. vhdx-avbildning för Windows Server 2012 eller senare.
+   * Välj **generation 1** om du har hämtat en. VHD-avbildning för Windows Server 2008 R2 eller senare.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image5.png)
 7. På sidan **Tilldela minne** anger du ett **Startminne** på minst **8 192 MB**. Aktivera inte dynamiskt minne. Klicka sedan på **Nästa**.
@@ -109,7 +112,7 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 8. På sidan **Konfigurera nätverk** anger du den virtuella växel som är ansluten till Internet och klickar sedan på **Nästa**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image7.png)
-9. På den **Anslut virtuell hårddisk** väljer **använder en befintlig virtuell hårddisk**, ange platsen för den virtuella matrisavbildningen (vhdx eller VHD) och klicka sedan på **nästa**.
+9. På sidan **Anslut virtuell hård disk** väljer du **Använd en befintlig virtuell hård disk**, anger platsen för den virtuella mat ris avbildningen (. vhdx eller. VHD) och klickar sedan på **Nästa**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image8m.png)
 10. Granska **sammanfattningen** och klicka sedan på **Slutför** för att skapa den virtuella datorn.
@@ -121,7 +124,7 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 12. På sidan **Inställningar** går du till den vänstra fönsterruta och klickar på **Processor**. I den högra fönsterrutan ställer du in **antal virtuella processorer** på 4 (eller fler). Klicka på **Verkställ**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
-13. För att uppfylla minimikraven, måste du också lägga till en virtuell datadisk på 500 GB. På sidan **Inställningar**:
+13. För att uppfylla minimi kraven måste du också lägga till en virtuell data disk på 500 GB. På sidan **Inställningar**:
 
     1. I den vänstra fönsterrutan väljer du **SCSI Controller**.
     2. I den högra fönsterrutan väljer du **Hårddisk** och klickar på **Lägg till**.
@@ -134,13 +137,13 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 16. På **sidan för att välja diskformat** godkänner du standardalternativet för **VHDX**-format. Klicka på **Nästa**. Den här skärmen visas inte om du kör Windows Server 2008 R2.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
-17. På **sidan för att välja disktyp** ställer du in typen av virtuell hårddisk till **Dynamiskt expanderande** (rekommenderas). En disk med **Fast storlek** skulle också fungera, men då kan du behöva vänta länge. Vi rekommenderar att du inte använder alternativet **Differentierande**. Klicka på **Nästa**. I Windows Server 2012 R2 och Windows Server 2012 **dynamiskt expanderande** är standardalternativet i Windows Server 2008 R2, standard är **fast storlek**.
+17. På **sidan för att välja disktyp** ställer du in typen av virtuell hårddisk till **Dynamiskt expanderande** (rekommenderas). En disk med **Fast storlek** skulle också fungera, men då kan du behöva vänta länge. Vi rekommenderar att du inte använder alternativet **Differentierande**. Klicka på **Nästa**. I Windows Server 2012 R2 och Windows Server 2012 är **dynamiskt expanderande** standard alternativet i windows Server 2008 R2, standard **storleken är fast**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
 18. På sidan **Ange namn och plats** anger du ett **Namn** och en **Plats** (du kan bläddra till en) för datadisken. Klicka på **Nästa**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. På den **konfigurera Disk** väljer du alternativet **skapa en ny tom virtuell hårddisk** och ange storleken som **500 GB** (eller mer). 500 GB är minimikravet, kan du alltid etablera en större disk. Observera att du kan öka eller minska den disk som etablerats en gång. Läs avsnittet storlek i mer information om storleken på disken för att etablera den [bästa praxis dokumentet](storsimple-ova-best-practices.md). Klicka på **Nästa**.
+19. På sidan **Konfigurera disk** väljer du alternativet **skapa en ny tom virtuell hård disk** och anger storleken som **500 GB** (eller mer). Även om 500 GB är minimi kravet, kan du alltid etablera en större disk. Observera att det inte går att utöka eller krympa disken när den har allokerats. Mer information om storleken på disken som ska etableras finns i avsnittet storlek i [dokumentet metod tips](storsimple-ova-best-practices.md). Klicka på **Nästa**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. På sidan **Sammanfattning** läser du informationen om din virtuella datadisk, och om allt stämmer klickar du på **Slutför** för att skapa disken. Guiden stängs och en virtuell hårddisk läggs till i datorn.
@@ -150,17 +153,17 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
 
-## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>Steg 3: Starta den virtuella matrisen och hämta IP-Adressen
+## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>Steg 3: Starta den virtuella matrisen och hämta IP-adressen
 Utför följande steg för att starta den virtuella matrisen och ansluta till den.
 
-#### <a name="to-start-the-virtual-array"></a>Att starta den virtuella matrisen
+#### <a name="to-start-the-virtual-array"></a>Starta den virtuella matrisen
 1. Starta den virtuella matrisen.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image21.png)
 2. När enheten körs väljer du enheten, högerklickar och väljer **Anslut**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image22.png)
-3. Du kan behöva vänta 5 – 10 minuter för enheten är klar. Ett statusmeddelande visas på konsolen som visar förloppet. När enheten är klar går du till **Åtgärd**. Tryck på `Ctrl + Alt + Delete` att logga in på den virtuella matrisen. Standardanvändaren är *StorSimpleAdmin* och standardlösenordet är *Password1*.
+3. Du kan behöva vänta 5-10 minuter tills enheten är klar. Ett statusmeddelande visas på konsolen som visar förloppet. När enheten är klar går du till **Åtgärd**. Tryck `Ctrl + Alt + Delete` för att logga in på den virtuella matrisen. Standard användaren är *StorSimpleAdmin* och standard lösen ordet är *Password1*.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. Av säkerhetsskäl upphör enhetens administratörslösenord vid första inloggningen. Du uppmanas att ändra lösenordet.
@@ -170,19 +173,19 @@ Utför följande steg för att starta den virtuella matrisen och ansluta till de
    Ange ett lösenord som innehåller minst 8 tecken. Lösenordet måste uppfylla minst 3 av följande 4 krav: versaler, gemener, siffror och specialtecken. Ange lösenordet igen för att bekräfta det. Du meddelas om att lösenordet har ändrats.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
-5. När lösenordet ändras visas den virtuella matrisen kan starta om. Vänta tills enheten har startat.
+5. När lösen ordet har ändrats kan den virtuella matrisen starta om. Vänta tills enheten har startat.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
 
     Enhetens Windows PowerShell-konsolen visas tillsammans med en förloppsindikator.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image27.png)
-6. Steg 6–8 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg och går till steg 9. Om du har startat upp din enhet i icke-DHCP-miljö kan visas följande skärmbild.
+6. Steg 6–8 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg och går till steg 9. Om du har startat enheten i icke-DHCP-miljö visas följande skärm bild.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image28m.png)
 
-    Konfigurera nätverket.
-7. Använd den `Get-HcsIpAddress` kommando för att lista de nätverksgränssnitt som är aktiverad på den virtuella matrisen. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
+    Konfigurera sedan nätverket.
+7. `Get-HcsIpAddress` Använd kommandot för att visa en lista över nätverks gränssnitt som är aktiverade på den virtuella matrisen. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
 8. Använd cmdleten `Set-HcsIpAddress` för att konfigurera nätverket. Se följande exempel:
@@ -190,30 +193,30 @@ Utför följande steg för att starta den virtuella matrisen och ansluta till de
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
-9. När den inledande installationen är klar och enheten har startats visas enhetens banderollstext. Anteckna den IP-adress och den URL som visas i banderollstexten för att hantera enheten. Använd den här IP-adress att ansluta till webbgränssnittet på den virtuella matrisen och slutför den lokala installation och registrering.
+9. När den inledande installationen är klar och enheten har startats visas enhetens banderollstext. Anteckna den IP-adress och den URL som visas i banderollstexten för att hantera enheten. Använd den här IP-adressen för att ansluta till webb gränssnittet för den virtuella matrisen och slutföra den lokala installationen och registreringen.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)
-10. (Valfritt) Utför det här steget endast om du distribuerar din enhet i Government-molnet. Du kan nu USA FIPS Federal Information Processing Standard ()-läge på din enhet. Standarden FIPS 140 definierar kryptografiska algoritmer som godkänts för användning av amerikanska federala myndigheter government datorsystem för skydd av känsliga data.
+10. Valfritt Utför bara det här steget om du distribuerar din enhet i det offentliga molnet. Du kommer nu att aktivera FIPS-läget (USA Federal Information Processing Standard) på enheten. FIPS 140-standarden definierar kryptografiska algoritmer som godkänns för användning av amerikanska federala myndighets dator system för skydd av känsliga data.
 
-    1. Om du vill aktivera FIPS-läge, kör du följande cmdlet:
+    1. Om du vill aktivera FIPS-läget kör du följande cmdlet:
 
         `Enable-HcsFIPSMode`
-    2. Starta om din enhet när du har aktiverat FIPS-läge så att de kryptografiska kontroller träder i kraft.
+    2. Starta om enheten när du har aktiverat FIPS-läget så att de kryptografiska verifieringarna börjar gälla.
 
        > [!NOTE]
-       > Du kan aktivera eller inaktivera FIPS-läge på din enhet. Alternerande enheten mellan FIPS- och icke-FIPS-läge stöds inte.
+       > Du kan antingen aktivera eller inaktivera FIPS-läge på enheten. Det finns inte stöd för att växla mellan enheter mellan FIPS-och icke-FIPS-läge.
        >
        >
 
-Om enheten inte uppfyller minimikraven för konfiguration, se följande fel i den här texten (se nedan). Ändra enhetskonfigurationen så att datorn har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Referera till de lägsta konfigurationskrav i steg 1: Se till att värdsystemet uppfyller minsta virtuell matris.
+Om enheten inte uppfyller de lägsta konfigurations kraven visas följande fel i banderollbilden (visas nedan). Ändra enhetskonfigurationen så att datorn har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se minimi kraven för konfiguration i steg 1: Se till att värd systemet uppfyller minimi kraven för virtuella matriser.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 
-Om du får ett fel under den första konfigurationen med hjälp av det lokala webbgränssnittet finns följande arbetsflöden:
+Om du möter andra fel under den inledande konfigurationen med hjälp av det lokala webb gränssnittet, se följande arbets flöden:
 
-* Kör diagnostiktest till [felsökning av web UI installationsprogrammet](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
-* [Skapa log paket och visa loggfiler](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+* Kör diagnostiska tester för att [Felsöka konfiguration av webb gränssnitt](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
+* [Generera logg paket och visa loggfiler](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Konfigurera din StorSimple Virtual Array som en filserver](storsimple-virtual-array-deploy3-fs-setup.md)
-* [Konfigurera din StorSimple Virtual Array som en iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md)
+* [Konfigurera din virtuella StorSimple-matris som en fil Server](storsimple-virtual-array-deploy3-fs-setup.md)
+* [Konfigurera din virtuella StorSimple-matris som en iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md)

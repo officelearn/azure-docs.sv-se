@@ -1,7 +1,7 @@
 ---
-title: Utforska och transformera data (datauppsättningen klassen)
+title: Utforska och transformera data (data uppsättnings klass)
 titleSuffix: Azure Machine Learning service
-description: Utforska data med hjälp av sammanfattande statistik och förbereda data via datarensning, omvandling och funktioner
+description: Utforska data med hjälp av sammanfattnings statistik och Förbered data genom data rensning, transformering och funktions teknik
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,37 +11,37 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f680a1cb15edf0141897c74da3b7c7afa01acae0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443959"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699124"
 ---
-# <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Utforska och förbereda data med klassen datauppsättning (förhandsgranskning)
+# <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Utforska och förbereda data med data uppsättnings klassen (förhands granskning)
 
-Lär dig att utforska och förbereda data med paketet azureml-datauppsättningar i den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Den [datauppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) klass (förhandsversion) kan du utforska och förbereda dina data genom att tillhandahålla funktioner som: sampling, sammanfattande statistik och intelligent transformationer. Transformeringssteg sparas i [datauppsättning definitioner](how-to-manage-dataset-definitions.md) möjlighet att hantera flera stora filer med olika scheman i en mycket skalbar.
+Lär dig hur du utforskar och förbereder data med azureml-DataSets-paketet i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Med [](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) data uppsättnings klassen (för hands version) kan du utforska och förbereda dina data genom att tillhandahålla funktioner som exempel: sampling, sammanfattnings statistik och intelligenta transformeringar. Omvandlings steg sparas i [data uppsättnings definitioner](how-to-manage-dataset-definitions.md) med möjlighet att hantera flera stora filer med olika scheman på ett mycket skalbart sätt.
 
 > [!Important]
-> Vissa klasser för datauppsättningen (förhandsversion) är beroende av den [azureml-förberedelse av data](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet (GA). Även om omvandlingen funktioner kan göras direkt med GA'ed [Dataförberedelser funktioner](how-to-transform-data.md), rekommenderar vi datauppsättning paketet omslutningar som beskrivs i den här artikeln om du skapar en ny lösning. Azure Machine Learning datauppsättningar (förhandsversion) kan du inte bara omvandla data, utan även [domänögonblicksdata](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) och lagra [version datauppsättning definitioner](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py). Datauppsättningar är nästa version av Data Prep-SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar.
+> Vissa data uppsättnings klasser (för hands version) är beroende av [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet (ga). När omvandlings funktioner kan utföras direkt med GA'ed- [data prepare](how-to-transform-data.md)rekommenderar vi paket för data uppsättnings paket som beskrivs i den här artikeln om du skapar en ny lösning. Azure Machine Learning data uppsättningar (för hands version) kan du inte bara transformera dina data, utan även [ögonblicks bild data och data](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) uppsättnings definitioner för [data](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py)lager. Data uppsättningar är nästa version av data prep SDK och erbjuder utökade funktioner för hantering av data uppsättningar i AI-lösningar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att utforska och förbereda dina data, behöver du:
+För att utforska och förbereda dina data behöver du:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Se [skapa en arbetsyta för Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* En arbetsyta för Azure Machine Learning-tjänsten. Se [skapa en Azure Machine Learning service-arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* Azure Machine Learning-SDK för Python (version 1.0.21 eller senare), vilket inkluderar paketets azureml-datauppsättningar. Om du vill installera eller uppdatera till den senaste versionen av SDK, se [installera eller uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* Azure Machine Learning SDK för python (version 1.0.21 eller senare), som innehåller paketet azureml-data uppsättningar. Information om hur du installerar eller uppdaterar till den senaste versionen av SDK finns i [Installera eller uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* I Azure Machine Learning Dataförberedelser SDK. Om du vill installera eller uppdatera till den senaste versionen, se [installera eller uppdatera Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
+* Azure Machine Learning data prep SDK. Information om hur du installerar eller uppdaterar till den senaste versionen finns i [Installera eller uppdatera data prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
 
-* Ladda ned exempelfilerna du följa exemplen: [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) och [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
+* Hämta exempelfilerna som ska följas med exemplen: [brottslighet. csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) och [City. JSON](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
 
 ## <a name="sampling"></a>Samling
 
-Ta ett exempel på dina data för att få ett inledande förståelse för dina dataarkitektur och innehåll. För närvarande den [ `sample()` ](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) metod från klassen datauppsättning stöder Top N enkel slumpmässiga och Stratified sampling strategier.
+Ta ett exempel på dina data för att få en inledande förståelse för din data arkitektur och ditt innehåll. Vid det här tillfället [`sample()`](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) stöder metoden från data uppsättnings klassen Top N, enkla slumpmässiga och Stratifieda samplings strategier.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -54,9 +54,9 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 seed = random.randint(0, 4294967295)
 ```
 
-### <a name="top-n-sample"></a>Högsta N-exempel
+### <a name="top-n-sample"></a>Översta N-exemplet
 
-För Top N sampling är de första n posterna av din datauppsättning ditt exempel. Det här är användbart om du bara vill få en uppfattning om vad din data poster Se som eller för att se vilka fält som används i dina data.
+För de N främsta samplingarna är de första n posterna i din data uppsättning ditt exempel. Detta är användbart om du bara försöker få en uppfattning om hur dina data poster ser ut eller för att se vilka fält som finns i dina data.
 
 ```Python
 top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
@@ -65,15 +65,15 @@ top_n_sample_dataset.to_pandas_dataframe()
 
 ||id|Ärendenummer|Date|Blockera|IUCR|Primär typ|...|
 -|--|-----------|----|-----|----|------------|---
-0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|BEDRÄGERIFÖRSÖK|...
+0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|BEDRÄGLIG METOD|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|STÖLD|...
-2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO PARA|1154|BEDRÄGERIFÖRSÖK|...
-3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE PARA|1120|BEDRÄGERIFÖRSÖK|...
-4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|STÖLD|...
+2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO ARA|1154|BEDRÄGLIG METOD|...
+3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE ARA|1120|BEDRÄGLIG METOD|...
+4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE ARA|890|STÖLD|...
 
-### <a name="simple-random-sample"></a>Enkel slumpmässigt urval
+### <a name="simple-random-sample"></a>Enkelt slumpmässigt exempel
 
-I enkla stickprov tas har alla medlemmar i ifyllnad av data samma chans väljs som en del av exemplet. I den `simple_random` samplingsstrategi, poster från din datauppsättning baseras på sannolikheten anges och returnerar en ändrad datauppsättning. Seed-parametern är valfri.
+I enkla Stick prov har alla medlemmar i data populationen samma möjlighet att väljas som en del av exemplet. `simple_random` I exempel strategin väljs posterna från din data uppsättning baserat på sannolikheten som anges och returnerar en modifierad data uppsättning. Parametern Seed är valfri.
 
 ```Python
 simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.3, 'seed': seed})
@@ -83,14 +83,14 @@ simple_random_sample_dataset.to_pandas_dataframe()
 ||id|Ärendenummer|Date|Blockera|IUCR|Primär typ|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|STÖLD|...
-1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO PARA|1154|BEDRÄGERIFÖRSÖK|...
-2|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|STÖLD|...
+1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO ARA|1154|BEDRÄGLIG METOD|...
+2|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE ARA|890|STÖLD|...
 
-### <a name="stratified-sample"></a>Stratified exempel
+### <a name="stratified-sample"></a>Stratified-exempel
 
-Stratified exempel se till att vissa grupper från en population visas i exemplet. I den `stratified` samplingsstrategi, populationen är uppdelat i strata eller undergrupper, baserat på likheter, och poster väljs slumpmässigt från varje strata enligt strata vikterna anges av den `fractions` parametern.
+Stratified-exempel ser till att vissa grupper av en population representeras i exemplet. I exempel strategin är populationen indelad i Strata eller under grupper, baserat på likheter och poster väljs slumpmässigt från varje Strata enligt de Strata vikter `fractions` som anges av parametern. `stratified`
 
-I följande exempel vi gruppera posterna efter de angivna kolumnerna och inkludera detta register baserat på vikt strata X informationen i `fractions`. Om en strata inte har angetts eller posten kan inte grupperas, är standard-vikt till exempel 0.
+I följande exempel grupperar vi varje post efter de angivna kolumnerna och inkluderar denna post baserat på strata vikt-informationen i `fractions`. Om en Strata inte har angetts eller om posten inte kan grupperas, är standard vikt för att sampla 0.
 
 ```Python
 # take 50% of records with `Primary Type` as `THEFT` and 20% of records with `Primary Type` as `DECEPTIVE PRACTICE` into sample Dataset
@@ -106,49 +106,49 @@ sample_dataset.to_pandas_dataframe()
 ||id|Ärendenummer|Date|Blockera|IUCR|Primär typ|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|STÖLD|...
-1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|STÖLD|...
-2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN PARA|810|STÖLD|...
+1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE ARA|890|STÖLD|...
+2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN ARA|810|STÖLD|...
 
-## <a name="explore-with-summary-statistics"></a>Utforska med sammanfattande statistik
+## <a name="explore-with-summary-statistics"></a>Utforska med sammanfattnings statistik
 
- Identifiera avvikelser, saknar värden, eller fel antal med den [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) metod. Hämtar profilen för den här funktionen och statistisk information om dina data, vilket i sin tur hjälper fastställa nödvändiga data förberedelse åtgärder att tillämpa.
+ Identifiera avvikelser, saknade värden eller antal fel med [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) metoden. Den här funktionen hämtar profil-och sammanfattnings statistik för dina data, vilket i sin tur hjälper dig att avgöra vilka data förberedelse åtgärder som krävs.
 
 ```Python
 dataset.get_profile()
 ```
 
-||Type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
+||type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-id|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e+07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
-Ärendenummer|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Blockera|FieldType.STRING|004XX S KILBOURN PARA|113XX S PRAIRIE PARA|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
-Primär typ|FieldType.STRING|BEDRÄGERIFÖRSÖK|STÖLD|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Beskrivning|FieldType.STRING|MUSENHETEN KONTROLL|ÖVER 500 USD|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Platsbeskrivning|FieldType.STRING||SKOLAN, OFFENTLIG, ATT SKAPA|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
-Kvarhållande|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Inrikes|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Beat|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
-Distrikt|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
-Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
-Community-området|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
-FBI: S kod|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
-X-koordinat|FieldType.INTEGER|1.16309e+06|1.18336e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.16309e+06|1.16309e+06|1.16309e+06|1.16401e+06|1.16678e+06|1.17921e+06|1.18336e+06|1.18336e+06|1.18336e+06|1.17108e + 06|10793.5|1.165e + 08|0.335126|-2.33333
-Y-koordinaten|FieldType.INTEGER|1.8315e+06|1.908e + 06|10.0|7.0|3.0|0.7|0.0|0.0|1.8315e+06|1.8315e+06|1.8315e+06|1.83614e+06|1.85005e+06|1.89352e+06|1.908e + 06|1.908e + 06|1.908e + 06|1.86319e+06|39905.2|1.59243e+09|0.293465|-2.33333
-År|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0.0|0.0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
-Uppdaterad den|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Latitud|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
-Longitud|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
-Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
+id|FieldType. INTEGER|1.04986 e + 07|1.05351 e + 07|10,0|0.0|10,0|0.0|0.0|0.0|1.04986 e + 07|1.04992 e + 07|1.04986 e + 07|1.05166 e + 07|1.05209 e + 07|1.05259 e + 07|1.05351 e + 07|1.05351 e + 07|1.05351 e + 07|1.05195 e + 07|12302,7|1.51358 e + 08|– 0,495701|– 1,02814
+Ärendenummer|FieldType.STRING|HZ239907|HZ278872|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Date|FieldType. DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Blockera|FieldType.STRING|004XX S KILBOURN ARA|113XX S PRAIRIE ARA|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+IUCR|FieldType. INTEGER|810|1154|10,0|0.0|10,0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058,5|137,285|18847,2|– 0,785501|– 1,3543
+Primär typ|FieldType.STRING|BEDRÄGLIG METOD|STÖLD|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Beskrivning|FieldType.STRING|FALSK KONTROLL|ÖVER $500|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Platsbeskrivning|FieldType.STRING||SKOLA, OFFENTLIG, BYGGNAD|10,0|0.0|10,0|0.0|0.0|1.0||||||||||||||
+Kvarhållande|FieldType. BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Inrikes|FieldType. BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Taktslag|FieldType. INTEGER|531|2433|10,0|0.0|10,0|0.0|0.0|0.0|531|531|531|614|1318,5|1911|2433|2433|2433|1371,1|692,094|478994|0,105418|– 1,60684
+Distrikt|FieldType. INTEGER|5|24|10,0|0.0|10,0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6,94822|48,2778|0,0930109|– 1,62325
+Ward|FieldType. INTEGER|1|48|10,0|0.0|10,0|0.0|0.0|0,0|1|5|1|9|22.5|40|48|48|48|24.5|16,2635|264,5|0,173723|– 1,51271
+Community-området|FieldType. INTEGER|4|77|10,0|0.0|10,0|0.0|0.0|0.0|4|8.5|4|24|37,5|71|77|77|77|41,2|26,6366|709,511|0,112157|– 1,73379
+FBI: S kod|FieldType. INTEGER|6|11|10,0|0.0|10,0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2,36643|5.6|– 0,702685|– 1,59582
+X-koordinat|FieldType. INTEGER|1.16309 e + 06|1.18336 e + 06|10,0|7.0|3.0|0,7|0.0|0.0|1.16309 e + 06|1.16309 e + 06|1.16309 e + 06|1.16401e+06|1.16678 e + 06|1.17921e+06|1.18336 e + 06|1.18336 e + 06|1.18336 e + 06|1.17108 e + 06|10793,5|1.165 e + 08|0,335126|– 2,33333
+Y-koordinaten|FieldType. INTEGER|1.8315 e + 06|1.908 e + 06|10,0|7.0|3.0|0,7|0.0|0.0|1.8315 e + 06|1.8315 e + 06|1.8315 e + 06|1.83614e+06|1.85005 e + 06|1.89352 e + 06|1.908 e + 06|1.908 e + 06|1.908 e + 06|1.86319 e + 06|39905,2|1.59243 e + 09|0,293465|– 2,33333
+År|FieldType. INTEGER|2016|2016|10,0|0.0|10,0|0.0|0.0|0.0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
+Uppdaterad den|FieldType. DATE|2016-05-11 15:48:00 + 00:00|2016-05-27 15:45:00 + 00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Latitud|FieldType.DECIMAL|41,6928|41,9032|10,0|7.0|3.0|0,7|0.0|0.0|41,6928|41,6928|41,6928|41,7057|41,7441|41,8634|41,9032|41,9032|41,9032|41,78|0,109695|0,012033|0,292478|– 2,33333
+Longitud|FieldType.DECIMAL|– 87,6764|– 87,6043|10,0|7.0|3.0|0,7|0.0|0.0|– 87,6764|– 87,6764|– 87,6764|– 87,6734|– 87,6645|– 87,6194|– 87,6043|– 87,6043|– 87,6043|– 87,6484|0,0386264|0,001492|0,344429|– 2,33333
+Location|FieldType.STRING||(41,903206037,-87,676361925)|10,0|0.0|10,0|0.0|0.0|7.0||||||||||||||
 
 ## <a name="impute-missing-values"></a>Sedan imputera värden som saknas
 
-I datauppsättningar anses null-värden, Nans och värden som innehåller inget innehåll värden som saknas. Dessa kan påverka prestandan för dina maskininlärningsmodeller eller leda till ogiltig slutsatser. Uppräkning är ett vanligt sätt att åtgärda saknade värden och är användbart när du har en hög andel saknar värde poster som du inte kan helt enkelt ta bort.
+I data uppsättningar, null-värden, NaN och värden som inte innehåller något innehåll betraktas värden som saknas. Dessa kan påverka prestandan för dina maskin inlärnings modeller eller leda till ogiltiga slut satser. Imputation är en vanlig metod för att hantera värden som saknas och är användbart när du har en hög procent av saknade värde poster som du inte bara tar bort.
 
-Från den datauppsättning profilen som genererats i föregående avsnitt, ser vi att `Latitude` och `Longitude` kolumner har en hög andel värden som saknas. I det här exemplet vi beräkna medelvärdet och sedan imputera saknas värden för dessa två kolumner.
+Från den data uppsättnings profil som genererades i föregående avsnitt ser `Latitude` vi `Longitude` att och kolumnerna har en hög procent andel av saknade värden. I det här exemplet beräknar vi medelvärde-och tillräknade värden som saknas för dessa två kolumner.
 
-Först hämtar de senaste definitionerna av datauppsättningen med [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) och skära ned data med [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow), så att vi endast visa de kolumner vi vill adress.
+Först hämtar du den senaste definitionen av data uppsättningen med [`get_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) och avrundar data med [`keep_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow), så vi visar bara de kolumner som vi vill adressera.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -164,11 +164,11 @@ ds_def.head(3)
 
 ||id|Kvarhållande| Latitud|Longitud|
 -|---------|-----|---------|----------|
-|0|10498554|False|41.692834|-87.604319|
-|1|10516598|False| 41.744107 |-87.664494|
+|0|10498554|False|41,692834|– 87,604319|
+|1|10516598|False| 41,744107 |– 87,664494|
 |2|10519196|False| NaN|NaN|
 
-Därefter kontrollerar du den `MEAN` värdet för en latitud kolumn med hjälp av den [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) funktion. Den här funktionen accepterar en matris med kolumner i den `group_by_columns` parametern för att ange nivå för aggregering. Den `summary_columns` parametern accepterar den `SummaryColumnsValue` som anger kolumnnamnet på aktuella nya beräknade fältnamn och `SummaryFunction` att utföra.
+Sedan kontrollerar du `MEAN` värdet för kolumnen Latitude [`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) med funktionen. Den här funktionen accepterar en matris med kolumner i den `group_by_columns` parametern för att ange nivå för aggregering. Parametern godkänner funktionen, som anger det aktuella kolumn namnet, det nya beräknade `SummaryFunction` fält namnet och för att utföra. `SummaryColumnsValue` `summary_columns`
 
 ```Python
 lat_mean = ds_def.summarize(group_by_columns = ['Arrest'],
@@ -181,11 +181,11 @@ lat_mean.head(1)
 
 ||Kvarhållande|Latitude_MEAN|
 --|-----|--------|
-|0|False|41.780049|
+|0|False|41,780049|
 
-När vi Kontrollera värdena sedan imputera använda [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) att lära dig en fast uttryck som imputes kolumner med antingen ett beräknat `MIN`, `MAX`, `MEAN` värde, eller en `CUSTOM` värde. När `group_by_columns` har angetts värden som saknas kommer imputeras gruppvis med `MIN`, `MAX`, och `MEAN` beräknas per grupp.
+När vi har verifierat värdena för att räkna med [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) , använder du för att lära dig ett fast uttryck som tillräknar `MIN`kolumnerna `MEAN` med antingen ett `MAX`beräknat `CUSTOM` värde, värde eller ett värde. När `group_by_columns` har angetts värden som saknas kommer imputeras gruppvis med `MIN`, `MAX`, och `MEAN` beräknas per grupp.
 
-Den [ `ImputeColumnArguments` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputecolumnarguments?view=azure-dataprep-pyfunction) godkänner en column_id sträng och en `ReplaceValueFunction` kan ange vilken typ av impute. Sedan imputera det med-87 baserat på externa kunskapskällor för longitudvärdet saknas.
+Accepterar en column_id-sträng och en `ReplaceValueFunction` för att ange imputerade typ. [`ImputeColumnArguments`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputecolumnarguments?view=azure-dataprep-pyfunction) För det saknade värdet longitud tillräknar du det med-87 baserat på extern kunskap.
 
 ```Python
 # impute with MEAN
@@ -197,7 +197,7 @@ impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=-87)
 ```
 
-Sedan imputera steg kan sammanlänkas i en `ImputeMissingValuesBuilder` objekt med hjälp av den [ `Builders` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.builders?view=azure-dataprep-py) klassen funktionen [ `impute_missing_values()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.builders?view=azure-dataprep-py#impute-missing-values-impute-columns--typing-list-azureml-dataprep-api-builders-imputecolumnarguments----none--group-by-columns--typing-union-typing-list-str---nonetype----none-----azureml-dataprep-api-builders-imputemissingvaluesbuilder). Den `impute_columns` parametern accepterar en matris med `ImputeColumnArguments` objekt.
+Imputerade steg kan sammanställas tillsammans i ett `ImputeMissingValuesBuilder` objekt med hjälp av [`Builders`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.builders?view=azure-dataprep-py) klass funktionen. [`impute_missing_values()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.builders?view=azure-dataprep-py#impute-missing-values-impute-columns--typing-list-azureml-dataprep-api-builders-imputecolumnarguments----none--group-by-columns--typing-union-typing-list-str---nonetype----none-----azureml-dataprep-api-builders-imputemissingvaluesbuilder) Den `impute_columns` parametern accepterar en matris med `ImputeColumnArguments` objekt.
 
 ```Python
 # get instance of ImputeMissingValuesBuilder
@@ -205,7 +205,7 @@ impute_builder = ds_def.builders.impute_missing_values(impute_columns=[impute_me
                                                    group_by_columns=['Arrest'])
 ```
 
-Anropa den [ `learn()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py#learn------none) för att lagra impute steg och koppla dem till en dataflöde objekt med [ `to_dataflow()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py#to-dataflow------azureml-dataprep-api-dataflow-dataflow).
+Anropa funktionen för att lagra de imputerade stegen och tillämpa dem på ett data flödes objekt med [`to_dataflow()`.](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py#to-dataflow------azureml-dataprep-api-dataflow-dataflow) [`learn()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py#learn------none)
 
 ```Python
 impute_builder.learn()
@@ -213,15 +213,15 @@ ds_def = impute_builder.to_dataflow()
 ds_def.head(3)
 ```
 
-I följande utdatatabell visas saknas latitud har tillräknade med den `MEAN` värdet för `Arrest==False` grupp och saknas longitud har tillräknade med-87.
+Som du ser i följande utdataparameter räknades den saknade latitud med `MEAN` värdet för `Arrest==False` gruppen och den saknade longitud tillräknades med-87.
 
 ||id|Kvarhållande|Latitud|Longitud
 -|---------|-----|---------|----------
-0|10498554|False|41.692834|-87.604319
-1|10516598|False|41.744107|-87.664494
-2|10519196|False|41.780049|-87.000000
+0|10498554|False|41,692834|– 87,604319
+1|10516598|False|41,744107|– 87,664494
+2|10519196|False|41,780049|– 87,000000
 
-Uppdatera definitionen för datauppsättningen med, [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) att hålla utförs transformeringssteg.
+Uppdatera data uppsättnings definitionen med [`update_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) , för att behålla de utförda omvandlings stegen.
 
 ```Python
 dataset = dataset.update_definition(ds_def, 'Impute Missing')
@@ -230,17 +230,17 @@ dataset.head(3)
 
 ||id|Kvarhållande|Latitud|Longitud
 -|---------|-----|---------|----------
-0|10498554|False|41.692834|-87.604319
-1|10516598|False|41.744107|-87.664494
-2|10519196|False|41.780049|-87.000000
+0|10498554|False|41,692834|– 87,604319
+1|10516598|False|41,744107|– 87,664494
+2|10519196|False|41,780049|– 87,000000
 
-## <a name="create-assertion-rules"></a>Skapa regler för försäkran
+## <a name="create-assertion-rules"></a>Skapa regler för kontroll
 
-Ofta, data vi arbetar med vid rensning och förbereda data är bara en delmängd av den totala mängden data som vi behöver för produktion. Därför kan visa vissa av de antaganden som vi gör som en del av vår rensning sig ha värdet FALSKT. Exempelvis kan en kolumn som ursprungligen endast innehåller siffror inom ett visst intervall i en datamängd som uppdaterar kontinuerligt, innehålla ett bredare spektrum av värdena i senare körningar. Dessa fel leder ofta bruten pipelines eller felaktiga data.
+Data vi arbetar ofta med när du rensar och förbereder data är bara en del av de totala data som vi behöver för produktion. Därför kan vissa av de antaganden som vi har gjort som en del av vår rengöring bli falsk. I en data uppsättning som uppdateras kontinuerligt, kan en kolumn som ursprungligen bara innehöll siffror inom ett visst intervall innehålla ett bredare värde intervall i senare körningar. Dessa fel resulterar ofta i antingen brutna pipeliner eller felaktiga data.
 
-Stöd för datauppsättningar Skapa intyg för data som utvärderas som pipeline utför. Dessa intyg låta oss att verifiera att vår antaganden på data fortsätter att vara korrekta och, om det inte, kan hantera fel på lämpligt sätt.
+Data uppsättningar har stöd för att skapa kontroller av data som utvärderas när pipelinen körs. Dessa intyg gör att vi kan kontrol lera att våra antaganden om data fortsätter att vara korrekta och, om inte, för att hantera fel i enlighet med detta.
 
-Exempel: Om du vill begränsa `Latitude` och `Longitude` värden i din specifika numeriska intervall i [ `assert_value()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) metoden garanterar detta gäller alltid.
+Om du till exempel vill begränsa `Latitude` och `Longitude` värden i data uppsättningen till [`assert_value()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) vissa numeriska intervall säkerställer metoden att det alltid är fallet.
 
 ```Python
 from azureml.dataprep import value
@@ -256,14 +256,14 @@ ds_def = ds_def.assert_value('Longitude', (value <= 180) & (value >= -87), error
 ds_def.get_profile()
 ```
 
-||Type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
+||type|Min|Max|Antal|Antal saknas|Antal saknas inte|Procent saknas|Antal fel|Tomt antal|0,1 % kvantil|1 % kvantil|5 % kvantil|25 % kvantil|50 % kvantil|75 % kvantil|95 % kvantil|99 % kvantil|99,9 % kvantil|Medelvärde|Standardavvikelse|Varians|Snedhet|Toppighet
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-id|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e+07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
-Kvarhållande|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Latitud|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
-Longitud|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
+id|FieldType. INTEGER|1.04986 e + 07|1.05351 e + 07|10,0|0.0|10,0|0.0|0.0|0.0|1.04986 e + 07|1.04992 e + 07|1.04986 e + 07|1.05166 e + 07|1.05209 e + 07|1.05259 e + 07|1.05351 e + 07|1.05351 e + 07|1.05351 e + 07|1.05195 e + 07|12302,7|1.51358 e + 08|– 0,495701|– 1,02814
+Kvarhållande|FieldType. BOOLEAN|False|False|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Latitud|FieldType.DECIMAL|41,6928|41,9032|10,0|0.0|10,0|0.0|0.0|0.0|41,6928|41,7185|41,6928|41,78|41,78|41,78|41,9032|41,9032|41,9032|41,78|0,0517107|0,002674|0,837593|1,05
+Longitud|FieldType. INTEGER|-87|-87|10,0|0.0|10,0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
-Från profilen, ser du att den `Error Count` för den `Longitude` kolumnen är 3. Följande kod filtrerar datauppsättningen, hämtar felet och ser vilken värde orsakar kontrollen misslyckas. Härifrån kan du justera din kod och rensa dina data på rätt sätt.
+Från profilen ser du att `Error Count` `Longitude` kolumnen för är 3. Följande kod filtrerar data uppsättningen, hämtar felet och ser vilket värde som gör att kontrollen inte fungerar. Härifrån kan du justera koden och rensa dina data på rätt sätt.
 
 ```Python
 from azureml.dataprep import col
@@ -278,7 +278,7 @@ print(error.originalValue)
 
 ## <a name="derive-columns-by-example"></a>Härled kolumner med exempel
 
-En av de mer avancerade verktyg för datauppsättningar är möjligheten att härleda kolumner med hjälp av exempel på önskat resultat. På så sätt kan du ge SDK exempelvis så att det kan generera kod för att uppnå avsedda omvandlingarna.
+Ett av de mer avancerade verktygen för data uppsättningar är möjligheten att härleda kolumner med exempel på önskade resultat. På så sätt kan du ge SDK ett exempel, så det kan generera kod för att uppnå avsedda transformeringar.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -292,11 +292,11 @@ dataset.head(3)
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
-2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO PARA|...
+2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO ARA|...
 
-Anta att du vill omvandla formatet datum och tid till 2016-04-04 10 PM - 12: 00 ”. I den [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) argument, innehåller exempel på önskade utdata i den `example_data` parametern i det här formatet: *(ursprungliga utdata, önskad utdata)* .
+Anta att du måste transformera datum-och tids formatet till "2016-04-04 10PM-12AM". I argumentet anger du exempel på önskade utdata `example_data` i parametern i det här formatet: *(ursprungligt utdata, önskade utdata)* . [`derive_column_by_example()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow)
 
-Följande kod innehåller två exempel på önskade utdata (”2016-04-04 23:56:00” ”, 2016-04-04 10 PM-kl. 12”) och (”2016-04-15 17:00:00” ”, 2016-04-15 4 PM - 18: 00”)
+Följande kod ger två exempel på önskade utdata ("2016-04-04 23:56:00", "2016-04-04 10PM-12AM") och ("2016-04-15 17:00:00", "2016-04-15 4PM-. 18:00")
 
 ```Python
 ds_def = dataset.get_definition()
@@ -308,7 +308,7 @@ ds_def = ds_def.derive_column_by_example(
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 ```
 
-Observera att en ny kolumn Date_Time_Range innehåller poster i det format som anges i tabellen nedan.
+I följande tabell ser du att en ny kolumn, Date_Time_Range innehåller poster i det angivna formatet.
 
 ||id|Date|Date_Time_Range
 -|--------|-----|----
@@ -321,11 +321,11 @@ Observera att en ny kolumn Date_Time_Range innehåller poster i det format som a
 dataset = dataset.update_definition(ds_def, 'Derive Date_Time_Range')
 ```
 
-## <a name="fuzzy-groupings"></a>Fuzzy grupperingar
+## <a name="fuzzy-groupings"></a>Fuzzy-grupperingar
 
-När du samlar in data från olika källor kan som uppstå variationer i stavning, versaler eller förkortningar av samma entiteter. Standardisera och stämma av dessa varianter med SDK: er fuzzy gruppering eller text klustring, funktionen automatiskt.
+När du samlar in data från olika källor kan du stöta på variationer i stavning, versaler eller förkortningar för samma entiteter. Standardisera och Stäm av dessa varianter automatiskt med SDK: n för fuzzy Grouping eller text klustring, funktionalitet.
 
-Till exempel kolumnen `inspections.business.city` innehåller flera typer av den stad namnet ”San Francisco”.
+Kolumnen `inspections.business.city` innehåller till exempel flera former av Orts namnet "San Francisco".
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -335,19 +335,19 @@ dataset = Dataset.auto_read_files('./data/city.json')
 dataset.head(5)
 ```
 
-||inspections.business.business_id|inspections.business_name|inspections.business.address|inspections.Business.City|...|
+||inspections.business.business_id|inspektioner. business_name|inspections.business.address|inspektioner. Business. City|...|
 -|-----|-------------------------|------------|--|---
-0|16162|Snabbstart-N-Ezee indiska livsmedel|3861 24th St|SF|...
-1|67565|King av thailändska nudlar Cafe|1541 TARAVAL St|SAN FRANCISCO|...
-2|67565|King av thailändska nudlar Cafe|1541 TARAVAL St|SAN FRANCISCO|...
-3|68701|Grindz|832 clement St|SF|...
-4|69186|Premier restaurang & händelser, Inc.|1255 22nd St|S.F.|...
+0|16162|Quick-N-Ezee indiska livsmedel|3861 24 st|SF|...
+1|67565|Kung av Thai Noodles-Cafe|1541 TARAVAL St|SAN FRANCISCO|...
+2|67565|Kung av Thai Noodles-Cafe|1541 TARAVAL St|SAN FRANCISCO|...
+3|68701|Grindz|832 Clement St|SF|...
+4|69186|Premier catering & Events, Inc.|1255 22nd St|S.F.|...
 
-Nu ska vi använda den [ `fuzzy_group_column()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#fuzzy-group-column-source-column--str--new-column-name--str--similarity-threshold--float---0-8--similarity-score-column-name--str---none-----azureml-dataprep-api-dataflow-dataflow) metod för att lägga till en kolumn med den automatiskt identifierade kanoniska formen av ”San Francisco”. Argumenten `source_column` och `new_column_name` krävs. Du har också möjlighet att:
+Vi använder [`fuzzy_group_column()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#fuzzy-group-column-source-column--str--new-column-name--str--similarity-threshold--float---0-8--similarity-score-column-name--str---none-----azureml-dataprep-api-dataflow-dataflow) metoden för att lägga till en kolumn med den automatiskt identifierade kanoniska formen "San Francisco". Argumenten `source_column` och `new_column_name` är obligatoriska. Du kan också välja att:
 
-* Skapa en ny kolumn `similarity_score_column_name`, som visar poängen likheter mellan varje par med ursprungliga och kanoniska värden.
+* Skapa en ny kolumn, `similarity_score_column_name`som visar likhets poängen mellan varje par med ursprungliga och kanoniska värden.
 
-* Ange en `similarity_threshold`, vilket är den minsta likhet poängen för värdena som ska grupperas tillsammans.
+* Ange ett `similarity_threshold`, vilket är den minsta likhets poängen för värdena som ska grupperas tillsammans.
 
 ```Python
 # get the latest Dataset definition
@@ -359,17 +359,17 @@ ds_def = ds_def.fuzzy_group_column(source_column='inspections.business.city',
 ds_def.head(5)
 ```
 
-||inspections.business.business_id|inspections.business_name|inspections.business.address|inspections.Business.City|city_grouped|similarity_score|...|
+||inspections.business.business_id|inspektioner. business_name|inspections.business.address|inspektioner. Business. City|city_grouped|similarity_score|...|
 -|-----|-------------------------|------------|--|---|---|---
-0|16162|Snabbstart-N-Ezee indiska livsmedel|3861 24th St|SF|San Francisco|0.814806|...
-1|67565|King av thailändska nudlar Cafe|1541 TARAVAL St|SAN FRANCISCO|San Francisco|1.000000|...
-2|67565|King av thailändska nudlar Cafe|1541 TARAVAL St|SAN FRANCISCO|San Francisco|1.000000|...
-3|68701|Grindz|832 clement St|SF|San Francisco|0.814806|...
-4|69186|Premier restaurang & händelser, Inc.|1255 22nd St|S.F.|San Francisco|0.814806|...
+0|16162|Quick-N-Ezee indiska livsmedel|3861 24 st|SF|San Francisco|0,814806|...
+1|67565|Kung av Thai Noodles-Cafe|1541 TARAVAL St|SAN FRANCISCO|San Francisco|1,000000|...
+2|67565|Kung av Thai Noodles-Cafe|1541 TARAVAL St|SAN FRANCISCO|San Francisco|1,000000|...
+3|68701|Grindz|832 Clement St|SF|San Francisco|0,814806|...
+4|69186|Premier catering & Events, Inc.|1255 22nd St|S.F.|San Francisco|0,814806|...
 
-I den resulterande datauppsättningen har olika varianter av som representerar ”San Francisco” data normaliseras till samma sträng, ”San Francisco”.
+I den resulterande data uppsättnings definitionen var alla olika variationer som representerar "San Francisco" i data normaliserade till samma sträng, "San Francisco".
 
-Spara fuzzy gruppering steget i den senaste datauppsättningsdefinitionen med `update_definition()`.
+Spara det här fuzzy Grouping-steget i den senaste `update_definition()`definitionen av data uppsättningen med.
 
 ```Python
 dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
@@ -377,8 +377,8 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se den automatiserade machine learning [självstudien](tutorial-auto-train-models.md) till exempel en regression-modellen.
+* I den automatiska självstudien om Machine Learning finns ett exempel på en Regressions modell. [](tutorial-auto-train-models.md)
 
-* Finns i SDK [översikt](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) designmönster och användningsexempel.
+* Se [Översikt över](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) SDK för design mönster och användnings exempel.
 
-* Ett exempel på hur du använder datauppsättningar finns i den [exempel anteckningsböcker](https://aka.ms/dataset-tutorial).
+* Ett exempel på hur du använder data uppsättningar finns i [exempel antecknings böckerna](https://aka.ms/dataset-tutorial).

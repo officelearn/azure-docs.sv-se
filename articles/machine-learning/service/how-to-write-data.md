@@ -1,5 +1,5 @@
 ---
-title: 'Skriv: Förbered data Python SDK'
+title: 'Skriva: data prepare python SDK'
 titleSuffix: Azure Machine Learning service
 description: Lär dig mer om hur du skriver data med Azure Machine Learning Data Prep SDK. Du kan skriva ut data när som helst i ett dataflöde och till filer i någon av våra platser som stöds (lokalt filsystem, Azure Blob Storage och Azure Data Lake Storage).
 services: machine-learning
@@ -12,20 +12,20 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6753be5613b10b64936cddaafbb9859aad837b02
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752864"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358634"
 ---
-# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Skriva och konfigurera data med Azure Machine Learning Data Prep SDK
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Skriv och konfigurera data med Azure Machine Learning data prep SDK
 
-I den här artikeln får du lära dig olika metoder för att skriva data med hjälp av den [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk) och hur du konfigurerar dessa data för experimentering med den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Utdata kan skrivas när som helst i ett dataflöde. Skrivningar läggs som steg för att det resulterande dataflödet och de här stegen som ska köras varje gång data flödeskörningar. Data skrivs till partitionsfiler med flera Tillåt parallella skrivningar.
+I den här artikeln får du lära dig olika metoder för att skriva data med hjälp av [Azure Machine Learning data prepare-SDK](https://aka.ms/data-prep-sdk) och hur du konfigurerar data för experimentering med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Utdata kan skrivas när som helst i ett data flöde. Skrivningar läggs till som steg till det resulterande data flödet och de här stegen körs varje gång data flödet körs. Data skrivs till partitionsfiler med flera Tillåt parallella skrivningar.
 
 > [!Important]
-> Om du skapar en ny lösning kan du prova den [Azure Machine Learning datauppsättningar](how-to-explore-prepare-data.md) (förhandsversion) för att omvandla dina data, ögonblicksbilddata och lagra version datauppsättning definitioner. Datauppsättningar är nästa version av dataförberedelser SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar.
-> Om du använder den `azureml-dataprep` paketet för att skapa ett dataflöde med dina transformeringar istället för att använda den `azureml-datasets` Paketera om du vill skapa en datauppsättning, du kan använda ögonblicksbilder eller version datauppsättningar senare.
+> Om du skapar en ny lösning kan du prova [Azure Machine Learning data uppsättningar](how-to-explore-prepare-data.md) (för hands version) för att transformera data, ögonblicks bild data och definitioner för data uppsättning för data lager. Data uppsättningar är nästa version av data prep SDK och erbjuder utökade funktioner för hantering av data uppsättningar i AI-lösningar.
+> Om du använder `azureml-dataprep` paketet för att skapa ett data flöde med dina omvandlingar i stället för att `azureml-datasets` använda paketet för att skapa en data uppsättning kan du inte använda ögonblicks bilder eller versioner av data uppsättningar senare.
 
 Eftersom det finns inga begränsningar för hur många skriva steg finns i en pipeline, kan du enkelt lägga till ytterligare skrivning steg för att få resultat för felsökning eller andra pipeliner.
 
@@ -37,7 +37,7 @@ Följande filformat som stöds
 -   Avgränsade filer (CSV, TVS osv.)
 -   Parquet-filer
 
-Med Azure Machine Learning Data Prep Python SDK kan skriva du data till:
+Med hjälp av Azure Machine Learning data prepare python SDK kan du skriva data till:
 + ett lokalt filsystem
 + Azure Blob Storage
 + Azure Data Lake Storage
@@ -52,7 +52,7 @@ För din bekvämlighet genereras en sentinel-fil med namnet lyckades när en skr
 
 ## <a name="example-write-code"></a>Exempelkod för skrivning
 
-I det här exemplet börja med att läsa in data i en flöde med `auto_read_file()`. Du kan återanvända dessa data med olika format.
+I det här exemplet börjar du med att läsa in data i ett `auto_read_file()`data flöde med hjälp av. Du kan återanvända dessa data med olika format.
 
 ```python
 import azureml.dataprep as dprep
@@ -73,10 +73,10 @@ Exempel på utdata:
 
 ### <a name="delimited-file-example"></a>Avgränsad fil-exempel
 
-I följande kod används den [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) används för att skriva data till en avgränsad fil.
+I följande kod används [`write_to_csv()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) funktionen för att skriva data till en avgränsad fil.
 
 ```python
-# Create a new data flow using `write_to_csv` 
+# Create a new data flow using `write_to_csv`
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'))
 
 # Run the data flow to begin the write operation.
@@ -101,7 +101,7 @@ I den föregående utdatan visas flera fel i de numeriska kolumnerna på grund a
 Lägg till parametrar som en del av dina skrivåtgärder anropa och ange en sträng som ska använda för att representera null-värden.
 
 ```python
-write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
+write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'),
                          error='BadData',
                          na='NA')
 write_t.run_local()
@@ -121,11 +121,11 @@ Föregående kod ger dessa utdata:
 
 ### <a name="parquet-file-example"></a>Exempel på en parquet
 
-Liknar `write_to_csv()`, [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) funktionen returnerar ett nytt dataflöde med en skrivning Parquet steg som utförs när data flödeskörningar.
+`write_to_csv()` [På`write_to_parquet()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) liknande sätt returnerar funktionen ett nytt data flöde med ett Skriv Parquet-steg som körs när data flödet körs.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),
-error='MiscreantData')
+                                     error='MiscreantData')
 ```
 
 Kör dataflödet för att starta Skrivåtgärden.
@@ -147,11 +147,11 @@ Föregående kod ger dessa utdata:
 |3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
 
-## <a name="configure-data-for-automated-machine-learning-training"></a>Konfigurera data för automatiserade machine learning-utbildning
+## <a name="configure-data-for-automated-machine-learning-training"></a>Konfigurera data för automatisk utbildning av Machine Learning
 
-Skicka datafilen nyskrivna i en [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) objekt som förberedelse för automatiserade machine learning-utbildning. 
+Skicka din nyligen skrivna datafil till ett [`AutoMLConfig`](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) objekt som förberedelse för automatisk utbildning av maskin inlärning. 
 
-I följande kodexempel visas hur du konvertera ditt dataflöde till en Pandas-dataframe och därefter dela upp den i träning och testning datauppsättningar för automatiserade machine learning-utbildning.
+Följande kod exempel illustrerar hur du konverterar ditt data flöde till en Pandas-dataframe och sedan delar in det i utbildning och test data uppsättningar för automatisk utbildning av maskin inlärning.
 
 ```Python
 from azureml.train.automl import AutoMLConfig
@@ -180,7 +180,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ```
 
-Om du inte behöver några steg för förberedelse av mellanliggande data precis som i föregående exempel kan du överföra ditt dataflöde direkt i `AutoMLConfig`.
+Om du inte behöver några steg för förberedelse av mellanliggande data som i föregående exempel, kan du skicka ditt data `AutoMLConfig`flöde direkt till.
 
 ```Python
 automated_ml_config = AutoMLConfig(task = 'regression', 
@@ -193,5 +193,5 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Finns i SDK [översikt](https://aka.ms/data-prep-sdk) designmönster och användningsexempel 
-* Se den automatiserade machine learning [självstudien](tutorial-auto-train-models.md) till exempel en regression-modellen
+* Se [Översikt över](https://aka.ms/data-prep-sdk) SDK för design mönster och användnings exempel 
+* Se den automatiska självstudien om maskin inlärning för en Regressions modell exempel [](tutorial-auto-train-models.md)

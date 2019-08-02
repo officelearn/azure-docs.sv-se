@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
 ms.openlocfilehash: bf620178a0c10661126b3e52c7b908ccc9a90d89
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68311893"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU: er
@@ -21,13 +21,13 @@ Azure Container Registry (ACR) finns på flera tjänst nivåer, som kallas SKU: 
 
 | SKU | Hanterad | Beskrivning |
 | --- | :-------: | ----------- |
-| **Basic** | Ja | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmerings funktioner som standard och Premium (till exempel Azure Active Directory [autentisering](container-registry-authentication.md#individual-login-with-azure-ad), [borttagning][container-registry-delete], and [webhooks][container-registry-webhook]av avbildningar). Den inkluderade lagrings-och avbildnings data flödet är dock lämpligast för lägre användnings scenarier. |
+| **Basic** | Ja | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmerings funktioner som standard och Premium (till exempel Azure Active Directory [autentisering](container-registry-authentication.md#individual-login-with-azure-ad), avbildnings [borttagning][container-registry-delete]och Webhooks). [][container-registry-webhook] Den inkluderade lagrings-och avbildnings data flödet är dock lämpligast för lägre användnings scenarier. |
 | **Standard** | Ja | Standard register ger samma funktioner som Basic, med ökat lagrings utrymme och avbildnings data flöde. Standard-register bör uppfylla behoven för de flesta produktionsscenarier. |
 | **Premium** | Ja | Premium register ger högsta mängd av inkluderad lagring och samtidiga åtgärder, vilket möjliggör stora volymer. Förutom högre bild data flöde lägger Premium till funktioner som [geo-replikering][container-registry-geo-replication] för att hantera ett enda register över flera regioner, [innehålls förtroende](container-registry-content-trust.md) för signering av bildtagg och [brand väggar och virtuella nätverk (för hands version)](container-registry-vnet.md) till begränsa åtkomsten till registret. |
 |  Klassisk (*inte tillgängligt efter 2019 april*) | Nej | Den här SKU: n aktiverade den första versionen av Azure Container Registrys tjänsten i Azure. Klassiska register backas upp av ett lagrings konto som Azure skapar i din prenumeration, vilket begränsar möjligheten för ACR att tillhandahålla funktioner på högre nivå, till exempel ökat data flöde och geo-replikering. |
 
 > [!IMPORTANT]
-> Den klassiska register-SKU: n är inaktuell och kommer inte att vara tillgänglig efter **2019 april**. Vi rekommenderar att du använder Basic, standard eller Premium för alla nya register. Alla befintliga klassiska register bör uppgraderas före 2019 april. Uppgraderings information finns i [uppgradera ett klassiskt register][container-registry-upgrade].
+> Den klassiska register-SKU:n är inaktuell och kommer inte att vara tillgänglig efter **2019 april**. Vi rekommenderar att du använder Basic, standard eller Premium för alla nya register. Alla befintliga klassiska register bör uppgraderas före 2019 april. Uppgraderings information finns i [uppgradera ett klassiskt register][container-registry-upgrade].
 
 SKU: erna Basic, standard och Premium (kollektivt kallat *hanterade register*) tillhandahåller samma programmerings funktioner. De har också all nytta av [image Storage][container-registry-storage] som hanteras helt av Azure. Att välja ett SKU på en högre nivå ger bättre prestanda och skalning. Med flera tjänst nivåer kan du komma igång med Basic och sedan konvertera till standard och Premium allteftersom din användning av registret ökar.
 

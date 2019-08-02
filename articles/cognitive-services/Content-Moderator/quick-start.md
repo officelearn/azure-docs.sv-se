@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Prova Content Moderator på webben - Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: I den här snabbstarten ska du använda online Content Moderator granskningsverktyget för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
+title: 'Snabbstart: Försök Content Moderator på webben – Content Moderator'
+titleSuffix: Azure Cognitive Services
+description: I den här snabb starten ska du använda verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,64 +10,64 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 31bbc59b0587bb71999c4b10d273f75942737be2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e5b20bb45c08330c59fc72712b9e65b488c8c68b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604133"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564448"
 ---
-# <a name="quickstart-try-content-moderator-on-the-web"></a>Snabbstart: Prova Content Moderator på webben
+# <a name="quickstart-try-content-moderator-on-the-web"></a>Snabbstart: Försök Content Moderator på webben
 
-I den här snabbstarten ska du använda online Content Moderator granskningsverktyget för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i din app snabbare kan se de andra snabbstarterna i den [nästa steg](#next-steps) avsnittet.
+I den här snabb starten ska du använda verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i appen snabbare, se de andra snabb starterna i avsnittet [Nästa steg](#next-steps) .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En webbläsare
 
-## <a name="set-up-the-review-tool"></a>Konfigurera granskningsverktyget
-Granskningsverktyget för Content Moderator är ett webbaserat verktyg som gör att mänsklig granskare för att fatta beslut enklare cognitive service. I den här guiden får du genomgå kort processen för att ställa in granskningsverktyget så att du kan se hur tjänsten Content Moderator fungerar. Gå till den [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats och registrera dig.
+## <a name="set-up-the-review-tool"></a>Konfigurera gransknings verktyget
+Verktyget Content Moderator granskning är ett webbaserat verktyg som gör det möjligt för mänskliga granskare att hjälpa kognitiva tjänster att fatta beslut. I den här guiden ska du gå igenom kort processen för att konfigurera gransknings verktyget så att du kan se hur tjänsten Content Moderator fungerar. Gå till webbplatsen för [Content moderator granska verktyg](https://contentmoderator.cognitive.microsoft.com/) och registrera dig.
 
-![Startsida för innehåll Moderator](images/homepage.PNG)
+![Content Moderator start sida](images/homepage.PNG)
 
 ## <a name="create-a-review-team"></a>Skapa ett granskningsteam
 
-Skapa sedan en granskningsteam. I ett scenario med fungerande kommer detta att gruppen med personer som ska du manuellt granska tjänstens moderering beslut. Nu behöver du bara skapa ett namn på teamet. Om du vill att bjuda in kolleger till teamet kan göra du det genom att ange deras e-postadresser här.
+Skapa sedan en gransknings grupp. I ett arbets scenario är det här gruppen med personer som manuellt kommer att granska tjänstens kontroll beslut. För tillfället behöver du bara skapa ett grupp namn. Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
 
-![Bjud in gruppmedlem](images/QuickStart-2-small.png)
+![Bjud in grupp medlem](images/QuickStart-2-small.png)
 
-## <a name="upload-sample-content"></a>Ladda upp innehåll
+## <a name="upload-sample-content"></a>Ladda upp exempel innehåll
 
-Nu är du redo att överföra innehåll. Välj **försök > bild**, **försök > Text**, eller **försök > Video**.
+Nu är du redo att ladda upp exempel innehåll. Välj **prova > bild**, **prova > Text**eller **prova > Video**.
 
-![Testa avbildningen eller Textmoderering](images/tryimagesortext.png)
+![Prova bild-eller text redigering](images/tryimagesortext.png)
 
-Skicka in ditt innehåll för moderering. Internt anropar granskningsverktyget moderering API: er så att ditt innehåll. När den skanningen är klar, visas ett meddelande om att det inte finns några resultat väntar på att granska.
+Skicka in ditt innehåll för redaktörering. Internt kommer gransknings verktyget att anropa redigerings-API: erna för att söka igenom innehållet. När genomsökningen är klar visas ett meddelande som talar om att det finns resultat som väntar på din granskning.
 
-![Måttlig filer](images/submitted.png)
+![Måttliga filer](images/submitted.png)
 
-## <a name="review-moderation-tags"></a>Granska moderering taggar
+## <a name="review-moderation-tags"></a>Granska moderator Taggar
 
-Granska de tillämpade moderering taggarna. Du kan se vilka taggar har kopplats till ditt innehåll och vad poängen var i varje kategori. Se den [bild](image-moderation-api.md), [Text](text-moderation-api.md), och [Video](video-moderation-api.md) moderering avsnitt mer information om olika innehåll taggar visas.
+Granska de använda redigerings taggarna. Du kan se vilka taggar som tillämpades på ditt innehåll och hur poängen var i varje kategori. Se avsnitten [avbildning](image-moderation-api.md), [text](text-moderation-api.md)och [video](video-moderation-api.md) för att lära dig mer om vad olika taggar för innehåll visar.
 
-![Granska resultatet](images/reviewresults_text.png)
+![Granska resultat](images/reviewresults_text.png)
 
-Du eller ditt granskningsteam kan ändra dessa taggar eller lägga till fler taggar efter behov i ett projekt. Du skickar ändringarna med den **nästa** knappen. Dina affärsprogram anropar Moderator-API: er, kommer taggade innehållet köa här, kan granskas av mänsklig granskning-team. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
+I ett projekt kan du eller din gransknings grupp ändra dessa taggar eller lägga till fler taggar efter behov. Du skickar dessa ändringar med knappen **Nästa** . När ditt företags program anropar moderator-API: erna kommer det taggade innehållet att placeras här, vilket är klart att granskas av de mänskliga gransknings teamen. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
 
-Du har nu använt granskningsverktyget för Content Moderator för att se exempel på vad tjänsten Content Moderator kan göra. Därefter kan du antingen lära dig mer om verktyg för granskning och hur du integrerar dem i ett programvaruprojekt med API: erna granska eller du kan gå vidare till den [nästa steg](#next-steps) att ta reda på hur du använder Moderering API: erna sig själva i din app.
+Nu har du använt verktyget Content Moderator granskning för att se ett exempel på vad tjänsten Content Moderator kan göra. Sedan kan du antingen lära dig mer om gransknings verktyget och hur du integrerar det i ett program projekt med hjälp av gransknings-API: erna, eller så kan du gå vidare till [Nästa steg](#next-steps) -avsnitt om du vill lära dig hur du använder API: erna för kontrollanter i din app.
 
-## <a name="learn-more-about-the-review-tool"></a>Mer information om granskningsverktyget
+## <a name="learn-more-about-the-review-tool"></a>Läs mer om gransknings verktyget
 
-Mer information om hur du använder verktyget Content Moderator granska, ta en titt på de [granskningsverktyget](Review-Tool-User-Guide/human-in-the-loop.md) guide och se granskningsverktyget API: er och lär dig att finjustera upplevelse för mänsklig granskning:
-- Den [jobbet API](try-review-api-job.md) söker igenom ditt innehåll med hjälp av API: er för moderering och genererar granskningar i granskningsverktyget. 
-- Den [granska API](try-review-api-review.md) direkt skapar bild, text eller video granskningar för mänskliga moderatorer utan att söka igenom innehållet. 
-- Den [arbetsflöde API](try-review-api-workflow.md) skapar, uppdaterar och hämtar information om de anpassade arbetsflöden som ditt team skapar.
+Om du vill veta mer om hur du använder verktyget för Content Moderator granskning kan du titta närmare [](Review-Tool-User-Guide/human-in-the-loop.md) på gransknings verktygs guiden och se API: erna för gransknings verktyg för att lära dig att finjustera mänsklig gransknings upplevelsen:
+- [Jobb-API: et](try-review-api-job.md) skannar ditt innehåll med hjälp av API: erna för kontrollanter och genererar granskningar i gransknings verktyget. 
+- I [gransknings-API: et](try-review-api-review.md) skapas direkt bild-, text-eller video granskningar för de mänskliga moderatorerna utan att först skanna innehållet. 
+- [Arbets flödes-API: et](try-review-api-workflow.md) skapar, uppdaterar och hämtar information om de anpassade arbets flöden som ditt team skapar.
 
-Eller Fortsätt med nästa steg för att komma igång med API: er för Moderering i din kod.
+Eller Fortsätt med nästa steg för att komma igång med redigerings-API: er i din kod.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du Moderering API: erna i själva i din app.
-- Implementera bildmoderering. Använd den [API-konsol](try-image-api.md) eller [ C# snabbstarten](image-moderation-quickstart-dotnet.md) Genomsök bilder och identifiera potentiellt vuxet eller olämpligt innehåll med hjälp av taggar, förtroende poäng och andra extraherade information.
-- Implementera textmoderering. Använd den [API-konsol](try-text-api.md) eller Använd den [ C# snabbstarten](text-moderation-quickstart-dotnet.md) söker igenom textinnehåll för potentiella svordomar, datorstödd oönskad text klassificering (förhandsversion) och personliga data.
-- Implementera videomoderering. Följ den [Video moderering anvisningar guide för C# ](video-moderation-api.md) att söka igenom videor och identifiera potentiellt vuxet eller olämpligt innehåll. 
+Lär dig hur du använder redigerings-API: erna själva i din app.
+- Implementera avbildnings moderator. Använd [API-konsolen](try-image-api.md) eller [ C# snabb](image-moderation-quickstart-dotnet.md) starten för att skanna bilder och identifiera potentiellt vuxna och vågat innehåll genom att använda taggar, konfidens resultat och annan extraherad information.
+- Implementera text moderator. Använd [API-konsolen](try-text-api.md) eller Använd [ C# snabb](text-moderation-quickstart-dotnet.md) starten för att skanna text innehåll för potentiella svordomar, oönskad text klassificering (för hands version) och personliga data.
+- Implementera videoinspelning. Följ [guiden för videoinspelnings anvisningar för att söka C# efter](video-moderation-api.md) videor och identifiera potentiellt vuxna och vågat innehåll. 

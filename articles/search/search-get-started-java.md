@@ -1,6 +1,6 @@
 ---
-title: 'Java Quickstart: Skapa, läsa in och fråga sedan index med hjälp av Azure Search REST API: er – Azure Search'
-description: 'Beskriver hur du skapar ett index, läsa in data och kör frågor med Java och Azure Search REST-API: er.'
+title: 'Snabbstart: Skapa ett Azure Search-index i Java'
+description: 'Förklarar hur du skapar ett index, läser in data och kör frågor med Java och Azure Search REST-API: er.'
 services: search
 author: jj09
 manager: jlembicz
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018
-ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450107"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489795"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Snabbstart: Skapa ett Azure Search-index i Java
 > [!div class="op_single_selector"]
@@ -31,12 +31,12 @@ Vi använde följande programvara när vi skapade och testade det här exemplet:
 
 * [Eclipse IDE för Java EE-utvecklare](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Var noga med att ladda ned EE-versionen. Ett av verifieringsstegen kräver en funktion som bara finns i den här versionen.
 * [JDK 8u181](https://aka.ms/azure-jdks)
-* [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
+* [Apache Tomcat-8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Om de data som används
 Det här exempelprogrammet använder data från [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), som har filtrerats på delstaten Rhode Island för att minska datauppsättningens storlek. Vi ska använda dessa data för att skapa ett sökprogram som returnerar viktiga byggnader som sjukhus och skolor, samt geologiska element som vattendrag, sjöar och bergstoppar.
 
-I det här programmet i **SearchServlet.java** programmet bygger och läser in indexet med hjälp av en [indexeraren](https://msdn.microsoft.com/library/azure/dn798918.aspx) konstruktion, hämtar den filtrerade USGS-datauppsättningen från en Azure SQL Database. Fördefinierade autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs vad gäller dataåtkomsten.
+I det här programmet skapar **SearchServlet. java** -programmet och läser in indexet med [](https://msdn.microsoft.com/library/azure/dn798918.aspx) hjälp av en indexerare konstruktion och hämtar den filtrerade USGS datauppsättningen-datauppsättningen från en Azure SQL Database. Fördefinierade autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs vad gäller dataåtkomsten.
 
 > [!NOTE]
 > Vi har använt ett filter för den här datauppsättningen för att hålla oss under gränsen på 10 000 dokument för den kostnadsfria prisnivån. Om du använder standardnivån så gäller inte den här gränsen och du kan ändra koden om du vill använda en större datauppsättning. Mer information om kapaciteten för varje prisnivå finns i [Gränser och begränsningar](search-limits-quotas-capacity.md).
@@ -46,25 +46,25 @@ I det här programmet i **SearchServlet.java** programmet bygger och läser in i
 ## <a name="about-the-program-files"></a>Om programfilerna
 Följande lista beskriver de filer som är relevanta för det här exemplet.
 
-* Search.jsp: Tillhandahåller användargränssnittet
+* Search. jsp: Tillhandahåller användar gränssnittet
 * SearchServlet.java: Tillhandahåller metoder (liknar en kontrollant i MVC)
 * SearchServiceClient.java: Hanterar HTTP-begäranden
-* SearchServiceHelper.java: En hjälparklass som tillhandahåller statiska metoder
-* Document.java: Tillhandahåller datamodellen
-* config.properties: Anger URL: en för Search-tjänsten och `api-key`
-* pom.xml: Ett Maven-beroende
+* SearchServiceHelper.java: En hjälp klass som tillhandahåller statiska metoder
+* Document. java: Tillhandahåller data modellen
+* config. Properties: Anger Sök tjänstens URL och`api-key`
+* pom.xml: Ett maven-beroende
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Leta reda på tjänstnamnet och `api-key` för Azure Search-tjänsten
-Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en `api-key`. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Hitta tjänst namnet och `api-key` din Azure Search-tjänst
+Alla REST API anrop till Azure Search kräver att du anger tjänstens URL och en `api-key`. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I snabbåtkomstfältet klickar du på **Söktjänst** för att visa en lista över Azure Search-tjänsterna som har etablerats för din prenumeration.
 3. Markera den tjänst som du vill använda.
 4. På instrumentpanelen för tjänsten ser du paneler för viktig information samt nyckelikonen för att komma åt administatörsnycklarna.
    
-      ![][3]
+      ![Skärm bild som visar hur du kommer åt administratörs nycklarna från instrument panelen för tjänsten][3]
 5. Kopiera tjänstens URL och en administratörsnyckel. Du behöver dem senare när du lägger till dem i filen **config.properties**.
 
 ## <a name="download-the-sample-files"></a>Ladda ned exempelfilerna
@@ -77,30 +77,30 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 ## <a name="import-project"></a>Importera projekt
 1. I Eclipse väljer du **File** > **Import** > **General** > **Existing Projects into Workspace**.
    
-    ![][4]
+    ![Skärm bild som visar hur du importerar ett befintligt projekt][4]
 2. I **Select root directory** bläddrar du till mappen som innehåller exempelfilerna. Välj mappen som innehåller mappen .project. Projektet bör visas i listan **Projects** som ett markerat objekt.
    
-    ![][12]
+    ![Skärm bild som visar listan projekt i fönstret Importera projekt][12]
 3. Klicka på **Slutför**.
 4. Använd **Project Explorer** för att visa och redigera filerna. Om den inte redan är öppen klickar du på **Window** > **Show view** > **Project Explorer** eller använder genvägen för att öppna den.
 
-## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och `api-key`
-1. I **Projektutforskaren**, dubbelklicka på **config.properties** att redigera konfigurationsinställningarna som innehåller servernamnet och `api-key`.
-2. Följ stegen tidigare i den här artikeln, där du letade tjänstens URL och `api-key` i den [Azure-portalen](https://portal.azure.com), för att hämta de värden som du nu ska ange i **config.properties**.
-3. I **config.properties**, Ersätt ”API Key” med den `api-key` för din tjänst. Nästa, tjänstens namn (den första delen av URL: en https://servicename.search.windows.net) ersätter ”service name” i samma fil.
+## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och`api-key`
+1. I **Project Explorer**dubbelklickar du på **config. Properties** för att redigera de konfigurations inställningar som innehåller Server `api-key`namnet och.
+2. Läs de steg som beskrivs ovan i den här artikeln, där du har hittat tjänst `api-key` -URL: en och i [Azure Portal](https://portal.azure.com)för att hämta värdena som du kommer att ange i **config. Properties**.
+3. I **config. Properties**ersätter du `api-key` "API Key" med för din tjänst. Sedan ersätter tjänst namnet (den första komponenten i URL: https://servicename.search.windows.net) en "tjänst namn" i samma fil.
    
-    ![][5]
+    ![Skärm bild som visar hur du ersätter API-nyckeln][5]
 
 ## <a name="configure-the-project-build-and-runtime-environments"></a>Konfigurera projektet, versionen och runtime-miljöerna
 1. I Eclipse högerklickar du på projektet i Project Explorer > **Properties** > **Project Facets**.
 2. Välj **Dynamic Web Module**, **Java** och **JavaScript**.
    
-    ![][6]
-3. Klicka på **Apply**.
+    ![Skärm bild som visar hur du väljer projektets ansikte för ditt projekt][6]
+3. Klicka på **Verkställ**.
 4. Välj **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add**.
 5. Expandera Apache och välj den version av Apache Tomcat-servern som du installerade tidigare. I vårt system installerade vi version 8.
    
-    ![][7]
+    ![Skärm bild som visar var i fönstret Runtime Environment du kan välja din version av Apache Tomcat][7]
 6. Ange installationskatalogen för Tomcat på nästa sida. På en Windows-dator är detta antagligen C:\Program\Apache Software Foundation\Tomcat *version*.
 7. Klicka på **Finish**.
 8. Välj **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
@@ -110,17 +110,17 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 12. Gå till **Program Files** > **Java** och välj den JDK som du installerade tidigare. Det är viktigt att du väljer JDK som JRE.
 13. Välj **JDK** i Installed JREs. Inställningarna bör se ut som i följande skärmbild.
     
-    ![][9]
+    ![Skärm bild som visar hur du väljer JDK som den installerade JRE][9]
 14. Du kan också välja **Window** > **Web Browser** > **Internet Explorer** om du vill öppna programmet i ett externt webbläsarfönster. En extern webbläsare ger dig en bättre webbupplevelse.
     
-    ![][8]
+    ![Skärm bild som visar hur du väljer Internet Explorer som ett externt webbläsarfönster][8]
 
 Nu har du slutfört konfigurationsåtgärderna. Nu är det dags att bygga och köra projektet.
 
 ## <a name="build-the-project"></a>Bygga projektet
 1. Högerklicka på projektets namn i Project Explorer och välj **Run as** > **Maven build** för att konfigurera projektet.
    
-    ![][10]
+    ![Skärm bild som visar hur du väljer maven-version i fönstret projekt Utforskaren][10]
 2. I Goals i Edit Configuration skriver du ”clean install” och klickar på **Run**.
 
 Statusmeddelanden visas i konsolfönstret. Meddelandet BUILD SUCCESS bör visas som anger att projektet har skapats utan fel.
@@ -147,7 +147,7 @@ USGS-datauppsättningen innehåller poster som är relevanta för delstaten Rhod
 
 Om du skriver en sökterm ger du sökmotorn något att gå på. Prova att skriva namnet på någon från regionen. ”Roger Williams” var Rhode Islands första guvernör. Många parker, byggnader och skolor bär hans namn.
 
-![][11]
+![Skärm bild som visar hur du söker efter USGS DATAUPPSÄTTNINGEN-data][11]
 
 Du kan också prova någon av dessa söktermer:
 

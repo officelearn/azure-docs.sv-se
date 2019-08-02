@@ -1,5 +1,5 @@
 ---
-title: 'Transformeringar: Förbered data Python SDK'
+title: 'Transformeringar: data prepare/python SDK'
 titleSuffix: Azure Machine Learning service
 description: Läs mer om omvandla och rensa data med Azure Machine Learning Data Prep SDK. Använda transformeringen metoder för att lägga till kolumner, filtrera bort oönskade rader eller kolumner och sedan imputera värden som saknas.
 services: machine-learning
@@ -10,23 +10,23 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add5584ccf3d9d6837e328bbf70d71598e5c0839
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65471838"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694314"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformera data med Azure Machine Learning Data Prep SDK
 
-I den här artikeln får du lära dig olika metoder för att omvandla data med hjälp av den `azureml-dataprep` paketet. Paketet erbjuder funktioner som gör det enkelt att lägga till kolumner, filtrera bort oönskade rader eller kolumner och sedan imputera värden som saknas. Se fullständig referensdokumentation för det [azureml-förberedelse av data paket](https://aka.ms/data-prep-sdk).
+I den här artikeln får du lära dig olika metoder för att transformera data med `azureml-dataprep` hjälp av paketet. Paketet innehåller funktioner som gör det enkelt att lägga till kolumner, filtrera bort oönskade rader eller kolumner och räkna upp saknade värden. Se fullständig referens dokumentation för [azureml-nu-paketet](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Om du skapar en ny lösning kan du prova den [Azure Machine Learning datauppsättningar](how-to-explore-prepare-data.md) (förhandsversion) för att omvandla dina data, ögonblicksbilddata och lagra version datauppsättning definitioner. Datauppsättningar är nästa version av dataförberedelser SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar. Om du använder den `azureml-dataprep` paketet för att skapa ett dataflöde med dina transformeringar istället för att använda den `azureml-datasets` Paketera om du vill skapa en datauppsättning, du kan använda ögonblicksbilder eller version datauppsättningar senare.
+> Om du skapar en ny lösning kan du prova [Azure Machine Learning data uppsättningar](how-to-explore-prepare-data.md) (för hands version) för att transformera data, ögonblicks bild data och definitioner för data uppsättning för data lager. Data uppsättningar är nästa version av data prep SDK och erbjuder utökade funktioner för hantering av data uppsättningar i AI-lösningar. Om du använder `azureml-dataprep` paketet för att skapa ett data flöde med dina omvandlingar i stället för att `azureml-datasets` använda paketet för att skapa en data uppsättning kan du inte använda ögonblicks bilder eller versioner av data uppsättningar senare.
 
-Den här anvisningen visar exempel för följande uppgifter:
+Den här instruktionen visar exempel för följande uppgifter:
 
 - Lägg till kolumnen med ett uttryck
 - [Sedan imputera värden som saknas](#impute-missing-values)
@@ -100,15 +100,15 @@ dflow.head(3)
 |1|10139776|false|42.008124|-87.659550|
 |2|10140270|false|NaN|NaN|
 
-Den tredje posten saknar värden för latitud och longitud. Du använder för att sedan imputera de värdena som saknas, [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) att lära dig ett fast uttryck. Det kan sedan imputera kolumner med antingen ett beräknat `MIN`, `MAX`, `MEAN` värde, eller en `CUSTOM` värde. När `group_by_columns` har angetts värden som saknas kommer imputeras gruppvis med `MIN`, `MAX`, och `MEAN` beräknas per grupp.
+Den tredje posten saknar värden för latitud och longitud. Om du vill räkna med de värden som saknas [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) använder du för att lära dig ett fast uttryck. Det kan sedan imputera kolumner med antingen ett beräknat `MIN`, `MAX`, `MEAN` värde, eller en `CUSTOM` värde. När `group_by_columns` har angetts värden som saknas kommer imputeras gruppvis med `MIN`, `MAX`, och `MEAN` beräknas per grupp.
 
-Kontrollera den `MEAN` värdet för en latitud kolumn med hjälp av den [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) funktion. Den här funktionen accepterar en matris med kolumner i den `group_by_columns` parametern för att ange nivå för aggregering. Den `summary_columns` parametern accepterar en `SummaryColumnsValue` anropa. Funktionsanropet anger kolumnnamnet på aktuella nya beräknade fältnamn och `SummaryFunction` att utföra.
+[`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) Kontrol lera `MEAN` värdet för kolumnen Latitude med funktionen. Den här funktionen accepterar en matris med kolumner i den `group_by_columns` parametern för att ange nivå för aggregering. Den `summary_columns` parametern accepterar en `SummaryColumnsValue` anropa. Funktionsanropet anger kolumnnamnet på aktuella nya beräknade fältnamn och `SummaryFunction` att utföra.
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
-                       summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
-                                                                 summary_column_name='Latitude_MEAN',
-                                                                 summary_function=dprep.SummaryFunction.MEAN)])
+                             summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
+                                                                        summary_column_name='Latitude_MEAN',
+                                                                        summary_function=dprep.SummaryFunction.MEAN)])
 dflow_mean = dflow_mean.filter(dprep.col('Arrest') == 'false')
 dflow_mean.head(1)
 ```
@@ -130,7 +130,7 @@ impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=42)
 # get instance of ImputeMissingValuesBuilder
 impute_builder = dflow.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
-                                                   group_by_columns=['Arrest'])
+                                                      group_by_columns=['Arrest'])
 
 impute_builder.learn()
 dflow_imputed = impute_builder.to_dataflow()
@@ -156,7 +156,8 @@ En av de mer avancerade verktyg i Azure Machine Learning Data Prep SDK är möjl
 
 ```python
 import azureml.dataprep as dprep
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
 dflow.head(4)
 ```
 
@@ -170,9 +171,11 @@ dflow.head(4)
 Anta att du behöver ansluta till den här filen med en datauppsättning där datum och tid är i formatet ”10 mars 2018 | 2 AM - 4 AM ”.
 
 ```python
-builder = dflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
-builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
-builder.preview(count=5) 
+builder = dflow.builders.derive_column_by_example(
+    source_columns=['DATE'], new_column_name='date_timerange')
+builder.add_example(
+    source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
+builder.preview(count=5)
 ```
 
 ||DATE|date_timerange|
@@ -190,7 +193,7 @@ Slutligen kan du anropa `builder.preview(skip=30, count=5)` och kan se den härl
 Nu kan skicka in antalet rader som du vill `skip` från överkanten för att se rader längre ner.
 
 > [!NOTE]
-> Funktionen preview() hoppar över rader men igen number inte utdata-index. I exemplet nedan motsvarar index 0 i tabellen index 30 i dataströmmen.
+> Funktionen Preview () hoppar över rader men numrerar inte om utdata-indexet. I exemplet nedan motsvarar indexet 0 i tabellen index 30 i data flödet.
 
 ```python
 builder.preview(skip=30, count=5)
@@ -204,10 +207,11 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Den 1 februari 2015 12 AM - 2 AM|
 |4|1/2/2015 1:00|Den 1 februari 2015 12 AM - 2 AM|
 
-Här kan du se ett problem med det genererade programmet. Endast baseras på ett exempel som du angav ovan, valde Härled programmet att tolka data som ”dag/månad/år”, vilket inte är vad du vill i det här fallet. Rikta en specifik post-ID index för att åtgärda problemet och ange ett annat exempel med hjälp av den `add_example()` fungera på den `builder` variabeln.
+Här kan du se ett problem med det genererade programmet. Endast baseras på ett exempel som du angav ovan, valde Härled programmet att tolka data som ”dag/månad/år”, vilket inte är vad du vill i det här fallet. Du kan åtgärda det här problemet genom att rikta in ett särskilt post index och ange `add_example()` ett annat exempel `builder` med hjälp av funktionen i variabeln.
 
 ```python
-builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(
+    source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
@@ -219,7 +223,7 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Den 2 januari 2015 12 AM - 2 AM|
 |4|1/2/2015 1:00|Den 2 januari 2015 12 AM - 2 AM|
 
-Nu hanterar rader ”1/2/2015' som” 2 januari 2015', men om du gå bortom index 76 för den härledda kolumnen, ser du att värdena i slutet ingenting i härledda kolumnen.
+Nu kan raderna hantera "1/2/2015" som "Jan 2, 2015", men om du tittar bortom index 76 för den härledda kolumnen ser du att värdena i slutet inte har något i den härledda kolumnen.
 
 ```python
 builder.preview(skip=75, count=5)
@@ -228,26 +232,27 @@ builder.preview(skip=75, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|Den 3 januari 2015 06: 00 - 08: 00|
-|1|1/3/2015 7:54|Den 3 januari 2015 06: 00 - 08: 00|
+|0|1/3/2015 7:00|3 jan 2015 06:00 – 8.00|
+|1|1/3/2015 7:54|3 jan 2015 06:00 – 8.00|
 |2|1/29/2015 6:54|Ingen|
-|3|1/29/2015 7:00|Ingen|
-|4|1/29/2015 7:54|Ingen|
+|3|1/29/2015 7:00|Inga|
+|4|1/29/2015 7:54|Inga|
 
 ```python
-builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.add_example(
+    source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|Den 3 januari 2015 06: 00 - 08: 00|
-|1|1/3/2015 7:54|Den 3 januari 2015 06: 00 - 08: 00|
-|2|1/29/2015 6:54|Den 29 januari 2015 06: 00 - 08: 00|
-|3|1/29/2015 7:00|Den 29 januari 2015 06: 00 - 08: 00|
-|4|1/29/2015 7:54|Den 29 januari 2015 06: 00 - 08: 00|
+|0|1/3/2015 7:00|3 jan 2015 06:00 – 8.00|
+|1|1/3/2015 7:54|3 jan 2015 06:00 – 8.00|
+|2|1/29/2015 6:54|29 Jan, 2015 06:00 – 8.00|
+|3|1/29/2015 7:00|29 Jan, 2015 06:00 – 8.00|
+|4|1/29/2015 7:54|29 Jan, 2015 06:00 – 8.00|
 
- Se en lista över aktuella exempel produkter anropa `list_examples()` builder-objektet.
+ Om du vill se en lista över aktuella anrop till `list_examples()` anrop för Builder-objektet.
 
 ```python
 examples = builder.list_examples()
@@ -260,26 +265,32 @@ examples = builder.list_examples()
 |2|1/29/2015 20:54|Den 29 januari 2015 20: 00 – 10 PM|-3|
 
 
-I vissa fall om du vill ta bort exempel som är felaktigt, kan du skicka antingen `example_row` från pandas-DataFrame, eller `example_id` värde. Exempel: Om du kör `builder.delete_example(example_id=-1)`, tar bort det första exemplet omvandling.
+I vissa fall om du vill ta bort exempel som är felaktiga kan du skicka `example_row` dem från Pandas DataFrame, eller `example_id` värdet. Om du till exempel kör `builder.delete_example(example_id=-1)`, tas det första Transformations exemplet bort.
 
 
-Anropa `to_dataflow()` på builder, som returnerar ett dataflöde med de härledda kolumner har lagts till.
+Anropa `to_dataflow()` verktyget, som returnerar ett data flöde med önskade härledda kolumner tillagda.
 
 ```python
 dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>Filtering
+## <a name="filtering"></a>Filtrering
 
-SDK innehåller metoder [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) och [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) så att du kan filtrera bort kolumner eller rader.
+SDK innehåller metoderna [`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) och [`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) för att du ska kunna filtrera ut kolumner eller rader.
 
 ### <a name="initial-setup"></a>Första installation
+
+> [!Note]
+> URL: en i samma exempel är inte en fullständig URL. I stället refererar den till demo-mappen i blobben. Den fullständiga URL: en till data är https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+
+Vad vi gör i självstudien är att läsa in alla filer i mappen och samla in resultatet i green_df_raw och yellow_df_raw.
 
 ```python
 import azureml.dataprep as dprep
 from datetime import datetime
-dflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
+dflow = dprep.read_csv(
+    path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dflow.head(5)
 ```
 
@@ -293,7 +304,7 @@ dflow.head(5)
 
 ### <a name="filtering-columns"></a>Filtrera kolumner
 
-Filtrera kolumner och Använd `drop_columns()`. Den här metoden tar en lista med kolumner att släppa eller en mer komplex argumentet anropas [ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
+Filtrera kolumner och Använd `drop_columns()`. Den här metoden tar en lista med kolumner att släppa eller ett mer komplext [`ColumnSelector`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py)argument som kallas.
 
 #### <a name="filtering-columns-with-list-of-strings"></a>Filtrera kolumner med lista med strängar
 
@@ -314,7 +325,8 @@ dflow.head(2)
 Du kan också använda den `ColumnSelector` uttryck att ta bort kolumner som matchar ett regex-uttryck. Ta bort alla kolumner som matchar uttrycket i det här exemplet `Column*|.*longitude|.*latitude`.
 
 ```python
-dflow = dflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dflow = dflow.drop_columns(dprep.ColumnSelector(
+    'Column*|.*longitud|.*latitude', True, True))
 dflow.head(2)
 ```
 
@@ -355,7 +367,8 @@ I det här exemplet `dflow.filter()` returnerar ett nytt dataflöde med rader d�
 
 ```python
 dflow = dflow.to_number(['Passenger_count', 'Tolls_amount'])
-dflow = dflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
+dflow = dflow.filter(dprep.f_and(
+    dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dflow.head(2)
 ```
 
@@ -370,9 +383,10 @@ Det är också möjligt att filtrera rader som kombinerar flera Uttrycksverktyge
 > `lpep_pickup_datetime` och `Lpep_dropoff_datetime` först konverteras till datetime, vilket gör att vi kan skapa ett uttryck för att jämföra den med andra datetime-värden.
 
 ```python
-dflow = dflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
+dflow = dflow.to_datetime(
+    ['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dflow = dflow.to_number(['Total_amount', 'Trip_distance'])
-mid_2013 = datetime(2013,7,1)
+mid_2013 = datetime(2013, 7, 1)
 dflow = dflow.filter(
     dprep.f_and(
         dprep.f_or(
@@ -407,7 +421,8 @@ Starta genom att läsa in vissa data från Azure Blob.
 import azureml.dataprep as dprep
 col = dprep.col
 
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 dflow.head(2)
 ```
 
@@ -416,11 +431,13 @@ dflow.head(2)
 |0|ALABAMA|1|101710|Hale County|10171002158| |
 |1|ALABAMA|1|101710|Hale County|10171002162| |
 
-Trimma ned datauppsättningen och utföra vissa grundläggande transformeringar, inklusive ta bort kolumner, ersätta värden och konvertera typer.
+Trimma data uppsättningen och gör några grundläggande transformeringar, inklusive att ta bort kolumner, ersätta värden och konvertera typer.
 
 ```python
-dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
-dflow = dflow.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
+dflow = dflow.keep_columns(
+    ['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
+dflow = dflow.replace_na(
+    columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 dflow = dflow.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 dflow.head(2)
 ```
@@ -443,7 +460,7 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 ### <a name="transform-partition"></a>Omvandla partition
 
-Använd [ `transform_partition()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow) ersätta alla null-värden med 0. Den här koden körs av partition, inte på den hela datauppsättningen i taget. Det innebär att på en stor datauppsättning, den här koden kan köras parallellt eftersom körningen bearbetar data partition av partition.
+Används [`transform_partition()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow) för att ersätta alla null-värden med 0. Den här koden körs av partition, inte på den hela datauppsättningen i taget. Det innebär att på en stor datauppsättning, den här koden kan köras parallellt eftersom körningen bearbetar data partition av partition.
 
 Python-skriptet måste definiera en funktion som kallas `transform()` som tar två argument, `df` och `index`. Den `df` argumentet ska vara en pandas-dataframe som innehåller data för partitionen och `index` argumentet är en unik identifierare för partitionen. Transform-funktionen helt kan redigera den överförda dataramen, men måste returnera en dataram. Alla bibliotek som Python-skriptet importerar måste finnas i miljön där dataflödet körs.
 
@@ -463,7 +480,7 @@ df.head(2)
 
 ### <a name="new-script-column"></a>Ny kolumn för skript
 
-Du kan använda ett Python-skript för att skapa en ny kolumn som har namnet på delstaten och Tillståndsnamn och även för att utnyttja Tillståndsnamn. Gör detta genom att använda den [ `new_script_column()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) metoden på dataflödet.
+Du kan använda ett Python-skript för att skapa en ny kolumn som har delstatens namn och tillstånds namn och som också skriver in tillstånds namnet. Det gör du genom att använda [`new_script_column()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) -metoden i data flödet.
 
 Python-skriptet måste definiera en funktion som kallas `newvalue()` som tar ett argument `row`. Den `row` argumentet är en dict (`key`: kolumnnamnet `val`: aktuellt värde) och kommer att skickas till den här funktionen för varje rad i datauppsättningen. Den här funktionen måste returnera ett värde som ska användas i den nya kolumnen. Alla bibliotek som Python-skriptet importerar måste finnas i miljön där dataflödet körs.
 
@@ -482,7 +499,7 @@ dflow.head(2)
 
 ### <a name="new-script-filter"></a>Nytt skript-Filter
 
-Skapa en Python-uttryck med [ `new_script_filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) att filtrera de uppgifter som skall endast rader där ”Hale' inte är i den nya `county_state` kolumn. Uttrycket returnerar `True` om vi vill hålla raden och `False` att släppa raden.
+Skapa ett python-uttryck [`new_script_filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) med för att filtrera data uppsättningen till endast rader där ' Hale ' inte finns i den `county_state` nya kolumnen. Uttrycket returnerar `True` om vi vill hålla raden och `False` att släppa raden.
 
 ```python
 dflow = dflow.new_script_filter("""
@@ -500,4 +517,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Finns i Azure Machine Learning Data Prep SDK [självstudien](tutorial-data-prep.md) ett exempel på hur du löser ett specifikt scenario
+* I självstudien om Azure Machine Learning [](tutorial-data-prep.md) data för förberedelse SDK finns ett exempel på hur du löser ett speciellt scenario

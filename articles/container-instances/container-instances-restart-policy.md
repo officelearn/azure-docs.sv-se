@@ -1,40 +1,41 @@
 ---
-title: Använd omstartspolicyer med behållarbaserade uppgifter i Azure Container Instances
-description: Lär dig hur du använder Azure Container Instances köra uppgifter som körs kan slutföras, till exempel i build-, test- eller image Renderingsjobb.
+title: Använd principer för att starta om med uppgifter i behållare i Azure Container Instances
+description: Lär dig hur du använder Azure Container Instances för att köra aktiviteter som körs till slut för ande, som i bygg-, test-eller bild åter givnings jobb.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60608118"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325683"
 ---
-# <a name="run-containerized-tasks-with-restart-policies"></a>Köra behållarbaserade uppgifter med principer för omstart
+# <a name="run-containerized-tasks-with-restart-policies"></a>Köra uppgifter i behållare med principer för omstart
 
-Enkelt och snabbt distribuera behållare i Azure Container Instances erbjuder en intressant plattform för att köra uppgifter, t.ex. att skapa, testa och bildrendering körs en gång i en behållarinstans.
+Att distribuera behållare i Azure Container Instances är en övertygande plattform för att köra kör en gång-aktiviteter som build, test och bild åter givning i en behållar instans.
 
-Du kan ange att dina behållare stoppas när sina processer har slutförts med en omstartsprincip för konfigurerbara. Eftersom container instances faktureras per sekund, debiteras du endast för de beräkningsresurser som används när den behållare som kör uppgiften körs.
+Med en konfigurerbar restart-princip kan du ange att dina behållare stoppas när deras processer har slutförts. Eftersom behållar instanser debiteras per sekund debiteras du bara för de beräknings resurser som används när behållaren som kör din aktivitet körs.
 
-I exemplen som visas i den här artikeln används Azure CLI. Du måste ha Azure CLI version 2.0.21 eller senare [installerat lokalt][azure-cli-install], eller använda CLI i den [Azure Cloud Shell](../cloud-shell/overview.md).
+I exemplen som presenteras i den här artikeln används Azure CLI. Du måste ha Azure CLI-version 2.0.21 eller senare [installerad][azure-cli-install]eller använda CLI i [Azure Cloud Shell](../cloud-shell/overview.md).
 
-## <a name="container-restart-policy"></a>Omstartsprincipen för behållaren
+## <a name="container-restart-policy"></a>Princip för omstart av behållare
 
-När du skapar en [behållargruppen](container-instances-container-groups.md) i Azure Container Instances kan du ange en av tre principinställningar för omstart.
+När du skapar en [behållar grupp](container-instances-container-groups.md) i Azure Container instances kan du ange en av tre princip inställningar för omstart.
 
 | Starta om princip   | Beskrivning |
 | ---------------- | :---------- |
-| `Always` | Behållare i behållargruppen alltid startas om. Det här är den **standard** används när inga omstartsprincip anges när du skapar behållaren. |
-| `Never` | Behållare i behållargruppen aldrig startas om. Behållarna som kör högst en gång. |
-| `OnFailure` | Behållare i behållargruppen startas om endast när processen som körs i behållaren inte (när det avslutas med en slutkod). Behållarna som körs minst en gång. |
+| `Always` | Behållare i behållar gruppen startas alltid om. Detta är **standardinställningen** som tillämpas när ingen princip för omstart har angetts vid skapande av behållare. |
+| `Never` | Behållare i behållar gruppen startas aldrig om. Behållarna körs högst en gång. |
+| `OnFailure` | Behållare i behållar gruppen startas om endast när processen som körs i behållaren Miss lyckas (om den avslutas med en slutkod som inte är noll). Behållarna körs minst en gång. |
 
-## <a name="specify-a-restart-policy"></a>Ange en omstartsprincip
+## <a name="specify-a-restart-policy"></a>Ange en princip för omstart
 
-Hur du anger en omstartsprincip beror på hur du skapar dina behållarinstanser som med Azure CLI, Azure PowerShell-cmdlets eller i Azure-portalen. I Azure CLI, anger du den `--restart-policy` parameter när du anropar [az container skapa][az-container-create].
+Hur du anger en princip för omstart beror på hur du skapar dina behållar instanser, till exempel med Azure CLI, Azure PowerShell-cmdlets eller i Azure Portal. I Azure CLI anger `--restart-policy` du parametern när du anropar [AZ container Create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -44,11 +45,11 @@ az container create \
     --restart-policy OnFailure
 ```
 
-## <a name="run-to-completion-example"></a>Kör till exempel för slutförande
+## <a name="run-to-completion-example"></a>Exempel på Kör till slut för ande
 
-Om du vill se omstartsprincip i praktiken skapar en behållarinstans från Microsofts [aci wordcount] [ aci-wordcount-image] bild och ange den `OnFailure` omstartsprincip. Den här behållaren exempel körs ett Python-skript som standard, analyserar du texten i Shakespeare's [samhälle](http://shakespeare.mit.edu/hamlet/full.html)skriver de 10 vanligaste ord till STDOUT och sedan avslutas.
+Om du vill se principen starta om i praktiken skapar du en behållar instans från Microsoft [ACI-WORDCOUNT-][aci-wordcount-image] avbildningen och anger principen för `OnFailure` omstart. Den här exempel behållaren kör ett Python-skript som, som standard, analyserar texten i Shakespeare- [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), skriver de 10 vanligaste orden till stdout och sedan avslutar.
 
-Kör exemplet behållaren med följande [az container skapa] [ az-container-create] kommando:
+Kör exempel behållaren med följande [AZ container Create][az-container-create] -kommando:
 
 ```azurecli-interactive
 az container create \
@@ -58,7 +59,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances startar behållaren och stoppar den när dess program (eller skript i det här fallet) avslutas. När Azure Container Instances stoppar en behållare som vars omstartsprincip är `Never` eller `OnFailure`, behållarens status anges **Uppsagd**. Du kan kontrollera statusen för en behållare med den [az container show] [ az-container-show] kommando:
+Azure Container Instances startar behållaren och stoppar den sedan när dess program (eller skript, i det här fallet) avslutas. När Azure Container instances stoppar en behållare vars restart-princip `Never` är `OnFailure`eller, är behållarens status inställd på **avslutad**. Du kan kontrol lera statusen för en behållare med kommandot [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -70,13 +71,13 @@ Exempel på utdata:
 "Terminated"
 ```
 
-När statusen för behållaren exempel *Uppsagd*, du kan se dess uppgiftsutdata genom att granska behållarloggarna. Kör den [az behållarloggarna] [ az-container-logs] utdata från kommandot för att visa skript:
+När exempel behållarens status visas som *avslutad*kan du se dess Uppgiftsutdata genom att Visa behållar loggarna. Kör kommandot [AZ container logs][az-container-logs] för att Visa skriptets utdata:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 [('the', 990),
@@ -91,13 +92,13 @@ Utdata:
  ('HAMLET', 386)]
 ```
 
-Det här exemplet visar utdata som skriptet skickas till STDOUT. Dina behållarbaserade uppgifter, men kan i stället skriva sina utdata till beständig lagring för senare hämtning. Till exempel till ett [Azure-filresurs](container-instances-mounting-azure-files-volume.md).
+I det här exemplet visas utdata som skriptet skickat till STDOUT. Dina uppgifter i behållare kan dock i stället skriva sina utdata till beständig lagring för senare hämtning. Till exempel till en [Azure](container-instances-mounting-azure-files-volume.md)-filresurs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Uppgiftsbaserade scenarier, till exempel en stor datauppsättning med flera behållare för batchbearbetning kan dra nytta av anpassade [miljövariabler](container-instances-environment-variables.md) eller [kommandorader](container-instances-start-command.md) vid körning.
+Uppgiftsbaserade scenarier, t. ex. batchbearbetning av en stor data uppsättning med flera behållare, kan dra nytta [](container-instances-environment-variables.md) av anpassade miljövariabler eller [kommando rader](container-instances-start-command.md) vid körning.
 
-Mer information om hur du bevarar utdata för dina behållare att slutföras finns [montera en Azure-filresurs med Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+Mer information om hur du behåller utdata från dina behållare som körs för slut för ande finns i [montera en Azure-filresurs med Azure Container instances](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

@@ -1,6 +1,6 @@
 ---
-title: Status för Azure Stream Analytics-jobb
-description: Den här artikeln beskrivs olika lägen för ett Stream Analytics-jobb
+title: Azure Stream Analytics jobb tillstånd
+description: I den här artikeln beskrivs de fyra olika tillstånden för ett Stream Analytics jobb. körs, stoppad, degraderas och misslyckades.
 services: stream-analytics
 author: sidram
 ms.author: sidram
@@ -8,25 +8,25 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: bef21dc35bbd2b9b50cf7b362624321866773bfe
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c533463ff544dc315142f7fb95c34c67933f9614
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331343"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444254"
 ---
-# <a name="azure-stream-analytics-job-states"></a>Status för Azure Stream Analytics-jobb
+# <a name="azure-stream-analytics-job-states"></a>Azure Stream Analytics jobb tillstånd
 
-Ett Stream Analytics-jobb kan vara i något av fyra tillstånd vid en given tidpunkt. Du hittar tillstånd jobbets på översiktssidan för ditt Stream Analytics-jobb i Azure-portalen. 
+Ett Stream Analytics jobb kan ha ett av fyra tillstånd vid en specifik tidpunkt: körs, stoppas, degraderas eller misslyckades. Du hittar jobbets status på sidan Översikt för Stream Analytics jobb i Azure Portal. 
 
-| Status | Beskrivning | Rekommenderade åtgärder |
+| Tillstånd | Beskrivning | Rekommenderade åtgärder |
 | --- | --- | --- |
-| **Körs** | Jobbet körs på Azure läsa händelser som kommer från de definierade indatakällorna, bearbeta dem och skriver resultatet till de konfigurerade utdatamottagarna. | Det är en bra idé att spåra prestanda på ditt jobb genom att övervaka [viktiga mått](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). |
-| **Stoppad** | Jobbet har stoppats och bearbeta inte händelser. | Saknas | 
-| **Försämrad** | Det kan finnas återkommande problem med dina inkommande och utgående anslutningar. Dessa fel kallas tillfälligt fel som skulle kunna göra jobbet anger statusen degraderad. Stream Analytics att omedelbart försöka återställa sådana fel och återgå till en Körstatus (inom några minuter). De här felen kan utföras på grund av nätverksproblem, tillgängligheten för andra Azure-resurser, deserialiseringsfel fel osv. Jobbets prestanda kan påverkas när jobbet är i degraderat tillstånd.| Du kan titta på den [diagnostik- eller aktivitet loggar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) mer information om orsaken till sådana tillfälliga fel. I fall, till exempel fel vid deserialisering av rekommenderas att vidta åtgärder för att säkerställa att händelser inte är felaktig. Om jobbet ser till att resursen användning gränsen, försöker öka antalet SU eller [parallellisera jobbet](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). I annat fall där du inte kan vidta några åtgärder, Stream Analytics kommer att försöka att återställa till en *kör* tillstånd. <br> Du kan använda [vattenstämpel fördröjning](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) mått att förstå om sådana tillfälliga fel som påverkar prestanda för jobbets.|
-| **Misslyckades** | Jobbet påträffade ett allvarligt fel, vilket resulterar i ett felaktigt tillstånd. Händelser inte läsa och bearbeta. Körningsfel är en vanlig orsak till jobb som slutar i ett felaktigt tillstånd. | Du kan [konfigurera aviseringar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) så att du meddelas när jobbet försätts i tillståndet misslyckad. <br> <br>Du kan felsöka med hjälp av [aktivitet och diagnostikloggar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) identifiera orsaken och åtgärda problemet.|
+| **Körs** | Ditt jobb körs på Azures Läs händelser som kommer från de angivna inmatnings källorna, bearbetar dem och skriver resultaten till de konfigurerade utgående sinkarna. | Det är en bra idé att spåra jobbets prestanda genom att övervaka [viktiga mått](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). |
+| **Stoppats** | Jobbet har stoppats och bearbetar inte händelser. | Ej tillämpligt | 
+| **Försämrad** | Det kan finnas tillfälliga problem med dina indata-och utmatnings anslutningar. Dessa fel kallas tillfälliga fel, vilket kan göra att jobbet går in i degraderat tillstånd. Stream Analytics försöker omedelbart återställa från sådana fel och återgå till ett körnings tillstånd (inom några minuter). Felen kan inträffa på grund av nätverks problem, tillgänglighet för andra Azure-resurser, deserialiserings fel osv. Jobbets prestanda kan påverkas när jobbet är i degraderat tillstånd.| Du kan titta på [diagnostik-eller aktivitets loggarna](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) om du vill veta mer om orsaken till de tillfälliga felen. I sådana fall som deserialiserings fel rekommenderar vi att du vidtar åtgärder för att säkerställa att händelserna inte är felaktiga. Om jobbet håller på att nå gränsen för resursanvändning kan du försöka öka ditt SU-nummer eller [parallellisera ditt jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). I andra fall där du inte kan vidta någon åtgärd försöker Stream Analytics återställa till ett *Kör* tillstånd. <br> Du kan använda [](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) vattenstämpelns fördröjnings mått om du vill förstå om de här tillfälliga felen påverkar jobbets prestanda.|
+| **Misslyckades** | Jobbet påträffade ett kritiskt fel som resulterade i ett felaktigt tillstånd. Händelser läses och bearbetas inte. Körnings fel är en vanlig orsak till att jobben slutar att vara i fel tillstånd. | Du kan [Konfigurera aviseringar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) så att du får ett meddelande när jobbet går till felaktigt tillstånd. <br> <br>Du kan felsöka med hjälp av [aktivitets-och diagnostikloggar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) för att identifiera rotor saken och åtgärda problemet.|
 
 ## <a name="next-steps"></a>Nästa steg
-* [Konfigurera aviseringar för Azure Stream Analytics-jobb](stream-analytics-set-up-alerts.md)
+* [Installations aviseringar för Azure Stream Analytics jobb](stream-analytics-set-up-alerts.md)
 * [Mått som är tillgängliga i Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
-* [Felsök med hjälp av aktivitet och diagnostikloggar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)
+* [Felsöka med hjälp av aktivitets-och diagnostikloggar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)

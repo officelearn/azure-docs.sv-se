@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-tjänst - vCore | Microsoft Docs
-description: Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris.
+title: Azure SQL Database-vCore | Microsoft Docs
+description: Med den vCore-baserade inköps modellen kan du skala beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,133 +10,132 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: e9d1ce3bcd3bf958be0a7837e8416300af03f5a2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e5af3803ebb4cb0a88a082d3c85d0df68da8d1b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449735"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566626"
 ---
-# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Välj bland de vCore-servicenivåerna och migrera från DTU-tjänstnivåer
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Välj bland vCore-tjänst nivåerna och migrera från DTU-tjänstens nivåer
 
-Virtuell kärna (vCore)-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris. Du kan också välja generering av maskinvara:
+Med den virtuella Core-baserade inköps modellen (vCore) kan du skala beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset. Du kan också välja att skapa maskin vara:
 
-- **Gen4**: Upp till 24 logiska CPU: er som bygger på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
-- **Gen5**: Upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.1 GB per kärna, snabb eNVM SSD
+- **Gen4**: Upp till 24 logiska processorer baserade på Intel E5-2673 v3 (Haswell) 2,4-GHz-processorer, vCore = 1 PP (fysisk kärna), 7 GB per kärna, kopplat SSD
+- **Gen5**: Upp till 80 logiska processorer baserade på Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer, vCore = 1 LP (Hyper-Thread), 5,1 GB per kärna, snabb eNVM SSD
 
-Gen4 maskinvara erbjuder betydligt mer minne per vCore. Gen5 maskinvara kan du skala upp beräkningsresurserna som är mycket högre.
+Gen4-maskinvara erbjuder betydligt mer minne per vCore. Med Gen5 maskin vara kan du dock skala upp beräknings resurserna mycket högre.
 
 > [!IMPORTANT]
-> Nya Gen4 databaser stöds inte längre i regionen Australien.
+> Nya Gen4-databaser stöds inte längre i AustraliaEast-regionen.
 > [!NOTE]
-> Information om DTU-baserade tjänstnivåer finns i [tjänstnivåer för den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md). Information om skillnaderna mellan servicenivåer för den DTU-baserade och de vCore-baserade inköpschef modellerna finns i [Azure SQL Database köpa modeller](sql-database-purchase-models.md).
+> Information om DTU-baserade tjänst nivåer finns i [tjänst nivåer för den DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md). Information om skillnaderna mellan tjänst nivåerna för DTU-baserade och vCore-baserade inköps modeller finns i [Azure SQL Database inköps modeller](sql-database-purchase-models.md).
 
-## <a name="service-tier-characteristics"></a>Tjänstnivå egenskaper
+## <a name="service-tier-characteristics"></a>Egenskaper för tjänst nivå
 
-Den vCore-baserade inköpsmodellen erbjuder tre tjänstnivåer: generell användning, hyperskala och affärskritisk. Dessa särskiljs med hjälp av olika storlekar, design för hög tillgänglighet, felisolering metoder, typer och storlekar för lagring och i/o-intervall.
+Den vCore-baserade inköps modellen tillhandahåller tre tjänst nivåer: generell användning, storskalighet och affärs kritisk. Dessa tjänst nivåer särskiljs med en mängd beräknings storlekar, hög tillgänglighets design, metoder för fel isolering, typer och storlekar för lagring och I/O-intervall.
 
-Du måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior. Att ange kvarhållningsperioden för säkerhetskopiering, öppna Azure-portalen, gå till servern (inte databasen) och gå sedan till **hantera säkerhetskopior** > **konfigurera principen för**  >   **Punkt i tiden Återställ konfiguration** > **7-35 dagar**.
+Du måste separat konfigurera nödvändiga lagrings-och kvarhållningsperiod för säkerhets kopieringar. Om du vill ställa in säkerhets kopierings perioden öppnar du Azure Portal, går till servern (inte databasen) och går sedan till **hantera säkerhets kopior** > **Konfigurera princip** > **punkt i tids återställning konfiguration** > **7- 35 dagar**.
 
-I följande tabell beskrivs skillnaderna mellan de tre nivåerna:
+I följande tabell förklaras skillnaderna mellan de tre nivåerna:
 
-||**Generellt syfte**|**Affärskritisk**|**Hyperskala**|
+||**Generellt syfte**|**Verksamhets kritisk**|**Hyperskala**|
 |---|---|---|---|
-|Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetinriktade, balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga i/o-krav. Erbjuds högsta uthålligheten mot fel tack vare flera isolerade repliker.|De flesta företags arbetsbelastningar med mycket skalbar lagring och läs-och skalningskrav.|
-|Compute|**Etablerad beräkning**:<br/>Gen4: 1-24 virtuella kärnor<br/>Gen5: 2-80 virtuella kärnor<br/>**Beräkning utan Server**:<br/>Gen5: 0,5 – 4 virtuella kärnor|**Etablerad beräkning**:<br/>Gen4: 1-24 virtuella kärnor<br/>Gen5: 2-80 virtuella kärnor|**Etablerad beräkning**:<br/>Gen4: 1-24 virtuella kärnor<br/>Gen5: 2-80 virtuella kärnor|
-|Minne|**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Beräkning utan Server**:<br/>Gen5: 3 GB per vCore|**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Etablerad beräkning**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
-|Storage|Använder Fjärrlagring.<br/>**Enkel databas etablerad beräkning**:<br/>5 GB – 4 TB<br/>**Beräkning för enkel databas utan Server**:<br/>5 GB - 1 TB<br/>**Hanterad instans**: 32 GB - 8 TB |Använder lokal SSD-lagring.<br/>**Enkel databas etablerad beräkning**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB - 4 TB |Flexibla Storleksökningen av lagring vid behov. Har stöd för upp till 100 TB lagringsutrymme. Använder lokal SSD-lagring för lokala buffertpoolen cache och lokal datalagring. Använder Azure Fjärrlagring sista långsiktig datalagring. |
-|I/o-genomströmning (ungefärlig)|**Enkel databas**: 500 IOPS per vCore med 7000 högsta IOPS.<br/>**Hanterad instans**: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per kärna med 200 000 högsta IOPS|Hyperskala är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiva IOPs beror på arbetsbelastningen.|
-|Tillgänglighet|1 repliken, inga lässkala repliker|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonredundant hög tillgänglighet (HA)|1 skrivskyddad replik, plus 0-4 [lässkala repliker](sql-database-read-scale-out.md)|
-|Säkerhetskopior|[Läsåtkomst till geografiskt redundant lagring (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|Ögonblicksbildbaserade säkerhetskopior i Azure Fjärrlagring. Återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och beräkning i/o-prestanda påverkas inte. Återställningar är snabba och är inte en storlek för data-åtgärd (tagning minuter i stället för timmar eller dagar).|
+|Passar bäst|De flesta företags arbets belastningar. Erbjuder budget orienterade, balanserade och skalbara beräknings-och lagrings alternativ.|Affärs program med höga I/O-krav. Ger högsta möjliga återhämtning till problem genom att använda flera isolerade repliker.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.|
+|Compute|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor<br/>**Server lös beräkning**:<br/>Gen5 0,5 – 4 virtuella kärnor|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor|**Allokerad beräkning**:<br/>Gen4 1 till 24 virtuella kärnor<br/>Gen5 2 till 80 virtuella kärnor|
+|Minne|**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore<br/>**Server lös beräkning**:<br/>Gen5 3 GB per vCore|**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore |**Allokerad beräkning**:<br/>Gen4 7 GB per vCore<br/>Gen5 5,1 GB per vCore|
+|Storage|Använder Fjärrlagring.<br/>**Allokerad data bearbetning för enskild databas**:<br/>5 GB – 4 TB<br/>**Beräkning av Server lös enkel databas**:<br/>5 GB-1 TB<br/>**Hanterad instans**: 32 GB - 8 TB |Använder lokal SSD-lagring.<br/>**Allokerad data bearbetning för enskild databas**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
+|I/O-genomflöde (ungefärligt)|**Enkel databas**: 500 IOPS per vCore med 7000 högsta IOPS.<br/>**Hanterad instans**: Beror på [fil storleken](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per kärna med 200 000 högsta IOPS|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen.|
+|Tillgänglighet|1 replik, inga storskaliga repliker|3 repliker, 1 [storskalig replik](sql-database-read-scale-out.md),<br/>zon-redundant hög tillgänglighet (HA)|1 Läs-och skriv replik, plus [](sql-database-read-scale-out.md) 0-4 storskalig repliker|
+|Säkerhetskopior|[Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|Ögonblicks bilds säkerhets kopieringar i Azure Remote Storage. Återställningar använder dessa ögonblicks bilder för snabb återställning. Säkerhets kopieringar är omedelbara och påverkar inte beräknings-I/O-prestanda. Återställningar är snabba och är inte en storleks data åtgärd (tar några minuter i stället för timmar eller dagar).|
 |Minnesintern|Stöds inte|Stöds|Stöds inte|
 |||
 
 > [!NOTE]
-> Du kan få en kostnadsfri Azure SQL-databas på basic-tjänstnivå tillsammans med ett kostnadsfritt Azure-konto. Mer information finns i [skapa en hanterad molndatabas med ditt kostnadsfria Azure-konto](https://azure.microsoft.com/free/services/sql-database/).
+> Du kan få en kostnads fri Azure SQL-databas på tjänst nivån Basic tillsammans med ett kostnads fritt Azure-konto. Mer information finns i [skapa en hanterad moln databas med ditt kostnads fria Azure-konto](https://azure.microsoft.com/free/services/sql-database/).
 
-- Läs mer om vCore resursgränser [vCore resursbegränsningar i en enda databas](sql-database-vcore-resource-limits-single-databases.md) och [vCore resursbegränsningar i en hanterad instans](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Mer information om generell användning och företag kritiska tjänstnivåer finns i [tjänstnivåer för generell användning och affärskritisk](sql-database-service-tiers-general-purpose-business-critical.md).
-- Läs mer om tjänstnivån hyperskala i den vCore-baserade inköpsmodellen [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md).  
+- Mer information om vCore resurs gränser finns i [vCore Resource Limits in a Single Database](sql-database-vcore-resource-limits-single-databases.md) och [vCore Resource Limits in en hanterad instans](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- Mer information om allmänna syften och affärs kritiska tjänst nivåer finns i [allmänna syften och affärs kritiska tjänst nivåer](sql-database-service-tiers-general-purpose-business-critical.md).
+- Mer information om den storskaliga tjänst nivån i den vCore-baserade inköps modellen finns i [storskalig Service Tier](sql-database-service-tier-hyperscale.md).  
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 
-I den etablerade Beräkningsnivån av den vCore-baserade inköpsmodellen kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Den här Azure-förmån kan du spara upp till 30 procent på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
+I den etablerade beräknings nivån för den vCore-baserade inköps modellen kan du byta ut dina befintliga licenser för rabatterade priser på SQL Database genom att använda [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Med den här Azure-förmånen kan du Spara upp till 30 procent på Azure SQL Database genom att använda dina lokala SQL Server licenser med Software Assurance.
 
-![Priser](./media/sql-database-service-tiers/pricing.png)
+![prissättning](./media/sql-database-service-tiers/pricing.png)
 
-Du betalar bara för de underliggande Azure-infrastrukturen genom att använda din befintliga SQL Server-licens för SQL database engine själva (Base Compute-priser) med Azure Hybrid-förmånen, eller du kan betala för både den underliggande infrastrukturen och SQL Server licens (Licensinkluderade pris).
+Med Azure Hybrid-förmån kan du välja att bara betala för den underliggande Azure-infrastrukturen genom att använda din befintliga SQL Server-licens för själva SQL Database-motorn (bas beräknings priser) eller så kan du betala för både den underliggande infrastrukturen och SQL Server licens (licens pris ingår).
 
-Du kan välja eller ändra licensieringsmodellen med hjälp av Azure portal eller med någon av följande API: er:
+Du kan välja eller ändra licensierings modellen med hjälp av Azure Portal eller genom att använda någon av följande API: er:
 
-- Att ställa in eller uppdatera licenstypen med hjälp av PowerShell:
+- Ange eller uppdatera licens typen med hjälp av PowerShell:
 
   - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
   - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-  - [Ny AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
   - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
 
-- Att ställa in eller uppdatera licenstypen med hjälp av Azure-CLI:
+- Ange eller uppdatera licens typen med hjälp av Azure CLI:
 
   - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
   - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [Skapa AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+  - [AZ SQL mi Create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [AZ SQL mi-uppdatering](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- Att ställa in eller uppdatera licenstypen med hjälp av REST-API:
+- Ange eller uppdatera licens typen genom att använda REST API:
 
   - [Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Databaser – uppdatering](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Databaser – uppdatera](https://docs.microsoft.com/rest/api/sql/databases/update)
   - [Hanterade instanser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Hanterade instanser - uppdatering](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+  - [Hanterade instanser – uppdatera](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrera från den DTU-baserade modellen till den vCore-baserade modellen
 
 ### <a name="migrate-a-database"></a>Migrera en databas
 
-Migrera en databas från den DTU-baserade inköpsmodellen till den vCore-baserade inköpsmodellen liknar att uppgradera eller nedgradera mellan tjänstenivåerna standard och premium-i DTU-baserade inköpsmodellen.
+Migrering av en databas från den DTU-baserade inköps modellen till den vCore-baserade inköps modellen liknar uppgradering eller nedgradering mellan standard-och premium tjänst nivåerna i den DTU-baserade inköps modellen.
 
-### <a name="migrate-databases-with-geo-replication-links"></a>Migrera databaser med geo-replikeringslänkar
+### <a name="migrate-databases-with-geo-replication-links"></a>Migrera databaser med länkar till geo-replikering
 
-Migrera från den DTU-baserade modellen till den vCore-baserade inköpsmodellen liknar att uppgradera eller nedgradera relationerna mellan databaser på standard och premium-servicenivåerna geo-replikering. Du behöver stoppa geo-replikering under migreringen, men du måste följa reglerna sekvensering:
+Migrering från den DTU-baserade modellen till den vCore-baserade inköps modellen liknar att uppgradera eller nedgradera geo-replikeringsrelationen mellan databaser på standard-och premium-tjänst nivåerna. Under migreringen behöver du inte stoppa geo-replikering, men du måste följa dessa ordningsföljds regler:
 
-- När du uppgraderar, måste du uppgradera den sekundära databasen först och sedan uppgradera primärt.
-- När du nedgraderar, i omvänd ordning: du nedgradera den primära databasen först och sedan nedgraderar sekundär.
+- När du uppgraderar måste du uppgradera den sekundära databasen först och sedan uppgradera den primära databasen.
+- Ändra ordning när du nedgraderar ordningen: du måste nedgradera den primära databasen först och sedan nedgradera den sekundära.
 
-När du använder geo-replikering mellan två elastiska pooler, rekommenderar vi att du anger en pool som primärt och andra som sekundär. I så fall bör du använda samma sekvensering riktlinjer när du migrerar elastiska pooler. Om du har elastiska pooler som innehåller både primära och sekundära databaser kan behandla poolen med högre användning som primärt och följa reglerna sekvensering därefter.  
+När du använder geo-replikering mellan två elastiska pooler rekommenderar vi att du anger en pool som primär och den andra som den sekundära. I så fall bör du använda samma rikt linjer när du migrerar elastiska pooler. Men om du har elastiska pooler som innehåller både primära och sekundära databaser, behandlar poolen med den högre användningen som primär och följer ordningsföljden för ordningsföljd.  
 
-I följande tabell innehåller riktlinjer för specifika Migreringsscenarier:
+Följande tabell innehåller vägledning för olika scenarier för migrering:
 
-|Aktuella tjänstnivå|Måltjänstnivån|Migreringstyp|Användaråtgärder|
+|Aktuell tjänst nivå|Mål tjänst nivå|Typ av migrering|Användaråtgärder|
 |---|---|---|---|
-|Standard|Generellt syfte|Laterala|Kan migrera i valfri ordning, men måste se till att lämpliga vCore storlek *|
-|Premium|Affärskritisk|Laterala|Kan migrera i valfri ordning, men måste se till att lämpliga vCore storlek *|
-|Standard|Affärskritisk|Uppgradera|Måste migrera sekundära först|
-|Affärskritisk|Standard|Nedgradera|Måste migrera primära först|
-|Premium|Generellt syfte|Nedgradera|Måste migrera primära först|
-|Generellt syfte|Premium|Uppgradera|Måste migrera sekundära först|
-|Affärskritisk|Generellt syfte|Nedgradera|Måste migrera primära först|
-|Generellt syfte|Affärskritisk|Uppgradera|Måste migrera sekundära först|
+|Standard|Allmänt|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek *|
+|Premium|Affärskritisk|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek *|
+|Standard|Affärskritisk|Uppgradera|Måste migrera sekundär första|
+|Affärskritisk|Standard|Nedgradera|Måste migrera primär första|
+|Premium|Allmänt|Nedgradera|Måste migrera primär första|
+|Allmänt|Premium|Uppgradera|Måste migrera sekundär första|
+|Affärskritisk|Allmänt|Nedgradera|Måste migrera primär första|
+|Allmänt|Affärskritisk|Uppgradera|Måste migrera sekundär första|
 ||||
 
-\* Varje 100 dtu: er på standard-nivån kräver minst 1 virtuell kärna, och varje 125 dtu: er på premium-nivån kräver minst 1 virtuell kärna.
+\*Varje 100 DTU: er på standard nivån kräver minst 1 vCore och varje 125-DTU: er på Premium-nivån kräver minst 1 vCore.
 
-### <a name="migrate-failover-groups"></a>Migrera redundansgrupper
+### <a name="migrate-failover-groups"></a>Migrera redundansväxla grupper
 
-Migrering av redundansgrupper med flera databaser kräver enskilda migreringen av de primära och sekundära databaserna. Samma överväganden och sekvensering regler gäller vid den här processen. När databaserna som har konverterats till den vCore-baserade inköpsmodellen, redundansgruppen kommer att gälla med samma principinställningar.
+Migrering av failover-grupper med flera databaser kräver en individuell migrering av de primära och sekundära databaserna. Under den processen gäller samma överväganden och ordningsföljd regler. När databaserna har konverterats till den vCore-baserade inköps modellen, kommer gruppen för redundans att gälla med samma princip inställningar.
 
-### <a name="create-a-geo-replication-secondary-database"></a>Skapa en sekundär databas med geo-replikering
+### <a name="create-a-geo-replication-secondary-database"></a>Skapa en sekundär databas för geo-replikering
 
-Du kan skapa en sekundär databas för geo-replikering (en geo-secondary) endast med hjälp av samma tjänstenivå som du använde för den primära databasen. För databaser med en hög log generations hastighet rekommenderar vi att du skapar geo-secondary med samma beräkning storlek som primärt.
+Du kan skapa en sekundär databas för geo-replikering (endast en geo-sekundär) med samma tjänst nivå som du använde för den primära databasen. För databaser med hög logg skapande frekvens rekommenderar vi att du skapar geo-Secondary med samma beräknings storlek som den primära.
 
-Om du skapar en geo-secondary i den elastiska poolen för en enskild primär databas, se till att den `maxVCore` inställningen för poolen matchar beräkningsstorleken för den primära databasen. Om du skapar en geo-secondary för en primär i en annan elastisk pool, rekommenderar vi att poolerna har samma `maxVCore` inställningar.
+Om du skapar en geo-sekundär i den elastiska poolen för en enda primär databas kontrollerar du att `maxVCore` inställningen för poolen matchar den primära databasens beräknings storlek. Om du skapar en geo-Secondary för en primär i en annan elastisk pool, rekommenderar vi att poolerna har samma `maxVCore` inställningar.
 
-### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använda databaskopian för att konvertera en DTU-baserad databas till en vCore-baserad databas
+### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använd databas kopiering för att konvertera en DTU-baserad databas till en vCore-baserad databas
 
-Du kan kopiera en databas med lämplig storlek i DTU-baserad beräkning till en databas med lämplig storlek för vCore-baserad beräkning utan begränsningar eller särskilda ordningsföljd så länge Målstorlek för beräkning har stöd för den maximala databasstorleken av källdatabasen. Databaskopian skapar en ögonblicksbild av data från och med starttiden för kopieringen och synkronisera inte data mellan källan och målet.
+Du kan kopiera alla databaser med en DTU-baserad beräknings storlek till en databas med en vCore beräknings storlek utan begränsningar eller särskilda sekvenser så länge mål beräknings storleken har stöd för den maximala databas storleken för käll databasen. Databas kopian skapar en ögonblicks bild av data från den tidpunkt då kopieringen startar och synkroniserar inte data mellan källan och målet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Specifika storlekar och lagring som kan användas för enskilda databaser finns i [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md).
-- Specifika storlekar och lagring som kan användas för elastiska pooler finns i [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- De angivna beräknings storlekarna och lagrings storleks alternativen för enskilda databaser finns i [SQL Database vCore resurs gränser för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md).
+- De angivna beräknings storlekarna och lagrings storleks alternativen för elastiska pooler finns i [SQL Database vCore resurs gränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

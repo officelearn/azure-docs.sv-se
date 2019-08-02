@@ -1,5 +1,5 @@
 ---
-title: Utveckla med Node.js på Kubernetes med Azure Dev blanksteg
+title: Felsöka och iterera med Visual Studio Code och Node. js på Kubernetes med hjälp av Azure dev Spaces
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -7,43 +7,43 @@ ms.service: azure-dev-spaces
 ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Snabb Kubernetes-utveckling med behållare, mikrotjänster och Node.js i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
+description: Snabb Kubernetes utveckling med behållare, mikrotjänster och Node. js på Azure
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 3da6c015d46d2c83dd74c625e1e8eeaee81da2ae
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4ee11b4bebe32ff4a9af38a0789823178f388e10
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707131"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725770"
 ---
-# <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Utveckla med Node.js på Kubernetes med Azure Dev blanksteg
+# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Felsöka och iterera med Visual Studio Code och Node. js på Kubernetes med hjälp av Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Utveckla iterativt koden i behållare med hjälp av Visual Studio Code.
-- Felsöka kod i ditt dev-adressutrymmet från Visual Studio Code.
+- Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
+- Felsök koden i ditt dev Space från Visual Studio Code.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code installerat](https://code.visualstudio.com/download).
-- Den [Azure Dev blanksteg](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) tillägget för Visual Studio Code installerat.
+- Tillägget [Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) för Visual Studio Code installerat.
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes Service-kluster
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
 
-Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Den kommandona nedan skapar du en resursgrupp med namnet *MyResourceGroup* och ett AKS-kluster som heter *MyAKS*.
+Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
-## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure Dev blanksteg på AKS-kluster
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
 
-Använd den `use-dev-spaces` kommando för att aktivera Dev blanksteg på AKS-klustret och följa anvisningarna. I nedanstående kommando aktiverar Dev blanksteg på den *MyAKS* -kluster i den *MyResourceGroup* gruppen och skapar en *standard* dev utrymme.
+`use-dev-spaces` Använd kommandot för att aktivera dev Spaces på ditt AKS-kluster och följ anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
@@ -63,9 +63,9 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-## <a name="get-sample-application-code"></a>Exempelkod för program
+## <a name="get-sample-application-code"></a>Hämta exempel program kod
 
-I den här artikeln använder du den [Azure Dev blanksteg exempelprogrammet](https://github.com/Azure/dev-spaces) att visa hur man använder Azure Dev blanksteg.
+I den här artikeln använder du [exempel programmet Azure dev Spaces](https://github.com/Azure/dev-spaces) för att demonstrera användningen av Azure dev Spaces.
 
 Klona programmet från GitHub.
 
@@ -73,42 +73,42 @@ Klona programmet från GitHub.
 git clone https://github.com/Azure/dev-spaces
 ```
 
-## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Förbereda exempelprogrammet i Visual Studio Code
+## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Förbereda exempel programmet i Visual Studio Code
 
-Öppna Visual Studio Code, klicka på *filen* sedan *öppen...* , navigera till den *dev-blanksteg/samples/nodejs/komma-igång/webfrontend* directory klicka sedan på *öppna*.
+Öppna Visual Studio Code, klicka på *Arkiv* och *Öppna...* , navigera till katalogen *dev-Spaces/samples/NodeJS/kom-start/webfrontend* och klicka på *Öppna*.
 
-Nu har du den *webfrontend* projekt som är öppna i Visual Studio Code. Generera Docker och Helm-diagram tillgångarna med tillägget Azure Dev blanksteg i kommandot Pallette för att köra programmet i dev-utrymmet.
+Du har nu öppnat *webfrontend* -projektet i Visual Studio Code. Om du vill köra programmet i ditt dev-utrymme genererar du Docker-och Helm-diagrammets till gångar med tillägget Azure dev Spaces i paletten Command.
 
-Klicka för att öppna Kommandopaletten i Visual Studio Code *visa* sedan *Kommandopaletten*. Börja skriva `Azure Dev Spaces` och klicka på `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
+Öppna kommando paletten i Visual Studio Code genom att klicka på *Visa* och sedan på *kommando-palett*. Börja skriva `Azure Dev Spaces` och klicka på `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-![Förbereda konfigurationsfiler för Azure Dev blanksteg](./media/common/command-palette.png)
+![Förbereda konfigurationsfiler för Azure dev Spaces](./media/common/command-palette.png)
 
-När Visual Studio Code uppmanar dig att konfigurera din offentliga slutpunkt, välja `Yes` att aktivera en offentlig slutpunkt.
+När Visual Studio Code meddelar dig även att du konfigurerar din offentliga slut punkt väljer `Yes` du att aktivera en offentlig slut punkt.
 
-![Välj offentlig slutpunkt](media/common/select-public-endpoint.png)
+![Välj offentlig slut punkt](media/common/select-public-endpoint.png)
 
-Det här kommandot förbereder ditt projekt för att köra i Azure Dev blanksteg genom att generera ett Dockerfile och Helm-diagram. Det genererar även en *.vscode* katalogen med felsökning av konfigurationen i roten av projektet.
+Det här kommandot förbereder projektet att köras i Azure dev Spaces genom att generera ett Dockerfile-och Helm-diagram. Den genererar också en *. VSCode* -katalog med fel söknings konfiguration i roten för ditt projekt.
 
-## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Skapa och köra kod i Kubernetes från Visual Studio Code
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Skapa och kör kod i Kubernetes från Visual Studio Code
 
-Klicka på den *felsöka* ikonen till vänster och klicka på *starta Server (AZDS)* högst upp.
+Klicka på ikonen *Felsök* till vänster och klicka på *Starta Server (AZDS)* överst.
 
 ![Starta Server](media/get-started-node/debug-configuration-nodejs.png)
 
-Det här kommandot bygger och kör din tjänst i Azure Dev blanksteg. Den *Terminal* fönstret längst ned på sidan visar resultatet och URL: er för tjänsten som kör Azure Dev blanksteg. Den *Felsökningskonsolen* visar loggutdata.
+Det här kommandot skapar och kör tjänsten i Azure dev Spaces. *Terminalfönstret* längst ned visar Bygg utdata och URL: er för din tjänst som kör Azure dev Spaces. *Fel söknings konsolen* visar loggens utdata.
 
 > [!Note]
-> Om du inte ser några blanksteg för utveckling av Azure-kommandon i den *Kommandopaletten*, kontrollera att du har installerat den [Visual Studio Code-tillägg för Azure Dev blanksteg](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrollera också att du har öppnat den *dev-blanksteg/samples/nodejs/komma-igång/webfrontend* katalogen i Visual Studio Code.
+> Om du inte ser några Azure dev Spaces-kommandoni paletten, kontrol lera att du har installerat [Visual Studio Code-tillägget för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrol lera också att du *har öppnat katalogen dev-Spaces/samples/NodeJS/Startbok* /webfrontend i Visual Studio Code.
 
-Du kan se att tjänsten körs genom att öppna en offentlig URL.
+Du kan se den tjänst som körs genom att öppna den offentliga URL: en.
 
-Klicka på *felsöka* sedan *stoppa felsökning* att stoppa felsökningen.
+Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings programmet.
 
 ## <a name="update-code"></a>Uppdatera kod
 
-För att distribuera en uppdaterad version av din tjänst måste du uppdatera alla filer i projektet och kör *starta Server*. Exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *starta om servern*. Exempel:
 
-1. Om ditt program körs klickar du på *felsöka* sedan *stoppa felsökning* att stoppa den.
+1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
 1. Uppdatera [rad 13 i `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) till:
     
     ```javascript
@@ -116,42 +116,42 @@ För att distribuera en uppdaterad version av din tjänst måste du uppdatera al
     ```
 
 1. Spara ändringarna.
-1. Kör *starta Server*.
-1. Navigera till tjänsten som körs och se dina ändringar.
-1. Klicka på *felsöka* sedan *stoppa felsökning* att stoppa programmet.
+1. Kör om *Starta Server*.
+1. Navigera till den tjänst som körs och observera dina ändringar.
+1. Klicka på *Felsök* och *stoppa fel sökningen* för att stoppa programmet.
 
-## <a name="setting-and-using-breakpoints-for-debugging"></a>Ställa in och använda brytpunkter för felsökning
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Inställning och användning av Bryt punkter för fel sökning
 
-Starta din tjänst med hjälp av *starta Server (AZDS)* .
+Starta tjänsten med hjälp av *Start Server (AZDS)* .
 
-Gå tillbaka till den *Explorer* vyn genom att klicka på *visa* sedan *Explorer*. Öppna `server.js` och klicka någonstans på rad 13 att placera markören där. Ange en brytpunkt når *F9* eller klicka på *felsöka* sedan */Radera brytpunkt*.
+Gå tillbaka *till trädvyn genom* att klicka på *Visa* och sedan på *Explorer*. Öppna `server.js` och klicka någonstans på rad 13 för att placera markören där. Ange en Bryt punkt genom att trycka på *F9* eller klicka på *Felsök* och sedan på *Växla Bryt punkt*.
 
-Öppna din tjänst i en webbläsare och Observera visas inget meddelande. Gå tillbaka till Visual Studio Code och notera rad 13 markeras. Brytpunkt som du angett har pausats tjänsten på rad 13. Om du vill återuppta tjänsten når *F5* eller klicka på *felsöka* sedan *Fortsätt*. Gå tillbaka till webbläsaren och Observera meddelandet visas nu.
+Öppna din tjänst i en webbläsare och Observera att inget meddelande visas. Gå tillbaka till Visual Studio Code och observera rad 13 är markerat. Den Bryt punkten som du har angett har pausat tjänsten på rad 13. Tryck på *F5* eller klicka på *Felsök* och *Fortsätt*om du vill återuppta tjänsten. Gå tillbaka till webbläsaren och Observera att meddelandet visas nu.
 
-När du kör din tjänst i Kubernetes ett internt, har du fullständig åtkomst till felsökningsinformation som anropsstacken, lokala variabler och undantagsinformation.
+När du kör tjänsten i Kubernetes med en fel sökare ansluten har du fullständig åtkomst till felsöknings information som anrops stack, lokala variabler och undantags information.
 
-Ta bort brytpunkten genom att placera markören på rad 13 i `server.js` och träffa *F9*.
+Ta bort Bryt punkten genom att placera markören på rad 13 `server.js` i och trycka på *F9*.
 
-Klicka på *felsöka* sedan *stoppa felsökning* att stoppa felsökningen.
+Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings programmet.
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 
-Ändra felsökningsläge till *ansluta till en Server (AZDS)* och starta tjänsten:
+Ändra fel söknings läge så att det *ansluter till en server (AZDS)* och startar tjänsten:
 
 ![](media/get-started-node/attach-nodejs.png)
 
-Det här kommandot bygger och kör din tjänst i Azure Dev blanksteg. Den startas också en [nodemon](https://nodemon.io) bearbeta i din tjänst behållare och bifogar VS Code till den. Den *nodemon* processen ger automatiska omstarter när källan kodändringar görs, så att snabbare inre slingan utveckling liknar utveckling i din lokala dator.
+Det här kommandot skapar och kör tjänsten i Azure dev Spaces. Den startar också en [](https://nodemon.io) nodemod process i din tjänst behållare och kopplar vs-kod till den. Processen nodemod gör det möjligt för automatisk omstarter när käll kods ändringar görs, vilket möjliggör snabbare inre loop-utveckling som att utveckla på den lokala datorn.
 
-När tjänsten har startat, navigera till den med hjälp av din webbläsare och interagera med den.
+När tjänsten har startats navigerar du till den med hjälp av webbläsaren och interagerar med den.
 
-När tjänsten körs, gå tillbaka till VS Code och uppdatera rad 13 i `server.js`. Exempel:
+När tjänsten körs, återgå till VS-kod och uppdatera rad 13 i `server.js`. Exempel:
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```
 
-Spara filen och återgå till din tjänst i en webbläsare. Interagera med tjänsten och Observera uppdaterade meddelandet visas.
+Spara filen och återgå till tjänsten i en webbläsare. Interagera med tjänsten och Observera att det uppdaterade meddelandet visas.
 
-När du kör *nodemon*, nod-processen startas om automatiskt så fort kodändringar identifieras. Den här processen för automatisk omstart liknar upplevelsen av att redigera och starta om tjänsten på den lokala datorn, vilket ger en inre slingan utvecklingsupplevelse.
+När dukör nodemonstrationer startas noden om automatiskt så fort eventuella kod ändringar upptäcks. Den här processen för automatisk omstart påminner om hur du redigerar och startar om tjänsten på din lokala dator, vilket ger en inre upprepnings upplevelse.
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 
@@ -161,7 +161,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur Azure Dev blanksteg hjälper dig att utveckla mer komplexa program över flera behållare och du kan förenkla samarbetsfunktioner utveckling genom att arbeta med olika versioner eller grenar av din kod i olika blanksteg.
+Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
 
 > [!div class="nextstepaction"]
 > [Arbeta med flera containrar och utveckling i team](multi-service-nodejs.md)

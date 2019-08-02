@@ -1,78 +1,78 @@
 ---
-title: Visa sökresultat med Azure Maps | Microsoft Docs
-description: Hur du utför en sökbegäran med Azure Maps och sedan visa resultaten på en Javascript-karta
+title: Visa Sök resultat med Azure Maps | Microsoft Docs
+description: Så här utför du en sökbegäran med Azure Maps Visa sedan resultaten på en JavaScript-mappning
 author: jingjing-z
 ms.author: jinzh
-ms.date: 3/7/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 85e15b756d2ea241296e11ebfcb5bf3029143de7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357786"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638651"
 ---
-# <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
+# <a name="show-search-results-on-the-map"></a>Visa Sök resultat på kartan
 
-Den här artikeln visar hur du söker efter plats i närheten och visa sökresultatet på kartan.
+Den här artikeln visar hur du söker efter intressanta platser och visar Sök resultaten på kartan.
 
-Det finns två sätt att söka efter en plats i närheten. Ett sätt är att använda en tjänst-modul för att göra en sökbegäran. Det andra sättet är att göra en sökbegäran till [Azure Maps Fuzzy-sökning API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) via den [hämta API](https://fetch.spec.whatwg.org/). Båda metoderna beskrivs nedan.
+Det finns två sätt att söka efter en plats av intresse. Ett sätt är att använda en service-modul för att göra en Sök förfrågan. Det andra sättet är att göra en sökbegäran för att [Azure Maps oskarp söknings-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) via hämtnings-API: [et](https://fetch.spec.whatwg.org/). Båda sätten beskrivs nedan.
 
-## <a name="make-a-search-request-via-service-module"></a>Gör en sökbegäran via tjänstemodulen
+## <a name="make-a-search-request-via-service-module"></a>Gör en search-begäran via Service-modulen
 
-<iframe height='500' scrolling='no' title='Visa sökresultat på en karta (Tjänstemodulen)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>visa sökresultat på en karta (Tjänstemodulen)</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Visa Sök resultat på en karta (service Module)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Sök resultaten för pennan på en karta (service Module)</a> genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan första kodblocket konstruerar ett Kartobjekt och ställer in autentiseringsmekanismen ska kunna använda nyckeln prenumeration. Du kan se [skapa en karta](./map-create.md) anvisningar.
+I koden ovan skapar det första blocket kod ett kart objekt och anger att autentiseringsmetoden ska använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
 
-Andra kodblocket skapar en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-förfrågningar till Azure Maps med prenumerationsnyckeln. Sedan `atlas.service.MapsURL.newPipeline()` tar den `SubscriptionKeyCredential` princip och skapar en [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instans. Den `searchURL` representerar en URL för Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
+Det andra blocket kod skapar en `TokenCredential` för att autentisera HTTP-begäranden för att Azure Maps med åtkomsttoken. Den skickar `TokenCredential` sedan till `atlas.service.MapsURL.newPipeline()` och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) -instans. Visar en URL som Azure Maps Sök åtgärder. [](https://docs.microsoft.com/rest/api/maps/search) `searchURL`
 
-Det tredje kodblocket skapar en datakälla objekt med den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klassen och Lägg till sökresultat. En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  En symbol layer skapas och datakällan har lagts till symbol-lager, som sedan läggs till i kartan.
+Det tredje blocket med kod skapar ett data käll objekt med klassen [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) och lägger till Sök resultat. Ett [symbol lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att återge punktbaserade data i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  Ett symbol lager skapas sedan och data källan läggs till i symbol skiktet, som sedan läggs till i kartan.
 
-Fjärde kodblocket använder den [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) -metod i den [tjänstemodulen](https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js). Du kan utföra en fri form textsökning via den [hämta Fuzzy Search rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy API för Get-sökning kan hantera valfri kombination av fuzzy indata. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den `geojson.getFeatures()` metoden och läggs till datakällan, vilket gör automatiskt de data som renderas på kartan via symbol-lagret.
+Det fjärde kod blocket använder metoden [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) i [modulen Service](how-to-use-services-module.md). Det gör att du kan utföra en texts ökning i fritext genom att söka efter intresse punkter i [fuzzy REST-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) . Hämta en sökning oskarp API kan hantera valfri kombination av suddiga indata. En samling av en interjson-funktion från svaret extraheras sedan `geojson.getFeatures()` med hjälp av metoden och läggs till i data källan, vilket automatiskt resulterar i att de data som återges på kartan överförs via symbol lagret.
 
-Senaste kodblocket justerar kamera gränser för kartan med hjälp av kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) egenskapen.
+Det sista blocket kod justerar kamerans gränser för kartan genom att använda kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) -egenskap.
 
-Sökningen begära, datakällan, och symbolen lager och kamera gränser skapas och Ställ in i kartan är klar [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) att säkerställa att resultaten visas när kartan har lästs in helt.
+Sök förfrågan, data källan och symbol lagret och kamerans gränser skapas och ställs in i kartans färdiga [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) för att säkerställa att resultaten visas när kartan har lästs in helt.
 
 
-## <a name="make-a-search-request-via-fetch-api"></a>Gör en sökbegäran via hämta API
+## <a name="make-a-search-request-via-fetch-api"></a>Gör en Sök förfrågan via hämtnings-API
 
-<iframe height='500' scrolling='no' title='Visa sökresultat på en karta' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>visa sökresultat på en karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Visa Sök resultat på en karta' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Sök resultaten för pennan på en karta</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan första kodblocket konstruerar ett Kartobjekt och ställer in autentiseringsmekanismen ska kunna använda nyckeln prenumeration. Du kan se [skapa en karta](./map-create.md) anvisningar.
+I koden ovan skapar det första blocket kod ett kart objekt och anger att autentiseringsmetoden ska använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
 
-Andra kodblocket skapar en URL för att göra en sökbegäran till. Det skapar också två matriser för att lagra gränsen och PIN-koder för sökresultat.
+Det andra blocket kod skapar en URL som gör en Sök förfrågan till. Det skapar också två matriser för lagring av gränser och PIN-koden för Sök resultat.
 
-Det tredje kodblocket använder den [hämta API](https://fetch.spec.whatwg.org/) och gör en begäran att [Azure Maps Fuzzy-sökning API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter Orienteringspunkter. Fuzzy-sökning API: et kan hantera valfri kombination av fuzzy indata. Den sedan hanterar och Parsar search-svar och lägger till resultatet PIN-koder till searchPins-matris.
+Det tredje blocket kod använder hämtnings- [API: t](https://fetch.spec.whatwg.org/) för att göra en begäran till [Azure Maps fuzzy Search-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) för att söka efter intressanta punkter. API för fuzzy search kan hantera valfri kombination av suddiga indata. Den hanterar och tolkar sedan Sök svaret och lägger till resultat fästarna i searchPins-matrisen.
 
-Det fjärde kodblocket skapar en datakälla objekt med den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klassen och Lägg till sökresultat. En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan. En symbol layer skapas och datakällan har lagts till symbol-lager, som sedan läggs till i kartan.
+Den fjärde kod blocket skapar ett data käll objekt med klassen [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) och lägger till Sök resultat. Ett [symbol lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att återge punktbaserade data i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan. Ett symbol lager skapas sedan och data källan läggs till i symbol skiktet, som sedan läggs till i kartan.
 
-Det sista blocket kod skapar en [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) objekt med ett antal resultat och justerar kamera gränser för kartan med hjälp av kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-). Det återges sedan resultatet PIN-koder.
+Det sista blocket med kod skapar ett [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) -objekt med hjälp av en resultat mat ris och justerar sedan kamerans gränser för kartan genom att använda kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-). Den återger sedan resultat stiften.
 
-Sökbegäran, datakällan, och symbolen lager och kamera intervallet anges i kartans [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) att säkerställa att resultaten visas när kartan har lästs in helt.
+Sök förfrågan, data källan och symbol lagret och kamerans gränser anges i kartans [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) för att säkerställa att resultaten visas när kartan har lästs in helt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om **Fuzzy-sökning**:
+Lär dig mer om **fuzzy search**:
 
 > [!div class="nextstepaction"]
-> [Azure Maps-API: T för Fuzzy Search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+> [API för Azure Maps oskarp sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Se följande artiklar för fullständig kodexempel:
+I följande artiklar finns fullständiga kod exempel:
 
 > [!div class="nextstepaction"]
 > [Hämta information från en koordinat](./map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [Visa riktningar från A till B](./map-route.md)
+> [Visa vägvisningar från A till B](./map-route.md)

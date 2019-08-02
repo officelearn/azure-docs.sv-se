@@ -1,6 +1,6 @@
 ---
-title: Om tekniska profiler i anpassade principer för Azure Active Directory B2C | Microsoft Docs
-description: Lär dig mer om hur tekniska profiler som används i en anpassad princip i Azure Active Directory B2C.
+title: Om tekniska profiler i Azure Active Directory B2C anpassade principer | Microsoft Docs
+description: Lär dig mer om hur tekniska profiler används i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,58 +10,58 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80b8969ba657506705db2b1a3bbc5b389d0a992c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512459"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716672"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Tekniska profilen ger ett ramverk med en inbyggd mekanism för att kommunicera med annan typ av parter med en anpassad princip i Azure Active Directory (Azure AD) B2C. Tekniska profiler används för att kommunicera med din Azure AD B2C-klientorganisation, att skapa en användare eller läsa en användarprofil. Tekniska profilen kan vara självkontrollerad att aktivera användaren interagerar med. Till exempel samla in användarens autentiseringsuppgifter för inloggning och sedan återge registreringssidan eller sidan för återställning av lösenord. 
+En teknisk profil innehåller ett ramverk med en inbyggd mekanism för att kommunicera med olika typer av parter med hjälp av en anpassad princip i Azure Active Directory (Azure AD) B2C. Tekniska profiler används för att kommunicera med din Azure AD B2C-klient, för att skapa en användare eller läsa en användar profil. En teknisk profil kan självkontrolleras för att aktivera interaktion med användaren. Du kan till exempel samla in användarens autentiseringsuppgifter för att logga in och sedan återge sidan för registrerings sidan eller lösen ords återställningen.
 
 ## <a name="type-of-technical-profiles"></a>Typ av tekniska profiler
 
-Tekniska profilen gör det möjligt för dessa typer av scenarier:
+En teknisk profil möjliggör följande typer av scenarier:
 
-- [Azure Active Directory](active-directory-technical-profile.md) -har stöd för hantering för Azure Active Directory B2C-användare.
-- [JWT tokenutfärdare](jwt-issuer-technical-profile.md) -genererar en JWT-token som returneras till förlitande part-programmet. 
-- **Phone faktor providern** -multifaktorautentisering.
-- [OAuth1](oauth1-technical-profile.md) -Federation med alla identitetsleverantör för OAuth 1.0-protokollet.
-- [OAuth2](oauth2-technical-profile.md) -Federation med alla identitetsleverantör för OAuth 2.0-protokollet.
-- [OpenIdConnect](openid-connect-technical-profile.md) -Federation med alla OpenId Connect-protokollet identitetsprovider.
-- [Omvandling av anspråk](claims-transformation-technical-profile.md) – anrop utdata anspråksomvandlingar att manipulera anspråk värden, pröva kravets eller ange standardvärden för en uppsättning utgående anspråk.
-- [RESTful-providern](restful-technical-profile.md) -anrop till REST API-tjänster, t.ex. verifiera indata från användaren, utöka användardata eller integrera med line-of-business-program.
-- [SAML2](saml-technical-profile.md) -Federation med alla protokollet SAML-identitetsprovider.
-- [Lokal verifieringsvillkor](self-asserted-technical-profile.md) -interagera med användaren. Till exempel samla in användarens autentiseringsuppgifter för inloggning, återge registreringssidan eller återställning av lösenord.
-- **WsFed** -Federation med alla WsFed protokollet identitetsprovider. 
-- [Sessionshantering](active-directory-b2c-reference-sso-custom.md) – hantera olika typer av sessioner. 
-- **Application insights**
+- [Azure Active Directory](active-directory-technical-profile.md) -ger stöd för Azure Active Directory B2C användar hantering.
+- [JWT](jwt-issuer-technical-profile.md) -token-utfärdare – avger en JWT-token som returneras tillbaka till det förlitande part programmet.
+- **Telefon Factor Provider** – Multi-Factor Authentication.
+- [OAuth1](oauth1-technical-profile.md) -Federation med valfri OAuth 1,0-protokoll identitets leverantör.
+- [OAuth2](oauth2-technical-profile.md) -Federation med valfri OAuth 2,0-protokoll identitets leverantör.
+- [OpenID Connect](openid-connect-technical-profile.md) -Federation med valfri OpenID Connect Protocol Identity Provider.
+- [Anspråks omvandling](claims-transformation-technical-profile.md) -anrop för anrop av utdata för att manipulera anspråks värden, validera anspråk eller ange standardvärden för en uppsättning utgående anspråk.
+- [RESTful-Provider](restful-technical-profile.md) – anrop till REST API tjänster, till exempel verifiera användarindata, utöka användar data eller integrera med branschspecifika program.
+- [SAML2](saml-technical-profile.md) -Federation med valfri SAML-protokoll identitets leverantör.
+- [](self-asserted-technical-profile.md) Självkontrollerad – interagera med användaren. Du kan till exempel samla in användarens autentiseringsuppgifter för att logga in, återge registrerings sidan eller lösen ords återställning.
+- **WsFed** -Federation med valfri WsFed-protokoll identitets leverantör.
+- [Sessionshantering](active-directory-b2c-reference-sso-custom.md) – hantera olika typer av sessioner.
+- **Application Insights**
 
-## <a name="technical-profile-flow"></a>Tekniska profilen flöde
+## <a name="technical-profile-flow"></a>Tekniskt profil flöde
 
-Alla typer av tekniska profiler delar samma begrepp. Du skickar inkommande anspråk, kör anspråkstransformering och kommunicera med den konfigurerade parten, till exempel en identitetsprovider, REST API eller Azure AD directory services. När processen är klar den tekniska profilen returnerar utdataanspråk och köra anspråkstransformering för utdata. Följande diagram visar hur omvandlingar och mappningar som refereras till i den tekniska profilen bearbetas. Oavsett den part som den tekniska profilen interagerar med, när du har några anspråk omvandling körs lagras direkt utdataanspråk från den tekniska profilen i uppsättningen anspråk. 
+Alla typer av tekniska profiler delar samma koncept. Du kan skicka indata-anspråk, köra anspråk och kommunicera med den konfigurerade parten, till exempel en identitetsprovider, REST API eller Azure AD Directory-tjänster. När processen har slutförts returnerar den tekniska profilen utgående anspråk och kan köra transformering av utgående anspråk. Följande diagram visar hur omvandlingar och mappningar som refereras i den tekniska profilen bearbetas. Oavsett vilken part den tekniska profilen interagerar med, efter det att en anspråks omvandling har körts, lagras de utgående anspråken från den tekniska profilen omedelbart i anspråks säcken.
 
-![Tekniska profilen flöde](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
+![Diagram som illustrerar det tekniska profil flödet](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **InputClaimsTransformation** -inkommande anspråk på varje indata [omvandling av anspråk](claimstransformations.md) plockas upp från uppsättningen anspråk och efter körningen utdata anspråk sätts igen i uppsättningen anspråk. Utgående anspråk på ett inkommande anspråk omvandlingen kan vara inkommande anspråk på en efterföljande inkommande anspråk omvandling.
-2. **InputClaims** – anspråk plockas upp från uppsättningen anspråk och används för den tekniska profilen. Till exempel en [lokal verifieringsvillkor tekniska profilen](self-asserted-technical-profile.md) används som indata-anspråk att fylla utdataanspråk som användaren tillhandahåller. En REST API-tekniska profilen använder de inkommande anspråken för att skicka indataparametrar REST API-slutpunkten. Azure Active Directory använder inkommande anspråk som en unik identifierare för att läsa, uppdatera eller ta bort ett konto.
-3. **Tekniska profilen körning** -den tekniska profilen utbyter anspråk med den konfigurera parten. Exempel:
-    - Omdirigera användaren till identitetsleverantören att slutföra inloggningen. Efter inloggningen lyckas, användaren returnerar tillbaka och fortsätter den tekniska profilen-körningen.
-    - Anropa en REST-API när du skickar parametrar som InputClaims och hämta information som OutputClaims.
-    - Skapa eller uppdatera användarkontot.
-    - Skickar och verifierar textmeddelandet MFA.
-4. **ValidationTechnicalProfiles** – för en [självkontrollerade tekniska profilen](self-asserted-technical-profile.md), kan du anropa indata [teknisk verifieringsprofil](validation-technical-profile.md). Den tekniska profilen verifiering verifierar data profileras av användaren och returnerar ett felmeddelande eller Ok, med eller utan utdataanspråk. Innan Azure AD B2C skapar ett nytt konto, kontrollerar det till exempel om användaren redan finns i katalogtjänsterna. Du kan anropa en REST API-tekniska profilen för att lägga till egen affärslogik.<p>Omfånget för utdataanspråk av en profil för tekniska är begränsad till den tekniska profilen som anropar den tekniska profilen för verifiering och andra tekniska profiler verifiering under samma tekniska profilen. Om du vill använda utgående anspråk i nästa orchestration-steg som du behöver lägga till utdataanspråk till den tekniska profilen som anropar den tekniska profilen för verifiering.
-5. **OutputClaims** -anspråk som returneras till anspråk egenskapsuppsättning. Du kan använda dessa anspråk i nästa steg i orkestreringar eller anspråksomvandlingar för utdata.
-6. **OutputClaimsTransformations** -inkommande anspråk på varje utdata [omvandling av anspråk](claimstransformations.md) plockas upp från uppsättningen anspråk. Utdataanspråk för den tekniska profilen från föregående steg kan vara inkommande anspråk på en anspråkstransformering för utdata. Efter körningen placeras utdataanspråk i uppsättningen anspråk. Utgående anspråk på en utdata anspråkstransformering kan också vara inkommande anspråk på en efterföljande utdata anspråkstransformering.
-7. **Enkel inloggning (SSO) sessionshantering** - [SSO sessionshantering](active-directory-b2c-reference-sso-custom.md) styr interaktion med en användare när användaren redan har autentiserats. Administratören kan till exempel styra om valet av identitetsleverantörer ska visas eller om lokala kontoinformation måste anges igen.
+1. **InputClaimsTransformation** -indata-anspråk för varje utgående anspråks [omvandling](claimstransformations.md) hämtas från anspråks säcken och efter körningen tas de utgående anspråken tillbaka i anspråks säcken. De utgående anspråken för en inmatnings anspråks omvandling kan vara inmatade anspråk för en efterföljande omvandling av anspråk.
+2. **InputClaims** -anspråk hämtas från anspråks säcken och används för den tekniska profilen. En självkontrollerad [teknisk profil](self-asserted-technical-profile.md) använder till exempel indata-anspråk för att fylla i de utgående anspråk som användaren tillhandahåller. En REST API teknisk profil använder ingångs anspråk för att skicka indataparametrar till REST API-slutpunkten. Azure Active Directory använder ingångs anspråk som unik identifierare för att läsa, uppdatera eller ta bort ett konto.
+3. **Körning av teknisk profil** – den tekniska profilen utbyter anspråk med den konfigurerade parten. Exempel:
+    - Omdirigera användaren till identitets leverantören för att slutföra inloggningen. Efter lyckad inloggning återgår användaren och den tekniska profil körningen fortsätter.
+    - Anropa ett REST API när du skickar parametrar som InputClaims och få tillbaka information som OutputClaims.
+    - Skapa eller uppdatera användar kontot.
+    - Skickar och verifierar MFA SMS-meddelandet.
+4. **ValidationTechnicalProfiles** – för en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)kan du anropa en [teknisk profil för verifiering](validation-technical-profile.md)av Indatatyp. Den tekniska verifierings profilen verifierar de data som profileras av användaren och returnerar ett fel meddelande eller OK, med eller utan utgående anspråk. Innan Azure AD B2C skapar ett nytt konto kontrollerar det till exempel om användaren redan finns i katalog tjänsterna. Du kan anropa en REST API teknisk profil för att lägga till din egen affärs logik.<p>Omfattningen av de utgående anspråken för en verifierings teknisk profil är begränsad till den tekniska profilen som anropar den tekniska profilen för verifiering och andra tekniska profiler för verifiering under samma tekniska profil. Om du vill använda de utgående anspråken i nästa Orchestration-steg måste du lägga till de utgående anspråken till den tekniska profilen som anropar den tekniska profilen för verifiering.
+5. **OutputClaims** -anspråk returneras tillbaka till anspråks säcken. Du kan använda de här anspråken i nästa steg för att dirigera eller utföra anspråk på utdata.
+6. **OutputClaimsTransformations** -indata-anspråk för varje utgående anspråks [omvandling](claimstransformations.md) hämtas från anspråks säcken. De utgående anspråken för den tekniska profilen från föregående steg kan vara inmatnings anspråk för en transformering av utdata-anspråk. Efter körningen sätts de utgående anspråken tillbaka i anspråks säcken. De utgående anspråken för en transformering av utgående anspråk kan också vara inmatnings anspråk för en efterföljande transformering av utgående anspråk.
+7. **SSO-sessionshantering för enkel inloggning (SSO)**  - [styr](active-directory-b2c-reference-sso-custom.md) interaktionen med en användare när användaren redan har autentiserats. Administratören kan till exempel kontrol lera om valet av identitets leverantörer visas eller om information om lokalt konto måste anges igen.
 
-Tekniska profilen kan ärvas från en annan tekniska profil ändra inställningar eller lägga till nya funktioner.  Den **IncludeTechnicalProfile** element är en referens till den grundläggande tekniska profilen som en tekniska profilen härleds.  
+En teknisk profil kan ärva från en annan teknisk profil för att ändra inställningar eller lägga till nya funktioner.  **IncludeTechnicalProfile** -elementet är en referens till den grundläggande tekniska profil som en teknisk profil härleds från.
 
-Till exempel den **AAD-UserReadUsingAlternativeSecurityId-NoError** tekniska profilen innehåller den **AAD-UserReadUsingAlternativeSecurityId**. Den här tekniska profilen anger den **RaiseErrorIfClaimsPrincipalDoesNotExist** metadataobjektet till `true`, och genererar ett fel om en sociala kontot inte finns i katalogen. **AAD-UserReadUsingAlternativeSecurityId-NoError** åsidosätter det här beteendet och inaktiverar ett felmeddelande om användaren inte fanns.
+Till exempel innehåller den tekniska profilen **AAD-UserReadUsingAlternativeSecurityId-noerror** filen **AAD-UserReadUsingAlternativeSecurityId**. Den här tekniska profilen anger **RaiseErrorIfClaimsPrincipalDoesNotExist** -objektet för `true`metadata till och genererar ett fel om ett socialt konto inte finns i katalogen. **AAD-UserReadUsingAlternativeSecurityId – noerror** åsidosätter det här beteendet och inaktiverar fel meddelandet om användaren inte fanns.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
@@ -70,7 +70,7 @@ Till exempel den **AAD-UserReadUsingAlternativeSecurityId-NoError** tekniska pro
   </Metadata>
   <IncludeTechnicalProfile ReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
 </TechnicalProfile>
-``` 
+```
 
 **AAD-UserReadUsingAlternativeSecurityId** innehåller den `AAD-Common` tekniska profilen.
 
@@ -96,7 +96,7 @@ Till exempel den **AAD-UserReadUsingAlternativeSecurityId-NoError** tekniska pro
 </TechnicalProfile>
 ```
 
-Båda **AAD-UserReadUsingAlternativeSecurityId-NoError** och **AAD-UserReadUsingAlternativeSecurityId** inte anger de nödvändiga **protokollet** elementet eftersom det anges i den **AAD-gemensamma** tekniska profilen.
+Både **AAD-UserReadUsingAlternativeSecurityId-noerror** och **AAD-UserReadUsingAlternativeSecurityId** anger inte det **protokoll** element som krävs eftersom det har angetts i **AAD-common** Technical Profile.
 
 ```XML
 <TechnicalProfile Id="AAD-Common">
@@ -106,7 +106,7 @@ Båda **AAD-UserReadUsingAlternativeSecurityId-NoError** och **AAD-UserReadUsing
 </TechnicalProfile>
 ```
 
-Tekniska profilen kan inkludera eller ärver ett annat tekniska profilen, som kan innehålla en annan. Det finns ingen gräns för hur många nivåer. Beroende på företagets behov användarresan kan anropa **AAD-UserReadUsingAlternativeSecurityId** som genererar ett fel om ett socialt konto inte finns, eller  **AAD-UserReadUsingAlternativeSecurityId-NoError** som inte returnerar ett fel.
+En teknisk profil kan innehålla eller ärva en annan teknisk profil, som kan innehålla en annan. Det finns ingen gräns för antalet nivåer. Beroende på affärs kraven kan din användar resa kalla **AAD-UserReadUsingAlternativeSecurityId** som genererar ett fel om det inte finns något socialt konto för användare eller **AAD-UserReadUsingAlternativeSecurityId-no-fel** som inte generera ett fel.
 
 
 

@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric-programdistribution | Microsoft Docs
-description: Använd FabricClient APIs för att distribuera och ta bort program i Service Fabric.
+title: Distribution av Azure Service Fabric-program | Microsoft Docs
+description: 'Använd FabricClient-API: er för att distribuera och ta bort program i Service Fabric.'
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: aljo
-ms.openlocfilehash: 4b2d88004696515169ffde96b50d2771bcc1a669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: c04306b417c8e68f2e93c0e5e064f5873b00ddd5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428125"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599622"
 ---
-# <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuera och ta bort program med hjälp av FabricClient
+# <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuera och ta bort program med FabricClient
 > [!div class="op_single_selector"]
 > * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
@@ -32,22 +32,22 @@ ms.locfileid: "66428125"
 
 <br/>
 
-När en [programtypen har paketerats][10], den är klar för distribution till ett Azure Service Fabric-kluster. Distribution omfattar följande tre steg:
+När en [program typ har paketerats][10]är den redo för distribution till ett Azure Service Fabric-kluster. Distributionen omfattar följande tre steg:
 
-1. Ladda upp programpaketet till avbildningsarkivet
-2. Registrera programtypen
-3. Ta bort programpaketet från avbildningsarkivet
-4. Skapa programinstansen
+1. Ladda upp programpaketet till avbildnings arkivet
+2. Registrera program typen
+3. Ta bort programpaketet från avbildnings arkivet
+4. Skapa program instansen
 
-När du distribuerar ett program och kör en instans i klustret kan du ta bort programinstansen och dess programtypen. Helt tar du bort ett program från klustret genom att följa dessa steg:
+När du har distribuerat ett program och kört en instans i klustret kan du ta bort program instansen och dess program typ. Ta bort ett program från klustret helt genom att följa dessa steg:
 
-1. Ta bort (eller ta bort) löpande programinstansen
-2. Avregistrera programtypen om du inte längre behöver den
+1. Ta bort (eller ta bort) den program instans som körs
+2. Avregistrera program typen om du inte längre behöver den
 
-Om du använder Visual Studio för att distribuera och felsöka program på det lokala utvecklingsklustret hanteras alla steg ovan automatiskt via ett PowerShell-skript.  Det här skriptet finns i den *skript* mappen programprojektet. Den här artikeln innehåller bakgrunden på vad skriptet gör så att du kan utföra samma åtgärder utanför Visual Studio. 
+Om du använder Visual Studio för att distribuera och felsöka program i ditt lokala utvecklings kluster hanteras alla föregående steg automatiskt via ett PowerShell-skript.  Det här skriptet finns i mappen *scripts* i programprojektet. Den här artikeln innehåller en bakgrund för vad skriptet gör så att du kan utföra samma åtgärder utanför Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
-Anslut till klustret genom att skapa en [FabricClient](/dotnet/api/system.fabric.fabricclient) instans innan du kör något av kodexemplen i den här artikeln. Exempel för att ansluta till ett lokalt utvecklingskluster eller en fjärrklustret eller ett kluster som skyddas med Azure Active Directory, X509 certifikat eller Windows Active Directory finns i [Anslut till ett säkert kluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Om du vill ansluta till det lokala utvecklingsklustret, kör du följande exempel:
+Anslut till klustret genom att skapa en [FabricClient](/dotnet/api/system.fabric.fabricclient) -instans innan du kör något av kod exemplen i den här artikeln. Exempel på att ansluta till ett lokalt utvecklings kluster eller ett fjärran slutet kluster eller ett kluster som skyddas med hjälp av Azure Active Directory, X509-certifikat eller Windows Active Directory finns i [ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Kör följande exempel för att ansluta till det lokala utvecklings klustret:
 
 ```csharp
 // Connect to the local cluster.
@@ -55,67 +55,67 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Ladda upp programpaketet
-Anta att du bygga och paketera ett program som heter *MyApplication* i Visual Studio. Som standard är namnet på programmet som anges i ApplicationManifest.xml ”MyApplicationType”.  Programpaket som innehåller den nödvändiga programmanifestet och tjänstmanifest kod/config/data paket, finns i *C:\Users\&lt; användarnamn&gt;\Documents\Visual Studio 2019\Projects\ MyApplication\MyApplication\pkg\Debug*.
+Anta att du skapar och paketerar ett program med namnet mina *program* i Visual Studio. Som standard är program typs namnet som anges i ApplicationManifest. xml "MyApplicationType".  Programpaketet som innehåller det nödvändiga applikations manifestet, tjänst manifest och kod/config/data paket finns i *\&C:\Users lt; username&gt;\Documents\Visual Studio 2019 \ Projects\MyApplication\ MyApplication\pkg\Debug*.
 
-Ladda upp programpaketet placerar den på en plats som kan nås av de interna Service Fabric-komponenterna. Service Fabric verifierar programpaketet vid registrering av programpaketet. Men om du vill kontrollera programpaket lokalt (det vill säga innan överföringen), använder den [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
+När du överför programpaketet placeras det på en plats som är tillgänglig för de interna Service Fabric-komponenterna. Service Fabric verifierar programpaketet under registreringen av programpaketet. Men om du vill verifiera programpaketet lokalt (dvs innan du laddar upp) använder du cmdleten [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
 
-Den [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API överför programpaketet till klustrets avbildningsarkiv. 
+[CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API överför programpaketet till klustrets avbildnings arkiv. 
 
-Om programpaketet är stor och/eller har många filer, kan du [komprimera](service-fabric-package-apps.md#compress-a-package) och kopierar den till avbildningsarkivet med hjälp av PowerShell. Komprimeringen minskar storleken och antalet filer.
+Om programpaketet är stort och/eller har många filer kan du [Komprimera det](service-fabric-package-apps.md#compress-a-package) och kopiera det till avbildnings lagret med hjälp av PowerShell. Komprimeringen minskar storleken och antalet filer.
 
-Se [förstå anslutningssträngen bild store](service-fabric-image-store-connection-string.md) aviserar om ytterligare information om avbildningsarkivet och avbildning lagra anslutningssträngen.
+Se [förstå anslutnings strängen för avbildnings arkivet](service-fabric-image-store-connection-string.md) för kompletterande information om avbildnings lagret och anslutnings strängen för avbildnings arkivet.
 
 ## <a name="register-the-application-package"></a>Registrera programpaketet
-Programtypen och versionen deklarerats i manifestet blir tillgängliga för användning när programpaketet registreras. Systemet läser det paket som laddades upp i föregående steg, verifierar paketet, bearbetar paketinnehållet och kopierar bearbetade paketet till ett internt system.  
+Den program typ och version som har deklarerats i applikations manifestet blir tillgängliga när programpaketet registreras. Systemet läser paketet som laddades upp i föregående steg, verifierar paketet, bearbetar paket innehållet och kopierar det bearbetade paketet till en intern system plats.  
 
-Den [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API registrerar programmet skriver i klustret och gör den tillgänglig för distribution.
+[ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) -API: t registrerar program typen i klustret och gör den tillgänglig för distribution.
 
-Den [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API innehåller information om alla programtyper som har registrerats. Du kan använda detta API för att avgöra när registreringen är klar.
+[GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) -API: et innehåller information om alla program typer som har registrerats korrekt. Du kan använda det här API: et för att fastställa när registreringen är färdig.
 
-## <a name="remove-an-application-package-from-the-image-store"></a>Ta bort ett programpaket från avbildningsarkivet
-Vi rekommenderar att du tar bort programpaketet när programmet har registrerats.  Ta bort programpaket från avbildningsarkivet frigör systemresurser.  Att hålla oanvända programpaket förbrukar disklagring och leder till problem med programprestanda. Ta bort programpaketet från den avbildningen store med hjälp av den [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API.
+## <a name="remove-an-application-package-from-the-image-store"></a>Ta bort ett program paket från avbildnings arkivet
+Vi rekommenderar att du tar bort applikations paketet när programmet har registrerats.  Om du tar bort program paket från avbildnings arkivet frigörs system resurser.  Att behålla oanvända programpaket använder disk lagring och leder till problem med program prestanda. Ta bort programpaketet från avbildnings arkivet med [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) -API: et.
 
-## <a name="create-an-application-instance"></a>Skapa en programinstans
-Du kan skapa en instans av ett program från valfri programtyp av som har registrerats med hjälp av den [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) API. Namnet på varje program måste börja med den *”fabric”:* system och måste vara unikt för varje programinstans (inom ett kluster). Alla standardtjänster som är definierade i applikationsmanifestet av mål-programtyp skapas också.
+## <a name="create-an-application-instance"></a>Skapa en program instans
+Du kan skapa en instans av ett program från vilken program typ som helst som har registrerats med hjälp av [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) -API: et. Namnet på varje program måste börja med schemat *"Fabric:"* och måste vara unikt för varje program instans (inom ett kluster). Alla standard tjänster som definieras i program manifestet för mål program typen skapas också.
 
-Flera programinstanser kan skapas efter en viss version av en registrerad programtypen. Varje programinstans körs i isolering med sin egen arbetskatalog och processer.
+Flera program instanser kan skapas för en specifik version av en registrerad program typ. Varje program instans körs i isolering med en egen arbets katalog och en uppsättning processer.
 
-Se som namngiven program och tjänster körs i klustret, kör den [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) och [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) API: er.
+Om du vill se vilka namngivna program och tjänster som körs i klustret kör du [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) -och [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) -API: erna.
 
-## <a name="create-a-service-instance"></a>Skapa en tjänstinstans
-Du kan skapa en instans av en tjänst från ett typ med den [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API.  Om tjänsten har deklarerats som en standardtjänst i applikationsmanifestet, instantieras tjänsten när programmet instantieras.  Anropa den [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API för en tjänst som instantieras redan returnerar ett undantag av typen FabricException. Undantaget innehåller en felkod med värdet FabricErrorCode.ServiceAlreadyExists.
+## <a name="create-a-service-instance"></a>Skapa en tjänst instans
+Du kan skapa en instans av en tjänst från en tjänst typ med [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) -API: et.  Om tjänsten deklareras som en standard tjänst i applikations manifestet instansieras tjänsten när programmet instansieras.  Anrop av [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) -API: et för en tjänst som redan är instansierad returnerar ett undantag av typen FabricException. Undantaget kommer att innehålla en felkod med värdet FabricErrorCode. ServiceAlreadyExists.
 
-## <a name="remove-a-service-instance"></a>Ta bort en tjänstinstans
-När en instans av tjänsten inte längre behövs kan du ta bort den från löpande programinstans genom att anropa den [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API.  
-
-> [!WARNING]
-> Den här åtgärden kan inte ångras och tjänstens tillstånd kan inte återställas.
-
-## <a name="remove-an-application-instance"></a>Ta bort en programinstans
-När en programinstans inte längre behövs kan du permanent bort den med hjälp av namnet på [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) API. [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) automatiskt att ta bort alla tjänster som hör till programmet även, permanent tar du bort alla tjänsttillstånd.
+## <a name="remove-a-service-instance"></a>Ta bort en tjänst instans
+När en tjänst instans inte längre behövs kan du ta bort den från den aktiva program instansen genom att anropa [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) -API: et.  
 
 > [!WARNING]
-> Den här åtgärden kan inte ångras och programmets tillstånd kan inte återställas.
+> Den här åtgärden kan inte ångras och tjänst tillstånd kan inte återställas.
 
-## <a name="unregister-an-application-type"></a>Avregistrera en programtyp
-När en viss version av programtyp inte längre behövs, bör du avregistrera den särskilda utgåvan av den typ som använder den [avregistrera ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Avregistrera oanvända versioner av programtyper Frigör lagringsutrymme som används av avbildningsarkivet. En version av programtyp kan att avregistrera förutsatt att inga program instansieras mot den versionen av programtyp. Vilken typ av program kan också låta inget väntande program uppgraderingar refererar till den versionen av programtyp.
+## <a name="remove-an-application-instance"></a>Ta bort en program instans
+När en program instans inte längre behövs kan du ta bort den permanent med namnet med hjälp av [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) -API: et. [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) tar automatiskt bort alla tjänster som tillhör programmet, och tar permanent bort alla tjänst tillstånd.
+
+> [!WARNING]
+> Den här åtgärden kan inte ångras och det går inte att återställa program tillstånd.
+
+## <a name="unregister-an-application-type"></a>Avregistrera en program typ
+När en viss version av en program typ inte längre behövs bör du avregistrera den specifika versionen av program typen med [unregister-ServiceFabricApplicationType-](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API: et. Att avregistrera oanvända versioner av program typer frigör lagrings utrymme som används av avbildnings arkivet. En version av en program typ kan avregistreras så länge inga program instansieras mot den versionen av program typen. Program typen kan inte heller ha inga väntande program uppgraderingar som refererar till den versionen av program typen.
 
 ## <a name="troubleshooting"></a>Felsökning
-### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
-Service Fabric SDK-miljö bör redan ha rätt standardvärdena ställa in. Men om det behövs ImageStoreConnectionString för alla kommandon bör matcha det värde som Service Fabric-klustret använder. Du hittar ImageStoreConnectionString i klustermanifestet, hämtas med hjälp av den [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) och Get-ImageStoreConnectionStringFromClusterManifest kommandon:
+### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage ber om en ImageStoreConnectionString
+Den Service Fabric SDK-miljön bör redan ha rätt standardinställningar. Men om det behövs ska ImageStoreConnectionString för alla kommandon matcha det värde som Service Fabric-klustret använder. Du kan hitta ImageStoreConnectionString i kluster manifestet, som hämtats med hjälp av kommandona [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) och get-ImageStoreConnectionStringFromClusterManifest:
 
 ```powershell
 PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
 ```
 
-Den **Get-ImageStoreConnectionStringFromClusterManifest** cmdleten, som är en del av Service Fabric SDK PowerShell-modulen används för att hämta anslutningssträngen för avbildning store.  Om du vill importera SDK-modulen kör du:
+Cmdleten **Get-ImageStoreConnectionStringFromClusterManifest** , som är en del av modulen Service Fabric SDK PowerShell, används för att hämta anslutnings strängen för avbildnings lagret.  Importera SDK-modulen genom att köra:
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
 
-ImageStoreConnectionString hittas i klustermanifestet:
+ImageStoreConnectionString finns i kluster manifestet:
 
 ```xml
 <ClusterManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -129,29 +129,29 @@ ImageStoreConnectionString hittas i klustermanifestet:
     [...]
 ```
 
-Se [förstå anslutningssträngen bild store](service-fabric-image-store-connection-string.md) aviserar om ytterligare information om avbildningsarkivet och avbildning lagra anslutningssträngen.
+Se [förstå anslutnings strängen för avbildnings arkivet](service-fabric-image-store-connection-string.md) för kompletterande information om avbildnings lagret och anslutnings strängen för avbildnings arkivet.
 
-### <a name="deploy-large-application-package"></a>Distribuera stora programpaket
-Ärende: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API tidsgränsen uppnås för ett stort programpaket (efter GB).
+### <a name="deploy-large-application-package"></a>Distribuera stort programpaket
+Ärende: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API-timeout för ett stort programpaket (GB GB).
 Prova:
-- Ange en längre tidsgräns för [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) metoden med `timeout` parametern. Tidsgränsen är som standard 30 minuter.
-- Kontrollera nätverksanslutningen mellan källdatorn och kluster. Om anslutningen är långsam, Överväg att använda en dator med en bättre nätverksanslutning.
-Om klientdatorn är i en annan region än i klustret, du använda en klientdator i en närmare eller samma region som klustret.
-- Kontrollera om du nått externa begränsning. Till exempel när avbildningsarkivet är konfigurerad för att använda azure storage, kan ladda upp vara begränsad.
+- Ange en större tids gräns för metoden [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) med `timeout` parameter. Som standard är tids gränsen 30 minuter.
+- Kontrol lera nätverks anslutningen mellan käll datorn och klustret. Om anslutningen är långsam bör du överväga att använda en dator med en bättre nätverks anslutning.
+Om klient datorn finns i en annan region än klustret, bör du överväga att använda en klient dator i en närmare eller samma region som klustret.
+- Kontrol lera om du träffar extern begränsning. Om till exempel bild arkivet har kon figurer ATS för att använda Azure Storage kan uppladdning vara begränsad.
 
-Ärende: Ladda upp paketet slutfördes, men [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API når sin tidsgräns. Prova:
-- [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar till avbildningsarkivet.
-Komprimeringen minskar storleken och antalet filer, vilket i sin tur minskar mängden trafik och fungerar som Service Fabric måste utföra. Överföringen kan vara långsammare (särskilt om du inkluderar komprimering-tid), men registrerar och Avregistrerar programmet typ är snabbare.
-- Ange en längre tidsgräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API med `timeout` parametern.
+Ärende: Paketet har laddats upp, men [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API-timeout. Prova:
+- [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar det till avbildnings arkivet.
+Komprimeringen minskar storleken och antalet filer, vilket i sin tur minskar mängden trafik och arbete som Service Fabric måste utföra. Uppladdnings åtgärden kan vara långsammare (särskilt om du tar med komprimerings tiden), men registrerar och avregistrerar program typen går snabbare.
+- Ange en större tids gräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) - `timeout` API med parameter.
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuera programpaket med många filer
-Ärende: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) tidsgränsen uppnås för ett programpaket med många filer (efter tusentals).
+Ärende: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) nådde tids gränsen för ett programpaket med många filer (ordning på tusental).
 Prova:
-- [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar till avbildningsarkivet. Komprimeringen minskar antalet filer.
-- Ange en längre tidsgräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) med `timeout` parametern.
+- [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar det till avbildnings arkivet. Komprimeringen minskar antalet filer.
+- Ange en större tids gräns [](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) för ProvisionApplicationAsync `timeout` med parameter.
 
 ## <a name="code-example"></a>Kodexempel
-I följande exempel kopierar ett programpaket till avbildningsarkivet och etablerar programtypen. I exemplet skapas en programinstans och skapar en tjänstinstans. Slutligen exemplet tar bort programinstansen, avetablerar programtypen och tar bort programpaketet från avbildningsarkivet.
+I följande exempel kopieras ett programpaket till avbildnings arkivet och program typen etableras. Sedan skapar exemplet en program instans och skapar en tjänst instans. Slutligen tar exemplet bort program instansen, avetablerar program typen och tar bort programpaketet från avbildnings arkivet.
 
 ```csharp
 using System;
@@ -332,11 +332,11 @@ static void Main(string[] args)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-[Service Fabric-Programuppgradering](service-fabric-application-upgrade.md)
+[Service Fabric program uppgradering](service-fabric-application-upgrade.md)
 
-[Service Fabric health introduktion](service-fabric-health-introduction.md)
+[Introduktion till Service Fabric hälsa](service-fabric-health-introduction.md)
 
-[Diagnostisera och felsöka ett Service Fabric-tjänst](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Diagnostisera och felsöka en Service Fabric-tjänst](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Modellera ett program i Service Fabric](service-fabric-application-model.md)
 

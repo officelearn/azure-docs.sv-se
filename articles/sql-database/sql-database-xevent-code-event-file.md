@@ -1,6 +1,6 @@
 ---
-title: XEvent-händelsefil kod för SQL-databas | Microsoft Docs
-description: Tillhandahåller PowerShell och Transact-SQL för ett tvåstegs-kodexempel som visar händelsefil målet i en utökad händelse på Azure SQL Database. Azure Storage är en obligatorisk del av det här scenariot.
+title: XEvent-händelseloggen för SQL Database | Microsoft Docs
+description: Tillhandahåller PowerShell och Transact-SQL för kod exempel i två faser som visar händelse fil målet i en utökad händelse på Azure SQL Database. Azure Storage är en obligatorisk del av det här scenariot.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,69 +10,68 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233783"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566115"
 ---
-# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Händelsefilens målkod för utökade händelser i SQL-databas
+# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Mål kod för händelse filen för utökade händelser i SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Du vill ha ett komplett kodexempel för en robust sätt att avbilda och rapportera information för en utökad händelse.
+Du vill ha ett fullständigt kod exempel för ett robust sätt att samla in och rapportera information om en utökad händelse.
 
-I Microsoft SQL Server, den [händelsefil target](https://msdn.microsoft.com/library/ff878115.aspx) används för att lagra händelsen utdata till en lokal hårddisk-fil. Men sådana filer är inte tillgängliga för Azure SQL Database. I stället använda vi Azure Storage-tjänsten för att stödja målfil för händelsen.
+I Microsoft SQL Server används [händelse fil målet](https://msdn.microsoft.com/library/ff878115.aspx) för att lagra händelse resultat i en lokal hård disk fil. Men sådana filer är inte tillgängliga för Azure SQL Database. Vi använder istället tjänsten Azure Storage för att stödja Event File-målet.
 
-Det här avsnittet innehåller ett kodexempel i två faser:
+I det här avsnittet presenteras ett kod exempel med två faser:
 
-* PowerShell för att skapa en Azure Storage-behållare i molnet.
+* PowerShell, för att skapa en Azure Storage-behållare i molnet.
 * Transact-SQL:
   
-  * Tilldela Azure Storage-behållare till ett mål för händelsefil.
-  * Att skapa och starta händelsesessionen och så vidare.
+  * För att tilldela Azure Storage container till ett händelse fil mål.
+  * För att skapa och starta händelsesessionen och så vidare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 * Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
-* Alla databaser som du kan skapa en tabell i.
+* Alla databaser du kan skapa en tabell i.
   
-  * Du kan också [skapa en **AdventureWorksLT** demonstrationsdatabas](sql-database-get-started.md) på några minuter.
-* SQL Server Management Studio (ssms.exe), helst den senaste månatliga update-versionen. 
-  Du kan hämta den senaste ssms.exe från:
+  * Du kan också [skapa en **AdventureWorksLT** demonstrations databas](sql-database-get-started.md) på bara några minuter.
+* SQL Server Management Studio (SSMS. exe), helst den senaste månatliga uppdaterings versionen. 
+  Du kan hämta den senaste SSMS. exe från:
   
-  * Avsnittet [Hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-  * [En direktlänk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
-* Du måste ha den [Azure PowerShell-moduler](https://go.microsoft.com/?linkid=9811175) installerad.
+  * Avsnitt med rubriken [hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [En direkt länk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
+* Du måste ha installerat [Azure PowerShell](https://go.microsoft.com/?linkid=9811175) -modulerna.
   
-  * Modulerna ge kommandon som – **New AzStorageAccount**.
+  * Modulerna innehåller kommandon som- **New-AzStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fas 1: PowerShell-kod för Azure Storage-behållare
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fas 1: PowerShell-kod för Azure Storage container
 
-Det här PowerShell är fas 1 av kodexemplet i två faser.
+Den här PowerShell är fas 1 i kod exemplet med två faser.
 
-Skriptet startar med kommandon för att rensa upp efter att en eventuellt tidigare kör och är rerunnable.
+Skriptet börjar med kommandon för att rensa efter en eventuell tidigare körning och är rerunnable.
 
-1. Klistra in PowerShell-skriptet i en enkel textredigerare, till exempel Notepad.exe och spara skriptet som en fil med filnamnstillägget **.ps1**.
+1. Klistra in PowerShell-skriptet i en enkel text redigerare, t. ex. Notepad. exe, och Spara skriptet som en fil med fil namns tillägget **. ps1**.
 2. Starta PowerShell ISE som administratör.
-3. I Kommandotolken skriver du:<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>och tryck sedan på RETUR.
-4. I PowerShell ISE öppnar din **.ps1** fil. Kör skriptet.
-5. Skriptet först startar ett nytt fönster där du loggar in på Azure.
+3. I prompten skriver du<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>och tryck sedan på RETUR.
+4. Öppna din **. ps1** -fil i PowerShell ISE. Kör skriptet.
+5. Skriptet startar först ett nytt fönster där du loggar in på Azure.
    
-   * Om du kör skriptet utan att avbryta din session har den praktiskt möjligheten att kommentera ut den **Add-AzureAccount** kommando.
+   * Om du kör skriptet igen utan att avbryta din session, har du det praktiska alternativet att kommentera ut kommandot **Add-AzureAccount** .
 
-![PowerShell ISE med Azure-modulen installerad och är redo att köra skriptet.][30_powershell_ise]
+![PowerShell ISE, med Azure-modulen installerad, redo att köra skript.][30_powershell_ise]
 
 ### <a name="powershell-code"></a>PowerShell-kod
 
-Den här PowerShell.skript förutsätter att du redan har installerat modulen Az. Mer information finns i [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps).
+Det här PowerShell-skriptet förutsätter att du redan har installerat AZ-modulen. Mer information finns i [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -232,27 +231,27 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 ```
 
 
-Anteckna få namngivna värden som PowerShell-skriptet ut när den upphör. Du måste redigera dessa värden till Transact-SQL-skriptet nedan som fas 2.
+Anteckna de få namngivna värden som PowerShell-skriptet skriver ut när det avslutas. Du måste redigera dessa värden i Transact-SQL-skriptet som följer som fas 2.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fas 2: Transact-SQL-kod som använder Azure Storage-behållare
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fas 2: Transact-SQL-kod som använder Azure Storage container
 
-* I fas 1 av det här kodexemplet körde ett PowerShell-skript för att skapa en Azure Storage-behållare.
-* Därefter måste följande Transact-SQL-skript i fas 2 använda behållaren.
+* I fas 1 av det här kod exemplet körde du ett PowerShell-skript för att skapa en Azure Storage-behållare.
+* Nästa i fas 2 måste följande Transact-SQL-skript använda behållaren.
 
-Skriptet startar med kommandon för att rensa upp efter att en eventuellt tidigare kör och är rerunnable.
+Skriptet börjar med kommandon för att rensa efter en eventuell tidigare körning och är rerunnable.
 
-PowerShell-skriptet ut några namngivna värden när det avslutades. Du måste redigera Transact-SQL-skript för att använda dessa värden. Hitta **TODO** i Transact-SQL-skript för att hitta redigeringspunkter.
+PowerShell-skriptet skrev ut några namngivna värden när det avslutades. Du måste redigera Transact-SQL-skriptet för att använda dessa värden. Se **hur** du kan göra det i Transact-SQL-skriptet för att hitta redigerings punkterna.
 
-1. Öppna SQL Server Management Studio (ssms.exe).
-2. Anslut till din Azure SQL Database-databas.
-3. Klicka för att öppna en ny frågefönstret.
+1. Öppna SQL Server Management Studio (SSMS. exe).
+2. Anslut till Azure SQL Database databasen.
+3. Klicka för att öppna ett nytt frågefönster.
 4. Klistra in följande Transact-SQL-skript i frågefönstret.
-5. Hitta varje **TODO** i skriptet och gör lämpliga ändringar.
+5. Sök varje **gång** i skriptet och gör lämpliga ändringar.
 6. Spara och kör sedan skriptet.
 
 
 > [!WARNING]
-> SAS-nyckelvärdet som genererats av föregående PowerShell-skriptet kan börja med en '?' (frågetecken). När du använder SAS-nyckeln i följande T-SQL-skript, måste du *ta bort ledande '?'* . Annars kan ditt arbete blockeras av säkerhet.
+> SAS-nyckelvärdet som genereras av föregående PowerShell-skript kan börja med en? (frågetecken). När du använder SAS-nyckeln i följande T-SQL-skript måste du *ta bort det inledande "?"* . Annars kan dina insatser blockeras av säkerhet.
 
 
 ### <a name="transact-sql-code"></a>Transact-SQL-kod
@@ -452,7 +451,7 @@ GO
 ```
 
 
-Om målet inte kan ansluta när du kör, måste du stoppa och starta om händelsesessionen:
+Om målet inte kan ansluta när du kör måste du stoppa och starta om händelsesessionen:
 
 ```sql
 ALTER EVENT SESSION ... STATE = STOP;
@@ -462,11 +461,11 @@ GO
 ```
 
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Output
 
-När Transact-SQL-skriptet har slutförts klickar du på en cell under den **event_data_XML** kolumnrubriken. En  **\<händelse >** element visas som visar en UPDATE-instruktion.
+När Transact-SQL-skriptet är klart klickar du på en cell under kolumn rubriken **event_data_XML** . **Ett\<händelse >s** element visas som visar en Update-instruktion.
 
-Här är en  **\<händelse >** element som har genererats under testningen:
+Här är ett  **\<händelse >s** element som genererades under testning:
 
 
 ```xml
@@ -509,34 +508,34 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 ```
 
 
-Föregående Transact-SQL-skriptet används följande funktion i operativsystemet för att läsa event_file:
+Föregående Transact-SQL-skript använde följande systemfunktion för att läsa event_file:
 
 * [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 En förklaring av avancerade alternativ för visning av data från utökade händelser finns på:
 
-* [Avancerade visning av måldata från utökade händelser](https://msdn.microsoft.com/library/mt752502.aspx)
+* [Avancerad visning av mål data från utökade händelser](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
-## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Konvertera kodexemplet för att köra på SQL Server
+## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Konvertera kod exemplet som ska köras på SQL Server
 
-Anta att du vill köra den föregående Transact-SQL-exemplet på Microsoft SQL Server.
+Anta att du vill köra föregående Transact-SQL-exempel på Microsoft SQL Server.
 
-* För enkelhetens skull du vill att fullständigt ersätta användning av Azure Storage-behållare med en enkel fil som **C:\myeventdata.xel**. Filen skulle skrivas till den lokala hårddisken på den dator som är värd för SQL Server.
-* Du behöver inte alla typer av Transact-SQL-uttryck för **CREATE MASTER KEY** och **CREATE CREDENTIAL**.
-* I den **skapa EVENT SESSION** instruktionen i dess **Lägg till mål** sats, ska du ersätta Http-värdet som tilldelas görs till **filename =** med en fullständig sökväg-sträng som **C:\myfile.xel**.
+* För enkelhetens skull vill du helt ersätta användningen av Azure Storage containern med en enkel fil, till exempel **C:\myeventdata.xel**. Filen skrivs till den lokala hård disken på den dator som är värd för SQL Server.
+* Du behöver inte någon typ av Transact-SQL-uttryck för att **skapa huvud nyckel** och **skapa autentiseringsuppgifter**.
+* I instruktionen **Skapa event-session** , i **dess Add Target** -sats, ersätter du det http-värde som tilldelats **filename =** med en fullständig Sök vägs sträng som **C:\myfile.xel**.
   
-  * Inga Azure Storage-konto behöver delta.
+  * Inget Azure Storage konto behöver tas med.
 
 ## <a name="more-information"></a>Mer information
 
 Mer information om konton och behållare i Azure Storage-tjänsten finns i:
 
-* [Använda Blob storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [Använda Blob Storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Namnge och referera till containrar, blobar och metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Arbeta med Root-behållaren](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Lektion 1: Skapa en lagrad åtkomstprincip och en signatur för delad åtkomst på en Azure-behållare](https://msdn.microsoft.com/library/dn466430.aspx)
-  * [Lektion 2: Skapa en SQL Server-autentisering med signatur för delad åtkomst](https://msdn.microsoft.com/library/dn466435.aspx)
+* [Arbeta med rot behållaren](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Lektion 1: Skapa en lagrad åtkomst princip och en signatur för delad åtkomst på en Azure-behållare](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Lektion 2: Skapa en SQL Server autentiseringsuppgift med hjälp av signaturen för delad åtkomst](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Utökade händelser för Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

@@ -1,7 +1,7 @@
 ---
-title: Aktivera loggning i Azure Machine Learning-tjänsten
+title: Aktivera loggning i Azure Machine Learnings tjänsten
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du aktiverar loggning i Azure Machine Learning-tjänsten med både standard Python-paketet för loggning, samt med hjälp av SDK-specifika funktioner.
+description: Lär dig hur du aktiverar loggning i Azure Machine Learning-tjänsten med hjälp av både standard-python-loggnings paketet, samt hur du använder SDK-/regionsspecifika funktioner.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -9,29 +9,29 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/20/2019
-ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/12/2019
+ms.openlocfilehash: 384cd2df9c629a73095cc55f4f6d65aa6a727225
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60819278"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360960"
 ---
-# <a name="enable-logging-in-azure-machine-learning-service"></a>Aktivera loggning i Azure Machine Learning-tjänsten
+# <a name="enable-logging-in-azure-machine-learning-service"></a>Aktivera loggning i Azure Machine Learnings tjänsten
 
-Azure Machine Learning Python SDK kan du aktivera loggning med hjälp av båda Standardloggning Python-paketet, samt med hjälp av SDK-specifika funktioner både för lokala logga och logga till din arbetsyta i portalen. Loggar ger utvecklare tillgång realtidsinformation om programmets tillstånd och kan hjälpa till med att diagnostisera fel eller varningar. I den här artikeln får du lära dig olika sätt för att aktivera loggning inom följande områden:
+Med Azure Machine Learning python SDK kan du aktivera loggning med hjälp av både standard-python-loggningsdatabasen, samt använda SDK-/regionsspecifika funktioner både för lokal loggning och loggning till din arbets yta i portalen. Loggar ger utvecklare information om programmets tillstånd i real tid och kan hjälpa till att diagnostisera fel eller varningar. I den här artikeln får du lära dig olika sätt att aktivera loggning i följande områden:
 
 > [!div class="checklist"]
-> * Modeller för utbildning och beräkningsmål
+> * Tränings modeller och beräknings mål
 > * Skapa avbildningar
 > * Distribuerade modeller
-> * Python `logging` inställningar
+> * Python `logging` -inställningar
 
-[Skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md). Använd den [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) mer information i SDK.
+[Skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md). Använd [guiden](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) för mer information SDK.
 
-## <a name="training-models-and-compute-target-logging"></a>Modeller för utbildning och beräkning target loggning
+## <a name="training-models-and-compute-target-logging"></a>Tränings modeller och loggning av beräknings mål
 
-Det finns flera sätt att aktivera loggning under modellen utbildning och exemplen illustrerar vanliga designmönster. Du kan enkelt logga kör-relaterade data till din arbetsyta i molnet med hjälp av den `start_logging` fungera på den `Experiment` klass.
+Det finns flera sätt att aktivera loggning under modell inlärnings processen och exemplen som visas illustrerar vanliga design mönster. Du kan enkelt logga körnings relaterade data till din arbets yta i molnet med hjälp `start_logging` av funktionen `Experiment` i klassen.
 
 ```python
 from azureml.core import Experiment
@@ -41,9 +41,9 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Se referensdokumentationen för den [kör](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) klass för ytterligare loggningsfunktioner.
+I referens dokumentationen för körnings [](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) klassen finns ytterligare loggnings funktioner.
 
-Aktivera lokal loggning av programtillstånd under utbildning förloppet genom att använda den `show_output` parametern. Aktivera utförlig loggning kan du visa information från träningsprocess samt information om alla fjärranslutna resurser eller beräkningsmål. Använd följande kod för att aktivera loggning när experiment.
+Om du vill aktivera lokal loggning av program tillstånd under utbildning, använder `show_output` du parametern. Genom att aktivera utförlig loggning kan du se information från inlärnings processen samt information om eventuella fjär resurser eller beräknings mål. Använd följande kod för att aktivera loggning vid experiment överföring.
 
 ```python
 from azureml.core import Experiment
@@ -52,19 +52,19 @@ experiment = Experiment(ws, experiment_name)
 run = experiment.submit(config=run_config_object, show_output=True)
 ```
 
-Du kan också använda samma parameter i den `wait_for_completion` funktionen på den resulterande körningen.
+Du kan också använda samma parameter i `wait_for_completion` funktionen på den resulterande körningen.
 
 ```python
 run.wait_for_completion(show_output=True)
 ```
 
-SDK stöder också med hjälp av standard python loggning paketet i vissa scenarion för utbildning. I följande exempel aktiveras ett loggningsnivån för `INFO` i en `AutoMLConfig` objekt.
+SDK stöder också användning av standard-python-loggnings paketet i vissa scenarier för utbildning. `INFO` I följande exempel aktive ras loggnings nivån i `AutoMLConfig` ett objekt.
 
 ```python
 from azureml.train.automl import AutoMLConfig
 import logging
 
-automated_ml_config = AutoMLConfig(task = 'regression',
+automated_ml_config = AutoMLConfig(task='regression',
                                    verbosity=logging.INFO,
                                    X=your_training_features,
                                    y=your_training_labels,
@@ -73,33 +73,35 @@ automated_ml_config = AutoMLConfig(task = 'regression',
                                    primary_metric="spearman_correlation")
 ```
 
-Du kan också använda den `show_output` parameter när du skapar en beständig beräkningsmål. Ange parametern i den `wait_for_completion` funktionen för att aktivera loggning när beräkning target skapas.
+Du kan också använda `show_output` -parametern när du skapar ett beständigt beräknings mål. Ange parametern i `wait_for_completion` funktionen för att aktivera loggning vid skapande av beräknings mål.
 
 ```python
 from azureml.core.compute import ComputeTarget
 
-compute_target = ComputeTarget.attach(workspace=ws, name="example", attach_configuration=config)
+compute_target = ComputeTarget.attach(
+    workspace=ws, name="example", attach_configuration=config)
 compute.wait_for_completion(show_output=True)
 ```
 
-## <a name="logging-during-image-creation"></a>Loggningen under Skapa avbildningar
+## <a name="logging-during-image-creation"></a>Loggning när bilden skapas
 
-Att aktivera loggning under Skapa avbildningar kan du se några fel under skapandeprocessen. Ange den `show_output` param på den `wait_for_deployment()` funktion.
+Om du aktiverar loggning när bilden skapas kan du se eventuella fel under Bygg processen. `show_output` Ange param`wait_for_deployment()` för funktionen.
 
 ```python
 from azureml.core.webservice import Webservice
 
 service = Webservice.deploy_from_image(deployment_config=your_config,
-                                            image=image,
-                                            name="example-image",
-                                            workspace=ws)
+                                       image=image,
+                                       name="example-image",
+                                       workspace=ws
+                                       )
 
 service.wait_for_deployment(show_output=True)
 ```
 
 ## <a name="logging-for-deployed-models"></a>Loggning för distribuerade modeller
 
-Läsa in tjänsten om du vill hämta loggar från en tidigare distribuerad webbtjänst, och använda den `get_logs()` funktion. Loggarna kan innehålla detaljerad information om eventuella fel som uppstod under distributionen.
+Om du vill hämta loggar från en tidigare distribuerad webb tjänst läser du in tjänsten och `get_logs()` använder funktionen. Loggarna kan innehålla detaljerad information om eventuella fel som uppstod under distributionen.
 
 ```python
 from azureml.core.webservice import Webservice
@@ -109,17 +111,17 @@ service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
 ```
 
-Du kan också logga anpassade Stacka spårningar för webbtjänsten genom att aktivera Application Insights, vilket gör att du kan övervaka begäran/svarstider, Felfrekvens och undantag. Anropa den `update()` funktionen på en befintlig webbtjänst för att aktivera Application Insights.
+Du kan också logga anpassade stack spårningar för din webb tjänst genom att aktivera Application Insights, vilket gör att du kan övervaka begär ande-/svars tider, fel frekvenser och undantag. `update()` Anropa funktionen på en befintlig webb tjänst för att aktivera Application Insights.
 
 ```python
 service.update(enable_app_insights=True)
 ```
 
-Se den [how-to](how-to-enable-app-insights.md) mer information om hur du arbetar med Application Insights i Azure-portalen.
+Se [anvisningar för att](how-to-enable-app-insights.md) få mer information om hur du arbetar med Application Insights i Azure Portal.
 
-## <a name="python-native-logging-settings"></a>Python interna loggningsinställningar
+## <a name="python-native-logging-settings"></a>Inställningar för python-intern loggning
 
-Vissa loggar i SDK: N kan innehålla ett fel där du uppmanas att ange loggningsnivån till DEBUG. Ange loggningsnivån genom att lägga till följande kod i skriptet.
+Vissa loggar i SDK kan innehålla ett fel som uppmanar dig att ange loggnings nivå för fel sökning. Om du vill ange loggnings nivå lägger du till följande kod i skriptet.
 
 ```python
 import logging

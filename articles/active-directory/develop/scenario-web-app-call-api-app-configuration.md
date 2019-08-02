@@ -1,6 +1,6 @@
 ---
-title: 'Webbapp som anropar webb-API: er (kod-konfiguration) – Microsoft identity-plattformen'
-description: 'Lär dig att skapa en webbapp som anropar webb-API: er (konfiguration av appens kod)'
+title: 'Webbapp som anropar webb-API: er (kod konfiguration) – Microsoft Identity Platform'
+description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (appens kod konfiguration)'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,40 +11,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 391546b4d3ac9ad3674897b39284fdd16e9025a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785561"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562274"
 ---
-# <a name="web-app-that-calls-web-apis---code-configuration"></a>Webbapp att anrop webb-API: er – kod konfiguration
+# <a name="web-app-that-calls-web-apis---code-configuration"></a>Webbapp som anropar webb-API: er – kod konfiguration
 
-Som visas i den [scenario för Webbappar loggar in användare](scenario-web-app-sign-user-overview.md), med hänsyn till att logga in användaren delegeras till den öppna ID connect (OIDC) mellanprogram, du vill hook upp i OIDC-processen. Sättet att göra det är olika beroende på ramverket du använde (här ASP.NET och ASP.NET Core), men i slutändan prenumererar du på mellanprogram OIDC händelser. Principen är att:
+Som det visas i [scenariot med Web App Sign-in-Users](scenario-web-app-sign-user-overview.md), så att den inloggade användaren är delegerad till program varan Open ID Connect (OIDC), som du vill koppla samman i OIDC-processen. Det sätt på vilket du kan göra detta beror på vilket ramverk du använde (här ASP.NET och ASP.NET Core), men i slutet kommer du att prenumerera på OIDC händelser mellan flera. Principen är att:
 
-- Du låta ASP.NET eller ASP.NET core begär en auktoriseringskod. Genom att göra låta detta ASP.NET/ASP.NET core tar användaren logga in och ge samtycke,
-- Du ska prenumerera mottagningen av Auktoriseringskoden av webbappen.
-- När koden auth tas emot, ska du använda MSAL bibliotek för att lösa in koden och de resulterande åtkomsttoken och uppdatera token-butik i token-cache. Därifrån kan kan cacheminnet användas i andra delar av programmet för att hämta andra token tyst.
+- Du ska låta ASP.NET eller ASP.NET Core begära en auktoriseringskod. Genom att göra den här ASP.NET/ASP.NET-kärnan kan användaren logga in och godkänna,
+- Du prenumererar på mottagning av auktoriseringskod från webbappen.
+- När auth-koden tas emot använder du MSAL-bibliotek för att lösa in koden och de resulterande åtkomsttoken och uppdaterade token-lagringen i token-cachen. Därifrån kan du använda cachen i andra delar av programmet för att hämta andra token tyst.
 
-## <a name="libraries-supporting-web-app-scenarios"></a>Bibliotek som har stöd för Web App-scenarier
+> [!NOTE]
+> Kodfragmenten från den här artikeln extraheras från följande exempel på GitHub, som är fullt funktionella:
+>
+> - [Stegvis självstudie för ASP.NET Core-webbappar](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+> - [Exempel på ASP.NET-webbappar](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
 
-De bibliotek som stöder auktoriseringskodsflödet för Web Apps är:
+## <a name="libraries-supporting-web-app-scenarios"></a>Bibliotek som stöder webb program scenarier
 
-| MSAL bibliotek | Beskrivning |
+Biblioteken som stöder auktoriseringskod för Web Apps är:
+
+| MSAL-bibliotek | Beskrivning |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plattformar som stöds är .NET Framework och .NET Core-plattformar (inte UWP, Xamarin.iOS och Xamarin.Android som dessa plattformar används för att skapa offentliga klientprogram) |
-| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Utveckling i förlopp – förhandsversion |
-| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Utveckling i förlopp – förhandsversion |
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plattformar som stöds är .NET Framework-och .NET Core-plattformar (inte UWP, Xamarin. iOS och Xamarin. Android som dessa plattformar används för att bygga offentliga klient program) |
+| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Utveckling pågår – i offentlig för hands version |
+| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Utveckling pågår – i offentlig för hands version |
 
-## <a name="aspnet-core-configuration"></a>ASP.NET Core-konfiguration
+## <a name="aspnet-core-configuration"></a>ASP.NET Core konfiguration
 
-I ASP.NET Core, uppstår i den `Startup.cs` filen. Du vill prenumerera på den `OnAuthorizationCodeReceived` öppna ID connect-event och anropa MSAL från den här händelsen. NETS metoden `AcquireTokenFromAuthorizationCode` som påverkar för att lagra i token-cache, åtkomsttoken för de begärda omfång och en uppdateringstoken som ska användas för att uppdatera åtkomsttoken när den är nära förfallodatum eller för att hämta en token för samma användare , men för en annan resurs.
+I ASP.net Core sker saker i `Startup.cs` filen. Du vill prenumerera `OnAuthorizationCodeReceived` på händelsen öppna ID Connect och från den här händelsen anropar du MSAL. NET-metoden `AcquireTokenFromAuthorizationCode` som har att lagra i token cache, åtkomsttoken för begärd `scopes`och en uppdateringstoken som ska användas för att uppdatera åtkomsttoken när den upphör att gälla, eller för att få en token åt samma användare , men för en annan resurs.
 
-Kommentarerna i koden nedan hjälper dig att förstå vissa knepigt aspekter av vävning MSAL.NET och ASP.NET Core. Fullständig information finns i den [stegvisa självstudier, kapitel för ASP.NET Core Web app 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+```CSharp
+string[] scopes = new string[]{ "user.read" };
+string[] scopesRequestedByMsalNet = new string[]{ "openid", "profile", "offline_access" };
+```
+
+Kommentarerna i koden nedan hjälper dig att förstå några praktiska aspekter av att väva MSAL.NET och ASP.NET Core. Fullständig information finns i den stegvisa självstudien om [ASP.net Core Web App, kapitel 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -56,7 +67,7 @@ Kommentarerna i koden nedan hjälper dig att förstå vissa knepigt aspekter av 
    // their Microsoft personal accounts
    // (it's required by MSAL.NET and automatically provided by Azure AD when users
    // sign in with work or school accounts, but not with their Microsoft personal accounts)
-   options.Scope.Add(OidcConstants.ScopeOfflineAccess);
+   options.Scope.Add("offline_access");
    options.Scope.Add("user.read"); // for instance
 
    // Handling the auth redemption by MSAL.NET so that a token is available in the token cache
@@ -88,7 +99,12 @@ Kommentarerna i koden nedan hjälper dig att förstå vissa knepigt aspekter av 
    };
 ```
 
-I ASP.NET Core använder att skapa konfidentiell klientprogrammet information som är i HttpContext. Den här HttpContext känner till URL: en för Webbappen och den inloggade användaren (i en `ClaimsPrincipal`). Den använder också ASP.NET Core-konfigurationen, som har ett ”AzureAD”-avsnitt och som är bunden till den `_applicationOptions` datastruktur. Programmet måste slutligen att underhålla token cacheminnen.
+I ASP.NET Core använder det konfidentiella klient programmet information som finns i HttpContext. Detta `HttpContext` känner till om webb adressen för webbappen och den inloggade användaren (i a `ClaimsPrincipal`). 
+
+Den använder också ASP.NET Core konfiguration, som har avsnittet "AzureAD", som är kopplat till båda:
+
+- data strukturen av typen [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet) `_applicationOptions`
+- instansen av typen [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs) som definierats i ASP.net Core `Authentication.AzureAD.UI`. `azureAdOptions` Slutligen måste programmet hantera token-cacheminnen.
 
 ```CSharp
 /// <summary>
@@ -116,23 +132,26 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  // Initialize token cache providers. In the case of Web applications, there must be one
  // token cache per user (here the key of the token cache is in the claimsPrincipal which
  // contains the identity of the signed-in user)
- if (this.UserTokenCacheProvider != null)
+ if (UserTokenCacheProvider != null)
  {
-  this.UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
+  UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
  }
- if (this.AppTokenCacheProvider != null)
+ if (AppTokenCacheProvider != null)
  {
-  this.AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
+  AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
  }
  return app;
 }
 ```
 
-`AcquireTokenByAuthorizationCode` verkligen redeems auktoriseringskod som begärs av ASP.NET och hämtar de token som läggs till MSAL.NET användaren token-cache. Därifrån kan de är sedan används i ASP.NET Core-styrenheter.
+Mer information om token cache-providers finns i självstudier för [ASP.net Core Web Apps | Token-cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/455d32f09f4f6647b066ebee583f1a708376b12f/2-WebApp-graph-user/2-2-TokenCache)
 
-## <a name="aspnet-configuration"></a>ASP.NET Configuration
+> [!NOTE]
+> `AcquireTokenByAuthorizationCode`verkligen löser den auktoriseringskod som begärs av ASP.NET och hämtar de token som har lagts till i MSAL.NET cache för användartoken. Därifrån används de, i ASP.NET Core kontrollanter.
 
-Hanteringen av saker i ASP.NET är liknande, förutom att konfigurationen av OpenIdConnect och din prenumeration på den `OnAuthorizationCodeReceived` händelse inträffar i den `App_Start\Startup.Auth.cs` filen. Du hittar liknande koncept, förutom att här måste du ange RedirectUri i konfigurationsfilen, vilket är lite mindre robust:
+## <a name="aspnet-configuration"></a>ASP.NET-konfiguration
+
+Hur ASP.net hanterar saker liknar varandra, förutom att konfigurationen av OpenIdConnect och prenumerationen på `OnAuthorizationCodeReceived` händelsen inträffar `App_Start\Startup.Auth.cs` i filen. Du hittar liknande koncept, förutom att här måste du ange RedirectUri i konfigurations filen, vilket är mindre robust:
 
 ```CSharp
 private void ConfigureAuth(IAppBuilder app)
@@ -180,18 +199,21 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 }
 ```
 
-### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>MSAL.NET Token-cache för en webbapp med ASP.NET (kärnor)
+I stället för en klient hemlighet kan det konfidentiella klient programmet också bevisa sin identitet med hjälp av ett klient certifikat eller en klient kontroll.
+Att använda klient kontroll är ett avancerat scenario som beskrivs i [klientens kontroll](msal-net-client-assertions.md)
 
-I web apps (eller webb-API: er som en följd av fakta) token-cache-implementeringen skiljer sig från token-cache-implementeringar skrivbordsprogram (vilket är ofta [filbaserad](scenario-desktop-acquire-token.md#file-based-token-cache). Det kan använda ASP.NET/ASP.NET Core-session eller en Redis-cache eller en databas eller även Azure Blob storage. I koden är kodfragmentet ovan detta objekt av den `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` metodanrop som binder en cachetjänst. Informationen om vad som händer här ligger utanför omfånget för den här guiden för scenariot, men länkar finns nedan.
+### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>MSAL.NET token cache för en ASP.NET (Core)-webbapp
+
+I Web Apps (eller webb-API: er som själva fakta) skiljer sig implementationen för token-cacheminnet från programapparna för cachelagring av [](scenario-desktop-acquire-token.md#file-based-token-cache)appar (som ofta är filbaserade. Den kan använda ASP.NET/ASP.NET Core-sessionen, eller en Redis-cache, en databas eller till och med Azure Blob Storage. I kodfragmentet ovan är detta objektet i `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` metod anropet, vilket binder en cache-tjänst. Informationen om vad som händer här ligger utanför omfattningen för den här scenario guiden, men länkarna visas nedan.
 
 > [!IMPORTANT]
-> En mycket viktiga för att upptäcka är att för Webbappar och webb-API: er, det ska vara en token-cache per användare (per konto). Du behöver att serialisera tokens cacheminne för varje konto.
+> En mycket viktig sak att realisera är att för webbappar och webb-API: er bör det finnas ett token cache per användare (per konto). Du måste serialisera token-cachen för varje konto.
 
-Exempel på hur du använder token cacheminnen för webbappar och webb-API: er är tillgängliga i den [ASP.NET Core Web app självstudien](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) i fasen [2-2-Tokencache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Om du vill implementeringar har en titt på följande mapp [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) i den [microsoft-autentisering-tillägg-för-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) biblioteket (i den [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) mapp.
+Exempel på hur du kan använda token-cacheminnen för webbappar och webb-API: er finns i självstudien [ASP.net Core Web Apps](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) i fas [2-2-token cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). För implementeringar har du en titt på följande mapp [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) i biblioteket [Microsoft-Authentication-Extensions-for-dotNet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (i mappen [Microsoft. Identity. client. Extensions. Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när användaren loggar in lagras en token i token-cache. Nu ska vi se hur det används sedan i andra delar av webbappen.
+När användaren sedan loggar in en token lagras i token cache. Nu ska vi se hur det används i andra delar av webbappen.
 
 > [!div class="nextstepaction"]
-> [Logga in till Webbappen](scenario-web-app-call-api-sign-in.md)
+> [Logga in på webbappen](scenario-web-app-call-api-sign-in.md)

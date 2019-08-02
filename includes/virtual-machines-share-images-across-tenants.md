@@ -8,57 +8,57 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cf05468af17a4fafa7c81c7ad8bc89b3306a54af
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187307"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286317"
 ---
-Delade Image Galleries kan du dela bilder med hjälp av RBAC. Du kan använda RBAC för att dela bilder i din klient, och även till personer utanför din klientorganisation. Men om du vill dela avbildningar utanför din Azure-klient i skala, bör du skapa en appregistrering för att underlätta delning.  Med hjälp av en appregistrering kan möjliggöra mer komplexa delning, t.ex.: 
+Med delade avbildnings gallerier kan du dela avbildningar med RBAC. Du kan använda RBAC för att dela avbildningar i din klient organisation och till och med personer utanför din klient organisation. Men om du vill dela avbildningar utanför Azure-klienten, i skala, bör du skapa en app-registrering för att under lätta delningen.  Genom att använda en app-registrering kan du aktivera mer komplexa delnings scenarier, till exempel: 
 
-* Hantera delade bilder när ett företag får en annan och Azure-infrastrukturen fördelas mellan olika klienter. 
-* Azure-partner hantera Azure-infrastrukturen åt kunderna. Anpassning av bilder görs i partner-klient, men infrastruktur-distributioner sker på kundens klient. 
+* Hantera delade avbildningar när ett företag förvärvar ett annat och Azure-infrastrukturen sprids mellan olika klienter. 
+* Azure-partner hanterar Azure-infrastruktur för kundernas räkning. Anpassning av avbildningar görs i partner innehavaren, men infrastruktur distributioner sker i kundens klient. 
 
 
-## <a name="create-the-app-registration"></a>Skapa appregistreringen
+## <a name="create-the-app-registration"></a>Skapa registrerings appen
 
-Skapa en programregistrering som används av både klienter för att dela galleriresurser bild.
-1. Öppna den [appregistreringar (förhandsversion) i Azure-portalen](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
+Skapa en program registrering som ska användas av båda klienterna för att dela avbildnings Galleri resurserna.
+1. Öppna [Appregistreringar (för hands version) i Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
 1. Välj **ny registrering** på menyn längst upp på sidan.
-1. I **namn**, typ *myGalleryApp*.
-1. I **stöds kontotyper**väljer **konton alla organisationskatalog och personliga Microsoft-konton**.
-1. I **omdirigerings-URI**, typ *https://www.microsoft.com* och välj sedan **registrera**. När appregistreringen har skapats, öppnas översiktssidan.
-1. På översiktssidan kopiera den **(klient)-ID: T** och spara för användning senare.   
-1. Välj **certifikat och hemligheter**, och välj sedan **nya klienthemligheten**.
-1. I **beskrivning**, typ *apphemlighet för delade bild galleriet mellan klientorganisationer*.
-1. I **förfaller**, låt standardvärdet **i 1 år** och välj sedan **Lägg till**.
-1. Kopiera värdet för hemligheten och spara den till en säker plats. Du kan inte hämta det när du har lämnat sidan.
+1. Skriv *myGalleryApp*i **namn**.
+1. I **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton**.
+1. Iomdirigerings- *https://www.microsoft.com* URI skriver du och väljer sedan **Registrera**. När appens registrering har skapats öppnas översikts sidan.
+1. På sidan Översikt kopierar du **programmet (klienten) ID** och sparar för användning senare.   
+1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
+1. I **Beskrivning**skriver du *Shared Image Gallery Cross-Tenant app Secret*.
+1. Lämnaförfaller, lämna standardvärdet på **1 år** och välj sedan **Lägg till**.
+1. Kopiera värdet för hemligheten och spara det på en säker plats. Du kan inte hämta det när du har lämnat sidan.
 
 
-Ge appen registrering behörighet att använda delade bildgalleriet.
-1. Välj delad galleriet som du vill dela med en annan klient i Azure-portalen.
-1. Välj **Välj åtkomstkontroll (IAM)** , och under **Lägg till rolltilldelning** Välj *Lägg till*. 
-1. Under **rollen**väljer **läsare**.
-1. Under **tilldela åtkomst till:** , lämna det som **Azure AD-användare, grupp eller tjänstens huvudnamn**.
-1. Under **Välj**, typ *myGalleryApp* och välja certifikatet när det visas i listan. När du är klar väljer du **spara**.
+Ge appens registrerings behörighet att använda det delade avbildnings galleriet.
+1. I Azure Portal väljer du det delade avbildnings galleri som du vill dela med en annan klient.
+1. Välj **Välj åtkomst kontroll (IAM)** och under **Lägg till roll tilldelning** väljer du *Lägg till*. 
+1. Välj **läsare**under **roll**.
+1. Under **tilldela åtkomst till:** , lämna det här som **Azure AD-användare,-grupp eller tjänstens huvud namn**.
+1. Under **Välj**skriver du *myGalleryApp* och väljer den när den visas i listan. När du är färdig väljer du **Spara**.
 
 
-## <a name="give-tenant-2-access"></a>Ge åtkomst-klient 2
+## <a name="give-tenant-2-access"></a>Ge klient organisation 2 åtkomst
 
-Ge klient 2 åtkomst till programmet genom att begära en inloggning med en webbläsare. Ersätt *<Tenant2 ID>* med klient-ID för den klient som du vill dela bildgalleriet med. Ersätt *< program (klient)-ID >* med program-ID för registreringen du skapade. När du är klar att göra ersättningarna klistra in URL: en i en webbläsare och följ anvisningarna för inloggning att logga in på klienten 2.
+Ge klient organisationen 2 åtkomst till programmet genom att begära inloggning med hjälp av en webbläsare. *Ersätt\<Tenant2-ID >* med klient-ID: t för den klient som du vill dela ditt avbildnings galleri med. *Ersätt\<program-ID (klient) >* med program-ID: t för den app-registrering som du skapade. När du är klar med ersättningarna klistrar du in webb adressen i en webbläsare och följer inloggnings anvisningarna för att logga in på klient 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 
 ```
 
-I den [Azure-portalen](https://portal.azure.com) logga in som klient 2 och ge appen registrering åtkomst till resursgruppen där du vill skapa den virtuella datorn.
+I [Azure Portal](https://portal.azure.com) loggar du in som klient 2 och ger appens registrerings åtkomst till den resurs grupp där du vill skapa den virtuella datorn.
 
-1. Välj resursgruppen och välj sedan **åtkomstkontroll (IAM)** . Under **Lägg till rolltilldelning** Välj **Lägg till**. 
-1. Under **rollen**, typ **deltagare**.
-1. Under **tilldela åtkomst till:** , lämna det som **Azure AD-användare, grupp eller tjänstens huvudnamn**.
-1. Under **Välj** typ *myGalleryApp* välja certifikatet när det visas i listan. När du är klar väljer du **spara**.
+1. Välj resurs gruppen och välj sedan **åtkomst kontroll (IAM)** . Under **Lägg till roll tilldelning** väljer du **Lägg till**. 
+1. Under **roll**skriver du **Contributor**.
+1. Under **tilldela åtkomst till:** , lämna det här som **Azure AD-användare,-grupp eller tjänstens huvud namn**.
+1. Under **Välj** typ *myGalleryApp* väljer du den när den visas i listan. När du är färdig väljer du **Spara**.
 
 > [!NOTE]
-> Du måste vänta tills Avbildningsversion helt Slutför som bygger och replikeras innan du kan använda samma avbildning som hanterad för att skapa en annan Avbildningsversion.
+> Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 

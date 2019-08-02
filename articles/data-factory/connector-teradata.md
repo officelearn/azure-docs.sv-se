@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Teradata med Azure Data Factory | Microsoft Docs
-description: Läs mer om Teradata koppling av Data Factory-tjänsten som låter dig kopieringsdata från Teradata-databas till datalager som stöds av Data Factory som mottagare.
+description: Med Teradata-anslutaren i Data Factory-tjänsten kan du kopiera data från en Teradata-databas till data lager som stöds av Data Factory som mottagare.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,62 +10,62 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 63f28c8b6eaceed12e1f76e9c0c5984e3b63b500
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ce326d7284e22a8734f6be671a277795ba659522
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561437"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720527"
 ---
-# <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiera data från Teradata med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 >
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Aktuell version](connector-teradata.md)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en Teradata-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en Teradata-databas. Den bygger på [Översikt över kopierings aktiviteten](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Teradata-databas till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från en Teradata-databas till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt stöder den här Teradata-anslutningen:
+Mer specifikt stöder den här Teradata-anslutaren:
 
-- Teradata **version 14.10, 15.0, 15.10, 16,0, 16,10 och 16.20**.
-- Kopiera data med hjälp av **grundläggande** eller **Windows** autentisering.
-- Parallell kopia från Teradata-källa. Se [parallell kopia från Teradata](#parallel-copy-from-teradata) avsnitt med information.
+- Teradata **version 14,10, 15,0, 15,10, 16,0, 16,10 och 16,20**.
+- Kopiera data med hjälp av **Basic** -eller **Windows** -autentisering.
+- Parallell kopiering från en Teradata-källa. Mer information finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) .
 
 > [!NOTE]
 >
-> Azure Data Factory uppgraderas Teradata-anslutningen eftersom lokal Integration Runtime v3.18 som är drivande av en inbyggd ODBC-drivrutinen och erbjuder alternativ för flexibel anslutning samt out-of-box parallella kopia om du vill öka prestandan. Alla befintliga arbetsbelastningar med föregående Teradata-kopplingen möjligheter med .NET Data Provider för Teradata stöds fortfarande som – är att medan du rekommenderas för att använda den nya framöver. Observera att den nya sökvägen kräver en annan uppsättning länkad tjänst/datauppsättningskopia källa. Se avsnitten på konfigurationsinformation.
+> Azure Data Factory uppgraderat Teradata-anslutaren efter lanseringen av integrering runtime v-3.18 med egen värd. Alla befintliga arbets belastningar som använder den tidigare Teradata-anslutningen stöds fortfarande. För nya arbets belastningar är det dock en bra idé att använda den nya. Observera att den nya sökvägen kräver en annan uppsättning länkad tjänst, data uppsättning och kopierings källa. Konfigurations information finns i respektive avsnitt som följer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om din Teradata inte är offentligt tillgänglig, måste du ställer in en lokal Integration Runtime. Mer information om integration runtime finns i [lokal Integration Runtime](create-self-hosted-integration-runtime.md). Integreringskörningen innehåller en inbyggd Teradata-drivrutin från och med version 3,18, måste du därför inte att manuellt installera en drivrutin. Drivrutinen kräver ”Visual C++ Redistributable 2012 Update 4” på den lokala IR-datorn, ladda ned från [här](https://www.microsoft.com/en-sg/download/details.aspx?id=30679) om du ännu inte har installerat.
+Om din Teradata inte är offentligt tillgänglig måste du konfigurera en [integration runtime med egen värd](create-self-hosted-integration-runtime.md). Integrerings körningen innehåller en inbyggd Teradata-drivrutin från och med version 3,18. Du behöver inte installera någon driv rutin manuellt. Driv rutinen kräver " C++ Visual Redistributable 2012 uppdatering 4" på den lokala datorn för integration Runtime. Om du inte redan har installerat det kan du ladda ned det [här](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
-För lokal IR-versionen är lägre än 3,18, måste du installera den [.NET Data Provider för Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) version 14 eller senare på den Integration Runtime-datorn. 
+För en lokal version av integration runtime som är äldre än 3,18 installerar du [.net-dataprovidern för Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), version 14 eller senare på integration runtime-datorn. 
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Teradata-anslutningen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Teradata-anslutaren.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för Teradata länkade tjänsten:
+Den länkade tjänsten Teradata stöder följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Teradata** | Ja |
-| connectionString | Anger information som behövs för att ansluta till Teradata-databasinstans. Se följande exempel.<br/>Du kan också publicera lösenord i Azure Key Vault och använda pull i `password` konfiguration av anslutningssträngen. Referera till [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| username | Ange användarnamn för att ansluta till Teradata-databasen. Gäller när du använder Windows-autentisering. | Nej |
-| password | Ange lösenord för det användarkonto som du angav för användarnamnet. Du kan också välja att [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). <br>Gäller när du använder Windows-autentisering eller refererar till lösenordet i Key Vault för grundläggande autentisering. | Nej |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
+| type | Egenskapen Type måste anges till **Teradata**. | Ja |
+| connectionString | Anger den information som krävs för att ansluta till Teradata-databasens instans. Se följande exempel.<br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) . | Ja |
+| username | Ange ett användar namn för att ansluta till Teradata-databasen. Gäller när du använder Windows-autentisering. | Nej |
+| password | Ange ett lösen ord för det användar konto som du har angett som användar namn. Du kan också välja att [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). <br>Gäller när du använder Windows-autentisering eller refererar till ett lösen ord i Key Vault för grundläggande autentisering. | Nej |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. En integration runtime med egen värd krävs, enligt vad som krävs [.](#prerequisites) |Ja |
 
-**Exempel: använder grundläggande autentisering**
+**Exempel med grundläggande autentisering**
 
 ```json
 {
@@ -83,7 +83,7 @@ Följande egenskaper har stöd för Teradata länkade tjänsten:
 }
 ```
 
-**Exempel: med hjälp av Windows-autentisering**
+**Exempel som använder Windows-autentisering**
 
 ```json
 {
@@ -105,9 +105,9 @@ Följande egenskaper har stöd för Teradata länkade tjänsten:
 
 > [!NOTE]
 >
-> Om du använder Teradata länkade tjänsten möjligheter med .NET Data Provider för Teradata med följande nyttolasten, stöds det fortfarande som – är att medan du rekommenderas för att använda den nya framöver.
+> Följande nytto Last stöds fortfarande. Du bör dock använda den nya.
 
-**Föregående nyttolast:**
+**Föregående nytto last:**
 
 ```json
 {
@@ -133,14 +133,14 @@ Följande egenskaper har stöd för Teradata länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-datauppsättningen.
+Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-datauppsättningen. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar](concepts-datasets-linked-services.md).
 
-För att kopiera data från Teradata stöds följande egenskaper:
+Följande egenskaper stöds för att kopiera data från Teradata:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **TeradataTable** | Ja |
-| database | Namnet på Teradata-databas. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| type | Egenskapen Type för data mängden måste anges till `TeradataTable`. | Ja |
+| database | Namnet på Teradata-databasen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 | table | Namnet på tabellen i Teradata-databasen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel:**
@@ -150,20 +150,21 @@ För att kopiera data från Teradata stöds följande egenskaper:
     "name": "TeradataDataset",
     "properties": {
         "type": "TeradataTable",
+        "typeProperties": {},
+        "schema": [],        
         "linkedServiceName": {
             "referenceName": "<Teradata linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
 
 > [!NOTE]
 >
-> Om du använde ”RelationalTable” typ av datauppsättning som följande, stöds det fortfarande som – är att medan du rekommenderas för att använda den nya framöver.
+> `RelationalTable`typ data uppsättningen stöds fortfarande. Vi rekommenderar dock att du använder den nya data uppsättningen.
 
-**Föregående nyttolast:**
+**Föregående nytto last:**
 
 ```json
 {
@@ -181,31 +182,31 @@ För att kopiera data från Teradata stöds följande egenskaper:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-källa.
+Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-källan. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter [](concepts-pipelines-activities.md)finns i pipelines. 
 
-### <a name="teradata-as-source"></a>Teradata som källkod
+### <a name="teradata-as-a-source-type"></a>Teradata som käll typ
 
 > [!TIP]
 >
-> Läs mer i [parallell kopia från Teradata](#parallel-copy-from-teradata) avsnittet om hur du läser in data från Teradata effektivt med Datapartitionering.
+> Information om hur du kan läsa in data från Teradata effektivt genom att använda data partitionering finns i avsnittet [parallell kopia från Teradata](#parallel-copy-from-teradata) .
 
-För att kopiera data från Teradata stöds följande egenskaper i kopieringsaktiviteten **källa** avsnittet:
+Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Teradata:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **TeradataSource** | Ja |
-| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerade belastningen måste schemafrågor motsvarande inbyggda partition parametrar i frågan. Se exemplen i [parallell kopia från Teradata](#parallel-copy-from-teradata) avsnittet. | Nej (om tabellen i datauppsättningen har angetts) |
-| partitionOptions | Anger alternativ som används för att läsa in data från Teradata för Datapartitionering. <br>Tillåt värden är: **Ingen** (standard), **Hash** och **DynamicRange**.<br>När partitionen är aktiverat (inte ”ingen”), även konfigurera **[ `parallelCopies` ](copy-activity-performance.md#parallel-copy)** inställningen på Kopieringsaktivitet till exempel som 4, som bestämmer vilken parallella samtidigt läsa in data från Teradata -databasen. | Nej |
-| partitionSettings | Ange gruppen med inställningar för Datapartitionering av. <br>Tillämpa när partitionen inte är `None`. | Nej |
-| partitionColumnName | Ange namnet på källkolumnen **i heltalstyp** som ska användas av intervallet partitionering för parallell kopia. Om inte anges kommer primärnyckel i tabellen att automatisk upptäckt och används som partitionskolumnen. <br>Tillämpa när partitionen är `Hash` eller `DynamicRange`. Om du använder frågan för att hämta källdata, koppla `?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exemplet i [parallell kopia från Teradata](#parallel-copy-from-teradata) avsnittet. | Nej |
-| partitionUpperBound | Högsta värdet för partitionskolumnen att kopiera data. <br>Tillämpa när partitionen är `DynamicRange`. Om du använder frågan för att hämta källdata, koppla `?AdfRangePartitionUpbound` i WHERE-satsen. Se exemplet i [parallell kopia från Teradata](#parallel-copy-from-teradata) avsnittet. | Nej |
-| partitionLowerBound | Minimivärdet för partitionskolumnen att kopiera data. <br>Tillämpa när partitionen är `DynamicRange`. Om du använder frågan för att hämta källdata, koppla `?AdfRangePartitionLowbound` i WHERE-satsen. Se exemplet i [parallell kopia från Teradata](#parallel-copy-from-teradata) avsnittet. | Nej |
+| type | Typ egenskapen för kopierings aktivitets källan måste vara inställd på `TeradataSource`. | Ja |
+| query | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
+| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåtna värden är: **Ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitionsalternativ är aktiverat (det vill säga inte `None`) konfigurerar du [`parallelCopies`](copy-activity-performance.md#parallel-copy) även inställningen för kopierings aktiviteten. Detta fastställer parallell graden för att samtidigt läsa in data från en Teradata-databas. Du kan till exempel ange 4. | Nej |
+| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte `None`är. | Nej |
+| partitionColumnName | Ange namnet på den käll kolumn **i Integer-typ** som ska användas av intervall partitionering för parallell kopiering. Om detta inte anges identifieras primär nyckeln för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller. `DynamicRange` Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Nej |
+| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange`. Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
+| PartitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
 
 > [!NOTE]
 >
-> Om du använde kopieringskälla för ”RelationalSource” typ, stöds det fortfarande som – är, men har inte stöd för den nya inbyggda parallellinläsa från Teradata (partitionsalternativ). Du rekommenderas för att använda den här nya framöver.
+> `RelationalSource`typ kopierings källan stöds fortfarande, men den har inte stöd för den nya inbyggda parallella inläsningen från Teradata (partitionsalternativ). Vi rekommenderar dock att du använder den nya data uppsättningen.
 
-**Exempel: kopiera data med hjälp av grundläggande frågor utan partition**
+**Exempel: kopiera data med en grundläggande fråga utan partition**
 
 ```json
 "activities":[
@@ -237,21 +238,21 @@ För att kopiera data från Teradata stöds följande egenskaper i kopieringsakt
 ]
 ```
 
-## <a name="parallel-copy-from-teradata"></a>Parallell kopia från Teradata
+## <a name="parallel-copy-from-teradata"></a>Parallell kopiering från Teradata
 
-Data factory Teradata-anslutningen tillhandahåller inbyggd för partitionering för att kopiera data från Teradata parallellt med fantastisk prestanda. Du hittar alternativ för partitionering på Kopieringsaktivitet -> Teradata källa:
+Data Factory Teradata-anslutaren tillhandahåller inbyggd data partitionering för att kopiera data från Teradata parallellt. Du kan hitta data partitionerings alternativ i **käll** tabellen för kopierings aktiviteten.
 
-![Partitionsalternativ](./media/connector-teradata/connector-teradata-partition-options.png)
+![Skärm bild av partitionsalternativ](./media/connector-teradata/connector-teradata-partition-options.png)
 
-När du aktiverar partitionerade kopia körs data factory parallella frågor mot dina Teradata-källa för att läsa in data av partition. Parallell graden har konfigurerats och kontrollerad via **[ `parallelCopies` ](copy-activity-performance.md#parallel-copy)** på Kopieringsaktivitet. Exempel: Om du ställer in `parallelCopies` som fyra, data factory genererar samtidigt och körs fyra frågor baserat på angivna partitionen alternativ och inställningar, varje hämtades del av data från Teradata-databas.
+När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Teradata-källa för att läsa in data med partitioner. Den parallella graden styrs av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel anger `parallelCopies` fyra Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar. Varje fråga hämtar en del av data från Teradata-databasen.
 
-Du rekommenderas för att aktivera parallell kopia med Datapartitionering, särskilt när du läser in stora mängder data från Teradata-databas. Följande är de föreslagna konfigurationerna för olika scenarier:
+Det är en bra idé att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från Teradata-databasen. Följande är föreslagna konfigurationer för olika scenarier:
 
 | Scenario                                                     | Föreslagna inställningar                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Fullständig inläsning från stora tabell                                   | **Partitionera alternativet**: -Hash. <br><br/>Under körningen data Factory automatiskt identifiera primärnyckelkolumn, tillämpa hash mot dem och kopiera data med partitioner. |
-| Läsa in stora mängder data med hjälp av anpassad fråga                 | **Partitionera alternativet**: -Hash.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Partitionskolumnen**: Ange vilken kolumn som används för Använd hash-partitionen. Om inte anges identifierar automatiskt ADF PK-kolumnen i tabellen som du angav i Teradata-datauppsättningen.<br><br>Under körningen data factory Ersätt `?AdfHashPartitionCondition` med hash-partition logik och skicka till Teradata. |
-| Läsa in stora mängder data med hjälp av anpassade fråga, med en heltalskolumn med jämnt fördelade värdet för intervallet partitionering | **Partitionsalternativ**: Partition dynamiska omfång.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partitionskolumnen**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumn med datatypen integer.<br>**Partition övre gränsen** och **partition nedre gränsen**: Ange om du vill filtrera mot partitionskolumnen att endast hämta data mellan lägre och övre intervallet.<br><br>Under körningen data factory Ersätt `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, och `?AdfRangePartitionLowbound` med faktiska kolumnnamn och värdet intervall för varje partition och skicka till Teradata. <br>Till exempel om ditt partition kolumnen ”ID” som angetts med nedre gränsen som 1 och övre gränsen som 80, med parallella uppsättningen som 4, ADF hämtar data med 4 partitioner med ID mellan [1,20], [21, 40], [41, 60] och [61, 80]. |
+| Fullständig belastning från stor tabell.                                   | **Partitions alternativ**: Beräkna. <br><br/>Under körningen identifierar Data Factory automatiskt kolumnen PK, använder en hash mot den och kopierar data efter partitioner. |
+| Läs in stora mängder data med hjälp av en anpassad fråga.                 | **Partitions alternativ**: Beräkna.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Partitionstabell**: Ange den kolumn som används för Apply hash-partition. Om inget anges identifierar Data Factory automatiskt kolumnen PK i tabellen som du angav i Teradata-datauppsättningen.<br><br>Under körningen ersätts `?AdfHashPartitionCondition` Data Factory med hash-partitionens logik och skickas till Teradata. |
+| Läs in stora mängder data med hjälp av en anpassad fråga med en heltals kolumn med jämnt distribuerat värde för intervall partitionering. | **Partitionsalternativ**: Partition med dynamiskt intervall.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partitionstabell**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumnen med data typen Integer.<br>**Partitionens övre gränser** och **partitionens nedre gränser**: Ange om du vill filtrera mot kolumnen partition för att bara hämta data mellan det nedre och övre intervallet.<br><br>Under körningen ersätts `?AdfRangePartitionColumnName`Data Factory `?AdfRangePartitionUpbound`, och `?AdfRangePartitionLowbound` med det faktiska kolumn namnet och värde intervallet för varje partition och skickas till Teradata. <br>Om t. ex. partitionens kolumn "ID" har angetts med den nedre gränser som 1 och den övre gränser som 80, med parallell kopierings uppsättning som 4, Data Factory hämtar data med 4 partitioner. Deras ID: n är mellan [1, 20], [21, 40], [41, 60] och [61, 80]. |
 
 **Exempel: fråga med hash-partition**
 
@@ -266,7 +267,7 @@ Du rekommenderas för att aktivera parallell kopia med Datapartitionering, särs
 }
 ```
 
-**Exempel: fråga med partition dynamiska omfång**
+**Exempel: fråga med Dynamic Range-partition**
 
 ```json
 "source": {
@@ -281,52 +282,52 @@ Du rekommenderas för att aktivera parallell kopia med Datapartitionering, särs
 }
 ```
 
-## <a name="data-type-mapping-for-teradata"></a>Datatypen mappning för Teradata
+## <a name="data-type-mapping-for-teradata"></a>Data typs mappning för Teradata
 
-När du kopierar data från Teradata, används följande mappningar från Teradata-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
+När du kopierar data från Teradata gäller följande mappningar. Information om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren finns i [schema-och data typs mappningar](copy-activity-schema-and-type-mapping.md).
 
-| Datatypen för Teradata | Data factory tillfälliga datatyp |
+| Data typen Teradata | Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | BigInt |Int64 |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |String |
+| Char |Sträng |
+| CLOB |Sträng |
 | Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| Graphic |Stöds ej. Använd explicit typkonvertering i källfrågan. |
+| Graphic |Stöds ej. Använd explicit Cast i käll frågan. |
 | Integer |Int32 |
-| Interval Day |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Day To Hour |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Day To Minute |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Day To Second |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Hour |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Hour To Minute |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Hour To Second |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Minute |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Minute To Second |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Month |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Second |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Year |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Interval Year To Month |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Tal |Double |
-| Period (datum) |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Tid (Time) |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Period (tid med tidszon) |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Period (tidsstämpel) |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Period (tidsstämpel med tidszon) |Stöds ej. Använd explicit typkonvertering i källfrågan. |
+| Interval Day |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Day To Hour |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Day To Minute |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Day To Second |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Hour |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Hour To Minute |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Hour To Second |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Minute |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Minute To Second |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Month |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Second |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Year |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Year To Month |Stöds ej. Använd explicit Cast i käll frågan. |
+| Number |Double |
+| Period (datum) |Stöds ej. Använd explicit Cast i käll frågan. |
+| Period (tid) |Stöds ej. Använd explicit Cast i käll frågan. |
+| Period (tid med tidszon) |Stöds ej. Använd explicit Cast i käll frågan. |
+| Period (tidsstämpel) |Stöds ej. Använd explicit Cast i käll frågan. |
+| Period (tidsstämpel med tidszon) |Stöds ej. Använd explicit Cast i käll frågan. |
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Time With Time Zone |TimeSpan |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
-| VarChar |String |
-| VarGraphic |Stöds ej. Använd explicit typkonvertering i källfrågan. |
-| Xml |Stöds ej. Använd explicit typkonvertering i källfrågan. |
+| VarChar |Sträng |
+| VarGraphic |Stöds ej. Använd explicit Cast i käll frågan. |
+| Xml |Stöds ej. Använd explicit Cast i käll frågan. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

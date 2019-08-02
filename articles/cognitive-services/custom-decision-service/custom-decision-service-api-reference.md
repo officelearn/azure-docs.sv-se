@@ -1,5 +1,5 @@
 ---
-title: API - referens för Custom Decision Service
+title: API-referens – Custom Decision Service
 titlesuffix: Azure Cognitive Services
 description: En fullständig API-guide för Custom Decision Service.
 services: cognitive-services
@@ -10,22 +10,23 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4f263e3b57103174f0084ab3d25430d8c47359fd
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60510960"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707303"
 ---
 # <a name="api"></a>API
 
-Azure Custom Decision Service innehåller två API: er som anropas för varje beslut: den [rangordning API](#ranking-api) att ange rangordning av åtgärder och [utmärkelse API](#reward-api) att mata ut trafik. Dessutom kan du ange en [åtgärden Ange API](#action-set-api-customer-provided) att ange vilka åtgärder som Azure Custom Decision Service. Den här artikeln beskriver dessa tre API: er. Ett typiskt scenario används nedan för att visa när Custom Decision Service optimerar rangordning av artiklar.
+Azure Custom Decision Service tillhandahåller två API: er som anropas för varje beslut: rangordnings- [API: et](#ranking-api) för att mata in åtgärdernas rangordning och belönings- [API: et](#reward-api) för att ge belöningen. Dessutom anger du ett API för [Åtgärds uppsättning](#action-set-api-customer-provided) för att ange åtgärder till Azure Custom Decision service. Den här artikeln beskriver dessa tre API: er. Ett typiskt scenario används nedan för att visa när Custom Decision Service optimerar rankningen av artiklar.
 
-## <a name="ranking-api"></a>Rangordning API
+## <a name="ranking-api"></a>Rangordnings-API
 
-Rangordning-API använder en standard [JSONP](https://en.wikipedia.org/wiki/JSONP)-style kommunikationsmönster att optimera svarstid och kringgå den [princip om samma ursprung](https://en.wikipedia.org/wiki/Same-origin_policy). Det senare förbjuder JavaScript från att hämta data från utanför sidans ursprung.
+Ranknings-API: et använder ett standardiserat [JSONP](https://en.wikipedia.org/wiki/JSONP)för att optimera svars tid och kringgå [principen för samma ursprung](https://en.wikipedia.org/wiki/Same-origin_policy). Den senare förhindrar att Java Script hämtar data från utanför sidans ursprung.
 
-Infoga det här kodfragmentet i HTML-huvudet på klient sidan (där en lista över artiklar visas):
+Infoga det här kodfragmentet i HTML-huvudet på den första sidan (där en anpassad lista med artiklar visas):
 
 ```html
 // define the "callback function" to render UI
@@ -41,13 +42,13 @@ Infoga det här kodfragmentet i HTML-huvudet på klient sidan (där en lista öv
 ```
 
 > [!IMPORTANT]
-> Återanropsfunktionen måste definieras innan anropet till API: et rangordning.
+> Motringningsfunktionen måste definieras innan anropet till ranknings-API: et.
 
 > [!TIP]
-> För att förbättra svarstiden, rangordning API: et exponeras via HTTP i stället för HTTPS, som i `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
-> En HTTPS-slutpunkt måste dock användas om sidan klient hanteras via HTTPS.
+> För att förbättra svars tiden exponeras ranknings-API: t via HTTP i `https://ds.microsoft.com/api/v2/<appId>/rank/*`stället för https, som i.
+> En HTTPS-slutpunkt måste dock användas om den första sidan betjänas via HTTPS.
 
-När parametrar inte används är HTTP-svaret från API: et rangordning en JSONP-formaterad sträng:
+När parametrar inte används, är HTTP-svaret från rangordnings-API: et en JSONP-formaterad sträng:
 
 ```json
 callback({
@@ -60,34 +61,34 @@ callback({
 
 Webbläsaren kör sedan den här strängen som ett anrop till `callback()`-funktionen.
 
-Parametern för Återanropsfunktionen i föregående exempel har följande schema:
+Parametern till callback-funktionen i föregående exempel har följande schema:
 
-- `ranking` innehåller rangordning URL: er som ska visas.
-- `eventId` används internt av Custom Decision Service så att den matchar den här rangordning med motsvarande klick.
-- `appId` kan Återanropsfunktionen att skilja mellan flera program i Custom Decision Service som körs på samma webbsida.
-- `actionSets` Visar en lista över varje åtgärd som angivits i rangordning API-anrop, tillsammans med UTC-tidsstämpel för senaste lyckade uppdatering. Custom Decision Service uppdaterar regelbundet åtgärd set-flöden. Till exempel om några av de åtgärder som inte är aktuella behöva Återanropsfunktionen återgår till att deras standard rangordning.
+- `ranking`visar rangordningen för URL: er som ska visas.
+- `eventId`används internt av Custom Decision Service för att matcha den här rangordningen med motsvarande musklick.
+- `appId`tillåter callback-funktionen att skilja mellan flera program Custom Decision Service som körs på samma webb sida.
+- `actionSets`listar varje åtgärds uppsättning som används i ranknings-API-anropet, tillsammans med UTC-tidsstämpeln för den senaste lyckade uppdateringen. Custom Decision Service uppdaterar regelbundet åtgärds uppsättningens feeds. Om vissa av åtgärds uppsättningarna t. ex. inte är aktuella kan callback-funktionen behöva återgå till sin standard rangordning.
 
 > [!IMPORTANT]
-> De angivna åtgärden anger bearbetas, och eventuellt rensas för att skapa standard rangordning artiklar. Standard rangordning hämtar sedan ordnas om och returneras i HTTP-svaret. Standard rangordning definieras här:
+> De angivna åtgärds uppsättningarna bearbetas och kan eventuellt rensas för att utgöra standard rangordningen för artiklar. Standard rangordningen får sedan en omordning och returneras i HTTP-svaret. Standard rangordningen definieras här:
 >
-> - Inom varje åtgärd uppsättning rensas artiklarna 15 de senaste artiklarna (om mer än 15 returneras).
-> - När flera uppsättningar med åtgärden anges slås de samman i samma ordning som i API-anrop. Ursprungliga sorteringen av artiklarna bevaras i varje åtgärd-uppsättningen. Dubbletter tas bort och ersatts med de tidigare kopiorna.
-> - Först `n` artiklar hålls i sammanfogade listan med artiklar, där `n=20` som standard.
+> - I varje åtgärds uppsättning rensas artiklarna till de 15 senaste artiklarna (om fler än 15 returneras).
+> - När flera åtgärds uppsättningar anges slås de samman i samma ordning som i API-anropet. Den ursprungliga ordningen på artiklarna bevaras i varje åtgärds uppsättning. Dubbletter tas bort till förmån för de tidigare kopiorna.
+> - De första `n` artiklarna sparas i listan över sammanfogade artiklar, där `n=20` som standard.
 
-### <a name="ranking-api-with-parameters"></a>Rangordning API med parametrar
+### <a name="ranking-api-with-parameters"></a>Rangordnings-API med parametrar
 
-Rangordning API kan dessa parametrar:
+Rangordnings-API: et tillåter följande parametrar:
 
-- `details=1` och `details=2` infogar ytterligare information om varje artikel som anges i `ranking`.
-- `limit=<n>` Anger det maximala antalet artiklar i standard rangordning. `n` måste vara mellan `2` och `30` (eller annan trunkeras till `2` eller `30`respektive).
-- `dnt=1` inaktiverar användarcookies.
+- `details=1`och `details=2` infogar ytterligare information om varje artikel som anges `ranking`i.
+- `limit=<n>`anger maximalt antal artiklar i standard rangordningen. `n`måste vara mellan `2` och `30` (eller annars trunkerade till `2` `30`respektive).
+- `dnt=1`inaktiverar användar-cookies.
 
-Parametrar kan kombineras i standard frågesyntax över sträng, till exempel `details=2&dnt=1`.
+Parametrar kan kombineras med standard-, frågesträng-syntax, till `details=2&dnt=1`exempel.
 
 > [!IMPORTANT]
-> Standardinställningen i Europa ska vara `dnt=1` tills kunden samtycker till att cookie-banderollen. Det bör också vara standardinställningen för webbplatser som är riktade till minderåriga. Mer information finns i den [användningsvillkoren](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
+> Standardvärdet i Europa bör vara `dnt=1` tills kunden accepterar cookie-banderollen. Det bör också vara standardinställningen för webbplatser som är riktade mot minderåriga. Mer information finns i användnings [villkoren](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
 
-Den `details=1` elementet infogar varje artikel `guid`, om de har hämtats av åtgärden Ange API. HTTP-svaret:
+Elementet infogar varje `guid`artikel, om den hanteras av åtgärds uppsättnings-API: et. `details=1` HTTP-svaret:
 
 ```json
 callback({
@@ -100,12 +101,12 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-Den `details=2` element lägger till mer information om Custom Decision Service kan extrahera från artiklarnas SEO metataggar [funktionalisering kod](https://github.com/Microsoft/mwt-ds/tree/master/Crawl):
+-Elementet lägger till mer information som Custom Decision service kan extrahera från artiklar "SEO-metataggar [funktionalisering Code:](https://github.com/Microsoft/mwt-ds/tree/master/Crawl) `details=2`
 
-- `title` från `<meta property="og:title" content="..." />` eller `<meta property="twitter:title" content="..." />` eller `<title>...</title>`
-- `description` från `<meta property="og:description" ... />` eller `<meta property="twitter:description" content="..." />` eller `<meta property="description" content="..." />`
-- `image` Från `<meta property="og:image" content="..." />`
-- `ds_id` Från `<meta name=”microsoft:ds_id” content="..." />`
+- `title`från `<meta property="og:title" content="..." />` eller `<meta property="twitter:title" content="..." />` eller`<title>...</title>`
+- `description`från `<meta property="og:description" ... />` eller `<meta property="twitter:description" content="..." />` eller`<meta property="description" content="..." />`
+- `image`som`<meta property="og:image" content="..." />`
+- `ds_id`som`<meta name=”microsoft:ds_id” content="..." />`
 
 HTTP-svaret:
 
@@ -120,17 +121,17 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-Den `<details>` element:
+`<details>` Elementet:
 
 ```json
 [{"guid":"123"}, {"description":"some text", "ds_id":"234", "image":"ImageUrl1", "title":"some text"}]
 ```
 
-## <a name="reward-api"></a>Utmärkelse API
+## <a name="reward-api"></a>Belönings-API
 
-Anpassade Decision Service använder klickar endast på den översta platsen. Varje gång du klickar tolkas som ersättning av 1. Bristen på ett klick tolkas som ersättning 0. Klick matchas med motsvarande rankningen med hjälp av händelse-ID som genereras av den [rangordning API](#ranking-api) anropa. Om det behövs event ID: N kan skickas via sessionscookies.
+Custom Decision Service använder bara klickningar på den övre platsen. Varje klickning tolkas som en belöning på 1. Bristen på ett klick tolkas som en belöning på 0. Klickningarna matchas med motsvarande rangordning med hjälp av händelse-ID: n, som genereras av API-anropet [rankning](#ranking-api) . Vid behov kan händelse-ID: n skickas via sessions-cookies.
 
-Placera den här koden på klient sidan för att hantera ett klick på den översta platsen:
+Om du vill hantera ett klick på den övre platsen, så Lägg till den här koden på den första sidan:
 
 ```javascript
 $.ajax({
@@ -139,21 +140,21 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Här `data` argumentet till den `callback()` fungera som tidigare beskrivits. Med hjälp av `data` i klickar du på hantering av kod kräver viss precision. Ett exempel visas i den här [självstudien](custom-decision-service-tutorial-news.md#use-the-apis).
+Här `data` är argumentet `callback()` till funktionen, enligt beskrivningen ovan. Om `data` du använder i Klicka på hanterings koden måste du ha lite omsorg. Ett exempel visas i den här [](custom-decision-service-tutorial-news.md#use-the-apis)självstudien.
 
-Endast för testning, utmärkelse API: et kan anropas [cURL](https://en.wikipedia.org/wiki/CURL):
+För testning kan du ställa in belönings-API: [](https://en.wikipedia.org/wiki/CURL)t via svängen:
 
 ```sh
 curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
-Den förväntade effekten är ett HTTP-svar på 200 (OK). Du kan se trafik 1 för den här händelsen i loggen (om en Azure storage-kontonyckel angavs i portalen).
+Den förväntade resultatet är ett HTTP-svar på 200 (OK). Du kan se belöningen 1 för den här händelsen i loggen (om en nyckel för Azure Storage-konto har angetts i portalen).
 
-## <a name="action-set-api-customer-provided"></a>Åtgärden Ange API (kunden tillhandahåller)
+## <a name="action-set-api-customer-provided"></a>API för åtgärds uppsättning (kund tillhandahålls)
 
-Åtgärden Ange API returnerar en lista över artiklar (åtgärder) på en hög nivå. Varje artikel har angetts av dess URL (valfritt) artikelrubrik och datum för publikationen. Du kan ange flera åtgärd anger på portalen. En annan åtgärd ange API bör användas för varje åtgärd, som en distinkt URL.
+På en hög nivå returnerar åtgärds uppsättnings-API en lista över artiklar (åtgärder). Varje artikel anges med URL: en och (valfritt) artikel rubriken och publicerings datumet. Du kan ange flera åtgärds uppsättningar på portalen. En annan åtgärds uppsättnings-API ska användas för varje åtgärds uppsättning som en distinkt URL.
 
-Varje åtgärd ställa in API kan implementeras på två sätt: som en RSS-feed eller en Atom-feed. Antingen en bör följa standarden och returnerar en rätt XML. RSS är här ett exempel:
+Varje åtgärds uppsättnings-API kan implementeras på två sätt: som en RSS-feed eller som en Atom-feed. Antingen bör den följa standarden och returnera en korrekt XML. Här är ett exempel på RSS:
 
 ```xml
 <rss version="2.0">
@@ -171,20 +172,20 @@ Varje åtgärd ställa in API kan implementeras på två sätt: som en RSS-feed 
 </rss>
 ```
 
-Varje översta `<item>` element beskriver en åtgärd:
+Varje element på översta `<item>` nivån beskriver en åtgärd:
 
-- `<link>` är obligatoriskt och används som en åtgärd-ID.
-- `<date>` ignoreras om det är mindre än eller lika med 15 objekt; Annars är obligatorisk.
-  - Om det finns fler än 15 objekt, används de senaste 15 som.
-  - Det måste vara i standardformat för RSS- eller Atom, respektive:
-    - [RFC 822](https://tools.ietf.org/html/rfc822) för RSS: till exempel `"Fri, 28 Apr 2017 18:02:06 GMT"`
-    - [RFC 3339](https://tools.ietf.org/html/rfc3339) för Atom: till exempel `"2016-12-19T16:39:57-08:00"`
-- `<title>` är valfria och används för att skapa funktioner som beskrivs i artikeln.
-- `<guid>` är valfritt och skickade genom systemet till Återanropsfunktionen (om den `?details` parameter har angetts i rangordning API-anrop).
+- `<link>`är obligatoriskt och används som åtgärds-ID.
+- `<date>`ignoreras om det är mindre än eller lika med 15 objekt. annars är det obligatoriskt.
+  - Om det finns fler än 15 objekt används de 15 senaste.
+  - Det måste vara i standardformat för RSS eller Atom:
+    - [RFC 822](https://tools.ietf.org/html/rfc822) för RSS: till exempel`"Fri, 28 Apr 2017 18:02:06 GMT"`
+    - [RFC 3339](https://tools.ietf.org/html/rfc3339) för atom: till exempel`"2016-12-19T16:39:57-08:00"`
+- `<title>`är valfritt och används för att generera funktioner som beskriver artikeln.
+- `<guid>`är valfritt och skickas genom systemet till motringningsfunktionen (om `?details` parametern anges i ranknings-API-anropet).
 
 Andra element i en `<item>` ignoreras.
 
-Atom-flödet versionen använder samma XML-syntax och konventioner.
+I Atom-matnings versionen används samma XML-syntax och konventioner.
 
 > [!TIP]
-> Om systemet använder sin egen artikel-ID: N, de kan skickas till Återanropsfunktionen genom att använda `<guid>`.
+> Om systemet använder sina egna artikel-ID: n, kan de skickas till callback-funktionen med `<guid>`hjälp av.

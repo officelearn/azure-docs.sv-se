@@ -1,6 +1,6 @@
 ---
-title: 'Azure Billing Enterprise API: er | Microsoft Docs'
-description: 'Läs mer om Reporting API: er som gör att Azure Enterprise-kunder att hämta förbrukningsdata programmässigt.'
+title: 'API: er för Azure-fakturerings företag | Microsoft Docs'
+description: 'Lär dig mer om rapporterings-API: er som gör det möjligt för företags kunder att hämta förbruknings data program mässigt.'
 services: ''
 documentationcenter: ''
 author: mumami
@@ -14,53 +14,53 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: erikre
-ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: f706ad86493981d5b38248ec209a7c8b936f6817
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244822"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443216"
 ---
-# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över Reporting API: er för företagskunder
-API: erna Reporting aktivera Enterprise Azure-kunder att hämta programmässigt förbrukning och faktureringsinformation till önskade data analysis-verktyg. Företagskunder har registrerat en [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) med Azure för att göra den förhandlade monetära åtaganden och få åtkomst till anpassad prissättning för Azure-resurser.
+# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över rapporterings-API: er för företags kunder
+Med rapporterings-API: erna kan Enterprise Azure-kunder program mässigt Hämta förbruknings-och fakturerings data till önskade data analys verktyg. Företags kunder har signerat ett [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) med Azure för att göra förhandlade betalnings åtaganden och få till gång till anpassad prissättning för Azure-resurser.
 
-## <a name="enabling-data-access-to-the-api"></a>Aktivera åtkomst till API: et
-* **Generera eller hämta API-nyckeln** -logga in till Enterprise-portalen och gå till rapporter > ladda ned användningsdata > API-åtkomstnyckel att generera eller hämta API-nyckeln.
-* **Skicka nycklarna i API: et** -API-nyckel som ska skickas för varje anrop för autentisering och auktorisering. Följande egenskap måste vara att HTTP-huvuden
+## <a name="enabling-data-access-to-the-api"></a>Aktivera data åtkomst till API: et
+* **Generera eller hämta API-nyckeln** – logga in på Enterprise Portal och gå till rapporter > hämta användning > API-åtkomst nyckel för att generera eller hämta API-nyckeln.
+* **Skicka nycklar i API** – API-nyckeln måste skickas för varje anrop för autentisering och auktorisering. Följande egenskap måste vara till HTTP-huvudena
 
-|Begära huvud-nyckel | Värde|
+|Nyckel för begär ande huvud | Value|
 |-|-|
-|Auktorisering| Ange värdet i det här formatet: **ägar {API_KEY}** <br/> Exempel: ägar eyr... 09| 
+|Authorization| Ange värdet i det här formatet: **Bearer {api_key}** <br/> Exempel: Bearer-Eyr.... 09| 
 
-## <a name="consumption-apis"></a>Förbrukning API: er
-En Swagger-slutpunkten är tillgänglig [här](https://consumption.azure.com/swagger/ui/index) för API: erna som beskrivs nedan som ska aktivera enkelt introspektion av API: et och möjligheten att generera klient-SDK med hjälp av [AutoRest](https://github.com/Azure/AutoRest) eller [Swagger CodeGen](https://swagger.io/swagger-codegen/). Data från och med 1 maj 2014 är tillgängliga via den här API: et. 
+## <a name="consumption-apis"></a>Förbruknings-API: er
+En Swagger-slutpunkt finns [här](https://consumption.azure.com/swagger/ui/index) för de API: er som beskrivs nedan, vilket bör möjliggöra enkel introspektionsfunktionerna för API: et och möjligheten att [](https://github.com/Azure/AutoRest) generera klient-SDK: er med hjälp av AutoRest-eller [Swagger-CodeGen](https://swagger.io/swagger-codegen/). Data från den 1 maj 2014 är tillgängliga via det här API: et. 
 
-* **Saldo och sammanfattning** – [saldo och sammanfattning API](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) erbjuder månatligen information om saldo, nya inköp, tjänstavgifter för Azure Marketplace, justeringar och överförbrukningskostnader.
+* **Saldo och sammanfattning** – [API: t för saldo och sammanfattning](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) erbjuder en månatlig Sammanfattning av information om saldon, nya inköp, Azure Marketplace service-kostnader, justeringar och kostnader för överanvändning.
 
-* **Användningsinformation** – [användning detalj API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) erbjuder en daglig sammanställning av förbrukade antalen och uppskattade kostnader genom en registrering. Resultatet innehåller också information om instanser, mätare och avdelningar. API: et kan frågas genom faktureringsperiod eller genom att ett visst datum för start- och slutdatum. 
+* **Användnings information** – [API för användnings information](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) erbjuder en daglig analys av förbrukade kvantiteter och beräknade avgifter per registrering. Resultatet innehåller också information om instanser, mätare och avdelningar. API: et kan frågas efter fakturerings period eller av ett angivet start-och slutdatum. 
 
-* **Marketplace-Store kostnad** – [Marketplace Store kostnad API](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) returnerar en analys på detaljnivå för användarbaserad marketplace-avgifter per dag för den angivna faktureringsperiod eller start- och slutdatumen (en gång avgifter inte ingår).
+* **Marketplace Store** -avgift – [Marketplace Store avgifts-API: et](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) returnerar den användnings marknads kostnads fördelningen per dag för den angivna fakturerings perioden eller start-och slutdatum (en tids avgift ingår inte).
 
-* **Prisdokument** – [Price Sheet API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) ger det gälla priset för varje mätare för den angivna registrering och faktureringsperiod.
+* **Pris dokument** – [pris dokumentets API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) ger relevant hastighet för varje mätare för den aktuella registreringen och fakturerings perioden.
 
-* **Reserverade instansinformation** – [användningen av reserverade instanser API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) returnerar användningen av den reserverade instansen för köp. Den [reserverad instans debiterar API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) visar fakturering transaktionerna gjorda. 
+* **Reserverad instans information** – API för reserverad [instans användning](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) returnerar användningen av reserverade instans inköp. API för reserverad [instans avgift](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) visar de fakturerings transaktioner som gjorts. 
 
 ## <a name="data-freshness"></a>Dataaktualitet
-Etags returneras i svaret på alla ovanstående API. En ändring i Etag anger data har uppdaterats.  I efterföljande anrop till samma API: et med samma parametrar, skickar du hämtade Etag med nyckeln ”If-None-Match” i rubriken i HTTP-begäran. Svarets statuskod skulle vara ”NotModified” om data inte har uppdaterats ytterligare och inga data kommer att returneras. API: et Returnerar hela datauppsättningen för den nödvändiga perioden när det finns en etag-ändring.
+ETags kommer att returneras i svaret på alla ovanstående API. En ändring i etag visar att data har uppdaterats.  I efterföljande anrop till samma API med samma parametrar skickar du den hämtade etag-filen med nyckeln "If-None-Match" i rubriken för http-begäran. Svars status koden skulle vara "NotModified" om data inte har uppdaterats längre och inga data returneras. API: et returnerar den fullständiga data uppsättningen för den begärda perioden när en etag-ändring görs.
 
-## <a name="helper-apis"></a>Hjälp-API: er
- **Lista över fakturering perioder** – [Billing perioder API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returnerar en lista med faktureringsperioder som har förbrukningsdata för den angivna registreringen i omvänd kronologisk ordning. Varje Period innehåller en egenskap som pekar på API-väg för fyra uppsättningar data - BalanceSummary, UsageDetails, Marketplace-avgifter och Prisdokument.
+## <a name="helper-apis"></a>Hjälp program-API: er
+ **Lista över fakturerings perioder** – [API för fakturerings perioder](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returnerar en lista med fakturerings perioder som har förbruknings data för den angivna registreringen i omvänd kronologisk ordning. Varje period innehåller en egenskap som pekar på API-vägen för de fyra uppsättningarna med data-BalanceSummary, UsageDetails, Marketplace-avgifter och pris dokument.
 
 
-## <a name="api-response-codes"></a>API-svarskoder   
-|Svarets statuskod|Message|Beskrivning|
+## <a name="api-response-codes"></a>API-svars koder   
+|Svars status kod|Message|Beskrivning|
 |-|-|-|
 |200| Ok|Inget fel|
-|401| Behörighet saknas| API-nyckel som inte finns, är ogiltig, upphört att gälla osv.|
-|404| Ej tillgänglig| Rapportslutpunkt hittades inte|
-|400| Felaktig begäran| Ogiltiga parametrar – datumintervall, EA siffror osv.|
-|500| Serverfel| Oväntat fel vid bearbetning av begäran| 
+|401| Behörighet saknas| Det gick inte att hitta API-nyckeln, ogiltig, utgångs datum osv.|
+|404| Ej tillgänglig| Rapport slut punkten hittades inte|
+|400| Felaktig begäran| Ogiltiga parametrar – datum intervall, EA-nummer osv.|
+|500| Serverfel| Ett oväntat fel vid bearbetning av begäran| 
 
 
 

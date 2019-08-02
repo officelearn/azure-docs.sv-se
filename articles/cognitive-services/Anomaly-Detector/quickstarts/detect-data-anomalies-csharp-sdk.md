@@ -1,61 +1,63 @@
 ---
-title: 'Snabbstart: Identifiera avvikelser i time series-data med hjälp av Avvikelseidentifiering detektor SDK för .NET'
+title: 'Snabbstart: Identifiera avvikelser i Time Series-data med hjälp av klient biblioteket för avvikelse detektor för .NET'
 titleSuffix: Azure Cognitive Services
-description: Starta kunna identifiera avvikelser i tidsseriedata med Avvikelseidentifiering detektor-tjänsten.
+description: 'Använd API: t för avvikelse detektor för att identifiera avvikelser i din data serie antingen som en batch eller vid strömmande data.'
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: a75196e035585a7501cdd842fb5b80ceff424dcc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: c1dd5e4f469b24918eaa03e694a95fa90c91b481
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721571"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725579"
 ---
-# <a name="quickstart-anomaly-detector-client-library-for-net"></a>Snabbstart: Avvikelseidentifiering detektor klientbiblioteket för .NET
+# <a name="quickstart-anomaly-detector-client-library-for-net"></a>Snabbstart: Klient bibliotek för avvikelse detektor för .NET
 
-Kom igång med Avvikelseidentifiering detektor-klientbiblioteket för .NET. Följ dessa steg för att installera paketet och prova att använda kodexempel för grundläggande uppgifter. Avvikelseidentifiering detektor-tjänsten kan du hitta avvikelser i tidsseriedata med automatiskt med bäst passningsåtgärderna modeller, oavsett bransch, scenario eller datavolym.
+Kom igång med klient biblioteket för avvikelse detektor för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
 
-Använd Avvikelseidentifiering detektor-klientbiblioteket för .NET för att:
+Använd klient biblioteket för avvikelse detektor för .NET för att:
 
-* Identifiera avvikelser som en batch
-* Identifiera avvikelser status för senaste datapunkt
+* Identifiera avvikelser i data uppsättningen för tids serier, som en batch-begäran
+* Identifiera avvikelse status för den senaste data punkten i din tids serie
 
-[API-referensdokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [bibliotekskällkod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [paketet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [exempel](https://github.com/Azure-Samples/anomalydetector)
+[Biblioteks referens dokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [exempel](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure-prenumeration – [skapa ett kostnadsfritt](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core)
 
-## <a name="setting-up"></a>Ställa in
+## <a name="setting-up"></a>Konfigurera
 
-### <a name="create-an-anomaly-detector-resource"></a>Skapa en Avvikelseidentifiering detektor-resurs
+### <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-### <a name="create-a-new-c-app"></a>Skapa en ny C# app
+När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för nyckeln, `ANOMALY_DETECTOR_KEY`med namnet.
 
-Skapa ett nytt .NET Core-program i önskat redigeringsprogram eller IDE. 
+### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
 
-I ett konsolfönster (till exempel cmd, PowerShell eller Bash), använder du dotnet `new` kommando för att skapa en ny konsolapp med namnet `anomaly-detector-quickstart`. Det här kommandot skapar en enkel ”Hello World” C# projekt med en enskild källfil: **Program.CS**. 
+Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE. 
+
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot dotNet `new` för att skapa en ny konsol app med namnet. `anomaly-detector-quickstart` Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda källfil: *Program.cs*. 
 
 ```console
 dotnet new console -n anomaly-detector-quickstart
 ```
 
-Ändra katalogen till den nyligen skapade app-mappen. Du kan skapa program med:
+Ändra katalogen till mappen nyligen skapade appar. Du kan bygga programmet med:
 
 ```console
 dotnet build
 ```
 
-Resultatet bör innehålla några varningar eller fel. 
+Build-utdata får inte innehålla varningar eller fel. 
 
 ```console
 ...
@@ -65,85 +67,77 @@ Build succeeded.
 ...
 ```
 
-### <a name="install-the-client-library"></a>Installera klientbiblioteket
+Från projekt katalogen öppnar du *program.cs* -filen i önskat redigerings program eller IDE. Lägg till följande med `directives`:
 
-I programkatalogen, installerar du Avvikelseidentifiering detektor-klientbiblioteket för .NET med följande kommando:
+[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
+
+I programmets `main()` metod skapar du variabler för resursens Azure-plats och din nyckel som en miljö variabel. Om du har skapat miljövariabeln när programmet har startats måste redigeraren, IDE eller gränssnittet som kör den stängas och läsas in igen för att få åtkomst till variabeln.
+
+[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
+
+### <a name="install-the-client-library"></a>Installera klient biblioteket
+
+I program katalogen installerar du klient biblioteket för avvikelse detektor för .NET med följande kommando:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
 ```
 
-Om du använder Visual Studio IDE finns klientbiblioteket som NuGet-paket. 
+Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett NuGet-paket. 
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-Avvikelseidentifiering detektor klienten är en [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) objekt som autentiserar till Azure med [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), som innehåller din nyckel. Klienten tillhandahåller två metoder för avvikelseidentifiering: På en hel datauppsättning med hjälp av [EntireDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync), och peka på den senaste informationen med hjälp av [LastDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync). 
+Klienten för avvikelse detektor är ett [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) -objekt som autentiserar till Azure med hjälp av [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), som innehåller din nyckel. Klienten tillhandahåller två metoder för avvikelse identifiering: På en hel data uppsättning med [EntireDetectAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync)och på den senaste data punkten med [LastDetectAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync). 
 
-Time series-data skickas som en serie [punkter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.series?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_Series) i en [begära](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) objekt. Den `Request` objekt innehåller egenskaper för att beskriva data ([kornighet](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.granularity) till exempel), och parametrar för avvikelseidentifiering. 
+Time Series-data skickas som en serie [punkter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.series?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_Series) i ett [Request](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) -objekt. Objektet innehåller egenskaper för att beskriva data (till exempel granularitet) och parametrar för avvikelse identifiering.[](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.granularity) `Request` 
 
-Avvikelseidentifiering detektor svaret är antingen en [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse) eller [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse) objekt, beroende på vilken metod som används. 
+Avvikelse detektorns svar är antingen ett [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse) -eller [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse) -objekt, beroende på vilken metod som används. 
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
-Följande kodfragment visar hur du gör följande med Avvikelseidentifiering detektor-klientbibliotek för .NET:
+Dessa kodfragment visar hur du gör följande med klient biblioteket för avvikelse detektor för .NET:
 
 * [Autentisera klienten](#authenticate-the-client)
-* [Läsa in en time series-datauppsättning från en fil](#load-time-series-data-from-a-file)
-* [Identifiera avvikelser i hela datauppsättningen](#detect-anomalies-in-the-entire-data-set) 
-* [Identifiera avvikelser status för senaste datapunkt](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Läs in en tids serie data uppsättning från en fil](#load-time-series-data-from-a-file)
+* [Identifiera avvikelser i hela data uppsättningen](#detect-anomalies-in-the-entire-data-set) 
+* [Identifiera avvikelse statusen för den senaste data punkten](#detect-the-anomaly-status-of-the-latest-data-point)
 
-### <a name="add-the-main-method"></a>Lägg till main-metoden
+## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Från projektkatalogen:
-
-1. Öppna filen Program.cs i önskat redigeringsprogram eller IDE
-2. Lägg till följande `using` direktiv
-
-[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
-
-> [!NOTE]
-> Den här snabbstarten förutsätter vi att du har [skapas en miljövariabel](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för Avvikelseidentifiering detektor-nyckel med namnet `ANOMALY_DETECTOR_KEY`.
-
-I programmets `main()` metod, Skapa variabler för din resurs Azure-plats och din nyckel som en miljövariabel. Om du har skapat miljövariabeln när appen startas behöver i redigeraren, IDE eller shell köra det vara stängd och in igen för att få åtkomst till variabeln.
-
-[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
-
-### <a name="authenticate-the-client"></a>Autentisera klienten
-
-I en ny metod du skapa en instans av en klient med din slutpunkt och nyckel. Skapa en [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials?view=azure-dotnet-preview) objekt med din nyckel och använda den med din slutpunkt för att skapa en [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-dotnet-preview) objekt. 
+I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials?view=azure-dotnet-preview) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-dotnet-preview) -objekt. 
 
 [!code-csharp[Client authentication function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=createClient)]
     
-### <a name="load-time-series-data-from-a-file"></a>Läsa in time series-data från en fil
+## <a name="load-time-series-data-from-a-file"></a>Läsa in tids serie data från en fil
 
-Ladda ned exempeldata för den här snabbstarten från [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
-1. I webbläsaren, högerklickar du på **Raw**
-2. Klicka på **Spara länk som**
-3. Spara filen till programkatalogen, som en CSV-fil.
+Hämta exempel data för den här snabb starten från [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
+1. Högerklicka på **RAW**i webbläsaren.
+2. Klicka på **Spara länk som**.
+3. Spara filen i program katalogen som en CSV-fil.
 
-Den här time series-data är formaterade som en CSV-fil och skickas till API: T för Avvikelseidentifiering detektor.
+Denna tids serie data formateras som en. csv-fil och skickas till API: t för avvikelse identifiering.
 
-Skapa en ny metod för att läsa i time series-data och lägger till den i en [begära](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request?view=azure-dotnet-preview) objekt. Anropa `File.ReadAllLines()` med sökväg och skapa en lista över [punkt](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.point?view=azure-dotnet-preview) objekt och alla nyare remsor rad tecken. Extraherar värdena och skilja tidsstämpel från dess numeriska värde och lägga till dem i en ny `Point` objekt. 
+Skapa en ny metod för att läsa tids serie data och Lägg till dem i ett [Request](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request?view=azure-dotnet-preview) -objekt. Anropa `File.ReadAllLines()` med sökvägen till filen och skapa en lista med [punkt](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.point?view=azure-dotnet-preview) objekt och ta bort alla nya rad tecken. Extrahera värdena och avgränsa datestamp från det numeriska värdet och Lägg till dem i ett nytt `Point` objekt. 
 
-Gör en `Request` objekt med antal punkter, och `Granularity.Daily` för den [kornighet](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) (eller periodicitet) för datapunkter.
+Skapa ett `Request` objekt med en serie punkter och `Granularity.Daily` för data punkternas [granularitet](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) (eller periodicitet).
 
 [!code-csharp[load the time series data file](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=GetSeriesFromFile)]
 
-### <a name="detect-anomalies-in-the-entire-data-set"></a>Identifiera avvikelser i hela datauppsättningen 
+## <a name="detect-anomalies-in-the-entire-data-set"></a>Identifiera avvikelser i hela data uppsättningen 
 
-Skapa en metod för att anropa klientens [EntireDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_EntireDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) metoden med den `Request` objekt och await svaret som en [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-dotnet-preview) objekt. Om tidsserien innehåller avvikelser, gå igenom svaret [IsAnomaly](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse.isanomaly?view=azure-dotnet-preview) värden och Skriv ut som är `true`. Dessa värden motsvarar index för avvikande datapunkter, om några.
+Skapa en metod för att anropa klientens [EntireDetectAsync ()-](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_EntireDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) Metod med `Request` objektet och väntar svaret som ett [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-dotnet-preview) -objekt. Om tids serien innehåller avvikelser itererar du genom svarets [IsAnomaly](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse.isanomaly?view=azure-dotnet-preview) -värden och skriver ut alla `true`. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
 
 [!code-csharp[EntireDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=entireDatasetExample)]
 
-### <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelser status för senaste datapunkt
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelse statusen för den senaste data punkten
 
-Skapa en metod för att anropa klientens [LastDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) metoden med den `Request` objekt och await svaret som en [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-dotnet-preview) objekt. Kontrollera svaret [IsAnomaly](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly?view=azure-dotnet-preview) attribut för att avgöra om den senaste datapunkten skickas var avvikelser eller inte. 
+Skapa en metod för att anropa klientens [LastDetectAsync ()-](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) Metod med `Request` objektet och väntar svaret som ett [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-dotnet-preview) -objekt. Kontrol lera svarets [IsAnomaly](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly?view=azure-dotnet-preview) -attribut för att avgöra om den senaste data punkten som skickats var en avvikelse eller inte. 
 
 [!code-csharp[LastDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=latestPointExample)]
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Köra programmet med dotnet `run` från programkatalogen.
+Kör programmet med kommandot dotNet `run` från program katalogen.
 
 ```dotnet
 dotnet run
@@ -151,12 +145,12 @@ dotnet run
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Ta bort resursgruppen raderas även andra resurser som är associerade med resursgruppen.
+Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är associerade med resurs gruppen.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-Du kan också köra följande cloud shell-kommando att ta bort resursgruppen och dess kopplade resurser. Det kan ta några minuter att slutföra. 
+Du kan också köra följande Cloud Shell-kommando för att ta bort resurs gruppen och dess associerade resurser. Det kan ta några minuter att slutföra. 
 
 ```azurecli-interactive
 az group delete --name example-anomaly-detector-resource-group
@@ -165,8 +159,8 @@ az group delete --name example-anomaly-detector-resource-group
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Avvikelseidentifiering med Azure Databricks för direktuppspelning](../tutorials/anomaly-detection-streaming-databricks.md)
+>[Strömma avvikelse identifiering med Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
 
-* Vad är den [Avvikelseidentifiering detektor API?](../overview.md)
-* [Bästa praxis](../concepts/anomaly-detection-best-practices.md) när du använder API: T för Avvikelseidentifiering detektor.
+* Vad är [API: t för avvikelse detektor?](../overview.md)
+* [Metod tips](../concepts/anomaly-detection-best-practices.md) när du använder API: t för avvikelse identifiering.
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).

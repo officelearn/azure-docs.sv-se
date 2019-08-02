@@ -1,6 +1,6 @@
 ---
-title: Azure API Management-principuttryck | Microsoft Docs
-description: Läs mer om principuttryck i Azure API Management.
+title: Princip uttryck för Azure-API Management | Microsoft Docs
+description: Lär dig mer om princip uttryck i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 22be5509a93d0713b8113ba17debfda3cf576006
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 9a42028891f0a8677127221c8ed4cff73a22103a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508958"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498538"
 ---
-# <a name="api-management-policy-expressions"></a>Principuttryck för API Management
-Den här artikeln beskriver principuttryck syntaxen är C# 7. Varje uttryck har åtkomst till den angivna implicit [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och tillåtet [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.
+# <a name="api-management-policy-expressions"></a>API Management princip uttryck
+I den här artikeln beskrivs syntaxen C# för princip uttryck 7. Varje uttryck har åtkomst till den implicit tillhandahållna [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och en [](api-management-policy-expressions.md#CLRTypes) tillåten delmängd av .NET Framework typer.
 
 Mer information:
 
-- Se hur du anger kontextinformation till serverdelstjänsten. Använd den [ange parametern för frågesträngen](api-management-transformation-policies.md#SetQueryStringParameter) och [ange HTTP-huvud](api-management-transformation-policies.md#SetHTTPheader) principer anger den här informationen.
-- Se hur du använder den [verifiera JWT](api-management-access-restriction-policies.md#ValidateJWT) principen för att förauktorisera åtkomst till åtgärder baserat på tokenanspråken.
-- Se hur du använder en [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) spåra för att se hur principer utvärderas och resultatet av dessa utvärderingar.
-- Se hur du använder uttryck med den [kom från cachen](api-management-caching-policies.md#GetFromCache) och [Store till cache](api-management-caching-policies.md#StoreToCache) principer för att konfigurera cachelagring av svar i API Management. Ange hur länge som matchar svar cachelagring av backend-tjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv.
-- Se hur du utför innehållsfiltrering. Ta bort dataelement från svaret från en serverdel med hjälp av den [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) och [ange brödtext](api-management-transformation-policies.md#SetBody) principer.
-- För att ladda ned principrapporter den [api--samples/hanteringsprinciper](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub-lagringsplatsen.
+- Se hur du anger Sammanhangs information till Server dels tjänsten. Använd [parametern ange frågesträng](api-management-transformation-policies.md#SetQueryStringParameter) och ange principer för [http-huvud](api-management-transformation-policies.md#SetHTTPheader) för att ange den här informationen.
+- Se hur du använder [Verifiera JWT](api-management-access-restriction-policies.md#ValidateJWT) -principen för att förauktorisera åtkomsten till åtgärder baserat på token-anspråk.
+- Se hur du använder en [API-kontroll](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) spårning för att se hur principer utvärderas och resultatet av dessa utvärderingar.
+- Se hur du använder uttryck med [Hämta från cache](api-management-caching-policies.md#GetFromCache) och [lagra i cache](api-management-caching-policies.md#StoreToCache) -principer för att konfigurera API Management cachelagring av svar. Ange en varaktighet som motsvarar cachelagring av svar på backend-tjänsten enligt vad som anges i den säkerhetskopierade tjänstens `Cache-Control` direktiv.
+- Se hur du utför innehålls filtrering. Ta bort data element från det svar som tagits emot från Server delen med hjälp av [kontroll flödet](api-management-advanced-policies.md#choose) och [Ange Body](api-management-transformation-policies.md#SetBody) -principer.
+- Information om hur du hämtar princip instruktionerna finns i [API-Management-samples/policys](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub lagrings platsen.
 
 
-## <a name="Syntax"></a> Syntax
-Enkel uttryck är inom `@(expression)`, där `expression` är en korrekt formaterad C# uttrycksinstruktion.
+## <a name="Syntax"></a>Uttryck
+Uttryck för enstaka uttryck är inneslutna i `@(expression)`, där `expression` är en välformulerad C# uttryck-instruktion.
 
-Flera uttryck är inom `@{expression}`. Alla kodsökvägar inom flera uttryck måste sluta med en `return` instruktionen.
+Uttryck för flera instruktioner är inneslutna i `@{expression}`. Alla kod Sök vägar i uttryck med flera uttryck måste sluta med `return` en instruktion.
 
-## <a name="PolicyExpressionsExamples"></a> Exempel
+## <a name="PolicyExpressionsExamples"></a>Fler
 
 ```
 @(true)
@@ -65,16 +65,16 @@ Flera uttryck är inom `@{expression}`. Alla kodsökvägar inom flera uttryck m�
 }
 ```
 
-## <a name="PolicyExpressionsUsage"></a>Användning
-Uttryck kan användas som attributvärden eller textvärden i alla API Management [principer](api-management-policies.md) (såvida inte principreferens anger något annat).
+## <a name="PolicyExpressionsUsage"></a>Användningsvyn
+Uttryck kan användas som attributvärden eller text värden i API Management [principer](api-management-policies.md) (om inte princip referensen anger något annat).
 
 > [!IMPORTANT]
-> När du använder principuttryck finns endast begränsad kontroll av principuttryck när principen har definierats. Uttryck utförs av gateway vid körning, eventuella undantag som genereras av principen uttryck resulterar i ett körningsfel.
+> När du använder princip uttryck finns det bara en begränsad verifiering av princip uttrycken när principen definieras. Uttrycken körs av gatewayen vid körningen. eventuella undantag som genereras av princip uttryck resulterar i ett körnings fel.
 
-## <a name="CLRTypes"></a> .NET framework-typer tillåts i principuttryck
-I följande tabell visas de .NET Framework-typerna och deras medlemmar som tillåts i principuttryck.
+## <a name="CLRTypes"></a>.NET Framework typer som tillåts i princip uttryck
+I följande tabell visas de .NET Framework typer och medlemmar som tillåts i princip uttryck.
 
-|Type|Stöds medlemmar|
+|type|Medlemmar som stöds|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Alla|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -88,7 +88,7 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |Newtonsoft.Json.Linq.JToken|Alla|
 |Newtonsoft.Json.Linq.JTokenType|Alla|
 |Newtonsoft.Json.Linq.JValue|Alla|
-|System.Array|Alla|
+|System. array|Alla|
 |System.BitConverter|Alla|
 |System.Boolean|Alla|
 |System.Byte|Alla|
@@ -108,13 +108,13 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |System.Collections.Generic.Queue\<T>|Alla|
 |System.Collections.Generic.Stack\<T>|Alla|
 |System.Convert|Alla|
-|System.DateTime|(Konstruktor), lägger till, AddDays AddHours, AddMilliseconds, AddMinutes, AddMonths, Lägg_till_sekunder, AddTicks, AddYears, datum, dag, DayOfWeek, DayOfYear, DaysInMonth, timme, IsDaylightSavingTime, IsLeapYear, MaxValue, millisekunder, minut, MinValue, månad, nu , Parsa, subtrahera andra Ticken, TimeOfDay, idag, ToString, UtcNow, år|
+|System.DateTime|(Konstruktor), Lägg till, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, date, Day, dayofweek, DayOfYear, DaysInMonth, timme, IsDaylightSavingTime, IsLeapYear, MaxValue, millisekund, minut, MinValue, månad, nu , Parsa, andra, subtrahera, Tick, TimeOfDay, idag, ToString, UtcNow, år|
 |System.DateTimeKind|UTC|
 |System.DateTimeOffset|Alla|
 |System.Decimal|Alla|
 |System.Double|Alla|
 |System.Exception|Alla|
-|System.Guid|Alla|
+|System. GUID|Alla|
 |System.Int16|Alla|
 |System.Int32|Alla|
 |System.Int64|Alla|
@@ -127,7 +127,7 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |System.Nullable|Alla|
 |System.Random|Alla|
 |System.SByte|Alla|
-|System.Security.Cryptography.AsymmetricAlgorithm|Alla|
+|System. Security. Cryptography. AsymmetricAlgorithm|Alla|
 |System.Security.Cryptography.CipherMode|Alla|
 |System.Security.Cryptography.HashAlgorithm|Alla|
 |System.Security.Cryptography.HashAlgorithmName|Alla|
@@ -139,40 +139,40 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |System.Security.Cryptography.HMACSHA512|Alla|
 |System.Security.Cryptography.KeyedHashAlgorithm|Alla|
 |System.Security.Cryptography.MD5|Alla|
-|System.Security.Cryptography.Oid|Alla|
+|System. Security. Cryptography. OID|Alla|
 |System.Security.Cryptography.PaddingMode|Alla|
 |System.Security.Cryptography.RNGCryptoServiceProvider|Alla|
 |System.Security.Cryptography.RSA|Alla|
 |System.Security.Cryptography.RSAEncryptionPadding|Alla|
 |System.Security.Cryptography.RSASignaturePadding|Alla|
 |System.Security.Cryptography.SHA1|Alla|
-|System.Security.Cryptography.SHA1Managed|Alla|
+|System. Security. Cryptography. SHA1Managed|Alla|
 |System.Security.Cryptography.SHA256|Alla|
 |System.Security.Cryptography.SHA256Managed|Alla|
 |System.Security.Cryptography.SHA384|Alla|
 |System.Security.Cryptography.SHA384Managed|Alla|
 |System.Security.Cryptography.SHA512|Alla|
 |System.Security.Cryptography.SHA512Managed|Alla|
-|System.Security.Cryptography.SymmetricAlgorithm|Alla|
+|System. Security. Cryptography. SymmetricAlgorithm|Alla|
 |System.Security.Cryptography.X509Certificates.PublicKey|Alla|
-|System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Alla|
+|System. Security. Cryptography. X509Certificates. RSACertificateExtensions|Alla|
 |System.Security.Cryptography.X509Certificates.X500DistinguishedName|Namn|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Alla|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Alla|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Alla|
 |System.Security.Cryptography.X509Certificates.X509NameType|Alla|
 |System.Single|Alla|
-|System.String|Alla|
+|System. String|Alla|
 |System.StringComparer|Alla|
 |System.StringComparison|Alla|
 |System.StringSplitOptions|Alla|
 |System.Text.Encoding|Alla|
 |System.Text.RegularExpressions.Capture|Index, längd, värde|
-|System.Text.RegularExpressions.CaptureCollection|Antal objekt|
-|System.Text.RegularExpressions.Group|Insamlingar, lyckades|
-|System.Text.RegularExpressions.GroupCollection|Antal objekt|
+|System.Text.RegularExpressions.CaptureCollection|Antal, objekt|
+|System.Text.RegularExpressions.Group|Avbildningar, lyckade|
+|System.Text.RegularExpressions.GroupCollection|Antal, objekt|
 |System.Text.RegularExpressions.Match|Tom, grupper, resultat|
-|System.Text.RegularExpressions.Regex|(Constructor), IsMatch, Match, Matches, Replace, Unescape, Split|
+|System.Text.RegularExpressions.Regex|(Konstruktor), IsMatch, match, matchar, Ersätt, avbrott, dela|
 |System.Text.RegularExpressions.RegexOptions|Alla|
 |System.Text.StringBuilder|Alla|
 |System.TimeSpan|Alla|
@@ -192,7 +192,7 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |System.Xml.Linq.XComment|Alla|
 |System.Xml.Linq.XContainer|Alla|
 |System.Xml.Linq.XDeclaration|Alla|
-|System.Xml.Linq.XDocument|Alla, utom: Laddning|
+|System.Xml.Linq.XDocument|Alla, förutom: Laddning|
 |System.Xml.Linq.XDocumentType|Alla|
 |System.Xml.Linq.XElement|Alla|
 |System.Xml.Linq.XName|Alla|
@@ -205,52 +205,52 @@ I följande tabell visas de .NET Framework-typerna och deras medlemmar som till�
 |System.Xml.Linq.XText|Alla|
 |System.Xml.XmlNodeType|Alla|
 
-## <a name="ContextVariables"></a> Sammanhangsvariabel
-En variabel med namnet `context` finns implicit i varje princip [uttryck](api-management-policy-expressions.md#Syntax). Medlemmarna innehåller information som är relevanta för den `\request`. Alla de `context` medlemmar är skrivskyddade.
+## <a name="ContextVariables"></a>Sammanhangs variabel
+En variabel med `context` namnet är implicit tillgänglig i varje princip [uttryck](api-management-policy-expressions.md#Syntax). Dess medlemmar tillhandahåller information som är `\request`relevant för. `context` Alla medlemmar är skrivskyddade.
 
-|Sammanhangsvariabel|Tillåtna metoder, egenskaper och parametervärden|
+|Sammanhangs variabel|Tillåtna metoder, egenskaper och parameter värden|
 |----------------------|-------------------------------------------------------|
-|context|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribution](#ref-context-deployment)<br /><br /> Förfluten tid: TimeSpan - tidsintervallet mellan värdet för tidsstämpeln och aktuell tid<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Åtgärd](#ref-context-operation)<br /><br /> [Produkten](#ref-context-product)<br /><br /> [Förfrågan](#ref-context-request)<br /><br /> RequestId: GUID - identifierare för unika begäran<br /><br /> [Svar](#ref-context-response)<br /><br /> [Prenumeration](#ref-context-subscription)<br /><br /> Timestamp: DateTime - tidpunkt när en förfrågan togs emot<br /><br /> Spårning: bool - anger om spårning har aktiverats eller inaktiverats <br /><br /> [Användaren](#ref-context-user)<br /><br /> [Variabler](#ref-context-variables): IReadOnlyDictionary < string, object ><br /><br /> Annullera Trace(message: string)|
+|context|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribution](#ref-context-deployment)<br /><br /> Förfluten Intervall för tidsintervall mellan värdet för tidsstämpel och aktuell tid<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Åtgärd](#ref-context-operation)<br /><br /> [Momsproduktbokföringsmallar](#ref-context-product)<br /><br /> [Förfrågan](#ref-context-request)<br /><br /> RequestId GUID – unik begärande-ID<br /><br /> [Svar](#ref-context-response)<br /><br /> [Prenumeration](#ref-context-subscription)<br /><br /> Tidsstämpel: DateTime-tidpunkt då begäran togs emot<br /><br /> Spårning: bool-anger om spårning är aktiverat eller inaktiverat <br /><br /> [Användarvänlig](#ref-context-user)<br /><br /> [Variabler](#ref-context-variables): IReadOnlyDictionary < sträng, objekt ><br /><br /> void-spårning (meddelande: sträng)|
 |<a id="ref-context-api"></a>context.Api|ID: sträng<br /><br /> IsCurrentRevision: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: sträng |
-|<a id="ref-context-deployment"></a>context.Deployment|Region: sträng<br /><br /> Tjänstnamn: sträng<br /><br /> Certifikat: IReadOnlyDictionary<string, X509Certificate2>|
-|<a id="ref-context-lasterror"></a>context.LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfång: sträng<br /><br /> Avsnittet: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> Mer information om kontext. LastError, se [felhantering](api-management-error-handling-policies.md).|
-|<a id="ref-context-operation"></a>context.Operation|ID: sträng<br /><br /> Metod: sträng<br /><br /> Namn: sträng<br /><br /> UrlTemplate: string|
-|<a id="ref-context-product"></a>context.Product|API: er: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupper: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: enum ProductState {NotPublished, publicerade}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody) eller `null` om begäran inte har en text.<br /><br /> Certifikat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Rubriker](#ref-context-request-headers): IReadOnlyDictionary < string, string [] ><br /><br /> IP-adress: sträng<br /><br /> MatchedParameters: IReadOnlyDictionary < sträng, sträng ><br /><br /> Metod: sträng<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
-|<a id="ref-context-request-headers"></a>strängkontext. Request.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|Huvudnamn: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar huvudvärden för CSV-begäran eller `defaultValue` om sidhuvudet inte hittas.|
-|<a id="ref-context-response"></a>context.Response|Body: [IMessageBody](#ref-imessagebody)<br /><br /> [Rubriker](#ref-context-response-headers): IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: sträng|
-|<a id="ref-context-response-headers"></a>strängkontext. Response.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|Huvudnamn: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar CSV-svar värden i huvudet eller `defaultValue` om sidhuvudet inte hittas.|
-|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> Sekundär nyckel: sträng<br /><br /> Startdatum: DateTime?|
-|<a id="ref-context-user"></a>context.User|E-post: sträng<br /><br /> Förnamn: sträng<br /><br /> Grupper: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Identiteter: IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> Efternamn: sträng<br /><br /> Obs: sträng<br /><br /> RegistrationDate: DateTime|
-|<a id="ref-iapi"></a>IApi|ID: sträng<br /><br /> Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Protokoll: IEnumerable < sträng\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
+|<a id="ref-context-deployment"></a>context.Deployment|Region: sträng<br /><br /> ServiceName: sträng<br /><br /> Intyg IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-lasterror"></a>context.LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfattning: sträng<br /><br /> Avsnitt: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> För mer information om kontext. LastError, se [fel hantering](api-management-error-handling-policies.md).|
+|<a id="ref-context-operation"></a>Edit. Reparation|ID: sträng<br /><br /> Metod: sträng<br /><br /> Namn: sträng<br /><br /> UrlTemplate: sträng|
+|<a id="ref-context-product"></a>context.Product|N IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupper: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: Enum ProductState {NotPublished, publicerat}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>context.Request|Body: [IMessageBody](#ref-imessagebody) eller `null` om begäran saknar brödtext.<br /><br /> Certifikat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Rubriker](#ref-context-request-headers): IReadOnlyDictionary < sträng, string [] ><br /><br /> IP-adress: sträng<br /><br /> MatchedParameters: IReadOnlyDictionary < sträng, sträng ><br /><br /> Metod: sträng<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>sträng kontext. Request. headers. GetValueOrDefault (huvud: String, defaultValue: sträng)|Huvud: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsade begär ande huvud värden eller `defaultValue` om huvudet inte hittas.|
+|<a id="ref-context-response"></a>Edit. Svarade|Body: [IMessageBody](#ref-imessagebody)<br /><br /> [Rubriker](#ref-context-response-headers): IReadOnlyDictionary < sträng, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: sträng|
+|<a id="ref-context-response-headers"></a>sträng kontext. Response. headers. GetValueOrDefault (huvud: String, defaultValue: sträng)|Huvud: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsade värden för svars huvud eller `defaultValue` om huvudet inte hittas.|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> SecondaryKey: sträng<br /><br /> /SD DateTime?|
+|<a id="ref-context-user"></a>Edit. Användarvänlig|E-post: sträng<br /><br /> FirstName: sträng<br /><br /> Grupper: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: sträng<br /><br /> Identiteter IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: sträng<br /><br /> Obs! sträng<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-iapi"></a>IApi|ID: sträng<br /><br /> Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Protokoll IEnumerable < sträng\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|ID: sträng<br /><br /> Namn: sträng|
-|<a id="ref-imessagebody"></a>IMessageBody|Som < T\>(preserveContent: bool = false): Där T: sträng JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Den `context.Request.Body.As<T>` och `context.Response.Body.As<T>` metoderna används för att läsa en begäran och svaret meddelandetexten i en viss typ av `T`. Som standard metoden använder den ursprungliga brödtext meddelandeströmmen och återger den otillgänglig när den returnerar. Om du vill undvika det genom att använda metoden som fungerar på en kopia av brödtextströmmen, ange den `preserveContent` parameter `true`. Gå [här](api-management-transformation-policies.md#SetBody) att se ett exempel.|
-|<a id="ref-iurl"></a>IUrl|Värden: sträng<br /><br /> Sökväg: sträng<br /><br /> Port: int<br /><br /> [Fråga](#ref-iurl-query): IReadOnlyDictionary < string, string [] ><br /><br /> QueryString: sträng<br /><br /> Schema: sträng|
-|<a id="ref-iuseridentity"></a>IUserIdentity|ID: sträng<br /><br /> Providern: sträng|
+|<a id="ref-imessagebody"></a>IMessageBody|Som < T\>(preserveContent: bool = false): Där T: String, byte [], JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Metoderna `context.Request.Body.As<T>` `T`och `context.Response.Body.As<T>` används för att läsa en begäran och svars meddelande texter i en angiven typ. Som standard använder metoden den ursprungliga meddelande text strömmen och återges den otillgänglig när den har returnerats. För att undvika att metoden fungerar på en kopia av bröd text strömmen anger `preserveContent` du parametern till. `true` Gå [hit](api-management-transformation-policies.md#SetBody) om du vill se ett exempel.|
+|<a id="ref-iurl"></a>IUrl|Värd: sträng<br /><br /> Sökväg: sträng<br /><br /> Port: int<br /><br /> [Fråga](#ref-iurl-query): IReadOnlyDictionary < sträng, string [] ><br /><br /> QueryString: sträng<br /><br /> Schema: sträng|
+|<a id="ref-iuseridentity"></a>IUserIdentity|ID: sträng<br /><br /> Provider: sträng|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Rubrik: sträng<br /><br /> Fråga: sträng|
-|<a id="ref-iurl-query"></a>sträng IUrl.Query.GetValueOrDefault (queryParameterName: sträng, defaultValue: sträng)|queryParameterName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsad frågeparametervärden eller `defaultValue` om parametern inte hittas.|
-|<a id="ref-context-variables"></a>T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> Standardvärde: T<br /><br /> Returnerar värdet på variabeln typkonverteras till typen `T` eller `defaultValue` om variabeln inte hittas.<br /><br /> Den här metoden genereras ett undantag om den angivna typen inte matchar den faktiska typen av returnerade variabeln.|
-|BasicAuthCredentials AsBasic(input: this string)|inkommande: sträng<br /><br /> Om parametern innehåller ett giltigt grundläggande autentisering för HTTP-begäran auktoriseringsrubrikvärde, metoden returnerar ett objekt av typen `BasicAuthCredentials`; annars returnerar-metoden null.|
-|bool TryParseBasic (indata: den här strängen, resultat: ut BasicAuthCredentials)|inkommande: sträng<br /><br /> resultat: ut BasicAuthCredentials<br /><br /> Om parametern innehåller ett giltigt grundläggande HTTP-autentisering auktoriseringsvärde i rubriken returnerar-metoden `true` och resultatet parametern innehåller ett värde av typen `BasicAuthCredentials`; annars returnerar-metoden `false`.|
-|BasicAuthCredentials|Lösenord: sträng<br /><br /> Användar-ID: sträng|
-|Jwt AsJwt(input: this string)|inkommande: sträng<br /><br /> Om parametern innehåller ett giltigt JWT-token värde, metoden returnerar ett objekt av typen `Jwt`; annars returnerar-metoden `null`.|
-|bool TryParseJwt (indata: den här strängen, resultat: ut Jwt)|inkommande: sträng<br /><br /> resultat: ut Jwt<br /><br /> Om parametern indata innehåller ett giltigt JWT-token värde, returnerar-metoden `true` och resultatet parametern innehåller ett värde av typen `Jwt`; annars returnerar-metoden `false`.|
-|Jwt|Algoritm: sträng<br /><br /> Målgrupp: IEnumerable < sträng\><br /><br /> Anspråk: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: sträng<br /><br /> Utfärdare: sträng<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Ämne: sträng<br /><br /> Typ: sträng|
-|sträng Jwt.Claims.GetValueOrDefault (claimName: sträng, defaultValue: sträng)|claimName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsad anspråksvärden eller `defaultValue` om sidhuvudet inte hittas.|
-|byte [] kryptera (indata: den här byte [], algoritm: sträng, nyckel: byte [], iv:byte[])|indata - klartext krypteras<br /><br />algoritm - namnet på en symmetrisk kryptografisk algoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar krypterad klartext.|
-|byte [] kryptera (indata: den här byte [], algoritm: System.Security.Cryptography.SymmetricAlgorithm)|indata - klartext krypteras<br /><br />algoritm - krypteringsalgoritm<br /><br />Returnerar krypterad klartext.|
-|byte [] kryptera (indata: den här byte [], algoritm: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|indata - klartext krypteras<br /><br />algoritm - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar krypterad klartext.|
-|byte [] dekryptera (indata: den här byte [], algoritm: sträng, nyckel: byte [], iv:byte[])|indata - text som kod ska dekrypteras<br /><br />algoritm - namnet på en symmetrisk kryptografisk algoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar klartext.|
-|byte [] dekryptera (indata: den här byte [], algoritm: System.Security.Cryptography.SymmetricAlgorithm)|indata - text som kod ska dekrypteras<br /><br />algoritm - krypteringsalgoritm<br /><br />Returnerar klartext.|
-|byte [] dekryptera (indata: den här byte [], algoritm: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|indata - text som kod ska dekrypteras<br /><br />algoritm - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar klartext.|
-|bool VerifyNoRevocation (indata: den här System.Security.Cryptography.X509Certificates.X509Certificate2)|Utför en verifiering av X.509-certifikatkedjan utan att kontrollera certifikatets återkallningsstatus.<br /><br />indata - certifikatobjekt<br /><br />Returnerar `true` om verifieringen lyckas; `false` om verifieringen misslyckas.|
+|<a id="ref-iurl-query"></a>sträng IUrl. Query. GetValueOrDefault (queryParameterName: sträng, defaultValue: sträng)|queryParameterName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsade värden för Frågeparametern eller `defaultValue` om parametern inte hittas.|
+|<a id="ref-context-variables"></a>T-kontext. Variabler. GetValueOrDefault < T\>(variableName: String, DefaultValue: T)|variableName: sträng<br /><br /> Standar t<br /><br /> Returnerar variabeln värde Cast till `T` typ `defaultValue` eller om variabeln inte hittas.<br /><br /> Den här metoden genererar ett undantag om den angivna typen inte matchar den faktiska typen för den returnerade variabeln.|
+|BasicAuthCredentials (indatamängd: den här strängen)|inmatade: sträng<br /><br /> Om Indataparametern innehåller ett giltigt värde för http Basic Authentication Request-huvud, returnerar metoden ett objekt av typen `BasicAuthCredentials`, annars returnerar metoden null.|
+|bool TryParseBasic (inmatad: den här strängen, resultat: BasicAuthCredentials)|inmatade: sträng<br /><br /> resultat: out-BasicAuthCredentials<br /><br /> Om Indataparametern innehåller ett giltigt auktoriseringsvärde för http Basic-autentisering i begär ande huvudet returnerar `true` metoden och resultat parametern innehåller ett värde av typen `BasicAuthCredentials`, annars returnerar `false`metoden.|
+|BasicAuthCredentials|Lösen ord: sträng<br /><br /> UserId: sträng|
+|JWT-AsJwt (inmatade: den här strängen)|inmatade: sträng<br /><br /> Om Indataparametern innehåller ett giltigt JWT-token returnerar metoden ett objekt av typen `Jwt`, annars returnerar `null`metoden.|
+|bool TryParseJwt (inmatad: den här strängen, resultat: out-of-JWT)|inmatade: sträng<br /><br /> resultat: out-of-JWT<br /><br /> Om Indataparametern innehåller ett giltigt JWT-token returnerar `true` metoden och resultat parametern innehåller ett värde av typen `Jwt`, annars returnerar `false`metoden.|
+|JWT|Algoritm: sträng<br /><br /> Filmen IEnumerable < sträng\><br /><br /> Gällande IReadOnlyDictionary < sträng, string [] ><br /><br /> ExpirationTime DateTime?<br /><br /> ID: sträng<br /><br /> Utfärdare: sträng<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore DateTime?<br /><br /> Ämne: sträng<br /><br /> Typ: sträng|
+|sträng JWT. Claims. GetValueOrDefault (claimName: String, defaultValue: sträng)|claimName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsade anspråks värden eller `defaultValue` om huvudet inte hittas.|
+|byte [] kryptera (inmatad: denna byte [], alg: sträng, nyckel: byte [], IV: byte [])|in-klartext som ska krypteras<br /><br />alg – namnet på en symmetrisk krypteringsalgoritm<br /><br />nyckel krypterings nyckel<br /><br />IV – initierings vektor<br /><br />Returnerar krypterad klartext.|
+|byte [] kryptera (inmatad: denna byte [], alg: System. Security. Cryptography. SymmetricAlgorithm)|in-klartext som ska krypteras<br /><br />alg-krypteringsalgoritm<br /><br />Returnerar krypterad klartext.|
+|byte [] kryptera (inmatad: denna byte [], alg: System. Security. Cryptography. SymmetricAlgorithm, Key: byte [], IV: byte [])|in-klartext som ska krypteras<br /><br />alg-krypteringsalgoritm<br /><br />nyckel krypterings nyckel<br /><br />IV – initierings vektor<br /><br />Returnerar krypterad klartext.|
+|byte [] dekryptera (ininformation: denna byte [], alg: sträng, nyckel: byte [], IV: byte [])|chiffer text som ska dekrypteras<br /><br />alg – namnet på en symmetrisk krypteringsalgoritm<br /><br />nyckel krypterings nyckel<br /><br />IV – initierings vektor<br /><br />Returnerar oformaterad text.|
+|byte [] dekryptera (ininformation: denna byte [], alg: System. Security. Cryptography. SymmetricAlgorithm)|chiffer text som ska dekrypteras<br /><br />alg-krypteringsalgoritm<br /><br />Returnerar oformaterad text.|
+|byte [] dekryptera (ininformation: denna byte [], alg: System. Security. Cryptography. SymmetricAlgorithm, Key: byte [], IV: byte [])|chiffer text som ska dekrypteras<br /><br />alg-krypteringsalgoritm<br /><br />nyckel krypterings nyckel<br /><br />IV – initierings vektor<br /><br />Returnerar oformaterad text.|
+|bool-VerifyNoRevocation (inmatat: system. Security. Cryptography. X509Certificates. X509Certificate2)|Utför en X. 509-kedje verifiering utan att kontrol lera status för återkallning av certifikat.<br /><br />objekt för ingående certifikat<br /><br />Returnerar `true` om verifieringen lyckas. `false` om valideringen Miss lyckas.|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Arbeta med principer, Läs mer:
+Mer information om hur du arbetar med principer finns i:
 
 + [Principer i API Management](api-management-howto-policies.md)
 + [Transformera API: er](transform-api.md)
-+ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
-+ [Princip-exempel](policy-samples.md)
++ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip exempel](policy-samples.md)

@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: MT
+ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204940"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667172"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
-Appinställningar i en funktionsapp innehåller globala konfigurationsalternativ som påverkar alla funktioner för den funktionsappen. När du kör lokalt, de här inställningarna används som lokala [miljövariabler](functions-run-local.md#local-settings-file). Den här artikeln innehåller appinställningar som är tillgängliga i funktionsappar.
+Appinställningar i en funktionsapp innehåller globala konfigurationsalternativ som påverkar alla funktioner för den funktionsappen. När du kör lokalt öppnas de här inställningarna som lokala miljövariabler [](functions-run-local.md#local-settings-file). Den här artikeln innehåller appinställningar som är tillgängliga i funktionsappar.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -35,7 +35,7 @@ Klicka i instrumenteringsnyckeln Application Insights om du använder Applicatio
 
 ## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-I version konfigurerar 2.x av Functions-körning Apps beteende baserat på runtime-miljö. Det här värdet är [läsa under initieringen](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Du kan ange `AZURE_FUNCTIONS_ENVIRONMENT` till valfritt värde, men [tre värden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) stöds: [Utveckling](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [mellanlagring](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), och [produktion](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). När `AZURE_FUNCTIONS_ENVIRONMENT` inte värde har angetts används som standard `Production`. Den här inställningen bör användas i stället för `ASPNETCORE_ENVIRONMENT` att ställa in för körningsmiljön. 
+I version 2. x av Functions-körningen konfigurerar du appens beteende baserat på körnings miljön. Det här värdet [läses vid initiering](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Du kan ange `AZURE_FUNCTIONS_ENVIRONMENT` valfritt värde, men [tre värden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) stöds: [Utveckling](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [mellanlagring](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)och [produktion](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). När `AZURE_FUNCTIONS_ENVIRONMENT` inte har angetts används `Development` standardvärdet i en lokal miljö `Production` och på Azure. Den här inställningen ska användas i stället `ASPNETCORE_ENVIRONMENT` för att ställa in körnings miljön. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -102,7 +102,7 @@ Sökväg till kompilatorn används för TypeScript. Kan du åsidosätta standard
 
 ## <a name="functionappeditmode"></a>FUNKTIONEN\_APP\_REDIGERA\_LÄGE
 
-Avgör om redigering i Azure-portalen är aktiverad. Giltiga värden är ”readwrite” och ”skrivskyddad”.
+Avgör om redigering i Azure Portal är aktive rad. Giltiga värden är ”readwrite” och ”skrivskyddad”.
 
 |Nyckel|Exempelvärde|
 |---|------------|
@@ -118,7 +118,7 @@ Versionen av funktionskörningen ska användas i den här funktionsappen. Teckne
 
 ## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Den worker CLR att läsa in i funktionsappen.  Detta motsvarar det språk som används i ditt program (till exempel ”dotnet”). För funktioner på flera språk behöver du publicera dem till flera appar, var och en med ett motsvarande värde för worker-runtime.  Giltiga värden är `dotnet` (C#/F#), `node` (JavaScript/TypeScript) `java` (Java), `powershell` (PowerShell) och `python` (Python).
+Den worker CLR att läsa in i funktionsappen.  Detta motsvarar det språk som används i ditt program (till exempel ”dotnet”). För funktioner på flera språk behöver du publicera dem till flera appar, var och en med ett motsvarande värde för worker-runtime.  Giltiga värden är `dotnet` (C#/F#), `node` (Java Script/typescript) `java` , (Java) `powershell` , (PowerShell) och `python` (python).
 
 |Nyckel|Exempelvärde|
 |---|------------|
@@ -126,7 +126,7 @@ Den worker CLR att läsa in i funktionsappen.  Detta motsvarar det språk som an
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-För förbrukningsplaner. Anslutningssträng för lagringskonto där funktionskod och konfiguration lagras. Se [skapa en funktionsapp](functions-infrastructure-as-code.md#create-a-function-app).
+Endast för förbruknings & Premium-planer. Anslutningssträng för lagringskonto där funktionskod och konfiguration lagras. Se [skapa en funktionsapp](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Nyckel|Exempelvärde|
 |---|------------|
@@ -134,7 +134,7 @@ För förbrukningsplaner. Anslutningssträng för lagringskonto där funktionsko
 
 ## <a name="websitecontentshare"></a>WEBBPLATSEN\_CONTENTSHARE
 
-För förbrukningsplaner. Sökvägen till funktionskod och konfiguration. Använda med WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Standardvärdet är en unik sträng som börjar med funktionsappens namn. Se [skapa en funktionsapp](functions-infrastructure-as-code.md#create-a-function-app).
+Endast för förbruknings & Premium-planer. Sökvägen till funktionskod och konfiguration. Använda med WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Standardvärdet är en unik sträng som börjar med funktionsappens namn. Se [skapa en funktionsapp](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Nyckel|Exempelvärde|
 |---|------------|
@@ -175,7 +175,7 @@ Functions proxies kommer som standard använder en genväg för att skicka API-a
 
 |Nyckel|Värde|Beskrivning|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Anrop med en backend-url som pekar på en funktion i lokalt Funktionsappen inte längre kommer att skickas direkt till funktionen och i stället att skickas tillbaka till HTTP-klientdel för Funktionsappen|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Anrop med en server dels-URL som pekar på en funktion i den lokala Funktionsapp kommer inte längre att skickas direkt till funktionen och kommer i stället att dirigeras tillbaka till HTTP-frontend för Funktionsapp|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Detta är standardvärdet. Anrop med en backend-url som pekar på en funktion i lokalt Funktionsapp vidarebefordras direkt till funktionen|
 
 

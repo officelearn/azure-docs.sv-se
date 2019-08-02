@@ -3,17 +3,18 @@ title: Självstudie – Skapa ett geo-replikerat Docker-register i Azure
 description: Skapa ett Azure-containerregister, konfigurera geo-replikering, förbereda en Docker-avbildning och distribuera den till registret. Del ett av en serie i tre delar.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7aec257335e3380fa99669c1191ee89857ec975d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870463"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68309573"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Självstudie: Förbereda ett georeplikerat Azure Container Registry
 
@@ -99,7 +100,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 ## <a name="get-application-code"></a>Hämta programkod
 
-Exemplet i den här självstudien innehåller en liten webbapp som är skapad med [ASP.NET Core][aspnet-core]. Appen använder en HTML-sida som visar regionen som avbildningen distribuerades från av Azure Container Registry.
+Exemplet i den här självstudien innehåller en liten webbapp som är inbyggd i [ASP.NET Core][aspnet-core]. Appen använder en HTML-sida som visar regionen som avbildningen distribuerades från av Azure Container Registry.
 
 ![Självstudieappen visas i webbläsare][tut-app-01]
 
@@ -110,13 +111,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
-Om du inte har `git` installerat, kan du [hämta ZIP-arkivet][acr-helloworld-zip] direkt från GitHub.
+Om du inte har `git` installerat kan du [Hämta zip-arkivet][acr-helloworld-zip] direkt från GitHub.
 
 ## <a name="update-dockerfile"></a>Uppdatera Dockerfile
 
-Den Dockerfile som finns i exemplet visar hur containern är byggd. Den startar från en officiell [aspnetcore][dockerhub-aspnetcore]-avbildning, kopierar programfilerna till containern, installerar beroenden, kompilerar utdatan med den officiella [aspnetcore-build][dockerhub-aspnetcore-build]-avbildningen och skapar slutligen en optimerad aspnetcore-avbildning.
+Den Dockerfile som finns i exemplet visar hur containern är byggd. Den startar från en officiell [aspnetcore][dockerhub-aspnetcore]-avbildning, kopierar programfilerna till containern, installerar beroenden, kompilerar utdata med den officiella [aspnetcore-build][dockerhub-aspnetcore-build]-avbildningen och skapar slutligen en optimerad aspnetcore-avbildning.
 
-[Dockerfile][dockerfile] finns på `./AcrHelloworld/Dockerfile` i den klonade källan.
+[][dockerfile] Dockerfile`./AcrHelloworld/Dockerfile` finns på den klonade källan.
 
 ```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base

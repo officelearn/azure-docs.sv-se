@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric-program Metodtips för design | Microsoft Docs
-description: Metodtips för utveckling av Service Fabric-program.
+title: Metod tips för Azure Service Fabric program design | Microsoft Docs
+description: Metod tips för att utveckla Service Fabric-program.
 services: service-fabric
 documentationcenter: .net
 author: markfussell
@@ -13,83 +13,83 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2019
-ms.author: msfussell
-ms.openlocfilehash: 30d696337061ade6b79c7ec0e4c4de67651f0dad
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.author: mfussell
+ms.openlocfilehash: 06af1f4326e3f6a6dcb53c8710a126f43e2d2f6a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203446"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875103"
 ---
-# <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric-program Metodtips för design
+# <a name="azure-service-fabric-application-design-best-practices"></a>Metod tips för Azure Service Fabric program design
 
-Den här artikeln innehåller bästa praxis riktlinjer för att skapa program och tjänster på Azure Service Fabric.
+Den här artikeln innehåller metod tips för att skapa program och tjänster på Azure Service Fabric.
  
 ## <a name="get-familiar-with-service-fabric"></a>Bekanta dig med Service Fabric
-* Läs den [så att du vill lära dig om Service Fabric?](service-fabric-content-roadmap.md) artikeln.
-* Läs mer om [Service Fabric-Programscenarier](service-fabric-application-scenarios.md).
-* Förstå programming model valen genom att läsa [Service Fabric programming model översikt](service-fabric-choose-framework.md).
+* Läs [mer om Service Fabric?](service-fabric-content-roadmap.md) -artikeln.
+* Läs om [Service Fabric program scenarier](service-fabric-application-scenarios.md).
+* Förstå alternativen för programmerings modell genom att läsa [Översikt över Service Fabric programmerings modellen](service-fabric-choose-framework.md).
 
 
 
-## <a name="application-design-guidance"></a>Vägledning för design
-Bekanta dig med den [allmän arkitektur](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) av Service Fabric-program och deras [designöverväganden](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#design-considerations).
+## <a name="application-design-guidance"></a>Vägledning för program design
+Bekanta dig med den [allmänna arkitekturen](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) i Service Fabric program och deras [design överväganden](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#design-considerations).
 
-### <a name="choose-an-api-gateway"></a>Välj en API-gateway
-Använd en API-gateway-tjänst som kommunicerar med backend-tjänster som sedan kan skalas upp. De vanligaste API gateway tjänster som används är:
+### <a name="choose-an-api-gateway"></a>Välj en API-Gateway
+Använd en API Gateway-tjänst som kommunicerar med Server dels tjänster som sedan kan skalas ut. De vanligaste API Gateway-tjänsterna som används är:
 
-- [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), vilket är [integreras med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
-- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)med hjälp av den [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) att läsa från Event Hub-partitioner.
-- [Træfik omvänd proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)med hjälp av den [Azure Service Fabric-providern](https://docs.traefik.io/configuration/backends/servicefabric/).
+- [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), som är [integrerat med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
+- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure-Event Hubs](https://docs.microsoft.com/azure/event-hubs/), med hjälp av [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) för att läsa från Event Hub-partitioner.
+- [Træfik omvänd proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)med [Azure Service Fabric](https://docs.traefik.io/configuration/backends/servicefabric/)-providern.
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
 
    > [!NOTE] 
-   > Azure Application Gateway inte är direkt integrerat med Service Fabric. Azure API Management är vanligtvis den önskade val.
-- Din egen anpassade [ASP.NET Core](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore) web application gateway.
+   > Azure Application Gateway är inte direkt integrerad med Service Fabric. Azure API Management är vanligt vis det bästa valet.
+- Din egen anpassade [ASP.net Core](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore) Web Application Gateway.
 
-### <a name="stateless-services"></a>Tillståndslösa tjänster
-Vi rekommenderar att du alltid börjar genom att skapa tillståndslösa tjänster med hjälp av [Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) och lagrar tillstånd i en Azure database, Azure Cosmos DB eller Azure Storage. Externalized tillstånd är mer bekant metoden för de flesta utvecklare. Den här metoden kan du dra nytta av frågefunktioner i store.  
+### <a name="stateless-services"></a>Tillstånds lösa tjänster
+Vi rekommenderar att du alltid börjar med att skapa tillstånds lösa tjänster genom att använda [Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) och lagra tillstånd i en Azure-databas, Azure Cosmos DB eller Azure Storage. Externt läge är den mer välbekanta metoden för de flesta utvecklare. Med den här metoden kan du också dra nytta av fråge funktioner i butiken.  
 
-### <a name="when-to-use-stateful-services"></a>När du ska använda tillståndskänsliga tjänster
-Överväg att tillståndskänsliga tjänster när du har ett scenario för låg latens och vill behålla data nära beräkningarna. Några exempelscenarier omfattar digital tvilling IoT-enheter, spelstatus, sessionstillstånd för cachelagring av data från en databas och tidskrävande arbetsflöden för att spåra anrop till andra tjänster.
+### <a name="when-to-use-stateful-services"></a>När du ska använda tillstånds känsliga tjänster
+Överväg tillstånds känsliga tjänster när du har ett scenario för låg latens och måste hålla data nära beräkningen. Några exempel scenarier är IoT Digital-enheter, spel status, sessionstillstånd, cachelagring av data från en databas och långvariga arbets flöden som spårar anrop till andra tjänster.
 
-Besluta om tidsperiod för kvarhållning av data:
+Bestäm tids perioden för datakvarhållning:
 
-- **Cachelagrade data**. Använd cachelagring när svarstiden till externa datalager är ett problem. Använda en tillståndskänslig tjänst som din egen Datacachen eller överväger att använda den [öppen källkod SoCreate Service Fabric distribuerad Cache](https://github.com/SoCreate/service-fabric-distributed-cache). I det här scenariot behöver du inte bry sig om du förlorar alla data i cacheminnet.
-- **Tidsbundna data**. I det här scenariot som du behöver för att Stäng data för en viss tidsperiod för svarstid, men du har råd att förlora data i en *haveriberedskap*. Till exempel i många IoT-lösningar, data måste vara nära databearbetning, till exempel när medeltemperaturen under de senaste dagarna beräknas, men om dessa data förloras måste specifika datapunkter registreras är inte det viktigt. Även i det här scenariot du inte vanligtvis bryr dig om att säkerhetskopiera enskilda datapunkter. Du bara säkerhetskopiera beräknade genomsnittliga värden som skrivs med jämna mellanrum till extern lagring.  
-- **Långsiktiga data**. Tillförlitliga samlingar kan lagra dina data permanent. Men i det här fallet måste du [förbereda för katastrofåterställning](https://docs.microsoft.com/azure/service-fabric/service-fabric-disaster-recovery), inklusive [konfigurera principer för regelbunden säkerhetskopiering](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup) för dina kluster. Du konfigurerar i praktiken vad händer om klustret förstörs i en katastrof, där du behöver skapa ett nytt kluster och hur du distribuerar nya instanser av programmet och återställa från den senaste säkerhetskopian.
+- **Cachelagrade data**. Använd cachelagring när svars tid till externa butiker är ett problem. Använd en tillstånds känslig tjänst som din egen datacache eller Överväg att använda [SoCreate för öppen källkod Service Fabric distribuerat cacheminne](https://github.com/SoCreate/service-fabric-distributed-cache). I det här scenariot behöver du inte oroa dig om du förlorar alla data i cacheminnet.
+- **Tidsbegränsade data**. I det här scenariot måste du hålla data nära beräkning under en viss tids period, men du får råd att förlora data i en *katastrof*. I många IoT-lösningar måste till exempel data ligga nära beräkning, till exempel när genomsnitts temperaturen under de senaste dagarna beräknas, men om dessa data går förlorade är de data punkter som registreras inte viktiga. I det här scenariot är det också viktigt att du inte säkerhetskopierar de enskilda data punkterna. Du säkerhetskopierar bara beräknade medelvärden som regelbundet skrivs till extern lagring.  
+- **Långsiktiga data**. Tillförlitliga samlingar kan lagra dina data permanent. Men i det här fallet måste du [förbereda för haveri beredskap](https://docs.microsoft.com/azure/service-fabric/service-fabric-disaster-recovery), inklusive [Konfigurera principer för regelbunden säkerhets kopiering](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup) för klustren. I praktiken konfigurerar du vad som händer om klustret förstörs i en katastrof, där du skulle behöva skapa ett nytt kluster och hur du distribuerar nya program instanser och återställer från den senaste säkerhets kopian.
 
-Spara pengar och förbättra tillgängligheten:
-- Du kan minska kostnaderna genom att använda tillståndskänsliga tjänster eftersom du inte drar på dig åtkomst till data och kostnader för transaktioner från arkivet för fjärråtkomst och eftersom du inte behöver använda en annan tjänst, som Azure Cache för Redis.
-- Det är dyrt att använda tillståndskänsliga tjänster främst för lagring och inte för beräkning och det rekommenderas inte. Tänk på tillståndskänsliga tjänster som beräkning med billiga lokal lagring.
-- Du kan förbättra tillgängligheten till din tjänst genom att ta bort beroenden av andra tjänster. Hantera tillstånd med hög tillgänglighet i klustret isolerar du från andra service stilleståndstider eller problem med nätverkssvarstiden.
+Spara kostnader och förbättra tillgängligheten:
+- Du kan minska kostnaderna genom att använda tillstånds känsliga tjänster eftersom du inte debiteras kostnader för data åtkomst och transaktioner från fjärrarkivet, och eftersom du inte behöver använda någon annan tjänst, t. ex. Azure cache för Redis.
+- Att använda tillstånds känsliga tjänster främst för lagring och inte för beräkning är kostsamt, och vi rekommenderar inte det. Tänk på tillstånds känsliga tjänster som beräkning med billig lokal lagring.
+- Genom att ta bort beroenden för andra tjänster kan du förbättra tjänstens tillgänglighet. Genom att hantera tillstånd med HA i klustret isoleras du från andra avbrott i tjänsten eller svars tider.
 
-## <a name="how-to-work-with-reliable-services"></a>Hur du arbetar med Reliable Services
-Service Fabric Reliable Services kan du enkelt skapa tillståndslösa och tillståndskänsliga tjänster. Mer information finns i den [introduktion till Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
-- Respektera alltid den [annullering token](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) i den `RunAsync()` metod för tillståndslösa och tillståndskänsliga tjänster och `ChangeRole()` metod för tillståndskänsliga tjänster. Om du inte vet inte Service Fabric om din tjänst kan stängas. Mycket längre tid programmet uppgradera gånger kan exempelvis uppstå om du inte följer annullering-token.
--   Öppna och stänga [kommunikationslyssnarna](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) i tid, och följer annulleringstoken.
--   Aldrig blanda Synkronisera kod med async-kod. Till exempel inte använda `.GetAwaiter().GetResult()` i dina asynkrona anrop. Använda async *ända* via anropsstacken.
+## <a name="how-to-work-with-reliable-services"></a>Så här arbetar du med Reliable Services
+Med Service Fabric Reliable Services kan du enkelt skapa tillstånds lösa och tillstånds känsliga tjänster. Mer information finns i [Introduktion till Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
+- Följ alltid token för `RunAsync()` avbrott i metoden för tillstånds lösa och tillstånds känsliga `ChangeRole()` tjänster och metoden för tillstånds känsliga tjänster. [](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) Om du inte gör det vet Service Fabric inte om tjänsten kan stängas. Om du till exempel inte följer den token för avbrytande token kan mycket längre program uppgraderings tider uppstå.
+-   Öppna och Stäng [kommunikations lyssnare](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) i tid och följ de token för avbrutna.
+-   Blanda aldrig synkronisera kod med asynkron kod. Använd `.GetAwaiter().GetResult()` till exempel inte i dina asynkrona anrop. Använd asynkront *hela vägen* via anrops stacken.
 
-## <a name="how-to-work-with-reliable-actors"></a>Hur du arbetar med Reliable Actors
-Service Fabric Reliable Actors kan du enkelt skapa tillståndskänsliga, virtuell aktörer. Mer information finns i den [introduktion till tillförlitliga aktörer](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
+## <a name="how-to-work-with-reliable-actors"></a>Så här arbetar du med Reliable Actors
+Med Service Fabric Reliable Actors kan du enkelt skapa tillstånds känsliga, virtuella aktörer. Mer information finns i [Introduktion till Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
 
-- Allvarligt Överväg att använda pub/sub-meddelandetjänst för kommunikation mellan dina aktörer för att skala ditt program. Verktyg som ger den här tjänsten har den [öppen källkod SoCreate Service Fabric Pub/Sub](https://service-fabric-pub-sub.socreate.it/) och [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
-- Kontrollera aktörstillstånd som [detaljerade som möjligt](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
-- Hantera den [aktörs livscykel](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Ta bort aktörer om du inte planerar att använda dem igen. Ta bort onödiga aktörer är särskilt viktigt när du använder den [föränderliga tillståndsprovider](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication), eftersom alla tillstånd lagras i minnet.
-- Grund av deras [tur-baserade samtidighet](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency), aktörer är bäst att använda som oberoende objekt. Inte skapa diagram över flera aktör, synkron metodanrop (som mest sannolikt blir ett separat nätverk-anrop) eller skapa cirkelformad actor begäranden. Dessa är av stor betydelse prestanda och skalning.
-- Blanda inte synkronisera kod med async-kod. Använda async konsekvent för att förhindra prestandaproblem.
-- Gör inte tidskrävande anrop i aktörer. Långvariga anrop blockerar andra anrop till samma aktören, på grund av samtidighet tur-baserade.
-- Om du kommunicerar med andra tjänster med hjälp av [fjärrkommunikation för Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) och du skapar en `ServiceProxyFactory`, skapa fabriken på den [aktörstjänsten](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) nivå och *inte* på nivån aktör.
+- Vi rekommenderar att du använder pub/sub-meddelanden mellan dina aktörer för att skala ditt program. Verktyg som tillhandahåller den här tjänsten omfattar [SoCreate med öppen källkod Service Fabric pub/sub](https://service-fabric-pub-sub.socreate.it/) och [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+- Gör aktörens tillstånd så [detaljerat som möjligt](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
+- Hantera [aktörens livs cykel](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Ta bort aktörer om du inte kommer att använda dem igen. Att ta bort onödiga aktörer är särskilt viktigt när du använder den [temporära tillstånds leverantören](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication), eftersom all status är lagrad i minnet.
+- På grund av [](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)deras egna samtidiga samtidighet används aktörerna bäst som oberoende objekt. Skapa inte diagram av multi-skådespelare, synkrona metod anrop (var och en av de mest sannolika nätverks anropen) eller skapa förfrågningar om cirkulär aktör. Dessa påverkar avsevärt prestanda och skalning.
+- Blanda inte synkronisera kod med asynkron kod. Använd asynkront för att förhindra prestanda problem.
+- Gör inte långvariga anrop i aktörer. Med tids krävande anrop blockeras andra anrop till samma aktör, på grund av den omkopplade samtidigheten.
+- Om du kommunicerar med andra tjänster genom att använda [Service Fabric fjärr kommunikation](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) och du skapar `ServiceProxyFactory`en skapar du fabriken på [aktörs service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) nivå och *inte* på aktörs nivån.
 
 
 ## <a name="application-diagnostics"></a>Programdiagnostik
-Vara noggrann om att lägga till [programloggning](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) i tjänstanrop. Det hjälper dig att diagnostisera scenarier där-tjänster som anropar varandra. Till exempel när en anropar B anrop C anropar D, misslyckas anropet, var som helst. Om du inte har tillräckligt med loggning, är det svårt att diagnostisera fel. Om tjänsterna loggar för mycket på grund av samtalsvolymer, måste du minst logga fel och varningar.
+Var noggrann med att lägga till [program loggning](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) i tjänst anrop. Det hjälper dig att diagnostisera scenarier där tjänster kallar varandra. Om t. ex. ett anrop B anropar C-anrop, kan anropet gå sönder var som helst. Om du inte har tillräckligt med loggning är fel svårt att diagnostisera. Om tjänsterna loggar för mycket på grund av anrops volymer, se till att minst Logga fel och varningar.
 
-## <a name="iot-and-messaging-applications"></a>IoT och meddelandeprogram
-När du läser meddelanden från [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), använda [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor kan integreras med Service Fabric Reliable Services för att underhålla tillståndet för läsning från event hub skapar partitioner och skickar nya meddelanden till dina tjänster via den `IEventProcessor::ProcessEventsAsync()` metoden.
+## <a name="iot-and-messaging-applications"></a>IoT-och meddelande program
+När du läser meddelanden från [azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)använder du [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor integreras med Service Fabric Reliable Services för att upprätthålla läsnings tillstånd från händelsehubben och push-överför nya meddelanden till dina tjänster via `IEventProcessor::ProcessEventsAsync()` metoden.
 
 
-## <a name="design-guidance-on-azure"></a>Designriktlinjer på Azure
-* Gå till den [Azure arkitekturcenter](https://docs.microsoft.com/azure/architecture/microservices/) för designvägledning på [skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+## <a name="design-guidance-on-azure"></a>Design rikt linjer för Azure
+* Besök [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/microservices/) för utformnings vägledning om hur du [skapar mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 
-* Besök [Kom igång med Azure för spel](https://docs.microsoft.com/gaming/azure/) för designvägledning på [med Service Fabric i speltjänster](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+* Besök [komma igång med Azure för att få](https://docs.microsoft.com/gaming/azure/) [hjälp med att använda Service Fabric i spel tjänster](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).

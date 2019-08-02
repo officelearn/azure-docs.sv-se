@@ -1,6 +1,6 @@
 ---
-title: Skapa en kompetens i en pipeline för kognitiv sökning – Azure Search
-description: Definiera extrahering av data, naturlig språkbearbetning, eller avbildning analysis steg för att utöka och extrahera strukturerad information från dina data för använder i Azure Search.
+title: Skapa en färdigheter i en kognitiv Sök pipeline – Azure Search
+description: Definiera data extrahering, naturlig språk bearbetning eller bild analys steg för att utöka och extrahera strukturerad information från dina data för användning i Azure Search.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -10,51 +10,51 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: eb85c4c56d8464d4078564c707efabf60dc5aa99
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672117"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501465"
 ---
-# <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Så här skapar du en kompetens i en pipeline för berikande
+# <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Så här skapar du en färdigheter i en anriknings pipeline
 
-Kognitiv sökning extraherar och förbättra data så att den blir sökbar i Azure Search. Vi kallar extrahering och berikande *kognitiva kunskaper*, kombinerade till ett *kompetens* refererade till under indexering. En kompetens kan använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) eller anpassade funktioner (se [exempel: Skapa en anpassad kunskap för kognitiv sökning](cognitive-search-create-custom-skill-example.md) för mer information).
+Kognitiv sökning extraherar och berikar data så att de kan sökas i Azure Search. Vi anropar extraherings-och anriknings stegen *kognitiva färdigheter*, kombinerat med en *färdigheter* som refereras under indexeringen. En färdigheter kan använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) eller anpassade kunskaper (se [exempel: Skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md) för mer information).
 
-I den här artikeln får du lära dig hur du skapar en pipeline med funktioner för de färdigheter som du vill använda. En kompetens är ansluten till ett Azure Search [indexeraren](search-indexer-overview.md). En del av pipeline-design, som beskrivs i den här artikeln är att konstruera kompetens själva. 
+I den här artikeln får du lära dig hur du skapar en rikare pipeline för de kunskaper du vill använda. En färdigheter är kopplad till en Azure Search [](search-indexer-overview.md)-indexerare. En del av pipeline-designen, som beskrivs i den här artikeln, konstruerar själva färdigheter. 
 
 > [!NOTE]
-> En annan del av pipelinen design är att ange en indexerare som beskrivs i den [nästa steg](#next-step). En indexerardefinition innehåller en referens till kompetens, plus fältmappningar som används för att ansluta indata till utdata i målindex.
+> En annan del av pipeline-designen är att ange en indexerare som beskrivs i [Nästa steg](#next-step). En indexare-definition innehåller en referens till färdigheter, plus fält mappningar som används för att ansluta indata till utdata i mål indexet.
 
-Viktiga saker att komma ihåg:
+Viktiga punkter att komma ihåg:
 
-+ Du kan bara ha en kompetens per indexerare.
-+ En kompetens måste ha minst en kunskap.
-+ Du kan skapa flera kunskaper av samma typ (till exempel varianter av en avbildning analysis färdighet).
++ Du kan bara ha en färdigheter per indexerare.
++ En färdigheter måste ha minst en färdighet.
++ Du kan skapa flera kunskaper av samma typ (till exempel varianter av en bild analys kunskaper).
 
-## <a name="begin-with-the-end-in-mind"></a>Börja med end i åtanke
+## <a name="begin-with-the-end-in-mind"></a>Börja med slutet i åtanke
 
-En rekommenderade första steget är att bestämma vilka data som ska extraheras från dina rådata och hur du vill använda dessa data i en söklösning. Skapa en illustration av din pipeline för hela berikande kan hjälpa dig att identifiera steg som krävs.
+Ett rekommenderat inledande steg är att bestämma vilka data som ska extraheras från dina rå data och hur du vill använda dessa data i en Sök lösning. Att skapa en illustration av hela pipelinen kan hjälpa dig att identifiera nödvändiga steg.
 
-Anta att du är intresserad av att bearbetning av en uppsättning kommentarer av analytiker som finansiella. För varje fil som du vill extrahera företagsnamn och allmän känslan i kommentarerna. Du kanske också vill skriva en anpassad enricher som använder Entitetssökning i Bing-tjänsten för att hitta mer information om företag, till exempel vilken typ av företaget bedriver verksamhet. I princip du vill extrahera information så här indexeras för varje dokument:
+Anta att du är intresse rad av att bearbeta en uppsättning ekonomiska analytikers kommentarer. För varje fil vill du extrahera företags namn och de allmänna sentiment i kommentarerna. Du kanske också vill skriva en anpassad berikare som använder Entitetssökning i Bings tjänsten för att hitta ytterligare information om företaget, till exempel vilken typ av verksamhet som företaget är förbrukat i. I princip vill du extrahera information som följande, som indexeras för varje dokument:
 
-| record-text | Företag | sentiment | företagets beskrivningar |
+| record-text | tillverkare | sentiment | företags beskrivningar |
 |--------|-----|-----|-----|
-|sample-record| ["Microsoft", "LinkedIn"] | 0,99 | [”Microsoft Corporation är en American multinationella teknikföretag...”, ”LinkedIn är en och anställning-affärsorienterade sociala nätverk...”]
+|sample-record| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation är ett amerikanskt multinationellt teknik företag...", "LinkedIn är ett verksamhets-och arbetsorienteradt socialt nätverk..."]
 
-Följande diagram illustrerar en hypotetisk berikande pipeline:
+Följande diagram illustrerar en hypotetisk anriknings pipeline:
 
-![En hypotetisk berikande pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "en hypotetisk berikande pipeline")
-
-
-När du har verkliga uppfattning om vad du vill ha i pipelinen, du kan uttrycka kompetens som ger de här stegen. Funktionen är uttrycks gruppens kunskaper avgör när du överför indexerarens definition till Azure Search. Mer information om hur du överför indexeraren finns den [indexeraren dokumentation](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+![En hypotetisk anriknings pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "En hypotetisk anriknings pipeline")
 
 
-I diagrammet, den *dokumentknäckning* steg sker automatiskt. I princip Azure Search kan öppna välkända filer och skapar en *innehåll* fält som innehåller den text som extraheras från varje dokument. Rutorna vit finns inbyggda enrichers och rutan prickad ”Entitetssökning i Bing” representerar en anpassad enricher som du skapar. Enligt, innehåller gruppens kunskaper avgör tre kunskaper.
+När du har en god uppfattning om vad du vill ha i pipelinen kan du uttrycka färdigheter som innehåller de här stegen. Funktionen färdigheter uttrycks när du laddar upp din index-definition till Azure Search. Mer information om hur du överför indexeraren finns i [dokumentationen](https://docs.microsoft.com/rest/api/searchservice/create-indexer)för indexeraren.
 
-## <a name="skillset-definition-in-rest"></a>Kompetens definition i REST
 
-En kompetens definieras som en matris med kunskaper. Varje färdighet definierar källan för dess indata och namnet på de utdata som genereras. Med hjälp av den [skapa kompetens REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset), du kan definiera en kompetens som motsvarar till föregående diagram: 
+I diagrammet sker steget för att *knäcka dokument* automatiskt. Azure Search vet i princip hur man öppnar välkända filer och skapar ett *innehålls* fält som innehåller den text som extraheras från varje dokument. De vita rutorna är inbyggda och de prickade Entitetssökning i Bings rutan representerar en anpassad berikare som du skapar. Som illustreras innehåller färdigheter tre kunskaper.
+
+## <a name="skillset-definition-in-rest"></a>Färdigheter-definition i REST
+
+En färdigheter definieras som en matris med kunskaper. Varje kunskap definierar källan till sina indata och namnet på de utdata som produceras. Med hjälp av [create färdigheter REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset)kan du definiera en färdigheter som motsvarar föregående diagram: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -128,7 +128,7 @@ Content-Type: application/json
 
 ## <a name="create-a-skillset"></a>Skapa en kunskapsuppsättning
 
-När du skapar en kompetens måste ange du en beskrivning om du vill göra den kompetens lokal dokumentera. En beskrivning är valfritt, men användbart för att hålla reda på vad som gör en kompetens. Eftersom kompetens är ett JSON-dokument som inte tillåter kommentarer, måste du använda en `description` element för detta.
+När du skapar en färdigheter kan du ange en beskrivning för att göra färdigheter själv dokumentning. En beskrivning är valfri, men användbart för att hålla reda på vad en färdigheter gör. Eftersom färdigheter är ett JSON-dokument som inte tillåter kommentarer, måste du använda ett `description` -element för detta.
 
 ```json
 {
@@ -138,11 +138,11 @@ När du skapar en kompetens måste ange du en beskrivning om du vill göra den k
 }
 ```
 
-Nästa del i gruppens kunskaper avgör är en matris av kunskaper. Du kan tänka på varje färdighet som en primitiv hämtas av funktioner. Varje färdighet utför en liten uppgift i den här berikande pipeline. Var och en tar indata (eller en uppsättning indata) och returnerar några utdata. Följande avsnitt fokuserar på hur du anger inbyggda och anpassade kunskaper, länkning kunskaper tillsammans med indata- och referenser. Indata kan komma från källdata eller från en annan färdigheter. Utdata kan mappas till ett fält i ett sökindex eller användas som indata till en underordnad färdighet.
+Nästa del i färdigheter är en uppsättning kunskaper. Du kan tänka på varje färdighet som en primitiv av berikning. Varje färdighet utför en liten uppgift i denna pipeline för anrikning. Var och en tar indata (eller en uppsättning indata) och returnerar vissa utdata. I de följande avsnitten fokuserar vi på hur du anger inbyggda och anpassade kunskaper, länkar kunskaper tillsammans med indata och utdata. Indata kan komma från källdata eller från en annan färdighet. Utdata kan mappas till ett fält i ett sökindex eller användas som indata till en efterföljande färdighet.
 
 ## <a name="add-built-in-skills"></a>Lägg till inbyggda kunskaper
 
-Låt oss titta på den första färdighet, vilket är inbyggt [entitet erkännande färdighet](cognitive-search-skill-entity-recognition.md):
+Nu ska vi titta på den första kunskapen, som är den inbyggda [kunskapen om enhets igenkänning](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
@@ -165,23 +165,23 @@ Låt oss titta på den första färdighet, vilket är inbyggt [entitet erkännan
     }
 ```
 
-* Varje inbyggda färdighet har `odata.type`, `input`, och `output` egenskaper. Egenskaper för färdighet innehåller ytterligare information som gäller för den färdigheten. För igenkänning av entiteter `categories` är en entitet från en fast uppsättning entitetstyper som pretrained modellen kan identifiera.
+* Alla inbyggda kunskaper har `odata.type`, `input`, och `output` egenskaper. Kunskapsbaserade egenskaper ger ytterligare information som är tillämplig för den kunskapen. För entitets igenkänning `categories` är en entitet mellan en fast uppsättning entitetstyper som den förtränade modellen kan identifiera.
 
-* Varje färdighet bör ha en ```"context"```. Kontexten representerar den nivå som äger rum. I färdighet ovan är kontexten hela dokumentet, vilket innebär att entiteten erkännande färdighet anropas en gång per dokument. Utdata produceras också på den nivån. Mer specifikt ```"organizations"``` genereras som en medlem i ```"/document"```. I underordnade färdigheter som du kan referera till information som du skapade nyss ```"/document/organizations"```.  Om den ```"context"``` fältet har inte angetts uttryckligen, Standardkontexten är dokumentet.
+* Varje färdighet bör ha en ```"context"```. Kontexten representerar den nivå där åtgärder sker. I ovanstående kunskaper är kontexten hela dokumentet, vilket innebär att enhets igenkänningens färdighet anropas en gång per dokument. Utdata skapas också på den nivån. Mer specifikt ```"organizations"``` genereras som medlem i ```"/document"```. I underordnade kunskaper kan du referera till den nyligen skapade informationen som ```"/document/organizations"```.  ```"context"``` Om fältet inte uttryckligen anges är standard kontexten dokumentet.
 
-* Kompetensen har en inmatning som kallas ”text”, med en källa indata till ```"/document/content"```. Färdighet (entitetsidentifiering) körs på den *innehåll* fält för varje dokument och som är ett standardfält som skapats av Azure blob-indexeraren. 
+* Kunskapen har en indatatyp som kallas "text", med en inmatad källa till ```"/document/content"```. Kunskapen (enhets igenkänning) arbetar i *innehålls* fältet för varje dokument, vilket är ett standard fält som skapas av Azure Blob-indexeraren. 
 
-* Kompetensen har en utdata som kallas ```"organizations"```. Utdata finns endast under bearbetning. Om du vill länka dessa utdata till en underordnad färdighet inkommande, referera till utdata som ```"/document/organizations"```.
+* Kunskapen har en utmatning ```"organizations"```som kallas. Utdata finns bara under bearbetning. Om du vill kedja dessa utdata till en efterföljande färdighets indata refererar du ```"/document/organizations"```till utdata som.
 
-* För ett visst dokument, värdet för ```"/document/organizations"``` är en matris med organisationer som extraheras från texten. Exempel:
+* För ett visst dokument är värdet för ```"/document/organizations"``` en matris med organisationer som extraheras från texten. Exempel:
 
   ```json
   ["Microsoft", "LinkedIn"]
   ```
 
-Vissa situationer kräver för att referera till varje element i en matris separat. Anta exempelvis att du vill skicka varje element i ```"/document/organizations"``` separat till en annan färdighet (till exempel den anpassade Bing entitet search enricher). Du kan referera till varje element i matrisen genom att lägga till en asterisk i sökvägen: ```"/document/organizations/*"``` 
+Vissa situationer anropar för att referera varje element i en matris separat. Anta till exempel att du vill skicka varje element ```"/document/organizations"``` separat till en annan kunskap (till exempel den anpassade Bing-enheten Sök berikare). Du kan referera till varje element i matrisen genom att lägga till en asterisk till sökvägen:```"/document/organizations/*"``` 
 
-Andra kunskap för extrahering av sentiment följer samma mönster som den första enricher. Det tar ```"/document/content"``` som indata och returnerar ett sentimentpoäng för varje förekomst av innehåll. Eftersom du inte har angett den ```"context"``` fältet uttryckligen, utdata (mySentiment) är nu en underordnad ```"/document"```.
+Den andra kunskapen för sentiment-extraktion följer samma mönster som den första berikaren. Den tar ```"/document/content"``` sig som inmatad och returnerar en sentiment Poäng för varje innehålls instans. Eftersom du inte har angett ```"context"``` fältet explicit är resultatet (mySentiment) nu ```"/document"```underordnat.
 
 ```json
     {
@@ -203,7 +203,7 @@ Andra kunskap för extrahering av sentiment följer samma mönster som den förs
 
 ## <a name="add-a-custom-skill"></a>Lägg till en anpassad kompetens
 
-Återkalla strukturen för anpassad Bing entitet search enricher:
+Återkalla strukturen för den anpassade Bing entitet search-berikaren:
 
 ```json
     {
@@ -212,7 +212,7 @@ Andra kunskap för extrahering av sentiment följer samma mönster som den förs
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
-      }
+      },
       "context": "/document/organizations/*",
       "inputs": [
         {
@@ -229,29 +229,29 @@ Andra kunskap för extrahering av sentiment följer samma mönster som den förs
     }
 ```
 
-Den här definitionen är en [anpassade färdighet](cognitive-search-custom-skill-web-api.md) som anropar ett webb-API som en del av processen berikande. För varje organisation som identifieras av entitetsidentifiering anropar kompetensen ett webb-API för att hitta beskrivningen av organisationen. Dirigering av när att anropa webb-API och hur flödar den information som tas emot hanteras internt av berikande-motorn. Dock måste initieringen behövs för att anropa den här anpassade API: T anges i JSON (till exempel uri, httpHeaders och indata förväntades). Vägledning i att skapa ett anpassat webb-API för berikande pipelinen finns i [hur du definierar ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md).
+Den här definitionen är en [anpassad färdighet](cognitive-search-custom-skill-web-api.md) som anropar ett webb-API som en del av anriknings processen. För varje organisation som identifieras av enhets igenkänningen anropar den här kunskapen ett webb-API för att hitta beskrivningen av organisationen. Dirigeringen av när du anropar webb-API: et och hur du kan flöda den mottagna informationen hanteras internt av anriknings motorn. Den initiering som krävs för att anropa det här anpassade API: et måste dock anges i JSON (till exempel URI, httpHeaders och förväntade indata). Information om hur du skapar ett anpassat webb-API för pipelinen finns i [så här definierar du ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md).
 
-Lägg märke till att fältet ”kontexten” anges till ```"/document/organizations/*"``` med en asterisk, vilket innebär att det berikande steget kallas *för var och en* organisation under ```"/document/organizations"```. 
+Observera att fältet "context" är inställt ```"/document/organizations/*"``` på med en asterisk, vilket innebär att ett anriknings steg anropas *för varje* organisation under ```"/document/organizations"```. 
 
-Utdata genereras i det här fallet en företagsbeskrivningen för varje organisation som har identifierats. När det gäller beskrivningen i en underordnad steget (till exempel i extrahering av diskussionsämne) du använder sökvägen ```"/document/organizations/*/description"``` att göra detta. 
+Utdata, i det här fallet en företags beskrivning, genereras för varje organisation som identifieras. När du refererar till beskrivningen i ett underordnat steg (till exempel i extrahering av nyckel fraser) använder du sökvägen ```"/document/organizations/*/description"``` för att göra det. 
 
 ## <a name="add-structure"></a>Lägg till struktur
 
-Gruppens kunskaper avgör genererar strukturerad information från Ostrukturerade data. Ta följande som exempel:
+Färdigheter genererar strukturerad information från ostrukturerade data. Ta följande som exempel:
 
-*”I det fjärde kvartalet, Microsoft loggas 1.1 miljarder USD i intäkter från LinkedIn, sociala nätverk företaget den köpte förra året. Förvärvet hjälper Microsoft att kombinera LinkedIn-funktioner med dess CRM- och Office-funktioner. Aktieägares är glada över med förloppet hittills ”.*
+*"I sitt fjärde kvartal, loggade Microsoft in $1 100 000 000 i intäkter från LinkedIn, det sociala nätverk företaget köpte förra året. Förvärvet gör att Microsoft kan kombinera LinkedIn-funktioner med sina CRM-och Office-funktioner. Stockholders är fördelade med förloppet hittills. "*
 
-Ett resultat som sannolikt skulle vara genererade struktur liknar den i följande bild:
+Ett sannolikt resultat skulle vara en genererad struktur som liknar följande bild:
 
-![Exemplet utdata struktur](media/cognitive-search-defining-skillset/enriched-doc.png "exempel utdata struktur")
+![Exempel på utdata-struktur](media/cognitive-search-defining-skillset/enriched-doc.png "Exempel på utdata-struktur")
 
-Fram till nu har den här strukturen interna endast minne och används endast i Azure Search-index. Tillägg av en knowledge store ger dig ett sätt att spara formade enrichments för användning utanför sökning.
+Fram till nu har den här strukturen endast internt, endast minne och används endast i Azure Search index. Tillägget av ett kunskaps lager ger dig ett sätt att spara formad berikare för användning utanför sökningen.
 
-## <a name="add-a-knowledge-store"></a>Lägg till en knowledge store
+## <a name="add-a-knowledge-store"></a>Lägg till ett kunskaps lager
 
-[Knowledge store](knowledge-store-concept-intro.md) är en förhandsgranskningsfunktion i Azure Search för att spara dokumentet avancerad och. Ett arkiv med kunskaper som du skapar, är backas upp av ett Azure storage-konto lagringsplatsen där dina avancerad och data finns. 
+[Kunskaps lager](knowledge-store-concept-intro.md) är en förhands gransknings funktion i Azure Search för att spara ditt förrikade dokument. Ett kunskaps lager som du skapar, som backas upp av ett Azure Storage-konto, är den lagrings plats där dina berikade data hamnar. 
 
-En definition av knowledge store har lagts till i en kompetens. En genomgång av processen finns i [hur du kommer igång med knowledge store](knowledge-store-howto.md).
+En kunskaps lager definition har lagts till i en färdigheter. En genom gång av hela processen finns i [så här kommer du igång med kunskaps lager](knowledge-store-howto.md).
 
 ```json
 "knowledgeStore": {
@@ -273,10 +273,10 @@ En definition av knowledge store har lagts till i en kompetens. En genomgång av
 }
 ```
 
-Du kan välja att spara avancerad och dokumenten som tabeller med hierarkiska relationer bevaras eller som JSON-dokument i blob storage. Utdata från någon av kunskaper i gruppens kunskaper avgör kan hämtas som indata för projektion. Om du vill projicera data i en specifik forma, den uppdaterade [formaren färdighet](cognitive-search-skill-shaper.md) kan nu utforma komplexa typer som du kan använda. 
+Du kan välja att spara de berikade dokumenten som tabeller med hierarkiska relationer bevarade eller som JSON-dokument i Blob Storage. Utdata från någon av färdigheterna i färdigheter kan användas som indata för projektionen. Om du vill projicera data i en speciell form kan den uppdaterade [formaren](cognitive-search-skill-shaper.md) -kompetensen nu modellera komplexa typer som du kan använda. 
 
 <a name="next-step"></a>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du är bekant med berikande pipeline och kompetens kan fortsätta med [så referera till kommentarer i en kompetens](cognitive-search-concept-annotations-syntax.md) eller [mappa utdata till fält i ett index](cognitive-search-output-field-mapping.md). 
+Nu när du är bekant med pipelinen och färdighetsuppsättningar kan du fortsätta med [hur du refererar till kommentarer i en färdigheter](cognitive-search-concept-annotations-syntax.md) eller [hur du mappar utdata till fält i ett index](cognitive-search-output-field-mapping.md). 

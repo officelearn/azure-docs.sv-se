@@ -8,38 +8,38 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3946690b24ec4123df1bb19deb05143189fd5aa5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442586"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596037"
 ---
-# <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudier: Hälsokontrollen för användning i Azure Deployment Manager (förhandsversion)
+# <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudier: Använda hälso kontroll i Azure Deployment Manager (offentlig för hands version)
 
-Lär dig hur du integrerar hälsokontroll i [Azure Deployment Manager](./deployment-manager-overview.md). Den här självstudien är baserad på den [Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md) självstudien. Innan du fortsätter med den här måste du slutföra självstudien.
+Lär dig hur du integrerar hälso kontroll i [Azure Deployment Manager](./deployment-manager-overview.md). Den här självstudien baseras på själv studie kursen [använda Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md) . Du måste slutföra den här kursen innan du fortsätter med den här.
 
-I mallen för distribution som används i [Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md), du har använt ett vänta steg. I den här självstudiekursen ersätter du vänta steg med ett hälsotillstånd steg.
+I distributions mal len som används i [använda Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md)använde du ett wait-steg. I den här självstudien ersätter du steget vänta med en hälso kontroll.
 
 > [!IMPORTANT]
-> Om din prenumeration har markerats för Kanarieöarna att testa nya Azure-funktioner, kan du bara använda Distributionshanteraren för Azure för att distribuera till kontrollvärde regioner. 
+> Om din prenumeration har marker ATS för Kanarie för att testa nya Azure-funktioner kan du bara använda Azure Deployment Manager för att distribuera till Kanarie regionerna. 
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Skapa en hälsotillstånd Kontrollera service simulator
-> * Redigera mallen för distribution
+> * Skapa en tjänst Simulator för hälso kontroll
+> * Ändra distributions mal len
 > * Distribuera topologin
-> * Distribuera distributionen med skadad status
-> * Kontrollera distributionen distributionen
-> * Distribuera distributionen med hälsostatus
-> * Kontrollera distributionen distributionen
+> * Distribuera distributionen med felaktig status
+> * Verifiera distribution av distributionen
+> * Distribuera distributionen med felfri status
+> * Verifiera distribution av distributionen
 > * Rensa resurser
 
 Ytterligare resurser:
 
-- Den [Azure Deployment Manager REST API-referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [Ett exempel på Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
+- [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Ett exempel på en Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -47,23 +47,23 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Fullständig [Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md).
-* Ladda ned [mallar och artefakter](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) som används av den här självstudien.
+* Slutför [Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md).
+* Ladda ned [mallarna och de artefakter](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) som används i den här självstudien.
 
-## <a name="create-a-health-check-service-simulator"></a>Skapa en hälsotillstånd Kontrollera service simulator
+## <a name="create-a-health-check-service-simulator"></a>Skapa en tjänst Simulator för hälso kontroll
 
-I produktion använder du vanligtvis en eller flera övervakning providers. Microsoft har arbetat med några av företag så att du får en enkel kopiera och klistra in-lösning för att integrera hälsokontroller dina distributioner av övre service hälsoövervakning för att göra hälsotillstånd integration så enkel som möjligt. En lista över dessa företag finns i [hälsoövervakning providers](./deployment-manager-health-check.md#health-monitoring-providers). I den här självstudien skapar du en [Azure Function](/azure/azure-functions/) att simulera en hälsoövervakning för tjänsten. Den här funktionen tar en statuskod och returnerar samma kod. Distributionshanteraren för Azure-mall använder statuskoden för att avgöra hur du fortsätter med distributionen.
+I produktion använder du vanligt vis en eller flera övervaknings leverantörer. För att kunna göra hälso integration så enkel som möjligt har Microsoft arbetat med några av de främsta hälso övervaknings företagen för tjänsten för att tillhandahålla en enkel kopierings-och Inklistrings lösning för att integrera hälso kontroller med dina distributioner. En lista över dessa företag finns i [hälso övervaknings leverantörer](./deployment-manager-health-check.md#health-monitoring-providers). I den här självstudien skapar du en [Azure-funktion](/azure/azure-functions/) för att simulera en tjänst för hälso övervakning. Den här funktionen tar en status kod och returnerar samma kod. Din Azure Deployment Manager-mall använder status koden för att avgöra hur du ska fortsätta med distributionen.
 
-Följande två filer används för att distribuera Azure-funktion. Du behöver inte ladda ned filerna för att gå igenom självstudien.
+Följande två filer används för att distribuera Azure-funktionen. Du behöver inte hämta de här filerna för att gå igenom självstudien.
 
-* Resource Manager-mall finns i [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Du distribuerar den här mallen om du vill skapa en Azure-funktion.
-* En zip-fil på Azure Function-källkod [ https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Den här zip kallas anropas av Resource Manager-mallen.
+* En Resource Manager-mall som [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)finns på. Du distribuerar den här mallen för att skapa en Azure-funktion.
+* En zip- [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip)fil med käll koden för Azure function. Detta zip-namn anropas av Resource Manager-mallen.
 
-För att distribuera Azure-funktion, Välj **prova** att öppna Azure Cloud shell och klistra in följande skript i fönstret shell.  Om du vill klistra in koden, högerklicka på shell-fönstret och välj sedan **klistra in**.
+Om du vill distribuera Azure-funktionen väljer du **prova** att öppna Azure Cloud Shell och klistrar in följande skript i Shell-fönstret.  Om du vill klistra in koden högerklickar du på Shell-fönstret och väljer **Klistra in**.
 
 > [!IMPORTANT]
-> **projectName** i PowerShell skript används för att generera namn för Azure-tjänster som distribueras i den här självstudien. Olika Azure-tjänster har olika krav på namnen. För att säkerställa att distributionen är klar, väljer du ett namn med färre än 12 tecken innehåller bara gemena bokstäver och siffror.
-> Spara en kopia av projektnamnet. Du kan använda samma projektnamn självstudien.
+> **projectName** i PowerShell-skriptet används för att generera namn för de Azure-tjänster som distribueras i den här självstudien. Olika Azure-tjänster har olika krav på namnen. Om du vill se till att distributionen lyckas väljer du ett namn med färre än 12 tecken och bara gemena bokstäver och siffror.
+> Spara en kopia av projekt namnet. Du använder samma projectName i självstudien.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -74,43 +74,43 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
-Att kontrollera och testa Azure-funktion:
+Verifiera och testa Azure-funktionen:
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-1. Öppna resursgruppen.  Standardnamnet är projektnamnet på med **rg** sist.
-1. Välj app service från resursgruppen.  Standardnamnet för app Service är projektnamn med **webapp** sist.
-1. Expandera **Functions**, och välj sedan **HttpTrigger1**.
+1. Öppna resurs gruppen.  Standard namnet är projekt namnet med **RG** tillagt.
+1. Välj app service från resurs gruppen.  Standard namnet på App Service är projekt namnet med **webapp** APPEND.
+1. Expandera **funktioner**och välj sedan **HttpTrigger1**.
 
-    ![Azure Deployment Manager-hälsokontroll Azure-funktion](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
+    ![Azure Deployment Manager hälso kontroll Azure-funktion](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
-1. Välj  **&lt;/ > hämta Funktionswebbadress**.
-1. Välj **kopia** att kopiera Webbadressen till Urklipp.  URL: en är ungefär:
+1. **Välj&lt;/> Hämta funktions webb adress**.
+1. Välj **Kopiera** för att kopiera webb adressen till Urklipp.  URL: en liknar:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Ersätt `{healthStatus}` i URL: en med en statuskod. I den här självstudien **feltillstånd** att testa det felaktiga scenariot och använda antingen **felfri** eller **varning** att testa felfri scenariot. Skapa två URL: er, en med skadad status och den andra med hälsostatus. Exempel:
+    Ersätt `{healthStatus}` i URL: en med en status kod. I den här självstudien **använder du** fel för att testa fel scenariot och använda antingen **felfri** eller **Varning** för att testa det felfria scenariot. Skapa två URL: er, en med felaktig status och den andra med felfri status. Exempel:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Du måste båda URL: er för att slutföra den här självstudien.
+    Du behöver båda URL: erna för att slutföra den här självstudien.
 
-1. Öppna URL: er som du skapade i det sista steget för att testa hälsotillstånd övervakning simulatorn.  Resultat för skadad status bör likna följande:
+1. Om du vill testa hälso övervaknings simulatorn öppnar du de URL: er som du skapade i det senaste steget.  Resultatet av statusen för felaktig hälsa skall likna följande:
 
     ```
     Status: unhealthy
     ```
 
-## <a name="revise-the-rollout-template"></a>Redigera mallen för distribution
+## <a name="revise-the-rollout-template"></a>Ändra distributions mal len
 
-Syftet med det här avsnittet är att hur du kan ta ett hälsotillstånd steg i mallen för distributionen. Du behöver skapa en egen CreateADMRollout.json-fil för att slutföra den här självstudien. Mallen ändrade distributionen delas i ett lagringskonto som används i följande avsnitt.
+Syftet med det här avsnittet är att visa hur du inkluderar ett hälso kontroll steg i distributions mal len. Du behöver inte skapa din egen CreateADMRollout. JSON-fil för att slutföra den här självstudien. Den ändrade distributions mal len delas i ett lagrings konto som används i följande avsnitt.
 
-1. Öppna **CreateADMRollout.json**. Det här JSON-fil är en del av nedladdningen.  Se [Förutsättningar](#prerequisites).
-1. Lägg till ytterligare två parametrar:
+1. Öppna **CreateADMRollout. JSON**. Den här JSON-filen ingår i nedladdningen.  Se [Förutsättningar](#prerequisites).
+1. Lägg till två fler parametrar:
 
     ```json
     "healthCheckUrl": {
@@ -127,7 +127,7 @@ Syftet med det här avsnittet är att hur du kan ta ett hälsotillstånd steg i 
     }
     ```
 
-1. Ersätt resursdefinitionen vänta steg med en resursdefinition för health Kontrollera steg:
+1. Ersätt resurs definitionen för väntande steg med en hälso kontroll av resurs definitionen för ett hälso steg:
 
     ```json
     {
@@ -176,9 +176,9 @@ Syftet med det här avsnittet är att hur du kan ta ett hälsotillstånd steg i 
     },
     ```
 
-    Baserat på definitionen, fortsätter distributionen om hälsotillståndet är antingen *felfri* eller *varning*.
+    Baserat på definitionen fortsätter distributionen om hälso tillståndet är antingen *felfri* eller *Varning*.
 
-1. Uppdatera den **dependsON** av distributionen definition att inkludera nya hälsotillstånd Kontrollera steg:
+1. Uppdatera **dependsON** för distributions definitionen för att inkludera det nyligen definierade hälso kontroll steget:
 
     ```json
     "dependsOn": [
@@ -187,7 +187,7 @@ Syftet med det här avsnittet är att hur du kan ta ett hälsotillstånd steg i 
     ],
     ```
 
-1. Uppdatera **stepGroups** att inkludera hälsotillstånd Kontrollera steg. Den **healthCheckStep** kallas i **postDeploymentSteps** av **stepGroup2**. **stepGroup3** och **stepGroup4** distribueras endast om hälsostatus är antingen *felfri* eller *varning*.
+1. Uppdatera **stepGroups** för att inkludera hälso kontroll steget. **HealthCheckStep** anropas i **postDeploymentSteps** för **stepGroup2**. **stepGroup3** och **stepGroup4** distribueras bara om felfria status är antingen *felfri* eller *Varning*.
 
     ```json
     "stepGroups": [
@@ -225,20 +225,20 @@ Syftet med det här avsnittet är att hur du kan ta ett hälsotillstånd steg i 
     ]
     ```
 
-    Om du jämför de **stepGroup3** avsnittet före och efter den ändras i det här avsnittet nu beror på **stepGroup2**.  Detta är nödvändigt när **stepGroup3** och grupperna efterföljande steg beroende av resultaten med hälsoövervakning.
+    Om du jämför **stepGroup3** -avsnittet innan och efter det har ändrats, är det här avsnittet nu beroende av **stepGroup2**.  Detta är nödvändigt när **stepGroup3** och de efterföljande steg grupperna är beroende av resultaten av hälso övervakning.
 
-    Följande skärmbild illustrerar de områden som ändras och hur hälsotillståndet Kontrollera steg används:
+    Följande skärm bild visar de ändrade områdena och hur hälso kontroll steget används:
 
-    ![Azure Deployment Manager health Kontrollera-mall](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
+    ![Mall för hälso kontroll av Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
 
 ## <a name="deploy-the-topology"></a>Distribuera topologin
 
-För att förenkla självstudien som topologi mall och artefakter delas på följande platser så att du inte behöver att förbereda din egna kopia. Om du vill använda din egen, följer du anvisningarna i [självstudien: Använda Distributionshanteraren för Azure med Resource Manager-mallar](./deployment-manager-tutorial.md).
+För att förenkla självstudien delas topologin och artefakterna på följande platser så att du inte behöver förbereda din egen kopia. Om du vill använda din egen, följer du anvisningarna i [själv studie kursen: Använd Azure Deployment Manager med Resource Manager-](./deployment-manager-tutorial.md)mallar.
 
-* Topologi mall: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* Artefakter store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topologi: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
+* Artefakter-lagring: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
-Om du vill distribuera topologin, Välj **prova** öppna cloudshell och klistra in PowerShell-skriptet.
+Om du vill distribuera topologin väljer du **prova** att öppna Cloud Shell och klistra in PowerShell-skriptet.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -261,14 +261,14 @@ Kontrollera att tjänsttopologin och de angivna resurserna har skapats på Azure
 
 **Visa dolda typer** måste väljas för att resurserna ska visas.
 
-## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Distribuera distributionen med skadad status
+## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Distribuera distributionen med statusen ohälsosamt
 
-För att förenkla självstudien kan delas mallen reviderade distribution på följande platser så att du inte behöver att förbereda din egna kopia. Om du vill använda din egen, följer du anvisningarna i [självstudien: Använda Distributionshanteraren för Azure med Resource Manager-mallar](./deployment-manager-tutorial.md).
+För att förenkla självstudien delas den ändrade distributions mal len på följande platser så att du inte behöver förbereda din egen kopia. Om du vill använda din egen, följer du anvisningarna i [själv studie kursen: Använd Azure Deployment Manager med Resource Manager-](./deployment-manager-tutorial.md)mallar.
 
-* Topologi mall: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* Artefakter store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topologi: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
+* Artefakter-lagring: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
-Använd skadad status-URL som du skapade i [skapa hälsotillstånd Kontrollera service simulator](#create-a-health-check-service-simulator). För **managedIdentityID**, se [skapa den hanterade Användartilldelad identitet](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
+Använd den felaktiga status-URL som du skapade i [skapa en tjänst Simulator för hälso kontroll](#create-a-health-check-service-simulator). Information om **managedIdentityID**finns i [skapa den hanterade identiteten som användaren tilldelats](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -294,9 +294,9 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> `New-AzResourceGroupDeployment` är ett asynkront anrop. Lyckades visas endast innebär att distributionen har har startat. Verifiera distributionen genom att använda `Get-AZDeploymentManagerRollout`.  Finns i nästa procedur.
+> `New-AzResourceGroupDeployment`är ett asynkront anrop. Meddelandet lyckades innebär att distributionen har startats. Om du vill kontrol lera distributionen `Get-AZDeploymentManagerRollout`använder du.  Se nästa procedur.
 
-Så här kontrollerar du förloppet distributionen med hjälp av följande PowerShell-skript:
+För att kontrol lera installations förloppet med följande PowerShell-skript:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -310,7 +310,7 @@ Get-AzDeploymentManagerRollout `
     -Verbose
 ```
 
-Följande exempel på utdata visar distributionen misslyckades på grund av felaktiga status:
+Följande exempel på utdata visar att distributionen misslyckades på grund av en felaktig status:
 
 ```output
 Service: myhc0417ServiceWUSrg
@@ -369,11 +369,11 @@ Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc04
 Tags                    :
 ```
 
-När distributionen är klar kan se du en ytterligare resursgruppen som skapades för USA, västra.
+När distributionen är klar ska du se ytterligare en resurs grupp som skapats för västra USA.
 
-## <a name="deploy-the-rollout-with-the-healthy-status"></a>Distribuera distributionen med hälsostatus
+## <a name="deploy-the-rollout-with-the-healthy-status"></a>Distribuera distributionen med felfri status
 
-Upprepa det här avsnittet om du vill distribuera om distributionen med URL: en för hälsostatus.  När distributionen är klar kan se du en mer resursgruppen som skapades för östra USA.
+Upprepa det här avsnittet om du vill distribuera om distributionen med URL: en för felfri status.  När distributionen är klar ska du se en mer resurs grupp som skapats för USA, östra.
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
@@ -398,4 +398,4 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att använda funktionen Kontrollera hälsotillståndet för Azure Deployment Manager. Mer information finns i [dokumentationen om Azure Resource Manager](/azure/azure-resource-manager/).
+I den här självstudien har du lärt dig hur du använder funktionen för hälso kontroll i Azure Deployment Manager. Mer information finns i [dokumentationen om Azure Resource Manager](/azure/azure-resource-manager/).

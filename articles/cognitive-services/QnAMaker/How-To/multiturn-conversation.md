@@ -1,7 +1,7 @@
 ---
-title: Flera aktivera konversationer
+title: Flera-turn-konversationer – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Använd anvisningarna och kontext för att hantera flera aktiverar, kallas även flera aktivera för din robot från en fråga till en annan. Flera aktivera är möjligheten att ha en konversation fram och tillbaka där föregående fråga kontext påverkar nästa frågor och svar.
+description: Använd prompter och kontext för att hantera flera sätt, så kallade flera varv, för din robot från en fråga till en annan. Med flera varv kan du få en snabb konversation där föregående frågas sammanhang påverkar nästa fråga och svar.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,120 +11,120 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: diberry
-ms.openlocfilehash: 10249375922b47a40f71a60938cdd12ffe0f9b54
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 264d9e89d22b30b83821f691e134d032eb4220f5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508134"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563138"
 ---
-# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljning uppmanas du för att skapa flera varv en konversation
+# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljnings anvisningarna för att skapa flera av en konversation
 
-Använda Uppföljnings uppmaningar och kontext för att hantera flera aktiverar, kallas _flera aktivera_, för din robot från en fråga till en annan.
+Använd uppföljnings-och kontext hantering för att hantera flera _sätt_, så kallade flera varv, för din robot från en fråga till en annan.
 
-Visa följande demonstration videoklipp om du vill se hur det fungerar med flera aktivera:
+Se följande demonstrations video om du vill se hur multi-turn fungerar:
 
-[![Flera aktivera konversationen i QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[![Flera inaktiverade konversationer i QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
-## <a name="what-is-a-multi-turn-conversation"></a>Vad är en konversation med flera aktivera?
+## <a name="what-is-a-multi-turn-conversation"></a>Vad är en konversation med flera varv?
 
-Några frågor kan inte besvaras i en enda aktivera. När du utformar din klient program (chattrobot) konversationer, kan en användare Ställ en fråga som ska filtreras eller finjusteras för att fastställa rätt svar. Du gör det här flödet igenom frågorna möjligt genom att presentera användaren med *uppföljning uppmanar*.
+Vissa frågor kan inte besvaras i en enda tur. När du utformar dina klient program (Chat robot)-konversationer kan en användare ställa en fråga som behöver filtreras eller finjusteras för att fastställa rätt svar. Du gör det här flödet genom de frågor som är möjliga genom attpresentera användaren med uppföljnings anvisningarna.
 
-När en användare ställer en fråga, QnA Maker returnerar svaret _och_ eventuella Uppföljnings uppmaningar. Svaret kan du presentera uppföljande frågor som alternativ. 
+När en användare ställer en fråga returnerar QnA Maker svaret _och_ eventuella uppföljnings frågor. Med det här svaret kan du Visa uppföljnings frågorna som alternativ. 
 
-## <a name="example-multi-turn-conversation-with-chat-bot"></a>Exempel flera aktivera konversationen med chattrobot
+## <a name="example-multi-turn-conversation-with-chat-bot"></a>Exempel på flera samtal med Chat-roboten
 
-Med flera tur och ordning hanterar en chattrobot en konversation med en användare att avgöra det slutliga svaret som du ser i följande bild:
+Med flera turn hanterar en chat-robot en konversation med en användare för att fastställa det slutliga svaret, som du ser i följande bild:
 
-![En dialogruta för flera aktivera uppmaningar som hjälper användaren genom en konversation](../media/conversational-context/conversation-in-bot.png)
+![En dialog ruta med flera inaktivitet med instruktioner som vägleder användaren via en konversation](../media/conversational-context/conversation-in-bot.png)
 
-I den föregående bilden är en användare har startat en konversation genom att ange **mitt konto**. Kunskapsbasen har tre länkade frågor och svar-par. För att förfina svaret väljer användaren en av de tre alternativen i knowledge base. Fråga (#1), har tre Uppföljnings anvisningarna som visas i chattrobot som tre alternativ (#2). 
+I föregående bild har en användare startat en konversation genom att ange **mitt konto**. Kunskaps basen har tre länkade fråga-och-svar-par. Användaren kan förfina svaret genom att välja ett av de tre alternativen i kunskaps basen. Frågan (#1) har tre uppföljnings anvisningar som visas i Chat-roboten som tre alternativ (#2). 
 
-När användaren väljer ett alternativ (3), visas nästa listan över förfina alternativ (#4). Den här sekvensen fortsätter (5) tills användaren anger rätt, sista svaret (6).
+När användaren väljer ett alternativ (#3) visas nästa lista över raffinerings alternativ (#4). Den här sekvensen fortsätter (#5) tills användaren bestämmer rätt, slut svar (#6).
 
 > [!NOTE]
-> I den föregående bilden är det **aktivera flera aktivera** kryssrutan har valts för att säkerställa att anvisningarna visas. 
+> I föregående bild har kryss rutan **aktivera flera-turn** marker ATS för att se till att prompterna visas. 
 
-### <a name="use-multi-turn-in-a-bot"></a>Använda flera aktivera i en robot
+### <a name="use-multi-turn-in-a-bot"></a>Använda multi-turn i en robot
 
-För att hantera sammanhangsberoende konversationen, ändra ditt klientprogram av [att lägga till kod till din robot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). Lägga till koden kan användarna se anvisningarna.  
+Om du vill hantera den kontextuella konversationen ändrar du klient programmet genom [att lägga till kod i din robot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). Genom att lägga till koden kan användarna se prompterna.  
 
-## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Skapa en konversation med flera aktivera från ett dokument struktur
+## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Skapa en konversation med flera varv från ett dokuments struktur
 
-När du skapar en kunskapsbas den **fylla i din Kunskapsbas** avsnittet visar en **aktivera flera aktivera extraheringen från URL: er, .pdf eller .docx filer** markerar du kryssrutan. 
+När du skapar en kunskaps bas visar avsnittet **fylla i ditt KB** en **Aktivera extrahering av flera turn-filer från URL: er,. PDF eller. docx-filer** . 
 
-![Markera kryssrutan för att aktivera flera aktivera extrahering](../media/conversational-context/enable-multi-turn.png)
+![Kryss ruta för att aktivera extrahering av flera sätt](../media/conversational-context/enable-multi-turn.png)
 
-När du väljer det här alternativet för ett importerat dokument, kan flera aktivera konversationen ges från dokumentstrukturen. Om denna struktur finns, skapar QnA Maker Uppföljnings uppmaningen att par frågor och svar som en del av importprocessen. 
+När du väljer det här alternativet för ett importerat dokument kan konversationen med flera varv vara underförstådd från dokument strukturen. Om den strukturen finns skapar QnA Maker uppföljnings guiden som parar frågor och svar åt dig som en del av import processen. 
 
-Flera aktivera struktur kan härledas från URL: er, PDF-filer eller DOCX-filer. Ett exempel på struktur, visa en bild av en [manuell PDF-fil i Microsoft Surface-användaren](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). På grund av storleken på den här PDF-fil, QnA Maker-resursen kräver en **Search prisnivån** av **B** (15 index) eller större. 
+Flera-turn-strukturen kan bara härledas från URL: er, PDF-filer eller DOCX-filer. Ett exempel på en struktur finns i en bild av en [manuell PDF-fil för Microsoft Surface-användare](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). På grund av storleken på den här PDF-filen kräver QnA Maker resursen en **Sök pris nivå** på **B** (15 index) eller mer. 
 
-![! [Exempel på strukturen i en användarhandboken] (.. / media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+![! [Exempel på en struktur i en Användar handbok] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-När du importerar PDF-dokumentet anger QnA Maker uppföljning uppmaningar från strukturen för att skapa konversationsanpassade flöde. 
+När du importerar PDF-dokumentet anger QnA Maker uppföljnings anvisningarna från strukturen för att skapa ett konversations flöde. 
 
-1. Välj i QnA Maker **skapa en kunskapsbas**.
-1. Skapa eller använda en befintlig QnA Maker-tjänst. I föregående exempel för Microsoft Surface, eftersom PDF-filen är för stor för en mindre nivå, använda en QnA Maker-tjänsten med en **söktjänsten** av **B** (15 index) eller större.
-1. Ange ett namn för din kunskapsbas som **Surface manuell**.
-1. Välj den **aktivera flera aktivera extraheringen från URL: er, .pdf eller .docx filer** markerar du kryssrutan. 
-1. Välj Manuell Webbadressen Surface **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
+1. I QnA Maker väljer du **skapa en kunskaps bas**.
+1. Skapa eller Använd en befintlig QnA Maker-tjänst. I föregående exempel på Microsoft-arbetsytan, eftersom PDF-filen är för stor för en mindre nivå, använder du en QnA Maker tjänst med en **Sök tjänst** på **B** (15 index) eller mer.
+1. Ange ett namn för din kunskaps bas, till exempel **Surface manual**.
+1. Markera kryss rutan **Aktivera extrahering av flera turn från URL: er,. PDF eller. docx-filer** . 
+1. Välj ytans manuella URL **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
 
-1. Välj den **skapa din Kunskapsbas** knappen. 
+1. Välj knappen **skapa din KB** . 
 
-    När kunskapsbasen har skapats, visas en vy över frågor och svar-par.
+    När kunskaps basen har skapats visas en vy över fråga-och-svar-par.
 
 ## <a name="show-questions-and-answers-with-context"></a>Visa frågor och svar med kontext
 
-Minska visas frågor och svar-par till sådana med sammanhangsberoende konversationer. 
+Minska antalet frågor och svar-par som visas till endast de med sammanhangsbaserade konversationer. 
 
-Välj **Visningsalternativ**, och välj sedan **Show kontext (FÖRHANDSVERSION)** . Listan visar frågor och svar-värdepar som innehåller Uppföljnings anvisningarna. 
+Välj **visnings alternativ**och välj sedan **Visa kontext (för hands version)** . I listan visas fråga-och-svar-par som innehåller uppföljnings anvisningarna. 
 
-![Filtrera frågor och svar-par av sammanhangsbaserad konversationer](../media/conversational-context/filter-question-and-answers-by-context.png)
+![Filtrera frågor och svar-par efter sammanhangsbaserade konversationer](../media/conversational-context/filter-question-and-answers-by-context.png)
 
-Flera aktivera kontexten visas i den första kolumnen.
+Kontexten för flera turn visas i den första kolumnen.
 
-![! [Kolumnen ”kontext (FÖRHANDSVERSION)”] (.. / media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+![! [Kolumnen "kontext (förhands granskning)"] (.. /media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-I den föregående bilden **#1** anger fetstil i kolumnen, vilket innebär det att den aktuella frågan. Den överordnade frågan är det översta objektet i raden. Frågor under den är länkad frågor och svar-par. Dessa objekt är valbara, så att du omedelbart kan gå till de andra objekt i kontexten. 
+I föregående bild anger **#1** fet text i kolumnen som visar den aktuella frågan. Den överordnade frågan är det översta objektet på raden. Alla frågor nedan är de länkade frågorna och svars paren. Dessa objekt är valbara, så att du kan gå direkt till andra kontext objekt. 
 
-## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>Lägg till ett befintligt nyckelpar med frågor och svar som Kommandotolken uppföljning
+## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>Lägg till ett befintligt fråga-och-svar-par som en uppföljnings fråga
 
-Den ursprungliga frågan **mitt konto**, har Uppföljnings anvisningarna som **konton och logga in**. 
+Den ursprungliga frågan, **mitt konto**, har uppföljnings frågor, till exempel **konton och inloggning**. 
 
-![Den ”konton och logga in” svar och anvisningarna för uppföljning](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
+![Svar och Uppföljnings frågor för "konton och signering"](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
-Lägg till en uppföljning uppmaning till ett befintligt nyckelpar med frågor och svar som för närvarande inte är länkad. Eftersom frågan inte är kopplad till alla frågor och svar-par, måste den aktuella vyn inställningen ändras.
+Lägg till en uppföljnings fråga till ett befintligt fråga-och-svar-par som inte är länkat. Eftersom frågan inte är länkad till några frågor och svar-par måste den aktuella visnings inställningen ändras.
 
-1. För att länka ett befintligt nyckelpar med frågor och svar som Kommandotolken Uppföljnings, Välj raden för frågor och svar-par. Surface manuell, söker du efter **logga ut** att minska listan.
-1. På raden för **Sidomeny**i den **svar** kolumnen, markerar **Lägg till Uppföljnings prompten**.
-1. I fälten i den **uppföljning fråga (FÖRHANDSVERSION)** popup-fönstret anger du följande värden:
+1. Om du vill länka ett befintligt fråga-och-svar-par som en uppföljnings fråga väljer du raden för fråga-och-svar-paret. För Surface manual söker du efter **Logga ut** för att minska listan.
+1. Välj **Lägg till uppföljnings fråga**i kolumnen **svar** i raden för att **Logga in**.
+1. Ange följande värden i fälten i popup-fönstret för **uppföljnings prompten (för hands version)** :
 
-    |Fält|Värde|
+    |Fält|Value|
     |--|--|
-    |Visa text|Ange **inaktivera enheten**. Det här är anpassad text att visa Uppföljnings-prompten.|
-    |Endast kontext| Markera den här kryssrutan. Ett svar returneras bara om frågan anger kontexten.|
-    |Länk för att besvara|Ange **använda på inloggningsskärmen** att hitta den befintliga kombinationen av frågor och svar.|
+    |Visa text|Ange **Stäng av enheten**. Det här är en anpassad text som visas i uppföljnings anvisningarna.|
+    |Endast Sammanhangs beroende| Markera den här kryss rutan. Ett svar returneras bara om frågan anger sammanhang.|
+    |Länk till svar|Ange **Använd inloggnings skärmen** för att hitta det befintliga fråga-och-svar-paret.|
 
 
-1.  En matchning returneras. Välj det här svaret som uppföljningen och välj sedan **spara**. 
+1.  En matchning returneras. Välj det här svaret som uppföljning och välj sedan **Spara**. 
 
-    ![Sidan ”Uppföljning fråga (FÖRHANDSVERSION)”](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+    ![Sidan "uppföljnings prompt (förhands granskning)"](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
-1. När du har lagt till Uppföljnings Kommandotolken, Välj **spara och träna** i det övre navigeringsfältet.
+1. När du har lagt till uppföljnings anvisningarna väljer du **Spara och träna** i det övre navigerings fönstret.
   
-### <a name="edit-the-display-text"></a>Redigera texten 
+### <a name="edit-the-display-text"></a>Redigera visnings texten 
 
-När Kommandotolken Uppföljnings har skapats och ett befintligt nyckelpar med frågor och svar har angetts som den **länk till svar**, du kan ange en ny **visa text**. Den här texten ersätta inte den befintliga frågan och läggs en ny alternativa fråga inte. Den skiljer sig från dessa värden. 
+När en uppföljnings fråga skapas och ett befintligt fråga-och-svar-par anges som **länk till svar**, kan du ange en ny **visnings text**. Den här texten ersätter inte den befintliga frågan och lägger inte till någon ny alternativ fråga. Den är separat från dessa värden. 
 
-1. Om du vill redigera texten, Sök efter och Välj fråga i den **kontext** fält.
-1. Markera kryssrutan Uppföljnings fråga i kolumnen svar på raden för frågan. 
-1. Välj Visa texten som du vill redigera och välj sedan **redigera**.
+1. Om du vill redigera visnings texten söker du efter och väljer frågan i **kontext** fältet.
+1. På raden för den frågan väljer du uppföljnings anvisningarna i kolumnen svar. 
+1. Välj den visnings text som du vill redigera och välj sedan **Redigera**.
 
-    ![Med redigeringskommandot för texten](../media/conversational-context/edit-existing-display-text.png)
+    ![Kommandot edit för visnings texten](../media/conversational-context/edit-existing-display-text.png)
 
-1. I den **uppföljning prompten** popup-fönster, ändra befintliga texten som visas. 
-1. När du är klar redigera texten som visas, Välj **spara**. 
-1. I det övre navigeringsfältet **spara och träna**.
+1. Ändra den befintliga visnings texten i popup-fönstret för **uppföljnings frågan** . 
+1. När du är klar med att redigera visnings texten väljer du **Spara**. 
+1. I det övre navigerings fältet **sparar och tränar**du.
 
 
 <!--
@@ -150,52 +150,52 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 
 -->
 
-## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Lägg till ett nytt par frågor och svar som Kommandotolken uppföljning
+## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Lägg till ett nytt fråga-och-svar-par som en uppföljnings fråga
 
-När du lägger till ett nytt par frågor och svar i kunskapsbasen bör varje par vara kopplat till en befintlig fråga som en Uppföljnings-kommandotolk.
+När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par länkas till en befintlig fråga som en uppföljnings fråga.
 
-1. I verktygsfältet kunskapsbas Sök efter och välj den befintliga frågor och svar-par för **konton och logga in**. 
+1. I verktygsfältet kunskaps bas söker du efter och väljer det befintliga fråge-och svars paret för **konton och loggar in**. 
 
-1. I den **svar** kolumnen för den här frågan väljer **Lägg till Uppföljnings prompten**. 
-1. Under **uppföljning fråga (FÖRHANDSVERSION)** , skapa en ny Uppföljnings-kommandotolk genom att ange följande värden: 
+1. Välj **Lägg till uppföljnings fråga**i **svars** kolumnen för den här frågan. 
+1. Under **uppföljnings prompt (för hands version)** skapar du en ny uppföljning genom att ange följande värden: 
 
-    |Fält|Värde|
+    |Fält|Value|
     |--|--|
-    |Visa text|*Skapa ett Windows-konto*. Anpassad text att visa Uppföljnings-prompten.|
-    |Endast kontext|Markera den här kryssrutan. Det här svaret returneras bara om frågan anger kontexten.|
-    |Länk för att besvara|Ange följande text som svar:<br>*[Skapa](https://account.microsoft.com/) ett Windows-konto med ett nytt eller befintligt e-postkonto*.<br>När du sparar och träna databasen kommer att konverteras den här texten. |
+    |Visa text|*Skapa ett Windows-konto*. Den anpassade text som ska visas i uppföljnings anvisningarna.|
+    |Endast Sammanhangs beroende|Markera den här kryss rutan. Svaret returneras endast om frågan anger sammanhang.|
+    |Länk till svar|Ange följande text som svar:<br>*[Skapa](https://account.microsoft.com/) ett Windows-konto med ett nytt eller befintligt e-postkonto*.<br>När du sparar och tränar databasen kommer den här texten att konverteras. |
     |||
 
-    ![Skapa en ny fråga frågor och svar](../media/conversational-context/create-child-prompt-from-parent.png)
+    ![Skapa en ny fråga och svara på frågor](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. Välj **Skapa nytt**, och välj sedan **spara**. 
+1. Välj **Skapa ny**och välj sedan **Spara**. 
 
-    Den här åtgärden skapar ett nytt par för frågor och svar och länkar den valda frågan som en Uppföljnings-kommandotolk. Den **kontext** kolumn för båda frågor, visar en uppföljning fråga relation. 
+    Den här åtgärden skapar ett nytt par för frågor och svar och länkar den valda frågan som en uppföljnings fråga. I kolumnen **context** visas en uppföljnings relation för båda frågorna. 
 
-1. Välj **Visningsalternativ**, och välj sedan [ **Show kontext (FÖRHANDSVERSION)** ](#show-questions-and-answers-with-context).
+1. Välj **visnings alternativ**och välj sedan [**Visa kontext (för hands version)** ](#show-questions-and-answers-with-context).
 
     Den nya frågan visar hur den är länkad.
 
-    ![Skapa en ny Uppföljnings-kommandotolk](../media/conversational-context/new-qna-follow-up-prompt.png)
+    ![Skapa en ny uppföljnings prompt](../media/conversational-context/new-qna-follow-up-prompt.png)
 
-    Den överordnade frågan visar en ny fråga som en av dess alternativ.
+    Den överordnade frågan visar en ny fråga som ett alternativ.
 
-    ![! [Kolumnen kontext för båda frågor, visar en uppföljning fråga relation] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![! [Kontext kolumnen för båda frågorna indikerar en uppföljnings relation] (.. /media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. När du har lagt till Uppföljnings Kommandotolken, Välj **spara och träna** i det övre navigeringsfältet.
+1. När du har lagt till uppföljnings anvisningarna väljer du **Spara och träna** i det övre navigerings fältet.
 
-## <a name="enable-multi-turn-during-testing-of-follow-up-prompts"></a>Aktivera flera aktivera under testningen av Uppföljnings anvisningarna
+## <a name="enable-multi-turn-during-testing-of-follow-up-prompts"></a>Aktivera multi-turn vid testning av uppföljnings-prompter
 
-När du testar att fråga med uppföljning meddelanden i den **testa** väljer **aktivera flera aktivera**, och sedan ange din fråga. Svaret innehåller Uppföljnings anvisningarna.
+När du testar frågan med uppföljnings anvisningarna i **test** fönstret väljer du **aktivera flera varv**och anger sedan din fråga. Svaret innehåller uppföljnings anvisningarna.
 
-![Svaret innehåller anvisningarna för uppföljning](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
+![Svaret innehåller uppföljnings anvisningarna](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 
-Om du inte aktiverar flera aktivera svaret returneras men Uppföljnings anvisningarna returneras inte.
+Om du inte aktiverar flera varv returneras svaret men uppföljnings anvisningarna returneras inte.
 
-## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>En JSON-begäran för att returnera ett inledande svar och fråga om uppföljning
+## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>En JSON-begäran för att returnera ett första svar och Uppföljnings frågor
 
-Använd tomt `context` objekt för att begära svaret på användarens fråga och inkludera Uppföljnings anvisningarna. 
+Använd det tomma `context` objektet för att begära svar på användarens fråga och inkludera uppföljnings frågor. 
 
 ```JSON
 {
@@ -207,9 +207,9 @@ Använd tomt `context` objekt för att begära svaret på användarens fråga oc
 }
 ```
 
-## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>Ett JSON-svar för att returnera ett inledande svar och anvisningarna för uppföljning
+## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>Ett JSON-svar för att returnera ett första svar och Uppföljnings frågor
 
-Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att **konton och logga in**. Svaret innehåller den fråga informationen, som finns i *svar [0] .context*, och texten som ska visas för användaren. 
+Föregående avsnitt begärde ett svar och eventuella uppföljnings frågor till **konton och inloggning**. Svaret innehåller prompt-information som finns i *svar [0]. context*och texten som ska visas för användaren. 
 
 ```JSON
 {
@@ -274,7 +274,7 @@ Föregående avsnitt begärt svar och eventuella Uppföljnings uppmaningar att *
 }
 ```
 
-Den `prompts` matris innehåller texten i den `displayText` egenskapen och `qnaId` värde. Du kan visa dessa frågor som nästa visas valen i konversationen flow och skicka sedan den valda `qnaId` tillbaka till QnA Maker i följande begäran. 
+Matrisen innehåller text `displayText` i egenskapen och `qnaId` värdet. `prompts` Du kan visa svaren som nästa alternativ i konversations flödet och sedan skicka `qnaId` tillbaka tillbaka till QNA Maker i följande begäran. 
 
 <!--
 
@@ -282,11 +282,11 @@ The `promptsToDelete` array provides the ...
 
 -->
 
-## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>En JSON-begäran för att returnera ett icke-första svar och fråga om uppföljning
+## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>En JSON-begäran om att returnera ett svar som inte är första gången och Uppföljnings frågor
 
-Fyll i `context` objekt som inkluderas tidigare kontexten.
+Fyll i `context` objektet så att föregående kontext tas med.
 
-I följande JSON-begäran, den aktuella frågan är *Använd Windows Hello för att logga in* och föregående fråga var *konton och logga in*. 
+I följande JSON-begäran använder den aktuella frågan *Windows Hello för att logga in* och föregående fråga var *konton och loggade in*. 
 
 ```JSON
 {
@@ -302,9 +302,9 @@ I följande JSON-begäran, den aktuella frågan är *Använd Windows Hello för 
 }
 ``` 
 
-##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Ett JSON-svar för att returnera ett icke-första svar och anvisningarna för uppföljning
+##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Ett JSON-svar för att returnera ett icke-initialt svar och Uppföljnings frågor
 
-QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i den `context` egenskapen för det första objektet i den `answers` objekt:
+_GenerateAnswer_ JSON-svaret innehåller följande prompter i `context` egenskapen för det `answers` första objektet i objektet: QNA Maker
 
 ```JSON
 {
@@ -362,17 +362,17 @@ QnA Maker _GenerateAnswer_ JSON-svaret innehåller Uppföljnings anvisningarna i
 }
 ```
 
-## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Söka i knowledge base med QnA Maker-ID
+## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Fråga kunskaps basen med QnA Maker-ID
 
-I den första frågan svar, eventuella Uppföljnings uppmaningar och dess associerade `qnaId` returneras. Nu när du har det ID: T kan skicka du det i begärandetexten för uppföljning prompten. Om begärandetexten innehåller den `qnaId`, och context-objektet (som innehåller de föregående QnA Maker-egenskaperna), och sedan GenerateAnswer returnerar exakta fråga efter ID, istället för att använda Rangordningsalgoritmen för att hitta svaret efter frågetexten. 
+Vid den första frågans svar returneras eventuella uppföljnings frågor och dess associerade `qnaId` . Nu när du har ID: t kan du skicka detta i begär ande texten för uppföljnings frågan. Om texten i begäran innehåller `qnaId`, och objektet context (som innehåller föregående QNA Maker egenskaper), returnerar GenerateAnswer den exakta frågan efter ID, i stället för att använda rangordnings algoritmen för att hitta svaret från frågetexten. 
 
-## <a name="display-prompts-and-send-context-in-the-client-application"></a>Visa meddelanden och skicka kontexten i klientprogrammet 
+## <a name="display-prompts-and-send-context-in-the-client-application"></a>Visa prompter och skicka kontext i klient programmet 
 
-Du har lagt till anvisningarna i kunskapsbasen och testas flödet i rutan. Nu ska du använda de här anvisningarna i klientprogrammet. För Bot Framework visas anvisningarna automatiskt inte i klientprogram. Du kan visa anvisningarna som föreslagna åtgärder eller knappar som en del av svaret på användarens fråga i klientprogram genom att inkludera detta [Bot Framework exempel](https://aka.ms/qnamakermultiturnsample) i din kod. Klientprogrammet lagra det aktuella QnA Maker-ID och användarfrågan och skicka dem i den [context-objektet GenerateAnswer API](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) för nästa användarfråga. 
+Du har lagt till prompter i din kunskaps bas och testat flödet i test fönstret. Nu måste du använda dessa meddelanden i klient programmet. I bot Framework visas inte prompterna automatiskt i klient programmen. Du kan visa prompterna som föreslagna åtgärder eller knappar som en del av svaret på användarens fråga i klient program genom att inkludera detta [robot Framework-exempel](https://aka.ms/qnamakermultiturnsample) i koden. Klient programmet måste lagra det aktuella QnA Maker-ID: t och användar frågan och skicka dem i [kontext objekt för GenerateAnswer-API: et](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) för nästa användar fråga. 
 
-## <a name="display-order-is-supported-in-the-update-api"></a>Visningsordningen stöds i Update-API
+## <a name="display-order-is-supported-in-the-update-api"></a>Visnings ordningen stöds i uppdaterings-API: et
 
-Den [text som visas och visningsordning](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returneras i JSON-svar, det finns stöd för redigering av den [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
+[Visnings texten och visnings ordningen](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), som returneras i JSON-svaret, stöds för redigering av uppdaterings- [API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
 <!--
 
@@ -380,19 +380,19 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 -->
 
-## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Skapa en kunskapsbas med flera aktivera anvisningarna med Create API
+## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Skapa kunskaps bas med flera turn-prompter med Create API
 
-Du kan skapa ett ärende knowledge flera aktivera uppmaningar med hjälp av den [skapa API för QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Lägger till anvisningarna i den `context` egenskapens `prompts` matris. 
+Du kan skapa ett kunskaps ärende med flera turn-prompter med hjälp av [QNA Maker skapa API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Prompterna läggs till i `context` `prompts` egenskaps mat ris. 
 
 
-## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Lägga till eller ta bort flera aktivera frågorna med Update-API
+## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Lägg till eller ta bort prompter med uppdaterings-API: et
 
-Du kan lägga till eller ta bort flera Aktivera meddelanden med hjälp av den [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Lägger till anvisningarna i den `context` egenskapens `promptsToAdd` matris och `promptsToDelete` matris. 
+Du kan lägga till eller ta bort prompter med flera turn-meddelanden med hjälp av [API: et QNA Maker Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Prompterna läggs till i `context` `promptsToAdd` egenskaps mat ris och `promptsToDelete` matrisen. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om sammanhangsberoende konversationer från den här [dialogrutan exempel](https://aka.ms/qnamakermultiturnsample) eller Läs mer om [konceptuella bot utforma för flera aktivera konversationer](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Lär dig mer om sammanhangsbaserade konversationer från det här [dialog exemplet](https://aka.ms/qnamakermultiturnsample) eller Lär dig mer om [konceptuella robot design för flera-turn-konversationer](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
-> [Migrera en kunskapsbas](../Tutorials/migrate-knowledge-base.md)
+> [Migrera en kunskaps bas](../Tutorials/migrate-knowledge-base.md)

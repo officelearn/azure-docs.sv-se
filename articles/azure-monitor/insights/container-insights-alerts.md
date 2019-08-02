@@ -1,6 +1,6 @@
 ---
-title: Skapa aviseringar med hjälp av Azure Monitor för behållare | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure Monitor för behållare för att skapa anpassade varningar utifrån loggfrågor för minne och CPU-användning.
+title: Skapa prestanda aviseringar med hjälp av Azure Monitor för behållare | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Azure Monitor för behållare för att skapa anpassade aviseringar baserat på logg frågor för minnes-och processor användning.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,32 +13,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b1ee0e56b5a133e65a25b5d9af645f351d039c0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072394"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722684"
 ---
-# <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Hur du ställer in aviseringar för problem med prestanda i Azure Monitor för behållare
-Azure Monitor för behållare övervakar prestanda för arbetsbelastningar som distribueras till Azure Container Instances eller hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS).
+# <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Så här konfigurerar du aviseringar för prestanda problem i Azure Monitor för behållare
+Azure Monitor för behållare övervakar prestanda för behållar arbets belastningar som distribueras till Azure Container Instances eller till hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS).
 
-Den här artikeln beskriver hur du aktiverar aviseringar i följande situationer:
+I den här artikeln beskrivs hur du aktiverar aviseringar i följande situationer:
 
-- När CPU eller minne användning på klusternoder överskrider ett tröskelvärde
-- När CPU eller minne användning på alla behållare i en kontrollant överskrider ett tröskelvärde jämfört med en gräns som har angetts i motsvarande resurs
-- *NotReady* komponentstatusnoden räknar
-- *Det gick inte*, *väntande*, *okänd*, *kör*, eller *lyckades* pod-fas räknar
-- När mängden ledigt utrymme på klusternoder överskrider ett tröskelvärde 
+- När processor-eller minnes användning på klusternoder överskrider ett tröskelvärde
+- När processor-eller minnes användning på en behållare inom en styrenhet överskrider ett tröskelvärde jämfört med en gräns som har angetts för motsvarande resurs
+- Antal noder för notrappstegs status
+- *Misslyckades*, *väntar*, *okänd*, *körs*eller *lyckades* Pod-fas antal
+- När ledigt disk utrymme på klusternoder överskrider ett tröskelvärde 
 
-Använd de frågor som tillhandahålls för att skapa en metrisk varning eller en avisering om metriska måttenheter varnas för hög processor, minnesanvändning eller lite ledigt diskutrymme på klusternoder. Måttaviseringar har kortare svarstider än loggaviseringar. Men aviseringar ger avancerade frågor och större grad. Loggaviseringar frågor jämföra ett datetime aktuella med hjälp av den *nu* operatorn och gå tillbaka en timme. (Azure Monitor för behållare lagrar alla datum i Coordinated Universal Time (UTC)-format.)
+Om du vill varna för hög processor-eller minnes användning eller ont om ledigt disk utrymme på klusternoder, använder du frågorna som finns för att skapa en måtta avisering eller en mått mätnings avisering. Mått aviseringar har kortare latens än logg aviseringar. Men logg aviseringar innehåller avancerade frågor och större riktigt ambitiös. Logg aviserings frågor jämför ett datum/tid-värde för närvarande genom att använda operatorn *nu* och gå tillbaka en timme. (Azure Monitor för behållare lagrar alla datum i UTC-format (Coordinated Universal Time).)
 
-Om du inte är bekant med Azure Monitor-aviseringar finns i [översikt över aviseringar i Microsoft Azure](../platform/alerts-overview.md) innan du börjar. Läs mer om aviseringar som använder loggfrågor i [Loggaviseringar i Azure Monitor](../platform/alerts-unified-log.md). Mer information om måttaviseringar finns i [måttaviseringar i Azure Monitor](../platform/alerts-metric-overview.md).
+Om du inte är bekant med Azure Monitor aviseringar, se [Översikt över aviseringar i Microsoft Azure](../platform/alerts-overview.md) innan du börjar. Om du vill veta mer om aviseringar som använder logg frågor, se [logg aviseringar i Azure Monitor](../platform/alerts-unified-log.md). Mer information om mått aviseringar finns [i mått varningar i Azure Monitor](../platform/alerts-metric-overview.md).
 
-## <a name="resource-utilization-log-search-queries"></a>Loggsökningsfrågor för resurs-användning
-Frågorna i det här avsnittet stöder varje aviseringar scenario. De används i steg 7 i den [skapa avisering](#create-an-alert-rule) i den här artikeln.
+## <a name="resource-utilization-log-search-queries"></a>Sök frågor för resurs användnings logg
+Frågorna i det här avsnittet stöder varje aviserings scenario. De används i steg 7 i avsnittet [skapa avisering](#create-an-alert-rule) i den här artikeln.
 
-Följande fråga beräknar genomsnittliga CPU-belastningen som ett genomsnitt av medlem noder CPU-belastning varje minut.  
+Följande fråga beräknar genomsnittlig processor användning som medelvärde för medlems nodernas CPU-användning varje minut.  
 
 ```kusto
 let endDateTime = now();
@@ -73,7 +73,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-Följande fråga beräknar genomsnittliga minnesanvändningen som ett genomsnitt av medlem noder minnesanvändningen varje minut.
+Följande fråga beräknar genomsnittlig minnes användning som medelvärde för medlems nodernas minnes användning varje minut.
 
 ```kusto
 let endDateTime = now();
@@ -108,9 +108,9 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Följande frågor använder platshållarvärdena \<your klusternamn > och \<your domänkontrollantens namn > som representerar ditt kluster och en domänkontrollant. Ersätt dem med värden som är specifika för din miljö när du konfigurerar aviseringar.
+>I följande frågor används plats hållarnas värden \<som namn på > och \<ditt kontrollants namn > för att representera klustret och kontrollanten. Ersätt dem med värden som är speciella för din miljö när du konfigurerar aviseringar.
 
-Följande fråga beräknar genomsnittliga CPU-utnyttjande på alla behållare i en kontroll som ett genomsnitt av CPU-belastning för varje container-instans som en kontrollant varje minut. Måttet är en del av gränsen som ställts in för en behållare.
+Följande fråga beräknar den genomsnittliga CPU-användningen för alla behållare i en kontrollant som ett genomsnitt av processor användningen för varje behållar instans i en kontrollant varje minut. Måttet är en procent andel av gränsen som har kon figurer ATS för en behållare.
 
 ```kusto
 let endDateTime = now();
@@ -150,7 +150,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-Följande fråga beräknar den genomsnittliga minnesanvändningen för alla behållare i en kontroll som ett genomsnitt av minnesanvändningen för varje container-instans som en kontrollant varje minut. Måttet är en del av gränsen som ställts in för en behållare.
+Följande fråga beräknar den genomsnittliga minnes användningen för alla behållare i en kontrollant som ett genomsnitt av minnes användningen för varje behållar instans i en kontrollant varje minut. Måttet är en procent andel av gränsen som har kon figurer ATS för en behållare.
 
 ```kusto
 let endDateTime = now();
@@ -190,7 +190,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-Följande fråga returnerar alla noder och antalet som har statusen *redo* och *NotReady*.
+Följande fråga returnerar alla noder och antal som har statusen *klar* och notrappsteg.
 
 ```kusto
 let endDateTime = now();
@@ -217,7 +217,7 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-I följande fråga returnerar pod fas räknar baserat på alla faser: *Det gick inte*, *väntande*, *okänd*, *kör*, eller *lyckades*.  
+Följande fråga returnerar antalet Pod-faser baserat på alla faser: *Misslyckades*, *väntar*, *okänd*, *körs*eller *lyckades*.  
 
 ```kusto
 let endDateTime = now();
@@ -254,9 +254,9 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Att Avisera om vissa pod-faser, till exempel *väntande*, *misslyckades*, eller *okänd*, ändra den sista raden i frågan. Till exempel till en avisering för *FailedCount* använder: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>Om du vill varna om vissa Pod-faser, till exempel väntande, *misslyckad*eller *okänd*, ändrar du den sista raden i frågan. Till exempel för att varna vid *FailedCount* -användning: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-Följande fråga returnerar noder klusterdiskar som överstiger 90% ledigt utrymme som används. Om du vill hämta kluster-ID först kör följande fråga och kopiera värdet från den `ClusterId` egenskapen:
+Följande fråga returnerar diskar för klusternoder som överskrider 90% ledigt utrymme. Om du vill hämta klustrets ID kör du först följande fråga och kopierar värdet från `ClusterId` egenskapen:
 
 ```kusto
 InsightsMetrics
@@ -274,7 +274,7 @@ InsightsMetrics
 | where TimeGenerated < endDateTime
 | where TimeGenerated >= startDateTime
 | where Origin == 'container.azm.ms/telegraf'            
-| where Namespace == 'disk'            
+| where Namespace == 'container.azm.ms/disk'            
 | extend Tags = todynamic(Tags)            
 | project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
 | where ClusterId =~ clusterId       
@@ -284,34 +284,34 @@ InsightsMetrics
 ```
 
 ## <a name="create-an-alert-rule"></a>Skapa en varningsregel
-Följ dessa steg för att skapa en avisering om loggen i Azure Monitor med någon av de log search regler som angavs tidigare.  
+Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att använda en av logg Sök reglerna som angavs tidigare.  
 
 >[!NOTE]
->Följande procedur för att skapa en aviseringsregel för behållaren resursutnyttjande kräver att du kan växla till en ny loggfil aviseringar API som beskrivs i [växla API till inställningar för loggaviseringar](../platform/alerts-log-api-switch.md).
+>Följande procedur för att skapa en aviserings regel för användning av container resurser kräver att du växlar till en ny logg aviserings-API enligt beskrivningen i [switch API-inställningar för logg aviseringar](../platform/alerts-log-api-switch.md).
 >
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **övervakaren** från fönstret till vänster. Under **Insights**väljer **behållare**.
-3. På den **övervakas kluster** väljer du ett kluster i listan.
-4. I fönstret till vänster under **övervakning**väljer **loggar** att öppna sidan för Azure Monitor-loggar. Du kan använda den här sidan för att skriva och köra Azure Log Analytics-frågor.
-5. På den **loggar** väljer **+ ny aviseringsregel**.
-6. I den **villkor** väljer den **när den anpassade loggsökning är \<logic Odefinierad >** fördefinierade anpassade loggvillkor. Den **anpassade loggsökning** signaltyp väljs automatiskt eftersom vi skapar en varningsregel direkt från sidan för Azure Monitor-loggar.  
-7. Klistra in ett av de [frågor](#resource-utilization-log-search-queries) visas tidigare i den **sökfråga** fält.
-8. Konfigurera aviseringen enligt följande:
+2. Välj **övervaka** i rutan till vänster. Underinsikter väljer du **behållare**.
+3. På fliken **övervakade kluster** väljer du ett kluster i listan.
+4. I rutan till vänster under **övervakning**väljer du **loggar** för att öppna sidan Azure Monitor loggar. Du använder den här sidan för att skriva och köra Azure Log Analytics-frågor.
+5. På sidan **loggar** väljer du **+ ny varnings regel**.
+6. I avsnittet **villkor** väljer du **varje gång den anpassade loggs ökningen \<är logiskt odefinierad >** fördefinierat anpassat logg villkor. Typ av Sök signal för **anpassad logg** väljs automatiskt eftersom vi skapar en varnings regel direkt från sidan Azure Monitor loggar.  
+7. Klistra in en av [frågorna](#resource-utilization-log-search-queries) som tillhandahölls tidigare i fältet **Sök fråga** .
+8. Konfigurera aviseringen på följande sätt:
 
-    1. I listrutan **Baserat på** väljer du **Metrisk måttenhet**. En metrisk måttenhet skapar en avisering för varje objekt i den fråga som innehåller ett värde över våra angivet tröskelvärde.
-    1. För **villkor**väljer **är större än**, och ange **75** som en inledande baslinjekopia **tröskelvärdet** för aviseringar för CPU och minne användning . Ont om ledigt utrymme aviseringen, ange **90**. Eller ange ett annat värde som uppfyller dina kriterier.
-    1. I den **utlösare avisering baserat på** väljer **efterföljande överträdelser**. Från listrutan, väljer **är större än**, och ange **2**.
-    1. Konfigurera en avisering för behållare CPU eller minne utnyttjande under **sammanställda på**väljer **ContainerName**. Om du vill konfigurera för klustret noden ont om ledigt aviseringen, Välj **ClusterId**.
-    1. I den **Evaluated utifrån** anger den **Period** värde att **60 minuter**. Regeln körs var femte minut och returnerar poster som har skapats i den senaste timmen från den aktuella tiden. Ställa in hur lång tid en bred fönstret konton för potentiella datafördröjning. Det innebär också att frågan returnerar data för att undvika falska negativt där aviseringen aldrig utlöses.
+    1. I listrutan **Baserat på** väljer du **Metrisk måttenhet**. En mått mätning skapar en avisering för varje objekt i frågan som har ett värde över det angivna tröskelvärdet.
+    1. För **villkor**väljer du **större än**och anger **75** som ett ursprungligt bas linje **tröskelvärde** för aviseringar om processor och minnes användning. Ange **90**för varningen för lågt disk utrymme. Eller ange ett annat värde som uppfyller dina kriterier.
+    1. I avsnittet **Utlös avisering baserad på** väljer du **efterföljande överträdelser**. I list rutan väljer du **större än**och anger **2**.
+    1. Om du vill konfigurera en avisering för container-CPU eller minnes användning, under **mängd på**, väljer du **ContainerName**. Välj **ClusterId**för att konfigurera för klusternodens varning för låg disk.
+    1. I avsnittet **utvärdera baserat på** anger du värdet för **period** till **60 minuter**. Regeln körs var 5: e minut och returnerar poster som har skapats under den senaste timmen från aktuell tid. Ange tids perioden till ett brett fönster konto för potentiell data svars tid. Det säkerställer också att frågan returnerar data för att undvika ett falskt negativt meddelande om att aviseringen aldrig utlöses.
 
-9. Välj **klar** att slutföra varningsregeln.
-10. Ange ett namn i den **varningsregelns namn** fält. Ange en **beskrivning** som ger information om aviseringen. Välja en lämplig allvarlighetsgrad från alternativen.
-11. Om du vill aktivera varningsregeln omedelbart, godkänner du standardvärdet för **aktivera regeln vid skapande**.
-12. Välj en befintlig **åtgärdsgrupp** eller skapa en ny grupp. Det här steget säkerställer att samma åtgärder vidtas för varje gång som en avisering utlöses. Konfigurera baserat på hur IT-avdelningen eller DevOps driftsteamet hanterar incidenter.
-13. Välj **skapa varningsregel** att slutföra varningsregeln. Den börjar köras omedelbart.
+9. Slutför varnings regeln genom att välja **klar** .
+10. Ange ett namn i fältet **namn på aviserings regel** . Ange en **Beskrivning** som innehåller information om aviseringen. Och välj lämplig allvarlighets grad från de tillhandahållna alternativen.
+11. Om du vill aktivera varnings regeln direkt accepterar du standardvärdet för **Aktivera regel vid skapande**.
+12. Välj en befintlig **Åtgärds grupp** eller skapa en ny grupp. Det här steget säkerställer att samma åtgärder vidtas varje gång en avisering utlöses. Konfigurera baserat på hur IT-eller DevOps Operations-teamet hanterar incidenter.
+13. Välj **skapa aviserings regel** för att slutföra aviserings regeln. Den börjar köras omedelbart.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Visa [logga fråga exempel](container-insights-log-search.md#search-logs-to-analyze-data) att se fördefinierade frågor och exempel för att utvärdera eller anpassa för aviseringar, visualisera och analysera dina kluster.
-- Läs mer om Azure Monitor och övervaka andra aspekter av AKS-klustret i [visa Azure Kubernetes Service health](container-insights-analyze.md).
+- Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att utvärdera eller anpassa för aviseringar, visualisering eller analys av klustren.
+- Mer information om Azure Monitor och hur du övervakar andra aspekter av ditt AKS-kluster finns i [Visa Azure Kubernetes service Health](container-insights-analyze.md).

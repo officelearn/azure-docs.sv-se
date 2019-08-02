@@ -1,50 +1,52 @@
 ---
-title: Skapa en virtuell Windows-dator med Azure Image Builder (förhandsversion)
-description: Skapa en Windows VM med Azure Image Builder.
+title: Skapa en virtuell Windows-dator med Azure Image Builder (för hands version)
+description: Skapa en virtuell Windows-dator med Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: fec6d83870e20b7622f37c52847803d4f03cbba5
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 608338c628232f7f67ea6f6b7ba15e6bb1c3b315
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722671"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698660"
 ---
-# <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Förhandsversion: Skapa en Windows VM med Azure Image Builder
+# <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Förhandsversion: Skapa en virtuell Windows-dator med Azure Image Builder
 
-Den här artikeln är att visa dig hur du kan skapa en anpassad Windows-avbildning med hjälp av Azure VM Image Builder. I exemplet i den här artikeln använder tre olika [anpassare](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) för att anpassa avbildningen:
-- PowerShell (ScriptUri) – ladda ned och kör en [PowerShell-skript](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
-- Omstart av Windows - startar om den virtuella datorn.
-- PowerShell (intern) - kör ett visst kommando. I det här exemplet skapar en katalog på den virtuella datorn med hjälp av `mkdir c:\\buildActions`.
-- Fil - kopierar en fil från GitHub till den virtuella datorn. Det här exemplet kopierar [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) till `c:\buildArtifacts\index.html` på den virtuella datorn.
+Den här artikeln visar hur du kan skapa en anpassad Windows-avbildning med hjälp av Image Builder för Azure VM. I exemplet i den här artikeln [](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) används anpassningar för att anpassa avbildningen:
+- PowerShell (ScriptUri) – Hämta och kör ett [PowerShell-skript](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
+- Windows-omstart – startar om den virtuella datorn.
+- PowerShell (infogat) – kör ett speciellt kommando. I det här exemplet skapar den en katalog på den virtuella datorn `mkdir c:\\buildActions`med hjälp av.
+- Fil – Kopiera en fil från GitHub till den virtuella datorn. I det här [](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) exemplet kopieras `c:\buildArtifacts\index.html` index.MD till på den virtuella datorn.
 
-Vi kommer att använda en exempelmall .json konfigurera avbildningen. JSON-fil som använder vi finns här: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
+Du kan också ange en `buildTimeoutInMinutes`. Standardvärdet är 240 minuter, och du kan öka Bygg tiden för att kunna köra versioner längre.
+
+Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateWin. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
 > [!IMPORTANT]
-> Azure Image Builder är för närvarande i offentlig förhandsversion.
+> Azure Image Builder är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="register-the-features"></a>Registrera funktionerna
 
-Du måste registrera den nya funktionen för att använda Azure Image Builder i förhandsversionen.
+Om du vill använda Azure Image Builder i för hands versionen måste du registrera den nya funktionen.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Kontrollera status för funktionen registreringen.
+Kontrol lera status för funktions registreringen.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Kontrollera din registrering.
+Kontrol lera registreringen.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -52,7 +54,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Om de inte svarar registrerade, kör du följande:
+Om de inte säger att de är registrerade kör du följande:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -60,9 +62,10 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+## <a name="set-variables"></a>Ange variabler
 
-Vi kommer att använda vissa typer av information flera gånger, så att vi ska skapa några variabler för att lagra informationen.
+Vi kommer att använda vissa delar av informationen flera gånger, så vi skapar några variabler för att lagra informationen.
+
 
 ```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
@@ -77,19 +80,24 @@ runOutputName=aibWindows
 imageName=aibWinImage
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan hämta den här med `az account show | grep id`.
+Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`hjälp av.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
 ```
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+Den här resurs gruppen används för att lagra bild konfigurations mal len artefakt och avbildningen.
 
-Skapa resursgruppen.
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
-Ge Image Builder behörighet att skapa resurser i resursgruppen. Den `--assignee` värdet är app registrerings-ID för Image Builder-tjänsten. 
+## <a name="set-permissions-on-the-resource-group"></a>Ange behörigheter för resurs gruppen
+
+Ge avbildnings verktyget deltagare behörighet att skapa avbildningen i resurs gruppen. Utan detta fungerar inte avbildnings versionen. 
+
+`--assignee` Värdet är appens registrerings-ID för tjänsten Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -99,12 +107,13 @@ az role assignment create \
 ```
 
 
-## <a name="download-the-json-example"></a>Ladda ned .json-exempel
+## <a name="download-the-image-configuration-template-example"></a>Hämta exempel på en mall för avbildnings konfiguration
 
-Ladda ned exempel-JSON-fil och konfigurera den med de variabler som du skapade.
+En parametriserad avbildnings konfigurations mal len har skapats för att du ska kunna prova. Ladda ned exempel. JSON-filen och konfigurera den med de variabler som du anger tidigare.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
+
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateWin.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateWin.json
@@ -113,9 +122,19 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
 
 ```
 
+Du kan ändra det här exemplet i terminalen med hjälp av en text `vi`redigerare som.
+
+```azurecli-interactive
+vi helloImageTemplateLinux.json
+```
+
+> [!NOTE]
+> För käll avbildningen måste du alltid [Ange en version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)som du inte kan använda `latest`.
+> Om du lägger till eller ändrar resurs gruppen där avbildningen distribueras till, måste du [ange behörigheterna](#set-permissions-on-the-resource-group) för resurs gruppen.
+ 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Skicka bildkonfiguration till VM Image Builder-tjänsten
+Skicka avbildnings konfigurationen till tjänsten VM Image Builder
 
 ```azurecli-interactive
 az resource create \
@@ -126,7 +145,26 @@ az resource create \
     -n helloImageTemplateWin01
 ```
 
-Starta avbildningen-version.
+När det är klart returneras ett meddelande till konsolen och du kan skapa en `Image Builder Configuration Template` `$imageResourceGroup`i. Du kan se den här resursen i resurs gruppen i Azure Portal om du aktiverar Visa dolda typer.
+
+I bakgrunden skapar Image Builder också en resurs grupp för mellanlagring i din prenumeration. Den här resurs gruppen används för avbildnings versionen. Formatet är i följande format:`IT_<DestinationResourceGroup>_<TemplateName>`
+
+> [!Note]
+> Du får inte ta bort mellanlagrings resurs gruppen direkt. Först tar du bort bild mal len artefakt. Detta innebär att den mellanlagrings resurs grupp som ska tas bort.
+
+Om tjänsten rapporterar ett problem under överföringen av avbildnings konfigurations mal len:
+-  Granska de här [fel söknings](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) stegen. 
+- Du måste ta bort mallen med hjälp av följande kodfragment innan du försöker skicka igen.
+
+```azurecli-interactive
+az resource delete \
+    --resource-group $imageResourceGroup \
+    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
+    -n helloImageTemplateLinux01
+```
+
+## <a name="start-the-image-build"></a>Starta Image-versionen
+Starta processen för avbildnings skapande med [AZ Resource Invoke-Action](/cli/azure/resourceaz-resource-invoke-action).
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -136,11 +174,14 @@ az resource invoke-action \
      --action Run 
 ```
 
-Vänta tills versionen har slutförts. Det kan ta cirka 15 minuter.
+Vänta tills versionen har slutförts. Detta kan ta ungefär 15 minuter.
+
+Om du stöter på några fel kan du läsa följande [fel söknings](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steg.
+
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Skapa den virtuella datorn med den avbildning som du skapat. Ersätt *<password>* med ditt eget lösenord för den `aibuser` på den virtuella datorn.
+Skapa den virtuella datorn med den avbildning som du har skapat. `aibuser`  *Ersätt\<Password >* med ditt eget lösen ord för den virtuella datorn.
 
 ```azurecli-interactive
 az vm create \
@@ -152,31 +193,36 @@ az vm create \
   --location $location
 ```
 
-## <a name="verify-the-customization"></a>Verifiera anpassning
+## <a name="verify-the-customization"></a>Verifiera anpassningen
 
-Skapa en fjärrskrivbordsanslutning till den virtuella datorn med användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Öppna en kommandotolk och Skriv inuti den virtuella datorn:
+Skapa en fjärr skrivbords anslutning till den virtuella datorn med det användar namn och lösen ord som du angav när du skapade den virtuella datorn. Öppna en kommando tolk i den virtuella datorn och skriv:
 
 ```console
 dir c:\
 ```
 
-Du bör se dessa två kataloger som skapas under avbildningen anpassning:
+Du bör se dessa två kataloger som skapas under bild anpassningen:
 - buildActions
 - buildArtifacts
 
 ## <a name="clean-up"></a>Rensa
 
-När du är klar, ta bort resurserna.
+När du är färdig tar du bort resurserna.
 
+### <a name="delete-the-image-builder-template"></a>Ta bort Image Builder-mallen
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateWin01
+```
+
+### <a name="delete-the-image-resource-group"></a>Ta bort avbildnings resurs gruppen
+```azurecli-interactive
 az group delete -n $imageResourceGroup
 ```
 
+
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om komponenterna i JSON-fil som används i den här artikeln finns [Image builder-mallreferensen](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+Mer information om komponenterna i. JSON-filen som används i den här artikeln finns i [referens för Image Builder-mallar](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

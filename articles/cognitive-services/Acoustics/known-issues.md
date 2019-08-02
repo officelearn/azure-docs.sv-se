@@ -1,7 +1,7 @@
 ---
-title: Kända problem med projekt Akustik plugin-programmet
+title: Kända problem med plugin-programmet för Project-akustiskt
 titlesuffix: Azure Cognitive Services
-description: Följande kända problem kan uppstå när du använder förhandsversionen av Designer för projektet Akustik.
+description: Du kan stöta på följande kända problem när du använder för hands versionen av designer för projekt akustiskt.
 services: cognitive-services
 author: kylestorck
 manager: nitinme
@@ -9,40 +9,41 @@ ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylesto
-ms.openlocfilehash: e425575c6529ac4638fc963915362e0ec03f1117
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.author: kylsto
+ROBOTS: NOINDEX
+ms.openlocfilehash: df5a4ce62af0405ffab8f711fb40b3d92083a3a4
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849918"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706649"
 ---
-# <a name="project-acoustics-known-issues"></a>Projektet Akustik kända problem
-Följande kända problem kan uppstå när du använder förhandsversionen av Designer för projektet Akustik.
+# <a name="project-acoustics-known-issues"></a>Kända problem med Project-Akustiskhet
+Du kan stöta på följande kända problem när du använder för hands versionen av designer för projekt akustiskt.
 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Akustiska parametrar försvinner när du byter namn på en scen
 
-Om du byter namn på en scen överföra alla akustiska parametrarna som tillhör den scenen kommer inte automatiskt till nya scenen. De kommer fortfarande finns i gamla tillgångsfilen men. Leta efter den **SceneName_AcousticParameters.asset** filen i den **redigeraren** katalogen bredvid din scenfilen. Byt namn på filen för att återspegla det nya scennamnet.
+Om du byter namn på en scen överförs inte alla akustiska parametrar som tillhör den scenen automatiskt till den nya scenen. De finns dock kvar i den gamla till gångs filen. Leta efter filen **SceneName_AcousticParameters. Asse** i **redigerings** katalogen bredvid din scen fil. Byt namn på filen så att den återspeglar det nya scen namnet.
 
-## <a name="unity-crashes-when-closing-project"></a>Unity kraschar när du stänger projekt
+## <a name="unity-crashes-when-closing-project"></a>Unit kraschar vid stängning av projekt
 
-Det finns ett känt fel där Unity att svara när du stänger projektet på de senaste versionerna av Unity (2018.2 +). Detta spåras av [problemet Unity](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
+I de senaste versionerna av Uniting (2018.2 +) finns ett känt fel där Unity kraschar när du stänger projektet. Detta spåras av [detta Unity-problem](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
 
-## <a name="deploying-to-android-from-some-unity-versions"></a>Distribuera till Android från vissa Unity-versioner
+## <a name="deploying-to-android-from-some-unity-versions"></a>Distribuera till Android från vissa Unit-versioner
 
-Vissa versioner av Unity har ett fel med att distribuera ljud plugin-program till Android. Kontrollera att du inte använder en version som påverkas av [programfelet](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+Vissa versioner av Unit har ett fel med att distribuera ljud-plugin-program till Android. Kontrol lera att du inte använder en version som påverkas av [denna bugg](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
 
-## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>Det uppstår ett fel som ”kunde inte hitta metadatafilen System.Security.dll'
+## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>Jag får ett fel meddelande om att det inte gick att hitta metadata file system. Security. dll
 
-Se till att körningsversion skript i Player-inställningar har angetts till **.NET 4.x motsvarande**, och starta om Unity.
+Se till att skript körnings versionen i Player-inställningarna är inställd på **.NET 4. x-motsvarighet**och starta om Unity.
 
-## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>Jag har autentiseringsproblem med vid anslutning till Azure
+## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>Jag har problem med autentiseringen vid anslutning till Azure
 
-Kontrollera du har använt rätt autentiseringsuppgifter för din Azure-konto att ditt konto har stöd för typ av nod som efterfrågas i ändamålet och att systemklockan stämmer.
+Kontrol lera att du har använt rätt autentiseringsuppgifter för ditt Azure-konto, att ditt konto stöder den typ av nod som begärs i bagerien och att system klockan är korrekt.
 
-## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>Avbryter en ändamålet lämnar fliken ändamålet i ”ta bort” tillstånd
-Projektet Akustik kommer att rensa upp alla Azure-resurser för ett jobb på genomförts eller uppsägning. Det kan ta upp till 5 minuter.
+## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>Om du avbryter en bageri lämnar du fliken bak i läget "ta bort"
+Med projektets akustiska raderas alla Azure-resurser för ett jobb vid lyckad slut för ande eller annullering. Detta kan ta upp till 5 minuter.
 
 ## <a name="next-steps"></a>Nästa steg
-* Prova den [Unity](unity-quickstart.md) eller [Unreal](unreal-quickstart.md) exempelinnehåll
+* Prova innehållet [](unity-quickstart.md) i Unity-eller [Unreal](unreal-quickstart.md) -exempel
 

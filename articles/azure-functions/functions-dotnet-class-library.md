@@ -1,6 +1,6 @@
 ---
-title: Azure Functions C#-utvecklarreferens
-description: Förstå hur du utvecklar Azure Functions med C#.
+title: Referens C# för Azure Functions-utvecklare
+description: Lär dig hur du utvecklar Azure Functions C#med hjälp av.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,34 +11,34 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 30c97eed5f28631bd2583cbda75df5755ffe2e34
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 388b389cca7c3e820ea3ccfd37a2a93ccd476b31
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626102"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254643"
 ---
-# <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
+# <a name="azure-functions-c-developer-reference"></a>Referens C# för Azure Functions-utvecklare
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-Den här artikeln är en introduktion till utvecklar Azure Functions med hjälp av C# i .NET-klassbibliotek.
+Den här artikeln är en introduktion till att utveckla Azure Functions C# med hjälp av i .NET-klass bibliotek.
 
-Azure Functions har stöd för C# och C#-skript som programmeringsspråk. Om du letar efter information [med C# i Azure-portalen](functions-create-function-app-portal.md), se [utvecklarreferens för C#-skript (.csx)](functions-reference-csharp.md).
+Azure Functions stöder C# och C# skriptbaserade programmeringsspråk. Om du vill ha vägledning om hur [du C# använder i Azure Portal](functions-create-function-app-portal.md), se [ C# skript (. CSX) som utvecklar referens](functions-reference-csharp.md).
 
-Den här artikeln förutsätter att du redan har läst i följande artiklar:
+Den här artikeln förutsätter att du redan har läst följande artiklar:
 
-* [Azure Functions-guide för utvecklare](functions-reference.md)
-* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
+* [Guide för Azure Functions utvecklare](functions-reference.md)
+* [Azure Functions Visual Studio 2019-verktyg](functions-develop-vs.md)
 
-## <a name="functions-class-library-project"></a>Functions klassbiblioteksprojektet
+## <a name="functions-class-library-project"></a>Funktions klass biblioteks projekt
 
-I Visual Studio i **Azure Functions** projektmall skapar en C# klassbiblioteksprojektet som innehåller följande filer:
+I Visual Studio skapar **Azure Functions** projekt mal len ett C# klass biblioteks projekt som innehåller följande filer:
 
-* [Host.JSON](functions-host-json.md) -lagrar konfigurationsinställningar som påverkar alla funktioner i projektet när du kör lokalt eller i Azure.
-* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -lagrar appinställningar och anslutningssträngar som används när du kör lokalt. Den här filen innehåller hemligheter och publiceras inte i din funktionsapp i Azure. I stället [lägga till programinställningar i funktionsappen](functions-develop-vs.md#function-app-settings).
+* [Host. JSON](functions-host-json.md) – lagrar konfigurations inställningar som påverkar alla funktioner i projektet när de körs lokalt eller i Azure.
+* [Local. Settings. JSON](functions-run-local.md#local-settings-file) – lagrar app-inställningar och anslutnings strängar som används när de körs lokalt. Den här filen innehåller hemligheter och publiceras inte i din Function-app i Azure. Lägg i stället [till appinställningar i din Function-app](functions-develop-vs.md#function-app-settings).
 
-När du skapar projektet, en mappstruktur som ser ut som i följande exempel skapas i katalogen skapa utdata:
+När du skapar projektet genereras en mappstruktur som ser ut som i följande exempel i skapa utdata-katalogen:
 
 ```
 <framework.version>
@@ -50,14 +50,14 @@ När du skapar projektet, en mappstruktur som ser ut som i följande exempel ska
  | - host.json
 ```
 
-Den här katalogen är det distribueras till din funktionsapp i Azure. Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime är [lagts till i projektet som NuGet-paket](./functions-bindings-register.md#vs).
+Den här katalogen är vad som distribueras till din Function-app i Azure. De bindnings tillägg som krävs i [version 2. x](functions-versions.md) i functions-körningen [läggs till i projektet som NuGet-paket](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
-> Skapandeprocessen skapar en *function.json* fil för varje funktion. Detta *function.json* filen är inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. Läs hur du inaktiverar en funktion i [så här inaktiverar du funktioner](disable-function.md#functions-2x---c-class-libraries).
+> Build-processen skapar en *Function. JSON* -fil för varje funktion. Den här *funktionen. JSON* -filen är inte avsedd att redige ras direkt. Du kan inte ändra bindnings konfigurationen eller inaktivera funktionen genom att redigera den här filen. Information om hur du inaktiverar en funktion finns i [så här inaktiverar du funktioner](disable-function.md#functions-2x---c-class-libraries).
 
-## <a name="methods-recognized-as-functions"></a>Metoder som utsetts till funktioner
+## <a name="methods-recognized-as-functions"></a>Metoder som identifieras som funktioner
 
-I klassbiblioteket, en funktion är en statisk metod med en `FunctionName` och ett utlösarattribut, som visas i följande exempel:
+I ett klass bibliotek är en funktion en statisk metod med ett `FunctionName` och ett Utlös ande attribut, som visas i följande exempel:
 
 ```csharp
 public static class SimpleExample
@@ -72,24 +72,24 @@ public static class SimpleExample
 } 
 ```
 
-Den `FunctionName` attributet markerar metoden som en startpunkt för funktionen. Namnet måste vara unika inom ett projekt, börja med en bokstav och endast innehålla bokstäver, siffror, `_`, och `-`, högst 127 tecken. Projektmallar ofta skapa en metod med namnet `Run`, men metodnamnet kan vara ett giltigt C#-metodnamn.
+`FunctionName` Attributet markerar metoden som en funktions start punkt. Namnet måste vara unikt inom ett projekt, börja med en bokstav och får bara innehålla bokstäver, siffror, `_`och `-`upp till 127 tecken. I Project-mallar skapas ofta en `Run`metod med namnet, men metod namnet kan vara C# ett giltigt metod namn.
 
-Attributet utlösaren anger typen av utlösare och Binder indata till en metodparameter. Exempel-funktion som utlöses av ett kömeddelande och kömeddelandet skickas till-metoden i det `myQueueItem` parametern.
+Attributet trigger anger utlösarens typ och binder indata till en metod parameter. Exempel funktionen utlöses av ett köat meddelande, och Queue-meddelandet skickas till-metoden i `myQueueItem` -parametern.
 
-## <a name="method-signature-parameters"></a>Metodparametrar signatur
+## <a name="method-signature-parameters"></a>Parametrar för metodsignatur
 
-Metodsignaturen kan innehålla parametrar än den som används med attributet utlösaren. Här är några av de ytterligare parametrar som du kan inkludera:
+Metodsignaturen kan innehålla andra parametrar än den som används med Utlösar-attributet. Här följer några av de ytterligare parametrar som du kan inkludera:
 
-* [Indata och utdata bindningar](functions-triggers-bindings.md) markerad som sådan genom att dekorera dem med attribut.  
-* En `ILogger` eller `TraceWriter` ([version 1.x endast](functions-versions.md#creating-1x-apps)) parametern för [loggning](#logging).
-* En `CancellationToken` parametern för [avslutning](#cancellation-tokens).
-* [Bindning uttryck](./functions-bindings-expressions-patterns.md) parametrar för att visa utlösa metadata.
+* [In-och utdata](functions-triggers-bindings.md) -bindningar som marker ATS som sådana genom att dekorera dem med attribut.  
+* En `ILogger` eller `TraceWriter` ([version 1. x-](functions-versions.md#creating-1x-apps)parameter) för [loggning](#logging).
+* En `CancellationToken` parameter för en [korrekt avstängning](#cancellation-tokens).
+* [Bindnings uttryck](./functions-bindings-expressions-patterns.md) parametrar för att hämta metadata för utlösare.
 
-Ordningen på parametrar i funktionssignaturen spelar ingen roll. Exempel: du kan ange parametrar för objektutlösare före eller efter andra bindningar och du kan ange parametern loggaren före eller efter lagringsutlösare eller bindning för parametrar.
+Ordningen på parametrarna i funktions signaturen spelar ingen roll. Du kan till exempel ange utlösarens parametrar före eller efter andra bindningar, och du kan ange parametern för loggning före eller efter utlösare eller bindnings parametrar.
 
-### <a name="output-binding-example"></a>Exempel på utdata-bindning
+### <a name="output-binding-example"></a>Exempel på utgående bindning
 
-I följande exempel ändrar det föregående genom att lägga till en utdatabindning för kön. Funktionen skriver kömeddelandet som utlöser funktionen till ett nytt kömeddelande i en annan kö.
+I följande exempel ändras föregående, genom att lägga till en bindning för utgående köer. Funktionen skriver det köa meddelande som utlöser funktionen till ett nytt Queue-meddelande i en annan kö.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -106,11 +106,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-Referensartiklar bindning ([lagringsköer](functions-bindings-storage-queue.md), till exempel) förklarar vilka parametertyper som du kan använda med utlösare, indata eller utdata binda attribut.
+I referens artiklarna för bindning (till exempel[lagrings köer](functions-bindings-storage-queue.md)) förklaras vilka parameter typer du kan använda med attributen utlösare, indata eller utgående bindning.
 
-### <a name="binding-expressions-example"></a>Bindningen uttryck exempel
+### <a name="binding-expressions-example"></a>Exempel på bindnings uttryck
 
-Följande kod hämtar namnet på kön som ska övervaka från en appinställning och hämtar Kötid meddelande skapas i den `insertionTime` parametern.
+Följande kod hämtar namnet på kön som ska övervakas från en app-inställning och den hämtar tiden för att skapa Queue-meddelande i `insertionTime` parametern.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -127,13 +127,13 @@ public static class BindingExpressionsExample
 }
 ```
 
-## <a name="autogenerated-functionjson"></a>Automatiskt skapade function.json
+## <a name="autogenerated-functionjson"></a>Automatiskt genererad funktion. JSON
 
-Skapandeprocessen skapar en *function.json* fil i en mapp för funktionen i build-mappen. Som tidigare nämnts är den här filen inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. 
+Bygg processen skapar en *Function. JSON* -fil i en Function-mapp i build-mappen. Som tidigare nämnts är den här filen inte avsedd att redige ras direkt. Du kan inte ändra bindnings konfigurationen eller inaktivera funktionen genom att redigera den här filen. 
 
-Syftet med den här filen är att ge information för att skala kontrollanten ska användas för [skalning beslut på förbrukningsplanen](functions-scale.md#how-the-consumption-and-premium-plans-work). Därför har filen bara utlösaren info, inte indata eller utdatabindningar.
+Syftet med den här filen är att tillhandahålla information till den skalnings styrenhet som ska användas för att [skala beslut i förbruknings planen](functions-scale.md#how-the-consumption-and-premium-plans-work). Därför har filen bara utlösarens information, inte indata eller utdata-bindningar.
 
-Den genererade *function.json* -filen innehåller en `configurationSource` egenskap som meddelar körning för att använda .NET-attribut för bindningar, snarare än *function.json* konfiguration. Här är ett exempel:
+Den genererade *Function. JSON* -filen `configurationSource` innehåller en egenskap som instruerar körningen att använda .net-attribut för bindningar i stället för *Function. JSON* -konfiguration. Här är ett exempel:
 
 ```json
 {
@@ -152,13 +152,13 @@ Den genererade *function.json* -filen innehåller en `configurationSource` egens
 }
 ```
 
-## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
+## <a name="microsoftnetsdkfunctions"></a>Microsoft. NET. SDK. Functions
 
-Den *function.json* filen utförs av NuGet-paketet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+Genereringen av *Function. JSON* -filen utförs av NuGet- [paketet\.Microsoft\.net\.SDK Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-Samma paket som ska användas för både version 1.x och 2.x av Functions-körning. Målramverk är vad särskiljer ett 1.x-projekt från ett 2.x-projekt. Här följer de relevanta delarna av *.csproj* filer, som visar olika mål ramverk och samma `Sdk` paketet:
+Samma paket används för både version 1. x och 2. x i functions-körningen. Mål ramverket är det som skiljer ett 1. x-projekt från ett 2. x-projekt. Här följer de relevanta delarna av *. CSPROJ* -filer som visar olika mål ramverk och samma `Sdk` paket:
 
-**1.x-funktioner**
+**Functions 1. x**
 
 ```xml
 <PropertyGroup>
@@ -169,7 +169,7 @@ Samma paket som ska användas för både version 1.x och 2.x av Functions-körni
 </ItemGroup>
 ```
 
-**2.x-funktioner**
+**Functions 2. x**
 
 ```xml
 <PropertyGroup>
@@ -181,17 +181,17 @@ Samma paket som ska användas för både version 1.x och 2.x av Functions-körni
 </ItemGroup>
 ```
 
-Bland de `Sdk` paketberoenden är utlösare och bindningar. Ett 1.x-projekt som refererar till 1.x-utlösare och bindningar eftersom dessa utlösare och bindningar mål .NET Framework, medan 2.x utlösare och bindningar rikta .NET Core.
+`Sdk` Bland paket beroenden är utlösare och bindningar. Ett 1. x-projekt refererar till 1. x-utlösare och bindningar eftersom dessa utlösare och bindningar är riktade mot .NET Framework, medan 2. x utlöser och binder till målets .NET Core.
 
-Den `Sdk` paketet beror också på [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), indirekt på [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Dessa beroenden se till att projektet använder versioner av de paket som fungerar med Functions runtime-versionen som mål för projektet. Till exempel `Newtonsoft.Json` har version 11 för .NET Framework 4.6.1, men Functions-körning som riktas mot .NET Framework 4.6.1 är endast kompatibel med `Newtonsoft.Json` 9.0.1. Så att Funktionskoden i projektet har också att använda `Newtonsoft.Json` 9.0.1.
+Paketet är också beroende av [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json)och indirekt på [windowsazure. Storage.](https://www.nuget.org/packages/WindowsAzure.Storage) `Sdk` Dessa beroenden ser till att ditt projekt använder de versioner av de paketen som fungerar med funktionernas kör tids version som projektets mål. `Newtonsoft.Json` Har till exempel version 11 för .NET Framework 4.6.1, men Functions-körningen som är mål .NET Framework 4.6.1 är bara `Newtonsoft.Json` kompatibel med 9.0.1. Därför behöver din funktions kod i projektet även använda `Newtonsoft.Json` 9.0.1.
 
-Källkoden för `Microsoft.NET.Sdk.Functions` finns i GitHub-lagringsplatsen [azure\-functions\-vs\-skapa\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+`Microsoft.NET.Sdk.Functions` Käll koden för är tillgänglig i GitHub lagrings platsen [Azure\-Functions\-vs\-\-build SDK](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## <a name="runtime-version"></a>Körningsversion
+## <a name="runtime-version"></a>Körnings version
 
-Visual Studio använder den [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) att köra Functions-projekt. De viktigaste verktygen är ett kommandoradsgränssnitt för att funktionskörningen.
+I Visual Studio används [Azure Functions Core tools](functions-run-local.md#install-the-azure-functions-core-tools) för att köra Functions-projekt. Kärn verktygen är ett kommando rads gränssnitt för functions-körningen.
 
-Om du installerar de viktigaste verktygen med hjälp av npm påverkar som inte den Core Tools version som används av Visual Studio. För Functions runtime version 1.x, Visual Studio lagrar Core Tools-versioner i *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* och använder den senaste versionen lagras det. För Functions 2.x, de viktigaste verktygen som ingår i den **Azure Functions och Webjobs-verktyg** tillägget. Du kan se vilken version som används i konsolens utdata när du kör en Functions-projekt för både 1.x och 2.x:
+Om du installerar kärn verktygen med NPM, som inte påverkar den version av kärn verktyg som används av Visual Studio. För functions runtime version 1. x, lagrar Visual Studio kärn verktyg i *%USERPROFILE%\AppData\Local\Azure.functions.CLI* och använder den senaste versionen som lagras där. För funktioner 2. x ingår kärn verktygen i tillägget **Azure Functions och webb jobb verktyg** . För både 1. x och 2. x kan du se vilken version som används i konsolens utdata när du kör ett Functions-projekt:
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
@@ -199,21 +199,21 @@ Om du installerar de viktigaste verktygen med hjälp av npm påverkar som inte d
 
 ## <a name="supported-types-for-bindings"></a>Typer som stöds för bindningar
 
-Varje bindning har sin egen typer som stöds. till exempel ett attribut för blob-utlösare kan tillämpas på en strängparameter, en POCO-parameter, en `CloudBlockBlob` parametern eller någon av flera andra typer som stöds. Den [bindning referensartikeln för blobbindningar](functions-bindings-storage-blob.md#trigger---usage) visar alla stöds parametertyper. Mer information finns i [utlösare och bindningar](functions-triggers-bindings.md) och [bindning referensdokument för varje bindningstyp](functions-triggers-bindings.md#next-steps).
+Varje bindning har sina egna typer som stöds. ett BLOB-Utlösar-attribut kan till exempel användas för en sträng parameter, en Poco-parameter, `CloudBlockBlob` en parameter eller någon av flera andra typer som stöds. [Bindnings referens artikeln för BLOB](functions-bindings-storage-blob.md#trigger---usage) -bindningar visar alla parameter typer som stöds. Mer information finns i utlösare [och bindningar](functions-triggers-bindings.md) och [bindnings referens dokument för varje bindnings typ](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-## <a name="binding-to-method-return-value"></a>Bindning till returvärdet för metoden
+## <a name="binding-to-method-return-value"></a>Bindning till metod retur värde
 
-Du kan använda metoden returvärdet för en utdatabindning genom att använda attributet returvärdet för metoden. Exempel finns i [utlösare och bindningar](./functions-bindings-return-value.md). 
+Du kan använda ett metod retur värde för en utgående bindning genom att tillämpa attributet på metodens retur värde. Exempel finns i utlösare [och bindningar](./functions-bindings-return-value.md). 
 
-Använd det returnera värdet bara om lyckad körning av en funktion alltid resulterar i ett returvärde ska skickas till utdata-bindning. Annars kan du använda `ICollector` eller `IAsyncCollector`, vilket visas i följande avsnitt.
+Använd returvärdet endast om en lyckad funktions körning alltid resulterar i ett retur värde som skickas till utgående bindning. Annars använder `ICollector` eller `IAsyncCollector`, som du ser i följande avsnitt.
 
-## <a name="writing-multiple-output-values"></a>Skriva flera utdatavärden
+## <a name="writing-multiple-output-values"></a>Skriva flera värden för utdata
 
-Skriva flera värden till en utdatabindning eller om en lyckad funktionsanrop inte kan resultera i att skicka till utdata-bindning kan du använda den [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typer. Dessa typer är lässkyddad samlingar som har skrivits till utdata-bindning när metoden har slutförts.
+Om du vill skriva flera värden till en utgående bindning, eller om ett lyckat funktions anrop kanske inte leder till att något skickas till utgående bindning, använder [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) du [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typerna eller. Dessa typer är skrivskyddade samlingar som skrivs till utgående bindning när metoden har slutförts.
 
-Det här exemplet skriver flera Kömeddelanden i samma kö med `ICollector`:
+I det här exemplet skrivs flera meddelanden i kön till samma `ICollector`kö med:
 
 ```csharp
 public static class ICollectorExample
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Loggning
 
-Logga utdata på din direktuppspelningsloggarna i C#, innehålla ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log`, som i följande exempel:  
+Om du vill logga utdata till dina strömmande loggar i C#inkluderar du ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log`, som i följande exempel:  
 
 ```csharp
 public static class SimpleExample
@@ -248,11 +248,11 @@ public static class SimpleExample
 } 
 ```
 
-Undvik att använda `Console.Write` i Azure Functions. Mer information finns i [skriva loggar in C# functions](functions-monitoring.md#write-logs-in-c-functions) i den **övervaka Azure Functions** artikeln.
+Undvik att `Console.Write` använda i Azure Functions. Mer information finns i [skriva loggar i C# funktioner](functions-monitoring.md#write-logs-in-c-functions) i artikeln **övervaka Azure Functions** .
 
 ## <a name="async"></a>Async
 
-Att göra en funktion [asynkron](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), använda den `async` nyckelord och returnera en `Task` objekt.
+Om du vill göra en funktion [asynkron](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)använder `async` du nyckelordet och `Task` returnerar ett objekt.
 
 ```csharp
 public static class AsyncExample
@@ -270,13 +270,13 @@ public static class AsyncExample
 }
 ```
 
-Du kan inte använda `out` parametrar i async-funktioner. Utdatabindningar, använda den [fungera returvärdet](#binding-to-method-return-value) eller en [insamlingsobjektet](#writing-multiple-output-values) i stället.
+Du kan inte `out` använda parametrar i async functions. För utgående bindningar använder du [funktionen returnera värde](#binding-to-method-return-value) eller ett insamlat [objekt](#writing-multiple-output-values) i stället.
 
-## <a name="cancellation-tokens"></a>Annulleringstoken
+## <a name="cancellation-tokens"></a>Token för avbrytande
 
-En funktion kan acceptera en [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parametern, som gör det möjligt för operativsystemet för att meddela din kod när funktionen ska avslutas. Du kan använda det här meddelandet för att kontrollera att funktionen inte avslutas oväntat på ett sätt som lämnar data i ett inkonsekvent tillstånd.
+En funktion kan ta emot en [CancellationToken](/dotnet/api/system.threading.cancellationtoken) -parameter som gör att operativ systemet kan meddela din kod när funktionen ska avslutas. Du kan använda det här meddelandet för att se till att funktionen inte avslutas plötsligt på ett sätt som lämnar data i ett inkonsekvent tillstånd.
 
-I följande exempel visas hur du kontrollerar om nära förestående uppsägning av funktionen.
+I följande exempel visas hur du söker efter förestående funktions avslutning.
 
 ```csharp
 public static class CancellationTokenExample
@@ -302,7 +302,7 @@ public static class CancellationTokenExample
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-Hämta en miljövariabel eller en app som inställningsvärde `System.Environment.GetEnvironmentVariable`, vilket visas i följande kodexempel:
+Använd `System.Environment.GetEnvironmentVariable`, som du ser i följande kod exempel, för att hämta en miljö variabel eller ett inställnings värde för appar:
 
 ```csharp
 public static class EnvironmentVariablesExample
@@ -323,19 +323,19 @@ public static class EnvironmentVariablesExample
 }
 ```
 
-Appinställningar kan läsas från miljövariabler, både när du utvecklar lokalt och när du kör i Azure. När du utvecklar lokalt appinställningar kommer från den `Values` samling i den *local.settings.json* fil. I båda miljöerna lokala och Azure, `GetEnvironmentVariable("<app setting name>")` hämtar värdet för den namngivna app-inställningen. Till exempel när du kör lokalt, ”Mina Site-Name” skulle returneras om din *local.settings.json* filen innehåller `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
+App-inställningar kan läsas från miljövariabler både när de utvecklas lokalt och när de körs i Azure. När du utvecklar lokalt hämtas app-inställningarna från `Values` samlingen i den *lokala. Settings. JSON* -filen. I båda miljöerna, lokalt och Azure `GetEnvironmentVariable("<app setting name>")` , hämtas värdet för den namngivna appens inställningen. När du till exempel kör lokalt returneras "mitt webbplats namn" om din *lokala. Settings. JSON* -fil innehåller `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
-Den [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) egenskapen är en alternativ API för att få appen inställningsvärden, men vi rekommenderar att du använder `GetEnvironmentVariable` som visas här.
+Egenskapen [system. Configuration. ConfigurationManager. appSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) är ett alternativt API för att hämta inställnings värden för appar, men vi rekommenderar att `GetEnvironmentVariable` du använder det som visas här.
 
-## <a name="binding-at-runtime"></a>Bindningen vid körning
+## <a name="binding-at-runtime"></a>Bindning vid körning
 
-I C# och andra .NET-språk, kan du använda en [tvingande](https://en.wikipedia.org/wiki/Imperative_programming) bindning mönster, inte den [ *deklarativa* ](https://en.wikipedia.org/wiki/Declarative_programming) bindningar i attribut. Tvingande bindning är användbar när bindande parametrar behöver beräknas vid körning i stället för design tidpunkt. Med det här mönstret kan du binda till stöds indata och utdata bindningar på direkt i funktionskoden.
+I C# och andra .net-språk kan du använda ett [tvingande](https://en.wikipedia.org/wiki/Imperative_programming) bindnings mönster, till skillnad från [deklarativ](https://en.wikipedia.org/wiki/Declarative_programming) bindningar i attribut. Tvingande bindning är användbart när bindnings parametrar måste beräknas vid körning i stället för design tid. Med det här mönstret kan du binda till indata-och utgående bindningar som stöds i-farten i funktions koden.
 
-Definiera konkurrensavseende bindning på följande sätt:
+Definiera en tvingande bindning enligt följande:
 
-- **Inte** inkludera ett attribut i funktionssignaturen för din önskade tvingande bindningar.
-- Pass i en indataparameter [ `Binder binder` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) eller [ `IBinder binder` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
-- Använd följande C#-mönster för att utföra databindningen.
+- Inkludera **inte** ett attribut i funktions under skriften för dina önskade tvingande bindningar.
+- Skicka in en indataparameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) eller. [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)
+- Använd följande C# mönster för att utföra data bindningen.
 
   ```cs
   using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
@@ -344,11 +344,11 @@ Definiera konkurrensavseende bindning på följande sätt:
   }
   ```
 
-  `BindingTypeAttribute` är .NET-attribut som definierar din bindningen och `T` är en inkommande eller utgående typ som stöds av den bindningstypen. `T` får inte vara en `out` parametertypen (till exempel `out JObject`). Till exempel Mobile Apps-tabell utdata har stöd för bindning [sex utdata typer](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)med tvingande bindning.
+  `BindingTypeAttribute`är .NET-attributet som definierar bindningen och `T` är en indata-eller utdatatyp som stöds av den bindnings typen. `T`kan inte vara `out` en parameter typ ( `out JObject`till exempel). Till exempel stöder Mobile Apps tabellens utgående bindning [sex typer av utdata](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [IAsyncCollector\<T >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) med tvingande bindning.
 
-### <a name="single-attribute-example"></a>Attribut-exempel
+### <a name="single-attribute-example"></a>Exempel på ett attribut
 
-Följande exempelkod skapar en [blob Storage-utdatabindning](functions-bindings-storage-blob.md#output) med blob sökväg som anges vid körningstillfället, sedan skriver en sträng till bloben.
+Följande exempel kod skapar en [utgående bindning för Storage BLOB](functions-bindings-storage-blob.md#output) med en BLOB-sökväg som definieras vid körning och skriver sedan en sträng till blobben.
 
 ```cs
 public static class IBinderExample
@@ -369,11 +369,11 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definierar den [lagringsblob](functions-bindings-storage-blob.md) indata eller utdata bindning, och [TextWriter](/dotnet/api/system.io.textwriter) är av typen stöds utdata-bindning.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definierar lagrings- [BLOB](functions-bindings-storage-blob.md) -indata eller utdata-bindningen och TextWriter är en typ av utgående bindning som stöds. [](/dotnet/api/system.io.textwriter)
 
-### <a name="multiple-attribute-example"></a>Flera attribut-exempel
+### <a name="multiple-attribute-example"></a>Exempel på flera attribut
 
-I föregående exempel hämtar appinställningen för function-appens main anslutningssträng för Lagringskonto (vilket är `AzureWebJobsStorage`). Du kan ange en anpassad app-inställning som ska användas för lagringskontot genom att lägga till den [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och för att skicka attributet matrisen i `BindAsync<T>()`. Använd en `Binder` parametern inte `IBinder`.  Exempel:
+I föregående exempel hämtas app-inställningen för funktions programmets huvud anslutnings sträng för lagrings konto (som är `AzureWebJobsStorage`). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin `BindAsync<T>()`till. Använd en `Binder` parameter, inte `IBinder`.  Exempel:
 
 ```cs
 public static class IBinderExampleMultipleAttributes
@@ -405,7 +405,7 @@ public static class IBinderExampleMultipleAttributes
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Mer information om utlösare och bindningar](functions-triggers-bindings.md)
+> [Läs mer om utlösare och bindningar](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Läs mer om bästa praxis för Azure Functions](functions-best-practices.md)
+> [Läs mer om metod tips för Azure Functions](functions-best-practices.md)

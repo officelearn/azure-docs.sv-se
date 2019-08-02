@@ -1,6 +1,6 @@
 ---
-title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
-description: Ange det TrustFrameworkPolicy elementet i en anpassad princip i Azure Active Directory B2C.
+title: TrustFrameworkPolicy – Azure Active Directory B2C | Microsoft Docs
+description: Ange TrustFrameworkPolicy-elementet för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0ba48acf6ec3d221d9c4b5e95b380a2154171f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537048"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592105"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En anpassad princip representeras som en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. XML-elementen definierar element i principen, till exempel anspråk schemat, anspråksomvandlingar, innehållsdefinitioner, Anspråksproviders, tekniska profiler, användarresa och orchestration-steg. Varje principfilen definieras i den översta **TrustFrameworkPolicy** element i en fil. 
+En anpassad princip visas som en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. XML-elementen definierar element i principen, till exempel anspråks schema, anspråk omvandlingar, innehålls definitioner, anspråks leverantörer, tekniska profiler, användar resa och Orchestration-steg. Varje princip fil definieras i **TrustFrameworkPolicy** -elementet på den översta nivån i en princip fil.
 
 ```XML
 <TrustFrameworkPolicy
@@ -36,20 +36,20 @@ En anpassad princip representeras som en eller flera XML-formaterade filer som r
 ```
 
 
-Den **TrustFrameworkPolicy** elementet innehåller följande attribut:
+**TrustFrameworkPolicy** -elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Obligatorisk | Beskrivning |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Ja | Schemaversion som ska användas för att köra principen. Värdet måste vara `0.3.0.0` |
-| TenantObjectId | Nej | Unikt objekt-ID för Azure Active Directory (Azure AD) B2C-klient. |
-| TenantId | Ja | Den unika identifieraren för den klient som den här principen tillhör. |
+| PolicySchemaVersion | Ja | Den schema version som ska användas för att köra principen. Värdet måste vara`0.3.0.0` |
+| TenantObjectId | Nej | Unikt objekt-ID för den Azure Active Directory (Azure AD) B2C-klienten. |
+| TenantId | Ja | Den unika identifieraren för den klient som principen tillhör. |
 | `PolicyId` | Ja | Den unika identifieraren för principen. Den här identifieraren måste föregås av *B2C_1A_* |
-| PublicPolicyUri | Ja | URI för principen som är kombination av klient-ID och princip-ID. |
-| DeploymentMode | Nej | Möjliga värden: `Production`, `Debugging`, eller `Development`. `Production` används som standard. Använd den här egenskapen för att felsöka din princip. Mer information finns i [samla in loggar](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | Nej | Den slutpunkt som används när **DeploymentMode** är inställd på `Development`. Värdet måste vara `urn:journeyrecorder:applicationinsights`. Mer information finns i [samla in loggar](active-directory-b2c-troubleshoot-custom.md). |
+| PublicPolicyUri | Ja | En URI för principen, som är en kombination av klient-ID och princip-ID. |
+| DeploymentMode | Nej | Möjliga värden: `Production`, `Debugging`, eller `Development`. `Production` används som standard. Använd den här egenskapen för att felsöka principen. Mer information finns i [samla in loggar](active-directory-b2c-troubleshoot-custom.md). |
+| UserJourneyRecorderEndpoint | Nej | Den slut punkt som används när **DeploymentMode** har angetts till `Development`. Värdet måste vara `urn:journeyrecorder:applicationinsights`. Mer information finns i [samla in loggar](active-directory-b2c-troubleshoot-custom.md). |
 
 
-I följande exempel visas hur du anger den **TrustFrameworkPolicy** element:
+I följande exempel visas hur du anger **TrustFrameworkPolicy** -elementet:
 
 ``` XML
 <TrustFrameworkPolicy
@@ -62,39 +62,39 @@ I följande exempel visas hur du anger den **TrustFrameworkPolicy** element:
    PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
-## <a name="inheritance-model"></a>Arvsmodell
+## <a name="inheritance-model"></a>Arvs modell
 
-Dessa typer av principfiler används vanligtvis i en användarresa:
+Dessa typer av principfiler används vanligt vis i en användar resa:
 
-- En **Base** -fil som innehåller de flesta av definitionerna. För att hjälpa till med felsökning och långsiktig underhåll av dina principer, rekommenderar vi att du gör ett minsta antal ändringar i den här filen.
-- En **tillägg** filen som innehåller de unika konfigurationsändringarna för din klient. Den här principfil härleds från bas-filen. Använd den här filen för att lägga till nya funktioner eller åsidosätta befintliga funktioner. Till exempel använda den här filen för att federera med nya Identitetsproviders.
-- En **förlitande part (RP)** -fil som enskild uppgift designmiljöer-fil som anropas direkt av förlitande part-programmet, till exempel dina webb-, Mobil- eller skrivbordsprogram program. Varje unik aktivitet, till exempel återställning av lösenord för registrering eller inloggning, eller profilredigering, kräver en egen princip RP-fil. Den här principfil härleds från filen tillägg. 
+- En **bas** fil som innehåller de flesta av definitionerna. Om du vill ha hjälp med att felsöka och långsiktigt underhåll av dina principer, rekommenderar vi att du gör ett minsta antal ändringar i den här filen.
+- En **tilläggs** fil som innehåller de unika konfigurations ändringarna för din klient. Den här princip filen är härledd från bas filen. Använd den här filen för att lägga till nya funktioner eller åsidosätta befintliga funktioner. Använd till exempel den här filen för att federera med nya identitets leverantörer.
+- En **förlitande parts fil (RP)** som är den enda aktivitets fokuserade filen som anropas direkt av den förlitande parten, t. ex. dina webb-, mobil-eller Skriv bords program. Varje unik aktivitet, till exempel registrering eller inloggning, återställning av lösen ord eller profil redigering, kräver en egen RP-princip fil. Den här princip filen är härledd från tilläggs filen.
 
-Ett förlitande partsprogram anropar RP principfil för att köra en viss uppgift. Till exempel för flödet för inloggning. Identitetsramverk i Azure AD B2C lägger till alla element först från bas-filen och sedan från filen tillägg och slutligen från RP principfil sätta ihop den aktuella principen gäller. Delar av samma typ och namn i RP-filen åsidosätter de olika delarna i tillägg och tillägg åsidosättningar Base. Följande diagram visar relationen mellan principfilerna och förlitande parters program.
+Ett förlitande part-program anropar RP-principagenten för att köra en specifik uppgift. Till exempel för att initiera inloggnings flödet. Ramverket för identitets upplevelse i Azure AD B2C lägger till alla element först från bas filen och sedan från tilläggs filen och slutligen från RP-princip filen för att sammanställa den aktuella principen. Element av samma typ och namn i RP-filen åsidosätter dessa element i tilläggen och tilläggen åsidosätter bas. I följande diagram visas relationen mellan principfiler och de förlitande part programmen.
 
-![Arvsmodell](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
+![Diagram som visar förtroende ramverkets princip arvs modell](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
-Arv modellen är följande:
+Arvs modellen ser ut så här:
 
-- Den överordnade och underordnade är av samma schema.
-- Underordnade principen på alla nivåer kan ärva från den överordnade principen och utöka det genom att lägga till nya element.
-- Det finns ingen gräns för hur många nivåer.
+- Den överordnade principen och den underordnade principen är av samma schema.
+- Den underordnade principen på alla nivåer kan ärva från den överordnade principen och utöka den genom att lägga till nya element.
+- Det finns ingen gräns för antalet nivåer.
 
 Mer information finns i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
 
-## <a name="base-policy"></a>Basprincipen
+## <a name="base-policy"></a>Grundläggande princip
 
-Att ärva en princip från en annan princip, en **BasePolicy** elementet måste deklareras den **TrustFrameworkPolicy** elementet i principfilen. Den **BasePolicy** element är en referens till basprincipen som den här principen härleds.  
+Om du vill ärva en princip från en annan princip måste ett **BasePolicy** -element deklareras under **TrustFrameworkPolicy** -elementet i princip filen. **BasePolicy** -elementet är en referens till den grundläggande princip som den här principen härleds från.
 
-Den **BasePolicy** elementet innehåller följande element:
+**BasePolicy** -elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | --------|
-| TenantId | 1:1 | Identifierare för din Azure AD B2C-klient. |
+| TenantId | 1:1 | ID för din Azure AD B2C klient. |
 | `PolicyId` | 1:1 | Identifierare för den överordnade principen. |
 
 
-I följande exempel visas hur du anger en grundläggande princip. Detta **B2C_1A_TrustFrameworkExtensions** princip härleds från den **B2C_1A_TrustFrameworkBase** princip. 
+I följande exempel visas hur du anger en bas princip. Den här **B2C_1A_TrustFrameworkExtensions** -principen härleds från **B2C_1A_TrustFrameworkBase** -principen.
 
 ``` XML
 <TrustFrameworkPolicy
@@ -114,13 +114,13 @@ I följande exempel visas hur du anger en grundläggande princip. Detta **B2C_1A
 </TrustFrameworkPolicy>
 ```
 
-## <a name="policy-execution"></a>Principkörning
+## <a name="policy-execution"></a>Princip körning
 
-Ett förlitande partsprogram, till exempel ett webb-, Mobil- eller skrivbordsprogram program, anropar den [förlitande part (RP) principen](relyingparty.md). Principfilen som RP utför en viss uppgift, till exempel inloggning, återställa ett lösenord eller redigering av profil. Princip för RP konfigurerar listan över förlitande part-programmet tar emot anspråk som en del av den token som utfärdas. Flera program kan använda samma princip. Alla program får samma token med anspråk och användaren går igenom samma användarresa. Ett program kan använda flera principer.
+Ett förlitande parts program, till exempel ett webb-, mobil-eller Skriv bords program, anropar principen för förlitande [part (RP)](relyingparty.md). RP-principagenten kör en speciell uppgift, som att logga in, återställa ett lösen ord eller redigera en profil. RP-principen konfigurerar listan över anspråk som programmet för förlitande part tar emot som en del av den token som utfärdas. Flera program kan använda samma princip. Alla program får samma token med anspråk, och användaren går igenom samma användar resa. Ett enda program kan använda flera principer.
 
-I filen RP-princip som du anger den **DefaultUserJourney** element som pekar på den [UserJourney](userjourneys.md). Användarresan definieras vanligtvis i principen Base eller tillägg.
+I RP-princip filen anger du **DefaultUserJourney** -elementet, som pekar på [UserJourney](userjourneys.md). Användar resan definieras vanligt vis i bas-eller tilläggs principen.
 
-B2C_1A_signup_signin princip:
+B2C_1A_signup_signin-princip:
 
 ```XML
 <RelyingParty>
@@ -136,21 +136,21 @@ B2C_1A_TrustFrameWorkBase eller B2C_1A_TrustFrameworkExtensionPolicy:
   ...
 ```
 
-En användarresa definierar vad en användare går igenom affärslogik. Varje användarresan är en uppsättning orchestration-steg som utför en rad åtgärder, i följd i information om autentisering och samling. 
+En användar resa definierar affärs logiken för vad en användare går igenom. Varje användar resa är en uppsättning Dirigerings steg som utför en serie åtgärder i ordningsföljd för autentiserings-och informations insamling.
 
-Den **SocialAndLocalAccounts** principfil i den [startpaket](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) innehåller SignUpOrSignIn, ProfileEdit, PasswordReset användaren resor. Du kan lägga till fler användare utbildning för andra scenarier, till exempel ändrar en e-postadress eller länka och tar bort länken ett socialt konto. 
+**SocialAndLocalAccounts** -princip filen i startpaketet innehåller SignUpOrSignIn, ProfileEdit, PasswordReset original användar resor. [](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) Du kan lägga till fler användar resor för andra scenarier, till exempel ändra en e-postadress eller länka och ta bort länkar till ett socialt konto.
 
-Orchestration-steg kan anropa en [tekniska profilen](technicalprofiles.md). Tekniska profilen ger ett ramverk med en inbyggd mekanism för att kommunicera med olika typer av parter. Tekniska profilen kan exempelvis utföra följande åtgärder bland annat:
+Orchestration-stegen kan anropa en [teknisk profil](technicalprofiles.md). En teknisk profil är ett ramverk med en inbyggd mekanism för att kommunicera med olika typer av parter. En teknisk profil kan till exempel utföra dessa åtgärder bland andra:
 
-- Rendera en användarupplevelse.
-- Tillåt användare att logga in med social eller en enterprise-konto, till exempel Facebook, Microsoft-konto, Google, Salesforce eller någon annan identitetsleverantören.
-- Ställ in telefonverifiering för MFA.
-- Läsa och skriva data till och från en Azure AD B2C-identitetsarkiv.
-- Anropa en anpassad Restful-API-tjänst.
+- Återge en användar upplevelse.
+- Tillåt att användare loggar in med sociala eller ett företags konto, till exempel Facebook, Microsoft-konto, Google, Salesforce eller någon annan identitets leverantör.
+- Konfigurera telefon verifiering för MFA.
+- Läsa och skriva data till och från ett Azure AD B2C identitets lager.
+- Anropa en anpassad RESTful-API-tjänst.
 
-![Principkörning](./media/trustframeworkpolicy/custom-policy-execution.png)
+![Diagram som visar körnings flödet för principen](./media/trustframeworkpolicy/custom-policy-execution.png)
 
- Den **TrustFrameworkPolicy** elementet innehåller följande element:
+ **TrustFrameworkPolicy** -elementet innehåller följande element:
 
 - BasePolicy som anges ovan
 - [BuildingBlocks](buildingblocks.md)

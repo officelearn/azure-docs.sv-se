@@ -1,46 +1,44 @@
 ---
-title: Hur du använder objektlagring (Blob) från C++ - Azure | Microsoft Docs
-description: Store Ostrukturerade data i molnet med Azure-blobblagringen (objekt).
-services: storage
+title: Använda objekt lagring (BLOB) från C++ -Azure | Microsoft Docs
+description: Lagra ostrukturerade data i molnet med Azure Blob-lagring (objekt lagring).
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 03/21/2018
 ms.author: mhopkins
-ms.reviewer: seguler
+ms.date: 03/21/2018
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 32601fc15e6b6a25a1005b6d95499d4aae4fb0d2
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.topic: conceptual
+ms.openlocfilehash: f64856d5b0140d529e939d92d4be61b074928d6e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461172"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726427"
 ---
-# <a name="how-to-use-blob-storage-from-c"></a>Använda Blob storage från C++
+# <a name="how-to-use-blob-storage-from-c"></a>Använda Blob Storage frånC++
 
-Den här guiden visar hur du utför vanliga scenarier med Azure Blob storage. Exemplen visar hur du laddar upp, lista, hämta och ta bort blobar. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+Den här guiden visar hur du utför vanliga scenarier med Azure Blob Storage. I exemplen visas hur du överför, listar, laddar ned och tar bort blobbar. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
 
-Mer information om Blob storage finns [introduktion till Azure Blob storage](storage-blobs-introduction.md).
+Mer information om Blob Storage finns i [Introduktion till Azure Blob Storage](storage-blobs-introduction.md).
 
 > [!NOTE]
-> För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Microsoft rekommenderar att du använder den senaste versionen av Storage-klientbiblioteket för C++, tillgängligt via [NuGet](https://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
+> För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Microsoft rekommenderar att du använder den senaste versionen av lagrings klient C++biblioteket för, tillgängligt via [NuGet](https://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c-application"></a>Skapa ett C++-program
-I den här guiden använder lagringsfunktioner som kan köras i ett C++-program.  
+I den här guiden ska du använda lagrings funktioner som kan köras i ett C++ program.  
 
 För att göra det måste du installera Azure Storage-klientbiblioteket för C++ och skapa ett Azure Storage-konto i din Azure-prenumeration.   
 
 Du kan installera Azure Storage-klientbiblioteket för C++ med någon av följande metoder:
 
-* **Linux:** Följ instruktionerna den [Azure Storage-klientbiblioteket för C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sidan.  
-* **Windows:** Klicka på **Verktyg > NuGet Package Manager > Package Manager Console** i Visual Studio. Skriv följande kommando i den [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.  
+* **Linux:** Följ anvisningarna på sidan [Azure Storage klient bibliotek för att få C++ ](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) hjälp.  
+* **Windows:** Klicka på **Verktyg > NuGet Package Manager > Package Manager Console** i Visual Studio. Skriv följande kommando i [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.  
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-blob-storage"></a>Konfigurera programmet för att få åtkomst till Blob storage
-Lägg till följande ingår satser överst i filen C++ där du vill använda API: er för Azure storage för att få åtkomst till blobar:  
+## <a name="configure-your-application-to-access-blob-storage"></a>Konfigurera ditt program för att få åtkomst till Blob Storage
+Lägg till följande include-instruktioner överst i C++ filen där du vill använda Azure Storage-API: er för att få åtkomst till blobbar:  
 
 ```cpp
 #include <was/storage_account.h>
@@ -49,34 +47,34 @@ Lägg till följande ingår satser överst i filen C++ där du vill använda API
 #include <cpprest/containerstream.h> 
 ```
 
-## <a name="setup-an-azure-storage-connection-string"></a>Konfigurera en anslutningssträng för Azure storage
-En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klientprogram kan du måste ange anslutningssträng för lagring i följande format, med hjälp av namnet på ditt lagringskonto och åtkomstnyckel för lagring för lagringskontot som anges i den [Azure-portalen](https://portal.azure.com) för den *AccountName* och *AccountKey* värden. Information om storage-konton och åtkomstnycklar finns [om Azure Storage-konton](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:  
+## <a name="setup-an-azure-storage-connection-string"></a>Konfigurera en anslutnings sträng för Azure Storage
+En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klient program måste du ange lagrings anslutnings strängen i följande format med namnet på ditt lagrings konto och lagrings åtkomst nyckeln för det lagrings konto som anges i [Azure Portal](https://portal.azure.com) för *AccountName* och *AccountKey* -värden. Information om lagrings konton och åtkomst nycklar finns i [om Azure Storage-konton](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:  
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-Om du vill testa ditt program i din lokala Windows-dator, kan du använda Microsoft Azure [lagringsemulatorn](../storage-use-emulator.md) som installeras med den [Azure SDK](https://azure.microsoft.com/downloads/). Storage-emulatorn är ett verktyg som simulerar Blob, Queue och Table tjänster som är tillgängliga i Azure på din lokala utvecklingsdator. Följande exempel visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen i den lokala lagringsemulatorn:
+Om du vill testa programmet på den lokala Windows-datorn kan du använda Microsoft Azure [](../storage-use-emulator.md) -emulatorn som är installerad med [Azure SDK](https://azure.microsoft.com/downloads/). Lagringsprovidern är ett verktyg som simulerar BLOB-, kö-och tabell tjänster som är tillgängliga i Azure på din lokala utvecklings dator. Följande exempel visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen i den lokala lagringsemulatorn:
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Om du vill starta Azure storage-emulatorn, Välj den **starta** knapp eller genom att trycka på den **Windows** nyckel. Börja skriva **Azure Storage-emulatorn**, och välj **Microsoft Azure Storage-emulatorn** från listan med program.  
+Starta Azure Storage-emulatorn genom att välja **Start** -knappen eller trycka på **Windows** -tangenten. Börja skriva **Azure Storage emulator**och välj **Microsoft Azure Storage-emulator** i listan med program.  
 
 Följande exempel förutsätter att du har använt någon av dessa två metoder för att hämta Azure Storage-anslutningssträngen.  
 
-## <a name="retrieve-your-storage-account"></a>Hämta ditt storage-konto
-Du kan använda den **cloud_storage_account** klass för att representera kontoinformationen för lagring. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.  
+## <a name="retrieve-your-storage-account"></a>Hämta ditt lagrings konto
+Du kan använda **cloud_storage_account** -klassen för att representera din lagrings konto information. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.  
 
 ```cpp
 // Retrieve storage account from connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Sedan hämta en referens till en **cloud_blob_client** klassen eftersom den låter dig hämta objekt som representerar behållare och blobbar som lagras i Blob storage. Följande kod skapar en **cloud_blob_client** objekt med hjälp av kontot lagringsobjektet vi hämtade ovan:  
+Därefter får du en referens till en **cloud_blob_client** -klass som du kan använda för att hämta objekt som representerar behållare och blobbar lagrade i Blob Storage. Följande kod skapar ett **cloud_blob_client** -objekt med det lagrings konto objekt som vi hämtade ovan:  
 
 ```cpp
 // Create the blob client.
@@ -109,7 +107,7 @@ catch (const std::exception& e)
 }  
 ```
 
-Ny behållare är privat som standard, och du måste ange din lagringsåtkomstnyckel för att ladda ned blobbar från den här behållaren. Om du vill att filerna (blobbar) i behållaren tillgängliga för alla kan du ange att behållaren ska vara offentlig med följande kod:  
+Som standard är den nya behållaren privat och du måste ange din lagrings åtkomst nyckel för att ladda ned blobbar från den här behållaren. Om du vill skapa filer (blobbar) i behållaren som är tillgängliga för alla kan du ange att behållaren ska vara offentlig med följande kod:  
 
 ```cpp
 // Make the blob container publicly accessible.
@@ -118,12 +116,12 @@ permissions.set_public_access(azure::storage::blob_container_public_access_type:
 container.upload_permissions(permissions);  
 ```
 
-Alla på Internet kan se blobbar i en offentlig behållare, men du kan ändra eller ta bort dem bara om du har rätt åtkomstnyckel.  
+Alla på Internet kan se blobbar i en offentlig behållare, men du kan bara ändra eller ta bort dem om du har rätt åtkomst nyckel.  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Anvisningar: Ladda upp en blob till en container
-Azure Blob storage stöder blockera blobar och sidblobar. I de flesta fall är blockblobbar den rekommenderade typen.  
+Azure Blob Storage stöder block-blobbar och Page blobbar. I de flesta fall är blockblobbar den rekommenderade typen.  
 
-Om du vill ladda upp en fil till en blockblob hämtar du en referens för containern och använder den för att hämta en referens för blockbloben. När du har en blobbreferens kan du kan ladda upp en dataström till den genom att anropa den **upload_from_stream** metod. Med den här åtgärden skapas blobben om den inte fanns tidigare, eller skrivs över om den redan fanns. Följande exempel visar hur du laddar upp en blob till en container och förutsätter att containern redan hade skapats.  
+Om du vill ladda upp en fil till en blockblob hämtar du en referens för containern och använder den för att hämta en referens för blockbloben. När du har en BLOB-referens kan du ladda upp data strömmen till den genom att anropa metoden **upload_from_stream** . Med den här åtgärden skapas blobben om den inte fanns tidigare, eller skrivs över om den redan fanns. Följande exempel visar hur du laddar upp en blob till en container och förutsätter att containern redan hade skapats.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -153,10 +151,10 @@ azure::storage::cloud_block_blob blob3 = container.get_block_blob_reference(U("m
 blob3.upload_text(U("other text"));  
 ```
 
-Du kan också använda den **upload_from_file** metod för att överföra en fil till en blockblob.
+Du kan också använda metoden **upload_from_file** för att överföra en fil till en Block-Blob.
 
 ## <a name="how-to-list-the-blobs-in-a-container"></a>Anvisningar: Visa en lista över blobarna i en container
-Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Du kan sedan använda behållarens **list_blobs** metod för att hämta blobbarna och/eller katalogerna i den. Komma åt den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_blob_item**, måste du anropa den **list_blob_item.as_blob** metod för att hämta en **cloud_blob** objekt, eller **list_blob.as_directory** metod för att hämta ett cloud_blob_directory-objekt. Följande kod visar hur du hämtar och returnerar URI: N för varje objekt i den **Mina exempelbehållaren** behållare:
+Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Du kan sedan använda behållarens **list_blobs** -Metod för att hämta blobbar och/eller kataloger i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_blob_item**, måste du anropa metoden **list_blob_item. as _blob** för att hämta ett **cloud_blob** -objekt, eller **list_blob. as _directory** -metoden för att hämta en cloud_blob_ Katalog objekt. Följande kod visar hur du hämtar och matar ut URI för varje objekt i behållaren **My-Sample-container** :
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -183,10 +181,10 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-Mer information om hur du visar åtgärder finns i [lista Azure Storage-resurser i C++](../storage-c-plus-plus-enumeration.md).
+Mer information om List åtgärder finns [i lista Azure Storage resurser i C++ ](../storage-c-plus-plus-enumeration.md).
 
 ## <a name="how-to-download-blobs"></a>Anvisningar: Ladda ned blobbar
-Om du vill ladda ned blobbarna först hämta en blobbreferens och anropar sedan den **download_to_stream** metod. I följande exempel används den **download_to_stream** metod för att överföra blobbinnehållet till ett dataströmsobjekt som du sedan kan spara till en lokal fil.  
+Hämta blobar genom att först hämta en BLOB-referens och sedan anropa **download_to_stream** -metoden. I följande exempel används metoden **download_to_stream** för att överföra BLOB-innehållet till ett Stream-objekt som du sedan kan behålla till en lokal fil.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -213,8 +211,8 @@ outfile.write((char *)&data[0], buffer.size());
 outfile.close();  
 ```
 
-Du kan också använda den **download_to_file** metod för att hämta innehållet i en blob till en fil.
-Dessutom kan du kan också använda den **download_text** metod för att hämta innehållet i en blob som en textsträng.  
+Du kan också använda metoden **download_to_file** för att ladda ned innehållet i en blob till en fil.
+Dessutom kan du också använda metoden **download_text** för att ladda ned innehållet i en blob som en text sträng.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -234,7 +232,7 @@ utility::string_t text = text_blob.download_text();
 ```
 
 ## <a name="how-to-delete-blobs"></a>Anvisningar: Ta bort blobbar
-Ta bort en blob genom att först hämta en blobbreferens och anropar sedan den **delete_blob** metod på den.  
+Om du vill ta bort en BLOB måste du först hämta en BLOB-referens och sedan anropa **delete_blob** -metoden på den.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -254,12 +252,12 @@ blockBlob.delete_blob();
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna om blob storage kan du följa dessa länkar om du vill veta mer om Azure Storage.  
+Nu när du har lärt dig grunderna i Blob Storage kan du följa dessa länkar om du vill veta mer om Azure Storage.  
 
-* [Använda Queue Storage från C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Använda Table Storage från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Lista över Azure Storage-resurser i C++](../storage-c-plus-plus-enumeration.md)
-* [Storage-klientbibliotek för C++-referens](https://azure.github.io/azure-storage-cpp)
+* [Använda Queue Storage frånC++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Använda Table Storage frånC++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Visa Azure Storage resurser iC++](../storage-c-plus-plus-enumeration.md)
+* [Lagrings klient bibliotek C++ för referens](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage-dokumentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Överföra data med kommandoradsverktyget AzCopy](../storage-use-azcopy.md)
 

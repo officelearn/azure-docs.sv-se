@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services v3 viktig information | Microsoft Docs
-description: Om du vill hålla dig uppdaterad med den senaste utvecklingen, ger dig med de senaste uppdateringarna på Azure Media Services v3 i den här artikeln.
+title: Viktig information om Azure Media Services v3 | Microsoft Docs
+description: Den här artikeln innehåller de senaste uppdateringarna för Azure Media Services v3 för att hålla dig uppdaterad med den senaste utvecklingen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542537"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311813"
 ---
-# <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
+# <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
 Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
 
@@ -30,228 +30,236 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 ## <a name="known-issues"></a>Kända problem
 
 > [!NOTE]
-> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-sdk), CLI eller någon av de SDK: er som stöds.
 
-Mer information finns i [riktlinjer för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+Mer information finns i [vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
 
-## <a name="june-2019"></a>Juni 2019
+## <a name="july-2019"></a>Juli 2019
 
-### <a name="video-subclipping"></a>Video underklippning
+### <a name="content-protection"></a>Innehållsskydd
 
-Du kan nu trimma eller en video på underklipp när du kodar den med hjälp av en [jobbet](https://docs.microsoft.com/rest/api/media/jobs). 
+När strömmat innehåll skyddas med begränsning av token måste slutanvändare hämta en token som skickas som en del av begäran om nyckel leverans. Funktionen för att *förhindra repetition* av token tillåter Media Services kunder att ange en gräns för hur många gånger samma token kan användas för att begära en nyckel eller en licens. Mer information finns i avsnittet om att [förhindra repetition](content-protection-overview.md#token-replay-prevention)av token.
 
-Den här funktionen fungerar med alla [transformera](https://docs.microsoft.com/rest/api/media/transforms) som skapats med hjälp av antingen den [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) förinställningar, eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) förinställningar. 
+Den här funktionen är för närvarande tillgänglig i USA, Central och USA, västra centrala.
+
+## <a name="june-2019"></a>2019 juni
+
+### <a name="video-subclipping"></a>Video under Urklipp
+
+Nu kan du trimma eller under klipp en video när du kodar den med ett [jobb](https://docs.microsoft.com/rest/api/media/jobs). 
+
+Den här funktionen fungerar med [](https://docs.microsoft.com/rest/api/media/transforms) alla transformeringar som har skapats med antingen [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar. 
 
 Se exempel:
 
-* [Underklipp en video med .NET](subclip-video-dotnet-howto.md)
-* [Underklipp en video med REST](subclip-video-rest-howto.md)
+* [Klipp en video med .NET](subclip-video-dotnet-howto.md)
+* [Klipp en video med REST](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>Maj 2019
 
-### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure Monitor-stöd för Media Services-diagnostikloggar och mått
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure Monitor stöd för Media Services diagnostikloggar och mått
 
-Du kan nu använda Azure Monitor för att visa telemetri data emmited av Media Services.
+Du kan nu använda Azure Monitor för att Visa telemetri-data emmited genom att Media Services.
 
-* Använda diagnostikloggar för Azure Monitor för att övervaka förfrågningar som skickas av Media Services-nyckel Delivery-slutpunkten. 
-* Övervaka mått som genereras av Media Services [Strömningsslutpunkter](streaming-endpoint-concept.md).   
+* Använd Azure Monitor diagnostikloggar för att övervaka begär Anden som skickas av Media Services Key Delivery-slutpunkten. 
+* Övervaka Mät värden som genereras av Media Services [slut punkter för direkt uppspelning](streaming-endpoint-concept.md).   
 
-Mer information finns i [övervaka Media Services-mått och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
+Mer information finns i [övervaka Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
 
-### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Stöd för flera ljudspår i dynamisk paketering 
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Stöd för flera ljud spår i dynamisk paketering 
 
-Vid direktuppspelning tillgångar som har flera ljudspår med flera codec och språk, [dynamisk paketering](dynamic-packaging-overview.md) multi ljudspår har nu stöd för HLS-utdata (version 4 eller senare).
+När strömmande till gångar som har flera ljud spår med flera codecenheter och språk, stöder [dynamisk paketering](dynamic-packaging-overview.md) nu flera ljud spår för HLS-utdata (version 4 eller senare).
 
-### <a name="korea-regional-pair-is-open-for-media-services"></a>Korea regionala par är öppen för Media Services 
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Det regionala paret i Korea är öppet för Media Services 
 
 Media Services är nu tillgängligt i regionerna Korea, centrala och Korea, södra. 
 
 Mer information finns i [moln och regioner där Media Services v3 finns](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Prestandaförbättringar
+### <a name="performance-improvements"></a>Prestanda förbättringar
 
-Har lagts till uppdateringar som innehåller prestandaförbättringar för Media Services.
+Nya uppdateringar som omfattar Media Services prestanda förbättringar.
 
-* Maximal filstorlek för bearbetning har uppdaterats. Se, [kvoter och begränsningar](limits-quotas-constraints.md).
-* [Kodning hastigheter förbättringar](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* Den maximala fil storleken som stöds för bearbetning har uppdaterats. Se, [kvoter och begränsningar](limits-quotas-constraints.md).
+* [Förbättringar i kodnings hastigheten](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>April 2019
 
-### <a name="new-presets"></a>Nya förinställningar
+### <a name="new-presets"></a>Nya för inställningar
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) har lagts till i de inbyggda analyzer förinställningarna.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) har lagts till i de inbyggda encoder förinställningarna. Mer information finns i [innehåll-medvetna kodning](cae-experimental.md). 
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) har lagts till i de inbyggda för hands inställningarna i Analyzer.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) har lagts till i de inbyggda kodare-för inställningarna. Mer information finns i [Content medveten encoding](cae-experimental.md). 
 
 ## <a name="march-2019"></a>Mars 2019
 
-Dynamisk paketering nu stöder Dolby Atmos. Mer information finns i [ljud-codec som stöds av dynamisk paketering](dynamic-packaging-overview.md#audio-codecs).
+Dynamisk paketering stöder nu Dolby Atmos. Mer information finns i [codec för ljud som stöds av dynamisk paketering](dynamic-packaging-overview.md#audio-codecs).
 
-Du kan nu ange en lista över tillgång eller konto filter som skulle gälla för dina Strömningspositionerare. Mer information finns i [associera filter med Strömningspositionerare](filters-concept.md#associating-filters-with-streaming-locator).
+Nu kan du ange en lista över till gångs-eller konto filter som ska gälla för din strömmande positionerare. Mer information finns i [associera filter med strömmande positionerare](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Februari 2019
 
-Media Services v3 stöds nu i Azure nationella moln. Inte alla funktioner är tillgängliga i alla moln ännu. Mer information finns i [moln och regioner där Azure Media Services v3 finns](azure-clouds-regions.md).
+Media Services v3 stöds nu i Azure National-moln. Alla funktioner är inte tillgängliga i alla moln än. Mer information finns i [moln och regioner där Azure Media Services v3 finns](azure-clouds-regions.md).
 
-[Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) händelse har lagts till i Azure Event Grid-scheman för Media Services.
+[Microsoft. Media. JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) -händelsen har lagts till i Azure Event Grid scheman för Media Services.
 
 ## <a name="january-2019"></a>Januari 2019
 
-### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard och MPI-filer 
+### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard-och MPI-filer 
 
-När du encoding med Media Encoder Standard till producerar MP4-filer, en ny .mpi-fil och lagts till i utdata tillgången. Den här MPI-filen är avsedd att förbättra prestanda för [dynamisk paketering](dynamic-packaging-overview.md) och strömning av scenarier.
+När du kodar med Media Encoder Standard för att skapa MP4-filer skapas en ny. MPI-fil och läggs till i utmatnings till gången. Den här MPI-filen är avsedd att förbättra prestanda för dynamiska scenarier för [paketering](dynamic-packaging-overview.md) och strömning.
 
-Du bör inte ändra eller ta bort filen MPI eller ta alla beroenden i din tjänst med befintliga (eller inte) av sådan fil.
+Du bör inte ändra eller ta bort MPI-filen, eller ta bort beroendet i din tjänst om det finns en sådan fil.
 
 ## <a name="december-2018"></a>December 2018
 
-Uppdateringar från GA-versionen av V3-API: et innehåller:
+Uppdateringar från GA-versionen av v3-API: et är:
        
-* Den **PresentationTimeRange** egenskaper är inte längre behövs för **tillgången filter** och **kontofilter**. 
-* Fråga efter alternativ för $top och $skip **jobb** och **omvandlar** har tagits bort och $orderby har lagts till. Som en del av att lägga till de nya funktionerna i skrivordning, upptäcktes att alternativen $top och $skip hade av misstag gjorts tillgänglig tidigare även om de inte har implementerats.
-* Uppräkning utökningsbarhet har återaktiverats. Den här funktionen har aktiverats i förhandsgranskningsversionerna av SDK och inaktiverades av misstag i GA-versionen.
+* **PresentationTimeRange** -egenskaperna är inte längre obligatoriska för **till gångs filter** och **konto filter**. 
+* Alternativen $top och $skips fråga för **jobb** och **transformeringar** har tagits bort och $OrderBy lagts till. Som en del av att lägga till nya funktioner för beställning upptäcktes att $top-och $skip alternativen hade kunnat exponeras tidigare trots att de inte har implementerats.
+* Utökningen av uppräkningen aktiverades igen. Den här funktionen har Aktiver ATS i för hands versionerna av SDK och har inaktiverats av misstag i GA-versionen.
 * Två fördefinierade strömmande principer har bytt namn. **SecureStreaming** är nu **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** är nu **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>November 2018
 
-Modulen CLI 2.0 är nu tillgängligt för [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+Modulen CLI 2,0 är nu tillgänglig för [Azure Media Services v3 ga](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
 
 ### <a name="new-commands"></a>Nya kommandon
 
-- [AZ ams-konto](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [AZ ams-konto-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [AZ ams-tillgångar](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [AZ ams tillgången-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [AZ ams innehåll-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [AZ ams-jobb](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [AZ ams live-händelse](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [AZ ams live-utdata](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [AZ ams-slutpunkt för direktuppspelning](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [AZ ams-strömningspositionerare](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [AZ ams-konto mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) – kan du hantera Mediereserverade enheter. Mer information finns i [skala Mediereserverade enheter](media-reserved-units-cli-how-to.md).
+- [AZ AMS-konto](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [AZ AMS-konto – filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [AZ AMS-till gång](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [AZ AMS Asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [AZ AMS-innehåll – nyckel-princip](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [AZ AMS-jobb](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [AZ AMS live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [AZ AMS Live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [AZ AMS-direktuppspelning – slut punkt](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [AZ AMS streaming-Locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [AZ AMS Account MRU](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) – gör att du kan hantera enheter som är reserverade för media. Mer information finns i [skala medie reserverade enheter](media-reserved-units-cli-how-to.md).
 
-### <a name="new-features-and-breaking-changes"></a>Nya funktioner och ändringar
+### <a name="new-features-and-breaking-changes"></a>Nya funktioner och större ändringar
 
-#### <a name="asset-commands"></a>Tillgången kommandon
+#### <a name="asset-commands"></a>Till gångs kommandon
 
-- ```--storage-account``` och ```--container``` argument har lagts till.
-- Standardvärdena för förfallotid (nu + 23h) och behörigheter (läsa) i ```az ams asset get-sas-url``` kommando har lagts till.
+- ```--storage-account```och ```--container``` argument har lagts till.
+- Standardvärden för förfallo tid (nu + 23h) och behörigheter (läsa) i ```az ams asset get-sas-url``` kommandot tillagt.
 
-#### <a name="job-commands"></a>Jobb-kommandon
+#### <a name="job-commands"></a>Jobb kommandon
 
-- ```--correlation-data``` och ```--label``` argument har lagts till
-- ```--output-asset-names``` bytt namn till ```--output-assets```. Nu den accepterar en blankstegsavgränsad lista med tillgångar i ' assetName = label-format. Det går att skicka en tillgång utan etikett så här ”: assetName ='.
+- ```--correlation-data```och ```--label``` tillagda argument
+- ```--output-asset-names```har bytt namn till ```--output-assets```. Nu accepterar den en blankstegsavgränsad lista med till gångar i formatet "assetName = Label". En till gång utan etikett kan skickas så här: "assetName =".
 
-#### <a name="streaming-locator-commands"></a>Kommandon för positionerare för direktuppspelning
+#### <a name="streaming-locator-commands"></a>Kommandon för streaming Locator
 
-- ```az ams streaming locator``` grundläggande kommando ersätts med ```az ams streaming-locator```.
-- ```--streaming-locator-id``` och ```--alternative-media-id support``` argument har lagts till.
-- ```--content-keys argument``` argument har uppdaterats.
-- ```--content-policy-name``` bytt namn till ```--content-key-policy-name```.
+- ```az ams streaming locator```kommandot Base ersattes ```az ams streaming-locator```med.
+- ```--streaming-locator-id```och ```--alternative-media-id support``` argument har lagts till.
+- ```--content-keys argument```argumentet har uppdaterats.
+- ```--content-policy-name```har bytt namn till ```--content-key-policy-name```.
 
-#### <a name="streaming-policy-commands"></a>Strömmande princip-kommandon
+#### <a name="streaming-policy-commands"></a>Kommandon för direkt uppspelnings princip
 
-- ```az ams streaming policy``` grundläggande kommando ersätts med ```az ams streaming-policy```.
-- Stöd för kryptering parametrar i ```az ams streaming-policy create``` har lagts till.
+- ```az ams streaming policy```kommandot Base ersattes ```az ams streaming-policy```med.
+- Krypterings parameter stöd ```az ams streaming-policy create``` har lagts till.
 
-#### <a name="transform-commands"></a>Omvandla kommandon
+#### <a name="transform-commands"></a>Omvandlings kommandon
 
-- ```--preset-names``` Argumentet ersätts med ```--preset```. Du kan nu bara ange 1 utdata/förinställning i taget (att lägga till mer kan du behöva köra ```az ams transform output add```). Du kan också ange anpassade StandardEncoderPreset genom att ange sökvägen till din anpassade JSON.
-- ```az ams transform output remove``` kan utföras genom att skicka utdata-index för att ta bort.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` argument har lagts till i ```az ams transform create``` och ```az ams transform output add``` kommandon.
+- ```--preset-names```argumentet ersatt med ```--preset```. Nu kan du bara ange 1 utdata/för inställning i taget (för att lägga till fler du behöver ```az ams transform output add```köra). Du kan också ange anpassade StandardEncoderPreset genom att skicka sökvägen till din anpassade JSON.
+- ```az ams transform output remove```kan utföras genom att skicka det utgående index som ska tas bort.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argument har lagts ```az ams transform create``` till ```az ams transform output add``` i och-kommandon.
 
-## <a name="october-2018---ga"></a>Oktober 2018, GA
+## <a name="october-2018---ga"></a>Oktober 2018 – GA
 
-Det här avsnittet beskrivs Azure Media Services (AMS) oktober uppdateringar.
+I det här avsnittet beskrivs Azure Media Services (AMS) uppdateringar från oktober.
 
 ### <a name="rest-v3-ga-release"></a>REST v3 GA-version
 
-Den [REST v3 GA-version](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) innehåller fler API: er för Live, konto/tillgången manifest nivåfilter och DRM-stöd.
+[Rest v3 ga-versionen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) innehåller fler API: er för manifest filter för Live, konto/till gångs nivå och DRM-stöd.
 
 #### <a name="azure-resource-management"></a>Azure Resource Management 
 
-Stöd för Azure-resurshantering kan enhetlig hantering och åtgärder API (nu allt från en plats).
+Stöd för Azure Resource Management möjliggör Unified Management och Operations-API (nu allt på ett ställe).
 
-Från och med den här versionen kan använda du Resource Manager-mallar för att skapa Live-händelser.
+Från och med den här versionen kan du använda Resource Manager-mallar för att skapa Live-händelser.
 
-#### <a name="improvement-of-asset-operations"></a>Förbättring av tillgången åtgärder 
+#### <a name="improvement-of-asset-operations"></a>Förbättringar av till gångs åtgärder 
 
 Följande förbättringar introducerades:
 
-- Mata in från http (s)-URL: er eller Azure Blob Storage SAS URL: er.
-- Anger du namn på egna behållare för tillgångar. 
-- Enklare utdata-stöd för att skapa anpassade arbetsflöden med Azure Functions.
+- Mata in från HTTP (s) webb adresser eller Azure Blob Storage SAS-URL: er.
+- Ange egna behållar namn för till gångar. 
+- Enklare stöd för utdata för att skapa anpassade arbets flöden med Azure Functions.
 
 #### <a name="new-transform-object"></a>Nytt Transform-objekt
 
-Den nya **transformera** objektet förenklar Encoding-modellen. Nytt objekt gör det enkelt att skapa och dela kodning Resource Manager-mallar och förinställningar. 
+Det nya **Transform** -objektet fören klar kodnings modellen. Det nya objektet gör det enkelt att skapa och dela koda Resource Manager-mallar och för inställningar. 
 
-#### <a name="azure-active-directory-authentication-and-rbac"></a>Azure Active Directory-autentisering och RBAC
+#### <a name="azure-active-directory-authentication-and-rbac"></a>Azure Active Directory autentisering och RBAC
 
-Azure AD-autentisering och rollbaserad åtkomstkontroll (RBAC) aktivera säker transformeringar, LiveEvents, Innehållsprinciper till nyckeln eller tillgångar efter roll eller användare i Azure AD.
+Azure AD-autentisering och rollbaserad Access Control (RBAC) möjliggör säker transformering, LiveEvents, principer för innehålls nycklar eller till gångar efter roll eller användare i Azure AD.
 
 #### <a name="client-sdks"></a>Klient-SDK: er  
 
-Språk som stöds i Media Services v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
+Språk som stöds i Media Services v3: .NET Core, Java, Node. js, ruby, typescript, python, go.
 
-#### <a name="live-encoding-updates"></a>Live encoding uppdateringar
+#### <a name="live-encoding-updates"></a>Live encoding-uppdateringar
 
-Följande uppdateringar för live encoding introduceras:
+Följande Live encoding-uppdateringar introduceras:
 
-- Nya läget för låg latens för live-(10 sekunder slutpunkt till slutpunkt).
-- Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
-- RTMPS säker mata in.
+- Nytt läge för låg latens för Live (10 sekunders slut punkt till slut punkt).
+- Förbättrat stöd för RTMP (ökad stabilitet och fler stöd för käll kodare).
+- RTMPs säker inmatning.
 
-    När du skapar en direktsänd händelse kan du nu hämta 4 infognings-URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS. 
-- 24 timmars transkodning stöd. 
-- Förbättrat stöd för ad-signalering i RTMP via SCTE35.
+    När du skapar en Live-händelse får du nu 4 inmatnings-URL: er. De 4 inmatnings-URL: erna är nästan identiska, har samma strömnings-token (AppId), men endast port nummer delen är annorlunda. Två av URL: erna är primära och säkerhets kopiering för RTMP. 
+- stöd för 24-timmarsformat. 
+- Förbättrat stöd för AD-signalering i RTMP via SCTE35.
 
 #### <a name="improved-event-grid-support"></a>Förbättrat stöd för Event Grid
 
-Du kan se följande Event Grid stöd förbättringar:
+Du kan se följande Event Grid support förbättringar:
 
-- Azure Event Grid-integration för enklare utveckling med Logic Apps och Azure Functions. 
-- Prenumerera på händelser på kodning och Live Channels.
+- Azure Event Grid integration för enklare utveckling med Logic Apps och Azure Functions. 
+- Prenumerera på händelser om kodning, Live Channels med mera.
 
-### <a name="cmaf-support"></a>CMAF support
+### <a name="cmaf-support"></a>CMAF-stöd
 
-Stöd för CMAF och 'cbcs' kryptering för (iOS 11 +) för Apple HLS och MPEG-DASH spelare som har stöd för CMAF.
+Krypterings stöd för CMAF och CBCS för Apple HLS (iOS 11 +) och MPEG-STRECKs pelare som stöder CMAF.
 
 ### <a name="video-indexer"></a>Video Indexer
 
-Video Indexer GA-versionen har vi tillkännagav i augusti. Ny information om funktioner som stöds för närvarande finns i [vad är Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
+Video Indexer GA-versionen presenterades i augusti. För ny information om funktioner som stöds för närvarande, se [Vad är video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 
 ### <a name="plans-for-changes"></a>Planer för ändringar
 
 #### <a name="azure-cli-20"></a>Azure CLI 2.0
  
-Azure CLI 2.0-modul som omfattar åtgärder för alla funktioner (inklusive Live, Innehållsprinciper nyckel, konto/tillgången filter, principer för direktuppspelning) kommer snart. 
+Azure CLI 2,0-modulen som innehåller åtgärder för alla funktioner (inklusive Live, innehålls nyckel principer, konto-och till gångs filter, strömmande principer) kommer snart. 
 
 ### <a name="known-issues"></a>Kända problem
 
-Kunder som använde förhandsversionen av API för tillgång eller AccountFilters som påverkas av följande problem.
+Endast kunder som använde för hands versionen av API för till gångs-eller AccountFilters påverkas av följande problem.
 
-Om du har skapat tillgångar eller kontofilter mellan 09/28 och 10/12 med Media Services v3 CLI eller API: er, måste du ta bort alla tillgångar och AccountFilters och återskapa dem på grund av en versionskonflikt. 
+Om du har skapat till gångar eller konto filter mellan 09/28 och 10/12 med Media Services v3 CLI eller API: er, måste du ta bort alla till gångar och AccountFilters och återskapa dem på grund av en versions konflikt. 
 
-## <a name="may-2018---preview"></a>Maj 2018 - förhandsversion
+## <a name="may-2018---preview"></a>Maj 2018 – för hands version
 
 ### <a name="net-sdk"></a>.NET SDK
 
 Följande funktioner finns i .NET SDK:
 
-* **Omvandlar** och **jobb** att koda eller analysera medieinnehåll. Exempel finns i [Stream filer](stream-files-tutorial-with-api.md) och [analysera](analyze-videos-tutorial-with-api.md).
-* **Positionerare för direktuppspelning** för att publicera och strömning av innehåll till slutanvändarens enheter
-* **Principer för direktuppspelning** och **innehåll nyckel principer** konfigurera viktiga leverans- och content protection (DRM) när du levererar innehåll.
-* **Live-händelser** och **Live utdata** att konfigurera för inmatning och arkivering av liveuppspelningsinnehåll.
-* **Tillgångar** att lagra och publicera medieinnehåll i Azure Storage. 
-* **Slutpunkter för direktuppspelning** du konfigurerar och skalar dynamisk paketering, kryptering och strömning för både live och på begäran medieinnehåll.
+* **Transformeringar** och **jobb** för att koda eller analysera medie innehåll. Exempel finns i [strömma filer](stream-files-tutorial-with-api.md) och [analysera](analyze-videos-tutorial-with-api.md).
+* **Strömmande positionerare** för att publicera och strömma innehåll till slut användar enheter
+* **Strömmande principer** och **innehålls nyckel principer** för att konfigurera nyckel leverans och innehålls skydd (DRM) när innehåll levereras.
+* **Live-händelser** och **Live-utdata** för att konfigurera inmatning och arkivering av Live streaming-innehåll.
+* **Till gångar** för att lagra och publicera medie innehåll i Azure Storage. 
+* **Slut punkter för direkt uppspelning** för att konfigurera och skala dynamisk paketering, kryptering och strömning för både Live-och medie innehåll på begäran.
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du skickar ett jobb kan du ange för att mata in källvideon med hjälp av HTTPS-adresser, SAS URL: er eller sökvägar till filer i Azure Blob storage. AMS v3 stöder för närvarande inte segmentvis överföringskodning över HTTPS-URL:er.
+* När du skickar ett jobb kan du ange att du vill mata in din käll video med hjälp av HTTPS-URL: er, SAS-URL: er eller sökvägar till filer som finns i Azure Blob Storage. AMS v3 stöder för närvarande inte segmentvis överföringskodning över HTTPS-URL:er.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

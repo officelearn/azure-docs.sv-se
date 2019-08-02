@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: c528f37c8970380678a318ec2d63babd37f89501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac2b350da5ca8738e40f9a288ecf4059e81060
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228030"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673908"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Kopiera data från HDFS med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
@@ -39,7 +39,7 @@ Mer specifikt stöder den här HDFS-anslutningen:
 - Kopiering av filer med hjälp av **webhdfs** protokoll eller **inbyggda DistCp** stöd.
 - Kopiera filer som-är eller parsning/genererar filer med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kopiera data från ett HDFS som inte är allmänt tillgänglig, måste du konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](concepts-integration-runtime.md) artikeln om du vill få mer detaljerad information.
 
@@ -311,9 +311,9 @@ Det här avsnittet beskriver resultatet av sökvägen och namnet på mappen med 
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) är ett Hadoop interna kommandoradsverktyg göra distribuerad kopia i ett Hadoop-kluster. När du kör en kommandot Distcp, kommer den först lista över alla filer kopieras, skapar flera jobb för kartan i Hadoop-kluster och varje jobb karta gör binär kopia från källa till mottagare.
 
-Kopiera aktivitet support via DistCp för att kopiera filer som – i Azure Blob (inklusive [mellanlagrad kopiering](copy-activity-performance.md) eller Azure Data Lake Store, i vilket fall det helt utnyttja ditt kluster fördelar i stället för som körs på den lokala Integration Runtime . Det ger bättre genomströmning för kopiera särskilt om klustret är ett kraftfullt verktyg. Utifrån din konfiguration i Azure Data Factory kan Kopieringsaktivitet automatiskt skapar en kommandot distcp, skicka Hadoop-klustret och övervaka kopieringsstatusen.
+Kopiera aktivitet support via DistCp för att kopiera filer som – i Azure Blob (inklusive [mellanlagrad kopiering](copy-activity-performance.md)) eller Azure Data Lake Store, i vilket fall det helt utnyttja ditt kluster fördelar i stället för som körs på den lokala Integration Runtime. Det ger bättre genomströmning för kopiera särskilt om klustret är ett kraftfullt verktyg. Utifrån din konfiguration i Azure Data Factory kan Kopieringsaktivitet automatiskt skapar en kommandot distcp, skicka Hadoop-klustret och övervaka kopieringsstatusen.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 Använd DistCp för att kopiera filer som – är från HDFS till Azure Blob (inklusive mellanlagrad kopiering) eller Azure Data Lake Store och kontrollera att ditt Hadoop-kluster uppfyller nedan krav:
 

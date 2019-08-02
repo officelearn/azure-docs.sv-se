@@ -1,9 +1,9 @@
 ---
-title: Bevara jobb- och utdata till Azure Storage med Batch-tjänsten API – Azure Batch | Microsoft Docs
-description: Lär dig hur du använder API för Batch-tjänsten för att spara Batch-uppgift och jobbet utdata till Azure Storage.
+title: Spara jobb-och Uppgiftsutdata till Azure Storage med batch-tjänstens API-Azure Batch | Microsoft Docs
+description: Lär dig hur du använder batch-tjänstens API för att spara batch-aktivitet och jobbets utdata till Azure Storage.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: batch
 ms.devlang: multiple
@@ -13,50 +13,50 @@ ms.workload: big-compute
 ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c113521a1828a27ce9454ea142cb1708b7c5a1b6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595274"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68322845"
 ---
-# <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara aktivitetsdata till Azure Storage med API: et för Batch-tjänsten
+# <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara uppgifts data till Azure Storage med batch-tjänstens API
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Spara utdata till Azure Storage för aktiviteter och job manager-aktiviteter som körs på pooler med konfigurationen av virtuella datorn har stöd för API: et för Batch-tjänsten. När du lägger till en aktivitet kan du ange en behållare i Azure Storage som mål för aktivitetens utdata. Batch-tjänsten skriver sedan alla data på behållaren när aktiviteten har slutförts.
+Batch-tjänstens API har stöd för att spara utdata till Azure Storage för aktiviteter och jobb Manager-aktiviteter som körs på pooler med den virtuella dator konfigurationen. När du lägger till en aktivitet kan du ange en behållare i Azure Storage som mål för aktivitetens utdata. Batch-tjänsten skriver sedan alla utdata till behållaren när uppgiften har slutförts.
 
-En fördel med att använda API: et för Batch-tjänsten för att bevara uppgiftsutdata är att du inte behöver ändra det program som aktiviteten körs. I stället kan du behålla aktivitetens utdata från inom samma kod som skapar uppgiften med några ändringar i klientprogrammet.
+En fördel med att använda batch-tjänstens API för att spara Uppgiftsutdata är att du inte behöver ändra det program som aktiviteten körs på. I stället kan du spara aktivitetens utdata från samma kod som skapar uppgiften i stället för att få några ändringar i klient programmet.
 
-## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>När ska jag använda API: et för Batch-tjänsten för att bevara uppgiftsutdata?
+## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>När ska jag använda batch-tjänstens API för att spara Uppgiftsutdata?
 
-Azure Batch får du fler än ett sätt att spara uppgiftsutdata. Med API: et för Batch-tjänsten är en praktisk metod som passar bäst för dessa scenarier:
+Azure Batch innehåller fler än ett sätt att spara Uppgiftsutdata. Att använda batch-tjänstens API är en praktisk metod som passar bäst för dessa scenarier:
 
-- Vill du skriva kod för att bevara uppgiftens utdata från inom ditt klientprogram utan att ändra de program som uppgiften körs.
-- Vill du spara utdata från Batch-aktiviteterna och job manager-aktiviteter i pooler som skapats med konfigurationen av virtuella datorn.
-- Vill du spara utdata till en Azure Storage-behållare med ett godtyckligt namn.
-- Du vill spara utdata till en Azure Storage-behållare med namnet enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Du vill skriva kod för att spara Uppgiftsutdata från ditt klient program, utan att ändra det program som aktiviteten körs på.
+- Du vill spara utdata från batch-uppgifter och jobb Manager-aktiviteter i pooler som skapats med den virtuella dator konfigurationen.
+- Du vill spara utdata till en Azure Storage behållare med ett godtyckligt namn.
+- Du vill spara utdata till en Azure Storage-behållare med namnet enligt satserna i satsen för [fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
-Om ditt scenario skiljer sig från de som anges ovan, kan du behöva tänka på en annan metod. Till exempel stöder API: et för Batch-tjänsten för närvarande inte strömmande utdata till Azure Storage när aktiviteten körs. Att strömma utdata bör du överväga att använda Batch File Conventions-bibliotek för .NET. För övriga språk behöver du implementera en egen lösning. Mer information om andra alternativ för att bevara uppgiftsutdata finns [Spara jobb- och utdata till Azure Storage](batch-task-output.md).
+Om ditt scenario skiljer sig från de som anges ovan kan du behöva överväga en annan metod. Batch-tjänstens API stöder till exempel inte strömmande utdata till Azure Storage medan aktiviteten körs. Om du vill strömma utdata kan du använda biblioteket med kommando fils konventioner, som är tillgängligt för .NET. För andra språk måste du implementera din egen lösning. Mer information om andra alternativ för att spara Uppgiftsutdata finns i [Spara jobb-och Uppgiftsutdata till Azure Storage](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Skapa en behållare i Azure Storage
 
-För att bevara uppgiftens utdata till Azure Storage, behöver du skapa en behållare som fungerar som mål för din utdatafilerna. Skapa behållaren innan du kör uppgiften, helst innan du skickar jobbet. För att skapa behållaren, använder du lämplig Azure Storage-klientbibliotek eller SDK. Mer information om API: erna för Azure Storage finns i den [dokumentation om Azure Storage](https://docs.microsoft.com/azure/storage/).
+Om du vill spara Uppgiftsutdata till Azure Storage måste du skapa en behållare som fungerar som mål för dina utdatafiler. Skapa behållaren innan du kör uppgiften, helst innan du skickar jobbet. Använd rätt Azure Storage klient bibliotek eller SDK för att skapa behållaren. Mer information om Azure Storage-API: er finns i [Azure Storage-dokumentationen](https://docs.microsoft.com/azure/storage/).
 
-Till exempel om du skapar ditt program i C#, använda den [Azure Storage-klientbiblioteket för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). I följande exempel visas hur du skapar en behållare:
+Om du till exempel skriver ditt program i C#använder du [Azure Storage klient biblioteket för .net](https://www.nuget.org/packages/WindowsAzure.Storage/). I följande exempel visas hur du skapar en behållare:
 
 ```csharp
 CloudBlobContainer container = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
 await container.CreateIfNotExists();
 ```
 
-## <a name="get-a-shared-access-signature-for-the-container"></a>Hämta signatur för delad åtkomst för behållaren
+## <a name="get-a-shared-access-signature-for-the-container"></a>Hämta en signatur för delad åtkomst för behållaren
 
-När du har skapat behållaren får du en signatur för delad åtkomst (SAS) med skrivåtkomst till behållaren. En SAS ger delegerad åtkomst till behållaren. SAS ger åtkomst med en angiven uppsättning behörigheter och under ett angivet tidsintervall. Batch-tjänsten behöver en SAS med skrivbehörighet för att skriva uppgiftens utdata till behållaren. Mer information om SAS finns i [använda signaturer för delad åtkomst \(SAS\) i Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+När du har skapat behållaren får du en signatur för delad åtkomst (SAS) med skriv åtkomst till behållaren. En SAS ger delegerad åtkomst till behållaren. SAS beviljar åtkomst med en angiven uppsättning behörigheter och under ett angivet tidsintervall. Batch-tjänsten behöver en SAS med Skriv behörighet för att skriva Uppgiftsutdata till behållaren. Mer information om SAS finns i [använda säkerhets associationer\) för \(delade Access-signaturer i Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-När du får en SAS med hjälp av API: er för Azure Storage returnerar API: et en token SAS-sträng. Den här token strängen innehåller alla parametrar för SAS, inklusive behörigheter och intervallet över vilket Signaturen är giltig. Om du vill använda SAS för att få åtkomst till en behållare i Azure Storage, måste du lägga till SAS-token strängen till resurs-URI. Resurs-URI, tillsammans med tillagda SAS-token ger autentiserad åtkomst till Azure Storage.
+När du får en SAS med hjälp av Azure Storage API: er, returnerar API: et en SAS-token-sträng. Denna token-sträng innehåller alla parametrar för SAS, inklusive behörigheter och intervallet som SAS är giltig för. Om du vill använda SAS för att komma åt en behållare i Azure Storage måste du lägga till SAS-token-strängen i resurs-URI: n. Resurs-URI: n, tillsammans med den bifogade SAS-token, ger autentiserad åtkomst till Azure Storage.
 
-I följande exempel visar hur du hämtar en lässkyddad SAS-token sträng för behållaren och sedan lägger till SAS till behållaren för URI:
+I följande exempel visas hur du hämtar en skrivskyddad SAS-token-sträng för behållaren och sedan lägger till SAS i behållarens URI:
 
 ```csharp
 string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBlobPolicy()
@@ -68,11 +68,11 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
 string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
-## <a name="specify-output-files-for-task-output"></a>Ange utdatafilerna för uppgiftsutdata
+## <a name="specify-output-files-for-task-output"></a>Ange utdatafiler för Uppgiftsutdata
 
-Om du vill ange utdatafilerna för en aktivitet, skapar du en samling med [utdatafil](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) objekt och tilldela den till den [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) egenskapen när du skapar uppgiften.
+Om du vill ange utdatafiler för en aktivitet skapar du [](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) en samling indatafiler och tilldelar den till egenskapen [CloudTask. OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) när du skapar uppgiften.
 
-Följande C# kodexempel skapar en uppgift som skriver slumptal till en fil med namnet `output.txt`. I exemplet skapas en utdatafil för `output.txt` som ska skrivas till behållaren. Exemplet skapar också utdatafilerna för alla loggfiler som matchar filmönstret `std*.txt` (_t.ex._ , `stdout.txt` och `stderr.txt`). Behållarens Webbadress kräver SAS som skapades tidigare för behållaren. Batch-tjänsten använder SAS för att autentisera åtkomst till behållaren:
+I följande C# kod exempel skapas en uppgift som skriver slumpmässiga nummer till en fil med `output.txt`namnet. I exemplet skapas en utdatafil `output.txt` som skrivs till behållaren. I exemplet skapas även utdatafiler för alla loggfiler som matchar fil mönstret `std*.txt` ( `stdout.txt` _t._ ex. `stderr.txt`och). Behållar-URL: en kräver den SAS som skapades tidigare för behållaren. Batch-tjänsten använder SAS för att autentisera åtkomsten till behållaren:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -98,57 +98,57 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 }
 ```
 
-### <a name="specify-a-file-pattern-for-matching"></a>Ange ett filmönster för matchning
+### <a name="specify-a-file-pattern-for-matching"></a>Ange ett fil mönster för matchning
 
-När du anger en utdatafil, du kan använda den [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) egenskapen att ange ett filmönster för matchning. Filmönstret kanske matchar noll filer, en enda fil eller en uppsättning filer som skapas av uppgiften.
+När du anger en utdatafil kan du använda egenskapen [utfil. FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) för att ange ett fil mönster som ska matchas. Fil mönstret kan matcha inga filer, en enskild fil eller en uppsättning filer som skapas av uppgiften.
 
-Den **FilePattern** egenskap stöder standard filsystem jokertecken som `*` (för icke-rekursiva matchar) och `**` (för rekursiv matchar). Till exempel kodexemplet ovan anger mönstret som filen ska matcha `std*.txt` icke-rekursivt:
+Egenskapen **FilePattern** stöder standardjokertecken i fil systemet, `*` till exempel (för icke-rekursiva matchningar) och `**` (för rekursiva matchningar). Kod exemplet ovan anger till exempel fil mönstret som inte matchar `std*.txt` rekursivt:
 
 `filePattern: @"..\std*.txt"`
 
-Om du vill överföra en fil, ange ett filmönster med jokertecken. Till exempel kodexemplet ovan anger mönstret som filen ska matcha `output.txt`:
+Om du vill ladda upp en enstaka fil anger du ett fil mönster utan jokertecken. Kod exemplet ovan anger till exempel fil mönstret som ska matchas `output.txt`:
 
 `filePattern: @"output.txt"`
 
-### <a name="specify-an-upload-condition"></a>Ange ett villkor för överföring
+### <a name="specify-an-upload-condition"></a>Ange ett överförings villkor
 
-Den [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) egenskapen tillåter villkorlig uppladdningen av utdatafilerna. Ett vanligt scenario är att lägga upp en uppsättning filer om aktiviteten lyckas och en annan uppsättning filer om det misslyckas. Du kanske exempelvis vill överföra utförliga loggfiler när aktiviteten misslyckas och avslutas med en slutkod. På samma sätt kan du ladda upp filer för resultatet bara om aktiviteten lyckas, eftersom dessa filer kanske saknas eller är ofullständig om uppgiften misslyckas.
+Egenskapen [OutputFileUploadOptions. UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) tillåter villkorlig överföring av utdatafiler. Ett vanligt scenario är att ladda upp en uppsättning filer om aktiviteten lyckas och en annan uppsättning filer om den Miss lyckas. Du kanske till exempel bara vill överföra utförliga loggfiler när aktiviteten Miss lyckas och avslutas med en slutkod som inte är noll. På samma sätt kanske du bara vill överföra resultat filer om aktiviteten lyckas, eftersom filerna kan saknas eller vara ofullständiga om aktiviteten Miss lyckas.
 
-Kodexemplet ovan anger den **UploadCondition** egenskap **TaskCompletion**. Den här inställningen anger att filen ska överföras när aktiviteterna har slutförts, oavsett värdet för slutkoden.
+I kod exemplet ovan anges egenskapen **UploadCondition** till **TaskCompletion**. Den här inställningen anger att filen ska överföras när aktiviteterna har slutförts, oavsett värdet för slut koden.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
-Andra inställningar finns i den [OutputFileUploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition) enum.
+Andra inställningar finns i uppräkningen [OutputFileUploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition) .
 
-### <a name="disambiguate-files-with-the-same-name"></a>Disambiguate filer med samma namn
+### <a name="disambiguate-files-with-the-same-name"></a>Disambiguate-filer med samma namn
 
-Aktiviteterna i ett jobb kan ge filer som har samma namn. Till exempel `stdout.txt` och `stderr.txt` skapas för varje aktivitet som körs i ett jobb. Eftersom varje aktivitet körs i sin egen kontexten kan de här filerna inte är i konflikt i nodens filsystemet. När du överför filer från flera aktiviteter till en delad behållare, måste du dock att förtydliga filer med samma namn.
+Aktiviteterna i ett jobb kan producera filer som har samma namn. Till exempel `stdout.txt` skapas och `stderr.txt` skapas för varje aktivitet som körs i ett jobb. Eftersom varje aktivitet körs i ett eget sammanhang är dessa filer inte motstridiga i nodens fil system. När du laddar upp filer från flera aktiviteter till en delad behållare måste du dock disambiguate filer med samma namn.
 
-Den [OutputFileBlobContainerDestination.Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) egenskap anger målblobben eller virtuell katalog för utdatafilerna. Du kan använda den **sökväg** egenskapen att namnge blob eller virtuell katalog så att utdatafilerna med samma namn är unikt namngivna i Azure Storage. Med hjälp av aktivitets-ID i sökvägen är ett bra sätt att se till att unika namn och enkelt identifiera filer.
+Egenskapen [OutputFileBlobContainerDestination. Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) anger mål-BLOB eller virtuell katalog för utdatafiler. Du kan använda egenskapen **sökväg** för att namnge bloben eller den virtuella katalogen på ett sådant sätt att utdatafiler med samma namn unikt namnges i Azure Storage. Att använda aktivitets-ID i sökvägen är ett bra sätt att säkerställa unika namn och enkelt identifiera filer.
 
-Om den **FilePattern** är inställd på ett jokerteckenuttryck och sedan alla filer som matchar mönstret överförs till den virtuella katalogen som anges av den **sökväg** egenskapen. Exempel: om behållaren är `mycontainer`, uppgiften ID: T är `mytask`, och filmönstret är `..\std*.txt`, och sedan den absoluta URI: er till utdatafilerna i Azure Storage ska vara detsamma som:
+Om egenskapen **FilePattern** har angetts till ett jokertecken, överförs alla filer som matchar mönstret till den virtuella katalogen som anges av egenskapen **Path** . Om behållaren `mycontainer`till exempel är, aktivitets `mytask`-ID: t och fil mönstret är `..\std*.txt`, kommer de absoluta URI: erna till utdatafilerna i Azure Storage att likna följande:
 
 ```
 https://myaccount.blob.core.windows.net/mycontainer/mytask/stderr.txt
 https://myaccount.blob.core.windows.net/mycontainer/mytask/stdout.txt
 ```
 
-Om den **FilePattern** är inställd på matcha ett enda filnamn, vilket innebär att den inte innehåller några jokertecken och sedan värdet för den **sökväg** egenskap anger fullständigt kvalificerade blobnamnet. Om du räknar namnkonflikter med en enda fil från flera aktiviteter, inkluderar du namnet på den virtuella katalogen som en del av namnet på filen för att undvika dessa filer. Till exempel den **sökväg** egenskapen att inkludera aktivitets-ID, avgränsningstecken (vanligtvis ett snedstreck) och namnet på filen:
+Om egenskapen **FilePattern** är inställd på att matcha ett enda fil namn, vilket innebär att den inte innehåller jokertecken, anger värdet för egenskapen **Path** det fullständigt kvalificerade BLOB-namnet. Om du förväntar dig namn konflikter med en enda fil från flera aktiviteter tar du med namnet på den virtuella katalogen som en del av fil namnet för att disambiguate filerna. Ange till exempel egenskapen **Path** att inkludera aktivitets-ID, avgränsnings tecken (vanligt vis ett snedstreck) och fil namnet:
 
 `path: taskId + @"/output.txt"`
 
-Absolut URI: er för utdata för en uppsättning uppgifter som ska vara detsamma som:
+De absoluta URI: erna till utdatafilerna för en uppsättning aktiviteter ser ut ungefär så här:
 
 ```
 https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Mer information om virtuella kataloger i Azure Storage finns i [listar blobarna i en behållare](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
+Mer information om virtuella kataloger i Azure Storage finns i [lista blobarna i en behållare](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
-## <a name="diagnose-file-upload-errors"></a>Diagnostisera filen uppladdningsfel
+## <a name="diagnose-file-upload-errors"></a>Diagnostisera fil överförings fel
 
-Om inte går att överföra utdatafilerna till Azure Storage och sedan aktiviteten flyttas till den **slutförd** tillstånd och [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) egenskapen. Granska den **FailureInformation** egenskap för att undersöka vilka fel uppstod. Här är till exempel ett fel som uppstår på filuppladdning om det inte går att hitta behållaren:
+Om det inte går att ladda upp utdatafiler till Azure Storage, flyttas aktiviteten till det slutförda läget och egenskapen [TaskExecutionInformation. FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) har angetts. Granska egenskapen **FailureInformation** för att avgöra vilket fel som har inträffat. Här är till exempel ett fel som uppstår vid fil uppladdning om behållaren inte kan hittas:
 
 ```
 Category: UserError
@@ -156,42 +156,42 @@ Code: FileUploadContainerNotFound
 Message: One of the specified Azure container(s) was not found while attempting to upload an output file
 ```
 
-På varje filöverföringen skriver Batch två loggfiler till compute-nod `fileuploadout.txt` och `fileuploaderr.txt`. Du kan granska dessa loggfiler för mer information om ett specifikt fel. I fall där själva filuppladdningen aldrig gjordes, till exempel eftersom själva uppgiften gick inte att köra sedan finns loggfilerna inte.
+Vid varje fil uppladdning skriver batch två loggfiler till Compute- `fileuploadout.txt` noden och. `fileuploaderr.txt` Du kan kontrol lera loggfilerna för att lära dig mer om ett speciellt haveri. I de fall där fil överföringen aldrig har gjorts, till exempel eftersom själva uppgiften inte kunde köras, finns inte dessa loggfiler.
 
-## <a name="diagnose-file-upload-performance"></a>Diagnostisera prestandaproblem för uppladdning av filen
+## <a name="diagnose-file-upload-performance"></a>Diagnostisera prestanda för fil uppladdning
 
-Den `fileuploadout.txt` filen loggar uppladdningsförloppet. Du kan kontrollera den här filen om du vill veta mer om hur lång tid tar din filöverföringar. Tänk på att det finns många bidragande faktorer att ladda upp prestanda, bland annat paketets storlek för noden, andra aktiviteter på noden vid tidpunkten för överföringen, om en målbehållare är i samma region som Batch-pool, hur många noder laddar upp till stora Ge kontot på samma gång och så vidare.
+Hämtnings förloppet för `fileuploadout.txt` fil loggar. Du kan granska den här filen om du vill veta mer om hur lång tid det tar för dina fil överföringar. Tänk på att det finns många bidrags faktorer för att ladda upp prestanda, inklusive nodens storlek, annan aktivitet på noden vid överförings tillfället, om mål behållaren finns i samma region som batch-poolen, hur många noder som laddas upp till stora ge kontot vid samma tidpunkt och så vidare.
 
-## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Använda API: et för Batch-tjänsten med Batch File Conventions-standard
+## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Använd batch-tjänstens API med standard satserna för sats fil konvention
 
-När du bevara uppgiftens utdata med Batch-tjänst-API kan namnge din målbehållare och blobbar du själv vill. Du kan också välja att ge dem enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). File Conventions-standard anger namnen på Målbehållaren och blob i Azure Storage för en viss utdatafilen baserat på namnen på de jobb- och. Om du använder den File Conventions-standarden för namngivning av utdatafilerna så din utdatafilerna är tillgängliga för visning i den [Azure-portalen](https://portal.azure.com).
+När du sparar Uppgiftsutdata med batch-tjänstens API kan du namnge din mål behållare och blobar som du vill. Du kan också välja att namnge dem enligt satserna i satsen för [fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Standard för fil konventioner bestämmer namnen på mål behållaren och blobben i Azure Storage för en utdatafil baserat på namnet på jobbet och uppgiften. Om du använder fil konventions standarden för namngivning av utdatafiler är utdatafilerna tillgängliga för visning i [Azure Portal](https://portal.azure.com).
 
-Om du utvecklar i C#, du kan använda de metoder som är inbyggda i den [Batch File Conventions-bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Det här biblioteket skapas korrekt namngivna behållare och blob-sökvägar. Du kan till exempel anropa API: et för att få rätt namn för den behållaren, baserat på jobbnamnet:
+Om du utvecklar i C#kan du använda de metoder som är inbyggda i biblioteket med [kommando fils konventioner för .net](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Det här biblioteket skapar de korrekt namngivna behållare och blob-sökvägar åt dig. Du kan till exempel anropa API: et för att få rätt namn för behållaren, baserat på jobbets namn:
 
 ```csharp
 string containerName = job.OutputStorageContainerName();
 ```
 
-Du kan använda den [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) metod för att returnera en URL för delad åtkomst (signatur) som används för att skriva till behållaren. Du kan sedan överföra den här SAS till den [OutputFileBlobContainerDestination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination) konstruktor.
+Du kan använda metoden [CloudJobExtensions. GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) för att returnera en URL för signaturer för delad åtkomst (SAS) som används för att skriva till behållaren. Du kan sedan skicka denna SAS till [OutputFileBlobContainerDestination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination) -konstruktorn.
 
-Om du utvecklar i ett annat språk än C#, behöver du implementera File Conventions-standard själv.
+Om du utvecklar på ett annat språk än C#måste du implementera filen Conventions standard.
 
 ## <a name="code-sample"></a>Kodexempel
 
-Den [PersistOutputs] [ github_persistoutputs] exempelprojektet är en av de [Azure Batch-kodexempel] [ github_samples] på GitHub. Visual Studio-lösningen visar hur du använder Batch-klientbiblioteket för .NET för att spara uppgiftsutdata till beständig lagring. Följ dessa steg om du vill köra exemplet:
+[PersistOutputs][github_persistoutputs] -exempelprojektet är ett av [Azure Batch kod exempel][github_samples] på GitHub. Den här Visual Studio-lösningen visar hur du använder batch-klientens bibliotek för .NET för att spara Uppgiftsutdata till varaktig lagring. Följ dessa steg om du vill köra exemplet:
 
 1. Öppna projektet i **Visual Studio 2019**.
-2. Lägg till ditt Batch- och Storage **kontoautentiseringsuppgifter** till **AccountSettings.settings** i Microsoft.Azure.Batch.Samples.Common-projektet.
-3. **Skapa** (men inte kör) lösningen. Återställ NuGet-paket om du tillfrågas.
-4. Använda Azure-portalen för att överföra en [programpaket](batch-application-packages.md) för **PersistOutputsTask**. Inkludera den `PersistOutputsTask.exe` och dess beroende sammansättningar i ZIP-paketet, Ställ in program-ID till ”PersistOutputsTask” och paketversionen som programmet ska ”1.0”.
-5. **Starta** (kör) den **PersistOutputs** projekt.
-6. När du uppmanas att välja persistence-teknik för att använda för att köra exemplet, ange **2** att köra exemplet med API: et för Batch-tjänsten för att bevara uppgiftsutdata.
-7. Om du vill köra exemplet igen, ange **3** att spara utdata med API: et för Batch-tjänsten och även för att namnge målsökväg för behållare och blobnamn enligt File Conventions-standarden.
+2. Lägg till dina autentiseringsuppgifter för batch-och lagrings **konto** i **AccountSettings. Settings** i Microsoft. Azure. batch. Samples. common Project.
+3. **Bygg** (men kör inte) lösningen. Återställ eventuella NuGet-paket om du uppmanas att göra det.
+4. Använd Azure Portal för att ladda upp [](batch-application-packages.md) ett programpaket för **PersistOutputsTask**. Ta med `PersistOutputsTask.exe` och dess beroende sammansättningar i. zip-paketet, ange program-ID till "PersistOutputsTask" och programpaket versionen till "1,0".
+5. **Starta** (kör) **PersistOutputs** -projektet.
+6. När du uppmanas att välja den beständiga teknik som ska användas för att köra exemplet anger du **2** för att köra exemplet med batch-tjänstens API för att spara Uppgiftsutdata.
+7. Om du vill kan du köra exemplet igen, ange **3** för att spara utdata med batch-tjänst-API: et och även namnge mål behållaren och blob-sökvägen enligt fil konventions standarden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om bestående uppgiftens utdata med File Conventions-bibliotek för .NET finns i [bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET](batch-task-output-file-conventions.md).
-- Information om andra metoder för att bevara utdata i Azure Batch finns i [Spara jobb- och utdata till Azure Storage](batch-task-output.md).
+- Mer information om att spara Uppgiftsutdata med fil konventions biblioteket för .NET finns i [Spara jobb-och uppgifts data till Azure Storage med bibliotek för batch-Filkonventioner för .net](batch-task-output-file-conventions.md).
+- Information om andra metoder för att spara utdata i Azure Batch finns i [Spara jobb-och Uppgiftsutdata för att Azure Storage](batch-task-output.md).
 
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
 [github_samples]: https://github.com/Azure/azure-batch-samples

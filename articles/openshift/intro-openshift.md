@@ -1,6 +1,6 @@
 ---
 title: Introduktion till Azure Red Hat OpenShift | Microsoft Docs
-description: Läs om funktioner och fördelar med Microsoft Azure Red Hat OpenShift att distribuera och hantera behållarbaserade program.
+description: Lär dig om funktionerna och fördelarna med Microsoft Azure Red Hat OpenShift för att distribuera och hantera program som baseras på behållare.
 services: container-service
 author: jimzim
 ms.author: jzim
@@ -9,46 +9,46 @@ manager: jeconnoc
 ms.topic: overview
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 7cabedaec1190437aa9f225397afa8871cb06e88
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f76f5d4dc84d1f8827248ab8399c1ae450a643a0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306363"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620153"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
-Microsofts *Azure Red Hat OpenShift* service kan du distribuera en fullständigt hanterad [OpenShift](https://www.openshift.com/) kluster.
+Med OpenShift-tjänsten Microsoft *Azure Red Hat* kan du distribuera fullständigt hanterade OpenShift-kluster. [](https://www.openshift.com/)
 
-Azure Red Hat OpenShift utökar [Kubernetes](https://kubernetes.io/). Köra behållare i produktion med Kubernetes kräver ytterligare verktyg och resurser, till exempel ett avbildningsregister, lagringshantering, networking lösningar och loggning och övervakningsverktyg, som måste vara versionsnummer och testade tillsammans. Att skapa behållarbaserade program kräver även mer arbete för integrering med mellanprogram, ramverk, databaser och CI/CD-verktyg. Azure Red Hat OpenShift kombinerar alla detta till en enda plattform, föra enkelt i arbetet med att IT-team samtidigt som programmet team vad de behöver för att köra.
+Azure Red Hat OpenShift utökar [Kubernetes](https://kubernetes.io/). Att köra behållare i produktion med Kubernetes kräver ytterligare verktyg och resurser, till exempel ett avbildnings register, lagrings hantering, nätverks lösningar och verktyg för loggning och övervakning, som alla måste vara versioner och testas tillsammans. Att skapa behållar program kräver ännu mer integrerings arbete med mellanprogram, ramverk, databaser och CI/CD-verktyg. Azure Red Hat OpenShift kombinerar allt detta till en enda plattform, och gör det enkelt för IT-team att ge program team vad de behöver utföra.
 
-Azure Red Hat OpenShift är gemensamt utformat, drivs och stöds av Red Hat och Microsoft för att tillhandahålla en integrerad supportupplevelse. Det finns inga virtuella datorer att fungera och utan uppdatering krävs. Master, infrastruktur och program är uppdaterad, uppdateras och övervakas för din räkning av Red Hat och Microsoft. Azure Red Hat OpenShift-kluster distribueras i din Azure-prenumeration och finns på Azure-fakturan.
+Azure Red Hat OpenShift är gemensamt utformat, drivs och stöds av Red Hat och Microsoft för att tillhandahålla en integrerad support upplevelse. Det finns inga virtuella datorer att hantera och ingen uppdatering krävs. Huvud-, infrastruktur-och programnoder korrigeras, uppdateras och övervakas för din räkning av Red Hat och Microsoft. Dina Azure Red Hat OpenShift-kluster distribueras till din Azure-prenumeration och ingår på din Azure-faktura.
 
-Du kan välja egna registret, nätverk, lagring, och CI/CD-lösningar, eller Använd inbyggda lösningar för automatiserade källa kod hanterings-, behållare och bygger, distributioner, skalning, hantering av hälsotillstånd och mer. Azure Red Hat OpenShift ger en integrerad inloggning via Azure Active Directory.
+Du kan välja egna register, nätverk, lagring och CI/CD-lösningar eller använda de inbyggda lösningarna för automatiserad käll kods hantering, behållare och program versioner, distributioner, skalning, hälso hantering med mera. Azure Red Hat OpenShift ger en integrerad inloggnings upplevelse via Azure Active Directory.
 
-Kom igång genom att slutföra den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
+Kom igång genom att slutföra själv studie kursen [skapa en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
 
 ## <a name="access-security-and-monitoring"></a>Åtkomst, säkerhet och övervakning
 
-För förbättrad säkerhet och hantering kan Azure Red Hat OpenShift du integrera med Azure Active Directory (Azure AD) och använda Kubernetes rollbaserad åtkomstkontroll (RBAC). Du kan också övervaka hälsotillståndet för ditt kluster och dina resurser.
+För förbättrad säkerhet och hantering kan du med hjälp av Azure Red Hat OpenShift integrera med Azure Active Directory (Azure AD) och använda Kubernetes-rollbaserad åtkomst kontroll (RBAC). Du kan också övervaka hälsotillståndet för ditt kluster och dina resurser.
 
 ## <a name="cluster-and-node"></a>Kluster och nod
 
-Azure Red Hat OpenShift-noder kör på Azure virtual machines. Du kan ansluta lagringen till noder och poddar, uppgradera klusterkomponenter och använda GPU:er.
+Azure Red Hat OpenShift-noder körs på virtuella Azure-datorer. Du kan ansluta lagringen till noder och poddar, uppgradera klusterkomponenter och använda GPU:er.
 
 ## <a name="virtual-networks-and-ingress"></a>Virtuella nätverk och ingress
 
-Du kan ansluta en Azure Red Hat OpenShift-kluster till ett befintligt virtuellt nätverk via peering. I den här konfigurationen poddar kan ansluta till andra tjänster i ett peer-kopplade virtuella nätverk och lokala nätverk via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller plats-till-plats (S2S) VPN-anslutningar.
+Du kan [ansluta ett Azure Red Hat OpenShift-kluster till ett befintligt virtuellt nätverk](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) via peering. I den här konfigurationen kan poddar ansluta till andra tjänster i ett peer-kopplat virtuellt nätverk.
 
-Se [ansluta virtuella nätverk i ett kluster till ett befintligt virtuellt nätverk](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) mer information.
+Mer information finns i [ansluta ett klusters virtuella nätverk till ett befintligt virtuellt nätverk](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) .
 
 ## <a name="kubernetes-certification"></a>Kubernetes-certifiering
 
-Azure Red Hat OpenShift-tjänsten har varit CNCF som certifierats för Kubernetes-kompatibel.
+Azure Red Hat OpenShift-tjänsten har CNCF certifierats som Kubernetes överensstämmer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig de nödvändiga förutsättningarna för Azure Red Hat OpenShift:
+Läs om kraven för Azure Red Hat OpenShift:
 
 > [!div class="nextstepaction"]
 > [Konfigurera din utvecklingsmiljö](howto-setup-environment.md)

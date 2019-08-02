@@ -1,7 +1,7 @@
 ---
 title: Slutpunkt för Anpassad sökning i Bing
-titlesuffix: Azure Cognitive Services
-description: Sammanfattning av Bing Custom Search API-slutpunkten.
+titleSuffix: Azure Cognitive Services
+description: Sammanfattning av API för anpassad Bing-sökning slut punkten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,55 +10,55 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: bc33d65972e12591130389e0c3cb8697898d1da9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3b544d8d655b653383cc999de233e2163433d85
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390343"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405070"
 ---
 # <a name="custom-search"></a>Anpassad sökning
 Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen som intresserar dig. Användarna ser sökresultat som skräddarsytts efter det innehåll som intresserar dem, i stället för att behöva bläddra bland irrelevanta sökresultat.
 
-## <a name="custom-search-endpoint"></a>Anpassad sökning
-För att få resultat med hjälp av API: et för Bing Custom Search kan skicka en `GET` begäran till följande slutpunkt. Använda rubriker och URL-parametrar för att definiera ytterligare specifikationer.
+## <a name="custom-search-endpoint"></a>Anpassad Sök slut punkt
+Skicka en `GET` begäran till följande slut punkt för att få resultat med hjälp av API för anpassad Bing-sökning. Använd sidhuvudena och URL-parametrarna för att definiera ytterligare specifikationer.
 
-Slutpunkt: Returnerar sökförslag som JSON-resultat som är relevanta för användarens indata som definierats av `?q=""`.
+Endpoint Returnerar Sök förslag som JSON-resultat som är relevanta för användarens indata som `?q=""`definieras av.
 ```  
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Exempel som beskriver hur du ställer in anpassad sökning i källor, finns det [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o.s.v., se den [anpassad sökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) referens.
+Exempel som beskriver hur du konfigurerar anpassade Sök källor finns i självstudien [](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel osv. finns i referens för [API för anpassad Bing-sökning v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) .
 
-## <a name="custom-search-response-json"></a>Anpassad sökning i svaret JSON
-En anpassad sökning i begäran returnerar resultat som JSON-objekt, se [svarsobjekten](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
+## <a name="custom-search-response-json"></a>JSON för anpassat söksvar
+En anpassad Sök förfrågan returnerar resultat som JSON-objekt, [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects)se Response Objects. 
 
 ## <a name="custom-autosuggest"></a>Anpassade automatiska förslag
-Anpassade automatiska förslag i API: et kan du skicka en fråga för partiella sökterm till Bing och få tillbaka en lista över föreslagna frågor som du kan konfigurera. Med anpassade automatiska förslag att lägga till förslag som returneras av API: et och du kan också ange om du vill inkludera förslag som genererats av Bing.
+Med det anpassade API: et för automatiska förslag kan du skicka en ofullständig Sök-frågeterm till Bing och få tillbaka en lista över föreslagna frågor som du kan konfigurera. Med anpassade automatiska förslag kan du lägga till förslag som returneras av API: et och eventuellt ange om du vill ta med förslag som skapats av Bing.
 
-## <a name="custom-autosuggest-endpoint"></a>Anpassade automatiska förslag slutpunkt
-Skicka en GET-begäran för att begära anpassade frågeförslag:
+## <a name="custom-autosuggest-endpoint"></a>Anpassad autoföreslå slut punkt
+Om du vill begära anpassade fråge förslag skickar du en GET-begäran till:
 
 ```
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions
 ```  
 
-Information om hur du definierar anpassade förslag finns i [definiera anpassade sökförslag](define-custom-suggestions.md).
+Information om hur du definierar anpassade förslag finns i [definiera anpassade Sök förslag](define-custom-suggestions.md).
 
-## <a name="custom-image-search"></a>Anpassade bildsökning
-Sök-API för anpassad bild kan du skicka en sökfråga till Bing och hämta en lista över relevanta avbildningar från din anpassade Sökinstans.
+## <a name="custom-image-search"></a>Anpassad Bildsökning
+Med det anpassade Bildsökning-API: et kan du skicka en Sök fråga till Bing och hämta en lista över relevanta bilder från din anpassade Sök instans.
 
-## <a name="custom-image-search-endpoint"></a>Anpassad avbildning Search slutpunkt
-Om du vill begära avbildningar från din anpassade Sökinstans, skicka en GET-begäran till följande URL:
+## <a name="custom-image-search-endpoint"></a>Anpassad Bildsökning-slutpunkt
+Om du vill begära bilder från din anpassade Sök instans skickar du en GET-begäran till följande URL:
 
 ```
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 ```
 
-Information om hur du konfigurerar en anpassad Sökinstans finns i [konfigurera din anpassade sökupplevelse](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
+Information om hur du konfigurerar en anpassad Sök instans finns i [Konfigurera din anpassade Sök upplevelse](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
 
 ## <a name="next-steps"></a>Nästa steg
-Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.  Alla slutpunkter stöd för frågor som returnerar ett visst språk och/eller plats genom att longitud, latitud och Sök radius.
+API: erna för **Bing** stöder Sök åtgärder som returnerar resultat enligt deras typ. Alla Sök slut punkter returnerar resultat som JSON-svars objekt.  Alla slut punkter har stöd för frågor som returnerar ett särskilt språk och/eller plats efter longitud, latitud och Sök-radie.
 
-Fullständig information om de parametrar som stöds av varje slutpunkt finns referenssidor för varje typ av.
-Exempel på grundläggande begäranden med hjälp av API för anpassad sökning finns [anpassad sökning i Snabbstarter för lösningar](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)
+Fullständig information om de parametrar som stöds av varje slut punkt finns i referens sidorna för varje typ.
+Exempel på grundläggande förfrågningar som använder API för anpassad sökning finns i [snabb start för anpassad sökning](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)

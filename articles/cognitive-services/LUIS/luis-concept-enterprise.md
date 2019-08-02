@@ -9,29 +9,37 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0d51778473dc033bce3c58b1572f1e514a8b6327
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560768"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619935"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategier för en LUIS-app
 Granska dessa design-strategier för din enterprise-app.
 
 ## <a name="when-you-expect-luis-requests-beyond-the-quota"></a>När du förväntar dig LUIS begäranden utöver kvoten
-Om dina LUIS app begäran överskrider den tillåtna [kvot rate](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/), sprida belastningen till mer LUIS-appar med den [samma app-definition](#use-multiple-apps-with-same-app-definition) eller skapa och [tilldela flera nycklar](#assign-multiple-luis-keys-to-same-app) till den App. 
+
+LUIS har en månatlig kvot och en kvot på per sekund, baserat på Azure-resursens pris nivå. 
+
+Om din LUIS-app begär frekvens överskrider den [](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)tillåtna kvoten kan du:
+
+* Sprid belastningen till fler LUIS-appar med [samma app-definition](#use-multiple-apps-with-same-app-definition). Detta inkluderar, om du vill, att köra LUIS från en [behållare](luis-container-howto.md). 
+* Skapa och [tilldela flera nycklar](#assign-multiple-luis-keys-to-same-app) till appen. 
 
 ### <a name="use-multiple-apps-with-same-app-definition"></a>Använda flera appar med samma app-definition
 Exportera den ursprungliga LUIS-appen och sedan importera appen tillbaka till separata appar. Varje app har sin egen app-ID. När du publicerar, istället för att använda samma nyckel över alla appar, skapa en separat nyckel för varje app. Balansera belastningen över alla appar så att ingen enskild app blir överbelastad till följd. Lägg till [Application Insights](luis-tutorial-bot-csharp-appinsights.md) att övervaka användningen. 
 
 Kontrollera avsikt förutsägelsen mellan första och andra avsikten är liten att LUIS inte är blandas ihop, vilket ger olika resultat mellan appar för smärre variationer i uttryck för att få samma främsta syftet mellan alla appar. 
 
+När du tränar dessa appar på samma nivå måste du [träna med alla data](luis-how-to-train.md#train-with-all-data).
+
 Ange en enda app som huvudserver. Yttranden som föreslås för granskning bör vara i appen master och därefter flyttas tillbaka till alla andra appar. Det här är antingen en fullständig export av appen eller läser in taggade yttranden från huvudmålservern till underordnade. Läser in kan göras från antingen den [LUIS](luis-reference-regions.md) webbplats eller redigering API: et för en [enkel uttryck](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) eller för en [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Schemalägga en regelbunden [granskning av slutpunkten yttranden](luis-how-to-review-endpoint-utterances.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
+Schemalägg en regelbunden granskning, till exempel varannan vecka, [slut punkts yttranden](luis-how-to-review-endpoint-utterances.md) för aktiv utbildning, och omträna och publicera igen. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Tilldela flera LUIS nycklar till samma app
 Om LUIS-appen tar emot mer endpoint träffar än din enda nyckel kvoten kan skapa och tilldela fler nycklar till LUIS-app. Skapa en traffic manager eller belastningsutjämnare för att hantera endpoint-frågor över slutpunkt-nycklar. 
@@ -42,10 +50,10 @@ Om din app är avsedd att förutsäga ett stort antal användare yttranden, Öve
 Schemalägga en regelbunden [granskning av slutpunkten yttranden](luis-how-to-review-endpoint-utterances.md) för aktiv inlärning, till exempel varannan vecka, träna och publicera. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>När du behöver ha fler än 500 intentioner
-Anta exempelvis att du utvecklar en office-assistent som har över 500 intentioner. Om 200 avsikter relaterade till att schemalägga möten, 200 är i färd påminnelser, 200 är om att få information om kollegor, och 200 är för att skicka e-post, gruppen avsikter så att varje grupp är i samma app, sedan skapa en översta app som innehåller varje avsikt. Använd den [skicka verktyget och arkitektur](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra sedan din robot till att använda det sammanhängande anropet som visas i [sändnings][dispatcher-application-tutorial]självstudien. 
+Anta att du utvecklar en Office-assistent som har över 500-avsikter. Om 200 avsikter relaterade till att schemalägga möten, 200 är i färd påminnelser, 200 är om att få information om kollegor, och 200 är för att skicka e-post, gruppen avsikter så att varje grupp är i samma app, sedan skapa en översta app som innehåller varje avsikt. Använd [sändnings modellen](#dispatch-tool-and-model) för att bygga appen på den översta nivån. Ändra sedan din robot till att använda det sammanhängande anropet, som du [](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)ser i sändnings modellens självstudier. 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>När du behöver att kombinera flera LUIS och QnA maker-appar
-Om du har flera LUIS och QnA maker-appar som måste svara på en robot, Använd den [dispatch verktyget](#dispatch-tool-and-model) att bygga appen på översta nivån. Ändra sedan din robot till att använda det sammanhängande anropet som visas i [sändnings][dispatcher-application-tutorial]självstudien. 
+Om du har flera LUIS-och QnA Maker-appar som behöver svara på en bot använder du [sändnings modellen](#dispatch-tool-and-model) för att skapa appen på den översta nivån.  Ändra sedan din robot till att använda det sammanhängande anropet, som du [](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)ser i sändnings modellens självstudier. 
 
 ## <a name="dispatch-tool-and-model"></a>Dispatch-verktyget och modell
 Använd kommando rads verktyget [Dispatch][dispatch-tool] som finns i [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) för att kombinera flera LUIS och/eller QNA Maker appar till en överordnad Luis-app. Den här metoden låter dig ha en överordnad domän, inklusive alla ämnen och olika underordnade ämnesdomäner i separata appar. 
@@ -54,12 +62,19 @@ Använd kommando rads verktyget [Dispatch][dispatch-tool] som finns i [BotBuilde
 
 Den överordnade domänen som anges i LUIS med en version med namnet `Dispatch` i applistan. 
 
-Chattrobot för den tar emot uttryck och sedan skickar till överordnat LUIS-app för förutsägelse. Främsta förväntade avsikten från överordnade appen anger vilka underordnade LUIS-app kallas därefter. Chattrobot skickar uttryck i appen underordnade för en mer specifik förutsägelse.
+Chatt-roboten tar emot uttryck och skickar sedan till den överordnade LUIS-appen för förutsägelse. Det mest förväntade syftet från den överordnade appen avgör vilken LUIS-underordnad app som anropas härnäst. Chatt-roboten skickar uttryck till den underordnade appen för en mer detaljerad förutsägelse.
 
-Förstå hur den här hierarkin av anrop görs från Bot Builder v4 [dispatcher-Application-självstudie][dispatcher-application-tutorial].  
+Förstå hur den här hierarkin av anrop görs från Bot Builder v4 [dispatcher-Application-självstudie](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs).  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Avsiktshantering gränser i dispatch-modellen
 En dispatch-programmet har 500 dispatch-källor, motsvarar 500 intentioner som maximum. 
+
+## <a name="more-information"></a>Mer information
+
+* [Robot Framework SDK](https://github.com/Microsoft/botframework)
+* [Själv studie kurs om sändnings modell](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
+* [Skicka CLI](https://github.com/Microsoft/botbuilder-tools)
+* Robot exempel för sändnings modell – [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera Azure SQL Elastic Database-jobb med hjälp av Transact-SQL (T-SQL) | Microsoft Docs
-description: Köra skript över flera databaser med Elastic Database-jobb agent med hjälp av Transact-SQL (T-SQL).
+title: Skapa och hantera Azure SQL-Elastic Database jobb med hjälp av Transact-SQL (T-SQL) | Microsoft Docs
+description: Kör skript över flera databaser med Elastic Database Job agent med hjälp av Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,27 +10,26 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: d1123affa79f401b5142af604adbd757bdfb7d73
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568279"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641053"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera Elastic Database jobb
 
-Den här artikeln innehåller många exempelscenarier för att komma igång med elastiska jobb med T-SQL.
+Den här artikeln innehåller många exempel scenarier som hjälper dig att komma igång med elastiska jobb med T-SQL.
 
-I exemplen används den [lagrade procedurer](#job-stored-procedures) och [vyer](#job-views) tillgängliga i den [ *jobbet databasen*](sql-database-job-automation-overview.md#job-database).
+I exemplen används [lagrade procedurer](#job-stored-procedures) och [vyer](#job-views) som är tillgängliga i [*jobb databasen*](sql-database-job-automation-overview.md#job-database).
 
-Transact-SQL (T-SQL) används för att skapa, konfigurera, köra och hantera jobb. Skapa elastiska jobbagenten stöds inte i T-SQL, så måste du först skapa en *-elastisk jobbagent* med hjälp av portalen eller [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+Transact-SQL (T-SQL) används för att skapa, konfigurera, köra och hantera jobb. Det går inte att skapa en elastisk jobb agent i T-SQL, så du måste först skapa en *elastisk jobb agent* med hjälp av portalen eller [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
 
-## <a name="create-a-credential-for-job-execution"></a>Skapa autentiseringsuppgifter för jobbkörning
+## <a name="create-a-credential-for-job-execution"></a>Skapa en autentiseringsuppgift för jobb körning
 
-Autentiseringsuppgifterna används för att ansluta till dina måldatabaser hamnar för körning av skript. Autentiseringsuppgifterna måste ha rätt behörigheter på de databaser som anges av målgruppen, att köra skriptet har. När du använder en server och/eller pool mål medlem kan rekommenderar vi med hög att du skapar master-autentiseringsuppgifter används för att uppdatera autentiseringsuppgifterna före utökningen av servern och/eller pool vid tidpunkten för jobbkörningen. Databasbegränsade autentiseringsuppgifter skapas på jobbagentdatabas. Samma autentiseringsuppgifter måste användas för att *skapa en inloggning* och *skapa en användare från inloggning att bevilja databasen inloggningsbehörighet* på måldatabaserna.
+Autentiseringsuppgiften används för att ansluta till mål databaserna för skript körning. Autentiseringsuppgiften behöver rätt behörigheter, på de databaser som anges av mål gruppen, för att kunna köra skriptet. När du använder en mål grupps medlem för Server och/eller pool, rekommenderar vi starkt att du skapar en huvud referens som används för att uppdatera autentiseringsuppgifterna innan du utökningen av servern och/eller poolen vid jobb körningen. Databasens begränsade autentiseringsuppgifter skapas på jobb agents databasen. Samma autentiseringsuppgift måste användas för att *skapa en inloggning* och *skapa en användare från inloggning för att ge behörighet för inloggnings databasen* på mål databaserna.
 
 
 ```sql
@@ -50,10 +49,10 @@ CREATE DATABASE SCOPED CREDENTIAL mymastercred WITH IDENTITY = 'mastercred',
 GO
 ```
 
-## <a name="create-a-target-group-servers"></a>Skapa en målgrupp (servrar)
+## <a name="create-a-target-group-servers"></a>Skapa en mål grupp (servrar)
 
-I följande exempel visas hur du kör ett jobb mot alla databaser i en server.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du kör ett jobb mot alla databaser på en server.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 
 ```sql
@@ -75,10 +74,10 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-an-individual-database"></a>Undanta en individuell databas
+## <a name="exclude-an-individual-database"></a>Undanta en enskild databas
 
-I följande exempel visas hur du kör ett jobb mot alla databaser i en SQL Database-servern, förutom databasen med namnet *MappingDB*.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du kör ett jobb mot alla databaser i en SQL Database-Server, förutom databasen med namnet *MappingDB*.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -118,10 +117,10 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ```
 
 
-## <a name="create-a-target-group-pools"></a>Skapa en målgrupp (pooler)
+## <a name="create-a-target-group-pools"></a>Skapa en mål grupp (pooler)
 
-I följande exempel visas hur du alla databaser i en eller flera elastiska pooler.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du riktar in alla databaser i en eller flera elastiska pooler.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -143,10 +142,10 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ```
 
 
-## <a name="deploy-new-schema-to-many-databases"></a>Distribuera nya schemat till många databaser
+## <a name="deploy-new-schema-to-many-databases"></a>Distribuera nytt schema till många databaser
 
-I följande exempel visas hur du distribuerar nya schemat till alla databaser.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du distribuerar nytt schema till alla databaser.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 
 ```sql
@@ -165,20 +164,20 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 ```
 
 
-## <a name="data-collection-using-built-in-parameters"></a>Insamling av data med hjälp av inbyggda parametrar
+## <a name="data-collection-using-built-in-parameters"></a>Data insamling med inbyggda parametrar
 
-I många scenarier för data-samling, kan det vara praktiskt att innehålla några av dessa skript variabler för att bearbeta efter resultatet av jobbet.
+I många scenarier för data insamling kan det vara praktiskt att inkludera vissa av dessa skript-variabler för att få hjälp med att bearbeta resultatet av jobbet.
 
-- $(job_name)
+- $ (job_name)
 - $(job_id)
 - $(job_version)
-- $(step_id)
-- $(step_name)
-- $(job_execution_id)
-- $(job_execution_create_time)
-- $(target_group_name)
+- $ (step_id)
+- $ (step_name)
+- $ (job_execution_id)
+- $ (job_execution_create_time)
+- $ (target_group_name)
 
-Till exempel om du vill gruppera alla resultat från samma jobbkörningen tillsammans, använda den *$(job_execution_id)* som visas i följande kommando:
+Om du till exempel vill gruppera alla resultat från samma jobb körning tillsammans använder du *$ (job_execution_id)* som du ser i följande kommando:
 
 
 ```sql
@@ -188,14 +187,14 @@ Till exempel om du vill gruppera alla resultat från samma jobbkörningen tillsa
 
 ## <a name="monitor-database-performance"></a>Övervaka databasprestanda
 
-I följande exempel skapas ett nytt jobb för att samla in prestandadata från flera databaser.
+I följande exempel skapas ett nytt jobb för att samla in prestanda data från flera databaser.
 
-Som standard söker jobbagenten för att skapa tabell för att lagra de returnerade resultaten i. Därmed måste inloggningen som är associerade med de autentiseringsuppgifter som används för utdata-autentiseringsuppgifter ha tillräcklig behörighet att utföra detta. Om du vill skapa manuellt i tabellen i tid sedan måste den ha följande egenskaper:
-1. Kolumner med rätt namn och datatyper för resultatuppsättningen.
-2. Ytterligare en kolumn för internal_execution_id med datatypen uniqueidentifier.
-3. Icke-grupperat index med namnet `IX_<TableName>_Internal_Execution_ID` för internal_execution_id-kolumnen.
+Som standard kommer jobb agenten att se ut att skapa tabellen för att lagra de returnerade resultaten i. Det innebär att den inloggning som är kopplad till de autentiseringsuppgifter som används för autentiseringsuppgifterna för utdata måste ha tillräcklig behörighet för att utföra detta. Om du vill skapa tabellen manuellt i förväg måste du ha följande egenskaper:
+1. Kolumner med rätt namn och data typer för resultat uppsättningen.
+2. Ytterligare kolumn för internal_execution_id med data typen UniqueIdentifier.
+3. Ett grupperat index med namnet `IX_<TableName>_Internal_Execution_ID` i kolumnen internal_execution_id.
 
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommandon:
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommandon:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -263,10 +262,10 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ```
 
 
-## <a name="view-job-definitions"></a>Visa jobbdefinitioner
+## <a name="view-job-definitions"></a>Visa jobb definitioner
 
-I följande exempel visar hur du visar aktuella jobbdefinitioner.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du visar aktuella jobb definitioner.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -284,10 +283,10 @@ select * from jobs.jobsteps
 ```
 
 
-## <a name="begin-ad-hoc-execution-of-a-job"></a>Starta ad hoc-körningen av ett jobb
+## <a name="begin-ad-hoc-execution-of-a-job"></a>Påbörja ad hoc-körning av ett jobb
 
-I följande exempel visar hur du startar ett jobb omedelbart.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du startar ett jobb direkt.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -307,10 +306,10 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ```
 
 
-## <a name="schedule-execution-of-a-job"></a>Schemalägga körningen av ett jobb
+## <a name="schedule-execution-of-a-job"></a>Schemalägg körning av ett jobb
 
 I följande exempel visas hur du schemalägger ett jobb för framtida körning.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -322,10 +321,10 @@ EXEC jobs.sp_update_job
 @schedule_interval_count=15
 ```
 
-## <a name="monitor-job-execution-status"></a>Övervaka status för körning av jobb
+## <a name="monitor-job-execution-status"></a>Övervaka jobb körnings status
 
-I följande exempel visar hur du visar information om körningen statusen för alla jobb.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du visar information om körnings status för alla jobb.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -353,8 +352,8 @@ ORDER BY start_time DESC
 
 ## <a name="cancel-a-job"></a>Avbryta ett jobb
 
-I följande exempel visar hur du avbryter ett jobb.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du avbryter ett jobb.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -370,10 +369,10 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ```
 
 
-## <a name="delete-old-job-history"></a>Ta bort gamla jobbhistorik
+## <a name="delete-old-job-history"></a>Ta bort gammal jobb historik
 
-I följande exempel visas hur du tar bort jobbhistoriken före ett visst datum.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du tar bort jobb historik före ett visst datum.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -384,10 +383,10 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 --Note: job history is automatically deleted if it is >45 days old
 ```
 
-## <a name="delete-a-job-and-all-its-job-history"></a>Ta bort ett jobb och alla dess jobbhistorik
+## <a name="delete-a-job-and-all-its-job-history"></a>Ta bort ett jobb och alla jobb historik
 
-I följande exempel visas hur du tar bort ett jobb och alla relaterade jobbets historik.  
-Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
+I följande exempel visas hur du tar bort ett jobb och alla relaterade jobb historik.  
+Anslut till [*jobb databasen*](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -400,9 +399,9 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 
 
-## <a name="job-stored-procedures"></a>Jobbet lagrade procedurer
+## <a name="job-stored-procedures"></a>Lagrade procedurer för jobb
 
-Följande lagrade procedurer finns i den [jobb databasen](sql-database-job-automation-overview.md#job-database).
+Följande lagrade procedurer finns i [jobb databasen](sql-database-job-automation-overview.md#job-database).
 
 
 
@@ -412,15 +411,15 @@ Följande lagrade procedurer finns i den [jobb databasen](sql-database-job-autom
 |[sp_update_job](#sp_update_job)    |      Uppdaterar ett befintligt jobb.   |
 |[sp_delete_job](#sp_delete_job)     |      Tar bort ett befintligt jobb.   |
 |[sp_add_jobstep](#sp_add_jobstep)    |    Lägger till ett steg i ett jobb.     |
-|[sp_update_jobstep](#sp_update_jobstep)     |     Uppdaterar ett jobbsteg.    |
-|[sp_delete_jobstep](#sp_delete_jobstep)     |     Tar bort ett jobbsteg.    |
-|[sp_start_job](#sp_start_job)    |  Startar köra ett jobb.       |
-|[sp_stop_job](#sp_stop_job)     |     Stoppar en jobbkörning.   |
-|[sp_add_target_group](#sp_add_target_group)    |     Lägger till en målgrupp.    |
-|[sp_delete_target_group](#sp_delete_target_group)     |    Tar bort en målgrupp.     |
-|[sp_add_target_group_member](#sp_add_target_group_member)     |    Lägger till en databas eller en grupp med databaser i en målgrupp.     |
-|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Tar bort en mål medlem från en målgrupp.    |
-|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Tar bort historikposter för ett jobb.     |
+|[sp_update_jobstep](#sp_update_jobstep)     |     Uppdaterar ett jobb steg.    |
+|[sp_delete_jobstep](#sp_delete_jobstep)     |     Tar bort ett jobb steg.    |
+|[sp_start_job](#sp_start_job)    |  Startar körning av ett jobb.       |
+|[sp_stop_job](#sp_stop_job)     |     Stoppar en jobb körning.   |
+|[sp_add_target_group](#sp_add_target_group)    |     Lägger till en mål grupp.    |
+|[sp_delete_target_group](#sp_delete_target_group)     |    Tar bort en mål grupp.     |
+|[sp_add_target_group_member](#sp_add_target_group_member)     |    Lägger till en databas eller grupp med databaser i en mål grupp.     |
+|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Tar bort en mål grupps medlem från en mål grupp.    |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Tar bort historik poster för ett jobb.     |
 
 
 
@@ -447,50 +446,50 @@ Lägger till ett nytt jobb.
   
 #### <a name="arguments"></a>Argument  
 
-[  **\@job_name =** ] 'job_name'  
-Namnet på jobbet. Namnet måste vara unikt och får inte innehålla procent (%) tecken. job_name är nvarchar(128) med inget standardvärde.
+**[\@job_name =** ] ' job_name '  
+Namnet på jobbet. Namnet måste vara unikt och får inte innehålla procent andelen (%) jokerteck. job_name är nvarchar (128), utan standardvärdet.
 
-[  **\@beskrivning =** ] ”beskrivning”  
-Beskrivning av jobbet. Beskrivningen är nvarchar(512) med standardvärdet NULL. Om beskrivningen utelämnas används en tom sträng.
+**[\@Description =** ] ' Beskrivning '  
+Jobbets beskrivning. beskrivningen är nvarchar (512), med standardvärdet NULL. Om Beskrivning utelämnas används en tom sträng.
 
-[  **\@aktiverad =** ] aktiverad  
-Om den jobbschemat är aktiverat. Aktiverad bitar, med standardvärdet 0 (inaktiverad). Om värdet är 0 jobbet är inte aktiverad och kan inte köras enligt sitt schema; men kan det köras manuellt. Om 1, jobbet ska köras enligt sitt schema och kan även köras manuellt.
+[Enabled =] aktiverat  **\@**  
+Om jobbets schema är aktiverat. Enabled är bit, med standardvärdet 0 (inaktive rad). Om 0, är jobbet inte aktiverat och körs inte enligt sitt schema. Det kan dock köras manuellt. Om 1, kommer jobbet att köras enligt sitt schema och kan också köras manuellt.
 
-[  **\@schedule_interval_type =** ] schedule_interval_type  
-Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar(50) med ett standardvärde på en gång, och kan vara något av följande värden:
-- ”En gång”,
+**[\@schedule_interval_type =** ] schedule_interval_type  
+Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar (50), med en standardvärdet och kan vara något av följande värden:
+- En gång,
 - Minuter,
 - Timmar,
-- Dagar,
+- "Dagar",
 - Veckor,
-- ”Månader”
+- Månaden
 
-[  **\@schedule_interval_count =** ] schedule_interval_count  
-Antalet schedule_interval_count perioder ska ske mellan varje körning av jobbet. schedule_interval_count är int, med standardvärdet 1. Värdet måste vara större än eller lika med 1.
+**[\@schedule_interval_count =** ] schedule_interval_count  
+Antalet schedule_interval_count-perioder som ska ske mellan varje jobb körning. schedule_interval_count är int, med standardvärdet 1. Värdet måste vara större än eller lika med 1.
 
-[  **\@schedule_start_time =** ] schedule_start_time  
-Datum i vilket projekt körning kan börja. schedule_start_time är DATETIME2, med 0001-01-01 00:00:00.0000000 standardinställningen.
+**[\@schedule_start_time =** ] schedule_start_time  
+Det datum då jobb körningen kan börja. schedule_start_time är DATETIME2, med standardvärdet 0001-01-01 00:00:00.0000000.
 
-[  **\@schedule_end_time =** ] schedule_end_time  
-Datum i vilket projekt körning kan stoppa. schedule_end_time är DATETIME2, med standardinställningen 9999-12-31 11:59:59.0000000. 
+**[\@schedule_end_time =** ] schedule_end_time  
+Det datum då jobb körningen kan stoppas. schedule_end_time är DATETIME2, med standardvärdet 9999-12-31 11:59:59.0000000. 
 
-[ **\@job_id =** ] job_id OUTPUT  
-Jobbet ID-nummer för jobbet om har skapats. job_id är en utdata-variabel av typen uniqueidentifier.
+**[\@job_id =** ] job_id utdata  
+Jobb identifierings numret som tilldelats jobbet om det har skapats. job_id är en utgående variabel av typen UniqueIdentifier.
 
-#### <a name="return-code-values"></a>Returkod för värden
+#### <a name="return-code-values"></a>Retur kod värden
 
-0 (lyckades) eller 1 (misslyckades)
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-sp_add_job måste köras från jobbagentdatabas som anges när du skapar jobbagenten.
-När sp_add_job har körts för att lägga till ett jobb, användas sp_add_jobstep för att lägga till steg som utför aktiviteterna för jobbet. Jobbets första versionsnumret är 0, vilket ökas till 1 när du lägger till det första steget.
+sp_add_job måste köras från den jobb agent databas som angavs när jobb agenten skapades.
+När sp_add_job har körts för att lägga till ett jobb kan sp_add_jobstep användas för att lägga till steg som utför aktiviteterna för jobbet. Jobbets första versions nummer är 0, vilket kommer att ökas till 1 när det första steget läggs till.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 ### <a name="sp_update_job"></a>sp_update_job
 
@@ -510,48 +509,48 @@ Uppdaterar ett befintligt jobb.
 ```
 
 #### <a name="arguments"></a>Argument
-[  **\@job_name =** ] 'job_name'  
-Namnet på jobbet som ska uppdateras. job_name är nvarchar(128).
+**[\@job_name =** ] ' job_name '  
+Namnet på det jobb som ska uppdateras. job_name är nvarchar (128).
 
-[  **\@nytt_namn =** ] 'nytt_namn'  
-Det nya namnet på jobbet. new_name is nvarchar(128).
+**[\@NEW_NAME =** ] ' NEW_NAME '  
+Det nya namnet på jobbet. NEW_NAME är nvarchar (128).
 
-[  **\@beskrivning =** ] ”beskrivning”  
-Beskrivning av jobbet. Beskrivningen är nvarchar(512).
+**[\@Description =** ] ' Beskrivning '  
+Jobbets beskrivning. beskrivningen är nvarchar (512).
 
-[  **\@aktiverad =** ] aktiverad  
-Anger om den jobbschemat är aktiverat (1) eller inte har aktiverats (0). Aktiverad är bit.
+[Enabled =] aktiverat  **\@**  
+Anger om jobbets schema är aktiverat (1) eller inte aktiverat (0). Aktive rad är bit.
 
-[  **\@schedule_interval_type =** ] schedule_interval_type  
-Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar(50) och kan vara något av följande värden:
+**[\@schedule_interval_type =** ] schedule_interval_type  
+Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar (50) och kan vara något av följande värden:
 
-- ”En gång”,
+- En gång,
 - Minuter,
 - Timmar,
-- Dagar,
+- "Dagar",
 - Veckor,
-- ”Månader”
+- Månaden
 
-[  **\@schedule_interval_count =** ] schedule_interval_count  
-Antalet schedule_interval_count perioder ska ske mellan varje körning av jobbet. schedule_interval_count är int, med standardvärdet 1. Värdet måste vara större än eller lika med 1.
+**[\@schedule_interval_count =** ] schedule_interval_count  
+Antalet schedule_interval_count-perioder som ska ske mellan varje jobb körning. schedule_interval_count är int, med standardvärdet 1. Värdet måste vara större än eller lika med 1.
 
-[  **\@schedule_start_time =** ] schedule_start_time  
-Datum i vilket projekt körning kan börja. schedule_start_time är DATETIME2, med 0001-01-01 00:00:00.0000000 standardinställningen.
+**[\@schedule_start_time =** ] schedule_start_time  
+Det datum då jobb körningen kan börja. schedule_start_time är DATETIME2, med standardvärdet 0001-01-01 00:00:00.0000000.
 
-[  **\@schedule_end_time =** ] schedule_end_time  
-Datum i vilket projekt körning kan stoppa. schedule_end_time är DATETIME2, med standardinställningen 9999-12-31 11:59:59.0000000. 
+**[\@schedule_end_time =** ] schedule_end_time  
+Det datum då jobb körningen kan stoppas. schedule_end_time är DATETIME2, med standardvärdet 9999-12-31 11:59:59.0000000. 
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-När sp_add_job har körts för att lägga till ett jobb, användas sp_add_jobstep för att lägga till steg som utför aktiviteterna för jobbet. Jobbets första versionsnumret är 0, vilket ökas till 1 när du lägger till det första steget.
+När sp_add_job har körts för att lägga till ett jobb kan sp_add_jobstep användas för att lägga till steg som utför aktiviteterna för jobbet. Jobbets första versions nummer är 0, vilket kommer att ökas till 1 när det första steget läggs till.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 
 
@@ -567,23 +566,23 @@ Tar bort ett befintligt jobb.
 ```
 
 #### <a name="arguments"></a>Argument
-[  **\@job_name =** ] 'job_name'  
-Namnet på jobbet som ska tas bort. job_name är nvarchar(128).
+**[\@job_name =** ] ' job_name '  
+Namnet på det jobb som ska tas bort. job_name är nvarchar (128).
 
-[  **\@tvinga =** ] tvinga  
-Anger om du vill ta bort om jobbet har alla körningar pågår och Avbryt alla pågående körningar (1) eller misslyckas om någon jobbkörningar pågår (0). Framtvinga bit.
+**[\@Force =** ] Force  
+Anger om du vill ta bort om jobbet har pågående körningar och avbryta alla pågående körningar (1) eller om körningen av jobb pågår (0). Force är bit.
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-Jobbhistorik tas bort automatiskt när ett jobb har tagits bort.
+Jobb historiken tas bort automatiskt när ett jobb tas bort.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 
 
@@ -622,100 +621,100 @@ Lägger till ett steg i ett jobb.
 
 #### <a name="arguments"></a>Argument
 
-[  **\@job_name =** ] 'job_name'  
-Namnet på jobbet du vill lägga till steget. job_name är nvarchar(128).
+**[\@job_name =** ] ' job_name '  
+Namnet på det jobb som steget ska läggas till i. job_name är nvarchar (128).
 
-[  **\@step_id =** ] step_id  
-Identifiering sekvensnumret för jobbsteget. Steg identifikationsnummer börjar vid 1 och öka utan luckor. Om ett befintligt steg redan har detta id, är sedan att steget och alla efterföljande steg som har sitt id stegvis så att den här nya steg kan infogas i sekvensen. Om inte anges tilldelas i step_id automatiskt till den senaste i sekvens med steg. step_id är ett heltal.
+**[\@step_id =** ] step_id  
+Sekvensens identifierings nummer för jobb steget. Steg identifierings nummer börjar med 1 och ökar utan luckor. Om ett befintligt steg redan har det här ID: t kommer det här steget och alla följande steg ha sina ID: n, så att det här nya steget kan infogas i sekvensen. Om detta inte anges tilldelas step_id automatiskt till det sista i sekvensen med steg. step_id är en int.
 
-[  **\@step_name =** ] step_name  
-Namnet på steget. Du måste ange, utom det första steget i ett jobb som har ett standardnamn för ”JobStep” (för att underlätta). step_name är nvarchar(128).
+**[\@step_name =** ] step_name  
+Namnet på steget. Måste anges, förutom det första steget i ett jobb (för bekvämlighet) har standard namnet ' JobStep '. step_name är nvarchar (128).
 
-[  **\@command_type =** ] 'command_type'  
-Typ av kommandot som körs av den här jobstep. command_type är nvarchar(50) med ett standardvärde på TSql, vilket innebär att värdet för den @command_type parameter är ett T-SQL-skript.
+**[\@command_type =** ] ' command_type '  
+Den typ av kommando som utförs av den här Jobstep. command_type är nvarchar (50), med standardvärdet TSql, vilket innebär att @command_type parameterns värde är ett T-SQL-skript.
 
-Om anges måste värdet vara TSql.
+Om det anges måste värdet vara TSql.
 
-[ **\@command_source =** ] 'command_source'  
-Typ av plats för lagringen av kommandot. command_source är nvarchar(50) med ett standardvärde för intern, vilket innebär att värdet för den @command_source parametern är literal texten för kommandot.
+**[\@command_source =** ] ' command_source '  
+Den typ av plats där kommandot lagras. command_source är nvarchar (50), med standardvärdet infogat, vilket innebär att @command_source parameterns värde är den litterala texten för kommandot.
 
-Om anges måste värdet vara infogad.
+Om det här alternativet anges måste värdet vara infogat.
 
-[  **\@kommandot =** ] 'kommandot'  
-Kommandot måste vara giltig T-SQL-skript och körs sedan av det här jobbsteget. kommandot är nvarchar(max) med standardvärdet NULL.
+**[\@Command =** ] "kommando"  
+Kommandot måste vara ett giltigt T-SQL-skript och körs sedan av det här jobb steget. kommandot är nvarchar (max), med standardvärdet NULL.
 
-[  **\@credential_name =** ] 'credential_name'  
-Namnet på databasen-omfattande autentisering i det här jobbet kontrolldatabas som används för att ansluta till alla måldatabaserna i målgruppen när det här steget körs. credential_name är nvarchar(128).
+**[\@credential_name =** ] ' credential_name '  
+Namnet på den databasbaserade autentiseringsuppgiften som lagras i den här jobb kontroll databasen som används för att ansluta till varje mål databas i mål gruppen när det här steget körs. credential_name är nvarchar (128).
 
-[  **\@target_group_name =** ] ”mål-gruppnamn.  
-Namnet på den målgrupp som innehåller måldatabaserna som jobbsteget körs på. target_group_name is nvarchar(128).
+**[\@target_group_name =** ] Target-GROUP_NAME '  
+Namnet på den mål grupp som innehåller mål databaserna som jobb steget ska köras på. target_group_name är nvarchar (128).
 
-[  **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
-Fördröjning innan det första återförsöket försöker om jobbsteget misslyckas vid första körningen försöket. initial_retry_interval_seconds är int, med standardvärdet 1.
+**[\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+Fördröjningen före det första försöket, om jobb steget Miss lyckas vid det första körnings försöket. initial_retry_interval_seconds är int, med standardvärdet 1.
 
-[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
-Max. fördröjning mellan försöken. Om fördröjningen mellan återförsök skulle bli större än det här värdet, är det begränsat till det här värdet i stället. maximum_retry_interval_seconds är int, med standardvärdet på 120.
+**[\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+Maximal fördröjning mellan nya försök. Om fördröjningen mellan återförsök skulle växa större än det här värdet, är det ett tak för detta värde i stället. maximum_retry_interval_seconds är int, med standardvärdet 120.
 
-[  **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
-Multiplikatorn som ska gälla för försök fördröjningen om flera jobb stegvis körning inloggningsförsök misslyckas. Till exempel om det första återförsöket hade en fördröjning på 5 sekund och backoff multiplikatorn är 2.0, sedan andra återförsök har en fördröjning på 10 sekunder och det tredje återförsöket har en fördröjning på 20 sekunder. retry_interval_backoff_multiplier är verkliga med standardvärdet 2.0.
+**[\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+Multiplikatorn som ska användas för fördröjningen för nya försök om flera jobb körnings försök Miss lyckas. Om det första återförsöket hade en fördröjning på 5 sekunder och backoff-multiplikatorn är 2,0, kommer den andra återförsöket att ha en fördröjning på 10 sekunder och det tredje försöket kommer att ha en fördröjning på 20 sekunder. retry_interval_backoff_multiplier är Real, med standardvärdet 2,0.
 
-[  **\@retry_attempts =** ] retry_attempts  
-Antal nya försök körningen om det första försöket misslyckas. Till exempel om retry_attempts-värdet är 10, så det kommer att vara 1 första återförsök försöket och 10 antal, vilket ger totalt 11 försök. Om den slutliga återförsök misslyckas avslutas jobbkörningen med livscykel misslyckades. retry_attempts är int, med standardvärdet 10.
+**[\@retry_attempts =** ] retry_attempts  
+Antalet gånger som körningen ska göras om det första försöket Miss lyckas. Om retry_attempts-värdet till exempel är 10, kommer det att finnas 1 inledande försök och 10 nya försök, vilket ger totalt 11 försök. Om det slutliga försöket Miss lyckas avslutas jobb körningen med en livs cykel som misslyckades. retry_attempts är int, med standardvärdet 10.
 
-[  **\@step_timeout_seconds =** ] step_timeout_seconds  
-Längsta tid som tillåts för steget för att köra. Om den här gången har överskridits avslutas jobbkörningen med en livscykeln för nådde sin tidsgräns. step_timeout_seconds är int, med standardvärdet 43 200 sekunder (12 timmar).
+**[\@step_timeout_seconds =** ] step_timeout_seconds  
+Den maximala tids mängd som tillåts för steget att köra. Om den här tiden överskrids, kommer jobb körningen att avslutas med en livs cykel av stängningsåtgärd. step_timeout_seconds är int, med standardvärdet 43 200 sekunder (12 timmar).
 
-[  **\@output_type =** ] 'output_type'  
-Om inte värdet null, vilken typ av destination kommandots första resultatuppsättningens skrivs till. output_type är nvarchar(50) med standardvärdet NULL.
+**[\@output_type =** ] ' output_type '  
+Om detta inte är null skrivs den typ av mål som kommandots första resultat uppsättning skrivs till. output_type är nvarchar (50), med standardvärdet NULL.
 
-Om anges måste värdet vara SqlDatabase.
+Om det anges måste värdet vara SqlDatabase.
 
-[ **\@output_credential_name =** ] 'output_credential_name'  
-Om inte värdet null, namnet på databasen-omfattande autentisering som används för att ansluta till måldatabasen utdata. Du måste ange om output_type är lika med SqlDatabase. output_credential_name är nvarchar(128) med standardvärdet NULL.
+**[\@output_credential_name =** ] ' output_credential_name '  
+Om detta inte är null, namnet på databasen som används för att ansluta till mål databasen för utdata. Måste anges om output_type är lika med SqlDatabase. output_credential_name är nvarchar (128), med standardvärdet NULL.
 
-[  **\@output_subscription_id =** ] 'output_subscription_id'  
-Måste beskrivning.
+**[\@output_subscription_id =** ] ' output_subscription_id '  
+Beskrivning av behov.
 
-[ **\@output_resource_group_name =** ] 'output_resource_group_name'  
-Måste beskrivning.
+**[\@output_resource_group_name =** ] ' output_resource_group_name '  
+Beskrivning av behov.
 
-[ **\@output_server_name =** ] 'output_server_name'  
-Om inte null, fullständigt kvalificerade DNS-namnet på den server som innehåller utdata-måldatabasen. Du måste ange om output_type är lika med SqlDatabase. output_server_name är nvarchar(256) med standardvärdet NULL.
+**[\@output_server_name =** ] ' output_server_name '  
+Om detta inte är null är det fullständigt kvalificerade DNS-namnet för den server som innehåller mål databasen för utdata. Måste anges om output_type är lika med SqlDatabase. output_server_name är nvarchar (256), med standardvärdet NULL.
 
-[ **\@output_database_name =** ] 'output_database_name'  
-Om inte null, namnet på databasen innehåller som utdata måltabellen. Du måste ange om output_type är lika med SqlDatabase. output_database_name är nvarchar(128) med standardvärdet NULL.
+**[\@output_database_name =** ] ' output_database_name '  
+Om detta inte är null, namnet på databasen som innehåller mål tabellen för utdata. Måste anges om output_type är lika med SqlDatabase. output_database_name är nvarchar (128), med standardvärdet NULL.
 
 [ **\@output_schema_name =** ] 'output_schema_name'  
-Om inte null, namnet på SQL-schemat innehåller som utdata måltabellen. Om output_type är lika med SqlDatabase, är standardvärdet dbo. output_schema_name is nvarchar(128).
+Om detta inte är null, namnet på det SQL-schema som innehåller mål tabellen för utdata. Om output_type är lika med SqlDatabase är standardvärdet dbo. output_schema_name is nvarchar(128).
 
-[  **\@output_table_name =** ] 'output_table_name'  
-Om inte värdet null, namnet på den tabell som kommandots första resultatuppsättningens ska skrivas till. Om tabellen inte redan finns, kommer den att skapas baserat på schemat för att returnera resultatuppsättningen. Du måste ange om output_type är lika med SqlDatabase. output_table_name är nvarchar(128) med standardvärdet NULL.
+**[\@output_table_name =** ] ' output_table_name '  
+Om detta inte är null skrivs namnet på den tabell som kommandots första resultat uppsättning ska skrivas till. Om tabellen inte redan finns skapas den baserat på schemat för den returnerade resultat uppsättningen. Måste anges om output_type är lika med SqlDatabase. output_table_name är nvarchar (128), med standardvärdet NULL.
 
-[ **\@job_version =** ] job_version OUTPUT  
-Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version is int.
+**[\@job_version =** ] job_version utdata  
+Utdataparameter som ska tilldelas det nya jobb versions numret. job_version är int.
 
-[  **\@max_parallelism =** ] max_parallelism utdata  
-Den maximala nivån för parallellitet per elastisk pool. Om anges kommer jobbsteget kommer att vara begränsad till endast köras på högst som många databaser per elastisk pool. Detta gäller för varje elastisk pool som ingår direkt i målgruppen eller som finns i en server som ingår i målgruppen. max_parallelism är heltal.
+**[\@max_parallelism =** ] max_parallelism utdata  
+Den högsta nivån av parallellitet per elastisk pool. Om det här alternativet är inställt begränsas jobb steget så att det bara körs på maximalt antal databaser per elastisk pool. Detta gäller för varje elastisk pool som antingen ingår direkt i mål gruppen eller finns i en server som ingår i mål gruppen. max_parallelism är int.
 
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-När sp_add_jobstep lyckas stegvis jobbets aktuella versionsnumret. Jobbet körs nästa gång kommer den nya versionen att användas. Om jobbet körs för tillfället, innehåller inte den körningen nytt steg.
+När sp_add_jobstep lyckas ökar jobbets aktuella versions nummer. Nästa gången jobbet körs kommer den nya versionen att användas. Om jobbet körs för tillfället kommer den här körningen inte att innehålla det nya steget.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:  
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:  
 
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 
 
 ### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
-Uppdaterar ett jobbsteg.
+Uppdaterar ett jobb steg.
 
 #### <a name="syntax"></a>Syntax
 
@@ -746,101 +745,101 @@ Uppdaterar ett jobbsteg.
 ```
 
 #### <a name="arguments"></a>Argument
-[  **\@job_name =** ] 'job_name'  
-Namnet på jobbet som tillhör steget. job_name är nvarchar(128).
+**[\@job_name =** ] ' job_name '  
+Namnet på det jobb som steget tillhör. job_name är nvarchar (128).
 
-[  **\@step_id =** ] step_id  
-ID-nummer för steget som ska ändras. Step_id eller step_name måste anges. step_id är ett heltal.
+**[\@step_id =** ] step_id  
+Identifierings numret för det jobb steg som ska ändras. Antingen step_id eller step_name måste anges. step_id är en int.
 
-[  **\@step_name =** ] 'step_name'  
-Namnet på steget som ska ändras. Step_id eller step_name måste anges. step_name är nvarchar(128).
+**[\@step_name =** ] ' step_name '  
+Namnet på steget som ska ändras. Antingen step_id eller step_name måste anges. step_name är nvarchar (128).
 
-[  **\@new_id =** ] new_id  
-Ny sekvens ID-numret för jobbsteget. Steg identifikationsnummer börjar vid 1 och öka utan luckor. Om ett steg om, sedan anpassas andra steg automatiskt.
+**[\@new_id =** ] new_id  
+Det nya sekvens identifierings numret för jobb steget. Steg identifierings nummer börjar med 1 och ökar utan luckor. Om ett steg sorteras om, kommer andra steg att numreras om automatiskt.
 
-[  **\@nytt_namn =** ] 'nytt_namn'  
-Det nya namnet på steget. new_name is nvarchar(128).
+**[\@NEW_NAME =** ] ' NEW_NAME '  
+Det nya namnet på steget. NEW_NAME är nvarchar (128).
 
-[  **\@command_type =** ] 'command_type'  
-Typ av kommandot som körs av den här jobstep. command_type är nvarchar(50) med ett standardvärde på TSql, vilket innebär att värdet för den @command_type parameter är ett T-SQL-skript.
+**[\@command_type =** ] ' command_type '  
+Den typ av kommando som utförs av den här Jobstep. command_type är nvarchar (50), med standardvärdet TSql, vilket innebär att @command_type parameterns värde är ett T-SQL-skript.
 
-Om anges måste värdet vara TSql.
+Om det anges måste värdet vara TSql.
 
-[ **\@command_source =** ] 'command_source'  
-Typ av plats för lagringen av kommandot. command_source är nvarchar(50) med ett standardvärde för intern, vilket innebär att värdet för den @command_source parametern är literal texten för kommandot.
+**[\@command_source =** ] ' command_source '  
+Den typ av plats där kommandot lagras. command_source är nvarchar (50), med standardvärdet infogat, vilket innebär att @command_source parameterns värde är den litterala texten för kommandot.
 
-Om anges måste värdet vara infogad.
+Om det här alternativet anges måste värdet vara infogat.
 
-[  **\@kommandot =** ] 'kommandot'  
-I kommandot måste vara giltig T-SQL-skript och körs sedan av det här jobbsteget. kommandot är nvarchar(max) med standardvärdet NULL.
+**[\@Command =** ] "kommando"  
+Kommandona måste vara giltiga T-SQL-skript och körs sedan av det här jobb steget. kommandot är nvarchar (max), med standardvärdet NULL.
 
-[  **\@credential_name =** ] 'credential_name'  
-Namnet på databasen-omfattande autentisering i det här jobbet kontrolldatabas som används för att ansluta till alla måldatabaserna i målgruppen när det här steget körs. credential_name är nvarchar(128).
+**[\@credential_name =** ] ' credential_name '  
+Namnet på den databasbaserade autentiseringsuppgiften som lagras i den här jobb kontroll databasen som används för att ansluta till varje mål databas i mål gruppen när det här steget körs. credential_name är nvarchar (128).
 
-[  **\@target_group_name =** ] ”mål-gruppnamn.  
-Namnet på den målgrupp som innehåller måldatabaserna som jobbsteget körs på. target_group_name is nvarchar(128).
+**[\@target_group_name =** ] Target-GROUP_NAME '  
+Namnet på den mål grupp som innehåller mål databaserna som jobb steget ska köras på. target_group_name är nvarchar (128).
 
-[  **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
-Fördröjning innan det första återförsöket försöker om jobbsteget misslyckas vid första körningen försöket. initial_retry_interval_seconds är int, med standardvärdet 1.
+**[\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+Fördröjningen före det första försöket, om jobb steget Miss lyckas vid det första körnings försöket. initial_retry_interval_seconds är int, med standardvärdet 1.
 
-[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
-Max. fördröjning mellan försöken. Om fördröjningen mellan återförsök skulle bli större än det här värdet, är det begränsat till det här värdet i stället. maximum_retry_interval_seconds är int, med standardvärdet på 120.
+**[\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+Maximal fördröjning mellan nya försök. Om fördröjningen mellan återförsök skulle växa större än det här värdet, är det ett tak för detta värde i stället. maximum_retry_interval_seconds är int, med standardvärdet 120.
 
-[  **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
-Multiplikatorn som ska gälla för försök fördröjningen om flera jobb stegvis körning inloggningsförsök misslyckas. Till exempel om det första återförsöket hade en fördröjning på 5 sekund och backoff multiplikatorn är 2.0, sedan andra återförsök har en fördröjning på 10 sekunder och det tredje återförsöket har en fördröjning på 20 sekunder. retry_interval_backoff_multiplier är verkliga med standardvärdet 2.0.
+**[\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+Multiplikatorn som ska användas för fördröjningen för nya försök om flera jobb körnings försök Miss lyckas. Om det första återförsöket hade en fördröjning på 5 sekunder och backoff-multiplikatorn är 2,0, kommer den andra återförsöket att ha en fördröjning på 10 sekunder och det tredje försöket kommer att ha en fördröjning på 20 sekunder. retry_interval_backoff_multiplier är Real, med standardvärdet 2,0.
 
-[  **\@retry_attempts =** ] retry_attempts  
-Antal nya försök körningen om det första försöket misslyckas. Till exempel om retry_attempts-värdet är 10, så det kommer att vara 1 första återförsök försöket och 10 antal, vilket ger totalt 11 försök. Om den slutliga återförsök misslyckas avslutas jobbkörningen med livscykel misslyckades. retry_attempts är int, med standardvärdet 10.
+**[\@retry_attempts =** ] retry_attempts  
+Antalet gånger som körningen ska göras om det första försöket Miss lyckas. Om retry_attempts-värdet till exempel är 10, kommer det att finnas 1 inledande försök och 10 nya försök, vilket ger totalt 11 försök. Om det slutliga försöket Miss lyckas avslutas jobb körningen med en livs cykel som misslyckades. retry_attempts är int, med standardvärdet 10.
 
-[  **\@step_timeout_seconds =** ] step_timeout_seconds  
-Längsta tid som tillåts för steget för att köra. Om den här gången har överskridits avslutas jobbkörningen med en livscykeln för nådde sin tidsgräns. step_timeout_seconds är int, med standardvärdet 43 200 sekunder (12 timmar).
+**[\@step_timeout_seconds =** ] step_timeout_seconds  
+Den maximala tids mängd som tillåts för steget att köra. Om den här tiden överskrids, kommer jobb körningen att avslutas med en livs cykel av stängningsåtgärd. step_timeout_seconds är int, med standardvärdet 43 200 sekunder (12 timmar).
 
-[  **\@output_type =** ] 'output_type'  
-Om inte värdet null, vilken typ av destination kommandots första resultatuppsättningens skrivs till. Om du vill återställa värdet för output_type till NULL, värdet för den här parametern anges till ”(tom sträng). output_type är nvarchar(50) med standardvärdet NULL.
+**[\@output_type =** ] ' output_type '  
+Om detta inte är null skrivs den typ av mål som kommandots första resultat uppsättning skrivs till. Om du vill återställa värdet för output_type tillbaka till NULL anger du värdet för parametern till (tom sträng). output_type är nvarchar (50), med standardvärdet NULL.
 
-Om anges måste värdet vara SqlDatabase.
+Om det anges måste värdet vara SqlDatabase.
 
-[ **\@output_credential_name =** ] 'output_credential_name'  
-Om inte värdet null, namnet på databasen-omfattande autentisering som används för att ansluta till måldatabasen utdata. Du måste ange om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_credential_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_credential_name är nvarchar(128) med standardvärdet NULL.
+**[\@output_credential_name =** ] ' output_credential_name '  
+Om detta inte är null, namnet på databasen som används för att ansluta till mål databasen för utdata. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_credential_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_credential_name är nvarchar (128), med standardvärdet NULL.
 
-[ **\@output_server_name =** ] 'output_server_name'  
-Om inte null, fullständigt kvalificerade DNS-namnet på den server som innehåller utdata-måldatabasen. Du måste ange om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_server_name är nvarchar(256) med standardvärdet NULL.
+**[\@output_server_name =** ] ' output_server_name '  
+Om detta inte är null är det fullständigt kvalificerade DNS-namnet för den server som innehåller mål databasen för utdata. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_server_name är nvarchar (256), med standardvärdet NULL.
 
-[ **\@output_database_name =** ] 'output_database_name'  
-Om inte null, namnet på databasen innehåller som utdata måltabellen. Du måste ange om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_database_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_database_name är nvarchar(128) med standardvärdet NULL.
+**[\@output_database_name =** ] ' output_database_name '  
+Om detta inte är null, namnet på databasen som innehåller mål tabellen för utdata. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_database_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_database_name är nvarchar (128), med standardvärdet NULL.
 
 [ **\@output_schema_name =** ] 'output_schema_name'  
-Om inte null, namnet på SQL-schemat innehåller som utdata måltabellen. Om output_type är lika med SqlDatabase, är standardvärdet dbo. Om du vill återställa värdet för output_schema_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_schema_name is nvarchar(128).
+Om detta inte är null, namnet på det SQL-schema som innehåller mål tabellen för utdata. Om output_type är lika med SqlDatabase är standardvärdet dbo. Om du vill återställa värdet för output_schema_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_schema_name is nvarchar(128).
 
-[  **\@output_table_name =** ] 'output_table_name'  
-Om inte värdet null, namnet på den tabell som kommandots första resultatuppsättningens ska skrivas till. Om tabellen inte redan finns, kommer den att skapas baserat på schemat för att returnera resultatuppsättningen. Du måste ange om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_table_name är nvarchar(128) med standardvärdet NULL.
+**[\@output_table_name =** ] ' output_table_name '  
+Om detta inte är null skrivs namnet på den tabell som kommandots första resultat uppsättning ska skrivas till. Om tabellen inte redan finns skapas den baserat på schemat för den returnerade resultat uppsättningen. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_table_name är nvarchar (128), med standardvärdet NULL.
 
-[ **\@job_version =** ] job_version OUTPUT  
-Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version is int.
+**[\@job_version =** ] job_version utdata  
+Utdataparameter som ska tilldelas det nya jobb versions numret. job_version är int.
 
-[  **\@max_parallelism =** ] max_parallelism utdata  
-Den maximala nivån för parallellitet per elastisk pool. Om anges kommer jobbsteget kommer att vara begränsad till endast köras på högst som många databaser per elastisk pool. Detta gäller för varje elastisk pool som ingår direkt i målgruppen eller som finns i en server som ingår i målgruppen. Om du vill återställa värdet för max_parallelism till null, anger du värdet för den här parametern till-1. max_parallelism är heltal.
+**[\@max_parallelism =** ] max_parallelism utdata  
+Den högsta nivån av parallellitet per elastisk pool. Om det här alternativet är inställt begränsas jobb steget så att det bara körs på maximalt antal databaser per elastisk pool. Detta gäller för varje elastisk pool som antingen ingår direkt i mål gruppen eller finns i en server som ingår i mål gruppen. Om du vill återställa värdet för max_parallelism tillbaka till null anger du parameterns värde till-1. max_parallelism är int.
 
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-Alla pågående körningar av jobbet påverkas inte. När sp_update_jobstep lyckas stegvis versionsnumret för jobbets. Jobbet körs nästa gång kommer den nya versionen att användas.
+Pågående körningar av jobbet kommer inte att påverkas. När sp_update_jobstep lyckas ökar jobbets versions nummer. Nästa gången jobbet körs kommer den nya versionen att användas.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare
 
 
 
 
 ### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
-Tar bort ett steg från ett jobb.
+Tar bort ett jobb steg från ett jobb.
 
 #### <a name="syntax"></a>Syntax
 
@@ -853,31 +852,31 @@ Tar bort ett steg från ett jobb.
 ```
 
 #### <a name="arguments"></a>Argument
-[  **\@job_name =** ] 'job_name'  
-Namnet på jobbet från vilken steget tas bort. job_name är nvarchar(128) med inget standardvärde.
+**[\@job_name =** ] ' job_name '  
+Namnet på det jobb som steget kommer att tas bort från. job_name är nvarchar (128), utan standardvärdet.
 
-[  **\@step_id =** ] step_id  
-ID-nummer för steget som ska tas bort. Step_id eller step_name måste anges. step_id är ett heltal.
+**[\@step_id =** ] step_id  
+Identifierings numret för det jobb steg som ska tas bort. Antingen step_id eller step_name måste anges. step_id är en int.
 
-[  **\@step_name =** ] 'step_name'  
-Namnet på steget som ska tas bort. Step_id eller step_name måste anges. step_name är nvarchar(128).
+**[\@step_name =** ] ' step_name '  
+Namnet på steget som ska tas bort. Antingen step_id eller step_name måste anges. step_name är nvarchar (128).
 
-[ **\@job_version =** ] job_version OUTPUT  
-Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version is int.
+**[\@job_version =** ] job_version utdata  
+Utdataparameter som ska tilldelas det nya jobb versions numret. job_version är int.
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-Alla pågående körningar av jobbet påverkas inte. När sp_update_jobstep lyckas stegvis versionsnumret för jobbets. Jobbet körs nästa gång kommer den nya versionen att användas.
+Pågående körningar av jobbet kommer inte att påverkas. När sp_update_jobstep lyckas ökar jobbets versions nummer. Nästa gången jobbet körs kommer den nya versionen att användas.
 
-Andra jobb steg numreras automatiskt så att den fyller luckan efter steget Borttaget jobb.
+De andra jobb stegen numreras om automatiskt så att de fyller Lucken från det borttagna jobb steget.
  
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 
 
@@ -886,7 +885,7 @@ Mer information om behörigheter för dessa roller finns i avsnittet behörighet
 
 ### <a name="sp_start_job"></a>sp_start_job
 
-Startar köra ett jobb.
+Startar körning av ett jobb.
 
 #### <a name="syntax"></a>Syntax
 
@@ -897,27 +896,27 @@ Startar köra ett jobb.
 ```
 
 #### <a name="arguments"></a>Argument
-[  **\@job_name =** ] 'job_name'  
-Namnet på jobbet från vilken steget tas bort. job_name är nvarchar(128) med inget standardvärde.
+**[\@job_name =** ] ' job_name '  
+Namnet på det jobb som steget kommer att tas bort från. job_name är nvarchar (128), utan standardvärdet.
 
-[  **\@job_execution_id =** ] job_execution_id utdata  
-Utdataparameter som ska tilldelas den jobbkörning id. job_version är uniqueidentifier.
+**[\@job_execution_id =** ] job_execution_id utdata  
+Utdataparameter som ska tilldelas jobb körningens ID. job_version är uniqueidentifier.
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
 Ingen.
  
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 ### <a name="sp_stop_job"></a>sp_stop_job
 
-Stoppar en jobbkörning.
+Stoppar en jobb körning.
 
 #### <a name="syntax"></a>Syntax
 
@@ -928,25 +927,25 @@ Stoppar en jobbkörning.
 
 
 #### <a name="arguments"></a>Argument
-[  **\@job_execution_id =** ] job_execution_id  
-ID-nummer för jobbkörningen att stoppa. job_execution_id är uniqueidentifier med standardvärdet NULL.
+**[\@job_execution_id =** ] job_execution_id  
+Identifierings numret för jobb körningen som ska stoppas. job_execution_id är uniqueidentifier, men standardvärdet är NULL.
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
 Ingen.
  
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 
 ### <a name="sp_add_target_group"></a>sp_add_target_group
 
-Lägger till en målgrupp.
+Lägger till en mål grupp.
 
 #### <a name="syntax"></a>Syntax
 
@@ -958,26 +957,26 @@ Lägger till en målgrupp.
 
 
 #### <a name="arguments"></a>Argument
-[  **\@target_group_name =** ] 'target_group_name'  
-Namnet på målgruppen du skapar. target_group_name är nvarchar(128) med inget standardvärde.
+**[\@target_group_name =** ] ' target_group_name '  
+Namnet på den mål grupp som ska skapas. target_group_name är nvarchar (128), utan standardvärdet.
 
-[  **\@target_group_id =** ] target_group_id utdata målet gruppen ID-nummer som tilldelas jobbet har skapats. target_group_id är en utdata-variabel av typen uniqueidentifier med standardvärdet NULL.
+**[\@target_group_id =** ] target_group_id utdata för den mål grupps-ID som tilldelats jobbet om det har skapats. target_group_id är en utgående variabel av typen UniqueIdentifier, med standardvärdet NULL.
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-Målgrupper ger ett enkelt sätt att fokusera på ett jobb på en uppsättning databaser.
+Mål grupper ger ett enkelt sätt att rikta ett jobb till en samling databaser.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 ### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
-Tar bort en målgrupp.
+Tar bort en mål grupp.
 
 #### <a name="syntax"></a>Syntax
 
@@ -988,24 +987,24 @@ Tar bort en målgrupp.
 
 
 #### <a name="arguments"></a>Argument
-[  **\@target_group_name =** ] 'target_group_name'  
-Namnet på målgruppen du ta bort. target_group_name är nvarchar(128) med inget standardvärde.
+**[\@target_group_name =** ] ' target_group_name '  
+Namnet på den mål grupp som ska tas bort. target_group_name är nvarchar (128), utan standardvärdet.
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
 Ingen.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 ### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
-Lägger till en databas eller en grupp med databaser i en målgrupp.
+Lägger till en databas eller grupp med databaser i en mål grupp.
 
 #### <a name="syntax"></a>Syntax
 
@@ -1022,45 +1021,45 @@ Lägger till en databas eller en grupp med databaser i en målgrupp.
 ```
 
 #### <a name="arguments"></a>Argument
-[  **\@target_group_name =** ] 'target_group_name'  
-Namnet på den målgrupp som medlemmen kommer att läggas till. target_group_name är nvarchar(128) med inget standardvärde.
+**[\@target_group_name =** ] ' target_group_name '  
+Namnet på den mål grupp som medlemmen ska läggas till i. target_group_name är nvarchar (128), utan standardvärdet.
 
-[  **\@membership_type =** ] 'membership_type'  
-Anger om gruppmedlem mål ska inkluderas eller uteslutas. target_group_name är nvarchar(128) med standardvärdet ”inkludera”. Giltiga värden för target_group_name är ”inkludera” eller ”undanta'.
+**[\@membership_type =** ] ' membership_type '  
+Anger om mål grupps medlemmen ska tas med eller undantas. target_group_name är nvarchar (128), med standardvärdet include. Giltiga värden för target_group_name är include eller exclude.
 
-[  **\@target_type =** ] 'target_type'  
-Typ av måldatabasen eller samling databaser, till exempel alla databaser i en server, alla databaser i en elastisk pool, alla databaser i en skärvkarta eller en individuell databas. target_type är nvarchar(128) med inget standardvärde. Giltiga värden för target_type är ”SqlServer', 'SqlElasticPool”, ”SqlDatabase” eller ”SqlShardMap”. 
+**[\@target_type =** ] ' target_type '  
+Typ av mål databas eller samling av databaser, inklusive alla databaser på en server, alla databaser i en elastisk pool, alla databaser i en Shard-karta eller en enskild databas. target_type är nvarchar (128), utan standardvärdet. Giltiga värden för target_type är ' SqlServer ', ' SqlElasticPool ', ' SqlDatabase ' eller ' SqlShardMap '. 
 
-[  **\@refresh_credential_name =** ] 'refresh_credential_name'  
-Namnet på SQL Database-servern. refresh_credential_name är nvarchar(128) med inget standardvärde.
+**[\@refresh_credential_name =** ] ' refresh_credential_name '  
+Namnet på SQL Database servern. refresh_credential_name är nvarchar (128), utan standardvärdet.
 
-[  **\@servernamn =** ] 'servernamn'  
-Namnet på den SQL-databasserver som ska läggas till den angivna målgruppen. servernamn måste anges när target_type är ”SqlServer'. Servernamn är nvarchar(128) med inget standardvärde.
+**[\@server_name =** ] ' server_name '  
+Namnet på den SQL Database-Server som ska läggas till i den angivna mål gruppen. server_name måste anges när target_type är SqlServer. server_name är nvarchar (128), utan standardinställning.
 
-[  **\@database_name =** ] 'database_name'  
-Namnet på databasen som ska läggas till den angivna målgruppen. database_name bör anges när target_type är ”SqlDatabase”. database_name är nvarchar(128) med inget standardvärde.
+**[\@database_name =** ] ' database_name '  
+Namnet på databasen som ska läggas till i den angivna mål gruppen. database_name ska anges när target_type är ' SqlDatabase '. database_name är nvarchar (128), utan standardvärdet.
 
-[  **\@elastic_pool_name =** ] 'elastic_pool_name'  
-Namnet på den elastiska poolen som ska läggas till den angivna målgruppen. elastic_pool_name ska anges när target_type är 'SqlElasticPool'. elastic_pool_name är nvarchar(128) med inget standardvärde.
+**[\@elastic_pool_name =** ] ' elastic_pool_name '  
+Namnet på den elastiska pool som ska läggas till i den angivna mål gruppen. elastic_pool_name ska anges när target_type är ' SqlElasticPool '. elastic_pool_name är nvarchar (128), utan standardvärdet.
 
-[  **\@shard_map_name =** ] 'shard_map_name'  
-Namnet på poolen fragment karta som ska läggas till den angivna målgruppen. elastic_pool_name ska anges när target_type är 'SqlSqlShardMap'. shard_map_name är nvarchar(128) med inget standardvärde.
+**[\@shard_map_name =** ] ' shard_map_name '  
+Namnet på Shard som ska läggas till i den angivna mål gruppen. elastic_pool_name ska anges när target_type är ' SqlSqlShardMap '. shard_map_name är nvarchar (128), utan standardvärdet.
 
-[  **\@target_id =** ] target_group_id utdata  
-Mål-ID-nummer till gruppmedlem mål om skapat läggs till i målgruppen. target_id är en utdata-variabel av typen uniqueidentifier med standardvärdet NULL.
-Returnera kodvärden 0 (lyckades) eller 1 (misslyckades)
+**[\@target_id =** ] target_group_id utdata  
+Det mål-ID-nummer som tilldelats mål grupps medlemmen om den skapades i mål gruppen. target_id är en utgående variabel av typen UniqueIdentifier, med standardvärdet NULL.
+Returnera kod värden 0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-Ett jobb körs på alla enskilda databaser i en SQL Database-server eller i en elastisk pool vid tidpunkten för körning när en SQL Database-server eller elastisk pool ingår i målgruppen.
+Ett jobb körs på alla enskilda databaser inom en SQL Database-Server eller i en elastisk pool vid tidpunkten för körningen, när en SQL Database-Server eller elastisk pool ingår i mål gruppen.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 #### <a name="examples"></a>Exempel
-I följande exempel läggs alla databaser i London och NewYork servrar i gruppen servrar underhålla kundinformation. Du måste ansluta till databasen för jobb som anges när du skapar jobbagenten i det här fallet ElasticJobs.
+I följande exempel läggs alla databaser i London-och NewYork-servrarna till i grupp servrarna som underhåller kund information. Du måste ansluta till jobb databasen som anges när du skapar jobb agenten, i det här fallet ElasticJobs.
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
@@ -1094,7 +1093,7 @@ GO
 
 ### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
-Tar bort en mål medlem från en målgrupp.
+Tar bort en mål grupps medlem från en mål grupp.
 
 #### <a name="syntax"></a>Syntax
 
@@ -1106,26 +1105,26 @@ Tar bort en mål medlem från en målgrupp.
 
 
 
-Argument [ @target_group_name =] 'target_group_name'  
-Namnet på målgruppen som ska ta bort gruppmedlem mål. target_group_name är nvarchar(128) med inget standardvärde.
+Argument [ @target_group_name =] ' target_group_name '  
+Namnet på den mål grupp som mål grupps medlemmen ska tas bort från. target_group_name är nvarchar (128), utan standardvärdet.
 
 [ @target_id =] target_id  
- Mål-ID-nummer till gruppmedlem mål som ska tas bort. target_id är en uniqueidentifier med standardvärdet NULL.
+ Det mål-ID-nummer som tilldelats den mål grupps medlem som ska tas bort. target_id är en uniqueidentifier med standardvärdet NULL.
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades)
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri)
 
 #### <a name="remarks"></a>Kommentarer
-Målgrupper ger ett enkelt sätt att fokusera på ett jobb på en uppsättning databaser.
+Mål grupper ger ett enkelt sätt att rikta ett jobb till en samling databaser.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 #### <a name="examples"></a>Exempel
-I följande exempel tar bort London-server från gruppen servrar underhålla kundinformation. Du måste ansluta till databasen för jobb som anges när du skapar jobbagenten i det här fallet ElasticJobs.
+I följande exempel tar vi bort London-servern från grupp servrarna som underhåller kund information. Du måste ansluta till jobb databasen som anges när du skapar jobb agenten, i det här fallet ElasticJobs.
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
@@ -1145,7 +1144,7 @@ GO
 
 ### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
-Tar bort historikposter för ett jobb.
+Tar bort historik poster för ett jobb.
 
 #### <a name="syntax"></a>Syntax
 
@@ -1157,26 +1156,26 @@ Tar bort historikposter för ett jobb.
 ```
 
 #### <a name="arguments"></a>Argument
-[  **\@job_name =** ] 'job_name'  
-Namnet på jobbet som du vill ta bort historikposter. job_name är nvarchar(128) med standardvärdet NULL. Du måste ange job_id eller job_name, men båda kan inte anges.
+**[\@job_name =** ] ' job_name '  
+Namnet på det jobb som historik posterna ska tas bort för. job_name är nvarchar (128), med standardvärdet NULL. Antingen job_id eller job_name måste anges, men det går inte att ange båda.
 
-[ **\@job_id =** ] job_id  
- Det ID-nummer för jobbet för jobbet för poster som ska tas bort. job_id är uniqueidentifier med standardvärdet NULL. Du måste ange job_id eller job_name, men båda kan inte anges.
+**[\@job_id =** ] job_id  
+ Jobb identifierings numret för jobbet för de poster som ska tas bort. job_id är uniqueidentifier, med standardvärdet NULL. Antingen job_id eller job_name måste anges, men det går inte att ange båda.
 
-[  **\@oldest_date =** ] oldest_date  
- Äldsta posten ska sparas i historiken. oldest_date är DATETIME2, med standardvärdet NULL. När du anger oldest_date sp_purge_jobhistory bara tar bort poster som är äldre än det angivna värdet.
+**[\@oldest_date =** ] oldest_date  
+ Den äldsta posten som ska sparas i historiken. oldest_date är DATETIME2, med standardvärdet NULL. När oldest_date anges tar sp_purge_jobhistory bara bort poster som är äldre än det angivna värdet.
 
-#### <a name="return-code-values"></a>Returkod för värden
-0 (lyckades) eller 1 (misslyckades) Anmärkning-målgrupper ger ett enkelt sätt att fokusera på ett jobb på en uppsättning databaser.
+#### <a name="return-code-values"></a>Retur kod värden
+0 (lyckades) eller 1 (haveri) kommentarer mål grupper ger ett enkelt sätt att rikta ett jobb till en samling databaser.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta Server rollen sysadmin köra den här lagrade proceduren. De begränsar en användare till att bara kunna övervaka jobb, kan du ge användaren en del av följande databas roll i den jobb agent databas som anges när du skapar jobb agenten:
 - jobs_reader
 
-Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
+Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attributen för jobb som ägs av andra användare.
 
 #### <a name="examples"></a>Exempel
-I följande exempel läggs alla databaser i London och NewYork servrar i gruppen servrar underhålla kundinformation. Du måste ansluta till databasen för jobb som anges när du skapar jobbagenten i det här fallet ElasticJobs.
+I följande exempel läggs alla databaser i London-och NewYork-servrarna till i grupp servrarna som underhåller kund information. Du måste ansluta till jobb databasen som anges när du skapar jobb agenten, i det här fallet ElasticJobs.
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
@@ -1188,162 +1187,162 @@ GO
 ```
 
 
-## <a name="job-views"></a>Jobbet vyer
+## <a name="job-views"></a>Vyer för jobb
 
-Följande vyer som är tillgängliga i den [jobb databasen](sql-database-job-automation-overview.md#job-database).
+Följande vyer är tillgängliga i [jobb databasen](sql-database-job-automation-overview.md#job-database).
 
 
 |Visa  |Beskrivning  |
 |---------|---------|
-|[jobs_executions](#jobs_executions-view)     |  Visar jobbhistorik körning.      |
-|[Jobb](#jobs-view)     |   Visar alla jobb.      |
-|[job_versions](#job_versions-view)     |   Visar alla jobbversioner.      |
+|[job_executions](#job_executions-view)     |  Visar jobb körnings historik.      |
+|[utskrifts](#jobs-view)     |   Visar alla jobb.      |
+|[job_versions](#job_versions-view)     |   Visar alla jobb versioner.      |
 |[jobbsteg](#jobsteps-view)     |     Visar alla steg i den aktuella versionen av varje jobb.    |
 |[jobstep_versions](#jobstep_versions-view)     |     Visar alla steg i alla versioner av varje jobb.    |
-|[target_groups](#target_groups-view)     |      Visar alla målgrupper.   |
-|[target_group_members](#target_groups_members-view)     |   Visar alla medlemmar i alla målgrupper.      |
+|[target_groups](#target_groups-view)     |      Visar alla mål grupper.   |
+|[target_group_members](#target_groups_members-view)     |   Visar alla medlemmar i alla mål grupper.      |
 
 
-### <a name="jobs_executions-view"></a>Visa jobs_executions
+### <a name="job_executions-view"></a>job_executions vy
 
-[jobs].[jobs_executions]
+[Jobs]. [job_executions]
 
-Visar jobbhistorik körning.
+Visar jobb körnings historik.
 
 
 |Kolumnnamn|   Datatyp   |Beskrivning|
 |---------|---------|---------|
-|**job_execution_id**   |uniqueidentifier|  Unikt ID för en instans av en jobbkörning.
-|**job_name**   |nvarchar(128)  |Namnet på jobbet.
-|**job_id** |uniqueidentifier|  Unikt ID för jobbet.
-|**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gång som jobbet har ändrats).
-|**step_id**    |int|   Unika (för jobbets) identifieraren för steget. NULL anger det här är den överordnade jobbkörningen.
-|**is_active**| bit |Anger om informationen är aktiv eller inaktiv. 1 anger aktiva jobb och 0 indikerar inaktiva.
-|**livscykel**| nvarchar(50)|Värde som anger status för jobbet: ”skapa”, ”pågår”, ”misslyckad”, ”lyckades”, ”överhoppade', 'SucceededWithSkipped'|
-|**create_time**|   datetime2(7)|   Datum och tid då jobbet skapades.
-|**start_time** |datetime2(7)|  Datum och tid som jobbet startade körningen. NULL om jobbet inte har körts ännu.
-|**end_time**|  datetime2(7)    |Datum och tid som jobbet slutförts körning. NULL om jobbet inte har ännu körts eller har inte slutförts ännu körning.
-|**current_attempts**   |int    |Antal gånger som steget återförsöktes. Överordnade jobb ska vara 0, underordnade jobbkörningar ska vara 1 eller större baserat på körningsprincipen.
-|**current_attempt_start_time** |datetime2(7)|  Datum och tid som jobbet startade körningen. NULL anger det här är den överordnade jobbkörningen.
-|**last_message**   |nvarchar(max)| Jobbet eller steg historik-meddelande. 
-|**target_type**|   nvarchar(128)   |Typ av måldatabasen eller samling databaser, till exempel alla databaser i en server, alla databaser i en elastisk pool eller en databas. Giltiga värden för target_type är ”SqlServer', 'SqlElasticPool” eller ”SqlDatabase”. NULL anger det här är den överordnade jobbkörningen.
-|**target_id**  |uniqueidentifier|  Unikt ID för mål-gruppmedlem.  NULL anger det här är den överordnade jobbkörningen.
-|**target_group_name**  |nvarchar(128)  |Namnet på målgruppen. NULL anger det här är den överordnade jobbkörningen.
-|**target_server_name**|    nvarchar(256)|  Namnet på SQL Database-server som ingår i målgruppen. Bara anges om target_type är ”SqlServer'. NULL anger det här är den överordnade jobbkörningen.
-|**target_database_name**   |nvarchar(128)| Namnet på databasen i målgruppen. Ange bara när target_type är ”SqlDatabase”. NULL anger det här är den överordnade jobbkörningen.
+|**job_execution_id**   |uniqueidentifier|  Unikt ID för en instans av jobb körningen.
+|**job_name**   |nvarchar (128)  |Jobbets namn.
+|**job_id** |uniqueidentifier|  Jobbets unika ID.
+|**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gången jobbet ändras).
+|**step_id**    |int|   Unikt (för detta jobb) ID för steget. NULL anger att detta är den överordnade jobb körningen.
+|**is_active**| bit |Anger om informationen är aktiv eller inaktiv. 1 anger aktiva jobb och 0 anger inaktiv.
+|**–**| nvarchar (50)|Värde som anger jobbets status: "skapad", "pågår", "misslyckades", "lyckades", "hoppade över", "SucceededWithSkipped"|
+|**create_time**|   datetime2 (7)|   Datum och tid då jobbet skapades.
+|**start_time** |datetime2 (7)|  Datum och tid då jobbet startades. NULL om jobbet ännu inte har körts.
+|**end_time**|  datetime2 (7)    |Datum och tid då jobbet slutfördes. NULL om jobbet ännu inte har körts eller inte har körts ännu.
+|**current_attempts**   |int    |Antal gånger steget försökte utföra åtgärden igen. Överordnat jobb kommer att bli 0, underordnade jobb körningar är 1 eller större baserat på körnings principen.
+|**current_attempt_start_time** |datetime2 (7)|  Datum och tid då jobbet startades. NULL anger att detta är den överordnade jobb körningen.
+|**last_message**   |nvarchar(max)| Jobb-eller steg historik meddelande. 
+|**target_type**|   nvarchar (128)   |Typ av mål databas eller samling av databaser, inklusive alla databaser på en server, alla databaser i en elastisk pool eller en databas. Giltiga värden för target_type är SqlServer, SqlElasticPool eller SqlDatabase. NULL anger att detta är den överordnade jobb körningen.
+|**target_id**  |uniqueidentifier|  Unikt ID för mål grupps medlemmen.  NULL anger att detta är den överordnade jobb körningen.
+|**target_group_name**  |nvarchar (128)  |Mål gruppens namn. NULL anger att detta är den överordnade jobb körningen.
+|**target_server_name**|    nvarchar (256)|  Namnet på den SQL Database Server som finns i mål gruppen. Anges endast om target_type är SqlServer. NULL anger att detta är den överordnade jobb körningen.
+|**target_database_name**   |nvarchar (128)| Namnet på den databas som finns i mål gruppen. Anges endast när target_type är ' SqlDatabase '. NULL anger att detta är den överordnade jobb körningen.
 
 
-### <a name="jobs-view"></a>Visa jobb
+### <a name="jobs-view"></a>jobb visning
 
-[jobb]. [jobb]
+[Jobs]. utskrifts
 
 Visar alla jobb.
 
 |Kolumnnamn|   Datatyp|  Beskrivning|
 |------|------|-------|
-|**job_name**|  nvarchar(128)   |Namnet på jobbet.|
-|**job_id**|    uniqueidentifier    |Unikt ID för jobbet.|
-|**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gång som jobbet har ändrats).|
-|**description**    |nvarchar(512)| Beskrivning för jobbet. aktiverade biten anger om jobbet är aktiverat eller inaktiverat. 1 anger aktiverade jobb och 0 indikerar inaktiverade jobb.|
-|**schedule_interval_type** |nvarchar(50)   |Värde som anger när jobbet ska köras: ”en gång”, ”minuter”, ”timmar”, ”dagar”, ”veckor”, ”månader”
-|**schedule_interval_count**|   int|    Antalet schedule_interval_type perioder ska ske mellan varje körning av jobbet.|
-|**schedule_start_time**    |datetime2(7)|  Datum och tid som jobbet har senaste startade körningen.|
-|**schedule_end_time**| datetime2(7)|   Datum och tid som jobbet har senaste har slutförts.|
+|**job_name**|  nvarchar (128)   |Jobbets namn.|
+|**job_id**|    uniqueidentifier    |Jobbets unika ID.|
+|**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gången jobbet ändras).|
+|**description**    |nvarchar (512)| Beskrivning av jobbet. aktive rad bit anger om jobbet är aktiverat eller inaktiverat. 1 anger aktiverade jobb och 0 anger inaktiverade jobb.|
+|**schedule_interval_type** |nvarchar (50)   |Värde som anger när jobbet ska köras: "en gång", "minuter", "timmar", "dagar", "veckor", "månader"
+|**schedule_interval_count**|   int|    Antalet schedule_interval_type-perioder som ska ske mellan varje jobb körning.|
+|**schedule_start_time**    |datetime2 (7)|  Datum och tid då jobbet senast startades.|
+|**schedule_end_time**| datetime2 (7)|   Datum och tid då jobbet senast slutfördes.|
 
 
 ### <a name="job_versions-view"></a>job_versions view
 
 [jobs].[job_versions]
 
-Visar alla jobbversioner.
+Visar alla jobb versioner.
 
 |Kolumnnamn|   Datatyp|  Beskrivning|
 |------|------|-------|
-|**job_name**|  nvarchar(128)   |Namnet på jobbet.|
-|**job_id**|    uniqueidentifier    |Unikt ID för jobbet.|
-|**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gång som jobbet har ändrats).|
+|**job_name**|  nvarchar (128)   |Jobbets namn.|
+|**job_id**|    uniqueidentifier    |Jobbets unika ID.|
+|**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gången jobbet ändras).|
 
 
-### <a name="jobsteps-view"></a>Visa jobbsteg
+### <a name="jobsteps-view"></a>jobbsteg vy
 
-[jobb]. [jobbsteg]
+[Jobs]. jobbsteg
 
 Visar alla steg i den aktuella versionen av varje jobb.
 
 |Kolumnnamn    |Datatyp| Beskrivning|
 |------|------|-------|
-|**job_name**   |nvarchar(128)| Namnet på jobbet.|
-|**job_id** |uniqueidentifier   |Unikt ID för jobbet.|
-|**job_version**|   int|    Version av jobbet (uppdateras automatiskt varje gång som jobbet har ändrats).|
-|**step_id**    |int    |Unika (för jobbets) identifieraren för steget.|
-|**step_name**  |nvarchar(128)  |(För jobbets) namnet för steget.|
-|**command_type**   |nvarchar(50)   |Typ av kommando som ska köras i jobbsteget. För v1, värdet måste vara lika med till och standardvärdet är 'TSql'.|
-|**command_source** |nvarchar(50)|  Platsen för kommandot. För v1 ”infogat-är standard och endast godkända värde.|
-|**Kommandot**|   nvarchar(max)|  Kommandon som ska köras med elastiska jobb via command_type.|
-|**credential_name**|   nvarchar(128)   |Namnet på databasbegränsade autentiseringsuppgifter används för att köra jobbet.|
-|**target_group_name**| nvarchar(128)   |Namnet på målgruppen.|
-|**target_group_id**|   uniqueidentifier|   Unikt ID för målgruppen.|
-|**initial_retry_interval_seconds**|    int |Fördröjning före den första återförsök. Standardvärdet är 1.|
-|**maximum_retry_interval_seconds** |int|   Max. fördröjning mellan försöken. Om fördröjningen mellan återförsök skulle bli större än det här värdet, är det begränsat till det här värdet i stället. Standardvärdet är 120.|
-|**retry_interval_backoff_multiplier**  |real|  Multiplikatorn som ska gälla för försök fördröjningen om flera jobb stegvis körning inloggningsförsök misslyckas. Standardvärdet är 2.0.|
-|**retry_attempts** |int|   Antal försök försöker använda om det här steget misslyckas. Standardvärdet 10, vilket betyder att inga nya försök.|
-|**step_timeout_seconds**   |int|   Hur lång tid i minuter mellan nya försök. Standardvärdet är 0, vilket anger en 0-minutersintervall.|
-|**output_type**    |nvarchar(11)|  Platsen för kommandot. I den aktuella förhandsversionen 'infogat-är standard och endast godkända värde.|
-|**output_credential_name**|    nvarchar(128)   |Ange namnet på autentiseringsuppgifterna som ska användas för att ansluta till målservern resultaten ska sparas.|
-|**output_subscription_id**|    uniqueidentifier|   Unikt ID för prenumerationen för mål-server\database för resultatet från frågan.|
-|**output_resource_group_name** |nvarchar(128)| Resursgruppens namn där målservern finns.|
-|**output_server_name**|    nvarchar(256)   |Namnet på målservern för resultatuppsättningen.|
-|**output_database_name**   |nvarchar(128)| Namnet på måldatabasen för resultatuppsättningen.|
-|**output_schema_name** |nvarchar(max)| Namnet på målschema. Standardvärdet är dbo, om inte anges.|
-|**output_table_name**| nvarchar(max)|  Namnet på tabellen för att lagra resultatet från resultatet av frågan. Tabellen skapas automatiskt baserat på schemat för resultat om den inte redan finns. Schemat måste matcha schemat för resultatuppsättningen.|
-|**max_parallelism**|   int|    Det maximala antalet databaser per elastisk pool som jobbsteget ska köras i taget. Standardvärdet är NULL, vilket innebär att ingen gräns. |
+|**job_name**   |nvarchar (128)| Jobbets namn.|
+|**job_id** |uniqueidentifier   |Jobbets unika ID.|
+|**job_version**|   int|    Version av jobbet (uppdateras automatiskt varje gången jobbet ändras).|
+|**step_id**    |int    |Unikt (för detta jobb) ID för steget.|
+|**step_name**  |nvarchar (128)  |Unikt (för detta jobb) namn för steget.|
+|**command_type**   |nvarchar (50)   |Typ av kommando som ska köras i jobb steget. För v1 måste värdet vara lika med och standardvärdet är "TSql".|
+|**command_source** |nvarchar (50)|  Kommandots plats. För v1 är ' inline ' standard och endast accepterat värde.|
+|**kommandoprompt**|   nvarchar(max)|  De kommandon som ska köras av elastiska jobb via command_type.|
+|**credential_name**|   nvarchar (128)   |Namnet på databasens begränsade autentiseringsuppgifter som används för att köra jobbet.|
+|**target_group_name**| nvarchar (128)   |Mål gruppens namn.|
+|**target_group_id**|   uniqueidentifier|   Unikt ID för mål gruppen.|
+|**initial_retry_interval_seconds**|    int |Fördröjningen före det första försöket. Standardvärdet är 1.|
+|**maximum_retry_interval_seconds** |int|   Maximal fördröjning mellan nya försök. Om fördröjningen mellan återförsök skulle växa större än det här värdet, är det ett tak för detta värde i stället. Standardvärdet är 120.|
+|**retry_interval_backoff_multiplier**  |real|  Multiplikatorn som ska användas för fördröjningen för nya försök om flera jobb körnings försök Miss lyckas. Standardvärdet är 2,0.|
+|**retry_attempts** |int|   Antalet återförsök som ska användas om det här steget Miss lyckas. Standardvärdet är 10, vilket innebär att inga nya försök görs.|
+|**step_timeout_seconds**   |int|   Tiden i minuter mellan nya försök. Standardvärdet är 0, vilket anger ett intervall på 0 minuter.|
+|**output_type**    |nvarchar (11)|  Kommandots plats. I den aktuella för hands versionen är infogad som standard och endast accepterat värde.|
+|**output_credential_name**|    nvarchar (128)   |Namnet på de autentiseringsuppgifter som ska användas för att ansluta till mål servern för att lagra resultat uppsättningen.|
+|**output_subscription_id**|    uniqueidentifier|   Unikt ID för prenumerationen på mål-server\database för resultat uppsättningen från frågekörningen.|
+|**output_resource_group_name** |nvarchar (128)| Resurs grupp namn där mål servern finns.|
+|**output_server_name**|    nvarchar (256)   |Namnet på mål servern för resultat uppsättningen.|
+|**output_database_name**   |nvarchar (128)| Namnet på mål databasen för resultat uppsättningen.|
+|**output_schema_name** |nvarchar(max)| Namnet på mål schemat. Standardvärdet är dbo, om inget anges.|
+|**output_table_name**| nvarchar(max)|  Namnet på tabellen där resultat uppsättningen från frågeresultaten ska lagras. Tabellen skapas automatiskt baserat på schemat för resultat uppsättningen om den inte redan finns. Schemat måste matcha schemat för resultat mängden.|
+|**max_parallelism**|   int|    Det maximala antalet databaser per elastisk pool som jobb steget ska köras vid en viss tidpunkt. Standardvärdet är NULL, vilket innebär ingen gräns. |
 
 
-### <a name="jobstep_versions-view"></a>Visa jobstep_versions
+### <a name="jobstep_versions-view"></a>jobstep_versions vy
 
-[jobs].[jobstep_versions]
+[Jobs]. [jobstep_versions]
 
-Visar alla steg i alla versioner av varje jobb. Schemat är identiska med [jobbsteg](#jobsteps-view).
+Visar alla steg i alla versioner av varje jobb. Schemat är identiskt med [jobbsteg](#jobsteps-view).
 
-### <a name="target_groups-view"></a>Visa target_groups
+### <a name="target_groups-view"></a>target_groups vy
 
 [jobs].[target_groups]
 
-Visar en lista över alla målgrupper.
+Visar en lista över alla mål grupper.
 
 |Kolumnnamn|Datatyp| Beskrivning|
 |-----|-----|-----|
-|**target_group_name**| nvarchar(128)   |Namnet på målgruppen, en uppsättning databaser. 
-|**target_group_id**    |uniqueidentifier   |Unikt ID för målgruppen.
+|**target_group_name**| nvarchar (128)   |Namnet på mål gruppen, en samling databaser. 
+|**target_group_id**    |uniqueidentifier   |Unikt ID för mål gruppen.
 
-### <a name="target_groups_members-view"></a>Visa target_groups_members
+### <a name="target_groups_members-view"></a>target_groups_members vy
 
 [jobs].[target_groups_members]
 
-Visar alla medlemmar i alla målgrupper.
+Visar alla medlemmar i alla mål grupper.
 
 |Kolumnnamn|Datatyp| Beskrivning|
 |-----|-----|-----|
-|**target_group_name**  |nvarchar (128|Namnet på målgruppen, en uppsättning databaser. |
-|**target_group_id**    |uniqueidentifier   |Unikt ID för målgruppen.|
-|**membership_type**    |int|   Anger om mål-gruppmedlem inkluderas eller exkluderas i målgruppen. Giltiga värden för target_group_name är ”inkludera” eller ”undanta'.|
-|**target_type**    |nvarchar(128)| Typ av måldatabasen eller samling databaser, till exempel alla databaser i en server, alla databaser i en elastisk pool eller en databas. Giltiga värden för target_type är ”SqlServer', 'SqlElasticPool”, ”SqlDatabase” eller ”SqlShardMap”.|
-|**target_id**  |uniqueidentifier|  Unikt ID för mål-gruppmedlem.|
-|**refresh_credential_name**    |nvarchar(128)  |Namnet på databasen-omfattande autentisering som används för att ansluta till gruppmedlem mål.|
+|**target_group_name**  |nvarchar (128|Namnet på mål gruppen, en samling databaser. |
+|**target_group_id**    |uniqueidentifier   |Unikt ID för mål gruppen.|
+|**membership_type**    |int|   Anger om mål grupps medlemmen tas med eller undantas i mål gruppen. Giltiga värden för target_group_name är include eller exclude.|
+|**target_type**    |nvarchar (128)| Typ av mål databas eller samling av databaser, inklusive alla databaser på en server, alla databaser i en elastisk pool eller en databas. Giltiga värden för target_type är ' SqlServer ', ' SqlElasticPool ', ' SqlDatabase ' eller ' SqlShardMap '.|
+|**target_id**  |uniqueidentifier|  Unikt ID för mål grupps medlemmen.|
+|**refresh_credential_name**    |nvarchar (128)  |Namnet på den databas omfattnings information som används för att ansluta till mål grupps medlemmen.|
 |**subscription_id**    |uniqueidentifier|  Unikt ID för prenumerationen.|
-|**resource_group_name**    |nvarchar(128)| Namnet på resursgruppen där gruppmedlem target finns.|
-|**server_name**    |nvarchar(128)  |Namnet på SQL Database-server som ingår i målgruppen. Bara anges om target_type är ”SqlServer'. |
-|**databasnamn**  |nvarchar(128)  |Namnet på databasen i målgruppen. Ange bara när target_type är ”SqlDatabase”.|
-|**elastic_pool_name**  |nvarchar(128)| Namnet på den elastiska poolen i målgruppen. Ange bara när target_type är 'SqlElasticPool'.|
-|**shard_map_name** |nvarchar(128)| Namnet på fragmentkartan i målgruppen. Ange bara när target_type är 'SqlShardMap'.|
+|**resource_group_name**    |nvarchar (128)| Namnet på resurs gruppen där mål grupps medlemmen finns.|
+|**server_name**    |nvarchar (128)  |Namnet på den SQL Database Server som finns i mål gruppen. Anges endast om target_type är SqlServer. |
+|**database_name**  |nvarchar (128)  |Namnet på den databas som finns i mål gruppen. Anges endast när target_type är ' SqlDatabase '.|
+|**elastic_pool_name**  |nvarchar (128)| Namnet på den elastiska poolen som finns i mål gruppen. Anges endast när target_type är ' SqlElasticPool '.|
+|**shard_map_name** |nvarchar (128)| Namnet på Shard-kartan som finns i mål gruppen. Anges endast när target_type är ' SqlShardMap '.|
 
 
 ## <a name="resources"></a>Resurser
 
- - ![Avsnittet länkikon](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "avsnittet länkikon") [konventioner för Transact-SQL-Syntax](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![Ämnes länk ikon](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ämnes länk ikon") [Konventioner för Transact-SQL-syntax](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa och hantera elastiska jobb med PowerShell](elastic-jobs-powershell.md)
-- [Auktorisering och behörigheter för SQLServer](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- [Auktoriserings-och behörighets SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

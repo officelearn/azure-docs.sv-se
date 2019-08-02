@@ -1,6 +1,6 @@
 ---
-title: Datakällor i Azure Monitor | Microsoft Docs
-description: Beskriver data som kan övervaka hälsotillstånd och prestanda för dina Azure-resurser och program som körs på dem.
+title: Data källor i Azure Monitor | Microsoft Docs
+description: Beskriver de data som är tillgängliga för övervakning av hälso tillstånd och prestanda för dina Azure-resurser och de program som körs på dem.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,205 +12,205 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: b77fb3ab5651147c59b9f0afd22a2d6d0159c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 673575d480b78c151e68963e4a935fc72e7e578b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357518"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564749"
 ---
-# <a name="sources-of-monitoring-data-for-azure-monitor"></a>Källor för övervakningsdata för Azure Monitor
-Azure Monitor är baserad på en [vanliga data övervakningsplattform](data-platform.md) som innehåller [loggar](data-platform-logs.md) och [mått](data-platform-metrics.md). Samla in data till den här plattformen kan data från flera resurser som ska analyseras tillsammans med hjälp av en gemensam uppsättning verktyg i Azure Monitor. Övervakning av data kan också skickas till andra platser för vissa scenarier och vissa resurser kan skriva till andra platser innan de kan samlas in loggar eller mätvärden.
+# <a name="sources-of-monitoring-data-for-azure-monitor"></a>Källor för övervaknings data för Azure Monitor
+Azure Monitor baseras på en [gemensam övervaknings data plattform](data-platform.md) som innehåller [loggar](data-platform-logs.md) och [mått](data-platform-metrics.md). Genom att samla in data till den här plattformen kan data från flera resurser analyseras tillsammans med en gemensam uppsättning verktyg i Azure Monitor. Övervaknings data kan också skickas till andra platser för att stödja vissa scenarier och vissa resurser kan skriva till andra platser innan de kan samlas in i loggar eller mått.
 
-Den här artikeln beskrivs de olika källorna för övervakningsdata som samlas in av Azure Monitor förutom övervakningsdata som skapats av Azure-resurser. Länkar till detaljerad information om konfiguration som krävs för att samla in dessa data till olika platser.
+I den här artikeln beskrivs de olika källorna till övervaknings data som samlas in av Azure Monitor utöver de övervaknings data som skapats av Azure-resurser. Det finns länkar till detaljerad information om konfigurationen som krävs för att samla in dessa data till olika platser.
 
 ## <a name="application-tiers"></a>Programnivåer
 
-Källor för övervakningsdata från Azure-program kan ordnas i nivåer, de högsta nivåerna som själva programmet och de lägre nivåerna som komponenter i Azure-plattformen. Metoden för att komma åt data från varje nivå varierar. Programskikt sammanfattas i tabellen nedan och källor för övervakningsdata i respektive nivå som visas i följande avsnitt. Se [övervakning dataplatserna i Azure](data-locations.md) en beskrivning av varje plats och hur du kommer åt sina data.
+Källor för övervaknings data från Azure-program kan ordnas i nivåer, de högsta nivåerna är själva programmet och de lägre nivåerna är komponenter i Azure-plattformen. Metoden för att komma åt data från varje nivå varierar. Program nivåerna sammanfattas i tabellen nedan och källorna till övervaknings data på varje nivå visas i följande avsnitt. Se [övervaka data platser i Azure](data-locations.md) för en beskrivning av varje data plats och hur du kan komma åt data.
 
 
-![Övervakning nivå](../media/overview/overview.png)
+![Övervaknings nivåer](../media/overview/overview.png)
 
 
 ### <a name="azure"></a>Azure
-I följande tabell beskrivs kortfattat programskikt som är specifika för Azure. Följa länken för mer detaljerad information om på var och en i avsnitten nedan.
+I följande tabell beskrivs kortfattat de program nivåer som är specifika för Azure. Följ länken för mer information om var och en i avsnitten nedan.
 
-| Nivå | Beskrivning | Metod för insamling |
+| Nivå | Beskrivning | Samlings metod |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Information om driften av Azure på klientnivå-tjänster, till exempel Azure Active Directory. | Visa AAD-data i portalen eller konfigurera samlingen till Azure Monitor med hjälp av en diagnostikinställning för klienten. |
-| [Azure-prenumeration](#azure-subscription) | Data som rör hälsa och hanteringen av tjänster mellan resurser i Azure-prenumerationen, till exempel Resource Manager och Service Health. | Visa i portalen eller konfigurera samlingen till Azure Monitor med hjälp av en loggprofil för. |
-| [Azure-resurser](#azure-resources) |  Information om drift och prestanda för varje Azure-resurs. | Mått samlas in automatiskt, visa i Metrics Explorer.<br>Konfigurera diagnostikinställningar för att samla in loggar i Azure Monitor.<br>Övervakning av lösningar och insikter som är tillgänglig för mer detaljerad övervakning för specifika resurstyper. |
+| [Azure-klient](#azure-tenant) | Data om driften av Azure-tjänster på klient nivå, t. ex. Azure Active Directory. | Visa AAD-data i portalen eller konfigurera samlingen för att Azure Monitor med hjälp av en klient diagnos inställning. |
+| [Azure-prenumeration](#azure-subscription) | Data som rör hälsan och hantering av Cross-Resource-tjänster i din Azure-prenumeration, till exempel Resource Manager och Service Health. | Visa i portalen eller konfigurera samlingen för att Azure Monitor med hjälp av en logg profil. |
+| [Azure-resurser](#azure-resources) |  Data om drift och prestanda för varje Azure-resurs. | Mått som samlas in automatiskt, visas i Metrics Explorer.<br>Konfigurera diagnostikinställningar för att samla in loggar i Azure Monitor.<br>Övervaknings lösningar och insikter tillgängliga för mer detaljerad övervakning av särskilda resurs typer. |
 
-### <a name="azure-other-cloud-or-on-premises"></a>Azure, andra molnet eller lokalt 
-I följande tabell beskrivs kortfattat programskikt som kan vara i Azure, en annan molnet eller lokalt. Följa länken för mer detaljerad information om på var och en i avsnitten nedan.
+### <a name="azure-other-cloud-or-on-premises"></a>Azure, annat moln eller lokalt 
+I följande tabell beskrivs kortfattat de program nivåer som kan finnas i Azure, ett annat moln eller lokalt. Följ länken för mer information om var och en i avsnitten nedan.
 
-| Nivå | Beskrivning | Metod för insamling |
+| Nivå | Beskrivning | Samlings metod |
 |:---|:---|:---|
-| [Operativsystemet (Gäst)](#operating-system-guest) | Information om operativsystemet på beräkningsresurser. | Installera Log Analytics-agenten för att samla in klientdatakällor i Azure Monitor och beroende agenten att samla in beroenden som stöder Azure Monitor för virtuella datorer.<br>Installera Azure-Diagnostiktillägget för att samla in loggar och mått i Azure Monitor för Azure-datorer. |
-| [Programkod](#application-code) | Data om prestanda och funktionerna i själva programmet och kod, inklusive prestandaspårningar, programloggar och telemetri för användaren. | Instrumentera din kod för att samla in data till Application Insights. |
-| [Anpassade källor](#custom-sources) | Data från externa tjänster eller andra komponenter eller enheter. | Samla in logg-eller mått i Azure Monitor från alla REST-klient. |
+| [Operativ system (gäst)](#operating-system-guest) | Data om operativ systemet på beräknings resurser. | Installera Log Analytics agent för att samla in klient data källor i Azure Monitor och beroende agent för att samla in beroenden som stöder Azure Monitor for VMs.<br>För virtuella Azure-datorer installerar du Azure Diagnostic-tillägget för att samla in loggar och statistik i Azure Monitor. |
+| [Program kod](#application-code) | Data om prestanda och funktionalitet för det faktiska programmet och koden, inklusive prestanda spårning, program loggar och telemetri för användare. | Instrumentera din kod för att samla in data i Application Insights. |
+| [Anpassade källor](#custom-sources) | Data från externa tjänster eller andra komponenter eller enheter. | Samla in logg-eller mått data i Azure Monitor från alla REST-klienter. |
 
 ## <a name="azure-tenant"></a>Azure-klientorganisation
-Telemetri som är relaterade till din Azure-klient som samlas in från klienten som helhet tjänster som Azure Active Directory.
+Telemetri som är relaterade till din Azure-klient samlas in från klient-wide-tjänster som Azure Active Directory.
 
-![Azure-klient-samling](media/data-sources/tenant.png)
+![Azure-klient samling](media/data-sources/tenant.png)
 
-### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory med granskningsloggar
-[Azure Active Directory-rapportering](../../active-directory/reports-monitoring/overview-reports.md) innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient. 
+### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory gransknings loggar
+[Azure Active Directory rapportering](../../active-directory/reports-monitoring/overview-reports.md) innehåller historiken för inloggnings aktivitet och gransknings loggen för ändringar som gjorts inom en viss klient. 
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Azure Monitor-loggar | Konfigurera Azure AD-loggar som ska samlas in i Azure Monitor för att analysera dem med andra övervakningsdata. | [Integrera Azure AD-loggar med Azure Monitor-loggar (förhandsversion)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Exportera loggar för Azure AD till Azure Storage för arkivering. | [Självstudie: Arkivera Azure AD-loggar till ett Azure storage-konto (förhandsversion)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Händelsehubb | Stream Azure AD med loggar på andra platser med Event Hubs. | [Självstudie: Stream Azure Active Directory-loggar till en Azure event hub (förhandsversion)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Azure Monitor loggar | Konfigurera Azure AD-loggar som ska samlas in i Azure Monitor för att analysera dem med andra övervaknings data. | [Integrera Azure AD-loggar med Azure Monitor loggar (förhands granskning)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure Storage | Exportera Azure AD-loggar till Azure Storage för arkivering. | [Självstudier: Arkivera Azure AD-loggar till ett Azure Storage-konto (för hands version)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Händelsehubb | Strömma Azure AD-loggar till andra platser med hjälp av Event Hubs. | [Självstudier: Strömma Azure Active Directory loggar till en Azure Event Hub (för hands](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)version). |
 
 
 
 ## <a name="azure-subscription"></a>Azure-prenumeration
-Telemetri som rör hälsa och driften av din Azure-prenumeration.
+Telemetri som rör hälsan och driften av din Azure-prenumeration.
 
 ![Azure-prenumeration](media/data-sources/azure-subscription.png)
 
 ### <a name="azure-activity-log"></a>Azure-aktivitetslogg 
-Den [Azure-aktivitetsloggen](activity-logs-overview.md) innehåller tjänsten hälsojournaler tillsammans med poster på några konfigurationsändringar som gjorts till resurserna i din Azure-prenumeration. Aktivitetsloggen är tillgängligt för alla Azure-resurser och visar sina _externa_ vy.
+[Azure aktivitets loggen](activity-logs-overview.md) innehåller tjänst hälso poster tillsammans med poster om eventuella konfigurations ändringar som gjorts i resurserna i din Azure-prenumeration. Aktivitets loggen är tillgänglig för alla Azure-resurser och representerar deras _externa_ vy.
 
 | Mål | Beskrivning | Referens |
 |:---|:---|
-| Aktivitetslogg | Aktivitetsloggen har samlats in i sitt eget datalager som du kan visa på menyn Azure Monitor eller använda för att skapa aktivitetsloggaviseringar. | [Fråga i aktivitetsloggen i Azure portal](activity-log-view.md#azure-portal) |
-| Azure Monitor-loggar | Konfigurera Azure Monitor-loggar för att samla in aktivitetsloggen om du vill analysera den med andra övervakningsdata. | [Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsyta i Azure Monitor](activity-log-collect.md) |
-| Azure Storage | Exportera aktivitetsloggen till Azure Storage för arkivering. | [Arkivera aktivitetsloggen](activity-log-export.md#archive-activity-log)  |
-| Event Hubs | Stream aktivitetsloggen till andra platser med Event Hubs | [Stream aktivitetsloggen till Event Hub](activity-log-export.md#stream-activity-log-to-event-hub). |
+| Aktivitetslogg | Aktivitets loggen samlas in i ett eget data lager som du kan visa från Azure Monitor-menyn eller använda för att skapa aktivitets logg aviseringar. | [Fråga aktivitets loggen i Azure Portal](activity-log-view.md#azure-portal) |
+| Azure Monitor loggar | Konfigurera Azure Monitor loggar för att samla in aktivitets loggen för att analysera den med andra övervaknings data. | [Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](activity-log-collect.md) |
+| Azure Storage | Exportera aktivitets loggen till Azure Storage för arkivering. | [Arkivera aktivitets logg](activity-log-export.md#archive-activity-log)  |
+| Event Hubs | Strömma aktivitets loggen till andra platser med hjälp av Event Hubs | [Strömma aktivitets logg till händelsehubben](activity-log-export.md#stream-activity-log-to-event-hub). |
 
 ### <a name="azure-service-health"></a>Azure Service Health
-[Azure Service Health](../../service-health/service-health-overview.md) innehåller information om hälsotillståndet för Azure-tjänster i din prenumeration som ditt program och resurser som förlitar sig på.
+[Azure Service Health](../../service-health/service-health-overview.md) ger information om hälso tillståndet för de Azure-tjänster i din prenumeration som ditt program och dina resurser förlitar sig på.
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Aktivitetslogg<br>Azure Monitor-loggar | Tjänstehälsa poster lagras i Azure-aktivitetsloggen så att du kan visa dem i Azure-portalen eller utföra andra aktiviteter som du kan utföra med aktivitetsloggen. | [Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure Portal](service-notifications.md) |
+| Aktivitetslogg<br>Azure Monitor loggar | Service Health poster lagras i Azure aktivitets loggen så att du kan visa dem i Azure Portal eller utföra andra aktiviteter som du kan utföra med aktivitets loggen. | [Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure Portal](service-notifications.md) |
 
 
 ## <a name="azure-resources"></a>Azure-resurser
-Mått och resurs på diagnostikloggar ger information om den _interna_ driften av Azure-resurser. Dessa är tillgängliga för de flesta Azure-tjänster och övervakning lösningar och insikter kan du samla in ytterligare data för specifika tjänster.
+Mått och diagnostiska loggar på resurs nivå ger information om den _interna_ driften av Azure-resurser. De är tillgängliga för de flesta Azure-tjänster och övervaknings lösningar och insikter samlar in ytterligare data för specifika tjänster.
 
-![Azure resurssamling](media/data-sources/azure-resources.png)
+![Azure-resurs samling](media/data-sources/azure-resources.png)
 
 
-### <a name="platform-metrics"></a>Plattformen mått 
-De flesta Azure-tjänster skickar [plattform mått](data-platform-metrics.md) som motsvarar deras prestanda och åtgärd direkt till mått-databasen. Specifikt [mått kan variera för varje typ av resurs](metrics-supported.md). 
+### <a name="platform-metrics"></a>Plattforms mått 
+De flesta Azure-tjänster skickar [plattforms mått](data-platform-metrics.md) som återspeglar deras prestanda och drift direkt till mått databasen. De angivna [måtten varierar för varje typ av resurs](metrics-supported.md). 
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Azure Monitor-mått | Plattformen mått skriver till Azure Monitor metrics databasen utan konfiguration. Åtkomst-plattformen mått från Metrics Explorer.  | [Komma igång med Azure Metrics Explorer](metrics-getting-started.md)<br>[Mått som stöds med Azure Monitor](metrics-supported.md) |
-| Azure Monitor-loggar | Kopiera plattform mått till loggar för analys för populära och andra som använder Log Analytics. | [Azure Diagnostics-data direkt till Log Analytics](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) |
-| Event Hubs | Stream mått till andra platser med Event Hubs. |[Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg](stream-monitoring-data-event-hubs.md) |
+| Azure Monitor mått | Plattforms mått skrivs till Azure Monitor Metrics-databasen utan konfiguration. Få åtkomst till plattforms mått från Metrics Explorer.  | [Komma igång med Azure Metrics Explorer](metrics-getting-started.md)<br>[Mått som stöds med Azure Monitor](metrics-supported.md) |
+| Azure Monitor loggar | Kopiera plattforms mått till loggar för utveckling och annan analys med hjälp av Log Analytics. | [Azure Diagnostics Direct till Log Analytics](diagnostic-logs-stream-log-store.md) |
+| Event Hubs | Strömma mått till andra platser med hjälp av Event Hubs. |[Strömma Azure övervaknings data till en Event Hub för användning av ett externt verktyg](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
-[Diagnostikloggar](diagnostic-logs-overview.md) ge insikter om den _interna_ driften av en Azure-resurs.  Diagnostikloggar är inte aktiverade som standard. Du måste aktivera dem och ange ett mål för varje resurs. 
+[Diagnostikloggar](diagnostic-logs-overview.md) ger insikter om den _interna_ åtgärden för en Azure-resurs.  Diagnostikloggar är inte aktiverade som standard. Du måste aktivera dem och ange ett mål för varje resurs. 
 
-Krav och innehållet i diagnostikloggar varierar beroende på resurstyp och alla tjänster ännu skapa diagnostikloggar. Se [tjänster, scheman och kategorier som stöds för diagnostikloggar för Azure](diagnostic-logs-schema.md) mer information om varje tjänst och länkar till detaljerad konfigurationsprocedurer. Om tjänsten inte visas i den här artikeln och sedan tjänsten för närvarande inte skriva till diagnostikloggar.
-
-| Mål | Beskrivning | Referens |
-|:---|:---|:---|
-| Azure Monitor-loggar | Skicka diagnostikloggar till Azure Monitor-loggar för analys med andra insamlade loggdata. Vissa resurser kan skriva direkt till Azure Monitor medan andra skriva till ett lagringskonto innan som importeras till en Log Analytics-arbetsyta. | [Stream, Azure-diagnostikloggar till Log Analytics-arbetsyta i Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[Använd Azure portal för att samla in loggar från Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
-| Storage | Skicka diagnostik loggar till Azure Storage för arkivering. | [Arkivera Azure diagnostikloggar](archive-diagnostic-logs.md) |
-| Event Hubs | Stream diagnostikloggar till andra platser med Event Hubs. |[Stream, Azure-diagnostikloggar till en händelsehubb](diagnostic-logs-stream-event-hubs.md) |
-
-## <a name="operating-system-guest"></a>Operativsystemet (Gäst)
-Beräkningsresurser i Azure, i andra moln och lokala har ett gästoperativsystem som du övervakar. Med installationen av en eller flera agenter kan du samla in telemetri från gästen i Azure Monitor för att analysera den med samma övervakningsverktyg som Azure-tjänsterna själva.
-
-![Azure-beräkning resurssamling](media/data-sources/compute-resources.png)
-
-### <a name="azure-diagnostic-extension"></a>Azure-diagnostiktillägget
-Aktiverar Azure Diagnostics-tillägg för virtuella datorer med Azure kan du samla in loggar och mått från gästoperativsystemet för Azure-beräkningsresurser, inklusive Azure Cloud Service (klassisk) rollerna Web och Worker, virtuella datorer, virtuella datorn skalningsuppsättningar och Service Fabric.
+Konfigurations kraven och innehållet i diagnostikloggar varierar beroende på resurs typ och alla tjänster har ännu inte skapat diagnostikloggar. Se [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](diagnostic-logs-schema.md) för information om varje tjänst och länkar till detaljerade konfigurations procedurer. Om tjänsten inte finns med i listan i den här artikeln, skrivs den tjänsten för närvarande inte till diagnostikloggar.
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Storage | När du aktiverar Diagnostics-tillägg kan skriver den till ett lagringskonto som standard. | [Lagra och visa diagnostikdata i Azure Storage](diagnostics-extension-to-storage.md) |
-| Azure Monitor-mått | När du konfigurerar Diagnostics-tillägg för att samla in prestandaräknare, skrivs de till databasen för Azure Monitor-mått. | [Skicka gäst-OS mått av Azure Monitor-måtten lagra med en Resource Manager-mall för en Windows-dator](collect-custom-metrics-guestos-resource-manager-vm.md) |
-| Application Insights-Logs | Samla in loggar och prestandaräknare från beräkningsresursen som stöder ditt program som ska analyseras med andra programdata. | [Skicka molntjänst, virtuell dator eller Service Fabric diagnostiska data till Application Insights](diagnostics-extension-to-application-insights.md) |
-| Event Hubs | Konfigurera Diagnostics-tillägg för att strömma data till andra platser med Event Hubs.  | [Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs](diagnostics-extension-stream-event-hubs.md) |
+| Azure Monitor loggar | Skicka diagnostikloggar till Azure Monitor loggar för analys med andra insamlade logg data. Vissa resurser kan skriva direkt till Azure Monitor medan andra skriver till ett lagrings konto innan de importeras till en Log Analytics-arbetsyta. | [Strömma Azure Diagnostic-loggar till Log Analytics arbets yta i Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[Använd Azure Portal för att samla in loggar från Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
+| Storage | Skicka diagnostikloggar till Azure Storage för arkivering. | [Arkivera Azure Diagnostic-loggar](archive-diagnostic-logs.md) |
+| Event Hubs | Strömma diagnostikloggar till andra platser med hjälp av Event Hubs. |[Strömma Azure Diagnostic-loggar till en Event Hub](diagnostic-logs-stream-event-hubs.md) |
 
-### <a name="log-analytics-agent"></a>Log Analytics-agenten 
-Installera Log Analytics-agenten för omfattande övervakning och hantering av Windows- eller Linux-datorer. Den virtuella datorn kan köras i Azure, en annan molnet eller lokalt.
+## <a name="operating-system-guest"></a>Operativ system (gäst)
+Beräknings resurser i Azure, i andra moln och lokalt har ett gäst operativ system att övervaka. Med installationen av en eller flera agenter kan du samla in telemetri från gästen i Azure Monitor för att analysera den med samma övervaknings verktyg som själva Azure-tjänsterna.
+
+![Azure Compute Resource-samling](media/data-sources/compute-resources.png)
+
+### <a name="azure-diagnostic-extension"></a>Azure Diagnostic-tillägg
+Genom att aktivera Azure-diagnostik-tillägget för virtuella Azure-datorer kan du samla in loggar och mått från gäst operativ systemet i Azure Compute-resurser, inklusive Azure Cloud Service (klassisk) webb-och arbets roller, Virtual Machines, virtuell dator skalnings uppsättningar och Service Fabric.
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Azure Monitor-loggar | Log Analytics-agenten ansluter till Azure övervaka antingen direkt eller via System Center Operations Manager och kan du samla in data från datakällor som du konfigurerar eller övervakningslösningar som tillhandahåller ytterligare insikter i program körs på den virtuella datorn. | [Agent-datakällor i Azure Monitor](agent-data-sources.md)<br>[Ansluta Operations Manager till Azure Monitor](om-agents.md) |
+| Storage | När du aktiverar Diagnostics-tillägget skrivs det till ett lagrings konto som standard. | [Lagra och visa diagnostikdata i Azure Storage](diagnostics-extension-to-storage.md) |
+| Azure Monitor mått | När du konfigurerar Diagnostics-tillägget för att samla in prestanda räknare skrivs de till Azure Monitor Metrics-databasen. | [Skicka gäst operativ systemets mått till Azure Monitor Metric Store med hjälp av en Resource Manager-mall för en virtuell Windows-dator](collect-custom-metrics-guestos-resource-manager-vm.md) |
+| Application Insights loggar | Samla in loggar och prestanda räknare från beräknings resursen som stöder ditt program så att det kan analyseras med andra program data. | [Skicka data från moln tjänst, virtuell dator eller Service Fabric diagnostikdata till Application Insights](diagnostics-extension-to-application-insights.md) |
+| Event Hubs | Konfigurera diagnostik-tillägget för att strömma data till andra platser med hjälp av Event Hubs.  | [Strömma Azure-diagnostik data i den aktiva sökvägen med Event Hubs](diagnostics-extension-stream-event-hubs.md) |
+
+### <a name="log-analytics-agent"></a>Log Analytics agent 
+Installera Log Analytics agent för omfattande övervakning och hantering av dina virtuella Windows-eller Linux-datorer. Den virtuella datorn kan köras i Azure, ett annat moln eller lokalt.
+
+| Mål | Beskrivning | Referens |
+|:---|:---|:---|
+| Azure Monitor loggar | Log Analytics-agenten ansluter till Azure Monitor antingen direkt eller via System Center Operations Manager och gör att du kan samla in data från data källor som du konfigurerar eller från att övervaka lösningar som ger ytterligare insikter om program körs på den virtuella datorn. | [Agent data källor i Azure Monitor](agent-data-sources.md)<br>[Anslut Operations Manager till Azure Monitor](om-agents.md) |
 
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer 
-[Azure Monitor för virtuella datorer](../insights/vminsights-overview.md) tillhandahåller en anpassad övervakning för virtuella datorer som tillhandahåller funktioner utöver Azure Monitor av huvudfunktioner, inklusive status för tjänsten och VM-hälsa. Det krävs en Beroendeagenten för Windows och Linux-datorer som kan integreras med Log Analytics-agenten för att samla in identifierade data om processer som körs på den virtuella datorn och en extern Processberoenden.
+[Azure Monitor for VMS](../insights/vminsights-overview.md) ger en anpassad övervaknings upplevelse för virtuella datorer som tillhandahåller funktioner utöver Core Azure Monitor funktioner, inklusive tjänst status och VM-hälsa. Det krävs en Dependency Agent på virtuella Windows-och Linux-datorer som integreras med Log Analytics-agenten för att samla in identifierade data om processer som körs på den virtuella datorn och externa process beroenden.
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Azure Monitor-loggar | Lagrar data om processer och beroenden på agenten. | [Med Azure Monitor för virtuella datorer (förhandsversion) kartan för att förstå programkomponenter](../insights/vminsights-maps.md) |
-| VM-lagring | Azure Monitor för virtuella datorer lagrar information om hälsoavsökning tillstånd på en annan plats. Detta är endast tillgängliga i Azure Monitor för virtuella datorer i Azure-portalen utöver den [Azure Resource health REST API](/rest/api/resourcehealth/). | [Förstå hälsotillståndet för virtuella datorer i Azure](../insights/vminsights-health.md)<br>[Azure Resource health REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
+| Azure Monitor loggar | Lagrar data om processer och beroenden på agenten. | [Använda Azure Monitor for VMs (för hands version) karta för att förstå program komponenter](../insights/vminsights-maps.md) |
+| VM-lagring | Azure Monitor for VMs lagrar information om hälso-tillstånd på en anpassad plats. Detta är endast tillgängligt för Azure Monitor for VMs i Azure Portal utöver [Azure Resource Health-REST API](/rest/api/resourcehealth/). | [Förstå hälso tillståndet för dina virtuella Azure-datorer](../insights/vminsights-health.md)<br>[Azure Resource Health-REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 
-## <a name="application-code"></a>Programkod
-Detaljerad programövervakning i Azure Monitor är klar med [Application Insights](https://docs.microsoft.com/azure/application-insights/) som samlar in data från program som körs på en rad olika plattformar. Programmet kan köras i Azure, en annan molnet eller lokalt.
+## <a name="application-code"></a>Program kod
+Detaljerad program övervakning i Azure Monitor görs med [Application Insights](https://docs.microsoft.com/azure/application-insights/) som samlar in data från program som körs på en mängd olika plattformar. Programmet kan köras i Azure, ett annat moln eller lokalt.
 
-![Programdatainsamling](media/data-sources/applications.png)
+![Insamling av program data](media/data-sources/applications.png)
 
 
 ### <a name="application-data"></a>Programdata
-När du aktiverar Application Insights för ett program genom att installera en instrumentationspaket samlar det in mått och loggar som relaterar till prestanda och driften av programmet. Application Insights lagrar data som samlas in i samma Azure Monitor-dataplattformen som används av andra datakällor. Den innehåller omfattande verktyg för att analysera data, men du kan också analysera den med data från andra källor med hjälp av verktyg, till exempel Metrics Explorer och Log Analytics.
+När du aktiverar Application Insights för ett program genom att installera ett Instrumentation-paket samlar det in statistik och loggar som rör programmets prestanda och funktion. Application Insights lagrar de data som samlas in i samma Azure Monitor data plattform som används av andra data källor. Den innehåller omfattande verktyg för analys av dessa data, men du kan också analysera dem med data från andra källor med hjälp av verktyg som Metrics Explorer och Log Analytics.
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Azure Monitor-loggar | Användningsdata om ditt program, inklusive sidvisningar, programförfrågningar, undantag och spår. | [Analysera loggdata i Azure Monitor](../log-query/log-query-overview.md) |
-|                    | Beroendeinformation mellan programkomponenter som ska stödja programavbildning och telemetrikorrelation. | [Telemetrikorrelation i Application Insights](../app/correlation.md) <br> [Programkarta](../app/app-map.md) |
-|            | Resultaten av tillgänglighetstester som testar tillgängligheten och svarstiden för programmet från olika platser på Internet. | [Övervaka tillgänglighet och svarstider på valfri webbplats](../app/monitor-web-app-availability.md) |
-| Azure Monitor-mått | Application Insights samlar in mått som beskriver prestanda och driften av programmet utöver anpassade mått som du definierar i ditt program i Azure Monitor metrics-databasen. | [Loggbaserade och preaggregeras mått i Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights API för anpassade händelser och mått](../app/api-custom-events-metrics.md) |
-| Azure Storage | Skicka programdata till Azure Storage för arkivering. | [Exportera telemetri från Application Insights](../app/export-telemetry.md) |
-|            | Information om tillgänglighetstester lagras i Azure Storage. Använd Application Insights i Azure-portalen för lokala analys. Resultaten av tillgänglighetstester lagras i Azure Monitor-loggar. | [Övervaka tillgänglighet och svarstider på valfri webbplats](../app/monitor-web-app-availability.md) |
-|            | Profiler-spårningsdata lagras i Azure Storage. Använd Application Insights i Azure-portalen för lokala analys.  | [Profilen produktionsprogram i Azure med Application Insights](../app/profiler-overview.md) 
-|            | Felsök ögonblicksbild data som samlas in för en delmängd av undantag som är lagrade i Azure Storage. Använd Application Insights i Azure-portalen för lokala analys.  | [Så här fungerar ögonblicksbilder](../app/snapshot-debugger.md#how-snapshots-work) |
+| Azure Monitor loggar | Användnings data om ditt program, till exempel sidvyer, program begär Anden, undantag och spår. | [Analysera loggdata i Azure Monitor](../log-query/log-query-overview.md) |
+|                    | Beroende information mellan program komponenter för att stödja program mappning och telemetri korrelation. | [Telemetri korrelation i Application Insights](../app/correlation.md) <br> [Programkarta](../app/app-map.md) |
+|            | Resultat av tillgänglighets test som testar tillgänglighet och svars tider för ditt program från olika platser på det offentliga Internet. | [Övervaka tillgänglighet och svarstider på valfri webbplats](../app/monitor-web-app-availability.md) |
+| Azure Monitor mått | Application Insights samlar in Mät värden som beskriver programmets prestanda och funktion förutom anpassade mått som du definierar i ditt program i Azure Monitor Metrics-databasen. | [Log-baserade och föraggregerade mått i Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights-API för anpassade händelser och mått](../app/api-custom-events-metrics.md) |
+| Azure Storage | Skicka program data till Azure Storage för arkivering. | [Exportera telemetri från Application Insights](../app/export-telemetry.md) |
+|            | Information om tillgänglighets test lagras i Azure Storage. Använd Application Insights i Azure Portal för att ladda ned för lokal analys. Resultaten av tillgänglighets test lagras i Azure Monitor loggar. | [Övervaka tillgänglighet och svarstider på valfri webbplats](../app/monitor-web-app-availability.md) |
+|            | Spårnings data för profiler lagras i Azure Storage. Använd Application Insights i Azure Portal för att ladda ned för lokal analys.  | [Profilera produktions program i Azure med Application Insights](../app/profiler-overview.md) 
+|            | Fel sökning av ögonblicks bild data som samlas in för en delmängd av undantag lagras i Azure Storage. Använd Application Insights i Azure Portal för att ladda ned för lokal analys.  | [Hur ögonblicks bilder fungerar](../app/snapshot-debugger.md#how-snapshots-work) |
 
-## <a name="monitoring-solutions-and-insights"></a>Övervakningslösningar och insikter
-[Övervakningslösningar](../insights/solutions.md) och [Insights](../insights/insights-overview.md) samla in data för att tillhandahålla ytterligare insikter i driften av en viss tjänst eller ett program. De kan hantera resurser i olika programnivåer och även flera nivåer.
+## <a name="monitoring-solutions-and-insights"></a>Övervaknings lösningar och insikter
+[Övervaknings lösningar](../insights/solutions.md) och [](../insights/insights-overview.md) insikter samlar in data för att ge ytterligare insikter om driften av en viss tjänst eller ett visst program. De kan rikta in sig på resurser på olika program nivåer och till och med flera nivåer.
 
 ### <a name="monitoring-solutions"></a>Övervakningslösningar
 
 | Mål | Beskrivning | Referens
 |:---|:---|:---|
-| Azure Monitor-loggar | Övervakningslösningar samla in data till Azure Monitor-loggar där det kan vara analyseras med hjälp av frågespråket eller [vyer](view-designer.md) som vanligtvis ingår i lösningen. | [Information om samlingen för att övervaka lösningar i Azure](../insights/solutions-inventory.md) |
+| Azure Monitor loggar | Övervaknings lösningar samlar in data i Azure Monitor loggar där de kan analyseras med hjälp av frågespråket eller [vyer](view-designer.md) som vanligt vis ingår i lösningen. | [Information om data insamling för övervakning av lösningar i Azure](../insights/solutions-inventory.md) |
 
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor för behållare
-[Azure Monitor för behållare](../insights/container-insights-overview.md) får du en anpassad övervakning för [Azure Kubernetes Service (AKS)](/azure/aks/). Den samlar in ytterligare information om dessa resurser som beskrivs i följande tabell.
+[Azure Monitor for containers](../insights/container-insights-overview.md) innehåller en anpassad övervaknings upplevelse för [Azure KUBERNETES service (AKS)](/azure/aks/). Den samlar in ytterligare data om de här resurserna som beskrivs i följande tabell.
 
 | Mål | Beskrivning | Referens |
 |:---|:---|:---|
-| Azure Monitor-loggar | Butiker övervakningsdata för AKS inklusive inventering, loggar och händelser. Måttdata lagras också i loggarna för att kunna utnyttja dess analysfunktionerna i portalen. | [Förstå prestandan för AKS-kluster med Azure Monitor för containrar](../insights/container-insights-analyze.md) |
-| Azure Monitor-mått | Måttdata lagras i databasen för mått att enheten visualisering och aviseringar. | [Visa behållaren mått i metrics explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes Service | I ordning till en näst intill realtid upplevelse anger data direkt från Azure Kubernetes service i Azure Monitor för behållare i Azure-portalen. | [Visa containerloggar i realtid med Azure Monitor för containrar (förhandsversion)](../insights/container-insights-live-logs.md) |
+| Azure Monitor loggar | Lagrar övervaknings data för AKS, inklusive inventering, loggar och händelser. Mått data lagras också i loggar för att utnyttja dess analys funktioner i portalen. | [Förstå prestandan för AKS-kluster med Azure Monitor för containrar](../insights/container-insights-analyze.md) |
+| Azure Monitor mått | Mått data lagras i mått databasen för att driva visualisering och aviseringar. | [Visa behållar mått i Metrics Explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
+| Azure Kubernetes Service | För att få en nära real tids upplevelse visar Azure Monitor för behållare data direkt från Azure Kubernetes-tjänsten i Azure Portal. | [Visa containerloggar i realtid med Azure Monitor för containrar (förhandsversion)](../insights/container-insights-live-logs.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
-[Azure Monitor för virtuella datorer](../insights/vminsights-overview.md) tillhandahåller en anpassad upplevelse för övervakning av virtuella datorer. En beskrivning av data som samlas in av Azure Monitor för virtuella datorer som ingår i den [operativsystem (Gäst)](#operating-system-guest) ovan.
+[Azure Monitor for VMS](../insights/vminsights-overview.md) ger en anpassad upplevelse för övervakning av virtuella datorer. En beskrivning av de data som samlas in av Azure Monitor for VMs ingår i avsnittet [operativ system (gäst)](#operating-system-guest) ovan.
 
 ## <a name="custom-sources"></a>Anpassade källor
-Förutom standardnivån för ett program, kan du behöva övervaka andra resurser som har telemetri som inte kan samlas in med andra datakällor. Skriva dessa data till mått eller loggar med ett Azure Monitor-API för dessa resurser.
+Förutom standard nivåerna för ett program kan du behöva övervaka andra resurser som har telemetri som inte kan samlas in med andra data källor. För dessa resurser skriver du dessa data till antingen mått eller loggar med hjälp av en Azure Monitor-API.
 
-![Anpassad insamling](media/data-sources/custom.png)
+![Anpassad samling](media/data-sources/custom.png)
 
 | Mål | Metod | Beskrivning | Referens |
 |:---|:---|:---|:---|
-| Azure Monitor-loggar | API för datainsamling | Samla in loggdata från en REST-klient och lagra i Log Analytics-arbetsyta. | [Skicka data till Azure Monitor med HTTP Data Collector API (förhandsversion)](data-collector-api.md) |
-| Azure Monitor-mått | Anpassade mått-API | Samlar in mätvärden från alla REST-klient och lagra i Azure Monitor metrics-databasen. | [Skicka anpassade mått för en Azure-resurs till arkivet som Azure Monitor-mått med hjälp av ett REST-API](metrics-store-custom-rest-api.md) |
+| Azure Monitor loggar | API för datainsamling | Samla in loggdata från alla REST-klienter och lagra dem på Log Analytics arbets ytan. | [Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)](data-collector-api.md) |
+| Azure Monitor mått | API för anpassade mått | Samla in mått data från alla REST-klienter och lagra i Azure Monitor Metrics-databasen. | [Skicka anpassade mått för en Azure-resurs till Azure Monitor mått lagret med hjälp av en REST API](metrics-store-custom-rest-api.md) |
 
 
 ## <a name="other-services"></a>Övriga tjänster
-Andra tjänster i Azure skriva data till Azure Monitor-dataplattform. På så sätt kan du analysera data som samlas in av dessa tjänster med data som samlas in av Azure Monitor och utnyttja samma analys- och visualiseringsverktyg.
+Andra tjänster i Azure skriver data till Azure Monitor data plattform. På så sätt kan du analysera data som samlas in av dessa tjänster med data som samlas in av Azure Monitor och utnyttjar samma verktyg för analys och visualisering.
 
-| Tjänst | Mål | Beskrivning | Referens |
+| Tjänsten | Mål | Beskrivning | Referens |
 |:---|:---|:---|:---|
-| [Azure Security Center](/azure/security-center/) | Azure Monitor-loggar | Azure Security Center lagrar de säkerhetsdata som samlas in i en Log Analytics-arbetsyta som gör att de kan analyseras med andra loggdata som samlas in av Azure Monitor.  | [Datainsamling i Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
-| [Azure Sentinel](/azure/sentinel/) | Azure Monitor-loggar | Azure Sentinel lagrar data som samlas in från olika datakällor i en Log Analytics-arbetsyta som gör att de kan analyseras med andra loggdata som samlas in av Azure Monitor.  | [Ansluta datakällor](/azure/sentinel/quickstart-onboard) |
+| [Azure Security Center](/azure/security-center/) | Azure Monitor loggar | Azure Security Center lagrar säkerhets data som samlas in på en Log Analytics arbets yta, vilket gör att den kan analyseras med andra loggdata som samlas in av Azure Monitor.  | [Datainsamling i Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
+| [Azure Sentinel](/azure/sentinel/) | Azure Monitor loggar | Azure Sentinel lagrar data som samlas in från olika data källor på en Log Analytics arbets yta, vilket gör att den kan analyseras med andra loggdata som samlas in av Azure Monitor.  | [Anslut data källor](/azure/sentinel/quickstart-onboard) |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om den [typerna av övervakningsdata som samlas in av Azure Monitor](data-platform.md) och hur du visar och analyserar dessa data.
-- Lista de [olika platser där Azure-resurser datalagring](data-locations.md) och hur du kommer åt den. 
+- Läs mer om de [typer av övervaknings data som samlas in av Azure Monitor](data-platform.md) och hur du visar och analyserar dessa data.
+- Ange [olika platser där Azure-resurser lagrar data](data-locations.md) och hur du kan komma åt dem. 

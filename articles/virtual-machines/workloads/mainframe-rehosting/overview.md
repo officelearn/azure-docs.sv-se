@@ -1,6 +1,6 @@
 ---
-title: Stordatorprogram rehosting på Azure virtual machines
-description: Ange ny värd för din stordatorprogram arbetsbelastningar som till exempel IBM Z-baserade system använder virtuella datorer (VM) i Microsoft Azure.
+title: Omvärdering av stordator på Azure Virtual Machines
+description: Revara värd för dina stordator arbets belastningar, till exempel IBM Z-baserade system med virtuella datorer (VM) på Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -10,116 +10,116 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: c1d7b52bdce77ca108781a999a8a85b3e3fca0b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487481"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305855"
 ---
-# <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Stordatorprogram rehosting på Azure virtual machines
+# <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Omvärdering av stordator på Azure Virtual Machines
 
-Migrera arbetsbelastningar från stordatorprogram miljöer till molnet kan du modernisera din infrastruktur och ofta sänka kostnaderna. Många arbetsbelastningar kan överföras till Azure med bara mindre ändringar i koden, till exempel att uppdatera namnen på databaser.
+Genom att migrera arbets belastningar från stordator miljöer till molnet kan du modernisera infrastrukturen och ofta Spara pengar. Många arbets belastningar kan överföras till Azure med bara smärre kod ändringar, till exempel uppdatering av namn på databaser.
 
-Normalt sett, termen *stordatorprogram* innebär en stor datorsystem. Flesta används för tillfället är mer specifikt IBM System Z-servrar eller IBM plug-compatible system som kör MVS, DOS, VSE, OS/390 eller z/OS.
+I allmänhet kan termen *stordatorer* betyda ett stort dator system. Mer specifikt är den enorma majoriteten som används för närvarande IBM-system Z-servrar eller IBM plug-kompatibla system som kör MVS, DOS, VSE, OS/390 eller Z/OS.
 
-En Azure-dator (VM) används för att isolera och hantera resurser för ett visst program på en enda instans. Stordatorer, till exempel IBM z/OS använder logiska partitioner (LPARS) för detta ändamål. En stordatorprogram kan använda en LPAR för CICS region med associerade COBOL program och en separat LPAR för IBM Db2-databas. En typisk [program på n-nivå på Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server) distribuerar virtuella Azure-datorer till ett virtuellt nätverk som kan segmenteras i undernät för varje nivå.
+En virtuell Azure-dator (VM) används för att isolera och hantera resurser för ett visst program på en enda instans. Stordatorer som IBM z/OS använder logiska partitioner (LPARS) för detta ändamål. En stordator kan använda en LPAR för en CICS-region med tillhör ande COBOL-program och en separat LPAR för IBM DB2-databasen. Ett typiskt [n-Tier-program på Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server) distribuerar virtuella Azure-datorer till ett virtuellt nätverk som kan segmenteras i undernät för varje nivå.
 
-Virtuella Azure-datorer kan köra stordatorprogram emulering miljöer och kompilatorer som har stöd för lift and shift-scenarier. Utveckling och testning är ofta bland de första arbetsbelastningarna du migrerar från en stordatorprogram till ett Azure dev/test-miljö. Serverkomponenter som du kan emulera innehålla online transaction-processen (OLTP), batch och system för inmatning av data som visas i följande bild.
+Virtuella Azure-datorer kan köra stordator-emuleringsklienter och kompilatorer som stöder lyft och Skift-scenarier. Utveckling och testning är ofta bland de första arbets belastningarna som migreras från en stordator till en Azure dev/test-miljö. Vanliga Server komponenter som du kan emulera inkluderar OLTP-, batch-och data inmatnings system som visas i följande bild.
 
-![Emulering miljöer i Azure kan du köra z/OS-baserade system.](media/01-overview.png)
+![Emuleringsklienter i Azure gör det möjligt att köra z/OS-baserade system.](media/01-overview.png)
 
-Vissa stordatorprogram arbetsbelastningar kan migreras till Azure utan större besvär, medan andra kan rehosted på Azure med hjälp av en partnerlösning. Detaljerade anvisningar om hur du väljer en partnerlösning i [Azure Stordatormigrering center](https://azure.microsoft.com/migration/mainframe/) kan hjälpa.
+Vissa stordator arbets belastningar kan migreras till Azure med relativt enkelt, medan andra kan vara värd för Azure med hjälp av en partner lösning. För detaljerad information om hur du väljer en partner lösning, kan Azures stordatorer- [flyttnings Center](https://azure.microsoft.com/migration/mainframe/) hjälpa dig.
 
 ## <a name="mainframe-migration"></a>Stordatormigrering
 
-Rehost, återskapa, ersätta eller ta ur bruk? IaaS och PaaS? För att fastställa rätt migreringsstrategi för programmets stordatorprogram se den [stordatormigrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) guide i Azure Architecture Center.
+Rehost, återskapa, ersätta eller ta ur bruk? IaaS eller PaaS? För att fastställa rätt migrations strategi för stordator programmet, se Guide [](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) för stordatorer i Azure Architecture Center.
 
-## <a name="micro-focus-rehosting-platform"></a>Micro fokus rehosting plattform
+## <a name="micro-focus-rehosting-platform"></a>Omvärdering av Micro Focus-plattform
 
-Micro fokus Enterprise Server är en av de största stordatorprogram rehosting finns tillgängliga. Du kan använda den kör z/OS-arbetsbelastningar på en billigare x86 platform på Azure.
+Micro Focus Enterprise Server är en av de största plattformarna som är tillgängliga för stordator värdar. Du kan använda den för att köra dina arbets belastningar i z/OS på en billigare x86-plattform på Azure.
 
 Så här kommer du igång:
 
-- [Installera Enterprise Server och företagsutvecklare på Azure](./microfocus/set-up-micro-focus-azure.md)
-- [Konfigurera CICS BankDemo för företagsutvecklare på Azure](./microfocus/demo.md)
-- [Kör företagsservern i en Docker-behållare i Azure](./microfocus/run-enterprise-server-container.md)
+- [Installera Enterprise Server och Enterprise Developer på Azure](./microfocus/set-up-micro-focus-azure.md)
+- [Konfigurera CICS BankDemo för företags utvecklare på Azure](./microfocus/demo.md)
+- [Kör Enterprise Server i en Docker-behållare på Azure](./microfocus/run-enterprise-server-container.md)
 
 
 ## <a name="tmaxsoft-openframe-on-azure"></a>TmaxSoft OpenFrame på Azure
 
-TmaxSoft OpenFrame är en populär stordatorprogram rehosting lösning som används i lift and shift-scenarier. En OpenFrame miljö på Azure är lämplig för utveckling, demonstrationer, testning eller produktionsarbetsbelastningar.
+TmaxSoft OpenFrame är en populär lösning för att revärda stordatorer som används i hiss-och-Shift-scenarier. En OpenFrame-miljö i Azure är lämplig för utveckling, demonstrationer, testning eller produktions arbets belastningar.
 
 Så här kommer du igång:
 
 - [Kom igång med TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Ladda ned e-boken](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
+- [Ladda ned eBook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
 
-## <a name="ibm-zdt-120"></a>IBM zD&T 12.0
+## <a name="ibm-zdt-120"></a>IBM zD & T 12,0
 
-IBM Z Development och Test-miljö (IBM zD & T) ställer du in en icke-produktionsmiljö på Azure som du kan använda för utveckling, testning och demonstrationer av z/OS-baserade program.
+IBM Z-utveckling och test miljö (IBM zD & T) konfigurerar en icke-produktions miljö på Azure som du kan använda för utveckling, testning och demonstrationer av Z/OS-baserade program.
 
-Emulering miljön i Azure kan vara värd för olika typer av Z-instanser via programmet utvecklare kontrolleras distributioner (ADCDs). Du kan köra zD & T Personal Edition, zD & T parallella Sysplex, och zD & T Enterprise Edition på Azure och Azure Stack.
+Emulerings miljön på Azure kan vara värd för olika typer av Z-instanser via programutvecklare kontrollerade distributioner (ADCDs). Du kan köra zD & T personal Edition, zD & T Parallel Sysplex och zD & T Enterprise Edition på Azure och Azure Stack.
 
 Så här kommer du igång:
 
-- [Konfigurera IBM zD & T 12.0 på Azure](./ibm/install-ibm-z-environment.md)
+- [Konfigurera IBM zD & T 12,0 på Azure](./ibm/install-ibm-z-environment.md)
 - [Konfigurera ADCD på zD & T](./ibm/demo.md)
 
-## <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale på Azure
+## <a name="ibm-db2-purescale-on-azure"></a>IBM DB2-pureScale på Azure
 
-IBM DB2 pureScale miljön innehåller ett databas-kluster för Azure. Det är inte identiska med den ursprungliga miljön, men det ger liknande tillgänglighet och skalbarhet som IBM DB2 för z/OS som körs i en parallell Sysplex-installationsprogrammet.
+IBM DB2 pureScale-miljön tillhandahåller ett databas kluster för Azure. Den är inte identisk med den ursprungliga miljön, men den ger liknande tillgänglighet och skalning som IBM DB2 för z/OS som körs i en parallell Sysplex-installation.
 
-Kom igång genom att se [IBM DB2 pureScale på Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
+För att komma igång, se [IBM DB2 pureScale på Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
 
 ## <a name="considerations"></a>Överväganden
 
-När du migrerar stordatorprogram arbetsbelastningar till Azure-infrastrukturen som en tjänst (IaaS), kan du välja från flera typer av behovsbaserade och skalbara datorresurser, inklusive Azure virtuella datorer. Azure erbjuder en mängd [Linux](/azure/virtual-machines/linux/overview) och [Windows](/azure/virtual-machines/windows/overview) virtuella datorer.
+När du migrerar stordator belastningar till Azure Infrastructure as a Service (IaaS) kan du välja mellan flera olika typer av skalbara dator resurser på begäran, inklusive virtuella Azure-datorer. Azure erbjuder en rad virtuella [Linux](/azure/virtual-machines/linux/overview) -och [Windows](/azure/virtual-machines/windows/overview) -datorer.
 
 ### <a name="compute"></a>Compute
 
-Azure beräkningskraft jämför positivt till en stordatorprogram kapacitet. Om du funderar på att flytta en stordatorprogram arbetsbelastning till Azure, jämför stordatorprogram måttet en miljon instruktioner per sekund (MIPS) till virtuella processorer. 
+Azure Compute Power jämför favorably med en stordator kapacitet. Om du tänker flytta en stordator till Azure ska du jämföra stordator måttet med 1 000 000-instruktioner per sekund (MIPS) till virtuella processorer. 
 
-Lär dig hur du [flytta beräkning av stordatorprogram till Azure](./concepts/mainframe-compute-azure.md).
+Lär dig hur du [flyttar stordator beräkning till Azure](./concepts/mainframe-compute-azure.md).
 
 ### <a name="high-availability-and-failover"></a>Hög tillgänglighet och redundans
 
-Azure erbjuder åtagande-baserade servicenivåavtal (SLA). Flera nines tillgänglighet är standard och serviceavtal kan optimeras med lokal eller platsbaserade replikering av tjänster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
+Azure erbjuder utfästelsebaserade service nivå avtal (service avtal). Multiple-nio tillgänglighet är standard, och service avtal kan optimeras med lokal eller geo-baserad replikering av tjänster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
-Med Azure IaaS, till exempel en virtuell dator, specifika systemfunktioner tillhandahålla stöd för redundans, till exempel redundanskluster instanser och [tillgänglighetsuppsättningar](/azure/virtual-machines/windows/regions-and-availability#availability-sets). När du använder Azure-plattformen som en tjänst (PaaS) resurser hanterar plattformen redundans automatiskt. Exempel är [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) och [Azure Cosmos DB](/azure/cosmos-db/introduction).
+Med Azure IaaS, till exempel en virtuell dator, ger vissa systemfunktioner stöd för redundans, till exempel instanser av redundanskluster och tillgänglighets uppsättningar. När du använder Azure Platform as a Service (PaaS)-resurser hanterar plattformen redundans automatiskt. Exempel på detta är [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) och [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 ### <a name="scalability"></a>Skalbarhet
 
-Stordatorer vanligtvis kan skalas upp, när molnet miljöer skala ut. Azure erbjuder en mängd [Linux](/azure/virtual-machines/linux/sizes) och [Windows](/azure/virtual-machines/windows/sizes) storlekar som uppfyller dina behov. Molnet kan också skalas upp eller ned matchar exakt användaren specifikationer. Beräkningskraft, lagring och tjänster, [skala](/azure/architecture/best-practices/auto-scaling) på begäran under en användningsbaserad faktureringsmodell.
+Stordatorer skalar vanligt vis upp, medan moln miljöerna skalas ut. Azure erbjuder ett utbud av [Linux](/azure/virtual-machines/linux/sizes) -och [Windows](/azure/virtual-machines/windows/sizes) -storlekar för att uppfylla dina behov. Molnet kan också skalas upp eller ned för att matcha exakta specifikationer för användare. Beräkning [av strömförsörjning](/azure/architecture/best-practices/auto-scaling) , lagring och tjänster på begäran under en användnings-baserad fakturerings modell.
 
 ### <a name="storage"></a>Storage
 
-Du har en mängd alternativ för flexibel och skalbar lagring i molnet, och du betalar bara för vad du behöver. [Azure Storage](/azure/storage/common/storage-introduction) erbjuder en mycket skalbar objektlagring för dataobjekt, en filsystemtjänst för molnet, meddelandelagring tillförlitliga och ett NoSQL-Arkiv. Hanterade och ohanterade diskar ger beständig och säker disklagring för virtuella datorer.
+I molnet har du ett intervall med flexibla, skalbara lagrings alternativ och du betalar bara för det du behöver. [Azure Storage](/azure/storage/common/storage-introduction) erbjuder en massivt skalbar objekt lagring för data objekt, en fil system tjänst för molnet, ett Reliable Messaging Store och ett NoSQL-lager. För virtuella datorer, hanterade och ohanterade diskar finns beständiga, säkra disk lagring.
 
-Lär dig hur du [flytta lagringen för stordatorprogram till Azure](./concepts/mainframe-storage-azure.md).
+Lär dig hur du [flyttar stordator lagring till Azure](./concepts/mainframe-storage-azure.md).
 
 ### <a name="backup-and-recovery"></a>Säkerhetskopiering och återställning
 
-Underhålla en egen plats för katastrofåterställning kan det vara en dyr lösning. Azure har lätt att implementera och kostnadseffektivt alternativ för [säkerhetskopiering](/azure/backup/backup-introduction-to-azure-backup), [recovery](/azure/site-recovery/site-recovery-overview), och [redundans](/azure/storage/common/storage-redundancy) på lokala eller regionala nivåer eller via geo-redundans.
+Att underhålla en egen katastrof återställnings webbplats kan vara ett kostsamt förslag. Azure har lättanvända och kostnads effektiva alternativ för [säkerhets kopiering](/azure/backup/backup-introduction-to-azure-backup), [återställning](/azure/site-recovery/site-recovery-overview)och [redundans](/azure/storage/common/storage-redundancy) på lokala eller regionala nivåer eller via GEO-redundans.
 
-## <a name="azure-government-for-mainframe-migrations"></a>Azure Government för migrering av stordatorprogram
+## <a name="azure-government-for-mainframe-migrations"></a>Azure Government för stordator-migreringar
 
-Många offentliga entiteter vill gärna att flytta sina stordatorprogram till en modernare flexibel plattform. Microsoft Azure Government är en fysiskt avgränsade instans av globala Microsoft Azure-plattformen – paketeras för federala, statliga och lokala myndighetssystem. Det ger säkerhet i världsklass, skydd och tjänster för efterlevnad specifikt för USA: s myndigheter och deras partner.
+Många offentliga sektor enheter skulle älska att flytta sina stordator program till en mer modern och flexibel plattform. Microsoft Azure Government är en fysiskt separerad instans av den globala Microsoft Azures plattformen – paketerade för federala, statliga och lokala myndighets system. Tjänsten tillhandahåller säkerhets-, skydds-och efterlevnads tjänster i världs klass som är specifika för USA myndigheter och deras partner.
 
-Azure Government tjänade tillfällig behörighet to Operate (P-ATO) för FedRAMP hög påverkan för system som behöver den här typen av miljö.
+Azure Government förtjänat en tillfällig myndighet för att genomföra (P-ATO) för att FedRAMP hög påverkan på system som behöver den här typen av miljö.
 
-Kom igång genom att ladda ned [Microsoft Azure Government-molnet för stordatorprogram](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
+Kom igång genom att ladda ned [Microsoft Azure Government Cloud för stordator program](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fråga vår [partner](partner-workloads.md) att hjälpa dig att migrera eller rehost stordatorprogram. Detaljerad vägledning om hur du väljer en partnerlösning finns i den [plattform modernisering Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) webbplats.
+Be våra [partner](partner-workloads.md) att hjälpa dig att migrera eller vara värd för dina stordator program. Detaljerad vägledning om hur du väljer en partner lösning finns på webbplatsen [Platform modernisering Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) .
 
 Se även:
 
-- [White Paper-faktablad om stordatorprogram ämnen](mainframe-white-papers.md)
-- [Stordatormigrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
+- [Fakta blad om stordator ämnen](mainframe-white-papers.md)
+- [Stordator-migrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Felsökning](/azure/virtual-machines/troubleshooting/)
-- [Avmystifiera stordatorprogram till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Avmystifiera-stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

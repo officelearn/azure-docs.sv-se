@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-servicenivåerna - DTU-baserad inköpsmodell | Microsoft Docs
-description: Läs om tjänstnivåer i DTU-baserad inköpsmodell för enkel och delade databaser att tillhandahålla beräknings- och storlekar.
+title: Azure SQL Database tjänst nivåer – DTU-baserad inköps modell | Microsoft Docs
+description: Lär dig mer om tjänst nivåer i den DTU-baserade inköps modellen för enstaka databaser och databaser i pooler för att tillhandahålla beräknings-och lagrings storlekar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357227"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566690"
 ---
-# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i DTU-baserad inköpsmodell
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänst nivåer i den DTU-baserade inköps modellen
 
-Tjänstnivåer i DTU-baserad inköpsmodell särskiljs med hjälp av olika storlekar med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer i DTU-baserad inköpsmodell ger flexibilitet för att ändra storlekar med minimal [stilleståndstid](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/), men det finns en växel under period där anslutningen bryts till databasen under en kort tidsperiod, som kan du minimera med hjälp av logik för omprövning. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
+Tjänst nivåer i den DTU-baserade inköps modellen särskiljs med en mängd beräknings storlekar med en fast mängd av lagrings utrymme, fast kvarhållningsperiod för säkerhets kopieringar och fast pris. Alla tjänst nivåer i den DTU-baserade inköps modellen ger flexibilitet i att ändra beräknings storlekar med [](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimal stillestånds tid. Det finns dock en växel över tid där anslutningen förloras till databasen under en kort tids period, vilket kan minskas med logiken för omprövning. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
 
 > [!IMPORTANT]
-> SQL Database-hanterad instans stöder inte en DTU-baserade inköpsmodellen. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> SQL Database hanterade instansen stöder inte en DTU-baserad inköps modell. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > [!NOTE]
 > Läs om hur vCore-baserade tjänstnivåer [vCore-baserade tjänstnivåer](sql-database-service-tiers-vcore.md). Information om hur man skiljer DTU-baserade tjänstnivåer och vCore-baserade tjänstnivåer finns i [Azure SQL Database köpa modeller](sql-database-purchase-models.md).
 
@@ -45,7 +44,7 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 |||||
 
 > [!NOTE]
-> Du kan få en kostnadsfri Azure SQL-databas på Basic-tjänstnivå tillsammans med ett kostnadsfritt Azure-konto att utforska Azure. Mer information finns i [skapa en hanterad molndatabas med ditt kostnadsfria Azure-konto](https://azure.microsoft.com/free/services/sql-database/).
+> Du kan få en kostnads fri Azure SQL-databas på tjänst nivån Basic tillsammans med ett kostnads fritt Azure-konto för att utforska Azure. Mer information finns i [skapa en hanterad molndatabas med ditt kostnadsfria Azure-konto](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Enkel databas DTU och Lagringsgränser
 
@@ -74,7 +73,7 @@ Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda 
 > [!IMPORTANT]
 > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="dtu-benchmark"></a>DTU-Benchmark
 
@@ -88,7 +87,7 @@ Prestandamått och dess metoder beskrivs i detalj nedan.
 
 ### <a name="benchmark-summary"></a>Benchmark-översikt
 
-Benchmark mäter prestanda för en blandning av grundläggande databasåtgärder som förekommer oftast i online transaktionsbearbetning (OLTP) arbetsbelastningar. Även om prestandamått är utformad med molnbaserad databehandling i åtanke, databasschemat, ifyllnad av data och transaktioner som har utformats för att vara brett representativ för de grundläggande delarna som används mest i OLTP-arbetsbelastningar.
+Benchmark mäter prestanda för en blandning av grundläggande databas åtgärder som inträffar oftast i OLTP-arbetsbelastningar (Online Transaction Processing). Även om prestandamått är utformad med molnbaserad databehandling i åtanke, databasschemat, ifyllnad av data och transaktioner som har utformats för att vara brett representativ för de grundläggande delarna som används mest i OLTP-arbetsbelastningar.
 
 ### <a name="schema"></a>Schema
 

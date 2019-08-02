@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67876209"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple som ett säkerhets kopierings mål med NetBackup
@@ -302,9 +302,9 @@ Här är ett exempel på ett GFS rotations schema för fyra veckor, varje månad
 
 | Typ av frekvens/säkerhets kopiering | Fullständig | Stegvis (dagar 1-5)  |   
 |---|---|---|
-| Varje vecka (veckor 1-4) | Söndag | Måndag-fredag |
-| Månadsvis  | Söndag  |   |
-| Flerårig | Söndag  |   |
+| Varje vecka (veckor 1-4) | Lördag | Måndag-fredag |
+| Månadsvis  | Lördag  |   |
+| Varje år | Lördag  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Tilldela StorSimple-volymer till ett säkerhets kopierings jobb i NetBackup
 
@@ -340,7 +340,7 @@ Följande sekvens förutsätter att NetBackup och mål värden är konfigurerade
 
    ![Administrations konsol för NetBackup, frekvens för säkerhets kopiering och rotation för en ny princip](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Välj **Nästa** > nästaSlutför > .  Du kan ändra schemat när principen har skapats.
+8. Välj **Nästa** >  **** nästaSlutför > . ****  Du kan ändra schemat när principen har skapats.
 
 9. Välj för att expandera principen som du nyss skapade och välj sedan **scheman**.
 
@@ -415,7 +415,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 | Vecka 3 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2-4 |   |   |   |   |   |
 | Månadsvis | StorSimple varje månad |   |   |   |   |   |
-| Flerårig | StorSimple varje år  |   |   |   |   |   |
+| Varje år | StorSimple varje år  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Tilldela StorSimple-volymer till ett säkerhets kopierings Arkiv och ett duplicerat jobb
@@ -430,7 +430,7 @@ När du har definierat de första disk-poolerna måste du definiera tre ytterlig
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Så här tilldelar du StorSimple-volymer till ett säkerhets kopierings Arkiv och ett duplicerat jobb
 
-1. I administrations konsolen för NetBackup väljer  > du**livs cykel principer** > för lagrings lagring**ny lagrings livs cykel princip**.
+1. I administrations konsolen för NetBackup väljer > du**livs cykel principer** > för lagrings lagring**ny lagrings livs cykel princip**.
 
    ![Administrations konsol för NetBackup, ny lagrings livs cykel princip](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 

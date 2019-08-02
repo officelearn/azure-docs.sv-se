@@ -1,60 +1,59 @@
 ---
-title: Hantera serveradministratörer i Azure Analysis Services | Microsoft Docs
-description: Lär dig hur du hanterar serveradministratörer för en Analysis Services-server i Azure.
+title: Hantera Server administratörer i Azure Analysis Services | Microsoft Docs
+description: Lär dig hur du hanterar Server administratörer för en Analysis Services-server i Azure.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 25eb111871bbe3b18f59b0d6c123c72f3e55c859
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb5248d374fa6212398ad652b4db1496833473ae
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498720"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696315"
 ---
 # <a name="manage-server-administrators"></a>Hantera serveradministratörer
 
-Server-administratörer måste vara en giltig användare eller säkerhetsgrupp grupp i Azure Active Directory (Azure AD) för klienten som servern finns. Du kan använda **Analysis Services-administratörer** för din server i Azure-portalen serveregenskaper i SSMS, PowerShell eller REST API för att hantera serveradministratörer. 
+Server administratörer måste vara en giltig användare eller säkerhets grupp i Azure Active Directory (Azure AD) för den klient där-servern finns. Du kan använda **Analysis Services administratörer** för servern i Azure Portal, Server egenskaper i SSMS, PowerShell eller REST API för att hantera Server administratörer. 
 
-> [!NOTE]
-> Säkerhetsgrupper måste ha den `MailEnabled` egenskapen `True`.
+**Säkerhets grupper** måste vara [e](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) -postaktiverade `MailEnabled` med egenskapen inställd `True`på. När du anger en grupp per e- `obj:groupid@tenantid`postadress använder du.
 
-## <a name="to-add-server-administrators-by-using-azure-portal"></a>Att lägga till serveradministratörer med hjälp av Azure-portalen
+## <a name="to-add-server-administrators-by-using-azure-portal"></a>Lägga till Server administratörer med hjälp av Azure Portal
 
-1. I portalen för din server, klickar du på **Analysis Services-administratörer**.
-2. I  **\<servername >-Analysis Services-administratörer**, klickar du på **Lägg till**.
-3. I **Lägg till serveradministratörer**väljer du användarkonton från din Azure AD eller Bjud in extern användare av e-postadress.
+1. Klicka på **Analysis Services administratörer**på din server i portalen.
+2. **I\<Server namn >-Analysis Services administratörer**klickar du på **Lägg till**.
+3. I **Lägg till Server administratörer**väljer du användar konton från din Azure AD eller bjuder in externa användare via e-postadress.
 
-    ![Serveradministratörer i Azure-portalen](./media/analysis-services-server-admins/aas-manage-users-admins.png)
+    ![Server administratörer i Azure Portal](./media/analysis-services-server-admins/aas-manage-users-admins.png)
 
-## <a name="to-add-server-administrators-by-using-ssms"></a>Att lägga till serveradministratörer med hjälp av SSMS
+## <a name="to-add-server-administrators-by-using-ssms"></a>Så här lägger du till Server administratörer med SSMS
 
-1. Högerklicka på servern > **egenskaper**.
-2. I **serveregenskaper i Analysis**, klickar du på **Security**.
-3. Klicka på **Lägg till**, och ange den e-postadressen för en användare eller grupp i Azure AD.
+1. Högerklicka på Server > **Egenskaper**.
+2. I **Analysis Server egenskaper**klickar du på **säkerhet**.
+3. Klicka på **Lägg till**och ange sedan e-postadressen för en användare eller grupp i din Azure AD.
    
-    ![Lägg till serveradministratörer i SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
+    ![Lägga till Server administratörer i SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Använd [New AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet för att ange parametern administratör när du skapar en ny server. <br>
-Använd [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet för att ändra parametern administratör för en befintlig server.
+Använd cmdleten [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) för att ange parametern administratör när du skapar en ny server. <br>
+Använd [set-AzAnalysisServicesServer-](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdleten för att ändra parametern administratör för en befintlig server.
 
 ## <a name="rest-api"></a>REST-API
 
-Använd [skapa](https://docs.microsoft.com/rest/api/analysisservices/servers/create) att ange egenskapen asAdministrator när du skapar en ny server. <br>
-Använd [uppdatering](https://docs.microsoft.com/rest/api/analysisservices/servers/update) att ange egenskapen asAdministrator när du ändrar en befintlig server. <br>
+Använd [create](https://docs.microsoft.com/rest/api/analysisservices/servers/create) för att ange egenskapen för administratör när du skapar en ny server. <br>
+Använd [Update](https://docs.microsoft.com/rest/api/analysisservices/servers/update) för att ange egenskapen för administratör när du ändrar en befintlig server. <br>
 
 
 
 ## <a name="next-steps"></a>Nästa steg 
 
 [Autentisering och användarbehörigheter](analysis-services-manage-users.md)  
-[Hantera databasroller och användare](analysis-services-database-users.md)  
+[Hantera databas roller och användare](analysis-services-database-users.md)  
 [Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md)  
 

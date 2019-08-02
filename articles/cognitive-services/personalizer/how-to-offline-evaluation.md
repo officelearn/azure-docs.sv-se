@@ -1,65 +1,65 @@
 ---
-title: Offline utvärdering - Personalizer
+title: Offline-utvärdering – Personanpassare
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du analyserar learning loopen med en offline-utvärdering
+description: Lär dig hur du analyserar din inlärnings slinga med en offline-utvärdering
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: b719e6e693471415350007a4f4fabed917b8e12d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722328"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663883"
 ---
-# <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Hur du analyserar learning loopen med en offline-utvärdering
+# <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysera din inlärnings slinga med en offline-utvärdering
 
 
-Lär dig hur du slutför en offline-utvärdering och förstå resultaten.
+Lär dig hur du slutför en offline-utvärdering och förstår resultatet.
 
-Offline utvärderingar kan du se hur effektiva Personalizer jämförs med standardbeteendet för ditt program, Lär dig vilka funktioner som bidrar mest till anpassning och identifiera nya machine learning inställningar automatiskt.
+Med offline-utvärdering kan du mäta hur effektiva anpassningar som jämförs med programmets standard beteende, se vilka funktioner som bidrar mest till anpassning och identifiera nya inställningar för maskin inlärning automatiskt.
 
-Läs mer om [Offline utvärderingar](concepts-offline-evaluation.md) vill veta mer.
+Läs om [offline](concepts-offline-evaluation.md) -utvärderingar för mer information.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-1. Du måste ha en Personalizer loop som har konfigurerats
-1. Personalizer loopen måste ha minst 50 000 händelser i dess loggar för meningsfulla utvärderingsresultat.
+1. Du måste ha en egen-loop konfigurerad
+1. Den personliga slingan måste ha minst 50 000 händelser i sina loggar för att få meningsfulla utvärderings resultat.
 
-Du kan också du kan också tidigare har exporterat _learning princip_ filer du kan jämföra och testa i samma utvärderingen.
+Om du vill kan du också ha tidigare exporterade _Learning-principfiler_ som du kan jämföra och testa i samma utvärdering.
 
-## <a name="steps-to-start-a-new-offline-evaluation"></a>Steg för att starta en ny Offline utvärdering
+## <a name="steps-to-start-a-new-offline-evaluation"></a>Steg för att starta en ny offline-utvärdering
 
-1. Leta upp din anpassning Loop-resurs i Azure-portalen.
-1. Gå till avsnittet ”utvärdering”.
+1. Leta upp resursen anpassnings slinga i Azure Portal.
+1. Gå till avsnittet "utvärdering".
 1. Klicka på ny utvärdering
-1. Välj ett start- och datum för offline-utvärdering. Dessa är tidigare som anger intervallet för data som ska användas vid utvärderingen. Dessa data måste finnas i loggarna, som anges i den [Datakvarhållning](how-to-settings.md) inställningen.
-1. Du kan också överföra learning principen. 
-1. Ange om Personalizer ska skapa en princip för optimerad Learning bygger på användarbeteende som observerats i den här tidsperioden.
+1. Välj ett start-och slutdatum för offline-utvärderingen. Detta är datum tidigare, som anger det data intervall som ska användas i utvärderingen. Dessa data måste finnas i loggarna som anges i inställningen datakvarhållning. [](how-to-settings.md)
+1. Du kan också ladda upp din egen utbildnings princip. 
+1. Ange om Personanpassaren ska skapa en optimerad inlärnings princip baserat på användar beteendet som observerats under den här tids perioden.
 1. Starta utvärderingen
 
 ## <a name="results"></a>Resultat
 
-Utvärderingar kan ta lång tid att köra, beroende på mängden data att bearbeta, antalet learning principer för att jämföra, och om en optimering har begärts.
+Utvärderingen kan ta lång tid att köra, beroende på mängden data som ska bearbetas, antalet inlärnings principer som ska jämföras och om en optimering har begärts.
 
-När klar kan du se följande resultat:
+När du är klar kan du se följande resultat:
 
-1. Jämförelser av Learning principer, inklusive:
-    * **Online-princip**: Den aktuella Learning principen som används i Personalizer
-    * **Baslinjen**: Programmets standard (som bestäms av den första åtgärden som skickas som rangordnas anrop)
-    * **Princip för slumpmässiga**: En tänkt rangordnas beteende som returnerar alltid slumpmässiga valet av åtgärder bland de angivna.
-    * **Anpassade principer**: Ytterligare Learning principer har laddats upp vid start av utvärderingen.
-    * **Optimerad princip**: Om utvärderingen startade med alternativet för att identifiera en optimerad princip, kommer också att jämföras och du kommer att kunna ladda ned det eller göra den utbildning online-princip, ersätter den aktuella.
+1. Jämförelser av inlärnings principer, inklusive:
+    * **Online-princip**: Den aktuella inlärnings principen som används i personanpassa
+    * **Bas linje**: Programmets standard (som fastställs av den första åtgärden som skickas i rang anrop).
+    * **Slumpmässig princip**: Ett tänkt rangordnings beteende som alltid returnerar slumpmässiga val av åtgärder från de angivna.
+    * **Anpassade principer**: Ytterligare inlärnings principer laddades upp när utvärderingen startades.
+    * **Optimerad princip**: Om utvärderingen startades med alternativet för att identifiera en optimerad princip, kommer den också att jämföras och du kommer att kunna ladda ned den eller göra den till en online Learning-princip som ersätter den aktuella.
 
-1. Effektivitet [funktioner](concepts-features.md) för åtgärder och kontext.
+1. Effektiviteten i [funktioner](concepts-features.md) för åtgärder och sammanhang.
 
 
 ## <a name="more-information"></a>Mer information
 
-* Lär dig [hur offline utvärderingar fungerar](concepts-offline-evaluation.md).
+* Lär dig [hur offline-utvärdering fungerar](concepts-offline-evaluation.md).

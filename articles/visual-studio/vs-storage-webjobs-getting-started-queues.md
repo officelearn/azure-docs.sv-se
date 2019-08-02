@@ -1,6 +1,6 @@
 ---
-title: Komma igång med queue storage och Visual Studio-anslutna tjänster (WebJob-projekt) | Microsoft Docs
-description: Hur du kommer igång med Azure Queue storage i ett WebJob-projekt när du har anslutit till ett lagringskonto med hjälp av Visual Studio-anslutna tjänster.
+title: Komma igång med Queue Storage och Visual Studio Connected Services (webb jobbs projekt) | Microsoft Docs
+description: Hur du kommer igång med Azure Queue Storage i ett webbjobb-projekt efter att ha anslutit till ett lagrings konto med hjälp av Visual Studio Connected Services.
 services: storage
 author: ghogen
 manager: douge
@@ -12,28 +12,28 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391233"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248963"
 ---
-# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (WebJob-projekt)
+# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue Storage och Visual Studio Connected Services (webb jobb projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln beskrivs hur komma igång med Azure Queue storage i ett projekt i Visual Studio Azure-Webbjobb när du har skapat eller refererar till ett Azure storage-konto med hjälp av Visual Studio **Lägg till Connected Services** dialogrutan. När du lägger till ett lagringskonto till ett WebJob-projekt med hjälp av Visual Studio **Lägg till Connected Services** dialogrutan lämplig Azure Storage NuGet-paket installeras, lämplig .NET-referenser läggs till i projektet, och anslutningssträngar för storage-konto har uppdaterats i filen App.config.  
+Den här artikeln beskriver hur du kommer igång med Azure Queue Storage i ett Visual Studio Azure-webbjobb när du har skapat eller refererat till ett Azure Storage-konto med hjälp av dialog rutan **Lägg till anslutna tjänster** i Visual Studio. När du lägger till ett lagrings konto till ett webb jobbs projekt med hjälp av dialog rutan **Lägg till anslutna tjänster** i Visual Studio, installeras rätt Azure Storage NuGet-paket, lämpliga .net-referenser läggs till i projektet och anslutnings strängar för lagrings kontot uppdateras i filen app. config.  
 
-Den här artikeln innehåller C#-kodexempel som visar hur du använder Azure WebJobs SDK-version 1.x med Azure Queue storage-tjänsten.
+Den här artikeln C# innehåller kod exempel som visar hur du använder Azure WebJobs SDK version 1. x med Azure Queue Storage-tjänsten.
 
-Azure Queue Storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 KB stort och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto. Se [Kom igång med Azure Queue Storage med hjälp av .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) för mer information. Läs mer om ASP.NET [ASP.NET](https://www.asp.net).
+Azure Queue Storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 KB stort och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto. Mer information finns i [Kom igång med Azure Queue Storage med .net](../storage/queues/storage-dotnet-how-to-use-queues.md) . Mer information om ASP.NET finns i [ASP.net](https://www.asp.net).
 
-## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Hur du utlöser en funktion när ett kömeddelande tas emot
-Om du vill skriva en funktion som WebJobs SDK anropar när ett kömeddelande tas emot, använda den **QueueTrigger** attribut. Attributkonstruktorn använder en strängparameter som anger namnet på kön att söka. Om du vill se hur du ställer in namnet på kön dynamiskt, Kolla in [hur du ställer in konfigurationsalternativ](#how-to-set-configuration-options).
+## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Så här utlöser du en funktion när ett köat meddelande tas emot
+Om du vill skriva en funktion som WebJobs SDK anropar när ett Queue-meddelande tas emot, använder du attributet **QueueTrigger** . Attributet konstruktorn använder en sträng parameter som anger namnet på den kö som ska avsökas. Om du vill se hur du ställer in könamnet dynamiskt kan du läsa [om hur du ställer in konfigurations alternativ](#how-to-set-configuration-options).
 
-### <a name="string-queue-messages"></a>Sträng-Kömeddelanden
-I följande exempel kön innehåller meddelandet sträng så **QueueTrigger** tillämpas på en strängparameter med namnet **logMessage** som innehåller innehållet i kömeddelandet. Funktionen [skriver ett loggmeddelande till instrumentpanelen](#how-to-write-logs).
+### <a name="string-queue-messages"></a>String Queue-meddelanden
+I följande exempel innehåller kön ett sträng meddelande, så **QueueTrigger** tillämpas på en sträng parameter med namnet **logMessage** som innehåller innehållet i Queue-meddelandet. Funktionen [skriver ett logg meddelande till instrument panelen](#how-to-write-logs).
 
 ```csharp
 public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
@@ -42,10 +42,10 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 }
 ```
 
-Förutom **sträng**, parametern kan vara en bytematris en **CloudQueueMessage** objekt eller en POCO som du definierar.
+Förutom **sträng**kan parametern vara en byte-matris, ett **CloudQueueMessage** -objekt eller en Poco som du definierar.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
-I följande exempel innehåller kömeddelandet JSON för en **BlobInformation** objekt som innehåller en **BlobName** egenskapen. SDK: N deserializes automatiskt objektet.
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
+I följande exempel innehåller Queue-meddelandet JSON för ett **BlobInformation** -objekt som innehåller en **BlobName** -egenskap. SDK deserialiserar automatiskt objektet.
 
 ```csharp
 public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-SDK: N använder den [Newtonsoft.Json NuGet-paketet](https://www.nuget.org/packages/Newtonsoft.Json) att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs-SDK kan du skriva kod som i följande exempel för att skapa en POCO-kömeddelande som SDK: N kan parsa.
+SDK använder [Newtonsoft. JSON NuGet-paketet](https://www.nuget.org/packages/Newtonsoft.Json) för att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs SDK kan du skriva kod som följande exempel för att skapa ett POCO som SDK: n kan parsa.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -62,8 +62,8 @@ var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 logQueue.AddMessage(queueMessage);
 ```
 
-### <a name="async-functions"></a>Async-funktioner
-Följande async-funktion [skriver en logg till instrumentpanelen](#how-to-write-logs).
+### <a name="async-functions"></a>Asynkrona funktioner
+Följande asynkrona funktion [skriver en logg till instrument panelen](#how-to-write-logs).
 
 ```csharp
 public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Async-funktioner kan ta en [annullering token](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), enligt följande exempel som kopierar en blob. (En förklaring av den **queueTrigger** platshållaren finns i den [Blobar](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) avsnittet.)
+Asynkrona funktioner kan ta en token för [uppsägning](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)som visas i följande exempel som kopierar en blob. (En förklaring av **queueTrigger** -plats hållaren finns i [](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) avsnittet blobs.)
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -85,7 +85,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 }
 ```
 
-## <a name="types-the-queuetrigger-attribute-works-with"></a>Typer av attributet QueueTrigger fungerar med
+## <a name="types-the-queuetrigger-attribute-works-with"></a>Skriver QueueTrigger-attributet fungerar med
 Du kan använda **QueueTrigger** med följande typer:
 
 * **sträng**
@@ -93,31 +93,31 @@ Du kan använda **QueueTrigger** med följande typer:
 * **byte[]**
 * **CloudQueueMessage**
 
-## <a name="polling-algorithm"></a>Avsökningen algoritmen
-SDK implementerar en exponentiell backoff-algoritmen för att minska effekten av idle-kön avsökning lagringskostnader för transaktionen.  När ett meddelande hittas SDK väntar två sekunder och söker efter en annan message; När det finns inget meddelande väntar ungefär fyra sekunder innan du försöker igen. Väntetiden fortsätter att öka tills den når maximal väntetid, där standardinställningen är en minut efter flera misslyckade försök att hämta ett kömeddelande. [Maximal väntetid konfigureras](#how-to-set-configuration-options).
+## <a name="polling-algorithm"></a>Avsöknings algoritm
+SDK: n implementerar en slumpmässig algoritm för exponentiella inaktivitet för att minska den inaktiva köns avsökning på lagrings transaktions kostnader.  När ett meddelande hittas väntar SDK två sekunder och söker sedan efter ett annat meddelande. När inget meddelande hittas väntar det att vänta i fyra sekunder innan du försöker igen. Efter efterföljande misslyckade försök att hämta ett Queue-meddelande fortsätter vänte tiden att öka tills den når den maximala vänte tiden, vilket är en minut som standard. [Maximal vänte tid kan konfigureras](#how-to-set-configuration-options).
 
 ## <a name="multiple-instances"></a>Flera instanser
-Om din webbapp körs på flera instanser, kontinuerliga WebJobs körs på varje dator och varje dator ska vänta tills utlösare och försök att köra functions. I vissa scenarier som detta kan leda till vissa funktioner som bearbetar samma data två gånger, så funktioner ska vara idempotenta (skriven så att anropa dem flera gånger med samma inflödesdata inte ge duplicerade resultat).  
+Om din webbapp körs på flera instanser körs kontinuerliga webbjobb på varje dator och varje dator väntar på utlösare och försöker köra funktioner. I vissa fall kan detta leda till att vissa funktioner bearbetar samma data två gånger, så att funktioner ska vara idempotenta (skrivna så att de anropar dem upprepade gånger med samma indata som inte genererar dubbla resultat).  
 
 ## <a name="parallel-execution"></a>Parallell körning
-Om du har flera funktioner som lyssnar på olika köer, ska SDK: N anropa dem parallellt när meddelanden tas emot samtidigt.
+Om du har flera funktioner som lyssnar på olika köer kommer SDK att anropa dem parallellt när meddelanden tas emot samtidigt.
 
-Samma sak gäller när flera meddelanden tas emot för en enskild kö. Som standard, SDK: N hämtar en batch med 16 Kömeddelanden i taget och kör den funktion som bearbetar dem parallellt. [Batchstorleken konfigureras](#how-to-set-configuration-options). När antalet bearbetas hämtar till hälften av batchstorleken, hämtar en annan batch SDK och börjar behandla meddelandena. Det maximala antalet samtidiga meddelanden som bearbetas per funktion är därför en och en halv gång batchstorlek. Den här begränsningen gäller separat för varje funktion som har en **QueueTrigger** attribut. Om du inte vill parallell körning för meddelanden som tas emot i en kö, Ange batchstorleken 1.
+Samma sak gäller när flera meddelanden tas emot för en enskild kö. Som standard hämtar SDK en batch med 16 köa meddelanden i taget och kör funktionen som bearbetar dem parallellt. [Batchstorleken kan konfigureras](#how-to-set-configuration-options). När talet som bearbetas hamnar ned till hälften av batchstorleken, hämtar SDK en annan batch och börjar bearbeta dessa meddelanden. Därför är det maximala antalet samtidiga meddelanden som bearbetas per funktion en och en halv gånger batchstorleken. Den här gränsen gäller separat för varje funktion som har ett **QueueTrigger** -attribut. Om du inte vill att parallellt ska köras för meddelanden som tas emot i en kö ställer du in batchstorleken på 1.
 
-## <a name="get-queue-or-queue-message-metadata"></a>Hämta kön eller kön meddelande metadata
-Du kan få följande meddelandeegenskaper genom att lägga till parametrar till Metodsignaturen:
+## <a name="get-queue-or-queue-message-metadata"></a>Hämta metadata för kö-eller Queue meddelande
+Du kan hämta följande meddelande egenskaper genom att lägga till parametrar till Metodsignaturen:
 
-* **DateTimeOffset** expirationTime
-* **DateTimeOffset** insertionTime
-* **DateTimeOffset** nextVisibleTime
-* **sträng** queueTrigger (innehåller textmeddelande)
-* **sträng** id
-* **sträng** popReceipt
-* **int** dequeueCount
+* **DateTimeOffset** -expirationTime
+* **DateTimeOffset** -insertionTime
+* **DateTimeOffset** -nextVisibleTime
+* **sträng** queueTrigger (innehåller meddelande text)
+* **sträng** -ID
+* popReceipt för **sträng**
+* **int** -dequeueCount
 
-Om du vill arbeta direkt med API: et för Azure storage, du kan också lägga till en **CloudStorageAccount** parametern.
+Om du vill arbeta direkt med Azure Storage-API: et kan du också lägga till en **CloudStorageAccount** -parameter.
 
-I följande exempel skriver alla dessa metadata till en INFO programloggen. I det här exemplet innehålla både logMessage och queueTrigger du innehållet i kömeddelandet.
+I följande exempel skrivs alla dessa metadata till en informations program logg. I exemplet innehåller både logMessage och queueTrigger innehållet i Queue-meddelandet.
 
 ```csharp
 public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
@@ -146,7 +146,7 @@ public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
 }
 ```
 
-Här är en exempellogg som skrivits av exempelkoden:
+Här är en exempel logg skriven av exempel koden:
 
         logMessage=Hello world!
         expirationTime=10/14/2014 10:31:04 PM +00:00
@@ -158,10 +158,10 @@ Här är en exempellogg som skrivits av exempelkoden:
         queue endpoint=https://contosoads.queue.core.windows.net/
         queueTrigger=Hello world!
 
-## <a name="graceful-shutdown"></a>Avslutning
-En funktion som körs i ett kontinuerligt Webbjobb kan acceptera en **CancellationToken** parametern där operativsystemet för att meddela funktionen när Webbjobbet ska avslutas. Du kan använda det här meddelandet för att kontrollera att funktionen inte avslutas oväntat på ett sätt som lämnar data i ett inkonsekvent tillstånd.
+## <a name="graceful-shutdown"></a>Korrekt avstängning
+En funktion som körs i ett kontinuerligt webbjobb kan godkänna en **CancellationToken** -parameter som gör det möjligt för operativ systemet att meddela funktionen när webb jobbet är på väg att avslutas. Du kan använda det här meddelandet för att se till att funktionen inte avslutas plötsligt på ett sätt som lämnar data i ett inkonsekvent tillstånd.
 
-I följande exempel visas hur du kontrollerar om nära förestående WebJob avslutning i en funktion.
+I följande exempel visas hur du söker efter förestående avslutning av webb jobbet i en funktion.
 
 ```csharp
 public static void GracefulShutdownDemo(
@@ -182,15 +182,15 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Obs:** Instrumentpanelen kanske inte visas korrekt status och utdata för funktioner som har stängts av.
+**Obs:** Instrument panelen kanske inte korrekt visar status och utdata för funktioner som har avslut ATS.
 
-Mer information finns i [WebJobs avslutning](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
+Mer information finns i [WebJobs reshutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
-## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>Så här skapar du ett kömeddelande vid bearbetning av ett kömeddelande
-Om du vill skriva en funktion som skapar ett nytt meddelande i kön, använder den **kö** attribut. Som **QueueTrigger**kan du skicka in namnet på kön som en sträng eller [ange namnet på kön dynamiskt](#how-to-set-configuration-options).
+## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>Så här skapar du ett köat meddelande vid bearbetning av ett Queue-meddelande
+Om du vill skriva en funktion som skapar ett nytt Queue meddelande, använder du attributet **Queue** . Som **QueueTrigger**skickar du i könamnet som en sträng, eller så kan du [Ange könamnet dynamiskt](#how-to-set-configuration-options).
 
-### <a name="string-queue-messages"></a>Sträng-Kömeddelanden
-Följande kodexempel för icke-async skapar ett nytt meddelande i kön i kön med namnet ”outputqueue” med samma innehåll som tas emot i kön med namnet ”inputqueue” kömeddelandet. (Vid asynkron functions använder **IAsyncCollector<T>**  som du ser senare i det här avsnittet.)
+### <a name="string-queue-messages"></a>String Queue-meddelanden
+Följande kod exempel för icke-asynkrona kod skapar ett nytt Queue-meddelande i kön med namnet "outputqueue" med samma innehåll som det Queue meddelande som togs emot i kön med namnet "inputqueue". (För asynkrona funktioner **används\<IAsyncCollector T >** som visas senare i det här avsnittet.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -201,8 +201,8 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
-Om du vill skapa ett kömeddelande som innehåller en POCO i stället för en sträng, skicka POCO-typ som en output-parameter till den **kö** attributkonstruktör.
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
+Om du vill skapa ett Queue-meddelande som innehåller en POCO i stället för en sträng, skickar du POCO-typen som en utdataparameter till konstruktorn för attributet **Queue** .
 
 ```csharp
 public static void CreateQueueMessage(
@@ -213,10 +213,10 @@ public static void CreateQueueMessage(
 }
 ```
 
-SDK: N Serialiserar automatiskt objekt till JSON. Ett kömeddelande skapas alltid, även om objektet är null.
+SDK: n serialiserar automatiskt objektet till JSON. Ett Queue-meddelande skapas alltid, även om objektet är null.
 
-### <a name="create-multiple-messages-or-in-async-functions"></a>Skapa flera meddelanden eller i async-funktioner
-Om du vill skapa flera meddelanden, göra parametertypen för den utgående kön **ICollector<T>**  eller **IAsyncCollector<T>** , enligt följande exempel.
+### <a name="create-multiple-messages-or-in-async-functions"></a>Skapa flera meddelanden eller i asynkrona funktioner
+Om du vill skapa flera meddelanden ska du ange parameter typen för **\<ICollector t >** eller **IAsyncCollector\<t >** , som du ser i följande exempel.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -230,23 +230,23 @@ public static void CreateQueueMessages(
 }
 ```
 
-Varje meddelande i kön skapas direkt när den **Lägg till** metoden anropas.
+Varje Queue-meddelande skapas omedelbart när metoden **Add** anropas.
 
-### <a name="types-that-the-queue-attribute-works-with"></a>Typer som attributet kö som fungerar med
-Du kan använda den **kö** attributet på följande parametertyper:
+### <a name="types-that-the-queue-attribute-works-with"></a>Typer som attributet Queue fungerar med
+Du kan använda attributet **Queue** i följande parameter typer:
 
-* **ut sträng** (skapar kömeddelande om parametervärdet är inte är null när funktionen avslutas)
+* **out-sträng** (Queue meddelande skapas om parametervärdet är icke-null när funktionen slutar)
 * **ut byte []** (fungerar som **sträng**)
 * **ut CloudQueueMessage** (fungerar som **sträng**)
-* **ut POCO** (en serialiserbar typ. skapar ett meddelande med ett null-objekt om parametern är null när funktionen avslutas)
+* **ut Poco** (en serialiserbar typ skapar ett meddelande med ett null-objekt om parametern är null när funktionen slutar)
 * **ICollector**
 * **IAsyncCollector**
-* **CloudQueue** (för att skapa meddelanden manuellt med hjälp av Azure Storage API direkt)
+* **CloudQueue** (för att skapa meddelanden manuellt med Azure Storage-API: et direkt)
 
-### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Använd WebJobs-SDK-attribut i brödtexten i en funktion
-Om du vill göra en del arbete i din funktion innan du använder ett WebJobs-SDK-attribut som **kö**, **Blob**, eller **tabell**, du kan använda den **IBinder**gränssnitt.
+### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>Använd WebJobs SDK-attribut i bröd texten i en funktion
+Om du behöver göra en del arbete i din funktion innan du använder ett WebJobs SDK-attribut som **kö**, **BLOB**eller **tabell**kan du använda **IBinder** -gränssnittet.
 
-I följande exempel tar ett inkommande kö-meddelande och skapar ett nytt meddelande med samma innehåll i en utgående kö. Könamn utdata har angetts av kod i brödtexten till funktionen.
+I följande exempel visas ett meddelande om indatakö och ett nytt meddelande skapas med samma innehåll i en utgående kö. Namnet på utdataporten anges med kod i bröd texten i funktionen.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -260,16 +260,16 @@ public static void CreateQueueMessage(
 }
 ```
 
-Den **IBinder** gränssnitt kan också användas med den **tabell** och **Blob** attribut.
+**IBinder** -gränssnittet kan också användas med **Table** -och **BLOB** -attribut.
 
-## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Läsa och skriva blobbar och tabeller vid bearbetning av ett kömeddelande
-Den **Blob** och **tabell** attribut kan du läsa och skriva blobbar och tabeller. Exemplen i det här avsnittet gäller för blobar. Kodexempel som visar hur du utlöser processer när BLOB-objekt skapas eller uppdateras, se [hur du använder Azure blob storage med WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Läsa och skriva blobbar och tabeller vid bearbetning av ett Queue-meddelande
+Med **BLOB** -och **Table** -attributen kan du läsa och skriva blobbar och tabeller. Exemplen i det här avsnittet gäller för blobbar. Kod exempel som visar hur du utlöser processer när blobbar skapas eller uppdateras finns i [använda Azure Blob Storage med WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 <!-- , and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md). -->
 
-### <a name="string-queue-messages-triggering-blob-operations"></a>Sträng Kömeddelanden som utlöser blobåtgärder
-Ett meddelande i kön som innehåller en sträng **queueTrigger** är en platshållare som du kan använda i den **Blob** attributets **blobPath** parameter som innehåller innehållet i den meddelande.
+### <a name="string-queue-messages-triggering-blob-operations"></a>String Queue-meddelanden som utlöser BLOB-åtgärder
+För ett Queue-meddelande som innehåller en sträng är **queueTrigger** en plats hållare som du kan använda i **BLOB** -attributets **blobPath** -parameter som innehåller meddelandets innehåll.
 
-I följande exempel används **Stream** objekt att läsa och skriva BLOB-objekt. Kömeddelandet är namnet på en blob finns i behållaren textblobs. En kopia av blobben med ”-nya” sist i namnet skapas i samma behållare.
+I följande exempel används **Stream** -objekt för att läsa och skriva blobbar. Queue-meddelandet är namnet på en blob som finns i behållaren textblobs. En kopia av blobben med "-New" som läggs till i namnet skapas i samma behållare.
 
 ```csharp
 public static void ProcessQueueMessage(
@@ -281,11 +281,11 @@ public static void ProcessQueueMessage(
 }
 ```
 
-Den **Blob** attributet konstruktorn tar en **blobPath** parameter som anger namnet på behållare och blobnamn. Läs mer om den här platshållaren [hur du använder Azure blob storage med WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+Konstruktorn **BLOB** -attribut använder en **blobPath** -parameter som anger behållare och blob-namn. Mer information om den här plats hållaren finns i [så här använder du Azure Blob Storage med WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
-När attributet decorates en **Stream** objekt, en annan konstruktorparametern anger den **FileAccess** läge som läsa, skriva eller Läs/Skriv.
+När attributet dekorerar ett **Stream** -objekt, anger en annan konstruktor att **fileaccess** -läget är läsa, skriva eller läsa/skriva.
 
-I följande exempel används en **CloudBlockBlob** objekt att ta bort en blob. Kömeddelandet är namnet på blobben.
+I följande exempel används ett **CloudBlockBlob** -objekt för att ta bort en blob. Queue-meddelandet är namnet på blobben.
 
 ```csharp
 public static void DeleteBlob(
@@ -296,10 +296,10 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
-För en POCO lagras som JSON i kömeddelandet, kan du använda platshållare som namnge egenskaperna för objektet i den **kö** attributets **blobPath** parametern. Du kan också använda könamn metadata-egenskap som platshållare. Se [hämta kön eller kön meddelande metadata](#get-queue-or-queue-message-metadata).
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
+För en POCO som är lagrad som JSON i Queue-meddelandet kan du använda plats hållare som namn egenskaper för objektet i attributet **blobPath** för **kön** . Du kan också använda egenskaps namn för kö-metadata som plats hållare. Se [Hämta metadata för kö-eller Queue meddelande](#get-queue-or-queue-message-metadata).
 
-I följande exempel kopierar en blob till en ny blob med ett annat tillägg. Kömeddelandet är en **BlobInformation** objekt som innehåller **BlobName** och **BlobNameWithoutExtension** egenskaper. Egenskapsnamnen används som platshållare i blob-sökvägen för den **Blob** attribut.
+I följande exempel kopieras en blob till en ny BLOB med ett annat fil namns tillägg. Queue-meddelandet är ett **BlobInformation** -objekt som innehåller egenskaperna **BlobName** och **BlobNameWithoutExtension** . Egenskaps namnen används som plats hållare i BLOB-sökvägen för **BLOB** -attributen.
 
 ```csharp
 public static void CopyBlobPOCO(
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-SDK: N använder den [Newtonsoft.Json NuGet-paketet](https://www.nuget.org/packages/Newtonsoft.Json) att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs-SDK kan du skriva kod som i följande exempel för att skapa en POCO-kömeddelande som SDK: N kan parsa.
+SDK använder [Newtonsoft. JSON NuGet-paketet](https://www.nuget.org/packages/Newtonsoft.Json) för att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs SDK kan du skriva kod som följande exempel för att skapa ett POCO som SDK: n kan parsa.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
@@ -319,32 +319,32 @@ var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 logQueue.AddMessage(queueMessage);
 ```
 
-Om du vill göra en del arbete i din funktion innan du binder en blob till ett objekt kan du kan använda attributet i brödtexten till funktionen, som visas i [använder WebJobs-SDK-attribut i brödtexten i en funktion](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
+Om du behöver göra lite arbete i din funktion innan du binder en blob till ett objekt, kan du använda attributet i bröd texten i funktionen, som visas i avsnittet [använda WebJobs SDK-attribut i bröd texten i en funktion](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
-### <a name="types-you-can-use-the-blob-attribute-with"></a>Du kan använda Blob-attributet med
-Den **Blob** attributet kan användas med följande typer:
+### <a name="types-you-can-use-the-blob-attribute-with"></a>Typer du kan använda BLOB-attributet med
+**BLOB** -attributet kan användas med följande typer:
 
-* **Stream** (läsa eller skriva, anges med hjälp av konstruktorparametern FileAccess)
+* **Strömma** (läsning eller skrivning, anges med parametern FileAccess konstruktor)
 * **TextReader**
 * **TextWriter**
-* **sträng** (läsa)
-* **ut sträng** (skriva; skapar en blob endast om strängparametern är icke-null när returnerar funktionen)
+* **sträng** Läs
+* **out-sträng** (Write; skapar bara en BLOB om sträng parametern är icke-null när funktionen returnerar)
 * POCO (läsa)
-* ut POCO (skriva; alltid skapar en blob, skapar som null-objekt om POCO-parametern är null när funktionen returnerar)
-* **CloudBlobStream** (skriva)
-* **ICloudBlob** (läsa eller skriva)
-* **CloudBlockBlob** (läsa eller skriva)
-* **CloudPageBlob** (läsa eller skriva)
+* out-POCO (Write; skapar alltid en BLOB, skapar som null-objekt om POCO-parametern är null när funktionen returnerar)
+* **CloudBlobStream** Skriv
+* **ICloudBlob** (Läs eller skriv)
+* **CloudBlockBlob** (Läs eller skriv)
+* **CloudPageBlob** (Läs eller skriv)
 
-## <a name="how-to-handle-poison-messages"></a>Hur du hanterar skadliga meddelanden
-Meddelanden vars innehåll orsakar en funktion misslyckas anropas *skadliga meddelanden*. När funktionen misslyckas, tas inte bort kömeddelandet och slutligen hämtas igen, orsakar cykeln ska upprepas. SDK: N kan automatiskt avbryta cykeln när du har ett begränsat antal iterationer eller du kan göra det manuellt.
+## <a name="how-to-handle-poison-messages"></a>Så här hanterar du Poison-meddelanden
+Meddelanden vars innehåll gör att en funktion inte kan anropas kallas *Poison-meddelanden*. När funktionen Miss lyckas tas inte Queue-meddelandet bort och slutligen hämtas den igen, vilket gör att cykeln upprepas. SDK: n kan automatiskt avbryta cykeln efter ett begränsat antal iterationer, eller så kan du göra det manuellt.
 
-### <a name="automatic-poison-message-handling"></a>Hantering av automatisk skadligt meddelande
-SDK: N ska anropa en funktion upp till 5 gånger för att bearbeta ett kömeddelande. Om den femte försök misslyckas, flyttas meddelandet till en skadliga kö. Du kan se hur du konfigurerar det maximala antalet återförsök i [hur du ställer in konfigurationsalternativ](#how-to-set-configuration-options).
+### <a name="automatic-poison-message-handling"></a>Automatisk hantering av skadligt meddelande
+SDK kommer att anropa en funktion upp till fem gånger för att bearbeta ett Queue-meddelande. Om det femte försöket Miss lyckas flyttas meddelandet till en Poison-kö. Du kan se hur du konfigurerar det maximala antalet återförsök i [hur du konfigurerar konfigurations alternativ](#how-to-set-configuration-options).
 
-Skadliga kön heter *{originalqueuename}* -skadliga. Du kan skriva en funktion du bearbetar meddelanden från skadliga kön av loggning av dem eller skicka ett meddelande till den manuella åtgärder krävs.
+Den Poison-kön heter *{originalqueuename}* -Poison. Du kan skriva en funktion för att bearbeta meddelanden från den Poison-kön genom att logga dem eller skicka ett meddelande om att det krävs en manuell åtgärd.
 
-I följande exempel på **CopyBlob** funktionen kommer att misslyckas när ett kömeddelande innehåller namnet på en blob som inte finns. När det sker så flyttas meddelandet från kön copyblobqueue till copyblobqueue poison kön. Den **ProcessPoisonMessage** loggar skadliga meddelandet.
+I följande exempel fungerar inte **CopyBlob** -funktionen när ett Queue-meddelande innehåller namnet på en blob som inte finns. När detta inträffar flyttas meddelandet från copyblobqueue-kön till copyblobqueue-Poison-kön. **ProcessPoisonMessage** loggar sedan in det skadliga meddelandet.
 
 ```csharp
 public static void CopyBlob(
@@ -362,12 +362,12 @@ public static void ProcessPoisonMessage(
 }
 ```
 
-Följande bild visar konsolens utdata från dessa funktioner när ett skadligt meddelande bearbetas.
+Följande bild visar konsol utdata från dessa funktioner när ett Poison-meddelande bearbetas.
 
-![Konsolens utdata för hantering av skadligt meddelande](./media/vs-storage-webjobs-getting-started-queues/poison.png)
+![Konsol resultat för hantering av skadligt meddelande](./media/vs-storage-webjobs-getting-started-queues/poison.png)
 
-### <a name="manual-poison-message-handling"></a>Hantering av manuell skadligt meddelande
-Du kan hämta hur många gånger meddelandet har hämtats för bearbetning genom att lägga till en **int** parameter med namnet **dequeueCount** till din funktion. Du kan kontrollera antalet ta i Funktionskoden och utföra egna skadliga meddelandehantering när antalet överskrider ett tröskelvärde som du ser i följande exempel.
+### <a name="manual-poison-message-handling"></a>Manuell hantering av Poison-meddelanden
+Du kan få antalet gånger som ett meddelande har hämtats för bearbetning genom att lägga till en **int** -parameter med namnet **dequeueCount** i din funktion. Du kan sedan kontrol lera antalet uppräkningar i funktions koden och utföra din egen hantering av Poison-meddelanden när antalet överskrider ett tröskelvärde, som du ser i följande exempel.
 
 ```csharp
 public static void CopyBlob(
@@ -387,15 +387,15 @@ public static void CopyBlob(
 }
 ```
 
-## <a name="how-to-set-configuration-options"></a>Hur du ställer in konfigurationsalternativ
-Du kan använda den **JobHostConfiguration** Skriv för att ange följande konfigurationsalternativ:
+## <a name="how-to-set-configuration-options"></a>Ange konfigurations alternativ
+Du kan använda **JobHostConfiguration** -typen för att ange följande konfigurations alternativ:
 
-* Ange anslutningssträngar för SDK i koden.
-* Konfigurera **QueueTrigger** inställningar, till exempel högsta antal som borttagningar.
+* Ange anslutnings strängar för SDK i kod.
+* Konfigurera **QueueTrigger** -inställningar som till exempel maximalt antal avköade.
 * Hämta könamn från konfigurationen.
 
-### <a name="set-sdk-connection-strings-in-code"></a>Ange anslutningssträngar för SDK i koden
-Ange anslutningssträngar för SDK i koden kan du använda din egen anslutning sträng namn i konfigurationsfiler eller miljövariabler, som visas i följande exempel.
+### <a name="set-sdk-connection-strings-in-code"></a>Ange anslutnings strängar för SDK i kod
+Genom att ange anslutnings strängar för SDK i kod kan du använda dina egna anslutnings sträng namn i konfigurationsfiler eller miljövariabler, som du ser i följande exempel.
 
 ```csharp
 static void Main(string[] args)
@@ -418,14 +418,14 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="configure-queuetrigger--settings"></a>Konfigurera inställningar för QueueTrigger
-Du kan konfigurera följande inställningar som gäller för meddelandehantering kö:
+### <a name="configure-queuetrigger--settings"></a>Konfigurera QueueTrigger-inställningar
+Du kan konfigurera följande inställningar som gäller bearbetningen av köa meddelanden:
 
-* Det maximala antalet Kömeddelanden som plockas upp samtidigt som ska köras parallellt (standard är 16).
-* Det maximala antalet återförsök innan ett kömeddelande skickas till en skadliga kö (standardvärdet är 5).
-* Maximal väntetid före avsökning igen när en kö är tom (standardvärdet är 1 minut).
+* Det maximala antalet köa meddelanden som hämtas samtidigt som körs parallellt (standard är 16).
+* Maximalt antal försök innan ett Queue-meddelande skickas till en Poison-kö (Standardvärdet är 5).
+* Maximal vänte tid innan avsökningen görs igen när en kö är tom (Standardvärdet är 1 minut).
 
-I följande exempel visas hur du konfigurerar dessa inställningar:
+I följande exempel visas hur du konfigurerar de här inställningarna:
 
 ```csharp
 static void Main(string[] args)
@@ -439,12 +439,12 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Ange värden för WebJobs SDK konstruktor parametrar i kod
-Vill ibland du ange en kö, ett blobnamn eller behållare eller en tabell i kod i stället för hårdkoda ge den namnet. Du kanske exempelvis vill ange namnet på kön för **QueueTrigger** i en konfiguration av fil- eller miljö variabel.
+### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Ange värden för WebJobs SDK-konstruktorns parametrar i kod
+Ibland vill du ange ett könamn, ett BLOB-namn eller behållare, eller ett tabell namn i kod i stället för att hårdkoda det. Du kanske till exempel vill ange könamnet för **QueueTrigger** i en konfigurations fil eller en miljö variabel.
 
-Du kan göra det genom att skicka in en **NameResolver** objekt till den **JobHostConfiguration** typen. Du inkluderar särskild platshållare som omges av procenttecken (%) loggar in WebJobs SDK attributet konstruktor parametrar, och din **NameResolver** kod anger de faktiska värdena som ska användas i stället för platshållarna.
+Det kan du göra genom att skicka ett **NameResolver** -objekt till **JobHostConfiguration** -typen. Du inkluderar särskilda plats hållare omgiven av procent (%) loggar in WebJobs SDK-attribut och **NameResolver** -koden anger de faktiska värden som ska användas i stället för dessa plats hållare.
 
-Anta exempelvis att du vill använda en kö med namnet logqueuetest i testmiljön och en namngiven logqueueprod i produktion. I stället för ett hårdkodat könamn som du vill ange namnet på en post i den **appSettings** samling som skulle ha faktiska könamnet. Om den **appSettings** nyckeln är logqueue, din funktion bör se ut som i följande exempel.
+Anta till exempel att du vill använda en kö med namnet logqueuetest i test miljön och en namngiven logqueueprod i produktion. I stället för ett hårdkodat könamn, vill du ange namnet på en post i **appSettings** -samlingen som skulle ha det faktiska könamnet. Om **appSettings** -nyckeln är logqueue kan din funktion se ut som i följande exempel.
 
 ```csharp
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
@@ -453,7 +453,7 @@ public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 }
 ```
 
-Din **NameResolver** klassen kan sedan hämta könamn från **appSettings** som visas i följande exempel:
+**NameResolver** -klassen kan sedan hämta könamnet från **appSettings** som visas i följande exempel:
 
 ```csharp
 public class QueueNameResolver : INameResolver
@@ -465,7 +465,7 @@ public class QueueNameResolver : INameResolver
 }
 ```
 
-Du skickar den **NameResolver** klassen i till den **JobHost** objekt som visas i följande exempel.
+Du skickar **NameResolver** -klassen till **JobHost** -objektet som visas i följande exempel.
 
 ```csharp
 static void Main(string[] args)
@@ -477,10 +477,10 @@ static void Main(string[] args)
 }
 ```
 
-**Obs:** Kö, tabell och blob-namnet matchas varje gång en funktion, men blob-behållarnamn löses bara när programmet startas. Du kan inte ändra namnet när jobbet körs.
+**Obs:** Kö-, tabell-och blob-namn löses varje gång en funktion anropas, men BLOB container-namn matchas endast när programmet startas. Du kan inte ändra namnet på en BLOB-behållare medan jobbet körs.
 
-## <a name="how-to-trigger-a-function-manually"></a>Hur du utlöser en funktion manuellt
-Utlös en funktion manuellt genom att använda den **anropa** eller **CallAsync** metoden på den **JobHost** objekt och **NoAutomaticTrigger** attribut i funktionen, som visas i följande exempel.
+## <a name="how-to-trigger-a-function-manually"></a>Så här utlöser du en funktion manuellt
+Om du vill utlösa en funktion manuellt använder **** du anrops-eller **CallAsync** -metoden i **JobHost** -objektet och attributet **NoAutomaticTrigger** i funktionen, som du ser i följande exempel.
 
 ```csharp
 public class Program
@@ -503,24 +503,24 @@ public class Program
 }
 ```
 
-## <a name="how-to-write-logs"></a>Hur du skriver loggar
-Instrumentpanelen visar loggar på två platser: sidan för Webbjobbet, och på sidan för ett särskilt WebJob-anrop.
+## <a name="how-to-write-logs"></a>Skriva loggar
+På instrument panelen visas loggar på två platser: sidan för webb jobbet och sidan för ett visst webb jobbs anrop.
 
-![Loggar i Webbjobbet sidan](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Sidan loggar på webb sidan](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-![Loggar i funktionen anrops-sidan](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Sidan loggar i funktions anrop](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-Utdata från konsolen metoder som anropas i en funktion eller i den **Main()** metoden visas på sidan instrumentpanel för Webbjobbet, inte på sidan för en viss metodanropet. Utdata från det TextWriter-objekt som du får från en parameter i Metodsignaturen visas i vyn instrumentpanel för ett metodanrop.
+Utdata från konsol metoder som du anropar i en funktion eller i **Main ()-** metoden visas på instrument panelens sida för webb jobbet, inte på sidan för ett visst metod anrop. Utdata från objektet TextWriter som du hämtar från en parameter i din metodsignatur visas på instrument panels sidan för ett metod anrop.
 
-Konsolens utdata kan inte länkas till en viss metodanropet eftersom konsolen är enkla trådar, även om många jobbfunktioner kanske körs på samma gång. Det är därför SDK innehåller varje funktionsanrop med en egen unik log-Skrivarobjektet.
+Konsolens utdata kan inte länkas till ett visst metod anrop eftersom konsolen är enkel trådad, medan många jobb funktioner kan köras samtidigt. Det är därför som SDK: n tillhandahåller varje funktions anrop med ett eget unikt logg skrivar objekt.
 
-Att skriva [programloggarna för spårning av](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), använda **Console.Out** (skapar loggar som är märkta som information) och **Console.Error** (skapar loggar som är märkta som fel). Ett alternativ är att använda [spårningen eller TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), som innehåller utförlig, varning, och kritiska nivåer utöver information och fel. Spårningsloggar för program visas i web app loggfiler, Azure-tabeller, eller Azure BLOB-objekt beroende på hur du konfigurerar Azure-webbappen. Som gäller för alla konsolens utdata, visas de senaste 100 programloggarna också i instrumentpanelsidan för Webbjobbet, inte sidan för ett funktionsanrop.
+Om du vill skriva [spårnings loggar för program](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview)använder du **Console. out** (skapar loggar som marker ATS som information) och **konsol. error** (skapar loggar som marker ATS som fel). Ett alternativ är att använda [trace eller TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), vilket ger utförliga, varnings-och kritiska nivåer utöver information och fel. Spårnings loggar för program visas i loggfiler, Azure-tabeller eller Azure-blobbar, beroende på hur du konfigurerar din Azure-webbapp. När det gäller alla konsol utdata visas de senaste 100-programloggarna också på instrument panelens sida för webb jobbet, inte sidan för ett funktions anrop.
 
-Konsolens utdata visas i instrumentpanelen bara om programmet körs i ett Azure WebJob inte om programmet körs lokalt eller i någon annan miljö.
+Konsol utdata visas bara på instrument panelen om programmet körs i ett Azure-webbjobb, inte om programmet körs lokalt eller i en annan miljö.
 
-Du kan inaktivera loggning genom att ange strängen som instrumentpanelen till null. Mer information finns i [hur du ställer in konfigurationsalternativ](#how-to-set-configuration-options).
+Du kan inaktivera loggning genom att ange anslutnings strängen för instrument panelen till null. Mer information finns i [så här anger du konfigurations alternativ](#how-to-set-configuration-options).
 
-I följande exempel visar flera olika sätt att skriva loggar:
+I följande exempel visas flera olika sätt att skriva loggar:
 
 ```csharp
 public static void WriteLog(
@@ -534,30 +534,30 @@ public static void WriteLog(
 }
 ```
 
-WebJobs SDK instrumentpanelen för utdata från den **TextWriter** objekt visar upp när du gå till sidan för en viss fungera anrop och välj **växla utdata**:
+I instrument panelen för WebJobs-SDK visas utdata från **** objektet TextWriter när du går till sidan för ett visst funktions anrop och väljer **Växla utdata**:
 
-![Anrops-länk](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![Anrops länk](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
-![Loggar i funktionen anrops-sidan](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![Sidan loggar i funktions anrop](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-WebJobs SDK instrumentpanelen de senaste 100 rader i konsolen utdata visa upp när du gå till sidan för Webbjobbet (inte för funktionsanrop) och väljer **växla utdata**.
+På instrument panelen för WebJobs-SDK visas de senaste 100 linjerna i konsolens utdata när du går till sidan för webb jobbet (inte för funktions anrop) och väljer **Växla utdata**.
 
-![Visa/Dölj utdata](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Växla utdata](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-I ett kontinuerligt Webbjobb programloggar som visas i/data/jobb/kontinuerlig/ *{webjobname}* /job_log.txt i filsystemet för web app.
+I ett kontinuerligt webbjobb visas program loggar i/data/Jobs/Continuous/ *{webjobname}* /job_log.txt i webb program fil systemet.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-I en Azure blob program loggar ser ut så här: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21 : 01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+I en Azure-Blob ser program loggarna ut så här: 2014-09-26T21:01:13, information, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 17, Console. Write-Hello World!, 2014-09-26T21:01:13, fel, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 19, konsol. error-Hello World!, 2014-09-26T21 : 01:13, information, contosoadsnew, 491e54, 635473620738529920, 0, 17404, 17, Console. out-Hello World!,
 
-Och i en Azure-tabell i **Console.Out** och **Console.Error** loggar ut så här:
+Och i en Azure-tabell visas **konsolen. ut** och **konsolen. fel** loggar ser ut så här:
 
-![Info log i tabellen](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
+![Informations logg i tabell](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 
-![Felloggen i tabellen](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
+![Fel logg i tabell](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln har tillhandahållit exempel som visar hur du hanterar vanliga scenarier för att arbeta med Azure-köer. Mer information om hur du använder Azure WebJobs och WebJobs-SDK finns i [Azure WebJobs dokumentationsresurser](https://go.microsoft.com/fwlink/?linkid=390226).
+I den här artikeln finns kod exempel som visar hur du hanterar vanliga scenarier för att arbeta med Azure-köer. Mer information om hur du använder Azure WebJobs och WebJobs SDK finns i [Azure WebJobs dokumentations resurser](https://go.microsoft.com/fwlink/?linkid=390226).
 

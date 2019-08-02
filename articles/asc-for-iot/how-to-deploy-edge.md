@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure Security Center för IoT Edge-modul | Microsoft Docs
-description: Läs mer om hur du distribuerar en Azure Security Center för IoT security-agenten på IoT Edge.
+title: Distribuera Azure Security Center för IoT Edge modul (förhands granskning) | Microsoft Docs
+description: Lär dig hur du distribuerar en Azure Security Center för IoT-Säkerhetsagenten på IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,71 +13,71 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/1/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 49ed4c6515f8fb63c3331b05e1bb29b13985e6b3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7171923e4badb3355a64b63515d40e73fadca6b0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618325"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596358"
 ---
-# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en modul för maskinvarusäkerhet på din IoT Edge-enhet
+# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en säkerhetsmodul på din IoT Edge-enhet
 
 > [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
+> Azure Security Center för IoT IoT Edge Device Support är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-**Azure Security Center (ASC) för IoT** modulen innehåller en omfattande lösning för din IoT Edge-enhet.
-Modul för maskinvarusäkerhet samlar in, aggregerar och analyserar raw säkerhetsdata från datorn operativsystem och en behållare i handlingsbara rekommendationer och aviseringar.
-Mer information finns i [säkerhetsmodul för IoT Edge](security-edge-architecture.md).
+**Azure Security Center för IoT** -modulen tillhandahåller en omfattande säkerhetslösning för dina IoT Edge-enheter.
+Säkerhetsmodulen samlar in, samlar in och analyserar rå säkerhets data från operativ systemet och behållar systemet till åtgärds bara säkerhets rekommendationer och aviseringar.
+Mer information finns i säkerhetsmodulen [för IoT Edge](security-edge-architecture.md).
 
-I den här guiden lär du dig att distribuera en modul för maskinvarusäkerhet på din IoT Edge-enhet.
+I den här artikeln får du lära dig hur du distribuerar en säkerhetsmodul på din IoT Edge-enhet.
 
 ## <a name="deploy-security-module"></a>Distribuera säkerhetsmodul
 
-Använd följande steg för att distribuera en ASC för IoT-säkerhetsmodul för IoT Edge.
+Använd följande steg för att distribuera en Azure Security Center för IoT-säkerhetsmodulen för IoT Edge.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- Kontrollera att enheten är i din IoT-hubb [registrerad som en IoT Edge-enhet](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
+- Kontrol lera att enheten är [registrerad som en IoT Edge enhet](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)i IoT Hub.
 
-- ASC för IoT Edge-modulen kräver [AuditD framework](https://linux.die.net/man/8/auditd) är installerad på IoT Edge-enhet.
+- För att Azure Security Center för IoT Edge modul [](https://linux.die.net/man/8/auditd) måste det granskade ramverket installeras på IoT Edges enheten.
 
-    - Installera framework genom att köra följande kommando på IoT Edge-enhet:
+    - Installera ramverket genom att köra följande kommando på din IoT Edge enhet:
    
       `sudo apt-get install auditd audispd-plugins`
    
-    - Kontrollera AuditD är aktiv genom att köra följande kommando:
+    - Kontrol lera att granskningen är aktiv genom att köra följande kommando:
    
       `sudo systemctl status auditd`
       
         Det förväntade svaret är `active (running)`. 
 
-### <a name="deployment-using-azure-portal"></a>Distributionen med hjälp av Azure-portalen
+### <a name="deployment-using-azure-portal"></a>Distribution med hjälp av Azure Portal
 
-1. Från Azure-portalen öppnar **Marketplace**.
+1. Öppna **Marketplace**från Azure Portal.
 
-1. Välj **Internet of Things**, Sök sedan efter **Azure Security Center för IoT** och markera den.
+1. Välj **Sakernas Internet**och sök efter **Azure Security Center för IoT** och välj den.
 
    ![Välj Azure Security Center för IoT](media/howto/edge-onboarding-8.png)
 
-1. Klicka på **skapa** att konfigurera distribution. 
+1. Konfigurera distributionen genom att klicka på **skapa** . 
 
-1. Välj Azure **prenumeration** för IoT-hubben, väljer din **IoT Hub**.<br>Välj **distribuera till en enhet** att rikta en enskild enhet eller välja **distribuera skalenligt** rikta flera enheter och klickar på **skapa**. Läs mer om hur du distribuerar i stor skala, [hur du distribuerar](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor). 
+1. Välj Azure- **prenumerationen** för din IoT Hub och välj sedan **IoT Hub**.<br>Välj **distribuera till en enhet** för att rikta in dig på en enskild enhet eller Välj **distribuera i skala** för att rikta flera enheter och klicka på **skapa**. Mer information om [hur du](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor)distribuerar i skala finns i distribuera. 
 
     >[!Note] 
-    >Om du har valt **distribuera skalenligt**, lägga till enhetens namn och information innan du fortsätter med den **Lägg till moduler** flik i följande anvisningar.     
+    >Om du har valt **distribuera i skala**lägger du till enhets namnet och informationen innan du fortsätter till fliken **Lägg till moduler** i följande instruktioner.     
 
 Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security Center för IoT. I följande avsnitt beskriver var och en. 
 
 #### <a name="step-1-add-modules"></a>Steg 1: Lägg till moduler
 
-1. Från den **Lägg till moduler** fliken **distribution moduler** området klickar du på **AzureSecurityCenterforIoT**. 
+1. På fliken **Lägg till moduler** , avsnittet **distributions moduler** , klickar du på **AzureSecurityCenterforIoT**. 
    
-1. Ändra den **namn** till **azureiotsecurity**.
-1. Ändra den **bild-URI: N** till **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
-1. Kontrollera den **behållare skapa alternativ** har värdet:      
+1. Ändra **namnet** till **azureiotsecurity**.
+1. Ändra avbildnings- **URI** till **MCR.Microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
+1. Kontrol lera att värdet för alternativet **container Create** är inställt på:      
     ``` json
     {
         "NetworkingConfig": {
@@ -95,7 +95,7 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
         }
     }    
     ```
-1. Kontrollera att **önskade egenskaper för modultvilling Set** är markerad och ändra konfigurationsobjektet till:
+1. Kontrol lera att **Ange önskade egenskaper för modul** är markerat och ändra konfigurationsobjektet till:
       
     ``` json
       "properties.desired": {
@@ -105,19 +105,16 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
       ```
 
 1. Klicka på **Spara**.
-1. Bläddra till längst ned på fliken och välj **konfigurera avancerade Edge-körningsinställningar**.
+1. Rulla till slutet av fliken och välj **Konfigurera avancerade Edge runtime-inställningar**.
    
-   >[!Note]
-   > Gör **inte** inaktivera AMQP kommunikation för IoT Edge-hubben.
-   > Azure Security Center för IoT-modulen kräver AMQP kommunikation med IoT Edge Hub.
    
-1. Ändra den **bild** under **Edge Hub** till **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
+1. Ändra **bilden** under **Edge Hub** till **MCR.Microsoft.com/ascforiot/edgehub:1.0.9-Preview**.
 
    >[!Note]
-   > Azure Security Center för IoT-modulen kräver en förgrenade versionen av IoT Edge Hub, baserat på SDK-version 1,20.
-   > Genom att ändra IoT Edge Hub-avbildning, ger du din IoT Edge-enhet att ersätta den senaste stabila versionen med den förgrenade versionen av IoT Edge Hub, vilket inte stöds officiellt av IoT Edge-tjänsten.
+   > Azure Security Center för IoT-modulen kräver en förgrenings version av IoT Edge Hub, baserat på SDK-version 1,20.
+   > Genom att ändra IoT Edge Hub-avbildningen uppmanas du att IoT Edge enheten för att ersätta den senaste stabila versionen med den förgrenade versionen av IoT Edge Hub, som inte stöds av IoT Edge-tjänsten.
 
-1. Kontrollera **skapa alternativ** har angetts till: 
+1. Kontrol lera att **alternativet Skapa** är inställt på: 
          
     ``` json
     {
@@ -135,46 +132,53 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
    
 1. Klicka på **Nästa**.
 
-#### <a name="step-2-specify-routes"></a>Steg 2: Ange vägar 
+#### <a name="step-2-specify-routes"></a>Steg 2: Ange rutter 
 
-1. I den **ange vägar** fliken genom att ange den **ASCForIoTToIoTHub** dirigera till **”från/meddelanden/moduler/azureiotsecurity/\* i $uppströms”** , och klicka på  **Nästa**.
+1. På fliken **Ange vägar** kontrollerar du att du har en väg (explicit eller implicit) som kommer att vidarebefordra meddelanden från **azureiotsecurity** -modulen till **$upstream**. 
+1. Klicka på **Nästa**.
 
-   ![Ange vägar](media/howto/edge-onboarding-9.png)
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>Steg 3: Granska distribution
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream
+    ~~~
 
-1. I den **granska distribution** , granska din information om distribution och sedan välja **skicka** att slutföra distributionen.
+#### <a name="step-3-review-deployment"></a>Steg 3: Granska distributionen
 
-## <a name="diagnostic-steps"></a>Diagnostiken
+- På fliken **Granska distribution** granskar du distributions informationen och väljer sedan **Skicka** för att slutföra distributionen.
 
-Om det uppstår ett problem, är container loggarna det bästa sättet att lära dig om tillståndet för en IoT Edge-modulen säkerhetsenhet. Använd kommandona och verktygen i det här avsnittet för att samla in information.
+## <a name="diagnostic-steps"></a>Diagnostiska steg
 
-### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Kontrollera behållarna som krävs är installerade och fungerar som förväntat
+Om du stöter på problem är behållar loggarna det bästa sättet att lära sig om status för en IoT Edge säkerhetsmodulen het. Använd kommandona och verktygen i det här avsnittet för att samla in information.
 
-1. Kör följande kommando på IoT Edge-enhet:
+### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Kontrol lera att de obligatoriska behållarna är installerade och fungerar som förväntat
+
+1. Kör följande kommando på din IoT Edge enhet:
     
      `sudo docker ps`
    
-1. Kontrollera att följande behållare körs:
+1. Kontrol lera att följande behållare körs:
    
-   | Namn | BILD |
+   | Namn | AVBILDNING |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
    | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
-   Om den begärda minimiversionen behållare inte finns, kontrollera om ditt manifest för IoT Edge-distribution är i linje med de rekommenderade inställningarna. Mer information finns i [distribuera IoT Edge-modul](#deployment-using-azure-portal).
+   Om minsta antalet obligatoriska behållare inte finns kontrollerar du om ditt IoT Edge distributions manifest är justerat med de rekommenderade inställningarna. Mer information finns i [distribuera IoT Edge-modulen](#deployment-using-azure-portal).
 
-### <a name="inspect-the-module-logs-for-errors"></a>Inspektera modulloggar efter fel
+### <a name="inspect-the-module-logs-for-errors"></a>Granska modulens loggar för fel
    
-1. Kör följande kommando på IoT Edge-enhet:
+1. Kör följande kommando på din IoT Edge enhet:
 
    `sudo docker logs azureiotsecurity`
    
-1. För mer utförliga loggar, lägger du till följande miljövariabler till **azureiotsecurity** distribution av principmodul: `logLevel=Debug`.
+1. För mer utförliga loggar lägger du till följande miljö variabel i **azureiotsecurity** -modulen distribution: `logLevel=Debug`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om konfigurationsalternativ fortsätter du att den här guiden för Modulkonfiguration av. 
+Om du vill veta mer om konfigurations alternativ fortsätter du till instruktions guiden för konfiguration av modulen. 
 > [!div class="nextstepaction"]
-> [Modulen how-to konfigurationsguide](./how-to-agent-configuration.md)
+> [Guide för konfiguration av moduler](./how-to-agent-configuration.md)

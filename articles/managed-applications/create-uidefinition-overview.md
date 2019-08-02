@@ -1,6 +1,6 @@
 ---
-title: Förstå skapar användargränssnitt definition för Azure hanterade program | Microsoft Docs
-description: Beskriver hur du skapar definitioner för användargränssnitt för Azure Managed Applications
+title: CreateUiDefitinion. JSON för Azure Managed Applications Create Experience | Microsoft Docs
+description: Beskriver hur du skapar användar gränssnitts definitioner för Azure Managed Applications
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,20 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50bbaf740a67d3830df2d0447b9522153cb8c93c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257551"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619092"
 ---
-# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Skapa Azure portalens användargränssnitt för det hanterade programmet
-Det här dokumentet introducerar grundkoncepten i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa ett hanterat program.
+# <a name="createuidefitinionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefitinion. JSON för Azure Managed Applications Create Experience
+I det här dokumentet beskrivs de grundläggande begreppen i filen **createUiDefinition. JSON** som Azure Portal använder för att definiera användar gränssnittet när du skapar ett hanterat program.
+
+Mallen är följande
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-   "handler": "Microsoft.Compute.MultiVm",
+   "handler": "Microsoft.Azure.CreateUIDef",
    "version": "0.1.2-preview",
    "parameters": {
       "basics": [ ],
@@ -38,30 +40,30 @@ Det här dokumentet introducerar grundkoncepten i filen createUiDefinition.json.
 
 En CreateUiDefinition innehåller alltid tre egenskaper: 
 
-* Hanterare
+* protokollhanteraren
 * version
 * parameters
 
-För hanterade program, hanterare ska alltid vara `Microsoft.Compute.MultiVm`, och den senaste versionen är `0.1.2-preview`.
+Hanteraren bör alltid vara `Microsoft.Azure.CreateUIDef`och den senaste versionen som stöds är. `0.1.2-preview`
 
-Schemat för egenskapen parameters är beroende av en kombination av den angivna hanteraren och version. För hanterade program, egenskaper som stöds är `basics`, `steps`, och `outputs`. Egenskaperna grunderna och steg innehålla den _element_ - som textrutor och listrutor – som ska visas i Azure-portalen. Utdata-egenskapen används för att mappa utdata värdena för de angivna elementen till parametrarna i mallen för distribution av Azure Resource Manager.
+Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna hanteraren och versionen. För hanterade program är de egenskaper som `basics`stöds `steps`,, `outputs`och. Egenskaperna grundläggande och steg innehåller elementen [](create-uidefinition-elements.md) , t. ex. text rutor och list rutor, som ska visas i Azure Portal. Egenskapen outputs används för att mappa indatavärdena för de angivna elementen till parametrarna i mallen för Azure Resource Manager distribution.
 
-Inklusive `$schema` rekommenderas, men är valfritt. Om anges värdet för `version` måste matcha versionen inom den `$schema` URI.
+Inklusive `$schema` rekommenderas, men valfritt. Om det anges måste värdet för `version` matcha versionen `$schema` i URI: n.
 
-Du kan använda en JSON-redigerare för att skapa UI-definition eller du kan använda Användargränssnittet Definition sandbox-miljön för att skapa och förhandsgranska UI-definition. Mer information om sandbox-miljön finns i [testa din portalgränssnitt för Azure Managed Applications](test-createuidefinition.md).
+Du kan använda en JSON-redigerare för att skapa användar gränssnitts definitionen och sedan testa den i [sand boxen för gränssnitts definition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) för att förhandsgranska den. Mer information om sandbox finns i [Testa ditt Portal gränssnitt för Azure Managed Applications](test-createuidefinition.md).
 
-## <a name="basics"></a>Grundläggande inställningar
-Grunderna i steget är alltid det första steget i guiden som skapades när Azure-portalen Parsar filen. Förutom att visa de element som anges i `basics`, portalen lägger in element för användare att välja den prenumeration, resursgrupp och plats för distributionen. I allmänhet ska element som frågar efter distribution hela parametrar, t.ex namnet på ett kluster eller administratör autentiseringsuppgifter placeras i det här steget.
+## <a name="basics"></a>Grundinställningar
+Grunderna är det första steget som skapas när Azure Portal tolkar filen. Förutom att visa de element som anges i `basics`, infogar portalen element för användare för att välja prenumeration, resurs grupp och plats för distributionen. När det är möjligt bör element som frågar om distributionens globala parametrar, t. ex. namnet på ett kluster eller administratörs behörighet, fortsätta i det här steget.
 
-Om ett element beteende beror på användarens prenumeration, resursgrupp eller plats, kan elementet inte användas i grunderna. Till exempel **Microsoft.Compute.SizeSelector** beror på användarens prenumeration och plats för att fastställa listan med tillgängliga storlekar. Därför **Microsoft.Compute.SizeSelector** kan bara användas i steg. I allmänhet bör endast element i den **Microsoft.Common** namnområde kan användas i grunderna. Även om vissa element i andra namnområden (t.ex. **Microsoft.Compute.Credentials**) som inte beror på användarens kontext, fortfarande är tillåtna.
+Om ett Elements beteende beror på användarens prenumeration, resurs grupp eller plats, kan det elementet inte användas i grunderna. Till exempel är **Microsoft. Compute. SizeSelector** beroende av användarens prenumeration och plats för att fastställa listan över tillgängliga storlekar. Därför kan **Microsoft. Compute. SizeSelector** endast användas i steg. I allmänhet kan endast element i namn området **Microsoft. common** användas i grunderna. Även om vissa element i andra namn rymder (t **. ex. Microsoft. Compute. credentials**) som inte är beroende av användarens kontext fortfarande är tillåtna.
 
 ## <a name="steps"></a>Steg
-Egenskapen stegen kan innehålla noll eller flera ytterligare åtgärder för att visa efter grunderna, vart och ett innehåller ett eller flera element. Överväg att lägga till steg per roll eller nivå av programmet som ska distribueras. Lägg exempelvis till ett steg för indata för de överordnade noderna och ett steg för arbetsnoderna i ett kluster.
+Egenskapen steg kan innehålla noll eller ytterligare ytterligare steg för att visa efter grunderna, som innehåller ett eller flera element. Överväg att lägga till steg per roll eller nivå för det program som distribueras. Du kan till exempel lägga till ett steg för indata för huvudnoder och ett steg för arbetsnoder i ett kluster.
 
-## <a name="outputs"></a>Utdata
-Azure-portalen använder den `outputs` egenskapen att mappa element från `basics` och `steps` till parametrarna för distributionsmallen Azure Resource Manager. Nycklarna för den här ordlistan är namnen på mallparametrarna och värdena är egenskaper för utdata-objekt från de refererade elementen.
+## <a name="outputs"></a>outputs
+Azure Portal använder `outputs` egenskapen för att mappa element från `basics` och `steps` till parametrarna i mallen för Azure Resource Manager distribution. Nycklarna för den här ord listan är namnen på mallparametrar och värdena är egenskaper för de utgående objekten från de refererade elementen.
 
-Om du vill ange resursnamnet hanterat program, måste du inkludera ett värde med namnet `applicationResourceName` i egenskapen utdata. Om du inte anger det här värdet, tilldelas ett GUID för namnet. Du kan inkludera en textruta i användargränssnittet som du begär ett namn från användaren.
+Om du vill ange resurs namnet för den hanterade appen måste du inkludera `applicationResourceName` ett värde med namnet i egenskapen outputs. Om du inte anger det här värdet tilldelar programmet ett GUID för namnet. Du kan inkludera en text ruta i användar gränssnittet som begär ett namn från användaren.
 
 ```json
 "outputs": {
@@ -73,15 +75,15 @@ Om du vill ange resursnamnet hanterat program, måste du inkludera ett värde me
 }
 ```
 
-## <a name="functions"></a>Functions
-Liksom Mallfunktioner i Azure Resource Manager (både i syntax och funktioner), CreateUiDefinition tillhandahåller funktioner för att arbeta med elementens indata och utdata och funktioner, till exempel Conditions.
+## <a name="functions"></a>Funktioner
+CreateUiDefinition innehåller [funktioner](create-uidefinition-functions.md) för att arbeta med element indata och utdata, samt funktioner som till exempel villkor. Dessa funktioner liknar funktionerna i både syntax och funktioner i Azure Resource Manager mallar.
 
 ## <a name="next-steps"></a>Nästa steg
-CreateUiDefinition.json själva filen om du har ett enkelt schema. Det verkliga djupet på det kommer från alla element som stöds och funktioner. Dessa objekt beskrivs i detalj på:
+Filen createUiDefinition. JSON har ett enkelt schema. Det verkliga djupet i den kommer från alla element och funktioner som stöds. Dessa objekt beskrivs mer detaljerat på:
 
-- [Element](create-uidefinition-elements.md)
+- [Ämnen](create-uidefinition-elements.md)
 - [Funktioner](create-uidefinition-functions.md)
 
-En aktuell JSON-schema för createUiDefinition finns här: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
+Ett aktuellt JSON-schema för createUiDefinition finns här: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-En användare gränssnittet exempelfil, se [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).
+Ett exempel på en användar gränssnitts fil finns i [createUiDefinition. JSON](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

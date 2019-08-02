@@ -1,6 +1,6 @@
 ---
-title: Kontrollera status, ställa in loggning och få aviseringar – Azure Logic Apps | Microsoft Docs
-description: Övervaka status, logga diagnostics-data och ställa in aviseringar för Azure Logic Apps
+title: Kontrol lera status, Konfigurera loggning och hämta aviseringar – Azure Logic Apps | Microsoft Docs
+description: Övervaka status, logg diagnostikdata och konfigurera aviseringar för Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,208 +10,208 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61325289"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385537"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
-När du [skapar och kör en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md), du kan kontrollera dess körningshistorik, utlösarhistorik, status och prestanda. För händelseövervakning och mer omfattande felsökning, ställa in [diagnostikloggning](#azure-diagnostics) för din logikapp. På så sätt kan du kan [hitta och visa händelser](#find-events), t.ex. utlösande händelser, kör händelser och händelser för åtgärden. Du kan också använda det här [diagnostics-data med andra tjänster](#extend-diagnostic-data), som Azure Storage och Azure Event Hubs. 
+När du har [skapat och kört en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) kan du kontrollera logikappens körningshistorik, utlösarhistorik, status och prestanda. För händelse övervakning i real tid och bättre fel sökning, ställer du in [diagnostikloggning](#azure-diagnostics) för din Logic app. På så sätt kan du [hitta och visa händelser](#find-events), t.ex. utlösarhändelser, körningshändelser och åtgärdshändelser. Du kan också använda dessa [diagnostikdata med andra tjänster](#extend-diagnostic-data), t.ex. Azure Storage och Azure Event Hubs. 
 
-Om du vill få meddelanden om fel eller andra möjliga problem, Ställ in [aviseringar](#add-azure-alerts). Du kan till exempel skapa en avisering som identifierar ”när fler än fem körningar misslyckas på en timme”. Du kan också ställa in övervakning, spårning och loggning programmässigt med hjälp av [Azure Diagnostics händelse inställningar och egenskaper](#diagnostic-event-properties).
+Konfigurera aviseringar om du vill få meddelanden om fel eller andra möjliga [](#add-azure-alerts)problem. Du kan till exempel skapa en avisering som identifierar "när fler än fem körningar går sönder om en timme." Du kan också konfigurera övervakning, spårning och loggning program mässigt genom att använda [Azure-diagnostik händelse inställningar och egenskaper](#diagnostic-event-properties).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Visa körningar och utlösningshistorik för din logikapp
+## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Visa körnings-och utlösnings historik för din Logic app
 
-1. Du hittar din logikapp i den [Azure-portalen](https://portal.azure.com), på Azure-huvudmenyn väljer **alla tjänster**. Skriv ”logic apps” i sökrutan och välj **logikappar**.
+1. Om du vill hitta din Logi Kap par i [Azure Portal](https://portal.azure.com)väljer du **alla tjänster**på huvud menyn i Azure. Skriv "Logic Apps" i sökrutan och välj **Logic Apps**.
 
-   ![Hitta din logikapp](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
+   ![Hitta din Logic app](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
-   Azure-portalen visar alla logikappar som är associerade med din Azure-prenumeration. 
+   I Azure Portal visas alla Logic Apps som är associerade med din Azure-prenumeration. 
 
-2. Välj din logikapp och välj sedan **översikt**.
+2. Välj din Logic app och välj sedan **Översikt**.
 
-   Azure-portalen visar körnings- och utlösningshistorik för din logikapp. Exempel:
+   Azure Portal visar historiken för körningarna och utlösaren för din Logic app. Exempel:
 
-   ![Historik- och utlösningshistorik körningar med logikapp](media/logic-apps-monitor-your-logic-apps/overview.png)
+   ![Logic app kör historik och utlösnings historik](media/logic-apps-monitor-your-logic-apps/overview.png)
 
-   * **Körningshistorik** visas alla körningar för din logikapp. 
-   * **Utlösningshistorik** visar alla aktiviteter för utlösaren för logikappen.
+   * **Kör historik** visar alla körningar för din Logic app. 
+   * **Utlösnings historik** visar all Utlösar-aktivitet för din Logic app.
 
-   För statusbeskrivningar finns i [felsöka logikappen](../logic-apps/logic-apps-diagnosing-failures.md).
+   Information om status beskrivningar finns i [Felsöka din Logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
    > [!TIP]
-   > Om du inte hittar de data som du förväntar dig, i verktygsfältet väljer du **uppdatera**.
+   > Om du inte hittar de data du förväntar dig väljer du **Uppdatera**i verktygsfältet.
 
-3. Visa stegen från en specifik körning under **Körningshistorik**, Välj som körs. 
+3. Om du vill visa stegen från en speciell körning väljer du den i kör **Historik**. 
 
-   Övervaka innehåller varje steg i som körs. Exempel:
+   I vyn övervaka visas varje steg i som körs. Exempel:
 
-   ![Åtgärder för en specifik körning](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
+   ![Åtgärder för en speciell körning](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
-4. Om du vill ha mer information om körningen, Välj **körningsinformation**. Den här informationen sammanfattas steg, status, indata och utdata för körningen. 
+4. Om du vill ha mer information om körningen väljer du **Kör information**. Den här informationen sammanfattar stegen, status, indata och utdata för körningen. 
 
-   ![Välj ”körningsinformation”](media/logic-apps-monitor-your-logic-apps/run-details.png)
+   ![Välj Kör information](media/logic-apps-monitor-your-logic-apps/run-details.png)
 
-   Du kan till exempel få kör **Korrelations-ID**, som du kan behöva när du använder den [REST API för Logic Apps](https://docs.microsoft.com/rest/api/logic).
+   Du kan till exempel hämta **korrelations-ID**: t för körning, som du kan behöva när du använder [REST API för Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
-5. Om du vill få information om ett specifikt steg, väljer du det steget. Nu kan du granska information som indata, utdata och eventuella fel som inträffade för det steget. Exempel:
+5. Om du vill ha mer information om ett speciellt steg väljer du det steget. Du kan nu granska information som indata, utdata och eventuella fel som har inträffat för det steget. Exempel:
 
-   ![Information om steg](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
+   ![Steg information](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Alla runtime samt händelser är krypterade i Logic Apps-tjänsten. De dekrypteras endast när en användare begär för att visa dessa data. Du kan också styra åtkomst till dessa händelser med [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md).
+   > All körnings information och händelser krypteras i Logic Appss tjänsten. De dekrypteras bara när en användare begär att visa dessa data. Du kan också kontrol lera åtkomsten till dessa händelser med [hjälp av RBAC (Azure rollbaserad Access Control)](../role-based-access-control/overview.md).
 
-6. Om du vill få information om en specifik utlösarhändelse, gå tillbaka till den **översikt** fönstret. Under **Utlösningshistorik**, Välj utlösarhändelsen. Nu kan du granska information som indata och utdata, till exempel:
+6. Om du vill ha information om en angiven Utlös ande händelse går du  tillbaka till översikts fönstret. Under **utlösnings historik**väljer du händelsen Utlös. Du kan nu granska information som indata och utdata, till exempel:
 
-   ![Utlösaren händelseinformation för utdata](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
+   ![Utlöser information om utdata för händelse](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
 <a name="azure-diagnostics"></a>
 
-## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Slå på diagnostik loggning för din logikapp
+## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Aktivera diagnostikloggning för din Logic app
 
-För bättre felsökning med runtime samt händelser, som du kan ställa in diagnostik loggning med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Azure Monitor är en tjänst i Azure som övervakar dina molnbaserade och lokala miljöer för att hjälpa dig att bibehålla tillgänglighet och prestanda. 
+För bättre fel sökning med körnings information och händelser kan du konfigurera diagnostikloggning med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Azure Monitor är en tjänst i Azure som övervakar molnet och lokala miljöer för att hjälpa dig att underhålla deras tillgänglighet och prestanda. 
 
-Innan du börjar måste du har en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
+Innan du börjar måste du ha en Log Analytics-arbetsyta. Lär dig [hur du skapar en arbets yta för Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. I den [Azure-portalen](https://portal.azure.com), hitta och välj din logikapp. 
+1. Leta upp och välj din Logic app i [Azure Portal](https://portal.azure.com). 
 
-2. På bladet logikappmenyn under **övervakning**, Välj **diagnostik** > **diagnostikinställningar**.
+2. På bladet Logic app-menyn, **under övervakning**, **väljer** > du diagnostikinställningar **diagnostiska inställningar**.
 
    ![Gå till övervakning, diagnostik, diagnostikinställningar](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
-3. Under **diagnostikinställningar**, Välj **på**.
+3. Under **diagnostikinställningar**väljer du **på**.
 
    ![Aktivera diagnostikloggar](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Nu välja den Log Analytics-arbetsytan och händelsen kategorin för loggning som visas:
+4. Välj nu Log Analytics arbets yta och händelse kategori för loggning på det sätt som visas:
 
-   1. Välj **skicka till Log Analytics**. 
-   2. Under **Log Analytics**, Välj **konfigurera**. 
-   3. Under **OMS-arbetsytor**, Välj arbetsytan som ska användas för loggning.
+   1. Välj **Skicka till Log Analytics**. 
+   2. Under **Log Analytics**väljer du **Konfigurera**. 
+   3. Under **OMS-arbetsytor**väljer du den arbets yta som ska användas för loggning.
       > [!NOTE]
       > OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
-   4. Under **Log**väljer den **WorkflowRuntime** kategori.
-   5. Välj det mått intervallet.
+   4. Under **logg**väljer du kategorin **WorkflowRuntime** .
+   5. Välj mått intervallet.
    6. När du är klar väljer du **Spara**.
 
-   ![Välj Log Analytics-arbetsytan och data för loggning](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Välj Log Analytics arbets yta och data för loggning](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
-Nu kan hittar du händelser och andra data för utlösande händelser, händelser och händelser för åtgärden.
+Nu kan du hitta händelser och andra data för utlösnings händelser, köra händelser och åtgärds händelser.
 
 <a name="find-events"></a>
 
-## <a name="find-events-and-data-for-your-logic-app"></a>Hitta händelser och data för din logikapp
+## <a name="find-events-and-data-for-your-logic-app"></a>Hitta händelser och data för din Logic app
 
-Som utlöser händelser, kör händelser, och åtgärden händelser, Följ stegen nedan för att hitta och visa händelser i din logikapp.
+Följ dessa steg om du vill söka efter och Visa händelser i din Logic app, t. ex. utlösa händelser, köra händelser och åtgärds händelser.
 
-1. I den [Azure-portalen](https://portal.azure.com), Välj **alla tjänster**. Sök efter ”log analytics” och välj sedan **Log Analytics** som visas här:
+1. I [Azure Portal](https://portal.azure.com)väljer du **alla tjänster**. Sök efter "Log Analytics" och välj sedan **Log Analytics** som visas här:
 
-   ![Välj ”Log Analytics”](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
+   ![Välj "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Under **Log Analytics**, hitta och välj din Log Analytics-arbetsyta. 
+2. Under **Log Analytics**, leta upp och välj arbets ytan Log Analytics. 
 
-   ![Välj Log Analytics-arbetsytan](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Välj din Log Analytics arbets yta](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. Under **Management**, Välj **Loggsökning**.
+3. Under **hantering**väljer du **loggs ökning**.
 
-   ![Välj ”Log Search”](media/logic-apps-monitor-your-logic-apps/log-search.png)
+   ![Välj loggs ökning](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva, visas möjliga matchningar och åtgärder som du kan använda. 
+4. I rutan Sök anger du ett fält som du vill söka efter och trycker på **RETUR**. När du börjar skriva kan du se möjliga matchningar och åtgärder som du kan använda. 
 
-   Till exempel för att hitta de översta 10-händelser som har inträffat, ange och välj den här sökfrågan: **Sök kategori == ”WorkflowRuntime” | begränsa 10**
+   Om du till exempel vill hitta de 10 viktigaste händelserna som hände, anger och väljer du den här Sök frågan: **Sök kategori = = "WorkflowRuntime" | Limit 10**
 
-   ![Ange söksträngen](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
+   ![Ange Sök sträng](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Läs mer om [hitta data i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md).
+   Lär dig mer om [hur du hittar data i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md).
 
-5. Välj tidsram som du vill visa i fältet till vänster på resultatsidan.
-Om du vill förfina frågan genom att lägga till ett filter, välja **+ Lägg till**.
+5. På sidan resultat i det vänstra fältet väljer du den tidsram som du vill visa.
+Om du vill förfina frågan genom att lägga till ett filter väljer du **+ Lägg till**.
 
    ![Välj tidsram för frågeresultat](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-6. Under **Lägg till filter**, ange namnet på filtret så att du kan hitta önskat filter. Välj filtret och välj **+ Lägg till**.
+6. Under **Lägg till filter**anger du filter namnet så att du kan hitta det filter som du vill använda. Välj filtret och välj **+ Lägg till**.
 
-   Det här exemplet används ordet ”status” för att hitta misslyckade händelser under **AzureDiagnostics**.
-   Här filtret för **status_s** har redan valts.
+   I det här exemplet används ordet "status" för att hitta misslyckade händelser under **AzureDiagnostics**.
+   Här är filtret för **status_s** redan valt.
 
    ![Välj filter](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-7. I det vänstra fältet väljer du det filtervärde som du vill använda och välj **tillämpa**.
+7. I det vänstra fältet väljer du det filter värde som du vill använda och väljer **Använd**.
 
-   ![Välj filtervärdet, välj ”Använd”](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
+   ![Välj filter värde, Välj Använd](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-8. Gå nu tillbaka till den fråga som du skapar. Frågan har uppdaterats med valda filter och värde. Dina tidigare resultat filtreras nu för.
+8. Gå tillbaka till frågan som du skapar. Din fråga har uppdaterats med det valda filtret och värdet. Dina tidigare resultat har nu filtrerats.
 
-   ![Gå tillbaka till din fråga med filtrerade resultat](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
+   ![Återgå till din fråga med filtrerade resultat](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-9. Om du vill spara frågan för framtida användning, Välj **spara**. Lär dig [hur du sparar din fråga](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+9. Välj **Spara**om du vill spara din fråga för framtida bruk. Lär dig [hur du sparar din fråga](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 <a name="extend-diagnostic-data"></a>
 
-## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Utöka hur och var du kan använda diagnostikdata med andra tjänster
+## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Utöka hur och var du använder diagnostikdata med andra tjänster
 
-Du kan utöka hur du använda diagnostikdata för din logikapp med andra Azure-tjänster, till exempel tillsammans med Azure Monitor-loggar: 
+Tillsammans med Azure Monitor loggar kan du utöka hur du använder dina Logic Apps diagnostikdata med andra Azure-tjänster, till exempel: 
 
-* [Arkivera Azure Diagnostics-loggar i Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Stream Azure-diagnostikloggar för Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [Arkivera Azure-diagnostik loggar i Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
+* [Strömma Azure-diagnostik loggar till Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-Du kan sedan hämta i realtid övervakningen med hjälp av telemetri och analyser från andra tjänster som [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Exempel:
+Du kan sedan få real tids övervakning genom att använda telemetri och analys från andra tjänster, t. ex. [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Exempel:
 
-* [Stream-data från Event Hubs till Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
-* [Analysera data med Stream Analytics och skapa en instrumentpanel för analys i realtid i Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
+* [Strömma data från Event Hubs till Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
+* [Analysera strömmande data med Stream Analytics och skapa en instrument panel för real tids analys i Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-Baserat på de alternativ som du vill konfigurera, ska du se till att du första [skapa ett Azure storage-konto](../storage/common/storage-create-storage-account.md) eller [skapar en Azure event hub](../event-hubs/event-hubs-create.md). Välj sedan alternativ för där du vill skicka diagnostikdata:
+Kontrol lera att du först [skapar ett Azure Storage-konto](../storage/common/storage-create-storage-account.md) eller [skapa en Azure Event Hub](../event-hubs/event-hubs-create.md)baserat på de alternativ som du vill konfigurera. Välj sedan de alternativ för vilka du vill skicka diagnostikdata:
 
-![Skicka data till Azure storage-konto eller event hub](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
+![Skicka data till Azure Storage-konto eller händelsehubben](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 
 > [!NOTE]
-> Lagringstider gäller endast när du väljer att använda ett lagringskonto.
+> Kvarhållning gäller endast när du väljer att använda ett lagrings konto.
 
 <a name="add-azure-alerts"></a>
 
-## <a name="set-up-alerts-for-your-logic-app"></a>Konfigurera aviseringar för din logikapp
+## <a name="set-up-alerts-for-your-logic-app"></a>Konfigurera aviseringar för din Logic app
 
-Du kan övervaka specifika mått eller Överskriden tröskelvärden för din logikapp genom att ställa in [aviseringar i Azure](../azure-monitor/platform/alerts-overview.md). Lär dig mer om [mått i Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Konfigurera [aviseringar i Azure](../azure-monitor/platform/alerts-overview.md)om du vill övervaka vissa mått eller överskrida tröskelvärden för din Logic app. Lär dig mer om [mått i Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Ställa in aviseringar utan [Azure Monitor loggar](../log-analytics/log-analytics-overview.md), Följ stegen nedan. För mer avancerade villkor för aviseringar och åtgärder, [konfigurera Azure Monitor-loggar](#azure-diagnostics) för.
+Följ dessa steg om du vill konfigurera aviseringar utan [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Mer avancerade aviserings kriterier och åtgärder får du genom att konfigurera [Azure Monitor loggar](#azure-diagnostics) .
 
-1. På bladet logikappmenyn under **övervakning**, Välj **diagnostik** > **Aviseringsregler** > **Lägg till avisering**som visas här:
+1. På bladet Logic app, under **övervakning**, väljer du **diagnostik** > -**aviserings regler** > **Lägg till avisering** som visas här:
 
-   ![Lägga till en avisering för din logikapp](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
+   ![Lägg till en avisering för din Logic app](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
-2. På den **Lägg till en varningsregel** bladet skapa aviseringen som visas:
+2. På bladet **Lägg till en varnings regel** skapar du aviseringen som visas:
 
-   1. Under **Resource**, Välj din logikapp, om inte redan är valt. 
-   2. Ge ett namn och beskrivning för aviseringen.
-   3. Välj en **mått** eller den händelse som du vill spåra.
-   4. Välj en **villkor**, ange en **tröskelvärdet** för mått och välj den **Period** för övervakning av det här måttet.
+   1. Under **resurs**väljer du din Logi Kap par, om du inte redan har gjort det. 
+   2. Ange ett namn och en beskrivning för aviseringen.
+   3. Välj ett **mått** eller en händelse som du vill spåra.
+   4. Välj ett **villkor**, ange ett **tröskelvärde** för måttet och välj **period** för övervakning av det här måttet.
    5. Välj om du vill skicka e-post för aviseringen. 
    6. Ange andra e-postadresser för att skicka aviseringen. 
    Du kan också ange en webhook-URL där du vill skicka aviseringen.
 
-   Exempelvis kan den här regeln skickar en avisering när fem eller fler körningar misslyckas på en timme:
+   Den här regeln skickar till exempel en avisering när fem eller fler körningar fungerar under en timme:
 
-   ![Skapa måttaviseringsregel](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
+   ![Skapa mått varnings regel](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
 
 > [!TIP]
-> Om du vill köra en logikapp från en avisering, kan du inkludera den [begäransutlösare](../connectors/connectors-native-reqres.md) i arbetsflödet, vilket kan du utföra uppgifter, t.ex. de här exemplen:
+> Om du vill köra en Logi Kap par från en avisering kan du ta med utlösaren för [begäran](../connectors/connectors-native-reqres.md) i ditt arbets flöde, där du kan utföra uppgifter som exempel:
 > 
-> * [Publicera till Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-> * [Skicka ett SMS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-> * [Lägg till ett meddelande till en kö](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+> * [Publicera till slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+> * [Skicka en text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+> * [Lägga till ett meddelande i en kö](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
 <a name="diagnostic-event-properties"></a>
 
-## <a name="azure-diagnostics-event-settings-and-details"></a>Inställningar för Azure Diagnostics-händelser och information
+## <a name="azure-diagnostics-event-settings-and-details"></a>Azure-diagnostik händelse inställningar och information
 
-Varje diagnostisk händelse har information om din logikapp och händelsen, till exempel status, starttid, Sluttid och så vidare. Om du vill konfigurera övervakning, spårning och loggning, kan du använda dessa uppgifter med de [REST API för Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) och [REST API för Azure Diagnostics](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
+Varje diagnostisk händelse innehåller information om din Logic app och händelsen, till exempel status, start tid, slut tid och så vidare. Om du vill konfigurera övervakning, spårning och loggning program mässigt kan du använda den här informationen med [REST API för Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) och [REST API för Azure-diagnostik](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
-Till exempel den `ActionCompleted` händelsen har den `clientTrackingId` och `trackedProperties` egenskaper som du kan använda för att spåra och övervaka:
+`ActionCompleted` Händelsen `trackedProperties` har till exempel egenskaperna ochsomdukananvändaföratt`clientTrackingId` spåra och övervaka:
 
 ``` json
 {
@@ -247,11 +247,11 @@ Till exempel den `ActionCompleted` händelsen har den `clientTrackingId` och `tr
 }
 ```
 
-* `clientTrackingId`: Om den inte anges så är Azure automatiskt genererar detta ID och korrelerar händelser i en logikapp-körningen, inklusive alla kapslade arbetsflöden som anropas från logikappen. Du kan ange detta ID från en utlösare manuellt genom att skicka en `x-ms-client-tracking-id` huvud med din anpassade ID-värdet i begärans-utlösare. Du kan använda en begäransutlösare, HTTP-utlösare eller webhook-utlösaren.
+* `clientTrackingId`: Om detta inte anges genererar Azure automatiskt detta ID och korrelerar händelser i en Logic app-körning, inklusive eventuella kapslade arbets flöden som anropas från Logic app. Du kan manuellt ange detta ID från en utlösare genom `x-ms-client-tracking-id` att skicka ett huvud med ditt eget ID-värde i trigger-begäran. Du kan använda en begär ande utlösare, HTTP-utlösare eller webhook-utlösare.
 
-* `trackedProperties`: För att spåra indata eller utdata i diagnostics-data måste du lägga till spårade egenskaper till åtgärder i din logikapp JSON-definition. Spårade egenskaper kan spåra bara en enda åtgärd indata och utdata, men du kan använda den `correlation` egenskaper för händelse för korrelation mellan åtgärder i en körning.
+* `trackedProperties`: Om du vill spåra indata eller utdata i diagnostikdata kan du lägga till spårade egenskaper till åtgärder i din Logic Apps JSON-definition. Spårade egenskaper kan bara spåra en enda åtgärds indata och utdata, men du kan använda `correlation` egenskaperna för händelser för att korrelera mellan åtgärder i en körning.
 
-  För att spåra en eller flera egenskaper måste du lägga till den `trackedProperties` avsnittet och egenskaper som du vill skapa en åtgärdsdefinition. Anta exempelvis att du vill spåra data som en ”order-ID” i din telemetri:
+  Om du vill spåra en eller flera egenskaper lägger `trackedProperties` du till avsnittet och de egenskaper som du vill använda i åtgärds definitionen. Anta till exempel att du vill spåra data som "order-ID" i din telemetri:
 
   ``` json
   "myAction": {
@@ -270,9 +270,29 @@ Till exempel den `ActionCompleted` händelsen har den `clientTrackingId` och `tr
     }
   }
   ```
+  Här är ett annat exempel som använder åtgärden **initiera variabel** . Exemplet lägger till spårade egenskaper från åtgärdens indata där indata är en matris, inte en post.  
+
+  ``` json
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
+      },
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
+  }
+  ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa mallar för logic app-distribution och versionshantering](../logic-apps/logic-apps-create-deploy-template.md)
-* [B2B-scenarier med Enterprise-Integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Automatisera Logic app-distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [B2B-scenarier med Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Övervaka B2B-meddelanden](../logic-apps/logic-apps-monitor-b2b-message.md)

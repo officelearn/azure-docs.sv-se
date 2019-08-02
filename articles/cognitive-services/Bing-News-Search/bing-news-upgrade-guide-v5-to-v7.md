@@ -1,7 +1,7 @@
 ---
-title: Uppgradera för nyhetssökning i Bing v5 till v7
-titlesuffix: Azure Cognitive Services
-description: Identifierar delarna av programmet som du behöver uppdatera om du vill använda version 7.
+title: Uppgradera API för nyhetssökning i Bing V5 till v7
+titleSuffix: Azure Cognitive Services
+description: Identifierar de delar av programmet som du behöver uppdatera för att använda version 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,44 +10,44 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 235cc1c74c099a71d289d38369ebc10132564825
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1263e93b1e316cab4afb51cd828737a5bd087fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383299"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423839"
 ---
-# <a name="news-search-api-upgrade-guide"></a>Uppgraderingsguide för Nyheter Sök-API
+# <a name="news-search-api-upgrade-guide"></a>Nyhetssökning API-uppgraderings guide
 
-Den här uppgraderingshandboken identifierar ändringar mellan version 5 och version 7 av den nyhetssökning i Bing. Använd den här guiden hjälper dig att identifiera delarna av programmet som du behöver uppdatera om du vill använda version 7.
+Den här uppgraderings guiden identifierar ändringarna mellan version 5 och version 7 av API för nyhetssökning i Bing. Använd den här guiden för att hjälpa dig att identifiera de delar av programmet som du behöver uppdatera för att använda version 7.
 
 ## <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Versionsnumret för den slutpunkt som har ändrats från v5 till v7. Till exempel https://api.cognitive.microsoft.com/bing/ **v7.0**  /news/search.
+- Slut punktens versions nummer har ändrats från V5 till v7. Till exempel https://api.cognitive.microsoft.com/bing/ **v 7.0**/News/search.
 
-### <a name="error-response-objects-and-error-codes"></a>Fel svarsobjekt och felkoder
+### <a name="error-response-objects-and-error-codes"></a>Fel svars objekt och felkoder
 
-- Alla misslyckade begäranden ska nu innehålla en `ErrorResponse` objekt i svarstexten.
+- Alla misslyckade förfrågningar bör nu innehålla `ErrorResponse` ett objekt i svars texten.
 
-- Lagt till följande fält i den `Error` objekt.  
-  - `subCode`&mdash;Partitionerar felkoden i diskreta buckets, om möjligt
-  - `moreDetails`&mdash;Mer information om felet som beskrivs i den `message` fält
+- Följande fält har lagts till i `Error` objektet.  
+  - `subCode`&mdash;Partitioner felkod i diskreta buckets, om möjligt
+  - `moreDetails`&mdash;Ytterligare information om det fel som beskrivs i `message` fältet
 
-- Ersatt v5-felkoder med följande möjliga `code` och `subCode` värden.
+- Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.
 
-|Kod|SubCode|Beskrivning
+|Kod|Under kod|Beskrivning
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de underordnade kod inträffar. Svaret innehåller de här felen om HTTP-statuskoden är 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
-|RateLimitExceeded||Bing returnerar RateLimitExceeded varje gång du överskrider din frågor per sekund (QPS) eller frågor per månad (QPM) kvot.<br/><br/>Bing returnerar HTTP-statuskod 429 om du har överskridit Indexlagring och 403 om du har överskridit QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan autentisera anroparen. Till exempel den `Ocp-Apim-Subscription-Key` huvud saknas eller prenumerationsnyckeln är inte giltig.<br/><br/>Redundans inträffar om du anger mer än en autentiseringsmetod.<br/><br/>Om felet är InvalidAuthorization, är HTTP-statuskod 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Detta kan inträffa om prenumerationsnyckeln har inaktiverats eller har upphört att gälla. <br/><br/>Om felet är InsufficientAuthorization, är HTTP-statuskod 403.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kods villkoren inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
+|RateLimitExceeded||Bing returnerar RateLimitExceeded varje gång du överskrider dina frågor per sekund (frågor per sekund) eller frågor per månad (QPM)-kvot.<br/><br/>Bing returnerar HTTP-statuskod 429 om du har överskridit frågor per sekund och 403 om du har överskridit QPM.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan autentisera anroparen. Till exempel saknas `Ocp-Apim-Subscription-Key` rubriken eller så är prenumerations nyckeln inte giltig.<br/><br/>Redundans inträffar om du anger fler än en autentiseringsmetod.<br/><br/>Om felet är InvalidAuthorization är HTTP-status koden 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Detta kan inträffa om prenumerations nyckeln har inaktiverats eller har upphört att gälla. <br/><br/>Om felet är InsufficientAuthorization är HTTP-status koden 403.
 
-- Följande mappar tidigare felkoder till de nya koderna. Om du har gått ett beroende på v5 felkoder, måste din kod uppdateras också.
+- Följande mappar de tidigare fel koderna till de nya koderna. Om du har tagit ett beroende på V5-felkoder, uppdaterar du koden enligt detta.
 
-|Versionskod 5|Version 7 code.subCode
+|Version 5 kod|Version 7 code.subCode
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
@@ -66,28 +66,28 @@ InvalidAuthorizationMethod|InvalidAuthorization
 MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
 ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
 InsufficientScope|InsufficientAuthorization
-Blockerad|InvalidRequest.Blocked
+Blockerad|InvalidRequest. blockerad
 
-### <a name="object-changes"></a>Objekt ändras
+### <a name="object-changes"></a>Objekt ändringar
 
-- Har lagts till i `contractualRules` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) objekt. Den `contractualRules` fältet innehåller en lista över regler som du måste följa (exempelvis artikeln attribution). Måste du använda den information som anges i `contractualRules` istället för att använda `provider`. Artikeln innehåller `contractualRules` endast när den [API för webbsökning](../bing-web-search/search-the-web.md) svaret innehåller ett nytt svar.
+- Fältet har lagts till i NewsArticle-objektet. [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) `contractualRules` `contractualRules` Fältet innehåller en lista över regler som du måste följa (till exempel artikel behörighet). Du måste tillämpa den behörighet som anges i `contractualRules` i stället för `provider`att använda. Artikeln innehåller `contractualRules` bara när [webbsökning API](../bing-web-search/search-the-web.md) -svaret innehåller ett diskussions grupps svar.
 
-## <a name="non-breaking-changes"></a>Bakåtkompatibla ändringar
+## <a name="non-breaking-changes"></a>Icke-brytande ändringar
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Lagt till produkter som ett möjligt värde som du kan ställa in den [kategori](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) frågeparameter till. Se [kategorier av marknader](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+- Du har lagt till produkter som ett möjligt värde som du [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) kan ange kategorins frågeparameter till. Se [kategorier efter marknad](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-- Har lagts till i [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) frågeparameter som returnerar populära ämnen sorterade efter datum med det senaste först.
+- Du har lagt till Frågeparametern [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) , som returnerar trender som sorteras efter datum med den senaste först.
 
-- Har lagts till i [eftersom](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) frågeparameter som returnerar populära ämnen som har identifierats av Bing på eller efter den angivna Unix-tidsstämpeln för epoch.
+- Har lagt till [sedan](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) Frågeparametern, som returnerar trender som identifierades av Bing på eller efter den angivna den angivna UNIX-tidsstämpeln.
 
-### <a name="object-changes"></a>Objekt ändras
+### <a name="object-changes"></a>Objekt ändringar
 
-- Har lagts till i `mentions` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) objekt. Den `mentions` fältet innehåller en lista över entiteter (personer eller platser) som hittades i artikeln.
+- Fältet har lagts till i NewsArticle-objektet. [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) `mentions` `mentions` Fältet innehåller en lista med entiteter (personer eller platser) som hittades i artikeln.
 
-- Har lagts till i `video` automatiskt till den [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) objekt. Den `video` fältet innehåller en video som är relaterad till nyhetsartikeln. Videon är antingen en \<iframe\> som du kan bädda in eller en miniatyr i rörelse.
+- Fältet har lagts till i NewsArticle-objektet. [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) `video` `video` Fältet innehåller en video som är relaterad till nyhets artikeln. Videon är antingen en \<iframe\> som du kan bädda in eller en rörelse miniatyr bild.
 
-- Har lagts till i `sort` automatiskt till den [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) objekt. Den `sort` fältet visas sorteringsordningen av artiklarna. Till exempel sorteras artiklar efter relevans (standard) eller datum.
+- Fältet har lagts till i nyhetsobjektet-objektet. [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) `sort` I `sort` fältet visas sorterings ordningen för artiklarna. Artiklarna sorteras exempelvis efter relevans (standard) eller datum.
 
-- Har lagts till i [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) objekt som definierar en sorteringsordning. Den `isSelected` fältet som anger om svaret användas sorteringsordning. Om **SANT**, svaret används sorteringsordning. Om `isSelected` är **FALSKT**, du kan använda URL: en i den `url` fält som du vill begära en annan sorteringsordning.
+- [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) -objektet har lagts till, vilket definierar en sorterings ordning. `isSelected` Fältet visar om svaret använde sorterings ordningen. Om **värdet är true**används sorterings ordningen i svaret. Om `isSelected` är **falskt**kan du använda URL: en i `url` fältet för att begära en annan sorterings ordning.

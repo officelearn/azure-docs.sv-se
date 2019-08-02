@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7ecc595a398ce7d18fbc708a1de175fe4aa22177
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2a540606a6f9cfa790a2244628e7f0b7bef35986
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564049"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639253"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>Redigerings cykel för LUIS-appen
 LUIS lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor. 
@@ -28,7 +28,7 @@ Modellens syftet är att ta reda på vad du frågar efter (avsikt eller avsikt) 
 
 Modellen måste vara specifika för app-domänen för att kunna fastställa ord och fraser som är relevanta samt vanliga ord ordning. 
 
-Modellen innehåller avsikt, entiteter. 
+Modellen kräver avsikter och _ska ha_ entiteter. 
 
 ## <a name="add-training-examples"></a>Lägga till exempel för utbildning
 LUIS måste exempel yttranden i avsikter. Exemplen behöver tillräckligt med variant av word valmöjligheter och ordföljden för att kunna avgöra vilken avsikt uttryck som är avsedd för. Varje exempel-uttryck måste ha alla nödvändiga data som är märkt som entiteter. 
@@ -36,16 +36,20 @@ LUIS måste exempel yttranden i avsikter. Exemplen behöver tillräckligt med va
 Du instruera LUIS för att ignorera yttranden som inte är relevanta för din app domän genom att tilldela uttryck till den **ingen** avsikt. Du behöver inte ange några ord eller fraser som du inte behöver dras ut från ett uttryck ska förses med. Det finns ingen etikett efter ord eller fraser att ignorera. 
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
-När du har 10 – 15 olika yttranden i varje syftet med de nödvändiga entiteter som är märkt, träna och publicera. Använd länken från publicera lyckade meddelande, för att hämta dina slutpunkter. Se till att skapa din app och publicera dina appar så att den är tillgänglig i den [endpoint regioner](luis-reference-regions.md) du behöver. 
+När du har 15 till 30 olika yttranden i varje avsikt, med de entiteter som krävs, måste du [träna](luis-how-to-train.md) och sedan [publicera](luis-how-to-publish-app.md). Använd länken från publicera lyckade meddelande, för att hämta dina slutpunkter. Se till att du skapar och publicerar din app så att den är tillgänglig i de [slut punkts regioner](luis-reference-regions.md) du behöver. 
 
 ## <a name="https-endpoint-testing"></a>Testa HTTPS-slutpunkt
-Du kan testa LUIS-appen från HTTPS-slutpunkten. Testa från slutpunkten kan LUIS för att välja yttranden med låg exakthet för granskning.  
+Du kan testa LUIS-appen från HTTPS-slutpunkten. Genom att testa från slut punkten kan LUIS välja valfri yttranden med låg exakthet för [granskning](luis-how-to-review-endpoint-utterances.md).  
 
 ## <a name="recycle"></a>Papperskorgen
-När du är klar med en cykel av redigeringen av kan börja du igen. Börja med att slutpunkten yttranden LUIS markeras med låg exakthet. Kontrollera dessa yttranden för både avsikten och entiteten. När du har läst yttranden, får granska listan vara tomt.  
+
+När du är klar med en cykel av redigeringen av kan börja du igen. Börja med att [Granska Endpoint yttranden](luis-how-to-review-endpoint-utterances.md) -Luis markerat med låg exakthet. Kontrollera dessa yttranden för både avsikten och entiteten. När du har läst yttranden, får granska listan vara tomt.  
+
+Överväg [](luis-concept-version.md#clone-a-version) att klona den aktuella versionen till en ny version och börja sedan redigerings ändringarna i den nya versionen. 
 
 ## <a name="batch-testing"></a>Batch-testning
-Batch testning är ett sätt att se hur många exempel yttranden poängsätts av LUIS. Exemplen ska vara ny till LUIS och bör vara korrekt är märkt med avsikt och entiteter som du vill att LUIS för att hitta. Testresultaten visar hur väl LUIS utför på den uppsättningen yttranden. 
+
+[Batch-testning](luis-concept-batch-test.md) är ett sätt att se hur många exempel yttranden som beräknas av Luis. Exemplen ska vara ny till LUIS och bör vara korrekt är märkt med avsikt och entiteter som du vill att LUIS för att hitta. Testresultaten visar hur väl LUIS utför på den uppsättningen yttranden. 
 
 ## <a name="next-steps"></a>Nästa steg
 

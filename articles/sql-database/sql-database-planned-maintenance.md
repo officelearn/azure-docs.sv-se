@@ -1,6 +1,6 @@
 ---
-title: Planera för Azure-Underhåll händelser – Azure SQL Database | Microsoft Docs
-description: Lär dig hur du förbereder för planerade underhållshändelser till din Azure SQL Database.
+title: Planera för Azures underhålls händelser – Azure SQL Database | Microsoft Docs
+description: Lär dig hur du förbereder för planerade underhålls händelser till din Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -10,41 +10,40 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bb88d6f74ab4b93e226fe8630f07f0a96f4ba47
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584615"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567044"
 ---
-# <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planering för Azure-Underhåll i Azure SQL Database
+# <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planera för Azures underhålls händelser i Azure SQL Database
 
-Lär dig hur du förbereder planerat underhåll utförs på din Azure SQL-databas.
+Lär dig hur du förbereder för planerade underhålls händelser på din Azure SQL-databas.
 
-## <a name="what-is-a-planned-maintenance-event"></a>Vad är en planerad underhållshändelse
+## <a name="what-is-a-planned-maintenance-event"></a>Vad är ett planerat underhålls evenemang
 
-För varje databas upprätthåller Azure SQL DB ett kvorum av databasrepliker där en replik är primärt. AT alltid en primär replik måste vara online Service och minst en sekundär replik måste vara felfritt. Under planerat underhåll går medlemmar i databasen kvorum offline en i taget, med avsikt att det finns en svarar primära repliken och minst en sekundär replik online så utan avbrott för klienten. När den primära repliken behöver tas offline, sker en omkonfiguration/redundans-process som en sekundär replik blir den nya primärt.  
+För varje databas upprätthåller Azure SQL DB ett kvorum med databas repliker där en replik är primär. Vid alla tillfällen måste en primär replik vara Onlineunderhåll och minst en sekundär replik måste vara felfri. Under planerat underhåll kommer medlemmar i databasobjektet att försättas i taget en i taget, med avsikt att det finns en svarande primär replik och minst en sekundär replik online för att säkerställa att inga klient avbrott uppstår. När den primära repliken måste försättas i offlineläge görs en omkonfigurations-/redundansväxling i vilken en sekundär replik blir den nya primära repliken.  
 
-## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Vad som händer under en planerad underhållshändelse
+## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Vad som ska förväntas under en planerad underhålls händelse
 
-Reconfigurations/redundans Allmänt slutförs inom 30 sekunder – medelvärdet är 8 sekunder. Om redan anslutit måste ditt program återansluta till felfria kopia ny primär replik av databasen. Om en ny anslutning görs när databasen genomgår en omkonfiguration innan den nya primära repliken är online, får du fel 40613 (databasen är inte tillgänglig): ”Databasen {databasename} på servern {servername} är inte tillgänglig för tillfället. Försök med anslutningen senare ”. Om din databas har en tidskrävande fråga kan den här frågan avbryts under en omkonfiguration och måste startas om.
+Omkonfigurationer/redundans slutförs vanligt vis inom 30 sekunder – genomsnittet är 8 sekunder. Om det redan är anslutet måste ditt program återansluta till den felfria kopian av databasen. Om en ny anslutning görs medan databasen genomgår en omkonfiguration innan den nya primära repliken är online får du fel 40613 (databasen är inte tillgänglig): "Databasen {databasename} på servern {servername} är inte tillgänglig för tillfället. Försök att ansluta igen senare. ". Om din databas har en tids krävande fråga avbryts den här frågan under en omkonfiguration och måste startas om.
 
-## <a name="retry-logic"></a>Logik för omprövning
+## <a name="retry-logic"></a>Omprövnings logik
 
-Produktion klientprogram som ansluter till en molndatabastjänst bör implementera en robust anslutning [logik för omprövning](sql-database-connectivity-issues.md#retry-logic-for-transient-errors). Detta hjälper att minimera sådana situationer och bör Allmänt se felen transparent för slutanvändaren.
+Alla klient produktions program som ansluter till en moln databas tjänst bör implementera en robust logik för anslutnings [försök](sql-database-connectivity-issues.md#retry-logic-for-transient-errors). Detta hjälper till att minimera dessa situationer och bör vanligt vis göra felen transparent för slutanvändaren.
 
 ## <a name="frequency"></a>Frekvens
 
-1\.7 planerat underhållshändelser inträffar i genomsnitt varje månad.
+I genomsnitt sker 1,7 planerade underhålls händelser varje månad.
 
 ## <a name="resource-health"></a>Resource Health
 
-Om din SQL-databas har drabbats av misslyckade inloggningar, kontrollerar du den [Resource Health](../service-health/resource-health-overview.md#getting-started) fönstret i den [Azure-portalen](https://portal.azure.com) för aktuell status. Avsnittet Hälsohistorik innehåller driftstopp orsaken för varje händelse (i förekommande fall).
+Om SQL-databasen har inloggnings problem kontrollerar du Resource Healths [](../service-health/resource-health-overview.md#get-started) fönstret i [Azure Portal](https://portal.azure.com) för aktuell status. Avsnittet hälso historik innehåller avbrotts orsaken för varje händelse (om tillgänglig).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Resource Health](sql-database-resource-health.md) för SQL-databas
-- Läs mer om logik för omprövning, [logik för omprövning tillfälliga fel](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
+- Läs mer om [Resource Health](sql-database-resource-health.md) för SQL Database
+- Mer information om logik för omprövning finns i omprövnings [logik för tillfälliga fel](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)

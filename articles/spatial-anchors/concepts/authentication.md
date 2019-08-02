@@ -1,6 +1,6 @@
 ---
-title: Autentisering och auktorisering till Azure Spatial fästpunkter | Microsoft Docs
-description: Läs mer om de olika sätt en app eller tjänst kan autentisera till Azure Spatial ankare och nivåer av kontroll som du behöver förhindrar åtkomst till Azure Spatial fästpunkter.
+title: Autentisering och auktorisering till Azure spatiala ankare | Microsoft Docs
+description: Lär dig mer om de olika sätt som en app eller tjänst kan autentisera till Azure spatiala ankare och de kontroll nivåer som du måste använda för att få åtkomst till Azure spatiala ankare.
 author: julianparismorgan
 manager: vriveras
 services: azure-spatial-anchors
@@ -8,42 +8,42 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c7ffa432c9311ba9d4ecf4ba82c375e2dad988d0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 850748462f0273f2dfb1522d900ce9f1b2156d2a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478547"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517068"
 ---
-# <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure Spatial fästpunkter
+# <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
-I det här avsnittet täcker vi de olika sätt som du kan autentisera till Azure Spatial fästpunkter från din app eller en webbtjänst och på sätt som du kan använda rollbaserad åtkomstkontroll i Azure Directory (Azure AD) att styra åtkomsten till dina Spatial ankare-konton.  
+I det här avsnittet beskrivs de olika sätt som du kan använda för att autentisera till moln ankare från din app eller webb tjänst, och hur du kan använda rollbaserade Access Control i Azure-katalogen (Azure AD) för att styra åtkomsten till dina konton för spatialdata.  
 
 ## <a name="overview"></a>Översikt
 
-![En översikt över autentisering till Azure Spatial fästpunkter](./media/spatial-anchors-authentication-overview.png)
+![En översikt över autentisering till Azure spatial ankare](./media/spatial-anchors-authentication-overview.png)
 
-Klienter måste först hämta en åtkomsttoken från Azure Mixad verklighet Security säkerhetstokentjänst (STS) för att komma åt en viss Spatial fästpunkter för Azure-konto. Token hämtas från STS live i 24 timmar och innehåller information för Spatial ankare tjänster att fatta auktoriseringsbeslut för kontot och se till att endast auktoriserade säkerhetsobjekt kan komma åt det kontot. 
+För att få åtkomst till ett specifikt konto för kontot för Azure-spatialdata måste klienterna först skaffa en åtkomsttoken från Azure Mixed Reality Security Token Service (STS). Token erhållna från STS Live i 24 timmar och innehåller information om de spatiala Ankarena för att fatta auktoriseringsbeslut på kontot och se till att endast behöriga huvud konton har åtkomst till kontot. 
 
-Åtkomsttoken kan hämtas i exchange från antingen nycklar eller från Azure AD-utfärdade token. 
+Åtkomsttoken kan erhållas i Exchange från antingen konto nycklar eller från Azure AD-utfärdade tokens. 
 
-Nycklar kan du snabbt komma igång med tjänsten Azure Spatial ankare; men innan du distribuerar ditt program till produktion är det bäst att du uppdaterar din app för att använda Azure AD-baserad autentisering. 
+Med konto nycklar kan du snabbt komma igång med tjänsten Azure spatial ankare. Innan du distribuerar ditt program till produktion, rekommenderar vi dock att du uppdaterar appen så att den använder Azure AD-baserad autentisering. 
 
 Azure AD-autentiseringstoken kan hämtas på två sätt:
 
-- Om du skapar ett företagsprogram och ditt företag använder Azure AD som dess ID-system, kan du använda användarbaserade Azure AD-autentisering i din app och bevilja åtkomst till dina spatial ankare konton med hjälp av din befintliga Azure AD-säkerhetsgrupper, eller direkt till användare i din organisation. 
-- I annat fall rekommenderar vi att du hämtar Azure AD-token från en webbtjänst som stöder din app. Med hjälp av en stödjande webbtjänst är den rekommenderade metoden för autentisering för program i produktion, eftersom det förhindrar att bädda in autentiseringsuppgifter för åtkomst till Azure Spatial ankare i klientprogrammet. 
+- Om du skapar ett företags program och ditt företag använder Azure AD som identitets system, kan du använda användarbaserade Azure AD-autentisering i din app och bevilja åtkomst till dina spatiala ankare konton med hjälp av dina befintliga Azure AD-säkerhetsgrupper eller direkt till användare i din organisation. 
+- Annars rekommenderar vi att du skaffar Azure AD-tokens från en webb tjänst som stöder din app. Att använda en stöd webb tjänst är den rekommenderade autentiseringsmetoden för produktions program, eftersom den förhindrar inbäddning av autentiseringsuppgifter för åtkomst till Azure-spatialdata i klient programmet. 
 
 ## <a name="account-keys"></a>Kontonycklar
 
-Med hjälp av nycklar för åtkomst till ditt Spatial fästpunkter för Azure-konto är det enklaste sättet att komma igång. Du hittar dina kontonycklar på Azure portal. Navigera till ditt konto och välj fliken ”nycklar”.
+Det enklaste sättet att komma igång är att använda konto nycklar för åtkomst till ditt Azure-konto med spatialdata. Du hittar dina konto nycklar på Azure Portal. Gå till ditt konto och välj fliken "nycklar".
 
-![En översikt över autentisering till Azure Spatial fästpunkter](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![En översikt över autentisering till Azure spatial ankare](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 
-Två nycklar blir tillgängliga, som är både samtidigt giltigt för åtkomst till kontot Spatial fästpunkter. Vi rekommenderar att du uppdaterar nyckeln för att komma åt kontot med två separata giltiga nycklar aktivera, till exempel uppdaterar utan driftavbrott; Du behöver bara uppdatera också primärnyckeln och sekundärnyckeln. 
+Två nycklar görs tillgängliga, som båda är giltiga för åtkomst till kontot för spatiala ankare. Vi rekommenderar att du regelbundet uppdaterar den nyckel som du använder för att få åtkomst till kontot. att ha två separata giltiga nycklar möjliggör sådana uppdateringar utan drift avbrott. du behöver bara uppdatera den primära nyckeln och den sekundära nyckeln. 
 
-SDK: N har inbyggt stöd för att autentisera med nycklar; Du behöver bara ange egenskapen AccountKey cloudSession-objektet. 
+SDK: n har inbyggt stöd för autentisering med konto nycklar. du behöver bara ange egenskapen AccountKey för cloudSession-objektet. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -76,42 +76,42 @@ auto configuration = cloudSession_->Configuration();
 configuration->AccountKey(R"(MyAccountKey)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
 configuration.AccountKey(LR"(MyAccountKey)");
 ```
 
-***
+---
 
-När det är klart, hanterar SDK: N utbyte av kontonyckeln för en åtkomsttoken och nödvändiga cachelagring av token för din app. 
+När den är färdig hanterar SDK utbyte av konto nyckeln för en åtkomsttoken och nödvändig cachelagring av token för din app. 
 
 > [!WARNING] 
-> Användning av nycklar rekommenderas för snabb registreringen, men under utveckling/prototyper endast. Vi rekommenderar inte att skicka ditt program till produktion med en inbäddad kontonyckel i den och använda användar- eller service-baserade Azure AD-autentisering närmar sig listade nästa.
+> Användning av konto nycklar rekommenderas för snabb registrering, men under utveckling/prototypering. Vi rekommenderar starkt att du inte levererar ditt program till produktion med hjälp av en inbäddad konto nyckel i det, och i stället använder du de användarbaserade eller tjänstebaserade Azure AD-autentiserings metoderna som anges härnäst.
 
-## <a name="azure-ad-user-authentication"></a>Autentisering av Azure AD-användare
+## <a name="azure-ad-user-authentication"></a>Azure AD-användarautentisering
 
-För program som riktar in sig på Azure Active Directory-användare, den rekommenderade metoden är att använda en Azure AD-token för användaren, vilket du kan hämta med ADAL-biblioteket enligt beskrivningen i följande dokumentation: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); du Följ stegen som visas under ”snabb startar”, bland annat:
+Den rekommenderade metoden är att använda en Azure AD-token för program som är riktade till Azure Active Directory användare, som du kan hämta med hjälp av ADAL-biblioteket enligt beskrivningen i följande dokumentation [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md):. du bör följa stegen i listan under "snabb start", som omfattar:
 
-1. Konfigurationen i Azure-portalen
-    1.  Registrera ditt program i Azure AD som **programspecifik**. Som en del av registreringen behöver att fastställa om ditt program bör vara flera innehavare eller inte, och ange omdirigerings-URL: er tillåts för ditt program.  
-    2.  Ge ditt program eller användare åtkomst till din resurs: 
-        1.  Gå till din Spatial ankare resurs i Azure-portalen
-        2.  Växla till den **åtkomstkontroll (IAM)** fliken
-        3.  Tryck på **Lägg till rolltilldelning**
+1. Konfiguration i Azure Portal
+    1.  Registrera ditt program i Azure AD som ett **internt program**. Som en del av registreringen måste du bestämma om ditt program ska vara flera innehavare eller inte och ange de omdirigerings-URL: er som tillåts för ditt program.  
+    2.  Ge ditt program eller dina användare åtkomst till din resurs: 
+        1.  Navigera till resurser för spatial ankare i Azure Portal
+        2.  Växla till fliken **åtkomst kontroll (IAM)**
+        3.  Tryck på **Lägg till roll tilldelning**
             1.  [Välj en roll](#role-based-access-control)
-            2.  I den **Välj** fältet, anger du namnet på den användare, grupper och/eller program som du vill tilldela åtkomst. 
-            3.  Tryck på **spara**.
-2. I koden:
-    1.  Se till att använda den **program-ID** och **omdirigerings-Uri** för din egen Azure AD-programmet som den **klient-ID** och **RedirectUri** parametrarna i ADAL
-    2.  Ange klientinformation:
-        1.  Om ditt program stöder **organisationen endast**, Ersätt detta värde med din **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)
-        2.  Om ditt program stöder **konton i alla organisationskatalog**, Ersätt detta värde med **organisationer**
-        3.  Om ditt program stöder **alla Microsoft-kontoanvändare**, Ersätt detta värde med **vanliga**
-    3.  På din begäran om token, ange den **resource** till ”https://sts.mixedreality.azure.com”. Den här ”resurser” indikerar till Azure AD att ditt program begär en token för tjänsten Azure Spatial fästpunkter.  
+            2.  I **Välj** -fältet anger du namnet på de användare, grupper och/eller program som du vill tilldela åtkomst till. 
+            3.  Tryck på **Spara**.
+2. I din kod:
+    1.  Se till att använda **program-ID** och omdirigerings- **URI** för ditt eget Azure AD **-program som klient-ID** och **RedirectUri** -parametrar i ADAL
+    2.  Ange klient information:
+        1.  Om ditt program **endast stöder min organisation**ersätter du värdet med **klient-ID** eller **klient namn** (till exempel contoso.Microsoft.com)
+        2.  Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet med **organisationer**
+        3.  Om programmet har stöd för **alla Microsoft-konto användare ersätter du**värdet med **common**
+    3.  Ange **resursen** till "https://sts.mixedreality.azure.com" i din Tokenbegäran. Den här resursen indikerar Azure AD att ditt program begär en token för tjänsten Azure spatial ankare.  
 
-Därmed ska ditt program kunna hämta en Azure AD-token; från ADAL Du kan ange den Azure AD-token som den **authenticationToken** på molnet sessionen config-objektet. 
+Med detta bör ditt program kunna hämta från ADAL till en Azure AD-token. Du kan ange att Azure AD-token som **authenticationToken** i konfigurations objekt för Cloud session. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -144,44 +144,44 @@ auto configuration = cloudSession_->Configuration();
 configuration->AuthenticationToken(R"(MyAuthenticationToken)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
 configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 ```
 
-***
+---
 
-## <a name="azure-ad-service-authentication"></a>Azure AD-tjänst-autentisering
+## <a name="azure-ad-service-authentication"></a>Azure AD-tjänsteautentisering
 
-Det rekommenderade alternativet för att distribuera appar som utnyttjar Azure Spatial fästpunkter till produktion är att använda en serverdelstjänst som kommer mäkla autentiseringsbegäranden. Det allmänna systemet bör vara enligt beskrivningen i det här diagrammet:
+Det rekommenderade alternativet för att distribuera appar som utnyttjar Azures spatialdata till produktion är att utnyttja en server dels tjänst som kommer att betjäna autentiseringsbegäranden. Det allmänna schemat bör vara så som beskrivs i det här diagrammet:
 
-![En översikt över autentisering till Azure Spatial fästpunkter](./media/spatial-anchors-aad-authentication.png)
+![En översikt över autentisering till Azure spatial ankare](./media/spatial-anchors-aad-authentication.png)
 
-Här förutsätts att appen använder en egen mekanism (till exempel: Microsoft-konto, PlayFab, Facebook, Google-ID, anpassade användarnamn/lösenord osv.) att autentisera till en backend-tjänst. När användarna autentiseras till serverdelstjänsten, som tjänsten kan hämta en Azure AD-token exchange det för en åtkomsttoken för Azure Spatial ankare och returnera den tillbaka till klientprogrammet.
+Här förutsätts att appen använder sin egen mekanism (till exempel: Microsoft-konto, PlayFab, Facebook, Google ID, anpassat användar namn/lösen ord osv.) för att autentisera till backend-tjänsten. När dina användare har autentiserats för Server dels tjänsten kan tjänsten hämta en Azure AD-token, byta ut den för en åtkomsttoken för Azure spatiala ankare och återställa den till klient programmet.
 
-Azure AD-åtkomsttoken har hämtats med hjälp av ADAL-biblioteket enligt beskrivningen i följande dokumentation: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); du bör följa stegen under ”snabb startar”, bland annat:
+Azure AD-åtkomsttoken hämtas med ADAL-biblioteket enligt beskrivningen i följande dokumentation: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md). du bör följa stegen under "snabb start", som innehåller:
 
-1.  Konfiguration i Azure-portalen:
+1.  Konfiguration i Azure Portal:
     1.  Registrera ditt program i Azure AD:
-        1.  I Azure-portalen går du till **Azure Active Directory**, och välj **appregistreringar**
-        2.  Välj **ny programregistrering**
-        3.  Ange namnet på ditt program, Välj **webbapp / API** som programtyp, och ange auth URL: en för din tjänst. Tryck sedan på **skapa**.
-        4.  På programmet, trycker du på **inställningar**och välj sedan den **nycklar** fliken. Ange namnet på din nyckel, Välj en varaktighet och når **spara**. Se till att spara nyckelvärdet som visas vid den tidpunkten, eftersom du behöver ingår i din webbtjänst kod.
-    2.  Ge din program-och/eller användare åtkomst till resursen:
-        1.  Gå till din Spatial ankare resurs i Azure-portalen
-        2.  Växla till den **åtkomstkontroll (IAM)** fliken
-        3.  Tryck på **Lägg till rolltilldelning**
+        1.  I Azure Portal navigerar du till **Azure Active Directory**och väljer **registrerade appar**
+        2.  Välj **ny program registrering**
+        3.  Ange namnet på programmet, Välj **webbapp/API** som program typ och ange autentiserings-URL: en för din tjänst. Tryck sedan på **skapa**.
+        4.  Klicka på **Inställningar**på programmet och välj fliken **nycklar** . Ange namnet på nyckeln, Välj en varaktighet och tryck på **Spara**. Se till att spara det nyckel värde som visas vid tidpunkten, eftersom du måste ta med det i din webb tjänst kod.
+    2.  Ge ditt program och/eller användare åtkomst till din resurs:
+        1.  Navigera till resurser för spatial ankare i Azure Portal
+        2.  Växla till fliken **åtkomst kontroll (IAM)**
+        3.  Tryck på **Lägg till roll tilldelning**
         1.  [Välj en roll](#role-based-access-control)
-        2.  I den **Välj** fältet, anger du namnet på de program som du skapade och vill som du vill tilldela åtkomst. Om du vill appens användare har olika roller mot Spatial ankare-konto, ska du registrera flera program i Azure AD och tilldela till var och en separat roll. Sedan implementera auktorisering logik för att använda rätt roll för användarna.  
-    3.  Tryck på **spara**.
-2.  I koden (Observera: du kan använda tjänstexemplet på GitHub):
-    1.  Omdirigerings-Uri för din egen Azure AD-program som klient-ID och se till att använda program-ID, programhemlighet hemlighet och RedirectUri parametrar i ADAL
-    2.  Ange klient-ID till dina egna AAAzure Lägg till klient-ID i parametern utfärdare i ADAL
-    3.  På din begäran om token, ange den **resource** till ”https://sts.mixedreality.azure.com” 
+        2.  I fältet **Välj** anger du namnet på de program som du skapade och till vilka du vill tilldela åtkomst. Om du vill att appens användare ska ha olika roller mot kontot för spatiala ankare bör du registrera flera program i Azure AD och tilldela varje enskild roll. Implementera sedan din auktoriserings logik för att använda rätt roll för dina användare.  
+    3.  Tryck på **Spara**.
+2.  I din kod (Obs: du kan använda tjänst exemplet som ingår i GitHub):
+    1.  Se till att använda program-ID, program hemlighet och omdirigerings-URI för ditt eget Azure AD-program som klient-ID, hemligheter och RedirectUri-parametrar i ADAL
+    2.  Ange klient-ID: t till din egen AAAzure Lägg till klient-ID i parametern Authority i ADAL
+    3.  Ange **resursen** till "https://sts.mixedreality.azure.com" i din Tokenbegäran 
 
-Därmed kan serverdelstjänsten hämta en Azure AD-token. Det kan sedan byta den för en MR-token som returneras till klienten. Använda en Azure AD-token för att hämta en token för MR görs via ett REST-anrop. Här är ett exempel-anrop:
+Med detta kan Server dels tjänsten hämta en Azure AD-token. Den kan sedan utväxla den för en MR-token som den kommer tillbaka till klienten. Att använda en Azure AD-token för att hämta en MR-token görs via ett REST-anrop. Här är ett exempel på ett anrop:
 
 ```
 GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
@@ -198,11 +198,11 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Där auktoriseringsrubriken är formaterat på följande sätt: `Bearer <accoundId>:<accountKey>`
+Där Authorization-huvudet är formaterat på följande sätt:`Bearer <accoundId>:<accountKey>`
 
-Och svaret innehåller MR token i oformaterad text.
+Och svaret innehåller MR-token som oformaterad text.
  
-Den MR token returneras till klienten. Klientappen kan sedan ange den som dess åtkomsttoken i sessionen molnkonfigurationen.
+Den MR-token returneras sedan till klienten. Klient programmet kan sedan ange den som åtkomsttoken i Cloud session config.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -235,26 +235,26 @@ auto configuration = cloudSession_->Configuration();
 configuration->AccessToken(R"(MyAccessToken)");
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
 configuration.AccessToken(LR"(MyAccessToken)");
 ```
 
-***
+---
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Till att kontrollera beviljas vilken åtkomstnivå program, tjänster eller Azure AD-användare för din tjänst, följande roller har skapats för att tilldela efter behov mot Spatial fästpunkter för Azure-konton:
+För att hjälpa till att kontrol lera åtkomst nivån för program, tjänster eller Azure AD-användare av tjänsten, har följande roller skapats så att du kan tilldela vid behov till dina konton för moln lån:
 
-- **Kontoägaren för rumsliga ankare**: program eller användare som har den här rollen kan skapa spatial fästpunkter, fråga efter dem och ta bort dem. När du autentiserar till ditt konto med nycklar, den **Kontoägaren för rumsliga ankare** rollen tilldelas det autentiserade huvudnamnet. 
-- **Spatial ankare-Kontodeltagare**: program eller användare som har den här rollen kan skapa spatial ankare, fråga för dem, men det går inte att ta bort dem. 
-- **Spatial ankare konto läsare**: program eller användare som har den här rollen kan bara skicka frågor för rumsliga ankare men det går inte att skapa nya, ta bort befintliga eller uppdatera metadata på spatial fästpunkter. Detta används vanligtvis för program där vissa användare moderera miljön, medan andra kan bara återställa ankare tidigare placerade i den miljön.
+- **Konto ägare för spatiala ankare**: program eller användare som har den här rollen kan skapa spatiala ankare, fråga efter dem och ta bort dem. När du autentiserar dig på ditt konto med hjälp av konto nycklar tilldelas **kontot ägare** till det autentiserade huvudobjektet. 
+- **Konto deltagare för spatiala ankare**: program eller användare som har den här rollen kan skapa spatiala ankare, fråga efter dem, men inte ta bort dem. 
+- **Konto läsare för avstånds ankare**: program eller användare som har den här rollen kan bara fråga efter avstånds ankare, men de kan inte skapa nya, ta bort befintliga eller uppdatera metadata på spatiala ankare. Detta används vanligt vis för program där vissa användare kan granska miljön, medan andra bara kan återkalla ankare som tidigare placerats i miljön.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa din första app med Azure Spatial fästpunkter.
+Skapa din första app med de spatiala Ankarena i Azure.
 
 > [!div class="nextstepaction"]
 > [Unity](../unity-overview.yml)

@@ -3,20 +3,20 @@ title: Felsöka försämrad status på Azure Traffic Manager
 description: Så här felsöker du Traffic Manager profiler när de visas som degraderad status.
 services: traffic-manager
 documentationcenter: ''
-author: chadmath
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: genli
-ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: rohink
+ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357222"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565869"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Felsöka degraderat tillstånd på Azure Traffic Manager
 
@@ -24,14 +24,14 @@ Den här artikeln beskriver hur du felsöker en Azure Traffic Manager-profil som
 
 ![status för degraderad slut punkt](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Om hälso tillståndet för Traffic Manager visar inaktiv  status kan båda slut punkterna vara inaktiverade :
+Om hälso tillståndet för Traffic Manager visar inaktiv status kan båda slut punkterna vara inaktiverade:
 
 ![Status för inaktiva Traffic Manager](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
 ## <a name="understanding-traffic-manager-probes"></a>Förstå Traffic Manager avsökningar
 
-* Traffic Manager anser att en slut punkt endast är ONLINE när avsökningen får ett HTTP 200-svar tillbaka från avsöknings Sök vägen. Andra icke-200-svar är ett haveri.
-* En omdirigering av 30 Miss lyckas, även om den omdirigerade URL: en returnerar en 200.
+* Traffic Manager anser att en slut punkt endast är ONLINE när avsökningen får ett HTTP 200-svar tillbaka från avsöknings Sök vägen. Om du returnerar en annan HTTP-svarskod måste du lägga till den svars koden till [förväntade status kod intervall](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) i Traffic Manager profilen.
+* Ett 30 omdirigerings svar behandlas som ett haveri om du inte har angett en giltig svarskod i [förväntade status kod intervall](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) för din Traffic Manager profil. Traffic Manager avsöker inte omdirigerings målet.
 * Certifikat fel ignoreras för HTTPs-avsökningar.
 * Det faktiska innehållet i avsöknings Sök vägen spelar ingen roll, så länge som en 200 returneras. Avsökning av en URL till ett statiskt innehåll, t. ex. "/favicon.ico" är en vanlig teknik. Dynamiskt innehåll, som ASP-sidor, kan inte alltid returnera 200, även om programmet är felfritt.
 * Ett bra tips är att ställa in avsöknings Sök vägen till något som har tillräckligt med logik för att avgöra om platsen är aktiv eller inte. I föregående exempel, genom att ange sökvägen till "/favicon.ico", testar du bara att W3wp. exe svarar. Den här avsökningen kanske inte indikerar att webb programmet är felfritt. Ett bättre alternativ är att ange en sökväg till något som "/PROBE.aspx" som har logik för att fastställa webbplatsens hälso tillstånd. Du kan till exempel använda prestanda räknare för processor användning eller mäta antalet misslyckade förfrågningar. Eller så kan du försöka få åtkomst till databas resurser eller sessionstillstånd för att kontrol lera att webb programmet fungerar.

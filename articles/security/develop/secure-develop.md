@@ -1,156 +1,157 @@
 ---
-title: Utveckla säkra program i Microsoft Azure
-description: Den här artikeln beskrivs bästa praxis att överväga under implementering och verifiering faserna i webbprojektet för programmet.
+title: Utveckla säkra program på Microsoft Azure
+description: Den här artikeln beskriver metod tips som du bör tänka på under implementerings-och verifierings faserna i ditt webb program projekt.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: cc0540f74b755e083855721ad62754c70edb88b6
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653270"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728679"
 ---
-# <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program i Azure
-I den här artikeln visar vi säkerhetsaktiviteter och kontroller att tänka på när du utvecklar program för molnet. Säkerhetsfrågor och begrepp att överväga under faser för implementering och verifiering av Microsofts [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla en säkrare program.
+# <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
+I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
 
-Följande faser för SDL-processen beskrivs i den här artikeln:
+Följande SDL-faser beskrivs i den här artikeln:
 
 - Implementering
 - Verifiering
 
 ## <a name="implementation"></a>Implementering
-Fokus i implementeringsfasen är att upprätta Metodtips för tidig skydd och för att identifiera och ta bort säkerhetsproblem från koden.
-Anta att ditt program kommer att användas på ett sätt att du inte hade för avsikt att kunna användas. Detta hjälper dig att skydda mot oavsiktlig eller avsiktlig missbruk av ditt program.
+Fokus i implementerings fasen är att upprätta bästa praxis för tidig förebyggande skydd och identifiera och ta bort säkerhets problem från koden.
+Anta att ditt program kommer att användas på sätt som du inte avsåg att använda. Detta hjälper dig att skydda mot oavsiktlig eller avsiktlig missbruk av ditt program.
 
-### <a name="perform-code-reviews"></a>Utföra kodgranskningar
+### <a name="perform-code-reviews"></a>Utföra kod granskningar
 
-Innan du checkar in koden utför [code granskningar](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) att öka övergripande kodkvaliteten och minska risken för att skapa buggar. Du kan använda [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) att hantera granskningsprocessen kod.
+Innan du checkar in kod kan du göra [kod granskningar](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) för att öka den övergripande kod kvaliteten och minska risken för att skapa buggar. Du kan använda [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) för att hantera kod gransknings processen.
 
-### <a name="perform-static-code-analysis"></a>Utföra statiska kodanalys
+### <a name="perform-static-code-analysis"></a>Utför statisk kod analys
 
-[Statiska kodanalys](https://www.owasp.org/index.php/Static_Code_Analysis) (även kallat *source kodanalys*) utförs vanligtvis som en del av en Kodgranskning av. Statiska kodanalys avser vanligtvis köra statisk kod analysverktyg för att hitta potentiella säkerhetsproblem i icke-igång-kod med hjälp av teknik som [förorena kontrollerar](https://en.wikipedia.org/wiki/Taint_checking) och [dataflöde analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Statisk kod analys](https://www.owasp.org/index.php/Static_Code_Analysis) (kallas även för *käll kods analys*) utförs vanligt vis som en del av en kod granskning. Statisk kod analys avser ofta att köra statiska kod analys verktyg för att hitta potentiella sårbarheter i kod som inte körs genom att använda metoder som bismaks [kontroll](https://en.wikipedia.org/wiki/Taint_checking) och [data flödes analys](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
-Azure Marketplace erbjuder [utvecklarverktyg](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) som utför statiska kodanalys och hjälpa till med kodgranskningar.
+Azure Marketplace erbjuder [utvecklingsverktyg](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) som utför statisk kod analys och hjälper till med kod granskningar.
 
-### <a name="validate-and-sanitize-every-input-for-your-application"></a>Kontrollera och rensa alla indata för ditt program
+### <a name="validate-and-sanitize-every-input-for-your-application"></a>Verifiera och sanera varje indatamängd för ditt program
 
-Hantera alla indata som inte är betrodd att skydda dina program mot de vanligaste säkerhetsrisker för programmet. Ej betrodda data är ett fordon för-inmatningsattacker. Indata för ditt program innehåller parametrar i Webbadressen indata från användare, data från databasen eller från ett API, och allt som skickas som en användare kan potentiellt manipulera. Ett program bör [Validera](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) att data är syntaktiskt och semantiskt giltig innan programmet använder data på något sätt (inklusive visas för användaren).
+Behandla alla inmatade som ej betrodda för att skydda ditt program mot de vanligaste sårbarheterna för webb program. Ej betrodda data är ett fordon för injektions angrepp. Indata för ditt program innehåller parametrar i URL: en, indata från användaren, data från databasen eller från ett API och allt som skickas till en användare som kan manipulera. Ett program bör [Verifiera](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) att data är syntaktiskt och semantiskt giltiga innan programmet använder data på något sätt (inklusive att Visa tillbaka till användaren).
 
-Verifiera indata tidigt i dataflödet att se till att endast korrekt strukturerad data kommer in i arbetsflödet. Vill du inte vissa data består i din databas eller utlösa ett fel i en underordnad komponent.
+Verifiera indata tidigt i data flödet för att säkerställa att endast korrekt utformade data anges i arbets flödet. Du vill inte att felaktiga data ska sparas i databasen eller utlösa fel i en underordnad komponent.
 
-Blacklisting och listan över tillåtna program finns två sätt att utföra syntaxverifiering av indata:
+Svartlista och vit listning är två allmänna metoder för att utföra verifiering av indatamängden:
 
-  - Godkänna försöker kontrollera att en viss användarindata inte innehåller ”kända är skadliga” innehåll.
+  - Svartlistade försök för att kontrol lera att en viss användar indata inte innehåller "känt som skadlig"-innehåll.
 
-  - Listan över tillåtna program försöker att kontrollera att en viss användarindata matchar en uppsättning ”kända bra” indata. Teckenbaserade listan över tillåtna program är en typ av listan över tillåtna program där ett program kontrollerar att indata från användaren innehåller endast ”kända bra” tecken eller att indata matchar ett känt format.
-    Detta kan till exempel handla om att ett användarnamn innehåller endast alfanumeriska tecken och att den innehåller exakt två tal.
+  - Vit listning försöker kontrol lera att en viss användar inmatning matchar en uppsättning "kända fungerande" indata. Character-baserad vit listning är en form av vit listning där ett program kontrollerar att användarindata endast innehåller "kända fungerande" tecken eller att indata matchar ett känt format.
+    Detta kan t. ex. innebära en kontroll av att ett användar namn bara innehåller alfanumeriska tecken eller att det innehåller exakt två siffror.
 
-Listan över tillåtna program är det primära tillvägagångssättet för att skapa säkra program.
-Godkänna är felbenägna eftersom det är omöjligt att tänka på en fullständig lista över potentiellt felaktiga indata.
+Vit listning är det bästa sättet att skapa säkra program.
+Listering är känslig för fel eftersom det är omöjligt att tänka på en fullständig lista över potentiellt Felaktiga indatatyper.
 
-Utför den här arbete på servern, inte på klientsidan (eller på servern och på klientsidan).
+Detta fungerar på servern, inte på klient sidan (eller på-servern och på klient sidan).
 
-### <a name="verify-your-applications-outputs"></a>Kontrollera programmets utdata
+### <a name="verify-your-applications-outputs"></a>Verifiera programmets utdata
 
-Inga utdata som du presenterar visuellt eller i ett dokument ska alltid kodade och undantaget. [Undantagstecken](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), även kallat *utdatakodning*, används för att säkerställa att obetrodda data inte är ett fordon för en-angrepp. Undantagstecken, i kombination med dataverifiering, ger skydd i flera lager för att öka säkerheten för systemet som helhet.
+Alla utdata som du visar antingen visuellt eller i ett dokument bör alltid kodas och undantas. [Undantag](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), även kallat utkodning av *utdata*, används för att säkerställa att ej betrodda data inte är ett fordon för inmatning-angrepp. Undantag, kombinerat med data verifiering, tillhandahåller försvars försvars nivåer för att öka säkerheten för systemet som helhet.
 
-Undantagstecken gör till att allt visas som *utdata.* Undantagstecken kan även tolk veta att data inte är avsedd att köras och detta gör att attacker inte fungerar. Det här är en annan vanlig attack metod som kallas *cross site scripting* (XSS).
+Med undantag ser du till att allt visas som *utdata.* Med hjälp av undantag kan tolkaren veta att data inte är avsedda att utföras och detta förhindrar attacker från att fungera. Detta är en annan vanlig angrepps teknik som kallas XSS ( *Cross-Site Scripting* ).
 
-Om du använder ett webbramverk från en tredje part, kan du kontrollera dina alternativ för utdata encoding på webbplatser med hjälp av den [OWASP XSS dataförlustskydd facit](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md).
+Om du använder ett webb ramverk från en tredje part kan du kontrol lera alternativen för utmatnings kodning på webbplatser med hjälp av [OWASP XSS-lathund bladet](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md).
 
-### <a name="use-parameterized-queries-when-you-contact-the-database"></a>Använda frågor med parametrar när du kontaktar databasen
+### <a name="use-parameterized-queries-when-you-contact-the-database"></a>Använd parametriserade frågor när du kontaktar databasen
 
-Skapa aldrig en intern databasfråga ”i farten” i din kod och skicka den direkt till databasen. Skadlig kod som infogats i ditt program kan eventuellt medföra att din databas blir stulen, rensas eller ändras. Ditt program kan också användas för att köra skadliga operativsystemkommandon på det operativsystem som är värd för databasen.
+Skapa aldrig en infogad databas fråga "i farten" i koden och skicka den direkt till-databasen. Skadlig kod som infogats i programmet kan orsaka att databasen blir stulen, rensad eller modifierad. Programmet kan också användas för att köra skadliga operativ system kommandon på det operativ system som är värd för din databas.
 
-Använd i stället parameteriserade frågor eller lagrade procedurer. När du använder frågor med parametrar, kan du anropa proceduren från din kod på ett säkert sätt och skicka dem till en sträng utan att det kommer att behandlas som en del av frågeuttrycket.
+Använd i stället parametriserade frågor eller lagrade procedurer. När du använder parametriserade frågor kan du anropa proceduren från koden på ett säkert sätt och skicka den till en sträng utan att oroa dig för att den kommer att behandlas som en del av frågeuttrycket.
 
-### <a name="remove-standard-server-headers"></a>Ta bort standardserver rubriker
+### <a name="remove-standard-server-headers"></a>Ta bort standard server rubriker
 
-Rubriker som Server X-drivna-av, och X-AspNet-Version avslöja information om server och underliggande teknikerna. Vi rekommenderar att du ignorera dessa rubriker för att undvika fingeravtryck programmet.
-Se [tar bort standardserver huvuden på Azure websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Rubriker som server, X-Powered-by och X-ASPNET-version avslöjar information om servern och underliggande tekniker. Vi rekommenderar att du undertrycker dessa huvuden för att undvika finger avtryck av programmet.
+Se [ta bort standard server rubriker på Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)websites.
 
-### <a name="segregate-your-production-data"></a>Särskilja produktionsdata
+### <a name="segregate-your-production-data"></a>Åtskilj dina produktions data
 
-Din produktion eller ”verklig” data bör inte användas för utveckling, testning eller något annat syfte än vad företaget avsett. Ett maskerat ([anonymiserad](https://en.wikipedia.org/wiki/Data_anonymization)) datauppsättningen ska användas för alla utveckling och testning.
+Dina produktions data eller "verkliga" data bör inte användas för utveckling, testning eller något annat ändamål än vad företaget avsåg. En maskerad ([anonymiserats](https://en.wikipedia.org/wiki/Data_anonymization)) data uppsättning ska användas för all utveckling och testning.
 
-Det innebär att färre personer har tillgång till dina verkliga data, vilket minskar risken för angrepp. Det innebär också färre anställda finns i personliga data, vilket eliminerar potentiella intrång i sekretess.
+Det innebär att färre personer har till gång till dina verkliga data, vilket minskar risken för attacker. Det innebär också att färre anställda ser person uppgifter, vilket eliminerar potentiella intrång i konfidentialiteten.
 
-### <a name="implement-a-strong-password-policy"></a>Implementera en princip för starkt lösenord
+### <a name="implement-a-strong-password-policy"></a>Implementera en princip för starka lösen ord
 
-För att skydda mot brute force- och ordlista-baserade gissa, måste du implementera en princip för starkt lösenord för att säkerställa att användarna skapar ett komplext lösenord (till exempel 12 tecken minimilängd och kräver alfanumeriska tecken och specialtecken).
+Du måste implementera en stark lösen ords princip för att säkerställa att användarna skapar ett komplext lösen ord (till exempel 12 tecken och som kräver alfanumeriska tecken och specialtecken) för att skydda dig mot brute-och ordbaserade gissning.
 
-Du kan använda ett ramverk för identitet för att skapa och genomdriva lösenordsprinciper. Azure AD B2C hjälper dig med lösenordshantering genom att tillhandahålla [inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [lösenordsåterställning via självbetjäning](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), med mera.
+Du kan använda ett identitets ramverk för att skapa och genomdriva lösen ords principer. Azure AD B2C hjälper dig med lösen ords hantering genom att tillhandahålla [inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [återställning av lösen ord](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)med självbetjäning och mycket mer.
 
-Kontrollera att alla nycklar och lösenord är utbytbara och att de skapats eller ersättas när du har installerat resurser för att skydda mot attacker på standardkonton.
+Kontrol lera att alla nycklar och lösen ord är utbytbara och att de genereras eller ersätts när du har installerat resurser för att skydda mot attacker på standard konton.
 
-Om programmet måste Autogenerera lösenord, kontrollera att de genererade lösenord är slumpmässig och att de har hög entropi.
+Om programmet måste generera lösen ord automatiskt måste du se till att de genererade lösen orden är slumpmässiga och att de har hög entropi.
 
-### <a name="validate-file-uploads"></a>Verifiera filöverföringar
+### <a name="validate-file-uploads"></a>Verifiera fil överföringar
 
-Om programmet medger [filen uppladdningar](https://www.owasp.org/index.php/Unrestricted_File_Upload), Överväg att vissa åtgärder som du kan vidta för den här riskfyllda aktiviteten. Det första steget i många attacker är att få skadlig kod i ett system som är utsatt för en attack. Med hjälp av en uppladdning kan angriparen åstadkomma detta. OWASP erbjuder lösningar för att verifiera en fil för att säkerställa att den fil som du laddar upp är säkra.
+Om ditt program tillåter [fil överföringar](https://www.owasp.org/index.php/Unrestricted_File_Upload)bör du överväga de försiktighets åtgärder som du kan vidta för den här riskfyllda aktiviteten. Det första steget i många attacker är att hämta skadlig kod i ett system som är utsatt för angrepp. Genom att använda en fil uppladdning kan angriparen utföra detta. OWASP erbjuder lösningar för att verifiera en fil för att säkerställa att filen som du laddar upp är säker.
 
-Skydd mot skadlig kod kan du identifiera och ta bort virus, spionprogram och annan skadlig programvara. Du kan installera [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) eller en Microsoft-partner endpoint protection-lösning ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), och [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+Skydd mot skadlig kod hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)och [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) innehåller funktioner som realtidsskydd, schemalagd genomsökning, korrigering av skadlig kod, Signaturuppdateringar, uppdateringar, exempel reporting och insamling av undantag. Du kan integrera lösningar från Microsoft Antimalware och partner med [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) för enkel distribution och inbyggda identifieringar (aviseringar och incidenter).
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. Du kan integrera Microsofts lösningar för program mot skadlig kod och partner med [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) för enkel distribution och inbyggd identifiering (aviseringar och incidenter).
 
-### <a name="dont-cache-sensitive-content"></a>Inte cachelagra känsligt innehåll
+### <a name="dont-cache-sensitive-content"></a>Cachelagra inte känsligt innehåll
 
-Inte cachelagra känsligt innehåll i webbläsare. Webbläsare kan lagra information för cachelagring och historik. Cachelagrade filer lagras i en mapp som mappen Tillfälliga Internetfiler för Internet Explorer. När dessa sidor kallas igen och webbläsaren visar sidor från sitt cacheminne. Om känslig information (adress, kreditkort, personnummer, användarnamn) visas för användaren, informationen kan lagras i webbläsarens cacheminne och längre hämtningsbart genom att undersöka webbläsarens cache eller bara trycka på webbläsarens  **Tillbaka** knappen.
+Cachelagra inte känsligt innehåll i webbläsaren. Webbläsare kan lagra information för cachelagring och historik. Cachelagrade filer lagras i en mapp, t. ex. mappen Temporary Internet Files, i Internet Explorer. När dessa sidor refereras igen, visar webbläsaren sidorna från cacheminnet. Om känslig information (adress, kreditkorts information, person nummer, användar namn) visas för användaren, kan informationen lagras i webbläsarens cacheminne och kunna hämtas genom att undersöka webbläsarens cacheminne eller genom att helt enkelt trycka på webbläsarens  **Tillbaka** -knapp.
 
 ## <a name="verification"></a>Verifiering
-Verifiering fasen för migreringsplanering innebär en omfattande arbete för att se till att koden uppfyller säkerhet och sekretess tenets som fastställdes i föregående faser.
+I verifierings fasen ingår en omfattande ansträngning för att säkerställa att koden uppfyller Tenets för säkerhet och sekretess som har fastställts i föregående faser.
 
-### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Hitta och åtgärda säkerhetsrisker i dina programberoenden
+### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Hitta och åtgärda säkerhets risker i dina program beroenden
 
-Du skanna ditt program och dess beroende bibliotek för att identifiera några kända sårbara komponenter. Produkter som är tillgängliga för att utföra den här genomsökningen inkluderar [OWASP beroende Kontrollera](https://www.owasp.org/index.php/OWASP_Dependency_Check),[Snyk](https://snyk.io/), och [svart ankor](https://www.blackducksoftware.com/).
+Du genomsöker ditt program och dess beroende bibliotek för att identifiera eventuella kända sårbara komponenter. Produkter som är tillgängliga för att utföra den här genomsökningen omfattar [OWASP beroende kontroll](https://www.owasp.org/index.php/OWASP_Dependency_Check),[Snyk](https://snyk.io/)och [svart ankor](https://www.blackducksoftware.com/).
 
-Säkerhetsriskssökning drivs av [Tinfoil Security](https://www.tinfoilsecurity.com/) är tillgänglig för Azure App Service Web Apps. [Tinfoil Security scanning via App Service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) erbjuder utvecklare och administratörer en snabb, integrerad och ekonomiska möjlighet att upptäcka och åtgärda säkerhetsrisker innan en skadlig aktören kan dra nytta av dem.
+Sårbarhets genomsökning som drivs av [TINFOIL Security](https://www.tinfoilsecurity.com/) är tillgänglig för Azure App Service Web Apps. [TINFOIL säkerhets genomsökning via App Service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) erbjuder utvecklare och administratörer ett snabbt, integrerat och ekonomiskt sätt att identifiera och åtgärda sårbarheter innan en skadlig aktör kan dra nytta av dem.
 
 > [!NOTE]
-> Du kan också [integrera Tinfoil Security med Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial). Integrera Tinfoil Security med Azure AD ger dig följande fördelar:
->  - Du kan styra vem som har åtkomst till Tinfoil Security i Azure AD.
->  - Användarna kan vara loggas in automatiskt till Tinfoil Security (enkel inloggning) med hjälp av sina Azure AD-konton.
->  - Du kan hantera dina konton på en gemensam, central plats, Azure-portalen.
+> Du kan också [integrera TINFOIL-säkerhet med Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial). Att integrera TINFOIL Security med Azure AD ger följande fördelar:
+>  - I Azure AD kan du kontrol lera vem som har åtkomst till TINFOIL-säkerhet.
+>  - Användarna kan loggas in automatiskt på TINFOIL Security (enkel inloggning) med hjälp av deras Azure AD-konton.
+>  - Du kan hantera dina konton på en enda, central plats, Azure Portal.
 
-### <a name="test-your-application-in-an-operating-state"></a>Testa ditt program med tillståndet operativsystem
+### <a name="test-your-application-in-an-operating-state"></a>Testa programmet i ett operativ tillstånd
 
-Dynamisk säkerhet Programtestning (DAST) är en process som testar ett program i ett tillstånd som operativsystem för att hitta säkerhetsproblem. DAST verktyg analysera program medan de körs för att hitta säkerhetsproblem, till exempel minnet skadas, osäkert serverkonfiguration, cross site scripting, användaren behörighet problem, SQL-inmatning och andra viktiga säkerhetsproblem.
+Dynamic App Security Testing (DAST) är en process för att testa ett program i ett operativ tillstånd för att hitta säkerhets risker. DAST-verktyg analyserar program när de körs för att hitta säkerhets sårbarheter, till exempel minnes skada, osäker Server konfiguration, skript över flera webbplatser, användar privilegier, SQL-inmatning och andra viktiga säkerhets problem.
 
-DAST skiljer sig från statisk säkerhet för testning (SAST). SAST verktyg analysera källkoden eller kompilerade versioner av kod när koden inte körs för att identifiera säkerhetsbrister.
+DAST skiljer sig från SAST (static App Security testing). SAST-verktyg analyserar käll kod eller kompilerade versioner av kod när koden inte körs för att hitta säkerhets fel.
 
-Utföra DAST, helst med hjälp av en säkerhetsproffs (en [penetrationstester tester](https://docs.microsoft.com/azure/security/azure-security-pen-testing) eller säkerhetsproblem assessor). Om en säkerhetsproffs inte är tillgänglig, kan du utföra DAST själv med en web proxy skanner och utbildning. Anslut en DAST skanner tidigt för att se till att du inte orsakar uppenbara säkerhetsproblem i din kod. Se den [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) platsen för en lista över web application sårbarhet för skannrar.
+Utför DAST, helst med hjälp av en säkerhets tekniker (en utträngande [testare](https://docs.microsoft.com/azure/security/azure-security-pen-testing) eller sårbarhets bedömare). Om en säker person inte är tillgänglig kan du utföra DAST med en webbproxy-skanner och lite utbildning. Anslut en DAST-skanner tidigt för att se till att du inte introducerar tydliga säkerhets problem i din kod. Se [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -webbplatsen för en lista över säkerhets skannrar för webb program.
 
-### <a name="perform-fuzz-testing"></a>Testa fuzz
+### <a name="perform-fuzz-testing"></a>Utför fuzz-testning
 
-I [fuzz testning](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), du orsaka fel i programmet genom att introducera avsiktligt fel format eller slumpmässiga data till ett program. Att programmet upphör att fungera hjälper till att avslöja potentiella säkerhetsproblem innan programmet har släppts.
+I [fuzz](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)-testningen inducerar du program fel genom att avsiktligt introducera felaktiga eller slumpmässiga data till ett program. Inducing program fel hjälper till att upptäcka potentiella säkerhets problem innan programmet släpps.
 
-[Identifiering av säkerhetsrisk](https://docs.microsoft.com/security-risk-detection/) är den unika Microsoft-fuzz testa tjänsten för att hitta säkerhetskritiska buggar i program.
+[Identifiering av säkerhets risker](https://docs.microsoft.com/security-risk-detection/) är Microsofts unika fuzz testing-tjänst för att hitta säkerhets kritiska buggar i program varan.
 
-### <a name="conduct-attack-surface-review"></a>Genomför attack surface granskning
+### <a name="conduct-attack-surface-review"></a>Genomför granskning av attack ytan
 
-Granska risken för angrepp när kodifyllning hjälper till att säkerställa att alla design eller implementering ändras till ett program eller system har bedömts vara. Det säkerställer att nya attackvektorer som skapades på grund av ändringar, inklusive hotmodeller, har granskat och undvikas.
+Genom att granska attack ytan efter kod kompletteringen ser du till att alla design-eller implementerings ändringar av ett program eller system har beaktats. Den hjälper till att se till att alla nya angrepps vektorer som har skapats på grund av ändringarna, inklusive hot modeller, har granskats och minimerats.
 
-Du kan skapa en bild av risken för angrepp genom att skanna programmet. Microsoft erbjuder en attack surface analysverktyget kallas [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). Du kan välja bland många kommersiella dynamisk testning och granskar säkerhetsrisker verktyg och tjänster, inklusive [OWASP Okaliserad Attack Proxy-projekt](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), och [w3af](http://w3af.sourceforge.net/). Dessa genomsökningsverktyg crawla din app och mappa de delar av programmet som är tillgängliga via webben. Du kan också söka på Azure Marketplace efter liknande [utvecklarverktyg](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+Du kan bygga en bild av attack ytan genom att genomsöka programmet. Microsoft erbjuder ett analys verktyg för angrepps ytan som kallas [analys av attack ytan](https://www.microsoft.com/download/details.aspx?id=24487). Du kan välja bland många dynamiska, dynamiska testnings-och sårbarhets skannings verktyg eller-tjänster, inklusive [OWASP okaliserad](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project)-angrepps-proxy-projekt, [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/)och [w3af](http://w3af.sourceforge.net/). De här sökverktygen söker igenom din app och mappar de delar av programmet som är tillgängliga via webben. Du kan också söka i Azure Marketplace efter liknande [utvecklarverktyg](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
-### <a name="perform-security-penetration-testing"></a>Utföra security penetrationstester
+### <a name="perform-security-penetration-testing"></a>Utför testning av säkerhets inträngning
 
-Se till att ditt program är säker är lika viktigt som testa några andra funktioner. Kontrollera [penetrationstester](https://docs.microsoft.com/azure/security/azure-security-pen-testing) en del av bygg- och distributionsprocessen. Schemalägga regelbundna säkerhetsuppdatering tester och granskar säkerhetsrisker på distribuerade program och övervaka för att öppna portar, slutpunkter och attacker.
+Att se till att ditt program är säkert är lika viktigt som att testa andra funktioner. Gör inträngande och [testa](https://docs.microsoft.com/azure/security/azure-security-pen-testing) en standard del av bygg-och distributions processen. Schemalägga vanliga säkerhetstester och sårbarhets sökning på distribuerade program och övervaka för öppna portar, slut punkter och attacker.
 
-### <a name="run-security-verification-tests"></a>Kör verifieringstest för säkerhet
+### <a name="run-security-verification-tests"></a>Köra tester för säkerhets verifiering
 
-[Secure DevOps Kit för Azure](https://azsk.azurewebsites.net/index.html) (AzSK) innehåller SVTs för flera tjänster i Azure-plattformen. Du kan köra dessa SVTs regelbundet för att se till att din Azure-prenumeration och de olika resurserna som utgör ditt program är i ett säkert tillstånd. Du kan även automatisera dessa tester med hjälp av funktionen tillägg kontinuerlig integrering/kontinuerlig distribution (CI/CD) för av AzSK, vilket gör SVTs tillgänglig som ett tillägg för Visual Studio.
+[Secure DevOps kit för Azure](https://azsk.azurewebsites.net/index.html) (AzSK) innehåller SVTs för flera tjänster i Azure-plattformen. Du kör dessa SVTs regelbundet för att se till att din Azure-prenumeration och de olika resurser som utgör ditt program är i säkert tillstånd. Du kan också automatisera de här testerna med hjälp av funktionen för att använda funktionen för kontinuerlig integrering/-distribution (CI/CD) i AzSK, vilket gör SVTs tillgängligt som ett Visual Studio-tillägg.
 
 ## <a name="next-steps"></a>Nästa steg
-I följande artiklar, rekommenderar vi säkerhetskontroller och aktiviteter som kan hjälpa dig att utforma och distribuera säkra program.
+I följande artiklar rekommenderar vi säkerhets kontroller och aktiviteter som kan hjälpa dig att utforma och distribuera säkra program.
 
 - [Utforma säkra program](secure-design.md)
 - [Distribuera säkra program](secure-deploy.md)

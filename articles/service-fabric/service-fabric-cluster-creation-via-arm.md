@@ -1,9 +1,9 @@
 ---
 title: Skapa ett Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig hur du ställer in ett säkert Service Fabric-kluster i Azure med Azure Resource Manager.  Du kan skapa ett kluster med hjälp av en standardmall eller en egen mall för klustret.
+description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i Azure med Azure Resource Manager.  Du kan skapa ett kluster med hjälp av en standardmall eller med hjälp av en egen kluster mall.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,43 +13,43 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
-ms.author: aljo
-ms.openlocfilehash: 709b59d257dd974e81d8b4058983f6e264ba0708
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925859"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599967"
 ---
-# <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med Azure Resource Manager 
+# <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric kluster med Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
-En [Azure Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella datorer som dina mikrotjänster distribueras och hanteras.  Service Fabric-kluster som körs i Azure är en Azure-resurs och distribueras med hjälp av Azure Resource Manager. Den här artikeln beskriver hur du distribuerar ett säkert Service Fabric-kluster i Azure med hjälp av Resource Manager. Du kan använda en standardmall för klustret eller en anpassad mall.  Om du inte redan har en anpassad mall, kan du [Lär dig hur du skapar ett](service-fabric-cluster-creation-create-template.md).
+Ett [Azure Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella datorer där dina mikrotjänster distribueras och hanteras.  Ett Service Fabric kluster som körs i Azure är en Azure-resurs och distribueras med hjälp av Azure Resource Manager. I den här artikeln beskrivs hur du distribuerar ett säkert Service Fabric kluster i Azure med hjälp av Resource Manager. Du kan använda en mall för standard kluster eller en anpassad mall.  Om du inte redan har en anpassad mall kan du [lära dig hur du skapar en](service-fabric-cluster-creation-create-template.md).
 
-Klustersäkerhet konfigureras när klustret är första installationen och kan inte ändras senare. Innan du konfigurerar ett kluster, läsa [säkerhetsscenarier för Service Fabric-kluster][service-fabric-cluster-security]. I Azure, Service Fabric använder x509 certifikat till säkra ditt kluster och dess slutpunkter, autentisera klienter och kryptera data. Azure Active Directory rekommenderas för säker åtkomst till av hanteringsslutpunkter. Azure AD-klienter och användare måste skapas innan du skapar klustret.  Mer information finns i [ställa in Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
+Kluster säkerhet konfigureras när klustret först konfigureras och kan inte ändras senare. Innan du konfigurerar ett kluster bör du läsa [Service Fabric kluster säkerhets scenarier][service-fabric-cluster-security]. I Azure använder Service Fabric x509-certifikat för att skydda klustret och dess slut punkter, autentisera klienter och kryptera data. Azure Active Directory rekommenderas också att skydda åtkomsten till hanterings slut punkter. Azure AD-klienter och användare måste skapas innan klustret skapas.  Mer information finns [i Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
-Om du skapar ett produktionskluster för att köra arbetsbelastningar i produktion, rekommenderar vi att du första läsa igenom den [produktion beredskap checklista](service-fabric-production-readiness-checklist.md).
+Om du skapar ett produktions kluster för att köra produktions arbets belastningar rekommenderar vi att du först läser igenom [Check listan för produktions beredskap](service-fabric-production-readiness-checklist.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
-I den här artikeln använder du Service Fabric RM powershell eller Azure CLI-moduler för att distribuera ett kluster:
+## <a name="prerequisites"></a>Förutsättningar 
+I den här artikeln använder du modulerna Service Fabric RM PowerShell eller Azure CLI för att distribuera ett kluster:
 
-* [Azure PowerShell 4.1 och senare][azure-powershell]
-* [Azure CLI version 2.0 och senare][azure-CLI]
+* [Azure PowerShell 4,1 och uppåt][azure-powershell]
+* [Azure CLI version 2,0 och senare][azure-CLI]
 
-Du kan hitta referensdokumentation för Service Fabric-moduler här:
+Referens dokumentationen för Service Fabric moduler finns här:
 * [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
-* [AZ SF CLI-modulen](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+* [AZ SF CLI-modul](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Innan du kör något av kommandona i den här artikeln måste först logga in på Azure.
+Innan du kör något av kommandona i den här artikeln loggar du först in på Azure.
 
 ```powershell
 Connect-AzAccount
@@ -61,24 +61,24 @@ az login
 az account set --subscription $subscriptionId
 ```
 
-## <a name="create-a-new-cluster-using-a-system-generated-self-signed-certificate"></a>Skapa ett nytt kluster med hjälp av ett självsignerat certifikat för systemgenererade
+## <a name="create-a-new-cluster-using-a-system-generated-self-signed-certificate"></a>Skapa ett nytt kluster med ett självsignerat system som skapats
 
-Använd följande kommandon för att skapa ett kluster som skyddas med ett självsignerat certifikat för genereras av systemet. Detta kommando ställer in en primär klustercertifikat som används för Klustersäkerhet och för att ställa in administratörsåtkomst för att utföra hanteringsåtgärder som använder certifikatet.  Självsignerade certifikat är användbara för att skydda testkluster.  Produktionskluster bör skyddas med ett certifikat från en certifikatutfärdare (CA).
+Använd följande kommandon för att skapa ett kluster som skyddas med ett självsignerat systemgenererat certifikat. Det här kommandot konfigurerar ett primärt kluster certifikat som används för kluster säkerhet och för att konfigurera administratörs åtkomst för att utföra hanterings åtgärder med det certifikatet.  Självsignerade certifikat är användbara för att skydda test kluster.  Produktions kluster bör skyddas med ett certifikat från en certifikat utfärdare (CA).
 
-### <a name="use-the-default-cluster-template-that-ships-in-the-module"></a>Använda kluster standardmall som levereras i modulen
+### <a name="use-the-default-cluster-template-that-ships-in-the-module"></a>Använd standard kluster mal len som levereras i modulen
 
-Använd följande kommando för att skapa ett kluster snabbt, genom att ange minsta nödvändiga parametrarna, med hjälp av standardmallen.
+Använd följande kommando för att snabbt skapa ett kluster genom att ange minimala parametrar med hjälp av standard mal len.
 
-Mallen som används är tillgänglig på den [Azure Service Fabric-mallexempel: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Den mall som används är tillgänglig i [Azure Service Fabric Template-exempel:](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) mall för Windows-mall och [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-Följande kommando kan skapa antingen Windows eller Linux-kluster, måste du ange Operativsystemet på lämpligt sätt. PowerShell/CLI-kommandona utdata även certifikatet i den angivna *CertificateOutputFolder*, men se till att certifikatmappen som redan har skapats. Kommandot tar även andra parametrar, till exempel VM-SKU.
+Följande kommando kan skapa antingen Windows-eller Linux-kluster, du måste ange operativ systemet. PowerShell/CLI-kommandona skickar även certifikatet i den angivna *CertificateOutputFolder*. kontrol lera dock att mappen redan har skapats. Kommandot tar även med andra parametrar, till exempel VM SKU.
 
 > [!NOTE]
-> Följande PowerShell-kommando fungerar bara med Azure PowerShell `Az` modulen. Kör följande PowerShell-kommando ”Get-Module Az” om du vill kontrollera den aktuella versionen av Azure Resource Managers PowerShell-version. Följ [den här länken](/powershell/azure/install-Az-ps) att uppgradera din Azure Resource Managers PowerShell-version. 
+> Följande PowerShell-kommando fungerar endast med Azure PowerShell `Az` -modulen. Om du vill kontrol lera den aktuella versionen av Azure Resource Manager PowerShell-version kör du följande PowerShell-kommando "Get-module AZ". Följ [den här länken](/powershell/azure/install-Az-ps) om du vill uppgradera din Azure Resource Manager PowerShell-version. 
 >
 >
 
-Distribuera kluster med hjälp av PowerShell:
+Distribuera klustret med PowerShell:
 
 ```powershell
 $resourceGroupLocation="westus"
@@ -95,7 +95,7 @@ $certOutputFolder="c:\certificates"
 New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser
 ```
 
-Distribuera kluster med Azure CLI:
+Distribuera klustret med Azure CLI:
 
 ```azurecli
 declare resourceGroupLocation="westus"
@@ -116,11 +116,11 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --vm-password $vmpassword --vm-user-name $vmuser
 ```
 
-### <a name="use-your-own-custom-template"></a>Använda en egen anpassad mall
+### <a name="use-your-own-custom-template"></a>Använd din egen anpassade mall
 
-Om du vill skapa en anpassad mall så att den passar dina behov kan vi rekommenderar starkt att du börjar med en av de mallar som är tillgängliga på den [Azure Service Fabric-mallexempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Lär dig hur du [anpassa klustermallen][customize-your-cluster-template].
+Om du behöver skapa en anpassad mall för att passa dina behov, rekommenderar vi starkt att du börjar med en av mallarna som är tillgängliga i [mall exemplen för Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Lär dig hur du [anpassar kluster mal len][customize-your-cluster-template].
 
-Om du redan har en anpassad mall kan du kontrollera att alla tre certifikatet relaterade parametrar i mallen och parameterfilen namnges enligt följande och värdena är null på följande sätt:
+Om du redan har en anpassad mall måste du kontrol lera att alla de tre certifikat relaterade parametrarna i mallen och parameter filen heter följande och värden är null enligt följande:
 
 ```json
    "certificateThumbprint": {
@@ -134,7 +134,7 @@ Om du redan har en anpassad mall kan du kontrollera att alla tre certifikatet re
     },
 ```
 
-Distribuera kluster med hjälp av PowerShell:
+Distribuera klustret med PowerShell:
 
 ```powershell
 $resourceGroupLocation="westus"
@@ -149,7 +149,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 ```
 
-Distribuera kluster med Azure CLI:
+Distribuera klustret med Azure CLI:
 
 ```azurecli
 declare certPassword=""
@@ -166,16 +166,16 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath
 ```
 
-## <a name="create-a-new-cluster-using-your-own-x509-certificate"></a>Skapa ett nytt kluster med hjälp av dina egna X.509-certifikat
+## <a name="create-a-new-cluster-using-your-own-x509-certificate"></a>Skapa ett nytt kluster med ditt eget X. 509-certifikat
 
-Använd följande kommando för att skapa kluster om du har ett certifikat som du vill använda för att säkra ditt kluster med.
+Använd följande kommando för att skapa kluster, om du har ett certifikat som du vill använda för att skydda klustret med.
 
-Om det här är en CA-signerat certifikat som kommer till slut med för andra ändamål samt sedan rekommenderar vi att du anger en specifik resursgrupp specifikt för ditt nyckelvalv. Vi rekommenderar att du placerar i key vault i en egen resursgrupp. Den här åtgärden kan du ta bort de beräkning och lagring resursgrupper, inklusive den resursgrupp som innehåller Service Fabric-klustret, utan att förlora dina nycklar och hemligheter. **Den resursgrupp som innehåller nyckelvalvet *måste vara i samma region* som klustret som använder den.**
+Om det här är ett CA-signerat certifikat som du kommer att använda i andra syfte, rekommenderar vi att du anger en specifik resurs grupp specifikt för ditt nyckel valv. Vi rekommenderar att du sätter nyckel valvet i sin egen resurs grupp. Med den här åtgärden kan du ta bort resurs grupperna för beräkning och lagring, inklusive resurs gruppen som innehåller Service Fabric klustret, utan att förlora nycklar och hemligheter. **Resurs gruppen som innehåller nyckel valvet *måste finnas i samma region* som det kluster som använder det.**
 
-### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Använd standard fem noder, en nod typen mall som levereras i modulen
-Mallen som används är tillgänglig på den [Azure-exempel: Windows-mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Använd standardvärdet på fem noder, en mall för nodtyp som levereras i modulen
+Den mall som används är tillgänglig i [Azure-exempel: Mall för](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) Windows-mall och [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-Distribuera kluster med hjälp av PowerShell:
+Distribuera klustret med PowerShell:
 
 ```powershell
 $resourceGroupLocation="westus"
@@ -190,7 +190,7 @@ $os="WindowsServer2016DatacenterwithContainers"
 New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -KeyVaultResourceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
 ```
 
-Distribuera kluster med Azure CLI:
+Distribuera klustret med Azure CLI:
 
 ```azurecli
 declare vmPassword="Password!1"
@@ -210,10 +210,10 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --vm-password $vmPassword --vm-user-name $vmUser
 ```
 
-### <a name="use-your-own-custom-cluster-template"></a>Använd dina egna anpassade kluster-mall
-Om du vill skapa en anpassad mall så att den passar dina behov kan vi rekommenderar starkt att du börjar med en av de mallar som är tillgängliga på den [Azure Service Fabric-mallexempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Lär dig hur du [anpassa klustermallen][customize-your-cluster-template].
+### <a name="use-your-own-custom-cluster-template"></a>Använd din egen anpassade kluster mall
+Om du behöver skapa en anpassad mall för att passa dina behov, rekommenderar vi starkt att du börjar med en av mallarna som är tillgängliga i [mall exemplen för Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Lär dig hur du [anpassar kluster mal len][customize-your-cluster-template].
 
-Om du redan har en anpassad mall och sedan se till att är du dubbelkolla att alla tre certifikatet relaterade parametrar i mallen och parameterfilen namnges enligt följande och värden null på följande sätt.
+Om du redan har en anpassad mall måste du kontrol lera att alla de tre certifikatets relaterade parametrar i mallen och parameter filen heter följande och värden är null enligt följande.
 
 ```json
    "certificateThumbprint": {
@@ -227,7 +227,7 @@ Om du redan har en anpassad mall och sedan se till att är du dubbelkolla att al
     },
 ```
 
-Distribuera kluster med hjälp av PowerShell:
+Distribuera klustret med PowerShell:
 
 ```powershell
 $resourceGroupLocation="westus"
@@ -243,7 +243,7 @@ $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResourceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 ```
 
-Distribuera kluster med Azure CLI:
+Distribuera klustret med Azure CLI:
 
 ```azurecli
 declare certPassword="Password!1"
@@ -260,11 +260,11 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Använda en pekare till en hemlighet som har överförts till ett nyckelvalv
+### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Använda en pekare till en hemlighet som laddats upp till ett nyckel valv
 
-Om du vill använda ett befintligt nyckelvalv nyckelvalvet måste vara [aktiverat för distribution av](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) att tillåta compute-resursprovidern skaffa certifikat från den och installera den på klusternoderna.
+Om du vill använda ett befintligt nyckel valv måste nyckel valvet vara [aktiverat för distribution](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) så att Compute Resource-providern kan hämta certifikat från den och installera den på klusternoder.
 
-Distribuera kluster med hjälp av PowerShell:
+Distribuera klustret med PowerShell:
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
@@ -276,7 +276,7 @@ $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc6
 New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 ```
 
-Distribuera kluster med Azure CLI:
+Distribuera klustret med Azure CLI:
 
 ```azurecli
 declare $resourceGroupName = "testRG"
@@ -290,9 +290,9 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du ett säkert kluster som körs i Azure. Nästa [ansluta till klustret](service-fabric-connect-to-secure-cluster.md) och lär dig hur du [hantera programhemligheter](service-fabric-application-secret-management.md).
+Nu har du ett säkert kluster som körs i Azure. Anslut sedan [till klustret](service-fabric-connect-to-secure-cluster.md) och lär dig hur du [hanterar program hemligheter](service-fabric-application-secret-management.md).
 
-JSON-syntax och egenskaper för att använda en mall finns i [Microsoft.ServiceFabric/clusters mallreferensen](/azure/templates/microsoft.servicefabric/clusters).
+En mall för JSON-syntax och egenskaper för att använda en mall finns i [referens för Microsoft. ServiceFabric/Clusters](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps

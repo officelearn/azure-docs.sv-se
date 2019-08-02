@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227327"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608068"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Bas linje princip: Blockera äldre autentisering (för hands version)
 
@@ -117,5 +117,5 @@ Så här aktiverar du den här principen och skyddar din organisation:
 Mer information finns i:
 
 * [Principer för bas linje skydd för villkorlig åtkomst](concept-baseline-protection.md)
-* [Fem steg för att skydda din identitets infrastruktur](../../security/azure-ad-secure-steps.md)
+* [Fem steg för att skydda din identitets infrastruktur](../../security/fundamentals/steps-secure-identity.md)
 * [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)

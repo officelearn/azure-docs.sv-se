@@ -1,145 +1,79 @@
 ---
-title: SSH till noder i Azure Kubernetes Service (AKS)
-description: Lär dig hur du skapar en SSH-anslutning med Azure Kubernetes Service (AKS) klusternoder för felsökning och underhållsåtgärder.
+title: SSH till Azure Kubernetes service (AKS)-klusternoder
+description: Lär dig hur du skapar en SSH-anslutning med AKS-klusternoder (Azure Kubernetes service) för fel söknings-och underhålls aktiviteter.
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/24/2019
+ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 6ddd1b160110e7a751f54f89b387a62d94e9308e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 748abc08c432518be4ce8698713b1df95077c3c1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614486"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722467"
 ---
-# <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till Azure Kubernetes Service (AKS) klusternoderna för underhåll och felsökning
+# <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till Azure Kubernetes service (AKS)-klusternoder för underhåll eller fel sökning
 
-Du kan behöva åtkomst till ett AKS-noden under livscykeln för ditt kluster i Azure Kubernetes Service (AKS). Den här åtkomsten kan vara för underhåll, Logginsamling eller andra felsökning åtgärder. Du kan komma åt AKS-noder med SSH, inklusive Windows Server-noder (för närvarande i förhandsversion i AKS). Du kan också [ansluta till Windows Server-noder med hjälp av Fjärrskrivbordsprotokollet (RDP) anslutningar][aks-windows-rdp]. Av säkerhetsskäl exponeras inte AKS-noder till internet.
+Under hela livs cykeln för ditt Azure Kubernetes service-kluster (AKS) kan du behöva komma åt en AKS-nod. Den här åtkomsten kan vara för underhåll, logg insamling eller andra fel söknings åtgärder. Du kan komma åt AKS-noder med SSH, inklusive Windows Server-noder (för närvarande i för hands version i AKS). Du kan också [ansluta till Windows Server-noder med RDP-anslutningar (Remote Desktop Protocol)][aks-windows-rdp]. Av säkerhets synpunkt visas inte AKS-noderna för Internet. För SSH till AKS-noderna använder du den privata IP-adressen.
 
-Den här artikeln visar hur du skapar en SSH-anslutning med ett AKS-noden med sina privata IP-adresser.
+Den här artikeln visar hur du skapar en SSH-anslutning med en AKS-nod med hjälp av sina privata IP-adresser.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.64 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
+Som standard hämtas SSH-nycklar, eller genereras, och läggs sedan till noderna när du skapar ett AKS-kluster. Den här artikeln visar hur du anger olika SSH-nycklar än de SSH-nycklar som används när du skapade ditt AKS-kluster. Artikeln visar också hur du fastställer nodens privata IP-adress och ansluter till den med hjälp av SSH. Om du inte behöver ange en annan SSH-nyckel kan du hoppa över steget för att lägga till den offentliga SSH-nyckeln till noden.
 
-## <a name="add-your-public-ssh-key"></a>Lägg till din offentliga SSH-nyckel
+Den här artikeln förutsätter också att du har en SSH-nyckel. Du kan skapa en SSH-nyckel med [MacOS eller Linux][ssh-nix] eller [Windows][ssh-windows]. Om du använder funktionen SparaTillFil för att skapa nyckel paret sparar du nyckel paret i ett OpenSSH-format i stället för standardvärdet för formatet SparaTillFil-privat nyckel (. PPK-fil).
 
-Som standard är SSH-nycklar fick, eller genereras och läggs till noder när du skapar ett AKS-kluster. Om du vill ange olika SSH-nycklar än de som används när du skapade ditt AKS-kluster kan du lägga till din offentliga SSH-nyckel Linux AKS-noder. Om det behövs kan du skapa en SSH nyckeln med hjälp av [macOS eller Linux][ssh-nix] or [Windows][ssh-windows]. Om du använder PuTTY Gen för att skapa nyckelparet, spara nyckelpar i en OpenSSH-format i stället för standardvärdet PuTTy format på privat nyckel (.ppk-fil).
+Du måste också ha Azure CLI-versionen 2.0.64 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-> [!NOTE]
-> SSH-nycklar kan att för närvarande endast lägga till Linux-noder med Azure CLI. Om du använder Windows Server-noder kan använda SSH-nycklarna som anges när du skapade AKS-klustret och vidare till steg på [så här hämtar du den AKS nodadressen](#get-the-aks-node-address). Eller, [ansluta till Windows Server-noder med hjälp av Fjärrskrivbordsprotokollet (RDP) anslutningar][aks-windows-rdp].
+## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>Konfigurera AKS-kluster för skalnings uppsättningar för virtuella datorer för SSH-åtkomst
 
-Stegen för att hämta AKS-nodernas privata IP-adressen är olika beroende på vilken typ av AKS-kluster som du kör:
+Om du vill konfigurera skalnings uppsättningen för virtuella datorer, kan du hitta namnet på klustrets skalnings uppsättning för virtuella datorer och lägga till din offentliga SSH-nyckel till den skalnings uppsättningen.
 
-* För de flesta AKS-kluster följer du stegen för att [hämta IP-adressen för regelbundna AKS-kluster](#add-ssh-keys-to-regular-aks-clusters).
-* Om du använder alla funktioner i förhandsversion i AKS med VM-skalningsuppsättningar, till exempel flera nodpooler eller stöd för Windows Server-behållare kan [följer du stegen för VM scale set-baserade AKS kluster](#add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters).
-
-### <a name="add-ssh-keys-to-regular-aks-clusters"></a>Lägg till SSH-nycklar till vanliga AKS-kluster
-
-Om du vill lägga till din SSH-nyckel till en Linux AKS-nod, utför du följande steg:
-
-1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Klusternamnet tilldelas till variabeln med namnet *CLUSTER_RESOURCE_GROUP*. Ersätt *myResourceGroup* med namnet på resursgruppen där du AKS-kluster finns:
-
-    ```azurecli-interactive
-    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-    ```
-
-1. Lista de virtuella datorerna i AKS kluster resource gruppen med den [az vm list][az-vm-list] kommando. Dessa virtuella datorer är AKS-noder:
-
-    ```azurecli-interactive
-    az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
-    ```
-
-    Följande Exempelutdata visar AKS-noder:
-
-    ```
-    Name                      ResourceGroup                                  Location
-    ------------------------  ---------------------------------------------  ----------
-    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
-    ```
-
-1. Lägg till SSH-nycklar till noden genom att använda den [az vm user update][az-vm-user-update] kommando. Ange resursgruppens namn och sedan en av noderna i AKS som hämtades i föregående steg. Användarnamn för AKS-noder är som standard *azureuser*. Ange platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*, eller klistra in innehållet i din offentliga SSH-nyckel:
-
-    ```azurecli-interactive
-    az vm user update \
-      --resource-group $CLUSTER_RESOURCE_GROUP \
-      --name aks-nodepool1-79590246-0 \
-      --username azureuser \
-      --ssh-key-value ~/.ssh/id_rsa.pub
-    ```
-
-### <a name="add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters"></a>Lägg till SSH-nycklar i VM scale set-baserade AKS-kluster
-
-Utför följande steg för att lägga till din SSH-nyckel till en Linux AKS-nod som är en del av en VM-skalningsuppsättning:
-
-1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Klusternamnet tilldelas till variabeln med namnet *CLUSTER_RESOURCE_GROUP*. Ersätt *myResourceGroup* med namnet på resursgruppen där du AKS-kluster finns:
-
-    ```azurecli-interactive
-    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-    ```
-
-1. Hämta sedan skalningsuppsättning för virtuell dator för AKS-kluster med den [az vmss list][az-vmss-list] kommando. VM scale set namnet tilldelas till variabeln med namnet *SCALE_SET_NAME*:
-
-    ```azurecli-interactive
-    SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
-    ```
-
-1. Lägg till SSH-nycklar till noderna i en skalningsuppsättning för virtuell dator genom att använda den [az vmss-tilläggsuppsättningen][az-vmss-extension-set] kommando. Klusterresursgrupp och VM scale set namn tillhandahålls i föregående kommandon. Användarnamn för AKS-noder är som standard *azureuser*. Om det behövs uppdaterar du platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*:
-
-    ```azurecli-interactive
-    az vmss extension set  \
-        --resource-group $CLUSTER_RESOURCE_GROUP \
-        --vmss-name $SCALE_SET_NAME \
-        --name VMAccessForLinux \
-        --publisher Microsoft.OSTCExtensions \
-        --version 1.4 \
-        --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
-    ```
-
-1. Tillämpa SSH-nyckeln till noder med hjälp av den [az vmss update-instances][az-vmss-update-instances] kommando:
-
-    ```azurecli-interactive
-    az vmss update-instances --instance-ids '*' \
-        --resource-group $CLUSTER_RESOURCE_GROUP \
-        --name $SCALE_SET_NAME
-    ```
-
-## <a name="get-the-aks-node-address"></a>Hämta AKS nod-adressen
-
-AKS-nodernas exponeras inte offentligt på Internet. SSH för AKS-noder kan du använda den privata IP-adressen. I nästa steg ska skapa du en helper-pod AKS-klustret som låter dig SSH till den här privata IP-adressen för noden. Stegen för att hämta AKS-nodernas privata IP-adressen är olika beroende på vilken typ av AKS-kluster som du kör:
-
-* För de flesta AKS-kluster följer du stegen för att [hämta IP-adressen för regelbundna AKS-kluster](#ssh-to-regular-aks-clusters).
-* Om du använder alla funktioner i förhandsversion i AKS med VM-skalningsuppsättningar, till exempel flera nodpooler eller stöd för Windows Server-behållare kan [följer du stegen för VM scale set-baserade AKS kluster](#ssh-to-virtual-machine-scale-set-based-aks-clusters).
-
-### <a name="ssh-to-regular-aks-clusters"></a>SSH till vanliga AKS-kluster
-
-Visa privat IP-adressen för ett AKS-kluster noden med den [az vm list-ip-adresser][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] steg:
+Använd kommandot [AZ AKS show][az-aks-show] för att hämta resurs grupps namnet för ditt AKS-kluster, sedan kommandot [AZ VMSS List][az-vmss-list] för att hämta namnet på din skalnings uppsättning.
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
-Följande Exempelutdata visar privata IP-adresserna för AKS-noder:
+Exemplet ovan tilldelar namnet på kluster resurs gruppen för *myAKSCluster* i *myResourceGroup* till *CLUSTER_RESOURCE_GROUP*. Exemplet använder sedan *CLUSTER_RESOURCE_GROUP* för att visa namnet på skalnings uppsättningen och tilldela det till *SCALE_SET_NAME*.  
 
+> [!NOTE]
+> SSH-nycklar kan för närvarande bara läggas till i Linux-noder med hjälp av Azure CLI. Om du vill ansluta till en Windows Server-nod med SSH använder du de SSH-nycklar som angavs när du skapade AKS-klustret och hoppar över nästa uppsättning kommandon för att lägga till din offentliga SSH-nyckel. Du kommer fortfarande att behöva IP-adressen för den nod som du vill felsöka, som visas i det sista kommandot i det här avsnittet. Alternativt kan du [ansluta till Windows Server-noder med hjälp av RDP-anslutningar (Remote Desktop Protocol)][aks-windows-rdp] i stället för att använda SSH.
+
+Om du vill lägga till SSH-nycklar till noderna i en skalnings uppsättning för virtuella datorer använder du kommandona [AZ VMSS Extension set][az-vmss-extension-set] och [AZ VMSS Update-instances][az-vmss-update-instances] .
+
+```azurecli-interactive
+az vmss extension set  \
+    --resource-group $CLUSTER_RESOURCE_GROUP \
+    --vmss-name $SCALE_SET_NAME \
+    --name VMAccessForLinux \
+    --publisher Microsoft.OSTCExtensions \
+    --version 1.4 \
+    --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
+
+az vmss update-instances --instance-ids '*' \
+    --resource-group $CLUSTER_RESOURCE_GROUP \
+    --name $SCALE_SET_NAME
 ```
-VirtualMachine            PrivateIPAddresses
-------------------------  --------------------
-aks-nodepool1-79590246-0  10.240.0.4
-```
 
-### <a name="ssh-to-virtual-machine-scale-set-based-aks-clusters"></a>SSH till VM scale set-baserade AKS-kluster
+Exemplet ovan använder variablerna *CLUSTER_RESOURCE_GROUP* och *SCALE_SET_NAME* från föregående kommandon. Exemplet ovan använder även *~/.ssh/id_rsa.pub* som plats för din offentliga SSH-nyckel.
 
-Lista de noder som använder interna IP-adress i [kubectl hämta kommando][kubectl-get]:
+> [!NOTE]
+> Som standard är användar namnet för AKS-noderna *azureuser*.
+
+När du har lagt till din offentliga SSH-nyckel i skalnings uppsättningen kan du använda SSH i en virtuell nods dator i den skalnings uppsättningen med dess IP-adress. Visa de privata IP-adresserna för AKS-klusternoderna med [kommandot kubectl get][kubectl-get].
 
 ```console
 kubectl get nodes -o wide
 ```
 
-Följande Exempelutdata visar interna IP-adresserna för alla noder i klustret, inklusive en Windows Server-nod.
+I följande exempel utdata visas de interna IP-adresserna för alla noder i klustret, inklusive en Windows Server-nod.
 
 ```console
 $ kubectl get nodes -o wide
@@ -149,30 +83,80 @@ aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4 
 aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
 ```
 
-Anteckna den interna IP-adressen för den nod som du vill felsöka. Du använder den här adressen i ett senare steg.
+Registrera den interna IP-adressen för den nod som du vill felsöka.
 
-## <a name="create-the-ssh-connection"></a>Skapa SSH-anslutning
+Om du vill komma åt din nod med SSH följer du stegen i [skapa ssh-anslutningen](#create-the-ssh-connection).
 
-För att skapa en SSH-anslutning till ett AKS-nod, kör du en helper-pod AKS-klustret. Den här helper-pod innehåller SSH-åtkomst till klustret och sedan ytterligare SSH-noden åtkomst. Om du vill skapa och använda den här helper-pod, gör du följande:
+## <a name="configure-virtual-machine-availability-set-based-aks-clusters-for-ssh-access"></a>Konfigurera tillgänglighets uppsättnings AKS kluster för virtuell dator för SSH-åtkomst
 
-1. Kör en `debian` behållare avbildningen och bifoga en terminalsession till den. Den här behållaren kan användas för att skapa en SSH-session med en nod i AKS-klustret:
+Om du vill konfigurera den virtuella datorns tillgänglighets uppsättnings AKS-kluster för SSH-åtkomst, letar du reda på namnet på klustrets Linux-nod och lägger till din offentliga SSH-nyckel till noden.
+
+Använd kommandot [AZ AKS show][az-aks-show] för att hämta resurs grupps namnet för ditt AKS-kluster, därefter kommandot [AZ VM List][az-vm-list] för att lista det virtuella dator namnet för klustrets Linux-nod.
+
+```azurecli-interactive
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
+```
+
+Exemplet ovan tilldelar namnet på kluster resurs gruppen för *myAKSCluster* i *myResourceGroup* till *CLUSTER_RESOURCE_GROUP*. Exemplet använder sedan *CLUSTER_RESOURCE_GROUP* för att visa namnet på den virtuella datorn. I exempel resultatet visas namnet på den virtuella datorn: 
+
+```
+Name                      ResourceGroup                                  Location
+------------------------  ---------------------------------------------  ----------
+aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
+```
+
+Om du vill lägga till SSH-nycklar till noden använder du kommandot [AZ VM User Update][az-vm-user-update] .
+
+```azurecli-interactive
+az vm user update \
+    --resource-group $CLUSTER_RESOURCE_GROUP \
+    --name aks-nodepool1-79590246-0 \
+    --username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub
+```
+
+Exemplet ovan använder variabeln *CLUSTER_RESOURCE_GROUP* och den virtuella nodens dator namn från föregående kommandon. Exemplet ovan använder även *~/.ssh/id_rsa.pub* som plats för din offentliga SSH-nyckel. Du kan också använda innehållet i den offentliga SSH-nyckeln i stället för att ange en sökväg.
+
+> [!NOTE]
+> Som standard är användar namnet för AKS-noderna *azureuser*.
+
+När du har lagt till din offentliga SSH-nyckel till den virtuella noden i noden kan du använda SSH i den virtuella datorn med dess IP-adress. Visa den privata IP-adressen för en AKS-klusternod med kommandot [AZ VM List-IP-addresss][az-vm-list-ip-addresses] .
+
+```azurecli-interactive
+az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
+```
+
+Exemplet ovan använder variabeln *CLUSTER_RESOURCE_GROUP* som angetts i föregående kommandon. Följande exempel på utdata visar de privata IP-adresserna för AKS-noderna:
+
+```
+VirtualMachine            PrivateIPAddresses
+------------------------  --------------------
+aks-nodepool1-79590246-0  10.240.0.4
+```
+
+## <a name="create-the-ssh-connection"></a>Skapa SSH-anslutningen
+
+Om du vill skapa en SSH-anslutning till en AKS-nod kör du en hjälp-Pod i ditt AKS-kluster. Med hjälp av den här Pod får du SSH-åtkomst till klustret och sedan ytterligare åtkomst till SSH-noden. Utför följande steg för att skapa och använda den här hjälp-pod:
+
+1. Kör en `debian` behållar avbildning och koppla en terminalsession till den. Den här behållaren kan användas för att skapa en SSH-session med en nod i AKS-klustret:
 
     ```console
     kubectl run -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
-    > Om du använder Windows Server-noder (för närvarande i förhandsversion i AKS), lägger du till en nod-väljare i kommandot för att schemalägga Debian-behållare på en Linux-nod på följande sätt:
+    > Om du använder Windows Server-noder (för närvarande i för hands version i AKS) lägger du till en Node-selektor till kommandot för att schemalägga Debian-behållaren på en Linux-nod:
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
-1. Den grundläggande Debian-avbildningen innehåller inte SSH-komponenter. När terminalsessionen är ansluten till behållaren, installerar du en SSH-klient med hjälp av `apt-get` på följande sätt:
+1. När Terminal-sessionen är ansluten till behållaren installerar du en SSH-klient med `apt-get`hjälp av:
 
     ```console
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. I ett nytt terminalfönster inte är ansluten till din behållare, en lista med poddarna på AKS-kluster med den [kubectl hämta poddar][kubectl-get] kommando. Pod som skapades i föregående steg som startar med namnet *aks-ssh*, enligt följande exempel:
+1. Öppna ett nytt terminalfönster, inte anslutet till din behållare, Visa poddar på ditt AKS-kluster med kommandot [kubectl get poddar][kubectl-get] . Pod som skapades i föregående steg börjar med namnet *AKS-SSH*, som visas i följande exempel:
 
     ```
     $ kubectl get pods
@@ -181,21 +165,21 @@ För att skapa en SSH-anslutning till ett AKS-nod, kör du en helper-pod AKS-klu
     aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
     ```
 
-1. Du lagt till din offentliga SSH-nyckel AKS-noden i det första steget i den här artikeln. Nu kan kopiera den privata SSH-nyckeln till din pod. Den privata nyckeln används för att skapa en SSH i AKS-noder.
+1. I ett tidigare steg lade du till din offentliga SSH-nyckel till AKS-noden som du ville felsöka. Kopiera nu din privata SSH-nyckel till hjälp-pod. Den privata nyckeln används för att skapa SSH i AKS-noden.
 
-    Ange din egen *aks-ssh* podnamn hämtades i föregående steg. Om det behövs ändrar *~/.ssh/id_rsa* till platsen för din privata SSH-nyckel:
+    Ange ett eget *AKS-SSH Pod-* namn som hämtades i föregående steg. Om det behövs ändrar du *~/.ssh/id_rsa* till platsen för din privata SSH-nyckel:
 
     ```console
     kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
     ```
 
-1. Tillbaka i terminalsession till behållaren, uppdatera behörigheterna på den kopierade `id_rsa` privata SSH-nyckeln så att den är användaren skrivskyddad:
+1. Gå tillbaka till sessionen till din behållare, uppdatera behörigheterna för den kopierade `id_rsa` privata SSH-nyckeln så att den är skrivskyddad:
 
     ```console
     chmod 0600 id_rsa
     ```
 
-1. Nu ska du skapa en SSH-anslutning till AKS-nod. Igen, Standardanvändarnamnet för AKS-noder är *azureuser*. Acceptera uppmaningen att fortsätta med anslutningen som SSH-nyckeln är den första betrodda. Du sedan får bash-Kommandotolken för AKS-nod:
+1. Skapa en SSH-anslutning till AKS-noden. Igen är standard användar namnet för AKS-noder *azureuser*. Acceptera uppvarningen för att fortsätta med anslutningen eftersom SSH-nyckeln först är betrodd. Du tillhandahålls sedan med bash-prompten för AKS-noden:
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
@@ -220,11 +204,11 @@ För att skapa en SSH-anslutning till ett AKS-nod, kör du en helper-pod AKS-klu
 
 ## <a name="remove-ssh-access"></a>Ta bort SSH-åtkomst
 
-När du är klar `exit` SSH-sessionen och sedan `exit` interaktiva container-sessionen. När den här behållaren sessionen stängs tas pod som används för SSH-åtkomst från AKS-klustret bort.
+När du är `exit` färdig, SSH-sessionen `exit` och den interaktiva container-sessionen. När den här behållarobjektet stängs tas Pod som används för SSH-åtkomst från AKS-klustret bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver ytterligare felsökning data, kan du [visa kubelet-loggar][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
+Om du behöver ytterligare felsöknings data kan du [Visa kubelet][view-kubelet-logs] -loggarna eller [Visa Kubernetes Master Node][view-master-logs]-loggarna.
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

@@ -1,6 +1,6 @@
 ---
 title: Distribuerade transaktioner över molndatabaser
-description: Översikt över Elastic Database-transaktioner med Azure SQL Database
+description: Översikt över Elastic Database transaktioner med Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,45 +10,44 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506852"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568282"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Distribuerade transaktioner över molndatabaser
 
-Transaktioner för elastiska databaser för Azure SQL Database (SQL DB) kan du köra transaktioner som sträcker sig över flera databaser i SQL-databas. Transaktioner för elastiska databaser för SQL-databas är tillgängliga för .NET-program med hjälp av ADO .NET och integrera med en bekant programmering upplevelse med hjälp av den [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) klasser. I biblioteket finns [.NET Framework 4.6.1 (Webbinstallationsprogram)](https://www.microsoft.com/download/details.aspx?id=49981).
+Med Elastic Database Transactions för Azure SQL Database (SQL DB) kan du köra transaktioner som sträcker sig över flera databaser i SQL DB. Elastic Database-transaktioner för SQL DB är tillgängliga för .NET-program med ADO .NET och integreras med den välbekanta programmerings upplevelsen med [system. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) -klasser. Information om hur du hämtar biblioteket finns i [.NET Framework 4.6.1 (webb installations program)](https://www.microsoft.com/download/details.aspx?id=49981).
 
-Lokalt nödvändiga sådant scenario vanligtvis körs Microsoft Distributed Transaction Coordinator (MSDTC). Eftersom MSDTC inte är tillgängliga för Platform-as-a-Service-program i Azure, har möjlighet att samordna distribuerade transaktioner nu direkt integrerats i SQL DB. Program kan ansluta till en SQL-databas för att starta distribuerade transaktioner och en av databaserna kommer transparent att samordna den distribuerade transaktionen som visas i följande bild. 
+Lokalt, ett sådant scenario som vanligt vis krävs för att köra Microsoft koordinator för distribuerad transaktion (MSDTC). Eftersom MSDTC inte är tillgängligt för Platform-as-a-service-program i Azure, har möjligheten att koordinera distribuerade transaktioner nu integrerats direkt i SQL-databasen. Program kan ansluta till alla SQL Database för att starta distribuerade transaktioner, och en av databaserna översätts transparent till den distribuerade transaktionen, som visas i följande bild. 
 
-  ![Distribuerade transaktioner med Azure SQL Database med elastisk databastransaktioner ][1]
+  ![Distribuerade transaktioner med Azure SQL Database med Elastic Database-transaktioner ][1]
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 
-Transaktioner för elastiska databaser för SQL DB gör det möjligt att göra ändringar i data som lagras i flera olika SQL-databaser. Förhandsversionen av fokuserar på klientsidan utveckling upplevelser i C# och .NET. En serversidan upplevelse med T-SQL är planerat för ett senare tillfälle.  
-Elastisk databastransaktioner riktar sig till följande scenarier:
+Elastic Database-transaktioner för SQL DB gör det möjligt för program att utföra atomiska ändringar av data som lagras i flera olika SQL-databaser. Förhands granskningen fokuserar på utvecklings upplevelser på C# klient sidan i och .net. En upplevelse på Server sidan med T-SQL planeras för en senare tidpunkt.  
+Transaktioner i Elastic Database är mål för följande scenarier:
 
-* Flera databasprogram i Azure: Med det här scenariot partitionerade data lodrätt över flera databaser i SQL-databas, så att olika typer av data som finns på olika databaser. Vissa åtgärder kräver ändringar av data som sparas i två eller flera databaser. Programmet använder elastiska databastransaktioner för samordning ändringarna på databaser och Atomicitet.
-* Fragmenterade (sharded) databasprogram i Azure: Med det här scenariot datanivå använder den [Elastic Database-klientbiblioteket](sql-database-elastic-database-client-library.md) eller self-partitionering för att partitionera data vågrätt över flera databaser i SQL-databas. En framstående användningsfall är behovet av att utföra ändringar för ett delat program för flera innehavare när ändringar sträcker sig över klienter. Se exempelvis en överföring från en klient till en annan, både som finns på olika databaser. En andra fallet är detaljerade horisontell partitionering för kapacitetsbehoven för en stor klient vilket i sin tur vanligtvis innebär att vissa atomiska operationer måste sträcka ut över flera databaser som används för samma klient. En tredje är atomiska uppdateringar för referensdata som replikeras över databaser. Atomiska, överförda, åtgärder enligt dessa principer kan nu koordinerad över flera databaser med hjälp av förhandsversionen.
-  Elastisk databastransaktioner använda två faser för transaktionen Atomicitet över databaser. Det är ett bra alternativ för transaktioner som rör mindre än 100 databaserna i taget i en enda transaktion. Dessa begränsningar tillämpas inte, men en förvänta prestanda och slutförandefrekvenser för elastisk databastransaktioner påverkas när överskrider gränserna.
+* Program med flera databaser i Azure: I det här scenariot är data lodrätt partitionerade över flera databaser i SQL DB, så att olika typer av data finns på olika databaser. Vissa åtgärder kräver ändringar av data som lagras i två eller flera databaser. Programmet använder elastiska databas transaktioner för att samordna ändringarna mellan databaser och säkerställa Atomicitet.
+* Shardade databas program i Azure: I det här scenariot använder data nivån [Elastic Database klient bibliotek](sql-database-elastic-database-client-library.md) eller självhorisontell partitionering för att vågrätt partitionera data över flera databaser i SQL DB. Ett framträdande användnings fall är behovet av att utföra atomiska ändringar i ett shardade program för flera klient organisationer när du ändrar intervallet för klienter. Tänk på en överföring från en klient till en annan, både på olika databaser. Ett andra fall är en detaljerad horisontell partitionering för att tillgodose kapacitets behoven för en stor klient som i sin tur ofta innebär att vissa atomiska åtgärder måste sträckas ut över flera databaser som används för samma klient organisation. Ett tredje fall är atomiska uppdateringar av referens data som replikeras mellan databaser. Atomiska, överförda åtgärder längs dessa rader kan nu samordnas över flera databaser med hjälp av för hands versionen.
+  Elastic Database-transaktioner använder en incheckning i två faser för att säkerställa transaktions atomicning mellan databaser. Det passar bra för transaktioner som involverar mindre än 100 databaser i taget inom en enskild transaktion. Dessa gränser tillämpas inte, men en bör förvänta sig prestanda och framgång för att Elastic Database-transaktioner ska bli lidande när gränserna överskrids.
 
 ## <a name="installation-and-migration"></a>Installation och migrering
 
-Funktioner för transaktioner för elastiska databaser i SQL DB sker via uppdateringar av .NET-biblioteken System.Data.dll och System.Transactions.dll. DLL-filer Se till att genomförande används där det är nödvändigt för att säkerställa Atomicitet. Om du vill börja utveckla program med elastiska databastransaktioner, installera [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) eller en senare version. När du kör en tidigare version av .NET framework kan transaktioner att kunna uppgradera till en distribuerad transaktion och ett undantag aktiveras.
+Funktionerna för Elastic Database-transaktioner i SQL DB tillhandahålls via uppdateringar till .NET-biblioteken system. data. dll och system. Transactions. dll. DLL: erna säkerställer att genomförande i två faser används vid behov för att säkerställa atomication. Om du vill börja utveckla program med Elastic Database-transaktioner installerar du [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) eller en senare version. När den körs på en tidigare version av .NET Framework kan transaktionerna inte befordras till en distribuerad transaktion och ett undantag aktive ras.
 
-Efter installationen kan du använda den distribuerade transaktionen API: er i System.Transactions med anslutningar till SQL DB. Om du har befintliga MSDTC-program med hjälp av dessa API: er kan bara återskapa dina befintliga program för .NET 4.6 när du har installerat 4.6.1 Framework. Om dina projekt riktar .NET 4.6, används automatiskt uppdaterade DLL-filer från den nya Framework-versionen och distribuerad transaktion API-anrop i kombination med anslutningar till SQL DB ska lyckas.
+Efter installationen kan du använda API: er för distribuerade transaktioner i system. Transactions med anslutningar till SQL DB. Om du har befintliga MSDTC-program som använder dessa API: er, behöver du bara återskapa dina befintliga program för .NET 4,6 när du har installerat 4.6.1-ramverket. Om dina projekt är riktade till .NET 4,6, kommer de automatiskt att använda de uppdaterade DLL-filerna från den nya Ramverks versionen och API-anrop för distribuerade transaktioner i kombination med anslutningar till SQL DB.
 
-Kom ihåg att elastiska databastransaktioner inte behöver installera MSDTC. Elastisk databastransaktioner hanteras direkt i stället av och inom SQL DB. Detta förenklar avsevärt scenarier för molnet eftersom en distribution av MSDTC inte är nödvändigt att använda distribuerade transaktioner med SQL DB. Avsnitt 4 förklarar i detalj hur du distribuerar transaktioner elastiska databaser och nödvändiga .NET framework tillsammans med dina molnprogram till Azure.
+Kom ihåg att elastiska databas transaktioner inte kräver installation av MSDTC. I stället hanteras elastiska databas transaktioner direkt av och inom SQL DB. Detta fören klar moln scenarier avsevärt eftersom en distribution av MSDTC inte krävs för att använda distribuerade transaktioner med SQL DB. Avsnitt 4 innehåller mer information om hur du distribuerar elastiska databas transaktioner och det nödvändiga .NET Framework tillsammans med dina moln program till Azure.
 
-## <a name="development-experience"></a>-Utveckling
+## <a name="development-experience"></a>Utvecklings upplevelse
 
-### <a name="multi-database-applications"></a>Flera databasprogram
+### <a name="multi-database-applications"></a>Program med flera databaser
 
-Följande exempelkod använder bekant programmering upplevelsen med .NET System.Transactions. Klassen TransactionScope upprättar en omgivande transaktionen i .NET. (”Omgivande transaktionen” är en som finns i den aktuella tråden.) Alla anslutningar öppnas i TransactionScope delta i transaktionen. Om olika databaser delta upphöjda transaktionen automatiskt till en distribuerad transaktion. Resultatet av transaktionen styrs av ställa in omfång utföra om du vill ange ett genomförande.
+Följande exempel kod använder den välbekanta programmerings upplevelsen med .NET system. Transactions. Klassen TransactionScope upprättar en omgivande transaktion i .NET. (En "omgivande transaktion" är en som finns i den aktuella tråden.) Alla anslutningar som öppnas i TransactionScope deltar i transaktionen. Om olika databaser deltar, höjs transaktionen automatiskt till en distribuerad transaktion. Resultatet av transaktionen styrs genom att ange omfånget till Slutför för att indikera en incheckning.
 
     using (var scope = new TransactionScope())
     {
@@ -71,9 +70,9 @@ Följande exempelkod använder bekant programmering upplevelsen med .NET System.
         scope.Complete();
     }
 
-### <a name="sharded-database-applications"></a>Shardade databasprogram
+### <a name="sharded-database-applications"></a>Shardade databas program
 
-Transaktioner för elastiska databaser för SQL-databas har också stöd för samordning av distribuerade transaktioner där du använder metoden OpenConnectionForKey av klientbiblioteket för elastiska databaser för att öppna anslutningar för en utskalad nivå. Överväg att fall där du behöver garantera transaktionell konsekvens för ändringar i flera olika horisontell partitionering nyckelvärden. Anslutningar till shards som är värd för nyckelvärden för olika horisontell partitionering är asynkrona med OpenConnectionForKey. I vanliga fall kan anslutningar vara till olika shards, så att säkerställa transaktionella garantier kräver en distribuerad transaktion. Följande kodexempel illustrerar den här metoden. Det förutsätts att en variabel med namnet shardmap används för att representera en skärvkarta från klientbibliotek för elastiska databaser:
+Elastic Database-transaktioner för SQL DB stöder också samordning av distribuerade transaktioner där du använder OpenConnectionForKey-metoden i klient biblioteket för Elastic Database för att öppna anslutningar för en utskalad data nivå. Överväg fall där du behöver garantera transaktions konsekvens för ändringar i flera olika horisontell partitionering-nyckel värden. Anslutningar till Shards som är värdar för de olika horisontell partitionering-nyckelvärdena sammanställs med hjälp av OpenConnectionForKey. I det allmänna fallet kan anslutningarna vara av olika Shards som garanterar att transaktions garantier kräver en distribuerad transaktion. I följande kod exempel visas den här metoden. Det förutsätter att en variabel med namnet shardmap används för att representera en Shard-karta från klient biblioteket för Elastic Database:
 
     using (var scope = new TransactionScope())
     {
@@ -97,13 +96,13 @@ Transaktioner för elastiska databaser för SQL-databas har också stöd för sa
     }
 
 
-## <a name="net-installation-for-azure-cloud-services"></a>Installation av .NET för Azure Cloud Services
+## <a name="net-installation-for-azure-cloud-services"></a>.NET-installation för Azure Cloud Services
 
-Azure tillhandahåller flera erbjudanden som värd för .NET-program. En jämförelse av olika erbjudanden är tillgängliga i [jämförelse mellan Azure App Service, Cloud Services och virtuella datorer](/azure/architecture/guide/technology-choices/compute-decision-tree). Om gästoperativsystemet av erbjudandet är mindre än .NET 4.6.1 som krävs för elastiska transaktioner, måste du uppgradera gästoperativsystemet till 4.6.1. 
+Azure tillhandahåller flera erbjudanden som värd för .NET-program. Jämförelse av olika erbjudanden finns i [Azure App Service, Cloud Services och Virtual Machines jämförelse](/azure/architecture/guide/technology-choices/compute-decision-tree). Om gäst operativ systemet för erbjudandet är mindre än .NET 4.6.1 krävs för elastiska transaktioner måste du uppgradera gäst operativ systemet till 4.6.1. 
 
-För Azure App Services stöds uppgraderingar av gästoperativsystemet för närvarande inte. För Azure Virtual Machines kan bara logga in på den virtuella datorn och kör installationsprogrammet för senaste .NET framework. För Azure Cloud Services måste du inkludera installation av en nyare version av .NET i startåtgärder för din distribution. Koncept och steg finns dokumenterade i [installera .NET på en Molntjänstroll](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
+Uppgraderingar till gäst operativ systemet stöds inte för närvarande av Azure App-tjänster. För Azure Virtual Machines loggar du bara in på den virtuella datorn och kör installations programmet för det senaste .NET Framework. För Azure Cloud Services måste du inkludera installationen av en nyare .NET-version i Start åtgärderna för distributionen. Begreppen och stegen beskrivs i [Installera .net på en moln tjänst roll](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
-Observera att installationsprogrammet för .NET 4.6.1 kan kräva mer tillfällig lagring under bootstrapping på Azure-molntjänster än installationsprogrammet för .NET 4.6. För att säkerställa en lyckad installation, måste du öka tillfällig lagring för dina Azure-molntjänst i filen ServiceDefinition.csdef i avsnittet LocalResources och miljöinställningar för din startåtgärd som visas i följande exempel:
+Observera att installations programmet för .NET 4.6.1 kan kräva mer temporär lagring under start processen på Azure Cloud Services än installations programmet för .NET 4,6. För att säkerställa en lyckad installation måste du öka den tillfälliga lagringen för Azures moln tjänst i din service definition. csdef-fil i avsnittet LocalResources och miljö inställningarna för start uppgiften, som du ser i följande exempel:
 
     <LocalResources>
     ...
@@ -128,37 +127,37 @@ Observera att installationsprogrammet för .NET 4.6.1 kan kräva mer tillfällig
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-Elastisk databastransaktioner stöds mellan olika SQL Database-servrar i Azure SQL Database. När transaktioner mellan SQL Database server gränser, måste deltagande servrar först anges i en relation för dubbelriktad kommunikation. När relationen kommunikation har upprättats, kan alla databaser i någon av de två servrarna delta i elastiska transaktioner med databaser från den andra servern. En kommunikation-relationen måste finnas för alla typer av SQL Database-servrar med transaktioner som omfattar fler än två SQL Database-servrar.
+Elastiska databas transaktioner stöds för olika SQL Database-servrar i Azure SQL Database. När transaktioner korsar SQL Database Server gränser måste de deltagande servrarna först anges i en ömsesidig kommunikations relation. När kommunikations relationen har upprättats kan alla databaser i någon av de två servrarna delta i elastiska transaktioner med databaser från den andra servern. Med transaktioner som sträcker sig över fler än två SQL Database-servrar måste en kommunikations relation finnas för alla par SQL Database servrar.
 
-Använd följande PowerShell-cmdletar för att hantera kommunikation mellan servrar relationer för elastisk databastransaktioner:
+Använd följande PowerShell-cmdletar för att hantera kommunikation mellan servrar för elastiska databas transaktioner:
 
-* **New-AzSqlServerCommunicationLink**: Använd denna cmdlet för att skapa en ny relation för kommunikation mellan två SQL Database-servrar i Azure SQL Database. Relationen är symmetriska vilket innebär att båda servrarna kan initiera transaktioner med den andra servern.
-* **Get-AzSqlServerCommunicationLink**: Använd denna cmdlet för att hämta befintliga kommunikation relationer och deras egenskaper.
-* **Remove-AzSqlServerCommunicationLink**: Ta bort en befintlig relation för kommunikation med hjälp av denna cmdlet. 
+* **New-AzSqlServerCommunicationLink**: Använd denna cmdlet för att skapa en ny kommunikations relation mellan två SQL Database-servrar i Azure SQL Database. Relationen är symmetrisk, vilket innebär att båda servrarna kan initiera transaktioner med den andra servern.
+* **Get-AzSqlServerCommunicationLink**: Använd denna cmdlet för att hämta befintliga kommunikations relationer och deras egenskaper.
+* **Remove-AzSqlServerCommunicationLink**: Använd denna cmdlet för att ta bort en befintlig kommunikations relation. 
 
-## <a name="monitoring-transaction-status"></a>Övervaka transaktionsstatus för
+## <a name="monitoring-transaction-status"></a>Övervakar transaktions status
 
-Använda dynamiska hanteringsvyer (DMV) i SQL-databas för att övervakarstatus och förlopp för pågående elastisk databas-transaktioner. Alla DMV: er som rör transaktioner är relevanta för distribuerade transaktioner i SQL-databas. Du hittar här DMV: er motsvarande lista: [Transaktionsfel dynamiska hanteringsvyer och Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Använd DMV: er (Dynamic Management views) i SQL DB för att övervaka status och förlopp för dina pågående elastiska databas transaktioner. Alla DMV: er som är relaterade till transaktioner är relevanta för distribuerade transaktioner i SQL DB. Du kan hitta motsvarande lista med DMV: er här: [Transaktions relaterade vyer och funktioner för dynamisk hantering (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Dessa DMV: er är särskilt användbara:
 
-* **sys.dm\_tran\_active\_transactions**: Visar en lista över aktiva transaktioner just nu och deras status. Kolumnen UOW (arbetsenheten) kan identifiera de olika underordnade transaktioner som hör till samma distribuerad transaktion. Alla transaktioner inom samma distribuerad transaktion har samma UOW värde. Se den [DMV dokumentation](https://msdn.microsoft.com/library/ms174302.aspx) för mer information.
-* **sys.dm\_tran\_database\_transactions**: Tillhandahåller ytterligare information om transaktioner, till exempel placeringen av transaktionen i loggen. Se den [DMV dokumentation](https://msdn.microsoft.com/library/ms186957.aspx) för mer information.
-* **sys.dm\_tran\_locks**: Innehåller information om de lås som för tillfället hålls av pågående transaktioner. Se den [DMV dokumentation](https://msdn.microsoft.com/library/ms190345.aspx) för mer information.
+* **sys.DM\_omlasta\_aktiva\_transaktioner**: Visar aktuella aktiva transaktioner och deras status. I kolumnen UOW (enhets arbete) kan du identifiera de olika underordnade transaktioner som tillhör samma distribuerade transaktion. Alla transaktioner inom samma distribuerade transaktion bär samma UOW-värde. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms174302.aspx) .
+* **sys.DM\_lasta\_databastransaktioner\_** : Innehåller ytterligare information om transaktioner, till exempel placering av transaktionen i loggen. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms186957.aspx) .
+* **sys.dm\_tran\_locks**: Innehåller information om de lås som för närvarande innehas av pågående transaktioner. Mer information finns i [DMV-dokumentationen](https://msdn.microsoft.com/library/ms190345.aspx) .
 
 ## <a name="limitations"></a>Begränsningar
 
-Följande begränsningar gäller för närvarande till transaktioner för elastiska databaser i SQL-databas:
+Följande begränsningar gäller för närvarande för Elastic Database-transaktioner i SQL DB:
 
-* Endast transaktioner mellan databaser i SQL-databas stöds. Andra [X / Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resursprovidrar och utanför SQL DB-databaser kan inte ingå i transaktioner elastiska databaser. Det innebär att transaktioner elastiska databaser inte kan sträcka ut över lokalt SQL Server och Azure SQL Database. Fortsätta att använda MSDTC för distribuerade transaktioner lokalt. 
-* Endast klienten koordinerad transaktioner från en .NET-program stöds. Serversidan stöd för T-SQL, till exempel BEGIN DISTRIBUTED TRANSACTION är planerad, men ännu inte tillgänglig. 
-* Transaktioner över WCF-tjänster stöds inte. Du har till exempel den metod för en WCF-tjänst, som kör en transaktion. Omsluta anropet i ett transaktionsomfång misslyckas som en [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
+* Endast transaktioner mellan databaser i SQL DB stöds. Andra [X/Open XA-](https://en.wikipedia.org/wiki/X/Open_XA) resursposter och databaser utanför SQL DB kan inte delta i Elastic Database-transaktioner. Det innebär att elastiska databas transaktioner inte kan sträckas ut över lokalt SQL Server och Azure SQL Database. Fortsätt att använda MSDTC för distribuerade transaktioner lokalt. 
+* Endast klient samordnade transaktioner från ett .NET-program stöds. Stöd på Server sidan för T-SQL, till exempel starta DISTRIBUERAd transaktion, är planerat, men ännu inte tillgängligt. 
+* Transaktioner över WCF-tjänster stöds inte. Du kan till exempel ha en WCF-tjänst metod som kör en transaktion. Omslutning av anrop inom ett transaktions omfång Miss fungerar som [system. ServiceModel. ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Frågor kan du kontakta oss på den [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) och för funktionsförfrågningar om Lägg till dem till den [SQL Database-Feedbackforum](https://feedback.azure.com/forums/217321-sql-database/).
+För frågor kan du kontakta oss i [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) och för funktions förfrågningar, lägga till dem i forumen för [SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

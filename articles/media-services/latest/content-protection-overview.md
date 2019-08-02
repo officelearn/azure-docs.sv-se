@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 174184993e40b60dc89022d360f0c09fb31bc60b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501267"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561467"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Skydda ditt innehåll med Media Services dynamisk kryptering
 
@@ -170,7 +170,7 @@ Du kan styra vem som har åtkomst till ditt innehåll genom att konfigurera prin
 
 En princip med öppen begränsad innehålls nyckel kan användas när du vill utfärda licens till någon utan auktorisering. Till exempel, om din intäkt är AD-baserad och inte för prenumerations-baserad.  
 
-Med en princip för en token-begränsad innehålls nyckel skickas innehålls nyckeln endast till en klient som presenterar en giltig JWT-token eller en enkel webbtoken i licens-/Key-begäran. Denna token måste utfärdas av en STS. 
+Med en princip för en token-begränsad innehålls nyckel skickas innehålls nyckeln endast till en klient som presenterar en giltig JWT-token eller en enkel webbtoken (SWT) i licens-/Key-begäran. Denna token måste utfärdas av en STS. 
 
 Du kan använda Azure AD som STS eller distribuera en anpassad STS. STS måste konfigureras för att skapa en token som signerats med de angivna nyckeln och problemet anspråk som du angav i tokenbegränsningar konfigurationen. Media Services licens-/nyckel leverans tjänst returnerar den begärda licensen eller nyckeln till klienten om båda dessa villkor föreligger:
 
@@ -196,8 +196,10 @@ Funktionen för att *förhindra repetition* av token tillåter Media Services ku
 
 En kund kan välja att använda en anpassad STS för att tillhandahålla tokens. Orsaker är:
 
-* IDP: N som används av kunden stöder inte STS. I det här fallet kan en anpassad STS vara ett alternativ.
-* Kunden kan behöver flexibla eller bättre kontroll att integrera STS med kundens prenumerant faktureringssystem. Exempelvis kan operatören MVPD erbjuder flera OTT-prenumerant paket, som till exempel premium och basic-, och sport. Operatorn vilja matchar anspråk i en token med en prenumerant paketet så att bara innehållet i ett visst paket är tillgängliga. I det här fallet innehåller en anpassad STS nödvändiga flexibilitet och kontroll.
+* Identitets leverantören (IDP) som används av kunden har inte stöd för STS. I det här fallet kan en anpassad STS vara ett alternativ.
+* Kunden kan behöver flexibla eller bättre kontroll att integrera STS med kundens prenumerant faktureringssystem. 
+
+   En [ott](https://en.wikipedia.org/wiki/Over-the-top_media_services) tjänst operatör kan till exempel erbjuda flera prenumerations paket, till exempel Premium, Basic och idrotts. Operatorn vilja matchar anspråk i en token med en prenumerant paketet så att bara innehållet i ett visst paket är tillgängliga. I det här fallet innehåller en anpassad STS nödvändiga flexibilitet och kontroll.
 * Om du vill inkludera anpassade anspråk i token för att välja mellan olika ContentKeyPolicyOptions med olika parametrar för DRM-licenser (en prenumerations licens jämfört med en hyres licens).
 * Ta med ett anspråk som representerar nyckel identifieraren för nyckeln som token beviljar åtkomst till.
 

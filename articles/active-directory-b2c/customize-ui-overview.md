@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227145"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716753"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Om anpassning av användar gränssnitt i Azure Active Directory B2C
 
@@ -118,13 +118,13 @@ I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<d
 | Registrera lokalt konto | Innehåller ett formulär för registrering av lokalt konto baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, till exempel text inmatnings ruta, rutan lösen ords post, alternativ knapp, list rutor med flera val och kryss rutor med flera val. |
 | Registrering av socialt konto | Kan visas när du registrerar dig med ett befintligt konto från en social identitetsprovider som Facebook eller Google. Den används när ytterligare information måste samlas in från kunden med hjälp av ett registrerings formulär. |
 | Enhetlig registrering eller inloggning | Hanterar både registrering och inloggning av kunder som kan använda sociala identitets leverantörer som Facebook, Google eller lokala konton. |
-| Multi-Factor Authentication | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
+| Multifaktorautentisering | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
 | Fel | Tillhandahåller fel information till kunden. |
 
 
 ## <a name="how-do-i-localize-content"></a>Hur gör jag för att lokalisera innehåll?
 
-Du lokaliserar ditt HTML-innehåll genom att aktivera [språk anpassning](active-directory-b2c-reference-language-customization.md) i Azure AD B2C klient organisationen. Om du aktiverar den här funktionen kan Azure AD B2C vidarebefordra anslutnings parametern `ui-locales` Open ID till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla språkspecifika HTML-sidor.
+Du lokaliserar ditt HTML-innehåll genom att aktivera [språk anpassning](active-directory-b2c-reference-language-customization.md) i Azure AD B2C klient organisationen. När du aktiverar den här funktionen kan Azure AD B2C vidarebefordra parametern `ui-locales` OpenID Connect till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla språkspecifika HTML-sidor.
 
 Innehållet kan hämtas från olika platser baserat på det språk som används. I din CORS-aktiverade slut punkt ställer du in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet {Culture: RFC5646}. Till exempel kan din anpassade sid-URI se ut `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`. Du kan läsa in sidan på franska genom att hämta innehåll från`https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
 

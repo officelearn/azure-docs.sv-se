@@ -1,82 +1,82 @@
 ---
-title: Förstå Digital Twins objektmodeller och rumsliga intelligence graph | Microsoft Docs
+title: Förstå Digitals objekt modeller och rums informations diagram | Microsoft Docs
 description: Använd Azure Digital Twins för att skapa relationer mellan personer, platser och enheter
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60925892"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638490"
 ---
-# <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå Digital Twins objektmodeller och rumsliga intelligence graph
+# <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå digitala objekt modeller och spatial Intelligence-diagram
 
-Azure Digital Twins är en Azure IoT-tjänst som driver omfattande virtuella framställningar av fysiska miljöer och tillhörande enheter, sensorer och personer. Det förbättrar utvecklingen genom att ordna domänspecifika begrepp i användbara modeller. Modeller är sedan belägna inom ett spatial intelligence-diagram. Dessa begrepp modell troget relationer och interaktioner mellan människor, blanksteg och enheter.
+Azure Digitals dubbla är en Azure IoT-tjänst som ger omfattande virtuella representationer av fysiska miljöer och tillhör ande enheter, sensorer och människor. Det förbättrar utvecklingen genom att organisera domänbaserade koncept i användbara modeller. Modellerna är sedan belägna i ett diagram över spatial information. Dessa begrepp förvarar i sin modell relationer och interaktioner mellan människor, utrymmen och enheter.
 
-Digitala Twins objektmodeller beskrivs domänspecifika begrepp, kategorier och egenskaper. Modeller är fördefinierade av användare som vill anpassa lösning för deras specifika behov. Tillsammans, de fördefinierade digitala Twins objektmodeller utgör en _ontology_. En smart byggnad ontology beskriver regioner, platser, golv, kontor, zoner, konferensrum och fokus rum. En energi grid ontology beskriver olika kraftverk, delstationer, resurser och kunder. Olika scenarier och behov kan anpassas med digitala Twins objektmodeller och ontologi.
+Digitala dubbla objekt modeller beskriver domänbaserade koncept, kategorier och egenskaper. Modeller är fördefinierade av användare som vill skräddarsy lösningen efter sina egna behov. Tillsammans utgör dessa fördefinierade digitala objekt modeller en _Ontology_. En smart byggnads Ontology beskriver regioner, platser, golv, kontor, zoner, konferens rum och fokus rum. I ett Ontology för energi raster beskrivs olika strömförsörjnings stationer, under stationer, energi resurser och kunder. Med digitala dubbla objekt modeller och Ontologies kan olika scenarier och behov anpassas.
 
-Med digitala Twins objektmodeller och en ontology på plats kan du fylla i en _spatial graph_. Spatial diagram är virtuella representationer av många relationerna mellan blanksteg, enheter och människor som är relevanta för en IoT-lösning. Det här diagrammet visar ett exempel på ett spatial diagram som använder en smart byggnad ontology.
+Med digitala dubbla objekt modeller och en Ontology på plats kan du fylla ett _spatial diagram_. Spatiala diagram är virtuella representationer av många relationer mellan utrymmen, enheter och personer som är relevanta för en IoT-lösning. Det här diagrammet visar ett exempel på en spatial graf som använder en smart byggnads Ontology.
 
-![Digitala Twins spatial graph byggnad][1]
+![Byggnad med digitala dubbla diagram][1]
 
 <a id="model"></a>
 
-Spatial diagrammet innehåller blanksteg, enheter, sensorer och användare. Var och en länkas samman på ett sätt som den verkliga världen-modeller. I det här exemplet har platsen 43 fyra golv, var och en med många olika områden. Användare som är associerade med deras arbetsstationer och få åtkomst till delar av diagrammet. En administratör har behörighet att göra ändringar i spatial diagrammet, medan en besökare har behörighet att endast visa vissa data för att skapa.
+I spatial grafen samlas utrymmen, enheter, sensorer och användare samman. Varje länkas samman på ett sätt som modellerar den verkliga världen. I det här exemplet har plats 43 fyra golv, var och en med många olika områden. Användare är kopplade till sina arbets stationer och tilldelas åtkomst till delar av grafen. En administratör har behörighet att göra ändringar i den spatiala grafen, medan en besökare har behörighet att bara visa vissa byggnads data.
 
-## <a name="digital-twins-object-models"></a>Digitala Twins objektmodeller
+## <a name="digital-twins-object-models"></a>Digitala dubbla objekt modeller
 
-Digitala Twins objektmodeller stöder dessa huvudkategorier av objekt:
+Digitala objekt modeller med dubbla objekt stöder dessa huvud kategorier av objekt:
 
-- **Blanksteg** är virtuella eller fysiska platser, till exempel `Tenant`, `Customer`, `Region`, och `Venue`.
-- **Enheter** är virtuella eller fysiska delar av utrustning, till exempel `AwesomeCompany Device` och `Raspberry Pi 3`.
-- **Sensorer** är objekt som identifiera händelser, till exempel `AwesomeCompany Temperature Sensor` och `AwesomeCompany Presence Sensor`.
-- **Användare** identifiera personer och deras egenskaper.
+- **Blank steg** är virtuella eller fysiska platser, till exempel `Tenant` `Customer` `Region`,, och `Venue`.
+- **Enheter** är virtuella eller fysiska delar av utrustning, till exempel `AwesomeCompany Device` och. `Raspberry Pi 3`
+- **Sensorer** är objekt som identifierar händelser, till exempel `AwesomeCompany Temperature Sensor` och. `AwesomeCompany Presence Sensor`
+- **Användarna** identifierar personer och deras egenskaper.
 
-Andra typer av objekt är:
+Andra objekt kategorier är:
 
-- **Resurser** är kopplade till ett blanksteg och representerar vanligtvis den Azure-resurser som ska användas av objekt i spatial diagrammet, till exempel `IoTHub`.
-- **Blobbar** är kopplade till objekt (till exempel blanksteg, enheter, sensorer och användare). De används som filer med mime-typ och metadata, till exempel `maps`, `pictures`, och `manuals`.
-- **Utökade typer** är utökningsbar uppräkningar som kan förbättra entiteter med specifika egenskaper, till exempel `SpaceType` och `SpaceSubtype`.
-- **Ontologi** representerar en uppsättning utökade typer, till exempel `Default`, `Building`, `BACnet`, och `EnergyGrid`.
-- **Egenskapen nycklar och värden** följer anpassade egenskaper för blanksteg, enheter, sensorer och användare. De kan användas tillsammans med inbyggda egenskaper, till exempel `DeltaProcessingRefreshTime` som nyckel och `10` som värde.
-- **Roller** är en uppsättning behörigheter som tilldelats användare och enheter i spatial diagrammet, till exempel `Space Administrator`, `User Administrator`, och `Device Administrator`.
-- **Rolltilldelningar** är associationen mellan en roll och ett objekt i spatial diagrammet. Exempelvis kan kan en användare eller ett huvudnamn för tjänsten beviljas behörighet att hantera ett blanksteg i spatial diagrammet.
-- **Säkerhet viktiga butiker** security-nycklar för alla enheter i hierarkin under ett visst utrymme objekt så att enheten att kommunicera säkert med digitala Twins.
-- **Användardefinierade funktioner** (UDF) Tillåt anpassningsbara sensor telemetribearbetning i spatial diagrammet. Det kan till exempel en UDF:
-  - Ange ett värde för sensorn.
-  - Utföra anpassad logik baserat på sensoravläsningar och ange utdata till ett blanksteg.
-  - Koppla metadata till ett blanksteg.
-  - Skicka meddelanden när fördefinierade villkor är uppfyllda. För närvarande kan UDF: er skrivas i JavaScript.
-- **Matchers** är objekt som bestämmer vilka UDF: er körs för en viss telemetri-meddelande.
-- **Slutpunkter** är platser där telemetrimeddelanden och Digital Twins händelser kan vidarebefordras, till exempel `Event Hub`, `Service Bus`, och `Event Grid`.
+- **Resurser** är kopplade till ett utrymme och representerar vanligt vis Azure-resurser som ska användas av objekt i den spatiala diagrammet, `IoTHub`till exempel.
+- **Blobbar** är kopplade till objekt (till exempel utrymmen, enheter, sensorer och användare). De används som filer med MIME-typ och metadata, till exempel `maps` `pictures`,, och `manuals`.
+- **Utökade typer** är utöknings bara uppräkningar som förstärker entiteter `SpaceType` med `SpaceSubtype`särskilda egenskaper, till exempel och.
+- **Ontologies** `Default`representerar en uppsättning utökade typer, till exempel `Building` `BACnet`,, och `EnergyGrid`.
+- **Egenskaps nycklar och värden** är anpassade egenskaper för utrymmen, enheter, sensorer och användare. De kan användas tillsammans med inbyggda egenskaper, till exempel `DeltaProcessingRefreshTime` som nyckel och `10` som värde.
+- **Roller** är uppsättningar med behörigheter som tilldelas till användare och enheter i spatial grafen, till exempel `Space Administrator` `User Administrator`,, och `Device Administrator`.
+- **Roll tilldelningar** är associationen mellan en roll och ett objekt i det spatiala diagrammet. Till exempel kan en användare eller ett huvud namn för tjänsten beviljas behörighet att hantera ett utrymme i den spatiala diagrammet.
+- **Säkerhets nyckel Arkiv** innehåller säkerhets nycklar för alla enheter i hierarkin under ett givet utrymme för att tillåta att enheten kommunicerar säkert med digitala dubbla objekt.
+- **Användardefinierade funktioner** (UDF: er) gör det möjligt att bearbeta anpassningsbar telemetri för sensorer i det spatiala diagrammet. Till exempel kan en UDF:
+  - Ange ett sensor värde.
+  - Utför anpassad logik baserat på sensor avläsningar och ange utdata till ett blank steg.
+  - Bifoga metadata till ett utrymme.
+  - Skicka meddelanden när fördefinierade villkor är uppfyllda. För närvarande kan UDF: er skrivas i Java Script.
+- **Matchningar** är objekt som avgör vilka UDF: er som körs för ett angivet telemetri.
+- **Slut punkter** är de platser där telemetri-meddelanden och digitala dubbla händelser kan dirigeras, till exempel `Event Hub` `Service Bus`,, och `Event Grid`.
 
 <a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>Diagram för spatial intelligens
 
-Spatial graph är hierarkiska diagrammet av blanksteg, enheter och människor som definierats i digitala Twins object model. Spatial graph har stöd för arv, filtrering, passerar, skalbarhet och utökningsbarhet. Du kan hantera och interagera med dina spatial diagram med en uppsättning REST API: er.
+Spatial graf är det hierarkiska diagrammet över utrymmen, enheter och personer som definierats i den digitala dubbla objekt modellen. Det spatiala diagrammet stöder arv, filtrering, bläddringskontroll, skalbarhet och utöknings barhet. Du kan hantera och interagera med din spatiala graf med en samling REST-API: er.
 
-Om du distribuerar en Digital Twins-tjänst i din prenumeration blir global administratör för rotnoden. Du är sedan automatiskt beviljas fullständig åtkomst till hela strukturen. Etablera blanksteg i grafen med hjälp av utrymme-API. Tillhandahålla tjänster med hjälp av enhets-API och sensorer med hjälp av Sensor-API. [Verktyg med öppen källkod](https://github.com/Azure-Samples/digital-twins-samples-csharp) också är tillgängliga för att etablera graph gruppvis.
+Om du distribuerar en Digitals dubbla tjänst i din prenumeration blir du global administratör för rotnoden. Du beviljas sedan automatiskt fullständig åtkomst till hela strukturen. Etablera utrymmen i grafen med hjälp av blank stegs-API: et. Etablera tjänster med hjälp av enhets-API och sensorer med hjälp av sensor-API: et. [Verktyg för öppen källkod](https://github.com/Azure-Samples/digital-twins-samples-csharp) är också tillgängliga för att etablera grafen i bulk.
 
-**Graph arv**. Arv gäller behörigheter och egenskaper som fallande från en överordnad nod till alla noder under den. När en roll tilldelas till en användare på en viss nod, har användaren behörighet för den rollen att noden och varje nod under den. Varje Egenskapsnyckeln och utökad typ som definierats för en viss nod ärvs av alla noder under noden.
+**Diagram arv**. Arv gäller behörigheter och egenskaper som är fallande från en överordnad nod till alla noder under den. Till exempel när en roll tilldelas till en användare på en specifik nod, har användaren den rollens behörigheter till den angivna noden och varje nod under den. Varje egenskaps nyckel och utökad typ som definierats för en viss nod ärvs av alla noder under den noden.
 
-**Graph filtrering**. Filtrering används för att begränsa begäran resultat. Du kan filtrera efter ID, namn, typer, undertyper, överordnade utrymme och associerade blanksteg. Du kan även kan filtrera efter sensor datatyper, egenskapen nycklar och värden, *passerar*, *minLevel*, *maxLevel*, och andra parametrar för OData-filter.
+**Diagram filtrering**. Filtrering används för att begränsa resultaten av begäran. Du kan filtrera efter ID: n, namn, typer, under typer, överordnat utrymme och associerade utrymmen. Du kan också filtrera efter sensor data typer, egenskaps nycklar och värden, gå *igenom*, *minLevel*, *maxLevel*och andra OData-filter parametrar.
 
-**Diagram som passerar**. Du kan bläddra i spatial grafen via dess djupa och breda. För djup, bläddra i grafen uppifrån och ned eller nedifrån och upp med hjälp av parametrar *passerar*, *minLevel*, och *maxLevel*. Bläddra i grafen för att få noder på samma nivå direkt anslutna till en överordnad utrymme eller någon av dess underordnade för bredd. När du frågar ett objekt kan du få alla relaterade objekt som har relationer till objektet med hjälp av den *innehåller* parametern få API: er.
+**Graf-bläddra**. Du kan förflytta den spatiala grafen genom dess djup och bredd. För djup kan du förflytta diagrammet uppåt eller nedåt genom att använda parametrarna Traversal, *minLevel*och *maxLevel*. Bläddra i grafen för att hämta noder på samma nivå som är direkt kopplade till ett överordnat utrymme eller en av dess underordnade för bredd. När du frågar ett objekt kan du hämta alla relaterade objekt som har relationer till objektet med hjälp av parametern *includes* i get-API: erna.
 
-**Skalbarhet för Graph**. Digitala Twins garanterar graph skalbarhet, så att den kan hantera verkliga arbetsbelastningar. Digitala Twins kan användas för att representera stora portföljer fastigheter, infrastruktur, enheter, sensorer, telemetri och mer.
+**Diagram skalbarhet**. Digitala dubblare garanterar diagram skalbarhet, så att den kan hantera dina verkliga arbets belastningar. Digitala garn kan användas för att representera stora portföljer av fastighets-, infrastruktur-, enhets-, sensorer-, telemetri-och mer.
 
-**Graph utökningsbarhet**. Anpassa de underliggande digitala Twins objektmodellerna med nya typer och ontologi med hjälp av utökningsbarhet. Dina digitala Twins data kan också utökas med extensible egenskaper och värden.
+**Diagram utökning**. Använd utöknings barhet för att anpassa de underliggande digitala dubbla objekt modellerna med nya typer och Ontologies. Dina digitala dubbla data kan också vara omfattande med utöknings bara egenskaper och värden.
 
-### <a name="spatial-intelligence-graph-management-apis"></a>Spatial intelligence graph API: er Management
+### <a name="spatial-intelligence-graph-management-apis"></a>API: er för grafisk hantering i spatial information
 
-När du har distribuerat digitala Twins från den [Azure-portalen](https://portal.azure.com), [Swagger](https://swagger.io/tools/swagger-ui/) URL: en för Management-API: er genereras automatiskt. Den visas i Azure-portalen i den **översikt** avsnitt med följande format.
+När du har distribuerat digitala dubbla från [Azure Portal](https://portal.azure.com) [genereras URL:](https://swagger.io/tools/swagger-ui/) en för hanterings-API: erna automatiskt. Den visas i Azure Portal i översikts avsnittet med följande format.
 
 ```plaintext
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
@@ -87,25 +87,25 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 | YOUR_INSTANCE_NAME | Namnet på Digital Twins-instansen |
 | YOUR_LOCATION | Den serverregion som instansen finns i |
 
- Det fullständiga URL-formatet som visas i den här avbildningen.
+ Det fullständiga URL-formatet visas i den här bilden.
 
-![Digitala Twins portal Management-API][2]
+![Digitalt sammanflätade Portal hanterings-API][2]
 
-Mer information om hur du använder spatial intelligence diagram på förhandstitt Azure Digital Twins Management API: er.
+Mer information om hur du använder spatialdata i spatial Intelligence finns i förhands granskning av Azure Digitals hanterings-API: er.
 
 > [!TIP]
-> En Swagger-förhandstitt tillhandahålls för att demonstrera API-funktionen.
-> Den finns på [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+> En Swagger förhandstitt är att demonstrera API-funktionen.
+> Den finns på [docs.westcentralus.azuresmartspaces.net/Management/Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
 Läs mer om [hur du använder Swagger](how-to-use-swagger.md).
 
-Alla API-anrop måste autentiseras med hjälp av [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). API: er följer [riktlinjerna för Microsofts REST API-konventioner](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Stöd för de flesta av de API: er som returnerar samlingar [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) system frågealternativ.
+Alla API-anrop måste autentiseras med hjälp av [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). API: erna följer [rikt linjerna för Microsoft rest Apis regler](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). De flesta API: er som returnerar samlingar har stöd för [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) system Query-alternativ.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om enhetsanslutning och hur du skickar telemetrimeddelanden till Digital Twins [Azure Digital Twins enhetens anslutning och telemetriingång](concepts-device-ingress.md).
+- Om du vill veta mer om enhets anslutning och hur du skickar telemetri till digitala enheter kan du läsa mer i [Azure Digitals enhets anslutning och telemetri](concepts-device-ingress.md).
 
-- Mer information om hantering av API-begränsningar och begränsningar, läsa [Azure Digital Twins API management och begränsningar](concepts-service-limits.md).
+- Om du vill veta mer om hanterings-API-begränsningar och begränsningar kan du läsa [Azure Digitals dubbla API-hantering och begränsningar](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

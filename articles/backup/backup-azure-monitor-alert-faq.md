@@ -1,18 +1,19 @@
 ---
 title: Vanliga frågor och svar om Azure Backup övervaknings avisering
 description: 'Svar på vanliga frågor om: Aviseringen om Azure Backup övervakning'
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: srinathv
-ms.openlocfilehash: dc68b68ffa0ae2ee4f1bdd8f2c7ac0d7ff5ebb8c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 50dd4f8df11b597ca90d9f45a749c8732d7025e6
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465844"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688357"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup övervaknings avisering – vanliga frågor och svar
 I den här artikeln besvaras vanliga frågor om Azures övervaknings avisering.

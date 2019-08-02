@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
-manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddcac56671e145728f02d31bf23c657ea172e4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60701931"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567655"
 ---
-# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera virtuell Azure-dator att ansluta till en Azure SQL Database Managed Instance
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans
 
 Den här snabbstarten visar hur du konfigurerar en Azure-dator att ansluta till en Azure SQL Database Managed Instance med SQL Server Management Studio (SSMS). En Snabbstart som visar hur du ansluter från en lokal klientdator med en punkt-till-plats-anslutning, se [konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md)
 
@@ -84,7 +83,7 @@ Det enklaste sättet att skapa en virtuell dator för klienten med alla nödvän
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösenordet varje gång du [ansluta till den virtuella datorn](#connect-to-virtual-machine).|
    | **Storlek på virtuell dator** | Valfri giltig storlek | Standard i den här mallen för **Standard_B2s** är tillräcklig för den här snabbstarten. |
    | **Plats**|[resourceGroup () .location].| Ändra inte det här värdet. |
-   | **Namn på virtuellt nätverk**|Det virtuella nätverket där du skapade den hanterade instansen.|
+   | **Namn på virtuellt nätverk**|Det virtuella nätverk där du skapade den hanterade instansen.|
    | **Namn på undernät**|Namnet på det undernät som du skapade i föregående procedur| Välj inte undernätet där du skapade den hanterade instansen.|
    | **artefakter plats** | [distribution ().properties.templateLink.uri] | Ändra inte det här värdet. |
    | **artefakter plats Sas-token** | Lämna tomt | Ändra inte det här värdet. |
@@ -98,7 +97,7 @@ Det enklaste sättet att skapa en virtuell dator för klienten med alla nödvän
 5. Välj ikonen **Meddelanden** för att visa status för distributionen.
 
 > [!IMPORTANT]
-> Fortsätt inte till cirka 15 minuter efter den virtuella datorn har skapats för att ge tid för efter skapande-skript för att installera SQL Server Management Studio.
+> Fortsätt inte förrän cirka 15 minuter efter det att den virtuella datorn har skapats för att ange tid för att de färdiga skripten ska installeras SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 

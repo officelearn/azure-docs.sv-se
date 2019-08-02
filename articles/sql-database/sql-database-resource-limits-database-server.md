@@ -1,6 +1,6 @@
 ---
-title: Resursgränser för Azure SQL Database-server | Microsoft Docs
-description: Den här artikeln innehåller en översikt över Azure SQL Database-server resursgränser för enskilda databaser och elastiska pooler. Den innehåller också information om vad som händer när de resursbegränsningar nått eller överskridit.
+title: Begränsningar för Azure SQL Database Server resurser | Microsoft Docs
+description: Den här artikeln innehåller en översikt över gränsen för Azure SQL Database Server resurser för enskilda databaser och elastiska pooler. Den innehåller också information om vad som händer när dessa resurs gränser nåtts eller överskrids.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,103 +10,102 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445634"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566860"
 ---
-# <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
+# <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database resurs gränser för Azure SQL Database Server
 
-Den här artikeln innehåller en översikt över SQL Database-resursgränser för en SQL Database-server som hanterar enskilda databaser och elastiska pooler. Den innehåller också information om vad som händer när de resursbegränsningar nått eller överskridit.
+Den här artikeln innehåller en översikt över SQL Database resurs gränser för en SQL Database Server som hanterar enskilda databaser och elastiska pooler. Den innehåller också information om vad som händer när dessa resurs gränser nåtts eller överskrids.
 
 > [!NOTE]
-> Hanterade instanser gränser för finns i [SQL Database-resursgränser för hanterade instanser](sql-database-managed-instance-resource-limits.md).
+> Begränsningar för hanterade instanser finns i [SQL Database resurs gränser för hanterade instanser](sql-database-managed-instance-resource-limits.md).
 
-## <a name="maximum-resource-limits"></a>Maximal resursbegränsningar
+## <a name="maximum-resource-limits"></a>Högsta antal resurs gränser
 
 | Resource | Gräns |
 | :--- | :--- |
 | Databaser per server | 5000 |
-| Standardvärdet för antal servrar per prenumeration i valfri region | 20 |
-| Maxantal servrar per prenumeration i valfri region | 200 |  
-| DTU / eDTU kvot per server | 54,000 |  
-| vCore-kvot per server/instans | 540 |
-| Högsta antal pooler per server | Begränsas av antalet dtu: er eller v-kärnor. Till exempel om varje pool har 1000 dtu: er, sedan en server kan stöda 54 pooler.|
+| Standard antal servrar per prenumeration i valfri region | 20 |
+| Maximalt antal servrar per prenumeration i valfri region | 200 |  
+| Kvot för DTU/eDTU per server | 54,000 |  
+| vCore-kvot per Server/instans | 540 |
+| Högsta antal pooler per server | Begränsas av antalet DTU: er eller virtuella kärnor. Om varje pool till exempel är 1000 DTU: er, kan en server stödja 54-pooler.|
 |||
 
 > [!NOTE]
-> Om du vill ha mer DTU-kvot /eDTU, vCore kvot eller fler servrar än standardvärdet, kan du skicka en ny supportbegäran i Azure-portalen för prenumerationen med ärendetypen ”kvot”. DTU / eDTU-kvot och databas gränsen per server begränsar antalet elastiska pooler per server.
+> För att få mer DTU-/eDTU kvot, vCore kvot eller fler servrar än standard beloppet kan en ny supportbegäran skickas i Azure Portal för prenumerationen med ärende typen "kvot". Kvoten DTU/eDTU och databas begränsning per server begränsar antalet elastiska pooler per server.
 > [!IMPORTANT]
-> När antalet databaser som närmar sig gränsen per SQL Database-server, kan följande inträffa:
-> - Öka fördröjning vid körning av frågor mot huvuddatabasen.  Detta inkluderar vyer av Resursstatistik, till exempel sys.resource_stats.
-> - Ökad svarstid i hanteringsåtgärder och rendering portal översiktsvyer som rör uppräkning av databaser på servern.
+> När antalet databaser närmar sig gränsen per SQL Database Server kan följande inträffa:
+> - Ökande svars tid för att köra frågor mot huvud databasen.  Detta inkluderar vyer av statistik över resursutnyttjande, till exempel sys. resource_stats.
+> - Ökande svars tid i hanterings åtgärder och åter givning av Portal synvinklar som innefattar att räkna upp databaser på servern.
 
 ### <a name="storage-size"></a>Lagringsstorlek
-- Enkla databaser rources finns i antingen [DTU-baserade resursbegränsningar](sql-database-dtu-resource-limits-single-databases.md) eller [vCore-baserade resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md) för storleksgränser för storage per prisnivå.
+- Rources för enskilda databaser hänvisar till antingen [DTU-baserade resurs gränser](sql-database-dtu-resource-limits-single-databases.md) eller [vCore resurs gränser](sql-database-vcore-resource-limits-single-databases.md) för lagrings storleks gränser per pris nivå.
 
-## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databasen resource har nått
+## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databas resurs gränser nås
 
-### <a name="compute-dtus-and-edtus--vcores"></a>Compute (dtu: er och edtu: er / virtuella kärnor)
+### <a name="compute-dtus-and-edtus--vcores"></a>Compute (DTU: er och eDTU: er/virtuella kärnor)
 
-När beräkning databasanvändning (mätt av dtu: er och edtu: er eller v-kärnor) blir hög svarstid ökar och kan även timeout. Under dessa förhållanden frågor köas av tjänsten och tillhandahålls resurser för körning som resurs bli ledig.
-När den påträffar hög beräknings-användning, är minskning alternativen:
+När databas beräknings användningen (uppmätt av DTU: er och eDTU: er, eller virtuella kärnor) blir hög, ökar svars tiden för frågan och kan till och med ta lång tid. Under dessa villkor kan frågor köas av tjänsten och de tillhandahålls resurser för körning när resursen blir kostnads fri.
+När du räknar med hög beräknings användning är följande alternativ för minskning:
 
-- Öka beräkningsstorleken för databas eller elastisk pool att tillhandahålla databasen med fler beräkningsresurser. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
-- Optimera frågor för att minska resursanvändningen för varje fråga. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Öka beräknings storleken för databasen eller den elastiska poolen för att tillhandahålla databasen med fler beräknings resurser. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastiska pooler](sql-database-elastic-pool-scale.md).
+- Optimera frågor för att minska resursutnyttjande för varje fråga. Mer information finns i [fråga om justering/tips](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Storage
 
-När databasutrymme används når den maximala storleksgränsen, databasen infogningar och uppdateringar som ökar storleken på data kan misslyckas och klienterna får en [felmeddelande](sql-database-develop-error-messages.md). Databasen väljer och BORTTAGNINGAR fortsätter att lyckas.
+När databas utrymmet som används når den maximala storleks gränsen, infogas och uppdateras databasen som ökar data storleken och klienterna får ett [fel meddelande](sql-database-develop-error-messages.md). Databasen MARKERAs och tas bort fortsätter att fungera.
 
-När den påträffar hög användningen är minskning alternativen:
+När du ska räkna med hög användnings utrymme är alternativen för minskning:
 
-- Ökar den maximala storleken på databasen eller den elastiska poolens eller Lägg till mer lagringsutrymme. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
-- Om databasen är i en elastisk pool, kan sedan också databasen flyttas utanför poolen så att dess lagringsutrymme inte delas med andra databaser.
-- Komprimera en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md)
+- Öka den maximala storleken på databasen eller den elastiska poolen, eller Lägg till mer lagrings utrymme. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastiska pooler](sql-database-elastic-pool-scale.md).
+- Om databasen finns i en elastisk pool kan du eventuellt flytta databasen utanför poolen så att lagrings utrymmet inte delas med andra databaser.
+- Krymp en databas för att frigöra outnyttjat utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md)
 
-### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (begäranden)
+### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (begär Anden)
 
-Det maximala antalet sessioner och arbetare bestäms av tjänstnivån och beräkna storleken (dtu: er och edtu: er). Nya begäranden avvisas när sessionen eller arbetare har nått och klienterna får ett felmeddelande. Antalet anslutningar som är tillgängliga kan styras av programmet, är antalet samtidiga arbetare ofta svårare att beräkna och styr. Detta gäller särskilt under belastningsperioder när databasen resource har nått och arbetare växer på grund av längre körning av frågor.
+Det maximala antalet sessioner och arbets tagare bestäms av tjänst nivån och beräknings storlek (DTU: er och eDTU: er). Nya begär Anden avvisas när sessioner eller arbets gränser nås och klienter får ett fel meddelande. Även om antalet tillgängliga anslutningar kan styras av programmet är antalet samtidiga arbetare ofta svårare att uppskatta och kontrol lera. Detta gäller särskilt under belastnings perioder när databas resurs gränserna har nåtts och arbets tagarna är igång på grund av längre körnings frågor.
 
-När den påträffar hög användning för sessionen eller arbete, är minskning alternativen:
+När du räknar med hög arbets belastning eller arbets belastning, är alternativ för minskning följande:
 
-- Öka tjänsten nivå eller beräkna storleken på databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
-- Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Öka tjänst nivån eller beräknings storleken för databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastiska pooler](sql-database-elastic-pool-scale.md).
+- Optimering av frågor för att minska resursutnyttjande för varje fråga om orsaken till ökad arbets belastning beror på konkurrens för beräknings resurser. Mer information finns i [fråga om justering/tips](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="transaction-log-rate-governance"></a>Transaktionen Log Rate styrning 
-Transaktionen log rate styrning är en process i Azure SQL-databas som används för att begränsa enligt hög datainmatningsfrekvensen för arbetsbelastningar som bulk insert SELECT INTO och indexversioner. Dessa gränser spåras och tillämpas på nivån under en sekund att frekvensen för generering av loggar poster, begränsande dataflöde, oavsett hur många IOs kan utfärdas mot datafiler.  Transaktionspriser log generation för närvarande skalas linjärt upp till en tidpunkt som beror på maskinvaran, log-maximala hastighet tillåts som 96 MB/s med vCore köpa modellen. 
+## <a name="transaction-log-rate-governance"></a>Hastighets styrning för transaktions logg 
+Styrning av transaktions logg hastighet är en process i Azure SQL Database som används för att begränsa hög förbruknings frekvens för arbets belastningar som Mass infogning, SELECT INTO och indexe build. Dessa gränser spåras och tillämpas på den underordnade nivån till frekvensen för generering av logg poster, vilket begränsar data flödet, oavsett hur många IOs som kan utfärdas mot datafiler.  Taxan för transaktions logg skapande skalas linjärt upp till en punkt som är beroende av maskin vara, med den högsta logg frekvensen som tillåts som 96 MB/s med vCore inköps modell. 
 
 > [!NOTE]
-> De faktiska fysiska IOs till transaktionsloggfiler är inte regleras eller begränsas. 
+> Faktiska fysiska IOs till transaktionsloggfiler är inte reglerade eller begränsade. 
 
-Loggen är inställda så att de kan uppnås och varar i en mängd olika scenarier, medan den övergripande systemprestandan kan bibehålla sin funktionalitet minimerade påverkan på användarbelastningen. Log rate styrning garanterar att transaktionsloggen säkerhetskopior stannar inom publicerade återställningsmöjligheter serviceavtal.  Den här styrning förhindrar även att en orimlig eftersläpning på sekundära repliker.
+Logg taxan ställs in så att de kan uppnås och hanteras i flera olika scenarier, medan det övergripande systemet kan underhålla sin funktionalitet med minimerad påverkan på användar belastningen. Styrning av logg hastighet säkerställer att säkerhets kopior av transaktions loggar stannar inom publicerings service avtal.  Denna styrning förhindrar också en alltför lång efter släpning på sekundära repliker.
 
-När poster skapas bör utvärderas varje åtgärd och om den ska fördröjas för att upprätthålla en önskad Loggfilens största hastighet (MB/s per sekund) för att utvärdera. Förskjutningar läggs inte när loggposter rensade till lagring, i stället log rate styrning används under generering av loggar rate själva.
+När logg poster skapas utvärderas och utvärderas varje åtgärd för om den ska fördröjas för att upprätthålla den högsta önskade logg frekvensen (MB/s per sekund). Fördröjningarna läggs inte till när logg posterna töms på lagringen, i takt med att logg takts styrningen används vid själva genereringen av logg hastighet.
 
-Den faktiska log-generationen priserna gäller vid körning kan också påverkas av återkopplingsmekanismerna, minskar de tillåtna log-priserna tillfälligt så att systemet kan stabilisera. Logghantering filen utrymme, undvika slut i loggen utrymme villkor och Tillgänglighetsgruppen replikeringsmekanismer kan tillfälligt försämra gränser för hela systemet. 
+De faktiska taxan för logg skapande som påförs vid körning kan också påverkas av feedback-mekanismer, vilket tillfälligt minskar de tillåtna logg priserna så att systemet kan stabiliseras. Hantering av logg fil utrymme, Undvik att köra i slut på logg utrymmes villkor och replikering av tillgänglighets grupper kan tillfälligt minska de totala system gränserna. 
 
-Log rate resursstyrning-Trafikstyrning är visas via följande typer av vänta (visas i den [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+Trafikstyrningen för logg hastighets styrning sker via följande vänte typer (visas i [sys. DM _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
 
-| Vänta typ | Anteckningar |
+| Wait-typ | Anteckningar |
 | :--- | :--- |
-| LOG_RATE_GOVERNOR | Begränsning av databasen |
-| POOL_LOG_RATE_GOVERNOR | Begränsa poolen |
-| INSTANCE_LOG_RATE_GOVERNOR | Instans på begränsa |  
-| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback-kontroll, tillgänglighet grupp fysiska replikering i Premium/affärskritisk inte hänger |  
-| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-kontroll, begränsa priserna för att undvika en out of utrymme loggvillkor |
+| LOG_RATE_GOVERNOR | Databas begränsning |
+| POOL_LOG_RATE_GOVERNOR | Begränsning av pool |
+| INSTANCE_LOG_RATE_GOVERNOR | Begränsning på instans nivå |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback-kontroll, fysisk replikering för tillgänglighets grupp i Premium/Affärskritisk inte hålla sig uppdaterad |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-kontroll, begränsa priser för att undvika ett slut på logg utrymmes villkor |
 |||
 
-När den påträffar en hastighetsbegränsning för log som hindrar den önskade skalbarhet, Överväg följande alternativ:
-- Skala upp till en större nivå för att få högsta 96 MB/s log överföringshastighet. 
-- Om data som läses in är tillfälligt, kan organiserar data i ett ETL-processen dvs., den läsas in i tempdb (som loggas minimalt). 
-- Läs in i en klustrad columnstore som omfattas-tabell för analytiska scenarier. Detta minskar den nödvändiga log hastigheten på grund av komprimering. Den här tekniken ökar CPU-användning och gäller endast för datauppsättningar som används för att dra nytta av grupperade columnstore-index. 
+När du påträffar en logg hastighets gräns som hindrar önskad skalbarhet, bör du överväga följande alternativ:
+- Skala upp till en större nivå för att få maximal logg hastighet på 96 MB/s. 
+- Om data som läses in är tillfälliga, d.v.s. mellanlagring av data i en ETL-process, kan den läsas in i tempdb (som är minimalt loggad). 
+- För analys scenarier läser du in i en klustrad columnstore-tabell. Detta minskar den nödvändiga logg frekvensen på grund av komprimering. Den här tekniken ökar processor användningen och gäller endast för data uppsättningar som drar nytta av klustrade columnstore-index. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
-- Information om dtu: er och edtu: er finns i [dtu: er och edtu: er](sql-database-purchase-models.md#dtu-based-purchasing-model).
-- Information om storleksgränser för tempdb finns i [TempDB i Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+- Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
+- Information om DTU: er och eDTU: er finns i [DTU: er och eDTU: er](sql-database-purchase-models.md#dtu-based-purchasing-model).
+- Information om tempdb-storleks gränser finns [i tempdb i Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

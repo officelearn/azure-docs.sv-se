@@ -1,7 +1,7 @@
 ---
-title: Träna och registrera Chainer modeller
+title: Träna och registrera kedje modeller
 titleSuffix: Azure Machine Learning service
-description: Den här artikeln visar hur du tränar och registrerar en modell för Chainer med hjälp av Azure Machine Learning-tjänsten.
+description: Den här artikeln visar hur du tränar och registrerar en kedje modell med Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,46 +10,46 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 06/15/2019
-ms.openlocfilehash: 8ecefccbdf5f02652e935858b6ae8fb4cdfde640
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840029"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618335"
 ---
-# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera Chainer modeller i hög skala med Azure Machine Learning-tjänsten
+# <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera kedje modeller i stor skala med Azure Machine Learning-tjänsten
 
-Den här artikeln visar hur du tränar och registrerar en modell för Chainer med hjälp av Azure Machine Learning-tjänsten. Den använder de populära [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/) att klassificera handskriven siffror med hjälp av ett djupa neurala nätverk (DNN) som skapats med den [Chainer Python-bibliotek](https://Chainer.org) som körs ovanpå [numpy](https://www.numpy.org/).
+Den här artikeln visar hur du tränar och registrerar en kedje modell med Azure Machine Learning-tjänsten. Den använder den populära [MNIST](http://yann.lecun.com/exdb/mnist/) -datauppsättningen för att klassificera handskrivna siffror med ett djup neurala-nätverk (DNN) som skapats med [kedje-python-biblioteket](https://Chainer.org) som körs ovanpå [numpy](https://www.numpy.org/).
 
-Chainer är ett övergripande neurala nätverk API kan köra längst upp på andra populära DNN-ramverk för att förenkla utvecklingen. Med Azure Machine Learning-tjänsten kan du snabbt skala ut utbildningsjobb med hjälp av elastisk molnberäkningsresurser. Du kan också spåra ditt träningskörningar, version modeller, distribuera modeller och mycket mer.
+Kedjor är en högnivås neurala nätverks-API som kan köras ovanpå andra populära DNN-ramverk för att förenkla utvecklingen. Med Azure Machine Learning tjänsten kan du snabbt skala ut utbildnings jobb med elastiska moln beräknings resurser. Du kan också spåra dina utbildnings körningar, versions modeller, distribuera modeller och mycket mer.
 
-Om du utvecklar en modell för Chainer från grunden eller du behöver en befintlig modell i molnet, Azure Machine Learning-tjänsten kan hjälpa dig att skapa modeller för produktionsklart.
+Oavsett om du utvecklar en kedjar-modell från grunden eller om du använder en befintlig modell i molnet kan Azure Machine Learning tjänsten hjälpa dig att skapa produktions klara modeller.
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kör den här koden på något av dessa miljöer:
+Kör den här koden i någon av följande miljöer:
 
-- Azure Machine Learning Notebook VM - inga nedladdningar eller installeras
+- Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
 
-    - Slutför den [molnbaserade notebook Snabbstart](quickstart-run-cloud-notebook.md) att skapa en dedikerad anteckningsboksserver förinstallerade med SDK: N och exempellagringsplatsen.
-    - Mappen samples på notebook-server innehåller en slutförd notebook och filer i den **how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer** mapp.  Den bärbara datorn innehåller utökade avsnitt som täcker intelligent finjustering av hyperparametrar, distribution av modeller och notebook widgetar.
+    - Slutför snabb starten för den [molnbaserade bärbara datorn](quickstart-run-cloud-notebook.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
+    - I mappen Samples på Notebook-servern hittar du en slutförd antecknings bok och filer i mappen **How-to-use-azureml/Training-with-djupgående-Learning/Train-Out-with-Chainer** .  Antecknings boken innehåller utökade avsnitt som täcker intelligenta parametrar, modell distribution och Notebook-widgetar.
 
-- En egen Jupyter Notebook-server
+- Din egen Jupyter Notebook Server
 
-    - [Installera Azure Machine Learning SDK för Python](setup-create-workspace.md#sdk)
-    - [Skapa en konfigurationsfil för arbetsyta](setup-create-workspace.md#write-a-configuration-file)
-    - Hämta skriptfilen [chainer_mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
-     - Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) i den här guiden på sidan med GitHub kodexempel. Den bärbara datorn innehåller utökade avsnitt som täcker intelligent finjustering av hyperparametrar, distribution av modeller och notebook widgetar.
+    - [Installera Azure Machine Learning SDK för python](setup-create-workspace.md#sdk)
+    - [Skapa en konfigurations fil för arbets ytor](setup-create-workspace.md#write-a-configuration-file)
+    - Ladda ned exempel skript filen [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
+     - Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) av den här guiden på sidan GitHub exempel. Antecknings boken innehåller utökade avsnitt som täcker intelligenta parametrar, modell distribution och Notebook-widgetar.
 
 ## <a name="set-up-the-experiment"></a>Konfigurera experimentet
 
-Det här avsnittet konfigurerar träningsexperimentet av inläsning av nödvändiga python-paket, initierar en arbetsyta, skapa ett experiment och laddar upp den utbildningsinformationen och skripten för utbildning.
+I det här avsnittet anges övnings experimentet genom att läsa in de nödvändiga python-paketen, initiera en arbets yta, skapa ett experiment och ladda upp utbildnings data och utbildnings skript.
 
 ### <a name="import-packages"></a>Importera paket
 
-Importera först azureml.core Python-biblioteket ad Visa versionsnumret.
+Importera först azureml. Core python-biblioteket och Visa versions numret.
 
 ```
 # Check core SDK version number
@@ -58,18 +58,18 @@ import azureml.core
 print("SDK version:", azureml.core.VERSION)
 ```
 
-### <a name="initialize-a-workspace"></a>Initiera en arbetsyta
+### <a name="initialize-a-workspace"></a>Initiera en arbets yta
 
-Den [Azure Machine Learning-tjänstens arbetsyta](concept-workspace.md) är den översta resursen för tjänsten. Den ger dig en centraliserad plats för att arbeta med alla artefakter som du skapar. I Python-SDK kan du komma åt arbetsytan artefakter genom att skapa en [ `workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objekt.
+Den [Azure Machine Learning service-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) ett objekt.
 
-Skapa en arbetsyta objekt från den `config.json` fil som skapats i den [krav](#prerequisites).
+Skapa ett objekt för arbets ytan genom `config.json` att läsa filen som skapats i [avsnittet krav](#prerequisites):
 
 ```Python
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-project-directory"></a>Skapa en projektkatalog
-Skapa en katalog som innehåller alla nödvändiga koden från din lokala dator som du behöver åtkomst till fjärresursen. Detta inkluderar skriptet utbildning och eventuella ytterligare filer som dina utbildningsskript beror på.
+### <a name="create-a-project-directory"></a>Skapa en projekt katalog
+Skapa en katalog som ska innehålla all nödvändig kod från den lokala datorn som du behöver åtkomst till på fjär resursen. Detta inkluderar utbildnings skriptet och eventuella ytterligare filer som utbildnings skriptet är beroende av.
 
 ```
 import os
@@ -78,13 +78,15 @@ project_folder = './chainer-mnist'
 os.makedirs(project_folder, exist_ok=True)
 ```
 
-### <a name="prepare-training-script"></a>Förbereda inlärningsskript
+### <a name="prepare-training-script"></a>Förbered utbildnings skript
 
-I de här självstudierna utbildning skriptet **chainer_mnist.py** redan tillhandahålls åt dig. I praktiken, bör du kunna ta alla anpassade inlärningsskript eftersom är och kör den med Azure ML utan att behöva ändra din kod.
+I den här självstudien har utbildnings skriptet **chainer_mnist. py** redan angetts. I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
 
-För att använda Azure ML spårning och funktioner för mått, måste du lägga till en viss Azure ML-kod i skriptet utbildning.  Skriptet utbildning **chainer_mnist.py** visar hur du loggar in några mått till din Azure ML kör. Åtkomst till den Azure ML gör du `Run` objekt i skriptet.
+Om du vill använda Azure MLs spårnings-och mått funktioner lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  I övnings skriptet **chainer_mnist. py** visas hur du loggar vissa mått i Azure ml-körningen med `Run` hjälp av objektet i skriptet.
 
-Kopiera skriptet utbildning **chainer_mnist.py** i projektkatalogen.
+Det tillhandahållna utbildnings skriptet använder exempel data från kedje `datasets.mnist.get_mnist` funktionen.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md#upload-dataset-and-scripts) för att göra data tillgängliga under utbildningen.
+
+Kopiera övnings skriptet **chainer_mnist. py** till projekt katalogen.
 
 ```
 import shutil
@@ -94,7 +96,7 @@ shutil.copy('chainer_mnist.py', project_folder)
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
 
-Skapa ett experiment och en mapp för att lagra dina utbildningsskript. I det här exemplet skapar du ett experiment som kallas ”chainer mnist”.
+Skapa ett experiment. I det här exemplet skapar du ett experiment med namnet "kedjeer-mnist".
 
 ```
 from azureml.core import Experiment
@@ -104,11 +106,11 @@ experiment = Experiment(ws, name=experiment_name)
 ```
 
 
-## <a name="create-or-get-a-compute-target"></a>Skapa eller hämta ett beräkningsmål
+## <a name="create-or-get-a-compute-target"></a>Skapa eller hämta ett beräknings mål
 
-Du behöver en [beräkningsmålet](concept-compute-target.md) för att träna din modell. I den här självstudien använder du Azure ML hanteras beräkning (AmlCompute) för remote utbildning beräkning.
+Du behöver ett [beräknings mål](concept-compute-target.md) för att träna din modell. I det här exemplet använder du Azure ML Managed Compute (AmlCompute) för din beräknings resurs för Fjärrutbildning.
 
-**Skapandet av AmlCompute tar cirka 5 minuter**. Om AmlCompute med det namnet finns redan i din arbetsyta, kommer den här koden hoppa över skapandeprocessen.  
+**Skapandet av AmlCompute tar cirka 5 minuter**. Om AmlCompute med det namnet redan finns i din arbets yta hoppar den här koden över skapande processen.  
 
 ```Python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -134,13 +136,13 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
-Mer information om beräkningsmål finns i den [vad är ett beräkningsmål](concept-compute-target.md) artikeln.
+Mer information om beräknings mål finns i artikeln [Vad är en Compute Target](concept-compute-target.md) -artikel.
 
-## <a name="create-a-chainer-estimator"></a>Skapa en Chainer kostnadsuppskattning
+## <a name="create-a-chainer-estimator"></a>Skapa en uppskattare för en kedja
 
-Den [Chainer kostnadsuppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) ger ett enkelt sätt att starta Chainer upplärningsjobb på din beräkningsmål.
+I uppräknings funktionen för [kedjan](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) finns ett enkelt sätt att starta kedje jobb på ditt beräknings mål.
 
-Chainer kostnadsuppskattning implementeras via ett allmänt [ `estimator` ](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klass, som kan användas för att stödja valfritt ramverk. Läs mer om träna modeller med hjälp av generiska kostnadsuppskattning [träna modeller med Azure Machine Learning med hjälp av kostnadsuppskattning](how-to-train-ml-models.md)
+Uppskattaren för kedjan implementeras via den generiska [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen, som kan användas för att stödja eventuella ramverk. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
 
 ```Python
 from azureml.train.dnn import Chainer
@@ -159,48 +161,57 @@ estimator = Chainer(source_directory=project_folder,
                     use_gpu=True)
 ```
 
-## <a name="submit-a-run"></a>Skicka en körning
+## <a name="submit-a-run"></a>Skicka in en körning
 
-Den [köra objekt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) tillhandahåller gränssnitt för körningshistoriken medan jobbet körs och när den är slutförd.
+[Kör-objektet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) tillhandahåller gränssnittet till körnings historiken medan jobbet körs och när det har slutförts.
 
 ```Python
 run = exp.submit(est)
 run.wait_for_completion(show_output=True)
 ```
 
-Eftersom körningen körs passerar i följande steg:
+När körningen körs går den igenom följande steg:
 
-- **Förbereda**: En docker-avbildning skapas enligt Chainer kostnadsuppskattning. Avbildningen överförs till den arbetsytan container registry och cachelagras för senare körningar. Loggarna strömmas också till körningshistoriken och kan visas för att övervaka förloppet.
+- **Förbereder**: En Docker-avbildning skapas enligt kedje bedömaren. Avbildningen överförs till arbets ytans behållar register och cachelagras för senare körningar. Loggarna strömmas också till körnings historiken och kan visas för att övervaka förloppet.
 
-- **Skalning**: Klustret försöker att skala upp om Batch AI-kluster kräver fler noder att köra körningen än vad som är tillgängliga.
+- **Skalning**: Klustret försöker skala upp om Batch AI klustret kräver fler noder för att köra körningen än vad som är tillgängligt.
 
-- **Körning**: Alla skript i mappen skript överförs till beräkningsmål datalager monterad eller kopieras och entry_script körs. Utdata från stdout och. / loggkatalogen strömmas till körningshistoriken och kan användas för att övervaka körningen.
+- **Körning**: Alla skript i mappen skript överförs till Compute-målet, data lager monteras eller kopieras och entry_script körs. Utdata från STDOUT och./logs-mappen strömmas till körnings historiken och kan användas för att övervaka körningen.
 
-- **Efterbearbetning**: Det. / matar ut mappen för körningen kopieras till körningshistoriken.
+- **Efterbearbetning**: Mappen./outputs för körningen kopieras till körnings historiken.
 
 ## <a name="save-and-register-the-model"></a>Spara och registrera modellen
 
-När du har tränat modellen, kan du spara och registrera den till din arbetsyta. Modellen kan du lagra och version dina modeller i din arbetsyta för att förenkla [modellera hantering och distribution](concept-model-management-and-deployment.md).
+När du har tränat modellen kan du spara och registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md).
 
-Lägg till följande kod i skriptet utbildning **chainer_mnist.py**, för att spara modellen. 
 
-``` Python
-    serializers.save_npz(os.path.join(args.output_dir, 'model.npz'), model)
-```
-
-Registrera modellen till din arbetsyta med följande kod.
+När modell träningen har slutförts registrerar du modellen på din arbets yta med följande kod.  
 
 ```Python
 model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/model.npz')
 ```
 
+> [!TIP]
+> Om du får ett fel meddelande om att modellen inte hittas, så ge den en minut och försök igen.  Ibland finns det en liten fördröjning mellan slutet av inlärnings körningen och tillgängligheten för modellen i katalogen utdata.
 
+Du kan också hämta en lokal kopia av modellen. Detta kan vara användbart för att göra ytterligare modell validerings arbete lokalt. I övnings skriptet `chainer_mnist.py`sparar ett sparfunktionen-objekt modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia från data lagret.
+
+```Python
+# Create a model folder in the current directory
+os.makedirs('./model', exist_ok=True)
+
+for f in run.get_file_names():
+    if f.startswith('outputs/model'):
+        output_file_path = os.path.join('./model', f.split('/')[-1])
+        print('Downloading from {} to {} ...'.format(f, output_file_path))
+        run.download_file(name=f, output_file_path=output_file_path)
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln tränas en Chainer modell på Azure Machine Learning-tjänsten. 
+I den här artikeln har du tränat en kedje modell i Azure Machine Learning-tjänsten. 
 
-* Om du vill veta hur du distribuerar en modell kan du fortsätta till vår [modellera distribution](how-to-deploy-and-where.md) artikeln.
+* Om du vill lära dig hur du distribuerar en modell fortsätter du till vår [modell distributions](how-to-deploy-and-where.md) artikel.
 
 * [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
 

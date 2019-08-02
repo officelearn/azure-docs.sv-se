@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443311"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640101"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
 Grupper med automatisk redundans är en SQL Database funktion som gör att du kan hantera replikering och redundans för en grupp databaser på en SQL Database-Server eller alla databaser i en hanterad instans till en annan region. Det är en deklarativ abstraktion ovanpå den befintliga funktionen [aktiv geo-replikering](sql-database-active-geo-replication.md) som är utformad för att förenkla distribution och hantering av geo-replikerade databaser i stor skala. Du kan initiera redundans manuellt eller så kan du delegera den till SQL Database tjänst baserat på en användardefinierad princip. Med det senare alternativet kan du automatiskt återställa flera relaterade databaser i en sekundär region efter ett oåterkalleligt fel eller annan oplanerad händelse som resulterar i fullständig eller partiell förlust av SQL Database tjänstens tillgänglighet i den primära regionen. En failover-grupp kan innehålla en eller flera databaser, som vanligt vis används av samma program. Dessutom kan du använda de läsbara sekundära databaserna för att avlasta skrivskyddade arbets belastningar. Eftersom grupper med automatisk redundans omfattar flera databaser, måste dessa databaser konfigureras på den primära servern. Både primära och sekundära servrar för databaserna i gruppen redundans måste vara i samma prenumeration. Grupper för automatisk redundans stöder replikering av alla databaser i gruppen till endast en sekundär server i en annan region.
 
 > [!NOTE]
-> När du arbetar med enskilda databaser eller databaser på en SQL Database-Server och vill ha flera sekundära servrar i samma eller olika regioner, använder du [aktiv geo-replikering](sql-database-active-geo-replication.md).
+> När du arbetar med enskilda databaser eller databaser på en SQL Database-Server och vill ha flera sekundära servrar i samma eller olika regioner, använder du [aktiv geo-replikering](sql-database-active-geo-replication.md). 
 
 När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar en eller flera av databaserna i gruppen i automatisk redundans. Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och skrivskyddade lyssnar slut punkter som förblir oförändrade under redundansväxling. Oavsett om du använder manuell eller automatisk redundans växlar redundans alla sekundära databaser i gruppen till primär. När databasen har redundans har slutförts uppdateras DNS-posten automatiskt för att omdirigera slut punkterna till den nya regionen. För specifika återställnings-och RTO-data, se [Översikt över affärs kontinuitet](sql-database-business-continuity.md).
 
@@ -256,14 +255,14 @@ Konfigurationen ovan ser till att den automatiska redundansväxlingen inte block
 
 ## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Aktivera geo-replikering mellan hanterade instanser och deras virtuella nätverk
 
-När du ställer in en redundans grupp mellan primära och sekundära hanterade instanser i två olika regioner, isoleras varje instans med ett oberoende VNet. För att tillåta replikeringstrafik mellan dessa virtuella nätverk, se till att följande krav uppfylls:
+När du ställer in en redundans grupp mellan primära och sekundära hanterade instanser i två olika regioner, isoleras varje instans med hjälp av ett oberoende virtuellt nätverk. För att tillåta replikeringstrafik mellan dessa virtuella nätverk, se till att följande krav uppfylls:
 
 1. De två hanterade instanserna måste finnas i olika Azure-regioner.
-2. Din sekundära måste vara tom (inga användar databaser).
-3. De primära och sekundära hanterade instanserna måste finnas i samma resurs grupp.
-4. Virtuella nätverk som de hanterade instanserna ingår i måste vara anslutna till en [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Global VNet-peering stöds inte.
-5. De två hanterade instans virtuella nätverk kan inte ha överlappande IP-adresser.
-6. Du måste konfigurera dina nätverks säkerhets grupper (NSG) så att portarna 5022 och intervallet 11000 ~ 12000 är öppna inkommande och utgående för anslutningar från det andra hanterade instansen under nät. Detta är att tillåta replikeringstrafik mellan instanserna
+1. De två hanterade instanserna måste vara samma tjänst nivå och ha samma lagrings storlek. 
+1. Din sekundära hanterade instans måste vara tom (inga användar databaser).
+1. De virtuella nätverk som används av de hanterade instanserna måste anslutas via en [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller Express Route. Se till att det inte finns någon brand Väggs regel som blockerar portarna 5022 och 11000-11999 när två virtuella nätverk ansluter till ett lokalt nätverk. Global VNet-peering stöds inte.
+1. De två hanterade instans virtuella nätverk kan inte ha överlappande IP-adresser.
+1. Du måste konfigurera dina nätverks säkerhets grupper (NSG) så att portarna 5022 och intervallet 11000 ~ 12000 är öppna inkommande och utgående för anslutningar från det andra hanterade instansen under nät. Detta är att tillåta replikeringstrafik mellan instanserna
 
    > [!IMPORTANT]
    > Felkonfigurerade NSG säkerhets regler leder till låsta databas kopierings åtgärder.
@@ -369,9 +368,9 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 ## <a name="next-steps"></a>Nästa steg
 
 - Exempel skript finns i:
-  - [Konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Konfigurera och redundansväxla en pooldatabas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Konfigurera och redundansväxla en redundansgrupp för en enskild databas](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+  - [Använd PowerShell för att konfigurera aktiv geo-replikering för en enskild databas i Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Använd PowerShell för att konfigurera aktiv geo-replikering för en poolad databas i Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Använd PowerShell för att lägga till en Azure SQL Database enkel databas i en failover-grupp](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - För en översikt över verksamhets kontinuitet och scenarier, se [Översikt över verksamhets kontinuitet](sql-database-business-continuity.md)
 - Mer information om hur du Azure SQL Database automatiserade säkerhets kopieringar finns [SQL Database automatiska säkerhets kopieringar](sql-database-automated-backups.md).
 - Information om hur du använder automatiska säkerhets kopieringar för återställning finns i [återställa en databas från de säkerhets kopior som initieras av tjänsten](sql-database-recovery-using-backups.md).

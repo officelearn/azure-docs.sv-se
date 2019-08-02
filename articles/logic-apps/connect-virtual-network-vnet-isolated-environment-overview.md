@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 07/26/2019
+ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325401"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516605"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -80,7 +80,22 @@ När du skapar din ISE kan du välja Developer SKU eller Premium SKU. Här följ
 
   Tillhandahåller en ISE som du kan använda för produktion och innehåller SLA-support, inbyggda utlösare och åtgärder, standard anslutningar, företags anslutningar, ett enda integrations konto på [Standard nivå](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , alternativ för att skala upp kapaciteten och redundans under återvinning för ett fast månads pris.
 
+> [!IMPORTANT]
+> Alternativet SKU är bara tillgängligt vid skapande av ISE och kan inte ändras senare.
+
 Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/). Information om hur priser och fakturering fungerar för ISEs finns i [pris modellen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>ISE slut punkts åtkomst
+
+När du skapar din ISE kan du välja att använda antingen interna eller externa slut punkter för åtkomst. Dessa slut punkter avgör om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. Dessa slut punkter påverkar också åtkomsten till indata och utdata i körnings historiken för Logic app.
+
+* **Internt**: Privata slut punkter som tillåter anrop till logi Kap par i din ISE plus åtkomst till indata och utdata i körnings historiken endast inifrån *ditt virtuella nätverk*
+* **Externt**: Offentliga slut punkter som tillåter anrop till logi Kap par i din ISE plus åtkomst till indata och utdata i körnings historiken *från utanför det virtuella nätverket*
+
+> [!IMPORTANT]
+> Alternativet åtkomst slut punkt är bara tillgängligt vid skapande av ISE och kan inte ändras senare.
 
 <a name="on-premises"></a>
 
@@ -106,6 +121,8 @@ Du kan använda integrations konton med Logic Apps i en integrerings tjänst mil
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [ansluter till virtuella Azure-nätverk från isolerade Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Ansluta till virtuella Azure-nätverk från isolerade Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Lägga till artefakter i integrerings tjänst miljöer](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Hantera integrerings tjänst miljöer](../logic-apps/ise-manage-integration-service-environment.md)
 * Läs mer om [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Lär dig mer om [Virtual Network-integrering för Azure-tjänster](../virtual-network/virtual-network-for-azure-services.md)

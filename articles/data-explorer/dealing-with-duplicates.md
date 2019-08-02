@@ -1,30 +1,30 @@
 ---
-title: Hantera duplicerade data i Datautforskaren i Azure
-description: Det här avsnittet beskriver olika metoder för att hantera duplicerade data när du använder Datautforskaren i Azure.
+title: Hantera dubblettdata i Azure Datautforskaren
+description: I det här avsnittet visas olika metoder för att hantera dubblettdata när du använder Azure Datautforskaren.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445778"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608223"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Hantera duplicerade data i Datautforskaren i Azure
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Hantera dubblettdata i Azure Datautforskaren
 
-Enheter som skickar data till molnet underhålla en lokal cache av data. Beroende på storleken på data kunde den lokala cachen lagrar data för dagar eller till och med månader. Vill du skydda dina analytiska databaser från felaktig enheter som skicka cachelagrade data och orsaka duplicerade data i analytiska databasen. Det här avsnittet beskriver de bästa metoderna för hantering av duplicerade data för dessa typer av scenarier.
+Enheter som skickar data till molnet upprätthåller en lokal cache med data. Beroende på data storleken kan den lokala cachen lagra data i dagar eller till och med månader. Du vill skydda dina analys databaser från att inte använda enheter som skickar cachelagrade data på ett bra och orsaka dataduplicering i analys databasen. Det här avsnittet beskriver metod tips för att hantera dubblettdata för de här typerna av scenarier.
 
-Den bästa lösningen för duplicerade data förhindrar risken. Om det är möjligt, åtgärda problemet tidigare i datapipeline, vilket sparar kostnader i samband med dataförflyttning längsmed datapipelinen och på så sätt undviker lägga resurser på klara av duplicerade data som matas in i systemet. I situationer där källsystemet inte kan ändras, finns det dock olika sätt att hantera det här scenariot.
+Den bästa lösningen för dataduplicering förhindrar dupliceringen. Om möjligt kan du åtgärda problemet tidigare i datapipeline, vilket sparar kostnader som är kopplade till data förflyttningen tillsammans med datapipelinen och som gör att du kan undvika utgifts resurser på Kopiera med dubbla data som matas in i systemet. I situationer där det inte går att ändra käll systemet finns det dock olika sätt att hantera det här scenariot.
 
 ## <a name="understand-the-impact-of-duplicate-data"></a>Förstå effekten av duplicerade data
 
-Övervaka procentandelen av duplicerade data. När procentandelen av duplicerade data som har identifierats kan du analysera omfånget för de problem och inverkan på företaget och väljer rätt lösning.
+Övervaka procent andelen duplicerade data. När procent andelen duplicerade data har identifierats kan du analysera omfattningen av problemet och affärs påverkan och välja lämplig lösning.
 
-Exempelfråga att identifiera dubblettposter procentandelen:
+Exempel fråga för att identifiera procent andelen dubbla poster:
 
 ```kusto
 let _sample = 0.01; // 1% sampling
@@ -39,17 +39,17 @@ _data
 | extend duplicate_percentage = (duplicateRecords / _sample) / _totalRecords  
 ```
 
-## <a name="solutions-for-handling-duplicate-data"></a>Lösningar för hantering av duplicerade data
+## <a name="solutions-for-handling-duplicate-data"></a>Lösningar för att hantera dubblettdata
 
-### <a name="solution-1-dont-remove-duplicate-data"></a>Lösning #1: Ta inte bort duplicerade data
+### <a name="solution-1-dont-remove-duplicate-data"></a>Lösnings #1: Ta inte bort duplicerade data
 
-Förstå dina affärskrav och tolerans dubblettvärden. Vissa datauppsättningar kan hantera med en viss procentandel av duplicerade data. Om duplicerade data inte har avgörande betydelse, kan du ignorera sin närvaro. Fördelen med att inte ta bort duplicerade data är inga ytterligare kostnader på prestanda för datapåfyllning process eller frågan.
+Förstå dina verksamhets krav och tolerans för duplicerade data. Vissa data uppsättningar kan hantera en viss procent andel duplicerade data. Om de duplicerade data inte har stor påverkan kan du ignorera dess förekomst. Fördelen med att inte ta bort dubblettdata är ingen extra kostnad för inmatnings processen eller frågans prestanda.
 
-### <a name="solution-2-handle-duplicate-rows-during-query"></a>Lösning #2: Hantera dubblettrader när frågan körs
+### <a name="solution-2-handle-duplicate-rows-during-query"></a>Lösnings #2: Hantera duplicerade rader under frågan
 
-Ett annat alternativ är att filtrera bort dubblettrader i data när frågan körs. Den [ `arg_max()` ](/azure/kusto/query/arg-max-aggfunction) samlingsfunktion kan användas för att filtrera bort dubblettposter och returnerar den sista posten baserat på tidsstämpeln (eller en annan kolumn). Fördelen med att använda den här metoden är snabbare inmatning eftersom avduplicering inträffar under fråga körs. Dessutom kan alla poster (inklusive dubbletter) som är tillgängliga för granskning och felsökning. Nackdelen med den `arg_max` funktionen är ytterligare frågetiden och belastning på Processorn varje gång data efterfrågas. Beroende på mängden data som efterfrågas, den här lösningen kan bli icke-funktionella eller förbrukar minnet och måste växla till andra alternativ.
+Ett annat alternativ är att filtrera bort de duplicerade raderna i data under frågan. Den [`arg_max()`](/azure/kusto/query/arg-max-aggfunction) sammanställda funktionen kan användas för att filtrera bort dubblettposter och returnera den sista posten baserat på tidsstämpeln (eller en annan kolumn). Fördelen med att använda den här metoden är snabbare inmatningen eftersom den avdupliceras under fråge tiden. Dessutom är alla poster (inklusive dubbletter) tillgängliga för granskning och fel sökning. Nack delen med att använda `arg_max` funktionen är den ytterligare fråge tiden och belastningen på processorn varje gång data efter frågas. Beroende på hur mycket data som efter frågas kan den här lösningen bli icke-funktionell eller minnes krävande och behöver växla till andra alternativ.
 
-I följande exempel frågar vi den sista posten som matas in för en uppsättning kolumner som bestämmer unika poster:
+I följande exempel frågar vi den sista posten som matats in för en uppsättning kolumner som bestämmer unika poster:
 
 ```kusto
 DeviceEventsAll
@@ -57,7 +57,7 @@ DeviceEventsAll
 | summarize hint.strategy=shuffle arg_max(EventDateTime, *) by DeviceId, EventId, StationId
 ```
 
-Den här frågan kan också placeras inuti en funktion i stället för att fråga direkt till tabellen:
+Den här frågan kan också placeras inuti en funktion i stället för att direkt fråga tabellen:
 
 ```kusto
 .create function DeviceEventsView
@@ -68,11 +68,11 @@ DeviceEventsAll
 }
 ```
 
-### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Lösning #3: Filtrera dubbletter under inmatning
+### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Lösnings #3: Filtrera dubbletter under inmatnings processen
 
-En annan lösning är att filtrera dubbletter under inmatning. Systemet ignorerar den duplicerade informationen under inmatning till Kusto-tabeller. Data matas in i en mellanlagringstabell och kopieras till en annan tabell när du tar bort dubblettrader. Fördelen med den här lösningen är att frågeprestanda avsevärt förbättrar jämfört med den tidigare lösningen. Nackdelarna är ökad inmatning tid och kostnader för lagring av ytterligare data.
+En annan lösning är att filtrera dubbletter under inmatnings processen. Systemet ignorerar dubblettdata vid inmatning i Kusto-tabeller. Data matas in i en mellanlagringsdatabas och kopieras till en annan tabell efter att duplicerade rader har tagits bort. Fördelen med den här lösningen är att frågans prestanda förbättras dramatiskt jämfört med föregående lösning. Nack delarna omfattar ökad Inhämtnings tid och ytterligare kostnader för data lagring. Ytterligare, den här lösningen fungerar bara om dupliceringen inte matas in samtidigt. Om det finns flera samtidiga inmatningar som innehåller dubblettposter kan alla matas in eftersom dedupliceringen inte kan hitta några befintliga matchande poster i tabellen.    
 
-I följande exempel visar den här metoden:
+Följande exempel illustrerar den här metoden:
 
 1. Skapa en annan tabell med samma schema:
 
@@ -80,7 +80,7 @@ I följande exempel visar den här metoden:
     .create table DeviceEventsUnique (EventDateTime: datetime, DeviceId: int, EventId: int, StationId: int)
     ```
 
-1. Skapa en funktion för att filtrera bort dubblettposter genom att slå samman mot de nya posterna med de tidigare insamlade.
+1. Skapa en funktion för att filtrera bort dubblettposter genom att koppla de nya posterna till de tidigare inmatade posterna.
 
     ```kusto
     .create function RemoveDuplicateDeviceEvents()
@@ -97,9 +97,9 @@ I följande exempel visar den här metoden:
     ```
 
     > [!NOTE]
-    > Kopplingar är CPU-bundna åtgärder och lägga till ytterligare belastning på systemet.
+    > Kopplingar är processor gränser och lägger till en extra belastning i systemet.
 
-1. Ange [uppdateringsprincip](/azure/kusto/management/update-policy) på `DeviceEventsUnique` tabell. Update-princip aktiveras när nya data hamnar i den `DeviceEventsAll` tabell. Kusto-motorn kommer automatiskt att köra funktionen som ny [allokeringsutrymmen](/azure/kusto/management/extents-overview) skapas. Bearbetningen är begränsad till de nya data. Följande kommando häftar samman källtabellen (`DeviceEventsAll`), Måltabell (`DeviceEventsUnique`), och funktionen `RemoveDuplicatesDeviceEvents` ihop för att skapa update-princip.
+1. Ange [uppdaterings princip](/azure/kusto/management/update-policy) för `DeviceEventsUnique` tabell. Uppdaterings principen aktive ras när nya data skickas till `DeviceEventsAll` tabellen. Kusto-motorn kör automatiskt funktionen när nya [omfattningar](/azure/kusto/management/extents-overview) skapas. Bearbetningen är begränsad till de nyligen skapade data. Följande kommando häftar käll tabellen (`DeviceEventsAll`), mål tabellen (`DeviceEventsUnique`) och funktionen `RemoveDuplicatesDeviceEvents` tillsammans för att skapa uppdaterings principen.
 
     ```kusto
     .alter table DeviceEventsUnique policy update
@@ -107,9 +107,9 @@ I följande exempel visar den här metoden:
     ```
 
     > [!NOTE]
-    > Uppdateringsprincip utökar varaktigheten för inmatning eftersom data filtreras vid inmatning och sedan matas in två gånger (till den `DeviceEventsAll` tabellen och den `DeviceEventsUnique` tabell).
+    > Uppdaterings principen utökar längden på inmatningen eftersom data filtreras under inmatningen och sedan matas in två gånger `DeviceEventsAll` (till tabellen och `DeviceEventsUnique` tabellen).
 
-1. (Valfritt) Ange en lägre kvarhållning av data på den `DeviceEventsAll` tabell för att undvika att lagra kopior av data. Välj antalet dagar, beroende på datavolymen och hur lång tid som du vill behålla data för felsökning. Du kan ange den till `0d` dagars kvarhållning för att spara kostnad för sålda varor och förbättra prestanda, eftersom data inte har överförts till lagring.
+1. Valfritt Ange en lägre data kvarhållning i `DeviceEventsAll` tabellen för att undvika att lagra kopior av data. Välj antalet dagar beroende på data volymen och hur lång tid du vill behålla data för fel sökning. Du kan ställa in den `0d` på Days kvarhållning för att spara KSV och förbättra prestandan eftersom data inte överförs till lagringen.
 
     ```kusto
     .alter-merge table DeviceEventsAll policy retention softdelete = 1d
@@ -117,7 +117,7 @@ I följande exempel visar den här metoden:
 
 ## <a name="summary"></a>Sammanfattning
 
-Duplicerade data kan hanteras på flera olika sätt. Utvärdera alternativ med noggrant, med hänsyn till kontot pris och prestanda, för att fastställa rätt metod för ditt företag.
+Dataduplicering kan hanteras på flera sätt. Utvärdera alternativen noggrant och ta hänsyn till pris och prestanda för att fastställa rätt metod för din verksamhet.
 
 ## <a name="next-steps"></a>Nästa steg
 

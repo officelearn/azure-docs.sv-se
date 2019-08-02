@@ -1,90 +1,90 @@
 ---
-title: Övervaka servermått för Azure Analysis Services | Microsoft Docs
-description: Lär dig mer om att övervaka servermått för Analysis Services i Azure-portalen.
+title: Övervaka Azure Analysis Services server mått | Microsoft Docs
+description: Lär dig hur du övervakar Analysis Services server mått i Azure Portal.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/26/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5431dd74629b9ed76a6a072d8ada286ce71a7633
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61065071"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596078"
 ---
 # <a name="monitor-server-metrics"></a>Övervaka servermått
 
-Analysis Services innehåller mått för att övervaka prestanda och hälsa för dina servrar. Till exempel övervaka minne och CPU-användning, antalet klientanslutningar och fråga resursförbrukning. Analysis Services använder samma övervakning framework som de flesta andra Azure-tjänster. Mer information finns i [mått i Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Analysis Services tillhandahåller mått i Azure Metrics Explorer, ett kostnads fritt verktyg i portalen, som hjälper dig att övervaka servrarnas prestanda och hälsa. Du kan till exempel övervaka minne och CPU-användning, antal klient anslutningar och fråga resursförbrukning. Analysis Services använder samma övervaknings ramverk som de flesta andra Azure-tjänster. Mer information finns i [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
 
-Om du vill utföra mer djupgående diagnostik, spåra prestanda, och identifiera trender över flera service-resurser i en resursgrupp eller prenumeration kan använda [Azure Monitor](https://azure.microsoft.com/services/monitor/). Azure Monitor (tjänst) kan resultera i en fakturerbar tjänst.
+Använd [Azure Monitor](../azure-monitor/overview.md)för att utföra mer djupgående diagnostik, spåra prestanda och identifiera trender för flera tjänst resurser i en resurs grupp eller prenumeration. Azure Monitor (tjänst) kan resultera i en fakturerings bar tjänst.
 
 
-## <a name="to-monitor-metrics-for-an-analysis-services-server"></a>Övervaka mått för en Analysis Services-server
+## <a name="to-monitor-metrics-for-an-analysis-services-server"></a>Övervaka mått för en Analysis Services server
 
-1. I Azure-portalen väljer du **mått**.
+1. I Azure Portal väljer du **mått**.
 
     ![Övervaka i Azure Portal](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. I **tillgängliga mått**, Välj de mått som ska ingå i diagrammet. 
+2. I **tillgängliga mått**väljer du de mått som ska ingå i diagrammet. 
 
     ![Övervaka diagram](./media/analysis-services-monitor/aas-monitor-chart.png)
 
 <a id="#server-metrics"></a>
 
-## <a name="server-metrics"></a>Servermått
+## <a name="server-metrics"></a>Server mått
 
-Använd den här tabellen för att avgöra vilka mått som är bäst för ditt övervakning scenario. Endast mått med samma enhet kan visas på samma diagram.
+Använd den här tabellen för att avgöra vilka mått som passar bäst för ditt övervaknings scenario. Endast mått för samma enhet kan visas i samma diagram.
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|
 |---|---|---|---|---|
-|CommandPoolJobQueueLength|Kommandot Pool Jobbkölängd|Antal|Medel|Antal jobb i kön för kommandotrådspoolen.|
-|CurrentConnections|Anslutning: Aktuella anslutningar|Count|Medel|Aktuellt antal etablerade klientanslutningar.|
-|CurrentUserSessions|Aktuella användarsessioner|Count|Medel|Aktuellt antal etablerade användarsessioner.|
-|mashup_engine_memory_metric|M-Motorminne|Byte|Medel|Minnesanvändning efter motorprocesser|
-|mashup_engine_qpu_metric|M-motor QPU|Count|Medel|QPU-användning efter motorprocesser|
-|memory_metric|Minne|Byte|Medel|Minne. Intervall 0 – 25 GB för S1, 0 – 50 GB för S2 och 0-100 GB för S4|
-|memory_thrashing_metric|Minnesförslöing|Procent|Medel|Genomsnittlig minnesförslöing.|
-|CleanerCurrentPrice|Minne: Aktuellt pris för rensaren|Count|Medel|Aktuellt pris för minne, $/ byte/tid, normaliserat till 1000.|
-|CleanerMemoryNonshrinkable|Minne: Rensningsminne krympbart|Byte|Medel|Mängden minne i byte, inte tas bort av bakgrundsrensaren.|
-|CleanerMemoryShrinkable|Minne: Rensningsminne Krympbart|Byte|Medel|Mängden minne i byte, tas bort av bakgrundsrensaren.|
-|MemoryLimitHard|Minne: Minnesgräns, hård|Byte|Medel|Hård minnesgräns, från konfigurationsfilen.|
-|MemoryLimitHigh|Minne: Minnesgräns hög|Byte|Medel|Hög minnesgräns, från konfigurationsfilen.|
-|MemoryLimitLow|Minne: Minnesgräns låg|Byte|Medel|Låg minnesgräns, från konfigurationsfilen.|
-|MemoryLimitVertiPaq|Minne: Minnesgräns VertiPaq|Byte|Medel|Minnesintern gräns, från konfigurationsfilen.|
-|MemoryUsage|Minne: Minnesanvändning|Byte|Medel|Minnesanvändning för serverprocessen som används för att beräkna tydligare minnespris. Lika med räknare Process\PrivateBytes plus storleken på minnesmappade data och ignorerar minne, som har mappats eller allokerats av den minnesintern Analysmotorn (VertiPaq) utöver motorns minnesgräns.|
-|Kvot|Minne: Kvot|Byte|Medel|Aktuella minneskvoten, i byte. Minneskvoten är även känd som en minnesreservation för bevilja eller minne.|
-|QuotaBlocked|Minne: Kvot blockerad|Count|Medel|Aktuella antalet kvotbegäranden som blockeras tills andra minneskvoter.|
-|VertiPaqNonpaged|Minne: VertiPaq Nonpaged|Byte|Medel|Byte av minne låst i arbetsminnet för användning av InMemory-motorn.|
-|VertiPaqPaged|Minne: VertiPaq växlat|Byte|Medel|Bytes med växlingsbart minne som används för data i minnet.|
-|ProcessingPoolJobQueueLength|Bearbetning av poolen Jobbkölängd|Antal|Medel|Antal icke-I/O-jobb i kön för bearbetningstrådpoolen.|
-|RowsConvertedPerSec|Bearbetar: Rader konverterade per sekund|CountPerSecond|Medel|Frekvensen som rader konverteras under bearbetning.|
-|RowsReadPerSec|Bearbetar: Rader lästa per sekund|CountPerSecond|Medel|Frekvensen som rader läses från alla relationella databaser.|
-|RowsWrittenPerSec|Bearbetar: Rader skrivna per sekund|CountPerSecond|Medel|Frekvensen som rader skrivs vid bearbetning.|
-|qpu_metric|QPU|Antal|Medel|QPU. Intervall 0-100 för S1, 0-200 för S2 och 0-400 för S4|
-|QueryPoolBusyThreads|Upptagna trådar för Frågepoolen|Antal|Medel|Antal upptagna trådar i frågetrådspoolen.|
-|SuccessfullConnectionsPerSec|Lyckade anslutningar Per sekund|CountPerSecond|Medel|Hastighet för lyckade anslutningsavslutningar.|
-|CommandPoolBusyThreads|Trådar: Kommandot upptagna trådar i kommandopoolen|Antal|Medel|Antal upptagna trådar i kommandotrådspoolen.|
-|CommandPoolIdleThreads|Trådar: Kommandot frågepoolen inaktiva trådar|Count|Medel|Antal inaktiva trådar i kommandotrådspoolen.|
-|LongParsingBusyThreads|Trådar: Lång parsning upptagna trådar|Count|Medel|Antal upptagna trådar i den lång parsningstrådspoolen.|
-|LongParsingIdleThreads|Trådar: Lång parsning inaktiva trådar|Count|Medel|Antal inaktiva trådar i den lång parsningstrådspoolen.|
-|LongParsingJobQueueLength|Trådar: Lång parsning jobbkölängd|Count|Medel|Antal jobb i kön för den lång parsningstrådspoolen.|
-|ProcessingPoolIOJobQueueLength|Trådar: Bearbetningspoolen i/o-jobbkölängd|Antal|Medel|Antal i/o-jobb i kön för bearbetningstrådpoolen.|
-|ProcessingPoolBusyIOJobThreads|Trådar: Bearbetningspoolen upptagen i/o-jobbtrådar|Count|Medel|Antal trådar som kör i/o-jobb i bearbetningstrådpoolen.|
-|ProcessingPoolBusyNonIOThreads|Trådar: Bearbetning av poolen upptagen icke-I/O-trådar|Antal|Medel|Antal trådar som kör icke-I/O-jobb i bearbetningstrådpoolen.|
-|ProcessingPoolIdleIOJobThreads|Trådar: Bearbetningspoolen inaktiva i/o-jobbtrådar|Count|Medel|Antal inaktiva trådar för i/o-jobb i bearbetningstrådpoolen.|
-|ProcessingPoolIdleNonIOThreads|Trådar: Bearbetning av poolen inaktiva icke-I/O-trådar|Count|Medel|Antal inaktiva trådar i bearbetningstrådpoolen som är dedikerade till icke-I/O-jobb.|
-|QueryPoolIdleThreads|Trådar: Frågepoolen inaktiva trådar|Count|Medel|Antal inaktiva trådar för i/o-jobb i bearbetningstrådpoolen.|
-|QueryPoolJobQueueLength|Trådar: Fråga efter pool jobbkölängd|Antal|Medel|Antal jobb i kön för frågetrådspoolen.|
-|ShortParsingBusyThreads|Trådar: Kort parsning upptagna trådar|Antal|Medel|Antal upptagna trådar i den korta parsningstrådpoolen.|
-|ShortParsingIdleThreads|Trådar: Kort parsning inaktiva trådar|Count|Medel|Antal inaktiva trådar i den korta parsningstrådpoolen.|
-|ShortParsingJobQueueLength|Trådar: Kort parsning jobbkölängd|Count|Medel|Antal jobb i kön för den korta parsningstrådpoolen.|
-|TotalConnectionFailures|Totalt antal misslyckade anslutningar|Count|Medel|Antalet misslyckade anslutningsförsök.|
-|TotalConnectionRequests|Total antal anslutningsbegäranden|Antal|Medel|Total antal anslutningsbegäranden. |
+|CommandPoolJobQueueLength|Kölängd för kommando bassäng|Count|Average|Antal jobb i kön för kommando tråds poolen.|
+|CurrentConnections|Anslutning: Aktuella anslutningar|Count|Average|Aktuellt antal upprättade klient anslutningar.|
+|CurrentUserSessions|Aktuella användarsessioner|Count|Average|Aktuellt antal användarsessioner som har upprättats.|
+|mashup_engine_memory_metric|M motor minne|Byte|Average|Minnes användning per kombinations motor processer|
+|mashup_engine_qpu_metric|M-motor QPU|Count|Average|QPU användning av kombinations motor processer|
+|memory_metric|Minne|Byte|Average|Minnesoptimerade. Intervallet 0-25 GB för S1, 0-50 GB för S2 och 0-100 GB för S4|
+|memory_thrashing_metric|Nedskräpning för minne|Percent|Average|Genomsnittligt minne nedskräpning.|
+|CleanerCurrentPrice|Minne: Renare aktuellt pris|Count|Average|Aktuellt pris för minne, $/byte/tid, normaliserat till 1000.|
+|CleanerMemoryNonshrinkable|Minne: Det går inte att krympa rengörings minnet|Byte|Average|Mängden minne, i byte, som inte kan rensas av bakgrunds rensaren.|
+|CleanerMemoryShrinkable|Minne: Krympnings minne|Byte|Average|Mängden minne i byte som kan rensas av bakgrunds rensaren.|
+|MemoryLimitHard|Minne: Minnes gräns hård|Byte|Average|Hård minnes gräns, från konfigurations filen.|
+|MemoryLimitHigh|Minne: Hög minnes gräns|Byte|Average|Hög minnes gräns, från konfigurations filen.|
+|MemoryLimitLow|Minne: Låg minnes gräns|Byte|Average|Låg minnes gräns, från konfigurations filen.|
+|MemoryLimitVertiPaq|Minne: Minnes gräns VertiPaq|Byte|Average|Minnes intern gräns, från konfigurations filen.|
+|MemoryUsage|Minne: Minnesanvändning|Byte|Average|Minnes användningen för Server processen som används för att beräkna rengörings minnes priset. Lika med Counter Process\PrivateBytes plus storleken på minnesmappade data, vilket ignorerar vilket minne som har mappats eller allokerats av en minnes intern analys motor (VertiPaq) utöver motorns minnes gräns.|
+|Kvot|Minne: Kvot|Byte|Average|Aktuell minnes kvot, i byte. Minnes kvot kallas även för minnes tilldelning eller minnes reservation.|
+|QuotaBlocked|Minne: Blockerad kvot|Count|Average|Det aktuella antalet kvot begär Anden som blockeras tills andra minnes kvoter frigjorts.|
+|VertiPaqNonpaged|Minne: VertiPaq är inte växlat|Byte|Average|Byte av minne som är låst i arbets minnet för användning av minnes intern motorn.|
+|VertiPaqPaged|Minne: VertiPaq-växlat|Byte|Average|Byte av växlings Bart minne som används för minnes intern data.|
+|ProcessingPoolJobQueueLength|Bearbetar Kölängd för poolen|Count|Average|Antal icke-I/O-jobb i kön för bearbetning av trådpoolen.|
+|RowsConvertedPerSec|Bearbetar: Konverterade rader per sekund|CountPerSecond|Average|Antal rader som konverterats under bearbetning.|
+|RowsReadPerSec|Bearbetar: Lästa rader per sekund|CountPerSecond|Average|Antalet rader som läses från alla Relations databaser.|
+|RowsWrittenPerSec|Bearbetar: Skrivna rader per sekund|CountPerSecond|Average|Antal rader som skrivs under bearbetningen.|
+|qpu_metric|QPU|Count|Average|QPU. Intervallet 0-100 för S1, 0-200 för S2 och 0-400 för S4|
+|QueryPoolBusyThreads|Upptagna trådar för frågeprocessorn|Count|Average|Antalet upptagna trådar i trådpoolen.|
+|SuccessfullConnectionsPerSec|Lyckade anslutningar per sekund|CountPerSecond|Average|Antal slutförda slut för ande av anslutningar.|
+|CommandPoolBusyThreads|Konversation Upptagna trådar för kommando pool|Count|Average|Antalet upptagna trådar i kommando tråds-poolen.|
+|CommandPoolIdleThreads|Konversation Inaktiva trådar för kommando pool|Count|Average|Antal inaktiva trådar i kommando tråds-poolen.|
+|LongParsingBusyThreads|Konversation Lång parsning av upptagna trådar|Count|Average|Antalet upptagna trådar i den långa parsande trådpoolen.|
+|LongParsingIdleThreads|Konversation Långa parsar inaktiva trådar|Count|Average|Antalet inaktiva trådar i den långa parsande trådpoolen.|
+|LongParsingJobQueueLength|Konversation Lång parsning av jobb Kölängd|Count|Average|Antal jobb i kön för den långa parsande trådpoolen.|
+|ProcessingPoolIOJobQueueLength|Konversation Processor längd I/O-jobbkö|Count|Average|Antalet I/O-jobb i kön för bearbetning av trådpoolen.|
+|ProcessingPoolBusyIOJobThreads|Konversation Processors upptagna I/O-jobb trådar|Count|Average|Antal trådar som kör i/O-jobb i bearbetnings trådens pool.|
+|ProcessingPoolBusyNonIOThreads|Konversation Processor belastning är upptagen för icke-I/O-trådar|Count|Average|Antal trådar som kör icke-I/O-jobb i bearbetningen av trådpoolen.|
+|ProcessingPoolIdleIOJobThreads|Konversation Bearbetar inaktiva I/O-jobb trådar|Count|Average|Antalet inaktiva trådar för I/O-jobb i bearbetnings trådens pool.|
+|ProcessingPoolIdleNonIOThreads|Konversation Inaktiva icke-I/O-trådar som behandlar poolen|Count|Average|Antalet inaktiva trådar i bearbetnings trådens pool som är dedikerad till icke-I/O-jobb.|
+|QueryPoolIdleThreads|Konversation Inaktiva trådar för frågenod|Count|Average|Antalet inaktiva trådar för I/O-jobb i bearbetnings trådens pool.|
+|QueryPoolJobQueueLength|Konversation Kölängd för jobbkö|Count|Average|Antal jobb i kön för trådpoolen för Query.|
+|ShortParsingBusyThreads|Konversation Kort parsning upptagna trådar|Count|Average|Antalet upptagna trådar i den kort parsar trådpoolen.|
+|ShortParsingIdleThreads|Konversation Korta parsar inaktiva trådar|Count|Average|Antal inaktiva trådar i kort parsar trådpoolen.|
+|ShortParsingJobQueueLength|Konversation Kort parsning av jobb Kölängd|Count|Average|Antal jobb i kö för kort parsar trådpoolen.|
+|TotalConnectionFailures|Totalt antal anslutnings problem|Count|Average|Totalt antal misslyckade anslutnings försök.|
+|TotalConnectionRequests|Totalt antal anslutnings begär Anden|Count|Average|Totalt antal anslutnings begär Anden. |
 
 ## <a name="next-steps"></a>Nästa steg
-[Övervaka i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
-[Mått i Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Mått i Azure Monitor REST-API](/rest/api/monitor/metrics)
+[Översikt över Azure Monitor](../azure-monitor/overview.md)      
+[Komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)      
+[Mått i Azure Monitor REST API](/rest/api/monitor/metrics)

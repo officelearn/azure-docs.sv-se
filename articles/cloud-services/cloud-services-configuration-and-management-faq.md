@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 925461ba6c74fe0bcf286692c1a19bb4e7c02dfa
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6217fe51a0231ee1bd34f9fbe8edef47ee073209
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254410"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609701"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure-Cloud Services: Vanliga frågor och svar
 
@@ -194,7 +194,7 @@ Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både kli
 3. Skapa ett nytt DWORD-värde med namnet **DuoEnabled**.
 4. Ange värdet 1.
 5. Starta om servern.
-6. Gå till **standard webbplatsen** och under bindningar skapar du en ny TLS-bindning med det självsignerade certifikatet som du nyss skapade. 
+6. Gå till **standard webbplatsen** och under bindningarskapar du en ny TLS-bindning med det självsignerade certifikatet som du nyss skapade. 
 
 Mer information finns i:
 
@@ -219,7 +219,7 @@ Cloud Services stöder inte RBAC-modellen (rollbaserad åtkomst kontroll) efters
 
 Se [förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Fjärr skrivbord
+## <a name="remote-desktop"></a>Fjärrskrivbord
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?
 Microsoft följer en strikt process som inte tillåter interna tekniker att använda fjärr skrivbord i moln tjänsten utan skriftligt tillstånd (e-post eller annan skriftlig kommunikation) från ägaren eller deras utformning.
@@ -297,7 +297,7 @@ Du kan aktivera tillägg för program mot skadlig kod med hjälp av PowerShell-s
 - [Skapa en start åtgärd för PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-Mer information om scenarier för distribution av program mot skadlig kod och hur du aktiverar det från portalen finns i [scenarier för distribution av program mot skadlig kod](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
+Mer information om scenarier för distribution av program mot skadlig kod och hur du aktiverar det från portalen finns i [scenarier för distribution av program mot skadlig kod](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
 ### <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>Hur aktiverar du Servernamnindikator (SNI) för Cloud Services?
 
@@ -311,7 +311,7 @@ SNI-bindningen kan konfigureras med PowerShell **-cmdlet New-webbinding** i en s
     
 Som beskrivs [här](https://technet.microsoft.com/library/ee790567.aspx)kan $sslFlags vara ett av värdena som följande:
 
-|Värde|Betydelse|
+|Value|Betydelse|
 ------|------
 |0|Ingen SNI|
 |1|SNI aktiverat |

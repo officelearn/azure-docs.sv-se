@@ -1,6 +1,6 @@
 ---
-title: Systemkrav för Microsoft Azure StorSimple Virtual Array | Microsoft Docs
-description: Läs mer om programvara och nätverkskrav för StorSimple Virtual Array
+title: System krav för Microsoft Azure StorSimple virtuell matris | Microsoft Docs
+description: Lär dig mer om program-och nätverks kraven för din virtuella StorSimple-matris
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,125 +12,129 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 65d2a21a9f40470cee1dd9d713f9f9cb5431a245
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629313"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516691"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemkrav för StorSimple Virtual Array
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver viktiga systemkraven för Microsoft Azure StorSimple Virtual Array och för lagringsklienter matrisen. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din StorSimple-systemet och referera tillbaka till det som behövs under distributionen och efterföljande driften.
 
-Systemkraven är:
+I den här artikeln beskrivs viktiga system krav för din Microsoft Azure StorSimple virtuella matris och för de lagrings klienter som har åtkomst till matrisen. Vi rekommenderar att du läser igenom informationen noggrant innan du distribuerar StorSimple-systemet och sedan går tillbaka till den vid behov under distributionen och efterföljande åtgärder.
 
-* **Programvarukrav för storage-klienter** -beskriver stöds virtualiseringsplattformar, webbläsare, iSCSI-initierare, SMB-klienter, krav på minsta virtuella enheten och ytterligare krav för dessa operativsystem.
-* **Nätverkskrav för StorSimple-enheten** – innehåller information om vilka portar som måste vara öppna i brandväggen för att tillåta för iSCSI, i molnet eller hantering av trafik.
+System kraven är:
 
-StorSimple-system kravinformation publiceras i den här artikeln gäller bara för StorSimple Virtual Array.
+* **Program varu krav för lagrings klienter** – beskriver de Virtualization-plattformar som stöds, webbläsare, iSCSI-initierare, SMB-klienter, lägsta krav på virtuell enhet och eventuella ytterligare krav för dessa operativ system.
+* **Nätverks krav för StorSimple-enheten** – ger information om de portar som måste vara öppna i brand väggen för att tillåta iSCSI, moln eller hanterings trafik.
 
-* För enheter i 8000-serien, går du till [systemkrav för din enhet i StorSimple 8000-serien](storsimple-system-requirements.md).
-* För enheter för 7000-serien, går du till [systemkrav för StorSimple 5000-7000-serien enheten](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
+Informationen om system krav för StorSimple som publiceras i den här artikeln gäller endast StorSimple-virtuella matriser.
+
+* För enheter med 8000-serien går du till [system krav för din enhet med StorSimple 8000-serien](storsimple-system-requirements.md).
+* För enheter med 7000-serien går du till [system krav för din enhet med StorSimple 5000-7000-serien](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## <a name="software-requirements"></a>Programvarukrav
-Programvarukrav innehålla information om vilka webbläsare, SMB-versioner, virtualiseringsplattformar och krav för minsta virtuella enheter.
+Program varu kraven innehåller information om de webbläsare som stöds, SMB-versioner, virtualiseringsplattformen och minimi kraven för virtuella enheter.
 
-### <a name="supported-virtualization-platforms"></a>Stöds virtualiseringsplattformar
-| **Hypervisor-programmet** | **Version** |
+### <a name="supported-virtualization-platforms"></a>Plattformar som stöds
+| **Hypervisor** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 och senare |
-| VMware ESXi |5.0, 5.5, 6.0 och 6.5. |
+| VMware ESXi |5,0, 5,5, 6,0 och 6,5. |
 
 > [!IMPORTANT]
-> Installera inte VMware-verktyg på StorSimple Virtual Array; Detta resulterar i en konfiguration som inte stöds.
+> Installera inte VMware-verktyg på din virtuella StorSimple-matris; Detta leder till en konfiguration som inte stöds.
 
-### <a name="virtual-device-requirements"></a>Krav för virtuella enheter
+### <a name="virtual-device-requirements"></a>Krav för virtuell enhet
 | **Komponent** | **Krav** |
 | --- | --- |
 | Minsta antal virtuella processorer (kärnor) |4 |
-| Lägsta minne (RAM) |8 GB <br> För en filserver, 8 GB för mindre än 2 miljoner filer och 16 GB för 2-4 miljoner filer|
-| Diskutrymme<sup>1</sup> |OS-disk – 80 GB <br></br>Datadisk - 500 GB till 8 TB |
-| Minsta antal nätverksgränssnitt |1 |
-| Internetbandbredd<sup>2</sup> |Minsta bandbredd som krävs: 5 Mbit/s <br> Rekommenderade bandbredd: 100 Mbit/s <br> Hur snabbt data transfer skalas med Internet-bandbredd. 100 GB data tar till exempel 2 dagar att överföra med 5 Mbit/s som kan leda till Säkerhetskopieringsfel eftersom inte skulle att slutföra dagliga säkerhetskopior under en dag. 100 GB data kan överföras i 2,5 timmar med en bandbredd på 100 Mbit/s.   |
+| Minsta minne (RAM) |8 GB <br> För en fil server, 8 GB för mindre än 2 000 000 filer och 16 GB för 2-4 miljoner filer|
+| Disk utrymme<sup>1</sup> |OS-disk – 80 GB <br></br>Data disk – 500 GB till 8 TB |
+| Minsta antal nätverks gränssnitt |1 |
+| Internet bandbredd<sup>2</sup> |Minsta bandbredd som krävs: 5 Mbit/s <br> Rekommenderad bandbredd: 100 Mbit/s <br> Hastigheten för data överföring skalas med Internet bandbredden. 100 GB data tar till exempel två dagar att överföra med 5 Mbit/s, vilket kan leda till säkerhets kopierings problem, eftersom dagliga säkerhets kopieringar inte skulle slutföras under en dag. Med en bandbredd på 100 Mbit/s kan 100 GB data överföras i 2,5 timmar.   |
 
-<sup>1</sup> – tunt etablerats
+<sup>1</sup> – tunn etablerad
 
-<sup>2</sup> -nätverkskrav kan variera beroende på den dagliga förändringstakten för data. Till exempel om en enhet behöver säkerhetskopiera 10 GB eller fler ändringar under en dag, kan sedan daglig säkerhetskopiering över en 5 Mbit/s-anslutning ta upp till 4,25 timmar (om data inte kan komprimeras eller deduplicerad).
+<sup>2</sup> – nätverks kraven kan variera beroende på den dagliga data ändrings hastigheten. Om en enhet till exempel behöver säkerhetskopiera 10 GB eller fler ändringar under en dag, kan den dagliga säkerhets kopieringen över en anslutning på 5 Mbit/s ta upp till 4,25 timmar (om data inte kunde komprimeras eller dedupliceras).
 
 ### <a name="supported-web-browsers"></a>Webbläsare som stöds
 | **Komponent** | **Version** | **Ytterligare krav/anteckningar** |
 | --- | --- | --- |
-| Microsoft Edge |Senaste versionen | |
-| Internet Explorer |Senaste versionen |Testats med Internet Explorer 11 |
-| Google Chrome |Senaste versionen |Testats med Chrome 46 |
+| Microsoft Edge |Senaste version | |
+| Internet Explorer |Senaste version |Testat med Internet Explorer 11 |
+| Google Chrome |Senaste version |Testat med Chrome 46 |
 
-### <a name="supported-storage-clients"></a>Stöds storage-klienter
-Följande programvarukrav finns för iSCSI-initierare som har åtkomst till din StorSimple Virtual Array (konfigurerat som en iSCSI-server).
+### <a name="supported-storage-clients"></a>Lagrings klienter som stöds
+Följande program varu krav gäller för iSCSI-initierare som har åtkomst till din virtuella StorSimple-matris (konfigurerad som en iSCSI-server).
 
 | **Operativsystem som stöds** | **Version som krävs** | **Ytterligare krav/anteckningar** |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple kan skapa tunt allokerade och helt allokerade volymer. Det går inte att skapa delvis allokerade volymer. StorSimple iSCSI-volymer stöds endast för: <ul><li>Enkla volymer på Windows-standarddiskar.</li><li>Windows NTFS för att formatera en volym.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple kan skapa tunt etablerade och helt etablerade volymer. Det går inte att skapa delvis allokerade volymer. StorSimple iSCSI-volymer stöds endast för: <ul><li>Enkla volymer på Windows Basic-diskar.</li><li>Windows NTFS för formatering av en volym.</li> |
 
-Följande krav är för SMB-klienter som har åtkomst till din StorSimple Virtual Array (konfigureras som en filserver).
+Följande program varu krav gäller för SMB-klienter som har åtkomst till din virtuella StorSimple-matris (konfigurerad som en fil Server).
 
-| **SMB Version** |
+| **SMB-version** |
 | --- |
 | SMB 2.x |
 | SMB 3.0 |
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Kopiera inte eller lagra filer som skyddas av Windows Krypterande filsystem (EFS) till filservern StorSimple Virtual Array; Detta resulterar i en konfiguration som inte stöds.
+> Kopiera eller lagra inte filer som skyddas av Windows krypterande filsystem (EFS) till den virtuella StorSimple-arrayens fil server. Detta leder till en konfiguration som inte stöds.
 
 
-### <a name="supported-storage-format"></a>Storage-format som stöds
-Endast Azure block blob-lagring stöds. Sidblobar stöds inte. Mer information [om blockblobar och sidblobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+### <a name="supported-storage-format"></a>Lagrings format som stöds
+Endast Azure Block Blob-lagring stöds. Page blobbar stöds inte. Mer information [om block-blobar och Page blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
-## <a name="networking-requirements"></a>Nätverkskrav
-I följande tabell visas de portar som måste öppnas i brandväggen för att tillåta för iSCSI, SMB, i molnet eller hanteringstrafik. I den här tabellen *i* eller *inkommande* refererar till den riktning som inkommande klientbegäranden åtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
+## <a name="networking-requirements"></a>Nätverks krav
+I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta iSCSI-, SMB-, moln-eller hanterings trafik. I den här tabellen avser *i* eller *inkommande* den riktning som inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| **Nej. port<sup>1</sup>** | **In eller ut** | **Port omfång** | **Krävs** | **Anteckningar** |
+| **Port nr<sup>1</sup>** | **In eller ut** | **Port omfång** | **Kunna** | **Anteckningar** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |ut |WAN |Nej |Utgående port används för åtkomst till Internet för att hämta uppdateringar. <br></br>Utgående webbproxy kan konfigureras av användaren. |
-| TCP 443 (HTTPS) |ut |WAN |Ja |Utgående port används för att komma åt data i molnet. <br></br>Utgående webbproxy kan konfigureras av användaren. |
-| UDP 53 (DNS) |ut |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internet-baserad DNS-server. <br></br> Observera att om du distribuerar en filserver, bör du använda lokala DNS-servern. |
-| UDP 123 (NTP) |ut |WAN |I vissa fall. Se information. |Den här porten krävs endast om du använder en Internetbaserad NTP-server.<br></br> Observera att om du distribuerar en filserver, rekommenderar vi att synkronisera tiden med Active Directory-domänkontrollanter. |
-| TCP 80 (HTTP) |I |LAN |Ja |Det här är den inkommande porten för lokala användargränssnitt på StorSimple-enheten för lokal hantering. <br></br> Observera att komma åt lokala Användargränssnittet via HTTP omdirigeras automatiskt till HTTPS. |
-| TCP 443 (HTTPS) |I |LAN |Ja |Det här är den inkommande porten för lokala användargränssnitt på StorSimple-enheten för lokal hantering. |
-| TCP 3260 (iSCSI) |I |LAN |Nej |Den här porten används för att ansluta till data via iSCSI. |
+| TCP 80 (HTTP) |Utdata |WAN |Nej |Utgående port används för Internet åtkomst för att hämta uppdateringar. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
+| TCP 443 (HTTPS) |Utdata |WAN |Ja |Utgående port används för att komma åt data i molnet. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
+| UDP 53 (DNS) |Utdata |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad DNS-server. <br></br> Observera att om du distribuerar en fil server rekommenderar vi att du använder den lokala DNS-servern. |
+| UDP 123 (NTP) |Utdata |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad NTP-server.<br></br> Observera att om du distribuerar en fil server rekommenderar vi att du synkroniserar tid med Active Directory domän kontrol Lanterna. |
+| TCP 80 (HTTP) |I |LAN |Ja |Det här är den inkommande porten för lokalt användar gränssnitt på StorSimple-enheten för lokal hantering. <br></br> Observera att åtkomst till det lokala användar gränssnittet över HTTP omdirigeras automatiskt till HTTPS. |
+| TCP 443 (HTTPS) |I |LAN |Ja |Det här är den inkommande porten för lokalt användar gränssnitt på StorSimple-enheten för lokal hantering. |
+| TCP 3260 (iSCSI) |I |LAN |Nej |Den här porten används för att få åtkomst till data via iSCSI. |
 
-<sup>1</sup> inga ingående portar måste du öppna på Internet.
+<sup>1</sup> inga inkommande portar måste öppnas på det offentliga Internet.
 
 > [!IMPORTANT]
-> Se till att brandväggen inte ändrar eller dekryptera SSL trafik mellan StorSimple-enhet och Azure.
+> Se till att brand väggen inte ändrar eller dekrypterar en SSL-trafik mellan StorSimple-enheten och Azure.
 > 
 > 
 
-### <a name="url-patterns-for-firewall-rules"></a>URL-mönster för brandväggsregler
-Nätverksadministratörer kan ofta konfigurera avancerade brandväggsregler baserat på URL-mönster för att filtrera det inkommande och utgående trafik. Den virtuella matrisen och StorSimple Device Manager-tjänsten är beroende av andra Microsoft-program, till exempel Azure Service Bus, Azure Active Directory Access Control, lagringskonton och Microsoft Update-servrar. URL-mönster som associeras med dessa program kan användas för att konfigurera brandväggens regler. Det är viktigt att förstå att URL-mönster som associeras med dessa program kan ändra. Detta kräver i sin tur att nätverksadministratören kan övervaka och uppdatera brandväggsregler för StorSimple som och när det behövs. 
+### <a name="url-patterns-for-firewall-rules"></a>URL-mönster för brand Väggs regler
+Nätverks administratörer kan ofta konfigurera avancerade brand Väggs regler baserat på URL-mönster för att filtrera inkommande och utgående trafik. Den virtuella matrisen och tjänsten StorSimple Enhetshanteraren är beroende av andra Microsoft-program som Azure Service Bus, Azure Active Directory Access Control, lagrings konton och Microsoft Update-servrar. URL-mönstren som är kopplade till dessa program kan användas för att konfigurera brand Väggs regler. Det är viktigt att förstå att URL-mönstren som är kopplade till dessa program kan ändras. Detta kräver att nätverks administratören övervakar och uppdaterar brand Väggs regler för din StorSimple som och när det behövs. 
 
-Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, baserat på StorSimple fasta IP-adresser, liberally i de flesta fall. Du kan dock använda den här informationen för att ställa in avancerade brandväggsregler som behövs för att skapa säkra miljöer.
+Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, baserat på StorSimple fasta IP-adresser, i de flesta fall. Du kan dock använda informationen nedan för att ange avancerade brand Väggs regler som behövs för att skapa säkra miljöer.
 
 > [!NOTE]
 > 
-> * Enheten (källa) IP-adresser ska alltid vara inställd till alla moln-aktiverat nätverksgränssnitt. 
-> * Målets IP-adresser ska vara inställd på [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> * IP-adresserna för enheten (källa) ska alltid anges till alla molnbaserade nätverks gränssnitt. 
+> * Mål-IP-adresser ska anges till [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
-| URL-mönster | Komponenten/funktioner |
+| URL-mönster | Komponent/funktion |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager-tjänsten<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager-tjänst<br>Microsoft Azure Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten|
 | `http://*.backup.windowsazure.com` |Enhetsregistrering |
-| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Återkallade certifikat |
-| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |
-| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update-servrar<br> |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Återkallande av certifikat |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure Storage-konton och-övervakning |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servrar<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Supportpaket |
-| `https://*.data.microsoft.com` |Telemetritjänsten i Windows, finns i den [uppdatering för customer experience och diagnostiktelemetri](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com` |Telemetri-tjänsten i Windows, se [uppdateringen för kund upplevelse och diagnostisk telemetri](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Nästa steg
-* [Förbereda portalen för att distribuera StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
+* [Förbered portalen för att distribuera din virtuella StorSimple-matris](storsimple-virtual-array-deploy1-portal-prep.md)

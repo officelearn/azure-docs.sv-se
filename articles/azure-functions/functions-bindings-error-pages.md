@@ -1,6 +1,6 @@
 ---
-title: Azure Functions felhantering vägledning | Microsoft Docs
-description: Innehåller allmänna riktlinjer för att hantera fel som inträffar i när dina funktioner körs och länkar till ämnen för bindning-specifikt fel.
+title: Vägledning för Azure Functions fel hantering | Microsoft Docs
+description: Innehåller allmän vägledning för att hantera fel som uppstår i när dina funktioner körs och länkar till specifika specifika fel ämnen.
 services: functions
 cloud: ''
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: cshoe
-ms.openlocfilehash: ef8f2d5a63f7924097362f6aa0ebc78cc0f6455f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc0ffec1bfe55ee81573feffc58e1adb11421eec
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480714"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667435"
 ---
-# <a name="azure-functions-error-handling"></a>Azure Functions-felhantering
+# <a name="azure-functions-error-handling"></a>Azure Functions fel hantering
 
-Det här avsnittet innehåller allmänna riktlinjer för att hantera fel som uppstår när dina funktioner körs. Det innehåller också länkar till avsnitt som beskriver bindning-specifika fel som kan uppstå. 
+Det här avsnittet innehåller allmänna rikt linjer för hur du hanterar fel som uppstår när dina funktioner körs. Den innehåller också länkar till de avsnitt som beskriver de specifika specifika fel som kan uppstå. 
 
-## <a name="handing-errors-in-functions"></a>Hantering av fel i functions
+## <a name="handling-errors-in-functions"></a>Hantera fel i funktioner
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
  
-## <a name="binding-error-codes"></a>Felkoder för bindning
+## <a name="binding-error-codes"></a>Fel koder för bindning
 
-När du integrerar med Azure-tjänster, kanske fel som kommer från API: er för underliggande tjänster. Länkar till felet code dokumentationen för dessa tjänster finns i den **undantag och returkoder** delen av följande utlösare och referensinformation för bindning:
+När du integrerar med Azure-tjänster kan du ha fel som uppstår som härstammar från API: erna för underliggande tjänster. Länkar till fel kods dokumentationen för dessa tjänster finns i avsnittet **undantag och retur koder** i följande utlösare och bindnings referens ämnen:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 

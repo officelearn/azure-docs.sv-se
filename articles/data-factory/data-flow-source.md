@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: f6aed5d2ac1c4672d8d8868fe127ead053512e42
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974ece9cd035ae29ada38f34b7933d86f682194f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314826"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696223"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Käll omvandling för att mappa data flöde 
 
@@ -28,8 +28,12 @@ Varje data flöde kräver minst en käll omvandling. Lägg till så många käll
 
 Koppla din transformering av data flödes källan med exakt en Data Factory data uppsättning. Data uppsättningen definierar formen och platsen för de data som du vill skriva till eller läsa från. Du kan använda jokertecken och fil listor i din källa för att arbeta med fler än en fil i taget.
 
-## <a name="data-flow-staging-areas"></a>Mellanlagrings områden för data flöde
+Genom att använda ett **mönster** alternativ för jokertecken instruerar ADF att gå igenom varje matchande mapp och fil i en enda käll omvandling. Detta är ett mycket effektivt sätt att bearbeta flera filer i ett enda flöde. Om du vill spåra fil namnet som bearbetas för närvarande anger du ett fält namn för fältet "kolumn att lagra fil namn" i käll alternativ.
 
+> [!NOTE]
+> Ange flera matchnings mönster för jokertecken med plus tecknet bredvid ditt befintliga mönster för jokertecken för att lägga till fler regler för jokertecken.
+
+## <a name="data-flow-staging-areas"></a>Mellanlagrings områden för data flöde
 Data flödet fungerar med *mellanlagring* av data uppsättningar som är alla i Azure. Använd de här data uppsättningarna för mellanlagring när du ska transformera dina data. 
 
 Data Factory har åtkomst till nästan 80 inbyggda anslutningar. Om du vill ta med data från de andra källorna i ditt data flöde använder du verktyget kopiera aktivitet för att mellanlagra data i någon av data flödets data flödes mellanlagringsplats.
@@ -101,13 +105,23 @@ Jokertecken exempel:
 
 Container måste anges i data uppsättningen. Sökvägen till jokertecken måste därför även innehålla sökvägen till din mapp från rotmappen.
 
+* **Partitionens rot Sök väg**: Om du har partitionerade mappar i fil källan för ett ```key=value``` format (t. ex. Year = 2019) kan du be ADF att tilldela den översta nivån i det partitionens mappträd till ett kolumn namn i data flödets data ström.
+
+Ange först ett jokertecken för att inkludera alla sökvägar som är de partitionerade mapparna plus de löv-filer som du vill läsa.
+
+![Inställningar för partitionens källfil](media/data-flow/partfile2.png "Fil inställning för partition")
+
+Använd nu inställningen för partitionens rot Sök väg för att meddela ADF vad är den översta nivån i mappstrukturen. När du nu visar innehållet i dina data kommer du att se att ADF lägger till de matchade partitioner som finns i alla mappar.
+
+![Partitionens rot Sök väg] För (media/data-flow/partfile1.png "hands version av partitionens rot Sök väg")
+
 * **Lista över filer**: Detta är en fil uppsättning. Skapa en textfil som innehåller en lista över relativa Sök vägs filer som ska bearbetas. Peka på den här text filen.
 * **Kolumn att lagra fil namn på**: Lagra namnet på käll filen i en kolumn i dina data. Ange ett nytt namn här för att lagra fil namn strängen.
 * **Efter slut för ande**: Välj att inte göra något med käll filen när data flödet körts, ta bort käll filen eller flytta käll filen. Sök vägarna för flytten är relativa.
 
 Om du vill flytta källfilerna till en annan plats efter bearbetning väljer du först flytta för fil åtgärd. Ange sedan "från"-katalogen. Om du inte använder jokertecken för sökvägen, kommer inställningen från att vara samma mapp som källmappen.
 
-Om du har en käll Sök väg med jokertecken, t. ex.:
+Om du har en käll Sök väg med jokertecken så ser din syntax ut så här:
 
 ```/data/sales/20??/**/*.csv```
 
@@ -119,7 +133,7 @@ Och "till" som
 
 ```/backup/priorSales```
 
-I det här fallet flyttas alla under kataloger under/data/Sales som har ursprung i förhållande till/backup/priorSales.
+I det här fallet flyttas alla filer som skrevs under/data/Sales till/backup/priorSales.
 
 ### <a name="sql-datasets"></a>SQL-datauppsättningar
 
@@ -152,8 +166,7 @@ Du kan ändra kolumn data typerna i en senare omvandling med härledd kolumn. An
 ![Inställningar för standard data format](media/data-flow/source2.png "") Standardformat
 
 ### <a name="add-dynamic-content"></a>Lägg till dynamiskt innehåll
-
-När du klickar i fält i inställnings panelen visas en hyperlänk för "Lägg till dynamiskt innehåll". När du klickar här, startas uttrycks verktyget. Här kan du ange värden för inställningar dynamiskt med uttryck, statiska literala värden eller parametrar.
+När du klickar i fält i inställnings panelen visas en hyperlänk för "Lägg till dynamiskt innehåll". När du väljer att starta uttrycks verktyget kan du ange värden dynamiskt med uttryck, statiska literala värden eller parametrar.
 
 ![Parametrar](media/data-flow/params6.png "Parametrar")
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48ebdca1b6abf57a84927e25bca1f85b023fa208
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808911"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726164"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiera data från Concur med Azure Data Factory (förhandsversion)
 
@@ -47,7 +47,7 @@ Följande egenskaper har stöd för Concur länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Concurs** | Ja |
+| type | Egenskapen Type måste anges till: **Concur** | Ja |
 | clientId | Programmet client_id som tillhandahålls av Concurs Apphantering.  | Ja |
 | username | Användarnamnet som används för att komma åt Concurs-tjänsten.  | Ja |
 | password | Lösenordet för det användarnamn som du angav i fältet för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -82,7 +82,7 @@ Kopiera data från Concur genom att ange typegenskapen på datauppsättningen ti
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **ConcurObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **ConcurObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 
@@ -93,11 +93,12 @@ Kopiera data från Concur genom att ange typegenskapen på datauppsättningen ti
     "name": "ConcurDataset",
     "properties": {
         "type": "ConcurObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Concur linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -112,7 +113,7 @@ Om du vill kopiera data från Concur, ange typ av datakälla i kopieringsaktivit
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ConcurSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **ConcurSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Opportunities where Id = xxx "`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

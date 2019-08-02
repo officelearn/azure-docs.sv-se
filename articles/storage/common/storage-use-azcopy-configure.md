@@ -1,46 +1,52 @@
 ---
-title: Konfigurera, optimera och felsöka AzCopy med Azure Storage | Microsoft Docs
-description: Konfigurera, optimera och felsöka AzCopy.
+title: Konfigurera, optimera och Felsök AzCopy med Azure Storage | Microsoft Docs
+description: Konfigurera, optimera och Felsök AzCopy.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 1a67846889b43d582a7a7d477a33f0e2168fd760
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 3773f9a8464dc94436d6d2503b173d4674033ab1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147857"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565040"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
-AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar och filer till eller från ett lagringskonto. Den här artikeln hjälper dig att utföra uppgifter för avancerad konfiguration och hjälper dig att felsöka problem som kan uppstå när du använder AzCopy.
+AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar eller filer till eller från ett lagrings konto. Den här artikeln hjälper dig att utföra avancerade konfigurations åtgärder och hjälper dig att felsöka problem som kan uppstå när du använder AzCopy.
 
 > [!NOTE]
-> Om du letar efter innehåll som hjälper dig att komma igång med AzCopy, se följande artiklar:
+> Om du letar efter innehåll som hjälper dig att komma igång med AzCopy kan du läsa följande artiklar:
 > - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
-> - [Överföra data med AzCopy och blob storage](storage-use-azcopy-blobs.md)
-> - [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
-> - [Överföra data med AzCopy och Amazon S3 buckets](storage-use-azcopy-s3.md)
+> - [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
+> - [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+> - [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
 
-Om du vill konfigurera proxyinställningarna för AzCopy, ange den `https_proxy` miljövariabeln.
+Om du vill konfigurera proxyinställningarna för AzCopy anger du `https_proxy` miljövariabeln. Om du kör AzCopy i Windows identifierar AzCopy automatiskt proxyinställningar, så du behöver inte använda den här inställningen i Windows. Om du väljer att använda den här inställningen i Windows kommer den att åsidosätta automatisk identifiering.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
-| **Windows** | I en kommandotolk använder: `set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell används: `$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | Använd följande i en kommando tolk:`set https_proxy=<proxy IP>:<proxy port>`<br> I PowerShell använder du:`$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
-AzCopy stöder för närvarande inte proxyservrar som kräver autentisering med NTLM eller Kerberos.
+För närvarande stöder AzCopy inte proxyservrar som kräver autentisering med NTLM eller Kerberos.
 
-## <a name="optimize-throughput"></a>Optimera dataflöde
+## <a name="optimize-throughput"></a>Optimera data flödet
 
-Ange den `AZCOPY_CONCURRENCY_VALUE` miljövariabeln konfigurera antalet samtidiga begäranden och för att kontrollera dataflöde prestanda- och förbrukning. Om datorn har färre än 5 processorer, så är värdet för den här variabeln anges till `32`. Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här variabeln är `300`, men du kan manuellt ange ett värde högre eller lägre.
+Du kan använda `cap-mbps` flaggan för att placera ett tak på data flödets data hastighet. Till exempel följande kommando CAPS data flöde till `10` megabit (MB) per sekund.
+
+```azcopy
+azcopy cap-mbps 10
+```
+
+Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ställa in `AZCOPY_CONCURRENCY_VALUE` miljövariabeln. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32`. Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här `300`variabeln är, men du kan manuellt ange det här värdet högre eller lägre.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
@@ -48,11 +54,11 @@ Ange den `AZCOPY_CONCURRENCY_VALUE` miljövariabeln konfigurera antalet samtidig
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-Använd den `azcopy env` att kontrollera det aktuella värdet för den här variabeln.  Om värdet är tomt, kommer `AZCOPY_CONCURRENCY_VALUE` variabeln anges till standardvärdet `300`.
+`azcopy env` Använd för att kontrol lera det aktuella värdet för den här variabeln.  Om värdet är tomt `AZCOPY_CONCURRENCY_VALUE` anges variabeln till `300`standardvärdet.
 
 ## <a name="change-the-location-of-the-log-files"></a>Ändra platsen för loggfilerna
 
-Loggfilerna finns som standard i den `%USERPROFILE\\.azcopy` katalogen på Windows eller i den `$HOME\\.azcopy` på Mac och Linux. Du kan ändra den här platsen om du behöver med hjälp av dessa kommandon.
+Som standard finns loggfiler i `%USERPROFILE\\.azcopy` katalogen på Windows eller `$HOME\\.azcopy` i katalogen på Mac och Linux. Du kan ändra den här platsen om du behöver med hjälp av dessa kommandon.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
@@ -60,30 +66,30 @@ Loggfilerna finns som standard i den `%USERPROFILE\\.azcopy` katalogen på Windo
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-Använd den `azcopy env` att kontrollera det aktuella värdet för den här variabeln. Om värdet är tomt, skrivs loggarna till standardplatsen.
+`azcopy env` Använd för att kontrol lera det aktuella värdet för den här variabeln. Om värdet är tomt skrivs loggar till standard platsen.
 
-## <a name="change-the-default-log-level"></a>Ändra standardnivån
+## <a name="change-the-default-log-level"></a>Ändra standard logg nivån
 
-Som standard AzCopy är loggnivån `INFO`. Om du vill minska log detaljnivå för att spara diskutrymme kan du skriva över den här inställningen med hjälp av den ``--log-level`` alternativet. 
+Som standard är logg nivån för AzCopy inställd på `INFO`. Om du vill minska loggens utförlighet för att spara disk utrymme skriver du över den här inställningen med hjälp ``--log-level`` av alternativet. 
 
-Tillgängliga loggningsnivåerna är: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, och `FATAL`.
+Tillgängliga logg nivåer är: `DEBUG`, `INFO`, `WARNING` `ERROR` `FATAL`, ,och.`PANIC`
 
 ## <a name="troubleshoot-issues"></a>Felsöka problem
 
-AzCopy skapar log och planera filer för alla jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. 
+AzCopy skapar logg-och plan-filer för varje jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. 
 
-Loggarna innehåller statusen för fel (`UPLOADFAILED`, `COPYFAILED`, och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till felet.
+Loggarna innehåller status för felen (`UPLOADFAILED`, `COPYFAILED`, och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
 
-Som standard logg-och planen finns i den `%USERPROFILE\\.azcopy` på Windows eller `$HOME\\.azcopy` på Mac och Linux.
+Som standard finns logg-och plan-filerna i katalogen på `%USERPROFILE\\.azcopy` Windows eller `$HOME\\.azcopy` i en katalog på Mac och Linux.
 
 > [!IMPORTANT]
-> När du skickar en begäran om att Microsoft Support (eller felsöka problem som rör tredje part), dela den redigerade versionen av kommandot som du vill köra. Detta säkerställer att Signaturen inte är delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen.
+> När du skickar en begäran till Microsoft Support (eller fel sökning av problemet som berör tredje part) delar du den avvisade versionen av kommandot som du vill köra. Detta säkerställer att SAS inte delas av misstag med vem. Du kan hitta den avvisade versionen i början av logg filen.
 
-### <a name="review-the-logs-for-errors"></a>Granska loggarna efter fel
+### <a name="review-the-logs-for-errors"></a>Granska loggarna för fel
 
-Följande kommando får alla fel med `UPLOADFAILED` status från den `04dc9ca9-158f-7945-5933-564021086c79` loggen:
+Följande kommando får alla fel med `UPLOADFAILED` status `04dc9ca9-158f-7945-5933-564021086c79` från loggen:
 
-**Windows**
+**Windows (PowerShell)**
 
 ```
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
@@ -97,29 +103,29 @@ grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 
 ### <a name="view-and-resume-jobs"></a>Visa och återuppta jobb
 
-Varje överföring åtgärden skapas ett jobb för AzCopy. Använd följande kommando för att visa historiken för jobb:
+Varje överförings åtgärd kommer att skapa ett AzCopy-jobb. Använd följande kommando för att visa jobb historiken:
 
 ```
 azcopy jobs list
 ```
 
-Om du vill visa projektstatistik, använder du följande kommando:
+Om du vill visa jobb statistiken använder du följande kommando:
 
 ```
 azcopy jobs show <job-id>
 ```
 
-Om du vill filtrera överföringar efter status, använder du följande kommando:
+Använd följande kommando för att filtrera överföringarna efter status:
 
 ```
 azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Använd följande kommando för att återuppta ett jobb som misslyckades/har avbrutits. Det här kommandot använder sin identifierare tillsammans med SAS-token som det är inte beständiga av säkerhetsskäl:
+Använd följande kommando för att återuppta ett misslyckat/avbrutet jobb. Det här kommandot använder sitt ID tillsammans med SAS-token eftersom det inte är beständigt av säkerhets skäl:
 
 ```
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
-När du återuppta ett jobb, söker AzCopy till jobbet plan-filen. Filen plan listar alla filer som har identifierats för bearbetning när jobbet skapades. När du återuppta ett jobb, görs AzCopy försök att överföra alla filer som anges i filen plan som inte redan överförts.
+När du återupptar ett jobb tittar AzCopy på jobb Plans filen. Plan filen visar en lista över alla filer som identifierades för bearbetning när jobbet först skapades. När du återupptar ett jobb kommer AzCopy att försöka överföra alla filer som anges i den plan fil som inte redan har överförts.

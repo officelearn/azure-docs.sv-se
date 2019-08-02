@@ -1,18 +1,18 @@
 ---
 title: Ta bort ett Recovery Services-valv i Azure
 description: Beskriver hur du tar bort ett Recovery Services-valv.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.author: raynew
-ms.openlocfilehash: f98b9a02d12cc53ba23857b203ee3eaed9dd7cfa
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 07/29/2019
+ms.author: dacurwin
+ms.openlocfilehash: 34484c309cb186aabec519e54269fefae316165e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466644"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639909"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
@@ -21,64 +21,99 @@ I den här artikeln beskrivs hur du tar bort ett [Azure Backup](backup-overview.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Du kan inte ta bort ett Recovery Services-valv som har beroenden som skyddade servrar eller säkerhets kopierings hanterings servrar som är associerade med valvet.<br/>
-Det går inte att ta bort valvet som innehåller säkerhets kopierings data (det vill säga även om du har stoppat skyddet men behåller säkerhets kopierings data).
+Du kan inte ta bort ett Recovery Services-valv som har beroenden som skyddade servrar eller säkerhets kopierings hanterings servrar som är associerade med valvet.
 
-Om du tar bort ett valv som innehåller beroenden, visas följande fel meddelande:
+- Det går inte att ta bort valvet som innehåller säkerhets kopierings data (det vill säga även om du har stoppat skyddet men behåller säkerhets kopierings data).
 
-![fel vid borttagning av valv](./media/backup-azure-delete-vault/error.png)
+- Om du tar bort ett valv som innehåller beroenden, visas följande fel meddelande:
 
+  ![Fel vid borttagning av valv](./media/backup-azure-delete-vault/error.png)
+
+- Om du tar bort ett lokalt skyddat objekt (MARS, MABS eller DPM till Azure) från portal som innehåller beroenden visas ett varnings meddelande:
+
+  ![Fel vid borttagning av skyddad Server](./media/backup-azure-delete-vault/error-message.jpg)
+
+  
 Om du vill ta bort valvet väljer du det scenario som matchar konfigurationen och följer de rekommenderade stegen:
 
 Scenario | Steg för att ta bort beroenden för att ta bort valv |
 -- | --
-Jag har lokala filer och mappar som skyddas med hjälp av Azure Backup Agent (MARS) säkerhets kopiering till Azure | Utför stegen i ta bort säkerhets kopierings data och säkerhets kopierings objekt – [för mars](#for-mars-agent) -agenten
-Jag har lokala datorer som skyddas med MABS (Microsoft Azure Backup Server) eller DPM till Azure (System Center Data Protection Manager) | Utför stegen i ta bort säkerhets kopierings data och säkerhets kopierings objekt – [för Mabs-agent](#for-mabs-agent)
-Jag har skyddade objekt i molnet (t. ex. laaS VM, Azure-filresurs osv.)  | Utför stegen i ta bort säkerhets kopierings data och säkerhets kopierings objekt – [för skyddade objekt i molnet](#for-protected-items-in-cloud)
-Jag har skyddade objekt både lokalt och i molnet | Utför stegen i ta bort säkerhets kopierings data och säkerhets kopierings objekt i ordningen nedan: <br> - [För skyddade objekt i molnet](#for-protected-items-in-cloud)<br> - [För MABS-agent](#for-mars-agent) <br> - [För MABS-agent](#for-mabs-agent)
+Jag har lokala filer och mappar som skyddas med hjälp av Azure Backup Agent (MARS) säkerhets kopiering till Azure | Utför stegen i ta bort säkerhets kopierings data och säkerhets kopierings objekt – [för mars](#delete-backup-items-from-mars-management-console) -agenten
+Jag har lokala datorer som skyddas med MABS (Microsoft Azure Backup Server) eller DPM till Azure (System Center Data Protection Manager) | Utför stegen i ta bort säkerhets kopierings data och säkerhets kopierings objekt – [för Mabs-agent](#delete-backup-items-from-mabs-management-console)
+Jag har skyddade objekt i molnet (t. ex. laaS VM, Azure-filresurs osv.)  | Utför stegen i ta bort säkerhets kopierings data och säkerhets kopierings objekt – [för skyddade objekt i molnet](#delete-protected-items-in-cloud)
+Jag har skyddade objekt både lokalt och i molnet | Utför stegen i ta bort säkerhets kopierings data och säkerhets kopierings objekt i ordningen nedan: <br> - [För skyddade objekt i molnet](#delete-protected-items-in-cloud)<br> - [För MARS-agent](#delete-backup-items-from-mars-management-console) <br> - [För MABS-agent](#delete-backup-items-from-mabs-management-console)
 Jag har inga skyddade objekt lokalt eller i molnet. men jag får fortfarande valvet borttagnings fel | Utför stegen i [ta bort Recovery Services valvet med Azure Resource Manager-klienten](#delete-the-recovery-services-vault-using-azure-resource-manager-client)
-Jag har inte den ursprungliga lokala servern längre (förlorad/inaktive rad) och jag vill ta bort Recovery Services valvet | Kontakta Microsoft-supporten.
 
-## <a name="delete-backup-data-and-backup-items"></a>Ta bort säkerhets kopierings data och säkerhets kopierings objekt
+
+## <a name="delete-protected-items-in-cloud"></a>Ta bort skyddade objekt i molnet
 
 Innan du fortsätter att läsa **[det här](#before-you-start)** avsnittet för att förstå borttagnings processen för beroenden och valvet.
 
-### <a name="for-protected-items-in-cloud"></a>För skyddade objekt i molnet
-
 Gör så här om du vill stoppa skyddet och ta bort säkerhetskopierade data:
 
-1. Från Portal > Recovery Services valv > säkerhets kopierings objekt väljer du skyddade objekt i molnet.
+1. Från Portal > **Recovery Services Vault** > **säkerhets kopierings objekt** väljer du skyddade objekt i molnet (exempel AzureVirtual Machine, Azure Storage (Azure Files), SQL o Azure VM och så vidare).
 
-    ![Välj typ av säkerhets kopiering](./media/backup-azure-delete-vault/azure-storage-selected.jpg)
+    ![Välj typ av säkerhets kopiering](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. För varje objekt måste du högerklicka och välja **stoppa säkerhets kopiering**.
+2. Högerklicka på säkerhets kopierings objekt, beroende på om objektet är skyddat eller inte, så visas **Avbryt säkerhets kopiering** eller **ta bort säkerhetskopierade data**.
 
-    ![Välj typ av säkerhets kopiering](./media/backup-azure-delete-vault/stop-backup-item.png)
+    - För **Avbryt säkerhets kopiering**väljer du **ta bort säkerhets kopierings data** från List rutan. Ange **namnet** på säkerhets kopierings objekt (Skift läges känsligt), Välj en **orsak**, ange **kommentarer**och klicka på **stoppa säkerhets kopiering**.
 
-3. I **stoppa säkerhets kopiering** > **väljer du ett alternativ**och väljer **ta bort säkerhetskopierade data**.
-4. Skriv namnet på objektet och klicka på **stoppa säkerhets kopiering**.
-   - Detta verifierar att du vill ta bort objektet.
-   - Knappen **stoppa säkerhets kopiering** aktive ras när du har verifierat.
-   - Om du behåller och inte tar bort data kan du inte ta bort valvet.
+        ![Välj typ av säkerhets kopiering](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-     ![ta bort säkerhets kopierings data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+    - För att **ta bort säkerhets kopierings data**anger du namnet på säkerhets kopierings objekt (Skift läges känsligt), väljer en **orsak**, anger **kommentarer**och klickar på **ta bort**. 
+
+         ![ta bort säkerhets kopierings data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
 5. Kontrol lera **meddelandet** ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/messages.png). När tjänsten har slutförts visar tjänsten meddelandet: **Stoppar säkerhets kopiering och tar bort säkerhetskopierade data för*säkerhets kopierings objekt*** . **Åtgärden**har slutförts.
 6. Klicka på **Uppdatera** på menyn **säkerhets kopierings objekt** för att kontrol lera om säkerhets kopierings objekt tas bort.
 
       ![ta bort säkerhets kopierings data](./media/backup-azure-delete-vault/empty-items-list.png)
 
-### <a name="for-mars-agent"></a>För MARS-agent
+## <a name="delete-protected-items-on-premises"></a>Ta bort skyddade objekt lokalt
 
-Om du vill stoppa skyddet och ta bort säkerhetskopierade data utför du stegen i nedanstående ordning:
+Innan du fortsätter att läsa **[det här](#before-you-start)** avsnittet för att förstå borttagnings processen för beroenden och valvet.
 
-- [Steg 1: Ta bort säkerhets kopierings objekt från MARS Management Console](#step-1-delete-backup-items-from-mars-management-console)
-- [Steg 2: Ta bort Azure Backup Agent från portalen](#step-1-delete-backup-items-from-mars-management-console)
+1. På instrument panelen för valv klickar du på **infrastruktur för säkerhets kopiering**.
+2. Välj alternativet nedan beroende på ditt lokala scenario:
+
+      - För **Azure Backup Agent**väljer du **skyddade servrar** > **Azure Backup Agent** och väljer den server som du vill ta bort. 
+
+        ![Välj ditt valv för att öppna dess instrument panel](./media/backup-azure-delete-vault/identify-protected-servers.png)
+
+      - För **Azure Backup Server**/**DPM**väljer du **säkerhets kopierings hanterings servrar**. Välj den server som du vill ta bort. 
 
 
-#### <a name="step-1-delete-backup-items-from-mars-management-console"></a>Steg 1: Ta bort säkerhets kopierings objekt från MARS Management Console
+          ![öppna instrument panelen genom att välja valv](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-Kontakta Microsoft-supporten om du inte kan utföra det här steget på grund av att servern inte är tillgänglig.
+3. Bladet **ta bort** visas med varnings meddelandet.
+
+     ![ta bort säkerhets kopierings data](./media/backup-azure-delete-vault/delete-protected-server.png)
+
+     Läs varnings meddelandet och de instruktioner som visas i kryss rutan medgivande.
+    
+    > [!NOTE]
+    >- Om den skyddade servern är synkroniserad med Azure-tjänsten och det finns säkerhets kopierings objekt, visar kryss rutan medgivande antalet beroende säkerhets kopierings objekt och länken för att Visa säkerhets kopierings objekt.
+    >- Om den skyddade servern inte är synkroniserad med Azure-tjänsten och säkerhets kopierings objekt finns visas antalet säkerhets kopierings objekt i kryss rutan medgivande.
+    >- Om det inte finns några säkerhets kopierings objekt uppmanas du att ta bort kryss rutan.
+
+4. Markera kryss rutan medgivande och klicka på **ta bort**.
+
+
+
+
+5. Kontrol lera **meddelandet** ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/messages.png). När tjänsten har slutförts visar tjänsten meddelandet: **Stoppar säkerhets kopiering och tar bort säkerhetskopierade data för*säkerhets kopierings objekt*** . **Åtgärden**har slutförts.
+6. Klicka på **Uppdatera** på menyn **säkerhets kopierings objekt** för att kontrol lera om säkerhets kopierings objekt tas bort.
+
+Nu kan du fortsätta att ta bort säkerhets kopierings objekt från hanterings konsolen:
+    
+   - [Objekt som skyddas med MARS](#delete-backup-items-from-mars-management-console)
+    - [Objekt som skyddas med MABS](#delete-backup-items-from-mabs-management-console)
+
+
+### <a name="delete-backup-items-from-mars-management-console"></a>Ta bort säkerhets kopierings objekt från MARS Management Console
+
+Ta bort säkerhets kopierings objekt från MARS Management Console
 
 - Starta MARS Management-konsolen, gå till **Åtgärds** fönstret och välj **Schemalägg säkerhets kopiering**.
 - Från **ändra eller stoppa en schemalagd säkerhets kopierings** guide väljer du alternativet **sluta använda säkerhets kopierings schema och tar bort alla lagrade säkerhets kopior** och klickar på **Nästa**.
@@ -102,68 +137,25 @@ Kontakta Microsoft-supporten om du inte kan utföra det här steget på grund av
 
 Nu när du har tagit bort de säkerhetskopierade objekten från den lokala platsen slutför du nästa steg från portalen.
 
-#### <a name="step-2-from-portal-remove-azure-backup-agent"></a>Steg 2: Ta bort Azure Backup Agent från portalen
+### <a name="delete-backup-items-from-mabs-management-console"></a>Ta bort säkerhets kopierings objekt från MABS Management Console
 
-Se till att [steg 1](#step-1-delete-backup-items-from-mars-management-console) har slutförts innan du fortsätter:
-
-1. På instrument panelen för valv klickar du på **infrastruktur för säkerhets kopiering**.
-2. Klicka på **skyddade servrar** för att Visa infrastruktur servrarna.
-
-    ![Välj ditt valv för att öppna dess instrument panel](./media/backup-azure-delete-vault/identify-protected-servers.png)
-
-3. Klicka på Azure Backup Agent i listan **skyddade servrar** .
-
-    ![Välj typ av säkerhets kopiering](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
-
-4. Klicka på servern i listan över servrar som skyddas med Azure Backup-agenten.
-
-    ![Välj den angivna skyddade servern](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
-
-5. På den valda Server instrument panelen klickar du på **ta bort**.
-
-    ![ta bort den valda servern](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
-
-6. Skriv namnet på servern på menyn **ta bort** och klicka på **ta bort**.
-
-     ![ta bort säkerhets kopierings data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
-
-> [!NOTE]
-> Om du ser felet nedan utför du först stegen som visas i [ta bort säkerhets kopierings objekt från hanterings konsolen](#step-1-delete-backup-items-from-mars-management-console).
->
->![borttagningen misslyckades](./media/backup-azure-delete-vault/deletion-failed.png)
->
->Kontakta Microsoft-supporten om du inte kan utföra stegen för att ta bort säkerhets kopior från hanterings konsolen, till exempel på grund av att servern inte är tillgänglig i hanterings konsolen.
-
-7. Kontrol lera **meddelandet** ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/messages.png). När tjänsten har slutförts visar tjänsten meddelandet: **Stoppar säkerhets kopiering och tar bort säkerhetskopierade data för*säkerhets kopierings objekt*** . **Åtgärden**har slutförts.
-8. Klicka på **Uppdatera** på menyn **säkerhets kopierings objekt** för att kontrol lera om säkerhets kopierings objekt tas bort.
-
-
-### <a name="for-mabs-agent"></a>För MABS-agent
-
-Om du vill stoppa skyddet och ta bort säkerhetskopierade data utför du stegen i nedanstående ordning:
-
-- [Steg 1: Ta bort säkerhets kopierings objekt från MABS Management Console](#step-1-delete-backup-items-from-mabs-management-console)
-- [Steg 2: Ta bort Azure Backup hanterings servrar från portalen](#step-2-from-portal-remove-azure-backup-agent)
-
-#### <a name="step-1-delete-backup-items-from-mabs-management-console"></a>Steg 1: Ta bort säkerhets kopierings objekt från MABS Management Console
-
-Kontakta Microsoft-supporten om du inte kan utföra det här steget på grund av att servern inte är tillgänglig.
+Ta bort säkerhets kopierings objekt från MABS Management Console
 
 **Metod 1** Gör så här för att stoppa skyddet och ta bort säkerhetskopierade data:
 
 1.  I DPM-administratörskonsol klickar du på **skydd** i navigerings fältet.
 2.  I visningsfönstret väljer du den skydds grupps medlem som du vill ta bort. Högerklicka för att välja alternativet **stoppa skyddet av grupp medlemmar** .
-3.  I dialog **rutan stoppa skydd** väljer du kryss **rutan ta bort skyddade data** > **ta bort lagring online** och klickar sedan på **stoppa skydd**.
+3.  I dialog **rutan stoppa skydd** markerar du kryss **rutan ta bort skyddade data** > **ta bort lagring online** och klickar sedan på **stoppa skydd**.
 
     ![Ta bort lagring online](./media/backup-azure-delete-vault/delete-storage-online.png)
 
 Den skyddade medlems statusen har nu ändrats till en **inaktiv replikering är tillgänglig**.
 
-5. Högerklicka på den inaktiva skydds gruppen och välj **ta bort inaktivt skydd**.
+4. Högerklicka på den inaktiva skydds gruppen och välj **ta bort inaktivt skydd**.
 
     ![Ta bort inaktivt skydd](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
-6. Från fönstret **ta bort inaktivt skydd** väljer du **ta bort online-lagring** och klickar på **OK**.
+5. Från fönstret **ta bort inaktivt skydd** väljer du **ta bort online-lagring** och klickar på **OK**.
 
     ![Ta bort repliker på disk och online](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
@@ -173,35 +165,11 @@ Den skyddade medlems statusen har nu ändrats till en **inaktiv replikering är 
 
 Nu när du har tagit bort de säkerhetskopierade objekten från den lokala platsen slutför du nästa steg från portalen.
 
-#### <a name="step-2-from-portal-remove-azure-backup-management-servers"></a>Steg 2: Ta bort Azure Backup hanterings servrar från portalen
-
-Se till att [steg 1](#step-1-delete-backup-items-from-mabs-management-console) har slutförts innan du fortsätter:
-
-1. På instrument panelen för valv klickar du på **infrastruktur för säkerhets kopiering**.
-2. Klicka på **säkerhets kopierings hanterings servrar** för att visa servrar.
-
-    ![öppna instrument panelen genom att välja valv](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
-
-3. Högerklicka på objektet > **ta bort**.
-4. Skriv namnet på servern på menyn **ta bort** och klicka på **ta bort**.
-
-     ![ta bort säkerhets kopierings data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
-
-> [!NOTE]
-> Om du ser felet nedan utför du först stegen som visas i [ta bort säkerhets kopierings objekt från hanterings konsolen](#step-2-from-portal-remove-azure-backup-management-servers).
->
->![borttagningen misslyckades](./media/backup-azure-delete-vault/deletion-failed.png)
->
-> Kontakta Microsoft-supporten om du inte kan utföra stegen för att ta bort säkerhets kopior från hanterings konsolen, till exempel på grund av att servern inte är tillgänglig i hanterings konsolen.
-
-5. Kontrol lera **meddelandet** ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/messages.png). När tjänsten har slutförts visar tjänsten meddelandet: **Stoppar säkerhets kopiering och tar bort säkerhetskopierade data för*säkerhets kopierings objekt*** . **Åtgärden**har slutförts.
-6. Klicka på **Uppdatera** på menyn **säkerhets kopierings objekt** för att kontrol lera om säkerhets kopierings objekt tas bort.
-
 
 ## <a name="delete-the-recovery-services-vault"></a>Ta bort Recovery Services-valvet
 
-1. När alla beroenden har tagits bort bläddrar du  till fönstret Essentials i menyn valv.
-2. Kontrol lera att det inte finns några **säkerhets kopierings objekt**, **säkerhets kopierings hanterings servrar**eller **replikerade objekt** i listan. Om objekten fortfarande visas i valvet [tar du bort dem](#delete-backup-data-and-backup-items).
+1. När alla beroenden har tagits bort bläddrar du till fönstret Essentials i menyn valv.
+2. Kontrol lera att det inte finns några **säkerhets kopierings objekt**, **säkerhets kopierings hanterings servrar**eller **replikerade objekt** i listan. Om objekten fortfarande visas i valvet, se avsnittet [innan du börjar](#before-you-start) .
 
 3. När det inte finns några fler objekt i valvet klickar du på **ta bort**på instrument panelen för valvet.
 
@@ -213,9 +181,7 @@ Se till att [steg 1](#step-1-delete-backup-items-from-mabs-management-console) h
 
 Det här alternativet för att ta bort Recovery Servicess valvet rekommenderas endast när alla beroenden tas bort och du får fortfarande ett fel när du *tar*bort valvet.
 
-
-
-- I fönstret **Essentials** i menyn valv kontrollerar du att det inte finns några **säkerhets kopierings objekt**, **säkerhets kopierings hanterings servrar**eller **replikerade objekt** i listan. Om det finns säkerhets kopierings objekt utför du stegen i [ta bort säkerhets kopierings data och säkerhets kopierings objekt](#delete-backup-data-and-backup-items).
+- I fönstret **Essentials** i menyn valv kontrollerar du att det inte finns några **säkerhets kopierings objekt**, **säkerhets kopierings hanterings servrar**eller **replikerade objekt** i listan. Om det finns säkerhets kopierings objekt, se avsnittet [innan du börjar](#before-you-start) ..
 - Försök [att ta bort valvet från portalen](#delete-the-recovery-services-vault)igen.
 - Om alla beroenden tas bort och du fortfarande får borttagnings *felet* för valvet använder du ARMClient-verktyget för att utföra stegen som anges nedan.
 

@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Azure trafikanalys | Microsoft Docs
-description: Få svar på några av de vanligaste frågorna om trafikanalys.
+title: Vanliga frågor och svar om Azure Traffic Analytics | Microsoft Docs
+description: Få svar på några vanliga frågor om trafik analys.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -13,62 +13,62 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 45200e7620326dedcee92c579843e61bb07ff68e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051640"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610246"
 ---
-# <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
+# <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
 
-Den här artikeln samlar in på samma ställe många av de vanligaste frågorna om trafikanalys i Azure Network Watcher.
+Den här artikeln samlar in på en plats många av de vanligaste frågorna om trafik analys i Azure Network Watcher.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Vilka är kraven för att använda trafikanalys?
+## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Vilka är kraven för att använda trafik analys?
 
-Trafikanalys kräver följande förutsättningar:
+Trafikanalys kräver följande krav:
 
-- En Network Watcher aktiverat prenumeration.
-- Flödesloggar för Nätverkssäkerhetsgruppen (NSG) har aktiverats för NSG: er som du vill övervaka.
-- Ett Azure Storage-konto, att lagra rådata flödesloggar.
-- En Azure Log Analytics-arbetsyta med läs- och skrivbehörighet.
+- En Network Watcher aktive rad prenumeration.
+- Flödes loggar för nätverks säkerhets grupper (NSG) aktiverat för den NSG: er som du vill övervaka.
+- Ett Azure Storage konto för att lagra rå Flow-loggar.
+- En Azure Log Analytics-arbetsyta med Läs-och Skriv behörighet.
 
-Ditt konto måste uppfylla ett av följande för att aktivera trafikanalys:
+Ditt konto måste uppfylla något av följande för att aktivera trafik analys:
 
-- Kontot måste ha någon av följande roller för rollbaserad åtkomstkontroll (RBAC) prenumerationsområde: ägare, deltagare, läsare eller nätverksdeltagare.
-- Om ditt konto inte har tilldelats någon av ovanstående roller, måste det tilldelas till en anpassad roll som tilldelats följande åtgärder på prenumerationsnivån.
+- Ditt konto måste ha någon av följande roller för rollbaserad åtkomst kontroll (RBAC) i prenumerations omfånget: ägare, deltagare, läsare eller nätverks deltagare.
+- Om ditt konto inte har tilldelats någon av de tidigare angivna rollerna, måste det tilldelas en anpassad roll som har tilldelats följande åtgärder på prenumerations nivå.
             
     - Microsoft.Network/applicationGateways/read
-    - Microsoft.Network/connections/read
+    - Microsoft. Network/Connections/Read
     - Microsoft.Network/loadBalancers/read 
     - Microsoft.Network/localNetworkGateways/read 
     - Microsoft.Network/networkInterfaces/read 
     - Microsoft.Network/networkSecurityGroups/read 
     - Microsoft.Network/publicIPAddresses/read
-    - Microsoft.Network/routeTables/read
+    - Microsoft. Network/routeTables/Read
     - Microsoft.Network/virtualNetworkGateways/read 
     - Microsoft.Network/virtualNetworks/read
         
-Så här kontrollerar roller som är tilldelade till en användare för en prenumeration:
+Så här kontrollerar du roller som har tilldelats en användare för en prenumeration:
 
-1. Logga in på Azure med hjälp av **inloggning AzAccount**. 
+1. Logga in på Azure med hjälp av **login-AzAccount**. 
 
-2. Välj prenumerationen som krävs med hjälp av **Välj AzSubscription**. 
+2. Välj den prenumeration som krävs genom att använda **Select-AzSubscription**. 
 
-3. Om du vill visa alla roller som har tilldelats en angiven användare använda **Get-AzRoleAssignment - SignInName [användarens e-postadress] - IncludeClassicAdministrators**. 
+3. Om du vill visa en lista över alla roller som har tilldelats en angiven användare använder du **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
 
-Om du inte ser några utdata, kontakta administratören för respektive prenumeration för att få åtkomst till kommandon. Mer information finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Om du inte ser några utdata kan du kontakta respektive prenumerations administratör för att få åtkomst till att köra kommandona. Mer information finns i [Hantera rollbaserad åtkomst kontroll med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>I vilka Azure-regioner finns trafikanalys?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>I vilka Azure-regioner är Trafikanalys tillgängliga?
 
-Du kan använda trafikanalys för NSG: er i någon av de följande regionerna som stöds:
+Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 - Centrala Kanada
 - Västra centrala USA
-- Östra USA
+- East US
 - USA, östra 2
 - Norra centrala USA
 - Södra centrala USA
@@ -87,19 +87,19 @@ Du kan använda trafikanalys för NSG: er i någon av de följande regionerna so
 - Sydostasien
 - Sydkorea, centrala
 - Indien, centrala
-- Södra Indien
+- Indien, södra
 - Östra Japan
 - Västra Japan
 - Virginia (USA-förvaltad region)
 
-Log Analytics-arbetsytan måste finnas i följande regioner:
+Arbets ytan Log Analytics måste finnas i följande regioner:
 - Centrala Kanada
 - Västra centrala USA
 - Västra USA
 - Västra USA 2
 - Södra centrala USA
 - Centrala USA
-- Östra USA
+- East US
 - USA, östra 2
 - Frankrike, centrala
 - Västra Europa
@@ -114,71 +114,71 @@ Log Analytics-arbetsytan måste finnas i följande regioner:
 - Östra Japan
 - Virginia (USA-förvaltad region)
 
-## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Kan jag aktivera flödet NSG: erna loggar för finnas i olika regioner än Min arbetsyta?
+## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Kan NSG: er jag aktivera flödes loggar i olika regioner än min arbets yta?
 
-Ja, de här NSG: er kan finnas i olika regioner än din Log Analytics-arbetsyta.
+Ja, dessa NSG: er kan finnas i olika regioner än din Log Analytics-arbetsyta.
 
-## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Kan flera NSG: er konfigureras i en enda arbetsyta?
+## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Kan flera NSG: er konfigureras inom en enda arbets yta?
 
 Ja.
 
-## <a name="can-i-use-an-existing-workspace"></a>Kan jag använda en befintlig arbetsyta?
+## <a name="can-i-use-an-existing-workspace"></a>Kan jag använda en befintlig arbets yta?
 
-Ja. Om du väljer en befintlig arbetsyta kan du kontrollera att den har migrerats till det nya frågespråket. Om du inte vill uppgradera arbetsytan måste du skapa en ny. Läs mer om det nya frågespråket [Azure Monitor loggar uppgraderingen till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md).
+Ja. Om du väljer en befintlig arbets yta ser du till att den har migrerats till det nya frågespråket. Om du inte vill uppgradera arbets ytan måste du skapa en ny. Mer information om det nya frågespråket finns [Azure Monitor loggar uppgradera till ny loggs ökning](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Kan min Azure Storage-konto i en prenumeration och min Log Analytics-arbetsyta är i en annan prenumeration?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Kan mitt Azure Storage konto finnas i en prenumeration och min Log Analytics arbets yta är i en annan prenumeration?
 
-Ja, Azure Storage-kontot kan vara i en prenumeration och Log Analytics-arbetsytan kan vara i en annan prenumeration.
+Ja, ditt Azure Storage konto kan finnas i en prenumeration och din Log Analytics arbets yta kan finnas i en annan prenumeration.
 
-## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Kan jag lagra loggarna i en annan prenumeration?
+## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Kan jag lagra obehandlade loggar i en annan prenumeration?
 
-Nej. Du kan lagra loggarna i alla lagringskonton där en NSG har aktiverats för flödesloggar. Både lagringskontot och på loggarna måste vara i samma prenumeration och region.
+Nej. Du kan lagra obehandlade loggar i valfritt lagrings konto där en NSG är aktive rad för flödes loggar. Både lagrings kontot och de råa loggarna måste dock vara i samma prenumeration och region.
 
-## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Vad händer om jag kan inte konfigurera en NSG för trafikanalys pga ett fel som ”hittades inte”?
+## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Vad händer om jag inte kan konfigurera en NSG för trafik analys på grund av ett fel som inte hittas?
 
-Välj en region som stöds. Om du väljer ett område som inte stöds visas felmeddelandet ”hittades inte”. Regioner som stöds anges tidigare i den här artikeln.
+Välj en region som stöds. Om du väljer en region som inte stöds visas fel meddelandet "Det gick inte att hitta". De regioner som stöds finns i listan tidigare i den här artikeln.
 
-## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Vad händer om jag får status, ”det gick inte att läsa in”, under sidan NSG flödet loggar?
+## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Vad händer om jag får statusen "Det gick inte att läsa in" på sidan för NSG Flow-loggar?
 
-Microsoft.Insights-providern måste vara registrerad för flow loggning för att fungera korrekt. Om du inte är säker på om Microsoft.Insights-providern är registrerad för din prenumeration ersätter *xxxxx-xxxxx-xxxxxx-xxxx* i följande kommando och kör följande kommandon från PowerShell:
+Microsoft. Insights-providern måste registreras för att flödes loggning ska fungera korrekt. Om du inte är säker på om Microsoft. Insights-providern har registrerats för din prenumeration ersätter du *xxxxx-xxxxx-xxxxxx-xxxx* i följande kommando och kör följande kommandon från PowerShell:
 
 ```powershell-interactive
 **Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
 **Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
-## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Jag har konfigurerat lösningen. Varför ser jag inte något på instrumentpanelen?
+## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Jag har konfigurerat lösningen. Varför ser jag inte något på instrument panelen?
 
-Instrumentpanelen kan ta upp till 30 minuter att visas första gången. Lösningen måste först aggregera tillräckligt med data att dra användbara slutsatser. Sedan genererar den rapporter. 
+Det kan ta upp till 30 minuter innan instrument panelen visas första gången. Lösningen måste först samla in tillräckligt med data för att den ska kunna härleda meningsfulla insikter. Sedan skapas rapporter. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Vad händer om jag får det här meddelandet: ”Vi kunde inte hitta några data i den här arbetsytan för valda tidsintervallet. Försök att ändra tidsintervallet eller välj en annan arbetsyta ”.?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Vad händer om jag får det här meddelandet: "Det gick inte att hitta några data i den här arbets ytan för det valda tidsintervallet. Försök att ändra tidsintervall eller Välj en annan arbets yta. "?
 
 Prova följande alternativ:
-- Ändra tidsintervallet i det övre fältet.
-- Välj en annan Log Analytics-arbetsyta i den övre stapeln.
-- Försök att öppna trafikanalys efter 30 minuter om det nyligen har aktiverats.
+- Ändra tidsintervallet i den övre stapeln.
+- Välj en annan Log Analytics arbets yta i det övre fältet.
+- Försök att komma åt trafik analys efter 30 minuter, om det nyligen har Aktiver ATS.
     
-Om problemet kvarstår kan du ställa frågor i den [User voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Om problemen kvarstår kan du lösa problemet i [User Voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: ”Analysera NSG-flödesloggar för första gången. Den här processen kan ta 20 – 30 minuter att slutföra. Komma tillbaka efter en stund. 2) om ovanstående steg inte fungerar och din arbetsytan tillhör kostnadsfritt SKU: N, kontrollera din arbetsyta användningsdata här för att verifiera över kvot, eller Läs vanliga frågor och svar för ytterligare information ”.?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: "Analyserar dina NSG Flow-loggar för första gången. Den här processen kan ta 20-30 minuter att slutföra. Kom tillbaka efter en stund. 2) om steget ovan inte fungerar och din arbets yta är under den kostnads fria SKU: n kontrollerar du arbets ytans användning här för att validera kvoten. mer information finns i vanliga frågor och svar om ytterligare information. "
 
-Du kanske ser det här meddelandet eftersom:
-- Trafikanalys nyligen har aktiverats och kan inte ännu har sammanställd tillräckligt med data att dra användbara slutsatser.
-- Du använder den kostnadsfria versionen av Log Analytics-arbetsytan och det överskrider kvotgränserna. Du kan behöva använda en arbetsyta med en större kapacitet.
+Du kan se det här meddelandet på grund av följande:
+- Trafikanalys nyligen har Aktiver ATS och kanske ännu inte har samlat ihop tillräckligt med data för att kunna härleda meningsfulla insikter.
+- Du använder den kostnads fria versionen av Log Analytics-arbetsytan och överskrider kvot gränsen. Du kan behöva använda en arbets yta med en större kapacitet.
     
-Om problemet kvarstår kan du ställa frågor i den [User voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Om problemen kvarstår kan du lösa problemet i [User Voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: ”Det verkar finnas resursdata (topologi) men ingen information om flöden. Under tiden kan klicka här om du vill visa resursdata och referera till vanliga frågor och svar för ytterligare information ”.?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: "Det verkar som om vi har resursers data (topologi) och ingen flödes information. Klicka här för att visa information om resurser och Läs vanliga frågor och svar om du vill ha mer information.
 
-Du ser informationen om resurser på instrumentpanelen; men det finns ingen flow-statistik. Data kan inte finnas på grund av inga kommunikationsflöden mellan resurser. Vänta tills 60 minuter och kontrollera status. Om problemet kvarstår och du vet att det inte finns kommunikationsflöden mellan resurser, ställa frågor i den [User voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Du ser resurs informationen på instrument panelen. Det finns dock ingen flödes relaterad statistik. Det kan finnas data som inte finns på grund av att det inte finns några kommunikations flöden mellan resurserna. Vänta i 60 minuter och kontrol lera statusen igen. Om problemet kvarstår och du är säker på att kommunikations flöden mellan resurser finns, kan du ta upp problem i [användar röst forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Kan jag konfigurera trafikanalys med hjälp av PowerShell eller Azure Resource Manager-mall eller klient?
+## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Kan jag konfigurera trafik analys med PowerShell eller en Azure Resource Manager mall eller klient?
 
-Du kan konfigurera trafikanalys med hjälp av Windows PowerShell från version 6.2.1 och senare. För att konfigurera flödesloggar och trafikanalys för en specifik NSG med hjälp av cmdleten Set, se [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Om du vill hämta flödesloggar och status för trafikanalys för en specifik NSG, se [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Du kan konfigurera trafik analys med hjälp av Windows PowerShell från version 6.2.1 och senare. Om du vill konfigurera flödes loggning och trafik analys för en speciell NSG med hjälp av Set-cmdleten, se [set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). För att hämta flödes loggning och trafik analys status för en speciell NSG, se [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
-För närvarande kan använda du inte en Azure Resource Manager-mall för att konfigurera trafikanalys.
+För närvarande kan du inte använda en Azure Resource Manager mall för att konfigurera trafik analys.
 
-Se följande exempel för att konfigurera trafikanalys genom att använda en Azure Resource Manager-klienten.
+Information om hur du konfigurerar trafik analys genom att använda en Azure Resource Manager-klient finns i följande exempel.
 
 **Ange cmdlet-exempel:**
 ```
@@ -240,98 +240,98 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-## <a name="how-is-traffic-analytics-priced"></a>Hur prissätts trafikanalys?
+## <a name="how-is-traffic-analytics-priced"></a>Hur kostar det att Trafikanalys?
 
-Trafikanalys mäts. Den Avläsning av programvara baseras på bearbetningen av loggdata för flödet av tjänsten och lagra den resulterande förbättrad loggar i Log Analytics-arbetsytan. 
+Trafikanalys mäts. Mätningen baseras på bearbetning av flödes logg data från tjänsten och lagrar de resulterande, utökade loggarna på en Log Analytics-arbetsyta. 
 
-Till exempel enligt den [prisavtal](https://azure.microsoft.com/pricing/details/network-watcher/), överväger USA, västra centrala regionen, om flödesloggarna data som lagras i ett lagringskonto som bearbetas av trafikanalys är 10 GB och förbättrad loggar som matas in i Log Analytics-arbetsyta är 1 GB används tillämpliga kostnader är: 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Till exempel, enligt [pris Planen](https://azure.microsoft.com/pricing/details/network-watcher/), som beaktar västra centrala USA-regionen, om flöde loggar data som lagras i ett lagrings konto som bearbetas av trafikanalys är 10 GB och förbättrad loggar som matas in i Log Analytics arbets ytan är 1 GB är tillämpliga kostnader följande: 10 x $2,3 + 1 x $2,76 = $25,76
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>Hur ofta bearbetar trafikanalys data?
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Hur ofta Trafikanalys bearbetar data?
 
-Referera till den [aggregering dataavsnittet](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) i Traffic Analytics schemat och Data aggregering dokumentet
+Referera till [avsnittet data agg regering](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) i trafikanalys schema och data agg regerings dokument
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Hur trafikanalys till besluta att en IP-adress är skadliga? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Hur avgör Trafikanalys att en IP-adress är skadlig? 
 
-Trafikanalys förlitar sig på Microsoft interna threat intelligence system, vilket anser en IP-adress som skadlig. Dessa system utnyttja olika telemetri källor som Microsoft-produkter och tjänster, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) och externa informationskällor och skapa en massa intelligence ovanpå den. Vissa av dessa data är tack internt. Om en känd IP-adress flaggas om som malicios, skapar du ett supportärende för att känna till.
+Trafikanalys är beroende av Microsofts interna hot informations system för att anse en IP-adress som skadlig. De här systemen använder olika typer av telemetri, t. ex. Microsofts produkter och tjänster, Microsoft Digital brottslighet Unit (DCU), Microsoft Security Response Center (MSRC) och externa feeds och bygger mycket information på den. En del av dessa data är Microsoft Internal. Om en känd IP-adress har flaggats som skadlig, kan du generera ett support ärende om du vill veta mer.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Hur kan jag för att ställa in aviseringar på trafikanalys data?
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Hur kan jag ange aviseringar för Trafikanalys data?
 
-Trafikanalys har inte inbyggt stöd för aviseringar. Eftersom trafikanalys data lagras i Log Analytics du dock skriva anpassade frågor och ställa in aviseringar på dem. Steg:
-- Du kan använda kortlänks-URL för Log Analytics i trafikanalys. 
-- Använd den [schemat dokumenteras här](traffic-analytics-schema.md) att skriva dina frågor 
-- Klicka på ”ny aviseringsregel” att skapa aviseringen
-- Referera till [log aviseringar dokumentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) att skapa aviseringen
+Trafikanalys har inte inbyggt stöd för aviseringar. Men eftersom Trafikanalys data lagras i Log Analytics kan du skriva anpassade frågor och ange aviseringar för dem. Sätt
+- Du kan använda kortlänk för Log Analytics i Trafikanalys. 
+- Använd [schemat som beskrivs här](traffic-analytics-schema.md) för att skriva dina frågor 
+- Klicka på ny varnings regel för att skapa aviseringen
+- Använd [logg aviserings dokumentationen](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) för att skapa aviseringen
 
-## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hur kan navigera genom att använda tangentbordet i kartvyn geo?
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hur kan jag navigera med hjälp av tangent bordet i Geo Map-vyn?
 
-Sidan geo kartan innehåller två huvudavsnitt:
+Den geografiska kart sidan innehåller två huvud avsnitt:
     
-- **Banner**: Banderoll överst på geo-mappning innehåller knappar för att välja distribution trafikfilter (till exempel distribution, trafik från länder/regioner och skadliga). När du väljer en knapp, tillämpas respektive filtret på kartan. Om du väljer knappen Active visar kartan active datacenter i distributionen.
-- **Kartan**: Avsnittet kartan visar under banderollen, fördelning av trafik mellan Azure-datacenter och länder/regioner.
+- **Banderoll**: Banderollen högst upp i Geo-kartan innehåller knappar för att välja filter för trafik distribution (till exempel distribution, trafik från länder/regioner och skadlig). När du väljer en knapp används respektive filter på kartan. Om du till exempel väljer knappen aktiv, visar kartan de aktiva data centren i distributionen.
+- **Karta**: Under banderollen visar kart avsnittet trafik distribution mellan Azure-datacenter och länder/regioner.
     
-### <a name="keyboard-navigation-on-the-banner"></a>Tangentbordsnavigering i popup-meddelandet
+### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
-- Som standard är val på sidan för geo-karta för popup-meddelandet ”Azure domänkontrollanter”.
-- Om du vill flytta till ett annat filter kan du använda antingen den `Tab` eller `Right arrow` nyckel. Om du vill flytta bakåt kan du använda antingen den `Shift+Tab` eller `Left arrow` nyckel. Vidarebefordra navigering från vänster till höger, följt av längst upp och ned.
-- Tryck på `Enter` eller `Down` pilknapp för att tillämpa det valda filtret. Baserat på filterval och distribution av är en eller flera noder under avsnittet kartan markerade.
-- Om du vill växla mellan banderoll och kartan, trycker du på `Ctrl+F6`.
+- Som standard är valet på sidan geo Map för banderollen "Azure DCs"-filtret.
+- Om du vill flytta till ett annat filter använder `Tab` du antingen `Right arrow` tangenten eller. Om du vill flytta bakåt använder du `Shift+Tab` antingen `Left arrow` eller. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck `Enter` på tangenten `Down` eller piltangenten för att använda det valda filtret. Baserat på filter val och distribution är en eller flera noder under kart avsnittet markerade.
+- Om du vill växla mellan banderoll och karta `Ctrl+F6`trycker du på.
         
-### <a name="keyboard-navigation-on-the-map"></a>Tangentbordsnavigering på kartan
+### <a name="keyboard-navigation-on-the-map"></a>Tangent bords navigering på kartan
     
-- När du har valt filter i popup-meddelandet och tryckt `Ctrl+F6`, fokus flyttas till en av de markerade noderna (**Azure-datacenter** eller **Land/Region**) i kartvyn.
-- Om du vill flytta till andra noder som är markerade på kartan, kan du använda antingen `Tab` eller `Right arrow` nyckel för vidarebefordra flytt. Använd `Shift+Tab` eller `Left arrow` nyckel för bakåtkompatibilitet flytt.
-- Välj vilken nod som helst markerade på kartan genom att använda den `Enter` eller `Down arrow` nyckel.
-- På val av dessa noder fokus flyttas till den **Information verktygslådan** för noden. Som standard fokus flyttas till knappen stängda på den **Information verktygslådan**. Att flytta ytterligare i den **Box** visa, använda `Right arrow` och `Left arrow` för att flytta framåt och bakåt, respektive. Att trycka på `Enter` har samma effekt som att välja knappen fokus i den **Information verktygslådan**.
-- När du trycker på `Tab` medan fokus ligger på den **Information verktygslådan**, fokus flyttas till slutpunkter i samma kontinent som den valda noden. Använd den `Right arrow` och `Left arrow` för att flytta via dessa slutpunkter.
-- Om du vill flytta till andra flow-slutpunkter eller kontinenten kluster, använda `Tab` för vidarebefordra förflyttning och `Shift+Tab` för bakåtkompatibilitet flytt.
-- När fokus ligger på **kontinent kluster**, använda den `Enter` eller `Down` för att markera slutpunkterna i det kontinent-klustret. Om du vill flytta via slutpunkter och på Stäng på informationsrutan i kontinenten klustret, kan du använda antingen den `Right arrow` eller `Left arrow` nyckel för framåt och bakåt förflyttning respektive. Du kan använda på valfri slutpunkt `Shift+L` att växla till raden anslutningen från den valda noden till slutpunkten. Du kan trycka på `Shift+L` igen för att flytta till den valda slutpunkten.
+- När du har valt ett filter på banderollen och tryckte `Ctrl+F6`på, flyttas fokus till en av de markerade noderna (**Azure** -datacenter eller **land/region**) i vyn karta.
+- Om du vill flytta till andra markerade noder i kartan använder du `Tab` antingen `Right arrow` eller nyckeln för vidarebefordran. Använd `Shift+Tab` eller för `Left arrow` att flytta bakåt.
+- Om du vill välja en markerad nod i kartan använder du `Enter` nyckeln `Down arrow` eller.
+- Vid val av sådana noder flyttas fokus till **rutan information-verktyget** för noden. Fokus flyttas som standard till knappen stängd i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` du `Left arrow` och nycklar för att flytta framåt respektive bakåt. Att `Enter` trycka på har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- När du trycker `Tab` på när fokus är i **rutan information-verktyget**, flyttas fokus till slut punkterna i samma kontinent som den valda noden. Använd- `Left arrow` och-tangenterna för att flytta genom de här slut punkterna. `Right arrow`
+- Om du vill flytta till andra flödes slut punkter eller kontinent- `Tab` kluster använder du för `Shift+Tab` att vidarebefordra rörelser och för omvänd rörelse.
+- När fokus är på **kontinents kluster**använder du `Enter` `Down` piltangenterna för att markera slut punkterna i det kontinents klustret. Om du vill flytta genom slut punkter och knappen Stäng i informations rutan i det kontinent klustret använder du `Right arrow` antingen-eller `Left arrow` -nyckeln för framåt och bakåt. På alla slut punkter kan du använda `Shift+L` för att växla till anslutnings linjen från den valda noden till slut punkten. Du kan gå `Shift+L` tillbaka till den valda slut punkten genom att trycka på igen.
         
-### <a name="keyboard-navigation-at-any-stage"></a>Tangentbordsnavigering under alla stadier
+### <a name="keyboard-navigation-at-any-stage"></a>Tangent bords navigering i alla steg
     
-- `Esc` döljer det expanderade urvalet.
-- Den `Up arrow` nyckel utför samma åtgärd som `Esc`. Den `Down arrow` nyckel utför samma åtgärd som `Enter`.
-- Använd `Shift+Plus` att zooma in, och `Shift+Minus` att zooma ut.
+- `Esc`döljer den utökade markeringen.
+- Nyckeln utför samma åtgärd som `Esc`. `Up arrow` Nyckeln utför samma åtgärd som `Enter`. `Down arrow`
+- Använd `Shift+Plus` för att zooma in och `Shift+Minus` zooma ut.
 
-## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Hur kan jag för att navigera med hjälp av tangentbordet i virtuellt nätverk topologiska vyn?
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Hur kan jag navigera med hjälp av tangent bordet i vyn för topologi för virtuella nätverk?
 
-Sidan virtuellt nätverk topologin innehåller två avsnitt:
+Sidan topologi för virtuella nätverk innehåller två huvud delar:
     
-- **Banner**: Banderoll överst på den virtuella nätverk-topologin innehåller knappar för att välja distribution trafikfilter (till exempel anslutna virtuella nätverk, frånkopplade virtuella nätverk och offentliga IP-adresser). När du väljer en knapp, tillämpas respektive filtret på topologin. Om du väljer knappen Active visar topologin de aktiva virtuella nätverken i distributionen.
-- **Topologi**: Nedan på banderollen visar i avsnittet om topologi fördelning av trafik mellan virtuella nätverk.
+- **Banderoll**: Banderollen högst upp i topologin för virtuella nätverk innehåller knappar för att välja filter för trafik distribution (till exempel anslutna virtuella nätverk, frånkopplade virtuella nätverk och offentliga IP-adresser). När du väljer en knapp används respektive filter i topologin. Om du till exempel väljer knappen aktiv, visar topologin de aktiva virtuella nätverken i distributionen.
+- **Topologi**: Under banderollen visas i avsnittet topologi trafik distribution mellan virtuella nätverk.
     
-### <a name="keyboard-navigation-on-the-banner"></a>Tangentbordsnavigering i popup-meddelandet
+### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
-- Som standard är val på sidan virtuellt nätverk topologi för popup-meddelandet ”anslutna virtuella nätverk”.
-- Flytta till ett annat filter genom att använda den `Tab` för att flytta framåt. Flytta bakåt genom att använda den `Shift+Tab` nyckel. Vidarebefordra navigering från vänster till höger, följt av längst upp och ned.
-- Tryck på `Enter` att tillämpa det valda filtret. Baserat på filterval och distribution av är en eller flera noder (virtuella nätverk) under avsnittet topologi markerade.
-- Om du vill växla mellan popup-meddelandet och topologin, trycker du på `Ctrl+F6`.
+- Som standard är valet på sidan topologi för virtuella nätverk för banderollen "anslutet virtuella nätverk".
+- Om du vill flytta till ett annat filter `Tab` använder du nyckeln för att flytta framåt. Om du vill flytta bakåt använder `Shift+Tab` du nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck `Enter` på för att använda det valda filtret. Baserat på filter val och distribution markeras en eller flera noder (virtuellt nätverk) under avsnittet topologi.
+- Om du vill växla mellan banderollen och topologin `Ctrl+F6`trycker du på.
         
-### <a name="keyboard-navigation-on-the-topology"></a>Tangentbordsnavigering på topologin
+### <a name="keyboard-navigation-on-the-topology"></a>Tangent bords navigering i topologin
     
-- När du har valt filter i popup-meddelandet och tryckt `Ctrl+F6`, fokus flyttas till en av de markerade noderna (**VNet**) i vyn topologi.
-- Flytta till andra noder som är markerade i topologiska vyn genom att använda den `Shift+Right arrow` nyckel för vidarebefordra flytt. 
-- På markerade noder fokus flyttas till den **Information verktygslådan** för noden. Som standard fokus flyttas till den **mer** knappen på den **Information verktygslådan**. Att flytta ytterligare i den **Box** visa, använda den `Right arrow` och `Left arrow` för att flytta framåt och bakåt, respektive. Att trycka på `Enter` har samma effekt som att välja knappen fokus i den **Information verktygslådan**.
-- På val av dessa noder, du kan gå till alla dess anslutningar, en i taget genom att trycka på den `Shift+Left arrow` nyckel. Fokus flyttas till den **Information verktygslådan** anslutning. När som helst fokus kan flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.
+- När du har valt ett filter på banderollen och tryckte `Ctrl+F6`på, flyttas fokus till en av de markerade noderna (**VNet**) i vyn topologi.
+- Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för Forward transport. 
+- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder du `Right arrow` och `Left arrow` för att flytta framåt och bakåt. Att `Enter` trycka på har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckeln. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.
     
 
-## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Hur kan jag för att navigera med hjälp av tangentbordet i undernätet topologiska vyn?
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Hur kan jag navigera med hjälp av tangent bordet i vyn under näts topologi?
 
-Sidan virtuella undernätverk topologin innehåller två huvudavsnitt:
+Sidan topologier för virtuella under nätverk innehåller två huvud avsnitt:
     
-- **Banner**: Banderoll överst på den virtuella undernätverk topologin innehåller knappar för att välja trafikfilter distribution (till exempel aktiv, medel och Gateway-undernät). När du väljer en knapp, tillämpas respektive filtret på topologin. Om du väljer knappen Active visar topologin active virtuellt undernätverk i distributionen.
-- **Topologi**: Nedan på banderollen visar i avsnittet om topologi fördelning av trafik mellan virtuella undernätverk.
+- **Banderoll**: Banderollen högst upp i topologin för virtuella under nätverk innehåller knappar för att välja trafik distributions filter (till exempel aktiva, medel och gateway-undernät). När du väljer en knapp används respektive filter i topologin. Om du till exempel väljer knappen aktiv, markerar topologin det aktiva virtuella under nätverket i distributionen.
+- **Topologi**: Under banderollen visas i avsnittet topologi trafik distribution mellan virtuella under nätverk.
     
-### <a name="keyboard-navigation-on-the-banner"></a>Tangentbordsnavigering i popup-meddelandet
+### <a name="keyboard-navigation-on-the-banner"></a>Tangent bords navigering på banderollen
     
-- Som standard är val på sidan virtuellt undernätverk topologi för popup-meddelandet ”undernät”-filter.
-- Flytta till ett annat filter genom att använda den `Tab` för att flytta framåt. Flytta bakåt genom att använda den `Shift+Tab` nyckel. Vidarebefordra navigering från vänster till höger, följt av längst upp och ned.
-- Tryck på `Enter` att tillämpa det valda filtret. Baserat på filterval och distribution av är en eller flera noder (undernät) under avsnittet topologi markerade.
-- Om du vill växla mellan popup-meddelandet och topologin, trycker du på `Ctrl+F6`.
+- Som standard är valet på sidan topologier för virtuella under nätverk för banderollen "undernät"-filtret.
+- Om du vill flytta till ett annat filter `Tab` använder du nyckeln för att flytta framåt. Om du vill flytta bakåt använder `Shift+Tab` du nyckeln. Framåt-navigeringen är vänster till höger, följt av uppifrån och ned.
+- Tryck `Enter` på för att använda det valda filtret. Baserat på filter val och distribution är en eller flera noder (undernät) i avsnittet topologi markerat.
+- Om du vill växla mellan banderollen och topologin `Ctrl+F6`trycker du på.
         
-### <a name="keyboard-navigation-on-the-topology"></a>Tangentbordsnavigering på topologin
+### <a name="keyboard-navigation-on-the-topology"></a>Tangent bords navigering i topologin
     
-- När du har valt filter i popup-meddelandet och tryckt `Ctrl+F6`, fokus flyttas till en av de markerade noderna (**undernät**) i vyn topologi.
-- Flytta till andra noder som är markerade i topologiska vyn genom att använda den `Shift+Right arrow` nyckel för vidarebefordra flytt. 
-- På markerade noder fokus flyttas till den **Information verktygslådan** för noden. Som standard fokus flyttas till den **mer** knappen på den **Information verktygslådan**. Att flytta ytterligare i den **Box** visa, använda `Right arrow` och `Left arrow` för att flytta framåt och bakåt, respektive. Att trycka på `Enter` har samma effekt som att välja knappen fokus i den **Information verktygslådan**.
-- På val av dessa noder, du kan gå till alla dess anslutningar, en i taget genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till den **Information verktygslådan** anslutning. När som helst fokus kan flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
+- När du har valt ett filter på banderollen och tryckte `Ctrl+F6`på, flyttas fokus till en av de markerade noderna (**undernät**) i vyn topologi.
+- Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för Forward transport. 
+- På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` du `Left arrow` och nycklar för att flytta framåt respektive bakåt. Att `Enter` trycka på har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
+- Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka `Shift+Left arrow` på nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
 

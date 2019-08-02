@@ -1,0 +1,520 @@
+---
+title: Tekniska funktioner för säkerhet i Azure – Microsoft Azure
+description: Introduktion till säkerhets tjänster i Azure som hjälper dig att skydda data, resurser och program i molnet.
+services: security
+documentationcenter: na
+author: UnifyCloud
+manager: barbkess
+editor: TomSh
+ms.assetid: ''
+ms.service: security
+ms.subservice: security-fundamentals
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/31/2019
+ms.author: TomSh
+ms.openlocfilehash: 688492188bb8a29e33568011c2cf75439ca5f4af
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726655"
+---
+# <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
+Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens säkerhets behov.
+
+## <a name="azure-platform"></a>Azure-plattformen
+
+[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) är en moln plattform som består av infrastruktur-och program tjänster, med integrerade data tjänster och avancerad analys samt utvecklingsverktyg och-tjänster, som finns i Microsofts offentliga moln Data Center. Kunder använder Azure för många olika kapaciteter och scenarier, från grundläggande beräkning, nätverk och lagring till mobila tjänster och webb program tjänster, till fullständiga moln scenarier som Sakernas Internet och kan användas med tekniker med öppen källkod och distribueras som hybrid moln eller finns i en kunds Data Center. Azure tillhandahåller moln teknik som bygg stenar för att hjälpa företag att spara kostnader, förnya snabbt och hantera system proaktivt. När du bygger på, eller migrerar IT-tillgångar till en moln leverantör, förlitar du dig på organisationens möjligheter att skydda dina program och data med tjänsterna och de kontroller som de tillhandahåller för att hantera säkerheten för dina molnbaserade till gångar.
+
+Microsoft Azure är den enda molnbaserad data behandlings leverantören som erbjuder en säker, konsekvent program plattform och infrastruktur som en tjänst för team att arbeta inom deras olika moln-färdighetsuppsättningar och nivåer av projekt komplexitet, med integrerade data tjänster och analys som avvisar information från data oavsett var de finns, över både Microsoft-plattformar och andra plattformar, öppna ramverk och verktyg, vilket ger möjlighet att integrera molnet med lokalt och Distribuera Azure Cloud Services i lokala data Center. Som en del av Microsoft Trusted Cloud förlitar sig kunderna på Azure för branschledande säkerhet, tillförlitlighet, efterlevnad, sekretess och det stora nätverket av människor, partners och processer för att stödja organisationer i molnet.
+
+Med Microsoft Azure kan du:
+
+- Påskynda innovationen med molnet.
+
+- Power Business-beslut & appar med insikter.
+
+- Bygg fritt och distribuera var som helst.
+
+- Skydda sin verksamhet.
+
+## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>Tekniska funktioner för säkerhet för att uppfylla ditt ansvar
+
+Microsoft Azure tillhandahåller tjänster som hjälper dig att uppfylla dina krav på säkerhet, sekretess och efterlevnad. Följande bild hjälper till att förklara olika Azure-tjänster som är tillgängliga för att bygga en säker och kompatibel program infrastruktur baserad på bransch standarder.
+
+![Tillgängliga tekniska funktioner för säkerhet – stor bild](./media/technical-capabilities/azure-security-technical-capabilities-fig1.png)
+
+## <a name="manage-and-control-identity-and-user-access"></a>Hantera och kontrol lera identitet och användar åtkomst
+
+Azure hjälper dig att skydda företags information och personlig information genom att göra det möjligt att hantera användar identiteter och autentiseringsuppgifter och kontrol lera åtkomst.
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+Microsofts identitets-och åtkomst hanterings lösningar hjälper till att skydda åtkomsten till program och resurser över företagets data Center och till molnet, vilket möjliggör ytterligare verifierings nivåer, till exempel Multi-Factor Authentication och villkorlig åtkomst rikt. Övervakning av misstänkt aktivitet genom avancerad säkerhetsrapportering, -granskning och -avisering hjälper till att minska potentiella säkerhetsproblem. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) ger enkel inloggning till tusentals molnappar och åtkomst till webbappar som du kör lokalt.
+
+Säkerhets fördelarna med Azure Active Directory (Azure AD) inkluderar möjligheten att:
+
+- Skapa och hantera en enda identitet för varje användare i ditt hybrid företag, hålla användare, grupper och enheter synkroniserade.
+
+- Ge åtkomst till enkel inloggning till dina program, inklusive tusentals förintegrerade SaaS-appar.
+
+- Aktivera program åtkomst säkerhet genom att tvinga fram principbaserad Multi-Factor Authentication för både lokala program och moln program.
+
+- Etablera säker fjärråtkomst till lokala webb program via Azure AD-programproxy.
+
+[Azure Active Directory Portal](https://aad.portal.azure.com/) är tillgänglig som en del av Azure Portal. Från den här instrument panelen kan du få en översikt över organisationens tillstånd och enkelt hantera katalogen, användare eller program åtkomst.
+
+![Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
+
+Följande är grundläggande funktioner för Azure Identity Management:
+
+- Enkel inloggning
+
+- Multifaktorautentisering
+
+- Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
+
+- Hantering av konsumentidentitet och åtkomst
+
+- Enhetsregistrering
+
+- Privileged Identity Management
+
+- Identitetsskydd
+
+#### <a name="single-sign-on"></a>Enkel inloggning
+
+[Enkel inloggning (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) innebär att kunna komma åt alla program och resurser som du behöver för att göra affärer, genom att bara logga in en gång med ett enda användar konto. När du har loggat in kan du komma åt alla program som du behöver utan att behöva autentisera (till exempel skriva ett lösen ord) en gång till.
+
+Många organisationer förlitar sig på SaaS-program (program vara som en tjänst) som Office 365, Box och Salesforce för slutanvändarens produktivitet. Tidigare var IT-personal tvungen att individuellt skapa och uppdatera användar konton i varje SaaS-program, och användarna var tvungna att komma ihåg ett lösen ord för varje SaaS-program.
+
+[Azure AD utökar lokala Active Directory till molnet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), vilket gör det möjligt för användare att använda sitt primära organisations konto för att inte bara logga in på sina domänanslutna enheter och företags resurser, utan även alla webb-och SaaS-program som behövs för deras uppgift.
+
+Användare behöver inte bara hantera flera uppsättningar användar namn och lösen ord, program åtkomsten kan automatiskt etableras eller avetableras baserat på organisations grupper och deras status som anställd. [Azure AD introducerar säkerhets-och åtkomst styrnings kontroller](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) som gör att du centralt kan hantera användarnas åtkomst i SaaS-program.
+
+#### <a name="multi-factor-authentication"></a>Multifaktorautentisering
+
+[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) är en autentiseringsmetod som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets skikt för användar inloggningar och transaktioner. [MFA hjälper](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via ett antal verifierings alternativ – telefonsamtal, textmeddelande eller meddelande från mobilapp eller verifierings kod och OAuth-token från tredje part.
+
+#### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
+
+Säkerhetsövervakning och aviseringar och Machine Learning-baserade rapporter som identifierar inkonsekventa åtkomst mönster kan hjälpa dig att skydda ditt företag. Du kan använda Azure Active Directory åtkomst-och användnings rapporter för att få insyn i integriteten och säkerheten i din organisations katalog. Med den här informationen kan en katalog administratör bättre avgöra var möjliga säkerhets risker kan vara så att de kan planera för att minska riskerna.
+
+I Azure Portal eller via [Azure Active Directory portalen](https://aad.portal.azure.com/)kategoriseras [rapporterna](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) på följande sätt:
+
+- Avvikelse rapporter – innehåller inloggnings händelser som vi identifierade som avvikande. Vårt mål är att göra dig uppmärksam på sådan aktivitet och gör att du kan bestämma om en händelse är misstänkt.
+
+- Integrerade program rapporter – ger insikter om hur moln program används i din organisation. Azure Active Directory erbjuder integrering med tusentals moln program.
+
+- Fel rapporter – ange fel som kan uppstå när du konfigurerar konton till externa program.
+
+- Användarspecifika rapporter – Visa enhets-och inloggnings aktivitets data för en enskild användare.
+
+- Aktivitets loggar – innehåller en lista över alla granskade händelser under de senaste 24 timmarna, senaste 7 dagarna eller de senaste 30 dagarna, samt ändringar i grupp aktivitet samt återställning av lösen ord och registrerings aktivitet.
+
+#### <a name="consumer-identity-and-access-management"></a>Hantering av konsumentidentitet och åtkomst
+
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) är en global, identitets hanterings tjänst med hög tillgänglighet för klientbaserade program som kan skalas till hundratals miljoner identiteter. Den kan integreras över mobila plattformar och webbaserade plattformar. Konsumenterna kan logga in på alla program via anpassningsbara upplevelser genom att använda sina befintliga sociala konton eller genom att skapa nya autentiseringsuppgifter.
+
+Tidigare hade programutvecklare som ville [registrera sig och logga in konsumenter](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) i sina program skrivit sin egen kod. Och de använde lokala databaser eller system för att lagra användarnamn och lösenord. Azure Active Directory B2C ger organisationen ett bättre sätt att integrera konsument identitets hantering i program med hjälp av en säker, standard-baserad plattform och en stor uppsättning utöknings bara principer.
+
+När du använder Azure Active Directory B2C kan dina konsumenter registrera sig för dina program genom att använda sina befintliga sociala konton (Facebook, Google, Amazon, LinkedIn) eller genom att skapa nya autentiseringsuppgifter (e-postadress och lösen ord eller användar namn och lösen ord).
+
+#### <a name="device-registration"></a>Enhetsregistrering
+
+[Azure AD Device Registration](https://docs.microsoft.com/azure/active-directory/device-management-introduction) är grunden för enhets scenarier för [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) . När en enhet registreras tillhandahåller Azure AD Device Registration enheten med en identitet som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten kan sedan användas för att tillämpa principer för villkorlig åtkomst för program som finns i molnet och lokalt.
+
+I kombination med en hanterings lösning för [mobila enheter (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) , till exempel Intune, uppdateras enhetens attribut i Azure Active Directory med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som tvingar åtkomst från enheter att uppfylla dina standarder för säkerhet och efterlevnad.
+
+#### <a name="privileged-identity-management"></a>Privileged Identity Management
+
+[Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) låter dig hantera, kontrol lera och övervaka dina privilegierade identiteter och åtkomst till resurser i Azure AD samt andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.
+
+Ibland behöver användarna utföra privilegierade åtgärder i Azure-eller Office 365-resurser eller andra SaaS-appar. Detta innebär ofta att organisationer måste ge dem permanent privilegie rad åtkomst i Azure AD. Detta är en växande säkerhets risk för resurser som är värd för molnet eftersom organisationer inte kan övervaka vad dessa användare gör med sina administratörs privilegier. Om ett användar konto med privilegie rad åtkomst komprometteras, kan det dessutom orsaka att en överträdelse påverkar den övergripande moln säkerheten. Azure AD Privileged Identity Management hjälper till att lösa den här risken.
+
+Med Azure AD Privileged Identity Management kan du:
+
+- Se vilka användare som är Azure AD-administratörer
+
+- Aktivera administrativ åtkomst på begäran, precis i tid "till Microsoft Online Services, till exempel Office 365 och Intune
+
+- Hämta rapporter om administratörs åtkomst historik och ändringar i administratörs tilldelningar
+
+- Få aviseringar om åtkomst till en privilegie rad roll
+
+#### <a name="identity-protection"></a>Identitetsskydd
+
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) är en säkerhets tjänst som tillhandahåller en samlad vy över risk händelser och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd använder befintliga Azure Active Directorys avvikelse identifierings funktioner (tillgängliga via Azure ADs avvikande aktivitets rapporter) och introducerar nya risk händelse typer som kan identifiera avvikelser i real tid.
+
+## <a name="secure-resource-access"></a>Säker resurs åtkomst
+
+Åtkomst kontroll i Azure börjar från ett fakturerings perspektiv. Ägaren av ett Azure-konto, som nås genom att besöka [Azure-kontocenter](https://account.windowsazure.com/subscriptions), är konto administratören (AA). Prenumerationer är en behållare för fakturering, men de fungerar också som en säkerhets gränser: varje prenumeration har en tjänst administratör (SA) som kan lägga till, ta bort och ändra Azure-resurser i den prenumerationen med hjälp av Azure Portal. Standard-SA för en ny prenumeration är AA, men AA kan ändra SA i Azure-kontocenter.
+
+![Säker åtkomst till resurser i Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig3.png)
+
+Prenumerationer har också en Association med en katalog. Katalogen definierar en uppsättning användare. Det kan vara användare från arbets plats eller skola som skapade katalogen, eller så kan de vara externa användare (dvs. Microsoft-konton). Prenumerationer är tillgängliga med en delmängd av de katalog användare som har tilldelats antingen tjänst administratör (SA) eller medadministratör (CA). Det enda undantaget är att Microsoft-konton (tidigare Windows Live ID) kan tilldelas som SA eller CA utan att finnas i katalogen, av äldre skäl.
+
+Säkerhetsorienterade företag bör fokuseras på att ge anställda de exakta behörigheter de behöver. För många behörigheter kan exponera ett konto för angripare. För få behörigheter innebär det att anställda inte kan få jobbet gjort effektivt. [Azure rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) hjälper till att lösa det här problemet genom att erbjuda detaljerad åtkomst hantering för Azure.
+
+![Skyddad resurs åtkomst](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
+
+Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. I stället för att ge alla obegränsade behörigheter i din Azure-prenumeration eller resurser kan du bara tillåta vissa åtgärder. Använd exempelvis RBAC för att låta en medarbetare hantera virtuella datorer i en prenumeration, medan en annan kan hantera SQL-databaser inom samma prenumeration.
+
+![Säker åtkomst till resurser i Azure (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+
+## <a name="data-security-and-encryption"></a>Datasäkerhet och kryptering
+
+En av nycklarna till data skydd i molnet är redovisning av de möjliga tillstånd som dina data kan inträffa i och vilka kontroller som är tillgängliga för det tillståndet. Rekommendationerna för Azure Data Security och kryptering är rekommendationerna kring följande data tillstånd.
+
+- I vila: Detta omfattar alla informations lagrings objekt, behållare och typer som finns statiskt på fysiska media, som är magnetiska eller optiska diskar.
+
+- Under överföring: När data överförs mellan komponenter, platser eller program, till exempel över nätverket, via en Service Bus (från lokalt till molnet och vice versa, inklusive hybrid anslutningar som ExpressRoute) eller under en indata/utdata-process, är det tanke på rörelsens rörelse.
+
+### <a name="encryption-at-rest"></a>Vilande kryptering
+
+Gör något av följande för att uppnå kryptering i vila:
+
+Stöd för minst en av de rekommenderade krypterings modellerna som beskrivs i följande tabell för att kryptera data.
+
+| Krypterings modeller |  |  |  |
+| ----------------  | ----------------- | ----------------- | --------------- |
+| Server kryptering | Server kryptering | Server kryptering | Klient kryptering
+| Kryptering på Server sidan med tjänst hanterade nycklar | Kryptering på Server sidan med Kundhanterade nycklar i Azure Key Vault | Kryptering på Server sidan med lokala kund hanterade nycklar |
+| • Azure-resurs leverantörer utför krypterings-och dekrypterings åtgärder <br> • Microsoft hanterar nycklarna <br>• Fullständig moln funktion | • Azure-resurs leverantörer utför krypterings-och dekrypterings åtgärder<br>• Kund styr nycklar via Azure Key Vault<br>• Fullständig moln funktion | • Azure-resurs leverantörer utför krypterings-och dekrypterings åtgärder <br>• Kund styr nycklar lokalt <br> • Fullständig moln funktion| • Azure-tjänster kan inte se dekrypterade data <br>• Kunderna behåller lokala nycklar (eller i andra säkra lager). Nycklar är inte tillgängliga för Azure-tjänster <br>• Minskad moln funktion|
+
+### <a name="enabling-encryption-at-rest"></a>Aktivera kryptering i vila
+
+**Identifiera alla platser som lagrar data**
+
+Målet för kryptering i vila är att kryptera alla data. Detta eliminerar risken för att saknade viktiga data eller alla beständiga platser. Räkna upp alla data som lagras av ditt program.
+
+> [!Note]
+> Inte bara "program data" eller "PII", men alla data som rör program inklusive metadata för konto (prenumerations mappningar, kontrakts information, PII).
+
+Överväg vilka butiker du använder för att lagra data. Exempel:
+
+- Extern lagring (till exempel SQL Azure, dokument databas, HDInsights, Data Lake osv.)
+
+- Temporär lagring (alla lokala cacheminnen som innehåller klient data)
+
+- Minnes intern cache (kan placeras i växlings filen.)
+
+### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Utnyttja befintlig kryptering vid rest-support i Azure
+
+För varje butik som du använder kan du utnyttja den befintliga krypteringen vid rest-supporten.
+
+- Azure Storage: Se [Azure Storage tjänst kryptering för vilande data](https://docs.microsoft.com/azure/storage/storage-service-encryption)
+
+- SQL Azure: Se [Transparent datakryptering (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
+
+- VM & lokal disk lagring ([Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption))
+
+För VM och lokal disk lagring använder Azure Disk Encryption där det stöds:
+
+#### <a name="iaas"></a>IaaS
+
+Tjänster med virtuella IaaS-datorer (Windows eller Linux) bör använda [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) för att kryptera volymer som innehåller kund information.
+
+#### <a name="paas-v2"></a>PaaS v2
+
+Tjänster som körs på PaaS v2 med Service Fabric kan använda Azure Disk Encryption för skalnings uppsättningen för virtuella datorer [VMSS] för att kryptera sina PaaS v2-VM: ar.
+
+#### <a name="paas-v1"></a>PaaS v1
+
+Azure Disk Encryption stöds för närvarande inte på PaaS v1. Därför måste du använda kryptering på program nivå för att kryptera sparade data i vila.  Detta inkluderar, men är inte begränsat till, program data, temporära filer, loggar och krasch dum par.
+
+De flesta tjänster bör försöka utnyttja krypteringen av en lagrings resurs leverantör. Vissa tjänster måste utföra explicit kryptering, till exempel, alla bestående viktiga material (certifikat, rot-/huvud nycklar) måste lagras i Key Vault.
+
+Om du har stöd för kryptering på tjänst sidan med Kundhanterade nycklar måste du vara ett sätt för kunden att få nyckeln till oss. Det stödda och rekommenderade sättet att göra detta genom att integrera med Azure Key Vault (AKV). I det här fallet kan kunder lägga till och hantera sina nycklar i Azure Key Vault. En kund kan lära sig att använda AKV via [komma igång med Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
+
+Om du vill integrera med Azure Key Vault lägger du till kod för att begära en nyckel från AKV när det behövs för dekryptering.
+
+- Se [Azure Key Vault – stegvisa](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) anvisningar för information om hur du integrerar med akv.
+
+Om du har stöd för kundens hanterade nycklar måste du ange ett UX för kunden för att ange vilken Key Vault (eller Key Vault-URI) som ska användas.
+
+Som kryptering i rest innebär kryptering av värd-, infrastruktur-och klient data, förlust av nycklar på grund av systemfel eller skadlig aktivitet, vilket innebär att alla krypterade data går förlorade. Det är därför viktigt att din kryptering i rest-lösningen har en omfattande katastrof återställnings berättelse som är elastiska för systemfel och skadlig aktivitet.
+
+Tjänster som implementerar kryptering i vila är oftast fortfarande mottagliga för krypterings nycklar eller data som lämnas okrypterade på värd enheten (till exempel i utskrifts filen för värd operativ systemet.) Därför måste tjänsterna se till att värd volymen för tjänsterna är krypterad. För att under lätta detta beräknings team har du aktiverat distributionen av värd kryptering, som använder [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) -NKP och tillägg till DCM-tjänsten och agenten för att kryptera värd volymen.
+
+De flesta tjänster implementeras på virtuella Azure-datorer. Sådana tjänster bör få [värd kryptering](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automatiskt när du gör beräkningar. För tjänster som körs i beräknings hanterade kluster är värd kryptering aktive rad automatiskt när Windows Server 2016 har distribuerats.
+
+### <a name="encryption-in-transit"></a>Kryptering under överföring
+
+Att skydda data i överföring bör vara en viktig del av din strategi för data skydd. Eftersom data flyttas fram och tillbaka från många platser är den allmänna rekommendationen att du alltid använder SSL/TLS-protokoll för att utbyta data mellan olika platser. I vissa fall kanske du vill isolera hela kommunikations kanalen mellan din lokala och moln infrastruktur med hjälp av ett virtuellt privat nätverk (VPN).
+
+För data som flyttas mellan din lokala infrastruktur och Azure bör du överväga lämpliga skydd som HTTPS eller VPN.
+
+För organisationer som behöver säker åtkomst från flera arbets stationer som finns lokalt till Azure använder du [Azure plats-till-plats-VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
+
+För organisationer som behöver säker åtkomst från en arbets Station lokalt till Azure använder du [punkt-till-plats-VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+
+Större data uppsättningar kan flyttas över en dedikerad höghastighets-WAN-länk, till exempel [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Om du väljer att använda ExpressRoute kan du också kryptera data på program nivå med hjälp av [SSL/TLS](https://support.microsoft.com/kb/257591) eller andra protokoll för ytterligare skydd.
+
+Om du interagerar med Azure Storage via Azure Portal sker alla transaktioner via HTTPS. [Lagrings REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) över https kan också användas för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+
+Organisationer som inte kan skydda data under överföringen är mer känsliga för [man-in-the-The-the-Middle-attack](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx)och kapning av sessioner. Dessa attacker kan vara det första steget för att få åtkomst till konfidentiella data.
+
+Du kan läsa mer om alternativet för Azure VPN genom att läsa artikeln [planering och design för VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
+
+### <a name="enforce-file-level-data-encryption"></a>Tvinga data kryptering på filnivå
+
+[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) använder krypterings-, identitets-och Auktoriseringsprinciper för att skydda dina filer och e-postmeddelanden. Azure RMS fungerar på flera enheter – telefoner, surfplattor och datorer genom att skydda både i din organisation och utanför organisationen. Den här funktionen är möjlig eftersom Azure RMS lägger till en skydds nivå som är kvar med data, även om den lämnar din organisations gränser.
+
+När du använder Azure RMS för att skydda dina filer använder du branschstandardiserade kryptografi med fullständigt stöd för [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). När du använder Azure RMS för data skydd kan du vara säker på att skyddet ligger kvar i filen, även om den kopieras till lagring som inte är underordnad, till exempel en moln lagrings tjänst. Samma sak gäller filer som delas via e-post, filen skyddas som en bifogad fil i ett e-postmeddelande med anvisningar för hur du öppnar den skyddade bilagan.
+När du planerar för Azure RMS antar vi att du rekommenderar följande:
+
+- Installera [RMS-delning-appen](https://technet.microsoft.com/library/dn339006.aspx). Den här appen integreras med Office-program genom att installera ett Office-tillägg så att användarna enkelt kan skydda filer direkt.
+
+- Konfigurera program och tjänster för att stödja Azure RMS
+
+- Skapa [anpassade mallar](https://technet.microsoft.com/library/dn642472.aspx) som återspeglar dina affärs behov. Exempel: en mall för Top Secret-data som ska användas i alla Top Secret-relaterade e-postmeddelanden.
+
+Organisationer som är svaga på [data klassificering](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) och Filskydd kan vara mer känsliga för data läckage. Utan rätt Filskydd kan organisationer inte erhålla affärs insikter, övervaka för missbruk och förhindra skadlig åtkomst till filer.
+
+> [!Note]
+> Du kan lära dig mer om Azure RMS genom att läsa artikeln [komma igång med Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
+
+## <a name="secure-your-application"></a>Skydda ditt program
+Även om Azure ansvarar för att skydda den infrastruktur och plattform som ditt program körs på, är det ditt ansvar att skydda själva programmet. Med andra ord måste du utveckla, distribuera och hantera din program kod och ditt innehåll på ett säkert sätt. Utan detta kan program koden eller innehållet fortfarande vara sårbart för hot.
+
+### <a name="web-application-firewall"></a>Brandvägg för webbappar
+[Brand vägg för webbaserade program (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) är en funktion i [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) som tillhandahåller centraliserat skydd av dina webb program från vanliga sårbarheter och sårbarheter.
+
+Brandväggen använder regler från [OWASP Core Rule Sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 eller 2.2.9. Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av flera skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
+
+Några vanliga säkerhetshot som brandväggen för webbaserade program skyddar mot:
+
+- Skydd mot SQL-inmatning
+
+- Skydd mot skriptkörning över flera webbplatser
+
+- Skydd mot vanliga webbattacker, som kommandoinmatning, dold HTTP-begäran, delning av HTTP-svar och attack genom införande av fjärrfil
+
+- Skydd mot åtgärder som inte följer HTTP-protokollet
+
+- Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
+
+- Skydd mot robotar, crawlers och skannrar
+
+- Identifiering av vanliga program konfigurationer (dvs. Apache, IIS osv.)
+
+> [!Note]
+> En mer detaljerad lista över regler och deras skydd finns i följande [kärn regel uppsättningar](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets):
+
+Azure tillhandahåller också flera lättanvända funktioner som hjälper dig att säkra både inkommande och utgående trafik för din app. Azure hjälper också kunderna att skydda sin program kod genom att tillhandahålla externt tillhandahållna funktioner för att söka igenom webb programmet efter sårbarheter.
+
+- [Konfigurera Azure Active Directory autentisering för din app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+
+- [Skydda trafik till din app genom att aktivera Transport Layer Security (TLS/SSL)-HTTPS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
+
+  - [Tvinga all inkommande trafik över HTTPS-anslutning](http://microsoftazurewebsitescheatsheet.info/)
+
+  - [Aktivera strikt transport säkerhet (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
+
+- [Begränsa åtkomsten till din app via klientens IP-adress](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
+
+- [Begränsa åtkomsten till din app genom klientens beteende – begär ande frekvens och samtidighet](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
+
+- [Sök igenom din webbapp för sårbarheter med TINFOIL Security scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
+
+- [Konfigurera ömsesidig TLS-autentisering så att klient certifikat måste anslutas till din webbapp](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth)
+
+- [Konfigurera ett klient certifikat för användning från din app för att på ett säkert sätt ansluta till externa resurser](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
+
+- [Ta bort standard server huvuden för att undvika verktyg från att använda finger avtryck för din app](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
+
+- [Anslut appen på ett säkert sätt med resurser i ett privat nätverk med punkt-till-plats-VPN](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+
+- [Anslut appen på ett säkert sätt med resurser i ett privat nätverk med hjälp av Hybridanslutningar](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
+
+Azure App Service använder samma lösning för program mot skadlig kod som används av Azure Cloud Services och Virtual Machines. Mer information om detta hittar du i vår [dokumentation om program mot skadlig kod](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+
+## <a name="secure-your-network"></a>Skydda ditt nätverk
+Microsoft Azure innehåller en robust nätverks infrastruktur som stöder dina anslutnings krav för program och tjänster. Nätverks anslutningen är möjlig mellan resurser som finns i Azure, mellan lokala och Azure-värdbaserade resurser och till och från Internet och Azure.
+
+Med [Azures nätverks infrastruktur](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) kan du på ett säkert sätt ansluta Azure-resurser till varandra med [virtuella nätverk (virtuella nätverk)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Ett VNet är en representation av ditt eget nätverk i molnet. Ett VNet är en logisk isolering av Azure Cloud Network dedikerad till din prenumeration. Du kan ansluta virtuella nätverk till dina lokala nätverk.
+
+![Skydda nätverket (skydda)](./media/technical-capabilities/azure-security-technical-capabilities-fig6.png)
+
+Om du behöver grundläggande åtkomst kontroll på nätverks nivå (baserat på IP-adress och TCP-eller UDP-protokoll) kan du använda [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg). En nätverks säkerhets grupp (NSG) är en grundläggande tillstånds känslig brand vägg för paket filtrering och du kan styra åtkomsten baserat på en [5-tupel](https://www.techopedia.com/definition/28190/5-tuple).
+
+Azure-nätverk stöder möjligheten att anpassa routnings beteendet för nätverks trafik i virtuella Azure-nätverk. Det kan du göra genom att konfigurera [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) i Azure.
+
+[Tvingad tunnel trafik](https://www.petri.com/azure-forced-tunneling) är en mekanism som du kan använda för att se till att dina tjänster inte har tillåtelse att initiera en anslutning till enheter på Internet.
+
+Azure har stöd för dedikerad WAN-anslutning till ditt lokala nätverk och en Azure-Virtual Network med [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). Länken mellan Azure och platsen använder en dedikerad anslutning som inte går via det offentliga Internet. Om ditt Azure-program körs i flera data Center kan du använda [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) för att dirigera begär Anden från användare intelligent över instanser av programmet. Du kan också dirigera trafik till tjänster som inte körs i Azure om de är tillgängliga från Internet.
+
+## <a name="virtual-machine-security"></a>Säkerhet för virtuella datorer
+
+Med [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/) kan du distribuera en mängd olika data behandlings lösningar på ett flexibelt sätt. Med support för Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP och Azure BizTalk Services kan du distribuera alla arbetsbelastningar och alla språk på nästan alla operativsystem.
+
+Med Azure kan du använda [program mot skadlig kod](https://docs.microsoft.com/azure/security/azure-security-antimalware) från säkerhets leverantörer som Microsoft, Symantec, Trend Micro och Kasper Sky för att skydda dina virtuella datorer från skadliga filer, annons program och andra hot.
+
+Microsoft Antimalware för Azure Cloud Services och Virtual Machines är en real tids skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Microsoft Antimalware tillhandahåller konfigurerbara aviseringar när kända skadlig eller oönskad program vara försöker installera sig själv eller köra på dina Azure-system.
+
+[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) är en skalbar lösning som skyddar dina program data med noll kapital investeringar och minimala drifts kostnader. Programfel kan skada dina data och den mänskliga faktorn kan införa buggar i dina program. Med Azure Backup skyddas dina virtuella datorer som kör Windows och Linux.
+
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) hjälper till att dirigera replikering, redundans och återställning av arbets belastningar och appar så att de är tillgängliga från en annan plats om din primära plats slutar fungera.
+
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Säkerställa efterlevnad: Check lista för noggrannhet av moln tjänster
+
+Microsoft har [Cloud Services utvecklat noggrannhet check lista](https://aka.ms/cloudchecklist.download) för att hjälpa organisationer att använda noggrannhet när de funderar på att flytta till molnet. Det ger en struktur för en organisation av valfri storlek och typ – privata företag och offentliga organisationer, inklusive myndigheter på alla nivåer och icke-vinst, för att identifiera sina egna prestanda-, tjänst-, data hanterings-och styrnings mål och signaturkrav. Detta gör det möjligt för dem att jämföra erbjudandena med olika moln tjänst leverantörer, vilket i slut ändan utgör grunden för ett moln tjänst avtal.
+
+Check listan innehåller ett ramverk som justerar sats-för-sats med en ny internationell standard för moln tjänst avtal, ISO/IEC 19086. Den här standarden erbjuder en enhetlig uppsättning överväganden för organisationer som hjälper dem att fatta beslut om moln införande och skapa ett gemensamt underlag för att jämföra moln tjänst erbjudanden.
+
+Check listan befordrar en grundlig testats till molnet, vilket ger strukturerad vägledning och en konsekvent, upprepnings bar metod för att välja en moln tjänst leverantör.
+
+Moln införande är inte längre ett tekniskt beslut. Eftersom krav på check lista rör varje aspekt i en organisation, kan de sammankalla alla viktiga interna besluts fattare, CHEFs-och IT samt juridiska, riskhantering, tillvaratagande och efterlevnad av personal. Detta ökar effektiviteten i besluts fattandet och på grund av besluts fattandet, vilket minskar sannolikheten för att oförutsedda hindren ska kunna antas.
+
+Dessutom visas check listan:
+
+- Visar viktiga diskussions ämnen för besluts fattare i början av moln införande processen.
+
+- Har stöd för noggranna affärs diskussioner om regler och organisationens egna mål för sekretess, personligt identifierbar information (PII) och data säkerhet.
+
+- Hjälper organisationer att identifiera eventuella eventuella problem som kan påverka ett moln projekt.
+
+- Innehåller en konsekvent uppsättning frågor, med samma villkor, definitioner, mått och slut produkter för varje provider, för att förenkla processen med att jämföra erbjudanden från olika moln tjänst leverantörer.
+
+## <a name="azure-infrastructure-and-application-security-validation"></a>Azure-infrastruktur och program säkerhets validering
+
+[Azures drift säkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) syftar på tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda data, program och andra till gångar i Microsoft Azure.
+
+![säkerhets verifiering (identifiera)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
+
+Azures drift säkerhet bygger på ett ramverk som införlivar den kunskap som du har fått via en mängd olika funktioner som är unika för Microsoft, inklusive Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Centre-programmet och djupgående medvetenhet om cybersäkerhet Threat landskap.
+
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
+
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är IT-hanterings lösningen för Hybrid molnet. Azure Monitor loggar som används separat eller för att utöka din befintliga System Center-distribution ger dig maximal flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
+
+![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig8.png)
+
+Med Azure Monitor kan du hantera vilken instans som helst i alla moln, inklusive lokalt, Azure, AWS, Windows Server, Linux, VMware och OpenStack, till en lägre kostnad än konkurrens kraftigare lösningar. Azure Monitor har byggts för den molnbaserade världen, erbjuder en ny metod för att hantera företaget som är det snabbaste och mest kostnads effektiva sättet att möta nya affärs utmaningar och hantera nya arbets belastningar, program och moln miljöer.
+
+### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
+
+[Azure Monitor-loggar](https://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervaknings tjänster genom att samla in data från hanterade resurser till en central lagrings plats. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
+
+![Azure Monitor-loggar](./media/technical-capabilities/azure-security-technical-capabilities-fig9.png)
+
+Med den här metoden kan du konsolidera data från olika källor, så att du kan kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Metoden innebär också en tydlig separation mellan insamling av data från de åtgärder som vidtas för dessa data, vilket gör att alla åtgärder är tillgängliga för alla typer av data.
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Med hjälp av [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+
+Säkerhetstillståndet på resurserna i Azure analyseras i Security Center för upptäckt av eventuella säkerhetsrisker. Genom en lista med rekommendationer får du hjälp att ställa in de kontrollfunktioner som behövs.
+
+Exempel på rekommendationer:
+
+- att installera program som kan hitta och ta bort skadlig kod
+
+- Konfigurera nätverks säkerhets grupper och regler för att styra trafik till virtuella datorer
+
+- att installera brandväggar för webbaserade program för skydd mot angrepp riktade mot webbaserade program
+
+- genomföra alla systemuppdateringar som fattas
+
+- se till att operativsystemen är konfigurerade enligt rekommenderade baslinjer
+
+Loggdata från resurserna i Azure, nätverket och partnerlösningarna, till exempel program mot skadlig kod och brandväggar, samlas in, analyseras och integreras automatiskt i Security Center. Om hot upptäcks skapas en säkerhetsavisering. Exempel på hot:
+
+- Komprometterade virtuella datorer som kommunicerar med kända skadliga IP-adresser
+
+- avancerad skadlig kod upptäckt genom felrapporteringen i Windows
+
+- Brute force-attacker mot virtuella datorer
+
+- säkerhetsaviseringar från integrerade brandväggar och program mot skadlig kod
+
+### <a name="azure-monitor"></a>Azure Monitor
+
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) tillhandahåller länkar till information om vissa typer av resurser. Den erbjuder visualisering, frågor, routning, avisering, automatisk skalning och automatisering av data både från Azure-infrastrukturen (aktivitets loggen) och varje enskild Azure-resurs (diagnostikloggar).
+
+Moln program är komplexa med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet hålls igång i felfritt tillstånd. Det hjälper dig också att Stave av potentiella problem eller att felsöka tidigare.
+
+![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) Dessutom kan du använda övervaknings data för att få djupgående insikter om ditt program. Den kunskapen kan hjälpa dig att förbättra programmets prestanda eller hanterbarhet, eller automatisera åtgärder som annars skulle kräva manuell åtgärd.
+
+Det är viktigt att granska nätverks säkerheten för att identifiera nätverks sårbarheter och säkerställa efterlevnaden av din IT-säkerhet och reglerande styrnings modell. Med vyn säkerhets grupp kan du hämta den konfigurerade nätverks säkerhets gruppen och säkerhets reglerna, samt de effektiva säkerhets reglerna. Med listan över regler som tillämpas kan du fastställa vilka portar som är öppna och SS-nätverks sårbarhet.
+
+### <a name="network-watcher"></a>Nätverksbevakare
+
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) är en regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks nivå i, till och från Azure. Diagnostikverktyg för nätverk och visualiserings verktyg som är tillgängliga med Network Watcher hjälpa dig att förstå, diagnostisera och få insikter om ditt nätverk i Azure. Den här tjänsten omfattar paket insamling, nästa hopp, kontrol lera IP-flöde, vyn säkerhets grupp, NSG Flow-loggar. Övervakning av scenario nivå ger en heltäckande vy över nätverks resurser i motsats till övervakning av enskilda nätverks resurser.
+
+### <a name="storage-analytics"></a>Lagringsanalys
+
+[Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) kan lagra mått som innehåller aggregerad transaktions statistik och kapacitets data om begär anden till en lagrings tjänst. Transaktioner rapporteras både på API-nivå och på lagrings tjänst nivå, och kapaciteten rapporteras på lagrings tjänst nivå. Mät data kan användas för att analysera användningen av lagrings tjänster, diagnostisera problem med begär Anden som gjorts mot lagrings tjänsten och förbättra prestanda för program som använder en tjänst.
+
+### <a name="application-insights"></a>Application Insights
+
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den innehåller kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå vad användarna gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet. Det fungerar för appar på en mängd olika plattformar, inklusive .NET, Node. js och Java EE, som finns lokalt eller i molnet. Den integreras med din devOps-process och har anslutnings punkter till olika utvecklingsverktyg.
+
+Tjänsten övervakar:
+
+- **Begärandefrekvens, svarstider och felfrekvens** – Ta reda på vilka sidor som är mest populära, vid vilka tidpunkter på dagen och var dina användare finns. Se vilka sidor som fungerar bäst. Om svarstiden och felfrekvensen är hög när det finns många begäranden kan det bero på ett resurstilldelningsproblem.
+
+- **Beroendefrekvens, svarstider och felfrekvens** – Ta reda på om externa tjänster gör systemet långsammare.
+
+- **Undantag** – Analysera aggregerad statistik eller välj specifika instanser och visa detaljerad information om stackspårningen och relaterade begäranden. Både server- och webbläsarundantag rapporteras.
+
+- **Sidvyer och inläsningsprestanda** – Rapporteras av användarnas webbläsare.
+
+- **AJAX-anrop från webb sidor** – hastigheter, svars tider och felpriser.
+
+- **Antal användare och sessioner.**
+
+- **Prestandaräknare** från dina Windows- eller Linux-serverdatorer, till exempel processor, minne och nätverksanvändning.
+
+- **Värddiagnostik** från Docker eller Azure.
+
+- **Diagnostikspårningsloggar** från din app – så att du kan jämföra spårningshändelser med begäranden.
+
+- **Anpassade händelser och mät värden** som du skriver själv i klient-eller Server koden för att spåra affärs händelser, t. ex. sålda artiklar eller vunna spel.
+
+Infrastrukturen för ditt program består normalt av många komponenter – kanske en virtuell dator, ett lagringskonto och ett virtuellt nätverk eller en webbapp, en databas, en databasserver och tjänster från tredje part. Du ser inte de här komponenterna som separata entiteter, utan som relaterade delar av samma enhet som är beroende av varandra. Du vill distribuera, hantera och övervaka dem som en grupp. Med [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kan du arbeta med resurserna i din lösning som en grupp.
+
+Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen.
+
+**Fördelarna med att använda Resource Manager**
+
+Resource Manager har flera fördelar:
+
+- Du kan distribuera, hantera och övervaka alla resurserna för din lösning som en grupp i stället för att hantera resurserna separat.
+
+- Du kan distribuera lösningen flera gånger genom utvecklingslivscykeln och vara säker på att dina resurser distribueras på ett enhetligt sätt.
+
+- Du kan hantera infrastrukturen med hjälp av deklarativa mallar i stället för skript.
+
+- Du kan definiera beroenden mellan resurser så att de distribueras i rätt ordning.
+
+- Du kan använda åtkomstkontroll för alla tjänster i resursgruppen eftersom rollbaserad åtkomstkontroll (RBAC) är inbyggt i hanteringsplattformen.
+
+- Du kan lägga till taggar för resurser och organisera alla logiskt i din prenumeration.
+
+- Du kan tydliggöra din organisations fakturering genom att visa kostnaderna för en grupp av resurser som delar samma tagg.
+
+> [!Note]
+> Resource Manager erbjuder ett nytt sätt att distribuera och hantera lösningar. Om du använde den tidigare distributions modellen och vill lära dig mer om ändringarna, se [förstå Resource Manager-distribution och klassisk distribution](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhets ämnen:
+
+- [Granskning och loggning](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
+
+- [Cyberbrott](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
+
+- [Design-och drift säkerhet](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
+
+- [Kryptering](https://www.microsoft.com/en-us/trustcenter/security/encryption)
+
+- [Identitets-och åtkomst hantering](https://www.microsoft.com/en-us/trustcenter/security/identity)
+
+- [Nätverkssäkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+
+- [Hothantering](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)

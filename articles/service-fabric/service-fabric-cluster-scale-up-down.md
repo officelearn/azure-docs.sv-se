@@ -1,9 +1,9 @@
 ---
 title: Skala ett Service Fabric-kluster in eller ut | Microsoft Docs
-description: Skala ett Service Fabric-klustret in eller ut för att matcha begäran genom att ange regler för automatisk skalning för varje nod typ/virtual machine scale Sets. Lägga till eller ta bort noder till ett Service Fabric-kluster
+description: Skala ett Service Fabric kluster i eller ut för att matcha efter frågan genom att ange regler för automatisk skalning för varje nodtyp/virtuell dators skalnings uppsättning. Lägga till eller ta bort noder till ett Service Fabric-kluster
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
-ms.author: aljo
-ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: b1b3c0e6440212474bf356d4204c0dd91c1491fa
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161810"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599895"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Skala in eller ut ett kluster
 
@@ -32,7 +32,7 @@ Skala beräkningsresurser till källan arbetsbelastning för ditt program kräve
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Skala ett Service Fabric-kluster in eller ut med hjälp av regler för automatisk skalning eller manuellt
-Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i Service Fabric-kluster har ställts in som en separat VM-skalningsuppsättning. Varje nodtyp skalas sedan in eller ut oberoende av varandra, ha olika portar öppna och ha olika kapacitet. Läs mer om den i den [Service Fabric-nodtyper](service-fabric-cluster-nodetypes.md) dokumentet. Eftersom Service Fabric-nodtyper i klustret består av VM-skalningsuppsättningar i serverdelen, behöver du konfigurera regler för automatisk skalning för varje nod typ/virtual machine scale Sets.
+Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i Service Fabric-kluster har ställts in som en separat VM-skalningsuppsättning. Varje nodtyp skalas sedan in eller ut oberoende av varandra, ha olika portar öppna och ha olika kapacitet. Läs mer om det i dokumentet [Service Fabric Node types](service-fabric-cluster-nodetypes.md) . Eftersom Service Fabric-nodtypen i klustret består av virtuella datorers skalnings uppsättningar på Server delen måste du konfigurera regler för automatisk skalning för varje nodtyp/virtuell dators skalnings uppsättning.
 
 > [!NOTE]
 > Prenumerationen måste ha tillräckligt många kärnor du lägger till de nya virtuella datorerna som tillsammans bildar det här klustret. Det finns ingen Modellvalidering, så att du får tid distributionsfel, om någon av kvotgränserna uppnår. En enda nodtyp kan också inte bara överstiga 100 noder per VMSS. Du kan behöva lägga till VMSS: er för att få den riktade skalan och automatisk skalning kan inte automagically lägga till VMSS'S. Lägga till VMSSS på plats till ett aktivt kluster är en utmaning och ofta detta leder användare etablera nya kluster med lämpliga nodtyperna etablerats vid tidpunkten för skapandet; [planera klusterkapacitet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) därefter. 
@@ -50,8 +50,8 @@ Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/Virtu
 Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
-## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Ange regler för automatisk skalning för noden typ/virtual machine scale Sets
-Om klustret har flera nodtyper, upprepar du detta för varje nod-typer/virtuell datorskalning anger att du vill skala (in eller ut). Ta hänsyn till antalet noder som du måste ha innan du ställer in automatisk skalning. Det minsta antalet noder som du måste ha för den primära nodtypen avgörs av tillförlitlighetsnivån som du har valt. Läs mer om [tillförlitlighetsnivåer](service-fabric-cluster-capacity.md).
+## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Ange regler för automatisk skalning för den här nodtypen/skalnings uppsättningen för virtuell dator
+Om klustret har flera nodtyper upprepar du detta för varje nodtyper/skalnings uppsättningar för virtuella datorer som du vill skala (in eller ut). Ta hänsyn till antalet noder som du måste ha innan du ställer in automatisk skalning. Det minsta antalet noder som du måste ha för den primära nodtypen avgörs av tillförlitlighetsnivån som du har valt. Läs mer om [tillförlitlighetsnivåer](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
 > Skala ned den primära noden skriver till mindre än det minsta antalet gör klustret instabil eller påverkar den. Detta kan resultera i dataförlust för dina program och för systemtjänster.
@@ -60,25 +60,25 @@ Om klustret har flera nodtyper, upprepar du detta för varje nod-typer/virtuell 
 
 Funktionen för automatisk skalning är för närvarande inte styrs av belastning som dina program kan ska rapportera till Service Fabric. Så just nu Autoskala du får helt och hållet drivs av prestandaräknare som genereras av den virtuella datorn skaluppsättningsinstanser.  
 
-Följ de här instruktionerna [att ställa in automatisk skalning för varje VM-skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
+Följ de här anvisningarna [för att ställa in automatisk skalning för varje skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> I en skala ned scenario, om inte din nodtyp har en [hållbarhetsnivå] [ durability] guld eller Silver måste du anropa den [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) med den lämplig nodnamnet. För hållbarhet Brons rekommenderar vi inte för att skala ned mer än en nod i taget.
+> I ett scenario med nedskalning, om inte nodtypen har en [hållbarhets nivå][durability] på guld eller silver, måste du anropa [Remove-ServiceFabricNodeState-cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) : en med rätt nodnamn. För brons-hållbarhet rekommenderar vi inte att du skalar ned mer än en nod i taget.
 > 
 > 
 
-## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Lägga till virtuella datorer i en nod-skalningsuppsättning för typen/virtuella datorer manuellt
+## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Manuellt lägga till virtuella datorer till en nodtyp/skalnings uppsättning för virtuella datorer
 
 När du skalar ut lägger du till fler instanser av virtuella datorer i skalningsuppsättningen. Dessa instanser blir de noder som används i Service Fabric. Service Fabric vet när fler instanser läggs till i skalningsuppsättningen (genom utskalning) och reagerar automatiskt. 
 
 > [!NOTE]
-> Att lägga till virtuella datorer tar tid, så du inte räknar med tillägg till direkt. Planera så att lägga till kapacitet i förväg, att tillåta mer än 10 minuter innan den VM-kapaciteten är tillgänglig för repliker/tjänstinstanser att placeras.
+> Det tar tid att lägga till virtuella datorer, så det är inte troligt att tilläggen tas i beaktande. Vi planerar att lägga till kapacitets rätt i förväg för att tillåta mer än 10 minuter innan VM-kapaciteten är tillgänglig för repliker/tjänst instanser som ska placeras.
 > 
 
-### <a name="add-vms-using-a-template"></a>Lägg till virtuella datorer med hjälp av en mall
-I anvisningarna sample/i den [Snabbstart mallgalleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) att ändra antalet virtuella datorer i varje nodtyp. 
+### <a name="add-vms-using-a-template"></a>Lägg till virtuella datorer med en mall
+Följ exemplet/anvisningarna i galleriet [snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) för att ändra antalet virtuella datorer i varje nodtyp. 
 
-### <a name="add-vms-using-powershell-or-cli-commands"></a>Lägg till virtuella datorer med hjälp av PowerShell eller CLI-kommandon
+### <a name="add-vms-using-powershell-or-cli-commands"></a>Lägg till virtuella datorer med PowerShell-eller CLI-kommandon
 Följande kod hämtar en skalningsuppsättning efter namn och ökar **kapaciteten** för skalningsuppsättningen med 1.
 
 ```powershell
@@ -98,16 +98,16 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
-## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Ta manuellt bort virtuella datorer från en nod typ/virtual machine scale Sets
-När du skalar in en nodtyp tar bort du VM-instanser från skalningsuppsättningen. Om nodtyp är Brons hållbarhetsnivå, är Service Fabric inte medveten om vad har hänt och rapporterar att en nod har gått förlorad. Service Fabric rapporterar ett feltillstånd för klustret. Om du vill förhindra att feltillståndet, måste du uttryckligen ta bort noden från klustret och ta bort node-tillstånd.
+## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Ta bort virtuella datorer manuellt från en nodtyp/skalnings uppsättning för virtuella datorer
+När du skalar i en nodtyp tar du bort virtuella dator instanser från skalnings uppsättningen. Om nodtypen är brons hållbarhets nivå kan Service Fabric inte identifieras vad som har hänt och rapporterar att en nod saknas. Service Fabric rapporterar ett feltillstånd för klustret. För att förhindra att det är felaktigt, måste du uttryckligen ta bort noden från klustret och ta bort nodens tillstånd.
 
-Service fabric-systemtjänster kör i den primära nodtypen i klustret. Vid Nedskalning den primära nodtypen aldrig skala ned antalet instanser till färre än vad den [tillförlitlighetsnivån](service-fabric-cluster-capacity.md) kräver. 
+Service Fabric system Services körs i den primära nodtypen i klustret. Vid skalning av den primära nodtypen, skalar du aldrig ned antalet instanser till mindre än vad Tillförlitlighets [nivån](service-fabric-cluster-capacity.md) garanterar. 
  
 För en tillståndskänslig tjänst behöver du ett visst antal noder som ska vara alltid upp till att bibehålla tillgänglighet och bevara tillståndet för din tjänst. Vid mycket åtminstone behöver du antalet noder lika target set replikantalet för partitionen/tjänsten.
 
 ### <a name="remove-the-service-fabric-node"></a>Ta bort Service Fabric-noden
 
-Stegen för att manuellt ta bort Nodtillstånd gäller endast för nodtyper med en *Brons* hållbarhetsnivå.  För *Silver* och *guld* hållbarhetsnivå, de här stegen utförs automatiskt av plattformen. Mer information om hållbarhet finns i [Kapacitetsplanering för Service Fabric-kluster][durability].
+Stegen för att ta bort Node-tillstånd manuellt gäller endast för nodtyper med en *brons* -hållbarhets nivå.  För *silver* -och *Gold* -hållbarhets nivån görs de här stegen automatiskt av plattformen. Mer information om hållbarhet finns i [Service Fabric kluster kapacitets planering][durability].
 
 Om du vill hålla noderna i klustret jämnt fördelade över uppgraderings- och feldomäner och därmed möjliggöra jämn användning av dem, bör den senast skapade noden tas bort först. Med andra ord bör noderna tas bort i omvänd ordning mot hur de skapades. Den senast skapade noden är den som har den största egenskapsvärdet för `virtual machine scale set InstanceId`. Kodexemplen nedan returnerar den senast skapade noden.
 
@@ -133,7 +133,7 @@ sfctl: `sfctl node transition --node-transition-type Stop`
 PowerShell: `Remove-ServiceFabricNodeState`  
 sfctl: `sfctl node remove-state`
 
-När du har utfört dessa steg för noden kan du ta bort den från skalningsuppsättningen. Om du har någon annan hållbarhetsnivå än [Brons][durability] görs dessa steg åt dig när instansen av skalningsuppsättningen tas bort.
+När du har utfört dessa steg för noden kan du ta bort den från skalningsuppsättningen. Om du använder en hållbarhets nivå utöver [brons][durability]är de här stegen gjorda när du tar bort skalnings uppsättnings instansen.
 
 Följande kodblock hämtar den senaste skapade noden och inaktiverar, stoppar och tar bort noden från klustret.
 

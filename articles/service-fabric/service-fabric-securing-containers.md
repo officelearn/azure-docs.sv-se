@@ -1,9 +1,9 @@
 ---
 title: Importera certifikat till en behållare som körs på Azure Service Fabric | Microsoft Docs
-description: Lär dig att importera certifikatfiler till en tjänst för Service Fabric-behållare.
+description: Lär dig nu att importera certifikatfiler till en Service Fabric container service.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3a6ea5e2776ae5e016426ba0ddaf288f1476e932
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 80ac20fd2dc7bfe3fea6a58a6df94e3f7b99a700
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612788"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599216"
 ---
-# <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importera en certifikatfil till en behållare som körs på Service Fabric
+# <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importera en certifikat fil till en behållare som körs på Service Fabric
 
-Du kan skydda dina behållartjänster genom att ange ett certifikat. Service Fabric tillhandahåller en mekanism för tjänster i en behållare för att få åtkomst till ett certifikat som installeras på noderna i ett Windows- eller Linux-kluster (version 5.7 eller högre). Certifikatet måste installeras i certifikatarkivet under LocalMachine på alla noder i klustret. Den privata nyckeln som motsvarar certifikatet måste vara tillgängliga, tillgänglig och -på Windows - kan exporteras. Certifikatinformationen har angetts i manifestet under den `ContainerHostPolicies` tagg som i följande fragment visas:
+Du kan skydda behållar tjänsterna genom att ange ett certifikat. Service Fabric tillhandahåller en mekanism för tjänster i en behållare för att få åtkomst till ett certifikat som är installerat på noderna i ett Windows-eller Linux-kluster (version 5,7 eller senare). Certifikatet måste installeras i ett certifikat Arkiv under LocalMachine på alla noder i klustret. Den privata nyckeln som motsvarar certifikatet måste vara tillgänglig, tillgänglig och Windows-exporter bar. Certifikat informationen finns i program manifestet under `ContainerHostPolicies` taggen som följande fragment visar:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,24 +31,24 @@ Du kan skydda dina behållartjänster genom att ange ett certifikat. Service Fab
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-För Windows-kluster, när programmet startas, exporterar körningen varje refererade certifikatet och dess motsvarande privata nyckel till en PFX-fil som skyddas med ett slumpmässigt genererat lösenord. Filerna PFX och lösenord, är tillgängliga i behållaren med hjälp av följande miljövariabler: 
+För Windows-kluster, vid start av programmet, exporterar körningen varje refererat certifikat och dess motsvarande privata nyckel till en PFX-fil som skyddas med ett slumpmässigt genererat lösen ord. Både PFX-och Password-filerna är tillgängliga i behållaren med följande miljövariabler: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password
 
-För Linux-kluster kopieras certifikat (PEM) över från arkivet som anges av X509StoreName till behållaren. Motsvarande miljövariabler i Linux är:
+För Linux-kluster kopieras certifikaten (PEM) från det lager som anges av X509StoreName till behållaren. Motsvarande miljövariabler i Linux är:
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
 
-Om du redan har certifikaten i formuläret och vill ha åtkomst till den i behållaren du också skapa ett paket för data i din app-paket och anger du följande i programmanifestet:
+Alternativt, om du redan har certifikaten i det obligatoriska formuläret och vill komma åt det i behållaren, kan du skapa ett data paket i ditt appaket och ange följande i program manifestet:
 
 ```xml
 <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
   <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
  ```
 
-Behållartjänst eller process ansvarar för att importera certifikatdatabasen till behållaren. Du kan använda för att importera certifikatet `setupentrypoint.sh` skript eller köra anpassad kod i behållaren processen. Här är exempelkod i C# för att importera PFX-filen:
+Behållar tjänsten eller processen ansvarar för att importera certifikatfiler till behållaren. Om du vill importera certifikatet kan du använda `setupentrypoint.sh` skript eller köra anpassad kod i container processen. Här är exempel kod i C# för att importera PFX-filen:
 
 ```csharp
 string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
@@ -61,9 +61,9 @@ store.Open(OpenFlags.ReadWrite);
 store.Add(cert);
 store.Close();
 ```
-Den här PFX-certifikat kan användas för att autentisera programmet eller tjänsten eller säker kommunikation med andra tjänster. Som standard är filerna ACLed endast för SYSTEM. Du kan ACL den till andra konton som krävs av tjänsten.
+Detta PFX-certifikat kan användas för att autentisera programmet eller tjänsten eller säker kommunikation med andra tjänster. Som standard är filerna endast ACLed till SYSTEM. Du kan ACL-använda den till andra konton som krävs av tjänsten.
 
-Som ett nästa steg kan du läsa följande artiklar:
+I nästa steg ska du läsa följande artiklar:
 
-* [Distribuera en Windows-behållare till Service Fabric i Windows Server 2016](service-fabric-get-started-containers.md)
-* [Distribuera en Docker-behållare till Service Fabric i Linux](service-fabric-get-started-containers-linux.md)
+* [Distribuera en Windows-behållare till Service Fabric på Windows Server 2016](service-fabric-get-started-containers.md)
+* [Distribuera en Docker-behållare till Service Fabric på Linux](service-fabric-get-started-containers-linux.md)

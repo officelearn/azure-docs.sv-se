@@ -1,5 +1,5 @@
 ---
-title: Bädda in Video Indexer widgetar i dina program
+title: Bädda in Video Indexer-widgetar i dina program
 titlesuffix: Azure Media Services
 description: Lär dig hur du bäddar in Video Indexer-widgetar i ett program.
 services: media-services
@@ -8,20 +8,20 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ec3c7379c8c7f28765fbc4396d3e9804a6c127f6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488691"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663751"
 ---
-# <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
+# <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer-widgetar i dina program
 
-Den här artikeln visar hur du kan bädda in Video Indexer-widgetar i program. Bädda in två typer av widgetar i ditt program har stöd för video Indexer: **Kognitiva insikter** och **Player**. 
+Den här artikeln visar hur du kan bädda in Video Indexer-widgetar i program. Video Indexer stöder inbäddning av tre typer av widgetar i ditt program: **Kognitiva**insikter, **spelare**och **redigerare**. 
 
-Från och med version 2, innehåller den grundläggande Webbadressen widget kontots region. Till exempel ett konto i regionen USA, västra genererar: `https://wus2.videoindexer.ai/embed/insights/...`.
+Från och med version 2 innehåller widgeten bas-URL den region där det angivna kontot finns. Ett konto i regionen Västra USA genererar till exempel: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## <a name="widget-types"></a>Widgettyper
 
@@ -31,9 +31,9 @@ En **insikts**widget innehåller alla visuella insikter som extraherades från v
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs:** URL-param widgetar stöds inte i version 2. |
-|Nationella inställningar|En kort språkkod|Styr insights-språk. Standardvärdet är `en`. Till exempel: `language=de`.|
-|tabb|Den valda fliken standard|Styr fliken insikter som återges som standard. `tab=timeline` återger insikterna med fliken tidslinje markerad.|
+|`widgets`|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs:** URL-param för widgetar stöds inte i version 2. |
+|`locale`|En kort språkkod|Styr insikter-språket. Standardvärdet är `en`. Till exempel: `language=de`.|
+|`tab`|Den valda fliken standard|Styr fliken insikter som återges som standard. `tab=timeline`återger insikter med fliken tids linje vald.|
 
 ### <a name="player-widget"></a>Spelarwidget
 
@@ -41,12 +41,24 @@ Med en **spelar**widget kan du strömma videon med anpassningsbar bithastighet. 
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|t|Sekunder från början|Gör att spelaren börjar spela upp från angiven tidpunkt.<br/>Exempel: `t=60`.|
-|captions|En språkkod|Hämtar textningen på det angivna språket under inläsning av widgeten så att den blir tillgänglig på textningsmenyn.<br/>Exempel: `captions=en-US`.|
-|showCaptions|Ett booleskt värde|Gör att spelaren läses in med aktiverad textning.<br/>Exempel: `showCaptions=true`.|
-|type||Aktiverar ett ljudspelarskal (videodelen tas bort).<br/>Exempel: `type=audio`.|
-|autoplay|Ett booleskt värde|Anger om spelaren ska börja spela upp videon när den har lästs in (standard är true).<br/>Exempel: `autoplay=false`.|
-|language|En språkkod|Styr spelarens språk (standard är en-US)<br/>Exempel: `language=de-DE`.|
+|`t`|Sekunder från start|Gör att spelaren börjar spela upp från angiven tidpunkt.<br/>Exempel: `t=60`.|
+|`captions`|En språkkod|Hämtar textningen på det angivna språket under inläsning av widgeten så att den blir tillgänglig på textningsmenyn.<br/>Exempel: `captions=en-US`.|
+|`showCaptions`|Ett booleskt värde|Gör att spelaren läses in med aktiverad textning.<br/>Exempel: `showCaptions=true`.|
+|`type`||Aktiverar ett ljudspelarskal (videodelen tas bort).<br/>Exempel: `type=audio`.|
+|`autoplay`|Ett booleskt värde|Anger om spelaren ska börja spela upp videon när den har lästs in (standard är true).<br/>Exempel: `autoplay=false`.|
+|`language`|En språkkod|Styr spelarens språk (standard är en-US)<br/>Exempel: `language=de-DE`.|
+
+### <a name="editor-widget"></a>Editor-widget 
+
+Med widgeten **redigerare** kan du skapa nya projekt och hantera video insikter.
+
+|Namn|Definition|Beskrivning|
+|---|---|---|
+|`accessToken`<sup>*</sup>|Sträng|`accessToken` Parametern krävs när du använder Editor-widgeten.<br/>Åtkomsttoken ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten. |
+|`language`|En språkkod|Styr spelarens språk (standard är en-US)<br/>Exempel: `language=de-DE`.|
+|`locale`|En kort språkkod|Styr insikter-språket. Standardvärdet är `en`. Till exempel: `language=de`.|
+
+<sup>*</sup>Ägaren bör vara `accessToken` försiktig. 
 
 ## <a name="embedding-public-content"></a>Bädda in offentligt innehåll
 
@@ -57,15 +69,15 @@ Med en **spelar**widget kan du strömma videon med anpassningsbar bithastighet. 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     När du klickar på knappen visas en inbäddningsmodal på skärmen där du kan välja vilken widget du vill bädda in i programmet.
-    När du väljer en widget (**spelare** eller **insikter**) genereras inbäddningskoden som du kan klistra in i programmet.
+    Genom att välja enwidget (kognitiva insikter, **spelare**eller **redigerare**) genererar den inbäddade koden som du kan klistra in i programmet.
  
-4. Välj vilken typ av widget du vill använda (**insikter** eller **spelare**).
+4. Välj vilken typ av widget du vill ha(kognitiva insikter, **spelare**eller **redigerare**).
 5. Kopiera inbäddningskoden och lägg till den i programmet. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> Om du har problem med att dela din video-URL: er kan du försöka lägga till ”plats”-parametern för länken. Parametern ska vara inställd på den [Azure-regioner där Video Indexer finns](regions.md). Till exempel `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> Om du har problem med att dela dina video-URL: er kan du försöka lägga till parametern "plats" till länken. Parametern ska vara inställd på de [Azure-regioner där video Indexer finns](regions.md). Till exempel `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Bädda in privat innehåll
 
@@ -94,7 +106,7 @@ För att få Video Indexer-widgetar att kommunicera med andra komponenter gör V
 
 Om du väljer att implementera egen spelarkod och utföra integreringen med **insikts**widgetar är det ditt ansvar att verifiera ursprunget för meddelandet som kommer från VideoIndexer.ai.
 
-### <a name="embed-both-types-of-widgets-in-your-application--blog-recommended"></a>Bädda in båda typerna av widgetar i ett program/en blogg (rekommenderas) 
+### <a name="embed-widgets-in-your-application--blog-recommended"></a>Bädda in widgetar i ditt program/blogg (rekommenderas) 
 
 Det här avsnittet visar hur du uppnår interaktion mellan två Video Indexer-widgetar så att spelaren hoppar till relevant ställe när en användare klickar på insiktskontrollen i programmet.
 
@@ -213,23 +225,23 @@ Mer information finns i [den här demonstrationen](https://codepen.io/videoindex
 
 ## <a name="adding-subtitles"></a>Lägga till undertexter
 
-Om du bäddar in Video Indexer-insikter med en egen AMP-spelare kan du använda metoden **GetVttUrl** för att hämta undertexter. Du kan också anropa en javascript-metod från Video Indexer AMP-plugin-programmet **getSubtitlesUrl** (enligt ovan). 
+Om du bäddar in Video Indexer insikter med dina egna [Azure Media Player](https://aka.ms/azuremediaplayer)kan du använda **GetVttUrl** -metoden för att hämta textning (under texter). Du kan också anropa en javascript-metod från Video Indexer AMP-plugin-programmet **getSubtitlesUrl** (enligt ovan). 
 
 ## <a name="customizing-embeddable-widgets"></a>Anpassa inbäddningsbara widgetar
 
 ### <a name="cognitive-insights-widget"></a>Insiktswidget
 
-Du kan välja vilka typer av insikter som du vill genom att ange dem som ett värde till följande URL-parameter som lagts till i den inbäddade koden du får (från API: et eller från webbprogrammet): `&widgets=<list of wanted widgets>`.
+Du kan välja vilka typer av insikter du vill genom att ange dem som ett värde för följande URL-parameter som läggs till i den inbäddnings kod som du hämtar (från API eller webb `&widgets=<list of wanted widgets>`program):.
 
 Möjliga värden är: people, keywords, sentiments, transcript, search.
 
-Till exempel om du vill bädda in ser en widget som innehåller endast personer och Sök efter insikter iframe inbäddad URL ut så här:
+Om du till exempel vill bädda in en widget som endast innehåller personer och Sök insikter så ser iframes inbäddnings URL ut så här:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-Rubriken på fönstret iframe kan också anpassas genom att tillhandahålla `&title=<YourTitle>` i iframe-URL: en. (Det anpassar HTML-värdet \<title>).
+Rubriken för iframe-fönstret kan också anpassas genom att tillhandahålla `&title=<YourTitle>` iframe-URL: en. (Det anpassar HTML-värdet \<title>).
     
-Om du vill ge din iframe-fönstret rubriken ”MyInsights”, till exempel ut URL: en så här:
+Om du till exempel vill ge iframe-fönstret rubriken "mina insikter" ser URL: en ut så här:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
 
@@ -245,10 +257,10 @@ Exempel:
 
 Som standard har Video Indexer-spelaren automatiskt genererade undertexter baserat på avskriften för videon som har extraherats från videon med det källspråk som valdes när videon laddades upp.
 
-Om du vill bädda in med ett annat språk kan du lägga till `&captions=< Language | ”all” | “false” >` till URL: en för inbäddade spelare eller put ”alla” som värde om du vill ha alla tillgängliga språk bildtexter.
-Om du vill undertexter som ska visas som standard, kan du skicka `&showCaptions=true`.
+Om du vill bädda in med ett annat språk kan du lägga till `&captions=< Language | ”all” | “false” >` den i inbäddnings-URL: en eller lägga till "alla" som värde om du vill ha alla tillgängliga språk beskrivningar.
+Om du vill att rubrikerna ska visas som standard kan du skicka `&showCaptions=true`.
 
-Bädda in URL: en sedan ser ut så här: 
+Inbäddnings-URL: en kommer sedan att se ut så här: 
 
 `https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
 
@@ -260,4 +272,4 @@ Auto play – spelaren börjar spela upp videon som standard. Du kan välja bort
 
 Information om hur du visar och redigerar Video Indexer-insikter finns i [den här artikeln](video-indexer-view-edit.md).
 
-Kolla dessutom in [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).
+Ta också en titt på [video Indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

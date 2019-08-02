@@ -1,6 +1,6 @@
 ---
-title: Tillbakadragning av Security Center-funktioner (juli 2019) | Microsoft Docs
-description: Den här artikeln beskriver funktionerna i Security Center som kommer att dras tillbaka den 31 juli 2019.
+title: Dra tillbaka Security Center funktioner (2019 juli) | Microsoft Docs
+description: I den här artikeln beskrivs de funktioner i Security Center som kommer att dras tillbaka den 31 juli 2019.
 services: security-center
 author: yoavfrancis
 ms.service: security-center
@@ -8,181 +8,187 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 1d364da9506124a35c724209c68ff72db4243e80
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 8e7456eff3062ef6667e7b0022ea9740c397a493
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341561"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679248"
 ---
-# <a name="retirement-of-security-center-features-july-2019"></a>Tillbakadragning av Security Center-funktioner (juli 2019)
+> [!NOTE]
+> Det här dokumentet innehåller en lista över funktioner som har dragits tillbaka från Azure Security Center den 31 juli 2019.
+>
+>
 
-Vi har gjort flera [förbättringar](https://azure.microsoft.com/updates/?product=security-center) till Azure Security Center under de senaste sex månaderna.
-Med de förbättra funktionerna, vi ska ta bort vissa redundant funktioner och relaterade API: er från Security Center 31 juli 2019.  
 
-De flesta av funktionerna retiring kan ersättas med nya funktioner i Azure Security Center eller Azure Log Analytics. Andra funktioner kan implementeras med hjälp av [Azure Sentinel (förhandsversion)](https://azure.microsoft.com/services/azure-sentinel/).
+# <a name="retirement-of-security-center-features-july-2019"></a>Dra tillbaka Security Center funktioner (2019 juli)
 
-Security Center-funktioner kommer att dras in:
+Vi har gjort flera [förbättringar](https://azure.microsoft.com/updates/?product=security-center) av Azure Security Center de senaste sex månaderna.
+Med dessa förbättrade funktioner tar vi bort några redundanta funktioner och relaterade API: er från Security Center den 31 juli 2019.  
 
-- [Instrumentpanelen för händelser](#menu_events)
-- [Sök menypost](#menu_search)
-- [Visa klassisk identitet och åtkomst länk på identitet och åtkomst (förhandsversion)](#menu_classicidentity)
-- [Säkerhetshändelser mappa knappen säkerhetskarta aviseringar (förhandsversion)](#menu_securityeventsmap)
-- [Anpassade aviseringsregler (förhandsversion)](#menu_customalerts)
-- [Undersöka knappen i threat protection säkerhetsaviseringar](#menu_investigate)
+De flesta av dessa funktioner kan ersättas med nya funktioner i Azure Security Center eller Azure Log Analytics. Andra funktioner kan implementeras med hjälp av [Azure Sentinel (för hands version)](https://azure.microsoft.com/services/azure-sentinel/).
+
+Security Center funktioner som ska dras tillbaka är:
+
+- [Instrument panel för händelser](#menu_events)
+- [Sök meny post](#menu_search)
+- [Visa klassisk identitets & åtkomst länk för identitet och åtkomst (för hands version)](#menu_classicidentity)
+- [Knapp för säkerhets händelser på karta för säkerhets aviseringar (för hands version)](#menu_securityeventsmap)
+- [Anpassade aviserings regler (förhands granskning)](#menu_customalerts)
+- [Undersök knapp i säkerhets aviseringar för skydd mot hot](#menu_investigate)
 - [En delmängd av säkerhetslösningar](#menu_solutions)
-- [Redigera säkerhetskonfigurationerna för säkerhetsprinciper](#menu_securityconfigurations)
-- [Säkerhet och granskning instrumentpanelen (ursprungligen används i OMS-portalen) för Log Analytics-arbetsytor](#menu_securityomsdashboard)
+- [Redigera säkerhetskonfigurationer för säkerhets principer](#menu_securityconfigurations)
+- [Instrument panel för säkerhet och granskning (som ursprungligen användes i OMS-portalen) för Log Analytics arbets ytor](#menu_securityomsdashboard)
 
-Den här artikeln innehåller detaljerad information om varje tillbakadragna funktion och steg du kan vidta för att implementera ersättning funktioner.
+Den här artikeln innehåller detaljerad information för varje tillbakadragen funktion och de steg som du kan vidta för att implementera ersättnings funktioner.
 
-## Instrumentpanelen för händelser<a name="menu_events"></a>
+## Instrument panel för händelser<a name="menu_events"></a>
 
-Security Center använder Microsoft Monitoring Agent för att samla in olika säkerhetsrelaterade konfigurationer och händelser från dina virtuella datorer. Dessa händelser lagras i dina arbetsytor. Den [instrumentpanelen för händelser](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) kan du visa dessa data och ger en startpunkt till Log Analytics.
+Security Center använder Microsoft Monitoring Agent för att samla in olika säkerhetsrelaterade konfigurationer och händelser från dina datorer. Dessa händelser lagras i dina arbets ytor. På [instrument panelen händelser](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) kan du visa dessa data och du får en start punkt för Log Analytics.
 
-Vi ska pensionera instrumentpanelen för händelser som visas när du väljer en arbetsyta:
+Den instrument panel för händelser som visas när du väljer en arbets yta tas ur bruk:
 
 ![Instrumentpanelen för händelser][2]
 
-### <a name="events-dashboard---the-new-experience"></a>Instrumentpanelen för händelser – den nya upplevelsen
+### <a name="events-dashboard---the-new-experience"></a>Instrument panel för händelser – den nya upplevelsen
 
-Vi gärna att du kan använda de inbyggda funktionerna i Azure Log Analytics för att visa viktiga händelser på dina arbetsytor.
+Vi rekommenderar att du använder de inbyggda funktionerna i Azure Log Analytics för att Visa viktiga händelser på dina arbets ytor.
 
-Om du har skapat anpassade viktiga händelser i Security Center kan vara de tillgänglig. I Log Analytics, går du till **Välj arbetsyta** > **sparade sökningar**. Dina data inte tappas bort eller ändras. Interna viktiga händelser är också tillgängliga från samma skärm i Log Analytics.
+Om du har skapat anpassade viktiga händelser i Security Center kommer de att vara tillgängliga. I Log Analytics går du till **Välj Sparad arbets yta** > **sparade sökningar**. Dina data går förlorade eller ändras inte. Interna viktiga händelser är också tillgängliga från samma skärm i Log Analytics.
 
-![Arbetsytan sparade sökningar][3]
+![Sparade sökningar i arbets ytan][3]
 
-## Sök menypost<a name="menu_search"></a>
+## Sök meny post<a name="menu_search"></a>
 
-Azure Security Center använder för närvarande Azure Monitor-loggar search för att hämta och analysera dina säkerhetsdata. Den här skärmen fungerar som ett fönster för att Log Analytics-söksidan och gör att användarna kan köra sökfrågor på den valda arbetsytan. Mer information finns i [Azure Security Center search](https://docs.microsoft.com/azure/security-center/security-center-search). Vi ska pensionera den här sökfönstret:
+Azure Security Center använder för närvarande Azure Monitor loggar sökning för att hämta och analysera dina säkerhets data. Den här skärmen fungerar som ett fönster för att Log Analytics Sök sidan och gör det möjligt för användare att köra Sök frågor på den valda arbets ytan. Mer information finns i [Azure Security Center search](https://docs.microsoft.com/azure/security-center/security-center-search). Det här sökfönstret tas ur bruk:
 
-![Sidan objektsökning][4]
+![Sök sida][4]
 
-### <a name="search-menu-entry---the-new-experience"></a>Sök menypost – den nya upplevelsen
+### <a name="search-menu-entry---the-new-experience"></a>Sök meny post – den nya upplevelsen
 
-Vi rekommenderar att du kan använda de inbyggda funktionerna i Azure Log Analytics för att utföra sökningar på dina arbetsytor. Gå till Azure Log Analytics och välj **loggar**.
+Vi rekommenderar att du använder Azure Log Analytics inbyggda funktioner för att utföra Sök frågor på dina arbets ytor. Gå till Azure Log Analytics och välj **loggar**.
 
-![Sidan för log Analytics-loggar][5]
+![Sidan Log Analytics loggar][5]
 
-## Klassisk identitet och åtkomst (förhandsversion)<a name="menu_classicidentity"></a>
+## Klassisk identitets & åtkomst (för hands version)<a name="menu_classicidentity"></a>
 
-Den klassiska identitet och åtkomst-upplevelsen i Security Center visar för närvarande en instrumentpanel för identitets- och information i Log Analytics. Visa den här instrumentpanelen:
+Den klassiska identitets & åtkomst upplevelsen i Security Center visar för närvarande en instrument panel med identitets-och åtkomst information i Log Analytics. Så här visar du den här instrument panelen:
 
-1. Välj **Visa klassisk identitet och åtkomst**.
+1. Välj **Visa klassisk identitets & åtkomst**.
 
-   ![Sidan][6]
+   ![Sidan identitet][6]
 
-1. Visa den **identitets- och åtkomstinstrumentpanel**.
+1. Visa **identitets & åtkomst instrument panel**.
 
-    ![Sidan - val av arbetsyta][7]
+    ![Sidan identitet-val av arbets yta][7]
 
-1. Välj en arbetsyta för att öppna den **identitet och åtkomst** instrumentpanelen i Log Analytics för att visa identitet och åtkomst till information för din arbetsyta.
+1. Välj en arbets yta för att öppna **identitets & åtkomst** instrument panel i Log Analytics för att Visa identitets-och åtkomst information på din arbets yta.
 
-   ![Sidan - instrumentpanel][8]
+   ![Sidan identitet-instrument panel][8]
 
-Vi ska pensionera alla tre skärmar som visas i föregående steg. Dina data förblir tillgängliga i Log Analytics-lösningen för säkerhet och inte ändras eller tas bort.
+Vi drar tillbaka alla tre skärmar som visas i föregående steg. Dina data är fortfarande tillgängliga i Log Analytics säkerhetslösningen och kommer inte att ändras eller tas bort.
 
-### <a name="classic-identity--access-preview---the-new-experience"></a>Klassisk identitet och åtkomst (förhandsversion) – den nya upplevelsen
+### <a name="classic-identity--access-preview---the-new-experience"></a>Klassisk identitets & åtkomst (för hands version) – den nya upplevelsen
 
-Log Analytics-instrumentpanelen har visat insikter på en enda arbetsyta. Dock ger inbyggda funktionerna i Security Center insyn i alla prenumerationer och alla arbetsytor som är kopplade. Du kan komma åt ett enkelt sätt – att använda vy där du kan fokusera på vad som är viktigt med rekommendationer som rangordnas utifrån deras säker poäng.
+Instrument panelen för Log Analytics har visat insikter på en enskild arbets yta. Men interna Security Center funktioner ger insyn i alla prenumerationer och alla arbets ytor som är associerade med dem. Du kan komma åt en lättanvänd vy som du kan använda för att fokusera på det som är viktigt med rekommendationer rangordnade enligt deras säkra poäng.
 
-Alla funktioner i den **identitet och åtkomst** instrumentpanelen i Log Analytics kan nås genom att välja **identitet och åtkomst (förhandsversion)** i Security Center.
+Alla funktioner i **identitets & åtkomst** instrument panel i Log Analytics kan nås genom att välja **identitet & åtkomst (för hands version)** i Security Center.
 
-![Identitet sidan – klassiska uppleva pensionering][9]
+![Sidan identitet – förbrukad klassisk upplevelse][9]
 
-## Mappa säkerhetshändelser<a name="menu_securityeventsmap"></a>
+## Karta över säkerhets händelser<a name="menu_securityeventsmap"></a>
 
-Security Center kan du med en [aviseringar säkerhetskarta](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) för att identifiera säkerhetshot. Den **går du till händelser säkerhetskarta** som mappar knappen öppnas en instrumentpanel där du kan visa rå säkerhetshändelser på den valda arbetsytan.
+Security Center ger dig en [säkerhets aviserings karta](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) som hjälper dig att identifiera säkerhetshot. Knappen **gå till säkerhets händelse översikt** i den kartan öppnar en instrument panel som gör att du kan visa rå säkerhets händelser på den valda arbets ytan.
 
-Vi ska ta bort den **går du till händelser säkerhetskarta** knappen och instrumentpanelen per arbetsyta.
+Vi tar bort knappen **gå till säkerhets händelse mappning** och instrument panelen per arbets yta.
 
-![Security aviseringskarta - knappen][10]
+![Karta över säkerhets aviseringar – knapp][10]
 
-När du väljer den **går du till händelser säkerhetskarta** knappen du öppnar instrumentpanelen för hotinformation. Vi ska pensionera instrumentpanelen för hotinformation.  
+När du väljer knappen **gå till säkerhets händelser karta** öppnar du instrument panelen Hot information. Hot informations instrument panelen tas ur bruk.  
 
-![Instrumentpanelen Hotinformation][11]
+![Instrumentpanelen för hotinformation][11]
 
-När du väljer en arbetsyta för att visa dess instrumentpanel för hotinformation kan öppna du skärmen security aviseringar karta (förhandsgranskning) i Log Analytics. Vi ska pensionera den här skärmen.
+När du väljer en arbets yta för att visa instrument panelen för hot information öppnar du skärmen säkerhets aviserings mappning (förhands granskning) i Log Analytics. Vi drar tillbaka den här skärmen.
 
-![Säkerhetskarta för aviseringar i Log Analytics][12]
+![Säkerhets aviseringar mappas i Log Analytics][12]
 
-Dina befintliga data förblir tillgängliga i Log Analytics-lösningen för säkerhet och inte ändras eller tas bort.
+Dina befintliga data är fortfarande tillgängliga i Log Analytics säkerhetslösningen och kommer inte att ändras eller tas bort.
 
-### <a name="security-events-map---the-new-experience"></a>Händelser säkerhetskarta – den nya upplevelsen
+### <a name="security-events-map---the-new-experience"></a>Säkerhets händelser mappar – den nya upplevelsen
 
-Vi rekommenderar att du kan använda kartan funktionerna aviseringar i Security Center: **Säkerhetskarta aviseringar (förhandsversion)** . Den här funktionen ger en optimerad upplevelse och fungerar på alla prenumerationer och associerade arbetsytor. Det ger dig en översikt över din miljö och är inte fokuserar på en enda arbetsyta.
+Vi rekommenderar att du använder funktionerna för aviserings mappning som är inbyggda i Security Center: **Översikt över säkerhets aviseringar (för hands version)** . Den här funktionen ger en optimerad upplevelse och fungerar över alla prenumerationer och associerade arbets ytor. Det ger dig en övergripande vy över din miljö och fokuserar inte på en enskild arbets yta.
 
-## Anpassade aviseringsregler (förhandsversion)<a name="menu_customalerts"></a>
+## Anpassade aviserings regler (förhands granskning)<a name="menu_customalerts"></a>
 
-Vi [tas ur bruk anpassat aviseringar upplevelse](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) den 30 juni 2019 eftersom tas ur bruk den underliggande infrastrukturen. Du kan redigera befintliga anpassade aviseringsregler fram till dess, men du inte kan komma att lägga till nya. Efter datumet för tillbakadragandet kommer alla anpassade aviseringar som definierats börjar inte gälla och säkerhetsaviseringar baserat på de här reglerna kommer att genereras.
-Vi rekommenderar att du aktiverar [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) och återskapa dina anpassade aviseringar. Alternativt kan du skapa dina aviseringar med Azure Monitor log-aviseringar.
+Vi tar bort [den anpassade aviserings upplevelsen](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) den 30 juni 2019 eftersom den underliggande infrastrukturen tas ur bruk. Fram till dess kan du redigera befintliga anpassade aviserings regler, men du kan inte lägga till nya. Efter indragnings datumet kommer alla anpassade aviseringar som definierats inte att börja gälla och säkerhets aviseringar som baseras på dessa regler kommer inte att genereras.
+Vi rekommenderar att du aktiverar [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) och återskapar dina anpassade aviseringar där. Du kan också skapa aviseringar med Azure Monitor logg aviseringar.
 
-Att hålla dina befintliga aviseringar och skapa dem med Azure Sentinel:
+För att behålla dina befintliga aviseringar och skapa dem med Azure Sentinel:
 
-1. [Öppna Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) och välj arbetsytan där din anpassade aviseringar lagras
-1. Välj **Analytics** från menyn
-1. Följ instruktionerna i följande [självstudien](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) om hur du skapar anpassade aviseringar i Azure Sentinel
+1. [Öppna Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) och välj den arbets yta där dina anpassade aviseringar lagras
+1. Välj **analys** på menyn
+1. Följ anvisningarna i följande [självstudie](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) om hur du skapar anpassade aviseringar i Azure Sentinel
 
-Om du inte vill använda Azure Sentinel kan du skapa dina aviseringar med loggaviseringar i Azure Monitor. Anvisningar finns i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) och [Loggaviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
+Om du inte är intresse rad av att använda Azure Sentinel kan du skapa aviseringar med Azure Monitor logg aviseringar. Instruktioner finns i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) och [logg aviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ![Anpassade aviseringar][13]
 
-Mer information om anpassade aviseringar tillbakadragande finns [anpassade Aviseringsregler i Azure Security Center (förhandsversion)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
+Mer information om hur du drar tillbaka anpassade aviseringar finns [i anpassade aviserings regler i Azure Security Center (för hands version)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
 
-## Säkerhetsundersökning för aviseringar<a name="menu_investigate"></a>
+## Undersökning av säkerhets aviseringar<a name="menu_investigate"></a>
 
-[Undersökningsfunktionen](https://docs.microsoft.com/azure/security-center/security-center-investigation) i Security Center kan du sortera en potentiell säkerhetsincident. Funktionen kan du förstår omfattningen av en incident och spåra grundorsaken. Vi ska ta bort den här funktionen från Security Center eftersom den har ersatts med en bättre upplevelse i [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+[Undersöknings funktionen](https://docs.microsoft.com/azure/security-center/security-center-investigation) i Security Center hjälper dig att prioritering en potentiell säkerhets incident. Funktionen gör att du kan förstå omfattningen av en incident och spåra dess rotor saken. Vi tar bort den här funktionen från Security Center eftersom den har ersatts av en förbättrad upplevelse i [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Säkerhetsincident][14]
 
-När du väljer den **Undersök** knappen från en **säkerhetsincident** kan du öppna instrumentpanelen undersökning (förhandsversion) i Log Analytics. Vi ska pensionera Undersökningsinstrumentpanelen.  
+När du väljer knappen **Undersök** från en **säkerhets incident** skärm öppnar du instrument panelen för undersökningen (för hands version) i Log Analytics. Vi drar tillbaka undersöknings instrument panelen.  
 
-Dina befintliga data förblir tillgängliga i Log Analytics-lösningen för säkerhet och inte ändras eller tas bort.
+Dina befintliga data är fortfarande tillgängliga i Log Analytics säkerhetslösningen och kommer inte att ändras eller tas bort.
 
-![Instrumentpanel för undersökning i Log Analytics][15]
+![Undersöknings instrument panel i Log Analytics][15]
 
 ### <a name="investigation---the-new-experience"></a>Undersökning – den nya upplevelsen
 
-Vi rekommenderar att du skulle övergå till [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) för en omfattande felsökningsfunktionen. Azure Sentinel innehåller kraftfulla Sök och fråga i Verktyg för jakt efter säkerhetshot via din organisations datakällor.  
+Vi rekommenderar att du övergår till [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) för en omfattande gransknings upplevelse. Azure Sentinel tillhandahåller kraftfulla Sök-och specialverktyg som söker efter säkerhetshot i din organisations data källor.  
 
 ## Delmängd av säkerhetslösningar<a name="menu_solutions"></a>
 
-Security Center kan aktivera [integrerade säkerhetslösningar i Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). Vi ska pensionera följande partnerlösningar från Security Center. De här lösningarna är aktiverade i [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) tillsammans med ett antal ytterligare datakällor.
+Security Center kan aktivera [integrerade säkerhetslösningar i Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). Vi drar tillbaka följande partner lösningar från Security Center. Dessa lösningar är aktiverade i [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) tillsammans med ett antal ytterligare data källor.
 
-- [Nästa generations brandvägg och web brandväggen programlösningar](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
-- [Integrering av säkerhetslösningar som stöder Common Event Format (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
+- [Nästa generations brand vägg och lösningar för webb program brand väggar](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
+- [Integrering av säkerhetslösningar som stöder common Event format (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-Du kommer inte kunna lägga till eller ändra någon av Lösningstyper som nämns i listan ovan, antingen från Användargränssnittet eller API: et efter dras tillbaka.
+När du har inaktiverat kan du inte lägga till eller ändra någon av lösnings typerna som anges i föregående lista, antingen från användar gränssnittet eller API: et.
 
-Om du har befintliga anslutna lösningar, rekommenderar vi att du kan flytta till Azure Sentinel.
+Om du har befintliga anslutna lösningar rekommenderar vi att du flyttar till Azure Sentinel.
 
-![Security centers lösningar][16]
+![Security Center-lösningar][16]
 
-## Redigera säkerhetskonfigurationerna för säkerhetsprinciper<a name="menu_securityconfigurations"></a>
+## Redigera säkerhetskonfigurationer för säkerhets principer<a name="menu_securityconfigurations"></a>
 
-Azure Security Center övervakar säkerhetskonfigurationer genom att använda en uppsättning [över 150 rekommenderas regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). för att härda Operativsystemet. Dessa regler gäller brandväggar, granskning, lösenordsprinciper med mera. Om en sårbar konfiguration hittas på en dator, genererar Security Center en säkerhetsrekommendation. Den [redigeringsskärmen security configuration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) gör att kunder kan anpassa den OS standardkonfigurationen för säkerhet i Security Center.
+Azure Security Center övervakar säkerhetskonfigurationer genom att använda en uppsättning om [över 150 rekommenderade regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). för att härdning av operativ systemet. Dessa regler gäller brand väggar, granskning, lösen ords principer med mera. Om en sårbar konfiguration hittas på en dator, genererar Security Center en säkerhetsrekommendation. På sidan [Redigera säkerhets konfiguration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) kan kunderna anpassa standard säkerhets konfigurationen för operativ systemet i Security Center.
 
-Vi ska pensionera den här funktionen för förhandsgranskning. Om du vill återställa din säkerhetskonfigurationer till sina standardvärden för efter datumet för tillbakadragandet kan du göra det via API eller Powershell med hjälp av den [instruktioner](https://aka.ms/ascresetsecurityconfigurations)
+Vi drar tillbaka den här för hands versions funktionen. Om du efter indragnings datumet vill återställa dina säkerhetskonfigurationer till standardvärdena kan du göra det via API eller PowerShell med hjälp av [följande instruktioner](https://aka.ms/ascresetsecurityconfigurations)
 
-![Redigera säkerhetskonfigurationerna][17]
+![Redigera säkerhetskonfigurationer][17]
 
-### <a name="edit-security-configurations---the-new-experience"></a>Redigera säkerhetskonfigurationerna – den nya upplevelsen
+### <a name="edit-security-configurations---the-new-experience"></a>Redigera säkerhetskonfigurationer – den nya upplevelsen
 
-Vi planerar att aktivera Security Center att stödja den [configuration gästagenten](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration). Sådan uppdatering kan en mycket mer omfattande funktionsuppsättning, inklusive stöd för flera operativsystem och integration av Azure i gäst-principer för gästen konfigurationer. När ändringarna är aktiverade, har du också möjlighet att styra konfigurationer i stor skala och tillämpa dem automatiskt till nya resurser.
+Vi planerar att aktivera Security Center för att stödja [gäst konfigurations agenten](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration). En sådan uppdatering gör att en mycket rikare funktion har angetts, inklusive stöd för fler operativ system och integrering av Azures principer för gästa konfigurationer. När ändringarna har Aktiver ATS kan du också kontrol lera konfigurationerna i skala och tillämpa dem på nya resurser automatiskt.
 
-## Instrumentpanelen för säkerhet och granskning för Log Analytics-arbetsytor<a name="menu_securityomsdashboard"></a>
+## Instrument panel för säkerhet och granskning för Log Analytics arbets ytor<a name="menu_securityomsdashboard"></a>
 
-Instrumentpanelen för säkerhet och granskning användes i OMS-portalen. I Log Analytics ger instrumentpanelen en per arbetsyta-översikt över viktiga säkerhetshändelser och hot, en karta för hotinformation och en identitet och åtkomst-bedömning av säkerhetshändelser som sparats i arbetsytan. Vi ska ta bort instrumentpanelen. Som vi redan rekommenderas i instrumentpanelen Användargränssnittet, rekommenderar vi som du skulle övergå till Azure Security Center.
+Instrument panelen för säkerhet och granskning användes ursprungligen i OMS-portalen. I Log Analytics tillhandahåller instrument panelen en översikt per arbets yta med viktiga säkerhets händelser och hot, en hot informations karta och en identitets-och-åtkomst-bedömning av säkerhets händelser som sparas i arbets ytan. Vi tar bort instrument panelen. Som vi redan rekommenderar i instrument panels gränssnittet rekommenderar vi att du övergår till Azure Security Center.
 
-![Log Analytics security-instrumentpanelen][18]
+![Log Analytics säkerhets instrument panel][18]
 
-### <a name="security-and-audit-dashboard---the-new-experience"></a>Säkerhet och granskning instrumentpanel – den nya upplevelsen
+### <a name="security-and-audit-dashboard---the-new-experience"></a>Instrument panel för säkerhet och granskning – den nya upplevelsen
 
-Vi rekommenderar att du kan växla till Azure Security Center. Det ger samma Säkerhetsöversikt över flera prenumerationer och arbetsytor som är associerade med dem, samt en mer omfattande funktionsuppsättning.
+Vi rekommenderar att du växlar till Azure Security Center. Den ger samma säkerhets översikt över flera prenumerationer och de arbets ytor som är kopplade till dem, plus en rikare funktions uppsättning.
 
-Du kan hämta Log Analytics-frågor som fyller på instrumentpanelen för säkerhet och granskning i den [GitHub-lagringsplatsen](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards) för Security Center.
+Du kan hämta de ursprungliga Log Analytics frågor som fyller på instrument panelen säkerhet och granskning i [GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards) -lagringsplatsen för Security Center.
 
 ## <a name="next-steps"></a>Nästa steg
 

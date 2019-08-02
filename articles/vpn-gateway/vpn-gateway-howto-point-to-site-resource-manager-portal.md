@@ -1,26 +1,24 @@
 ---
-title: 'Ansluta en dator till en Azure-nätverk med punkt-till-plats och intern Azure-certifikatautentisering: Azure-portalen | Microsoft Docs'
-description: Ansluta Windows, Mac OS X och Linux-klienter på ett säkert sätt till en Azure-nätverk med P2S och självsignerade Certifikatutfärdare som utfärdade certifikat. Den här artikeln använder Azure Portal.
+title: 'Ansluta en dator till ett virtuellt Azure-nätverk med hjälp av punkt-till-plats och intern Azure-certifikatautentisering: Azure Portal | Microsoft Docs'
+description: Anslut Windows-, Mac OS X-och Linux-klienter på ett säkert sätt till ett virtuellt Azure-nätverk med P2S och självsignerade eller CA-utfärdade certifikat. Den här artikeln använder Azure Portal.
 services: vpn-gateway
 author: cherylmc
-tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 6/18/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e603eed34aaff4ad7303819a730fea09a332b7a8
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203067"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706783"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: Azure Portal
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med intern Azure-certifikatautentisering: Azure Portal
 
 Den här artikeln hjälper dig att på ett säkert sätt ansluta enskilda klienter som kör Windows, Linux eller Mac OS X till ett Azure VNet. Punkt-till-plats-VPN-anslutningar är användbara när du vill fjärransluta till ditt VNet, exempelvis när du distansarbetar från hemmet eller en konferens. Du kan också använda P2S i stället för en plats-till-plats-VPN-anslutning när du bara har ett fåtal klienter som behöver ansluta till ett VNet. Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. P2S skapar VPN-anslutningen via SSTP (Secure Socket Tunneling Protocol) eller IKEv2. Mer information om punkt-till-plats-VPN finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
 
 ![Ansluta en dator till Azure VNet – punkt-till-plats-anslutningsdiagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
-
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -36,20 +34,20 @@ Ursprungliga autentiseringsanslutningar för Azure-certifikat från punkt-till-p
 Du kan använda följande värden till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln.
 
 * **VNet-namn:** VNet1
-* **Adressutrymme:** 192.168.0.0/16<br>I det här exemplet använder vi bara ett adressutrymme. Du kan ha fler än ett adressutrymme för ditt virtuella nätverk.
-* **Namn på undernät:** FrontEnd
-* **Adressintervall för undernätet:** 192.168.1.0/24
-* **Prenumeration:** Om du har mer än en prenumeration kan du kontrollera att du använder rätt.
+* **Adress utrymme:** 192.168.0.0/16<br>I det här exemplet använder vi bara ett adressutrymme. Du kan ha fler än ett adressutrymme för ditt virtuella nätverk.
+* **Under näts namn:** FrontEnd
+* **Adress intervall för under nätet:** 192.168.1.0/24
+* **Prenumeration:** Om du har mer än en prenumeration kontrollerar du att du använder rätt.
 * **Resursgrupp:** TestRG
-* **Plats:** Östra USA
+* **Plats:** East US
 * **GatewaySubnet:** 192.168.200.0/24<br>
 * **DNS-server: IP-adress** (valfri) för den DNS-server som du vill använda för namnmatchning.
-* **Det virtuella nätverkets gateway name:** VNet1GW
+* **Namn på virtuell nätverksgateway:** VNet1GW
 * **Gateway-typ:** VPN
 * **VPN-typ:** Routningsbaserad
 * **Namn på offentlig IP-adress:** VNet1GWpip
-* **Anslutningstyp:** Punkt-till-plats
-* **Klientadresspool:** 172.16.201.0/24<br>VPN-klienter som ansluter till det virtuella nätverket med den här punkt-till-plats-anslutningen får en IP-adress från klientadresspoolen.
+* **Anslutnings typ:** Punkt-till-plats
+* **Klient-adresspool:** 172.16.201.0/24<br>VPN-klienter som ansluter till det virtuella nätverket med den här punkt-till-plats-anslutningen får en IP-adress från klientadresspoolen.
 
 ## <a name="createvnet"></a>1. Skapa ett virtuellt nätverk
 
@@ -73,7 +71,7 @@ När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för e
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->Bas-SKU:n stöder inte IKEv2- eller RADIUS-autentisering. Om du planerar att Mac-klienter ansluter till det virtuella nätverket, Använd inte en grundläggande SKU.
+>Basic Gateway-SKU: n stöder inte IKEv2-eller RADIUS-autentisering. Om du planerar att låta Mac-klienter ansluta till ditt virtuella nätverk ska du inte använda den grundläggande SKU: n.
 >
 
 ## <a name="generatecert"></a>5. Generera certifikat
@@ -98,7 +96,7 @@ Klientens adresspool är ett intervall med privata IP-adresser som du anger. Kli
 2. Klicka på **Konfigurera nu** för att öppna konfigurationssidan.
 
    ![Konfigurera nu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. På konfigurationssidan **Punkt-till-plats** i **Adresspool** lägger du till det intervall med privata IP-adresser som du vill använda. VPN-klienter tar dynamiskt emot en IP-adress från intervallet som du anger. Minsta nätmask är 29 bitars för aktiv/passiv och 28 bitars för aktiv/aktiv-konfiguration. Validera och spara inställningen genom att klicka på **Spara**.
+3. På konfigurationssidan **Punkt-till-plats** i **Adresspool** lägger du till det intervall med privata IP-adresser som du vill använda. VPN-klienter tar dynamiskt emot en IP-adress från intervallet som du anger. Den minsta under nät masken är 29 bitar för aktiv/passiv och 28-bit för aktiv/aktiv-konfiguration. Validera och spara inställningen genom att klicka på **Spara**.
 
    ![Klientadresspool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
@@ -108,7 +106,7 @@ Klientens adresspool är ett intervall med privata IP-adresser som du anger. Kli
 
 ## <a name="tunneltype"></a>7. Konfigurera tunneltyp
 
-Du kan välja tunneltyp. Tunnelalternativen är OpenVPN, SSTP och IKEv2. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta. Du kan använda OpenVPN-klienten för att ansluta till OpenVPN Tunneltyp.
+Du kan välja tunneltyp. Tunnel alternativen är OpenVPN, SSTP och IKEv2. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta. Du kan använda OpenVPN-klienten för att ansluta till tunnel typen OpenVPN.
 
 ![Tunneltyp](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
@@ -172,7 +170,7 @@ VPN-klientkonfigurationsfilerna innehåller inställningar för att konfigurera 
 
 I dialogrutan Nätverk letar du upp den klientprofil som du vill använda och anger inställningarna från [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac). Klicka sedan på **Anslut**.
 
-Kontrollera [installera - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) detaljerade anvisningar. Om du har problem med att ansluta kan du kontrollera att den virtuella nätverksgatewayen inte använder en grundläggande SKU. Grundläggande SKU stöds inte för Mac-klienter.
+Mer information finns i [install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Om du har problem med att ansluta kontrollerar du att den virtuella Nätverksgatewayen inte använder en grundläggande SKU. Basic SKU stöds inte för Mac-klienter.
 
   ![Mac-anslutning](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

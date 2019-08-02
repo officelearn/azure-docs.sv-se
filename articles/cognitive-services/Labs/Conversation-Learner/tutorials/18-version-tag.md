@@ -1,7 +1,7 @@
 ---
-title: Hur du använder Version taggning med en modell för konversationen Learner – Azure Cognitive Services | Microsoft Docs
+title: Så här använder du versions märkning med en Conversation Learner modell – Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du använder versionshantering och taggning med en Konversationsdeltagare-modell.
+description: Lär dig hur du använder versions hantering och taggning med en Conversation Learner modell.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,103 +10,104 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0279363c039e3ec3c2deac3bc7f71c32c547e9d1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475704"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703379"
 ---
-# <a name="how-to-use-version-tagging"></a>Hur du använder Version taggning
+# <a name="how-to-use-version-tagging"></a>Så här använder du versions taggning
 
-Den här självstudien visar hur du kan tagga versioner av konversationen Learner modellen och ange vilken version som är ”live”.  
+I den här självstudien beskrivs hur du taggar versioner av din Conversation Learner modell och anger vilken version som är "Live".  
 
 ## <a name="requirements"></a>Krav
-Den här självstudien kräver med Bot Framework-emulatorn för att skapa Log-dialogrutor, inte Log dialogrutan Webbgränssnittet.  
+Den här självstudien kräver att du använder bot Framework-emulatorn för att skapa logg dialog rutor, inte logg dialog rutans webb gränssnitt.  
 
-Den här självstudien krävs att Allmänt självstudien Bot körs:
+Den här självstudien kräver att roboten för allmän självstudie körs:
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
 
-Taggade versioner av modellen är statiskt. Du kan inte redigera eller ändra dem. När du redigerar din modell kan du alltid redigerar huvudservern version. När du lägger till en ny tagg fångar Konversationsdeltagare en ögonblicksbild av modellen i det här läget i tid. 
+Taggade versioner av modellen är statiska. Du kan inte redigera eller ändra dem. När du redigerar din modell redigerar du alltid huvud versionen. När du lägger till en ny tagg Conversation Learner samla in en ögonblicks bild av modellen vid den tidpunkten. 
 
-Din robot kommer att använda versionen av modellen som du har valt som ”Live”-version, men alla konversationer har kan visas endast när den ”Redigera tagg” anges till ”Huvudgrenen”. Om egenskapen ”Redigera tagg” i modellen är inställd på något annat än ”Master”, kan du visa ögonblicksbilden av modellen, men du kan inte ändra det på något sätt.
+Din robot använder den version av modellen som du har valt som "Live"-version, men alla konversationer som den har kan bara visas när "redigerings tag gen" är inställd på "Master". Om egenskapen "Edit tag" för modellen har angetts till något annat än "Master", kan du Visa ögonblicks bilden av modellen, men du kan inte ändra den på något sätt.
 
 ## <a name="steps"></a>Steg
 
-### <a name="install-the-bot-framework-emulator"></a>Installera Bot Framework-emulatorn
+### <a name="install-the-bot-framework-emulator"></a>Installera bot Framework-emulatorn
 
 1. Gå till [https://github.com/Microsoft/BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator).
-2. Ladda ned och installerar sedan emulatorn.
+2. Ladda ned och installera emulatorn.
 
 ### <a name="create-a-model"></a>Skapa en modell
 
-1. Från modellen lista startsidan klickar du på den `New Model` knappen.
-2. I den `Name` fälttyp, ”självstudien-18-versionshantering”, tryck på RETUR.
-4. Klicka på ”inställningar” på den vänstra panelen.
+1. Från start sidan modell lista klickar du `New Model` på knappen.
+2. Tryck på RETUR i fälttypen,"självstudie-18-version".`Name`
+4. Klicka på inställningar i den vänstra panelen.
 5. Kopiera innehållet i fältet CONVERSATION_LEARNER_MODEL_ID till Urklipp.
 
 ### <a name="configure-the-emulator"></a>Konfigurera emulatorn
 
-1. Öppna filen ”.env” i rotmappen Konversationsdeltagare.
-2. Lägg till en rad i filen ”.env” så här:
+1. Öppna filen ". miljö" i rotmappen för Conversation Learner.
+2. Lägg till en rad i filen ". miljö" så här:
     - `CONVERSATION_LEARNER_MODEL_ID=[paste-model-id-from-clipboard-here]`
-3. Starta om tjänsten Konversationsdeltagare genom att avsluta från Kommandotolken och kör igen:
+3. Starta om Conversation Learner tjänsten genom att avsluta från kommando tolken och köra igen:
     - `npm run tutorial-general`
-4. I Bot Framework-emulatorn, skapa en ny bot-konfiguration genom att ange slutpunkts-URL `http://localhost:3978/api/messages`
+4. I bot Framework-emulator skapar du en ny robot konfiguration, anger slut punkts-URL: en till`http://localhost:3978/api/messages`
 
 ### <a name="version-1"></a>Version 1
 
-Vi skapar en enda åtgärd för Version 1.
+Vi ska skapa en enda åtgärd för version 1.
 
-1. I den vänstra panelen för Webbgränssnittet klickar du på ”åtgärder” och klicka sedan på den `New Action` knappen.
-2. I ”Robotens svaret” anger du ”Hej där (version 1)”.
+1. I den vänstra panelen i webb gränssnittet klickar du på åtgärder och sedan på `New Action` knappen.
+2. I fältet "robots svar" anger du "Hej där (version 1)".
 3. Klicka på knappen `Save`.
 
-Nu ska vi tagga detta som ”Version 1” av modellen.
+Nu ska vi tagga detta som "version 1" av modellen.
 
-1. Klicka på ”inställningar” i den vänstra panelen och sedan klicka på den ![](../media/tutorial18_version_tags.PNG)”Version taggar”-ikonen för att visa den `New Tag` knappen som du på.
-    - Ge den namnet ”Version 1”
-1. I ”Live taggen” nedrullningsbar listruta väljer ”Version 1”.  
-    - Nu använder kanaler med den här Bot ”Version 1” av vår modell.
-    - Entiteter, åtgärder och träna dialogrutor med den här Version 1-modellen kan inte längre ändras.
-    - Om du väljer ”Version 1” som ”redigera taggen” kommer endast att kunna se modellen och redigera den inte.
-    - Lämna ”Redigera tagg” inställd på ”Master”, är det den enda versionen av den modell som kan redigeras.
+1. Klicka på inställningar i den vänstra panelen och klicka ![](../media/tutorial18_version_tags.PNG)sedan på ikonen "versions Taggar" för att `New Tag` Visa knappen som du bör Klicka på.
+    - Ge den namnet "version 1"
+1. I list rutan "Live tag" väljer du "version 1".  
+    - Nu kommer kanaler som använder den här roboten att använda "version 1" av vår modell.
+    - Dialog rutorna entiteter, åtgärder och utbildning i den här modellen av version 1 kan inte längre ändras.
+    - Om du väljer "version 1" som "redigerings tag" kan du bara visa modellen och inte redigera den.
+    - Lämna "Edit tag" inställt på "Master", det är den enda versionen av modellen som kan redige ras.
 
-Nu visas ”Version 1” i rutnätet ”Version taggar”.
+Nu visas "version 1" i rutnätet "versions Taggar".
 
 ### <a name="version-2"></a>Version 2
 
-Vi kommer nu att redigera vår modell för att skilja den från Version 1.
+Nu ska vi redigera vår modell för att skilja den från version 1.
 
-1. I den vänstra panelen klickar du på ”åtgärder”.
-2. I rutnätet åtgärder klickar du på ”Hej där (version 1)”.
-3. Ändra ”Robotens response” fältet till ”Hej där (version 2)”.
+1. Klicka på "åtgärder" i den vänstra panelen.
+2. I rutnätet åtgärder klickar du på "Hej där (version 1)".
+3. Ändra fältet "robots svar" till "Hej där (version 2)".
 4. Klicka på knappen `Save`.
 5. Klicka på knappen `New Action`.
-6. I ”Robotens svaret” fältet Typ, ”bye bye (version 2)”.
+6. I "robotens svar"-fält typ, "bye bye (version 2)".
 
-### <a name="confirm-bot-framework-emulator-is-using-version-1"></a>Bekräfta Bot Framework-emulatorn är med hjälp av Version 1
+### <a name="confirm-bot-framework-emulator-is-using-version-1"></a>Bekräfta bot Framework-emulatorn använder version 1
 
-1. Skriv meddelandet ”Hey, det” i Bot Framework-emulatorn.
-2. Observera att roboten svarar med ”Hej där (version 1)”.
-    - Detta verifierar att Version 1 är ”live”.
+1. Skriv meddelandet "Hej där" i bot Framework-emulatorn.
+2. Observera att bot-meddelandet svarar med "Hej där (version 1)".
+    - Detta verifierar att version 1 är "Live".
 
-### <a name="view-the-conversation-logs-in-conversation-learner-web-ui"></a>Visa Konversations-loggar i konversationen Learner-Webbgränssnittet
+### <a name="view-the-conversation-logs-in-conversation-learner-web-ui"></a>Visa konversations loggar i Conversation Learner webb gränssnitt
 
-1. I den vänstra panelen klickar du på på ”Log-dialogrutor”
-    - Klicka på Uppdatera om du inte ser alla dialogrutor.
-2. Observera taggen ”Version 1” i rutnätet.
-3. I rutnätet, klickar du på ”Hej där (version 1)”
+1. Klicka på "Logga dialog rutor" i den vänstra panelen
+    - Om du inte ser några dialog rutor klickar du på knappen Uppdatera.
+2. Observera taggen "version 1" i rutnätet.
+3. I rutnätet klickar du på "Hej där (version 1)"
 
 > [!NOTE]
-> Vi kan göra ändringar genom att välja från alla tillgängliga Konversationsdeltagare-funktioner, men dessa ändringar kommer att göras till master-databasen och inte till Version 1.
+> Vi kan göra korrigeringar genom att välja bland alla funktioner som är tillgängliga för närvarande Conversation Learner, men du kommer att göra dessa ändringar till Master och inte till version 1.
 
-Du har nu sett hur versionshantering fungerar och hur du interagerar med robot som använder Bot Framework-emulatorn.
+Nu har du sett hur versions hantering fungerar och hur du kan interagera med bot med hjälp av bot Framework-emulatorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Enum entiteter och åtgärder för entitet](./tutorial-enum-set-entity.md)
+> [Räkna upp entiteter och ange enhets åtgärder](./tutorial-enum-set-entity.md)

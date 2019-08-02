@@ -1,7 +1,7 @@
 ---
-title: Fråga uttryckssyntax – Academic Knowledge API
+title: Syntax för frågeuttryck – Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Lär dig hur du använder fråga uttryckssyntax i Academic Knowledge API.
+description: Lär dig hur du använder syntax för frågeuttryck i Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,82 +10,83 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 95c2e9d3f54f967b3ebb434c742f69251b80573e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61336764"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704917"
 ---
-# <a name="query-expression-syntax"></a>Fråga uttryckssyntax
+# <a name="query-expression-syntax"></a>Syntax för frågeuttryck
 
-Vi har märkt att svaret på en **tolka** begäran innehåller ett frågeuttryck. Grammatik som tolkas användarens fråga skapas ett frågeuttryck för varje tolkning. Ett frågeuttryck kan sedan användas för att utfärda en **utvärdera** begäran att hämta resultat från.
+Vi har sett att svaret på en **tolka** -begäran innehåller ett frågeuttryck. Grammatiken som tolkade användarens fråga skapade ett frågeuttryck för varje tolkning. Ett frågeuttryck kan sedan användas för att utfärda en **evaluate** -begäran för att hämta Sök Resultat för enheter.
 
-Du kan också konstruera egna frågeuttryck och använda dem i en **utvärdera** begäran. Detta kan vara användbart om du skapar ditt eget användargränssnitt som skapar ett frågeuttryck som svar på användarens åtgärder. Om du vill göra detta måste behöver du veta syntaxen för-frågeuttryck.  
+Du kan också skapa egna frågeuttryck och använda dem i en **evaluate** -begäran. Detta kan vara användbart om du skapar ett eget användar gränssnitt som skapar ett frågeuttryck som svar på användarens åtgärder. För att göra detta måste du känna till syntaxen för frågeuttryck.  
 
-Varje entitetsattribut som kan ingå i ett frågeuttryck har en specifik typ och en uppsättning frågeoperatorer som möjligt. En uppsättning entitetsattribut och operatorer som stöds för varje attribut har angetts i [entitetsattribut](EntityAttributes.md). En fråga med enkla värden kräver attributet för den *är lika med* igen. En prefix-fråga kräver attributet för den *StartsWith* igen. Numeriska intervallfrågor kräver att attributet för den *IsBetween* igen.
+Varje attribut för entiteter som kan ingå i ett frågeuttryck har en speciell datatyp och en uppsättning möjliga fråge operatorer. Uppsättningen entitetsattribut och operatorer som stöds för varje attribut anges i entitetens [attribut](EntityAttributes.md). En enda värde fråga kräver att attributet har stöd för *likhets* åtgärden. En prefix fråga kräver att attributet har stöd för *StartsWith* -åtgärden. Frågor för numeriska intervall kräver att attributet stöder *IsBetween* -åtgärden.
 
-Några av entitetsdata lagras som sammansatta attribut som anges med en punkt '.' i attributets namn. Till exempel representeras författare/anknytning till information som en sammansatt attribut. Den innehåller 4 komponenter: AuN AuId, AfN, AfId. Dessa komponenter är separata delar som utgör en enda entitet attribut-värde.
+Några av enhets data lagras som sammansatta attribut, som anges av en punkt "." i attributnamnet. Till exempel visas författar-/anknytnings information som ett sammansatt attribut. Den innehåller fyra komponenter: AuN, AuId, AfN, AfId. Dessa komponenter är separata delar av data som utgör ett enskilt attributvärde.
 
 
-**Strängattribut: Enstaka värde** (inklusive matchningar mot synonymer)  
-Ti = 'indexering av latent semantiska analysen'  
-Composite(AA.AuN='sue dumais')
+**String-attribut: Enskilt värde** (inklusive matchningar mot synonymer)  
+TI = ' indexering efter latens semantisk analys '  
+Sammansatt (AA. AuN = ' Sue dumais ')
 
-**Strängattribut: Exakt värde** (matchar endast kanoniska värden)  
-Ti == 'indexering av latent semantiska analysen'  
-Composite(AA.AuN=='susan t dumais')
+**String-attribut: Exakt enskilt värde** (matchar endast kanoniska värden)  
+TI = = ' indexering efter latens semantisk analys '  
+Sammansatt (AA. AuN = = ' Susan t dumais ')
      
-**Strängattribut: Prefixvärdet**   
-Ti = 'indexering av latent seman'...  
-Composite(AA.AuN='sue du'...)
+**String-attribut: Prefixvärde**   
+TI = ' Indexing by latend Seman '...  
+Sammansatt (AA. AuN = "Sue"...)
 
-**Numeriska attribut: Enskilt värde**  
+**Numeriskt attribut: Enskilt värde**  
 Y=2010
  
-**Numeriska attribut: Intervallvärdet**  
-Y>2005  
-Y &GT; = 2005  
+**Numeriskt attribut: Intervall värde**  
+Y > 2005  
+Y > = 2005  
 Y<2010  
 Y<=2010  
-Y =\[2010, 2012\) (innehåller endast vänstra gränsens värde: 2010, 2011)  
-Y =\[2010, 2012\] (omfattar både gränsvärden: 2010, 2011, 2012)
+Y =\[2010, 2012\) (innehåller bara det vänstra gränser svärdet: 2010, 2011)  
+Y =\[2010, 2012\] (inklusive båda avgränsnings värden: 2010, 2011, 2012)
  
-**Numeriska attribut: Prefixvärdet**  
-Y = '19'... (ett numeriskt värde som börjar med 19) 
+**Numeriskt attribut: Prefixvärde**  
+Y = ' 19 '... (alla numeriska värden som börjar med 19) 
  
-**Datumattribut: Enskilt värde**  
+**Datum-attribut: Enskilt värde**  
 D='2010-02-04'
 
-**Datumattribut: Intervallvärdet**  
+**Datum-attribut: Intervall värde**  
 D>'2010-02-03'  
-D = [”2010-02-03” ”, 2010-02-05']
+D = [' 2010-02-03 ', ' 2010-02-05 ']
 
 **Och/eller frågor:**  
-Och (Y = 1985, Ti = disordered elektroniska system)  
-Eller (Ti = 'disordered elektroniska system ”, Ti =” fault tolerance principer och praxis ”)  
-And(or(Y=1985,Y=2008), Ti = disordered elektroniska system)
+Och (Y = 1985, ti = ' disordnat elektroniskt system ')  
+Eller (TI = ' disordnade elektroniska system ', ti = ' fel tolerans principer och praxis)  
+Och (eller (Y = 1985, Y = 2008), ti = ' disordnade elektroniska system ')
  
 **Sammansatta frågor:**  
-Du måste ange en del av frågeuttryck som refererar till attributet sammansatta i funktionen Composite() fråga komponenter för ett sammansatt attribut. 
+Om du vill fråga efter komponenter i ett sammansatt attribut måste du omge den del av frågeuttrycket som refererar till attributet sammansatt i funktionen sammansatt (). 
 
-Till exempel för att fråga efter Paper-faktablad av författarens namn, använder du följande fråga:
+Om du till exempel vill fråga efter dokument efter författar namn använder du följande fråga:
 ```
 Composite(AA.AuN='mike smith')
 ```
-<br>Om du vill fråga efter rapporter från en viss författare medan författaren var på en viss institution, använder du följande fråga:
+<br>Använd följande fråga om du vill fråga efter dokument av en viss författare medan författaren hade en viss institution:
 ```
 Composite(And(AA.AuN='mike smith',AA.AfN='harvard university'))
 ```
-<br>Funktionen Composite() binda samman de två delarna av sammansatta attributet. Det innebär att vi bara få rapporter där en av författarna är ”Mike Smith” medan han var på Harvard. 
+<br>Funktionen sammansatt () binder samman de två delarna av attributet sammansatt. Det innebär att vi bara får arbets blad där en av författarna är "Mike Svensson" medan han var på Harvard. 
 
-Om du vill fråga efter rapporter från en viss författare i anknytningar med (andra) från en viss institution, använder du följande fråga:
+Om du vill fråga efter dokument av en viss författare i anknytningar med (andra) författare från en viss institution använder du följande fråga:
 ```
 And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
-<br>I den här versionen eftersom Composite() tillämpas på författaren och anknytning individuellt innan And(), får vi alla rapporter där en av författarna är ”Mike Smith” och en av författarnas anknytningar är ”Harvard”. Detta låter liknar det föregående exemplet i frågan, men det är inte samma sak.
+<br>I den här versionen, eftersom sammansatt () tillämpas på författaren och anknytningen individuellt före och (), får vi alla dokument där en av författarna är "Mike Svensson" och en av författarens anknytningar är "Harvard". Detta låter likna föregående exempel, men det är inte samma sak.
 
-I allmänhet ska du tänka på följande exempel: Vi har ett sammansatt attribut C som består av två komponenter A och B. En entitet kan ha flera värden för C. Det här är våra entiteter:
+I allmänhet bör du tänka på följande exempel: Vi har ett sammansatt attribut C som har två komponenter A och B. En entitet kan ha flera värden för C. Det här är våra entiteter:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}
@@ -96,15 +97,15 @@ E2: C={A=1, B=3}  C={A=3,B=2}
 Composite(And(C.A=1, C.B=2))
 ```
 
-<br>matchar endast de enheter som har ett värde för C där komponenten C.A är 1 och komponenten C.B är 2. Endast E1 matchar den här frågan.
+<br>matchar endast entiteter som har ett värde för C där komponenten C. A är 1 och komponenten C. B är 2. Endast E1 matchar den här frågan.
 
 Frågan 
 ```
 And(Composite(C.A=1), Composite(C.B=2))
 ```
-<br>matchar entiteter som har ett värde för C där C.A är 1 och även ha ett värde för C där C.B är 2. Både E1 och E2 matchar den här frågan.
+<br>matchar entiteter som har ett värde för C där C. A är 1 och också har ett värde för C där C. B är 2. Både E1 och E2 matchar den här frågan.
 
 Obs!  
-- Du kan inte referera till en del av ett sammansatt attribut utanför en Composite() funktion.
-- Du kan inte referera till delar av två olika sammansatta attribut i samma Composite() funktion.
-- Du kan inte referera till ett attribut som inte är en del av ett sammansatt attribut i en Composite().
+- Det går inte att referera till en del av ett sammansatt attribut utanför en sammansatt ()-funktion.
+- Det går inte att referera till delar av två olika sammansatta attribut i samma sammansatta () funktion.
+- Det går inte att referera till ett attribut som inte är en del av ett sammansatt attribut i en sammansatt ()-funktion.

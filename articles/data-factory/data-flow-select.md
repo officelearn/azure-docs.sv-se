@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314194"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678536"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Azure Data Factory mappa data flöde Välj omvandling
+# <a name="mapping-data-flow-select-transformation"></a>Mappa data flöde Välj omvandling
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Använd den här omvandlingen för kolumn urval (minska antalet kolumner), Ali Aset och Stream Names och ändra ordning på kolumner.
@@ -27,10 +27,7 @@ I diagrammet ovan är Select Transform överst. Detta är alias för den ursprun
 
 Välj kan också användas på ett sätt som avmarkerar kolumner från ditt data flöde. Om du t. ex. har 6 kolumner som definierats i din mottagare, men du bara vill välja en viss 3 att transformera och sedan flöda till mottagaren, kan du bara välja de tre genom att använda alternativet Välj transformering.
 
-> [!NOTE]
-> Du måste stänga av "Markera alla" om du bara vill välja vissa kolumner
-
-![Välj omvandling](media/data-flow/select001.png "Välj alias")
+![Välj omvandling](media/data-flow/newselect1.png "Välj alias")
 
 ## <a name="options"></a>Alternativ
 * Standardvärdet för "Välj" är att inkludera alla inkommande kolumner och behålla de ursprungliga namnen. Du kan ange ett alias för strömmen genom att ange namnet på Välj transformering.
@@ -38,6 +35,23 @@ Välj kan också användas på ett sätt som avmarkerar kolumner från ditt data
 * Välj hoppa över dubbletter för att eliminera dubblerade kolumner från indata-eller utdata-metadata.
 
 ![Hoppa över dubbletter](media/data-flow/select-skip-dup.png "Hoppa över dubbletter")
+
+> [!NOTE]
+> Om du vill rensa mappnings reglerna trycker du på knappen **Återställ** .
+
+## <a name="mapping"></a>Mappning
+Som standard mappar Select-omvandlingen alla kolumner automatiskt, vilket kommer att gå igenom alla inkommande kolumner till samma namn i utdata. Namnet på den utgående strömmen som anges i Välj inställningar definierar ett nytt aliasnamn för data strömmen. Om du behåller Välj uppsättningen för automatisk mappning, kan du ge alias för hela data strömmen med alla kolumner samma.
+
+![Välj omvandlings regler](media/data-flow/rule2.png "Regel baserad mappning")
+
+Om du vill skapa alias för, ta bort, byta namn på eller ordna om kolumner måste du först stänga av "Auto-Map". Som standard visas en standard regel som anges för dig som heter "alla kolumner". Du kan lämna den här regeln på plats om du alltid vill att alla inkommande kolumner ska mappas till samma namn i sina utdata.
+
+Men om du vill lägga till anpassade regler klickar du på Lägg till mappning. Fält mappning ger dig en lista över inkommande och utgående kolumn namn för mappning och alias. Välj "regel baserad mappning" om du vill skapa mönster matchnings regler.
+
+## <a name="rule-based-mapping"></a>Regel baserad mappning
+När du väljer regelbaserade mappning instruerar du ADF att utvärdera matchnings uttrycket så att det matchar inkommande mönster regler och definierar de utgående fält namnen. Du kan lägga till valfri kombination av både fält-och regelbaserade mappningar. Fält namn genereras sedan vid körning med ADF baserat på inkommande metadata från källan. Du kan visa namnen på de genererade fälten under fel sökning och i fönstret data förhands granskning.
+
+Mer information om mönster matchning finns i [kolumn mönster dokumentationen](concepts-data-flow-column-pattern.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * När du har använt Välj för att byta namn på, ändra ordning och alias använder du [omvandling av mottagare](data-flow-sink.md) för att använda data i ett data lager.

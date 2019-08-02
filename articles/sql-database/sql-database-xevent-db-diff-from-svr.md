@@ -1,6 +1,6 @@
 ---
-title: Utökade händelser i SQL-databas | Microsoft Docs
-description: Beskriver utökade händelser (XEvents) i Azure SQL-databas och hur händelsesessioner skilja sig från händelsesessioner i Microsoft SQL Server.
+title: Utökade händelser i SQL Database | Microsoft Docs
+description: Beskriver utökade händelser (XEvents) i Azure SQL Database och hur Event-sessioner skiljer sig något från Event-sessioner i Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,106 +10,105 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65206658"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566074"
 ---
-# <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL-databas
+# <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Det här avsnittet förklarar hur implementeringen av utökade händelser i Azure SQL Database är något annorlunda jämfört med utökade händelser i Microsoft SQL Server.
+I det här avsnittet beskrivs hur implementeringen av utökade händelser i Azure SQL Database skiljer sig något åt jämfört med utökade händelser i Microsoft SQL Server.
 
-- SQL Database V12 fått funktionen utökade händelser i andra hälften av kalender 2015.
+- SQL Database V12 fick funktionen utökade händelser i den andra halvan av kalender 2015.
 - SQL Server har haft utökade händelser sedan 2008.
-- Funktionsuppsättningen i utökade händelser på SQL Database är en robust delmängd av funktionerna på SQL Server.
+- Funktions uppsättningen för utökade händelser på SQL Database är en robust delmängd av funktionerna på SQL Server.
 
-*XEvents* är en informell smeknamn som används ibland för ”utökade händelser” i bloggar och andra informell platser.
+*XEvents* är ett informellt smek namn som ibland används för "utökade händelser" i Bloggar och andra informella platser.
 
 Mer information om utökade händelser för Azure SQL Database och Microsoft SQL Server finns på:
 
 - [Snabbstart: Utökade händelser i SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Utökade händelser](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Det här avsnittet förutsätter att du redan har viss erfarenhet av:
+Det här avsnittet förutsätter att du redan har kunskaper om:
 
-- [Azure SQL Database-tjänsten](https://azure.microsoft.com/services/sql-database/).
+- [Azure SQL Database tjänst](https://azure.microsoft.com/services/sql-database/).
 - [Utökade händelser](https://msdn.microsoft.com/library/bb630282.aspx) i Microsoft SQL Server.
 
-- Den största delen av vår dokumentation om utökade händelser gäller för både SQL Server och SQL-databas.
+- Den stora delen av vår dokumentation om utökade händelser gäller både SQL Server och SQL Database.
 
-Tidigare exponeringen för följande objekt är användbart när du väljer filen händelse som den [target](#AzureXEventsTargets):
+Tidigare exponering för följande objekt är användbart när du väljer händelse filen som [mål](#AzureXEventsTargets):
 
-- [Azure Storage-tjänst](https://azure.microsoft.com/services/storage/)
+- [Azure Storage tjänst](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
-    - [Med Azure PowerShell med Azure Storage](../storage/common/storage-powershell-guide-full.md) -innehåller omfattande information om PowerShell och Azure Storage-tjänsten.
+    - [Med hjälp av Azure PowerShell med Azure Storage](../storage/common/storage-powershell-guide-full.md) – får du omfattande information om PowerShell och tjänsten Azure Storage.
 
 ## <a name="code-samples"></a>Kodexempel
 
-Relaterade avsnitt innehåller två kodexempel:
+Relaterade ämnen innehåller två kod exempel:
 
 
-- [Ringbuffertens målkod för utökade händelser i SQL-databas](sql-database-xevent-code-ring-buffer.md)
+- [Ring buffertens mål kod för utökade händelser i SQL Database](sql-database-xevent-code-ring-buffer.md)
     - Kort enkelt Transact-SQL-skript.
-    - Vi betona i avsnittet kod exempel att när du är klar med ett Ringbuffert mål, bör lansering dess resurser genom att köra en alter släpper `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` instruktionen. Du kan senare lägga till en annan instans av Ringbuffert genom `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+    - Vi betonar i avsnittet kod exempel att när du är färdig med ett ring mål bör du frigöra resurserna genom att köra en Alter-Drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` -instruktion. Senare kan du lägga till en annan instans av ringbufferten `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`med.
 
 
-- [Händelsefilens målkod för utökade händelser i SQL-databas](sql-database-xevent-code-event-file.md)
+- [Mål kod för händelse filen för utökade händelser i SQL Database](sql-database-xevent-code-event-file.md)
     - Fas 1 är PowerShell för att skapa en Azure Storage-behållare.
-    - Fas 2 är Transact-SQL som använder Azure Storage-behållare.
+    - Fas 2 är Transact-SQL som använder Azure Storage container.
 
 ## <a name="transact-sql-differences"></a>Transact-SQL-skillnader
 
 
-- När du kör den [skapa EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) kommandot på SQL Server du använder den **på SERVER** satsen. Men i SQL-databas som du använder den **på databasen** satsen i stället.
+- När du kör kommandot [skapa händelsesessionen](https://msdn.microsoft.com/library/bb677289.aspx) på SQL Server använder du **on-Server** -satsen. Men SQL Database du använder **on Database** -satsen i stället.
 
 
-- Den **på databasen** satsen gäller även för de [ALTER EVENT SESSION](https://msdn.microsoft.com/library/bb630368.aspx) och [släppa EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL-kommandon.
+- **On Database** -satsen gäller även Transact-SQL-kommandon för att [ändra HÄNDELSESESSIONEN](https://msdn.microsoft.com/library/bb630368.aspx) och [släppa Event session](https://msdn.microsoft.com/library/bb630257.aspx) .
 
 
-- Ett bra tips är att inkludera alternativet event session av **STARTUP_STATE = ON** i din **skapa EVENT SESSION** eller **ALTER EVENT SESSION** instruktioner.
-    - Den **= ON** värdet har stöd för en automatisk omstart efter en omkonfiguration av logiska databasen på grund av en redundansväxling.
+- Ett bra tips är att inkludera alternativet **STARTUP_STATE = on** i sessionen för att skapa en **HÄNDELSESESSIONEN** eller **ändra Event-session** .
+    - Värdet **= on** har stöd för automatisk omstart efter en omkonfiguration av den logiska databasen på grund av en redundansväxling.
 
-## <a name="new-catalog-views"></a>De nya katalogvyerna tas
+## <a name="new-catalog-views"></a>Nya katalogvyer
 
-Utökade händelser-funktionen stöds av flera [catalog vyer](https://msdn.microsoft.com/library/ms174365.aspx). Katalogvyer berättar om *metadata eller definitioner* användarskapade event-sessioner i den aktuella databasen. Vyerna returnerar inte information om instanser av aktiva händelsesessioner.
+Funktionen utökade händelser stöds av flera [katalogvyer](https://msdn.microsoft.com/library/ms174365.aspx). I katalogvyer visas *metadata eller definitioner* för användarsessioner som skapats av användare i den aktuella databasen. Vyer returnerar inte information om instanser av aktiva Event-sessioner.
 
-| Namnet på<br/>Katalogvy | Beskrivning |
+| Namn på<br/>katalogvy | Beskrivning |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Returnerar en rad för varje åtgärd på varje händelse i en händelsesession. |
-| **sys.database_event_session_events** |Returnerar en rad för varje händelse i en händelsesession. |
-| **sys.database_event_session_fields** |Returnerar en rad för varje anpassa kan kolumn som uttryckligen har ställts in på mål och händelser. |
-| **sys.database_event_session_targets** |Returnerar en rad för varje händelsemål för en händelsesessionen. |
-| **sys.database_event_sessions** |Returnerar en rad för varje händelsesessionen i SQL Database-databasen. |
+| **sys.database_event_session_actions** |Returnerar en rad för varje åtgärd vid varje händelse i en användarsession. |
+| **sys.database_event_session_events** |Returnerar en rad för varje händelse i en användarsession. |
+| **sys.database_event_session_fields** |Returnerar en rad för varje anpassnings aktiv kolumn som uttryckligen angavs för händelser och mål. |
+| **sys.database_event_session_targets** |Returnerar en rad för varje händelse mål för en Event-session. |
+| **sys.database_event_sessions** |Returnerar en rad för varje händelsesessionen i SQL Database databasen. |
 
-I Microsoft SQL Server, liknande katalogvyer har namn som innehåller *.server\_*  i stället för *.database\_* . Namnmönstret liknar **sys.server_event_%** .
+I Microsoft SQL Server har liknande katalogvy-vyer namn som inkluderar *. Server\_*  i stället för *.\_Database*. Namn mönstret liknar **sys. server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nya dynamiska hanteringsvyer [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nya vyer för dynamisk hantering [(DMV: er)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL Database har [dynamiska hanteringsvyer (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) som har stöd för utökade händelser. DMV: er berättar om *active* händelsesessioner.
+Azure SQL Database har [dynamiska Management views (DMV: er)](https://msdn.microsoft.com/library/bb677293.aspx) som stöder utökade händelser. DMV: er anger om *aktiva* Event-sessioner.
 
-| Namnet på DMV | Beskrivning |
+| Namn på DMV | Beskrivning |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Returnerar information om event session åtgärder. |
-| **sys.dm_xe_database_session_events** |Returnerar information om Sessionshändelser. |
-| **sys.dm_xe_database_session_object_columns** |Visar konfigurationsvärden för objekt som är bundna till en session. |
-| **sys.dm_xe_database_session_targets** |Returnerar information om sessionen mål. |
-| **sys.dm_xe_database_sessions** |Returnerar en rad för varje händelsesession som är begränsade till den aktuella databasen. |
+| **sys.dm_xe_database_session_event_actions** |Returnerar information om Event session-åtgärder. |
+| **sys.dm_xe_database_session_events** |Returnerar information om sessions händelser. |
+| **sys.dm_xe_database_session_object_columns** |Visar konfigurations värden för objekt som är kopplade till en session. |
+| **sys.dm_xe_database_session_targets** |Returnerar information om mål för sessioner. |
+| **sys.dm_xe_database_sessions** |Returnerar en rad för varje händelsesessionen som är begränsad till den aktuella databasen. |
 
-I Microsoft SQL Server, liknande katalogvyer namnges utan den  *\_databasen* del av namnet, till exempel:
+I Microsoft SQL Server får liknande katalogfiler namn utan  *\_databas* delen av namnet, t. ex.:
 
-- **sys.dm_xe_sessions**, i stället för namn<br/>**sys.dm_xe_database_sessions**.
+- **sys. DM _xe_sessions**, i stället för namn<br/>**sys.dm_xe_database_sessions**.
 
-### <a name="dmvs-common-to-both"></a>DMV: er som är gemensamma för både
-Det finns ytterligare DMV: er som är gemensamma för både Azure SQL Database och Microsoft SQL Server för utökade händelser:
+### <a name="dmvs-common-to-both"></a>DMV: er gemensamt för båda
+För utökade händelser finns det ytterligare DMV: er som är gemensamma för både Azure SQL Database och Microsoft SQL Server:
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
@@ -118,9 +117,9 @@ Det finns ytterligare DMV: er som är gemensamma för både Azure SQL Database o
 
   <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
-## <a name="find-the-available-extended-events-actions-and-targets"></a>Hitta de tillgängliga utökade händelser, åtgärder och mål
+## <a name="find-the-available-extended-events-actions-and-targets"></a>Hitta tillgängliga utökade händelser, åtgärder och mål
 
-Du kan köra en enkel SQL **Välj** att erhålla en lista över tillgängliga händelser, åtgärder och mål.
+Du kan köra en enkel SQL- **Välj** för att hämta en lista över tillgängliga händelser, åtgärder och mål.
 
 ```sql
 SELECT
@@ -145,66 +144,66 @@ SELECT
 
 <a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
-## <a name="targets-for-your-sql-database-event-sessions"></a>Mål för dina SQL Database event-sessioner
+## <a name="targets-for-your-sql-database-event-sessions"></a>Mål för dina SQL Database Event-sessioner
 
-Här följer mål som kan samla in resultaten från din event-sessioner på SQL-databas:
+Här är mål som kan samla in resultat från dina event-sessioner på SQL Database:
 
-- [Ringbuffertmål](https://msdn.microsoft.com/library/ff878182.aspx) -kort innehåller händelsedata i minnet.
-- [Räknaren händelsemål](https://msdn.microsoft.com/library/ff878025.aspx) -räknar alla händelser som inträffar under en session för utökade händelser.
-- [Händelsefilmål](https://msdn.microsoft.com/library/ff878115.aspx) -skriver fullständig buffertar till en Azure Storage-behållare.
+- [Ringbufferten för ringbufferten](https://msdn.microsoft.com/library/ff878182.aspx) innehåller en kort händelse data i minnet.
+- [Mål för händelse räknare](https://msdn.microsoft.com/library/ff878025.aspx) – räknar alla händelser som inträffar under en Extended Events-session.
+- [Mål för händelse fil](https://msdn.microsoft.com/library/ff878115.aspx) – skriver fullständiga buffertar till en Azure Storage behållare.
 
-Den [för Windows ETW (Event Tracing)](https://msdn.microsoft.com/library/ms751538.aspx) API: et är inte tillgänglig för utökade händelser i SQL-databas.
+[ETW-](https://msdn.microsoft.com/library/ms751538.aspx) API: et är inte tillgängligt för utökade händelser på SQL Database. ETW (Event tracing for Windows)
 
 ## <a name="restrictions"></a>Begränsningar
 
-Det finns ett par olika säkerhetsrelaterade skillnader befitting molnmiljö för SQL-databas:
+Det finns ett par säkerhetsrelaterade skillnader som rör moln miljön i SQL Database:
 
-- Utökade händelser är grundade på en enda klient isoleringsmodell. En händelsesession i en databas kan inte komma åt data eller händelser från en annan databas.
-- Du kan inte utfärda en **skapa EVENT SESSION** instruktionen i kontexten för den **master** databas.
+- Utökade händelser baseras på isolerings modellen för en enda klient. En händelsesessionen i en databas kan inte komma åt data eller händelser från en annan databas.
+- Det går inte att utfärda en **session med Create Event-session** i kontexten för **Master** -databasen.
 
-## <a name="permission-model"></a>Behörighetsmodellen
+## <a name="permission-model"></a>Behörighets modell
 
-Du måste ha **kontroll** behörighet på databasen för att utfärda en **skapa EVENT SESSION** instruktionen. Databasägaren (dbo) har **kontroll** behörighet.
+Du måste ha behörighet att **kontrol lera** databasen för att kunna utfärda en session med att **Skapa event-session** . Databas ägaren (dbo) har **kontroll** behörighet.
 
-### <a name="storage-container-authorizations"></a>Storage-behållare auktoriseringar
+### <a name="storage-container-authorizations"></a>Auktorisering av lagrings behållare
 
-SAS-token som du genererar för Azure Storage-behållare måste ange **rwl** för behörigheterna. Den **rwl** värdet ger följande behörigheter:
+SAS-token som du skapar för din Azure Storage-behållare måste ange **RWL** för behörigheterna. **RWL** -värdet har följande behörigheter:
 
 - Läsa
 - Skriva
-- Visa lista
+- List
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
-Det finns scenarier där intensiv användning av utökade händelser kan samlas mer aktiva minne än vad som är felfri för hela systemet. Därför Azure SQL Database-systemet dynamiskt anger och justerar gränser för mängden active minne som kan visas genom en händelsesessionen. Många faktorer är med i beräkningen dynamiskt.
+Det finns scenarier där utökade händelser kan ackumulera mer aktivt minne än vad som är felfritt för det övergripande systemet. Det innebär att Azure SQL Database systemet dynamiskt ställer in och justerar gränserna för mängden aktivt minne som kan samlas in av en Event-session. Många faktorer ingår i den dynamiska beräkningen.
 
-Om du får ett felmeddelande som anger ett maximalt minne har tvingats fram är vissa åtgärder du kan vidta:
+Om du får ett fel meddelande om att högsta mängd minne har verkställts kan du utföra några lämpliga åtgärder:
 
-- Kör färre samtidiga händelsesessioner.
-- Via din **skapa** och **ALTER** -uttryck för händelsesessioner, minska mängden minne som du anger på den **MAX\_minne** satsen.
+- Kör färre samtidiga Event-sessioner.
+- Minska mängden minne som du anger i den **högsta\_minnes** satsen genom att **skapa** och **ändra** -instruktioner för Event-sessioner.
 
 ### <a name="network-latency"></a>Svarstid för nätverk
 
-Den **händelsefil** mål kan uppleva nätverksfördröjning eller fel inträffade när spara data till Azure Storage-blobbar. Andra händelser i SQL-databasen kan vara fördröjda medan de väntar på nätverkskommunikation att slutföra. Den här fördröjningen kan sakta din arbetsbelastning.
+Målet för **händelse filen** kan påverka nätverks fördröjningen eller-felen och samtidigt spara data för att Azure Storage blobbar. Andra händelser i SQL Database kan bli fördröjda medan de väntar på att nätverkskommunikation ska slutföras. Den här fördröjningen kan sakta ner din arbets belastning.
 
-- För att minska denna risk för prestanda, Undvik att ange den **EVENT_RETENTION_MODE** alternativet att **NO_EVENT_LOSS** i event session definitionerna.
+- Undvik den här prestanda risken genom att inte ange alternativet **EVENT_RETENTION_MODE** till **NO_EVENT_LOSS** i definitionerna för Event session.
 
 ## <a name="related-links"></a>Relaterade länkar
 
-- [Med hjälp av Azure PowerShell med Azure Storage](../storage/common/storage-powershell-guide-full.md).
+- [Använda Azure PowerShell med Azure Storage](../storage/common/storage-powershell-guide-full.md).
 - [Azure Storage-cmdletar](https://docs.microsoft.com/powershell/module/Azure.Storage)
-- [Med Azure PowerShell med Azure Storage](../storage/common/storage-powershell-guide-full.md) -innehåller omfattande information om PowerShell och Azure Storage-tjänsten.
-- [Använda Blob storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+- [Med hjälp av Azure PowerShell med Azure Storage](../storage/common/storage-powershell-guide-full.md) – får du omfattande information om PowerShell och tjänsten Azure Storage.
+- [Använda Blob Storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [Skapa autentiseringsuppgift (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [Skapa HÄNDELSESESSIONEN (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
-- [Jonathan Kehayias blogginlägg om utökade händelser i Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Jonathan Kehayiass blogg inlägg om utökade händelser i Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-- Azure *tjänstuppdateringar* webbsidan, smalare av parametern till Azure SQL Database:
+- Webb sidan för Azure *service updates* , begränsas av parametern till Azure SQL Database:
     - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
-Andra exempel ämnen i koden för utökade händelser finns på följande länkar. Du måste regelbundet kontrollera eventuella exemplet för att se om exemplet riktar sig mot Microsoft SQL Server och Azure SQL Database. Därefter kan du bestämma om mindre ändringar behövs för att köra exemplet.
+Andra kod exempel ämnen för utökade händelser finns i följande länkar. Du måste dock regelbundet kontrol lera ett exempel för att se om exempel målen Microsoft SQL Server respektive Azure SQL Database. Sedan kan du bestämma om mindre ändringar krävs för att köra exemplet.
 
 <!--
 ('lock_acquired' event.)

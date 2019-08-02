@@ -1,37 +1,35 @@
 ---
-title: Så här skapar du en blob i Azure Storage med hjälp av klientbiblioteket för Node.js v2
-description: Skapa ett lagringskonto och en container i objektlagring (Blob). Sedan använda Azure Storage-klientbiblioteket för Node.js v2 och ladda upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
-services: storage
+title: Så här skapar du en BLOB i Azure Storage använder klient biblioteket för Node. js v2
+description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage klient biblioteket för Node. js v2 för att ladda upp en blob till Azure Storage, hämta en blob och lista blobarna i en behållare.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 7ca1eacd1add7453833b4b9ad1d4bd0fbef13ca7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149425"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721976"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Hur du laddar upp, ladda ned och lista blobar med hjälp av klientbiblioteket för Node.js v2
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Ladda upp, ladda ned och lista blobar med hjälp av klient biblioteket för Node. js v2
 
-I den här guiden att lära dig hur du använder klientbiblioteket för Node.js från v2 till ladda upp, ladda ned och lista blobar med Azure Blob storage.
+I den här instruktions guiden lär du dig hur du använder klient biblioteket för Node. js v2 för att ladda upp, ladda ned och lista blobar med Azure Blob Storage.
 
 > [!TIP]
-> Den senaste versionen av Azure Storage-klientbiblioteket för Node.js är v10. Microsoft rekommenderar att du använder den senaste versionen av klientbiblioteket när det är möjligt. Kom igång med v10, se [snabbstarten: Ladda upp, hämta, lista och ta bort blobar med Azure Storage-klientbibliotek för JavaScript v10 (förhandsversion)](storage-quickstart-blobs-nodejs-v10.md).
+> Den senaste versionen av Azure Storage klient biblioteket för Node. js är v10. Microsoft rekommenderar att du använder den senaste versionen av klient biblioteket när det är möjligt. Information om hur du kommer igång med [v10 finns i snabb start: Ladda upp, ladda ned, lista och ta bort blobar med Azure Storage klient bibliotek för Java Script v10](storage-quickstart-blobs-nodejs-v10.md)(för hands version).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Skapa ett Azure storage-konto i den [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
+Skapa ett Azure Storage-konto i [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
-Den [exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) är ett enkelt Node.js-konsolprogram. Börja genom att klona lagringsplatsen till din dator med följande kommando:
+[Exempel programmet](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) är ett enkelt Node. js-konsolprogram. Börja genom att klona lagringsplatsen till din dator med följande kommando:
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -78,7 +76,7 @@ Container "demo" is deleted
 Done
 ```
 
-Om du använder ett nytt lagringskonto för det här exemplet kommer du kanske inte ser några behållarnamn som visas under etiketten ”*behållare*”.
+Om du använder ett nytt lagrings konto för det här exemplet kanske du inte ser några behållar namn som anges under etiketten "*behållare*".
 
 ## <a name="understanding-the-code"></a>Förstå koden
 Det första uttrycket används för att läsa in värden i miljövariabler.
@@ -100,7 +98,7 @@ Syftet med modulerna är följande:
 
 Fil med namnet *.env* i den aktuella körningskontexten
 - *path* krävs för att kunna fastställa den absoluta sökvägen för den fil som ska laddas upp till blobblagringen
-- *Azure-storage* är den [Azure Storage-klientbiblioteket](https://docs.microsoft.com/javascript/api/azure-storage) -modulen för Node.js
+- *Azure-Storage* är modulen för [Azure Storage klient bibliotek](https://docs.microsoft.com/javascript/api/azure-storage) för Node. js
 
 Därefter initieras variabeln **blobService** som en ny instans av Azure Blob-tjänsten.
 
@@ -359,7 +357,7 @@ Se dessa ytterligare resurser för Node.js-utveckling med blobblagring:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln visar hur du överför en fil mellan en lokal disk och Azure Blob storage med Node.js. Om du vill lära dig mer om hur du arbetar med Blob Storage fortsätter du till GitHub-lagringsplatsen.
+Den här artikeln visar hur du laddar upp en fil mellan en lokal disk och Azure Blob Storage med Node. js. Om du vill lära dig mer om hur du arbetar med Blob Storage fortsätter du till GitHub-lagringsplatsen.
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure Storage SDK för Node.js och JavaScript för webbläsare](https://github.com/Azure/azure-storage-node)
+> [Microsoft Azure Storage SDK för Node. js och Java Script för webbläsare](https://github.com/Azure/azure-storage-node)

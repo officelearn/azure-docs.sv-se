@@ -1,69 +1,72 @@
 ---
-title: Azure IoT-enhetshantering med IoT-tillägget för Azure CLI | Microsoft Docs
-description: Använda IoT-tillägget för Azure CLI-verktyg för Azure IoT Hub-enhetshantering med direkta metoder och hanteringsalternativ för den läsningen önskade egenskaper.
+title: Azure IoT-enhets hantering med IoT-tillägg för Azure CLI | Microsoft Docs
+description: Använd IoT-tillägget för Azure CLI-verktyget för Azure IoT Hub enhets hantering, med de direkta metoderna och de dubbla alternativen för önskade egenskaper för hantering.
 author: chrissie926
 manager: ''
-keywords: Azure iot-enhetshantering, azure iot hub-enhetshantering, device management iot, iot hub-enhetshantering
+keywords: Azure IoT-enhets hantering, Azure IoT Hub enhets hantering, enhets hantering IoT, IoT Hub enhets hantering
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 6b1029c5532e106c269b47e6e184b9c93faf8d09
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 93efd6e53470fb78bb6d823652437e7a37c33732
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399631"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640570"
 ---
-# <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Använd IoT-tillägget för Azure CLI för Azure IoT Hub-enhetshantering
+# <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Använd IoT-tillägget för Azure CLI för Azure IoT Hub enhets hantering
 
-![Slutpunkt till slutpunkt-diagram](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagram från slut punkt till slut punkt](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) är en ny öppen källkod IoT-tillägget som lägger till funktionerna i den [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Azure CLI innehåller kommandon för att interagera med Azure resource manager och av hanteringsslutpunkter. Du kan till exempel använda Azure CLI för att skapa en Azure virtuell dator eller en IoT-hubb. CLI-tillägg kan en Azure-tjänst att utöka Azure CLI som ger dig åtkomst till ytterligare tjänstspecifika funktioner. IoT-tillägget ger IoT utvecklare kommandoraden åtkomst till alla IoT Hub, IoT Edge och IoT Hub Device Provisioning Service-funktioner.
+[IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) är ett nytt IoT-tillägg med öppen källkod som lägger till funktionerna i [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Azure CLI innehåller kommandon för att interagera med Azure Resource Manager-och hanterings slut punkter. Du kan till exempel använda Azure CLI för att skapa en virtuell Azure-dator eller en IoT-hubb. Ett CLI-tillägg gör det möjligt för en Azure-tjänst att förstärka Azure CLI och ger dig till gång till ytterligare tjänstspecifika funktioner. IoT-tillägget ger IoT-utvecklare kommando rads åtkomst till alla IoT Hub, IoT Edge och IoT Hub Device Provisioning Service funktioner.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Management-alternativ          | Aktivitet  |
+| Hanterings alternativ          | Uppgift  |
 |----------------------------|-----------|
-| Direkta metoder             | Se en enhet som fungerar, till exempel starta eller stoppa skicka meddelanden eller att enheten startas om.                                        |
-| Enhetstvillingens egenskaper    | Placera en enhet i vissa lägen, till exempel ställa in en LED grönt eller 30 minuter att ställa in skicka telemetriintervall.         |
-| Enhetstvillingens egenskaper   | Hämta det rapporterade tillståndet för en enhet. Enheten rapporterar till exempel LAMPAN blinkar nu.                                    |
-| Enhetstvilling-taggar                  | Store enhetsspecifika metadata i molnet. Till exempel distributionsplatsen för en Varuautomat.                         |
-| Enhetstvillingfrågor        | Fråga alla enhetstvillingar för att hämta dem med valfri villkor, till exempel identifiera de enheter som är tillgängliga för användning. |
+| Direkta metoder             | Se till att en enhet fungerar som att starta eller stoppa sändning av meddelanden eller starta om enheten.                                        |
+| Dubbla önskade egenskaper    | Placera en enhet i vissa tillstånd, till exempel att ställa in en indikator på grönt eller ställa in ett intervall för telemetri-sändning till 30 minuter.         |
+| Dubbla rapporterade egenskaper   | Hämta rapporterat tillstånd för en enhet. Enheten rapporterar till exempel LAMPAn att blinka nu.                                    |
+| Dubbla Taggar                  | Lagra enhetsspecifika metadata i molnet. Till exempel distributions platsen för en Vending-dator.                         |
+| Enhets dubbla frågor        | Fråga alla enheter så att de kan hämta de dubbla med valfria villkor, till exempel identifiera vilka enheter som är tillgängliga för användning. |
 
-Mer detaljerad förklaring om skillnaderna och hjälp med att använda de här alternativen finns i [enhet till molnet kommunikation vägledning](iot-hub-devguide-d2c-guidance.md) och [moln till enhet kommunikation vägledning](iot-hub-devguide-c2d-guidance.md).
+Mer detaljerad information om skillnaderna och vägledning om hur du använder dessa alternativ finns i [kommunikations vägledning för enhet till moln](iot-hub-devguide-d2c-guidance.md) och [kommunikation från moln till enhet](iot-hub-devguide-c2d-guidance.md).
 
-Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT Hub lagrar en enhetstvilling för varje enhet som ansluter till den. Läs mer om enhetstvillingar [Kom igång med enhetstvillingar](iot-hub-node-node-twin-getstarted.md).
+Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT Hub sparar en enhet för varje enhet som ansluter till den. Mer information om enhets uppflätade finns i [Kom igång med enhets dubbla](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-Du lär dig använda IoT-tillägget för Azure CLI med olika hanteringsalternativ på utvecklingsdatorn.
+Du lär dig att använda IoT-tillägget för Azure CLI med olika hanterings alternativ på din utvecklings dator.
 
 ## <a name="what-you-do"></a>Vad du gör
 
-Kör Azure CLI och IoT-tillägget för Azure CLI med olika alternativ.
+Kör Azure CLI och IoT-tillägget för Azure CLI med olika hanterings alternativ.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-* Slutför den [Raspberry Pi onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md) självstudien eller någon av enheten självstudiekurser; exempelvis [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Dessa omfattar följande krav:
+* Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Dessa objekt behandlar följande krav:
 
   - En aktiv Azure-prenumeration.
-  - Azure IoT hub i din prenumeration.
-  - Ett klientprogram som skickar meddelanden till din Azure IoT hub.
+  - En Azure IoT-hubb under din prenumeration.
+  - Ett klient program som skickar meddelanden till Azure IoT Hub.
 
-* Kontrollera att enheten kör med klientprogrammet under den här självstudien.
+* Kontrol lera att enheten körs med klient programmet under den här självstudien.
 
 * [Python 2.7x eller Python 3.x](https://www.python.org/downloads/)
 
-* Azure CLI. Om du vill installera det kan se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –version`. 
+<!-- I'm not sure we need all this info, so comment out this include for now. Robin 7.26.2019
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)] -->
+
+* Azure CLI. Om du behöver installera det kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –version`.
 
 * Installera IoT-tillägget. Det enklaste sättet är att köra `az extension add --name azure-cli-iot-ext`. I [IoT-tilläggets Viktigt-fil](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) beskrivs olika sätt att installera tillägget.
 
-## <a name="log-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
+## <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
 Logga in på ditt Azure-konto genom att köra följande kommando:
 
@@ -80,9 +83,9 @@ az iot hub invoke-device-method --device-id <your device id> \
   --method-payload <the method payload>
 ```
 
-## <a name="device-twin-desired-properties"></a>Enhetstvillingens egenskaper
+## <a name="device-twin-desired-properties"></a>Enhetens dubbla önskade egenskaper
 
-Ange ett intervall för önskad egenskap = 3000 genom att köra följande kommando:
+Ange önskat egenskaps intervall = 3000 genom att köra följande kommando:
 
 ```bash
 az iot hub device-twin update -n <your hub name> \
@@ -91,25 +94,25 @@ az iot hub device-twin update -n <your hub name> \
 
 Den här egenskapen kan läsas från din enhet.
 
-## <a name="device-twin-reported-properties"></a>Enhetstvillingen rapporterade egenskaper
+## <a name="device-twin-reported-properties"></a>Enhetens dubbla rapporterade egenskaper
 
-Hämta de rapporterade egenskaperna för enheten genom att köra följande kommando:
+Hämta enhetens rapporterade egenskaper genom att köra följande kommando:
 
 ```bash
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-En av läsningen rapporterade egenskaper är $metadata. $lastUpdated som visar den senaste gången enhetsappen uppdateras dess rapporterade egenskapsuppsättning.
+En av de dubbla rapporterade egenskaperna är $metadata. $lastUpdated, som visar senaste gången enhets appen uppdaterade den rapporterade egenskapen.
 
-## <a name="device-twin-tags"></a>Enheten twin taggar
+## <a name="device-twin-tags"></a>Enhetens dubbla Taggar
 
-Visa taggar och egenskaper för enheten genom att köra följande kommando:
+Visa Taggar och egenskaper för enheten genom att köra följande kommando:
 
 ```bash
 az iot hub device-twin show --hub-name <your hub name> --device-id <your device id>
 ```
 
-Lägg till en roll för fältet = temperatur och fuktighet till enheten genom att köra följande kommando:
+Lägg till en fält roll = temperatur & fuktighet till enheten genom att köra följande kommando:
 
 ```bash
 az iot hub device-twin update \
@@ -118,16 +121,16 @@ az iot hub device-twin update \
   --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="device-twin-queries"></a>Enhetstvillingfrågor
+## <a name="device-twin-queries"></a>Enhets dubbla frågor
 
-Fråga enheter med en tagg i rollen = 'temperatur och fuktighet' genom att köra följande kommando:
+Fråga enheter med en tagg för Role = "temperatur & fuktighet" genom att köra följande kommando:
 
 ```bash
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
-Fråga efter alla enheter utom de som har en tagg i rollen = 'temperatur och fuktighet' genom att köra följande kommando:
+Fråga alla enheter förutom de med en tagg för roll = temperatur & fuktighet genom att köra följande kommando:
 
 ```bash
 az iot hub query --hub-name <your hub name> \
@@ -136,6 +139,6 @@ az iot hub query --hub-name <your hub name> \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig att övervaka meddelanden från enheten till molnet och skicka meddelanden från molnet till enheten mellan dina IoT-enhet och Azure IoT Hub.
+Du har lärt dig hur du övervakar meddelanden från enheten till molnet och skickar meddelanden från molnet till enheten mellan din IoT-enhet och Azure IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

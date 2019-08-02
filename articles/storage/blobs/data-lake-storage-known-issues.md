@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/31/2019
 ms.author: normesta
-ms.openlocfilehash: fc2d7e4f611e1eee9c369ef26aa7bf66feb7c888
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 910e23814b627233395a2f7a646513d9cb6874d8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385679"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699036"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -100,7 +100,7 @@ I följande tabell visas alla andra funktioner och verktyg som inte stöds eller
 | **Blobfuse** |Stöds inte ännu|
 | **Anpassade domäner** |Stöds inte ännu|
 | **Fil system Utforskaren** | Begränsat stöd |
-| **Diagnostikloggning** |Stöds bara om du registrerar dig i [multi-Protocol-åtkomst på data Lake Storage för](data-lake-storage-multi-protocol-access.md) hands version.|
+| **Diagnostikloggning** |Diagnostikloggar stöds bara om du registrerar dig i [multi-Protocol-åtkomst på data Lake Storage för](data-lake-storage-multi-protocol-access.md) hands version. <br><br>Aktivering av loggar i Azure Portal stöds inte för närvarande. Här är ett exempel på hur du aktiverar loggarna med hjälp av PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Se till att ange `Blob` värdet `-ServiceType` för parametern som det visas i det här exemplet. 
 | **Oåterkalleligt lagrings utrymme** |Stöds inte ännu <br><br>Oföränderlig lagring ger möjlighet att lagra data i en [mask (Skriv en gång, läsa många)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Objekt nivå nivåer** |Låg frekvent lagrings nivå och Arkiv lag ring stöds bara om du registrerar dig i [multi-Protocol-åtkomst på data Lake Storage för](data-lake-storage-multi-protocol-access.md) hands version. <br><br> Alla andra åtkomst nivåer stöds inte ännu.|
 | **Stöd för PowerShell och CLI** | Begränsade funktioner <br><br>Hanterings åtgärder som att skapa ett konto stöds. Data Plans åtgärder som att ladda upp och ladda ned filer finns i offentlig för hands version som en del av åtkomsten till [flera protokoll på data Lake Storage](data-lake-storage-multi-protocol-access.md). Att arbeta med kataloger och ange åtkomst kontrol listor (ACL) stöds inte ännu. |

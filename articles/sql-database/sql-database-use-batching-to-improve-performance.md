@@ -1,6 +1,6 @@
 ---
-title: Hur du använder batchbearbetning för att förbättra programmets prestanda för Azure SQL Database
-description: Avsnittet ger bevis på att batchbearbetning databasåtgärder avsevärt förbättrar hastighet och skalbarhet för din Azure SQL Database-program. Även om dessa batchbearbetningen metoder fungera för alla SQL Server-databas, är fokus i artikeln på Azure.
+title: Använda batching för att förbättra Azure SQL Database programmets prestanda
+description: Avsnittet innehåller bevis på att batchering av databas åtgärder avsevärt förbättrar hastigheten och skalbarheten för dina Azure SQL Database-program. Även om dessa batch-tekniker fungerar för alla SQL Server-databaser, är fokus för artikeln på Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,45 +10,44 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331136"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566239"
 ---
-# <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Hur du använder batchbearbetning för att förbättra programmets prestanda för SQL-databas
+# <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Använda batching för att förbättra SQL Database programmets prestanda
 
-Batchbearbetning åtgärder till Azure SQL Database avsevärt förbättrar prestanda och skalbarhet i dina program. För att förstå fördelarna, beskrivs den första delen av den här artikeln några exempel på testresultat som jämför sekventiella och gruppbaserade begäranden till en SQL-databas. Resten av artikeln visar de tekniker, scenarier och överväganden som hjälper dig att använda batchbearbetning har i din Azure-program.
+Batching-åtgärder för Azure SQL Database avsevärt förbättrar programmets prestanda och skalbarhet. För att förstå fördelarna täcker den första delen av den här artikeln några exempel test resultat som jämför sekventiella och batch-begäranden till en SQL Database. Resten av artikeln visar tekniker, scenarier och överväganden som hjälper dig att använda batching i dina Azure-program.
 
-## <a name="why-is-batching-important-for-sql-database"></a>Varför är batchbearbetning viktigt för SQL-databas
+## <a name="why-is-batching-important-for-sql-database"></a>Varför är batching viktigt för SQL Database
 
-Batchbearbetning anrop till en fjärrtjänst är en välkänd strategi för att öka prestanda och skalbarhet. Det är fasta bearbetningskostnaderna på alla interaktioner med en fjärrtjänst som serialisering, överföring och deserialisering. Paketera många separata transaktioner i en enda batch minimerar kostnaderna.
+Batching-anrop till en fjärrtjänst är en välkänd strategi för att öka prestanda och skalbarhet. Det finns fasta bearbetnings kostnader för alla interaktioner med en fjärrtjänst, till exempel serialisering, nätverks överföring och deserialisering. Genom att paketera flera separata transaktioner i en enda batch minimeras dessa kostnader.
 
-I det här dokumentet, som vi vill undersöka olika SQL-databas batchbearbetning strategier och scenarier. Strategierna är också viktigt för lokala program som använder SQL Server, finns men det flera orsaker till markering användningen av batchbearbetning för SQL-databas:
+I det här dokumentet vill vi undersöka olika SQL Database batching-strategier och scenarier. Även om dessa strategier också är viktiga för lokala program som använder SQL Server, finns det flera skäl för att markera användningen av batching för SQL Database:
 
-* Det finns potentiellt större Nätverksfördröjningen vid åtkomst till SQL-databas, särskilt om du ansluter till SQL-databas från utanför samma Microsoft Azure-datacenter.
-* SQL-databas med flera klienter egenskaper innebär att effektiviteten hos de data access layer motsvarar den övergripande skalbarheten i databasen. SQL-databas måste förhindra att någon enskild klient/användare använder alla databasresurser till skada för andra klienter. Som svar på användning som överstiger fördefinierade kvoter, SQL Database minska dataflöde eller svara med begränsning undantag. Effektivitet, till exempel batchbearbetning, kan du fortsätta att arbeta med SQL-databasen innan de når dessa gränser. 
-* Batchbearbetning gäller även för arkitekturer som använder flera databaser (sharding). Effektivitet interaktionen med varje databasenhet är fortfarande en nyckelfaktor i din övergripande skalbarhet. 
+* Det finns potentiellt större nätverks fördröjning vid åtkomst av SQL Database, särskilt om du får åtkomst till SQL Database utanför samma Microsoft Azure Data Center.
+* Egenskaperna för flera klient organisationer för SQL Database innebär att effektiviteten hos data åtkomst lagret motsvarar den övergripande skalbarheten för databasen. SQL Database måste förhindra att en enskild klient/användare från monopolizing databas resurser till skada för andra klienter. Som svar på användning som överstiger de fördefinierade kvoterna kan SQL Database minska genomflödet eller svara med begränsning av undantag. Effektivitet, till exempel batchbearbetning, gör att du kan utföra mer arbete på SQL Database innan du når dessa gränser. 
+* Satsvis kompilering gäller också för arkitekturer som använder flera databaser (horisontell partitionering). Effektiviteten i interaktionen med varje databas enhet är fortfarande en viktig faktor i din övergripande skalbarhet. 
 
-En av fördelarna med att använda SQL-databas är att du inte behöver hantera servrar som värd för databasen. Den här hanterade infrastrukturen innebär dock även att du har olika tänka databasoptimering. Du kan inte längre söka för att förbättra databasinfrastruktur maskinvara eller nätverk. Microsoft Azure styr dessa miljöer. Området du kan styra är hur programmet interagerar med SQL-databas. Batchbearbetning är en av dessa optimeringar. 
+En av fördelarna med att använda SQL Database är att du inte behöver hantera servrarna som är värdar för databasen. Den här hanterade infrastrukturen innebär dock också att du måste tänka på olika databas optimeringar. Du kan inte längre titta för att förbättra databasens maskin vara eller nätverks infrastruktur. Microsoft Azure styr dessa miljöer. Det huvudsakliga utrymmet som du kan styra är hur ditt program samverkar med SQL Database. Satsvis kompilering är en av dessa optimeringar. 
 
-Den första delen av dokumentet går igenom olika batchbearbetningen metoder för .NET-program som använder SQL-databas. De sista två avsnitten beskriver batchbearbetningen riktlinjer och scenarier.
+Den första delen av dokumentet undersöker olika batch-tekniker för .NET-program som använder SQL Database. De sista två avsnitten beskriver rikt linjer och scenarier för batchering.
 
-## <a name="batching-strategies"></a>Batchbearbetning strategier
+## <a name="batching-strategies"></a>Batching-strategier
 
-### <a name="note-about-timing-results-in-this-article"></a>Observera om tidsinställning resultaten i den här artikeln
+### <a name="note-about-timing-results-in-this-article"></a>Information om tidtagnings resultat i den här artikeln
 
 > [!NOTE]
-> Resultatet är inte prestandamått men är avsedda att visa **relativa prestandan**. Tidsinställningar baseras på ett genomsnitt av minst 10 testkörningar. Åtgärder är tillägg i en tom tabell. De här testerna har uppmätta pre-V12 och de inte nödvändigtvis motsvarar dataflödet som kan uppstå i en V12-databas med hjälp av den nya [DTU tjänstnivåerna](sql-database-service-tiers-dtu.md) eller [vCore tjänstnivåer](sql-database-service-tiers-vcore.md). Den relativa fördelen batchbearbetningen tekniken bör vara densamma.
+> Resultaten är inte benchmarks, men är avsedda att visa **relativa prestanda**. Tids inställningarna baseras på ett genomsnitt av minst 10 test körningar. Åtgärder infogas i en tom tabell. De här testerna mättes i förväg V12 och de motsvarar inte nödvändigt vis det data flöde som du kan uppleva i en V12-databas med hjälp av de nya [nivåerna för DTU-tjänsten](sql-database-service-tiers-dtu.md) eller [vCore-tjänsten](sql-database-service-tiers-vcore.md). Den relativa fördelen med batch-tekniken bör vara liknande.
 
 ### <a name="transactions"></a>Transaktioner
 
-Det verkar onormalt att påbörja en granskning av batchbearbetning genom att diskutera transaktioner. Men användningen av transaktioner på klientsidan har en diskret serversidan batchbearbetningen effekt som förbättrar prestanda. Och transaktioner kan läggas till med bara några rader kod, så att de är ett snabbt sätt att förbättra prestanda för sekventiella åtgärder.
+Det förefaller konstigt att påbörja en granskning av satsvis kompilering genom att diskutera transaktioner. Men användningen av transaktioner på klient sidan har en diskret kommando effekt på Server sidan som ger bättre prestanda. Och transaktioner kan läggas till med bara några rader med kod, så de ger ett snabbt sätt att förbättra prestanda för sekventiella åtgärder.
 
-Överväg följande C#-koden som innehåller en sekvens med insert och uppdateringsåtgärder för en enkel tabell.
+Överväg följande C# kod som innehåller en sekvens av INSERT-och Update-åtgärder på en enkel tabell.
 
 ```csharp
 List<string> dbOperations = new List<string>();
@@ -59,7 +58,7 @@ dbOperations.Add("insert MyTable values ('new value',1)");
 dbOperations.Add("insert MyTable values ('new value',2)");
 dbOperations.Add("insert MyTable values ('new value',3)");
 ```
-Följande kod i ADO.NET utför sekventiellt dessa åtgärder.
+Följande ADO.NET-kod utför dessa åtgärder sekventiellt.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -74,7 +73,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Det bästa sättet att optimera den här koden är att implementera någon form av klientsidan batchbearbetning av dessa anrop. Men det finns ett enkelt sätt att öka prestanda för den här koden genom att helt enkelt omsluta sekvens med anrop i en transaktion. Här är samma kod som använder en transaktion.
+Det bästa sättet att optimera den här koden är att implementera någon form av batching av klient sidan av dessa anrop. Men det finns ett enkelt sätt att öka prestandan för den här koden genom att helt enkelt omsluta sekvensen av anrop i en transaktion. Här är samma kod som använder en transaktion.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -92,22 +91,22 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Transaktioner som faktiskt används i båda exemplen. I det första exemplet är varje enskilt anrop en implicit transaktion. I det andra exemplet radbryts alla anrop med en explicit transaktion. Per i dokumentationen för den [write-ahead transaktionsloggen](https://msdn.microsoft.com/library/ms186259.aspx), loggposter är replikatorn tömmer till disken när transaktionen genomförs. Så genom att lägga till fler anrop i en transaktion kan skrivåtgärd till transaktionsloggen fördröja tills transaktionen genomförs. Du aktiverar i praktiken batchbearbetning för skrivningar till serverns transaktionsloggen.
+Transaktioner används faktiskt i båda dessa exempel. I det första exemplet är varje enskilt anrop en implicit transaktion. I det andra exemplet radbryts alla anrop i en explicit transaktion. I dokumentationen för transaktions [loggen för Skriv](https://msdn.microsoft.com/library/ms186259.aspx)åtgärder rensas logg posterna till disken när transaktionen genomförs. Så genom att inkludera fler anrop i en transaktion kan Skriv till transaktions loggen skjuta tills transaktionen är genomförd. I praktiken aktiverar du batching för skrivningar till serverns transaktions logg.
 
-I följande tabell visas några ad hoc-testresultaten. Testerna utförs samma sekventiella infogningar med och utan transaktioner. För mer perspektiv kördes den första uppsättningen tester via en fjärranslutning från en bärbar dator till databasen i Microsoft Azure. Den första uppsättningen tester kördes från en tjänst i molnet och databasen att båda finns inom samma Microsoft Azure-datacenter (USA, västra). I följande tabell visar varaktighet i millisekunder för sekventiella infogningar med och utan transaktioner.
+I följande tabell visas några ad hoc-testnings resultat. Testerna utförde samma sekventiella infogningar med och utan transaktioner. För mer perspektiv kördes den första uppsättningen tester från en bärbar dator till databasen i Microsoft Azure. Den andra uppsättningen tester kördes från en moln tjänst och databas som båda finns i samma Microsoft Azure Data Center (västra USA). I följande tabell visas varaktigheten i millisekunder av sekventiella infogningar med och utan transaktioner.
 
 **Lokalt till Azure**:
 
-| Åtgärder | Ingen transaktion (ms) | Transaktion (ms) |
+| Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure-datorer (samma datacenter)** :
+**Azure till Azure (samma data Center)** :
 
-| Åtgärder | Ingen transaktion (ms) | Transaktion (ms) |
+| Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -115,19 +114,19 @@ I följande tabell visas några ad hoc-testresultaten. Testerna utförs samma se
 | 1000 |21479 |2756 |
 
 > [!NOTE]
-> Resultatet är inte prestandamått. Se den [om tidsinställning resultaten i den här artikeln](#note-about-timing-results-in-this-article).
+> Resultaten är inte benchmarks. Se [information om tidtagnings resultat i den här artikeln](#note-about-timing-results-in-this-article).
 
-Baserat på resultaten av föregående, minskar omsluta en enda åtgärd i en transaktion prestanda faktiskt. Men när du ökar antalet åtgärder i en enda transaktion förbättring av prestanda blir större. Prestandaskillnaden är också synligare när alla åtgärder som inträffar inom Microsoft Azure-datacenter. Ökad latens på hur du använder SQL-databas från utanför Microsoft Azure-datacentret överskuggar prestandaökning för att använda transaktioner.
+I och med föregående test resultat minskar prestandan med en enda åtgärd i en transaktion. Men när du ökar antalet åtgärder i en enda transaktion blir prestanda förbättringen mer markerad. Prestanda skillnaden är också mer märkbar när alla åtgärder utförs i Microsoft Azure Data centret. Den ökade svars tiden för att använda SQL Database utanför Microsoft Azure Data centret överskuggar prestanda vinsten för att använda transaktioner.
 
-Även om användning av transaktioner kan öka prestanda, fortsätter att [Se metodtips för transaktioner och anslutningar](https://msdn.microsoft.com/library/ms187484.aspx). Behåll transaktionen så korta som möjligt och stäng anslutningen till databasen när arbetet är klar. Den med hjälp av instruktionen i det förra exemplet säkerställer att anslutningen är stängd när efterföljande kodblocket har slutförts.
+Även om användningen av transaktioner kan öka prestandan bör du fortsätta att [följa bästa praxis för transaktioner och anslutningar](https://msdn.microsoft.com/library/ms187484.aspx). Se till att transaktionen är så kort som möjligt och Stäng databas anslutningen när arbetet har slutförts. Instruktionen using i föregående exempel ser till att anslutningen stängs när det efterföljande kod blocket är klart.
 
-I föregående exempel visar att du kan lägga till en lokal transaktion till någon ADO.NET-kod med två rader. Transaktioner erbjuder ett snabbt sätt att förbättra prestandan för kod som gör sekventiella infoga, uppdatera och ta bort. Men för bästa prestanda, Överväg att ändra koden ytterligare till dra nytta av klientsidan batchbearbetning, till exempel tabellvärdeparametrar.
+Föregående exempel visar att du kan lägga till en lokal transaktion till valfri ADO.NET kod med två rader. Transaktioner är ett snabbt sätt att förbättra prestanda för kod som utför sekventiell infognings-, uppdaterings-och borttagnings åtgärder. Men för snabbaste prestanda bör du överväga att ändra koden så att du kan dra nytta av batching på klient sidan, till exempel tabell värdes parametrar.
 
-Läs mer om transaktioner i ADO.NET [lokala transaktioner i ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
+Mer information om transaktioner i ADO.NET finns i [lokala transaktioner i ADO.net](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
-### <a name="table-valued-parameters"></a>tabellvärdeparametrar
+### <a name="table-valued-parameters"></a>Tabell värdes parametrar
 
-Tabellvärdeparametrar stöder användardefinierade tabelltyper som parametrar i Transact-SQL-uttryck, lagrade procedurer och funktioner. Den här batchbearbetningen tekniken för klientsidan kan du skicka flera rader med data i parametern-tabellvärdesfunktion. Om du vill använda tabellvärdeparametrar måste du först definiera en tabelltyp. Följande Transact-SQL-uttrycket skapar en tabelltyp med namnet **MyTableType**.
+Tabell värdes parametrar stöder användardefinierade tabell typer som parametrar i Transact-SQL-uttryck, lagrade procedurer och funktioner. Med den här batching-tekniken på klient sidan kan du skicka flera rader med data i tabell värdes parametern. Om du vill använda tabell värdes parametrar definierar du först en tabell typ. Följande Transact-SQL-instruktion skapar en tabell typ med namnet **MyTableType**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE 
@@ -135,7 +134,7 @@ Tabellvärdeparametrar stöder användardefinierade tabelltyper som parametrar i
       num INT );
 ```
 
-I koden, skapar du en **DataTable** med exakt samma namn och typer av tabelltypen. Skicka det **DataTable** i en parameter i en textfråga eller lagrad procedur anropa. I följande exempel visas den här tekniken:
+I kod skapar du en **DataTable** med exakt samma namn och typ av tabell typ. Skicka denna **DataTable** i en parameter i en text fråga eller ett lagrat procedur anrop. I följande exempel visas den här tekniken:
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -168,9 +167,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-I exemplet ovan den **SqlCommand** objekt infogar rader från en tabellvärdesparameter  **\@TestTvp**. Den tidigare skapade **DataTable** objektet har tilldelats den här parametern med det **SqlCommand.Parameters.Add** metod. Batchbearbetning infogningar i ett anrop avsevärt ökar prestanda över sekventiella infogningar.
+I föregående exempel infogar objektet **SqlCommand** rader från en tabell värdes parameter,  **\@TestTvp**. Det tidigare skapade **DataTable** -objektet har tilldelats till den här parametern med metoden **SqlCommand. Parameters. Add** . Batching av infogningar i ett anrop ökar markant prestanda över sekventiella infogningar.
 
-Använda en lagrad procedur i stället för ett textbaserat kommando för att förbättra det föregående exemplet ytterligare. Följande Transact-SQL-kommando skapar en lagrad procedur som tar den **SimpleTestTableType** tabellvärdesparametern.
+Om du vill förbättra det tidigare exemplet ytterligare använder du en lagrad procedur i stället för ett textbaserat kommando. Följande Transact-SQL-kommando skapar en lagrad procedur som tar **SimpleTestTableType** tabell värdes parameter.
 
 ```sql
 CREATE PROCEDURE [dbo].[sp_InsertRows] 
@@ -183,18 +182,18 @@ END
 GO
 ```
 
-Ändra den **SqlCommand** objekt deklarationen i det förra exemplet nedan.
+Ändra sedan **SqlCommand** -objektets deklaration i föregående kod exempel till följande.
 
 ```csharp
 SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
 cmd.CommandType = CommandType.StoredProcedure;
 ```
 
-I de flesta fall har tabellvärdeparametrar motsvarande eller bättre prestanda än andra batchbearbetningen metoder. Tabellvärdeparametrar är ofta föredra, eftersom de är mer flexibel än andra alternativ. Andra metoder, till exempel SQL-masskopiering, till exempel tillåta endast nya rader infogas. Men med tabellvärdeparametrar, du kan använda logik i den lagrade proceduren för att avgöra vilka rader som uppdateringar och som är infogar. Tabelltypen kan också ändras så att den innehåller en ”åtgärden”-kolumn som anger om den angivna raden ska infogas, uppdateras eller tas bort.
+I de flesta fall har tabell värdes parametrar motsvarande eller bättre prestanda än andra batching-tekniker. Tabell värdes parametrar är ofta bättre, eftersom de är mer flexibla än andra alternativ. Andra tekniker, till exempel SQL Mass kopiering, tillåter bara infogning av nya rader. Men med tabell värdes parametrar kan du använda logik i den lagrade proceduren för att avgöra vilka rader som är uppdateringar och som infogas. Tabell typen kan också ändras till att innehålla en "operation"-kolumn som anger om den angivna raden ska infogas, uppdateras eller tas bort.
 
-I följande tabell visar ad hoc-testresultaten för användning av tabellvärdeparametrar i millisekunder.
+I följande tabell visas ad hoc-testresultat för användning av tabell värdes parametrar i millisekunder.
 
-| Åtgärder | Lokalt till Azure (ms) | Samma Azure-datacenter (ms) |
+| Åtgärder | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -203,17 +202,17 @@ I följande tabell visar ad hoc-testresultaten för användning av tabellvärdep
 | 10000 |23830 |3586 |
 
 > [!NOTE]
-> Resultatet är inte prestandamått. Se den [om tidsinställning resultaten i den här artikeln](#note-about-timing-results-in-this-article).
+> Resultaten är inte benchmarks. Se [information om tidtagnings resultat i den här artikeln](#note-about-timing-results-in-this-article).
 > 
 > 
 
-Prestandaökning från batchbearbetning är omedelbart synliga. I det föregående sekventiella testet tog 1000 åtgärderna 129 sekunder utanför datacentret och 21 sekunder från inom datacentret. Men med tabellvärdeparametrar, 1000 åtgärder Ta endast 2,6 sekunder utanför datacentret och 0,4 sekunder inom datacentret.
+Prestanda ökningen från batching är direkt uppenbar. I föregående sekventiella test tog 1000 åtgärder 129 sekunder utanför data centret och 21 sekunder inifrån data centret. Men med tabell värdes parametrar tar 1000 åtgärder bara 2,6 sekunder utanför data centret och 0,4 sekunder i data centret.
 
-Mer information om tabellvärdeparametrar finns [Table-Valued parametrar](https://msdn.microsoft.com/library/bb510489.aspx).
+Mer information om tabell värdes parametrar finns i [tabell värdes parametrar](https://msdn.microsoft.com/library/bb510489.aspx).
 
-### <a name="sql-bulk-copy"></a>SQL-masskopiering
+### <a name="sql-bulk-copy"></a>SQL Mass kopiering
 
-SQL-masskopiering är ett annat sätt att infoga stora mängder data i en måldatabas. .NET-program kan använda den **SqlBulkCopy körs** klass som utför infogningsåtgärder. **SqlBulkCopy körs** liknar i funktionen kommandoradsverktyget **Bcp.exe**, eller Transact-SQL-instruktionen **BULK INSERT**. I följande kodexempel visar hur du masskopiera raderna i källan **DataTable**, tabell MyTable till måltabell i SQL Server.
+SQL Mass kopiering är ett annat sätt att infoga stora mängder data i en mål databas. .NET-program kan använda **SqlBulkCopy** -klassen för att utföra Mass infognings åtgärder. **SqlBulkCopy** liknar kommando rads verktyget, **BCP. exe**eller Transact-SQL-instruktionen **bulk INSERT**. I följande kod exempel visas hur du kopierar raderna i käll-DataTable-tabellen till mål tabellen i SQL Server Table.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -230,11 +229,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Det finns tillfällen där masskopiering vägen prioriteras framför tabellvärdeparametrar. Se jämförelsetabellen av tabellvärdeparametrar jämfört med BULK INSERT-åtgärder i artikeln [Table-Valued parametrar](https://msdn.microsoft.com/library/bb510489.aspx).
+Det finns vissa fall där Mass kopiering föredras över tabell värdes parametrar. Se jämförelse tabellen för tabell värdes parametrar jämfört med BULK INSERT åtgärder i artikelns [tabell värdes parametrar](https://msdn.microsoft.com/library/bb510489.aspx).
 
-Följande ad hoc-testresultaten visar prestanda för batchbearbetning med **SqlBulkCopy körs** i millisekunder.
+Följande ad hoc-testresultat visar prestanda för batch-körning med **SqlBulkCopy** i millisekunder.
 
-| Åtgärder | Lokalt till Azure (ms) | Samma Azure-datacenter (ms) |
+| Åtgärder | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -243,17 +242,17 @@ Följande ad hoc-testresultaten visar prestanda för batchbearbetning med **SqlB
 | 10000 |21605 |2737 |
 
 > [!NOTE]
-> Resultatet är inte prestandamått. Se den [om tidsinställning resultaten i den här artikeln](#note-about-timing-results-in-this-article).
+> Resultaten är inte benchmarks. Se [information om tidtagnings resultat i den här artikeln](#note-about-timing-results-in-this-article).
 > 
 > 
 
-I batch är mindre, Använd tabellvärdeparametrar – bättre än den **SqlBulkCopy körs** klass. Dock **SqlBulkCopy körs** utförs 12-31% snabbare än tabellvärdeparametrar för testerna av 1 000 och 10 000 rader. Som tabellvärdeparametrar, **SqlBulkCopy körs** är ett bra alternativ för satsvis infogningar, särskilt när jämfört med prestanda för icke-batchar åtgärder.
+I mindre batch-storlekar utförde Table-Value-parametrarna **SqlBulkCopy** -klassen. **SqlBulkCopy** utförde dock 12-31% snabbare än tabell värdes parametrar för test av 1 000-och 10 000-rader. Precis som tabell värdes parametrar är **SqlBulkCopy** ett bra alternativ för batch-infogade infogningar, särskilt i jämförelse med prestanda för icke-batch-åtgärder.
 
-Läs mer på masskopiering i ADO.NET [Masskopieringsåtgärder i SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
+Mer information om Mass kopiering i ADO.NET finns i [Mass kopierings åtgärder i SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
-### <a name="multiple-row-parameterized-insert-statements"></a>Flera rader som innehåller parametrar Infoga uttryck
+### <a name="multiple-row-parameterized-insert-statements"></a>INSERT-satser med parametrar med flera rader
 
-Ett alternativ för små batchar är att skapa en stor parametriserade INSERT-instruktionen som infogar flera rader. I följande kodexempel visar den här tekniken.
+Ett alternativ för små batchar är att skapa en stor parameter INSERT-instruktion som infogar flera rader. I följande kod exempel demonstreras den här tekniken.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -275,58 +274,58 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Det här exemplet är avsedd att visa det grundläggande konceptet. Ett mer realistiskt scenario skulle gå igenom entiteterna som krävs för att konstruera frågesträngen och parametrarna samtidigt. Du är begränsad till totalt 2100 frågeparametrar, så detta begränsar det totala antalet rader som kan bearbetas i det här sättet.
+Det här exemplet är tänkt att visa det grundläggande konceptet. Ett mer realistiskt scenario skulle gå igenom de entiteter som krävs för att skapa frågesträngen och kommando parametrarna samtidigt. Du är begränsad till totalt 2100 frågeparametrar, så detta begränsar det totala antalet rader som kan bearbetas på det här sättet.
 
-Följande ad hoc-testresultaten visar prestanda för den här typen av insert-instruktionen i millisekunder.
+Följande ad hoc-testresultat visar prestandan för den här typen av INSERT-instruktion i millisekunder.
 
-| Åtgärder | Tabellvärdeparametrar (ms) | Single-statement INSERT (ms) |
+| Åtgärder | Tabell värdes parametrar (MS) | Infoga en sats (MS) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
 | 100 |33 |51 |
 
 > [!NOTE]
-> Resultatet är inte prestandamått. Se den [om tidsinställning resultaten i den här artikeln](#note-about-timing-results-in-this-article).
+> Resultaten är inte benchmarks. Se [information om tidtagnings resultat i den här artikeln](#note-about-timing-results-in-this-article).
 > 
 > 
 
-Den här metoden kan vara lite snabbare för batchar som är mindre än 100 rader. Även om förbättring är liten, är den här tekniken ett annat alternativ som fungerar bra i ditt scenario för specifika program.
+Den här metoden kan vara något snabbare för batchar som är mindre än 100 rader. Även om förbättringen är liten är den här metoden ett annat alternativ som kanske fungerar bra i ditt specifika program scenario.
 
 ### <a name="dataadapter"></a>DataAdapter
 
-Den **DataAdapter** klassen kan du ändra en **datauppsättning** objektet och sedan skicka ändringarna som infoga, uppdatera och ta bort åtgärder. Om du använder den **DataAdapter** i det här sättet är det viktigt att Observera att anrop görs för varje distinkta operationen. Förbättra prestanda genom att använda den **UpdateBatchSize** egenskap till antalet åtgärder som ska kunna batchbearbetas i taget. Mer information finns i [utför Batch åtgärder med hjälp av DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
+Med klassen DataAdapter kan du ändra ett **data mängds** objekt och sedan skicka ändringarna som INSERT-, Update-och Delete-åtgärder. Om du använder dataadaptern på det här sättet är det viktigt att notera att separata anrop görs för varje distinkt åtgärd. Förbättra prestanda genom att använda egenskapen **UpdateBatchSize** till antalet åtgärder som ska grupperas i taget. Mer information finns i [utföra batch-åtgärder med DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
-### <a name="entity-framework"></a>Entity framework
+### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework stöder för närvarande inte batchbearbetning. Olika utvecklare i communityn har försökt att visa lösningar, till exempel åsidosättning den **SaveChanges** metod. Men lösningarna som vanligtvis är komplicerade och anpassade program och datamodellen. Entity Framework codeplex projektet har för närvarande en diskussionssida på den här funktionsbegäran. Den här diskussionen finns [Design mötesanteckningar - den 2 augusti 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+Entity Framework stöder för närvarande inte batchbearbetning. Olika utvecklare i communityn har försökt att demonstrera lösningar, till exempel att åsidosätta metoden **saveChanges** . Men lösningarna är vanligt vis komplexa och anpassade till program-och data modellen. Det Entity Framework CodePlex-projektet har en diskussions sida för den här funktions förfrågan. Om du vill visa den här diskussionen, se [design Mötes anteckningar – 2 augusti 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 
-För fullständighetens skull anser vi att det är viktigt att tala om XML-Datatypen som en batchbearbetningen strategi. Användning av XML har dock inga fördelar jämfört med andra metoder och flera nackdelar. Metoden som liknar tabellvärdeparametrar, men en XML-fil eller en sträng som skickas till en lagrad procedur i stället för en användardefinierad tabell. Den lagrade proceduren tolkar kommandona i den lagrade proceduren.
+För klar Ande är det viktigt att prata om XML som en batch-strategi. Användningen av XML har dock inga fördelar jämfört med andra metoder och flera nack delar. Metoden liknar tabell värdes parametrar, men en XML-fil eller sträng skickas till en lagrad procedur i stället för en användardefinierad tabell. Den lagrade proceduren tolkar kommandona i den lagrade proceduren.
 
-Det finns flera nackdelar med denna metod:
+Det finns flera nack delar med den här metoden:
 
-* Arbeta med XML kan vara krånglig och felbenägna.
-* Tolkning av XML för databasen kan vara processorintensiva.
-* Den här metoden är långsammare än tabellvärdeparametrar i de flesta fall.
+* Att arbeta med XML kan vara besvärligt och fel känsligt.
+* Att parsa XML-koden i databasen kan vara processor intensiv.
+* I de flesta fall är den här metoden långsammare än tabell värdes parametrar.
 
-Därmed behöver rekommenderas inte användning av XML för batch-frågor.
+Av dessa skäl rekommenderas inte användning av XML för batch-frågor.
 
-## <a name="batching-considerations"></a>Batchbearbetning överväganden
+## <a name="batching-considerations"></a>Batch-överväganden
 
-Följande avsnitt innehåller mer vägledning för användning av batchbearbetning i SQL Database-program.
+I följande avsnitt finns mer information om hur du använder batch i SQL Database program.
 
 ### <a name="tradeoffs"></a>Kompromisser
 
-Beroende på din arkitektur involverar batchbearbetning en kompromiss mellan prestanda och återhämtning. Tänk dig ett scenario där din roll oväntat stängs av. Om du förlorar en datarad för är effekten mindre än effekten av att förlora en stor grupp med rader som inte har skickats. Det finns en större risk när du buffrar rader innan de skickas till databasen i ett angivet tidsintervall.
+Beroende på arkitekturen kan batchbearbetningen medföra en kompromiss mellan prestanda och återhämtning. Anta till exempel scenariot där rollen inte förväntas stängas av. Om du tappar bort en datarad är effekten mindre än effekten av att förlora en stor grupp med rader som inte har skickats. Det finns en större risk när du buffrar rader innan du skickar dem till databasen i en angiven tids period.
 
-Utvärdera vilken typ av åtgärder som du batch på grund av den här kompromiss. Batch-mer aggressivt (större batchar och längre tidsfönster) med data som är mindre viktigt.
+På grund av den här kompromissen ska du utvärdera den typ av åtgärder som du batchar. Batch mer aggressivt (större batchar och längre tid Windows) med data som är mindre viktiga.
 
 ### <a name="batch-size"></a>Batchstorlek
 
-I våra tester kan uppstod vanligtvis ingen fördel med att dela upp stora batchar i mindre segment. I själva verket lett detta delfält ofta till långsammare än skickar en enda stor grupp. Tänk dig ett scenario där du vill infoga 1000 rader. I följande tabell visar hur lång tid det tar för att använda tabellvärdeparametrar för att infoga 1000 rader när uppdelad i mindre Batcher.
+I våra tester var det vanligt vis ingen fördel med att dela upp stora partier i mindre segment. I själva verket resulterade denna del delning ofta i sämre prestanda än att skicka in en enda stor batch. Anta till exempel ett scenario där du vill infoga 1000 rader. I följande tabell visas hur lång tid det tar att använda tabell värdes parametrar för att infoga 1000 rader när de delas upp i mindre batchar.
 
-| Batchstorlek | Iterationer | Tabellvärdeparametrar (ms) |
+| Batchstorlek | Iterationer | Tabell värdes parametrar (MS) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |
@@ -334,21 +333,21 @@ I våra tester kan uppstod vanligtvis ingen fördel med att dela upp stora batch
 | 50 |20 |630 |
 
 > [!NOTE]
-> Resultatet är inte prestandamått. Se den [om tidsinställning resultaten i den här artikeln](#note-about-timing-results-in-this-article).
+> Resultaten är inte benchmarks. Se [information om tidtagnings resultat i den här artikeln](#note-about-timing-results-in-this-article).
 > 
 > 
 
-Du kan se att bästa möjliga prestanda för 1000 rader är att skicka dem på samma gång. I andra testerna (visas inte här) uppstod prestandafördelar små att dela en 10000 rad batch i två grupper med 5000. Men tabellschemat för dessa tester är relativt enkelt, så du bör utföra tester på dina specifika data eller batch storlekar att verifiera dessa resultat.
+Du ser att den bästa prestandan för 1000 rader är att skicka alla samtidigt. I andra tester (visas inte här) fanns det en liten prestanda vinst för att bryta en 10000-rad batch i två batchar med 5000. Men tabell schemat för de här testerna är relativt enkelt, så du bör utföra tester på dina speciella data-och batchstorleken för att verifiera dessa resultat.
 
-En annan faktor är att om den totala batchen blir för stor, kan SQL Database begränsa och vägra att bekräfta batchen. Testa ditt specifika scenario för att avgöra om det finns en perfekt batchstorlek för bästa resultat. Kontrollera batchstorleken kan konfigureras vid körning för att aktivera snabb anpassning av baserat på prestanda eller fel.
+En annan faktor är att om den totala batchen blir för stor, kan SQL Database begränsa och vägra att genomföra batchen. Testa ditt speciella scenario för att avgöra om det finns en idealisk batchstorlek för bästa möjliga resultat. Gör batchstorleken konfigurerbar vid körning för att möjliggöra snabba justeringar baserat på prestanda eller fel.
 
-Slutligen belastningsutjämna batchens storlek med risker med batchbearbetning. Om det finns tillfälliga fel eller rollen misslyckas kan du överväga konsekvenserna av gör om åtgärden eller för att förlora data i batchen.
+Slutligen kan du balansera storleken på batchen med de risker som är kopplade till batchen. Om det uppstår tillfälliga fel eller om rollen Miss lyckas, bör du överväga konsekvenserna av att försöka utföra åtgärden igen eller förlora data i batchen.
 
 ### <a name="parallel-processing"></a>Parallell bearbetning
 
-Vad händer om du tog metod för att minska batchstorleken men används flera trådar för att utföra arbetet? Våra tester visade igen, att flera mindre flertrådat batchar normalt utförs sämre resultat än en enda större batch. Följande test försöker infoga 1000 rader i en eller flera parallella batchar. Det här testet visas hur flera samtidiga batchar minskar faktiskt prestanda.
+Vad händer om du använde metoden för att minska batchstorleken men använda flera trådar för att köra jobbet? Vi har återigen visat att flera mindre flertrådade batchar vanligt vis utfördes sämre än en enda större grupp. Följande test försöker infoga 1000 rader i en eller flera parallella batchar. Det här testet visar hur fler samtidiga batchar faktiskt försämrade prestanda.
 
-| Batchstorlek [iterationer] | Två trådar (ms) | Fyra trådar (ms) | Sex trådar (ms) |
+| Batchstorlek [iterationer] | Två trådar (MS) | Fyra trådar (MS) | Sex trådar (MS) |
 | --- | --- | --- | --- |
 | 1000 [1] |277 |315 |266 |
 | 500 [2] |548 |278 |256 |
@@ -356,42 +355,42 @@ Vad händer om du tog metod för att minska batchstorleken men används flera tr
 | 100 [10] |488 |439 |391 |
 
 > [!NOTE]
-> Resultatet är inte prestandamått. Se den [om tidsinställning resultaten i den här artikeln](#note-about-timing-results-in-this-article).
+> Resultaten är inte benchmarks. Se [information om tidtagnings resultat i den här artikeln](#note-about-timing-results-in-this-article).
 > 
 > 
 
-Det finns flera möjliga orsaker till försämrade prestanda på grund av parallellitet:
+Det finns flera möjliga orsaker till försämringen av prestanda på grund av parallellitet:
 
-* Det finns flera samtidiga nätverksanrop istället för en.
-* Flera åtgärder mot en enskild tabell kan resultera i konkurrensen och blockerar.
-* Det finns kostnader som flertrådsteknik.
-* Kostnaden för att öppna flera anslutningar uppväger fördelen med parallell bearbetning.
+* Det finns flera samtidiga nätverks anrop i stället för ett.
+* Flera åtgärder mot en enskild tabell kan leda till konkurrens och blockering.
+* Det finns överhuvuder som är associerade med multitrådning.
+* Kostnaden för att öppna flera anslutningar drar nytta av fördelarna med parallell bearbetning.
 
-Om du anpassar olika tabeller eller databaser, är det möjligt att se vissa prestanda få med den här strategin. Database sharding eller federationer är ett scenario för den här metoden. Horisontell partitionering använder flera databaser och dirigerar olika data till varje databas. Om varje små batch ska till en annan databas, kan det vara mer effektivt att utföra åtgärderna parallellt. Prestanda är inte tillräckligt stor för att använda som grund för ett beslut för att använda databasen horisontell partitionering i din lösning.
+Om du använder olika tabeller eller databaser, är det möjligt att se vissa prestanda vinster i den här strategin. Databasens horisontell partitionering eller federationer är ett scenario för den här metoden. Horisontell partitionering använder flera databaser och dirigerar olika data till varje databas. Om varje liten batch kommer till en annan databas, kan det vara mer effektivt att utföra åtgärderna parallellt. Prestanda ökningen är dock inte tillräckligt betydande för att kunna användas som grund för ett beslut att använda databas horisontell partitionering i din lösning.
 
-I vissa utformningar kan parallell körning av mindre batchar leda till bättre genomströmning på begäranden i ett system under belastning. I det här fallet, även om det går snabbare att bearbeta en enskild större batch kan bearbetar flera batchar parallellt vara mer effektivt.
+I vissa konstruktioner kan parallell körning av mindre batchar leda till förbättrat data flöde för begär anden i ett system som läses in. I det här fallet, trots att det går snabbare att bearbeta en enda större grupp, kan det vara mer effektivt att bearbeta flera batchar parallellt.
 
-Om du använder parallell körning kan du överväga att kontrollera det maximala antalet arbetstrådar. Ett mindre antal kan leda till mindre konkurrens och en snabbare körningstid. Överväg även den belastning som placeras i måldatabasen både i anslutningar och transaktioner.
+Om du använder parallell körning bör du överväga att kontrol lera det högsta antalet arbets trådar. Ett mindre antal kan leda till mindre konkurrens och snabbare körnings tid. Överväg även den ytterligare belastning som finns på mål databasen både i anslutningar och transaktioner.
 
-### <a name="related-performance-factors"></a>Prestandadata relaterade faktorer
+### <a name="related-performance-factors"></a>Relaterade prestanda faktorer
 
-Vanliga vägledning för databasprestanda påverkar också batchbearbetning. Infoga exempelvis prestanda minskar för tabeller som har en primärnyckel för stora eller många icke-grupperat index.
+En typisk vägledning om databas prestandan påverkar även batching. Till exempel minskas prestanda för tabeller som har en stor primär nyckel eller många grupperade index.
 
-Om tabellvärdeparametrar använder en lagrad procedur kan du använda kommandot **SET NOCOUNT ON** i början av proceduren. Den här instruktionen Undertrycker avkastningen på antalet berörda rader i proceduren. Men i våra tester kan användningen av **SET NOCOUNT ON** antingen inte påverkar eller minskar prestanda. Testa lagrade proceduren har enkelt med en enda **infoga** från parametern-tabellvärdesfunktion. Det är möjligt att mer komplexa lagrade procedurer skulle ha nytta av den här instruktionen. Men inte utgår från att lägga till **SET NOCOUNT ON** till den lagrade proceduren automatiskt förbättrar prestanda. Testa den lagrade proceduren med och utan för att förstå effekten på **SET NOCOUNT ON** instruktionen.
+Om tabell värdes parametrar använder en lagrad procedur kan du använda kommandot **NOCOUNT i** i början av proceduren. Den här instruktionen förhindrar att antalet påverkade rader returneras i proceduren. I våra tester hade du dock ingen effekt eller minskad prestanda om användningen av **set NOcount** saknas. Den lagrade proceduren för testet var enkel med ett enda **insert** -kommando från tabell värdes parametern. Det är möjligt att mer komplexa lagrade procedurer kan dra nytta av den här instruktionen. Men anta inte att lägga till **SET NOCOUNT på** den lagrade proceduren förbättrar prestandan automatiskt. Om du vill förstå resultatet testar du den lagrade proceduren med och utan **SET NOCOUNT ON** -instruktionen.
 
-## <a name="batching-scenarios"></a>Batchbearbetning scenarier
+## <a name="batching-scenarios"></a>Batching-scenarier
 
-I följande avsnitt beskrivs hur du använder tabellvärdeparametrar i tre Programscenarier. Det första scenariot visar hur buffring och batchbearbetning kan fungera tillsammans. I det andra scenariot förbättrar prestanda genom att utföra åtgärder för master-detaljer i en enda lagrade proceduranropet. Sista scenariot visar hur du använder tabellvärdeparametrar i en ”UPSERT”-åtgärd.
+I följande avsnitt beskrivs hur du använder tabell värdes parametrar i tre program scenarier. Det första scenariot visar hur buffring och batchbearbetning kan fungera tillsammans. Det andra scenariot förbättrar prestanda genom att utföra Master-detail-åtgärder i ett enda lagrat procedur anrop. Det slutliga scenariot visar hur du använder tabell värdes parametrar i en "UPSERT"-åtgärd.
 
 ### <a name="buffering"></a>Buffring
 
-Det finns vissa scenarier som är självklara kandidater för batchbearbetning, finns men det många scenarier som kan dra nytta av batchbearbetning av fördröjda bearbetning. Försenade bearbetning innebär dock även en större risk att data förloras i händelse av ett oväntat fel. Det är viktigt att förstå den här risken och överväga konsekvenserna.
+Även om det finns några scenarier som är uppenbara för batching, finns det många scenarier som kan dra nytta av satsvis kompilering genom fördröjd bearbetning. Fördröjd bearbetning medför dock också en större risk att data förloras vid ett oväntat fel. Det är viktigt att förstå den här risken och ta hänsyn till konsekvenserna.
 
-Tänk dig ett webbprogram som spårar navigeringhistorik för varje användare. Programmet kan göra en databasanropet spela in användarens Sidvisning på varje sida i begäran. Men högre prestanda och skalbarhet kan uppnås genom buffring användarnas navigering aktiviteter och sedan skicka dessa data till databasen i batchar. Du kan utlösa databasuppdatering av förfluten tid och/eller buffertstorlek. En regel kan till exempel ange att batchen ska bearbetas efter 20 sekunder eller när bufferten når 1 000 objekt.
+Anta till exempel ett webb program som spårar navigerings historiken för varje användare. På varje webbdelsbegäran kan programmet göra ett databas anrop för att registrera användarens sid visning. Men högre prestanda och skalbarhet kan uppnås genom att buffra användarnas navigerings aktiviteter och sedan skicka dessa data till databasen i batchar. Du kan utlösa databas uppdateringen efter förfluten tid och/eller buffertstorlek. En regel kan till exempel ange att batchen ska bearbetas efter 20 sekunder eller när bufferten når 1000 objekt.
 
-Följande kodexempel används [Reactive Extensions - Rx](https://msdn.microsoft.com/data/gg577609) att bearbeta buffrade händelser som skapats av en övervakning klass. När bufferten blir fullt eller en tidsgräns uppnås, i gruppen med användardata skickas till databasen med en tabellvärdesparameter.
+I följande kod exempel används [reactive Extensions-RX](https://msdn.microsoft.com/data/gg577609) för att bearbeta buffrade händelser som skapats av en övervaknings klass. När buffertens fyllningar eller tids gräns uppnås, skickas batchen med användar data till databasen med en tabell värdes parameter.
 
-Följande NavHistoryData klass modeller användarinformation för navigering. Den innehåller grundläggande information, till exempel användar-ID och den URL som används vid åtkomst.
+I följande NavHistoryData-klass modelleras information om användar navigering. Den innehåller grundläggande information, till exempel användar-ID, URL: en och åtkomst tiden.
 
 ```csharp
 public class NavHistoryData
@@ -404,7 +403,7 @@ public class NavHistoryData
 }
 ```
 
-Klassen NavHistoryDataMonitor ansvarar för buffring navigering användardata i databasen. Den innehåller en metod, RecordUserNavigationEntry som svarar genom att höja ett **OnAdded** händelse. Följande kod visar konstruktor logiken som använder Rx för att skapa en synliga samling baserat på händelsen. Den sedan prenumererar på den här synliga samlingen med metoden buffert. Överlagringen anger att bufferten ska skickas var 20: e sekund eller 1000 poster.
+NavHistoryDataMonitor-klassen ansvarar för att buffra användar navigerings data till-databasen. Den innehåller en metod, RecordUserNavigationEntry, som svarar genom att höja en **OnAdded** -händelse. Följande kod visar den konstruktormetod som använder RX för att skapa en observerbar samling baserat på händelsen. Den prenumererar sedan på den observerbara samlingen med metoden buffer. Överlagringen anger att bufferten ska skickas var 20: e sekund eller 1000 poster.
 
 ```csharp
 public NavHistoryDataMonitor()
@@ -416,7 +415,7 @@ public NavHistoryDataMonitor()
 }
 ```
 
-Hanteraren konverterar alla buffrade objekt till en tabellvärderade typ och skickar den här typen till en lagrad procedur som bearbetar batchen. Följande kod visar slutförd definitionen för både NavHistoryDataEventArgs och NavHistoryDataMonitor klasser.
+Hanteraren konverterar alla buffrade objekt till en tabell värdes typ och skickar sedan den här typen till en lagrad procedur som bearbetar batchen. Följande kod visar den fullständiga definitionen för både NavHistoryDataEventArgs-och NavHistoryDataMonitor-klasserna.
 
 ```csharp
 public class NavHistoryDataEventArgs : System.EventArgs
@@ -438,7 +437,7 @@ public class NavHistoryDataMonitor
     }
 ```
 
-Hanteraren konverterar alla buffrade objekt till en tabellvärderade typ och skickar den här typen till en lagrad procedur som bearbetar batchen. Följande kod visar slutförd definitionen för både NavHistoryDataEventArgs och NavHistoryDataMonitor klasser.
+Hanteraren konverterar alla buffrade objekt till en tabell värdes typ och skickar sedan den här typen till en lagrad procedur som bearbetar batchen. Följande kod visar den fullständiga definitionen för både NavHistoryDataEventArgs-och NavHistoryDataMonitor-klasserna.
 
 ```csharp
     public class NavHistoryDataEventArgs : System.EventArgs
@@ -481,11 +480,11 @@ Hanteraren konverterar alla buffrade objekt till en tabellvärderade typ och ski
 }
 ```
 
-Om du vill använda den här buffring klassen skapar programmet ett statiskt NavHistoryDataMonitor-objekt. Varje gång en användare ansluter till en sida, anropar programmet metoden NavHistoryDataMonitor.RecordUserNavigationEntry. Buffring logiken fortsätter att ta hand om skicka dessa poster till databasen i batchar.
+Om du vill använda den här bufferten skapar programmet ett statiskt NavHistoryDataMonitor-objekt. Varje gång en användare kommer åt en sida anropar programmet metoden NavHistoryDataMonitor. RecordUserNavigationEntry. Buffertens logik fortsätter att skicka dessa poster till databasen i batchar.
 
-### <a name="master-detail"></a>Master information
+### <a name="master-detail"></a>Huvud information
 
-Tabellvärdeparametrar är användbara för enkel INSERT-scenarier. Det kan dock vara mer utmanande att batch-infogningar som innefattar mer än en tabell. ”Översikt/detaljer”-scenario är ett bra exempel. Huvudtabellen identifierar den primära entiteten. En eller flera tabeller i detalj lagra mer data om enheten. I det här scenariot genomdriva sekundärnyckelrelationer förhållandet mellan information till en unik master-entitet. Överväg en förenklad version av PurchaseOrder tabellerna och dess associerade OrderDetail. Följande Transact-SQL skapar tabellen PurchaseOrder med fyra kolumner: OrderID, OrderDate, CustomerID och Status.
+Tabell värdes parametrar är användbara för enkla INFOGNINGs scenarier. Det kan dock vara mer utmanande att gruppera infogningar som omfattar mer än en tabell. Scenariot "Master/Detail" är ett användbart exempel. Huvud tabellen identifierar den primära entiteten. En eller flera detalj tabeller lagrar mer data om entiteten. I det här scenariot tvingar sekundär nyckel relationer relationen mellan information till en unik huvud organisation. Överväg en förenklad version av en PurchaseOrder-tabell och dess tillhör ande OrderDetail-tabell. I följande Transact-SQL skapas tabellen PurchaseOrder med fyra kolumner: Ordernr, order datum, Kundnr och status.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrder](
@@ -497,7 +496,7 @@ CONSTRAINT [PrimaryKey_PurchaseOrder]
 PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 ```
 
-Varje beställning innehåller en eller flera produktinköp. Den här informationen samlas i tabellen PurchaseOrderDetail. Följande Transact-SQL skapar tabellen PurchaseOrderDetail med fem kolumner: OrderID, OrderDetailID, ProductID, Enhetspris och OrderQty.
+Varje order innehåller ett eller flera produkt inköp. Den här informationen samlas in i tabellen PurchaseOrderDetail. I följande Transact-SQL skapas tabellen PurchaseOrderDetail med fem kolumner: Ordernr, OrderDetailID, ProductID, enhets pris och OrderQty.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrderDetail](
@@ -510,7 +509,7 @@ CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED
 ( [OrderID] ASC, [OrderDetailID] ASC ))
 ```
 
-Kolumnen OrderID i tabellen PurchaseOrderDetail måste hänvisa till en order från tabellen PurchaseOrder. Följande definition för en sekundärnyckel framtvingar den här begränsningen.
+Kolumnen Ordernr i tabellen PurchaseOrderDetail måste referera till en order från PurchaseOrder-tabellen. Följande definition av en sekundär nyckel tillämpar den här begränsningen.
 
 ```sql
 ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
@@ -518,7 +517,7 @@ CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
 REFERENCES [dbo].[PurchaseOrder] ([OrderID])
 ```
 
-Du måste ha en användardefinierad tabelltyp för varje måltabell som för att kunna använda tabellvärdeparametrar.
+Du måste ha en användardefinierad tabell typ för varje mål tabell för att kunna använda tabell värdes parametrar.
 
 ```sql
 CREATE TYPE PurchaseOrderTableType AS TABLE 
@@ -536,7 +535,7 @@ CREATE TYPE PurchaseOrderDetailTableType AS TABLE
 GO
 ```
 
-Definiera en lagrad procedur som sekvenstabeller av de här typerna. Den här proceduren kan ett program till lokalt batch en uppsättning beställningar och beställningsinformation i ett enda anrop. Följande Transact-SQL ger fullständig lagrad procedur-deklarationen för det här exemplet för köp ordning.
+Definiera sedan en lagrad procedur som accepterar tabeller av de här typerna. Den här proceduren gör det möjligt för ett program att lokalt gruppera en uppsättning beställningar och beställnings information i ett enda anrop. Följande Transact-SQL innehåller den fullständiga lagrade procedur deklarationen för den här inköps order exemplet.
 
 ```sql
 CREATE PROCEDURE sp_InsertOrdersBatch (
@@ -581,9 +580,9 @@ JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
 GO
 ```
 
-I det här exemplet lokalt definierade @IdentityLink tabellen lagras de faktiska värdena OrderID från de nyligen infogade raderna. Dessa order-ID: n skiljer sig från tillfälliga OrderID värdena i den @orders och @details tabellvärdeparametrar. Därför måste den @IdentityLink tabell ansluter sedan OrderID värden från den @orders parametern till de verkliga OrderID-värden för de nya raderna i tabellen PurchaseOrder. Efter det här steget i @IdentityLink tabell kan underlätta infogar orderinformationen med den faktiska OrderID som uppfyller sekundärnyckelbegränsningen.
+I det här exemplet lagrar den lokalt @IdentityLink definierade tabellen faktiska Ordernr-värden från de nyligen infogade raderna. Dessa order identifierare skiljer sig från de tillfälliga Ordernr-värdena i @orders parametrarna och @details tabell värden. Därför ansluter @IdentityLink tabellen värdet för Ordernr @orders från parametern till de faktiska Ordernr-värdena för de nya raderna i tabellen PurchaseOrder. Efter det här steget @IdentityLink kan tabellen under lätta infogningen av beställnings informationen med det faktiska Ordernr som uppfyller sekundär nyckel begränsningen.
 
-Den här lagrade proceduren kan användas från kod eller från andra Transact-SQL-anrop. Se avsnittet tabellvärdeparametrar i det här dokumentet som ett exempel. Följande Transact-SQL visar hur du anropar sp_InsertOrdersBatch.
+Den här lagrade proceduren kan användas från kod eller från andra Transact-SQL-anrop. I avsnittet tabell värdes parametrar i det här dokumentet finns ett kod exempel. Följande Transact-SQL visar hur du anropar sp_InsertOrdersBatch.
 
 ```sql
 declare @orders as PurchaseOrderTableType
@@ -605,15 +604,15 @@ VALUES(1, 10, $11.50, 1),
 exec sp_InsertOrdersBatch @orders, @details
 ```
 
-Den här lösningen kan varje batch för att använda en värdeuppsättning OrderID som börjar vid 1. Värdena för tillfälliga OrderID beskriver relationer i batchen, men de faktiska värdena för OrderID bestäms vid tidpunkten för insert-åtgärden. Du kan köra samma uttryck i föregående exempel upprepade gånger och generera unika order i databasen. Överväg att lägga till mer kod eller databasen logik som förhindrar att duplicerade order när du använder detta batchbearbetning tekniken därför.
+Den här lösningen gör att varje batch kan använda en uppsättning av Ordernr-värden som börjar vid 1. Dessa tillfälliga Ordernr-värden beskriver relationerna i batchen, men de faktiska värdet för Ordernr fastställs vid tidpunkten för infognings åtgärden. Du kan köra samma instruktioner i föregående exempel upprepade gånger och generera unika order i databasen. Därför bör du överväga att lägga till mer kod eller databas logik som förhindrar dubbla beställningar när du använder den här batch-tekniken.
 
-Det här exemplet visar att ännu mer komplexa databasåtgärderna, till exempel översikt detaljer åtgärder, kan batchhanteras med tabellvärdeparametrar.
+Det här exemplet visar att ännu mer komplexa databas åtgärder, till exempel Master-detail-åtgärder, kan grupperas med tabell värdes parametrar.
 
 ### <a name="upsert"></a>UPSERT
 
-En annan batchbearbetningen scenariet inbegriper att uppdatera befintliga rader och infoga nya rader samtidigt. Den här åtgärden kallas ibland för en ”UPSERT” (uppdatering + insert)-åtgärd. I stället för att göra separata anrop till INFOGNINGS- och fungerar MERGE-instruktion bäst för den här uppgiften. MERGE-instruktion kan utföra både insert och uppdateringsåtgärder i ett enda anrop.
+Ett annat batching-scenario innebär att samtidigt uppdatera befintliga rader och infoga nya rader. Den här åtgärden kallas ibland för en "UPSERT"-åtgärd (uppdatering + Insert). I stället för att göra separata anrop för att infoga och uppdatera, är MERGE-instruktionen bäst anpassad för den här uppgiften. MERGE-instruktionen kan utföra både INSERT-och Update-åtgärder i ett enda anrop.
 
-Tabellvärdeparametrar kan användas med MERGE-instruktion för att utföra uppdateringar och infogningar. Anta exempelvis att en förenklad anställd-tabell som innehåller följande kolumner: EmployeeID, FirstName, LastName, SocialSecurityNumber:
+Tabell värdes parametrar kan användas med MERGE-instruktionen för att utföra uppdateringar och infogningar. Anta till exempel en förenklad medarbetar tabell som innehåller följande kolumner: Anställningsnr, FirstName, LastName, SocialSecurityNumber:
 
 ```sql
 CREATE TABLE [dbo].[Employee](
@@ -625,7 +624,7 @@ CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED
 ([EmployeeID] ASC ))
 ```
 
-I det här exemplet kan du använda det faktum att SocialSecurityNumber är unika för utför en SAMMANSLAGNING av flera anställda. Börja med att skapa en användardefinierad tabelltyp:
+I det här exemplet kan du använda det faktum att SocialSecurityNumber är unikt för att utföra en sammanslagning av flera anställda. Börja med att skapa en användardefinierad tabell typ:
 
 ```sql
 CREATE TYPE EmployeeTableType AS TABLE 
@@ -636,7 +635,7 @@ CREATE TYPE EmployeeTableType AS TABLE
 GO
 ```
 
-Därefter skapa en lagrad procedur eller skriva kod som använder MERGE-instruktion för att utföra uppdateringen och infoga. I följande exempel används MERGE-instruktion på en tabellvärdesparameter @employees, av typen EmployeeTableType. Innehållet i den @employees tabellen visas inte här.
+Skapa sedan en lagrad procedur eller Skriv kod som använder MERGE-instruktionen för att utföra uppdateringen och infoga. I följande exempel används merge-instruktionen på en tabell värdes parameter @employees, av typen EmployeeTableType. Innehållet i @employees tabellen visas inte här.
 
 ```sql
 MERGE Employee AS target
@@ -652,30 +651,30 @@ WHEN NOT MATCHED THEN
     VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
 ```
 
-Mer information finns i dokumentation och exempel för MERGE-instruktion. Även om samma arbetet kan utföras i en flera steg lagrade proceduranrop med separata INSERT och uppdateringsåtgärder, MERGE-instruktionen är mer effektivt. Databaskod kan också skapa Transact-SQL-anrop som MERGE-instruktion direkt utan att kräva två databasanrop för INSERT och UPDATE.
+Mer information finns i dokumentationen och exemplen för MERGE-instruktionen. Även om samma arbete kan utföras i ett process anrop med flera steg med separata INFOGNINGs-och UPPDATERINGs åtgärder, är MERGE-instruktionen mer effektiv. Databas kod kan också konstruera Transact-SQL-anrop som använder MERGE-instruktionen direkt utan att kräva två databas anrop för INSERT och UPDATE.
 
-## <a name="recommendation-summary"></a>Sammanfattning av rekommendation
+## <a name="recommendation-summary"></a>Rekommendations Sammanfattning
 
-Följande lista innehåller en sammanfattning av batchbearbetningen rekommendationerna som beskrivs i den här artikeln:
+I följande lista finns en sammanfattning av de grupp rekommendationer som beskrivs i den här artikeln:
 
-* Använda buffring och batchbearbetning för att öka prestanda och skalbarhet för SQL Database-program.
-* Förstå kompromisser batchbearbetning/buffring och återhämtningskapaciteten. Vid fel roll, kan risk att förlora en obearbetade batch med verksamhetskritiska data uppväga prestandafördelarna batchbearbetning.
-* Försök att hålla alla anrop till databasen i ett och samma datacenter som minskar svarstiderna.
-* Om du väljer en enda batchbearbetningen teknik, erbjuder tabellvärdeparametrar bästa prestanda och flexibilitet.
-* Följ dessa riktlinjer för insert snabbaste prestanda, men testa ditt scenario:
-  * Använd ett enda kommando med parametrar INSERT för < 100 rader.
-  * Använda tabellvärdeparametrar för < 1000 rader.
-  * För > = 1000 rader, använda SqlBulkCopy körs.
-* För uppdatera och ta bort åtgärder kan använda tabellvärdeparametrar med lagrade proceduren logik som anger rätt igen på varje rad i tabellen-parametern.
-* Riktlinjer för batch-storlek:
-  * Använd de största batch-storlekar som passar ditt program och dina affärsbehov.
-  * Balansera prestandaökning för stora batchar med risk för tillfälliga eller oåterkalleligt fel. Vad är en följd av återförsök eller förlust av data i batchen? 
-  * Testa den största batchstorleken som för att verifiera att SQL-databas inte avvisar den.
-  * Skapa inställningar för den kontrollen batchbearbetning, till exempel batchstorleken eller buffring tidsfönstret. De här inställningarna ger flexibilitet. Du kan ändra beteendet för batchbearbetningen i produktion utan att omdistribuera Molntjänsten.
-* Undvik att parallell körning av batchar som fungerar på en enskild tabell i en databas. Om du väljer att dela en enskild batch över flera trådar kan köra tester för att avgöra perfekt antalet trådar. När du har ett okänt tröskelvärde fler trådar kommer försämra prestanda i stället öka den.
-* Överväg att buffring på storlek och tid som ett sätt att implementera batchbearbetning för fler scenarier.
+* Använd buffring och batching för att öka prestanda och skalbarhet för SQL Database program.
+* Förstå kompromisserna mellan satsvis kompilering och buffring och återhämtning. Vid ett roll haveri kan risken att förlora en icke bearbetad batch med affärs kritiska data överväger prestanda fördelarna med batchering.
+* Försök att behålla alla anrop till databasen inom ett och samma data Center för att minska svars tiden.
+* Om du väljer en enda batch-teknik ger tabell värdes parametrar bästa möjliga prestanda och flexibilitet.
+* Om du vill ha snabbaste infognings prestanda följer du dessa allmänna rikt linjer men testar ditt scenario:
+  * Använd ett enda parameter INSERT-kommando för < 100-rader.
+  * Använd tabell värdes parametrar för < 1000-rader.
+  * Använd SqlBulkCopy för att > = 1000 rader.
+* För uppdaterings-och borttagnings åtgärder använder du tabell värdes parametrar med lagrad procedur logik som fastställer rätt åtgärd för varje rad i tabell parametern.
+* Rikt linjer för batchstorlek:
+  * Använd de största batch-storlekarna som passar dina program-och affärs behov.
+  * Balansera prestanda vinsten för stora batchar med riskerna med tillfälliga eller oåterkalleliga haverier. Vad är resultatet av återförsök eller förlust av data i batchen? 
+  * Testa den största batchstorleken för att verifiera att SQL Database inte avvisar den.
+  * Skapa konfigurations inställningar som styr batchbearbetning, t. ex. batch-storlek eller tids period för buffring. De här inställningarna ger flexibilitet. Du kan ändra batching-beteendet i produktion utan att omdistribuera moln tjänsten.
+* Undvik parallell körning av batchar som körs på en enskild tabell i en databas. Om du väljer att dela upp en enskild grupp över flera arbets trådar kan du köra tester för att fastställa det idealiska antalet trådar. Efter ett ospecificerat tröskelvärde minskar fler trådar prestanda i stället för att öka det.
+* Överväg att buffra i storlek och tid som ett sätt att implementera batching för fler scenarier.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln fokuserar på hur databasdesign och kodning tekniker relaterade till batchbearbetning kan förbättra dina programprestanda och skalbarhet. Men det är bara en faktor i din övergripande strategi. Fler sätt att förbättra prestanda och skalbarhet, se [Azure SQL Database prestanda hos enskilda databaser](sql-database-performance-guidance.md) och [pris- och prestandaöverväganden för en elastisk pool](sql-database-elastic-pool-guidance.md).
+Den här artikeln fokuserar på hur databas design och kodnings tekniker som är relaterade till batchbearbetning kan förbättra programmets prestanda och skalbarhet. Men det är bara en faktor i din övergripande strategi. Fler sätt att förbättra prestanda och skalbarhet finns [Azure SQL Database prestanda vägledning för enkla databaser](sql-database-performance-guidance.md) och [pris-och prestanda överväganden för en elastisk pool](sql-database-elastic-pool-guidance.md).
 

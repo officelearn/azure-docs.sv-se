@@ -9,18 +9,19 @@ manager: barbkess
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security
+ms.subservice: security-develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 66719d43db277e6c82d89ee17c602309d16140f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489983"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728804"
 ---
 # <a name="develop-a-secure-web-app"></a>Utveckla en säker webbapp
 
@@ -137,7 +138,7 @@ För att komma igång med programmet måste du installera följande verktyg:
 - [Git](https://git-scm.com/) i systemet. Git används för att klona käll koden lokalt.
 - [JQ](https://stedolan.github.io/jq/), ett UNIX-verktyg för att fråga JSON på ett användarvänligt sätt.
 
-Du behöver en Azure-prenumeration för att distribuera exempel appens resurser. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/en-us/free/) för att testa exempel appen.
+Du behöver en Azure-prenumeration för att distribuera exempel appens resurser. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) för att testa exempel appen.
 
 När du har installerat dessa verktyg är du redo att distribuera appen på Azure.
 
@@ -353,7 +354,7 @@ Mer information om hur du ställer in SSL och verifiering av certifikat utfärda
 Ett rot certifikat ingår i behållaren. Stegen som vidtas för att hämta certifikatet är:
 
 1. Ladda ned certifikat filen från [certifikat utfärdaren](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Hämta och installera openssl på datorn](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
+2. [Hämta och installera openssl på datorn](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
 3. Avkoda certifikat filen:
 
    ```powershell

@@ -1,34 +1,32 @@
 ---
-title: Prestandamätningar ditt program i Azure Disk Storage – hanterade diskar
-description: Läs mer om inom ditt program i Azure.
-services: virtual-machines-linux,storage
+title: Benchmarking av ditt program på Azure-disklagring-hanterade diskar
+description: Lär dig mer om processen för att mäta ditt program på Azure.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 21ed4e9a6b1da10d0ae4c276612459506e13d94f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5ac60811eb4fb7735feae6a62ee1b20c8983e0e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474376"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695850"
 ---
-# <a name="benchmarking-a-disk"></a>Prestandamätningar en disk
+# <a name="benchmarking-a-disk"></a>Prestandatest av en disk
 
-Prestandamätningar är processen för att simulera olika arbetsbelastningar på ditt program och mäta programprestanda för varje arbetsbelastning. Med hjälp av anvisningarna i den [designa för höga prestanda artikeln](premium-storage-performance.md). Du kan fastställa prestandanivåer som ditt program kan uppnå med Premium Storage genom att köra prestandamätningsverktyg på de virtuella datorerna som är värd för programmet. I den här artikeln får du exempel på prestandamätningar en Standard DS14 virtuell dator som etablerats med Azure Premium Storage-diskar.
+Benchmarking är en process för att simulera olika arbets belastningar i ditt program och mäta programmets prestanda för varje arbets belastning. Med hjälp av stegen som beskrivs i [artikeln designa för hög prestanda](premium-storage-performance.md). Genom att köra benchmarking-verktyg på de virtuella datorer som är värdar för programmet kan du bestämma vilka prestanda nivåer som programmet kan uppnå med Premium Storage. I den här artikeln ger vi exempel på att du kan mäta en standard VM-DS14 som tillhandahålls med Azure Premium Storage-diskar.
 
-Vi har använt common prestandamätningsverktyg Iometer och FIO, för Windows och Linux respektive. Dessa verktyg skapar flera trådar som simulerar en produktionsliknande arbetsbelastning och mäta systemets prestanda. Med hjälp av verktyg kan du också konfigurera parametrar som block storlek och kön djup, som normalt inte kan ändra för ett program. Detta ger dig större flexibilitet att driva ut maximala prestanda i hög skala virtuella datorer med premium-diskar för olika typer av arbetsbelastningar för program. Läs mer om varje benchmarking verktyg finns [Iometer](http://www.iometer.org/) och [FIO](http://freecode.com/projects/fio).
+Vi har använt vanliga benchmarking-verktyg IOMeter och FIO, för Windows respektive Linux. Dessa verktyg skapar flera trådar som simulerar en produktion som arbets belastning och mäter systemets prestanda. Med hjälp av verktygen kan du också konfigurera parametrar som block storlek och ködjup, som du normalt inte kan ändra för ett program. Detta ger dig större flexibilitet för att öka den maximala prestandan på en hög skala VM som tillhandahålls med Premium diskar för olika typer av program arbets belastningar. Om du vill veta mer om varje benchmarking-verktyg går du till [IOMeter](http://www.iometer.org/) och [FIO](http://freecode.com/projects/fio).
 
-Om du vill följa exemplen nedan, skapa en Standard DS14 virtuell dator och koppla 11 Premium Storage-diskar till den virtuella datorn. Konfigurera 10 diskar med värdcachelagring som ”None” och stripe-dem till en volym med namnet NoCacheWrites 11 diskar. Konfigurera värdcachelagring som ”skrivskyddad” på den återstående disken och skapa en volym med namnet CacheReads med den här disken. Med den här inställningen, kan du se ut maximala prestanda för läsning och skrivning från en Standard DS14 virtuell dator. Detaljerade anvisningar om hur du skapar en DS14 virtuell dator med premium disks går du till [designa för höga prestanda](premium-storage-performance.md).
+Om du vill följa exemplen nedan skapar du en standard virtuell DS14-dator och lägger till 11 Premium Storage diskar på den virtuella datorn. För de 11 diskarna konfigurerar du 10 diskar med cachelagring av värden som "ingen" och stripe dem i en volym som heter NoCacheWrites. Konfigurera cachelagring av värd som "ReadOnly" på den återstående disken och skapa en volym som heter CacheReads med den här disken. Med den här installationen kan du se den maximala Läs-och skriv prestandan från en vanlig virtuell DS14-dator. Detaljerade anvisningar om hur du skapar en virtuell DS14-dator med Premium-diskar finns i [utforma för hög prestanda](premium-storage-performance.md).
 
 [!INCLUDE [virtual-machines-disks-benchmarking](../../../includes/virtual-machines-managed-disks-benchmarking.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå igenom våra design för hög prestanda artikeln. I det skapar du en checklista liknar ditt befintliga program för den aktuella typen. Med hjälp av Benchmarking verktyg kan du simulera arbetsbelastningarna och mäta prestanda på prototyp programmet. Då kan du bestämma vilka disk erbjudande kan matcha eller överträffa dina prestandakrav för programmet. Du kan sedan implementera samma riktlinjer som för dina produktionsprogram.
+Fortsätt genom vår design för artikeln med hög prestanda. I den skapar du en check lista som liknar ditt befintliga program för prototypen. Med hjälp av benchmarking-verktyg kan du simulera arbets belastningarna och mäta prestanda för prototyp programmet. Genom att göra det kan du bestämma vilket disk erbjudande som kan matcha eller överskrida dina program prestanda krav. Sedan kan du implementera samma rikt linjer för ditt produktions program.
 
 > [!div class="nextstepaction"]
-> Läsa artikeln om [designa för höga prestanda](premium-storage-performance.md) börjar.
+> Se artikeln om [utformning för hög prestanda](premium-storage-performance.md) .

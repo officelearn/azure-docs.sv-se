@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c25232abf20bbe3d01672b7620e5d2f5e31d5c8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4bb56155e925f9e19570d89d091342afd594009
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343519"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725967"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Kopiera data från Shopify med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Shopify länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Shopify** | Ja |
+| type | Egenskapen Type måste anges till: **Shopify** | Ja |
 | host | Slutpunkten för Shopify-server. (det vill säga mystore.myshopify.com)  | Ja |
 | accessToken | API-åtkomsttoken som kan användas för att komma åt Shopify's data. Token upphör inte om den är offline-läge. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
@@ -77,7 +77,7 @@ Om du vill kopiera data från Shopify, ange typegenskapen på datauppsättningen
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **ShopifyObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **ShopifyObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -87,11 +87,12 @@ Om du vill kopiera data från Shopify, ange typegenskapen på datauppsättningen
     "name": "ShopifyDataset",
     "properties": {
         "type": "ShopifyObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Shopify linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -106,7 +107,7 @@ Om du vill kopiera data från Shopify, ange typ av datakälla i kopieringsaktivi
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ShopifySource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **ShopifySource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

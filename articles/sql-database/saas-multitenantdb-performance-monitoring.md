@@ -1,6 +1,6 @@
 ---
-title: Övervaka prestanda för en shardade Azure SQL-databas för flera klienter i en SaaS-app för flera klienter | Microsoft Docs
-description: Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
+title: Övervaka prestanda för en shardade Azure SQL-databas med flera innehavare i en SaaS-app med flera innehavare | Microsoft Docs
+description: Övervaka och hantera prestanda för shardade för flera innehavare i en SaaS-app med flera innehavare
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,106 +10,105 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485635"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570327"
 ---
-# <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
+# <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade för flera innehavare i en SaaS-app med flera innehavare
 
-I den här självstudien beskrivs flera prestandarelaterade hanteringsscenarier som används i SaaS-program. Använder en belastningsgenerator för att simulera aktivitet på shardade databaser för flera innehavare, är inbyggd övervakning och aviseringsfunktionerna i SQL-databas visas.
+I den här självstudien får du utforska flera scenarier för viktiga prestanda hantering i SaaS-program. Genom att använda en belastnings generator för att simulera aktivitet i shardade-databaser visas de inbyggda övervaknings-och aviserings funktionerna i SQL Database.
 
-Databas för flera klienter i Wingtip biljetter SaaS-appen använder en modell för shardade data för flera innehavare, där distribueras lokal (klient) data genom att klient-ID på potentiellt flera databaser. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. Om du vill dra nytta av den här typiska databasanvändningsmönstret, kan databaser skalas upp och ned för att optimera kostnaderna för en lösning. Med den här typen av mönster är det viktigt att övervaka databasresursanvändning för att säkerställa att belastningar belastningarna balanseras över potentiellt flera databaser. Du måste också se till att enskilda databaser har tillräckliga resurser och inte träffar sina [DTU](sql-database-purchase-models.md#dtu-based-purchasing-model) gränser. Den här guiden går igenom sätt att övervaka och hantera databaser och hur du vidta åtgärder som svar på belastningsvariationer.
+Wingtip-biljetterna SaaS för flera klient organisationer använder en shardade för flera klient organisationer, där plats data distribueras efter klient-ID över flera databaser. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. För att kunna dra nytta av detta typiska databas användnings mönster kan databaser skalas upp och ned för att optimera kostnaden för en lösning. Med den här typen av mönster är det viktigt att övervaka användningen av databas resurser för att säkerställa att belastningar är rimligen balanserade över potentiellt flera databaser. Du måste också se till att enskilda databaser har tillräckligt med resurser och inte når deras [DTU](sql-database-purchase-models.md#dtu-based-purchasing-model) -gränser. I den här självstudien får du lära dig hur du övervakar och hanterar databaser och hur du vidtar korrigerings åtgärder som svar på variationer i arbets belastningen.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > 
-> * Simulera användning på en fragmenterade (sharded) databas för flera innehavare genom att köra en angiven belastningsgenerator
-> * Övervaka databasen eftersom den svarar på belastningsökningar
-> * Skala upp databasen som svar på den ökade databasbelastningen
-> * Etablera en klient till en enda klient-databas
+> * Simulera användning på en shardade-databas med flera innehavare genom att köra en angiven belastnings Generator
+> * Övervaka-databasen när den svarar på ökningen av belastningen
+> * Skala upp databasen som svar på den ökade databas belastningen
+> * Etablera en klient organisation i en databas för en enda klient
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
-* Databas för flera klienter i Wingtip biljetter SaaS-appen har distribuerats. Om du vill distribuera i mindre än fem minuter [distribuera och utforska databas för flera klienter i Wingtip biljetter SaaS-program](saas-multitenantdb-get-started-deploy.md)
+* Wingtip biljetter SaaS-appen för flera klient organisationer har distribuerats. Om du vill distribuera på mindre än fem minuter läser du [distribuera och utforska Wingtip-biljetterna SaaS-databas program för flera innehavare](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-## <a name="introduction-to-saas-performance-management-patterns"></a>Introduktion till SaaS-prestandahanteringsmönster
+## <a name="introduction-to-saas-performance-management-patterns"></a>Introduktion till SaaS prestanda hanterings mönster
 
 Hantering av databasprestanda innebär kompilering och analys av prestandadata för att sedan reagera på den genom att justera parametrarna för att bibehålla en acceptabel svarstid för programmet. 
 
 ### <a name="performance-management-strategies"></a>Strategier för prestandahantering
 
-* Om du vill undvika att behöva manuellt övervaka prestanda, är det bäst att **ställa in aviseringar som utlöser när databaser som avviker från normala intervall**.
-* Svara på kortsiktiga variationer i beräkningsstorleken för en databas i **DTU-nivå skalas upp eller ned**. Om den här variationerna inträffar på regelbunden eller förutsägbar basis **skala databasen kan schemaläggas att ske automatiskt**. Du kan exempelvis skala ned när du vet att din arbetsbelastning är lätt, på nätter eller helger till exempel.
-* Svara till mer långsiktiga variationer eller förändringar innehavare, **enskilda klienter kan flyttas till andra databasen**.
-* Svara på kortsiktiga ökningar *enskilda* klient belastning, **enskilda klienter kan tas bort från en databas och tilldelas en enskild beräkningsstorleken**. När belastningen minskar, kan klienten sedan returneras till databas för flera innehavare. När det här är känt i förväg, kan klienter flyttas förebyggande syfte att säkerställa att databasen alltid har de resurser den behöver och för att undvika påverkan på andra klienter i databas för flera innehavare. Om det här kravet är förutsägbart, till exempel en plats där ett populärt evenemang skapar en rusning efter biljetter, kan det här hanteringsbeteendet integreras i programmet.
+* För att undvika att behöva övervaka prestanda manuellt är det mest effektivt att **Ange aviseringar som utlöses när databaser avviker utanför de normala intervallen**.
+* För att kunna svara på kortsiktiga variationer i beräknings storleken för en databas **kan DTU-nivån skalas upp eller ned**. Om denna variation inträffar regelbundet eller förutsägbart, **kan skalning av databasen schemaläggas att ske automatiskt**. Du kan exempelvis skala ned när du vet att din arbetsbelastning är lätt, på nätter eller helger till exempel.
+* För att svara på långsiktiga variationer eller ändringar i klient organisationerna **kan enskilda klienter flyttas till en annan databas**.
+* För att svara på kortsiktiga ökningar i en *enskild* klient belastning **kan enskilda klienter tas bort från en databas och tilldelas en individuell beräknings storlek**. När belastningen har minskat kan klienten sedan returneras till databasen för flera innehavare. När detta är känt i förväg, kan klienterna flyttas för förebyggande syfte för att säkerställa att databasen alltid har de resurser som krävs, och för att undvika påverkan på andra klienter i databasen för flera innehavare. Om det här kravet är förutsägbart, till exempel en plats där ett populärt evenemang skapar en rusning efter biljetter, kan det här hanteringsbeteendet integreras i programmet.
 
-[Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL-databas är övervakning och avisering tillgängligt för databaser. Den här inbyggda övervakningen och aviseringen är resursspecifik, så det är praktiskt för små antal resurser, men inte är praktiskt när du arbetar med många resurser.
+[Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL Database, övervakning och avisering är tillgängligt i databaser. Den här inbyggda övervakningen och aviseringen är resurs bestämd, så det är praktiskt att använda för ett fåtal resurser, men det är inte praktiskt när du arbetar med många resurser.
 
-För scenarion med stora volymer, där du arbetar med många resurser, [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) kan användas. Det här är en separat Azure-tjänst som tillhandahåller analys för utgivna diagnostikloggar och telemetri som samlats in i Log Analytics-arbetsytan. Azure Monitor-loggar kan samla in telemetri från flera olika tjänster och användas för att fråga och ställa in aviseringar.
+För stora volymer, där du arbetar med många resurser, kan [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) användas. Det här är en separat Azure-tjänst som ger analys över genererade diagnostikloggar och telemetri som samlats in i en Log Analytics-arbetsyta. Azure Monitor loggar kan samla in telemetri från många tjänster och använda för att fråga och ange aviseringar.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta källkoden för databas för flera klienter i Wingtip biljetter SaaS-program och skript
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip-biljetterna SaaS källkod och skript för databas program för flera innehavare
 
-Databas för flera klienter i Wingtip biljetter SaaS-skript och programmets källkod finns tillgängliga i den [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub-lagringsplatsen. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg att ladda ned och avblockera Wingtip biljetter SaaS-skript.
+Wingtip-biljetterna SaaS-skript för flera klient organisationer och program käll kod är tillgängliga i [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub lagrings platsen. Ta en titt på den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ned och avblockera Wingtip Ticket SaaS-skript.
 
 ## <a name="provision-additional-tenants"></a>Etablera ytterligare klienter
 
-För en god förståelse för hur prestandaövervakning och hantering fungerar i stor skala måste den här självstudien du har flera klienter i en fragmenterade (sharded) databas för flera innehavare.
+För en god förståelse för hur prestanda övervakning och hantering fungerar i stor skala, kräver den här självstudien att du har flera klienter i en shardade-databas för flera innehavare.
 
-Om du redan har etablerat en batch med klienter i en tidigare självstudiekurs, gå vidare till den [simulera användning på alla klientdatabaser](#simulate-usage-on-all-tenant-databases) avsnittet.
+Om du redan har skapat en batch med klienter i en tidigare självstudie går du vidare till avsnittet [simulera användning på alla klient databaser](#simulate-usage-on-all-tenant-databases) .
 
-1. I den **PowerShell ISE**öppnar... \\Inlärningsmoduler\\prestandaövervakning och hantering\\*Demo-PerformanceMonitoringAndManagement.ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. I **POWERSHELL ISE**öppnar du... Inlärnings\\moduler prestanda övervakning och\\hantering*performancemonitoringandmanagement. ps1.* \\ Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
 1. Ställ in **$DemoScenario** = **1**, _etablera en batch med klienter_
 1. Tryck **F5** för att köra skriptet.
 
-Skriptet distribuerar 17 klienter till databas för flera klienter i ett par minuter. 
+Skriptet distribuerar 17 klienter i databasen för flera klienter på några minuter. 
 
-Den *New-TenantBatch* skriptet skapar nya klienter med unika klient nycklarna i den fragmenterade (sharded) databasen för flera innehavare och initieras de med klienttyp och platstyp. Det här är likadant som hur appen etablerar en ny klient. 
+Skriptet *New-TenantBatch* skapar nya klienter med unika klient nycklar i shardade-databasen för flera klient organisationer och initierar dem med klient organisations namn och platstyp. Detta är konsekvent med hur appen etablerar en ny klient. 
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simulera användning på alla klientdatabaser
 
-Den *Demo-PerformanceMonitoringAndManagement.ps1* skript har angetts som simulerar en arbetsbelastning som körs mot databas för flera innehavare. Belastningen skapas med någon av de tillgängliga load-scenarierna:
+Skriptet *performancemonitoringandmanagement. ps1* tillhandahålls som simulerar en arbets belastning som körs mot databasen med flera innehavare. Belastningen genereras med något av de tillgängliga inläsnings scenarierna:
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generera normal intensitet (cirka 30 DTU) |
-| 3 | Generera belastning med längre toppar per klient|
-| 4 | Generera belastningar med högre DTU-toppar per klient (cirka 70 DTU)|
-| 5 | Generera en hög intensitet (cirka 90 DTU) på en enda klient plus en normal intensitet på alla klienter |
+| 2 | Generera normal intensitets belastning (cirka 30 DTU) |
+| 3 | Generera belastning med längre burst per klient|
+| 4 | Generera belastning med högre DTU-burst per klient (cirka 70 DTU)|
+| 5 | Generera en hög intensitet (cirka 90 DTU) på en enskild klient och en normal belastning på alla andra klienter |
 
-Belastningsgeneratorn tillämpar en *syntetisk* enbart-CPU-belastning på varje klientdatabas. Generatorn startar ett jobb för varje klientdatabas som anropar en lagrad procedur med jämna mellanrum, vilket genererar belastningen. Den belastningsnivåer (i dtu: er), varaktighet och intervaller varierar över alla databaser, vilket simulerar oförutsägbar klientaktivitet.
+Belastningsgeneratorn tillämpar en *syntetisk* enbart-CPU-belastning på varje klientdatabas. Generatorn startar ett jobb för varje klientdatabas som anropar en lagrad procedur med jämna mellanrum, vilket genererar belastningen. Belastnings nivåerna (i DTU: er), varaktighet och intervall varierar i alla databaser, vilket simulerar oförutsägbar klient aktivitet.
 
-1. I den **PowerShell ISE**öppnar... \\Inlärningsmoduler\\prestandaövervakning och hantering\\*Demo-PerformanceMonitoringAndManagement.ps1*. Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
-1. Ange **$DemoScenario** = **2**, _generera av normal intensitet_
-1. Tryck på **F5** att tillämpa en belastning på alla klienter.
+1. I **POWERSHELL ISE**öppnar du... Inlärnings\\moduler prestanda övervakning och\\hantering*performancemonitoringandmanagement. ps1.* \\ Ha det här skriptet öppet medan du kör scenarierna i den här guiden.
+1. Ange **$DemoScenario** = **2**, _generera normal intensitets belastning_
+1. Tryck på **F5** för att använda en belastning för alla klienter.
 
-Databas för flera klienter i Wingtip biljetter SaaS är en SaaS-app och verkliga belastningen på en SaaS-app är vanligtvis sporadisk och oförutsägbar. För att simulera det så skapar belastningsgeneratorn en slumpmässig belastning som distribueras över alla klienterna. Flera minuter behövs för mönster för belastningsutjämning till dyker upp, så kör belastningsgeneratorn för 3 – 5 minuter innan du försöker övervaka belastningen i följande avsnitt.
+Wingtip biljetter SaaS-databas för flera innehavare är en SaaS-app och den verkliga belastningen på en SaaS-app är vanligt vis sporadisk och oförutsägbar. För att simulera det så skapar belastningsgeneratorn en slumpmässig belastning som distribueras över alla klienterna. Det krävs flera minuter för att inläsnings mönstret ska visas, så kör belastnings generatorn i 3-5 minuter innan du försöker övervaka belastningen i följande avsnitt.
 
 > [!IMPORTANT]
-> Belastningsgeneratorn körs som en serie jobb i ett nytt PowerShell-fönster. Om du stänger sessionen, stannar belastningsgeneratorn. Belastningsgeneratorn finns kvar i en *jobbet anropar* tillstånd där det genererar belastningen på alla nya klienter som har etablerats efter generatorn har startats. Använd *Ctrl-C* att stoppa anropar nya jobb och avsluta skriptet. Belastningsgeneratorn fortsätter att köras, men endast på befintliga klienter.
+> Belastnings generatorn körs som en serie jobb i ett nytt PowerShell-fönster. Om du stänger sessionen stoppas belastnings generatorn. Belastnings generatorn förblir i ett *jobb* som anropar ett tillstånd där den genererar belastning på alla nya klienter som tillhandahålls efter att generatorn har startats. Använd *CTRL-C* för att stoppa att anropa nya jobb och avsluta skriptet. Belastnings generatorn fortsätter att köras, men bara på befintliga klienter.
 
-## <a name="monitor-resource-usage-using-the-azure-portal"></a>Övervaka Resursanvändning med Azure-portalen
+## <a name="monitor-resource-usage-using-the-azure-portal"></a>Övervaka resursanvändningen med hjälp av Azure Portal
 
-För att övervaka Resursanvändning som resulterar från den tillämpade belastningen, öppnar du portalen till databas för flera innehavare **tenants1**, som innehåller innehavarna som:
+Om du vill övervaka resursanvändningen som beror på att belastningen används öppnar du portalen till databasen för flera klient organisationer **tenants1**, som innehåller klienterna:
 
-1. Öppna den [Azure-portalen](https://portal.azure.com) och bläddra till servern *tenants1-mt -&lt;användaren&gt;* .
-1. Rulla nedåt och leta upp databaser och klickar på **tenants1**. Den här fragmenterade (sharded) databas för flera innehavare innehåller alla klienter som skapats än så länge.
+1. Öppna [Azure Portal](https://portal.azure.com) och bläddra till servern *tenants1-&lt;MT-User.&gt;*
+1. Bläddra nedåt och leta upp databaser och klicka på **tenants1**. Denna shardade-databas för flera innehavare innehåller alla klienter som skapats hittills.
 
-![databas-diagram](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
+![databas diagram](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
 
-Notera den **DTU** diagram.
+Observera **DTU** -diagrammet.
 
-## <a name="set-performance-alerts-on-the-database"></a>Ställ in prestandaaviseringar för databasen
+## <a name="set-performance-alerts-on-the-database"></a>Ange prestanda varningar för databasen
 
-Ställa in en avisering på databasen som utlöses vid \>75% utnyttjande enligt följande:
+Ange en avisering för den databas som utlöser \>75%-användning enligt följande:
 
-1. Öppna den *tenants1* databasen (på den *tenants1-mt -&lt;användaren&gt;*  server) i den [Azure-portalen](https://portal.azure.com).
+1. Öppna *tenants1* -databasen (på *tenants1-MT-User&lt;&gt; -* servern) i [Azure Portal](https://portal.azure.com).
 1. Klicka på **aviseringsregler** och därefter på **+ lägg till avisering**:
 
    ![lägg till avisering](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -119,80 +118,80 @@ Ställa in en avisering på databasen som utlöses vid \>75% utnyttjande enligt 
    * **Mått = DTU-procent**
    * **Villkor = större än**
    * **Tröskelvärdet = 75**.
-   * **Period = de senaste 30 minuterna**
-1. Lägg till en e-postadress till den *administratören email(s)* och klickar på **OK**.
+   * **Period = under de senaste 30 minuterna**
+1. Lägg till en e-postadress i rutan *ytterligare administratörs-e-post (er)* och klicka på **OK**.
 
    ![ange varning](media/saas-multitenantdb-performance-monitoring/set-alert.png)
 
 ## <a name="scale-up-a-busy-database"></a>Skala upp en upptagen databas
 
-Om belastningsnivån ökar på en databas till den punkt som maximerar databasen och når 100% DTU-användning, sedan påverkas databasens prestanda, potentiellt saktas frågesvarstiderna.
+Om belastnings nivån ökar i en databas till den tidpunkt då den maxas ut databasen och når 100% DTU-användning, kommer databas prestanda att påverkas, vilket potentiellt långsamma svars tider för frågor.
 
-**Kortsiktigt**, Överväg att skala upp databasen för att tillhandahålla ytterligare resurser eller ta bort klienter från databas för flera innehavare (flytta dem utanför databas för flera innehavare till en fristående databas).
+**Kortsiktigt**, Överväg att skala upp databasen för att tillhandahålla ytterligare resurser eller ta bort klienter från databasen med flera innehavare (flytta ut dem från databasen med flera innehavare till en fristående databas).
 
-**Lång sikt**, Överväg att optimera frågorna eller indexanvändningen för att förbättra databasprestanda. Beroende på programmets känslighet för prestandaproblem utfärdar det praxis att skala en databas upp innan den når 100% DTU-användningen. Använd en avisering för att varna dig i förväg.
+**Längre tid**bör du överväga att optimera frågor eller använda index användningen för att förbättra databasens prestanda. Beroende på programmets känslighet för prestanda problem är det bästa sättet att skala upp en databas innan den når 100% DTU-användning. Använd en avisering för att varna dig i förväg.
 
-Du kan simulera en upptagen databas genom att öka belastningen som generatorn skapar. Gör innehavarna som ska tillhandahålla oftare och för längre, ökar belastningen på databas för flera klienter utan att ändra kraven för enskilda klienter. Skala upp databasen görs enkelt i portalen eller PowerShell. Den här övningen använder portalen.
+Du kan simulera en upptagen databas genom att öka belastningen som alstras av generatorn. Gör att klienterna kan överföra oftare och att öka belastningen på databasen med flera klienter utan att ändra kraven för enskilda klienter. Det är enkelt att skala upp databasen i portalen eller från PowerShell. Den här övningen använder portalen.
 
-1. Ange *$DemoScenario* = **3**, _generera belastning med längre och mer frekventa toppar per databas_ att öka intensiteten av den sammanställda belastningen på den databas utan att ändra toppbelastningen som krävs av varje klient.
+1. Ange *$DemoScenario* = **3**, _generera belastning med längre och mer frekventa burst per databas_ för att öka intensiteten för den sammanställda belastningen på databasen utan att ändra den högsta belastning som krävs av varje klient.
 1. Tryck på **F5** för att tillämpa en belastning på alla dina klientdatabaser.
-1. Gå till den **tenants1** databas i Azure-portalen.
+1. Gå till **tenants1** -databasen i Azure Portal.
 
-Övervaka den öka databasen DTU-användningen i det övre diagrammet. Det tar några minuter innan den nya högre belastningen sätter in, men du bör se databasen börjar når maximal användning snabbt och som belastningen steadies till det nya mönstret, overloads snabbt databasen.
+Övervaka den ökade användningen av databas-DTU i det övre diagrammet. Det tar några minuter för den nya högre belastningen att användas, men du bör snabbt se databasen från början för att få maximal användning, och när belastningen blir jämnare i det nya mönstret överbelastas databasen snabbt.
 
-1. Om du vill skala upp databasen, klickar du på **prisnivå (skalnings-dtu: er)** på inställningsbladet.
-1. Justera den **DTU** att ställa in **100**. 
-1. Klicka på **tillämpa** att skicka förfrågan om att skala databasen.
+1. Om du vill skala upp databasen klickar du på **pris nivå (skala DTU: er)** på bladet inställningar.
+1. Justera **DTU** -inställningen till **100**. 
+1. Klicka på **tillämpa** för att skicka begäran om att skala databasen.
 
-Gå tillbaka till **tenants1** > **översikt** att visa Övervakningsdiagrammen. Övervaka effekten av att tillhandahålla databasen med mer resurser (men med några klienter och en slumpmässig belastning inte är det alltid lätt att se definitivt tills du kör under en viss tid). När du tittar på diagrammen, Tänk Tänk på att 100% representerar det övre diagrammet nu 100 dtu: er i det lägre diagrammet 100% fortfarande är 50 dtu: er.
+Gå tillbaka till **tenants1** > -**översikten** om du vill visa övervaknings diagrammen. Övervaka effekterna av att tillhandahålla databasen med fler resurser (även om det finns några klienter och en slumpmässig inläsning är det inte alltid lätt att se något avgörande tills du kör en stund). När du tittar på diagrammen är det viktigt att 100% i det övre diagrammet nu representerar 100 DTU: er, medan i det nedre diagrammet 100% fortfarande 50 DTU: er.
 
-Databaserna är online och fullt tillgängliga under hela processen. Programkod ska alltid skriva att återförsöka brutna anslutningar, och då kommer att återansluta till databasen.
+Databaserna är online och fullt tillgängliga under hela processen. Program koden bör alltid skrivas för att försöka igen, och ansluter sedan till databasen igen.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Etablera en ny klient i en egen databas 
 
-Shardade modell för flera klienter kan du välja om du vill etablera en ny klient i en databas för flera innehavare tillsammans med andra klienter eller att etablera klient i en databas med sin egen. Genom att etablera en klient i en egen databas, dra nytta av isolering i separata databasen, så att du kan hantera prestanda för den klienten oberoende av andra, återställa klienten oberoende av andra, osv. Du kanske exempelvis vill placera kostnadsfri utvärderingsversion eller vanliga kunder i en databas för flera innehavare och premium-kunder i enskilda databaser.  Om isolerade databaser som enda klient skapas, kan de fortfarande hanteras gemensamt i en elastisk pool för att optimera resurskostnader.
+Med shardade för flera klienter kan du välja om du vill etablera en ny klient i en databas för flera klienter tillsammans med andra klienter, eller för att etablera klienten i en egen databas. Genom att tillhandahålla en klient i sin egen databas fördelar den från isoleringen i den separata databasen, så att du kan hantera klientens prestanda oberoende av andra, återställa denna klient oberoende av andra, osv. Du kan till exempel välja att ställa in en kostnads fri utvärderings version eller vanliga kunder i en databas med flera innehavare och Premium-kunder i enskilda databaser.  Om isolerade en enskild klient databas skapas kan de fortfarande hanteras tillsammans i en elastisk pool för att optimera resurs kostnaderna.
 
-Hoppa över följande steg om du redan har etablerat en ny klient i en egen databas.
+Om du redan har skapat en ny klient i en egen databas, hoppar du över nästa steg.
 
-1. I den **PowerShell ISE**öppnar... \\Inlärningsmoduler\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
-1. Ändra **$TenantName = ”Salix Salsa”** och **$VenueType = ”kontroll”**
-1. Ange **$Scenario** = **2**, _etablera en klient i en ny databas för enstaka klientorganisationer_
+1. I **POWERSHELL ISE**öppnar du... Learning-\\modulerProvisionTenants\\*demo-ProvisionTenants. ps1.* \\ 
+1. Ändra **$TenantName = "Salix salsa"** och **$VenueType = "kontrollen åt"**
+1. Ange **$scenario** = **2**, _etablera en klient i en ny databas för en enda klient_
 1. Tryck **F5** för att köra skriptet.
 
-Skriptet etablerar den här klienten i en separat databas, registrera databasen och klienten i katalogen och öppnar du klientens händelser i webbläsaren. Uppdatera Evenemangshubben sidan och du ser ”Salix Salsa” har lagts till som en plats.
+Skriptet etablerar den här klienten i en separat databas, registrerar databasen och klienten med katalogen och öppnar sedan klientens händelse sida i webbläsaren. Uppdatera sidan Events Hub och se att "Salix salsa" har lagts till som plats.
 
 ## <a name="manage-performance-of-an-individual-database"></a>Hantera prestanda för en enskild databas
 
-Om en enda klient i en databas för flera klienter får en varaktigt hög belastning, kan det brukar dominera databasresurserna och påverka andra klienter i samma databas. Om aktiviteten är sannolikt kommer att fortsätta under en viss tid, kan klienten flyttas tillfälligt från databasen och i en egen databas för enstaka klientorganisationer. Detta gör att klienten har extra resurser den behöver och fullständigt isolerar den från andra klienter.
+Om en enskild klient i en databas med flera innehavare upplever en varaktig hög belastning kan det vara en risk att dominera databas resurserna och påverka andra klienter i samma databas. Om aktiviteten sannolikt fortsätter under en viss tid kan klienten tillfälligt flyttas från databasen och till en egen databas med en enda klient. Detta gör det möjligt för innehavaren att ha de extra resurser som behövs, och helt isolera dem från de andra klienterna.
 
-Den här övningen simulerar effekten av Salix Salsa upplever en hög belastning när biljetter för ett populärt evenemang.
+I den här övningen simuleras effekterna av Salix salsa som har hög belastning när biljetterna går till försäljning för en populär händelse.
 
-1. Öppna den... \\ *Demo-PerformanceMonitoringAndManagement.ps1* skript.
+1. Öppna... *Performancemonitoringandmanagement. ps1* -skript. \\
 1. Ange **$DemoScenario = 5**, _Generera en normal belastning plus en hög belastning på en enskild klient (cirka 90 DTU)._
-1. Ange **$SingleTenantName = Salix Salsa**
+1. Ange **$SingleTenantName = Salix salsa**
 1. Kör skriptet med **F5**.
 
-Gå till portalen och gå till **salixsalsa** > **översikt** att visa Övervakningsdiagrammen. 
+Gå till portalen och navigera till **salixsalsa** > -**Översikt** för att Visa övervaknings diagrammen. 
 
-## <a name="other-performance-management-patterns"></a>Övriga prestandahanteringsmönster
+## <a name="other-performance-management-patterns"></a>Andra mönster för prestanda hantering
 
-**Klient självbetjäning skalning**
+**Själv tjänst skalning för klient organisation**
 
-Eftersom skalning är en aktivitet enkelt kan anropas via hanterings-API: et, du enkelt bygga in möjligheten att skala klientdatabaser i ditt klientriktade program och erbjuda de som en funktion i SaaS-tjänsten. Exempelvis kan du låta klienter självhantera upp- och nedskalning, kanske kopplat direkt till sin fakturering!
+Eftersom skalning är en uppgift som enkelt anropas via hanterings-API: et, kan du enkelt bygga ut möjligheten att skala klient databaser till klient programmet och erbjuda det som en funktion i din SaaS-tjänst. Exempelvis kan du låta klienter självhantera upp- och nedskalning, kanske kopplat direkt till sin fakturering!
 
-**Skala upp eller ned en databas på ett schema för att matcha användningsmönster**
+**Skala upp och ned en databas enligt ett schema för att matcha användnings mönster**
 
-Där sammanställd klientanvändning följer förutsägbara mönster, kan du använda Azure Automation för att skala upp eller ned en databas på ett schema. Till exempel Nedskalning en databas efter 18.00 och upp igen innan 06.00 på veckodagar som när du vet det finns en minskning av resurskrav.
+Om den sammanställda klient användningen följer förutsägbara användnings mönster kan du använda Azure Automation för att skala upp och ned en databas enligt ett schema. Du kan t. ex. skala en databas nedåt efter. 18:00 och upp igen innan 06:00 på vardagar när du vet att det finns en släpp resurs krav.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Simulera användning på en fragmenterade (sharded) databas för flera innehavare genom att köra en angiven belastningsgenerator
-> * Övervaka databasen eftersom den svarar på belastningsökningar
-> * Skala upp databasen som svar på den ökade databasbelastningen
-> * Etablera en klient till en enda klient-databas
+> * Simulera användning på en shardade-databas med flera innehavare genom att köra en angiven belastnings Generator
+> * Övervaka-databasen när den svarar på ökningen av belastningen
+> * Skala upp databasen som svar på den ökade databas belastningen
+> * Etablera en klient organisation i en databas för en enda klient
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

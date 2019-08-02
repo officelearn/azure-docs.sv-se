@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83eee019ee8530297689b85e6f3300fed4392610
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489185"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678204"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Skapa ett nytt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -44,7 +44,7 @@ Följande diagram visar den övergripande processen för att skapa ett nytt Acce
 
 ## <a name="start-new-access-package"></a>Starta nytt Access-paket
 
-**Nödvändig roll:** Användar administratör eller katalog ägare
+**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -64,21 +64,20 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
 1. I list rutan **katalog** väljer du den katalog som du vill skapa åtkomst paketet i. Du kan till exempel ha en katalog ägare som hanterar alla marknadsförings resurser som kan begäras. I det här fallet kan du välja marknadsförings katalogen.
 
-    Du ser bara kataloger som du har behörighet att skapa åtkomst paket i. Om du vill skapa åtkomst paket i en befintlig katalog måste du vara minst en användar administratör, katalog ägare eller åtkomst till paket hanteraren.
+    Du ser bara kataloger som du har behörighet att skapa åtkomst paket i. Om du vill skapa ett Access-paket i en befintlig katalog måste du vara minst en global administratör, en användar administratör, katalog ägare i katalogen eller komma åt paket hanteraren i katalogen.
 
     ![Åtkomst paket – grundläggande information](./media/entitlement-management-access-package-create/basics.png)
 
-    Om du vill skapa ditt åtkomst paket i en ny katalog klickar du på **Skapa nytt**. Ange katalogens namn och beskrivning och klicka sedan på **skapa**.
+    Om du är global administratör eller en användar administratör och vill skapa ditt åtkomst paket i en ny katalog som inte finns med i listan klickar du på **Skapa nytt**. Ange katalogens namn och beskrivning och klicka sedan på **skapa**.
 
-    Det åtkomst paket som du skapar och alla resurser som ingår i det kommer att läggas till i den nya katalogen. Du blir dessutom automatiskt den första ägaren till katalogen. Du kan lägga till ytterligare katalog ägare.
+    Det åtkomst paket som du skapar och alla resurser som ingår i det kommer att läggas till i den nya katalogen. Du kan också lägga till ytterligare katalog ägare senare.
 
-    Om du vill skapa en ny katalog måste du vara minst en användar administratör eller katalogs kapare.
 
 1. Klicka på **Nästa**.
 
 ## <a name="resource-roles"></a>Resursroller
 
-På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkomst paketet.
+På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkomst paketet.  Användare som begär och tar emot åtkomst paketet får alla resurs roller i åtkomst paketet.
 
 1. Klicka på den resurs typ som du vill lägga till (**grupper**, **program**eller **SharePoint-platser**).
 
@@ -86,11 +85,11 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
     ![Åtkomst paket – resurs roller](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    Om du skapar åtkomst paketet i den allmänna katalogen eller i en ny katalog kan du välja vilken resurs som helst från den katalog som du äger. Du måste vara minst en användar administratör eller katalogs kapare.
+    Om du skapar åtkomst paketet i den allmänna katalogen eller i en ny katalog kan du välja vilken resurs som helst från den katalog som du äger. Du måste vara minst en global administratör, en användar administratör eller en katalogs kapare.
 
     Om du skapar ett Access-paket i en befintlig katalog kan du välja vilken resurs som helst som redan finns i katalogen utan att du äger den.
 
-    Om du är användar administratör eller katalog ägare har du ytterligare möjlighet att välja resurser som du äger som ännu inte finns i katalogen. Om du väljer resurser som inte finns i den valda katalogen, kommer dessa resurser också att läggas till i katalogen för andra katalog administratörer för att bygga åtkomst paket med. Om du bara vill välja resurser som för närvarande finns i den valda katalogen markerar du kryss rutan **endast se** överst i Välj panorera.
+    Om du är global administratör, en användar administratör eller katalog ägare har du ytterligare möjlighet att välja resurser som inte finns i katalogen än. Om du väljer resurser som inte finns i den valda katalogen, kommer dessa resurser också att läggas till i katalogen för andra katalog administratörer för att bygga åtkomst paket med. Om du bara vill välja resurser som för närvarande finns i den valda katalogen markerar du kryss rutan **endast se** överst i Välj panorera.
 
 1. När du har valt resurserna väljer du den roll som du vill att användarna ska tilldelas för resursen i listan **roll** .
 

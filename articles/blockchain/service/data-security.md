@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain-Service-säkerhet
-description: Azure Blockchain Service data åtkomst och säkerhet-koncept
+title: Säkerhet för Azure blockchain service
+description: Data åtkomst och säkerhets koncept i Azure blockchain service
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,59 +10,59 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: dd0a33364ed9395a85478798e47352c533bd47dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028207"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608539"
 ---
-# <a name="azure-blockchain-service-security"></a>Azure Blockchain-Service-säkerhet
+# <a name="azure-blockchain-service-security"></a>Säkerhet för Azure blockchain service
 
-Azure Blockchain Service använder flera Azure-funktioner för att förvara dina data säkra och tillgängliga. Data är skyddade med isolering, kryptering och autentisering.
+Azure blockchain service använder flera Azure-funktioner för att hålla dina data säkra och tillgängliga. Data skyddas med hjälp av isolering, kryptering och autentisering.
 
 ## <a name="isolation"></a>Isolering
 
-Azure Blockchain Service-resurser är isolerade i ett privat virtuellt nätverk. Varje transaktion och verifiering nod är en virtuell dator (VM). Virtuella datorer i ett virtuellt nätverk kan inte kommunicera direkt till virtuella datorer i ett annat virtuellt nätverk. Isolering säkerställer att kommunikation förblir privata i det virtuella nätverket. Läs mer på Azure-nätverksisolering [isolering i Azures offentliga moln](../../security/azure-isolation.md#networking-isolation).
+Azure blockchain service-resurser är isolerade i ett privat virtuellt nätverk. Varje transaktion och validerings nod är en virtuell dator (VM). Virtuella datorer i ett virtuellt nätverk kan inte kommunicera direkt med virtuella datorer i ett annat virtuellt nätverk. Isolering garanterar att kommunikationen förblir privat i det virtuella nätverket. Mer information om hur du isolerar virtuella Azure-nätverk finns [i isolera i det offentliga Azure](../../security/fundamentals/isolation-choices.md#networking-isolation)-molnet.
 
 ![VNET-diagram](./media/data-security/vnet.png)
 
 ## <a name="encryption"></a>Kryptering
 
-Användarinformationen är lagrad i Azure storage. Användarens data krypteras vid överföring och i vila för säkerhet och sekretess. Mer information finns i: [Säkerhetsguiden för Azure Storage](../../storage/common/storage-security-guide.md).
+Användar data lagras i Azure Storage. Användar data krypteras i rörelse och i vila för säkerhet och konfidentialitet. Mer information finns i: [Guide till Azure Storage-säkerhet](../../storage/common/storage-security-guide.md).
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
-Transaktioner kan skickas till blockchain noder via en RPC-slutpunkt. Klienter kommunicerar med en transaktion nod med hjälp av en omvänd proxy-server som hanterar användarautentisering och krypterar data via SSL.
+Transaktioner kan skickas till blockchain-noder via en RPC-slutpunkt. Klienterna kommunicerar med en Transaction-nod med en omvänd proxyserver som hanterar användarautentisering och krypterar data via SSL.
 
-![Autentiseringsdiagram](./media/data-security/authentication.png)
+![Autentiseringsschema](./media/data-security/authentication.png)
 
-Det finns tre lägen för autentisering av RPC-åtkomst.
+Det finns tre lägen för autentisering för RPC-åtkomst.
 
 ### <a name="basic-authentication"></a>Grundläggande autentisering
 
-Grundläggande autentisering använder ett HTTP-autentisering-huvud som innehåller användarnamn och lösenord. Användarnamnet är namnet på den blockchain-noden. Lösenordet anges vid etablering av en medlem eller en nod. Lösenordet kan ändras med hjälp av Azure-portalen eller CLI.
+Grundläggande autentisering använder ett HTTP-authentication-huvud som innehåller användar namnet och lösen ordet. Användar namnet är namnet på blockchain-noden. Lösen ordet anges vid etablering av en medlem eller nod. Du kan ändra lösen ordet med hjälp av Azure Portal eller CLI.
 
 ### <a name="access-keys"></a>Åtkomstnycklar
 
-Åtkomstnycklar använder en slumpmässigt genererad sträng som ingår i slutpunkts-URL. Två åtkomstnycklar möjliggör rotation av. Nycklar kan återskapas från Azure portal och CLI.
+Åtkomst nycklar använder en slumpmässigt genererad sträng som ingår i slut punktens URL. Med två åtkomst nycklar kan du aktivera nyckel rotation. Nycklar kan återskapas från Azure Portal och CLI.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Azure Active Directory (Azure AD) använder en anspråksbaserad autentiseringsmekanism där användaren har autentiserats av Azure AD med hjälp av autentiseringsuppgifter för Azure AD-användare. Azure AD tillhandahåller molnbaserade Identitetshantering och kan kunderna använda en enda identitet för en hel enterprise och åtkomst till program i molnet. Azure Blockchain Service kan integreras med Azure AD aktiverar ID federation, enkel inloggning och Multi-Factor authentication. Du kan tilldela användare, grupper och roller för programmet i din organisation för blockchain medlem och noden åtkomst.
+Azure Active Directory (Azure AD) använder sig av en anspråksbaserad autentiseringsmekanism där användaren autentiseras av Azure AD med hjälp av autentiseringsuppgifter för Azure AD-användare. Azure AD tillhandahåller molnbaserad identitets hantering och gör det möjligt för kunder att använda en enda identitet i hela företags-och åtkomst program i molnet. Azure blockchain-tjänsten integreras med Azure AD och aktiverar ID-Federation, enkel inloggning och Multi-Factor Authentication. Du kan tilldela användare, grupper och program roller i din organisation för blockchain-medlem och Node-åtkomst.
 
-Proxy för Azure AD-klienten finns på [GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases). Klient-proxy leder användaren till inloggningssidan för Azure AD och hämtar en ägartoken efter lyckad autentisering. Användaren ansluter därefter ett Ethereum-klientprogram, till exempel Geth eller Truffle till slutpunkten för klient-proxy. Slutligen när en transaktion har skickats, klient-proxy lägger in ägartoken i http-huvud och omvänd proxy verifierar token med hjälp av OAuth-protokollet.
+Azure AD client-proxyn finns på [GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases). Klientens proxyserver dirigerar användaren till inloggnings sidan för Azure AD och erhåller en Bearer-token vid lyckad autentisering. Därefter ansluter användaren ett Ethereum-klientprogram, till exempel Geth eller Truffle till klientens proxys slut punkt. När en transaktion skickas infogar klientcachen-token i HTTP-huvudet och den omvända proxyn verifierar token med OAuth-protokollet.
 
 ## <a name="keys-and-ethereum-accounts"></a>Nycklar och Ethereum-konton
 
-När du etablerar en medlem i Azure Blockchain Service, genereras ett Ethereum-konto och en offentlig och privat nyckel. Den privata nyckeln används för att skicka transaktioner till blockchain. Ethereum-kontot är de senaste 20 byte av den offentliga nyckeln hash. En wallet är en förkortning av Ethereum-konto.
+När du konfigurerar en Azure blockchain service-medlem skapas ett Ethereum-konto och ett offentligt och privat nyckel par. Den privata nyckeln används för att skicka transaktioner till blockchain. Ethereum-kontot är de sista 20 byten i den offentliga nyckelns hash. Ethereum-kontot kallas även för en plån bok.
 
-Privata och offentliga nyckelpar lagras som en keyfile i JSON-format. Den privata nyckeln är krypterad med lösenord anges när tjänsten blockchain transaktionsregister skapas.
+Det privata och offentliga nyckel paret lagras som en KeyFile i JSON-format. Den privata nyckeln krypteras med det lösen ord som angavs när blockchain-redovisnings tjänsten skapas.
 
-Privata nycklar används för att signera transaktioner. I privata blockchains representerar ett smarta kontrakt som signerats av en privat nyckel undertecknarens identitet. Mottagaren kan jämföra den offentliga nyckeln undertecknarens med adressen beräknas från signaturen för att kontrollera giltigheten för signaturen.
+Privata nycklar används för att signera transaktioner digitalt. I privata Blockchains representerar ett smart kontrakt som signerats av en privat nyckel identiteten för undertecknaren. För att verifiera att signaturen är giltig kan mottagaren jämföra den offentliga nyckeln för undertecknaren med adressen som beräknas från signaturen.
 
-Constellation nycklar används för att unikt identifiera en kvorum-nod. Constellation nycklar genereras vid tidpunkten för noden etablering och anges i parametern privateFor för en privat transaktion i kvorum.
+Constellation-nycklar används för att unikt identifiera en kvorumresurs. Constellation nycklar genereras vid tidpunkten för nodens etablering och anges i parametern privateFor för en privat transaktion i kvorum.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera Azure Blockchain Service transaktion noder](configure-transaction-nodes.md)
+[Konfigurera noder i Azure blockchain service Transactions](configure-transaction-nodes.md)

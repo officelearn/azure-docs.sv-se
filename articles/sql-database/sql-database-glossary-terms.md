@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database i ordlista | Microsoft Docs
-description: Azure SQL Database i ordlista
+title: Azure SQL Database ord lista med villkor | Microsoft Docs
+description: Azure SQL Database ord lista med villkor
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,46 +10,45 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d940cfa91890d26a48b682a6eb09410b3b7de045
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762700"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568079"
 ---
-# <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database i ordlista
+# <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database ord lista med villkor
 
 |Kontext|Term|Mer information|
 |:---|:---|:---|
-|Azure-tjänstnamn|Azure SQL Database eller SQL-databas|[Azure SQL Database-tjänsten](sql-database-technical-overview.md)|
-|Beräkningsnivån|Utan server (förhandsversion)|[nivå för beräkning utan Server](sql-database-serverless.md)
-||Etablerat|[nivå för beräkning utan Server](sql-database-serverless.md)
+|Namn på Azure-tjänst|Azure SQL Database eller SQL Database|[Tjänsten Azure SQL Database](sql-database-technical-overview.md)|
+|Compute-nivå|Utan server (för hands version)|[Server lös beräknings nivå](sql-database-serverless.md)
+||Etablerat|[Server lös beräknings nivå](sql-database-serverless.md)
 |Distributionsalternativ |Enskild databas|[Enkla databaser](sql-database-single-database.md)|
 ||Elastisk pool|[Elastisk pool](sql-database-elastic-pool.md)|
 ||Hanterad instans|[Hanterad instans](sql-database-managed-instance.md)|
-|Serverobjekt|SQL Database-server eller database-server|[Databasserver](sql-database-servers.md)|
-||SQL Database hanterad instans-server, hanterad instans-server eller instans-server|[Hanterad instans](sql-database-managed-instance.md)|
-databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
-||Enskild databas|En databas som skapats med enkel databas|
-||Databas i pool|En databas som skapats i eller flyttas till en elastisk pool|
-||Databasinstans|En databas som skapats i en hanterad instans|
-||Basic-databas|En databas skapas inom eller flyttas till grundläggande tjänstenivå för den DTU-baserade inköpsmodellen|
-||Standard-databas|En databas skapas inom eller flyttas till standardnivå för den DTU-baserade inköpsmodellen|
-||Premium-databas|En databas skapas inom eller flyttas till premiumnivån av DTU-baserade inköpsmodellen|
-||Databas för generell användning|En databas skapas inom eller flyttas till tjänstenivå för generell användning för den vCore-baserade inköpsmodellen|
-||Storskalig databas|En databas skapas inom eller flyttas till hyperskala tjänstenivå för den vCore-baserade inköpsmodellen|
-||Kritisk Business-databas|En databas skapas inom eller flyttas till företag kritiska tjänstenivå för den vCore-baserade inköpsmodellen|
-||Etablerade databaslagring|En databas som konfigurerats i den etablerade Beräkningsnivån|
-|[Inköp och resurser](sql-database-purchase-models.md)|DTU-baserade inköpsmodellen|[DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md)|
-||Köpmodell baserad på virtuell kärna|[vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)|
-||virtuell kärna|En kärna som fått gästoperativsystemet av hypervisor-programmet.|
-||Tjänstenivå|En servicenivå inom en inköpsmodell|
-||Beräkna storlek|Mängden beräkningsresurser för en enkel databas eller elastisk pool hanterad instans i en tjänstnivå|
-||Lagringsutrymme|Mängden lagring som är tillgängliga för en enkel databas eller elastisk pool hanterad instans|
-||Compute-generering|Generering av processorn i en tjänstnivå|
-|IP-brandväggsregler för databasserver|IP-brandväggsregler|[IP-brandväggsregler](sql-database-firewall-configure.md)|
-||IP-brandväggsregler på servernivå|[IP-brandväggsregler på servernivå](sql-database-firewall-configure.md#overview)|
-|| IP-brandväggsregler på databasnivå|[IP-brandväggsregler på databasnivå](sql-database-firewall-configure.md#overview)|
-||Slutpunkter för virtuellt nätverk och regler|[Slutpunkter och regler för virtuellt nätverk](sql-database-vnet-service-endpoint-rule-overview.md)|
+|Serverobjekt|SQL Database Server eller databas server|[Databas server](sql-database-servers.md)|
+||SQL Database Hanterad instans Server, hanterad instans Server eller instans Server|[Hanterad instans](sql-database-managed-instance.md)|
+Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
+||Enskild databas|En databas som skapats med distributions alternativet för enskild databas|
+||Databas i pooler|En databas som skapats i eller flyttats till en elastisk pool|
+||Instans databas|En databas som skapats inom en hanterad instans|
+||Basic-databas|En databas som skapats i eller flyttats till den grundläggande tjänst nivån i den DTU-baserade inköps modellen|
+||Standard databas|En databas som skapats i eller flyttats till standard tjänst nivån för den DTU-baserade inköps modellen|
+||Premium-databas|En databas som skapats i eller flyttats till Premium service nivån för den DTU-baserade inköps modellen|
+||Generell användnings databas|En databas som skapats i eller flyttats till tjänst nivån generell användning i den vCore-baserade inköps modellen|
+||Storskalig databas|En databas som skapats i eller flyttats till den storskaliga Service nivån för den vCore-baserade inköps modellen|
+||Affärs kritisk databas|En databas som skapats i eller flyttats till nivån affärs kritisk tjänst för den vCore-baserade inköps modellen|
+||Etablerad databas|En databas som kon figurer ATS i den allokerade beräknings nivån|
+|[Köp modeller och resurser](sql-database-purchase-models.md)|DTU-baserad inköps modell|[DTU-baserad inköps modell](sql-database-service-tiers-dtu.md)|
+||Köpmodell baserad på virtuell kärna|[vCore-baserad inköps modell](sql-database-service-tiers-vcore.md)|
+||virtuell kärna|En kärna som erbjuds av gäst operativ systemet via hypervisorn.|
+||Tjänstnivå|En service nivå inom en inköps modell|
+||Beräknings storlek|Mängden data bearbetnings resurser för en enskild databas, elastisk pool eller hanterad instans inom en tjänst nivå|
+||Lagrings belopp|Mängden lagrings utrymme som är tillgänglig för en enskild databas, elastisk pool eller hanterad instans|
+||Beräknings generation|Generering av processor inom en tjänst nivå|
+|IP-brandväggsregler för databasserver|Regler för IP-brandvägg|[Regler för IP-brandvägg](sql-database-firewall-configure.md)|
+||IP-brandväggsregler på servernivå|[Regler för IP-brandvägg på server nivå](sql-database-firewall-configure.md#overview)|
+|| Regler för IP-brandvägg på databas nivå|[Regler för IP-brandvägg på databas nivå](sql-database-firewall-configure.md#overview)|
+||Slut punkter och regler för virtuella nätverk|[Slutpunkter och regler för virtuellt nätverk](sql-database-vnet-service-endpoint-rule-overview.md)|

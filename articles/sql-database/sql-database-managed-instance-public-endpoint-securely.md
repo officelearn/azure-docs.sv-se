@@ -1,6 +1,6 @@
 ---
-title: Skydda hanterade instansen offentliga slutpunkter – Azure SQL Database managed instance | Microsoft Docs
-description: Använda offentliga slutpunkter på ett säkert sätt i Azure med en hanterad instans
+title: Säkra offentliga slut punkter för hanterade instanser – Azure SQL Database Hanterad instans | Microsoft Docs
+description: Använd offentliga slut punkter på ett säkert sätt i Azure med en hanterad instans
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,49 +9,48 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/08/2019
-ms.openlocfilehash: f06677b66c8f6586fec8cc5dfe97b1515b741e9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7f57a636e95bb137dd4285b8f9ce8343b27d2a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65470285"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567370"
 ---
-# <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Använda en hanterad Azure SQL Database-instans på ett säkert sätt med offentliga slutpunkter
+# <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Använd en Azure SQL Database Hanterad instans på ett säkert sätt med offentliga slut punkter
 
-Azure SQL Database hanterade instanser kan ge användarens anslutning via [offentliga slutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md). Den här artikeln förklarar hur du kan skydda den här konfigurationen.
+Azure SQL Database hanterade instanser kan ge användar anslutning via [offentliga slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md). Den här artikeln förklarar hur du gör den här konfigurationen säkrare.
 
 ## <a name="scenarios"></a>Scenarier
 
-En hanterad SQL Database-instans innehåller en privat slutpunkt för att tillåta anslutningar från i dess virtuella nätverk. Standardalternativet är att ge högsta isolering. Det finns dock scenarier där du måste ange en offentlig slutpunkt-anslutning:
+En SQL Database Hanterad instans tillhandahåller en privat slut punkt för att tillåta anslutning från insidan av det virtuella nätverket. Standard alternativet är att tillhandahålla maximal isolering. Det finns dock scenarier där du behöver ange en anslutning till en offentlig slut punkt:
 
-- Den hanterade instansen måste integrera med flera-tenant endast platform as a service (PaaS)-erbjudanden.
-- Du behöver högre dataflöde för datautbyte än vad som är möjligt när du använder en VPN-anslutning.
-- Företagets principer förhindrar PaaS i företagets nätverk.
+- Den hanterade instansen måste integreras med PaaS-erbjudanden (Platform-as-a-Service) med flera innehavare.
+- Du behöver mer data flöde för data utbyte än vad som är möjligt när du använder en VPN-anslutning.
+- Företags principer förhindrar PaaS i företags nätverk.
 
-## <a name="deploy-a-managed-instance-for-public-endpoint-access"></a>Distribuera en hanterad instans för offentlig slutpunkt åtkomst
+## <a name="deploy-a-managed-instance-for-public-endpoint-access"></a>Distribuera en hanterad instans för offentlig slut punkts åtkomst
 
-Även om det är inte obligatoriska är vanliga distributionsmodell för en hanterad instans med offentlig slutpunkt åtkomst att skapa instansen i ett dedikerat isolerade virtuella nätverk. I den här konfigurationen används det virtuella nätverket endast för isolering av virtuellt kluster. Det spelar ingen roll om den hanterade instansen IP-adressutrymmet överlappar ett företagsnätverk IP-adressutrymme.
+Även om det inte är obligatoriskt är den vanliga distributions modellen för en hanterad instans med offentlig slut punkt åtkomst att skapa instansen i ett dedikerat isolerat virtuellt nätverk. I den här konfigurationen används det virtuella nätverket bara för virtuell kluster isolering. Det spelar ingen roll om den hanterade instansens IP-adressutrymme överlappar ett företags nätverks IP-adressutrymme.
 
 ## <a name="secure-data-in-motion"></a>Skydda data i rörelse
 
-Hanterad instans datatrafik krypteras alltid om klientdrivrutinen har stöd för kryptering. Data som skickas mellan den hanterade instansen och andra Azure-datorer och Azure-tjänster som lämnar aldrig Azures stamnät. Om det finns en anslutning mellan den hanterade instansen och ett lokalt nätverk, rekommenderar vi att du använder Azure ExpressRoute med Microsoft-peering. ExpressRoute hjälper dig att undvika att flytta data via det offentliga internet. För hanterad instans privat anslutning, kan endast privat peering användas.
+Hanterad instans data trafik är alltid krypterad om klient driv rutinen stöder kryptering. Data som skickas mellan den hanterade instansen och andra virtuella Azure-datorer eller Azure-tjänster lämnar aldrig Azures stamnät. Om det finns en anslutning mellan den hanterade instansen och ett lokalt nätverk rekommenderar vi att du använder Azure-ExpressRoute med Microsoft-peering. ExpressRoute hjälper dig att undvika att flytta data via det offentliga Internet. För privat anslutning med hanterade instanser kan endast privat peering användas.
 
-## <a name="lock-down-inbound-and-outbound-connectivity"></a>Låsa inkommande och utgående anslutningar
+## <a name="lock-down-inbound-and-outbound-connectivity"></a>Lås inkommande och utgående anslutning
 
-Följande diagram visar de rekommenderade säkerhetskonfigurationerna:
+Följande diagram visar de rekommenderade säkerhets konfigurationerna:
 
-![Säkerhetskonfigurationer för att låsa inkommande och utgående anslutningar](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
+![Säkerhetskonfigurationer för att låsa inkommande och utgående anslutning](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
 
-En hanterad instans har en [dedikerade offentlig slutpunkt adresser](sql-database-managed-instance-find-management-endpoint-ip-address.md). Utgående brandväggen på klientsidan och regler för network security group, ange den här offentliga slutpunkten IP-adress för att begränsa den utgående trafiken.
+En hanterad instans har en [dedikerad offentlig slut punkts adress](sql-database-managed-instance-find-management-endpoint-ip-address.md). I den utgående brand väggen på klient sidan och i reglerna för nätverks säkerhets grupper anger du den offentliga IP-adressen för den offentliga slut punkten för att begränsa utgående anslutning.
 
-Om du vill kontrollera trafiken till den hanterade instansen kommer från betrodda källor, rekommenderar vi ansluter från källor med välkända IP-adresser. Använda en nätverkssäkerhetsgrupp för att begränsa åtkomst till den hanterade instans offentliga slutpunkten på port 3342.
+För att säkerställa att trafik till den hanterade instansen kommer från betrodda källor rekommenderar vi att du ansluter från källor med välkända IP-adresser. Använd en nätverks säkerhets grupp för att begränsa åtkomsten till den offentliga slut punkten för hanterade instanser på port 3342.
 
-När klienter behöver initiera en anslutning från ett lokalt nätverk kan du kontrollera vilken adress översätts till en välkänd uppsättning IP-adresser. Om du inte kan göra så att (t.ex, en mobil personalstyrka som ett typiskt scenario), rekommenderar vi du använder [punkt-till-plats VPN-anslutningar och en privat slutpunkt](sql-database-managed-instance-configure-p2s.md).
+När klienter behöver initiera en anslutning från ett lokalt nätverk måste du kontrol lera att den ursprungliga adressen översätts till en välkänd uppsättning IP-adresser. Om du inte kan göra det (till exempel en mobil personal som är ett typiskt scenario) rekommenderar vi att du använder [punkt-till-plats-VPN-anslutningar och en privat slut punkt](sql-database-managed-instance-configure-p2s.md).
 
-Om anslutningar startas från Azure, rekommenderar vi att trafik som kommer från en känd tilldelade [virtuella IP-adressen](../virtual-network/virtual-networks-reserved-public-ip.md) (till exempel en virtuell dator). Om du vill att hantera virtuella IP (VIP) adresser enklare, kanske du vill använda [offentliga IP-adressprefix](../virtual-network/public-ip-address-prefix.md).
+Om anslutningar startas från Azure rekommenderar vi att trafiken kommer från en välkänd, tilldelad [virtuell IP-adress](../virtual-network/virtual-networks-reserved-public-ip.md) (t. ex. en virtuell dator). Om du vill göra det enklare att hantera virtuella IP-adresser (VIP) kan du använda [offentliga IP-adressprefix](../virtual-network/public-ip-address-prefix.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du konfigurerar offentlig slutpunkt för hantera instanser: [Konfigurera offentlig slutpunkt](sql-database-managed-instance-public-endpoint-configure.md)
+- Lär dig hur du konfigurerar en offentlig slut punkt för hanterings instanser: [Konfigurera offentlig slut punkt](sql-database-managed-instance-public-endpoint-configure.md)

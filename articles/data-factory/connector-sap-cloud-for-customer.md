@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från/till SAP-moln för kunder som använder Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från SAP-moln för kund till mottagarens datalager (eller) från datalager som stöds till SAP-moln för kund med Data Factory.
+title: Kopiera data från/till SAP-molnet för kunden med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från SAP Cloud för kunder till mottagar data lager (eller) från käll data lager som stöds till SAP-molnet för kunder med hjälp av Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,45 +10,45 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30025499ae3073a04863d711423bd9556e7fc6c4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578716"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726036"
 ---
-# <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiera data från SAP-moln för kund (C4C) med Azure Data Factory
+# <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiera data från SAP-molnet för kunden (C4C) med hjälp av Azure Data Factory
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från/till SAP-moln för kund (C4C). Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från/till SAP-moln för kunder (C4C). Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från SAP-moln för kund till alla mottagarens datalager eller kopiera data från alla dataarkiv till SAP-moln för kunden. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från SAP Cloud för kunden till alla mottagar data lager som stöds, eller kopiera data från alla käll data lager som stöds till SAP-molnet för kunden. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Specifikt möjliggör den här anslutningen Azure Data Factory att kopiera data från/till SAP-moln för kunden, inklusive SAP-moln för försäljning, SAP-moln för tjänsten och SAP-moln för sociala Engagement-lösningar.
+Mer specifikt gör den här anslutningen att Azure Data Factory kopiera data från/till SAP-molnet för kunder, inklusive SAP-molnet för försäljning, SAP Cloud for service och SAP Cloud för sociala engagemang-lösningar.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifik för SAP-moln för kund-anslutningen.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är specifika för SAP Cloud för kund Connector.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för SAP-moln för länkade tjänsten:
+Följande egenskaper stöds för SAP Cloud för kund länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **SapCloudForCustomer**. | Ja |
-| url | URL till SAP C4C OData-tjänsten. | Ja |
-| username | Ange användarnamn för anslutning till SAP-C4C. | Ja |
-| password | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| type | Egenskapen Type måste anges till: **SapCloudForCustomer**. | Ja |
+| url | URL: en för SAP C4C OData-tjänsten. | Ja |
+| username | Ange användar namnet för att ansluta till SAP-C4C. | Ja |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
 >[!IMPORTANT]
->Kopiera data till SAP-moln för kunden, uttryckligen [skapa en Azure IR](create-azure-integration-runtime.md#create-azure-ir) med en plats nära dina SAP-moln för kunden, och koppla i den länkade tjänsten som i följande exempel:
+>Om du vill kopiera data till SAP-molnet för kunden kan du uttryckligen [skapa en Azure IR](create-azure-integration-runtime.md#create-azure-ir) med en plats nära ditt SAP-moln för kunden och associera i den länkade tjänsten som i följande exempel:
 
 **Exempel:**
 
@@ -75,13 +75,13 @@ Följande egenskaper har stöd för SAP-moln för länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP-moln för kunddatauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP Cloud för kund data uppsättning.
 
-Om du vill kopiera data från SAP-moln för kunden, ange typegenskapen på datauppsättningen till **SapCloudForCustomerResource**. Följande egenskaper stöds:
+Om du vill kopiera data från SAP-molnet för kunden anger du egenskapen type för data uppsättningen till **SapCloudForCustomerResource**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **SapCloudForCustomerResource** |Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **SapCloudForCustomerResource** |Ja |
 | path | Ange sökvägen till SAP C4C OData-entiteten. |Ja |
 
 **Exempel:**
@@ -94,6 +94,7 @@ Om du vill kopiera data från SAP-moln för kunden, ange typegenskapen på datau
         "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP C4C linked service>",
             "type": "LinkedServiceReference"
@@ -104,18 +105,18 @@ Om du vill kopiera data från SAP-moln för kunden, ange typegenskapen på datau
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP-moln för kund-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP Cloud för kund källa.
 
-### <a name="sap-c4c-as-source"></a>SAP C4C som källa
+### <a name="sap-c4c-as-source"></a>SAP-C4C som källa
 
-Om du vill kopiera data från SAP-moln för kunden, ange typ av datakälla i kopieringsaktiviteten till **SapCloudForCustomerSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från SAP-molnet för kunden anger du käll typen i kopierings aktiviteten till **SapCloudForCustomerSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **SapCloudForCustomerSource**  | Ja |
-| query | Ange den anpassa OData-frågan för att läsa data. | Nej |
+| type | Egenskapen Type måste anges till: **SapCloudForCustomerSource**  | Ja |
+| query | Ange anpassad OData-fråga för att läsa data. | Nej |
 
-Exempelfråga att hämta data för en viss dag: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
+Exempel fråga för att hämta data för en angiven dag:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
 **Exempel:**
 
@@ -149,15 +150,15 @@ Exempelfråga att hämta data för en viss dag: `"query": "$filter=CreatedOn ge 
 ]
 ```
 
-### <a name="sap-c4c-as-sink"></a>SAP C4C som mottagare
+### <a name="sap-c4c-as-sink"></a>SAP-C4C som mottagare
 
-Om du vill kopiera data till SAP-moln för kunden, ange Mottagartyp i kopieringsaktiviteten till **SapCloudForCustomerSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
+Om du vill kopiera data till SAP-molnet för kunden ställer du in mottagar typen i kopierings aktiviteten till **SapCloudForCustomerSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **SapCloudForCustomerSink**  | Ja |
-| writeBehavior | Åtgärden Skriv beteende. Kan vara ”infoga”, ”uppdatera”. | Nej. Standard ”infoga”. |
-| writeBatchSize | Batchstorlek för Skrivåtgärden. Batchstorlek för att få bästa prestanda kan vara olika för olika tabell eller server. | Nej. Som standard 10. |
+| type | Egenskapen Type måste anges till: **SapCloudForCustomerSink**  | Ja |
+| writeBehavior | Åtgärdens Skriv funktion. Kan vara "Infoga", "uppdatera". | Nej. Standard "Infoga". |
+| writeBatchSize | Batch-storlek för Skriv åtgärd. Batchstorleken för att få bästa prestanda kan vara olika för olika tabeller och servrar. | Nej. Standard 10. |
 
 **Exempel:**
 
@@ -198,14 +199,14 @@ Om du vill kopiera data till SAP-moln för kunden, ange Mottagartyp i kopierings
 ]
 ```
 
-## <a name="data-type-mapping-for-sap-cloud-for-customer"></a>Datatypsmappningen för SAP-moln för kund
+## <a name="data-type-mapping-for-sap-cloud-for-customer"></a>Data typs mappning för SAP-moln för kund
 
-När du kopierar data från SAP-moln för kunden, används följande mappningar från SAP-moln för kund-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
+När du kopierar data från SAP-molnet för kunden används följande mappningar från SAP Cloud för kund data typer för att Azure Data Factory interimistiska data typer. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
-| SAP C4C OData-datatyp | Data factory tillfälliga datatyp |
+| Data typen SAP C4C OData | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Booleskt |
+| Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
@@ -218,7 +219,7 @@ När du kopierar data från SAP-moln för kunden, används följande mappningar 
 | Edm.SByte | Int16 |
 | Edm.String | String |
 | Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 
 ## <a name="next-steps"></a>Nästa steg

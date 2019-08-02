@@ -1,39 +1,39 @@
 ---
-title: Optimera enheter för programbegäran och kostnaden för att köra frågor i Azure Cosmos DB
-description: Lär dig att utvärdera begäran units för en fråga och optimera frågor vad gäller prestanda och kostnad.
+title: Optimera enheter för programbegäran och kostnad för att köra frågor i Azure Cosmos DB
+description: Lär dig hur du utvärderar begär ande enhets avgifter för en fråga och optimerar frågan med avseende på prestanda och kostnad.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
-ms.openlocfilehash: 2d1ac054abf4bb8228bdb5cc20d79cb751af7a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967437"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717010"
 ---
-# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimera kostnader för frågan i Azure Cosmos DB
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimera frågans kostnad i Azure Cosmos DB
 
-Azure Cosmos DB erbjuder en omfattande uppsättning databasoperationer, inklusive Relations- och Hierarkifrågor frågor som körs på objekt i en behållare. Den kostnad som hör till var och en av dessa operationer varierar beroende på CPU, IO och minne som krävs för att slutföra åtgärden. I stället för att tänka på och hantera maskinvaruresurser kan tänka du på en begäransenhet (RU) som det enda måttet på de resurser som krävs för att utföra olika databasoperationer för att leverera en begäran. Den här artikeln beskriver hur du utvärderar begäran units för en fråga och optimera frågor vad gäller prestanda och kostnad. 
+Azure Cosmos DB erbjuder en omfattande uppsättning databas åtgärder, inklusive relationella och hierarkiska frågor som fungerar med objekten i en behållare. Kostnaden som är kopplad till var och en av dessa åtgärder varierar beroende på processor, IO och minne som krävs för att slutföra åtgärden. I stället för att tänka på och hantera maskin varu resurser kan du tänka på en enhet för begäran (RU) som ett enda mått för de resurser som krävs för att utföra olika databas åtgärder för att betjäna en begäran. Den här artikeln beskriver hur du utvärderar begär ande enhets avgifter för en fråga och optimerar frågan med avseende på prestanda och kostnad. 
 
-Frågor i Azure Cosmos DB är vanligtvis från snabbaste/mest effektiva till långsammare/mindre effektiva när det gäller dataflöde följande ordning:  
+Frågor i Azure Cosmos DB beställs vanligt vis från snabbast/mest effektiva till långsammare/mindre effektiva i form av data flöde enligt följande:  
 
-* Åtgärd för hämtning på en enda partitionsnyckel och Objektnyckel.
+* Hämta åtgärd för en enskild partitionsnyckel och objekt nyckel.
 
-* Fråga med en filtersats inom en enda partitionsnyckel.
+* Fråga med en filter-sats inom en enskild partitionsnyckel.
 
-* Fråga utan en filtersats för likhet eller ett intervall om en egenskap.
+* Fråga utan en likhets-eller Range filter-sats för en egenskap.
 
 * Fråga utan filter.
 
-Frågor som läser data från en eller flera partitioner medföra svarstider och högre antal enheter för programbegäran att använda. Eftersom varje partition har automatisk indexering för alla egenskaper, kan frågan hanteras effektivt från indexet. Du kan göra frågor som använder flera partitioner snabbare genom att använda parallellitet. Mer information om partitionering och partitionsnycklar finns [partitionering i Azure Cosmos DB](partitioning-overview.md).
+Frågor som läser data från en eller flera partitioner medför högre latens och använder ett högre antal enheter för programbegäran. Eftersom varje partition har automatisk indexering för alla egenskaper kan frågan behandlas effektivt från indexet. Du kan göra frågor som använder flera partitioner snabbare med hjälp av alternativen för parallellitet. Mer information om partitionering och partitionsnycklar finns [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
-## <a name="evaluate-request-unit-charge-for-a-query"></a>Utvärdera kostnaden för begäran-enheten för en fråga
+## <a name="evaluate-request-unit-charge-for-a-query"></a>Utvärdera enhets avgiften för begäran för en fråga
 
-När du har lagrat vissa data i dina Azure Cosmos-behållare, kan du använda Datautforskaren i Azure-portalen för att skapa och köra dina frågor. Du kan också få kostnaden för frågorna med hjälp av datautforskaren. Den här metoden ger dig en uppfattning om de faktiska kostnader som ingår i vanliga frågor och åtgärder som har stöd för ditt system.
+När du har lagrat några data i dina Azure Cosmos-behållare kan du använda Datautforskaren i Azure Portal för att skapa och köra dina frågor. Du kan också få kostnaden för frågorna genom att använda data Utforskaren. Med den här metoden får du en uppfattning om de faktiska avgifterna som ingår i vanliga frågor och åtgärder som systemet stöder.
 
-Du kan också få kostnaden för frågor via programmering med hjälp av SDK: erna. För att mäta arbetet med att alla åtgärder, till exempel som att skapa, uppdatera eller ta bort granska den `x-ms-request-charge` rubrik när du använder REST API. Om du använder .NET eller Java-SDK på `RequestCharge` egenskapen är motsvarande egenskap att hämta kostnad för begäran och den här egenskapen finns i ResourceResponse eller FeedResponse.
+Du kan också få kostnaden för frågor via programmering med SDK: er. För att mäta omkostnader för en åtgärd, till exempel skapa, uppdatera eller ta bort `x-ms-request-charge` , inspekterar du sidhuvudet när du använder REST API. Om du använder .net eller Java SDK `RequestCharge` är egenskapen motsvarande egenskap för att hämta begär ande avgiften och den här egenskapen finns i ResourceResponse eller FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -51,15 +51,15 @@ while (queryable.HasMoreResults)
      }
 ```
 
-## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Faktorer som påverkar enheter för att ta betalt för en fråga
+## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Faktorer som påverkar begär ande av enhets avgifter för en fråga
 
-Begäransenheter för frågor är beroende av ett antal faktorer. Till exempel antalet Azure Cosmos-objekt läses in/returneras, antal sökningar mot index, fråga kompileringen tid information osv. Azure Cosmos DB garanterar att samma fråga när den körs på samma data alltid kommer att använda samma antal enheter för programbegäran även med upprepningar körningar. Fråga-profil med hjälp av frågan körningsstatistik ger dig en uppfattning om hur du har använt enheter för programbegäran.  
+Enheter för programbegäran för frågor är beroende av ett antal faktorer. Till exempel antalet inlästa/returnerade Azure Cosmos-objekt, antalet uppslag mot indexet, tiden för frågans kompilering osv. Azure Cosmos DB garanterar att samma fråga när den körs på samma data alltid kommer att förbruka samma antal enheter för programbegäran även med upprepad körning. Du får en bra uppfattning om hur enheter för programbegäran används i frågan profil med hjälp av körnings mått för frågor.  
 
-I vissa fall kan du se en sekvens med 200 429 svar och variabeln begäransenheter i en växlade körning av frågor, som beror på att frågor körs så snabbt som möjligt baserat på tillgängliga ru: er. Du kan se en Frågekörningen dela i flera sidor/nätverksförfrågningar mellan servern och klienten. Till exempel kan 10 000 objekt returneras som flera sidor, var och en debiteras baserat på beräkningen utförs för sidan. När du summor över dessa sidor, bör du få samma antal ru: er som du skulle få för hela frågan.  
+I vissa fall kan du se en sekvens med 200-och 429-svar, och variabla enheter för programbegäran i en växlad körning av frågor, det vill säga att frågor körs så snabbt som möjligt baserat på tillgängliga ru: er. Du kan se att en frågekörningen bryts i flera sidor/avrunda resor mellan server och klient. Till exempel kan 10 000 objekt returneras som flera sidor, varje debiteras baserat på den beräkning som utförs för den sidan. När du summerar över dessa sidor bör du få samma antal ru: er som du skulle få för hela frågan.  
 
-## <a name="metrics-for-troubleshooting"></a>Mätvärden för felsökning
+## <a name="metrics-for-troubleshooting"></a>Mått för fel sökning
 
-Prestanda och dataflöde som används av frågor, användardefinierade funktioner (UDF) huvudsakligen beror på själva funktionen. Det enklaste sättet att ta reda på hur mycket tid körningen av frågan är i en användardefinierad funktion och antalet mediereserverade enheter används, är genom att aktivera mätvärden för frågan. Om du använder .NET SDK, här är exempel fråga mätvärden som returneras av SDK:
+De prestanda och data flöden som används av frågor, användardefinierade funktioner (UDF: er) är huvudsakligen beroende av funktions texten. Det enklaste sättet att ta reda på hur lång tid det tar att köra frågekörningen i UDF och antalet förbrukade ru: er, är att aktivera frågans mått. Om du använder .NET SDK är här exempel frågans mått som returneras av SDK:
 
 ```bash
 Retrieved Document Count                 :               1              
@@ -85,30 +85,30 @@ Total Query Execution Time               :   �
     Request Charge                       :            3.19 RUs  
 ```
 
-## <a name="best-practices-to-cost-optimize-queries"></a>Bästa praxis för att kosta optimera frågor 
+## <a name="best-practices-to-cost-optimize-queries"></a>Bästa metoder för att kostnads optimera frågor 
 
-Överväg följande metodtips när du optimerar frågor för kostnad:
+Tänk på följande rekommendationer när du optimerar frågor för kostnad:
 
-* **Samordna flera typer av enheter**
+* **Samplacera flera typer av enheter**
 
-   Försök att samordna flera typer av enheter inom en enda eller mindre antal behållare. Den här metoden ger fördelar, inte bara ur en prissättning, utan också för frågekörning och transaktioner. Frågorna är begränsade till en enskild behållare. och atomiska transaktioner över flera poster via lagrade procedurer/utlösare är begränsade till en partitionsnyckel inom en enskild behållare. Samordna entiteter i samma behållare kan minska antalet nätverk tur och RETUR för att lösa relationer för poster. Så den ger högre prestanda för slutpunkt till slutpunkt, aktiverar atomiska transaktioner över flera poster för en större datauppsättning, och därmed sänker kostnaderna. Om samordna flera typer av enheter inom en enda eller mindre antal behållare är svårt för ditt scenario, vanligtvis eftersom du migrerar ett befintligt program och du inte vill göra några ändringar i koden – du bör du överväga att etablering dataflöde på databasnivå.  
+   Försök att samplacera flera entitetstyper inom ett enda eller mindre antal behållare. Den här metoden ger förmåner inte bara från ett pris perspektiv, utan även för frågekörning och transaktioner. Frågor är begränsade till en enda behållare. och atomiska transaktioner över flera poster via lagrade procedurer/utlösare är begränsade till en partitionsnyckel inom en enda behållare. Att placera entiteter i samma behållare kan minska antalet nätverks fördröjningar för att lösa relationer mellan poster. Det ökar prestandan från slut punkt till slut punkt, som möjliggör atomiska transaktioner över flera poster för en större data uppsättning och därmed lägre kostnader. Om samplacering av flera entitetstyper inom ett enda eller mindre antal behållare är svårt för ditt scenario, vanligt vis eftersom du migrerar ett befintligt program och inte vill göra några kod ändringar, bör du överväga etablering data flöde på databas nivå.  
 
-* **Mät och justering för lägre begäran begärandeenheter/sekund användning**
+* **Mått och justering för lägre enheter för programbegäran/andra användning**
 
-   Komplexiteten för en fråga påverkar hur många enheter för programbegäran (ru) används för en åtgärd. Antalet predikat, natur predikat, antal UDF: er och storleken på datauppsättningen för källan. Dessa faktorer påverkar kostnaden för frågeåtgärder. 
+   Komplexiteten i en fråga påverkar hur många ru: er (Request units) som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen. Alla dessa faktorer påverkar kostnaderna för frågor. 
 
-   Kostnad för begäran som returnerades i rubriken anger kostnaden för en viss fråga. Om en fråga returnerar 1000 1 KB-artiklar, är kostnaden för åtgärden 1000. Inom en sekund godkänner servern därför bara två sådana begäranden innan hastighet som begränsar efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) artikeln och begäran enhet Kalkylatorn. 
+   Begär ande avgift som returneras i rubriken för begäran visar kostnaden för en specifik fråga. Om en fråga till exempel returnerar 1000 1 KB-objekt är kostnaden för åtgärden 1000. I och med den här servern bevarar servern bara två sådana begär Anden innan hastigheten begränsar efterföljande begär Anden. Mer information finns i artikeln om enheter för programbegäran och Kalkylatorn för begär ande [enheter](request-units.md) . 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter kan du fortsätta till mer information om kostnadsoptimeringar i Azure Cosmos DB i följande artiklar:
+Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure Cosmos DB med följande artiklar:
 
-* Läs mer om [hur Azure Cosmos fungerar prissättningen](how-pricing-works.md)
-* Läs mer om [Optimera för utveckling och testning](optimize-dev-test.md)
-* Läs mer om [förstå din faktura för Azure Cosmos DB](understand-your-bill.md)
-* Läs mer om [optimera dataflödet kostnad](optimize-cost-throughput.md)
-* Läs mer om [optimera kostnaden för lagring](optimize-cost-storage.md)
-* Läs mer om [optimera kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
-* Läs mer om [optimera kostnaden för Azure Cosmos-konton för flera regioner](optimize-cost-regions.md)
+* Lär dig mer om [hur Azure Cosmos-prissättning fungerar](how-pricing-works.md)
+* Läs mer om [optimering för utveckling och testning](optimize-dev-test.md)
+* Lär dig mer om [att förstå din Azure Cosmos DB faktura](understand-your-bill.md)
+* Läs mer om hur du [optimerar data flödes kostnaden](optimize-cost-throughput.md)
+* Läs mer om hur du [optimerar lagrings kostnader](optimize-cost-storage.md)
+* Läs mer om hur [du optimerar kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
+* Läs mer om hur [du optimerar kostnaden för Azure Cosmos-konton med flera regioner](optimize-cost-regions.md)
 * Läs mer om [Azure Cosmos DB reserverad kapacitet](cosmos-db-reserved-capacity.md)
 

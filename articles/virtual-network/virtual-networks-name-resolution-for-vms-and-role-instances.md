@@ -1,7 +1,7 @@
 ---
-title: Namnmatchning för resurser i Azure-nätverk
+title: Namn matchning för resurser i virtuella Azure-nätverk
 titlesuffix: Azure Virtual Network
-description: Namn på lösning scenarier för Azure IaaS, hybridlösningar och mellan olika molntjänster, Active Directory och använder en egen DNS-server.
+description: Namn matchnings scenarier för Azure IaaS, hybrid lösningar, mellan olika moln tjänster, Active Directory och att använda din egen DNS-server.
 services: virtual-network
 documentationcenter: na
 author: rohinkoul
@@ -12,213 +12,213 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f79b3e72a8655f8d704ffd531d9e34485832b0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411362"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570606"
 ---
-# <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i Azure-nätverk
+# <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namn matchning för resurser i virtuella Azure-nätverk
 
-Beroende på hur du använder Azure som värd för IaaS, PaaS och hybridlösningar, kan du behöva tillåta de virtuella datorerna (VM) och andra resurser som har distribuerats i ett virtuellt nätverk kan kommunicera med varandra. Du kan aktivera kommunikation med hjälp av IP-adresser, är det mycket enklare att använda namn som kan vara lätt att komma ihåg och ändras inte. 
+Beroende på hur du använder Azure för att hantera IaaS-, PaaS-och hybrid lösningar kan du behöva tillåta att de virtuella datorerna (VM) och andra resurser som distribueras i ett virtuellt nätverk kommunicerar med varandra. Även om du kan aktivera kommunikation med hjälp av IP-adresser, är det mycket enklare att använda namn som enkelt kan sparas och inte ändras. 
 
 När resurser som har distribuerats i virtuella nätverk behöver matcha domännamn och interna IP-adresser, kan de använda en av två metoder:
 
-* [Azure-tillhandahållen namnmatchning](#azure-provided-name-resolution)
-* [Namnmatchning som använder en egen DNS-server](#name-resolution-that-uses-your-own-dns-server) (som kan vidarebefordra frågor till Azure-tillhandahållna DNS-servrar)
+* [Azure-tillhandahållen namn matchning](#azure-provided-name-resolution)
+* [Namn matchning som använder din egen DNS-Server](#name-resolution-that-uses-your-own-dns-server) (som kan vidarebefordra frågor till Azure-angivna DNS-servrar)
 
-Typ av namnmatchning som du använder beror på hur dina resurser behöver kommunicera med varandra. I följande tabell visar scenarier och motsvarande name resolution lösningar:
+Vilken typ av namn matchning du använder beror på hur dina resurser måste kommunicera med varandra. I följande tabell visas scenarier och motsvarande namn matchnings lösningar:
 
 > [!NOTE]
-> Beroende på ditt scenario kan du använda funktionen Azure DNS Private Zones finns för närvarande i offentlig förhandsversion. Mer information finns på sidan om att [använda Azure DNS för privata domäner](../dns/private-dns-overview.md).
+> Beroende på ditt scenario kanske du vill använda Azure DNS Private Zones funktionen, som för närvarande finns i en offentlig för hands version. Mer information finns på sidan om att [använda Azure DNS för privata domäner](../dns/private-dns-overview.md).
 >
 
 | **Scenario** | **Lösning** | **Suffix** |
 | --- | --- | --- |
-| Namnmatchning mellan virtuella datorer som finns i samma virtuella nätverk eller Azure Cloud Services rollinstanser i samma molntjänst. | [Azure DNS Private Zones](../dns/private-dns-overview.md) eller [Azure-tillhandahållen namnmatchning](#azure-provided-name-resolution) |Värdnamn eller fullständigt domännamn |
-| Namnmatchning mellan virtuella datorer i olika virtuella nätverk eller rollinstanser i olika molntjänster. |[Azure DNS Private Zones](../dns/private-dns-overview.md) eller kundhanterad DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för matchning av Azure (DNS-proxy). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Namnmatchning från en Azure App Service (Web App, funktion eller Bot) med hjälp av virtual network-integration rollinstanser eller virtuella datorer i samma virtuella nätverk. |Kundhanterad DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för matchning av Azure (DNS-proxy). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Namnet lösningen från App Service Web Apps till virtuella datorer i samma virtuella nätverk. |Kundhanterad DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för matchning av Azure (DNS-proxy). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Namnet lösningen från App Service Web Apps i ett virtuellt nätverk till virtuella datorer i ett annat virtuellt nätverk. |Kundhanterad DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för matchning av Azure (DNS-proxy). Se namnmatchning med hjälp av DNS-servern. |Endast FQDN |
-| Upplösning på lokal dator- och tjänstnamn från virtuella datorer eller rollinstanser i Azure. |Kundhanterad DNS-servrar (den lokala domänkontrollanten, lokala skrivskyddade domänkontrollanten eller en sekundär DNS har synkroniserats med zonöverföringar, till exempel). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Lösning av Azure värdnamn från lokala datorer. |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i motsvarande virtuella nätverk proxyservern vidarebefordrar frågor till Azure för matchning. Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Omvänd DNS för interna IP-adresser. |[Namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Inte tillämpligt |
-| Namnmatchning mellan virtuella datorer eller rollinstanser i olika molntjänster, inte i ett virtuellt nätverk. |Ej tillämpligt. Anslutning mellan virtuella datorer och rollinstanser i olika molntjänster stöds inte utanför ett virtuellt nätverk. |Inte tillämpligt|
+| Namn matchning mellan virtuella datorer som finns i samma virtuella nätverk, eller Azure Cloud Services roll instanser i samma moln tjänst. | [Azure DNS Private Zones](../dns/private-dns-overview.md) eller [Azure-angiven namn matchning](#azure-provided-name-resolution) |Värdnamn eller FQDN |
+| Namn matchning mellan virtuella datorer i olika virtuella nätverk eller roll instanser i olika moln tjänster. |[Azure DNS Private Zones](../dns/private-dns-overview.md) eller, kund hanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
+| Namn matchning från en Azure App Service (webbapp, funktion eller robot) med hjälp av integrering av virtuella nätverk till roll instanser eller virtuella datorer i samma virtuella nätverk. |Kundhanterade DNS-servrar vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
+| Namn matchning från App Service Web Apps till virtuella datorer i samma virtuella nätverk. |Kundhanterade DNS-servrar vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
+| Namn matchning från App Service Web Apps i ett virtuellt nätverk till virtuella datorer i ett annat virtuellt nätverk. |Kundhanterade DNS-servrar vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se namn matchning med hjälp av en egen DNS-server. |Endast FQDN |
+| Matchning av lokala dator-och tjänst namn från virtuella datorer eller roll instanser i Azure. |Kundhanterade DNS-servrar (den lokala domänkontrollanten, den lokala skrivskyddade domänkontrollanten eller en sekundär DNS-post synkroniserad med zon överföringar, till exempel). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
+| Matchning av Azure-värdnamn från lokala datorer. |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i det motsvarande virtuella nätverket vidarebefordrar proxyservern frågor till Azure för att lösa problemet. Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
+| Omvänd DNS för interna IP-adresser. |[Namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Inte tillämpligt |
+| Namn matchning mellan virtuella datorer eller roll instanser som finns i olika moln tjänster, inte i ett virtuellt nätverk. |Ej tillämpligt. Anslutning mellan virtuella datorer och roll instanser i olika moln tjänster stöds inte utanför ett virtuellt nätverk. |Inte tillämpligt|
 
-## <a name="azure-provided-name-resolution"></a>Azure-tillhandahållen namnmatchning
+## <a name="azure-provided-name-resolution"></a>Azure-tillhandahållen namn matchning
 
-Azure tillhandahåller intern namnmatchning för virtuella datorer och rollinstanser som finns i samma virtuella nätverk eller tjänst i molnet tillsammans med matchning av offentliga DNS-namn. Virtuella datorer och instanser i en molntjänst delar samma DNS-suffixet så enbart värdnamnet är tillräckliga. Men i virtuella nätverk som distribueras med den klassiska distributionsmodellen kan ha olika molntjänster andra DNS-suffix. I så fall behöver du FQDN för namnmatchning mellan olika molntjänster. I virtuella nätverk som distribuerats med hjälp av Azure Resource Manager-distributionsmodellen, är DNS-suffixet konsekventa i det virtuella nätverket, så att FQDN inte behövs. DNS-namn kan tilldelas till både virtuella datorer och nätverksgränssnitt. Även om Azure-tillhandahållen namnmatchning inte kräver någon konfiguration, men det är inte valet för alla distributionsscenarier, enligt beskrivningen i föregående tabell.
+Tillsammans med matchning av offentliga DNS-namn tillhandahåller Azure intern namn matchning för virtuella datorer och roll instanser som finns i samma virtuella nätverk eller moln tjänst. Virtuella datorer och instanser i en moln tjänst delar samma DNS-suffix så att själva värd namnet är tillräckligt. Men i virtuella nätverk som distribueras med den klassiska distributions modellen har olika moln tjänster olika DNS-suffix. I så fall behöver du FQDN för att matcha namn mellan olika moln tjänster. I virtuella nätverk som distribueras med hjälp av Azure Resource Manager distributions modell är DNS-suffixet konsekvent i det virtuella nätverket, så det fullständiga domän namnet behövs inte. DNS-namn kan tilldelas både för virtuella datorer och nätverks gränssnitt. Även om Azure-tillhandahållen namn matchning inte kräver någon konfiguration, är det inte det lämpligaste alternativet för alla distributions scenarier, enligt beskrivningen i föregående tabell.
 
 > [!NOTE]
-> När webb-och arbetsroller med hjälp av cloud services, kan du också komma åt interna IP-adresserna för rollinstanser med hjälp av Azure Service Management REST API. Mer information finns i den [Service Management REST API-referens](https://msdn.microsoft.com/library/azure/ee460799.aspx). Adressen är baserad på rollen och instanstalet tal. 
+> När du använder webb-och arbets roller i Cloud Services kan du också komma åt de interna IP-adresserna för roll instanser med hjälp av Azure Service Management-REST API. Mer information finns i [REST API referens för tjänst hantering](https://msdn.microsoft.com/library/azure/ee460799.aspx). Adressen baseras på roll namnet och instans numret. 
 >
 >
 
 ### <a name="features"></a>Funktioner
 
-Azure-tillhandahållen namnmatchning innehåller följande funktioner:
-* Användarvänlighet. Det krävs ingen konfiguration.
-* Hög tillgänglighet. Du behöver inte skapa och hantera kluster för din egen DNS-servrar.
-* Du kan använda tjänsten tillsammans med din egen DNS-servrar för att lösa både lokala och Azure värdnamn.
-* Du kan använda namnmatchningen mellan virtuella datorer och rollinstanser inom samma molntjänst, utan att behöva ett fullständigt domännamn.
-* Du kan använda matchning mellan virtuella datorer i virtuella nätverk som använder Azure Resource Manager-distributionsmodellen, utan behov av ett fullständigt domännamn. Virtuella nätverk i den klassiska distributionsmodellen kräver ett fullständigt domännamn när du matcha namn i olika molntjänster. 
-* Du kan använda värdnamn som bäst beskriver dina distributioner i stället för att arbeta med autogenererade namn.
+Azure-angiven namn matchning omfattar följande funktioner:
+* Lätt att använda. Ingen konfiguration krävs.
+* Hög tillgänglighet. Du behöver inte skapa och hantera kluster av dina egna DNS-servrar.
+* Du kan använda tjänsten tillsammans med dina egna DNS-servrar för att matcha både lokala och Azure-värdnamn.
+* Du kan använda namn matchning mellan virtuella datorer och roll instanser inom samma moln tjänst, utan att det krävs något fullständigt domän namn.
+* Du kan använda namn matchning mellan virtuella datorer i virtuella nätverk som använder Azure Resource Manager distributions modell, utan att det krävs något fullständigt domän namn. Virtuella nätverk i den klassiska distributions modellen kräver ett fullständigt domän namn när du matchar namn i olika moln tjänster. 
+* Du kan använda värdnamn som bäst beskriver dina distributioner i stället för att arbeta med automatiskt genererade namn.
 
 ### <a name="considerations"></a>Överväganden
 
-Saker att tänka på när du använder Azure-tillhandahållen namnmatchning:
-* Azure-skapade DNS-suffix kan inte ändras.
+Saker att tänka på när du använder Azure-angiven namn matchning:
+* Det går inte att ändra Azure-skapade DNS-suffix.
 * Du kan inte registrera dina egna poster manuellt.
-* WINS- och NetBIOS stöds inte. Du kan inte se dina virtuella datorer i Windows Explorer.
-* Värdnamn måste vara DNS-kompatibla. Namn måste använda bara 0-9, a – z och '-', och får inte börja eller sluta med en '-'.
-* DNS-frågorna är begränsad för varje virtuell dator. Begränsning bör inte påverka de flesta program. Se till att cachelagring på klientsidan är aktiverad om begärandebegränsning observeras. Mer information finns i [DNS-klientkonfiguration](#dns-client-configuration).
-* Endast virtuella datorer i de första 180 molntjänsterna är registrerade för varje virtuellt nätverk i en klassisk distributionsmodell. Den här begränsningen gäller inte för virtuella nätverk i Azure Resource Manager.
-* Azure DNS-IP-adressen är 168.63.129.16. Detta är en statisk IP-adress och ändras inte.
+* WINS och NetBIOS stöds inte. Du kan inte se dina virtuella datorer i Utforskaren.
+* Värd namn måste vara DNS-kompatibla. Namn får endast innehålla 0-9, a-z och "-", och får inte börja eller sluta med "-".
+* DNS-frågans trafik begränsas för varje virtuell dator. Begränsningen påverkar inte de flesta program. Om begränsningen för begäran observeras kontrollerar du att cachelagring på klient sidan är aktiverat. Mer information finns i [konfiguration av DNS-klient](#dns-client-configuration).
+* Endast virtuella datorer i de första 180 moln tjänsterna registreras för varje virtuellt nätverk i en klassisk distributions modell. Den här begränsningen gäller inte för virtuella nätverk i Azure Resource Manager.
+* Den Azure DNS IP-adressen är 168.63.129.16. Detta är en statisk IP-adress och kommer inte att ändras.
 
-## <a name="dns-client-configuration"></a>DNS-klientkonfiguration
+## <a name="dns-client-configuration"></a>Konfiguration av DNS-klient
 
-Det här avsnittet beskriver klientcachelagring och klientsidan återförsök.
+I det här avsnittet beskrivs cachelagring på klient sidan och försök på klient sidan.
 
-### <a name="client-side-caching"></a>Klientcachelagring
+### <a name="client-side-caching"></a>Cachelagring på klient Sidan
 
-Inte alla DNS-fråga måste skickas över nätverket. Klientcachelagring kan minska svarstiden och förbättra återhämtning till nätverkssignaler, genom att lösa återkommande DNS-frågor från en lokal cache. DNS-poster innehåller en time to live (TTL) mekanism, vilket gör att cacheminnet för att lagra posten så länge som möjligt utan att påverka poster färskhet. Därför är klientcachelagring lämplig för de flesta situationer.
+Alla DNS-frågor behöver inte skickas över nätverket. Cachelagring på klient sidan bidrar till att minska svars tiden och förbättra återhämtningen till nätverks signaler genom att lösa återkommande DNS-frågor från en lokal cache. DNS-poster innehåller en metod för TTL (Time-to-Live) som gör det möjligt för cache att lagra posten så länge som möjligt utan att det går att påverka posternas aktualitet. Cachelagring på klient sidan är därför lämpligt i de flesta situationer.
 
-Standard Windows DNS-klienten har en inbyggd DNS-cache. Vissa Linux-distributioner omfattar inte cachelagring som standard. Om du upptäcker att det inte är ett lokalt cacheminne redan, kan du lägga till en DNS-cache för varje Linux-VM.
+Standard-DNS-klienten för Windows har en inbyggd DNS-cache. Vissa Linux-distributioner omfattar inte cachelagring som standard. Om du inte redan har en lokal cache lägger du till en DNS-cache i varje virtuell Linux-dator.
 
-Det finns ett antal olika DNS-cachen paket som är tillgängliga (till exempel dnsmasq). Här är hur du installerar dnsmasq på de vanligaste distributionerna:
+Det finns ett antal olika tillgängliga DNS-caching-paket (till exempel dnsmasq). Så här installerar du dnsmasq på de vanligaste distributionerna:
 
 * **Ubuntu (använder resolvconf)** :
-  * Installera paketet dnsmasq med `sudo apt-get install dnsmasq`.
+  * Installera dnsmasq-paketet med `sudo apt-get install dnsmasq`.
 * **SUSE (använder netconf)** :
-  * Installera paketet dnsmasq med `sudo zypper install dnsmasq`.
-  * Aktivera tjänsten dnsmasq med `systemctl enable dnsmasq.service`. 
-  * Starta tjänsten dnsmasq med `systemctl start dnsmasq.service`. 
-  * Redigera **/etc/sysconfig/network/config**, och ändra *NETCONFIG_DNS_FORWARDER = ””* till *dnsmasq*.
-  * Uppdatera resolv.conf med `netconfig update`, för att ställa in cachen som den lokala DNS-matchning.
+  * Installera dnsmasq-paketet med `sudo zypper install dnsmasq`.
+  * Aktivera dnsmasq-tjänsten med `systemctl enable dnsmasq.service`. 
+  * Starta dnsmasq-tjänsten med `systemctl start dnsmasq.service`. 
+  * Redigera **/etc/sysconfig/Network/config**och ändra *NETCONFIG_DNS_FORWARDER = ""* till *dnsmasq*.
+  * Uppdatera matcha. conf med `netconfig update`, för att ställa in cachen som den lokala DNS-matcharen.
 * **CentOS (använder NetworkManager)** :
-  * Installera paketet dnsmasq med `sudo yum install dnsmasq`.
-  * Aktivera tjänsten dnsmasq med `systemctl enable dnsmasq.service`.
-  * Starta tjänsten dnsmasq med `systemctl start dnsmasq.service`.
-  * Lägg till *åtkomstgruppen för domän-namnservrarna 127.0.0.1;* till **/etc/dhclient-eth0.conf**.
-  * Starta om nätverkstjänsten med `service network restart`, för att ställa in cachen som den lokala DNS-matchning.
+  * Installera dnsmasq-paketet med `sudo yum install dnsmasq`.
+  * Aktivera dnsmasq-tjänsten med `systemctl enable dnsmasq.service`.
+  * Starta dnsmasq-tjänsten med `systemctl start dnsmasq.service`.
+  * Lägg till *lägga Domain-Name-servers 127.0.0.1;* till **/etc/dhclient-eth0.conf**.
+  * Starta om nätverks tjänsten med `service network restart`, för att ställa in cachen som den lokala DNS-matcharen.
 
 > [!NOTE]
-> Dnsmasq paketet är endast ett av många DNS cacheminnen som är tillgängliga för Linux. Innan du använder den, kontrollera dess lämplighet för dina specifika behov och kontrollera att inga andra cache är installerat.
+> Dnsmasq-paketet är bara ett av många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den kontrollerar du lämpligheten för dina specifika behov och kontrollerar att ingen annan cache är installerad.
 >
 >
     
-### <a name="client-side-retries"></a>Klientsidan återförsök
+### <a name="client-side-retries"></a>Försök på klient Sidan
 
-DNS är främst UDP-protokollet. Eftersom UDP-protokollet inte garanterar meddelandeleverans, hanteras logik för omprövning i själva DNS-protokollet. Varje DNS-klient (operativsystemet) kan ha olika omprövningslogiken, beroende på Skaparens inställningar:
+DNS är i första hand ett UDP-protokoll. Eftersom UDP-protokollet inte garanterar meddelande leverans hanteras logiken för återförsök i själva DNS-protokollet. Varje DNS-klient (operativ system) kan använda olika omprövnings logik, beroende på Skaparens preferens:
 
-* Windows operativsystem försök efter en sekund, och sedan igen efter en annan två sekunder, fyra sekunder och en annan fyra sekunder. 
-* Standard Linux installationsprogrammet återförsöken efter fem sekunder. Vi rekommenderar att du ändrar återförsök-specifikationer till fem gånger på en sekunds intervall.
+* Försök att köra Windows-operativsystem igen efter en sekund och sedan igen efter ytterligare två sekunder, fyra sekunder och ytterligare fyra sekunder. 
+* De nya standarderna för Linux-installationen efter fem sekunder. Vi rekommenderar att du ändrar specifikationerna för återförsök till fem gånger, med ett sekunders intervall.
 
-Kontrollera de aktuella inställningarna på en Linux VM med `cat /etc/resolv.conf`. Titta på den *alternativ* rad, till exempel:
+Kontrol lera de aktuella inställningarna på en virtuell Linux `cat /etc/resolv.conf`-dator med. Titta på *alternativ* raden, till exempel:
 
 ```bash
 options timeout:1 attempts:5
 ```
 
-Filen resolv.conf genereras vanligtvis automatiskt och bör inte redigeras. Vilka specifika åtgärder för att lägga till den *alternativ* rad varierar beroende på distribution:
+Filen matcha. conf genereras vanligt vis automatiskt och bör inte redige ras. De specifika stegen för att lägga till *alternativ* raden varierar beroende på distribution:
 
 * **Ubuntu** (använder resolvconf):
-  1. Lägg till den *alternativ* rad till **/etc/resolvconf/resolv.conf.d/tail**.
-  2. Kör `resolvconf -u` att uppdatera.
+  1. Lägg till *alternativ* raden i **/etc/resolvconf/resolv.conf.d/tail**.
+  2. Kör `resolvconf -u` för att uppdatera.
 * **SUSE** (använder netconf):
-  1. Lägg till *timeout:1 försök: 5* till den **NETCONFIG_DNS_RESOLVER_OPTIONS = ””** parameter i **/etc/sysconfig/network/config**.
-  2. Kör `netconfig update` att uppdatera.
+  1. Lägg till *timeout: 1 försök: 5* till parametern **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** i **/etc/sysconfig/Network/config**.
+  2. Kör `netconfig update` för att uppdatera.
 * **CentOS** (använder NetworkManager):
-  1. Lägg till *echo ”alternativ timeout:1 försök: 5”* till **/etc/NetworkManager/dispatcher.d/11-dhclient**.
+  1. Lägg till *ECHO "alternativ timeout: 1 försök: 5"* till **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Uppdatera med `service network restart`.
 
-## <a name="name-resolution-that-uses-your-own-dns-server"></a>Namnmatchning som använder en egen DNS-server
+## <a name="name-resolution-that-uses-your-own-dns-server"></a>Namn matchning som använder din egen DNS-Server
 
-Det här avsnittet beskriver virtuella datorer och rollinstanser webbappar.
+I det här avsnittet beskrivs virtuella datorer, roll instanser och webbappar.
 
-### <a name="vms-and-role-instances"></a>Virtuella datorer och rollinstanser
+### <a name="vms-and-role-instances"></a>Virtuella datorer och roll instanser
 
-Din namnmatchningen kan utöver funktionerna som tillhandahålls av Azure. Du kan behöva använda Microsoft Windows Server Active Directory-domäner kan matcha DNS-namn mellan virtuella nätverk. Azure ger möjlighet att använda din egen DNS-servrar för att täcka dessa scenarier.
+Dina namn matchnings behov kan gå utöver de funktioner som tillhandahålls av Azure. Du kan till exempel behöva använda Microsoft Windows Server Active Directory Domains, matcha DNS-namn mellan virtuella nätverk. Azure ger dig möjlighet att använda dina egna DNS-servrar för att få de här scenarierna.
 
-DNS-servrar i ett virtuellt nätverk kan vidarebefordra DNS-frågor till de rekursiva matchare i Azure. På så sätt kan du matcha värdnamn i det virtuella nätverket. Exempelvis kan en domänkontrollant (DC) som körs i Azure svara på DNS-frågor för dess domäner och vidarebefordra alla frågor till Azure. Vidarebefordran av frågor kan virtuella datorer finns i både lokala resurser (via DC) och Azure-tillhandahållen värdnamn (via vidarebefordrare). Åtkomst till de rekursiva matchare i Azure tillhandahålls via den virtuella IP-Adressen 168.63.129.16.
+DNS-servrar i ett virtuellt nätverk kan vidarebefordra DNS-frågor till de rekursiva matcharna i Azure. På så sätt kan du matcha värdnamn inom det virtuella nätverket. En domänkontrollant (DC) som körs i Azure kan till exempel svara på DNS-frågor för sina domäner och vidarebefordra alla andra frågor till Azure. Genom att vidarebefordra frågor kan virtuella datorer se både dina lokala resurser (via DOMÄNKONTROLLANTen) och de Azure-tillhandahållna värd namnen (via vidarebefordraren). Åtkomst till de rekursiva matcharna i Azure tillhandahålls via den virtuella IP-168.63.129.16.
 
-Vidarebefordran av DNS kan du även gör DNS-matchning mellan virtuella nätverk, och att dina lokala datorer för att matcha värdnamn som medföljer Azure. DNS-server-dator för att lösa värdnamnet för en virtuell dator, måste finnas i samma virtuella nätverk och konfigureras för att vidarebefordra värd-namnfrågor till Azure. Eftersom DNS-suffix är olika i varje virtuellt nätverk kan använda du villkorlig vidarebefordringsregler för att skicka DNS-frågor till rätt virtuellt nätverk för matchning. Följande bild visar två virtuella nätverk och ett lokalt nätverk som gör DNS-matchning mellan virtuella nätverk, med hjälp av den här metoden. Ett exempel DNS-vidarebefordrare är tillgänglig i den [Azure-Snabbstartsmallar galleriet](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) och [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
+DNS-vidarebefordring möjliggör även DNS-matchning mellan virtuella nätverk och gör det möjligt för dina lokala datorer att matcha värd namn för Azure. För att kunna matcha en virtuell dators värdnamn måste den virtuella DNS-servern finnas i samma virtuella nätverk och konfigureras för att vidarebefordra värd namn frågor till Azure. Eftersom DNS-suffixet skiljer sig i varje virtuellt nätverk kan du använda regler för villkorlig vidarebefordran för att skicka DNS-frågor till rätt virtuellt nätverk för matchning. Följande bild visar två virtuella nätverk och ett lokalt nätverk som utför DNS-matchning mellan virtuella nätverk med hjälp av den här metoden. Ett exempel på en DNS-vidarebefordrare finns i galleriet för [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) och [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 > [!NOTE]
-> En rollinstans kan utföra namnmatchning för virtuella datorer i samma virtuella nätverk. Detta sker med hjälp av FQDN som består av den Virtuella datorns värdnamn och **internal.cloudapp.net** DNS-suffix. Men i det här fallet namnmatchning lyckas bara om rollinstansen har VM-namn som definierats i den [Rollschema (.cscfg-fil)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
+> En roll instans kan utföra namn matchning för virtuella datorer i samma virtuella nätverk. Det gör det genom att använda det fullständiga domän namnet, som består av den virtuella datorns värdnamn och **Internal.cloudapp.net** DNS-suffix. Men i det här fallet lyckas namn matchningen bara om roll instansen har det VM-namn som definierats i [roll schemat (. cscfg-fil)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
 > `<Role name="<role-name>" vmName="<vm-name>">`
 >
-> Rollinstanser som måste utföra namnmatchning för virtuella datorer i ett annat virtuellt nätverk (FQDN med hjälp av den **internal.cloudapp.net** suffix) har att göra detta med hjälp av den metod som beskrivs i det här avsnittet (anpassade DNS-servrar som vidarebefordrar mellan de två virtuella nätverk).
+> Roll instanser som behöver utföra namn matchning för virtuella datorer i ett annat virtuellt nätverk (FQDN med hjälp av **Internal.cloudapp.net** -suffixet) måste göra detta med hjälp av metoden som beskrivs i det här avsnittet (anpassade DNS-servrar som vidarebefordrar mellan de två virtuella nätverk).
 >
 
 ![Diagram över DNS mellan virtuella nätverk](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-När du använder Azure-tillhandahållen namnmatchning, Azure DHCP Dynamic Host Configuration Protocol () innehåller en intern DNS-suffix ( **. internal.cloudapp.net**) till varje virtuell dator. Detta suffix kan matcha värdnamn eftersom namnet värdposter finns i den **internal.cloudapp.net** zon. När du använder en egen lösning för name resolution anges suffixet till virtuella datorer eftersom den stör andra DNS-arkitekturer (t.ex. domänanslutna scenarier). I stället Azure tillhandahåller en icke-fungerande platshållare (*reddog.microsoft.com*).
+När du använder Azure-tillhandahållen namn matchning tillhandahåller Azure Dynamic Host Configuration Protocol (DHCP) ett internt DNS-suffix ( **. Internal.cloudapp.net**) för varje virtuell dator. Det här suffixet möjliggör värd namns matchning eftersom värd namns posterna finns i **Internal.cloudapp.net** -zonen. När du använder din egen lösning för namn matchning levereras inte det här suffixet till virtuella datorer eftersom det stör andra DNS-arkitekturer (t. ex. domänanslutna scenarier). I stället tillhandahåller Azure en plats hållare som inte fungerar (*reddog.Microsoft.com*).
 
-Om det behövs kan bestämma du interna DNS-suffixet med hjälp av PowerShell eller API: et.
+Vid behov kan du fastställa det interna DNS-suffixet med hjälp av PowerShell eller API: et:
 
-* För virtuella nätverk i Azure Resource Manager-distributionsmodeller suffixet är tillgängligt via den [nätverksgränssnittet REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell-cmdleten och [ AZ network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI-kommando.
-* I klassiska distributionsmodeller suffixet är tillgängligt via den [få distribution API](https://msdn.microsoft.com/library/azure/ee460804.aspx) anropa eller [Get-AzureVM-felsöka](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet.
+* För virtuella nätverk i Azure Resource Manager distributions modeller är suffixet tillgängligt via [nätverks gränssnittet REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), PowerShell-cmdleten [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) och [AZ Network NIC show](/cli/azure/network/nic#az-network-nic-show) Azure CLI-kommandot.
+* I klassiska distributions modeller är suffixet tillgängligt via API-anropet [Get-Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) eller cmdleten [Get-AzureVM-debug](/powershell/module/servicemanagement/azure/get-azurevm) .
 
-Om vidarebefordran av frågor till Azure inte passar dina behov, bör du ange en egen DNS-lösning. Din DNS-lösningen behöver:
+Om frågor om vidarebefordran till Azure inte passar dina behov, bör du ange en egen DNS-lösning. DNS-lösningen måste:
 
-* Ange lämpliga värden namnmatchning [DDNS](virtual-networks-name-resolution-ddns.md), till exempel. Om du använder DDNS, kan du behöva inaktivera DNS-post rensning. Azure DHCP-lån är långa och rensning kan ta bort DNS-poster för tidigt. 
-* Ange lämpliga rekursiv matchning för att tillåta matchning av extern domännamn.
-* Vara tillgänglig (TCP och UDP på port 53) från klienterna den fungerar och att kunna få åtkomst till internet.
-* Skyddas mot åtkomst från internet, för att identifiera hot som externa agenter.
+* Ange lämplig värd namns matchning via [DDNS](virtual-networks-name-resolution-ddns.md), till exempel. Om du använder DDNS kan du behöva inaktivera rensning av DNS-poster. Azure DHCP-lån är långa och rensningen kan ta bort DNS-poster för tidigt. 
+* Ange lämplig rekursiv matchning för att tillåta matchning av externa domän namn.
+* Vara tillgänglig (TCP och UDP på port 53) från de klienter som den hanterar och kan komma åt Internet.
+* Skyddas mot åtkomst från Internet, för att minimera hot från externa agenter.
 
 > [!NOTE]
-> För bästa prestanda när du använder virtuella Azure-datorer som DNS-servrar, ska IPv6 vara inaktiverat. En [offentliga IP-adressen](virtual-network-public-ip-address.md) ska tilldelas till varje virtuell dator för DNS-server. För ytterligare analys och optimeringar när du använder Windows Server som din DNS-server finns i [Name resolution prestanda för en rekursiv Windows DNS-Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> För bästa prestanda bör IPv6 vara inaktiverat när du använder virtuella Azure-datorer som DNS-servrar. En [offentlig IP-adress](virtual-network-public-ip-address.md) ska tilldelas till varje virtuell DNS-server. Mer prestanda analys och optimeringar när du använder Windows Server som DNS-Server finns i [namn matchnings prestanda för en rekursiv Windows DNS-Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 
-### <a name="web-apps"></a>Webbappar
-Anta att du behöver utföra namnmatchning från ditt program skapas med hjälp av App Service är länkad till ett virtuellt nätverk för virtuella datorer i samma virtuella nätverk. Förutom att konfigurera en anpassad DNS-server som har en DNS-vidarebefordrare som vidarebefordrar frågor till Azure (virtuell IP-adressen 168.63.129.16), utför följande steg:
-1. Aktivera virtual network-integration för din webbapp, om inte redan har gjort, enligt beskrivningen i [integrera din app med ett virtuellt nätverk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. I Azure-portalen för App Service-plan som är värd för webbapp väljer **synkronisera nätverk** under **nätverk**, **virtuell nätverksintegrering**.
+### <a name="web-apps"></a>Webbprogram
+Anta att du behöver utföra namn matchning från din webbapp som skapats med hjälp av App Service, som är länkat till ett virtuellt nätverk, till virtuella datorer i samma virtuella nätverk. Förutom att konfigurera en anpassad DNS-server som har en DNS-vidarebefordrare som vidarebefordrar frågor till Azure (virtuell IP-168.63.129.16) utför du följande steg:
+1. Aktivera integrering av virtuella nätverk för din webbapp, om du inte redan gjort det, enligt beskrivningen i [integrera din app med ett virtuellt nätverk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. I Azure Portal, för App Service plan som är värd för webbappen, väljer du **Synkronisera nätverk** under **nätverk**, **Virtual Network integrering**.
 
-    ![Skärmbild av namnmatchning för virtuella nätverk](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
+    ![Skärm bild av namn matchning för virtuellt nätverk](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
-Om du behöver utföra namnmatchning från ditt program skapas med hjälp av App Service är länkad till ett virtuellt nätverk för virtuella datorer i ett annat virtuellt nätverk som du behöver använda anpassade DNS-servrar på båda virtuella nätverken enligt följande:
+Om du behöver utföra namn matchning från din webbapp som skapats med hjälp av App Service, som är länkat till ett virtuellt nätverk, till virtuella datorer i ett annat virtuellt nätverk, måste du använda anpassade DNS-servrar i båda de virtuella nätverken enligt följande:
 
-* Konfigurera en DNS-server i ditt virtuella nätverk i målet, på en virtuell dator som kan också att vidarebefordra frågor till den rekursiva matcharen i Azure (virtuell IP-adressen 168.63.129.16). Ett exempel DNS-vidarebefordrare är tillgänglig i den [Azure-Snabbstartsmallar galleriet](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) och [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
-* Konfigurera en DNS-vidarebefordrare i det virtuella nätverket källa på en virtuell dator. Konfigurera den här DNS-vidarebefordrare för att vidarebefordra frågor till DNS-servern i det virtuella nätverket för målet.
-* Konfigurera DNS-källservern i inställningarna för källa virtuella nätverket.
-* Aktivera virtual network-integration för din webbapp att länka till det virtuella nätverket källa, följa anvisningarna i [integrera din app med ett virtuellt nätverk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* I Azure-portalen för App Service-plan som är värd för webbapp väljer **synkronisera nätverk** under **nätverk**, **virtuell nätverksintegrering**.
+* Konfigurera en DNS-server i det virtuella mål nätverket, på en virtuell dator som också kan vidarebefordra frågor till den rekursiva matcharen i Azure (virtuell IP-168.63.129.16). Ett exempel på en DNS-vidarebefordrare finns i galleriet för [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) och [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
+* Konfigurera en DNS-vidarebefordrare i det virtuella käll nätverket på en virtuell dator. Konfigurera den här DNS-vidarebefordraren så att den vidarebefordrar frågor till DNS-servern i det virtuella mål nätverket.
+* Konfigurera din käll-DNS-server i ditt virtuella käll nätverks inställningar.
+* Aktivera integrering av virtuella nätverk för din webbapp för att länka till det virtuella käll nätverket genom att följa anvisningarna i [integrera din app med ett virtuellt nätverk](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* I Azure Portal, för App Service plan som är värd för webbappen, väljer du **Synkronisera nätverk** under **nätverk**, **Virtual Network integrering**.
 
 ## <a name="specify-dns-servers"></a>Ange DNS-servrar
-När du använder en egen DNS-servrar, ger möjligheten att ange flera DNS-servrar per virtuellt nätverk i Azure. Du kan också ange flera DNS-servrar per nätverksgränssnitt (för Azure Resource Manager) eller per molntjänst (för den klassiska distributionsmodellen). DNS-servrar som angetts för en nätverkstjänst för gränssnittet eller molnet få prioritet med DNS-servrar som angetts för det virtuella nätverket.
+När du använder dina egna DNS-servrar ger Azure möjlighet att ange flera DNS-servrar per virtuellt nätverk. Du kan också ange flera DNS-servrar per nätverksgränssnitt (för Azure Resource Manager) eller per molntjänst (för den klassiska distributionsmodellen). DNS-servrar som angetts för ett nätverks gränssnitt eller en moln tjänst får företräde framför DNS-servrar som har angetts för det virtuella nätverket.
 
 > [!NOTE]
-> Nätverksegenskaper för anslutning, till exempel IP-adresser, DNS-server bör inte redigeras direkt i Windows-datorer. Detta beror på att de kan få bort under tjänsten reparation av nodtjänst när det virtuella nätverkskortet ersätts.
+> Nätverks anslutningens egenskaper, till exempel DNS-serverns IP-adresser, bör inte redige ras direkt i de virtuella datorerna. Detta beror på att de kan tas bort under tjänstens gång när det virtuella nätverkskortet byts ut. Detta gäller både virtuella Windows-och Linux-datorer.
 >
 >
 
-När du använder Azure Resource Manager-distributionsmodellen, anger du DNS-servrar för ett virtuellt nätverk och ett nätverksgränssnitt. Mer information finns i [hantera ett virtuellt nätverk](manage-virtual-network.md) och [hantera ett nätverksgränssnitt](virtual-network-network-interface.md).
-
-> [!NOTE]
-> Om du väljer för anpassad DNS-server för det virtuella nätverket måste du ange minst en DNS-serverns IP-adress; i annat fall ignoreras konfigurationen virtuellt nätverk och Använd Azure-tillhandahållna DNS i stället.
->
->
-
-När du använder den klassiska distributionsmodellen kan du ange DNS-servrar för det virtuella nätverket i Azure-portalen eller [nätverkskonfigurationsfilen](https://msdn.microsoft.com/library/azure/jj157100). För cloud services, kan du ange DNS-servrar via den [Service konfigurationsfilen](https://msdn.microsoft.com/library/azure/ee758710) eller med hjälp av PowerShell med [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
+När du använder Azure Resource Manager distributions modell kan du ange DNS-servrar för ett virtuellt nätverk och ett nätverks gränssnitt. Mer information finns i [hantera ett virtuellt nätverk](manage-virtual-network.md) och [hantera ett nätverks gränssnitt](virtual-network-network-interface.md).
 
 > [!NOTE]
-> Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats kan behöva du starta om varje berörda virtuella datorn för att ändringarna ska börja gälla.
+> Om du väljer Anpassad DNS-server för det virtuella nätverket måste du ange minst en IP-adress för DNS-servern. annars kommer det virtuella nätverket att ignorera konfigurationen och använda Azure-DNS i stället.
+>
+>
+
+När du använder den klassiska distributions modellen kan du ange DNS-servrar för det virtuella nätverket i Azure Portal eller i [nätverks konfigurations filen](https://msdn.microsoft.com/library/azure/jj157100). För moln tjänster kan du ange DNS-servrar via [tjänst konfigurations filen](https://msdn.microsoft.com/library/azure/ee758710) eller med hjälp av PowerShell, med [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
+
+> [!NOTE]
+> Om du ändrar DNS-inställningarna för ett virtuellt nätverk eller en virtuell dator som redan har distribuerats måste du starta om varje virtuell dator för att ändringarna ska börja gälla.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
 
-Azure Resource Manager-distributionsmodell:
+Azure Resource Manager distributions modell:
 
 * [Hantera ett virtuellt nätverk](manage-virtual-network.md)
-* [Hantera ett nätverksgränssnitt](virtual-network-network-interface.md)
+* [Hantera ett nätverks gränssnitt](virtual-network-network-interface.md)
 
-Klassisk distributionsmodell:
+Klassisk distributions modell:
 
-* [Azure-Tjänstkonfigurationens Schema](https://msdn.microsoft.com/library/azure/ee758710)
-* [Konfigurationsschema för virtuellt nätverk](https://msdn.microsoft.com/library/azure/jj157100)
-* [Konfigurera ett virtuellt nätverk med hjälp av en nätverkskonfigurationsfil](virtual-networks-using-network-configuration-file.md)
+* [Konfigurations schema för Azure-tjänsten](https://msdn.microsoft.com/library/azure/ee758710)
+* [Virtual Network konfigurations schema](https://msdn.microsoft.com/library/azure/jj157100)
+* [Konfigurera en Virtual Network med hjälp av en nätverks konfigurations fil](virtual-networks-using-network-configuration-file.md)

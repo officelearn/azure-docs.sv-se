@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc13a1d0a7710a9f96110f1516fe2e48d538fe7e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400719"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720770"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med Azure Data Factory 
 
@@ -41,11 +41,11 @@ Följande egenskaper har stöd för HBase länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **HBase** | Ja |
-| host | IP-adressen eller värdnamnet namnet på den HBase-servern. (dvs.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Ja |
+| type | Egenskapen Type måste anges till: **HBase** | Ja |
+| host | IP-adressen eller värdnamnet namnet på den HBase-servern. säga.  `[clustername].azurehdinsight.net`, )`192.168.222.160`  | Ja |
 | port | TCP-porten som HBase-instans som används för att lyssna efter klientanslutningar. Standardvärdet är 9090. Ange porten som 443 om du ansluter till Azure HDInsights. | Nej |
 | httpPath | Partiell URL: en motsvarar HBase-server, t.ex. `/hbaserest0` när du använder HDInsights kluster. | Nej |
-| authenticationType | Autentiseringsmekanismen för att ansluta till HBase-servern. <br/>Tillåtna värden är: **Anonymous**, **Basic** | Ja |
+| authenticationType | Autentiseringsmekanismen för att ansluta till HBase-servern. <br/>Tillåtna värden är: **Anonym**, **grundläggande** | Ja |
 | username | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
 | password | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |
@@ -122,7 +122,7 @@ Kopiera data från HBase genom att ange typegenskapen på datauppsättningen til
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **HBaseObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **HBaseObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -132,11 +132,12 @@ Kopiera data från HBase genom att ange typegenskapen på datauppsättningen til
     "name": "HBaseDataset",
     "properties": {
         "type": "HBaseObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<HBase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -151,7 +152,7 @@ För att kopiera data från HBase, ange typ av datakälla i kopieringsaktivitete
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **HBaseSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **HBaseSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

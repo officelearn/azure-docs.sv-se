@@ -2,16 +2,16 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f3bb391dceb1948820d00c0d09229f2c106ffc0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187801"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601386"
 ---
-Kommandon är tillgängliga vid övervakning och felsökning av moduler på en Data Box Edge-enhet som har beräkningsrollen har konfigurerats, en delmängd av docker. Att se en lista över tillgängliga kommandon [ansluta till PowerShell-gränssnittet](#connect-to-the-powershell-interface) och använda den `dkrdbe` funktion.
+På en Data Box Edge-enhet där beräknings rollen har kon figurer ATS är en del av Docker-kommandona tillgängliga för övervakning eller fel sökning av moduler. Om du vill se en lista över tillgängliga kommandon [ansluter du till PowerShell-gränssnittet](#connect-to-the-powershell-interface) och `dkrdbe` använder funktionen.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -35,28 +35,28 @@ Commands:
 
 [10.100.10.10]: PS>
 ```
-Följande tabell innehåller en kort beskrivning av kommandona som är tillgängliga för `dkrdbe`:
+Följande tabell innehåller en kort beskrivning av de kommandon som är tillgängliga `dkrdbe`för:
 
 |Kommandot  |Beskrivning |
 |---------|---------|
-|`image`     | Hantera avbildningar       |
-|`images`     | Lista avbildningar         |
-|`inspect`     | Returnera information på låg nivå på Docker-objekt         |
+|`image`     | Hantera avbildningar. Om du vill ta bort oanvända avbildningar använder du:`dkrdbe image prune -a -f`       |
+|`images`     | Lista bilder         |
+|`inspect`     | Returnera låg nivå information om Docker-objekt         |
 |`login`     | Logga in på ett Docker-register         |
-|`logout`     | Logga ut från en Docker-register         |
+|`logout`     | Logga ut från ett Docker-register         |
 |`logs`     | Hämta loggarna för en behållare        |
-|`port`     | Lista portmappningar eller en specifik mappning för behållaren        |
+|`port`     | Lista port mappningar eller en speciell mappning för behållaren        |
 |`ps`     | Visa en lista med containrar        |
-|`pull`     | Hämta en avbildning eller en databas från ett register         |
+|`pull`     | Hämta en avbildning eller en lagrings plats från ett register         |
 |`start`     | Starta en eller flera stoppade behållare         |
-|`stats`     | Visa en direktsänd dataström med användningsstatistik för behållarna resurs         |
+|`stats`     | Visa en Live-ström med container (s) användnings statistik för resurser         |
 |`stop`     | Stoppa en eller flera behållare som körs        |
 |`system`     | Hantera Docker         |
-|`top`     | Visa processerna som körs på en behållare         |
+|`top`     | Visa processer som körs för en behållare         |
 
-Om du vill visa hjälp för alla kommandon som är tillgängliga genom att använda `dkrdbe <command-name> --help`.
+Om du vill ha hjälp med ett tillgängligt kommando `dkrdbe <command-name> --help`använder du.
 
-Till exempel för att förstå användningen av den `port` kommandot, skriver du:
+Om du till exempel vill förstå användningen av `port` kommandot skriver du:
 
 ```powershell
 [10.100.10.10]: P> dkrdbe port --help
@@ -78,13 +78,13 @@ Options:
 [10.100.10.10]: PS>
 ```
 
-Tillgängliga kommandon för det `dkrdbe` funktion använder samma parametrar som de som används för normal docker-kommandon. För alternativ och parametrar som används med kommandot docker kan du gå till [använda Docker-kommandorad](https://docs.docker.com/engine/reference/commandline/docker/).
+De tillgängliga kommandona för `dkrdbe` funktionen använder samma parametrar som de som används för de vanliga Docker-kommandona. För de alternativ och parametrar som används med Docker-kommandot går du till [Använd Docker kommando raden](https://docs.docker.com/engine/reference/commandline/docker/).
 
-### <a name="to-check-if-the-module-deployed-successfully"></a>Kontrollera om modulen har distribuerats
+### <a name="to-check-if-the-module-deployed-successfully"></a>Kontrol lera om modulen har distribuerats
 
-Compute-moduler är behållare som har en affärslogik som implementerats. Du kan kontrollera om en beräkning-modul har distribuerats genom att köra den `ps` kommandot och kontrollera om behållaren (motsvarande modulen beräkning) körs.
+Compute-moduler är behållare som har en affärs logik implementerad. Kontrol lera att en Compute-modul har distribuerats genom att köra `ps` kommandot och kontrol lera om behållaren (som motsvarar Compute-modulen) körs.
 
-Hämta en lista över alla behållare (inklusive de som har pausats) genom att köra den `ps -a` kommando.
+Kör `ps -a` kommandot för att hämta listan över alla behållare (inklusive de som har pausats).
 
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
@@ -96,9 +96,9 @@ acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/s
 [10.100.10.10]: PS>
 ```
 
-Om ett fel uppstod vid skapande av behållaravbildningen eller samtidigt hämta avbildningen, kör `logs edgeAgent`.  `EdgeAgent` är behållare för IoT Edge-körning som ansvarar för att etablera andra behållare.
+Om det uppstod ett fel när behållar avbildningen skulle skapas eller när avbildningen hämtades kör `logs edgeAgent`du.  `EdgeAgent`är den IoT Edge runtime-behållare som ansvarar för att tillhandahålla andra behållare.
 
-Eftersom `logs edgeAgent` Dumpar alla loggar, ett bra sätt att se de senaste felen är att använda alternativet `--tail 20`.
+Eftersom `logs edgeAgent` dumpar alla loggar, är ett bra sätt att se de senaste felen att använda alternativet `--tail 20`.
 
 
 ```powershell
@@ -117,12 +117,12 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 2019-02-28 23:38:28.480 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Agent.Core.Planners.HealthRestartPlanner] - HealthRestartPlanner created Plan, with 0 command(s).
 ```
 
-### <a name="to-get-container-logs"></a>Hämta behållarloggar
+### <a name="to-get-container-logs"></a>Hämta behållar loggar
 
-Om du vill hämta loggar för en specifik behållare, först visa behållaren och sedan hämta loggarna för den behållare som du är intresserad av.
+Om du vill hämta loggar för en speciell behållare ska du först lista behållaren och sedan hämta loggarna för den behållare som du är intresse rad av.
 
-1. [Ansluta till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
-2. Om du vill hämta listan över behållare som körs, kör den `ps` kommando.
+1. [Anslut till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
+2. Kör `ps` kommandot för att hämta listan över behållare som körs.
 
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
@@ -133,9 +133,9 @@ Om du vill hämta loggar för en specifik behållare, först visa behållaren oc
     acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
-3. Anteckna behållar-ID för den behållare som du behöver i loggarna.
+3. Anteckna behållar-ID: t för den behållare som du behöver loggarna för.
 
-4. Om du vill hämta loggar för en specifik behållare, kör den `logs` kommando och ange behållar-ID.
+4. Om du vill hämta loggarna för en speciell behållare kör `logs` du kommandot som tillhandahåller behållar-ID.
 
     ```powershell
     [10.100.10.10]: PS>dkrdbe logs d99e2f91d9a8
@@ -150,12 +150,12 @@ Om du vill hämta loggar för en specifik behållare, först visa behållaren oc
     02/26/2019 18:23:38: Info: Processed event.
     ```
 
-### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Övervaka användningsstatistik för enheten
+### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Övervaka enhetens användnings statistik
 
-Om du vill övervaka minne, CPU-användning och i/o på enheten, använda den `stats` kommando.
+Använd `stats` kommandot för att övervaka minne, CPU-användning och IO på enheten.
 
-1. [Ansluta till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
-2. Kör den `stats` kommando för att inaktivera den direktsända dataströmmen och hämta bara det första resultatet.
+1. [Anslut till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
+2. `stats` Kör kommandot så att du kan inaktivera Live Stream och bara hämta det första resultatet.
 
    ```powershell
    dkrdbe stats --no-stream

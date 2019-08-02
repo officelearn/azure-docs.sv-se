@@ -9,12 +9,12 @@ ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4c81daa1f55167fa868c69f3bff388dbaa4887cd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677738"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725746"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
 
@@ -34,7 +34,7 @@ Den här självstudien vägleder dig genom processen att skapa en Azure Time Ser
 
 * Ditt Azure-inloggningsnamn måste också vara medlem i prenumerationens **ägar** roll. Mer information finns i [Hantera åtkomst med hjälp av rollbaserad åtkomst kontroll och Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="video"></a>Video
+## <a name="review-video"></a>Granska video
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Lär dig hur du använder en Azure IoT Solution Accelerator för att generera data och komma igång med Time Series Insights. </br>
 
@@ -116,7 +116,7 @@ Skapa sedan en Time Series Insights-miljö i din Azure-prenumeration.
 
    [![Distributionen av Time Series Insights miljön lyckades](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="run-device-simulation-to-stream-data"></a>Kör enhets simulering för att strömma data
+## <a name="run-device-simulation"></a>Kör enhets simulering
 
 Nu när distributionen och den inledande konfigurationen är slutförd, fyller du i Time Series Insights-miljön med exempel data från [simulerade enheter som skapats av acceleratorn](#create-a-device-simulation).
 

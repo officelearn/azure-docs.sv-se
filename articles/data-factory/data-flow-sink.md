@@ -1,92 +1,99 @@
 ---
-title: Konfigurera en mottagare omvandling i funktionen för mappning av dataflöde i Azure Data Factory
-description: Lär dig hur du ställer in en mottagare omvandling i Data mappning flöda.
+title: Konfigurera en Sink-omvandling i funktionen för att mappa data flöde i Azure Data Factory
+description: Lär dig hur du konfigurerar en Sink-omvandling i mappnings data flödet.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596259"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640281"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>Transformering för ett dataflöde för mottagare
+# <a name="sink-transformation-for-a-data-flow"></a>Sink-transformering för ett data flöde
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-När du omvandla ditt dataflöde mottagare du data till en mål-datauppsättning. Välj en definition för datauppsättningen för utdata mål omvandling mottagare. Du kan ha många mottagare transformationer som kräver ditt dataflöde.
+När du har transformerat ditt data flöde kan du sinka data till en mål data uppsättning. I omvandling för mottagare väljer du en data uppsättnings definition för målets utgående data. Du kan ha så många handfat som dina data flöden kräver.
 
-Konto för schemat drift och förändringar i den inkommande data mottagare utdata till en mapp utan ett definierat schema i datauppsättningen för utdata. Du kan också ta hänsyn till kolumnen ändringar i dina källor genom att välja **Tillåt schemat drift** i källan. Sedan fält automap alla i mottagaren.
+För att kunna beakta schema avvikelser och ändringar i inkommande data, ska du skicka ut utdata till en mapp utan ett definierat schema i data uppsättningen för utdata. Du kan också konto för kolumn ändringar i dina källor genom att välja **Tillåt schema avvikelse** i källan. Sedan kan du Automap alla fält i mottagaren.
 
-![Alternativen på fliken mottagare, inklusive alternativet Automatisk karta](media/data-flow/sink1.png "mottagare 1")
+![Alternativen på fliken mottagare, inklusive alternativet automatisk mappning](media/data-flow/sink1.png "mottagare 1")
 
-Om du vill mottagare alla inkommande fält, aktivera **Automatisk karta**. Välj de fält till mottagare till målet eller ändra namnen på fälten vid målet genom att stänga av **Automatisk karta**. Öppna sedan den **mappning** fliken mappning av utdata.
+Om du vill ta Sink alla inkommande fält aktiverar du **Auto Map**. Om du vill välja vilka fält som ska översättas till målet, eller om du vill ändra namnen på fälten vid målet, så Stäng av **automatisk mappning**. Öppna sedan fliken **mappning** för att mappa utmatnings fält.
 
-![Alternativen på fliken mappning](media/data-flow/sink2.png "mottagare 2")
+![Alternativ på fliken mappning](media/data-flow/sink2.png "mottagare 2")
 
-## <a name="output"></a>Resultat 
-Utdata transformerade data till en mapp för Azure Blob storage eller Data Lake Storage mottagare typer. Spark genererar partitionerade data utdatafilerna baserat på schemat som mottagare transformeringen använder. 
+## <a name="output"></a>Output 
+För Azure Blob Storage-eller Data Lake Storage Sink-typer skriver du ut transformerade data till en mapp. Spark genererar partitionerade utdatafiler baserat på det partitionerings schema som används av Sink-omvandlingen. 
 
-Du kan ange partitioneringsschemat från den **optimera** fliken. Om du vill att Data Factory för att slå samman dina utdata till en enda fil, Välj **enkel partition**.
+Du kan ställa in partitionerings schema från fliken Optimize ( **optimera** ). Om du vill att Data Factory sammanfoga dina utdata till en enda fil väljer du **enskild partition**.
 
-![Alternativen på fliken Optimize](media/data-flow/opt001.png "alternativ för mottagare")
+![Alternativ på fliken optimera](media/data-flow/opt001.png "mottagar alternativ")
 
-## <a name="field-mapping"></a>Fältmappning
+## <a name="field-mapping"></a>Fält mappning
+På fliken **mappning** i din Sink-omvandling kan du mappa de inkommande kolumnerna till vänster till målen till höger. När du tar Sink-data flöden till filer skriver Data Factory alltid nya filer till en mapp. När du mappar till en databas data uppsättning väljer du åtgärds alternativ för databas tabell för att infoga, uppdatera, upsert eller ta bort.
 
-På den **mappning** fliken av din mottagare omvandling, kan du mappa kolumnerna inkommande till vänster till mål till höger. När du mottagare dataflöden för filer skrivs alltid nya filer till en mapp i Data Factory. När du ansluter till en databas-datauppsättning, du kan skapa en ny tabell som använder det här schemat genom att ange **spara princip** till **överskrivning**. Eller infoga nya rader i en befintlig tabell och mappa fält i det befintliga schemat. 
+![Fliken mappning](media/data-flow/sink2.png "Handfat")
 
-![Fliken mappning](media/data-flow/sink2.png "egenskaperna")
+I mappnings tabellen kan du välja att länka flera kolumner, ta bort flera kolumner eller mappa flera rader till samma kolumn namn.
 
-I mappningstabellen kan du markera flera för att länka flera kolumner, ta bort länk från flera kolumner eller mappa flera rader till samma kolumn.
+Om du alltid vill mappa inkommande uppsättning fält till ett mål som de är och för att fullständigt godkänna flexibla schema definitioner väljer du **Tillåt schema avvikelse**.
 
-Mappa alltid den inkommande uppsättningen fält till ett mål som de är och fullständigt accepterar flexibelt schemadefinitioner, Välj **Tillåt schemat drift**.
+![Fliken mappning, som visar fält som har mappats till kolumner i data uppsättningen](media/data-flow/multi1.png "flera alternativ")
 
-![Fliken mappning Visa fält som är mappade till kolumnerna i datauppsättningen](media/data-flow/multi1.png "flera alternativ")
+Om du vill återställa kolumn mappningarna väljer du **åter mappning**.
 
-Om du vill återställa din kolumnmappningarna, Välj **mappa**.
+![Fliken mottagare](media/data-flow/sink1.png "Mottagar en")
 
-![Fliken mottagare](media/data-flow/sink1.png "mottagare en")
+Välj **Verifiera schema** om du vill stoppa sinken om schemat ändras.
 
-Välj **verifiera schemat** misslyckas sink om schemat ändras.
+Välj **Rensa mappen** för att trunkera innehållet i mappen Sink innan du skriver målfiler i den målmappen.
 
-Välj **Rensa mappen** trunkera innehållet i mappen mottagare innan du skriver målfilerna i den målmappen.
+## <a name="rule-based-mapping"></a>Regel baserad mappning
+När du inaktiverar automatisk mappning kan du välja att lägga till en kolumnbaserade mappning (fast mappning) eller regelbaserade mappning. Med hjälp av regelbaserade mappningar kan du skriva uttryck med mönster matchning. 
 
-## <a name="file-name-options"></a>Alternativ för namn
+![Regel baserad mappning](media/data-flow/rules4.png "Regel baserad mappning")
 
-Ställ in filnamngivning: 
+När du väljer regelbaserade mappning instruerar du ADF att utvärdera matchnings uttrycket så att det matchar inkommande mönster regler och definierar de utgående fält namnen. Du kan lägga till valfri kombination av både fält-och regelbaserade mappningar. Fält namn genereras sedan vid körning med ADF baserat på inkommande metadata från källan. Du kan visa namnen på de genererade fälten under fel sökning och i fönstret data förhands granskning.
 
-   * **Standard**: Att Spark kan namnge filer baserat på standardinställningarna för en del.
-   * **Mönstret**: Ange ett mönster för din utdatafilerna. Till exempel **lån [n]** skapar loans1.csv, loans2.csv och så vidare.
-   * **Per partition**: Ange ett filnamn per partition.
+Information om mönster matchning finns i [kolumn mönster dokumentation](concepts-data-flow-column-pattern.md).
+
+## <a name="file-name-options"></a>Alternativ för fil namn
+
+Konfigurera fil namn: 
+
+   * **Standard**: Tillåt Spark att namnge filer baserat på del standarder.
+   * **Mönster**: Ange ett mönster för utdatafilerna. Till exempel kommer **lån [n]** att skapa loans1. csv, loans2. csv och så vidare.
+   * **Per partition**: Ange ett fil namn per partition.
    * **Som data i kolumnen**: Ange utdatafilen till värdet för en kolumn.
-   * **Utdata till en enskild fil**: Med det här alternativet kombineras ADF partitionerade utdatafilerna till en enda med namnet på filen. Om du vill använda det här alternativet om ska din datauppsättning matcha ett mappnamn. Dessutom var medveten om att den här sammanslagningsåtgärden kan eventuellt inte utifrån nodstorlek.
+   * **Utdata till en enda fil**: Med det här alternativet kombinerar ADF de partitionerade utdatafilerna till en enda namngiven fil. Om du vill använda det här alternativet bör data uppsättningen matcha till ett mappnamn. Tänk också på att den här sammanslagnings åtgärden kan sluta fungera baserat på Node-storlek.
 
 > [!NOTE]
-> Filen operations start endast när du kör aktiviteten kör dataflöde. De startar inte i Data flöda felsökningsläge.
+> Fil åtgärder startar bara när du kör aktiviteten kör data flöde. De startar inte i fel söknings läge för data flöde.
 
-## <a name="database-options"></a>Databasalternativ
+## <a name="database-options"></a>Databas alternativ
 
-Välj databasinställningar:
+Välj databas inställningar:
 
-* **Uppdatera metoden**: Standardvärdet är att tillåta infogningar. Rensa **Tillåt insert** om du vill stoppa att lägga till rader från källan. Om du vill uppdatera, upsert, eller ta bort rader, först lägga till en alter-raden transformering taggen rader för dessa åtgärder. 
-* **Återskapa tabellen**: Ta bort eller skapa din måltabellen innan dataflöde har slutförts.
-* **Trunkering tabell**: Ta bort alla rader från din måltabellen innan dataflöde har slutförts.
-* **Batchstorlek**: Ange ett tal till bucketen skrivningar i segment. Använd det här alternativet för stora databelastningar. 
-* **Aktivera mellanlagring**: Använd PolyBase när du läser in Azure Data Warehouse som din datauppsättning för mottagare.
+* **Uppdaterings metod**: Standardvärdet är att tillåta infogningar. Rensa **Tillåt infogning** om du vill sluta infoga nya rader från källan. Om du vill uppdatera, upsert eller ta bort rader måste du först lägga till en Alter-Row-omvandling för att tagga rader för dessa åtgärder. 
+* **Återskapa tabell**: Släpp eller skapa mål tabellen innan data flödet har slutförts.
+* **Trunkera tabell**: Ta bort alla rader från mål tabellen innan data flödet har slutförts.
+* **Batchstorlek**: Ange ett tal för Bucket skrivningar i segment. Använd det här alternativet för stora data inläsningar. 
+* **Aktivera mellanlagring**: Använd PolyBase när du läser in Azure Data Warehouse som din Sink-datauppsättning.
 
-![Fliken Inställningar som visar alternativ för SQL-mottagare](media/data-flow/alter-row2.png "SQL-alternativ")
-
-> [!NOTE]
-> I dataflöde, kan du dirigera Data Factory för att skapa en ny tabelldefinition i måldatabasen. Ange en datauppsättning för att skapa tabelldefinitionen, omvandling av den mottagare som har ett nytt tabellnamn. I SQL-datauppsättning nedan tabellnamnet, väljer **redigera** och ange ett nytt tabellnamn. Omvandling mottagare aktivera sedan **Tillåt schemat drift**. Ange **Importschema** till **ingen**.
-
-![Inställningarna för datauppsättningen för SQL, som visar var du redigera tabellnamnet](media/data-flow/dataset2.png "SQL-schemat")
+![Fliken Inställningar, som visar alternativ för SQL-mottagare](media/data-flow/alter-row2.png "SQL-alternativ")
 
 > [!NOTE]
-> När du uppdatera eller ta bort rader i databasen-mottagaren, måste du ange nyckelkolumn. Den här inställningen transformeringen alter rad att fastställa unik rad i data movement library (DML).
+> I data flöde kan du direkt Data Factory skapa en ny tabell definition i mål databasen. Skapa tabell definitionen genom att ange en data uppsättning i Sink-omvandlingen som har ett nytt tabell namn. I SQL-datauppsättningen, under tabell namnet, väljer du **Redigera** och anger ett nytt tabell namn. I omvandlingen för mottagare aktiverar du sedan **Tillåt schema avvikelse**. Ange **import schema** till **ingen**.
+
+![Inställningar för SQL-datauppsättning, som visar var du redigerar tabell namnet](media/data-flow/dataset2.png "SQL-schema")
+
+> [!NOTE]
+> När du uppdaterar eller tar bort rader i din databas mottagare måste du ange nyckel kolumnen. Med den här inställningen kan Alter-Row-omvandlingen bestämma den unika raden i data flyttnings biblioteket (DML).
 
 ## <a name="next-steps"></a>Nästa steg
-
-Nu när du har skapat ditt dataflöde, lägga till en [Data flödesaktivitet till din pipeline](concepts-data-flow-overview.md).
+Nu när du har skapat ditt data flöde lägger du till en [data flödes aktivitet i din pipeline](concepts-data-flow-overview.md).

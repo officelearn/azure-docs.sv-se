@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: b1aa8f2ce7d271187657d57993032069639ca9c7
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d3e4e0f4e7b1f8d3e100b3f1b3446907cfd587c5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404102"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716945"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Skicka meddelanden från moln till enhet med IoT Hub (Node)
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Skicka meddelanden från moln till enhet med IoT Hub (Node. js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -41,7 +41,7 @@ I slutet av den här självstudien kör du två Node. js-konsol program:
 * **SendCloudToDeviceMessage**, som skickar ett meddelande från moln till enhet till den simulerade Device-appen via IoT Hub, och sedan får leverans bekräftelse.
 
 > [!NOTE]
-> IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
+> IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java, python och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 >
 
 För att kunna genomföra den här kursen behöver du följande:
@@ -53,33 +53,26 @@ För att kunna genomföra den här kursen behöver du följande:
 
 I det här avsnittet ändrar du den simulerade Device-app som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md) för att ta emot meddelanden från molnet till enheten från IoT Hub.
 
-1. Öppna filen SimulatedDevice. js med hjälp av en text redigerare.
+1. Öppna filen **SimulatedDevice. js** med hjälp av en text redigerare. Den här filen finns i mappen **IoT-hub\Quickstarts\simulated-Device** av rotmappen i Node. js-exempel koden som du laddade ned i [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-node.md) -snabb start.
 
-2. Ändra funktionen **connectCallback** för att hantera meddelanden som skickas från IoT Hub. I det här exemplet anropar alltid enheten **fullständig** funktion för att meddela IoT Hub att meddelandet har bearbetats. Den nya versionen av **connectCallback** -funktionen ser ut som i följande kodfragment:
+2. Registrera en hanterare med enhets klienten för att ta emot meddelanden som skickas från IoT Hub. Lägg till anropet `client.on` strax efter den rad som skapar enhets klienten som i följande kodfragment:
 
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('complete error: ' + err.toString());
+        } else {
+          console.log('complete sent');
+        }
+      });
+    });
     ```
+
+    I det här exemplet anropar enheten funktionen **Complete** för att meddela IoT Hub att meddelandet har bearbetats. Anropet till **Complete** krävs inte om du använder MQTT-transport och kan utelämnas. Det krävs för HTTPS-och AMQP.
   
    > [!NOTE]
    > Om du använder HTTPS i stället för MQTT eller AMQP som transport söker **DeviceClient** -instansen efter meddelanden från IoT Hub sällan (mindre än var 25: e minut). Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd och IoT Hub begränsning finns i [IoT Hub Developer Guide](iot-hub-devguide-messaging.md).
@@ -93,7 +86,7 @@ I den här artikeln skapar du en backend-tjänst för att skicka meddelanden fr�
 
 ## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande från moln till enhet
 
-I det här avsnittet skapar du en Node. js-konsol som skickar meddelanden från molnet till enheten till den simulerade Device-appen. Du behöver enhets-ID för enheten som du har lagt till i [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-node.md) -snabb start. Du behöver också den IoT Hub-anslutningssträng som du kopierade tidigare i [Hämta anslutnings strängen för IoT Hub](#get-the-iot-hub-connection-string).
+I det här avsnittet skapar du en Node. js-konsol som skickar meddelanden från molnet till enheten till den simulerade Device-appen. Du behöver enhets-ID för enheten som du har lagt till i [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-node.md) -snabb start. Du behöver också den IoT Hub-anslutningssträng som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
 
 1. Skapa en tom mapp med namnet **sendcloudtodevicemessage**. I mappen **sendcloudtodevicemessage** skapar du en Package. JSON-fil med hjälp av följande kommando i kommando tolken. Acceptera alla standardvärden:
 
@@ -173,7 +166,7 @@ I det här avsnittet skapar du en Node. js-konsol som skickar meddelanden från 
 
 Nu är det dags att köra programmen.
 
-1. I kommando tolken i mappen **simulateddevice** kör du följande kommando för att skicka telemetri till IoT Hub och för att lyssna efter meddelanden från moln till enhet:
+1. I kommando tolken i mappen **simulerad enhet** kör du följande kommando för att skicka telemetri till IoT Hub och för att lyssna efter meddelanden från moln till enhet:
 
     ```shell
     node SimulatedDevice.js

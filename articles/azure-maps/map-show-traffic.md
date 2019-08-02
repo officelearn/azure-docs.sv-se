@@ -1,50 +1,50 @@
 ---
 title: Visa trafik med Azure Maps | Microsoft Docs
-description: Hur du vill visa trafikdata på en Javascript-karta
+description: Visa trafik data på en JavaScript-mappning
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/10/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7cd7c0dbb375dad78927183dbaffe574a0dc10c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55bfc434082b2d5b7de193e969fc34f710657cdb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768843"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638626"
 ---
 # <a name="show-traffic-on-the-map"></a>Visa trafik på kartan
 
-Den här artikeln visar hur du visar information om trafik och händelser på kartan.
+Den här artikeln visar hur du visar trafik-och incident information på kartan.
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-<iframe height='456' scrolling='no' title='Visa trafik på en karta' src='//codepen.io/azuremaps/embed/WMLRPw/?height=456&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>visar trafik på en karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='456' scrolling='no' title='Visa trafik på en karta' src='//codepen.io/azuremaps/embed/WMLRPw/?height=456&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Visa trafik på en karta</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan skapar första kodblocket en Kartobjekt. Du kan se [skapa en karta](map-create.md) anvisningar.
+I koden ovan skapar det första blocket kod ett kart objekt. Du kan se [skapa en karta](map-create.md) för instruktioner.
 
-Andra kodblocket använder [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) funktion i kartans [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funktionen att återge trafikflöden och incidenter på kartan.
+Det andra blocket kod använder funktionen [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) i mappningens [händelse avlyssnings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funktion för att återge trafikflödena och incidenterna på kartan.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Se följande artiklar för fullständig kodexempel:
-
-> [!div class="nextstepaction"]
-> [Exempelsida för kod](https://aka.ms/AzureMapsSamples)
-
-Förbättra din användarupplevelsen:
+I följande artiklar finns fullständiga kod exempel:
 
 > [!div class="nextstepaction"]
-> [Mappa interaktion med musen händelser](./map-events.md)
+> [Kod exempel sida](https://aka.ms/AzureMapsSamples)
+
+Förbättra användar upplevelsen:
 
 > [!div class="nextstepaction"]
-> [Att skapa en tillgänglig karta](./map-accessibility.md)
+> [Mappa interaktion med mus händelser](./map-events.md)
+
+> [!div class="nextstepaction"]
+> [Skapa en tillgänglig karta](./map-accessibility.md)

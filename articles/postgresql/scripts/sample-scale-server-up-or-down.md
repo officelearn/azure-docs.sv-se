@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-skript – Skala Azure Database for PostgreSQL
+title: Azure CLI-skript – skala och övervaka Azure Database for PostgreSQL
 description: Azure CLI-skriptexempel – Skala Azure Database for PostgreSQL-servern till en annan prestandanivå när du har kört frågor mot måtten.
 author: rachel-msft
 ms.author: raagyema
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 04/05/2018
-ms.openlocfilehash: 65958eb1e2d7cc4492e0437b24db77f00ebc7eba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/01/2019
+ms.openlocfilehash: 6e1b6e5b09a3b9f3da5760fc50c531ee524dc8d4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154530"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728764"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Övervaka och skala en enskild PostgreSQL-server med Azure CLI
-Det här CLI-exempelskriptet skalar en enda Azure Database for PostgreSQL-servern till en annan prestandanivå när du har kört frågor mot måtten. 
+Det här CLI-skriptet skalar beräkning och lagring för en enskild Azure Database for PostgreSQL Server efter att ha frågat måtten. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,11 +36,12 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 | **Kommando** | **Anteckningar** |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [az postgres server create](/cli/azure/postgres/server) | Skapar en PostgreSQL-server som är värd för databaserna. |
+| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | Skapar en PostgreSQL-server som är värd för databaserna. |
+| [AZ postgres Server Update](/cli/azure/postgres/server#az-postgres-server-update) | Uppdaterar egenskaperna för PostgreSQL-servern. |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | Lista mätvärdet för resurserna. |
 | [az group delete](/cli/azure/group) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure)
+- Läs mer om [Azure Database for PostgreSQL beräkning och lagring](../concepts-pricing-tiers.md)
 - Prova ytterligare skript: [Azure CLI-exempel för Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
-- Läs mer om skalning: [Tjänstnivåer](../concepts-service-tiers.md) samt [beräkningsenheter och lagringsenheter](../concepts-compute-unit-and-storage.md)
+- Läs mer om [Azure CLI](/cli/azure)

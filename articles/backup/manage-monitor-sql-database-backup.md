@@ -1,18 +1,18 @@
 ---
 title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator som säkerhets kopie ras av Azure Backup | Microsoft Docs
 description: Den här artikeln beskriver hur du hanterar och övervakar SQL Server databaser som körs på en virtuell Azure-dator.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: raynew
-ms.openlocfilehash: 0a864382e54f5c8641aa6da2369eb914011c712c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464873"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639581"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -137,7 +137,7 @@ Avregistrera en SQL Server instans när du har inaktiverat skyddet, men innan du
 
 3. I **skyddade servrar**väljer du den server som ska avregistreras. Om du vill ta bort valvet måste du avregistrera alla servrar.
 
-4. Högerklicka på den skyddade servern och välj avregistrera .
+4. Högerklicka på den skyddade servern och välj avregistrera.
 
    ![Välja Ta bort](./media/backup-azure-sql-database/delete-protected-server.jpg)
 

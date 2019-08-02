@@ -1,6 +1,6 @@
 ---
-title: Begrepp - nätverk i Azure Kubernetes-tjänster (AKS)
-description: Läs mer om nätverk i Azure Kubernetes Service (AKS), inklusive kubenet och Azure CNI nätverk, ingående domänkontrollanter, belastningsutjämnare och statiska IP-adresser.
+title: Koncept – nätverk i Azure Kubernetes Services (AKS)
+description: Lär dig mer om nätverk i Azure Kubernetes service (AKS), inklusive Kubernetes och Azure CNI Networking, ingress controllers, belastningsutjämnare och statiska IP-adresser.
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,157 +8,157 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
 ms.openlocfilehash: 459c11448280b63bafdfd54c13a6cad5983ef1b5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67615883"
 ---
-# <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverkskoncept för program i Azure Kubernetes Service (AKS)
+# <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
-I en behållarbaserad mikrotjänster metod för utveckling av måste programkomponenter samarbeta för att bearbeta sina uppgifter. Kubernetes tillhandahåller olika resurser som gör det här programmets kommunikation. Du kan ansluta till och exponera program internt eller externt. Om du vill skapa program med hög tillgänglighet kan du läsa in balansera dina program. Mer komplexa program kan kräva konfiguration av inkommande trafik för SSL/TLS-avslutning eller Routning av flera komponenter. Av säkerhetsskäl kan du också behöva begränsa flödet av nätverkstrafik till eller mellan poddar och noder.
+I en container-baserad mikrotjänster-metod för program utveckling måste program komponenterna arbeta tillsammans för att bearbeta sina uppgifter. Kubernetes tillhandahåller olika resurser som möjliggör den här program kommunikationen. Du kan ansluta till och exponera program internt eller externt. Om du vill bygga program med hög tillgänglighet kan du belastningsutjämna dina program. Mer komplexa program kan kräva konfiguration av inkommande trafik för SSL/TLS-avslutning eller routning av flera komponenter. Av säkerhets skäl kan du också behöva begränsa flödet av nätverks trafik till eller mellan poddar och noder.
 
-Den här artikeln innehåller grundläggande begrepp som tillhandahåller nätverk till dina program i AKS:
+I den här artikeln beskrivs de grundläggande koncepten som ger nätverk till dina program i AKS:
 
 - [Tjänster](#services)
-- [Azure-nätverk](#azure-virtual-networks)
-- [Ingress-styrenheter](#ingress-controllers)
-- [Nätverksprinciper](#network-policies)
+- [Virtuella Azure-nätverk](#azure-virtual-networks)
+- [Ingress-kontroller](#ingress-controllers)
+- [Nätverks principer](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Grundläggande om Kubernetes
 
-För att tillåta åtkomst till dina program eller om programkomponenter som ska kommunicera med varandra, tillhandahåller Kubernetes ett Abstraktionslager för virtuella nätverk. Kubernetes-noderna är anslutna till ett virtuellt nätverk och kan tillhandahålla inkommande och utgående anslutningar till poddar. Den *kube-proxy* komponenten körs på alla noder att tillhandahålla dessa nätverks-funktioner.
+För att tillåta åtkomst till dina program, eller för att program komponenter ska kunna kommunicera med varandra, tillhandahåller Kubernetes ett abstraktions lager för virtuella nätverk. Kubernetes-noder är anslutna till ett virtuellt nätverk och kan tillhandahålla inkommande och utgående anslutning för poddar. Komponenten *Kube-proxy* körs på varje nod för att tillhandahålla de här nätverks funktionerna.
 
-I Kubernetes, *Services* gruppera poddarna för direkt åtkomst via en IP-adress eller DNS-namn och på en viss port. Du kan även distribuera trafik med hjälp av en *belastningsutjämnare*. Mer komplex routning av programtrafik kan även uppnås med *Ingress-styrenheter*. Säkerhet och filtrering av nätverkstrafik för poddar som är möjligt med Kubernetes *nätverksprinciper* (i förhandsversion i AKS).
+I Kubernetes grupperar *tjänster* logiskt poddar för att tillåta direkt åtkomst via en IP-adress eller DNS-namn och på en speciell port. Du kan också distribuera trafik med hjälp av en *belastningsutjämnare*. Mer komplex routning av program trafik kan också uppnås med ingångs *enheter*. Säkerhet och filtrering av nätverks trafik för poddar är möjlig med Kubernetes- *nätverks principer* (i för hands versionen i AKS).
 
-Azure-plattformen hjälper också till att förenkla virtuella nätverk för AKS-kluster. När du skapar en belastningsutjämnare för Kubernetes är underliggande Azure belastningsutjämningsresursen skapas och konfigureras. När du öppnar nätverksportar till poddar konfigureras de motsvarande Azure reglerna för nätverkssäkerhetsgrupper. För HTTP-routning för program, Azure kan också konfigurera *externa DNS* som ny inkommande vägar har konfigurerats.
+Azure-plattformen hjälper också till att förenkla virtuella nätverk för AKS-kluster. När du skapar en Kubernetes-belastningsutjämnare skapas och konfigureras den underliggande Azure Load Balancer-resursen. När du öppnar nätverks portar till poddar konfigureras motsvarande regler för Azure nätverks säkerhets grupper. För HTTP-programroutning kan Azure också konfigurera *extern DNS* eftersom nya ingress-vägar konfigureras.
 
 ## <a name="services"></a>Tjänster
 
-För att förenkla nätverkskonfiguration för programarbetsbelastningar Kubernetes använder *Services* logiskt kan gruppera en uppsättning poddar och ange nätverksanslutning. Följande typer av tjänsten är tillgängliga:
+För att förenkla nätverks konfigurationen för program arbets belastningar använder Kubernetes *tjänster* för att logiskt gruppera en uppsättning poddar tillsammans och tillhandahålla nätverks anslutning. Följande tjänst typer är tillgängliga:
 
-- **Kluster-IP** -skapar en intern IP-adress för användning i AKS-klustret. Bra för interna program som har stöd för andra arbetsbelastningar i klustret.
+- **Kluster-IP** – skapar en intern IP-adress som ska användas i AKS-klustret. Lämpar sig för interna program som har stöd för andra arbets belastningar i klustret.
 
-    ![Diagram över klustrets IP-trafikflödet i ett AKS-kluster][aks-clusterip]
+    ![Diagram över kluster-IP-trafikflöde i ett AKS-kluster][aks-clusterip]
 
-- **NodePort** -skapar en portmappning på den underliggande nod som gör att program som kan nås direkt med noden IP-adress och port.
+- **NodePort** – skapar en port mappning på den underliggande noden som gör att programmet kan nås direkt med nodens IP-adress och port.
 
-    ![Diagram över NodePort trafikflödet i ett AKS-kluster][aks-nodeport]
+    ![Diagram som visar NodePort trafikflöde i ett AKS-kluster][aks-nodeport]
 
-- **LoadBalancer** – skapar en Azure load balancer-resurs, konfigurerar en extern IP-adress och ansluter de begärda poddarna till belastningsutjämnarens serverdelspool. Om du vill tillåta för kunder att skapas räckvidd programmet, regler för belastningsutjämning på önskad portar. 
+- **Loadbalancer** -skapar en Azure Load Balancer-resurs, konfigurerar en extern IP-adress och ansluter de begärda poddar till backend-poolen för belastningsutjämnare. För att tillåta kund trafik att komma åt programmet skapas belastnings Utjämnings regler på önskade portar. 
 
-    ![Diagram över belastningsutjämnare trafikflödet i ett AKS-kluster][aks-loadbalancer]
+    ![Diagram som visar Load Balancer trafikflöde i ett AKS-kluster][aks-loadbalancer]
 
-    För ytterligare kontroll och routning av inkommande trafik, kan du i stället använda en [Ingress-kontrollant](#ingress-controllers).
+    För ytterligare kontroll och routning av inkommande trafik kan du i stället använda en ingångs [kontroll](#ingress-controllers).
 
-- **ExternalName** -skapar en specifik DNS-post för enklare programåtkomst.
+- **ExternalName** – skapar en specifik DNS-post för enklare program åtkomst.
 
-IP-adressen för belastningsutjämnare och tjänster kan tilldelas dynamiskt eller ange en befintlig statisk IP-adress som du använder. Både interna och externa statiska IP-adresser kan tilldelas. Den här befintlig statisk IP-adress är ofta kopplat till en DNS-post.
+IP-adressen för belastningsutjämnare och tjänster kan tilldelas dynamiskt, eller så kan du ange en befintlig statisk IP-adress som ska användas. Både interna och externa statiska IP-adresser kan tilldelas. Den här befintliga statiska IP-adressen är ofta kopplad till en DNS-post.
 
-Båda *interna* och *externa* belastningsutjämnare kan skapas. Interna belastningsutjämnare endast har tilldelats en privat IP-adress, så kan inte nås från Internet.
+Både *interna* och *externa* belastningsutjämnare kan skapas. Interna belastningsutjämnare tilldelas bara en privat IP-adress, så det går inte att komma åt dem från Internet.
 
 ## <a name="azure-virtual-networks"></a>Azures virtuella nätverk
 
-I AKS, kan du distribuera ett kluster som använder någon av följande två modeller:
+I AKS kan du distribuera ett kluster som använder någon av följande två nätverks modeller:
 
-- *Kubenet* nätverket - nätverket resurser skapas och konfigureras enligt AKS-klustret distribueras normalt.
-- *Azure Container nätverk gränssnitt (CNI)* nätverk – The AKS-kluster är ansluten till befintliga virtuella nätverksresurser och konfigurationer.
+- *Kubernetes* -nätverk – nätverks resurserna skapas och konfigureras vanligt vis när AKS-klustret distribueras.
+- Nätverk för *Azure Container Network Interface (cni)* – AKS-klustret är anslutet till befintliga virtuella nätverks resurser och konfigurationer.
 
-### <a name="kubenet-basic-networking"></a>Kubenet (grundläggande) nätverk
+### <a name="kubenet-basic-networking"></a>Kubernetes (grundläggande) nätverk
 
-Den *kubenet* nätverk alternativet är standardkonfigurationen för att skapa för AKS-kluster. Med *kubenet*, noder hämta en IP-adress från det virtuella Azure-undernätet. Poddar ta emot en IP-adress från en logiskt olika adressutrymmen till undernätet för Azure-nätverk av noderna. Network adress translation (NAT) konfigureras sedan så att poddarna kan nå resurser på Azure-nätverket. Källans IP-adress av trafiken är skulle NAT till nodens primära IP-adress.
+Alternativet *Kubernetes* Networking är standard konfigurationen för skapande av AKS-kluster. Med *Kubernetes*hämtar noder en IP-adress från det virtuella nätverkets undernät i Azure. Poddar tar emot en IP-adress från ett logiskt annorlunda adress utrymme till nodernas virtuella Azure-undernät. NAT (Network Address Translation) konfigureras sedan så att poddar kan komma åt resurser i det virtuella Azure-nätverket. Käll-IP-adressen för trafiken är NAT till nodens primära IP-adress.
 
-Noder använder den [kubenet][kubenet] Kubernetes-plugin-programmet. Du kan låta Azure-plattformen skapa och konfigurera de virtuella nätverken för dig eller välja att distribuera din AKS-kluster till ett befintligt undernät för virtuellt nätverk. Återigen endast noderna får en dirigerbara IP-adress och poddarna använder NAT för att kommunicera med andra resurser utanför AKS-klustret. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverk kan poddar att använda.
+Noder använder plugin-programmet [Kubernetes][kubenet] Kubernetes. Du kan låta Azure-plattformen skapa och konfigurera de virtuella nätverken åt dig, eller välja att distribuera ditt AKS-kluster till ett befintligt undernät för virtuella nätverk. Återigen får bara noderna en IP-adress med IP-adresser och poddar använder NAT för att kommunicera med andra resurser utanför AKS-klustret. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverks utrymme för att poddar ska kunna användas.
 
-Mer information finns i [konfigurera kubenet nätverk för ett AKS-kluster][aks-configure-kubenet-networking].
+Mer information finns i [Konfigurera Kubernetes-nätverk för ett AKS-kluster][aks-configure-kubenet-networking].
 
-### <a name="azure-cni-advanced-networking"></a>Azure CNI (Avancerat)-nätverk
+### <a name="azure-cni-advanced-networking"></a>Azure CNI (avancerat) nätverk
 
-Med Azure CNI varje pod får en IP-adress från undernätet och kan nås direkt. Dessa IP-adresser måste vara unikt för ditt adressutrymme för nätverket och måste planeras i förväg. Varje nod har en konfigurationsparameter för det maximala antalet poddar som stöds. Det motsvarande antalet IP-adresser per nod reserveras sedan direkt för noden. Den här metoden kräver planering, som annars kan leda till IP-adress överbelastning eller att behöva återskapa kluster i ett större undernät allteftersom dina behov växer.
+Med Azure CNI hämtar varje Pod en IP-adress från under nätet och kan nås direkt. De här IP-adresserna måste vara unika i ditt nätverks utrymme och måste planeras i förväg. Varje nod har en konfigurations parameter för det maximala antalet poddar som stöds. Motsvarande antal IP-adresser per nod är sedan reserverade för den noden. Den här metoden kräver mer planering, som annars kan leda till IP-adressundernät eller behöver återskapa kluster i ett större undernät när ditt program kräver större belastning.
 
-Noder använder den [Azure behållare nätverk gränssnitt (CNI)][cni-networking] Kubernetes-plugin-programmet.
+Noder använder Kubernetes [-plugin-programmet för Azure Container Network Interface (cni)][cni-networking] .
 
-![Diagram över två noder med bryggor ansluta dem till ett enda Azure virtuellt nätverk][advanced-networking-diagram]
+![Diagram som visar två noder med bryggor som ansluter var och en till ett enda Azure VNet][advanced-networking-diagram]
 
-Mer information finns i [konfigurera Azure CNI för ett AKS-kluster][aks-configure-advanced-networking].
+Mer information finns i [Konfigurera Azure-cni för ett AKS-kluster][aks-configure-advanced-networking].
 
-### <a name="compare-network-models"></a>Jämför modeller för nätverk
+### <a name="compare-network-models"></a>Jämför nätverks modeller
 
-Både kubenet och Azure CNI ger nätverksanslutning för AKS-kluster. Det finns emellertid fördelar och nackdelar för varje. På hög nivå gäller följande överväganden:
+Både Kubernetes och Azure CNI ger nätverks anslutning till dina AKS-kluster. Det finns dock fördelar och nack delar med var och en. På hög nivå gäller följande aspekter:
 
 * **kubenet**
-    * Sparar IP-adressutrymme.
-    * Använder Kubernetes interna eller externa belastningsutjämnare för att nå poddar från utanför klustret.
-    * Du måste manuellt hantera och underhålla användardefinierade vägar (Udr).
+    * Bevarar IP-adressutrymmet.
+    * Använder intern eller extern belastningsutjämnare i Kubernetes för att uppnå poddar utanför klustret.
+    * Du måste manuellt hantera och underhålla användardefinierade vägar (UDR).
     * Högst 400 noder per kluster.
 * **Azure CNI**
-    * Poddar få fullständig virtuell nätverksanslutning och direkt kan nås från utanför klustret.
+    * Poddar får fullständig virtuell nätverks anslutning och kan nås direkt från utsidan av klustret.
     * Kräver mer IP-adressutrymme.
 
-Följande beteende skillnader finns mellan kubenet och Azure CNI:
+Det finns följande skillnader mellan Kubernetes och Azure CNI:
 
-| Funktion                                                                                   | Kubenet   | Azure CNI |
+| Funktion                                                                                   | Kubernetes   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
-| Distribuera kluster i befintliga eller nya virtuella nätverket                                            | Stöd för: Udr använde manuellt | Stöds |
-| Pod-pod-anslutning                                                                         | Stöds | Stöds |
-| Pod-VM-anslutning; Virtuell dator i samma virtuella nätverk                                          | Fungerar när initieras av poddar | Fungerar åt båda hållen |
-| Pod-VM-anslutning; Virtuella datorer i peer-kopplade virtuella nätverk                                            | Fungerar när initieras av poddar | Fungerar åt båda hållen |
-| Lokal åtkomst med VPN eller Express Route                                                | Fungerar när initieras av poddar | Fungerar åt båda hållen |
-| Åtkomst till resurser som skyddas av Tjänsteslutpunkter                                             | Stöds | Stöds |
-| Visa Kubernetes-tjänster som använder en load balancer tjänst eller App Gateway ingående styrenhet | Stöds | Stöds |
-| Azure DNS och privata zoner                                                          | Stöds | Stöds |
+| Distribuera kluster i befintligt eller nytt virtuellt nätverk                                            | Stödd-UDR manuellt tillämpat | Stöds |
+| Pod – Pod-anslutning                                                                         | Stöds | Stöds |
+| Pod – VM-anslutning; Virtuell dator i samma virtuella nätverk                                          | Fungerar när det initieras av Pod | Fungerar på båda sätten |
+| Pod – VM-anslutning; Virtuell dator i peer-kopplat virtuellt nätverk                                            | Fungerar när det initieras av Pod | Fungerar på båda sätten |
+| Lokal åtkomst med hjälp av VPN eller Express Route                                                | Fungerar när det initieras av Pod | Fungerar på båda sätten |
+| Åtkomst till resurser som skyddas av tjänst slut punkter                                             | Stöds | Stöds |
+| Exponera Kubernetes Services med hjälp av en belastningsutjämnare, app-gateway eller ingångs kontroll | Stöds | Stöds |
+| Standard Azure DNS och privata zoner                                                          | Stöds | Stöds |
 
-### <a name="support-scope-between-network-models"></a>Supportens omfattning mellan nätverk modeller
+### <a name="support-scope-between-network-models"></a>Support omfattning mellan nätverks modeller
 
-Oavsett modellen nätverk du använder kan både kubenet och Azure CNI distribueras på något av följande sätt:
+Oavsett vilken nätverks modell du använder kan både Kubernetes och Azure CNI distribueras på något av följande sätt:
 
-* Azure-plattformen kan automatiskt skapa och konfigurera de virtuella nätverksresurserna när du skapar ett AKS-kluster.
-* Du kan manuellt skapa och konfigurera de virtuella nätverksresurserna och kopplas till dessa resurser när du skapar AKS-klustret.
+* Azure-plattformen kan automatiskt skapa och konfigurera virtuella nätverks resurser när du skapar ett AKS-kluster.
+* Du kan manuellt skapa och konfigurera virtuella nätverks resurser och koppla dem till resurserna när du skapar ditt AKS-kluster.
 
-Även om funktioner som Tjänsteslutpunkter eller udr: er stöds med både kubenet och Azure CNI den [stöder principer för AKS][support-policies] definierar vilka ändringar som du kan göra. Exempel:
+Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Exempel:
 
-* Om du manuellt skapa virtuella nätverksresurser för ett AKS-kluster stöds när du konfigurerar dina egna udr: er eller Tjänsteslutpunkter.
-* Om Azure-plattformen automatiskt skapar virtuella nätverksresurser för AKS-klustret, går den inte att manuellt ändra dessa AKS-hanterade resurser för att konfigurera din egen udr: er eller Tjänsteslutpunkter.
+* Om du skapar virtuella nätverks resurser manuellt för ett AKS-kluster, så kan du använda dem när du konfigurerar dina egna UDR-eller tjänst slut punkter.
+* Om Azure-plattformen automatiskt skapar de virtuella nätverks resurserna för ditt AKS-kluster, stöds det inte för att manuellt ändra de AKS-hanterade resurserna för att konfigurera dina egna UDR-eller tjänst slut punkter.
 
-## <a name="ingress-controllers"></a>Ingress-styrenheter
+## <a name="ingress-controllers"></a>Ingress-kontroller
 
-När du skapar en LoadBalancer typ Service skapas en underliggande Azure belastningsutjämningsresursen. Belastningsutjämnaren har konfigurerats för att distribuera trafik till poddarna i din tjänst på en viss port. LoadBalancer-fungerar bara på layer 4 - tjänsten är inte medveten om faktiska program och kan inte göra några ytterligare överväganden för routning.
+När du skapar en LoadBalancer-typ tjänst skapas en underliggande resurs för Azure Load Balancer. Belastningsutjämnaren konfigureras för att distribuera trafik till poddar i din tjänst på en specifik port. LoadBalancer fungerar endast på nivå 4 – tjänsten är inte medveten om de faktiska programmen och kan inte göra några ytterligare Dirigerings överväganden.
 
-*Ingress-styrenheter* fungerar på lager 7 och smartare regler kan använda för att distribuera trafik. Ett vanligt användningsområde för Ingress-kontrollant är att dirigera HTTP-trafik till olika program baserat på inkommande URL.
+*Ingress-kontroller* fungerar på nivå 7 och kan använda mer intelligenta regler för att distribuera program trafik. En vanlig användning av en ingångs kontroll är att dirigera HTTP-trafik till olika program baserat på den inkommande URL: en.
 
-![Diagram över ingående trafikflödet i ett AKS-kluster][aks-ingress]
+![Diagram över ingress trafikflöde i ett AKS-kluster][aks-ingress]
 
-I AKS, kan du skapa en Ingress-resurs med något som NGINX eller använda funktionen AKS HTTP programmet routning. När du aktiverar HTTP programmet routning för ett AKS-kluster kan Azure-plattformen skapar Ingress-kontrollanten och en *externt DNS* controller. Då nya Ingress-resurser skapas i Kubernetes, skapas de nödvändiga DNS A-posterna i en klusterspecifika DNS-zon. Mer information finns i [distribuera routning av HTTP-programmet][aks-http-routing].
+I AKS kan du skapa en ingress-resurs med hjälp av något som NGINX, eller använda funktionen för att dirigera HTTP-program. När du aktiverar HTTP-programroutning för ett AKS-kluster skapar Azure-plattformen ingångs styrenheten och en *extern DNS-* styrenhet. När nya ingångs resurser skapas i Kubernetes skapas de DNS-poster som krävs i en klustrad DNS-zon. Mer information finns i [distribuera HTTP-programroutning][aks-http-routing].
 
-En annan vanlig funktion för ingång är SSL/TLS-avslutning. I stora webbprogram som kan nås via HTTPS, kan TLS-avslutning hanteras av Ingress-resursen inte själva programmet. Du kan konfigurera Ingress-resurs för att använda leverantörer som krypterar vi för att tillhandahålla automatisk generering av TLS-certifiering och konfiguration. Läs mer om hur du konfigurerar en NGINX-Ingress-kontrollant med ska vi kryptera [Ingångshändelser och TLS][aks-ingress-tls].
+En annan vanlig funktion i ingress är SSL/TLS-avslutning. I stora webb program som nås via HTTPS kan TLS-terminering hanteras av den ingående resursen i stället för i själva programmet. För att tillhandahålla automatisk generering och konfiguration av TLS-certifiering kan du konfigurera ingångs resursen så att leverantörer kan använda providers, till exempel för att kryptera. Mer information om hur du konfigurerar en NGINX ingress-styrenhet med att kryptera finns i [ingress och TLS][aks-ingress-tls].
 
-Du kan också konfigurera ingress-kontrollanten för att bevara klienten käll-IP för förfrågningar till behållare i AKS-klustret. När en klientbegäran dirigeras till en behållare i AKS-klustret via ingress-kontrollant, ursprunglig käll-ip för begäran inte tillgängliga för en målbehållare. När du aktiverar *klienten källa IP konservering*, käll-IP för klienten är tillgänglig i rubriken under *X vidarebefordras för*. Om du använder klienten källa IP konservering på ingress-kontrollant, kan du inte använda SSL direkt. Klienten källa IP bevara och SSL direkt kan användas med andra tjänster, till exempel den *LoadBalancer* typen.
+Du kan också konfigurera ingångs styrenheten för att bevara klientens käll-IP på begär anden till behållare i ditt AKS-kluster. När en klients begäran dirigeras till en behållare i ditt AKS-kluster via din ingångs kontroll, kommer den ursprungliga käll-IP: en för den begäran inte att vara tillgänglig för mål behållaren. När du aktiverar *IP-konservering för klient källa*är käll-IP: en för klienten tillgänglig i begär ande huvudet under *X-forwarded-for*. Om du använder IP-konservering för klient källa på din ingångs kontroll kan du inte använda SSL-vidarekoppling. Klientens IP-konservering och SSL-vidarekoppling kan användas med andra tjänster, till exempel *Loadbalancer* -typen.
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 
-En nätverkssäkerhetsgrupp filtrerar trafik för virtuella datorer, till exempel AKS-noder. När du skapar tjänster, till exempel en LoadBalancer konfigurerar Azure-plattformen automatiskt alla regler för nätverkssäkerhetsgrupper som krävs. Inte manuellt konfigurera regler för nätverkssäkerhetsgrupper för att filtrera trafik för poddar i ett AKS-kluster. Definiera alla nödvändiga portar och vidarebefordran som en del av Kubernetes Service-manifest och låt Azure-plattformen skapa eller uppdatera lämpliga regler. Du kan också använda principer för nätverk, enligt beskrivningen i nästa avsnitt, att automatiskt tillämpa filter trafikregler på poddar.
+En nätverks säkerhets grupp filtrerar trafik för virtuella datorer, till exempel AKS-noder. När du skapar tjänster, till exempel en LoadBalancer, konfigurerar Azure-plattformen automatiskt eventuella regler för nätverks säkerhets grupper som behövs. Konfigurera inte nätverks säkerhets grupp regler manuellt för att filtrera trafik för poddar i ett AKS-kluster. Definiera nödvändiga portar och vidarebefordran som en del av dina Kubernetes-tjänst manifest och låt Azure-plattformen skapa eller uppdatera lämpliga regler. Du kan också använda nätverks principer, enligt beskrivningen i nästa avsnitt, för att automatiskt tillämpa trafik filter regler på poddar.
 
-## <a name="network-policies"></a>Nätverksprinciper
+## <a name="network-policies"></a>Nätverks principer
 
-Som standard kan alla poddar i ett AKS-kluster skicka och ta emot trafik utan begränsningar. För ökad säkerhet kan du definiera regler som styr flödet av trafik. Serverdelsprogrammen exponeras ofta bara till nödvändiga frontend-tjänster eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
+Som standard kan alla poddar i ett AKS-kluster skicka och ta emot trafik utan begränsningar. För ökad säkerhet kan du vilja definiera regler som styr flödet av trafik. Backend-program exponeras ofta bara för nödvändiga frontend-tjänster, eller databas komponenter är bara tillgängliga för de program nivåer som ansluter till dem.
 
-Nätverksprincip är en funktion för Kubernetes som är tillgängliga i AKS som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Nätverkssäkerhetsgrupper är mer för AKS-noder inte poddar. Användningen av principer för nätverk är ett mer passande och molnbaserade sätt att styra flödet av trafik. Då poddar skapas dynamiskt i ett AKS-kluster, kan de nödvändiga nätverksprinciperna tillämpas automatiskt.
+Nätverks principen är en Kubernetes-funktion som är tillgänglig i AKS som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar som tilldelad etikett, namnrymd eller trafik port. Nätverks säkerhets grupper är mer för AKS-noderna, inte poddar. Användningen av nätverks principer är ett mer lämpligt, moln sätt att styra trafik flödet. Allteftersom poddar skapas dynamiskt i ett AKS-kluster kan de nödvändiga nätverks principerna tillämpas automatiskt.
 
-Mer information finns i [skydda trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)][use-network-policies].
+Mer information finns i [skydda trafik mellan poddar med hjälp av nätverks principer i Azure Kubernetes service (AKS)][use-network-policies].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Att komma igång med AKS nätverk, skapa och konfigurera ett AKS-kluster med dina egna IP-adressintervall med hjälp av [kubenet][aks-configure-kubenet-networking] or [Azure CNI][aks-configure-advanced-networking].
+Kom igång med AKS-nätverk genom att skapa och konfigurera ett AKS-kluster med dina egna IP-adressintervall med hjälp av [Kubernetes][aks-configure-kubenet-networking] eller [Azure cni][aks-configure-advanced-networking].
 
-Associerade metodtips finns [bästa praxis för nätverksanslutning och säkerhet i AKS][operator-best-practices-network].
+För associerade metod tips, se [metod tips för nätverks anslutning och säkerhet i AKS][operator-best-practices-network].
 
-Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
+Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 
-- [Kubernetes / AKS-kluster och arbetsbelastningar][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS åtkomst och identitet][aks-concepts-identity]
-- [Kubernetes / AKS-säkerhet][aks-concepts-security]
-- [Kubernetes / AKS-lagring][aks-concepts-storage]
-- [Kubernetes / AKS skala][aks-concepts-scale]
+- [Kubernetes/AKS-kluster och arbets belastningar][aks-concepts-clusters-workloads]
+- [Kubernetes/AKS-åtkomst och identitet][aks-concepts-identity]
+- [Kubernetes/AKS-säkerhet][aks-concepts-security]
+- [Kubernetes/AKS-lagring][aks-concepts-storage]
+- [Kubernetes/AKS-skala][aks-concepts-scale]
 
 <!-- IMAGES -->
 [aks-clusterip]: ./media/concepts-network/aks-clusterip.png

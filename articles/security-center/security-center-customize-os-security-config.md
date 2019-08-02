@@ -1,6 +1,6 @@
 ---
-title: Anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion) | Microsoft Docs
-description: Den här artikeln visar hur du anpassar security center utvärderingar
+title: Anpassa OS-säkerhetskonfigurationer i Azure Security Center (för hands version) | Microsoft Docs
+description: Den här artikeln visar hur du anpassar Security Center-utvärderingar
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,112 +14,112 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551373"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662481"
 ---
-# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)
+# <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Anpassa OS-säkerhetskonfigurationer i Azure Security Center (dras tillbaka)
 
-Den här genomgången visar hur du anpassar OS configuration säkerhetsutvärderingar i Azure Security Center.
+Den här genom gången visar hur du anpassar utvärderingar av säkerhets konfiguration för operativ system (för hands version) i Azure Security Center.
 
 > [!NOTE]
-> Möjligheten att anpassa OS-säkerhetskonfigurationer tas ur bruk 31 juli 2019. Mer information och alternativa tjänster finns i [tillbakadragning av Security Center-funktioner (juli 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+> Möjligheten att anpassa OS-säkerhetskonfigurationer (förhands gransknings funktion) har dragits tillbaka den 31 juli 2019. Mer information och alternativa tjänster finns i [dra tillbaka Security Center funktioner (2019 juli)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
 
-## <a name="what-are-os-security-configurations"></a>Vad är OS-säkerhetskonfigurationer?
+## <a name="what-are-os-security-configurations"></a>Vad är säkerhets konfiguration för operativ system?
 
 Azure Security Center övervakar säkerhetskonfigurationer med hjälp av en uppsättning på [fler än 150 rekommenderade regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för att härda operativsystemet, inklusive regler för brandväggar, granskning, lösenordsprinciper med mera. Om en sårbar konfiguration hittas på en dator, genererar Security Center en säkerhetsrekommendation.
 
-Organisationer kan genom att anpassa regler kan styra vilka konfigurationsalternativ passar bättre för deras miljö. Du kan ange en princip för anpassad bedömning och tillämpa den på alla tillämpliga datorer i prenumerationen.
+Genom att anpassa reglerna kan organisationer styra vilka konfigurations alternativ som är lämpliga för deras miljö. Du kan ange en anpassad utvärderings princip och sedan tillämpa den på alla tillämpliga datorer i prenumerationen.
 
 > [!NOTE]
-> - Anpassning av OS-säkerhetskonfiguration är för närvarande tillgänglig för Windows Server 2008, 2008 R2, 2012, 2012 R2 och 2016 operating system.
-> - Det gäller konfigurationen för alla virtuella datorer och datorer som är anslutna till alla arbetsytor under den valda prenumerationen.
-> - Operativsystemanpassning security configuration är endast tillgänglig på Security Center standard-nivån.
+> - För närvarande är anpassning av säkerhets konfigurationen för operativ systemet tillgängligt för Windows Server-versionerna 2008, 2008 R2, 2012, 2012 R2 och 2016 operativ system.
+> - Konfigurationen gäller för alla virtuella datorer och datorer som är anslutna till alla arbets ytor under den valda prenumerationen.
+> - Anpassning av säkerhets konfiguration för operativ system är bara tillgängligt på Security Center standard nivå.
 >
 >
 
-Du kan anpassa konfigurationsregler för OS-säkerhet genom att aktivera och inaktivera en specifik regel, ändra önskade inställningen för en befintlig regel eller att lägga till en ny regel som baseras på stöds regeltyper (register, granskningsprincip och säkerhetsprincip). För närvarande måste på önskad inställning vara ett exakt värde.
+Du kan anpassa säkerhets konfigurations reglerna för operativ systemet genom att aktivera och inaktivera en speciell regel, ändra den önskade inställningen för en befintlig regel eller lägga till en ny regel som baseras på de regel typer som stöds (register, gransknings princip och säkerhets princip). För närvarande måste den önskade inställningen vara ett exakt värde.
 
-Nya regler måste finnas i samma format och struktur som andra befintliga regler och av samma typ.
+Nya regler måste ha samma format och struktur som andra befintliga regler av samma typ.
 
 > [!NOTE]
-> Om du vill anpassa OS-säkerhetskonfigurationer, måste du vara tilldelad rollen *Prenumerationsägaren*, *Prenumerationsdeltagare*, eller *säkerhetsadministratör*.
+> Om du vill anpassa OS-säkerhetskonfigurationer måste du ha tilldelats rollen som *prenumerations ägare*, *prenumerations deltagare*eller *säkerhets administratör*.
 >
 >
 
-## <a name="customize-the-default-os-security-configuration"></a>Anpassa standardkonfiguration för OS-säkerhet
+## <a name="customize-the-default-os-security-configuration"></a>Anpassa standard säkerhets konfigurationen för operativ systemet
 
-Om du vill anpassa den OS standardkonfigurationen för säkerhet i Security Center, gör du följande:
+Om du vill anpassa standard säkerhets konfigurationen för operativ systemet i Security Center gör du följande:
 
 1.  Öppna instrumentpanelen för **Security Center**.
 
-2.  I den vänstra rutan väljer **priser och inställningar**.
+2.  Välj **pris & inställningar**i det vänstra fönstret.
 
-    ![Security Policy list](media/security-center-customize-os-security-config/manual-provision.png)
+    ![Lista över säkerhets principer](media/security-center-customize-os-security-config/manual-provision.png)
 
-4. Välj prenumerationen som är tillämpliga och välj **redigera säkerhetskonfigurationerna**.  
+4. Välj lämplig prenumeration och välj **Redigera**säkerhetskonfigurationer.  
 
-    ![Fönstret ”Redigera säkerhetskonfigurationerna”](media/security-center-customize-os-security-config/blade.png)
+    ![Fönstret "redigera säkerhetskonfigurationer"](media/security-center-customize-os-security-config/blade.png)
 
-5. Följ stegen för att hämta, redigera och ladda upp den ändrade filen.
+5. Följ stegen för att ladda ned, redigera och ladda upp den ändrade filen.
 
    > [!NOTE]
-   > Konfigurationsfilen som du laddar ned är som standard i *json* format. Anvisningar om hur du ändrar den här filen finns i [anpassa konfigurationsfilen](#customize-the-configuration-file).
+   > Som standard är konfigurations filen som du hämtar i *JSON* -format. Anvisningar om hur du ändrar den här filen finns i [Anpassa konfigurations filen](#customize-the-configuration-file).
    >
 
-6. För att genomföra ändringen, Välj **spara**. I annat fall lagras inte principen.
+6. Om du vill genomföra ändringen väljer du **Spara**. Annars lagras inte principen.
 
     ![Knappen Spara](media/security-center-customize-os-security-config/save-successfully.png)
 
-   När du har har sparat filen, tillämpas konfigurationen på alla virtuella datorer och datorer som är anslutna till arbetsytor under prenumerationen. Processen tar några minuter vanligtvis, men kan ta längre tid beroende på storleken för infrastruktur.
+   När du har sparat filen tillämpas konfigurationen på alla virtuella datorer och datorer som är anslutna till arbets ytorna under prenumerationen. Processen tar vanligt vis några minuter, men det kan ta längre tid, beroende på infrastrukturens storlek.
 
-När som helst kan du återställa aktuell principkonfiguration till sitt ursprungsläge. Gör, i den **redigera OS reglerna för säkerhetskonfigurationen** väljer **återställa**. Bekräfta det här alternativet genom att välja **Ja** i popup-bekräftelsefönstret.
+Du kan när som helst återställa den aktuella princip konfigurationen till dess standard tillstånd. Det gör du genom att välja **Återställ**i fönstret **Redigera säkerhets konfigurations regler för operativ system** . Bekräfta det här alternativet genom att välja **Ja** i popup-fönstret bekräftelse.
 
-![Återställ bekräftelsefönstret](media/security-center-customize-os-security-config/edit-alert.png)
+![Bekräftelse fönstret för återställning](media/security-center-customize-os-security-config/edit-alert.png)
 
-## <a name="customize-the-configuration-file"></a>Anpassa konfigurationsfilen
+## <a name="customize-the-configuration-file"></a>Anpassa konfigurations filen
 
-Har en uppsättning regler eller RuleSet-metod i anpassning, varje OS-version som stöds. Varje regeluppsättning har ett eget namn och unikt ID, som visas i följande exempel:
+I anpassnings filen har varje OS-version som stöds en uppsättning regler, eller ruleset. Varje ruleset har ett eget namn och ett unikt ID, som visas i följande exempel:
 
-![Regeluppsättning namn och ID](media/security-center-customize-os-security-config/custom-file.png)
+![Ruleset namn och ID](media/security-center-customize-os-security-config/custom-file.png)
 
 > [!NOTE]
-> Den här exempel-filen har redigerats i Visual Studio, men du kan också använda anteckningar om du har den JSON-visare plugin-programmet installerat.
+> Den här exempel filen har redigerats i Visual Studio, men du kan också använda anteckningar om du har plugin-programmet JSON Viewer installerat.
 >
 >
 
-När du redigerar anpassningsfilen kan ändra du en regel eller alla. Varje regeluppsättning innehåller en *regler* avsnitt som är uppdelad i tre kategorier: Registret, granskningsprincip och Security Policy, som visas här:
+När du redigerar anpassnings filen kan du ändra en eller flera regler. Varje ruleset innehåller ett *regel* avsnitt som är indelat i tre kategorier: Register, gransknings princip och säkerhets princip, som du ser här:
 
 ![Tre ruleset-kategorier](media/security-center-customize-os-security-config/rules-section.png)
 
 Varje kategori har en egen uppsättning attribut. Du kan ändra följande attribut:
 
-- **expectedValue**: Det här attributet fälts datatyp måste matcha värdena som stöds per *regeltyp*, till exempel:
+- **expectedValue**: Det här attributets fält data typ måste matcha de värden som stöds per *regeltyp*, till exempel:
 
-  - **baselineRegistryRules**: Värdet måste matcha den [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) som definieras i regeln.
+  - **baselineRegistryRules**: Värdet måste matcha [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) som definieras i regeln.
 
-  - **baselineAuditPolicyRules**: Använd någon av följande strängvärden:
+  - **baselineAuditPolicyRules**: Använd något av följande sträng värden:
 
     - *Lyckade och misslyckade*
 
-    - *Lyckades*
+    - *Resultatet*
 
-  - **baselineSecurityPolicyRules**: Använd någon av följande strängvärden:
+  - **baselineSecurityPolicyRules**: Använd något av följande sträng värden:
 
     - *Ingen*
 
-    - Lista över tillåtna användargrupper, till exempel: *Administratörer*, *ansvariga för säkerhetskopiering*
+    - Lista över tillåtna användar grupper, till exempel: *Administratörer*, *ansvariga för säkerhets kopiering*
 
--   **tillstånd**: Strängen kan innehålla alternativ *inaktiverad* eller *aktiverad*. Den här versionen är är strängen skiftlägeskänsligt.
+-   **tillstånd**: Strängen kan innehålla alternativen inaktiverade eller *aktiverade*. I den här versionen är strängen Skift läges känslig.
 
-Det här är de enda fält som kan konfigureras. Om du bryter mot file format eller storlek, kan du inte spara ändringen. Du får ett fel som säger att du behöver ladda upp en giltig JSON-konfigurationsfil.
+Detta är de enda fält som kan konfigureras. Om du strider mot fil formatet eller storleken kan du inte spara ändringen. Du får ett fel meddelande som anger att du måste ladda upp en giltig JSON-konfigurationsfil.
 
-En lista över andra potentiella fel finns i [felkoder](#error-codes).
+En lista över andra möjliga fel finns i [felkoder](#error-codes).
 
-Följande tre avsnitt innehåller exempel på föregående regler. Den *expectedValue* och *tillstånd* attribut kan ändras.
+Följande tre avsnitt innehåller exempel på föregående regler. Attributen *expectedValue* och *State* kan ändras.
 
 **baselineRegistryRules**
 ```json
@@ -179,35 +179,35 @@ Följande tre avsnitt innehåller exempel på föregående regler. Den *expected
     }
 ```
 
-Vissa regler dupliceras för de olika typerna av OS. Duplicerade regler har samma *originalId* attribut.
+Vissa regler är duplicerade för olika operativ system typer. Duplicerade regler har samma *originalId* -attribut.
 
 ## <a name="create-custom-rules"></a>Skapa anpassade roller
 
-Du kan också skapa nya regler. Innan du skapar en ny regel, Tänk på följande begränsningar:
+Du kan också skapa nya regler. Tänk på följande begränsningar innan du skapar en ny regel:
 
--   Schemaversionen *baselineId* och *baselineName* kan inte ändras.
+-   Schema versionen, *baselineId* och *baselineName* kan inte ändras.
 
--   Regeluppsättning tas inte bort.
+-   Ruleset kan inte tas bort.
 
--   Regeluppsättning kan inte läggas till.
+-   Det går inte att lägga till ruleset.
 
--   Det maximala antalet regler för tillåtna (inklusive standardregler) är 1 000.
+-   Det högsta tillåtna antalet regler (inklusive standard regler) är 1000.
 
-Nya regler som har markerats med en ny anpassad källa (! = ”Microsoft”). Den *ruleId* fält kan vara null eller tomt. Om den är tom, genererar en av Microsoft. Om den inte är tom, måste den ha ett giltigt GUID som är unikt i alla regler (standard och anpassade). Granska följande begränsningar för core fält:
+Nya anpassade regler markeras med en ny anpassad källa (! = "Microsoft"). Fältet *ruleId* kan vara null eller tomt. Om det är tomt genererar Microsoft en. Om den inte är tom måste den ha ett giltigt GUID som är unikt för alla regler (standard och anpassad). Granska följande begränsningar för Core-fälten:
 
--   **originalId**: Kan vara null eller tomt. Om *originalId* är inte tom, bör det vara ett giltigt GUID.
+-   **originalId**: Kan vara null eller tomt. Om *originalId* inte är tomt bör det vara ett giltigt GUID.
 
--   **cceId**: Kan vara null eller tomt. Om *cceId* är inte tom, det måste vara unikt.
+-   **cceId**: Kan vara null eller tomt. Om *cceId* inte är tomt måste det vara unikt.
 
--   **Regeltyp**: (Välj ett alternativ) registret, AuditPolicy eller SecurityPolicy.
+-   **ruleType**: (Välj en) Registry, AuditPolicy eller SECURITYPOLICY.
 
--   **Allvarlighetsgrad**: (Välj ett alternativ) Okänd, kritisk, varning eller information.
+-   **Allvarlighets grad**: (Välj en) okänd, kritisk, varning eller information.
 
--   **analyzeOperation**: Måste vara *är lika med*.
+-   **analyzeOperation**: Måste vara *lika med*.
 
 -   **auditPolicyId**: Måste vara ett giltigt GUID.
 
--   **regValueType**: (Välj ett alternativ) Int, Long, String eller MultipleString.
+-   **regValueType**: (Välj en) int-, Long-, String-eller MultipleString-värde.
 
 > [!NOTE]
 > Hive måste vara *LocalMachine*.
@@ -216,7 +216,7 @@ Nya regler som har markerats med en ny anpassad källa (! = ”Microsoft”). De
 
 Exempel på en ny anpassad regel:
 
-**Registret**:
+**Register**:
 ```json
     {
     "hive": "LocalMachine",
@@ -233,7 +233,7 @@ Exempel på en ny anpassad regel:
     "state": "Enabled"
     }
 ```
-**Säkerhetsprincip**:
+**Säkerhets princip**:
 ```json
    {
    "sectionName": "Privilege Rights",
@@ -248,7 +248,7 @@ Exempel på en ny anpassad regel:
    "state": "Enabled"
    }
 ```
-**Granskningsprincip**:
+**Gransknings princip**:
 ```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
@@ -262,59 +262,59 @@ Exempel på en ny anpassad regel:
    }
 ```
 
-## <a name="file-upload-failures"></a>Filöverföringsfel
+## <a name="file-upload-failures"></a>Fil överförings problem
 
-Om den överförda konfigurationsfilen är ogiltig på grund av fel i värden eller formatering, ett fel visas, till exempel **spara-åtgärden misslyckades**. Du kan hämta en rapport för CSV-detaljerade fel för att åtgärda och åtgärda felen innan du skicka en korrigerad konfigurationsfil.
+Om den skickade konfigurations filen är ogiltig på grund av fel i värden eller formatering, visas ett fel meddelande, till exempel **Spara-åtgärden misslyckades**. Du kan hämta en detaljerad errors. csv-rapport för att åtgärda och åtgärda felen innan du skickar en korrigerad konfigurations fil igen.
 
 Exempel på en felfil:
 
-![Exempel på fel](media/security-center-customize-os-security-config/errors-file.png)
+![Fel fil exempel](media/security-center-customize-os-security-config/errors-file.png)
 
 ## <a name="error-codes"></a>Felkoder
 
-Alla eventuella fel visas i följande tabell:
+Alla potentiella fel visas i följande tabell:
 
-| **Fel**                                | **Beskrivning**                                                                                                                              |
+| **Fels**                                | **Beskrivning**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | Egenskapen *schemaVersion* hittades ogiltigt eller tomt. Värdet måste anges till *{0}* .                                                         |
+| BaselineConfigurationSchemaVersionError  | Egenskapen *schema schema* hittades ogiltig eller tom. Värdet måste anges till *{0}* .                                                         |
 | BaselineInvalidStringError               | Egenskapen *{0}* får inte innehålla  *\\n*.                                                                                                         |
-| BaselineNullRuleError                    | Regler för baslinjen konfigurationslistan innehåller en regel med värdet *null*.                                                                         |
-| BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* är inte unikt.                                                                                                                  |
-| BaselineRuleEmptyProperty                | Egenskapen *{0}* är ogiltig eller saknas.                                                                                                       |
-| BaselineRuleIdNotInDefault               | Regeln har ett source-egenskapen *Microsoft* men hittades inte i Microsoft standard regeluppsättning.                                                   |
-| BaselineRuleIdNotUniqueError             | Regel-ID är inte unikt.                                                                                                                       |
+| BaselineNullRuleError                    | Listan över bas linje konfigurations regler innehåller en regel med värdet *Null*.                                                                         |
+| BaselineRuleCceIdNotUniqueError          | CCE-ID: *{0}* t är inte unikt.                                                                                                                  |
+| BaselineRuleEmptyProperty                | Egenskapen *{0}* saknas eller är ogiltig.                                                                                                       |
+| BaselineRuleIdNotInDefault               | Regeln har en käll egenskap *Microsoft* men den hittades inte i Microsoft standard ruleset.                                                   |
+| BaselineRuleIdNotUniqueError             | Regel identifieraren är inte unik.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | Egenskapen *{0}* hittades ogiltig. Värdet är inte ett giltigt GUID.                                                                             |
 | BaselineRuleInvalidHive                  | Hive måste vara LocalMachine.                                                                                                                   |
-| BaselineRuleNameNotUniqueError           | Regelnamnet är inte unikt.                                                                                                                 |
-| BaselineRuleNotExistInConfigError        | Regeln hittades inte i den nya konfigurationen. Regeln kan inte tas bort.                                                                     |
-| BaselineRuleNotFoundError                | Regeln hittades inte i baslinje regeluppsättning.                                                                                        |
-| BaselineRuleNotInPlace                   | Regeln matchar en standardregel med typen {0} och visas i {1} lista.                                                                       |
-| BaselineRulePropertyTooLong              | Egenskapen *{0}* är för långt. Högsta tillåtna längd: {1}.                                                                                        |
-| BaselineRuleRegTypeInvalidError          | Det förväntade värdet *{0}* matchar inte registervärdetypen som har definierats.                                                              |
-| BaselineRulesetAdded                     | Regeluppsättning med identifieraren *{0}* hittades inte i standardkonfigurationen. Den RuleSet-metod kan inte läggas till.                                               |
-| BaselineRulesetIdMustBeUnique            | Den givna baslinjen ruleset *{0}* måste vara unikt.                                                                                           |
-| BaselineRulesetNotFound                  | Regeluppsättning med identifieraren *{0}* och namnet *{1}* hittades inte i den angivna konfigurationen. Den RuleSet-metod kan inte tas bort.                                |
-| BaselineRuleSourceNotMatch               | Regeln med ID: t *{0}* har redan definierats.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | Typ av regel är *{0}* .                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | Den faktiska typen av regeln är *{0}* , men *regeltyp* egenskapen är *{1}* .                                                                          |
-| BaselineRuleUnpermittedChangesError      | Endast *expectedValue* och *tillstånd* egenskaper ska kunna ändras.                                                                       |
-| BaselineTooManyRules                     | Det maximala antalet tillåtna anpassade regler är {0} regler. Den angivna konfigurationen innehåller {1} regler, {2} standardregler, och {3} anpassade regler. |
-| ErrorNoConfigurationStatus               | Inga Konfigurationsstatus hittades. Tillstånd för status för önskad konfiguration: *Standard* eller *anpassad*.                                    |
-| ErrorNonEmptyRulesetOnDefault            | Configuration-status är inställd på standardvärdet. Den *BaselineRulesets* listan måste vara null eller tom.                                                          |
-| ErrorNullRulesetsPropertyOnCustom        | Den angivna konfigurationsstatusen är *anpassade* men *baselineRulesets* egenskapen är null eller tomt.                                             |
-| ErrorParsingBaselineConfig               | Den angivna konfigurationen är ogiltig. En eller flera av de definierade värdena har ett null-värde eller en ogiltig typ.                                  |
-| ErrorParsingIsDefaultProperty            | Den angivna *configurationStatus* värdet *{0}* är ogiltig. Värdet kan bara vara *standard* eller *anpassad*.                                         |
-| InCompatibleViewVersion                  | Visa version *{0}* är *inte* stöds på den här typen av arbetsyta.                                                                                   |
-| InvalidBaselineConfigurationGeneralError | Den givna baslinje konfigurationen hittades med en eller flera verifieringsfel för typen.                                                          |
-| ViewConversionError                      | Vyn är en äldre version än vad som har stöd för arbetsytan. Visa konvertering misslyckades: {0}.                                                                 |
+| BaselineRuleNameNotUniqueError           | Regel namnet är inte unikt.                                                                                                                 |
+| BaselineRuleNotExistInConfigError        | Det gick inte att hitta regeln i den nya konfigurationen. Det går inte att ta bort regeln.                                                                     |
+| BaselineRuleNotFoundError                | Det gick inte att hitta regeln i standard bas linje ruleset.                                                                                        |
+| BaselineRuleNotInPlace                   | Regeln matchar en standard regel med typ {0} och visas i {1} listan.                                                                       |
+| BaselineRulePropertyTooLong              | Egenskapen *{0}* är för lång. Högsta tillåtna längd: {1}.                                                                                        |
+| BaselineRuleRegTypeInvalidError          | Det förväntade värdet *{0}* matchar inte den register värde typ som har definierats.                                                              |
+| BaselineRulesetAdded                     | Det gick inte att hitta *{0}* ruleset med identifieraren i standard konfigurationen. Det går inte att lägga till ruleset.                                               |
+| BaselineRulesetIdMustBeUnique            | Den aktuella bas linjens ruleset *{0}* måste vara unik.                                                                                           |
+| BaselineRulesetNotFound                  | Det gick inte att *{0}* hitta ruleset *{1}* med ID och namn i den aktuella konfigurationen. Det går inte att ta bort ruleset.                                |
+| BaselineRuleSourceNotMatch               | Regeln med identifierare *{0}* har redan definierats.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | Standard regel typen är *{0}* .                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | Regelns faktiska typ är *{0}* , men egenskapen *ruleType* är. *{1}*                                                                          |
+| BaselineRuleUnpermittedChangesError      | Endast egenskaperna *expectedValue* och *State* får ändras.                                                                       |
+| BaselineTooManyRules                     | Det maximala antalet tillåtna anpassade regler är {0} regler. Den aktuella konfigurationen innehåller {1} regler, {2} standard regler och {3} anpassade regler. |
+| ErrorNoConfigurationStatus               | Ingen konfigurations status hittades. Ange önskad konfigurations status: *Standard* eller *anpassad*.                                    |
+| ErrorNonEmptyRulesetOnDefault            | Konfigurations statusen är inställd på default. *BaselineRulesets* -listan måste vara null eller tom.                                                          |
+| ErrorNullRulesetsPropertyOnCustom        | Den aktuella konfigurations statusen är *anpassad* men *baselineRulesets* -egenskapen är null eller tom.                                             |
+| ErrorParsingBaselineConfig               | Den aktuella konfigurationen är ogiltig. Ett eller flera av de definierade värdena har ett null-värde eller en ogiltig typ.                                  |
+| ErrorParsingIsDefaultProperty            | Angivet *configurationStatus* -värde *{0}* är ogiltigt. Värdet kan vara *standard* eller *anpassat*.                                         |
+| InCompatibleViewVersion                  | View-versionen *{0}* stöds *inte* för den här typen av arbets yta.                                                                                   |
+| InvalidBaselineConfigurationGeneralError | Den aktuella bas linje konfigurationen påträffades med en eller flera typ verifierings fel.                                                          |
+| ViewConversionError                      | Vyn är en äldre version än vad arbets ytan stöder. Det gick inte att {0}konvertera vyn:.                                                                 |
 
-Om du inte har tillräcklig behörighet, kan du få ett allmänt fel-fel som visas här:
+Om du inte har tillräcklig behörighet kan du få ett allmänt fel meddelande som visas här:
 
-![”Spara åtgärden misslyckades” felmeddelande](media/security-center-customize-os-security-config/general-failure-error.png)
+![Fel meddelandet "Det gick inte att spara åtgärden"](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln beskrivs hur du anpassar OS configuration säkerhetsutvärderingar i Security Center. Mer information om konfigurationsregler och reparation finns:
+Den här artikeln beskrivs hur du anpassar utvärderingen av säkerhets konfiguration i Security Center i. Mer information om konfigurations reglerna och reparationen finns i:
 
-- [Security Center vanliga Konfigurationsidentifierare och grundkonfigurationer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
-- Security Center använder common configuration enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler. Mer information finns i [CCE](https://nvd.nist.gov/config/cce/index).
-- För att lösa säkerhetsproblem när Operativsystemets konfiguration inte matchar de rekommendera säkerhetsreglerna för konfiguration, se [åtgärda säkerhetskonfigurationer](security-center-remediate-os-vulnerabilities.md).
+- [Security Center vanliga konfigurations identifierare och bas linje regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
+- Security Center använder vanliga konfigurations uppräkning (CCE) för att tilldela unika identifierare till konfigurations regler. Mer information finns i [CCE](https://nvd.nist.gov/config/cce/index).
+- Information om hur du löser säkerhets risker när din operativ system konfiguration inte matchar de rekommenderade säkerhets konfigurations reglerna finns i [åtgärda](security-center-remediate-os-vulnerabilities.md)säkerhetskonfigurationer.

@@ -1,6 +1,6 @@
 ---
-title: Intelligens och avisering säkerhetskarta i Azure Security Center | Microsoft Docs
-description: Lär dig hur du använder den karta och threat intelligence funktionen för säkerhetsavisering i Azure Security Center för att identifiera potentiella hot i dina virtuella datorer och datorer.
+title: Översikt över hot information och säkerhets avisering i Azure Security Center | Microsoft Docs
+description: Lär dig hur du använder funktionen för säkerhets aviserings mappning och hot information i Azure Security Center för att identifiera potentiella hot i dina virtuella datorer och datorer.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,92 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0740beb3b1ffc200c36ca4b5c15b25017821587e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574345"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662345"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Säkerhetsvarningsmappning och hotinformation
-Den här artikeln hjälper dig att använda Azure Security Center säkerhetskarta aviseringar och säkerhet händelsebaserad karta för hotinformation att åtgärda säkerhetsrelaterade problem med.
+Den här artikeln hjälper dig att använda säkerhets aviserings mappningen Azure Security Center säkerhets aviseringar och säkerhets händelser som bygger på säkerhetsrelaterade problem.
 
 > [!NOTE]
-> Säkerheten *händelser* mappningsknapp tas ur bruk 31 juli 2019. Mer information och alternativa tjänster finns i [tillbakadragning av Security Center-funktioner (juli 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> Knappen mappning av säkerhets *händelser* har dragits tillbaka den 31 juli 2019. Mer information och alternativa tjänster finns i [dra tillbaka Security Center funktioner (2019 juli)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
-## <a name="how-the-security-alerts-map-works"></a>Hur säkerhetsaviseringar mappar fungerar
-Security Center ger dig en karta som hjälper dig att identifiera säkerhetshot mot miljön. Du kan till exempel identifiera om en specifik dator är en del av ett botnät, och där hotet kommer från. Datorer kan bli noder i ett botnät när angripare installerar otillåten skadlig kod som hemlighet interagerar med kommando och kontroll som hanterar botnet. 
+## <a name="how-the-security-alerts-map-works"></a>Så här fungerar kartan för säkerhets aviseringar
+Security Center ger dig en karta som hjälper dig att identifiera säkerhetshot mot miljön. Du kan till exempel identifiera om en viss dator är en del av en botnät och var hotet kommer från. Datorer kan bli noder i en botnät när angriparen illegalt installerar skadlig kod som interagerar med kommandot och kontrollen som hanterar botnät. 
 
-Om du vill skapa den här kartan använder Security Center data som kommer från flera källor på Microsoft. Security Center använder dessa data för att mappa potentiella hot mot din miljö. 
+För att bygga den här kartan använder Security Center data som kommer från flera källor i Microsoft. Security Center använder dessa data för att mappa potentiella hot mot din miljö. 
 
 Ett av stegen i [processen för svar på säkerhetsincidenter](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) är att identifiera allvarlighetsgraden för de komprometterade systemen. I det här steget bör du utföra följande uppgifter:
 
 - Fastställa typen av angrepp.
-- Fastställa referenspunkt av angrepp.
+- Fastställ Angreppets start punkt.
 - Fastställa syftet med angreppet. Var angreppet riktat mot din organisation för att erhålla viss information eller var det slumpmässigt?
 - Identifiera systemen som har drabbats.
 - Identifiera de filer som har använts och fastställ filernas känslighet.
 
-Du kan använda säkerhetskarta för aviseringar i Security Center för att de här uppgifterna.
+Du kan använda säkerhets aviserings kartan i Security Center för att få hjälp med dessa uppgifter.
 
-## <a name="access-the-security-alerts-map"></a>Få åtkomst till aviseringar säkerhetskarta
-Öppna aviseringar säkerhetskarta för att visualisera aktuella hot på din miljö:
+## <a name="access-the-security-alerts-map"></a>Öppna säkerhets aviserings kartan
+Om du vill visualisera aktuella hot i miljön öppnar du säkerhets aviserings kartan:
 
 1. Öppna instrumentpanelen för **Security Center**.
-2. I den vänstra rutan under **Hotskydd** Välj **aviseringar säkerhetskarta**. Kartan öppnas.
-3. Klicka på aviseringen prick på kartan för att få mer information om aviseringen och ta emot steg, och följ instruktionerna. 
+2. Välj **säkerhets aviserings karta**i den vänstra rutan under **hot skydd** . Kartan öppnas.
+3. Om du vill ha mer information om stegen avisering och mottagnings reparation klickar du på varnings punkten på kartan och följer instruktionerna. 
  
-Aviseringar säkerhetskarta baseras på aviseringar. Dessa aviseringar baseras på aktiviteter för vilka nätverk kommunikation associerades med en IP-adress som löstes har, oavsett om IP-adressen är en känd riskfyllda IP-adress (till exempel en känd cryptominer) eller en IP-adress som inte känns igen tidigare som riskfyllt. Kartan innehåller varningar för alla prenumerationer som du tidigare valt i Azure. 
+Mappningen av säkerhets aviseringar baseras på aviseringar. De här aviseringarna baseras på aktiviteter för vilka nätverkskommunikation har associerats med en IP-adress som har lösts, oavsett om IP-adressen är en känd riskfylld IP-adress (till exempel en känd cryptominer) eller en IP-adress som inte känns igen tidigare som riskfyllda. Kartan ger aviseringar över alla prenumerationer som du tidigare har valt i Azure. 
 
-Aviseringar på kartan visas enligt den geografiska platsen där de identifieras som kommer från, och de är färgkodade efter allvarlighetsgrad. 
-    ![Hotinformation](./media/security-center-threat-intel/security-center-alert-map.png)
+Aviseringarna på kartan visas enligt den geografiska plats där de identifieras som härstammar från, och de är färgkodade efter allvarlighets grad. 
+    ![Information om hot information](./media/security-center-threat-intel/security-center-alert-map.png)
 
-## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Visa händelsebaserad instrumentpanelen för hotinformation
-Du kan följa den här proceduren om du vill visa den karta för hotinformation baserat på raw säkerhetshändelser. Den här kartan visar endast de händelser som rör en IP-adress som anses risk, till exempel en IP-adress av ett känt botnät.
-
-1. Öppna instrumentpanelen för **Security Center**.
-
-1. I den vänstra rutan under **Hotskydd** Välj **aviseringar säkerhetskarta**. Kartan öppnas.
-2. I övre högra hörnet, klickar du på **går du till händelser säkerhetskarta**.
-3. Välj den arbetsyta som du vill visa instrumentpanelen.
-4. Högst upp på kartan, Välj **Visa klassiska hotinformation**. Den **Hotinformation** instrumentpanelen öppnas.
-
-   > [!NOTE]
-   > Om kolumnen längst till höger visar **UPGRADE PLAN** (Uppgradera abonnemang) använder den här arbetsytan den kostnadsfria prenumerationen. Uppgradera till Standard om du vill använda den här funktionen. Om kolumnen längst till höger visar **kräver uppdatera**, uppdatera [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) att använda den här funktionen. Mer information om prissättning finns i Azure Security Center pricing (Azure Security Center-prissättning).
-   >
-5. Om du har fler än en arbetsyta att undersöka prioriterar du undersökningen enligt kolumnen **Skadlig IP-adress**. Den visar det aktuella antalet skadliga IP-adresser på den här arbetsytan. Välj den arbetsyta du vill använda så visas instrumentpanelen **Hotinformation**.
-
-    ![Hotinformation](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
-
-6. Instrumentpanelen är indelad i fyra paneler:
-
-    a.  **Hottyper**. Sammanfattar de typer av hot som upptäcktes på den valda arbetsytan.
-
-    b.  **Ursprungsland**. Aggregerar mängden trafik enligt ursprungsplats.
-
-    c.  **Hotplats**. Hjälper dig att identifiera de aktuella platserna runtom i världen som kommunicerar med din miljö. I kartan som visas identifierar orange (inkommande) och röd (utgående) pil trafikriktningarna. Om du väljer en av dessa pilar visas typen av hot och trafikriktningen.
-
-    d.  **Hotinformation**. Visar mer information om hotet du markerade på kartan.
-
-Oavsett vilken alternativpanel du väljer baseras instrumentpanelen som visas på loggsökningsfrågan. Den enda skillnaden är frågetyp och resultat.
-
-### <a name="threat-types"></a>Hottyper
-Välj panelen **Hottyper** för att öppna instrumentpanelen **Loggsökning**. Filteralternativ visas till vänster och frågeresultat visas till höger.
-
-![Loggsökning](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
-
-Frågeresultatet visar hoten efter namn. Du kan använda den vänstra rutan till att välja attributet du vill filtrera. Om du till exempel bara vill se hoten som för närvarande är kopplade till datorerna går du till **SESSIONSTATE** (Sessionstillstånd) och väljer **Ansluten** > **Använd**.
-
-![Sessionstillstånd](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
-
-För virtuella Azure-datorer visas bara de nätverksdata som flödar genom agenten i instrumentpanelen **Hotinformation**. Följande datatyper används också för hotinformation:
-
-- CEF-data (typ = CommonSecurityLog)
-- WireData (typ = WireData)
-- IIS-loggar (typ = W3CIISLog)
-- Windows-brandväggen (typ = WindowsFirewall)
-- DNS-händelser (typ = DnsEvents)
 
 
 ## <a name="see-also"></a>Se också

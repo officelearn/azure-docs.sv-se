@@ -9,36 +9,34 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3738ffe8b3faedc328bde01173400289403652f4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297936"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668486"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
-I den här artikeln får du lära dig hur du konfigurerar en utvecklings miljö så att den fungerar med Azure Machine Learning-tjänsten. Machine Learning-tjänsten är plattforms oberoende.
+I den här artikeln får du lära dig hur du konfigurerar en utvecklings miljö så att den fungerar med Azure Machine Learning-tjänsten. Azure Machine Learning-tjänsten är plattforms oberoende. Det enda hårda kravet för utvecklings miljön är python 3. En isolerad miljö som Anaconda eller virtuell miljö rekommenderas också.
 
-De enda kraven för utvecklings miljön är python 3, Anaconda (för isolerade miljöer) och en konfigurations fil som innehåller din Azure Machine Learning arbets ytans information.
+I följande tabell visas varje utvecklings miljö som beskrivs i den här artikeln, tillsammans med-och-och nack delar.
 
-Den här artikeln fokuserar på följande miljöer och verktyg:
+| Miljö | Experter | Nackdelar |
+| --- | --- | --- |
+| [Molnbaserad VM-baserad virtuell dator](#notebookvm) | Enkelt sätt att komma igång. Hela SDK är redan installerat på den virtuella arbets ytan och själv studie kurser för bärbara datorer är förklonade och redo att köras. | Brist på kontroll över utvecklings miljön och beroenden. Ytterligare kostnader för virtuella Linux-datorer (VM kan stoppas när de inte används för att undvika avgifter). Se [pris information](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Lokal miljö](#local) | Fullständig kontroll över utvecklings miljön och beroenden. Kör med valfri build-verktyg, miljö eller IDE som du väljer. | Det tar längre tid att komma igång. Nödvändiga SDK-paket måste vara installerade och en miljö måste också installeras om du inte redan har ett. |
+| [Azure Databricks](#aml-databricks) | Perfekt för att köra storskaliga arbets flöden med storskaliga maskin inlärning på den skalbara Apache Sparks plattformen. | Överkurs för experimentell maskin inlärning, eller mindre skalade experiment och arbets flöden. Ytterligare kostnader för Azure Databricks. Se [pris information](https://azure.microsoft.com/pricing/details/databricks/). |
+| [Data Science Virtual Machine (DSVM)](#dsvm) | Precis som den molnbaserade Notebook VM (python och SDK är förinstallerade), men med ytterligare populära data vetenskaps-och maskin inlärnings verktyg förinstallerade. Lätt att skala och kombinera med andra anpassade verktyg och arbets flöden. | En långsammare upplevelse jämfört med den molnbaserade Notebook VM. |
+| [Azure Notebooks](#aznotebooks) | Den kostnads fria och lätta kom igång-upplevelsen, med python och SDK förinstallerat. | Mindre kraftfulla virtuella datorer som är tillgängliga jämfört med molnbaserad Notebook VM. Isolerade från arbets ytan och andra resurser. |
 
-* Din egen [molnbaserade Notebook-VM](#notebookvm): Använd en beräknings resurs på din arbets station för att köra Jupyter-anteckningsböcker. Det är det enklaste sättet att komma igång, eftersom Azure Machine Learning SDK redan har installerats.
-
-* [Data science Virtual Machine (DSVM)](#dsvm): En förkonfigurerad utvecklings-eller experiment miljö i Azure-molnet som är utformat för data vetenskaps arbete och som kan distribueras antingen till enbart CPU-instanser eller GPU-baserade instanser. Python 3, Conda, Jupyter-anteckningsböcker och SDK: N för Azure Machine Learning har redan installerats. Den virtuella datorn levereras med de populära ramverken för maskin inlärning och djup inlärning, verktyg och redigerare för att utveckla maskin inlärnings lösningar. Det är förmodligen den mest kompletta utvecklings miljön för maskin inlärning på Azure-plattformen.
+Den här artikeln innehåller också ytterligare användnings tips för följande verktyg:
 
 * [Jupyter-anteckningsböcker](#jupyter): Om du redan använder Jupyter Notebook har SDK viss extra utrustning som du bör installera.
 
 * [Visual Studio Code](#vscode): Om du använder Visual Studio Code finns det några användbara tillägg som du kan installera.
-
-* [Azure Databricks](#aml-databricks): En populär plattform för data analys som baseras på Apache Spark. Lär dig hur du hämtar Azure Machine Learning SDK till klustret så att du kan distribuera modeller.
-
-* [Azure Notebooks](#aznotebooks): En Jupyter Notebooks-tjänst som finns i Azure-molnet. Det är också ett enkelt sätt att komma igång, eftersom Azure Machine Learning SDK redan har installerats.  
-
-Om du redan har en Python 3-miljö eller bara vill ha de grundläggande stegen för att installera SDK: N, se den [lokal dator](#local) avsnittet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -57,9 +55,9 @@ Om du vill installera SDK-miljön för den [lokala datorn](#local), [Jupyter Not
 
 ## <a id="notebookvm"></a>Din egen molnbaserade Notebook VM
 
-Den virtuella Notebook-datorn (för hands version) är en säker, molnbaserad Azure-arbetsstation som tillhandahåller data experter med en Jupyter Notebook-Server, JupyterLab och en helt för beredd ML-miljö. 
+Den virtuella Notebook-datorn (för hands version) är en säker, molnbaserad Azure-arbetsstation som tillhandahåller data experter med en Jupyter Notebook-Server, JupyterLab och en helt för beredd ML-miljö.
 
-Den virtuella Notebook-datorn är: 
+Den virtuella Notebook-datorn är:
 
 + **Säker**. Eftersom VM-och Notebook-åtkomst skyddas med HTTPS och Azure Active Directory som standard kan IT-proffs enkelt använda enkel inloggning och andra säkerhetsfunktioner, till exempel Multi-Factor Authentication.
 
@@ -68,17 +66,17 @@ Den virtuella Notebook-datorn är:
   + Automatisk konfiguration som fungerar med din arbets yta
   + En Jupyter Notebook-Server
   + JupyterLab Notebook IDE
-  + Förkonfigurerade GPU-drivrutiner 
+  + Förkonfigurerade GPU-drivrutiner
   + Ett urval av ramverk för djup inlärning
- 
 
-  Om du är i kod innehåller den virtuella datorn självstudier och exempel som hjälper dig att utforska och lära dig hur du använder Azure Machine Learning-tjänsten. Exempel antecknings böckerna lagras i Azure Blob Storage-kontot på arbets ytan som gör att de kan delas mellan virtuella datorer. När det körs har de också åtkomst till data lager och beräknings resurser för din arbets yta. 
+
+  Om du är i kod innehåller den virtuella datorn självstudier och exempel som hjälper dig att utforska och lära dig hur du använder Azure Machine Learning-tjänsten. Exempel antecknings böckerna lagras i Azure Blob Storage-kontot på arbets ytan som gör att de kan delas mellan virtuella datorer. När det körs har de också åtkomst till data lager och beräknings resurser för din arbets yta.
 
 + **Enkel installation**: Skapa en när som helst i din Azure Machine Learning-arbetsyta. Ange ett namn och ange en typ av virtuell Azure-dator. Prova nu med den här [snabb starten: Använd en molnbaserad Notebook-Server för att komma igång med Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 + **Anpassningsbar**. Även om det finns ett hanterat och säkert VM-erbjudande behåller du full till gång till maskin varu funktionerna och anpassar dem till ditt hjärta. Du kan till exempel snabbt skapa den senaste NVidia V100-baserade virtuella datorn för att utföra steg-för-steg-felsökning av den nya neurala-nätverks arkitekturen.
 
-[Stoppa den virtuella Notebook](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)-datorn om du vill sluta debitera VM-kostnader för bärbara datorer. 
+[Stoppa den virtuella Notebook](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)-datorn om du vill sluta debitera VM-kostnader för bärbara datorer.
 
 ## <a id="dsvm"></a>Virtuell dator för datavetenskap
 
@@ -285,9 +283,9 @@ Om du vill använda Visual Studio Code för utveckling gör du följande:
 Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Det ger en samverkande Notebook-baserad miljö med processor-eller GPU-baserade beräknings kluster.
 
 Hur Azure Databricks fungerar med Azure Machine Learning-tjänsten:
-+ Du kan träna en modell med Spark-MLlib och distribuera modellen till ACI/AKS inifrån Azure Databricks. 
++ Du kan träna en modell med Spark-MLlib och distribuera modellen till ACI/AKS inifrån Azure Databricks.
 + Du kan också använda [automatiska maskin inlärnings](concept-automated-ml.md) funktioner i en särskild Azure ml SDK med Azure Databricks.
-+ Du kan använda Azure Databricks som ett beräknings mål från en [Azure Machine Learning pipeline](concept-ml-pipelines.md). 
++ Du kan använda Azure Databricks som ett beräknings mål från en [Azure Machine Learning pipeline](concept-ml-pipelines.md).
 
 ### <a name="set-up-your-databricks-cluster"></a>Konfigurera ditt Databricks-kluster
 
@@ -308,7 +306,7 @@ Använd de här inställningarna:
 Vänta tills klustret körs innan du fortsätter.
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Installera rätt SDK i ett Databricks-bibliotek
-När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) för att bifoga lämpligt Azure Machine Learning SDK-paket till klustret. 
+När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) för att bifoga lämpligt Azure Machine Learning SDK-paket till klustret.
 
 1. Välj **endast ett** alternativ (ingen annan SDK-installation stöds)
 
@@ -323,21 +321,21 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
    * Välj inte **Anslut automatiskt till alla kluster**.
    * Välj **Anslut** bredvid klustrets namn.
 
-1. Övervaka fel tills status ändras till **kopplat**, vilket kan ta flera minuter.  Om det här steget Miss lyckas kontrollerar du följande: 
+1. Övervaka fel tills status ändras till **kopplat**, vilket kan ta flera minuter.  Om det här steget Miss lyckas kontrollerar du följande:
 
    Försök att starta om klustret genom att:
    1. Välj **kluster**i den vänstra rutan.
    1. I tabellen väljer du ditt kluster namn.
    1. På fliken **bibliotek** väljer du **starta om**.
-      
+
    Tänk också på följande:
    + I Automl config när du använder Azure Databricks lägger du till följande parametrar:
-       1. ```max_concurrent_iterations```baseras på antalet arbetsnoder i klustret. 
-        2. ```spark_context=sc```baseras på standard-Spark-kontexten. 
+       1. ```max_concurrent_iterations```baseras på antalet arbetsnoder i klustret.
+        2. ```spark_context=sc```baseras på standard-Spark-kontexten.
    + Om du har en gammal SDK-version avmarkerar du den från klustrets installerade libs och flyttar till pappers korgen. Installera den nya SDK-versionen och starta om klustret. Om det uppstår ett problem efter detta tar du bort och återansluter klustret.
 
 Om installationen lyckades bör det importerade biblioteket se ut ungefär så här:
-   
+
 SDK för Databricks **_utan_** automatiserad Machine ![Learning Azure Machine Learning SDK för Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
 SDK för Databricks **med** automatiserad ![Machine Learning SDK med automatisk maskin inlärning installerad på Databricks](./media/how-to-configure-environment/automlonadb.jpg)
@@ -345,9 +343,9 @@ SDK för Databricks **med** automatiserad ![Machine Learning SDK med automatisk 
 ### <a name="start-exploring"></a>Börja utforska
 
 Prova:
-+ Hämta [Notebook-arkivmappen](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) för Azure Databricks/Azure Machine Learning SDK och [Importera Arkiv filen](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) till ditt Databricks-kluster.  
++ Hämta [Notebook-arkivmappen](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) för Azure Databricks/Azure Machine Learning SDK och [Importera Arkiv filen](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) till ditt Databricks-kluster.
   Även om många exempel antecknings böcker är tillgängliga **fungerar bara [dessa exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) med Azure Databricks.**
-  
+
 + Lär dig hur du [skapar en pipeline med Databricks som inlärnings beräkning](how-to-create-your-first-pipeline.md).
 
 ## <a id="aznotebooks"></a>Azure-anteckningsböcker
@@ -357,7 +355,7 @@ Prova:
 * Azure Machine Learning SDK är redan installerat.
 * När du har skapat en Azure Machine Learning tjänst arbets yta i Azure Portal kan du klicka på en knapp för att automatiskt konfigurera din Azure Notebook-miljö så att den fungerar med arbets ytan.
 
-Använd [Azure Portal](https://portal.azure.com) för att komma igång med Azure Notebooks.  Öppna din arbets yta och välj  **kom igång i Azure Notebooks**i översikts avsnittet.
+Använd [Azure Portal](https://portal.azure.com) för att komma igång med Azure Notebooks.  Öppna din arbets yta och välj **kom igång i Azure Notebooks**i översikts avsnittet.
 
 Som standard använder Azure Notebooks en kostnads fri tjänst nivå som är begränsad till 4 GB minne och 1 GB data. Du kan dock ta bort dessa begränsningar genom att bifoga en Data Science Virtual Machine instans till Azure Notebooks projektet. Mer information finns i [Hantera och konfigurera Azure Notebooks projekt – beräknings nivå](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -381,7 +379,7 @@ Du kan skapa konfigurations filen på tre sätt:
 
 * **Följ stegen i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md#sdk)** : En *config. JSON* -fil skapas i Azure Notebooks-biblioteket. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config. JSON* till andra utvecklings miljöer.
 
-* **Hämta filen**: I [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config. JSON** från översikts  avsnittet på arbets ytan.
+* **Hämta filen**: I [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config. JSON** från översikts avsnittet på arbets ytan.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 

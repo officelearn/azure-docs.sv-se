@@ -3,7 +3,7 @@ title: Skapa ett Azure Service Fabric tillförlitliga aktörer Java-program på 
 description: Lär dig hur du skapar och distribuerar err Java Service Fabric tillförlitliga aktörer-program på fem minuter.
 services: service-fabric
 documentationcenter: java
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
-ms.author: aljo
-ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394055"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599677"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Skapa ditt första Java Service Fabric Reliable Actors-program på Linux
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "60394055"
 
 Den här snabbstartsguiden hjälper dig att skapa ditt första Azure Service Fabric Java-program i en Linux-utvecklingsmiljö på bara några minuter.  När du är klar har du ett enkelt Java-program för en tjänst som körs i klustret för lokal utveckling.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du installera Service Fabric SDK, Service Fabric CLI, Yeoman, konfigurera Java-utvecklingsmiljön och konfigurera ett utvecklingskluster i [Linux-utvecklingsmiljön](service-fabric-get-started-linux.md). Om du använder Mac OS X kan du [konfigurera en utvecklingsmiljö på en Mac med hjälp av Docker](service-fabric-get-started-mac.md).
 
 Installera också [Service Fabric CLI](service-fabric-cli.md).
@@ -50,8 +50,8 @@ För att komma igång med Reliable Actors behöver du bara förstå några grund
 * **Aktörsgränssnitt**. Aktörsgränssnittet används till att definiera ett offentligt gränssnitt av stark typ för en aktör. I Reliable Actor-modellterminologin definierar aktörsgränssnittet de typer av meddelanden som aktören kan förstå och bearbeta. Aktörsgränssnittet används av andra aktörer och klientprogram för att ”skicka” (asynkrona) meddelanden till aktören. Reliable Actors kan implementera flera gränssnitt.
 * **ActorProxy-klass**. ActorProxy-klassen används av klientprogram för att anropa metoderna som exponeras via aktörsgränssnittet. ActorProxy-klassen har två viktiga funktioner:
   
-  * Namnmatchning: Den kan leta reda på aktören i klustret (hitta noden i klustret där den finns).
-  * Felhantering: Det kan försök metodanropen och matcha igen efter, till exempel ett fel som kräver att aktören flyttas till en annan nod i klustret.
+  * Namn matchning: Det går att hitta aktören i klustret (hitta noden i klustret där den finns).
+  * Hantering av problem: Det kan försöka utföra metod anrop och lösa aktörs platsen igen, till exempel ett fel som kräver att aktören flyttas till en annan nod i klustret.
 
 Följande regler som gäller aktörsgränssnitt är värda att nämna:
 
@@ -219,18 +219,18 @@ När programmet har distribuerats öppnar du en webbläsare och går till [Servi
 Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 > [!IMPORTANT]
-> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric-körningen. På så sätt kan dina Reliable Actors-tjänster att kommunicera med underliggande Service Fabric-körningen API: er. Mer information finns i [konfigurera en Reliable Services-app som körs i Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric Runtime. På så sätt kan dina Reliable Actors-tjänster kommunicera med de underliggande Service Fabric runtime-API: erna. Mer information finns i [Konfigurera en Reliable Services app för att köra Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
 Aktörer gör ingenting på egen hand, det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.
 
 > [!Note]
-> Testklienten använder ActorProxy-klassen för att kommunicera med aktörer, som måste köras i samma kluster som aktörstjänsten eller dela samma IP-adressutrymme.  Du kan köra testklienten på samma dator som det lokala utvecklingsklustret.  För att kommunicera med aktörerna i ett fjärrkluster, måste du distribuera en gateway på klustret som hanterar externa kommunikation med aktörer.
+> Test klienten använder klassen ActorProxy för att kommunicera med aktörer, som måste köras i samma kluster som aktörs tjänsten eller dela samma IP-adressutrymme.  Du kan köra test klienten på samma dator som det lokala utvecklings klustret.  För att kunna kommunicera med aktörer i ett fjärran slutet kluster måste du dock distribuera en gateway på klustret som hanterar extern kommunikation med aktörerna.
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.  Testskriptet anropar metoden `setCountAsync()` hos aktören för att öka en räknare, anropar metoden `getCountAsync()` hos aktören för att hämta det nya räknarvärdet och visar värdet på konsolen.
 
-   När det gäller MAC OS X måste du kopiera mappen HelloWorldTestClient till en plats i behållaren genom att köra följande kommandon för ytterligare.    
+   Om du använder MAC OS X måste du kopiera mappen HelloWorldTestClient till en viss plats i behållaren genom att köra följande ytterligare kommandon.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -243,7 +243,7 @@ Aktörer gör ingenting på egen hand, det behövs en annan tjänst eller klient
     watch -n 1 ./testclient.sh
     ```
 
-2. Leta rätt på noden i Service Fabric Explorer som är värd för aktörstjänstens primära replik. På skärmbilden nedan är det nod 3. Den primära tjänsterepliken hanterar läs- och skrivåtgärder.  Ändringar i tjänstens tillstånd replikeras sedan ut till de sekundära replikerna som körs på noderna 0 och 1 i skärmbilden nedan.
+2. Leta rätt på noden i Service Fabric Explorer som är värd för aktörstjänstens primära replik. På skärmbilden nedan är det nod 3. Den primära tjänsterepliken hanterar läs- och skrivåtgärder.  Ändringar i tjänst tillstånd replikeras sedan till de sekundära replikerna, som körs på noderna 0 och 1 i skärm bilden nedan.
 
     ![Hitta den primära repliken i Service Fabric Explorer][sfx-primary]
 
@@ -303,7 +303,7 @@ Service Fabric Reliable Services för ditt program.
   }
   ```
 
-### <a name="others"></a>Andra
+### <a name="others"></a>Övrigt
 #### <a name="transport"></a>Transport
 
 Transportnivåstöd för Service Fabric Java-program. Du behöver inte uttryckligen lägga till det här beroendet till tillförlitliga aktörer- eller tjänstprogram, om du inte programmerar på transportnivån.

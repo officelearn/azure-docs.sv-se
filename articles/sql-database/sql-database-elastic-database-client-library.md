@@ -1,6 +1,6 @@
 ---
-title: Skapa skalbara molndatabaser | Microsoft Docs
-description: Bygga skalbara .NET-databas med klientbiblioteket för elastiska databaser
+title: Skapa skalbara moln databaser | Microsoft Docs
+description: Bygg skalbara .NET Database-appar med klient biblioteket för Elastic Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,66 +10,65 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24b7f769be3f4db3c36412e162b5cda40e3ca959
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234110"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568717"
 ---
 # <a name="building-scalable-cloud-databases"></a>Skapa skalbara molndatabaser
 
-Skala ut databaser kan enkelt utföras med hjälp av skalbara verktyg och funktioner för Azure SQL Database. Framför allt, du kan använda den **Elastic Database-klientbiblioteket** att skapa och hantera utskalade databaser. Den här funktionen kan du enkelt utveckla fragmenterade (sharded) program med hundratals – eller till och med tusentals – av Azure SQL-databaser.
+Att skala ut databaser kan enkelt utföras med skalbara verktyg och funktioner för Azure SQL Database. I synnerhet kan du använda **Elastic Database klient biblioteket** för att skapa och hantera utskalade databaser. Med den här funktionen kan du enkelt utveckla shardade-program med hundratals, eller till och med tusentals, Azure SQL-databaser.
 
-Så här hämtar:
+Hämta:
 
-* Java-versionen av biblioteket, se [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
-* .NET-versionen av biblioteket, se [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* Java-versionen av biblioteket finns i [maven Central-lagringsplats](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* .NET-versionen av biblioteket finns i [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="documentation"></a>Dokumentation
 
 1. [Kom igång med Elastic Database-verktyg](sql-database-elastic-scale-get-started.md)
-2. [Elastic Database-funktioner](sql-database-elastic-scale-introduction.md)
+2. [Elastic Database funktioner](sql-database-elastic-scale-introduction.md)
 3. [Karthantering för shard](sql-database-elastic-scale-shard-map-management.md)
 4. [Migrera befintliga databaser för att skala ut](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Databeroende routning](sql-database-elastic-scale-data-dependent-routing.md)
-6. [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md)
-7. [Att lägga till en shard med elastiska Databasverktyg](sql-database-elastic-scale-add-a-shard.md)
-8. [Program för flera innehavare med elastic database-verktyg och säkerhet på radnivå](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-9. [Uppgradera klienten biblioteket appar](sql-database-elastic-scale-upgrade-client-library.md) 
+6. [Frågor för flera Shard](sql-database-elastic-scale-multishard-querying.md)
+7. [Lägga till en Shard med hjälp av Elastic Database verktyg](sql-database-elastic-scale-add-a-shard.md)
+8. [Program med flera klienter med elastiska databas verktyg och säkerhet på radnivå](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+9. [Uppgradera klient biblioteks appar](sql-database-elastic-scale-upgrade-client-library.md) 
 10. [Översikt över elastiska frågor](sql-database-elastic-query-overview.md)
 11. [Ordlista för verktyg i elastiska databaser](sql-database-elastic-scale-glossary.md)
-12. [Elastic Database-klientbibliotek med Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-13. [Elastic database-klientbibliotek med Dapper](sql-database-elastic-scale-working-with-dapper.md)
-14. [Verktyget för dela / sammanslå](sql-database-elastic-scale-overview-split-and-merge.md)
+12. [Elastic Database klient bibliotek med Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
+13. [Klient bibliotek för Elastic Database med dapper](sql-database-elastic-scale-working-with-dapper.md)
+14. [Verktyg för delad sammanslagning](sql-database-elastic-scale-overview-split-and-merge.md)
 15. [Prestandaräknare för karthanteraren för shard](sql-database-elastic-database-client-library.md) 
-16. [Vanliga frågor och svar för elastiska Databasverktyg](sql-database-elastic-scale-faq.md)
+16. [Vanliga frågor och svar om elastiska databas verktyg](sql-database-elastic-scale-faq.md)
 
-## <a name="client-capabilities"></a>Funktioner i klientprogrammet
+## <a name="client-capabilities"></a>Klient funktioner
 
-Skala ut program med hjälp av *horisontell partitionering* medför utmaningar för såväl utvecklaren som administratören. Klientbiblioteket förenklar administrativa uppgifter genom att tillhandahålla verktyg som låter både utvecklare och administratörer hantera utskalade databaser. Det finns många databaser som kallas ”shards”, för att hantera i ett typexempel. Kunder som är samordnad i samma databas och det finns en databas per kund (en enda klient schemat). Klientbiblioteket innehåller följande funktioner:
+Att skala ut program som använder *horisontell partitionering* presenterar utmaningar för både utvecklare och administratören. Klient biblioteket fören klar hanterings åtgärderna genom att tillhandahålla verktyg som låter både utvecklare och administratörer hantera utskalade databaser. I ett typiskt exempel finns det många databaser, som kallas "Shards", för att hantera. Kunder är samplacerade i samma databas och det finns en databas per kund (ett schema med en enda klient). Klient biblioteket innehåller följande funktioner:
 
-- **Fragmentkarthantering**: En särskild databas som heter ”fragmentkartehanteraren” har skapats. Fragmentkarthantering är möjligheten för ett program för att hantera metadata om dess shards. Utvecklare kan använda den här funktionen för att registrera databaser som shards, beskriver mappningar av enskilda horisontell partitionering nycklar eller nyckelintervall till dessa databaser och underhålla dessa metadata med antalet och sammansättning av databaser som utvecklas för att återspegla ändringar i kapacitet. Utan elastic database-klientbiblioteket, skulle du behöva ta lite tid att skriva management-kod när du implementerar horisontell partitionering. Mer information finns i [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md).
+- **Hantering av Shard-kartor**: En särskild databas med namnet "Shard Map Manager" skapas. Shard Map Management är möjligheten för ett program att hantera metadata om dess Shards. Utvecklare kan använda den här funktionen för att registrera databaser som Shards, beskriva mappningar av enskilda horisontell partitionering-nycklar eller nyckel intervall till dessa databaser och upprätthålla dessa metadata eftersom antalet och sammansättningen av databaserna utvecklas för att avspegla kapacitets ändringar. Utan klient biblioteket för Elastic Database skulle du behöva ägna mycket tid åt att skriva hanterings koden när du implementerar horisontell partitionering. Mer information finns i [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).
 
-- **Databeroende routning**: Anta att en begäran som kommer in i programmet. Baserat på horisontell partitionering nyckelvärdet för begäran kan måste programmet fastställa rätt databas baserat på nyckelvärdet. Sedan öppnas en anslutning till databasen för att bearbeta begäran. Databeroende routning ger möjlighet att öppna anslutningar med ett enda enkelt anrop till fragmentkartan för programmet. Databeroende routning har ett annat område i infrastrukturkod som omfattas nu av funktioner i klientbiblioteket för elastiska databaser. Mer information finns i [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md).
-- **Multi-shard-frågor (MSQ)** : Multi-shard-frågor fungerar när en begäran omfattar flera (eller alla) shards. En Multi-shard-fråga körs samma T-SQL-kod på alla shards eller en uppsättning shards. Resultaten från deltagande shards slås samman i en övergripande resultatmängden med hjälp av UNION ALL-semantik. Funktioner som exponeras via klientbiblioteket hanterar många aktiviteter, inklusive: anslutningshanteringen, tråd management, hantering av fel och mellanresultat bearbetning. MSQ kan fråga upp till hundratals shards. Mer information finns i [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md).
+- **Data beroende routning**: Föreställ dig att en begäran kommer till programmet. Baserat på horisontell partitionering nyckel värde för begäran måste programmet fastställa rätt databas baserat på nyckelvärdet. Sedan öppnas en anslutning till databasen för att bearbeta begäran. Data beroende routning ger möjlighet att öppna anslutningar med ett enkelt anrop till Shard-kartan för programmet. Data beroende routning var en annan del av infrastruktur koden som nu omfattas av funktioner i klient biblioteket för Elastic Database. Mer information finns i [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md).
+- **Frågor för flera Shard (MSQ)** : Multi-Shard-frågor fungerar när en begäran omfattar flera (eller alla) Shards. En multi-Shard-fråga kör samma T-SQL-kod på alla Shards eller en uppsättning Shards. Resultatet från de deltagande Shards sammanfogas i en övergripande resultat uppsättning med UNION ALL semantik. De funktioner som exponeras via klient biblioteket hanterar många aktiviteter, inklusive hantering av anslutningar, tråd hantering, fel hantering och mellanliggande resultat bearbetning. MSQ kan fråga upp till hundratals Shards. Mer information finns i [multi-Shard-frågor](sql-database-elastic-scale-multishard-querying.md).
 
-I allmänhet kunder som använder elastic database-verktyg kan förvänta sig att hämta alla T-SQL-funktioner när du skickar in shard-lokala åtgärder i stället för mellan fragment åtgärder som har sina egna semantik.
+I allmänhet kan kunder som använder elastiska databas verktyg vänta med att få fullständiga T-SQL-funktioner när de skickar Shard-lokala åtgärder i stället för Shard-åtgärder som har egna semantik.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Elastic Database-klientbibliotek ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) – för att **hämta** i biblioteket.
+- Elastic Database klient bibliotek ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.net](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) – för att **Ladda ned** biblioteket.
 
-- [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md) – om du vill prova den **exempelapp** som visar klientfunktioner.
+- [Kom igång med elastiska databas verktyg](sql-database-elastic-scale-get-started.md) – för att testa **exempel appen** som visar klient funktioner.
 
-- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.NET](https://github.com/Azure/elastic-db-tools)) – om du vill göra bidrag i koden.
-- [Översikt över elastisk fråga i Azure SQL Database](sql-database-elastic-query-overview.md) – om du vill använda elastiska frågor.
+- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.net](https://github.com/Azure/elastic-db-tools)) – för att göra bidrag till koden.
+- [Översikt över Azure SQL Database elastisk fråga](sql-database-elastic-query-overview.md) – om du vill använda elastiska frågor.
 
-- [Flytta data mellan utskalade molndatabaser](sql-database-elastic-scale-overview-split-and-merge.md) – anvisningar om hur du använder den **dela / sammanslå verktyget**.
+- [Flytta data mellan utskalade moln databaser](sql-database-elastic-scale-overview-split-and-merge.md) – instruktioner om hur du använder **verktyget Dela och slå samman**.
 
 
 

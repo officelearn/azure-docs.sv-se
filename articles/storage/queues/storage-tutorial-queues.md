@@ -1,24 +1,23 @@
 ---
-title: Självstudie – arbeta med Azure storage-köer – Azure Storage
-description: En självstudiekurs om hur du använder Azure-Kötjänsten för att skapa köer och insert-, hämta och ta bort meddelanden.
-services: storage
+title: Självstudie – arbeta med Azure Storage-köer – Azure Storage
+description: En själv studie kurs om hur du använder Azure-Kötjänst för att skapa köer och infoga, hämta och ta bort meddelanden.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 04/24/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
-ms.date: 04/24/2019
-ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.reviewer: cbrooks
+ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540301"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721129"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Självstudier: Arbeta med Azure Storage-köer
 
-Azure-kölagring implementerar molnbaserade köer för att aktivera kommunikation mellan komponenter i ett distribuerat program. Varje kö har en lista med meddelanden som kan läggas till av en sändarkomponenten och bearbetas av en komponent som mottagare. Med en kö skala ditt program direkt för att möta efterfrågan. Den här artikeln visar de grundläggande stegen för att arbeta med en Azure storage-kö.
+Azure Queue Storage implementerar molnbaserade köer för att möjliggöra kommunikation mellan komponenter i ett distribuerat program. Varje kö underhåller en lista över meddelanden som kan läggas till av en avsändarens komponent och bearbetas av en mottagar komponent. Med en kö kan ditt program skalas direkt för att möta efter frågan. Den här artikeln visar de grundläggande stegen för att arbeta med en Azure Storage-kö.
 
 I den här guiden får du lära dig att:
 
@@ -29,32 +28,32 @@ I den här guiden får du lära dig att:
 > - Lägg till stöd för asynkron kod
 > - Skapa en kö
 > - Infoga meddelanden i en kö
-> - Ut meddelanden ur kön
+> - Ta bort meddelanden från kön
 > - Ta bort en tom kö
-> - Sök efter kommandoradsargument
+> - Sök efter kommando rads argument
 > - Skapa och kör appen
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Hämta en kostnadsfri kopia av plattformsoberoende [Visual Studio Code](https://code.visualstudio.com/download) redigeraren.
-- Ladda ned och installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
-- Om du inte har en aktuell Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- Få en kostnads fri kopia av den plattforms oberoende kod redigeraren i [Visual Studio](https://code.visualstudio.com/download) .
+- Ladda ned och installera [.net Core SDK](https://dotnet.microsoft.com/download).
+- Om du inte har en aktuell Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 
-Skapa först ett Azure storage-konto. En stegvis guide till att skapa ett lagringskonto finns det [skapa ett lagringskonto](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) Snabbstart.
+Börja med att skapa ett Azure Storage-konto. En steg-för-steg-guide om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) snabb start.
 
 ## <a name="create-the-app"></a>Skapa appen
 
-Skapa ett .NET Core-program med namnet **QueueApp**. För enkelhetens skull ska den här appen både skicka och ta emot meddelanden via kön.
+Skapa ett .NET Core-program med namnet **QueueApp**. För enkelhetens skull kommer den här appen både att skicka och ta emot meddelanden via kön.
 
-1. I ett konsolfönster (till exempel CMD, PowerShell eller Azure CLI), använder den `dotnet new` kommando för att skapa en ny konsolapp med namnet **QueueApp**. Det här kommandot skapar en enkel ”Hello World” C# projekt med en enskild källfil: **Program.CS**.
+1. I ett konsol fönster (till exempel cmd, PowerShell eller Azure CLI) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet **QueueApp**. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda källfil: **Program.cs**.
 
    ```console
    dotnet new console -n QueueApp
    ```
 
-2. Växla till den nyligen skapade **QueueApp** mappen och build app för att kontrollera att allt är korrekt.
+2. Växla till den nyligen skapade **QueueApp** -mappen och skapa appen för att kontrol lera att alla är väl.
 
    ```console
    cd QueueApp
@@ -96,13 +95,13 @@ Skapa ett .NET Core-program med namnet **QueueApp**. För enkelhetens skull ska 
 
 ## <a name="add-support-for-asynchronous-code"></a>Lägg till stöd för asynkron kod
 
-Eftersom appen använder molnresurser måste körs koden asynkront. Dock C#'s **async** och **await** inte var giltigt nyckelord i **Main** metoder tills C# 7.1. Du kan enkelt växla till den kompilatorn via en flagga i den **csproj** fil.
+Eftersom appen använder moln resurser körs koden asynkront. Men C#är **async** och **väntar** på att inte vara giltiga nyckelord i **huvud** metoderna fram till C# 7,1. Du kan enkelt växla till den kompilatorn via en flagga i **CSPROJ** -filen.
 
-1. Ange från kommandoraden i projektkatalogen `code .` att öppna Visual Studio Code i den aktuella katalogen. Lämna Kommandotolken öppen. Det blir fler kommandon för att köra senare. Om du uppmanas att lägga till C# tillgångar som krävs för att skapa och Felsök, klickar du på den **Ja** knappen.
+1. Från kommando raden i projekt katalogen skriver `code .` du för att öppna Visual Studio Code i den aktuella katalogen. Låt kommando rads fönstret vara öppet. Det kommer att finnas fler kommandon att köra senare. Om du uppmanas att lägga C# till till gångar som krävs för att skapa och felsöka klickar du på knappen **Ja** .
 
-2. Öppna den **QueueApp.csproj** filen i redigeraren.
+2. Öppna filen **QueueApp. CSPROJ** i redigeraren.
 
-3. Lägg till `<LangVersion>7.1</LangVersion>` första **PropertyGroup** i build-filen. Se till att du bara lägga till den **LangVersion** taggas som din **TargetFramework** kan skilja sig beroende på vilken version av .NET som du har installerat.
+3. Lägg `<LangVersion>7.1</LangVersion>` till i den första **PropertyGroup** i build-filen. Se till att du bara lägger till **LangVersion** -taggen eftersom din **TargetFramework** kan vara olika beroende på vilken version av .net som du har installerat.
 
    ```xml
    <Project Sdk="Microsoft.NET.Sdk">
@@ -117,26 +116,26 @@ Eftersom appen använder molnresurser måste körs koden asynkront. Dock C#'s **
 
    ```
 
-4. Spara den **QueueApp.csproj** fil.
+4. Spara filen **QueueApp. CSPROJ** .
 
-5. Öppna den **Program.cs** käll-filen och uppdatera den **Main** metod som ska köras asynkront. Ersätt **void** med en **asynkrona aktiviteten** returvärde.
+5. Öppna käll filen **program.cs** och uppdatera **main** -metoden så att den körs asynkront. Ersätt **void** med ett retur värde för **asynkron uppgift** .
 
    ```csharp
    static async Task Main(string[] args)
    ```
 
-6. Spara den **Program.cs** fil.
+6. Spara filen **program.cs** .
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
-1. Installera den **Microsoft.Azure.Storage.Common** och **Microsoft.Azure.Storage.Queue** paket i projektet med den `dotnet add package` kommando. Kör följande kommandon för dotnet från projektmappen i konsolfönstret.
+1. Installera **Microsoft. Azure. Storage. common** och **Microsoft. Azure. Storage. Queue** -paketen i `dotnet add package` projektet med kommandot. Kör följande dotNet-kommandon från mappen Project i konsol fönstret.
 
    ```console
    dotnet add package Microsoft.Azure.Storage.Common
    dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
-2. Överst på den **Program.cs** Lägg till följande namnrymder direkt efter den `using System;` instruktionen. Den här appen använder typer från dessa för att ansluta till Azure Storage och arbeta med köer.
+2. Lägg till följande namn rymder direkt efter `using System;` instruktionen längst upp i **program.cs** -filen. Den här appen använder typer från dessa namn områden för att ansluta till Azure Storage och arbeta med köer.
 
    ```csharp
    using System.Threading.Tasks;
@@ -144,19 +143,19 @@ Eftersom appen använder molnresurser måste körs koden asynkront. Dock C#'s **
    using Microsoft.Azure.Storage.Queue;
    ```
 
-3. Spara den **Program.cs** fil.
+3. Spara filen **program.cs** .
 
 ### <a name="get-your-connection-string"></a>Hämta anslutningssträngen
 
-Klientbiblioteket använder en anslutningssträng för att upprätta anslutningen. Anslutningssträngen är tillgänglig i den **inställningar** avsnitt på ditt lagringskonto i Azure-portalen.
+Klient biblioteket använder en anslutnings sträng för att upprätta anslutningen. Anslutnings strängen är tillgänglig i avsnittet **Inställningar** på ditt lagrings konto i Azure Portal.
 
-1. I webbläsaren, logga in på den [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/)i webbläsaren.
 
 2. Navigera till ditt lagringskonto i Azure-portalen.
 
-3. Välj **åtkomstnycklar**.
+3. Välj **åtkomst nycklar**.
 
-4. Klicka på den **kopia** knappen till höger om den **anslutningssträngen** fält.
+4. Klicka på knappen **Kopiera** till höger om fältet **anslutnings sträng** .
 
 ![Anslutningssträng](media/storage-tutorial-queues/get-connection-string.png)
 
@@ -166,17 +165,17 @@ Anslutningssträngen har det här formatet:
    "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net"
    ```
 
-### <a name="add-the-connection-string-to-the-app"></a>Lägga till anslutningssträngen i appen
+### <a name="add-the-connection-string-to-the-app"></a>Lägg till anslutnings strängen i appen
 
-Lägg till anslutningssträngen i appen så att den kan komma åt lagringskontot.
+Lägg till anslutnings strängen i appen så att den kan komma åt lagrings kontot.
 
-1. Gå tillbaka till Visual Studio Code.
+1. Växla tillbaka till Visual Studio Code.
 
-2. I den **programmet** klass, lägga till en `private const string connectionString =` medlem för anslutningssträngen.
+2. I **program** -klassen lägger du till `private const string connectionString =` en medlem som ska innehålla anslutnings strängen.
 
-3. Efter likhetstecknet, klistrar du in det strängvärde som du kopierade tidigare i Azure portal. Den **connectionString** värdet ska vara unikt för ditt konto.
+3. Efter likhets tecknet klistrar du in det sträng värde som du kopierade tidigare i Azure Portal. **ConnectionString** -värdet är unikt för ditt konto.
 
-4. Ta bort ”Hello World”-kod från **Main**. Koden bör se ut ungefär så här men med din unika Anslutningssträngens värde.
+4. Ta bort koden "Hello World" från **main**. Koden bör se ut ungefär så här, men med ditt unika anslutnings sträng värde.
 
    ```csharp
    namespace QueueApp
@@ -192,7 +191,7 @@ Lägg till anslutningssträngen i appen så att den kan komma åt lagringskontot
    }
    ```
 
-5. Uppdatera **Main** att skapa en **CloudQueue** objekt som senare skickas till skicka och ta emot metoder.
+5. Uppdatera **huvud** för att skapa ett **CloudQueue** -objekt, som senare skickas till metoderna för att skicka och ta emot.
 
    ```csharp
         static async Task Main(string[] args)
@@ -207,9 +206,9 @@ Lägg till anslutningssträngen i appen så att den kan komma åt lagringskontot
 
 ## <a name="insert-messages-into-the-queue"></a>Infoga meddelanden i kön
 
-Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande metod för att din **programmet** klass. Den här metoden hämtar en referens för kön och sedan skapar en ny kö om den inte redan finns genom att anropa [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Sedan det lägger till meddelandet i kön genom att anropa [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+Skapa en ny metod för att skicka ett meddelande till kön. Lägg till följande metod i **program** klassen. Den här metoden hämtar en Queue-referens och skapar sedan en ny kö om den inte redan finns genom att anropa [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Sedan lägger den till meddelandet i kön genom att anropa [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
-1. Lägg till följande **SendMessageAsync** metod för att din **programmet** klass.
+1. Lägg till följande **SendMessageAsync** -Metod i **program** klassen.
 
    ```csharp
    static async Task SendMessageAsync(CloudQueue theQueue, string newMessage)
@@ -228,19 +227,19 @@ Skapa en ny metod för att skicka ett meddelande i kön. Lägg till följande me
 
 2. Spara filen.
 
-Ett meddelande måste har ett format som stöds av en XML-begäran med UTF-8-kodning, och kan vara upp till 64 kB stort. Om ett meddelande som innehåller binära data, rekommenderar vi att du Base64-koda meddelandet.
+Ett meddelande måste har ett format som stöds av en XML-begäran med UTF-8-kodning, och kan vara upp till 64 kB stort. Om ett meddelande innehåller binära data, rekommenderar vi att du base64-kodar meddelandet.
 
-Som standard är den högsta livslängden för ett meddelande inställt på 7 dagar. Du kan ange valfri positivt tal för meddelandet time to live. Om du vill lägga till ett meddelande som inte upphör att gälla, använda `Timespan.FromSeconds(-1)` i anrop till **AddMessageAsync**.
+Som standard är den högsta livslängden för ett meddelande inställt på 7 dagar. Du kan ange ett positivt tal för Time-to-Live-meddelandet. Använd `Timespan.FromSeconds(-1)` i anropet till **AddMessageAsync**för att lägga till ett meddelande som inte upphör att gälla.
 
 ```csharp
 await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
-## <a name="dequeue-messages"></a>Ut meddelanden ur kön
+## <a name="dequeue-messages"></a>Ta bort meddelanden från kön
 
-Skapa en ny metod som kallas **ReceiveMessageAsync**. Den här metoden tar emot ett meddelande från kön genom att anropa [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). När meddelandet har tagits emot, är det viktigt att ta bort det från kön så att den inte bearbetas mer än en gång. När meddelandet tas emot, ta bort det från kön genom att anropa [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
+Skapa en ny metod som heter **ReceiveMessageAsync**. Den här metoden tar emot ett meddelande från kön genom att anropa [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). När meddelandet har tagits emot är det viktigt att ta bort det från kön så att det inte bearbetas mer än en gång. När meddelandet har tagits emot tar du bort det från kön genom att anropa [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
-1. Lägg till följande **ReceiveMessageAsync** metod för att din **programmet** klass.
+1. Lägg till följande **ReceiveMessageAsync** -Metod i **program** klassen.
 
    ```csharp
    static async Task<string> ReceiveMessageAsync(CloudQueue theQueue)
@@ -265,9 +264,9 @@ Skapa en ny metod som kallas **ReceiveMessageAsync**. Den här metoden tar emot 
 
 ## <a name="delete-an-empty-queue"></a>Ta bort en tom kö
 
-Det är bästa praxis i slutet av ett projekt att identifiera om du fortfarande behöver de resurser som du skapade. Resurser vänstra som körs kan kostar pengar. Om kön finns men är tom, be användaren om de vill ta bort den.
+Det är en bra idé i slutet av ett projekt att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Om kön finns men är tom ber du användaren om han vill ta bort den.
 
-1. Expandera den **ReceiveMessageAsync** metoden och ta en uppmaning om att ta bort tom kö.
+1. Expandera **ReceiveMessageAsync** -metoden för att ta med en uppvarning för att ta bort den tomma kön.
 
    ```csharp
    static async Task<string> ReceiveMessageAsync(CloudQueue theQueue)
@@ -309,15 +308,15 @@ Det är bästa praxis i slutet av ett projekt att identifiera om du fortfarande 
 
 2. Spara filen.
 
-## <a name="check-for-command-line-arguments"></a>Sök efter kommandoradsargument
+## <a name="check-for-command-line-arguments"></a>Sök efter kommando rads argument
 
-Om det finns några kommandoradsargument som skickas till appen, förutsätter att de är ett meddelande som ska läggas till i kön. Anslut argument tillsammans för att göra en sträng. Lägg till den här strängen till meddelandekön genom att anropa den **SendMessageAsync** metoden som vi lade till tidigare.
+Om det finns kommando rads argument som skickas till appen, antar du att de är ett meddelande som ska läggas till i kön. Koppla ihop argumenten för att skapa en sträng. Lägg till den här strängen i meddelande kön genom att anropa **SendMessageAsync** -metoden som vi lade till tidigare.
 
-Om det finns inga argument på kommandoraden, kör du en hämta-åtgärden. Anropa den **ReceiveMessageAsync** metod för att hämta det första meddelandet i kön.
+Om det inte finns några kommando rads argument kör du en Hämta-åtgärd. Anropa **ReceiveMessageAsync** -metoden för att hämta det första meddelandet i kön.
 
-Slutligen, vänta tills indata från användaren innan du avslutar genom att anropa **Console.ReadLine**.
+Vänta sedan på användarindata innan du avslutar genom att anropa **Console. readline**.
 
-1. Expandera den **Main** metod för att söka efter kommandoradsargument och vänta på användarindata.
+1. Expandera **huvud** metoden för att kontrol lera kommando rads argument och vänta på användarindata.
 
    ```csharp
         static async Task Main(string[] args)
@@ -347,7 +346,7 @@ Slutligen, vänta tills indata från användaren innan du avslutar genom att anr
 
 ## <a name="complete-code"></a>Fullständig kod
 
-Här är den fullständiga koden för det här projektet.
+Här är den fullständiga kod listan för det här projektet.
 
    ```csharp
    using System;
@@ -441,19 +440,19 @@ Här är den fullständiga koden för det här projektet.
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-1. Kör följande dotnet-kommando för att skapa projektet från kommandoraden i projektkatalogen.
+1. Från kommando raden i projekt katalogen kör du följande dotNet-kommando för att skapa projektet.
 
    ```console
    dotnet build
    ```
 
-2. När projektet skapas har måste du köra följande kommando för att lägga till det första meddelandet i kön.
+2. När projektet har skapats kör du följande kommando för att lägga till det första meddelandet i kön.
 
    ```console
    dotnet run First queue message
    ```
 
-Du bör se dessa utdata:
+Du bör se följande utdata:
 
    ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
@@ -462,13 +461,13 @@ Du bör se dessa utdata:
    Press Enter..._
    ```
 
-3. Kör appen med inga kommandoradsargument för att ta emot och ta bort det första meddelandet i kön.
+3. Kör appen utan kommando rads argument för att ta emot och ta bort det första meddelandet i kön.
 
    ```console
    dotnet run
    ```
 
-4. Fortsätta att köra appen tills alla meddelanden som tas bort. Om du kör en gång, får du ett meddelande om att kön är tom och en uppmaning om att ta bort kön.
+4. Fortsätt att köra appen tills alla meddelanden har tagits bort. Om du kör den en gång till får du ett meddelande om att kön är tom och att du uppmanas att ta bort kön.
 
    ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
@@ -510,9 +509,9 @@ I den här självstudiekursen lärde du dig att:
 
 1. Skapa en kö
 2. Lägga till och ta bort meddelanden från en kö
-3. Ta bort en Azure storage-kö
+3. Ta bort en Azure Storage-kö
 
-Kolla in Azure-köer Snabbstart för mer information.
+Mer information finns i snabb start för Azure-köer.
 
 > [!div class="nextstepaction"]
-> [Köer-Snabbstart](storage-quickstart-queues-portal.md)
+> [Snabb start för köer](storage-quickstart-queues-portal.md)

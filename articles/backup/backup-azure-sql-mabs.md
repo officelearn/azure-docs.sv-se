@@ -1,18 +1,19 @@
 ---
 title: Azure Backup för SQL Server arbets belastningar med Azure Backup Server
 description: En introduktion till att säkerhetskopiera SQL Server databaser med Azure Backup Server
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
-ms.openlocfilehash: 0aff75e37ec8184b6c23ff00cbf61e5cbe045b5f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 5e91d63f4479d0677c57342cb1b726e33a45bb86
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465442"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689074"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera SQL Server till Azure med Azure Backup Server
 Den här artikeln vägleder dig genom konfigurations stegen för säkerhets kopiering av SQL Server databaser med hjälp av Microsoft Azure Backup Server (MABS).
@@ -128,7 +129,7 @@ Medan föregående steg skapade en säkerhets kopierings policy skapas en "åter
 ## <a name="recover-a-sql-server-database-from-azure"></a>Återställa en SQL Server databas från Azure
 Följande steg krävs för att återställa en skyddad entitet (SQL Server databas) från Azure.
 
-1. Öppna DPM-serverns hanterings konsol. Gå till  återställnings arbets ytan där du kan se servrarna som säkerhets kopie ras av DPM. Bläddra igenom den nödvändiga databasen (i det här fallet ReportServer $ MSDPM2012). Välj en **återställning från** en tid som slutar med **online**.
+1. Öppna DPM-serverns hanterings konsol. Gå till återställnings arbets ytan där du kan se servrarna som säkerhets kopie ras av DPM. Bläddra igenom den nödvändiga databasen (i det här fallet ReportServer $ MSDPM2012). Välj en **återställning från** en tid som slutar med **online**.
 
     ![Välj återställnings punkt](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Högerklicka på databas namnet och klicka på **Återställ**.

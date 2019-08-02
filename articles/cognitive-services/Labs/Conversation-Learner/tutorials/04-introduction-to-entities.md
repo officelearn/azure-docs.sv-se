@@ -1,7 +1,7 @@
 ---
-title: Hur du använder enheter med en modell för konversationen Learner – Microsoft Cognitive Services | Microsoft Docs
+title: Använda entiteter med en Conversation Learner modell – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du använder enheter med en konversation Learner modell.
+description: Lär dig hur du använder entiteter med en Conversation Learner modell.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,90 +10,91 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 3d9e2498a23ad49eb014cb0f81c819f3f63eef5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: cba12b6c09c1bdbf4e8f7841676a609c34109d93
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387805"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707341"
 ---
 # <a name="introduction-to-entities"></a>Introduktion till entiteter
 
-Den här självstudien innehåller entiteter, diskvalificera entiteter, krävs entiteter och deras användning i Konversationsdeltagare.
+I den här självstudien beskrivs entiteter, diskvalificerande entiteter, obligatoriska entiteter och deras användning inom Conversation Learner.
 
 ## <a name="video"></a>Video
 
-[![Introduktion till entiteter självstudiekursen förhandsversion](https://aka.ms/cl_Tutorial_v3_IntroEntities_Preview)](https://aka.ms/cl_Tutorial_v3_IntroEntities)
+[![Förhands granskning av introduktion till entiteter](https://aka.ms/cl_Tutorial_v3_IntroEntities_Preview)](https://aka.ms/cl_Tutorial_v3_IntroEntities)
 
 ## <a name="requirements"></a>Krav
 
-Den här självstudien krävs att Allmänt självstudien Bot körs
+Den här självstudien kräver att roboten för allmän självstudie körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
 
-Entiteter avbilda typer av information som roboten behöver för att utföra sitt uppdrag genom extrahering från användaren yttranden eller tilldelning av anpassad kod. Entiteter själva kan också begränsa tillgänglighet genom att uttryckligen som klassificeras som ”krävs” eller ”diskvalificera”.
+Entiteter samlar in de delar av information som bot-roboten behöver för att utföra uppgiften, antingen genom extrahering från användare yttranden eller tilldelning efter anpassad kod. Entiteter kan också begränsa åtgärdens tillgänglighet genom att uttryckligen klassificeras som "nödvändig" eller "dekvalificerande".
 
-- Nödvändiga entiteter måste finnas i modellens minne för att åtgärden ska vara tillgängliga
-- Diskvalificera entiteter måste *inte* i modellens minnet för att åtgärden ska vara tillgängliga
+- Obligatoriska entiteter måste finnas i modellens minne för att åtgärden ska vara tillgänglig
+- Diskvalificerande entiteter får *inte* finnas i modellens minne för att åtgärden ska vara tillgänglig
 
-Den här självstudien fokuserar på anpassade entiteter. Före tränas introduceras flera värden, negeras entiteter och programmässig entiteter i andra självstudier.
+Den här självstudien fokuserar på anpassade entiteter. Förtränade, flervärdesfält, negation bara entiteter och programmatiska enheter introduceras i andra självstudier.
 
 ## <a name="steps"></a>Steg
 
 ### <a name="create-the-model"></a>Skapa modellen
 
-1. I Webbgränssnittet, klickar du på ”ny modell”.
-2. Skriv ”IntroToEntities” i fältet ”namn” och tryck på RETUR.
-3. Klicka på knappen ”Skapa”.
+1. I webb gränssnittet klickar du på "ny modell".
+2. Skriv "IntroToEntities" i fältet "namn" och tryck på RETUR.
+3. Klicka på knappen "skapa".
 
-### <a name="entity-creation"></a>Skapa en entitet
+### <a name="entity-creation"></a>Skapa entitet
 
-1. Klicka på ”entiteter” och knappen ”ny entitet” på den vänstra panelen.
-2. Välj ”anpassade tränas” för ”entitetstypen”.
-3. Skriv ”stad” för ”entitetsnamnet”.
-4. Klicka på knappen ”Skapa”.
+1. Klicka på entiteter i den vänstra panelen, sedan på knappen ny enhet.
+2. Välj anpassad tränad för enhets typen.
+3. Skriv "stad" för "entitetsnamnet".
+4. Klicka på knappen "skapa".
 
 > [!NOTE]
-> Den anpassade tränade entitetstypen innebär att den här entiteten kan tränas, till skillnad från andra typer av enheter.
+> Entitetstypen anpassad enhets typ innebär att den här entiteten kan tränas, till skillnad från andra typer av entiteter.
 
 ### <a name="create-the-actions"></a>Skapa åtgärder
 
-1. Klicka på ”åtgärder” och knappen ”ny åtgärd” på den vänstra panelen.
-2. Fältet i ”Robotens svaret...”, skriver du ”Jag vet inte vilken stad som du vill”.
-3. I fältet ”diskvalificera entiteter”, skriver du ”stad”.
-4. Klicka på knappen ”Skapa”.
+1. Klicka på "åtgärder" i den vänstra panelen, sedan på knappen "ny åtgärd".
+2. I "robotens svar..." anger du "Jag vet inte vilken stad du vill ha."
+3. Skriv "ort" i fältet "diskvalificera entiteter".
+4. Klicka på knappen "skapa".
 
 > [!NOTE]
-> Att lägga till ”stad” enhet ”diskvalificera entiteter” skulle diskvalificera den här åtgärden från Robotens räkningen när ”stad” entitet definieras i Robotens minne.
+> Om du lägger till entiteten "ort" i "diskvalificerande entiteter" skulle den här åtgärden tas från botens övervägande när entiteten "ort" definieras i robotens minne.
 
-Nu skapa en andra åtgärd.
+Nu skapar du en andra åtgärd.
 
-1. Klicka på ”åtgärder” och knappen ”ny åtgärd” på den vänstra panelen.
-2. Fältet i ”Robotens svaret...”, skriver du ”vädret i $city är förmodligen vackert”.
-3. Klicka på knappen ”Skapa”.
+1. Klicka på "åtgärder" i den vänstra panelen, sedan på knappen "ny åtgärd".
+2. I "robotens svar..." anger du "Väder i $city är förmodligen solig".
+3. Klicka på knappen "skapa".
 
 > [!NOTE]
-> ”Stad” entitet har lagts automatiskt i listan över entiteter som krävs av referens i svaret.
+> Entiteten "ort" har lagts till automatiskt i listan över obligatoriska entiteter efter referens i svaret.
 
 ![](../media/tutorial3_actions.PNG)
 
 ### <a name="train-the-model"></a>Träna modellen
 
-1. Klicka på ”Train-dialogrutor” och knappen ”Ny träna dialogruta” på den vänstra panelen.
-2. På panelen chatt står det ”Skriv meddelandet...”, ange ”hello”.
-    - Det här simulerar användarens sida för konversationen.
-3. Klicka på knappen ”poäng åtgärder”.
-4. Välj svar ”jag vet inte vilken stad som du vill”.
-5. Som användare, svarar med ”Seattle”.
-6. Klicka på knappen ”poäng åtgärder”.
-7. Välj svar ”väder i $city är förmodligen vackert”.
-8. Klicka på knappen ”Spara”.
+1. På den vänstra panelen klickar du på "träna dialoger", sedan på knappen "ny träna dialog".
+2. I panelen chat, där det står "Skriv ditt meddelande...", skriver du "Hej".
+    - Detta simulerar användarens sida av konversationen.
+3. Klicka på knappen "Poäng åtgärder".
+4. Välj svaret, "Jag vet inte vilken stad du vill ha."
+5. Som användaren svarar med, "Seattle".
+6. Klicka på knappen "Poäng åtgärder".
+7. Välj svaret "Väder i $city är förmodligen solig".
+8. Klicka på knappen Spara.
 
 ![](../media/tutorial3_entities.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Förväntade entiteten](./05-expected-entity.md)
+> [Förväntad entitet](./05-expected-entity.md)

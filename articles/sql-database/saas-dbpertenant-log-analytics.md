@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Monitor-loggar med en SQL-databas fleranvändarapp | Microsoft Docs
-description: Konfigurera och använda Azure Monitor-loggar med en multitenant Azure SQL Database SaaS-app
+title: Använda Azure Monitor loggar med en SQL Database klient för flera klient organisationer | Microsoft Docs
+description: Konfigurera och använda Azure Monitor loggar med flera innehavare Azure SQL Database SaaS-appen
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,134 +10,133 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b9b2239cfdf0f214ed2f2b179978fe2828d1be3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61390735"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570514"
 ---
-# <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda Azure Monitor-loggar med en multitenant SQL Database SaaS-app
+# <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda Azure Monitor loggar med flera innehavare SQL Database SaaS-appen
 
-I den här självstudien får du konfigurera och använda [Azure Monitor loggar](/azure/log-analytics/log-analytics-overview) att övervaka elastiska pooler och databaser. Den här självstudien bygger på den [guiden för övervakning och hantering av prestanda](saas-dbpertenant-performance-monitoring.md). Den visar hur du använder Azure Monitor-loggar för att utöka den övervakning och avisering tillhandahålls i Azure-portalen. Azure Monitor loggar har stöd för övervakning av tusentals elastiska pooler och hundratusentals databaser. Azure Monitor-loggar tillhandahåller en enskild övervakningslösning som kan integrera övervakning av olika program och Azure-tjänster över flera Azure-prenumerationer.
+I den här självstudien ställer du in och använder [Azure Monitor loggar](/azure/log-analytics/log-analytics-overview) för att övervaka elastiska pooler och databaser. Den här självstudien bygger på självstudien om [prestanda övervakning och hantering](saas-dbpertenant-performance-monitoring.md). Det visar hur du använder Azure Monitor loggar för att förstärka övervakningen och aviseringarna som finns i Azure Portal. Azure Monitor loggar har stöd för övervakning av tusentals elastiska pooler och hundratals tusentals databaser. Azure Monitor loggar tillhandahåller en enda övervaknings lösning som kan integrera övervakning av olika program och Azure-tjänster över flera Azure-prenumerationer.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Installera och konfigurera Azure Monitor-loggar.
-> * Använda Azure Monitor-loggar att övervaka pooler och databaser.
+> * Installera och konfigurera Azure Monitor loggar.
+> * Använd Azure Monitor loggar för att övervaka pooler och databaser.
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
-* Wingtip biljetter SaaS databas-per-klient appen har distribuerats. Om du vill distribuera i mindre än fem minuter [distribuera och utforska Wingtip biljetter SaaS databas-per-klient programmet](saas-dbpertenant-get-started-deploy.md).
+* Wingtip-biljetterna SaaS Database-per-klient-app distribueras. Mer information om hur du distribuerar på mindre än fem minuter finns i [distribuera och utforska Wingtip Ticket SaaS Database-användarspecifika program](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-Se den [guiden för övervakning och hantering av prestanda](saas-dbpertenant-performance-monitoring.md) för en diskussion om SaaS-scenarierna och mönstren och hur de påverkar kraven för en övervakningslösning.
+I självstudien om [prestanda övervakning och hantering](saas-dbpertenant-performance-monitoring.md) får du en beskrivning av SaaS-scenarier och mönster och hur de påverkar kraven på en övervaknings lösning.
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-azure-monitor-logs"></a>Övervaka och hantera databaser och elastiska pool prestanda med Azure Monitor-loggar
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-azure-monitor-logs"></a>Övervaka och hantera prestanda för databaser och elastiska pooler med Azure Monitor loggar
 
-För Azure SQL Database är övervakning och avisering tillgängligt för databaser och pooler i Azure-portalen. Den här inbyggda övervakningen och aviseringen är praktiskt, men det är också resursspecifika. Det innebär att det passar mindre bra för att övervaka stora installationer eller tillhandahålla en enhetlig vy över resurser och prenumerationer.
+För Azure SQL Database är övervakning och avisering tillgänglig på databaser och pooler i Azure Portal. Den här inbyggda övervakningen och aviseringen är praktisk, men det är också resurs särskilt. Det innebär att det är mindre bra att övervaka stora installationer eller att tillhandahålla en enhetlig vy över resurser och prenumerationer.
 
-För scenarion med stora volymer, kan du använda Azure Monitor-loggar för övervakning och avisering. Azure Monitor är en separat Azure-tjänst som möjliggör analys över diagnostikloggar och telemetri som samlas in i en arbetsyta från potentiellt många tjänster. Azure Monitor-loggar tillhandahåller ett inbyggt frågespråk och visualiseringsverktyg som tillåter operationell dataanalys. SQL Analytics-lösningen innehåller flera fördefinierade elastisk pool och databasövervakning och aviseringar och frågor. Azure Monitor-loggar innehåller också en designer för anpassade vyer.
+I scenarier med stora volymer kan du använda Azure Monitor loggar för övervakning och avisering. Azure Monitor är en separat Azure-tjänst som möjliggör analys av diagnostikloggar och telemetri som samlas in i en arbets yta från potentiellt många tjänster. Azure Monitor-loggar innehåller ett inbyggt frågespråk och data visualiserings verktyg som tillåter drift data analys. SQL Analytics-lösningen innehåller flera fördefinierade elastiska pooler och databas övervakning och aviseringar och frågor. Azure Monitor loggar innehåller också en anpassad vy designer.
 
-OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. Log Analytics-arbetsytor och Analyslösningar öppna i Azure-portalen. Azure-portalen är den nya åtkomstpunkten, men det kan vara vad som finns bakom Operations Management Suite-portalen på vissa områden.
+OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. Log Analytics arbets ytor och analys lösningar som är öppna i Azure Portal. Azure Portal är den nyare åtkomst punkten, men det kan vara vad som ligger bakom Operations Management Suite-portalen i vissa områden.
 
-### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Skapa prestanda diagnostiska data genom att simulera en arbetsbelastning på klienterna 
+### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Skapa prestanda diagnostikdata genom att simulera en arbets belastning på klienterna 
 
-1. I PowerShell ISE öppnar *... \\WingtipTicketsSaaS-MultiTenantDb-master\\inlärningsmoduler\\prestandaövervakning och hantering\\Demo-PerformanceMonitoringAndManagement.ps1*. Lämna det här skriptet öppet eftersom du kan vilja köra flera av belastningen generation scenarier under den här självstudien.
-1. Om du inte redan har gjort det, kan du etablera en batch med klienter för att se övervakningen kontexten mer intressant. Den här processen tar några minuter.
+1. Öppna i PowerShell ISE *. WingtipTicketsSaaS – MultiTenantDb-Master\\Learning\\modules Performance Monitoring\\and Management performancemonitoringandmanagement. ps1. \\* Se till att det här skriptet är öppet eftersom du kanske vill köra flera av scenarierna för inläsnings generering under den här självstudien.
+1. Om du inte redan har gjort det kan du etablera en batch med klienter för att göra övervaknings kontexten mer intressant. Den här processen tar några minuter.
 
    a. Ange **$DemoScenario = 1**, _etablera en batch med klienter_.
 
-   b. Tryck på F5 för att köra skriptet och distribuera en ytterligare 17 klienter.
+   b. Tryck på F5 för att köra skriptet och distribuera ytterligare 17 klienter.
 
-1. Nu starta belastningsgeneratorn för att köra en simulerad belastning på alla klienter.
+1. Starta nu belastnings generatorn för att köra en simulerad belastning på alla klienter.
 
-    a. Ange **$DemoScenario = 2**, _generera normal intensitet (cirka 30 DTU)_ .
+    a. Ange **$DemoScenario = 2**, _generera normal belastnings belastning (cirka 30 DTU)_ .
 
     b. Tryck på F5 för att köra skriptet.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip biljetter SaaS databas-per-klient programskript
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip-biljetterna SaaS Database-användarspecifika program skript
 
-Wingtip biljetter SaaS med flera klienter databasskripten och programmets källkod finns tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-lagringsplatsen. Anvisningar om att ladda ned och avblockera Wingtip biljetter PowerShell-skript finns i den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md).
+Wingtip biljetter SaaS-skript för flera klient organisationer och program käll kod är tillgängliga i [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub lagrings platsen. Anvisningar för hur du hämtar och avblockerar PowerShell-skripten Wingtip Tick finns i den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md).
 
-## <a name="install-and-configure-log-analytics-workspace-and-the-azure-sql-analytics-solution"></a>Installera och konfigurera Log Analytics-arbetsytan och Azure SQL Analytics-lösningen
+## <a name="install-and-configure-log-analytics-workspace-and-the-azure-sql-analytics-solution"></a>Installera och konfigurera Log Analytics-arbetsyta och Azure SQL-analys-lösningen
 
-Azure Monitor är en separat tjänst som måste konfigureras. Azure Monitor loggar samlar in loggdata, telemetri och mått i Log Analytics-arbetsytan. Precis som andra resurser i Azure måste du skapa en Log Analytics-arbetsyta. Om arbetsytan behöver inte skapas i samma resursgrupp som programmen den övervakar. Gör så ofta som är lämpligast dock. Använda en enskild resursgrupp för att kontrollera att arbetsytan har tagits bort med programmet för appen Wingtip biljetter.
+Azure Monitor är en separat tjänst som måste konfigureras. Azure Monitor loggar samlar in loggdata, telemetri och mått i en Log Analytics arbets yta. Precis som andra resurser i Azure måste en Log Analytics arbets yta skapas. Arbets ytan behöver inte skapas i samma resurs grupp som de program som den övervakar. Det är ofta bäst att göra det. För Wingtip biljetter-appen använder du en enda resurs grupp för att se till att arbets ytan tas bort med programmet.
 
-1. I PowerShell ISE öppnar *... \\WingtipTicketsSaaS-MultiTenantDb-master\\inlärningsmoduler\\prestandaövervakning och hantering\\Log Analytics\\Demo-LogAnalytics.ps1*.
+1. Öppna i PowerShell ISE *. \\\\\\\\WingtipTicketsSaaS-MultiTenantDb-Master Learning modules prestanda övervakning och hantering Log Analytics demo-LogAnalytics. ps1. \\*
 1. Tryck på F5 för att köra skriptet.
 
-Nu kan du öppna Azure Monitor-loggar i Azure-portalen. Det tar några minuter att samla in telemetri i Log Analytics-arbetsytan och göra den synlig. Ju längre lämnar du systemet samla in diagnostikdata, Ju mer intressant upplevelsen är. 
+Nu kan du öppna Azure Monitor loggar i Azure Portal. Det tar några minuter att samla in telemetri i Log Analytics arbets ytan och göra det synligt. Det är längre du lämnar systemet med data insamlings diagnostikdata, desto mer intressant är upplevelsen. 
 
 ## <a name="use-log-analytics-workspace-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Använd Log Analytics-arbetsyta och SQL Analytics-lösningen för att övervaka pooler och databaser
 
 
-Öppna Log Analytics-arbetsyta i Azure-portalen och titta på telemetri som samlats in för databaser och pooler i den här övningen.
+I den här övningen öppnar du Log Analytics arbets ytan i Azure Portal för att titta på den telemetri som samlats in för databaser och pooler.
 
-1. Bläddra till [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** att öppna Log Analytics-arbetsyta. Sök sedan efter Log Analytics.
+1. Bläddra till [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** som ska öppnas Log Analytics arbets ytan. Sök sedan efter Log Analytics.
 
-   ![Öppna Log Analytics-arbetsyta](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
+   ![Öppna Log Analytics arbets yta](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Välj arbetsytan med namnet _wtploganalytics -&lt;användaren&gt;_ .
+1. Välj arbets ytan med namnet _wtploganalytics&lt;-&gt;User_.
 
-1. Välj **översikt** att öppna log analytics-lösningen i Azure-portalen.
+1. Välj **Översikt** för att öppna Log Analytics-lösningen i Azure Portal.
 
    ![Översikt](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > Det kan ta några minuter innan lösningen är aktiv. 
 
-1. Välj den **Azure SQL Analytics** panelen för att öppna den.
+1. Välj panelen **Azure SQL-analys** för att öppna den.
 
     ![Översiktsikon](media/saas-dbpertenant-log-analytics/overview.png)
 
-1. Vyerna i lösningen rulla åt sidan, med sina egna inre rullningslist längst ned på sidan. Uppdatera sidan om det behövs.
+1. Vyerna i lösningen rullas åt sidan, med sin egen inre rullnings List längst ned. Uppdatera sidan om det behövs.
 
-1. Om du vill utforska sammanfattningssidan, Välj paneler eller enskilda databaser för att öppna en detaljnivå explorer.
+1. Om du vill utforska sammanfattnings sidan väljer du panelerna eller de enskilda databaserna för att öppna en gransknings Utforskare.
 
-    ![Log analytics-instrumentpanelen](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
+    ![Log Analytics-instrumentpanel](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. Ändra filtret inställningen för att ändra tidsintervallet. Den här självstudien väljer **senaste 1 timme**.
+1. Ändra filter inställningen för att ändra tidsintervallet. I den här självstudien väljer du **senaste 1 timma**.
 
-    ![Tidsfiltret](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
+    ![Tids filter](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Välj en individuell databas att utforska fråga användnings- och mått för den här databasen.
+1. Välj en enskild databas för att utforska frågans användning och mått för den databasen.
 
-    ![Databasen analytics](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
+    ![Databas analys](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-1. Om du vill se användningsstatistik, bläddrar du analyssidan till höger.
+1. Om du vill se användnings statistik rullar du sidan Analytics till höger.
  
-     ![Databasmått](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
+     ![Databas mått](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. Bläddra på analytics-sidan till vänster och välj panelen server i den **resursinformation** lista.  
+1. Rulla Analytics-sidan till vänster och välj server panelen i **resurs informations** listan.  
 
-    ![Resurslistan Info](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
+    ![Resurs informations lista](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
     En sida öppnas som visar pooler och databaser på servern.
 
     ![Server med pooler och databaser](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-1. Välj en pool. Bläddra till höger för att se mått som poolen på sidan som öppnas för poolen. 
+1. Välj en pool. På sidan pool som öppnas rullar du åt höger för att se poolens mått. 
 
-    ![Pool-mått](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
+    ![Pool mått](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-1. Tillbaka i Log Analytics-arbetsyta väljer **OMS-portalen** att öppna det på arbetsytan.
+1. Gå tillbaka till arbets ytan Log Analytics och välj **OMS-portalen** för att öppna arbets ytan där.
 
     ![Log Analytics-arbetsyta](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-Du kan utforska loggen och mätdata data ytterligare i Log Analytics-arbetsytan. 
+I arbets ytan Log Analytics kan du utforska logg-och mått data ytterligare. 
 
-Övervakning och aviseringar i Azure Monitor är loggar baserade på frågor över data i arbetsytan, till skillnad från aviseringar som definieras för varje resurs i Azure-portalen. Du kan basera aviseringar på frågor, för att definiera en avisering som söker i alla databaser, i stället för att definiera en per databas. Frågor begränsas bara av data som är tillgängliga på arbetsytan.
+Övervakning och avisering i Azure Monitor loggar baseras på frågor över data i arbets ytan, till skillnad från aviseringar som definierats för varje resurs i Azure Portal. Genom att basera aviseringar på frågor kan du definiera en enskild avisering som söker över alla databaser, i stället för att definiera en per databas. Frågor begränsas endast av de data som är tillgängliga på arbets ytan.
 
-Mer information om hur du använder Azure Monitor-loggar att fråga och ställa in aviseringar finns i [fungerar med aviseringsregler i Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Mer information om hur du använder Azure Monitor loggar för att fråga och ange aviseringar finns [i arbeta med varnings regler i Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
-Azure Monitor-loggar för SQL Database-avgifter baserat på datavolymen i arbetsytan. I den här självstudien skapade du en kostnadsfri arbetsyta, som är begränsad till 500 MB per dag. När den gränsen har uppnåtts, läggs inte längre data till arbetsytan.
+Azure Monitor loggar för SQL Database avgifter baserat på data volymen i arbets ytan. I den här självstudien har du skapat en kostnads fri arbets yta, som är begränsad till 500 MB per dag. När gränsen har nåtts läggs data inte längre till i arbets ytan.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -145,12 +144,12 @@ Azure Monitor-loggar för SQL Database-avgifter baserat på datavolymen i arbets
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Installera och konfigurera Azure Monitor-loggar.
-> * Använda Azure Monitor-loggar att övervaka pooler och databaser.
+> * Installera och konfigurera Azure Monitor loggar.
+> * Använd Azure Monitor loggar för att övervaka pooler och databaser.
 
-Prova den [klientanalys](saas-dbpertenant-log-analytics.md).
+Prova [själv studie kursen om klient analys](saas-dbpertenant-log-analytics.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Ytterligare självstudier som bygger på distribuering för Wingtip biljetter SaaS-program för databas-per-klient](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Ytterligare självstudier som bygger på de första Wingtip-biljetterna SaaS Database-per-klient program distribution](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Monitor-loggar](../azure-monitor/insights/azure-sql.md)

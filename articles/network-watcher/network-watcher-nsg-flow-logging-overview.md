@@ -1,6 +1,6 @@
 ---
-title: Introduktion till flödesloggar för nätverkssäkerhet grupper med Azure Network Watcher | Microsoft Docs
-description: Den här artikeln beskriver hur du använder funktionen NSG flödet loggar i Azure Network Watcher.
+title: Introduktion till flödes loggning för nätverks säkerhets grupper med Azure Network Watcher | Microsoft Docs
+description: Den här artikeln förklarar hur du använder funktionen NSG Flow-loggar i Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,96 +14,94 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925419"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640832"
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödesloggar för nätverkssäkerhetsgrupper
+# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
-Flödesloggar för Network security group (NSG) är en funktion i Network Watcher där du kan visa information om ingående och utgående IP-trafik via en NSG. Flödesloggar skrivs i JSON-format och visa utgående och inkommande flöden på basis av per regel nätverksgränssnitt (NIC) flödet gäller för 5-tuppel information om flödet (källa/mål-IP, källa/mål port och protokoll), om trafiken var tillåtna eller nekade, och i Version 2, dataflödesinformationen (byte och paket).
+Flödes loggar för nätverks säkerhets grupper (NSG) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en NSG. Flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, nätverks gränssnittet (NIC) flödet gäller för 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port och protokoll) om trafiken var tillåts eller nekas, och i version 2, data flödes information (byte och paket).
 
 
-![Översikt över flödet-loggar](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
+![Översikt över flödes loggar](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-När flödet loggar target NSG: er, de är inte visas samma som de andra loggarna. Flödesloggar lagras endast i ett storage-konto och följ Loggningssökvägen som visas i följande exempel:
+Vid flödes loggningens mål NSG: er, visas de inte på samma sätt som de andra loggarna. Flödes loggar lagras bara inom ett lagrings konto och följer loggnings Sök vägen som visas i följande exempel:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
-Du kan analysera flödesloggar och få insikter om ditt nätverk trafik med hjälp av [traffic analytics](traffic-analytics.md).
+Du kan analysera flödes loggar och få insikter om din nätverks trafik med hjälp av [trafik analys](traffic-analytics.md).
 
-Samma bevarandeprinciper som visas för andra loggar gäller flödesloggar. Du kan ange bevarandeprincip för log mellan 1 dag och 2147483647 dagar. Om en bevarandeprincip inte är inställd bevaras loggarna för evigt.
+Samma bevarande principer som visas för andra loggar gäller för flödes loggar. Du kan ställa in logg bevarande princip från 1 dag till 2147483647 dagar. Om en bevarandeprincip inte är inställd bevaras loggarna för evigt.
 
 > [!NOTE] 
-> Använder funktionen kvarhållning princip med NSG Flow loggning kan resultera i ett stort antal lagringsåtgärder och relaterade kostnader. Om du inte behöver principfunktionen kvarhållning, rekommenderar vi att du ställer in det här värdet till 0.
+> Om du använder funktionen bevarande princip med NSG flödes loggning kan det leda till en stor mängd lagrings åtgärder och tillhör ande kostnader. Om du inte behöver funktionen bevarande princip rekommenderar vi att du anger värdet till 0.
 
 
 ## <a name="log-file"></a>Loggfil
 
-Flödesloggar innehålla följande egenskaper:
+Flödes loggar innehåller följande egenskaper:
 
-* **tid** – tid när händelsen loggades
-* **system-ID** -Nätverkssäkerhetsgrupp resurs-Id.
-* **kategori** -händelsens kategori. Kategorin är alltid **NetworkSecurityGroupFlowEvent**
-* **ResourceId** -resurs-Id för NSG: N
-* **operationName** -alltid NetworkSecurityGroupFlowEvents
-* **Egenskaper för** – en uppsättning egenskaper för flödet
-    * **Version** -versionsnumret för det Flow händelseschemat
-    * **flöden** – en samling av. Den här egenskapen har flera poster för olika regler
-        * **regeln** -regel för som flöden visas
-            * **flöden** – en samling av
-                * **Mac** -MAC-adressen för nätverkskortet för den virtuella datorn där flödet har hämtats
-                * **flowTuples** – en sträng som innehåller flera egenskaper för flow-tuppel i CSV-format
-                    * **Tidsstämpel** – det här värdet är tidsstämpeln för när flödet har inträffat i UNIX EPOCH format
-                    * **Käll-IP** -käll-IP
-                    * **Målets IP** -mål-IP
-                    * **Källport** -källporten
-                    * **Målport** -målet Port
-                    * **Protokollet** -protokollet för flödet. Giltiga värden är **T** för TCP och **U** för UDP
-                    * **Traffic Flow** -trafikflödet riktning. Giltiga värden är **jag** för inkommande och **O** för utgående.
-                    * **Trafik beslut** – oavsett om trafik tillåts eller nekas. Giltiga värden är **A** för tillåtna och **D** för nekad.
-                    * **Läget för energiflöde - Version 2 endast** -samlar in tillståndet för flödet. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls.
-                    * **Paket - källa till mål - Version 2 endast** det totala antalet TCP eller UDP-paket som skickats från källa till mål sedan senaste uppdateringen.
-                    * **Byte som skickats - källa till mål - Version 2 endast** det totala antalet TCP eller UDP-paket byte som skickats från källan till målet sedan senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.
-                    * **Paket - mål-källan – Version 2 endast** det totala antalet TCP eller UDP-paket som skickats från mål till källa sedan senaste uppdateringen.
-                    * **Byte som skickats - mål-källan – Version 2 endast** det totala antalet TCP och UDP-paket byte som skickats från mål till källa sedan senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.
+* **tid** när händelsen loggades
+* **systemId** -nätverks säkerhets grupp resurs-ID.
+* **kategori** – händelsens kategori. Kategorin är alltid **NetworkSecurityGroupFlowEvent**
+* **ResourceID** -resurs-ID för NSG
+* **operationName** -Always NetworkSecurityGroupFlowEvents
+* **Egenskaper** -en samling av flödets egenskaper
+    * **Version** – versions nummer för flödes loggens händelse schema
+    * **flöden** – en samling flöden. Den här egenskapen har flera poster för olika regler
+        * **regel** – regel för vilken flödena visas
+            * **flöden** – en samling flöden
+                * **Mac** – Mac-adressen för nätverkskortet för den virtuella dator där flödet samlades in
+                * **flowTuples** – en sträng som innehåller flera egenskaper för flödes tuppeln i kommaavgränsat format
+                    * **Tidsstämpel** – det här värdet är tidsstämpeln för när flödet inträffade i formatet UNIX-epok
+                    * **Käll-IP** – käll-IP
+                    * **Mål-IP** -mål-IP
+                    * **Källport** – käll porten
+                    * **Målport** – mål porten
+                    * **Protokoll** – protokollet för flödet. Giltiga värden är **T** för TCP och **U** för UDP
+                    * **Trafikflöde** – riktningen för trafikflödet. Giltiga värden är **i** för inkommande och **O** för utgående trafik.
+                    * **Trafik beslut** – huruvida trafik tillåts eller nekas. Giltiga värden är **A** för tillåtna och **D** för nekad.
+                    * **Flödes tillstånd-version 2 endast** – fångar in flödets tillstånd. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls.
+                    * **Paket-källa till mål-version 2** Det totala antalet TCP-eller UDP-paket som har skickats från källan till målet sedan den senaste uppdateringen.
+                    * **Skickade byte-källa till mål version 2** Det totala antalet TCP-eller UDP-paketfilter som har skickats från källan till målet sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.
+                    * **Paket-mål till källa-endast version 2** Det totala antalet TCP-eller UDP-paket som har skickats från målet till källan sedan senaste uppdateringen.
+                    * **Skickade byte – målet till källa-version 2** Det totala antalet byte för TCP-och UDP-paket som skickats från målet till källan sedan senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.
 
-## <a name="nsg-flow-logs-version-2"></a>NSG-flödesloggarna version 2
+## <a name="nsg-flow-logs-version-2"></a>NSG Flow-loggar version 2
 
-Version 2 av loggarna introducerar flow tillstånd. Du kan konfigurera vilken version av flödesloggar felmeddelandet. Läs hur du aktiverar flödesloggar i [aktiverar NSG-flödesloggar](network-watcher-nsg-flow-logging-portal.md).
+Version 2 av loggarna introducerar flödes tillstånd. Du kan konfigurera vilken version av flödes loggar du får. Information om hur du aktiverar flödes loggar finns i [Aktivera NSG flödes loggning](network-watcher-nsg-flow-logging-portal.md).
 
-Flow tillstånd *B* registreras när ett flöde ska initieras. Flow tillstånd *C* och läget för energiflöde *E* är tillstånd som markerar fortsättning av ett flöde och flow avslutning, respektive. Båda *C* och *E* tillstånd innehåller information om trafik bandbredd.
+Flödets tillstånd *B* registreras när ett flöde initieras. Flow State *C* och Flow State *E* är lägen som markerar fortsättningen för en flödes-och flödes avslutning. Både *C* och *E* -tillstånd innehåller bandbredds information.
 
-För fortsatt *C* och *E* flow anger antal byte och paket är sammanställda antalen från tidpunkten för föregående flow tuppel post. Refererar till den tidigare exempel konversationen, är det totala antalet paket som överförts 1021 + 52 + 8005 + 47 = 9125. Det totala antalet byte som överfördes är 588096 + 29952 + 4610880 + 27072 = 5256000.
+**Exempel**: Flow-tupler från en TCP-konversation mellan 185.170.185.105:35370 och 10.2.0.4:23:
 
-**Exempel**: Flow tupplar från en TCP-konversation mellan 185.170.185.105:35370 och 10.2.0.4:23:
+"1493763938, 185.170.185.105, 10.2.0.4, 35370, 23, T, A, B,,,," "1493695838, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, C, 1021, 588096, 8005, 4610880" "1493696138, 185.170.185.105, 10.2.0.4, 35370, 23, T, A, E, 52, 29952, 47, 27072"
 
-”1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,” ”1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880” ”1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072”
+För tilläggs- *C* -och slut- *E* -flöde-tillstånd är antalet byte och paket sammanställda från tiden för den föregående flödes tupel posten. Referens till föregående exempel konversation, det totala antalet överförda paket är 1021 + 52 + 8005 + 47 = 9125. Det totala antalet överförda byte är 588096 + 29952 + 4610880 + 27072 = 5256000.
 
-För fortsatt *C* och *E* flow anger antal byte och paket är sammanställda antalen från tidpunkten för föregående flow tuppel post. Refererar till den tidigare exempel konversationen, är det totala antalet paket som överförts 1021 + 52 + 8005 + 47 = 9125. Det totala antalet byte som överfördes är 588096 + 29952 + 4610880 + 27072 = 5256000.
+Texten som följer är ett exempel på en flödes logg. Som du kan se finns det flera poster som följer egenskaps listan som beskrivs i föregående avsnitt.
 
-Texten nedan är ett exempel på en flow-log. Som du ser finns det flera poster som följer egenskapslistan som beskrivs i föregående avsnitt.
+## <a name="nsg-flow-logging-considerations"></a>NSG flödes loggnings överväganden
 
-## <a name="nsg-flow-logging-considerations"></a>NSG Flow loggning överväganden
+**Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: Flödes loggning i Azure har kon figurer ATS på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att loggning av NSG-flöde är aktiverat på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Se [hur trafiken utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) för mer information om nätverks säkerhets grupper. 
 
-**Aktivera NSG Flow loggning på alla Nätverkssäkerhetsgrupper som är kopplade till en resurs**: Flow loggning i Azure konfigureras på NSG-resurs. Ett flöde kan endast kopplas till en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att NSG-flödesloggar är aktiverad på alla Nätverkssäkerhetsgrupper tillämpas resursens undernät eller ett gränssnitt för att se till att all trafik registreras. Se [hur trafik utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) mer information om Nätverkssäkerhetsgrupper. 
+**Flödes loggnings kostnader**: NSG flödes loggning debiteras på volymen av loggar som skapats. Hög trafik volym kan resultera i stor flödes logg volym och tillhör ande kostnader. NSG Flow logg priser omfattar inte de underliggande lagrings kostnaderna. Om du använder funktionen bevarande princip med NSG flödes loggning kan det leda till en stor mängd lagrings åtgärder och tillhör ande kostnader. Om du inte behöver funktionen bevarande princip rekommenderar vi att du anger värdet till 0. Mer information finns [Network Watcher priser](https://azure.microsoft.com/pricing/details/network-watcher/) och [Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/) .
 
-**Flow loggning kostnader**: NSG-flödesloggar debiteras mängden loggar som producerats. Hög trafik kan resultera i stora flow loggvolymen och relaterade kostnader. NSG-Flödesloggar log priserna inkluderar inte de underliggande kostnaderna för lagring. Använder funktionen kvarhållning princip med NSG Flow loggning kan resultera i ett stort antal lagringsåtgärder och relaterade kostnader. Om du inte behöver principfunktionen kvarhållning, rekommenderar vi att du ställer in det här värdet till 0. Se [Watcher prissättningen](https://azure.microsoft.com/pricing/details/network-watcher/) och [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) för ytterligare information.
+**Inkommande flöden som loggats från Internet-IP-adresser till virtuella datorer utan offentliga IP**: Virtuella datorer som inte har en offentlig IP-adress som tilldelats via en offentlig IP-adress som är kopplad till NÄTVERKSKORTet som en offentlig IP-adress på instans nivå, eller som är en del av en grundläggande belastningsutjämnare, använder [standard SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) och har en IP-adress som tilldelats av Azure för att under lätta utgående anslutning. Därför kan du se flödes logg poster för flöden från Internet-IP-adresser, om flödet är avsett för en port i intervallet för de portar som tilldelats för SNAT. Även om Azure inte tillåter dessa flöden till den virtuella datorn, loggas försöket och visas i Network Watcher flödes loggen för NSG efter design. Vi rekommenderar att oönskad inkommande Internet trafik uttryckligen blockeras med NSG.
 
-**Flöden som loggas från internet IP-adresser till virtuella datorer utan offentliga IP-adresser för inkommande**: Virtuella datorer som inte har en offentlig IP-adress via en offentlig IP-adress som är associerade med nätverkskort som en offentlig IP på instansnivå eller som ingår i en basic load balancer backend-poolen, Använd [standard SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) och har en IP-adress som tilldelats av Azure för att underlätta utgående anslutning. Därför visas flow-aktivitetsloggposter för flöden från internet IP-adresser, om flödet är avsett att en port i intervallet för de portar som tilldelats SNAT. Medan Azure inte tillåter dessa flöden till den virtuella datorn, loggas försöket och visas i Network Watcher NSG flödeslogg avsiktligt. Vi rekommenderar att oönskad inkommande Internettrafik uttryckligen blockeras med NSG.
+## <a name="sample-log-records"></a>Exempel på logg poster
 
-## <a name="sample-log-records"></a>Exempel loggposter
-
-Texten nedan är ett exempel på en flow-log. Som du ser finns det flera poster som följer egenskapslistan som beskrivs i föregående avsnitt.
+Texten som följer är ett exempel på en flödes logg. Som du kan se finns det flera poster som följer egenskaps listan som beskrivs i föregående avsnitt.
 
 
 > [!NOTE]
-> Värdena i den **flowTuples* egenskapen är en kommaavgränsad lista.
+> Värdena i **flowTuples* -egenskapen är en kommaavgränsad lista.
  
-### <a name="version-1-nsg-flow-log-format-sample"></a>Format för version 1 NSG flow loggexemplet
+### <a name="version-1-nsg-flow-log-format-sample"></a>Version 1 NSG flödes logg format exempel
 ```json
 {
     "records": [
@@ -212,7 +210,7 @@ Texten nedan är ett exempel på en flow-log. Som du ser finns det flera poster 
         ,
         ...
 ```
-### <a name="version-2-nsg-flow-log-format-sample"></a>Format för version 2 NSG flow loggexemplet
+### <a name="version-2-nsg-flow-log-format-sample"></a>Version 2 NSG flöde logg format exempel
 ```json
  {
     "records": [
@@ -286,7 +284,7 @@ Texten nedan är ett exempel på en flow-log. Som du ser finns det flera poster 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs hur du aktiverar flödesloggar i [aktiverar NSG-flödesloggar](network-watcher-nsg-flow-logging-portal.md).
-- Läs hur du läser flödesloggar i [Läs NSG-flödesloggar](network-watcher-read-nsg-flow-logs.md).
-- Läs mer om NSG loggning i [Azure Monitor loggar för nätverkssäkerhet (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- För att avgöra om trafik tillåts eller nekas till eller från en virtuell dator, se [diagnostisera ett problem med VM network trafik filter](diagnose-vm-network-traffic-filtering-problem.md)
+- Information om hur du aktiverar flödes loggar finns i [Aktivera NSG flödes loggning](network-watcher-nsg-flow-logging-portal.md).
+- Information om hur du läser flödes loggarna finns i [läsa NSG Flow-loggar](network-watcher-read-nsg-flow-logs.md).
+- Läs mer om NSG-loggning i [Azure Monitor loggar för nätverks säkerhets grupper (NSG: er)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Information om hur du avgör om trafik tillåts eller nekas till eller från en virtuell dator finns i [diagnostisera ett problem med trafik filter för virtuella dator nätverk](diagnose-vm-network-traffic-filtering-problem.md)

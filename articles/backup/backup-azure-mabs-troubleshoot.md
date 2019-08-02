@@ -1,18 +1,19 @@
 ---
 title: Felsöka Azure Backup Server
 description: Felsöka installation, registrering av Azure Backup Server och säkerhets kopiering och återställning av program arbets belastningar.
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
-ms.openlocfilehash: f601901ed0cb90421dbf7254d657ef80e1769541
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466081"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689275"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -48,7 +49,7 @@ Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Mic
 
 | Åtgärd | Felinformation | Lösning: |
 | --- | --- | --- |
-| Säkerhetskopiera | Det gick inte att skapa onlineåterställningspunkt | **Fel meddelande**: Windows Azure Backup-agenten kunde inte skapa en ögonblicks bild av den valda volymen. <br> **Lösning**: Försök att öka utrymmet på replik-och återställnings punkt volymen.<br> <br> **Fel meddelande**: Windows Azure Backup-agenten kan inte ansluta till OBEngine-tjänsten <br> **Lösning**: kontrol lera att OBEngine finns i listan över aktiva tjänster på datorn. Om OBEngine-tjänsten inte körs använder du kommandot "net start OBEngine" för att starta tjänsten OBEngine. <br> <br> **Fel meddelande**: Krypterings lösen frasen för den här servern har inte angetts. Konfigurera en krypterings lösen fras. <br> **Lösning**: Försök att konfigurera en krypterings lösen fras. Gör så här om det Miss lyckas: <br> <ol><li>Kontrol lera att arbets platsen finns. Det här är den plats som nämns i registrets **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Config**med namnet **ScratchLocation** ska finnas.</li><li> Försök att registrera igen med hjälp av den gamla lösen frasen om det finns en sådan. *När du konfigurerar en krypterings lösen fras sparar du den på en säker plats.*</li><ol>|
+| Säkerhetskopiera | Det gick inte att skapa onlineåterställningspunkt | **Felmeddelande**: Windows Azure Backup-agenten kunde inte skapa en ögonblicks bild av den valda volymen. <br> **Lösning**: Försök att öka utrymmet på replik-och återställnings punkt volymen.<br> <br> **Felmeddelande**: Windows Azure Backup-agenten kan inte ansluta till OBEngine-tjänsten <br> **Lösning**: kontrol lera att OBEngine finns i listan över aktiva tjänster på datorn. Om OBEngine-tjänsten inte körs använder du kommandot "net start OBEngine" för att starta tjänsten OBEngine. <br> <br> **Felmeddelande**: Krypterings lösen frasen för den här servern har inte angetts. Konfigurera en krypterings lösen fras. <br> **Lösning**: Försök att konfigurera en krypterings lösen fras. Gör så här om det Miss lyckas: <br> <ol><li>Kontrol lera att arbets platsen finns. Det här är den plats som nämns i registrets **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure-Backup\Config**med namnet **ScratchLocation** ska finnas.</li><li> Försök att registrera igen med hjälp av den gamla lösen frasen om det finns en sådan. *När du konfigurerar en krypterings lösen fras sparar du den på en säker plats.*</li><ol>|
 
 ## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>De angivna autentiseringsuppgifterna för valvet skiljer sig från valvet som servern är registrerad på
 
@@ -147,4 +148,4 @@ Felmeddelande | Rekommenderad åtgärd |
 
 Felmeddelande | Rekommenderad åtgärd |
 -- | --
-Det gick inte att säkerhetskopiera eftersom disk säkerhets kopierings repliken inte kunde klonas.| Se till att alla tidigare disk säkerhets kopierings repliker (. vhdx) har demonterats och att ingen disk till disk säkerhets kopiering pågår under säkerhets kopiering online
+Det gick inte att säkerhetskopiera eftersom disksäkerhetskopieringsrepliken inte kunde klonas.| Se till att alla tidigare disk säkerhets kopierings repliker (. vhdx) har demonterats och att ingen disk till disk säkerhets kopiering pågår under säkerhets kopiering online

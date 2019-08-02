@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbef1db94d7835bd9326102bd62921c6b3d88d74
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978485"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707070"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Hanterade identiteter för Azure-resurser med Event Hubs
 
@@ -27,28 +27,28 @@ Med hanterade identiteter hanterar den här identiteten för körning i Azure-pl
 När den är associerad med en hanterad identitet, kan en händelsehubbklient göra alla behöriga åtgärder. Auktorisering genom att associera en hanterad identitet med Event Hubs-roller. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs roller och behörigheter
-Du kan lägga till en hanterad identitet till den **Dataägaren för Event Hubs** rollen för ett namnområde för Event Hubs. Den här rollen ger identitet, fullständig behörighet (för hantering och åtgärder för) alla entiteter i namnområdet.
+Du kan lägga till en hanterad identitet i rollen **Event Hubs data ägare** för ett Event Hubs namn område. Den här rollen ger identiteten fullständig behörighet (för hanterings-och data åtgärder) på alla entiteter i namn området.
 
 >[!IMPORTANT]
-> Vi tidigare stöd för att lägga till hanterad identitet till den **ägare** eller **deltagare** roll. Men data behörighet för **ägare** och **deltagare** rollen respekteras inte längre. Om du använder den **ägare** eller **deltagare** roll, växla till med hjälp av den **Dataägaren för Event Hubs** roll.
+> Vi har tidigare stöd för att lägga till hanterad identitet i **ägaren** eller **deltagar** rollen. Däremot går det inte längre att använda behörigheter för data åtkomst för rollen **ägare** och **deltagare** . Om du använder rollen **ägare** eller **deltagare** växlar du till att använda rollen **Event Hubs data ägare** .
 
 Följ dessa steg om du vill använda den nya inbyggda rollen: 
 
 1. Navigera till [Azure Portal](https://portal.azure.com)
-2. Gå till Event Hubs-namnområdet.
-3. På den **Event Hubs Namespace** väljer **åtkomst Control(IAM)** menyn till vänster.
-4. På den **åtkomstkontroll (IAM)** väljer **Lägg till** i den **Lägg till en rolltilldelning** avsnittet. 
+2. Navigera till Event Hubs namn området.
+3. På sidan **Event Hubs namn område** väljer du **Access Control (IAM)** på den vänstra menyn.
+4. På sidan **Access Control (IAM)** väljer du **Lägg till** i avsnittet **Lägg till en roll tilldelning** . 
 
-    ![Lägg till en knapp för tilldelning av roll](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
-5. På den **Lägg till rolltilldelning** gör du följande steg: 
-    1. För **rollen**väljer **Dataägaren för Azure Event Hubs**. 
-    2. Välj den **identitet** som ska läggas till rollen.
+    ![Knappen Lägg till roll tilldelning](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. Utför följande steg på sidan **Lägg till roll tilldelning** : 
+    1. För **roll**väljer du **Azure Event Hubs data ägare**. 
+    2. Välj den **identitet** som ska läggas till i rollen.
     3. Välj **Spara**. 
 
-        ![Event Hubs Data ägarrollen](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
-6. Växla till den **rolltilldelningar** sidan och bekräfta att användaren har lagts till i **Dataägaren för Azure Event Hubs** roll. 
+        ![Rollen Event Hubs data ägare](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Växla till sidan **roll tilldelningar** och bekräfta att användaren har lagts till i rollen **Azure Event Hubs data Owner** . 
 
-    ![Bekräfta användare läggs till i rollen](./media/event-hubs-managed-service-identity/role-assignments.png)
+    ![Bekräfta att användaren har lagts till i rollen](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Använda Event Hubs med hanterade identiteter för Azure-resurser
 
@@ -74,13 +74,13 @@ När du har aktiverat funktionen, en ny tjänstidentitet skapas i Azure Active D
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Skapa ett nytt namnområde för Event Hubs
 
-Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md). 
+Skapa sedan [ett Event Hubs-namnområde](event-hubs-create.md). 
 
 Gå till namnområdet **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till den hantera identitet som den **ägare** roll. Du gör detta genom att söka efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**. Den hanterade identitet för webbprogrammet nu har åtkomst till Event Hubs-namnområdet och till händelsehubben du skapade tidigare. 
 
 ### <a name="run-the-app"></a>Kör appen
 
-Nu ändra standardsidan för ASP.NET-programmet som du skapade. Du kan också använda web programkoden från [den här GitHub-lagringsplatsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
+Nu ändra standardsidan för ASP.NET-programmet som du skapade. Du kan också använda web programkoden från [den här GitHub-lagringsplatsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp). 
 
 När du startar appen, pekar EventHubsMSIDemo.aspx din webbläsare. Du kan också ange den som din startsida. Koden finns i filen EventHubsMSIDemo.aspx.cs. Resultatet är ett minimalt webbprogram med några fält och **skicka** och **får** knappar som ansluter till Event Hubs antingen skicka eller ta emot händelser. 
 

@@ -2,26 +2,26 @@
 title: Lägg till din anpassade domän - Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du lägger till en anpassad domän med Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3f90e594e69c58364b699299964273ce371e525
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248333"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561730"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
-Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som *alain\@contoso.com*.
+Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Genom att lägga till anpassade domän namn kan du skapa användar namn som är bekanta för dina användare, till exempel *Alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Innan du kan lägga till ett anpassat domännamn, måste du skapa ditt domännamn med en domänregistrator. En auktoriserad domänregistrator Se [ICANN-Accredited Registratorer](https://www.icann.org/registrar-reports/accredited-list.html).
@@ -31,7 +31,7 @@ När du får ditt domännamn kan skapa du din första Azure AD-katalog.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) för din katalog med ett konto med den **ägare** rollen för prenumerationen och välj sedan **Azure Active Directory**. Mer information om prenumerationen roller finns i [administratörsroller för klassiska prenumeration, Azure RBAC-roller och Azure AD-administratörsroller](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Azure portal skärmbild som visar alternativet Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Azure Portal skärm som visar alternativet Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Om du planerar att federera din lokala Windows Server AD med Azure AD behöver du markera kryssrutan **Jag planerar att konfigurera den här domänen för enkel inloggning med min lokala Active Directory** när du kör Azure AD Connect-verktyget för att synkronisera dina kataloger. Du behöver även registrera samma domännamn som du väljer för federering med din lokala katalog i steget **Azure AD-domän** i guiden. Du kan se hur det steget i guiden ser ut [i dessa anvisningar](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Om du inte har verktyget Azure AD Connect kan du [ladda ned det här](https://go.microsoft.com/fwlink/?LinkId=615771).
@@ -46,7 +46,7 @@ När du har skapat din katalog kan du lägga till ditt domännamn.
 
 1. Välj **anpassade domännamn**, och välj sedan **Lägg till anpassad domän**.
 
-    ![Anpassad domän, sida med Lägg till anpassad domän visas](media/add-custom-domain/add-custom-domain.png)
+    ![Sidan anpassade domän namn med Lägg till anpassad domän visas](media/add-custom-domain/add-custom-domain.png)
 
 2. Ange din organisations nya domännamnet i den **anpassade domännamn** box (till exempel _contoso.com_), och välj sedan **Lägg till domän**.
 
@@ -55,7 +55,7 @@ När du har skapat din katalog kan du lägga till ditt domännamn.
     >[!Important]
     >Du måste ta med .com, .net eller annat toppnivåtillägg för detta ska fungera korrekt.
 
-    ![Anpassad domän, sida med Lägg till anpassad domän-sidan](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Sidan anpassade domän namn med sidan Lägg till anpassad domän](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Kopiera den DNS-informationen från den **Contoso** sidan. Till exempel MS = ms64983159.
 
@@ -64,7 +64,7 @@ När du har skapat din katalog kan du lägga till ditt domännamn.
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>Lägga till DNS-information i domänregistratorn
 När du lägger till ett anpassat domännamn till Azure AD måste du gå tillbaka till din domänregistrator och lägga till Azure AD-DNS-information från den kopierade TXT-filen. Skapa den här TXT verifierar-post för din domän ”” ägarskap för ditt domännamn.
 
--  Gå tillbaka till din domänregistrator, skapa en ny TXT-post för din domän baserat på din kopierade DNS-information i **TTL** (tid till live) till 3 600 sekunder (60 minuter) och sedan spara informationen.
+-  Gå tillbaka till domän registratorn, skapa en ny TXT-post för din domän baserat på din kopierade DNS-information, Ställ in **TTL** (Time to Live) på 3600 sekunder (60 minuter) och spara sedan informationen.
 
     >[!Important]
     >Du kan registrera så många domännamn som du vill ha. Varje domän får dock sin egen TXT-posten från Azure AD. Var försiktig när du anger din TXT-fil uppgifter på domänregistratorn. Om du anger fel eller duplicera information av misstag, kommer du behöva vänta tills TTL-Perioden tidsgränsen (60 minuter) innan du kan försöka igen.
@@ -85,7 +85,7 @@ När du registrerar ditt domännamn måste du kontrollera att den är giltig i A
 
     ![Contoso-sida med information om DNS-post och knappen verifiera](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-När du har kontrollerat att ditt domännamn kan du ta bort din verifiering TXT- eller MX-fil.
+När du har verifierat ditt anpassade domän namn kan du ta bort verifierings-TXT-eller MX-filen.
 
 ## <a name="common-verification-issues"></a>Vanliga problem med verifiering
 - Om Azure AD inte kan verifiera ett anpassat domännamn, kan du prova följande rekommendationer:
@@ -103,8 +103,8 @@ När du har kontrollerat att ditt domännamn kan du ta bort din verifiering TXT-
 
 - Lägg till en annan Global administratör i din katalog. Mer information finns i [så här tilldelar du roller och administratörer](active-directory-users-assign-role-azure-portal.md).
 
-- Lägga till användare i din domän, se [lägga till eller ta bort användare](add-users-azure-active-directory.md).
+- Lägg till användare i din domän finns i [så här lägger du till eller tar bort användare](add-users-azure-active-directory.md).
 
-- Hantera ditt domännamn i Azure AD. Mer information finns i [hantera anpassade domännamn](../users-groups-roles/domains-manage.md).
+- Hantera ditt domännamn i Azure AD. Mer information finns i [Hantera anpassade domän namn](../users-groups-roles/domains-manage.md).
 
 - Om du har lokala versioner av Windows Server som du vill använda tillsammans med Azure Active Directory, se [integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md).

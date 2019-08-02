@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b62cbe6be7f48aa05bf3756580df0777aeee8cae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405961"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726088"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Kopiera data från Oracle Eloqua med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Oracle Eloqua länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Eloqua** | Ja |
+| type | Egenskapen Type måste anges till: **Eloqua** | Ja |
 | endpoint | Slutpunkten för Eloqua-server. Eloqua har stöd för flera Datacenter för att fastställa din slutpunkt, logga in på https://login.eloqua.com med dina autentiseringsuppgifter, kopiera den **bas-URL** delen från den omdirigerade platsen med mönstret för `xxx.xxx.eloqua.com`. | Ja |
 | username | Platsnamn och användarnamn för kontot Eloqua i formatet: `SiteName\Username` t.ex. `Eloqua\Alice`.  | Ja |
 | password | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -79,7 +79,7 @@ Om du vill kopiera data från Oracle Eloqua, ange typegenskapen på datauppsätt
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **EloquaObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **EloquaObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -89,11 +89,12 @@ Om du vill kopiera data från Oracle Eloqua, ange typegenskapen på datauppsätt
     "name": "EloquaDataset",
     "properties": {
         "type": "EloquaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -108,7 +109,7 @@ Om du vill kopiera data från Oracle Eloqua, ange typ av datakälla i kopierings
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **EloquaSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **EloquaSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

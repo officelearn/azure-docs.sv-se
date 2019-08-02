@@ -1,398 +1,393 @@
 ---
-title: Vanliga frågor (och svar FAQ) för Azure Files | Microsoft Docs
-description: Hitta svar på vanliga frågor och svar om Azure Files.
-services: storage
+title: Vanliga frågor och svar (FAQ) för Azure Files | Microsoft Docs
+description: Få svar på vanliga frågor om Azure Files.
 author: roygara
 ms.service: storage
 ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540362"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704474"
 ---
-# <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
+# <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
 
-Den här artikeln innehåller vanliga frågor och svar om Azure Files och funktioner, inklusive användning av Azure File Sync med Azure Files. Om du inte ser svar på din fråga, kan du kontakta oss via följande kanaler (i ständigt växande ordning):
+I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funktioner, inklusive användning av Azure File Sync med Azure Files. Om du inte ser svaret på din fråga kan du kontakta oss genom följande kanaler (i eskalerad ordning):
 
-1. Kommentarer i den här artikeln.
+1. Avsnittet kommentarer i den här artikeln.
 2. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Support. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
+4. Microsoft-supporten. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
 
 ## <a name="general"></a>Allmänt
 * <a id="why-files-useful"></a>
   **Hur är Azure Files användbart?**  
-   Du kan använda Azure Files för att skapa filresurser i molnet, utan att vara ansvarar för att hantera kostnaderna för att en fysisk server, en enhet eller en installation. Vi gör monotont arbetet åt dig, till exempel tillämpa uppdateringar av Operativsystemet och ersätta skadade diskar. Läs mer om de scenarier som Azure Files kan hjälpa dig med i [varför Azure Files är användbart](storage-files-introduction.md#why-azure-files-is-useful).
+   Du kan använda Azure Files för att skapa fil resurser i molnet utan att du ansvarar för att hantera omkostnader för en fysisk server, enhet eller apparat. Vi gör det enfärgade arbetet åt dig, inklusive att tillämpa OS-uppdateringar och ersätta felaktiga diskar. Mer information om scenarier som Azure Files kan hjälpa dig med finns i [varför Azure Files är användbart](storage-files-introduction.md#why-azure-files-is-useful).
 
 * <a id="file-access-options"></a>
-  **Det finns olika sätt att komma åt filer i Azure Files?**  
-    Du kan montera filresursen på den lokala datorn med hjälp av SMB 3.0-protokollet och du kan använda verktyg som [Lagringsutforskaren](https://storageexplorer.com/) att komma åt filer i filresursen. Från ditt program, kan du använda storage-klientbibliotek, REST API: er, PowerShell eller Azure CLI att få åtkomst till filer i Azure-filresursen.
+  **Vad är olika sätt att komma åt filer i Azure Files?**  
+    Du kan montera fil resursen på den lokala datorn med hjälp av SMB 3,0-protokollet, eller så kan du använda verktyg som [Storage Explorer](https://storageexplorer.com/) för att komma åt filer i fil resursen. Från ditt program kan du använda lagrings klient bibliotek, REST-API: er, PowerShell eller Azure CLI för att komma åt dina filer i Azure-filresursen.
 
 * <a id="what-is-afs"></a>
   **Vad är Azure File Sync?**  
-    Du kan använda Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar dina Windows Server-datorer till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, Network File System (NFS) och File Transfer Protocol Service (FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
+    Du kan använda Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync omvandlar dina Windows Server-datorer till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, Network File System (NFS) och File Transfer Protocol-tjänsten (FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
 
 * <a id="files-versus-blobs"></a>
-  **Varför ska jag använda en Azure-filresurs jämfört med Azure Blob storage för Mina data?**  
-    Azure Files och Azure Blob storage både erbjuder olika sätt att lagra stora mängder data i molnet, men de är användbara i något annat syfte. 
+  **Varför ska jag använda en Azure-filresurs jämfört med Azure Blob Storage för mina data?**  
+    Azure Files och Azure Blob Storage erbjuder båda sätt att lagra stora mängder data i molnet, men de är användbara i något annat syfte. 
     
-    Azure Blob storage är användbart för massiv skala, molnbaserade program som behöver lagra Ostrukturerade data. För att maximera prestanda och skalning, är Azure Blob storage en enklare storage abstraktion än något filsystem. Du kan komma åt Azure Blob storage bara via REST-baserade klientbibliotek (eller direkt via REST-baserade protokollet).
+    Azure Blob Storage är användbart för storskaliga molnbaserade program som behöver lagra ostrukturerade data. För att maximera prestanda och skalning är Azure Blob Storage en enklare lagrings abstraktion än ett faktiskt fil system. Du kan bara komma åt Azure Blob Storage via REST-baserade klient bibliotek (eller direkt via det REST-baserade protokollet).
 
-    Azure Files är särskilt ett filsystem. Azure Files har alla fil-sammanfattningar som du känner till och från flera år i samarbete med den lokala operativsystem. Som Azure Blob storage erbjuder Azure Files ett REST-gränssnitt och REST-baserade klientbibliotek. Till skillnad från Azure Blob storage erbjuder Azure Files SMB-åtkomst till Azure-filresurser. Du kan montera en Azure-filresurs direkt på Windows, Linux eller macOS, antingen lokalt eller i virtuella datorer, utan att skriva någon kod eller koppla eventuella särskilda drivrutiner till filsystemet med hjälp av SMB. Du kan också cachelagra Azure-filresurser på den lokala filservrar med hjälp av Azure File Sync för snabb åtkomst nära där data används. 
+    Azure Files är särskilt ett fil system. Azure Files har alla fil sammandrag som du känner till och älskar från flera år i arbetet med lokala operativ system. Precis som Azure Blob Storage erbjuder Azure Files ett REST-gränssnitt och REST-baserade klient bibliotek. Till skillnad från Azure Blob Storage erbjuder Azure Files SMB-åtkomst till Azure-filresurser. Genom att använda SMB kan du montera en Azure-filresurs direkt på Windows, Linux eller macOS, antingen lokalt eller i virtuella datorer i molnet, utan att behöva skriva någon kod eller bifoga särskilda driv rutiner till fil systemet. Du kan också cachelagra Azure-filresurser på lokala fil servrar genom att använda Azure File Sync för snabb åtkomst, nära var data används. 
    
-    En mer detaljerad beskrivning om skillnaderna mellan Azure Files och Azure Blob storage finns i [avgöra när du ska använda Azure Blob storage, Azure Files eller Azure Disks](../common/storage-decide-blobs-files-disks.md). Läs mer om Azure Blob storage i [introduktion till Blob storage](../blobs/storage-blobs-introduction.md).
+    En mer detaljerad beskrivning av skillnaderna mellan Azure Files och Azure Blob Storage finns i [bestämma när du ska använda Azure Blob Storage, Azure Files eller Azure-diskar](../common/storage-decide-blobs-files-disks.md). Mer information om Azure Blob Storage finns i [Introduktion till Blob Storage](../blobs/storage-blobs-introduction.md).
 
-* <a id="files-versus-disks"></a>**Varför ska jag använda en Azure-filresurs i stället för Azure Disks?**  
-    En disk i Azure-diskar är helt enkelt en disk. Om du vill få ut värde från Azure-diskar, måste du ansluta en disk till en virtuell dator som körs i Azure. Azure-diskar som kan användas för allt som du använder en disk för på en lokal server. Du kan använda den som en OS-disk för system, växlingsutrymme för ett operativsystem eller dedikerad lagring för ett program. En intressant Azure Disks används för att skapa en server i molnet för att använda på samma plats där du kan använda en Azure-filresurs. Distribuera en filserver i Azure Virtual Machines är en högpresterande sättet att få fillagring i Azure när du behöver distributionsalternativ som för närvarande inte stöds av Azure Files (till exempel NFS-protokollet support eller premium-lagring). 
+* <a id="files-versus-disks"></a>**Varför ska jag använda en Azure-filresurs i stället för Azure-diskar?**  
+    En disk på Azure-diskar är helt enkelt en disk. För att hämta värde från Azure-diskar måste du koppla en disk till en virtuell dator som körs i Azure. Azure-diskar kan användas för allt som du skulle använda för att använda en disk för på en lokal server. Du kan använda den som en OS-systemdisk, som växlings utrymme för ett operativ system eller som dedikerat lagrings utrymme för ett program. En intressant användning för Azure-diskar är att skapa en fil server i molnet som ska användas på samma platser där du kan använda en Azure-filresurs. Att distribuera en fil server i Azure Virtual Machines är ett högpresterande sätt att hämta fil lagring i Azure när du behöver distributions alternativ som för närvarande inte stöds av Azure Files (t. ex. NFS-protokoll stöd eller Premium lagring). 
 
-    Kör en server med Azure-diskar som backend-lagring vanligtvis är dock mycket dyrare än att använda en Azure-filresurs olika orsaker. Först, förutom att betala för disklagring, betalar du även måste för kostnaderna för att använda en eller flera virtuella Azure-datorer. Andra: du kan också måste hantera de virtuella datorer som används för att köra filservern. Exempelvis kan ansvarar du för OS-uppgraderingar. Slutligen, om du slutligen kräver att data cachelagrade lokalt, det är upp till dig att konfigurera och hantera replikeringstekniker, till exempel distribuerade replikering DFSR (File System), att aktivera den här funktionen.
+    Att köra en fil server med Azure-diskar som backend-lagring är vanligt vis mycket dyrare än att använda en Azure-filresurs, av några skäl. Förutom att betala för disk lagring måste du också betala för kostnaden för att köra en eller flera virtuella Azure-datorer. För det andra måste du också hantera de virtuella datorer som används för att köra fil servern. Du ansvarar till exempel för uppgraderingar av operativ systemet. Slutligen, om du slutligen kräver att data cachelagras lokalt, är det upp till dig att konfigurera och hantera teknik för replikering, till exempel Distributed File System replikering (DFSR), för att göra det.
 
-    En metod för att få bäst av både Azure Files och en filserver som är värd för virtuella datorer i Azure (förutom att använda Azure-diskar som backend-lagring) är att installera Azure File Sync på en filserver som finns på ett moln VM. Om Azure-filresursen är i samma region som din filserver, kan du aktivera molnet blobnivåindelning och ställer in volymen av ledigt utrymme i procent till maximalt (99%). Detta säkerställer minimal duplicering av data. Du kan också använda alla program som du vill med dina filservrar som stöd för program som kräver NFS-protokollet.
+    En metod för att få det bästa av både Azure Files och en fil server som är värd för Azure Virtual Machines (förutom att använda Azure-diskar som backend-lagring) är att installera Azure File Sync på en fil server som är värd för en virtuell dator i molnet. Om Azure-filresursen finns i samma region som fil servern kan du aktivera moln skiktning och ange volymen ledigt utrymme i procent till maximalt (99%). Detta säkerställer minimal dubblering av data. Du kan också använda alla program som du vill ha med dina fil servrar, t. ex. program som kräver stöd för NFS-protokollet.
 
-    Information om ett alternativ för hur du konfigurerar en server för höga prestanda och hög tillgänglighet i Azure finns i [distribuera IaaS VM-gästkluster i Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). En mer detaljerad beskrivning av skillnaderna mellan Azure Files och Azure-diskar, se [avgöra när du ska använda Azure Blob storage, Azure Files eller Azure Disks](../common/storage-decide-blobs-files-disks.md). Läs mer om Azure-diskar i [översikt över Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Information om ett alternativ för att konfigurera en fil server med hög prestanda och hög tillgänglighet i Azure finns i [distribuera IaaS-gäst kluster för virtuella datorer i Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). En mer djupgående Beskrivning av skillnaderna mellan Azure Files och Azure-diskar finns i [bestämma när du ska använda Azure Blob Storage, Azure Files eller Azure-diskar](../common/storage-decide-blobs-files-disks.md). Mer information om Azure-diskar finns i [Översikt över azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
-  **Hur kommer jag igång med Azure Files?**  
-   Det är enkelt att komma igång med Azure Files. Först [skapa en filresurs](storage-how-to-create-file-share.md), och sedan montera den i önskat operativsystem: 
+  **Hur gör jag för att kom igång med Azure Files?**  
+   Det är enkelt att komma igång med Azure Files. Först [skapar du en fil resurs](storage-how-to-create-file-share.md)och monterar den sedan i önskat operativ system: 
 
   * [Montera i Windows](storage-how-to-use-files-windows.md)
   * [Montera i Linux](storage-how-to-use-files-linux.md)
   * [Montera i macOS](storage-how-to-use-files-mac.md)
 
-    En mer detaljerad vägledning om hur du distribuerar en Azure-filresurs att ersätta filresurser för produktion i din organisation, se [planera för distribution av Azure Files](storage-files-planning.md).
+    En mer djupgående guide om hur du distribuerar en Azure-filresurs för att ersätta produktions fil resurser i organisationen finns i [Planera för en Azure Files distribution](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
-  **Vilka alternativ för lagringsredundans stöds av Azure Files?**  
-    Azure Files stöder för närvarande, lokalt redundant lagring (LRS), zonredundant lagring (ZRS) och geo-redundant lagring (GRS). Vi planerar att stödja läsåtkomst till geografiskt redundant (RA-GRS)-lagring i framtiden, men vi har inte tidslinjer för att dela just nu.
+  **Vilka alternativ för lagring av redundans stöds av Azure Files?**  
+    För närvarande har Azure Files stöd för lokalt redundant lagring (LRS), zon redundant lagring (ZRS) och Geo-redundant lagring (GRS). Vi planerar att stödja lagring med Läs åtkomst till Geo-redundant (RA-GRS) i framtiden, men det finns inga tids linjer att dela just nu.
 
 * <a id="tier-options"></a>
-  **Vilka nivåer stöds i Azure Files?**  
-    Azure Files stöder två lagringsnivåer: premium och standard. Standard filresurser skapas generellt syfte storage-konton (GPv1- eller GPv2) och premium-filresurser skapas i FileStorage storage-konton. Mer information om hur du skapar [standard filresurser](storage-how-to-create-file-share.md) och [premium filresurser](storage-how-to-create-premium-fileshare.md). 
+  **Vilka lagrings nivåer stöds i Azure Files?**  
+    Azure Files stöder två lagrings nivåer: Premium och standard. Standard fil resurser skapas i lagrings konton för generell användning (GPv1 eller GPv2) och Premium-filresurser skapas i FileStorage Storage-konton. Lär dig mer om hur du skapar [standard fil resurser](storage-how-to-create-file-share.md) och [Premium](storage-how-to-create-premium-fileshare.md)-filresurser. 
     
     > [!NOTE]
-    > Du kan inte skapa Azure-filresurser från Blob storage-konton eller *premium* lagringskonton för generell användning (GPv1- eller GPv2). Standard Azure-filresurser måste skapas i *standard* konton för generell användning endast och premium Azure-filresurser måste skapas i endast FileStorage storage-konton. *Premium* lagringskonton för generell användning (GPv1- och GPv2) avser endast premium-sidblobar. 
+    > Du kan inte skapa Azure-filresurser från Blob Storage-konton eller *Premium* -GPv1-eller GPv2-lagrings konton. Standard Azure-filresurser måste skapas i *standard* konton för generell användning och endast Premium Azure-filresurser måste skapas i FileStorage lagrings konton. GPv1-och GPv2-lagrings konton ( *Premium* General Purpose) är endast för-blobar för Premium sidor. 
 
 * <a id="give-us-feedback"></a>
-  **Nu vill jag verkligen finns i en specifik funktion som läggs till i Azure-filer. Kan du lägga till den?**  
-    Azure Files-teamet vill ha tagit reda på alla feedback som du har om vår tjänst. Du rösta på funktionsförfrågningar på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Vi tittar framåt till delighting du till många nya funktioner.
+  **Jag vill verkligen se en speciell funktion som har lagts till Azure Files. Kan du lägga till det?**  
+    Azure Filess teamet är intresserade av att höra och all feedback om vår tjänst. Rösta på en funktions förfrågan på [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Vi ser fram emot att se om det finns många nya funktioner.
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
   **Vilka regioner stöds för Azure File Sync?**  
-    Lista över tillgängliga regioner finns på den [regiontillgänglighet](storage-sync-files-planning.md#region-availability) avsnitt av Azure File Sync-planering guide. Vi lägger kontinuerligt till stöd för ytterligare regioner, inklusive icke-offentlig regioner.
+    Du hittar listan över tillgängliga regioner i avsnittet [region tillgänglighet](storage-sync-files-planning.md#region-availability) i Azure File Sync planerings guide. Vi lägger kontinuerligt till stöd för ytterligare regioner, inklusive icke-offentliga regioner.
 
 * <a id="cross-domain-sync"></a>
-  **Kan jag ha domänanslutna och icke-domänanslutna servrar i samma synkroniseringsgruppen?**  
-    Ja. En synkroniseringsgrupp kan innehålla serverslutpunkter som har olika medlemskap i Active Directory, även om de inte är ansluten till domänen. Den här konfigurationen fungerar tekniskt men rekommenderar vi inte detta som en typisk konfiguration eftersom åtkomstkontrollistor (ACL) som har definierats för filer och mappar på en server inte kanske kan tillämpas av andra servrar i synkroniseringsgruppen. För bästa resultat rekommenderar vi synkroniseras mellan servrar som finns i samma Active Directory-skog, mellan servrar som finns i olika Active Directory-skogar men som etablerade förtroenderelationer eller mellan servrar som inte ingår i en domän. Vi rekommenderar att du inte använder en blandning av de här konfigurationerna.
+  **Kan jag ha domänanslutna och icke-domänanslutna servrar i samma Sync-grupp?**  
+    Ja. En Sync-grupp kan innehålla Server slut punkter som har olika Active Directory medlemskap, även om de inte är domänanslutna. Även om den här konfigurationen tekniskt fungerar rekommenderar vi inte detta som en typisk konfiguration eftersom åtkomst kontrol listor (ACL: er) som har definierats för filer och mappar på en server kanske inte kan tillämpas av andra servrar i Sync-gruppen. För bästa resultat rekommenderar vi att du synkroniserar mellan servrar som finns i samma Active Directory skog, mellan servrar som finns i olika Active Directory skogar, men som har upprättat förtroende relationer, eller mellan servrar som inte finns i en domän. Vi rekommenderar att du inte använder en blandning av de här konfigurationerna.
 
 * <a id="afs-change-detection"></a>
-  **Jag har skapat en fil direkt i min Azure-filresurs med hjälp av SMB eller i portalen. Hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
+  **Jag skapade en fil direkt i min Azure-filresurs med hjälp av SMB eller i portalen. Hur lång tid tar det för filen att synkronisera till servrarna i Sync-gruppen?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
-* <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma gång?**  
-    Azure File Sync använder en enkel konfliktlösning-strategi: Vi lagrar både ändringar till filer som ändras på två servrar på samma gång. Nyligen skriftliga ändringen behåller det ursprungliga filnamnet. Den äldre filen har ”källdatorn” och antalet konflikt läggas till i namnet. Det följer den här taxonomi: 
+* <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma tid?**  
+    Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras på två servrar på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen har "källa"-datorn och konflikt numret som lagts till i namnet. Den följer denna taxonomi: 
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    Första konflikter mellan CompanyReport.docx skulle bli CompanyReport CentralServer.docx om CentralServer är där det äldre Skriv inträffade. Andra konflikten namnet CompanyReport-CentralServer-1.docx.
+    Den första konflikten i CompanyReport. docx skulle till exempel bli CompanyReport-CentralServer. docx om CentralServer är där den äldre skrivningen ägde rum. Den andra konflikten skulle ha namnet CompanyReport-CentralServer-1. docx.
 
 * <a id="afs-storage-redundancy"></a>
-  **Stöds geo-redundant lagring för Azure File Sync?**  
-    Ja, Azure Files stöder både lokalt redundant lagring (LRS) och geo-redundant lagring (GRS). Om du startar storage-konto växling mellan länkade regioner från ett konto som konfigurerats för GRS rekommenderar Microsoft att du ska hantera den nya regionen som en säkerhetskopia av data endast. Azure File Sync börjar automatiskt inte synkroniseras med den nya primära regionen. 
+  **Stöds Geo-redundant lagring för Azure File Sync?**  
+    Ja, Azure Files stöder både lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS). Om du initierar ett lagrings konto med redundans mellan kopplade regioner från ett konto som har kon figurer ATS för GRS, rekommenderar Microsoft att du behandlar den nya regionen som en säkerhets kopia av enbart data. Azure File Sync börjar inte synkronisera automatiskt med den nya primära regionen. 
 
 * <a id="sizeondisk-versus-size"></a>
-  **Varför inte den *storlek på disken* -egenskapen för en fil matchar den *storlek* egenskapen när du har använt Azure File Sync?**  
-  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  **Varför stämmer inte *storleken på disk* egenskapen för en fil med egenskapen *size* efter att du använt Azure File Sync?**  
+  Se [förstå moln nivåer](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
-  **Hur vet jag om en fil har nivåindelade?**  
-  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  **Hur kan jag se om en fil har flyttats på nivå?**  
+  Se [förstå moln nivåer](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
-* <a id="afs-recall-file"></a>**En fil som jag vill använda har varit nivåindelade. Hur kan jag återställa filen till disk för att använda den lokalt?**  
-  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-recall-file).
+* <a id="afs-recall-file"></a>**En fil som jag vill använda har flera nivåer. Hur kan jag återkalla filen till disk för att använda den lokalt?**  
+  Se [förstå moln nivåer](storage-sync-cloud-tiering.md#afs-recall-file).
 
 * <a id="afs-force-tiering"></a>
-  **Hur gör jag för att tvinga en fil eller katalog för att vara nivåindelad?**  
-  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-force-tiering).
+  **Hur gör jag för att tvinga en fil eller katalog att vara i nivå av?**  
+  Se [förstå moln nivåer](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
-  **Hur är *ledigt utrymme på volym* tolkas när jag har flera serverslutpunkter på en volym?**  
-  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  **Hur tolkas det *lediga volym utrymmet* när jag har flera Server slut punkter på en volym?**  
+  Se [förstå moln nivåer](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
-  **Vilka filer och mappar undantas automatiskt av Azure File Sync?**  
-    Som standard omfattar Azure File Sync inte följande filer:
-  * desktop.ini
-  * thumbs.DB
-  * ehthumbs.DB
+  **Vilka filer eller mappar undantas automatiskt av Azure File Sync?**  
+    Som standard utesluter Azure File Sync följande filer:
+  * Desktop. ini
+  * tummes. db
+  * ehthumbs. db
   * ~$\*.\*
   * \*.laccdb
-  * \*.tmp
+  * \*. tmp
   * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
-    Följande mappar undantas också som standard:
+    Följande mappar exkluderas också som standard:
 
-  * \System Volume Information
-  * \$PAPPERSKORGEN. BIN
+  * \System Volume information
+  * \$PAPPERS. PLATS
   * \SyncShareState
 
 * <a id="afs-os-support"></a>
-  **Kan jag använda Azure File Sync med Windows Server 2008 R2, Linux eller enheten nätverksansluten lagring (NAS)?**  
-    Azure File Sync stöder för närvarande endast 2019 för Windows Server, Windows Server 2016 och Windows Server 2012 R2. Vi har inte några andra planer kan vi dela just nu, men vi är öppen för stöd för ytterligare plattformar baserat på kundernas behov. Berätta för oss på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) vilka plattformar du vill bli kontaktad för.
+  **Kan jag använda Azure File Sync med antingen Windows Server 2008 R2, Linux eller min nätverksanslutna lagrings enhet (NAS)?**  
+    För närvarande stöder Azure File Sync endast Windows Server 2019, Windows Server 2016 och Windows Server 2012 R2. Vi har just nu inte några andra planer som vi kan dela, men vi är öppna för att stödja ytterligare plattformar baserat på kundens efter frågan. Berätta för oss på [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) vilka plattformar som vi skulle vilja stödja.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
-  **Varför finns nivåindelade filer utanför den slutpunkten namnrymden?**  
-    Innan Azure File Sync-agentversion 3 blockeras Azure File Sync flytt av nivåindelade filer utanför Serverslutpunkten men på samma volym som Serverslutpunkten. Kopieringsåtgärder, flyttas av icke-nivåindelade filer och flyttas av nivåindelade andra volymer har påverkas inte. Orsaken till detta var det underförstådda antagandet att Utforskaren och andra Windows-API: er har att flyttåtgärder på samma volym är (nästan) omedelbara Byt namn på åtgärder. Det innebär att flytta gör Utforskaren eller andra move-metoder (till exempel från kommandoraden eller PowerShell) visas inte svarar medan Azure File Sync återställer data från molnet. Från och med [Azure File Sync-agentversion 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kan du flytta en nivåindelad fil utanför Serverslutpunkten. Vi undvika negativa effekter som vi nämnde tidigare genom att nivåindelade filen finns som en nivåindelad fil utanför Serverslutpunkten och sedan återställa filen i bakgrunden. Det innebär som flyttas på samma volym är omedelbara och vi gör allt arbete för att återställa filen till disk när förflyttningen har slutförts. 
+  **Varför finns det skiktade filer utanför Server slut punktens namn område?**  
+    Innan Azure File Sync agent version 3, Azure File Sync blockerade flyttningen av skiktade filer utanför Server slut punkten men på samma volym som server slut punkten. Kopierings åtgärder, flyttning av filer som inte är på nivå, och flyttningar av nivå till andra volymer påverkades inte. Orsaken till detta är att det implicita antagandet att Utforskaren och andra Windows-API: er har den här flytt åtgärden på samma volym är (nästan) momentant namnbytes åtgärder. Det innebär att flyttningar gör att Utforskaren eller andra flyttnings metoder (t. ex. kommando rad eller PowerShell) inte svarar medan Azure File Sync kommer att anropa data från molnet igen. Från och med [Azure File Sync agent version 3.0.12.0](storage-files-release-notes.md#supported-versions)kan Azure File Sync flytta en nivå fil utanför Server slut punkten. Vi undviker de negativa effekter som tidigare nämnts genom att tillåta att den skiktade filen finns som en nivå fil utanför Server slut punkten och sedan anropar filen i bakgrunden. Det innebär att flytten av samma volym är omedelbar och vi gör allt arbete för att återkalla filen till disken när flytten har slutförts. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-  **Jag har problem med Azure File Sync på Min server (sync molnet lagringsnivåer, etc). Ta bort och återskapa min serverslutpunkt**  
+  **Jag har problem med Azure File Sync på min server (synkronisering, moln nivå osv.). Bör jag ta bort och återskapa min server slut punkt?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-  **Kan jag flytta storage sync-tjänsten och/eller storage-konto till en annan resursgrupp eller prenumeration?**  
-   Ja, storage sync-tjänsten och/eller storage-konto kan flyttas till en annan resursgrupp eller prenumeration inom de befintliga Azure AD-klienten. Om lagringskontot har flyttats, måste du ge Hybrid Filsynkroniseringstjänstens åtkomst till lagringskontot (se [se till att Azure File Sync har åtkomst till lagringskontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+  **Kan jag flytta synkroniseringstjänsten för lagring och/eller lagrings konto till en annan resurs grupp eller prenumeration?**  
+   Ja, tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp eller prenumeration i den befintliga Azure AD-klienten. Om lagrings kontot har flyttats måste du ge hybrid File Sync tjänst åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
-    > Azure File Sync stöder inte flytta prenumerationen till en annan Azure AD-klient.
+    > Azure File Sync har inte stöd för att flytta prenumerationen till en annan Azure AD-klient.
     
 * <a id="afs-ntfs-acls"></a>
-  **Bevarar Azure File Sync directory/filnivå NTFS-ACL: er tillsammans med data som lagras i Azure Files?**
+  **Ska Azure File Sync bevara NTFS-ACL: er för katalog-/fil nivå tillsammans med data som lagras i Azure Files?**
 
-    NTFS-ACL: er utförs från en lokal fil servrar sparas av Azure File Sync som metadata. Azure Files stöder inte autentisering med Azure AD-autentiseringsuppgifter för åtkomst till filresurser som hanteras av Azure File Sync-tjänsten.
+    NTFS-ACL: er som överförs från lokala fil servrar behålls genom Azure File Sync som metadata. Azure Files stöder inte autentisering med Azure AD-autentiseringsuppgifter för åtkomst till fil resurser som hanteras av tjänsten Azure File Sync.
     
-## <a name="security-authentication-and-access-control"></a>Säkerhet, autentisering och åtkomstkontroll
+## <a name="security-authentication-and-access-control"></a>Säkerhet, autentisering och åtkomst kontroll
 * <a id="ad-support"></a>
-**Är Active Directory-baserad autentisering och åtkomstkontroll som stöds av Azure Files?**  
+**Stöds Active Directory-baserad autentisering och åtkomst kontroll av Azure Files?**  
     
-    Ja, Azure Files stöder identity-baserad autentisering och åtkomstkontroll med Azure Active Directory (AD Azure) (förhandsversion). Azure AD-autentisering över SMB för Azure Files använder Azure Active Directory Domain Services om du vill aktivera domänanslutna virtuella datorer att få åtkomst till resurser, kataloger och filer med hjälp av Azure AD-autentiseringsuppgifter. Mer information finns i [översikt av Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)](storage-files-active-directory-overview.md). 
+    Ja, Azure Files stöder identitets-baserad autentisering och åtkomst kontroll med Azure Active Directory (Azure AD) (för hands version). Azure AD-autentisering över SMB för Azure Files utnyttjar Azure Active Directory Domain Services för att aktivera domänanslutna virtuella datorer för att få åtkomst till resurser, kataloger och filer med hjälp av autentiseringsuppgifter för Azure AD. Mer information finns i [Översikt över Azure Active Directory autentisering över SMB för Azure Files (för hands version)](storage-files-active-directory-overview.md). 
 
-    Azure Files erbjuder två olika sätt att hantera åtkomstkontroll:
+    Azure Files erbjuder ytterligare två sätt att hantera åtkomst kontroll:
 
-    - Du kan använda signaturer för delad åtkomst (SAS) för att generera token som har specifika behörigheter och som är giltiga för ett angivet tidsintervall. Du kan till exempel generera en token med skrivskyddad åtkomst till en specifik fil som har en giltighetstid för 10: e minut. Alla som har token när token är giltig har skrivskyddad åtkomst till filen under dessa 10 minuter. Nycklar för signatur för delad åtkomst stöds för närvarande endast via REST API eller klientbibliotek. Med hjälp av lagringskontonycklar måste du montera Azure-filresursen via SMB.
+    - Du kan använda signaturer för delad åtkomst (SAS) för att skapa token som har specifika behörigheter och som är giltiga för ett visst tidsintervall. Du kan till exempel generera en token med skrivskyddad åtkomst till en bestämd fil som har en giltighet på 10 minuter. Alla som har token när token är giltiga har skrivskyddad åtkomst till filen under 10 minuter. Signatur nycklar för delad åtkomst stöds för närvarande endast via REST API eller i klient bibliotek. Du måste montera Azure-filresursen över SMB genom att använda lagrings konto nycklarna.
 
-    - Azure File Sync bevarar och replikerar alla godtyckliga ACL: er eller DACL: er och (om Active Directory-baserad eller lokal) till alla serverslutpunkter som synkroniseras med. Eftersom Windows Server kan redan autentisera med Active Directory, Azure File Sync är ett effektivt stoppa gap-alternativ tills fullständigt stöd för Active Directory-baserad autentisering och ACL-stöd anländer.
+    - Azure File Sync bevarar och replikerar alla godtyckliga ACL: er, eller DACL: er (oavsett om de är Active Directory-baserade eller lokala) till alla Server slut punkter som den synkroniserar till. Eftersom Windows Server redan kan autentiseras med Active Directory, är Azure File Sync ett effektivt Stop-intervall-alternativ tills fullt stöd för Active Directory-baserad autentisering och ACL-stöd tas emot.
 
 * <a id="ad-support-regions"></a>
-**Är förhandsversionen av Azure AD via SMB för Azure Files tillgänglig i alla Azure-regioner?**
+**Är för hands versionen av Azure AD över SMB för Azure Files tillgänglig i alla Azure-regioner?**
 
-    Förhandsgranskningen är tillgänglig i alla offentliga regioner.
+    För hands versionen är tillgänglig i alla offentliga regioner.
 
 * <a id="ad-support-on-premises"></a>
-**Stöder autentisering med hjälp av Azure AD från lokala datorer i Azure AD-autentisering över SMB för Azure Files (förhandsversion)?**
+**Stöder Azure AD-autentisering över SMB för Azure Files (för hands version) autentisering med Azure AD från lokala datorer?**
 
-    Nej, Azure Files har inte stöd för autentisering med Azure AD från lokala datorer i förhandsversionen.
+    Nej, Azure Files stöder inte autentisering med Azure AD från lokala datorer i för hands versionen.
 
 * <a id="ad-support-devices"></a>
-**Gör Azure AD-autentisering över SMB för Azure Files (förhandsversion) stöd för SMB-åtkomst med hjälp av Azure AD-autentiseringsuppgifter från enheter anslutna till eller registrerad med Azure AD?**
+**Stöder Azure AD-autentisering över SMB för Azure Files (för hands version) SMB-åtkomst med Azure AD-autentiseringsuppgifter från enheter som är anslutna till eller registrerade med Azure AD?**
 
     Nej, det här scenariot stöds inte.
 
 * <a id="ad-support-rest-apis"></a>
-**Finns det REST API: er för Get/Set/kopiera/katalogfil NTFS-ACL: er?**
+**Finns det REST-API: er som stöder Hämta/ange/kopiera katalog/fil NTFS ACL: er?**
 
-    I förhandsversionen inte stöd för REST API: er för att hämta, ange eller kopiera NTFS-ACL: er för kataloger och filer.
+    För hands versionen har inte stöd för REST-API: er för att hämta, ange eller kopiera NTFS ACL: er för kataloger eller filer.
 
 * <a id="ad-vm-subscription"></a>
 **Kan jag komma åt Azure Files med Azure AD-autentiseringsuppgifter från en virtuell dator under en annan prenumeration?**
 
-    Om den prenumeration som har distribuerats för filresursen är associerad med samma Azure AD-klient som Azure AD Domain Services-distribution som den virtuella datorn är ansluten till domänen och du kan sedan komma åt Azure Files med samma Azure AD-autentiseringsuppgifter. Orsakas begränsningen inte i prenumerationen, men i den associerade Azure AD-klient.    
+    Om prenumerationen som fil resursen distribueras till är kopplad till samma Azure AD-klient som den Azure AD Domain Services distribution som den virtuella datorn är domänansluten till, kan du sedan komma åt Azure Files med samma autentiseringsuppgifter för Azure AD. Begränsningen införs inte i prenumerationen, men på den associerade Azure AD-klienten.    
     
 * <a id="ad-support-subscription"></a>
-**Kan jag aktivera Azure AD-autentisering över SMB för Azure Files med en Azure AD-klient som skiljer sig från den primära klienten som är associerad till filresursen?**
+**Kan jag aktivera Azure AD-autentisering över SMB för Azure Files med en Azure AD-klient som skiljer sig från den primära klient organisation som fil resursen är kopplad till?**
 
-    Nej, Azure Files stöder endast Azure AD-integrering med en Azure AD-klient som finns i samma prenumeration som filresursen. Endast en prenumeration kan associeras med en Azure AD-klient.
+    Nej, Azure Files stöder bara Azure AD-integrering med en Azure AD-klient som finns i samma prenumeration som fil resursen. Det går bara att koppla en prenumeration till en Azure AD-klient.
 
 * <a id="ad-linux-vms"></a>
-**Azure AD-autentisering över SMB för Azure Files (förhandsversion) som har stöd för virtuella Linux-datorer?**
+**Stöder Azure AD-autentisering över SMB för Azure Files (för hands version) virtuella Linux-datorer?**
 
-    Nej, autentisering från virtuella Linux-datorer stöds inte i förhandsversionen.
+    Nej, autentisering från virtuella Linux-datorer stöds inte i för hands versionen.
 
 * <a id="ad-aad-smb-afs"></a>
-**Kan jag utnyttja Azure AD-autentisering på SMB-funktioner på filresurser som hanteras av Azure File Sync?**
+**Kan jag utnyttja Azure AD-autentisering över SMB-funktioner på fil resurser som hanteras av Azure File Sync?**
 
-    Nej, Azure Files kan inte användas som bevaras NTFS-ACL: er på filresurser som hanteras av Azure File Sync. Filen ACL: er förs från lokala filservrar sparas av Azure File Sync. Alla NTFS-ACL: er och konfigurerat internt mot Azure Files kommer att skrivas över av Azure File Sync-tjänsten. Azure Files stöder dessutom inte autentisering med Azure AD-autentiseringsuppgifter för åtkomst till filresurser som hanteras av Azure File Sync-tjänsten.
+    Nej, Azure Files stöder inte bevarande av NTFS ACL: er på fil resurser som hanteras av Azure File Sync. De ACL: er för filer som överförs från lokala fil servrar behålls av Azure File Sync. Alla NTFS ACL: er som kon figurer ATS internt mot Azure Files skrivs över av Azure File Syncs tjänsten. Dessutom stöder Azure Files inte autentisering med Azure AD-autentiseringsuppgifter för åtkomst till fil resurser som hanteras av tjänsten Azure File Sync.
 
 * <a id="encryption-at-rest"></a>
-**Hur kan jag kontrollera att min Azure-filresurs är krypterade i vila?**  
+**Hur kan jag se till att min Azure-filresurs är krypterad i vila?**  
 
-    Ja. Mer information finns i [Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Ja. Mer information finns i [Azure Storage tjänst kryptering](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
-**Hur kan jag ge åtkomst till en viss fil med hjälp av en webbläsare?**  
+**Hur kan jag ge åtkomst till en speciell fil med hjälp av en webbläsare?**  
 
-    Du kan använda signaturer för delad åtkomst för att generera token som har specifika behörigheter och som är giltiga för ett angivet tidsintervall. Du kan till exempel generera en token som ger läsbehörighet till en specifik fil eller för en angiven tidsperiod. Alla som har tillgång till URL: en kan komma åt filen direkt från en webbläsare medan token är giltig. Du kan enkelt skapa en signaturnyckel för delad åtkomst från ett användargränssnitt som Storage Explorer.
+    Du kan använda signaturer för delad åtkomst för att skapa token som har specifika behörigheter och som är giltiga för ett visst tidsintervall. Du kan till exempel generera en token som ger skrivskyddad åtkomst till en viss fil under en angiven tids period. Alla som har URL: en kan komma åt filen direkt från valfri webbläsare medan token är giltig. Du kan enkelt skapa en signatur för delad åtkomst från ett användar gränssnitt som Storage Explorer.
 
 * <a id="file-level-permissions"></a>
-**Är det möjligt att ange skrivskyddad eller lässkyddad behörighet för mappar inom resursen?**  
+**Är det möjligt att ange skrivskyddade eller skrivskyddade behörigheter för mappar i resursen?**  
 
-    Om du monterar filresursen med SMB kan du inte mappnivå kontroll över behörigheter. Om du skapar en signatur för delad åtkomst med hjälp av REST API eller klientbibliotek, kan du dock ange skrivskyddad eller lässkyddad behörighet för mappar inom resursen.
+    Om du monterar fil resursen med hjälp av SMB, saknar du kontroll över behörigheter på mappnivå. Men om du skapar en signatur för delad åtkomst med hjälp av REST API-eller klient bibliotek kan du ange skrivskyddade eller skrivskyddade behörigheter för mappar i resursen.
 
 * <a id="ip-restrictions"></a>
 **Kan jag implementera IP-begränsningar för en Azure-filresurs?**  
 
-    Ja. Åtkomst till din Azure-filresurs kan begränsas på lagringskontonivån. Mer information finns i [konfigurera Azure Storage-brandväggar och virtuella nätverk](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Ja. Åtkomst till Azure-filresursen kan begränsas på lagrings konto nivå. Mer information finns i [konfigurera Azure Storage brand väggar och virtuella nätverk](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="data-compliance-policies"></a>
-**Vilka data efterlevnadsprinciper har stöd för Azure Files?**  
+**Vilka policyer för efterlevnadsprinciper stöder Azure Files?**  
 
-   Azure Files körs ovanpå samma lagringsarkitektur som används i andra lagringstjänster i Azure Storage. Azure Files gäller efterlevnadsprinciper för samma data som används i andra Azure-lagringstjänster. Mer information om kompatibilitet för Azure Storage-data som du kan referera till [Azure Storage-efterlevnadserbjudanden](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), och gå till den [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
+   Azure Files körs ovanpå samma lagrings arkitektur som används i andra lagrings tjänster i Azure Storage. Azure Files använder samma policyer för efterlevnadsprinciper som används i andra Azure Storage-tjänster. För mer information om hur du Azure Storage data, kan du referera till [Azure Storage Compliance-erbjudanden](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)och gå till [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Lokal åtkomst
 
 * <a id="port-445-blocked"></a>
-**Min Internet-leverantör eller IT-block-Port 445 som misslyckas Azure Files montera. Vad ska jag göra?**
+**Internet leverantören eller den blockerar port 445 som inte Azure Files montering. Vad ska jag göra?**
 
-    Du kan lära dig om [olika sätt att lösa blockeras-port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files kan endast anslutningar som använder SMB 3.0 (med stöd för kryptering) från utanför den region eller datacenter. SMB 3.0-protokollet har infört många säkerhetsfunktioner inklusive kanalkrypteringen som är mycket säkert att använda via internet. Men dess möjligt att port 445 har blockerats på grund av historiska orsaker för sårbarheter upptäcktes i lägre SMB-versioner. Perfekt om porten ska blockeras för endast för SMB 1.0-trafik och bör inaktiveras SMB 1.0 på alla klienter.
+    Du kan lära dig om [olika sätt att lösa den blockerade port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files tillåter endast anslutningar med SMB 3,0 (med krypterings stöd) utanför regionen eller data centret. SMB 3,0-protokollet har infört många säkerhetsfunktioner, inklusive kanal kryptering som är mycket säkert att använda via Internet. Men det är möjligt att port 445 har blockerats på grund av historiska orsaker till de lägre SMB-versionerna. I det idealiska fallet bör porten blockeras endast för SMB 1,0-trafik och SMB 1,0 bör stängas av på alla klienter.
 
 * <a id="expressroute-not-required"></a>
-**Måste jag använda Azure ExpressRoute för att ansluta till Azure Files eller om du vill använda Azure File Sync lokalt?**  
+**Måste jag använda Azure ExpressRoute för att ansluta till Azure Files eller använda Azure File Sync lokalt?**  
 
-    Nej. ExpressRoute är inte kräver åtkomst till en Azure-filresurs. Om du monterar en Azure-filresurs direkt lokalt, alla som krävs är att ha port 445 (TCP utgående) öppna för internet-åtkomst (detta är den port som använder SMB för att kommunicera). Om du använder Azure File Sync allt som krävs är port 443 (TCP utgående) för HTTPS-åtkomst (utan SMB krävs). Men du *kan* använda ExpressRoute med något av dessa åtkomstalternativ.
+    Nej. ExpressRoute krävs inte för att få åtkomst till en Azure-filresurs. Om du monterar en Azure-filresurs direkt lokalt, är allt det som krävs att port 445 (TCP utgående) är öppen för Internet åtkomst (detta är den port som SMB använder för att kommunicera). Om du använder Azure File Sync är allt det som krävs port 443 (TCP utgående) för HTTPS-åtkomst (ingen SMB krävs). Du *kan* dock använda ExpressRoute med något av dessa åtkomst alternativ.
 
 * <a id="mount-locally"></a>
-**Hur kan jag montera en Azure-filresurs på datorn lokalt?**  
+**Hur kan jag montera en Azure-filresurs på min lokala dator?**  
 
-    Du kan montera filresursen med SMB-protokollet om port 445 (TCP utgående) är öppen och klienten stöder SMB 3.0-protokollet (t.ex, om du använder Windows 10 eller Windows Server 2016). Om port 445 blockeras av organisationens princip eller av Leverantören, kan du använda Azure File Sync för att få åtkomst till din Azure-filresurs.
+    Du kan montera fil resursen med hjälp av SMB-protokollet om Port 445 (TCP utgående) är öppen och klienten stöder SMB 3,0-protokollet (till exempel om du använder Windows 10 eller Windows Server 2016). Om Port 445 blockeras av din organisations princip eller av din Internet leverantör kan du använda Azure File Sync för att få åtkomst till Azure-filresursen.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiera
 * <a id="backup-share"></a>
-**Hur delar jag säkerhetskopiera min Azure?**  
-    Du kan använda periodiska [resursögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller ett verktyg för säkerhetskopiering från tredje part som kan säkerhetskopiera en monterad filresurs. Azure Backup erbjuder säkerhetskopiering av Azure Files. Läs mer om [säkerhetskopiera Azure-filresurser med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
+**Hur gör jag för att säkerhetskopiera min Azure-filresurs?**  
+    Du kan använda periodiska [resurs ögonblicks bilder](storage-snapshots-files.md) för att skydda mot oavsiktlig borttagning. Du kan också använda AzCopy, Robocopy eller ett säkerhets kopierings verktyg från tredje part som kan säkerhetskopiera en monterad fil resurs. Azure Backup erbjuder säkerhets kopiering av Azure Files. Läs mer om hur du säkerhetskopierar [Azure-filresurser genom att Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Resursögonblicksbilder
 
-### <a name="share-snapshots-general"></a>Ögonblicksbilder av filresurser: Allmänt
+### <a name="share-snapshots-general"></a>Dela ögonblicks bilder: Allmänt
 * <a id="what-are-snaphots"></a>
-**Vad är ögonblicksbilder av filresurser?**  
-    Du kan använda Azure ögonblicksbilder av filresurser för att skapa en skrivskyddad version av dina filresurser. Du kan också använda Azure Files för att kopiera en tidigare version av säkerhetskopian innehåll till samma resurs, till en annan plats i Azure eller lokalt för flera ändringar. Läs mer om ögonblicksbilder av filresurser i den [dela ögonblicksbild översikt](storage-snapshots-files.md).
+**Vad är ögonblicks bilder av fil resurser?**  
+    Du kan använda Azures ögonblicks bilder av fil resurser för att skapa en skrivskyddad version av dina fil resurser. Du kan också använda Azure Files för att kopiera en tidigare version av innehållet tillbaka till samma resurs, till en annan plats i Azure eller lokalt för fler ändringar. Mer information om resurs ögonblicks bilder finns i [Översikt över resurs ögonblicks bilder](storage-snapshots-files.md).
 
 * <a id="where-are-snapshots-stored"></a>
-**Var lagras mina resursögonblicksbilder?**  
-    Ögonblicksbilder av filresurser lagras i samma lagringskonto som filresursen.
-
-* <a id="snapshot-perf-impact"></a>
-**Finns det några konsekvenser för prestanda för att använda ögonblicksbilder?**  
-    Ögonblicksbilder av filresurser har inte någon prestanda försämras.
+**Var lagras mina resurs ögonblicks bilder?**  
+    Resurs ögonblicks bilder lagras i samma lagrings konto som fil resursen.
 
 * <a id="snapshot-consistency"></a>
-**Är resursögonblicksbilder programkonsekventa?**  
-    Nej, ögonblicksbilder av filresurser är inte konsekventa. Användaren måste tömma skrivningarna från programmet till resursen innan du tar ögonblicksbilden för resursen.
+**Är resurs ögonblicks bilder program-konsekventa?**  
+    Nej, resurs ögonblicks bilder är inte programkonsekventa. Användaren måste tömma Skriv åtgärder från programmet till resursen innan du tar bort ögonblicks bilden.
 
 * <a id="snapshot-limits"></a>
-**Finns det någon gräns för antalet ögonblicksbilder av filresurser kan jag använda?**  
-    Ja. Azure Files kan behålla upp till 200 ögonblicksbilder. Ögonblicksbilder av filresurser räknas inte in i resurs-kvot så det finns ingen gräns totalt utrymme som används av alla ögonblicksbilder per filresurs. Lagringskontogränser gäller fortfarande. Efter 200 ögonblicksbilder, måste du ta bort äldre ögonblicksbilder för att skapa nya resursögonblicksbilder.
+**Finns det några begränsningar för hur många resurs-ögonblicksbilder jag kan använda?**  
+    Ja. Azure Files kan behålla maximalt 200 resurs ögonblicks bilder. Resurs ögonblicks bilder räknas inte mot resurs kvoten, så det finns ingen gräns per resurs för det totala utrymmet som används av alla resurs ögonblicks bilder. Lagrings konto gränser gäller fortfarande. Efter 200 resurs ögonblicks bilder måste du ta bort äldre ögonblicks bilder för att skapa nya ögonblicks bilder av resursen.
 
 * <a id="snapshot-cost"></a>
-**Hur mycket delar ögonblicksbilder kostnad?**  
-    Standard transaktion och standardlagring kostnaden gäller för ögonblicksbild. Ögonblicksbilder är inkrementell sin natur. Den grundläggande ögonblicksbilden är resursen själva. Alla efterföljande ögonblicksbilder är inkrementell och lagras endast diff från tidigare ögonblicksbild. Det innebär att deltaändringar som visas på fakturan blir minimal om omsättning av arbetsbelastning är minimal. Se [prissidan](https://azure.microsoft.com/pricing/details/storage/files/) för Standard Azure Files information om priser. Idag är sättet att titta på storleken som används av ögonblicksbild av en resurs är genom att jämföra faktureras kapacitet med kapacitet som används. Vi arbetar med verktyg för att förbättra reporting.
+**Hur mycket kostar det att dela ögonblicks bilder?**  
+    Standard transaktioner och standard lagrings kostnader gäller för ögonblicks bilder. Ögonblicks bilder är stegvisa. Den grundläggande ögonblicks bilden är själva resursen. Alla efterföljande ögonblicks bilder är stegvisa och kommer bara att lagra differensen från den tidigare ögonblicks bilden. Det innebär att delta ändringarna som visas på fakturan blir minimala om din arbets belastnings omsättning är minimal. Se [prissättnings sida](https://azure.microsoft.com/pricing/details/storage/files/) för standard Azure Files pris information. Idag är det dags att titta på den storlek som används av resurs ögonblicks bilden genom att jämföra den fakturerade kapaciteten med den använda kapaciteten. Vi arbetar på verktyg för att förbättra rapporteringen.
 
 * <a id="ntfs-acls-snaphsots"></a>
-**Är NTFS-ACL: er på kataloger och filer sparas i resursögonblicksbilder?**
-    NTFS-ACL: er för kataloger och filer sparas i resursögonblicksbilder.
+**Är NTFS ACL: er för kataloger och filer som behålls i resurs ögonblicks bilder?**
+    NTFS ACL: er för kataloger och filer finns kvar i resurs ögonblicks bilder.
 
-### <a name="create-share-snapshots"></a>Skapa resursögonblicksbilder
+### <a name="create-share-snapshots"></a>Skapa resurs ögonblicks bilder
 * <a id="file-snaphsots"></a>
-**Kan jag skapa ögonblicksbild av enskilda filer?**  
-    Ögonblicksbilder av filresurser skapas på filnivå för resursen. Du kan återställa enskilda filer från ögonblicksbilden av filresursen, men du kan inte skapa ögonblicksbilder av filresurser på filnivå. Men om du har utfört en resursnivå resursögonblicksbild och du vill visa en lista över ögonblicksbilder av filresurser där en viss fil har ändrats, kan du göra det under **tidigare versioner** på en Windows-monterad resurs. 
+**Kan jag skapa en resurs ögonblicks bild av enskilda filer?**  
+    Resurs ögonblicks bilder skapas på fil resurs nivå. Du kan återställa enskilda filer från ögonblicks bilden av fil resursen, men du kan inte skapa resurs ögonblicks bilder på filnivå. Men om du har tagit en ögonblicks bild på resurs nivå och vill visa en lista över resurs ögonblicks bilder där en fil har ändrats, kan du göra detta under **tidigare versioner** på en Windows-monterad resurs. 
     
-    Om du behöver en funktion för ögonblicksbild av filen kan berätta för oss på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+    Om du behöver en fil ögonblicks bilds funktion kan du meddela oss på [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 
 * <a id="encrypted-snapshots"></a>
-**Kan jag skapa ögonblicksbilder av en krypterad filresurs?**  
-    Du kan ta en ögonblicksbild av Azure-filresurser som har kryptering i vila aktiverat. Du kan återställa filer från en ögonblicksbild av en resurs till en krypterad filresurs. Om din filresurs krypteras krypteras dina resursögonblicksbild också.
+**Kan jag skapa resurs ögonblicks bilder av en krypterad fil resurs?**  
+    Du kan ta en ögonblicks bild av Azure-filresurser som har kryptering i vila aktiverat. Du kan återställa filer från en resurs ögonblicks bild till en krypterad fil resurs. Om din resurs är krypterad krypteras även din resurs ögonblicks bild.
 
 * <a id="geo-redundant-snaphsots"></a>
-**Är Mina resursögonblicksbilder geo-redundant?**  
-    Ögonblicksbilder av filresurser har samma redundans som Azure-filresursen som de togs. Om du har valt geo-redundant lagring för ditt konto, lagras din filresurs ögonblicksbild också redundant i den parade regionen.
+**Är mina resurs ögonblicks bilder geo-redundanta?**  
+    Resurs ögonblicks bilder har samma redundans som den Azure-filresurs som de vidtogs för. Om du har valt Geo-redundant lagring för ditt konto lagras även din resurs ögonblicks bild i den kopplade regionen.
 
-### <a name="manage-share-snapshots"></a>Hantera ögonblicksbilder
+### <a name="manage-share-snapshots"></a>Hantera resurs ögonblicks bilder
 * <a id="browse-snapshots-linux"></a>
-**Kan jag Bläddra min ögonblicksbilder av filresurser från Linux?**  
-    Du kan använda Azure CLI för att skapa, visa, bläddra och återställa ögonblicksbilder i Linux.
+**Kan jag bläddra i mina resurs ögonblicks bilder från Linux?**  
+    Du kan använda Azure CLI för att skapa, Visa, bläddra i och återställa resurs ögonblicks bilder i Linux.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
-**Kan jag kopiera ögonblicksbilder till ett annat lagringskonto?**  
-    Du kan kopiera filer från resursögonblicksbilder till en annan plats, men du kan inte kopiera ögonblicksbilder själva.
+**Kan jag kopiera resurs ögonblicks bilderna till ett annat lagrings konto?**  
+    Du kan kopiera filer från resurs ögonblicks bilder till en annan plats, men du kan inte kopiera själva resurs ögonblicks bilderna.
 
-### <a name="restore-data-from-share-snapshots"></a>Återställa data från resursögonblicksbilder
+### <a name="restore-data-from-share-snapshots"></a>Återställa data från resurs ögonblicks bilder
 * <a id="promote-share-snapshot"></a>
-**Kan jag flytta upp en ögonblicksbild till grundläggande resursen?**  
-    Du kan kopiera data från en ögonblicksbild till andra mål. Du kan inte befordra en ögonblicksbild till grundläggande resursen.
+**Kan jag befordra en resurs ögonblicks bild till bas resursen?**  
+    Du kan kopiera data från en resurs ögonblicks bild till andra mål. Du kan inte befordra en resurs ögonblicks bild till bas resursen.
 
 * <a id="restore-snapshotted-file-to-other-share"></a>
-**Kan jag återställa data från ögonblicksbilden för resursen till ett annat lagringskonto?**  
-    Ja. Filer från en ögonblicksbild kan kopieras till den ursprungliga platsen eller till en annan plats som innehåller samma lagringskonto eller ett annat lagringskonto i samma region eller i olika regioner. Du kan också kopiera filer till en lokal plats eller i andra moln.    
+**Kan jag återställa data från min resurs ögonblicks bild till ett annat lagrings konto?**  
+    Ja. Filer från en resurs ögonblicks bild kan kopieras till den ursprungliga platsen eller till en annan plats som innehåller antingen samma lagrings konto eller ett annat lagrings konto, antingen i samma region eller i olika regioner. Du kan också kopiera filer till en lokal plats eller till ett annat moln.    
   
-### <a name="clean-up-share-snapshots"></a>Rensa resursögonblicksbilder
+### <a name="clean-up-share-snapshots"></a>Rensa resurs ögonblicks bilder
 * <a id="delete-share-keep-snapshots"></a>
-**Kan jag ta bort min resursen men inte ta bort min resursögonblicksbilder?**  
-    Om du har active resursögonblicksbilder på nätverksresursen, kan du ta bort din resurs. Du kan använda ett API för att ta bort resursögonblicksbilder, tillsammans med resursen. Du kan också radera både ögonblicksbilder och resursen i Azure-portalen.
+**Kan jag ta bort min resurs men inte ta bort mina resurs ögonblicks bilder?**  
+    Om du har ögonblicks bilder av aktiva resurser på resursen kan du inte ta bort resursen. Du kan använda ett API för att ta bort resurs ögonblicks bilder, tillsammans med resursen. Du kan också ta bort både resurs ögonblicks bilder och resursen i Azure Portal.
 
 * <a id="delete-share-with-snapshots"></a>
-**Vad händer med Mina resursögonblicksbilder om jag tar bort mitt lagringskonto?**  
-    Om du tar bort ditt lagringskonto tas ögonblicksbilder också bort.
+**Vad händer med mina resurs ögonblicks bilder om jag tar bort mitt lagrings konto?**  
+    Om du tar bort ditt lagrings konto tas även resurs ögonblicks bilderna bort.
 
 ## <a name="billing-and-pricing"></a>Fakturering och priser
 * <a id="vm-file-share-network-traffic"></a>
-**Räknas nätverkstrafik mellan en Azure-dator och en Azure filresurs som extern bandbredd som debiteras till prenumerationen?**  
-    Om filresursen och den virtuella datorn finns i samma Azure-region, finns det inga ytterligare avgifter för trafik mellan filresursen och den virtuella datorn. Om filresursen och den virtuella datorn finns i olika regioner, debiteras trafiken mellan dem som extern bandbredd.
+**Räknas nätverks trafiken mellan en virtuell Azure-dator och en Azure-filresurs som extern bandbredd som debiteras för prenumerationen?**  
+    Om fil resursen och den virtuella datorn finns i samma Azure-region finns det ingen extra kostnad för trafiken mellan fil resursen och den virtuella datorn. Om fil resursen och den virtuella datorn finns i olika regioner debiteras trafiken mellan dem som extern bandbredd.
 
 * <a id="share-snapshot-price"></a>
-**Hur mycket delar ögonblicksbilder kostnad?**  
-     I förhandsversionen är gratis för kapacitet för ögonblicksbilder för resursen. Standardlagring utgång och transaktion kan tillkomma. Efter allmän tillgänglighet debiteras prenumerationer för kapacitet och transaktioner på resursögonblicksbilder.
+**Hur mycket kostar det att dela ögonblicks bilder?**  
+     Under för hands versionen kostar det inget att dela ögonblicks bilds kapacitet. Utgående och transaktionskostnader gäller för standard lagring. Efter den allmänna tillgängligheten debiteras prenumerationer för kapacitet och transaktioner för resurs ögonblicks bilder.
      
-     Resursögonblicksbilder är inkrementell sin natur. Den grundläggande resursögonblicksbild är resursen själva. Alla efterföljande resursögonblicksbilder är inkrementell och lagra bara skillnad från föregående ögonblicksbilden för resursen. Du debiteras bara för det ändrade innehållet. Om du har en resurs med 100 GiB data men endast 5 GiB har ändrats sedan den senaste ögonblicksbilden för resursen, ögonblicksbilden för resursen förbrukar endast 5 ytterligare GiB och du debiteras för 105 GiB. Mer information om transaktioner och kostnader för standard utgående trafik finns i den [prissidan](https://azure.microsoft.com/pricing/details/storage/files/).
+     Resurs ögonblicks bilder är stegvisa. Bas resursens ögonblicks bild är själva resursen. Alla efterföljande ögonblicks bilder av resurser är stegvisa och lagrar bara skillnaden från föregående ögonblicks bild. Du faktureras bara för det ändrade innehållet. Om du har en resurs med 100 GiB av data men bara 5 GiB har ändrats sedan den senaste ögonblicks bilden av en resurs, förbrukar resurs ögonblicks bilden bara fem ytterligare GiB och du debiteras för 105 GiB. Mer information om transaktions-och standard avgifter för utgående trafik finns på [sidan med priser](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="scale-and-performance"></a>Skala och prestanda
 * <a id="files-scale-limits"></a>
-**Vilka är gränserna för skalning av Azure Files?**  
-    Information om skalbarhets- och prestandamål för Azure Files finns i [skalbarhets- och prestandamål i Azure Files](storage-files-scale-targets.md).
+**Vilka är skalnings gränserna för Azure Files?**  
+    Information om skalbarhets-och prestanda mål för Azure Files finns i [Azure Files skalbarhets-och prestanda mål](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
 **Vilka storlekar är tillgängliga för Azure-filresurser?**  
-    Azure resurs filstorlekar (premium och standard) kan skala upp till 100 TiB. Premium-resurser för filstorlekar upp till 100 TiB är tillgängliga som en GA-erbjudande. Standardfil resurser storlekar upp till 5 TiB är tillgängliga som en allmänt tillgänglig erbjuder, medan upp till 100 TiB finns i en förhandsversion. Se den [publicera till större filresurser (standard-nivån)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) avsnitt av Planeringsguiden för registreringsinstruktionerna till filen större delar förhandsversion för standard-nivån.
+    Azures fil resurs storlekar (Premium och standard) kan skala upp till 100 TiB. Premium-fildelnings storlekar upp till 100 TiB är tillgängliga som ett GA-erbjudande. Standard fil resurs storlekar upp till 5 TiB är tillgängliga som ett GA-erbjudande, medan storlekar på upp till 100 TiB är i för hands version. Se avsnittet [Publicera till större fil resurser (standard nivån)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) i planerings hand boken för att publicera instruktioner till den större för hands versionen av fil resurser för standard nivån.
 
 * <a id="open-handles-quota"></a>
-**Hur många klienter har åtkomst till samma fil samtidigt?**    
-    Det finns en kvot på 2 000 öppna referenser i en enda fil. När du har 2 000 öppna referenser visas ett felmeddelande som säger kvoten har uppnåtts.
+**Hur många klienter kan komma åt samma fil samtidigt?**    
+    Det finns en kvot på 2 000 öppna referenser på en enskild fil. När du har 2 000 öppna handtag visas ett fel meddelande om att kvoten har nåtts.
 
 * <a id="zip-slow-performance"></a>
-**Min går långsamt när jag packa upp filer i Azure Files. Vad ska jag göra?**  
-    För att överföra stora mängder filer till Azure Files, rekommenderar vi att du använder AzCopy (för Windows, i förhandsversion för Linux och UNIX) eller Azure PowerShell. Dessa verktyg har optimerats för nätverksöverföring.
+**Min prestanda är långsam när jag packar upp filer i Azure Files. Vad ska jag göra?**  
+    Om du vill överföra ett stort antal filer till Azure Files rekommenderar vi att du använder AzCopy (för Windows, i för hands versionen för Linux och UNIX) eller Azure PowerShell. Dessa verktyg har optimerats för nätverks överföring.
 
 * <a id="slow-perf-windows-81-2012r2"></a>
-**Varför är min långsamma prestanda när du har monterat min Azure-filresurs på Windows Server 2012 R2 eller Windows 8.1?**  
-    Det finns ett känt problem när du monterar en Azure-filresurs på Windows Server 2012 R2 och Windows 8.1. Problemet har korrigerade i April 2014 kumulativ uppdatering för Windows 8.1 och Windows Server 2012 R2. Se till att alla instanser av Windows Server 2012 R2 och Windows 8.1 har korrigeringen tillämpas för optimala prestanda. (Du bör alltid ta emot Windows-uppdateringar via Windows Update.) Mer information finns i den tillhörande Microsoft Knowledge Base-artikeln [långsamma prestanda när du har åtkomst till Azure Files från Windows 8.1 eller Server 2012 R2](https://support.microsoft.com/kb/3114025).
+**Varför är min prestanda långsam när jag har monterat min Azure-filresurs på Windows Server 2012 R2 eller Windows 8,1?**  
+    Det finns ett känt problem när du monterar en Azure-filresurs på Windows Server 2012 R2 och Windows 8,1. Problemet har korrigerats i den kumulativa uppdateringen från april 2014 för Windows 8,1 och Windows Server 2012 R2. För bästa prestanda bör du se till att alla instanser av Windows Server 2012 R2 och Windows 8,1 har den här korrigerings filen tillämpad. (Du bör alltid ta emot Windows-korrigeringsfiler via Windows Update.) Mer information finns i den tillhör ande Microsoft Knowledge Base-artikeln [långsamma prestanda när du kommer åt Azure Files från Windows 8,1 eller Server 2012 R2](https://support.microsoft.com/kb/3114025).
 
 ## <a name="features-and-interoperability-with-other-services"></a>Funktioner och samverkan med andra tjänster
 * <a id="cluster-witness"></a>
-**Kan jag använda min Azure-filresurs som en *filresursvittne* för min Windows Server Failover-kluster?**  
-    Den här konfigurationen stöds för närvarande inte för en Azure-filresurs. Mer information om hur du anger detta för Azure Blob storage finns i [distribuera ett Molnvittne för ett redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+**Kan jag använda min Azure-filresurs som ett *fil resurs vittne* för mitt Windows Server-redundanskluster?**  
+    Den här konfigurationen stöds för närvarande inte för en Azure-filresurs. Mer information om hur du konfigurerar detta för Azure Blob Storage finns i [distribuera ett moln vittne för ett redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
 
 * <a id="containers"></a>
-**Kan jag montera en Azure-filresurs på en Azure Container-instans?**  
-    Ja, Azure-filresurser är ett bra alternativ när du vill bevara information utöver livslängden för en behållarinstans. Mer information finns i [montera en Azure-filresurs med Azure Container instances](../../container-instances/container-instances-mounting-azure-files-volume.md).
+**Kan jag montera en Azure-filresurs på en Azure Container instance?**  
+    Ja, Azure-filresurser är ett bra alternativ när du vill spara information utanför livs längden för en behållar instans. Mer information finns i [montera en Azure-filresurs med Azure Container instances](../../container-instances/container-instances-mounting-azure-files-volume.md).
 
 * <a id="rest-rename"></a>
-**Finns det en åtgärd för namnbyten i REST API?**  
+**Finns det en namnbytes åtgärd i REST API?**  
     Inte just nu.
 
 * <a id="nested-shares"></a>
-**Kan jag konfigurera kapslade resurser? Med andra ord en resurs under en resurs?**  
-    Nej. Filresursen *är* den virtuella drivrutin som du kan montera, så kapslade resurser inte stöds.
+**Kan jag konfigurera kapslade resurser? Med andra ord, en resurs under en resurs?**  
+    Nej. Fil resursen *är* den virtuella driv rutin som du kan montera, så kapslade resurser stöds inte.
 
 * <a id="ibm-mq"></a>
-**Hur kan jag använda Azure Files med IBM MQ?**  
-    IBM har publicerat ett dokument som hjälper IBM MQ-kunder konfigurera Azure Files med IBM-tjänsten. Mer information finns i [hur du ställer in en IBM MQ flera instanser köhanteraren med Microsoft Azure Files-tjänsten](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
+**Hur gör jag för att använda Azure Files med IBM MQ?**  
+    IBM har publicerat ett dokument som hjälper IBM MQ-kunder att konfigurera Azure Files med IBM-tjänsten. Mer information finns i [så här konfigurerar du en IBM MQ multi-instance Queue Manager med Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
 ## <a name="see-also"></a>Se också
 * [Felsöka Azure Files i Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Felsöka Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Felsök Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)

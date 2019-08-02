@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 78db25fed7c284b31491bdc9e5498493da4c7479
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544746"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618843"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planera och förbereda distributionen av Service Fabric fristående kluster
 
@@ -44,8 +44,8 @@ När du anger ud i ClusterConfig.json, väljer du namnet för varje UD. Till exe
 
 * "upgradeDomain": "UD0"
 * "upgradeDomain": "UD1A"
-* "upgradeDomain": ”DomainRed”
-* "upgradeDomain": ”Blue”
+* "upgradeDomain": "DomainRed"
+* "upgradeDomain": Blåskärm
 
 Mer information om FD och ud finns [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
@@ -65,7 +65,7 @@ Här är några rekommenderade specifikationer för varje dator som du vill läg
 * Minst 40 GB ledigt diskutrymme
 * En 4 kärnor eller större processor
 * Anslutning till ett säkert nätverk eller nätverk för alla datorer
-* Windows Server-operativsystem installerat (giltiga versioner: 2012 R2, 2016, 1709 eller 1803)
+* Windows Server OS installerat (giltiga versioner: 2012 R2, 2016, 1709, 1803 eller 2019)
 * [.NET framework 4.5.1 eller senare](https://www.microsoft.com/download/details.aspx?id=40773), fullständig installation
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * Den [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) måste köras på alla datorer
@@ -103,13 +103,13 @@ När en Klusteradministratör konfigurerar fristående Service Fabric-kluster, m
    * Har aktiverat tjänsten Remote Registry (remote registry)
    * Har aktiverat delning (SMB)-fil
    * Ha nödvändiga portar öppnas, baserat på klustret configuration portar
-   * Ha nödvändiga portarna för Windows-SMB- och Remote Registry-tjänsten: 135, 137, 138, 139 och 445
+   * Har nödvändiga portar öppnats för Windows SMB och tjänsten Remote Registry: 135, 137, 138, 139 och 445
    * Ha en nätverksanslutning till varandra
 3. Ingen av de kluster nod-datorerna ska vara en domänkontrollant.
 4. Om klustret distribueras är ett säkert kluster kan verifiera den säkerhet som behövs krav är placera och är korrekt konfigurerade mot konfigurationen.
 5. Om klustret datorer inte är tillgängligt via internet, kan du ange följande i klusterkonfigurationen:
-   * Inaktivera telemetri: Under *egenskaper* ange *”Konfigurationsparametern”: false*
-   * Inaktivera automatisk nedladdning av Fabric-version & meddelanden att support upphör snart för den aktuella versionen av klustret: Under *egenskaper* ange *”fabricClusterAutoupgradeEnabled”: false*
+   * Inaktivera telemetri: Under *Egenskaper* set *"enableTelemetry": false*
+   * Inaktivera automatisk hantering av infrastruktur resurser & meddelanden som den aktuella kluster versionen närmar sig slutet på supporten: Under *Egenskaper* set *"fabricClusterAutoupgradeEnabled": false*
    * Alternativt, om Internetåtkomst för nätverk är begränsad till vitt visas domäner, domäner nedan krävs för automatisk uppgradering: go.microsoft.com download.microsoft.com
 
 6. Ange rätt Service Fabric-antivirusundantag:

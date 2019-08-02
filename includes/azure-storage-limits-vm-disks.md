@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: ef9c46c0b55f97b8931f16d751f1b1e6099e6c9d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328645"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669852"
 ---
 Du kan koppla ett antal data diskar till en virtuell Azure-dator. Baserat på skalbarhets-och prestanda målen för en virtuell dators data diskar kan du fastställa det antal och den typ av disk som du behöver för att uppfylla dina prestanda-och kapacitets krav.
 
@@ -18,13 +18,13 @@ Du kan koppla ett antal data diskar till en virtuell Azure-dator. Baserat på sk
 
 **För Azure Managed disks:**
 
-I följande tabell visas standard-och Max gränserna för antalet resurser per region per prenumeration
+I följande tabell visas standard-och Max gränserna för antalet resurser per region per prenumeration. Det finns ingen gräns för antalet Managed Disks, ögonblicks bilder och avbildningar per resurs grupp.  
 
 > | Resource | Standardgräns  | Övre gräns |
 > | --- | --- | --- |
 > | Standard Managed disks | 50,000 | 50,000 |
-> | Standard SSD Managed disks | 50,000 | 50,000 |
-> | Premium Managed disks | 50,000 | 50,000 |
+> | Hanterade Standard SSD-diskar | 50,000 | 50,000 |
+> | Hanterade premiumdiskar | 50,000 | 50,000 |
 > | Ögonblicks bilder av Standard_LRS | 50,000 | 50,000 |
 > | Ögonblicks bilder av Standard_ZRS | 50,000 | 50,000 |
 > | Hanterad avbildning | 50,000 | 50,000 |

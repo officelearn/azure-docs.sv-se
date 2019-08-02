@@ -9,25 +9,27 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 7d216a3706c13a5fff312850e244a521ab22ae9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386543"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706514"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager mallar för att automatisera distributionen av Azure Logic Apps
 
 I den här artikeln beskrivs hur du kan skapa en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md) för din Logi Kap par, som hjälper dig att automatisera skapandet och distributionen av din Logic app. En översikt över strukturen och syntaxen för en mall som innehåller din arbets flödes definition och andra resurser som krävs för distribution [finns i Översikt: Automatisera distribution av logi Kap par med Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md)mallar.
 
-Azure Logic Apps innehåller en [fördefinierad Logic apps Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) som du kan återanvända, inte bara för att skapa Logi Kap par, utan även för att definiera de resurser och parametrar som ska användas för distribution. Du kan använda den här mallen för egna affärs scenarier eller anpassa mallen efter dina behov. Mer information om Azure Resource Manager mallar finns i följande avsnitt:
+Azure Logic Apps innehåller en [fördefinierad Logic app Azure Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) som du kan återanvända, inte bara för att skapa Logi Kap par, utan även för att definiera de resurser och parametrar som ska användas för distributionen. Du kan använda den här mallen för egna affärs scenarier eller anpassa mallen efter dina behov.
+
+> [!IMPORTANT]
+> Se till att anslutningarna i din mall använder samma Azure-resurs grupp och plats som din Logic app.
+
+Mer information om Azure Resource Manager mallar finns i följande avsnitt:
 
 * [Azure Resource Manager mallens struktur och syntax](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Utveckla Azure Resource Manager-mallar för molnkonsekvens](../azure-resource-manager/templates-cloud-consistency.md)
-
-> [!IMPORTANT]
-> Anslutningar i din mall måste använda samma Azure-resurs grupp och plats som din Logic app.
 
 <a name="visual-studio"></a>
 
@@ -47,6 +49,13 @@ Genom att hämta din Logic app får du en mall som innehåller definitionerna f�
 Du kan skapa Resource Manager-mallar med hjälp av Azure PowerShell med [LogicAppTemplate-modulen](https://github.com/jeffhollan/LogicAppTemplateCreator). Den här modulen för öppen källkod utvärderar först din Logic app och eventuella anslutningar som används av Logic Apps. Modulen genererar sedan mal Lav resurser med de nödvändiga parametrarna för distribution.
 
 Anta till exempel att du har en Logic-app som tar emot ett meddelande från en Azure Service Bus kö och laddar upp data till en Azure SQL-databas. Modulen bevarar all Orchestration-logik och parameterizes SQL-och Service Bus anslutnings strängar så att du kan ange och ändra dessa värden utifrån dina distributions behov.
+
+De här exemplen visar hur du skapar och distribuerar Logi Kap par med hjälp av Azure Resource Manager mallar, Azure-pipelines i Azure DevOps och Azure PowerShell:
+
+* [Exempel: Anslut till Azure Service Bus köer från Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exempel: Anslut till Azure Storage konton från Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exempel: Konfigurera en Function-app-åtgärd för Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exempel: Anslut till ett integrations konto från Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>Installera PowerShell-moduler
 

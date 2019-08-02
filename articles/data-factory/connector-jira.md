@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cbb18212f70343d8b9933bd2c787ce6aae8b145d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61cdcb98fc5c0947a25954161676c55ebf902688
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401005"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720734"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Kopiera data från Jira med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Jira länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Jira** | Ja |
+| type | Egenskapen Type måste anges till: **Jira** | Ja |
 | host | IP-adressen eller värdnamnet namnet på Jira-tjänsten. (till exempel jira.example.com)  | Ja |
 | port | TCP-porten som Jira-servern använder för att lyssna efter klientanslutningar. Standardvärdet är 443 om ansluter via HTTPS eller 8080 om ansluter via HTTP.  | Nej |
 | username | Användarnamnet som används för att komma åt Jira Service.  | Ja |
@@ -81,7 +81,7 @@ Om du vill kopiera data från Jira, ange typegenskapen på datauppsättningen ti
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **JiraObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **JiraObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -91,11 +91,12 @@ Om du vill kopiera data från Jira, ange typegenskapen på datauppsättningen ti
     "name": "JiraDataset",
     "properties": {
         "type": "JiraObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Jira linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Om du vill kopiera data från Jira, ange typ av datakälla i kopieringsaktivitet
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **JiraSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **JiraSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

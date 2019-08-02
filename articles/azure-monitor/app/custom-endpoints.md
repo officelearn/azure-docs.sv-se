@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c086f94a161853cba3a9ed2b98f13ea17b90dd20
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 662594f3ef0e4d5598b52cb07006b513e7f3c35a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478801"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564978"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>Application Insights som åsidosätter standard slut punkter
 
@@ -158,6 +158,14 @@ För närvarande är de enda regionerna som kräver slut punkts ändringar [Azur
 | Azure Government | Telemetri kanal |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (Live metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profil fråga |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+Om du för närvarande använder [Application Insights REST API](https://dev.applicationinsights.io/
+) som normalt används via "API.applicationinsights.io" måste du använda en slut punkt som är lokal i din region:
+
+|Region |  Namnet på slutpunkten | Värde |
+|-----------------|:------------|:-------------|
+| Azure Kina | REST-API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST-API | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Kod utan kod/tillägg baserad övervakning för Azure App-tjänster **stöds för närvarande inte** i dessa regioner. Så snart den här funktionen blir tillgänglig kommer den här artikeln att uppdateras.

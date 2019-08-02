@@ -1,7 +1,7 @@
 ---
-title: Standardkonfigurationen för konversationen Learner - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner standard konfiguration – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Läs mer om Konversationsdeltagare standardkonfigurationen.
+description: Lär dig mer om standard konfigurationen för Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,44 +10,45 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: ebdc1e1c100329e95bd19359408cb138d233b1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: aaef6f5498e5a8da65d1c829feae8b3e85dba0fd
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385431"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705300"
 ---
 # <a name="default-values-and-boundaries"></a>Standardvärden och gränser
 
-Det här dokumentet beskriver standardkonfigurationen av Konversationsdeltagare och tjänstens gränser.
+I det här dokumentet beskrivs standard konfigurationen av Conversation Learner och viktiga tjänst gränser.
 
-## <a name="default-configuration"></a>Standardkonfiguration
+## <a name="default-configuration"></a>Standard konfiguration
 
 Parameter | Standardvärde
 --- | --- 
-Tidsgräns för session standard | 30 minuter
+Timeout för standardsession | 30 minuter
 
 ## <a name="boundaries"></a>Gränser
 
 Parameter | Gräns
 --- | --- 
-Redigera API max HTTP-anrop per månad | 5M
-Redigerar API, max HTTP-anrop per sekund | 25
-Sessionen API, max HTTP-anrop per månad | 500 000
-Sessionen API, max HTTP-anrop per sekund | 10
-Maxantal egna (icke-programmässiga) entiteter per modell | Se [LUIS gränser doc](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); i praktiken faktiska antalet kan vara något mindre
-Maxantal färdiga entiteter per modell | Se [LUIS gränser dokument](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
-Maxantal entiteter (i totalt) per modell | 100
-Maxantal åtgärder per modell | 32
-Maxantal träna dialogrutor per modell | 1000
-Maximalt antal användare aktiverar per träna dialogrutan | 100
-Maxantal log dialogrutor per modell | Inga förinställda gränsen, men log dialogrutor behålls endast för en fast period innan det tas bort.  Dessutom visar konversationen Learner Användargränssnittet 100 log-dialogrutor i taget. 
-Maxantal modeller per användare | Ingen förinställda gräns
-Maxantal sekventiella-wait-åtgärder | 5 (*)
+Redigering av API, Max HTTP-anrop per månad | 5 M
+Redigerings-API, Max HTTP-anrop per sekund | 25
+Sessions-API, Max HTTP-anrop per månad | 500 000
+Sessions-API, Max HTTP-anrop per sekund | 10
+Maximalt antal anpassade entiteter (icke-programmatiska) per modell | Se [Luis gräns dokument](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); i praktiken kan det faktiska antalet vara något mindre
+Maximalt antal förbyggda entiteter per modell | Se [Luis gräns dokument](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
+Max antal entiteter (totalt) per modell | 100
+Maximalt antal åtgärder per modell | 32
+Maximalt antal träna-dialoger per modell | 1000
+Högsta antal användare som aktiverar per träna-dialog ruta | 100
+Max antal logg dialog rutor per modell | Ingen fördefinierad gräns, men logg dialog rutor behålls bara för en fast period innan de tas bort.  Dessutom visar Conversation Learner UI 100-logg dialog rutor i taget. 
+Högsta antal modeller per användare | Ingen för inställnings gräns
+Maximalt antal sekventiella icke-waitiska åtgärder | 5 (*)
 
-(*) Alla åtgärder som icke-wait maskeras efter 5 sekventiella-wait-åtgärder och Konversationsdeltagare väljer bland tillgängliga vänta åtgärder.
+(*) Efter 5 sekventiella icke-wait-åtgärder maskeras alla icke-waitiska åtgärder och Conversation Learner väljer mellan tillgängliga wait-åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kom igång med Konversationsdeltagare](./quickstart.md)
+> [Kom igång med Conversation Learner](./quickstart.md)

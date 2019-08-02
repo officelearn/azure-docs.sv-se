@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 07/17/2019
+ms.date: 07/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: cbf642b47e4233cec2e2d860288b3bb35b419cf2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 7bb775184a0d567fedf9da07cee60e5ba5a2097f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304171"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562366"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Storage till SQL Data Warehouse
 Använd PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage till Azure SQL Data Warehouse. Även om du kan köra adhoc-frågor på data som lagras i Data Lake Storage rekommenderar vi att du importerar data till SQL Data Warehouse för bästa prestanda.
@@ -32,20 +32,16 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 För att kunna köra den här självstudien behöver du:
 
-* Azure Active Directory program som ska användas för tjänst-till-tjänst-autentisering om du läser in från gen1. För att skapa, följ [Active Directory-autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
-
->[!NOTE] 
-> Om du läser in från Azure Data Lake Storage gen1 behöver du klient-ID, nyckel och OAuth 2.0-token slut punkts värde för ditt Active Directory-program för att ansluta till ditt lagrings konto från SQL Data Warehouse. Information om hur du hämtar dessa värden finns i länken ovan. För Azure Active Directory app Registration använder du program-ID: t som klient-ID.
-> 
+* Azure Active Directory program som ska användas för tjänst-till-tjänst-autentisering. För att skapa, följ [Active Directory-autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 * En Azure SQL Data Warehouse. Se [skapa och fråga och Azure SQL Data Warehouse](create-data-warehouse-portal.md).
 
 * Ett Data Lake Storage konto. Se [Kom igång med Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
-För att få åtkomst till ditt Data Lake Storage-konto måste du skapa en huvud nyckel för databasen för att kryptera din hemliga autentiseringsuppgifter som används i nästa steg. Sedan skapar du en databas med begränsade autentiseringsuppgifter. För gen1 lagrar databasen begränsade autentiseringsuppgifter för tjänstens huvud namn som angetts i AAD. Du måste använda lagrings konto nyckeln i databasen begränsade autentiseringsuppgifter för Gen2. 
+För att få åtkomst till ditt Data Lake Storage-konto måste du skapa en huvud nyckel för databasen för att kryptera din hemliga autentiseringsuppgifter som används i nästa steg. Sedan skapar du en databas med begränsade autentiseringsuppgifter. När du autentiserar med hjälp av tjänstens huvud namn, lagrar databasens begränsade autentiseringsuppgifter autentiseringsuppgifterna för tjänstens huvud namn som angetts i AAD. Du kan också använda lagrings konto nyckeln i databasen begränsade autentiseringsuppgifter för Gen2. 
 
-Om du vill ansluta till Data Lake Storage Gen1 måste du **först** skapa ett Azure Active Directory program, skapa en åtkomst nyckel och ge programmet åtkomst till data Lake Storage gen1 resursen. Instruktioner finns i [autentisera till Azure Data Lake Storage gen1 med hjälp av Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+Om du vill ansluta till Data Lake Storage med hjälp av tjänstens huvud namn måste du **först** skapa ett Azure Active Directory program, skapa en åtkomst nyckel och ge programmet åtkomst till data Lake Storage-kontot. Instruktioner finns i [autentisera till Azure Data Lake Storage med hjälp av Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -56,7 +52,7 @@ Om du vill ansluta till Data Lake Storage Gen1 måste du **först** skapa ett Az
 CREATE MASTER KEY;
 
 
--- B (for Gen1): Create a database scoped credential
+-- B (for service principal authentication): Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
@@ -67,7 +63,7 @@ WITH
     SECRET = '<key>'
 ;
 
--- B (for Gen2): Create a database scoped credential
+-- B (for Gen2 storage key authentication): Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
 
@@ -77,7 +73,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this for Gen1:
+-- It should look something like this when authenticating using service principals:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -109,7 +105,7 @@ WITH (
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION='abfss://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    LOCATION='abfs[s]://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfss endpoint for when your account has secure transfer enabled
     CREDENTIAL = ADLSCredential
 );
 ```
@@ -221,13 +217,9 @@ Du gjorde detta:
 > * Skapade databas objekt som krävs för att läsa in från Data Lake Storage Gen1.
 > * Ansluten till en Data Lake Storage Gen1 katalog.
 > * Inlästa data till Azure SQL Data Warehouse.
-> 
+>
 
 Inläsning av data är det första steget för att utveckla en informations lager lösning med hjälp av SQL Data Warehouse. Kolla våra utvecklings resurser.
 
 > [!div class="nextstepaction"]
->[Lär dig hur du utvecklar tabeller i SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
-
-
-
-
+> [Lär dig hur du utvecklar tabeller i SQL Data Warehouse](sql-data-warehouse-tables-overview.md)

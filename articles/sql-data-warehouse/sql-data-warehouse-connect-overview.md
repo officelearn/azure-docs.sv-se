@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479735"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Anslut till Azure SQL Data Warehouse
@@ -31,7 +31,7 @@ Server namnet i följande exempel är samplesvr.database.windows.net. För att h
     ![Fullständigt servernamn][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivrutiner och anslutningssträngar som stöds
-Azure SQL Data Warehouse stöder [ADO.net][ADO.NET], [ODBC][ODBC], [php][php]och [JDBC][JDBC]. Du hittar den senaste versionen och dokumentationen genom att klicka på någon av de föregående driv rutinerna. För att automatiskt generera anslutnings strängen för den driv rutin som du använder från Azure Portal, klickar du på **Visa databas anslutnings strängar** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
+Azure SQL Data Warehouse stöder [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] och [JDBC][JDBC]. Du hittar den senaste versionen och dokumentationen genom att klicka på någon av de föregående driv rutinerna. För att automatiskt generera anslutnings strängen för den driv rutin som du använder från Azure Portal, klickar du på **Visa databas anslutnings strängar** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
 
 > [!NOTE]
 > Det kan vara bra att ange en tidsgräns på 300 sekunder för anslutningen så att den inte bryts vid korta perioder av inaktivitet.
@@ -69,7 +69,7 @@ SQL Data Warehouse standardiserar några inställningar under anslutning och obj
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du ansluter och frågar med Visual Studio finns i [fråga med Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
+Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio][Query with Visual Studio]. Läs mer om autentiseringsalternativ i [Autentisera till Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

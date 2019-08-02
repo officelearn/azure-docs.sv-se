@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: b56993b9ad03f2ab50fe3954ab5e8855d0d8bc0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0d3ea3f4a63e7c69a190cf856929437d6f0b9d8
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371653"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608291"
 ---
 # <a name="azure-management---monitoring"></a>Azure-hantering – övervakning
 
@@ -43,7 +43,7 @@ Konfiguration syftar på den första distributionen och konfigurationen av progr
 Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure.  Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.  Styrning i Azure implementeras främst genom två tjänster.  [Azure Policy](../governance/policy/overview.md) gör det möjligt att skapa, tilldela och hantera principdefinitioner som tillämpar olika regler och åtgärder på resurserna, så att resurserna följer företagets standarder och serviceavtal. [Azure Cost Management från Cloudyn](../cost-management/overview.md) gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google.
 
 ## <a name="secure"></a>Skydda
-Hantering av säkerhet för program, resurser och data innefattar en kombination av att bedöma hot, samla in och analysera säkerhetsdata och att säkerställa att program och resurser är utformade och konfigurerade på ett säkert sätt.  Säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar.  Du bör även läsa [Introduktion till Azure-säkerhet](../security/azure-security.md) för mer utförlig information om säkerhet i Azure och för att få hjälp med att konfigurera Azure-resurser på ett säkert sätt.
+Hantering av säkerhet för program, resurser och data innefattar en kombination av att bedöma hot, samla in och analysera säkerhetsdata och att säkerställa att program och resurser är utformade och konfigurerade på ett säkert sätt.  Säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar.  Du bör även läsa [Introduktion till Azure-säkerhet](../security/fundamentals/overview.md) för mer utförlig information om säkerhet i Azure och för att få hjälp med att konfigurera Azure-resurser på ett säkert sätt.
 
 
 ## <a name="protect"></a>skydda

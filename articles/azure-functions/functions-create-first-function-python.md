@@ -11,20 +11,20 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444579"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722786"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-Den här artikeln visar hur du använder kommandoradsverktyg för att skapa en Python-projekt som körs i Azure Functions. Funktionen som du skapar utlöses av HTTP-begäranden. Slutligen kan du publicera projektet att köras som en [funktion](functions-scale.md#consumption-plan) i Azure.
+Den här artikeln visar hur du använder kommando rads verktyg för att skapa ett python-projekt som körs i Azure Functions. Funktionen som du skapar utlöses av HTTP-begäranden. Slutligen publicerar du ditt projekt så att det körs som en [Server lös funktion](functions-scale.md#consumption-plan) i Azure.
 
-Den här artikeln är först av två snabbstarter för Azure Functions. När du har slutfört den här artikeln får du [lägga till ett Azure Storage köutdatabindningen](functions-add-output-binding-storage-queue-python.md) till din funktion.
+Den här artikeln är den första av två snabb starter för Azure Functions. När du har slutfört den här artikeln [lägger du till en Azure Storage utgående bindning för kön](functions-add-output-binding-storage-queue-python.md) till din funktion.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,9 +32,9 @@ Innan du börjar måste du ha följande:
 
 + Installera [Python 3.6](https://www.python.org/downloads/).
 
-+ Installera [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.1071 eller en senare version.
++ Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.1071 eller en senare version.
 
-+ Installera den [Azure CLI](/cli/azure/install-azure-cli) version 2.x eller en senare version.
++ Installera [Azure CLI](/cli/azure/install-azure-cli) version 2. x eller en senare version.
 
 + En aktiv Azure-prenumeration.
 
@@ -42,29 +42,29 @@ Innan du börjar måste du ha följande:
 
 ## <a name="create-and-activate-a-virtual-environment"></a>Skapa och aktivera en virtuell miljö
 
-För att lokalt utveckla och testa Python-funktioner, måste du arbeta i en miljö med Python 3.6. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.env`.
+För att lokalt utveckla och testa python-funktioner måste du arbeta i en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
 
-### <a name="bash"></a>Bash:
+### <a name="bash"></a>Bash
 
 ```bash
 python3.6 -m venv .venv
 source .venv/bin/activate
 ```
 
-### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell eller en Windows-kommandotolk:
+### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell eller en kommando tolk i Windows:
 
 ```powershell
 py -3.6 -m venv .venv
 .venv\scripts\activate
 ```
 
-De resterande kommandona körs i den virtuella miljön.
+Återstående kommandon körs i den virtuella miljön.
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
-Functions-projekt är motsvarigheten till en funktionsapp i Azure. Den kan ha flera funktioner som alla har samma lokala och värdbaserade konfigurationer.
+Ett Functions-projekt motsvarar en Function-app i Azure. Det kan ha flera funktioner som alla delar samma lokala och värdbaserade konfigurationer.
 
-I den virtuella miljön genom att köra följande kommando, välja **python** som worker-runtime.
+Kör följande kommando i den virtuella miljön och välj **python** som arbetar-Runtime.
 
 ```console
 func init MyFunctionProj
@@ -72,47 +72,47 @@ func init MyFunctionProj
 
 En mapp med namnet _MyFunctionProj_ skapas, som innehåller följande tre filer:
 
-* `local.settings.json` används för att lagra appinställningar och anslutningssträngar när du kör lokalt. Den här filen publiceras inte till Azure.
-* `requirements.txt` innehåller listan över paket som ska installeras på publicering till Azure.
-* `host.json` innehåller globala konfigurationsalternativ som påverkar alla funktioner i en funktionsapp. Den här filen publiceras till Azure.
+* `local.settings.json`används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure.
+* `requirements.txt`innehåller listan över paket som ska installeras vid publicering till Azure.
+* `host.json`innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure.
 
-Navigera till mappen MyFunctionProj:
+Navigera till den nya mappen MyFunctionProj:
 
 ```console
 cd MyFunctionProj
 ```
 
-Därefter uppdaterar du filen host.json om du vill aktivera tillägget paket.  
+Sedan uppdaterar du Host. JSON-filen för att aktivera tilläggs paket.  
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
-Lägg till en funktion i projektet genom att köra följande kommando:
+Om du vill lägga till en funktion i projektet kör du följande kommando:
 
 ```console
 func new
 ```
 
-Välj den **HTTP-utlösare** mall, skriver du in `HttpTrigger` som namn för funktionen, och tryck sedan på RETUR.
+Välj mallen för **http-** utlösare, Skriv `HttpTrigger` som namn på funktionen och tryck på RETUR.
 
 En undermapp med namnet _HttpTrigger_ skapas, som innehåller följande filer:
 
-* **Function.JSON**: konfigurationsfil som definierar funktionen, utlösare och bindningar för andra. Granska den här filen och ser till att värdet för `scriptFile` pekar på filen som innehåller funktionen, medan anrop utlösare och bindningar har definierats i den `bindings` matris.
+* **Function. JSON**: konfigurations fil som definierar funktionen, utlösaren och andra bindningar. Granska den här filen och se att värdet för `scriptFile` pekar på filen som innehåller funktionen, medan anrops utlösaren och bindningarna definieras `bindings` i matrisen.
 
-  Varje bindning kräver en riktning, typ och ett unikt namn. HTTP-utlösaren har en indatabindning av typen [ `httpTrigger` ](functions-bindings-http-webhook.md#trigger) och en utgående bindning av typen [ `http` ](functions-bindings-http-webhook.md#output).
+  Varje bindning kräver en riktning, skriv och ett unikt namn. HTTP-utlösaren har en inkommande bindning [`httpTrigger`](functions-bindings-http-webhook.md#trigger) av typen och utgående bindningen av typen. [`http`](functions-bindings-http-webhook.md#output)
 
-* **\_\_init\_\_.py**: funktion som utlöses av skriptfil som är HTTP. Granska det här skriptet och se att den innehåller en standard `main()`. HTTP-data från utlösaren skickas till den här funktionen med hjälp av den `req` med namnet bindningsparametern. Definierats i function.json, `req` är en instans av den [azure.functions.HttpRequest klass](/python/api/azure-functions/azure.functions.httprequest). 
+* **init.py\_: skript fil som är din http-utlöst funktion.\_ \_ \_** Granska det här skriptet och se att det innehåller ett `main()`standardvärde. HTTP-data från utlösaren skickas till den här funktionen `req` med hjälp av den namngivna bindnings parametern. Definierad i function. JSON, `req` är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
 
-    Det returnera objektet, definierad som `$return` i function.json, är en instans av [azure.functions.HttpResponse klass](/python/api/azure-functions/azure.functions.httpresponse). Mer information finns i [Azure Functions HTTP-utlösare och bindningar](functions-bindings-http-webhook.md).
+    Returvärdet, som definieras som `$return` i function. JSON, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](functions-bindings-http-webhook.md).
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Följande kommando startar funktionsapp, som körs lokalt med hjälp av samma Azure Functions-körning som finns i Azure.
+Följande kommando startar Function-appen, som körs lokalt med samma Azure Functions-körning som finns i Azure.
 
 ```bash
 func host start
 ```
 
-När funktioner värden startas, skrivs ungefär som i följande utdata har trunkerats för läsbarhet:
+När Functions-värden startar skriver den något som följande utdata, som har trunkerats för läsbarhet:
 
 ```output
 
@@ -154,9 +154,9 @@ Nu när du har kört funktionen lokalt kan du skapa funktionsappen och andra nö
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-function-app-in-azure"></a>Skapa en funktionsapp i Azure
+## <a name="create-a-function-app-in-azure"></a>Skapa en Function-app i Azure
 
-En funktionsapp är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
+En Function-app tillhandahåller en miljö för att köra funktions koden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
 Kör följande kommando med ett unikt funktionsappnamn i stället för platshållaren `<APP_NAME>` och lagringskontonamnet i stället för `<STORAGE_NAME>`. `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure.
 
@@ -167,9 +167,9 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 ```
 
 > [!NOTE]
-> Azure Functions, förbrukningsplan för Linux är för närvarande i förhandsversion och endast tillgängligt i följande regioner: Västra USA, östra USA, Västeuropa, östra Asien. Linux och Windows-appar kan dessutom finnas i samma resursgrupp. Om du har en befintlig resursgrupp med namnet `myResourceGroup` med en Windows-funktionsapp eller webbapp, måste du använda en annan resursgrupp.
+> Azure Functions, förbruknings plan för Linux är för närvarande en för hands version och endast tillgängligt i följande regioner: Västra USA, östra USA, västra Europa, Asien, östra. Linux-och Windows-appar kan inte heller finnas i samma resurs grupp. Om du har en befintlig resurs grupp med `myResourceGroup` namnet med en Windows Function-app eller webbapp måste du använda en annan resurs grupp.
 
-Du är nu redo att publicera projektet lokala funktioner i funktionsappen i Azure.
+Nu är du redo att publicera ditt lokala Functions-projekt till Function-appen i Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
@@ -177,7 +177,7 @@ Du är nu redo att publicera projektet lokala funktioner i funktionsappen i Azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har skapat en Python-funktionsprojekt med en HTTP-utlöst funktion, köra den på den lokala datorn och distribuerat den till Azure. Nu kan utöka din funktion av...
+Du har skapat ett python Functions-projekt med en HTTP-utlöst funktion, kört den på din lokala dator och distribuerat den till Azure. Nu kan du utöka din funktion efter...
 
 > [!div class="nextstepaction"]
-> [Att lägga till ett Azure Storage köutdatabindningen](functions-add-output-binding-storage-queue-python.md)
+> [Lägga till en Azure Storage utgående bindning för kö](functions-add-output-binding-storage-queue-python.md)

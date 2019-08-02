@@ -1,6 +1,6 @@
 ---
-title: Om zonredundant virtuella nätverksgatewayer i Tillgänglighetszoner i Azure | Microsoft Docs
-description: Läs mer om VPN-Gateway och ExpressRoute-gatewayer i Tillgänglighetszoner.
+title: Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner | Microsoft Docs
+description: Lär dig mer om VPN Gateway-och ExpressRoute-gatewayer i Tillgänglighetszoner.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
@@ -8,40 +8,40 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0ba818ef3c24d0e88e662adf87b22cc938fe5fab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391080"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725586"
 ---
-# <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Om zonredundant virtuella nätverksgatewayer i Tillgänglighetszoner i Azure
+# <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner
 
-Du kan distribuera VPN och ExpressRoute-gatewayer i [Azure Availability Zones](../availability-zones/az-overview.md). Detta ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribuera gateways i Azure Availability Zones fysisk och logiskt separerar gatewayer inom en region, samtidigt som du skyddar din lokal nätverksanslutning till Azure från zonen på servernivå fel.
+Du kan distribuera VPN-och ExpressRoute-gatewayer i [Azure-tillgänglighetszoner](../availability-zones/az-overview.md). Detta ger återhämtning, skalbarhet och högre tillgänglighet till virtuella nätverks-gatewayer. Att distribuera gateways i Azure-tillgänglighetszoner fysiskt och logiskt särskiljer gatewayer inom en region, samtidigt som du skyddar din lokala nätverks anslutning till Azure från felaktiga zon nivåer.
 
-### <a name="zrgw"></a>Zonredundant-gatewayer
+### <a name="zrgw"></a>Zoner-redundanta gateways
 
-För att automatiskt distribuera din virtuella nätverksgatewayer mellan tillgänglighetszoner, kan du använda zonredundant virtuella nätverksgatewayer. Med zonredundant gatewayer, kan du dra nytta av zonelasticitet åtkomst till dina verksamhetskritiska, skalbara tjänster på Azure.
-
-<br>
-<br>
-
-![zonredundant gatewayer bild](./media/create-zone-redundant-vnet-gateway/zonered.png)
-
-### <a name="zgw"></a>Zonindelade gateways
-
-Du kan använda zonindelad gatewayer för att distribuera gateways i en viss zon. När du distribuerar en zonindelad gateway distribueras alla instanser av en gateway i samma Tillgänglighetszon.
+Om du vill distribuera dina virtuella nätverksgateway automatiskt mellan tillgänglighets zoner kan du använda zoner som är redundanta virtuella nätverk. Med Zone-redundanta gatewayer kan du dra nytta av zon återhämtning för att få åtkomst till dina verksamhets kritiska, skalbara tjänster på Azure.
 
 <br>
 <br>
 
-![zonindelade gatewayer bild](./media/create-zone-redundant-vnet-gateway/zonal.png)
+![zon – redundanta gateways-bilder](./media/create-zone-redundant-vnet-gateway/zonered.png)
+
+### <a name="zgw"></a>Zonindelade-gatewayer
+
+Om du vill distribuera gateways i en speciell zon kan du använda zonindelade-gatewayer. När du distribuerar en zonindelade-Gateway distribueras alla instanser av gatewayen i samma tillgänglighets zon.
+
+<br>
+<br>
+
+![bild av zonindelade-gatewayer](./media/create-zone-redundant-vnet-gateway/zonal.png)
 
 ## <a name="gwskus"></a>Gateway-SKU:er
 
-Zonredundant och zonindelade gatewayer är tillgängliga som ny gateway SKU: er. Vi har lagt till nya virtuella nätverkets gateway SKU: er i Azure-AZ regioner. Dessa SKU: er liknar motsvarande befintliga SKU: er för ExpressRoute och VPN-Gateway, förutom att de är specifika för zonredundant och zonindelade gatewayer.
+Zoner-redundanta och zonindelade-gatewayer är tillgängliga som nya gateway SKU: er. Vi har lagt till nya virtuella nätverksgateway-SKU: er i Azure AZ-regioner. Dessa SKU: er liknar motsvarande befintliga SKU: er för ExpressRoute och VPN Gateway, förutom att de är relaterade till zoner-redundanta och zonindelade-gatewayer.
 
-Den nya gatewayen SKU: er är:
+Nya gateway-SKU: er är:
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 
@@ -57,44 +57,44 @@ Den nya gatewayen SKU: er är:
 
 ## <a name="pipskus"></a>Offentliga IP-SKU: er
 
-Zonredundant gateway och zonindelade gateway förlitar sig på Azure offentlig IP-adressresurs *Standard* SKU. Konfigurationen av Azure offentlig IP-adressresurs avgör om den gateway som du distribuerar är zonredundant, eller zonindelade. Om du skapar en offentlig IP-resurs med en *grundläggande* SKU, gatewayen har inte någon redundans och gateway-resurserna blir regionala.
+Zone-redundanta gatewayer och zonindelade-gatewayer båda förlitar sig på Azures offentliga IP Resource *standard* SKU. Konfigurationen av den offentliga Azure-IP-resursen avgör om den gateway som du distribuerar är en zon-redundant eller zonindelade. Om du skapar en offentlig IP-resurs med en *grundläggande* SKU, kommer gatewayen inte att ha någon zon redundans och gateway-resurserna kommer att vara regionala.
 
-### <a name="pipzrg"></a>Zonredundant-gatewayer
+### <a name="pipzrg"></a>Zoner-redundanta gateways
 
-När du skapar en offentlig IP-adress med hjälp av den **Standard** offentliga IP-SKU utan att ange en zon, beteendet skiljer sig beroende på om gatewayen är en VPN-gateway eller en ExpressRoute-gateway. 
+När du skapar en offentlig IP-adress med hjälp av **standard** -offentliga IP SKU utan att ange en zon, varierar beteendet beroende på om gatewayen är en VPN-gateway eller en ExpressRoute-Gateway. 
 
-* Två gateway-instanserna ska distribueras i 2 utanför dessa tre zoner att tillhandahålla redundans för en VPN-gateway. 
-* För en ExpressRoute-gateway, eftersom det kan finnas fler än två instanser kan gatewayen omfatta flera alla tre zoner.
+* För en VPN-gateway distribueras de två Gateway-instanserna i valfri 2 av dessa tre zoner för att ge zon-redundans. 
+* För en ExpressRoute-Gateway, eftersom det kan finnas fler än två instanser, kan gatewayen sträcka sig över alla tre zoner.
 
-### <a name="pipzg"></a>Zonindelade gateways
+### <a name="pipzg"></a>Zonindelade-gatewayer
 
-När du skapar en offentlig IP-adress med hjälp av den **Standard** offentliga IP-SKU och ange zonen (1, 2 eller 3), alla gatewayinstanser ska distribueras i samma zon.
+När du skapar en offentlig IP-adress med hjälp av **standard** -offentliga IP-SKU: n och anger zonen (1, 2 eller 3), kommer alla gateway-instanser att distribueras i samma zon.
 
-### <a name="piprg"></a>Regionala gateways
+### <a name="piprg"></a>Regionala gatewayer
 
-När du skapar en offentlig IP-adress med hjälp av den **grundläggande** offentliga IP-SKU gatewayen distribueras som en regional gateway och inte har någon zonredundans som är inbyggda i gatewayen.
+När du skapar en offentlig IP-adress med hjälp av den **grundläggande** offentliga IP-SKU: n distribueras gatewayen som en regional gateway och har ingen zon-redundans inbyggd i gatewayen.
 
 ## <a name="faq"></a>Vanliga frågor och svar
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Vad ändras när jag distribuerar de här nya SKU: er?
+### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Vad kommer att ändras när jag distribuerar dessa nya SKU: er?
 
-Du kan distribuera dina gatewayer med redundans från ditt perspektiv. Det innebär att alla instanser av gateway som ska distribueras till Azure Availability Zones och varje Tillgänglighetszon är en annan fel- och domän. Detta gör dina gatewayer mer tillförlitlig, tillgängliga och elastiska zon fel.
+I ditt perspektiv kan du distribuera dina gateways med zon-redundans. Det innebär att alla instanser av gatewayerna distribueras över Azure-tillgänglighetszoner och att varje tillgänglighets zon är ett annat fel och en annan uppdaterings domän. Detta gör dina gatewayer mer pålitliga, tillgängliga och elastiska för zon haverier.
 
-### <a name="can-i-use-the-azure-portal"></a>Kan jag använda Azure-portalen?
+### <a name="can-i-use-the-azure-portal"></a>Kan jag använda Azure Portal?
 
-Ja, du kan använda Azure-portalen för att distribuera de nya SKU: er. Dock visas dessa nya SKU: er endast i de Azure-regioner som har Azure Availability Zones.
+Ja, du kan använda Azure Portal för att distribuera de nya SKU: erna. Du kommer dock bara att se dessa nya SKU: er i de Azure-regioner som har Azure-tillgänglighetszoner.
 
-### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Vilka regioner är tillgängliga för mig att använda de nya SKU: er?
+### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Vilka regioner är tillgängliga för mig att använda de nya SKU: erna?
 
-De nya SKU: er är tillgängliga i Azure-regioner som har Azure Availability Zones – USA, centrala, Frankrike, centrala, Europa, norra, Europa, västra och USA, västra 2 regioner. Framöver kommer tillgängliggör vi zonredundant gatewayer till dig i andra offentliga Azure-regioner.
+De nya SKU: erna är tillgängliga i Azure-regioner som har Azure-tillgänglighetszoner centrala USA, centrala Frankrike, Nord Europa, Västeuropa och västra USA 2 regioner, östra USA, östra USA 2, Sydostasien, Östra Japan, Storbritannien, södra. Nu kommer vi att göra zoner-redundanta gatewayer tillgängliga i andra offentliga Azure-regioner.
 
-### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan jag ändra/migrera/uppgradera min befintliga virtuella nätverksgatewayer för zonredundant eller zonindelad-gatewayer?
+### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan jag ändra/migrera/uppgradera mina befintliga virtuella nätverks-gatewayer till zoner-redundanta eller zonindelade-gatewayer?
 
-Migrera dina befintliga virtuella nätverksgatewayer för zonredundant eller zonindelad gatewayer stöds för närvarande inte. Du kan dock ta bort den befintliga gatewayen och skapa en zonredundant eller zonindelad gateway igen.
+Det finns för närvarande inte stöd för migrering av befintliga virtuella nätverksgateway till zoner-redundanta eller zonindelade-gatewayer. Du kan dock ta bort din befintliga gateway och återskapa en zon-redundant eller zonindelade Gateway.
 
-### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Kan jag distribuera VPN- och Expressroute-gatewayer i samma virtuella nätverk?
+### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Kan jag distribuera både VPN-och Express-flödesnoder i samma virtuella nätverk?
 
-Samtidig både VPN och Expressroute-gatewayer i samma virtuella nätverk stöds. Du bör dock reservera en/27 IP-adressintervall för gateway-undernätet.
+Samtidig användning av både VPN-och Express-flödesnoder i samma virtuella nätverk stöds. Du bör dock reservera ett/27 IP-adressintervall för gateway-undernätet.
 
 ## <a name="next-steps"></a>Nästa steg
 

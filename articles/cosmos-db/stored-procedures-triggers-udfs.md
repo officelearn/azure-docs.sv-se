@@ -1,107 +1,107 @@
 ---
 title: Arbeta med lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
-description: Den här artikeln introducerar koncept som lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB.
+description: Den här artikeln beskriver begreppen, till exempel lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672594"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717534"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 
-Azure Cosmos DB ger språkintegrerade, transaktionell körning av JavaScript. När du använder SQL API i Azure Cosmos DB kan du skriva **lagrade procedurer**, **utlösare**, och **användardefinierade funktioner (UDF)** i JavaScript-språket. Du kan skriva logik i JavaScript som körs i databasmotorn. Du kan skapa och köra utlösare, lagrade procedurer och UDF: er med hjälp av [Azure-portalen](https://portal.azure.com/), [JavaScript language integrerade fråge-API i Azure Cosmos DB](javascript-query-api.md) eller [Cosmos DB SQL API-klient SDK: er](how-to-use-stored-procedures-triggers-udfs.md).
+Azure Cosmos DB tillhandahåller språk-integrerad, transaktionell körning av Java Script. När du använder SQL API i Azure Cosmos DB kan du skriva **lagrade procedurer**, utlösare och **användardefinierade funktioner (UDF: er)** i JavaScript-språket. Du kan skriva din logik i Java Script som körs i databas motorn. Du kan skapa och köra utlösare, lagrade procedurer och UDF: er med hjälp av [Azure Portal](https://portal.azure.com/), [java script language-API för integrerad fråga i Azure Cosmos DB](javascript-query-api.md) Cosmos DB eller klient-SDK: er för [SQL API i SQL API](how-to-use-stored-procedures-triggers-udfs.md).
 
-## <a name="benefits-of-using-server-side-programming"></a>Fördelarna med att använda programmering av serversidan
+## <a name="benefits-of-using-server-side-programming"></a>Fördelar med att använda programmering på Server Sidan
 
-Skriva lagrade procedurer, utlösare och användardefinierade funktioner (UDF) i JavaScript kan du skapa omfattande program och de har följande fördelar:
+Genom att skriva lagrade procedurer, utlösare och användardefinierade funktioner (UDF: er) i Java Script kan du bygga rika program och de har följande fördelar:
 
-* **Procedurmässig logik:** JavaScript som ett övergripande programmeringsspråk som tillhandahåller omfattande och välbekanta gränssnitt för uttryckliga affärslogik. Du kan utföra en serie komplexa åtgärder på data.
+* **Procedur logik:** Java Script som ett högnivå programmerings språk som innehåller omfattande och välbekanta gränssnitt för att uttrycka affärs logik. Du kan utföra en sekvens av komplexa åtgärder på data.
 
-* **Atomiska transaktioner:** Azure Cosmos DB garanterar att de databas som utförs i en lagrad procedur eller en utlösare är atomiska. Atomiska funktionen att ett program kan kombinera relaterade åtgärder i en enskild batch så att alla åtgärder lyckas eller ingen av dem lyckas.
+* **Atomiska transaktioner:** Azure Cosmos DB garanterar att databas åtgärderna som utförs inom en enda lagrad procedur eller en utlösare är atomiska. Med den här atomiska funktionen kan ett program kombinera relaterade åtgärder i en enda batch, så att antingen alla åtgärder lyckas eller ingen av dem lyckas.
 
-* **Prestanda:** JSON-data mappas tack till JavaScript-typsystemet för språk. Den här mappningen möjliggör ett antal optimeringar som lazy materialisering av JSON-dokument i buffertpoolen och gör dem tillgängliga på begäran till koden som körs. Det finns andra prestandafördelarna som är associerade med leverans affärslogik till databasen, vilket innefattar:
+* **Historik** JSON-data mappas inbäddat till språk typs systemet för Java Script. Den här mappningen möjliggör ett antal optimeringar som till exempel Lazy materialization av JSON-dokument i bufferten och gör dem tillgängliga på begäran till den kod som körs. Det finns andra prestanda fördelar kopplade till-databasen med affärs logik, bland annat:
 
-   * *Batchbearbetning:* Du kan gruppera åtgärder som infogar och skicka dem gruppvis. Nätverkskostnader trafik svarstid och store-omkostnader för att skapa separata transaktioner minskas avsevärt.
+   * *Batchbearbetning* Du kan gruppera åtgärder som infogningar och skicka dem i bulk. Kostnaderna för nätverks trafik fördröjningen och butiks omkostnaderna för att skapa separata transaktioner minskas avsevärt.
 
-   * *Före kompilering:* Lagrade procedurer, utlösare och UDF: er är implicit förkompilerad till formatet byte-kod för att undvika kompilering kostnaden vid tidpunkten för varje skript-anrop. På grund av före kompilering av lagrade procedurer går snabbt och har en små utrymmeskrav.
+   * *För kompilering:* Lagrade procedurer, utlösare och UDF: er är implicit förkompilerade till byte-kod formatet för att undvika produktionskostnad vid tidpunkten för varje skript anrop. På grund av förkompileringen är anropet av lagrade procedurer snabb och har lite utrymme.
 
-   * *Sekvensering:* Ibland operations behöver en utlösande mekanism som kan utföra en eller fler uppdateringar av data. Förutom Atomicitet finns även prestandafördelar med när du kör på serversidan.
+   * *Sekvenseringen* Ibland behöver åtgärder en utlösnings funktion som kan utföra en eller flera uppdateringar av data. Utöver Atomicable är det också prestanda fördelarna när de körs på Server sidan.
 
-* **Inkapsling:** Lagrade procedurer kan användas för att gruppera logiken i ett och samma ställe. Inkapsling lägger till ett Abstraktionslager ovanpå data, vilket gör det möjligt att utveckla dina program oberoende av data. Det här lagret Abstraktionslager är användbart när data är utan schema och du inte behöver hantera att lägga till ytterligare logik direkt i ditt program. Abstraktionen kan din skydda data genom att effektivisera åtkomst från skripten.
+* **Encapsulation** Lagrade procedurer kan användas för att gruppera logik på ett och samma ställe. Encapsulation lägger till ett abstraktions lager ovanpå data, vilket gör att du kan utveckla dina program oberoende av data. Detta skikt är användbart när data är schema-mindre och du inte behöver hantera att lägga till ytterligare logik direkt i ditt program. Abstraktionen gör att du kan skydda dina data genom att effektivisera åtkomsten från skripten.
 
 > [!TIP]
-> Lagrade procedurer är bäst lämpade för åtgärder som är skrivintensiv och kräver en transaktion i ett partitionsnyckelvärde. När du bestämmer om du vill använda lagrade procedurer, optimera runt kapslar in det maximala antalet skrivningar möjligt. Generellt sett lagrade procedurer är inte det effektivaste sättet för att göra stora mängder Läs- eller fråga åtgärder, så med lagrade procedurer för att batch stora mängder läsningar ska returneras till klienten inte kommer att ge den önskade förmånen. Dessa Läs omfattande-åtgärderna bör utföras på klientsidan, med hjälp av Cosmos-SDK för bästa prestanda. 
+> Lagrade procedurer lämpar sig bäst för åtgärder som är både skrivbara och kräver en transaktion i ett nyckel värde för en partition. När du bestämmer om du ska använda lagrade procedurer kan du optimera det maximala antalet skrivningar som kan göras. I allmänhet är lagrade procedurer inte det effektivaste sättet att utföra ett stort antal Läs-eller fråge åtgärder, så användningen av lagrade procedurer i ett stort antal läsningar för att återgå till klienten ger inte den önskade förmånen. För bästa prestanda bör dessa Läs-tung-åtgärder utföras på klient sidan med hjälp av Cosmos SDK. 
 
 ## <a name="transactions"></a>Transaktioner
 
-Transaktionen i en typisk databasen kan definieras som en sekvens med åtgärder som utförs som en enda logisk enhet för arbete. Varje transaktion innehåller **egenskapen ACID-garantier**. ACID är en välkänd förkortning som står för: **En**tomicity, **C**onsistency, **jag**solation, och **D**urability. 
+Transaktionen i en typisk databasen kan definieras som en sekvens med åtgärder som utförs som en enda logisk enhet för arbete. Varje transaktion ger **garantier för syra egenskaper**. SYRA är en välkänd förkortning som står för: **En**tomicity, **C**onsistency, **I**solation och **D**urability. 
 
-* Atomicitet garanterar att alla åtgärder utföras inuti en transaktion behandlas som en enda enhet, och antingen alla aktiviteter genomförs eller ingen av dem är. 
+* Atomisk garanterar att alla åtgärder som utförs i en transaktion behandlas som en enda enhet, och att alla är antingen bekräftade eller inga av dem. 
 
-* Konsekvens ser till att data alltid är i ett giltigt tillstånd för transaktioner. 
+* Konsekvens säkerställer att data alltid är i ett giltigt tillstånd för transaktioner. 
 
-* Isolering garanterar att inga två transaktioner störa varandra – många kommersiella system ger flera isoleringsnivåer som kan användas baserat på programmets behov. 
+* Isolering garanterar att inga två transaktioner stör varandra – många kommersiella system ger flera isolerings nivåer som kan användas baserat på programmets behov. 
 
-* Hållbarhet säkerställer att alla ändringar som engagerar sig i en databas alltid kommer att finnas.
+* Hållbarhet garanterar att alla ändringar som är allokerade i en databas alltid finns.
 
-I Azure Cosmos DB finns JavaScript-körning i databasmotorn. Därför köra begäranden som görs i de lagrade procedurerna och utlösare i samma omfattning som databassessionen. Den här funktionen gör det möjligt för Azure Cosmos DB att garantera ACID-egenskaper för alla åtgärder som är en del av en lagrad procedur eller en utlösare. Exempel finns i [hur du implementerar transaktioner](how-to-write-stored-procedures-triggers-udfs.md#transactions) artikeln.
+I Azure Cosmos DB finns JavaScript-körningen i databas motorn. Begär Anden som görs inom lagrade procedurer och utlösare körs därför i samma definitions område som Database-sessionen. Med den här funktionen kan Azure Cosmos DB garantera egenskaper för syra för alla åtgärder som ingår i en lagrad procedur eller en utlösare. Exempel finns i artikeln [implementera transaktioner](how-to-write-stored-procedures-triggers-udfs.md#transactions) .
 
-### <a name="scope-of-a-transaction"></a>Omfattningen för en transaktion
+### <a name="scope-of-a-transaction"></a>En transaktions omfång
 
-Om en lagrad procedur är associerad med en Azure Cosmos-behållare, köra den lagrade proceduren i transaktionsomfång av en logisk partition-nyckel. Varje körning för lagrad procedur måste innehålla ett nyckelvärde för logisk partition som motsvarar omfattningen för transaktionen. Mer information finns i [Azure Cosmos DB partitionering](partition-data.md) artikeln.
+Om en lagrad procedur är associerad med en Azure Cosmos-behållare körs den lagrade proceduren i transaktions omfånget för en logisk partitionsnyckel. Varje lagrad procedur körning måste innehålla ett nyckel värde för logisk partition som motsvarar omfånget för transaktionen. Mer information finns i artikeln [Azure Cosmos DB partitionering](partition-data.md) .
 
 ### <a name="commit-and-rollback"></a>Commit och rollback
 
-Transaktioner är inbyggt i Azure Cosmos DB JavaScript-programmeringsmodell. Inom en JavaScript-funktion omsluts alla åtgärder automatiskt under en enda transaktion. Om JavaScript-logik i en lagrad procedur har slutförts utan undantag, sparas alla åtgärder i transaktionen i databasen. Instruktioner som `BEGIN TRANSACTION` och `COMMIT TRANSACTION` (känner igen relationella databaser) är implicita i Azure Cosmos DB. Om det finns undantag från skriptet, återställs Azure Cosmos DB JavaScript-körning hela transaktionen. Därför måste undantagsfel motsvarar effektivt en `ROLLBACK TRANSACTION` i Azure Cosmos DB.
+Transaktioner integreras internt i Azure Cosmos DB JavaScript-programmerings modellen. I en JavaScript-funktion radbryts alla åtgärder automatiskt under en enda transaktion. Om JavaScript-logiken i en lagrad procedur slutförs utan undantag, allokeras alla åtgärder i transaktionen till-databasen. Instruktioner som `BEGIN TRANSACTION` och `COMMIT TRANSACTION` (bekanta med relations databaser) är implicita i Azure Cosmos dB. Om det finns undantag från skriptet, återställer Azure Cosmos DB JavaScript-körningsmiljön hela transaktionen. Det innebär att ett undantag i praktiken motsvarar ett `ROLLBACK TRANSACTION` i Azure Cosmos dB.
 
 ### <a name="data-consistency"></a>Datakonsekvens
 
-Lagrade procedurer och utlösare körs alltid på den primära repliken av en Azure Cosmos-behållare. Den här funktionen säkerställer som läser från lagrade procedurer erbjudandet [stark konsekvens](consistency-levels-tradeoffs.md). Frågor med användardefinierade funktioner kan köras på primärt eller en sekundär replik. Lagrade procedurer och utlösare är avsedda att underlätta transaktionella skrivningar – under tiden skrivskyddad logic implementeras bäst som program sida logik och frågor med den [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md), hjälper dig att fylla i dataflöde för databasen. 
+Lagrade procedurer och utlösare körs alltid på den primära repliken av en Azure Cosmos-behållare. Den här funktionen garanterar att läsningar från lagrade procedurer ger [stark konsekvens](consistency-levels-tradeoffs.md). Frågor som använder användardefinierade funktioner kan köras på den primära eller sekundära repliken. Lagrade procedurer och utlösare är avsedda att stödja transaktions skrivningar – ingångs bara Läs logik är bäst implementerad som logik på program sidan och frågor med hjälp av [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md): er, vilket hjälper dig att fylla databas data flödet. 
 
 ## <a name="bounded-execution"></a>Begränsad körning
 
-Alla Azure Cosmos DB-åtgärder måste slutföras inom angiven tidsgräns varaktighet. Den här begränsningen gäller för funktioner i JavaScript - lagrade procedurer, utlösare och användardefinierade funktioner. Transaktionen återställs om en åtgärd inte slutförs inom tidsgränsen.
+Alla Azure Cosmos DB åtgärder måste slutföras inom den angivna tids gränsen. Den här begränsningen gäller för JavaScript-funktioner – lagrade procedurer, utlösare och användardefinierade funktioner. Om en åtgärd inte slutförs inom den tids gränsen återställs transaktionen.
 
-Du kan antingen se till att JavaScript-funktioner slutförs inom tidsgränsen eller implementera en fortsättning-baserad modell för att batch/återuppta körningen. För att förenkla utvecklingen av lagrade procedurer och utlösare för att hantera tidsfrister för alla funktioner i Azure Cosmos-behållaren (till exempel skapa, läsa, uppdatera och ta bort objekt) returnerar ett booleskt värde som representerar om att åtgärden Slutför. Om det här värdet är FALSKT, är det en indikation på att proceduren måste avsluta körningen eftersom skriptet förbrukar mer tid eller dataflöde än det konfigurerade värdet. Åtgärder i kö före den första värde store-åtgärden garanterat slutföra om den lagrade proceduren har slutförts i tid och inte köa inga fler begäranden. Åtgärder bör därför vara köade en i taget med hjälp av JavaScript-återanrop konvention för att hantera skriptets Kontrollflöde. Eftersom skript körs i en miljö för serversidan, regleras strikt dessa. Skript som bryter mot körning gränser upprepade gånger kan markeras som inaktiv och kan inte utföras, och de ska skapas på nytt för att respektera gränser för körning.
+Du kan antingen se till att JavaScript-funktionerna slutförs inom tids gränsen eller implementera en forts-baserad modell för körning av batch/omstart. För att förenkla utvecklingen av lagrade procedurer och utlösare för att hantera tids gränser kan alla funktioner under Azure Cosmos-behållaren (till exempel skapa, läsa, uppdatera och ta bort objekt) returnera ett booleskt värde som anger om den åtgärden kommer att full. Om det här värdet är false, är det en indikation på att proceduren måste omsluta körningen eftersom skriptet förbrukar mer tid eller ett allokerat data flöde än det konfigurerade värdet. Åtgärder i kö före den första värde store-åtgärden garanterat slutföra om den lagrade proceduren har slutförts i tid och inte köa inga fler begäranden. Därför ska åtgärder placeras i kö en i taget med hjälp av JavaScript-callback-konventionen för att hantera skriptets kontroll flöde. Eftersom skript körs i en miljö på Server sidan, styrs de strikt. Skript som upprepade gånger bryter mot körnings gränser kan vara markerade som inaktiva och kan inte utföras, och de bör återskapas för att respektera körnings gränserna.
 
-JavaScript-funktioner är också lyder [etablerats dataflödeskapacitet](request-units.md). JavaScript-funktioner kan potentiellt hamna med hjälp av ett stort antal enheter för programbegäran inom en kort tid och kanske rate-limited om etablerat dataflöde kapacitetsgränsen har nåtts. Det är viktigt att Observera att skript konsumerar genomflödet förutom dataflöde som har använt för att köra databasåtgärder, även om dessa databasåtgärder är något billigare än att köra samma åtgärder från klienten.
+JavaScript-funktioner omfattas också av [etablerad data flödes kapacitet](request-units.md). JavaScript-funktioner kan eventuellt komma att få ut med ett stort antal enheter för programbegäran inom en kort tid och kan vara avgiftsbelagda om den allokerade kapacitets gränsen för data flöden nås. Det är viktigt att Observera att skript använder ytterligare data flöde utöver det data flöde som krävs för att köra databas åtgärder, även om dessa databas åtgärder är något billigare än att köra samma åtgärder från klienten.
 
 ## <a name="triggers"></a>Utlösare
 
 Azure Cosmos DB stöder två typer av utlösare:
 
-### <a name="pre-triggers"></a>Före utlösare
+### <a name="pre-triggers"></a>För utlösare
 
-Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att utföra en åtgärd på ett Azure Cosmos DB-objekt. Du kan till exempel ange en före utlösare när du skapar ett objekt. I det här fallet körs före utlösaren innan objektet skapas. Före utlösare kan inte ha någon indataparametrar. Om det behövs användas Begäranobjektet för att uppdatera dokumentets brödtext från den ursprungliga begäran. När utlösare är registrerade ange användare vilka åtgärder som den kan köras med. Om en utlösare har skapats med `TriggerOperation.Create`, det innebär att använda utlösaren i en ersättningsåtgärden inte tillåts. Exempel finns i [hur du skriver utlösare](how-to-write-stored-procedures-triggers-udfs.md#triggers) artikeln.
+Azure Cosmos DB tillhandahåller utlösare som kan anropas genom att utföra en åtgärd på ett Azure Cosmos DB objekt. Du kan till exempel ange en för utlösare när du skapar ett objekt. I det här fallet körs före utlösaren innan objektet skapas. Före utlösare kan inte ha någon indataparametrar. Vid behov kan objektet Request användas för att uppdatera dokument innehållet från den ursprungliga begäran. När utlösare är registrerade ange användare vilka åtgärder som den kan köras med. Om en utlösare skapades `TriggerOperation.Create`med innebär det att det inte är tillåtet att använda utlösaren i en ersättnings åtgärd. Exempel finns i artikeln om [att skriva](how-to-write-stored-procedures-triggers-udfs.md#triggers) utlösare.
 
 ### <a name="post-triggers"></a>Efter utlösare
 
-Liknar före utlösare, efter utlösare är också kopplad till en åtgärd på ett Azure Cosmos DB-objekt och de kräver inte någon indataparametrar. De körs *när* åtgärden har slutförts och har åtkomst till svarsmeddelandet som skickas till klienten. Exempel finns i [hur du skriver utlösare](how-to-write-stored-procedures-triggers-udfs.md#triggers) artikeln.
+På samma sätt som för-utlösare är post-triggers också kopplade till en åtgärd på ett Azure Cosmos DB objekt och de kräver inte några indataparametrar. De körs *när* åtgärden har slutförts och har åtkomst till svarsmeddelandet som skickas till klienten. Exempel finns i artikeln om [att skriva](how-to-write-stored-procedures-triggers-udfs.md#triggers) utlösare.
 
 > [!NOTE]
-> Registrerad utlösare inte körs automatiskt när deras motsvarande åtgärder (skapa / ta bort / ersätta / uppdatera) sker. De behöver anropas uttryckligen när du kör dessa åtgärder. Mer information finns i [hur du kör utlösare](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) artikeln.
+> Registrerade Utlösare körs inte automatiskt när motsvarande åtgärder (skapa/ta bort/Ersätt/uppdatera) sker. De måste anropas explicit när de utför dessa åtgärder. Mer information finns i artikeln [om att köra](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) utlösare.
 
 ## <a id="udfs"></a>Användardefinierade funktioner
 
-Användardefinierade funktioner (UDF) används för att utöka språk frågesyntaxen SQL API och enkelt implementera anpassad affärslogik. De kan anropas endast användas av frågor. Användardefinierade funktioner har inte åtkomst till context-objektet och är avsedda att användas som compute endast JavaScript. Användardefinierade funktioner kan därför köras på sekundära repliker. Exempel finns i [hur du skriver användardefinierade funktioner](how-to-write-stored-procedures-triggers-udfs.md#udfs) artikeln.
+Användardefinierade funktioner (UDF: er) används för att utöka SQL API-frågesyntaxen och implementera anpassad affärs logik enkelt. De kan endast anropas inom frågor. UDF: er har inte åtkomst till Context-objektet och är avsedda att användas som enbart beräknings-Java Script. Därför kan UDF: er köras på sekundära repliker. Exempel finns i artikeln om [att skriva användardefinierade funktioner](how-to-write-stored-procedures-triggers-udfs.md#udfs) .
 
-## <a id="jsqueryapi"></a>JavaScript språkintegrerade frågorna API
+## <a id="jsqueryapi"></a>JavaScript-språk – integrerat fråge-API
 
-Förutom att utfärda frågor med SQL API-frågesyntax, den [SDK för serversidan](https://azure.github.io/azure-cosmosdb-js-server) kan du utföra frågor med hjälp av ett JavaScript-gränssnitt utan att SQL. Frågan JavaScript API kan du programmässigt skapa frågor genom att skicka predikat funktioner i sekvens av funktionsanrop. Frågor parsas av JavaScript-körning och körs effektivt i Azure Cosmos DB. Läs om JavaScript fråge-API-stöd i [arbeta med JavaScript-språket integrerade fråge-API](javascript-query-api.md) artikeln. Exempel finns i [hur du skriver lagrade procedurer och utlösare med hjälp av Javascript fråge-API](how-to-write-javascript-query-api.md) artikeln.
+Förutom att skicka frågor med SQL API-frågesyntax kan du köra frågor med hjälp av ett JavaScript-gränssnitt utan att du vet om SQL i [Server sidan](https://azure.github.io/azure-cosmosdb-js-server) . Med Java Script Query API kan du bygga frågor genom programmering genom att skicka predikat till sekvenser med funktions anrop. Frågor parsas av JavaScript-körningen och körs effektivt inom Azure Cosmos DB. Läs mer om stöd för Java Script Query API i [arbeta med java script language-integrering med API](javascript-query-api.md) -artikel. Exempel finns i [så här skriver du lagrade procedurer och utlösare med hjälp av Java scripts Query API](how-to-write-javascript-query-api.md) -artikel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du skriver och använda lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB med följande artiklar:
+Lär dig hur du skriver och använder lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB med följande artiklar:
 
-* [Hur du skriver lagrade procedurer, utlösare och användardefinierade funktioner](how-to-write-stored-procedures-triggers-udfs.md)
+* [Skriva lagrade procedurer, utlösare och användardefinierade funktioner](how-to-write-stored-procedures-triggers-udfs.md)
 
-* [Hur du använder lagrade procedurer, utlösare och användardefinierade funktioner](how-to-use-stored-procedures-triggers-udfs.md)
+* [Använda lagrade procedurer, utlösare och användardefinierade funktioner](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [Arbeta med JavaScript-språket integrerade fråge-API](javascript-query-api.md)
+* [Arbeta med JavaScript-språk integrerat fråge-API](javascript-query-api.md)

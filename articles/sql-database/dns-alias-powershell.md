@@ -1,7 +1,7 @@
 ---
 title: PowerShell för DNS-alias Azure SQL | Microsoft Docs
-description: PowerShell-cmdletar, till exempel New-AzSqlServerDNSAlias kan du omdirigera nya klientanslutningar till en annan Azure SQL Database-server utan att behöva röra alla klientkonfigurationen.
-keywords: DNS-sql-databas
+description: PowerShell-cmdletar som New-AzSqlServerDNSAlias gör att du kan omdirigera nya klient anslutningar till en annan Azure SQL Database Server, utan att behöva trycka på någon klient konfiguration.
+keywords: DNS SQL-databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -10,47 +10,46 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
-manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 4318e6557dc72dff7200beb8783575131659b77f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5afa25a9a92b45c48c30d56428f5cf4e1d2f5d49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797704"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561354"
 ---
-# <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell för DNS-Alias till Azure SQL Database
+# <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell för DNS-alias till Azure SQL Database
 
-Den här artikeln innehåller ett PowerShell-skript som visar hur du kan hantera ett DNS-alias för Azure SQL Database. Skriptet kör du följande cmdlets som utförs följande åtgärder:
+Den här artikeln innehåller ett PowerShell-skript som visar hur du kan hantera ett DNS-alias för Azure SQL Database. Skriptet kör följande cmdletar som vidtar följande åtgärder:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-De cmdletar som används i kodexempel är följande:
+De cmdletar som används i kod exemplet är följande:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Skapar en ny DNS-alias i systemet för Azure SQL Database-tjänsten. Aliaset som refererar till Azure SQL Database-server 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Hämta och visa alla DNS-alias som är kopplade till SQL DB server 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Ändrar servernamnet som alias har konfigurerats för att referera till, från 1 till SQL DB server 2-servern.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Ta bort DNS-alias från SQL DB server 2, med hjälp av namnet på aliaset.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Skapar ett nytt DNS-alias i Azure SQL Database tjänst systemet. Aliaset refererar till Azure SQL Database Server 1.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Hämta och ange alla DNS-alias som har tilldelats till SQL DB server 1.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Ändrar Server namnet som aliaset är konfigurerat att referera till, från Server 1 till SQL DB server 2.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Ta bort DNS-aliaset från SQL DB server 2 med hjälp av namnet på aliaset.
 
-## <a name="dns-alias-in-connection-string"></a>DNS-alias i anslutningssträngen
+## <a name="dns-alias-in-connection-string"></a>DNS-alias i anslutnings sträng
 
-Om du vill ansluta en viss Azure SQL Database-server, kan en klient, till exempel SQL Server Management Studio (SSMS) Ange DNS-aliasnamn i stället för namnet på true. I följande exempel server strängen är alias *any-unika-aliasnamn* ersätter den första avgränsade med punkt-noden i fyra noder server sträng:
+Om du vill ansluta en viss Azure SQL Database Server kan en klient som SQL Server Management Studio (SSMS) tillhandahålla DNS-aliasnamnet i stället för det faktiska Server namnet. I följande exempel Server sträng ersätter aliaset *any-Unique-Alias-Name* den första punkten-avgränsade noden i den fyra nodens Server sträng:
 
-- Exempel server sträng: `any-unique-alias-name.database.windows.net`.
+- Exempel Server sträng: `any-unique-alias-name.database.windows.net`.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill köra demo PowerShell-skriptet som anges i den här artikeln gäller följande krav:
+Om du vill köra demonstrations PowerShell-skriptet som du fick i den här artikeln gäller följande krav:
 
-- En Azure-prenumeration och konto. För en kostnadsfri utvärderingsversion, klickar du på [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
-- Azure PowerShell-modulen med cmdleten **New AzSqlServerDNSAlias**.
-  - Om du vill installera eller uppgradera, se [installera Azure PowerShell-modulen][install-Az-ps-84p].
-  - Kör `Get-Module -ListAvailable Az;` i powershell\_ise.exe att hitta versionen.
+- En Azure-prenumeration och ett konto. Klicka på [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/]om du vill ha en kostnads fri utvärderings version.
+- Azure PowerShell modul med cmdlet **New-AzSqlServerDNSAlias**.
+  - Information om att installera och uppgradera finns i [Install Azure PowerShell module][install-Az-ps-84p] (Installera Azure PowerShell-modul).
+  - Kör `Get-Module -ListAvailable Az;` i PowerShell\_ISE. exe för att hitta versionen.
 - Två Azure SQL Database-servrar.
 
 ## <a name="code-example"></a>Kodexempel
 
-Följande PowerShell kodexempel startar genom att tilldela flera variabler litterala värden. Du måste redigera platshållarens värden för att matcha verkliga värden i systemet för att köra koden. Eller du kan bara läser koden. Och du får också konsolens utdata av koden.
+Följande PowerShell-kod exempel börjar genom att tilldela litterala värden till flera variabler. Om du vill köra koden måste du först redigera alla plats hållarnas värden för att matcha de verkliga värdena i systemet. Eller så kan du bara studera koden. Och även konsolens utdata från koden anges.
 
 ```powershell
 ################################################################
@@ -119,9 +118,9 @@ Remove-AzSqlServerDNSAlias `
     -ServerDNSAliasName $SqlServerDnsAliasName;
 ```
 
-### <a name="actual-console-output-from-the-powershell-example"></a>Faktiska konsolens utdata från PowerShell-exempel
+### <a name="actual-console-output-from-the-powershell-example"></a>Faktiska konsol utdata från PowerShell-exemplet
 
-Följande konsolens utdata har kopieras och klistras in från en faktisk körning.
+Följande konsol resultat har kopierats och klistrats in från en faktisk körning.
 
 ```powershell
 You must log into Azure once per powershell_ise.exe session,
@@ -154,7 +153,7 @@ gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 
 ## <a name="next-steps"></a>Nästa steg
 
-En fullständig förklaring av funktionen för DNS-Alias för SQL Database finns i [DNS-alias för Azure SQL Database][dns-alias-overview-37v].
+En fullständig förklaring av funktionen DNS-alias för SQL Database finns i [DNS-alias för Azure SQL Database][dns-alias-overview-37v].
 
 <!-- Article links. -->
 

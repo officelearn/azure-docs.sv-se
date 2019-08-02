@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Service Bus köer med Java | Microsoft Docs
+title: Använda Azure Service Bus köer med Java
 description: Lär dig hur du använder Service Bus-köer i Azure. Kod exempel som skrivits i Java.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: a7e6e86be8b6fc901d9637c85794cdfe1f744fd4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360806"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663430"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Använda Service Bus köer med Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -39,7 +40,7 @@ I den här självstudien får du lära dig hur du skapar Java-program för att s
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet så att det använder Service Bus
-Kontrol lera att du har installerat [Azure SDK för Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till **Microsoft Azure bibliotek för Java** i projektet:
+Kontrol lera att du har installerat [Azure SDK för Java][Azure SDK for Java] innan du skapar det här exemplet. Om du använder Sol förmörkelse kan du installera [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till **Microsoft Azure bibliotek för Java** i projektet:
 
 ![Skärm bild av fliken bibliotek där du kan lägga till bibliotek](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 

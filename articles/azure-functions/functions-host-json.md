@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371690"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564785"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host. JSON-referens för Azure Functions 2. x  
 
@@ -147,7 +147,10 @@ En lista med funktioner som jobb värden kör. En tom matris innebär att köra 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Anger varaktigheten för alla funktioner. I en server lös förbruknings plan är det giltiga intervallet från 1 sekund till 10 minuter och standardvärdet är 5 minuter. I en App Service plan finns det ingen övergripande gräns och Standardvärdet beror på körnings versionen. I version 2. x är standardvärdet för en App Service plan 30 minuter. I version 1. x är det *Null*, vilket indikerar ingen tids gräns. Den kan inte anges som oändlig. Om du inte anger det här värdet kommer det att ta värdet 30 minuter.
+Anger varaktigheten för alla funktioner. Det följer sträng formatet TimeSpan. I en server lös förbruknings plan är det giltiga intervallet från 1 sekund till 10 minuter och standardvärdet är 5 minuter.  
+I en dedikerad (App Service) plan finns det ingen övergripande gräns och Standardvärdet beror på körnings versionen: 
++ Version 1. x: standardvärdet är *Null*, vilket indikerar ingen tids gräns.   
++ Version 2. x: standardvärdet är 30 minuter. Värdet `-1` indikerar obegränsad körning.
 
 ```json
 {

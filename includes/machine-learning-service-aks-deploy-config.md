@@ -2,14 +2,14 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: 31d20f4824b034230bc941858e8ecb20cc00b6b2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348496"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68729372"
 ---
 Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
 
@@ -24,7 +24,8 @@ Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Mål användningen (i procent av 100) som autoskalning ska försöka underhålla för den här webb tjänsten. Standard, `70`. |
 | `dataCollection` | Ej tillämpligt | Innehåller konfigurations element för data insamling. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Huruvida modell data insamling ska aktive ras för webb tjänsten. Standard, `False`. |
-| `authEnabled` | `auth_enabled` | Om autentisering ska aktive ras för webb tjänsten. Standard, `True`. |
+| `authEnabled` | `auth_enabled` | Huruvida nyckel autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` `True`och `authEnabled` kan inte vara. Standard, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Huruvida token-autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` `True`och `authEnabled` kan inte vara. Standard, `False`. |
 | `containerResourceRequirements` | Ej tillämpligt | Behållare för processor-och minnes enheterna. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras för den här webb tjänsten. Appar`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Objekt`0.5` |

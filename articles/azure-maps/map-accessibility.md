@@ -1,45 +1,42 @@
 ---
-title: Skapar ett tillgängliga program med Azure Maps | Microsoft Docs
-description: Hur du skapar ett tillgängliga program med Azure Maps
+title: Göra ett tillgängligt program med Azure Maps | Microsoft Docs
+description: Så här skapar du ett tillgängligt program med hjälp av Azure Maps
 services: azure-maps
-keywords: ''
 author: chgennar
 ms.author: chgennar
-ms.date: 09/17/2018
-ms.topic: article
+ms.date: 07/29/2019
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
 manager: timlt
-ms.devlang: na
-ms.openlocfilehash: ef948b4dca3d3800a81ac52f3a73beee2558d21c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8865027c895be09150797608e43184f1fdefb267
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769710"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638782"
 ---
-# <a name="building-an-accessible-application"></a>Skapar ett tillgängliga program
+# <a name="building-an-accessible-application"></a>Skapa ett tillgängligt program
 
-Den här artikeln visar hur du skapar en karta-program som kan användas av en skärmläsare.
+Den här artikeln visar hur du skapar ett kart program som kan användas av en skärm läsare.
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-<iframe height='500' scrolling='no' title='Göra ett tillgängliga program' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>göra ett tillgängligt program</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Gör ett tillgängligt program' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>gör ett tillgängligt program</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) i <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Kartan är färdiga med hjälpmedelsfunktioner. Användare kan navigera på kartan med hjälp av tangentbordet. Om en skärmläsare körs kartan meddelar användaren om ändringar i sitt tillstånd.
-Till exempel meddelas användarna om ändringar för kartan när kartan panoreras eller zoomar. Ytterligare information som placeras på den grundläggande kartan bör ha motsvarande textinformation för användare av skärmläsare.
+Kartan är förbyggd med hjälpmedels funktionerna. Användare kan navigera i kartan med tangent bordet. Om en skärm läsare körs meddelar kartan användaren om ändringar i sitt tillstånd.
+Användare meddelas till exempel om kart ändringar när kartan är panorerad eller zoomad. All ytterligare information som placeras på bas kartan bör ha motsvarande text information för skärm läsar användare.
 
-Med hjälp av [popup-fönstret](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) är ett sätt att åstadkomma detta. I exemplet ovan search läggs ett popup-fönster med textinformation på kartan för varje PIN-kod som är placerad på kartan. Med hjälp av den [popup-](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) [bifoga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#attach) metoden kan popup-fönstret ska vara synlig för en skärmläsare utan att visa visuellt popup-fönstret på kartan.
+Att använda [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) är ett sätt att åstadkomma detta. I Sök exemplet ovan läggs en popup med text information till kartan för varje PIN-kod som placeras på kartan. Med hjälp av [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) -metoden [Attach](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#attach) kan popup-fönstret ses av en skärm läsare utan att visuellt Visa popup-fönstret på kartan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Popup-klassen och dess metoder som används i den här artikeln:
+Lär dig mer om klassen pop och dess metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Popup-fönstret](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Motta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
-Kolla in fler kodexempel:
+Se fler kod exempel:
 
 > [!div class="nextstepaction"]
-> [Exempelsida för kod](https://aka.ms/AzureMapsSamples)
+> [Kod exempel sida](https://aka.ms/AzureMapsSamples)

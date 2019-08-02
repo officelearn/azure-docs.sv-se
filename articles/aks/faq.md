@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
 ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68381977"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes service (AKS)
@@ -25,7 +25,7 @@ En fullständig lista över tillgängliga regioner finns i [AKS regioner och til
 
 ## <a name="does-aks-support-node-autoscaling"></a>Stöder AKS autoskalning av noder?
 
-Ja, möjligheten att automatiskt skala agent noder vågrätt i AKS är för närvarande tillgänglig i för hands versionen. Se [automatisk skalning av ett kluster för att uppfylla program kraven i AKS][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler].
+Ja, möjligheten att automatiskt skala agent noder vågrätt i AKS är för närvarande tillgänglig i för hands versionen. Se [automatisk skalning av ett kluster för att uppfylla program kraven i AKS][aks-cluster-autoscaler] för instruktioner. AKS autoskalning baseras på [Kubernetes][auto-scaler]autoskalning.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan jag distribuera AKS till mitt befintliga virtuella nätverk?
 
@@ -48,7 +48,7 @@ Ja, du kan använda olika storlekar för virtuella datorer i ditt AKS-kluster ge
 Azure tillämpar automatiskt säkerhets korrigeringar på Linux-noderna i klustret enligt ett natt schema. Du är dock ansvarig för att se till att de Linux-noderna startas om efter behov. Du har flera alternativ för att starta om noder:
 
 - Manuellt, via Azure Portal eller Azure CLI.
-- Genom att uppgradera ditt AKS-kluster. Klustret uppgraderar [Cordon-och dränering-noder][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
+- Genom att uppgradera ditt AKS-kluster. Klustret uppgraderar automatiskt [Cordon och tömmer noderna][cordon-drain] och ansluter sedan en ny nod online med den senaste Ubuntu-avbildningen och en ny korrigerings version eller en lägre Kubernetes-version. Mer information finns i [uppgradera ett AKS-kluster][aks-upgrade].
 - Med hjälp av [Kured](https://github.com/weaveworks/kured), en daemon för omstart med öppen källkod för Kubernetes. Kured körs som en [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) och övervakar varje nod för förekomst av en fil som anger att en omstart krävs. I klustret hanteras OS-omstarter av samma [Cordon och tömnings processen][cordon-drain] som en kluster uppgradering.
 
 Mer information om hur du använder kured finns i [tillämpa säkerhets-och kernel-uppdateringar på noder i AKS][node-updates-kured].

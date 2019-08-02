@@ -16,14 +16,14 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234628"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678158"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är hantering av Azure AD-rättigheter? (Förhandsversion)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är hantering av Azure AD-rättigheter? (Förhandsgranskning)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
@@ -90,7 +90,7 @@ Med ett Access-paket och dess principer definierar Access Package Manager:
 
 - Resurser
 - Roller som användarna behöver för resurserna
-- Interna användare och externa användare som är berättigade att begära åtkomst
+- Interna användare och partner organisationer av externa användare som är berättigade att begära åtkomst
 - Godkännande process och användare som kan godkänna eller neka åtkomst
 - Varaktighet för användarens åtkomst
 
@@ -123,12 +123,12 @@ För att bättre förstå hantering av rättigheter och dess dokumentation bör 
 | policy | En uppsättning regler som definierar åtkomst livs cykeln, till exempel hur användare får åtkomst, vem som kan godkänna och hur länge användare har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
 | catalog | En behållare för relaterade resurser och åtkomst paket. |
 | Allmän katalog | En inbyggd katalog som alltid är tillgänglig. För att lägga till resurser i den allmänna katalogen krävs vissa behörigheter. |
-| resource | En till gång eller tjänst (till exempel en grupp, ett program eller en webbplats) som en användare kan beviljas behörighet till. |
-| Resurs typ | Typ av resurs, som omfattar grupper, program och SharePoint Online-webbplatser. |
+| resource | En till gång eller tjänst (till exempel en Office-grupp, en säkerhets grupp, ett program eller en SharePoint Online-webbplats) som en användare kan beviljas behörighet till. |
+| resurstyp | Typ av resurs, som omfattar grupper, program och SharePoint Online-webbplatser. |
 | resurs roll | En samling behörigheter som är kopplade till en resurs. |
 | resurs katalog | En katalog som har en eller flera resurser som ska delas. |
-| tilldelade användare | En tilldelning av ett Access-paket till en användare eller grupp. |
-| Använd | Processen för att göra ett åtkomst paket tillgängligt för användare att begära. |
+| tilldelade användare | En tilldelning av ett Access-paket till en användare, så att användaren har alla resurs roller för det åtkomst paketet. |
+| aktivera | Processen för att göra ett åtkomst paket tillgängligt för användare att begära. |
 
 ## <a name="license-requirements"></a>Licenskrav
 

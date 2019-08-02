@@ -1,46 +1,46 @@
 ---
-title: Använda Azure CLI för att hantera Azure AD-åtkomsträttigheter till blob och kö data med RBAC - Azure Storage
-description: Använda Azure CLI för att tilldela åtkomst till behållare och köer med rollbaserad åtkomstkontroll (RBAC). Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
+title: Använd Azure CLI för att hantera Azure ADs åtkomst rättigheter till blob-och Queue-data med RBAC-Azure Storage
+description: Använd Azure CLI för att tilldela åtkomst till behållare och köer med rollbaserad åtkomst kontroll (RBAC). Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8219e795bb9ab4fc0d479b71e6a93fe6300037d0
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443716"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514904"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Bevilja åtkomst till Azure blob och kö data med RBAC med Azure CLI
+# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Bevilja åtkomst till Azure blob-och Queue-data med RBAC med hjälp av Azure CLI
 
-Azure Active Directory (Azure AD) auktoriserar åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för att komma åt data blob eller kön.
+Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för att få åtkomst till BLOB-eller Queue data.
 
-När en RBAC-roll tilldelas till en Azure AD-säkerhetsobjekt, Azure beviljar åtkomst till att dessa resurser för det säkerhetsobjektet. Åtkomst kan begränsas till nivån för prenumerationen, resursgruppen, storage-konto eller en enskild behållare eller en kö. En Azure AD-säkerhetsobjekt kan vara en användare, en grupp, tjänstens huvudnamn för ett program eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Den här artikeln beskriver hur du använder Azure CLI för att visa en lista över inbyggda RBAC-roller och tilldela dem till användare. Mer information om hur du använder Azure CLI finns i [Azure kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure).
+Den här artikeln beskriver hur du använder Azure CLI för att Visa inbyggda RBAC-roller och tilldela dem till användare. Mer information om hur du använder Azure CLI finns i [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure).
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Bestäm resource omfattning 
+## <a name="determine-resource-scope"></a>Bestäm resurs omfång 
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
 ## <a name="list-available-rbac-roles"></a>Lista tillgängliga RBAC-roller
 
-Om du vill visa tillgängliga inbyggda RBAC-roller med Azure CLI, använder den [az role definition list](/cli/azure/role/definition#az-role-definition-list) kommando:
+Om du vill visa en lista över tillgängliga, Inbyggda RBAC-roller med Azure CLI, använder du kommandot [AZ Role definition List](/cli/azure/role/definition#az-role-definition-list) :
 
 ```azurecli-interactive
 az role definition list --out table
 ```
 
-Du ser de inbyggda Azure Storage data roller visas, tillsammans med andra inbyggda roller för Azure:
+Du ser de inbyggda Azure Storage data rollerna i listan, tillsammans med andra inbyggda roller för Azure:
 
 ```Example
 Storage Blob Data Contributor             Allows for read, write and delete access to Azure Storage blob containers and data
@@ -52,19 +52,19 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-security-principal"></a>Tilldela en RBAC-roll till ett säkerhetsobjekt
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Tilldela en RBAC-roll till ett säkerhets objekt
 
-Om du vill tilldela en RBAC-roll till ett säkerhetsobjekt, Använd den [az-rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) kommando. Formatet för kommandot kan variera beroende på omfånget för tilldelningen. I följande exempel visas hur du tilldela en roll till en användare på olika områden, men du kan använda samma kommando för att tilldela en roll till säkerhetsobjekt.
+Om du vill tilldela en RBAC-roll till ett säkerhets objekt, använder du kommandot [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) . Kommandots format kan variera beroende på tilldelningens omfattning. I följande exempel visas hur du tilldelar en roll till en användare i olika scope, men du kan använda samma kommando för att tilldela en roll till alla säkerhets objekt.
 
-### <a name="container-scope"></a>Behållaren omfång
+### <a name="container-scope"></a>Container omfång
 
-Tilldela en roll som är begränsade till en behållare genom att ange en sträng som innehåller omfånget för behållaren för den `--scope` parametern. Omfattningen för en behållare är i formatet:
+Om du vill tilldela en roll begränsad till en behållare anger du en sträng som innehåller omfånget för `--scope` parametern. Omfånget för en behållare är i formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-I följande exempel tilldelas den **Storage Blob Data-deltagare** roll till en användare som hör till en behållare med namnet *exempelbehållaren*. Se till att ersätta exempelvärdena och du platshållarens värden inom hakparentes med dina egna värden: 
+I följande exempel tilldelas rollen **Storage BLOB data Contributor** till en användare som är begränsad till en behållare med namnet *Sample-container*. Se till att ersätta exempel värdena och plats hållarna inom hakparenteser med dina egna värden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -73,15 +73,15 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
 ```
 
-### <a name="queue-scope"></a>Köomfång
+### <a name="queue-scope"></a>Köa omfång
 
-Om du vill tilldela en roll som är begränsade till en kö, ange en sträng som innehåller omfånget för kön för den `--scope` parametern. Omfattningen för en kö är i formatet:
+Om du vill tilldela en roll som är begränsad till en kö anger du en sträng som innehåller omfånget `--scope` för-parametern. Omfattningen för en kö är i formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-I följande exempel tilldelas den **Lagringsködata-deltagare** roll till en användare som hör till en kö med namnet *exempel kön*. Se till att ersätta exempelvärdena och du platshållarens värden inom hakparentes med dina egna värden: 
+I följande exempel tilldelas rollen **Storage Queue data Contributor** till en användare som är begränsad till en kö med namnet *exempel-Queue*. Se till att ersätta exempel värdena och plats hållarna inom hakparenteser med dina egna värden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -90,15 +90,15 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
 ```
 
-### <a name="storage-account-scope"></a>Storage-konto omfång
+### <a name="storage-account-scope"></a>Lagrings konto omfång
 
-Tilldela en roll som är begränsade till lagringskontot genom att ange omfånget för resursen för lagringskonton för den `--scope` parametern. Omfånget för ett lagringskonto är i formatet:
+Om du vill tilldela en roll som är begränsad till lagrings kontot anger du omfånget för lagrings `--scope` konto resursen för parametern. Omfånget för ett lagrings konto har formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-I följande exempel visar hur du tilldelar den **Storage Blob Data-läsare** roll till en användare på nivån för storage-konto. Se till att ersätta exempelvärdena med dina egna värden: 
+I följande exempel visas hur du tilldelar rollen **Storage BLOB data Reader** till en användare på lagrings kontots nivå. Se till att ersätta exempel värdena med dina egna värden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -107,9 +107,9 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples"
 ```
 
-### <a name="resource-group-scope"></a>Resursen Gruppomfång
+### <a name="resource-group-scope"></a>Definitions område för resurs grupp
 
-Om du vill tilldela en roll som är begränsade till resursgruppen, ange resursgruppens namn eller ID: T för den `--resource-group` parametern. I följande exempel tilldelas den **Lagringsködata-läsare** roll till en användare på nivån för resursgruppen. Se till att ersätta exempelvärden och platshållarens värden inom hakparentes med dina egna värden: 
+Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID `--resource-group` för parametern. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -118,15 +118,15 @@ az role assignment create \
     --resource-group sample-resource-group
 ```
 
-### <a name="subscription-scope"></a>Prenumerationsomfattningen
+### <a name="subscription-scope"></a>Prenumerations omfång
 
-Tilldela en roll som hör till prenumerationen genom att ange omfånget för prenumerationen för den `--scope` parametern. Omfattningen för en prenumeration är i formatet:
+Om du vill tilldela en roll som är begränsad till prenumerationen anger du omfånget för `--scope` parameterns prenumeration. Omfånget för en prenumeration är i formatet:
 
 ```
 /subscriptions/<subscription>
 ```
 
-I följande exempel visar hur du tilldelar den **Storage Blob Data-läsare** roll till en användare på nivån för storage-konto. Se till att ersätta exempelvärdena med dina egna värden: 
+I följande exempel visas hur du tilldelar rollen **Storage BLOB data Reader** till en användare på lagrings kontots nivå. Se till att ersätta exempel värdena med dina egna värden: 
 
 ```azurecli-interactive
 az role assignment create \
@@ -138,5 +138,5 @@ az role assignment create \
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Bevilja åtkomst till Azure blob och kö data med RBAC med Azure PowerShell](storage-auth-aad-rbac-powershell.md)
-- [Bevilja åtkomst till Azure blob och kö data med RBAC i Azure portal](storage-auth-aad-rbac-portal.md)
+- [Bevilja åtkomst till Azure blob-och Queue-data med RBAC med hjälp av Azure PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Bevilja åtkomst till blob- och ködata i Azure med RBAC på Azure-portalen](storage-auth-aad-rbac-portal.md)

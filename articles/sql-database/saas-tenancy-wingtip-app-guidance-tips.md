@@ -1,6 +1,6 @@
 ---
-title: Vägledning för SQL Database app för flera klienter exempel – Wingtip SaaS | Microsoft Docs
-description: Innehåller anvisningar och riktlinjer för att installera och kör programmet på flera klienter som använder Azure SQL Database, Wingtip biljetter SaaS-exemplet.
+title: Vägledning för SQL Database program med flera klient organisationer – Wingtip SaaS | Microsoft Docs
+description: Innehåller steg och rikt linjer för att installera och köra ett exempel på ett program för flera innehavare som använder Azure SQL Database, Wingtip Ticket SaaS-exempel.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,63 +10,62 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60326298"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570075"
 ---
-# <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Allmänna riktlinjer för att arbeta med Wingtip biljetter SaaS exempelappar
+# <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Allmänna rikt linjer för att arbeta med Wingtip ticks-exempel SaaS-appar
 
-Den här artikeln innehåller allmänna riktlinjer för att köra de Wingtip biljetter SaaS exempelprogram som använder Azure SQL Database. 
+Den här artikeln innehåller allmän vägledning för att köra Wingtip ticks-SaaS program som använder Azure SQL Database. 
 
-## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Ladda ned och avblockera Wingtip biljetter SaaS-skript
+## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Hämta och avblockera Wingtip Ticket SaaS-skript
 
-Körbart innehåll (skript, DLL-filer) kan blockeras av Windows när zip-filer laddas ned från en extern källa och extraheras. Vid extrahering av skripten från en zip-fil **följer du stegen nedan för att avblockera .zip-filen innan du extrahera**. Detta säkerställer att skripten ska tillåtas att köras.
+Körbart innehåll (skript, DLL-filer) kan blockeras av Windows när zip-filer laddas ned från en extern källa och extraheras. När du extraherar skripten från en zip-fil **följer du stegen nedan för att avblockera zip-filen innan du extraherar**. Detta säkerställer att skripten kan köras.
 
-1. Bläddra till Wingtip biljetter SaaS GitHub-lagringsplatsen för det mönster för innehavare av databasen som du vill utforska: 
+1. Bläddra till Wingtip Ticket SaaS GitHub-lagrings platsen för databasens hyres mönster som du vill utforska: 
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
-2. Klicka på **klona eller ladda ned**.
-3. Klicka på **ladda ned zip** och spara filen.
-4. Högerklicka på zipfilen och välj **egenskaper**. Namnet på zip-filen motsvarar namnet på lagringsplatsen. (ex.) _WingtipTicketsSaaS-DbPerTenant-master.zip_)
-5. På den **Allmänt** fliken **avblockera**.
+2. Klicka på **klona eller hämta**.
+3. Klicka på **Hämta zip** och spara filen.
+4. Högerklicka på zip-filen och välj **Egenskaper**. Zip-filnamn motsvarar namnet på lagrings platsen. priset. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+5. På fliken **Allmänt** väljer du **avblockera**.
 6. Klicka på **OK**.
 7. Extrahera filerna.
 
-Skript finns i den *... \\Inlärningsmoduler* mapp.
+Skript finns på *... Mappen\\inlärnings moduler* .
 
 
-## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Arbeta med Wingtip biljetter PowerShell-skript
+## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Arbeta med ett Wingtip-biljetter PowerShell-skript
 
-Du måste sätta igång skripten som tillhandahålls för att få ut mest av exemplet. Använd brytpunkter och stega igenom skripten som de köra och granska hur de olika SaaS-mönstren implementeras. För att enkelt gå igenom de tillhandahållna skripten och modulerna för att bäst förstå, bör du använda den [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+För att få ut det mesta av exemplet måste du komma in i de medföljande skripten. Använd Bryt punkter och gå igenom skripten när de körs och kontrol lera hur de olika SaaS-mönstren implementeras. För att enkelt gå igenom de tillhandahållna skripten och modulerna för bästa förståelse rekommenderar vi att du använder [POWERSHELL ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
-### <a name="update-the-configuration-file-for-your-deployment"></a>Uppdatera konfigurationsfilen för din distribution
+### <a name="update-the-configuration-file-for-your-deployment"></a>Uppdatera konfigurations filen för distributionen
 
-Redigera den **UserConfig.psm1** fil med resurs- och användarnamn värdet som du anger under distributionen:
+Redigera filen **userconfig. psm1** med den resurs grupp och det användar värde som du angav under distributionen:
 
-1. Öppna den *PowerShell ISE* och läsa in... \\Inlärningsmoduler\\*UserConfig.psm1* 
-2. Uppdatera *ResourceGroupName* och *namn* med specifika värden för din distribution (på raderna 10 och 11 endast).
+1. Öppna *POWERSHELL ISE* och Läs in... Learning-\\moduler*userconfig. psm1* \\ 
+2. Uppdatera *ResourceGroupName* och *namn* med de angivna värdena för din distribution (endast på raderna 10 och 11).
 3. Spara ändringarna!
 
-Om dessa värden här bara ser du inte behöva uppdatera de här distributionsspecifika värdena i varje skript.
+Genom att ange dessa värden behöver du bara uppdatera de här distributions-/regionsspecifika värdena i alla skript.
 
-### <a name="execute-the-scripts-by-pressing-f5"></a>Köra skripten genom att trycka på F5
+### <a name="execute-the-scripts-by-pressing-f5"></a>Kör skripten genom att trycka på F5
 
-Flera skript använder *$PSScriptRoot* att navigera mappar, och *$PSScriptRoot* utvärderas bara när skript körs genom att trycka på **F5**.  Om du markerar och kör en markering (**F8**) kan resultera i fel, trycker du på **F5** när du kör skript.
+Flera skript använder *$PSScriptRoot* för att navigera i mappar och *$PSScriptRoot* utvärderas bara när skript körs genom att trycka på **F5**.  Att markera och köra en markering (**F8**) kan resultera i fel, så tryck på **F5** när du kör skript.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Stega igenom skripten för att undersöka implementeringen
 
-Det bästa sättet att förstå skripten är genom att stega dig igenom dem för att se vad de gör. Kolla in den medföljande **Demo -** skript som presenterar ett enkelt sätt att följa arbetsflöde på hög nivå. Den **Demo -** skript visar de steg som krävs för att utföra varje uppgift, så ange brytpunkter och gå djupare i de olika anropen för att se implementeringsdetaljer för de olika SaaS-mönstren.
+Det bästa sättet att förstå skripten är genom att stega igenom dem för att se vad de gör. Kolla in **demo-** scripts som ingår och som visar ett enkelt att följa hög arbets flöde. **Demonstrationen –** skripten visar de steg som krävs för att utföra varje uppgift, så ange Bryt punkter och granska djupare i de enskilda anropen för att se implementerings information för de olika SaaS-mönstren.
 
-Tips för att utforska och stega dig igenom PowerShell-skript:
+Tips för att utforska och stega igenom PowerShell-skript:
 
-- Öppna **Demo -** skript i PowerShell ISE.
-- Kör eller Fortsätt med **F5** (med hjälp av **F8** rekommenderas inte eftersom *$PSScriptRoot* utvärderas inte när du kör val av ett skript).
+- Öppna **demo –** skript i PowerShell ISE.
+- Kör eller Fortsätt med **F5** (Använd **F8** rekommenderas inte eftersom *$PSScriptRoot* inte utvärderas när du kör markeringar i ett skript).
 - Placera brytpunkter genom att klicka, eller välja en rad och trycka på **F9**.
 - Stega över en funktion eller skriptanrop med **F10**.
 - Stega in i en funktion eller skriptanrop med **F11**.
@@ -75,48 +74,48 @@ Tips för att utforska och stega dig igenom PowerShell-skript:
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Utforska databasschemat och kör SQL-frågor med SSMS
 
-Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta och bläddra programservrar och databaser.
+Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta och bläddra bland program servrar och databaser.
 
-Distributionen har ursprungligen klienter och catalog SQL Database-servrar för att ansluta till. Namngivning av servrarna beror på databasen innehavare mönstret (se nedan för information). 
+Distributionen har inlednings vis klient organisationer och katalog SQL Database servrar som ska anslutas till. Namngivningen av servrarna beror på databasens hyres mönster (se nedan för mer information). 
 
-   - **Fristående program:** servrar för varje klient (ex.) *contosoconcerthall -&lt;användaren&gt;*  server) och *catalog-sa -&lt;användare&gt;*
-   - **Databas per klient:** *tenants1-dpt -&lt;användaren&gt;*  och *catalog-dpt -&lt;användaren&gt;*  servrar
-   - **Databas för flera innehavare:** *tenants1-mt -&lt;användaren&gt;*  och *catalog-mt -&lt;användaren&gt;*  servrar
+   - **Fristående program:** servrar för varje klient (t. ex. *contosoconcerthall –&lt;användar&gt;*  Server) och *katalog – sa-&lt;användare&gt;*
+   - **Databas per klient:** *tenants1-DPT-&lt;User&gt;*  och *Catalog-DPT-&lt;User&gt;*  servers
+   - **Databas för flera innehavare:** *tenants1-MT-&lt;User&gt;*  och *Catalog-MT-&lt;User&gt;*  servers
 
-För att säkerställa en lyckad demoanslutning, alla servrar har en [brandväggsregel](sql-database-firewall-configure.md) så att alla IP-adresser via.
+För att säkerställa en lyckad demo anslutning har alla servrar en [brand Väggs regel](sql-database-firewall-configure.md) som tillåter alla IP-adresser.
 
 
-1. Öppna *SSMS* och Anslut till klienterna. Servernamnet är beroende av databasen innehavare mönster som du har valt (se nedan för information):
-    - **Fristående program:** servrar med enskilda klienter (ex.) *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
-    - **Databas per klient:** *tenants1-dpt -&lt;användaren&gt;. database.windows.net*
-    - **Databas för flera innehavare:** *tenants1-mt -&lt;användaren&gt;. database.windows.net* 
+1. Öppna *SSMS* och Anslut till klienterna. Server namnet beror på databasens hyres mönster som du har valt (se nedan för information):
+    - **Fristående program:** servrar för enskilda klienter (t. ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
+    - **Databas per klient:** *tenants1-DPT-&lt;User&gt;. Database.Windows.net*
+    - **Databas för flera innehavare:** *tenants1-MT-&lt;User&gt;. Database.Windows.net* 
 2. Klicka på **anslut** > **databasmotor...** :
 
    ![katalogserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Autentiseringsuppgifterna för demot är: Logga in = *developer*, lösenord = *P\@ssword1*
+3. Autentiseringsuppgifterna för demon är: Login= Developer, Password = *P\@ssword1*
 
-    Bilden nedan visar inloggningen för den *databas per klient* mönster. 
+    Bilden nedan visar inloggningen för *databasen per klient* mönster. 
     ![anslutning](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
     
    
 
-4. Upprepa steg 2 – 3 och Anslut till katalogservern (se nedan för specifik servernamn baserat på databas från en innehavare valt)
-    - **Fristående program:** *catalog-sa -&lt;användaren&gt;. database.windows.net*
-    - **Databas per klient:** *catalog-dpt -&lt;användaren&gt;. database.windows.net*
-    - **Databas för flera innehavare:** *catalog-mt -&lt;användaren&gt;. database.windows.net*
+4. Upprepa steg 2-3 och Anslut till katalog servern (se nedan för angivna Server namn baserat på databasens hyres mönster har valts)
+    - **Fristående program:** *katalog – sa-&lt;User&gt;. Database.Windows.net*
+    - **Databas per klient:** *katalog-DPT-&lt;User&gt;. Database.Windows.net*
+    - **Databas för flera innehavare:** *katalog – MT-&lt;User&gt;. Database.Windows.net*
 
 
-När du har anslutit bör du se alla servrar. Listan över databaser kan vara olika, beroende på de innehavare som du har etablerat.
+När du har anslutit bör du se alla servrar. Din lista över databaser kan vara olika beroende på vilka innehavare du har etablerad.
 
-Bilden nedan visar inloggningen för den *databas per klient* mönster.
+Bilden nedan visar inloggningen för *databasen per klient* mönster.
 
 ![objektutforskaren](media/saas-tenancy-wingtip-app-guidance-tips/object-explorer.png)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Distribuera Wingtip biljetter SaaS fristående program](saas-standaloneapp-get-started-deploy.md)
-- [Distribuera Wingtip biljetter SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md)
-- [Distribuera databas för flera klienter i Wingtip biljetter SaaS-program](saas-multitenantdb-get-started-deploy.md)
+- [Distribuera Wingtip Ticket SaaS fristående program](saas-standaloneapp-get-started-deploy.md)
+- [Distribuera Wingtip-biljetterna SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md)
+- [Distribuera Wingtip Ticket SaaS-program för flera klient databaser](saas-multitenantdb-get-started-deploy.md)
 

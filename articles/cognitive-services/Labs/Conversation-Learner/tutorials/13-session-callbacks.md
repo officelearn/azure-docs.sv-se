@@ -1,7 +1,7 @@
 ---
-title: Hur du använder session återanrop med en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
+title: Använda återanrop från sessioner med en Conversation Learner modell – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du använder session återanrop med en Konversationsdeltagare-modell.
+description: Lär dig hur du använder återanrop från sessioner med en Conversation Learner-modell.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,98 +10,99 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: eeed0718a1feb170dbbaa783ec0a840c7829c02e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 656d028082d56b8f094e83363e5189b163581c53
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390003"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703954"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Hur du använder session återanrop med en modell för Konversationsdeltagare
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Använda återanrop från sessioner med en Conversation Learner modell
 
-Den här självstudien introducerar sessioner, hur de ska hanteras och konversationen elevens onSessionStart och onSessionEnd återanrop.
+I den här självstudien introduceras sessioner, hur de hanteras och Conversation Learner onSessionStart-och onSessionEnd-återanrop.
 
 ## <a name="video"></a>Video
 
-[![Sessionen återanrop självstudiekursen förhandsversion](https://aka.ms/cl_Tutorial_v3_SessionCallbacks_Preview)](https://aka.ms/cl_Tutorial_v3_SessionCallbacks)
+[![Förhands granskning av självstudie för sessioner](https://aka.ms/cl_Tutorial_v3_SessionCallbacks_Preview)](https://aka.ms/cl_Tutorial_v3_SessionCallbacks)
 
 ## <a name="requirements"></a>Krav
-Den här självstudien krävs att ”tutorialSessionCallbacks” bot körs.
+I den här självstudien krävs att roboten "tutorialSessionCallbacks" körs.
 
     npm run tutorial-session-callbacks
 
 ## <a name="details"></a>Information
-Den här självstudien Beskriver konceptet med en session, hur sessioner hanteras som standard och hur du kan åsidosätta detta beteende.
+I den här självstudien beskrivs konceptet med en session, hur sessioner hanteras som standard och hur du kan åsidosätta beteendet.
 
-I Konversationsdeltagare representerar en session, utan avbrott interaktiva exchange med roboten. Sessioner kan ha flera aktiverar, men programmässigt avslutades på grund av inaktivitet om det är större än trettio minuter har uppnåtts.  Finns på hjälpsidan på ”gränser” information om hur du ändrar den här standard sessionens tidsgräns längd.
+I Conversation Learner en session representerar en, oavbruten interaktiv Exchange med bot. Sessioner kan ha flera varv, men program mässigt avslutas på grund av inaktivitet om det är mer än 30 minuter.  Information om hur du ändrar timeout-tiden för Standardsessionen finns på hjälp sidan begränsningar.
 
-Den här lång tids inaktivitet genereras robotar kan skapa en ny session och återställa det återkommande neurala nätverket till det ursprungliga tillståndet. Som standard rensas alla entitetsvärden. Det här standardbeteendet för att rensa entitetsvärden kan ändras enligt nedan.
+Den här långa tids perioden kommer att orsaka att bot skapar en ny session och återställer det omaktuella neurala-nätverket till sitt ursprungliga tillstånd. Som standard rensas alla enhets värden. Det här standard beteendet för att rensa enhets värden kan ändras på det sätt som visas nedan.
 
-### <a name="load-the-demo-model"></a>Läsa in modellen Demo
+### <a name="load-the-demo-model"></a>Läs in demo modellen
 
-Klicka på ”Importera Tutorials” i webbläsaren, och välj modellen med namnet ”självstudien-13-SessionCallbacks”.
+I webb gränssnittet klickar du på "Importera självstudier" och väljer modellen med namnet "självstudie-13-SessionCallbacks".
 
-### <a name="code-for-the-callbacks"></a>Kod för återanropen
+### <a name="code-for-the-callbacks"></a>Kod för återanrop
 
-Exempelkoden för den här modellen två återanrop finns i: `c:\<installedpath>\src\demos\tutorialSessionCallbacks.ts`.
+Exempel kod för den här modellens två återanrop hittar du i: `c:\<installedpath>\src\demos\tutorialSessionCallbacks.ts`.
 
 ![](../media/tutorial11_code.PNG)
 
-- OnSessionStartCallback: den här metoden anger BotName entiteten.
-- OnSessionEndCallback: du kan ange vad du vill behålla. Detta tar bort alla enheter utom användarnamn och telefonnummer för användaren.
+- OnSessionStartCallback: den här metoden anger entiteten BotName.
+- OnSessionEndCallback: du kan ange vad du vill behålla. Detta raderar alla entiteter förutom användar namn och användarens telefonnummer.
 
-Varje återanrop är valfritt.
+Varje motringning är valfritt.
 
 ### <a name="actions"></a>Åtgärder
 
-Fyra åtgärder har definierats i modellen. Befintliga åtgärder som visas i rutnätsvyn för ”åtgärder”
+Fyra åtgärder definieras i modellen. De befintliga åtgärderna visas i diagramvyn för "åtgärder"
 
 ![](../media/tutorial11_actions.PNG)
 
-### <a name="creating-an-end-session-action-for-callback-invocation"></a>Skapa en slutpunkt Session åtgärd (för motringning anrop)
+### <a name="creating-an-end-session-action-for-callback-invocation"></a>Skapa en åtgärd för att avsluta sessionen (för återanrops anrop)
 
-1. Klicka på ”åtgärder” och knappen ”ny åtgärd” på den vänstra panelen.
-2. Välj ”ENDSESSION” för ”entitetstypen”.
-3. I fältet ”Data...”, skriver du ”klar”
-4. Klicka på knappen ”Skapa”.
+1. Klicka på "åtgärder" i den vänstra panelen, sedan på knappen "ny åtgärd".
+2. Välj "ENDSESSION" som enhets typ.
+3. I "data..." anger du "utfört"
+4. Klicka på knappen "skapa".
 
 ### <a name="edit-an-existing-action"></a>Redigera en befintlig åtgärd
 
-1. Välj den ”så $UserName, du är i $UserLocation” åtgärd från rutnätsvyn.
-2. Avmarkera kryssrutan ”Vänta för svar”.
-3. Klicka på knappen ”Spara”.
+1. Markera kryss rutan "So, $UserName, du befinner dig i $UserLocation" i diagramvyn.
+2. Avmarkera kryss rutan "vänta på svar".
+3. Klicka på knappen Spara.
 
-### <a name="chaining-actions"></a>Länkning åtgärder
+### <a name="chaining-actions"></a>Kedje åtgärder
 
-1. Klicka på ”Train-dialogrutor” och knappen ”Ny träna dialogruta” på den vänstra panelen.
-2. På panelen chatt står det ”Skriv meddelandet...”, typ i ”Hej”.
-3. Klicka på knappen ”poäng åtgärder”.
-4. Välj svar, ”Hej, jag heter Botty. Vad heter du ”?
-5. På panelen chatt står det ”Skriv meddelandet...”, ange ”Dell”
-6. Välj svar, ”Hej Dell. Vad är ditt telefonnummer ”?
-7. På panelen chatt står det ”Skriv meddelandet...”, ange ”555-555-5555”
-8. Klicka på knappen ”poäng åtgärder”.
-9. Välj svar ”kan du ge Botty din plats, Dell”?
-10. På panelen chatt står det ”Skriv meddelandet...”, ange ”Seattle”
-11. Klicka på knappen ”poäng åtgärder”.
-12. Välj svar, ”så, Dell, du är i Seattle”
-13. Välj svar ”klar”
-14. Klicka på knappen ”Spara”.
+1. På den vänstra panelen klickar du på "träna dialoger", sedan på knappen "ny träna dialog".
+2. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "Hej".
+3. Klicka på knappen "Poäng åtgärder".
+4. Välj svaret "Hej, jag botty. Vad är ditt namn? "
+5. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "Lars"
+6. Välj svaret "Hi-Lars. Vad är ditt telefonnummer? "
+7. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "555-555-5555"
+8. Klicka på knappen "Poäng åtgärder".
+9. Välj svaret, "kan du se botty din plats, Lars?"
+10. I panelen chat, där det står "Skriv ditt meddelande...", skriver du i "Seattle"
+11. Klicka på knappen "Poäng åtgärder".
+12. Välj svaret "So, Lars, du är i Seattle"
+13. Välj svaret, "färdig"
+14. Klicka på knappen Spara.
 
 ### <a name="testing-the-model"></a>Testa modellen
 
-1. Klicka på ”Log-dialogrutor” och knappen ”Ny Log dialogruta” på den vänstra panelen.
-2. På panelen chatt står det ”Skriv meddelandet...”, typ i ”Hej”
-3. På panelen chatt står det ”Skriv meddelandet...”, ange ”Dell”
-4. På panelen chatt står det ”Skriv meddelandet...”, ange ”555-555-5555”
-5. På panelen chatt står det ”Skriv meddelandet...”, ange ”Seattle”
-    - Nu ska alla entitetsvärden exklusive plats sparas.
-6. På panelen chatt står det ”Skriv meddelandet...”, ange ”hello”
-7. På panelen chatt står det ”Skriv meddelandet...”, ange ”Detroit”
-8. Klicka på knappen ”tidsgräns för Session”.
-    - Den här knappen utövar robotens svar för att långa perioder av inaktivitet
-9. Klicka på ”OK”.
-10. Klicka på knappen ”klar testning”.
+1. Klicka på "Logga dialog rutor" i den vänstra panelen, sedan på knappen "ny logg dialog ruta".
+2. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "Hej"
+3. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "Lars"
+4. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "555-555-5555"
+5. I panelen chat, där det står "Skriv ditt meddelande...", skriver du i "Seattle"
+    - I det här läget bör alla enhets värden exklusive platsen ha bevarats.
+6. I panelen chat, där det står "Skriv ditt meddelande...", skriver du i "Hej"
+7. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "Detroit"
+8. Klicka på knappen tids gräns för session.
+    - Genom att klicka på den här knappen informerar du robotens svar på långa perioder av inaktivitet
+9. Klicka på knappen OK.
+10. Klicka på knappen "Slutför testning".
 
 ## <a name="next-steps"></a>Nästa steg
 

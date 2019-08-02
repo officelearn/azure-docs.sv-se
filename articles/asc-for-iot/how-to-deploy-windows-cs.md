@@ -1,6 +1,6 @@
 ---
-title: Windows-installationen av Azure Security Center för IoT-agenten förhandsversionen | Microsoft Docs
-description: Läs mer om hur du installerar Azure Security Center för IoT-agenten på 32-bitars eller 64-bitars Windows-enheter.
+title: Windows-installation av Azure Security Center för IoT-agent | Microsoft Docs
+description: Lär dig mer om hur du installerar Azure Security Center för IoT-agent på 32-bitars eller 64-bitars Windows-enheter.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: b22faa6ea02a1a3d093aee1dec84ca1680da54d2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: acc99f260931de7fd8c7566a3ff6daf43f34c5ef
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616769"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597207"
 ---
-# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Distribuera en Azure Security Center för IoT C#-baserade security-agenten för Windows
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Distribuera en Azure Security Center för IoT C#-baserad säkerhets agent för Windows
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Den här guiden beskriver hur du installerar Azure Security Center (ASC) för IoT C#-baserade säkerhetsagenten på Windows.
+Den här guiden beskriver hur du installerar Azure Security Center för IoT C#-baserad säkerhets agent i Windows.
 
 I den här guiden får du lära du dig att: 
 > [!div class="checklist"]
@@ -39,24 +35,27 @@ I den här guiden får du lära du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Andra plattformar och agenten smaksättningar finns i [väljer rätt säkerhetsagenten](how-to-deploy-agent.md).
+För andra plattformar och agent-varianter, se [Välj rätt säkerhets agent](how-to-deploy-agent.md).
 
-1. Behörighet som lokal administratör på den datorn som du vill installera på. 
+1. Lokal administratörs behörighet på den dator som du vill installera på. 
 
-1. [Skapa en modul för maskinvarusäkerhet](quickstart-create-security-twin.md) för enheten.
+1. [Skapa en säkerhetsmodul](quickstart-create-security-twin.md) för enheten.
 
 ## <a name="installation"></a>Installation 
 
-Om du vill installera säkerhetsagenten, gör du följande:
+Använd följande arbets flöde om du vill installera säkerhets agenten:
 
-1. Så här installerar du ASC för IoT Windows C# agenten på enheten, ladda ned den senaste versionen på din dator från ASC för IoT [GitHub-lagringsplatsen](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
+1. Installera Azure Security Center för IoT Windows C# -agenten på enheten. Ladda ned den senaste versionen till datorn från Azure Security Center för IoT GitHub- [lagringsplatsen](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
 
-2. Extrahera innehållet i paketet och navigera till mappen/Install.
+1. Extrahera innehållet i paketet och navigera till mappen/install.
 
-3. Öppna Windows PowerShell som administratör. 
-    1. Lägg till som körs behörigheter genom att köra skriptet InstallSecurityAgent ```Unblock-File .\InstallSecurityAgent.ps1```
+1. Öppna Windows PowerShell som administratör. 
+1. Lägg till behörigheter som körs i InstallSecurityAgent-skriptet genom att köra:<br>
+    ```
+    Unblock-File .\InstallSecurityAgent.ps1
+    ```
     
-        och kör:
+    kör sedan:
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
@@ -68,32 +67,32 @@ Om du vill installera säkerhetsagenten, gör du följande:
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
     ```
     
-    Se [hur du konfigurerar autentisering](concept-security-agent-authentication-methods.md) för mer information om autentiseringsparametrar.
+    Mer information om autentiseringsmetoder finns i [så här konfigurerar du autentisering](concept-security-agent-authentication-methods.md).
 
-Skriptet gör följande:
+Det här skriptet utför följande åtgärder:
 
 - Installerar nödvändiga komponenter.
 
-- Lägger till en Serviceanvändare (med interaktiv inloggning inaktiverad).
+- Lägger till en tjänst användare (med interaktiv inloggning inaktive rad).
 
-- Installerar agent som en **systemtjänsten**.
+- Installerar agenten som en **system tjänst**.
 
-- Konfigurerar agenten med de angivna autentiseringsparametrar.
+- Konfigurerar agenten med de angivna autentiseringsinställningarna.
 
 
-Mer hjälp kan du använda kommandot Get-Help i PowerShell <br>Get-Help exempel:  
+Om du behöver ytterligare hjälp använder du kommandot Get-Help i PowerShell <br>Get – hjälp exempel:  
     ```Get-Help .\InstallSecurityAgent.ps1```
 
-### <a name="verify-deployment-status"></a>Kontrollera status för distribution
+### <a name="verify-deployment-status"></a>Verifiera distributions status
 
-- Kontrollera agentstatus för distributionen genom att köra:<br>
+- Kontrol lera agent distributionens status genom att köra:<br>
     ```sc.exe query "ASC IoT Agent"```
 
 ### <a name="uninstall-the-agent"></a>Avinstallera agenten
 
-Avinstallera agenten:
+Så här avinstallerar du agenten:
 
-1. Kör följande PowerShell-skript med den **-läge** parameteruppsättning till **avinstallera**.  
+1. Kör följande PowerShell-skript med parametern **-mode** inställd på **Uninstall**.  
 
     ```
     .\InstallSecurityAgent.ps1 -Uninstall
@@ -101,11 +100,11 @@ Avinstallera agenten:
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om agenten inte kan starta, aktivera loggning (loggning är *av* som standard) vill veta mer.
+Om agenten inte kan starta aktiverar du loggning (loggning är inaktiverat som standard) för att få mer information.
 
-Aktivera loggning:
+Så här aktiverar du loggning:
 
-1. Öppna konfigurationsfilen (General.config) för redigering med en standardfil-redigerare.
+1. Öppna konfigurations filen (allmän. config) för redigering med en standard fil redigerare.
 
 1. Redigera följande värden:
 
@@ -117,9 +116,9 @@ Aktivera loggning:
    ```
 
     > [!NOTE]
-    > Vi rekommenderar att aktivera loggning **av** när felsökningen har slutförts. Lämna loggning **på** ökar logga användning av storlek och data. 
+    > Vi rekommenderar att du **inaktiverar utloggning när** fel sökningen har slutförts. **Om** du lämnar loggning ökar logg filens storlek och data användningen. 
 
-1. Starta om agenten genom att köra följande PowerShell-kommandoraden:
+1. Starta om agenten genom att köra följande PowerShell-eller kommando rad:
 
     **PowerShell**
      ```
@@ -134,14 +133,14 @@ Aktivera loggning:
      sc.exe start "ASC IoT Agent" 
      ```
 
-1. Mer information om felet finns i loggfilen.
+1. Granska logg filen om du vill ha mer information om felen.
 
-   Plats för loggfil: `%WinDir%/System32/IoTAgentLog.log`
+   Plats för loggfil:`%WinDir%/System32/IoTAgentLog.log`
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läsa ASC för IoT-tjänsten [översikt](overview.md)
-- Läs mer om ASC för IoT [arkitektur](architecture.md)
-- Aktivera den [service](quickstart-onboard-iot-hub.md)
-- Läs den [vanliga frågor och svar](resources-frequently-asked-questions.md)
+- Läs [översikten över](overview.md) Azure Security Center för IoT-tjänsten
+- Läs mer om Azure Security Center för IoT- [arkitektur](architecture.md)
+- Aktivera [tjänsten](quickstart-onboard-iot-hub.md)
+- Läs [vanliga frågor och svar](resources-frequently-asked-questions.md)
 - Förstå [aviseringar](concept-security-alerts.md)

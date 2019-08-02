@@ -5,13 +5,13 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1bfa7104425b5013f9cdf36ff3c1dd88107d3ec7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 08/01/2019
+ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467864"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717562"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionering i Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Följande är en lämplig vägledning för att välja en partitionsnyckel:
 
 * En enda logisk partition har en övre gräns på 10 GB lagrings utrymme.  
 
-* Azure Cosmos-behållare har ett lägsta data flöde på 400 enheter för programbegäran per sekund (RU/s). Begär anden till samma partitionsnyckel får inte överskrida det data flöde som har allokerats till en partition. Om begär Anden överskrider det allokerade data flödet är begär Anden avgiftsbelagda. Det är därför viktigt att välja en partitionsnyckel som inte resulterar i "aktiva punkter" i ditt program.
+* Azure Cosmos-behållare har ett lägsta data flöde på 400 enheter för programbegäran per sekund (RU/s). När data flödet har allokerats i en databas är lägsta ru: er per behållare 100 enheter för programbegäran per sekund (RU/s). Begär anden till samma partitionsnyckel får inte överskrida det data flöde som har allokerats till en partition. Om begär Anden överskrider det allokerade data flödet är begär Anden avgiftsbelagda. Det är därför viktigt att välja en partitionsnyckel som inte resulterar i "aktiva punkter" i ditt program.
 
 * Välj en partitionsnyckel som har ett brett utbud av värden och åtkomst mönster som är jämnt fördelade över logiska partitioner. Detta hjälper till att sprida data och aktiviteten i din behållare över en uppsättning logiska partitioner, så att resurser för data lagring och data flöde kan distribueras mellan de logiska partitionerna.
 

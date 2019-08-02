@@ -2,23 +2,23 @@
 title: Redigera gruppinformation – Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du redigerar din grupps information med hjälp av Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248840"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561879"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Redigera gruppinformation med hjälp av Azure Active Directory
 
@@ -39,7 +39,7 @@ Med Azure Active Directory (Azure AD) kan redigera du inställningarna för en g
 
 4. Välj gruppen som **MDM princip – västra**, och välj sedan **egenskaper** från den **hantera** området.
 
-    ![Översikt översiktssidan med information som är markerat och medlemmen alternativet](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Sidan grupp översikt med medlems alternativ och information markerad](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Uppdatera den **allmänna inställningar** information efter behov, inklusive:
 
@@ -51,7 +51,7 @@ Med Azure Active Directory (Azure AD) kan redigera du inställningarna för en g
 
     - **Typ av grupp.** Du kan inte ändra typ av grupp när det har skapats. Ändra den **grupptyp**, måste du ta bort gruppen och skapa en ny.
     
-    - **Typ av medlemskap.** Ändra medlemskap. Mer information om de olika typerna av tillgängliga medlemskap finns [så här: Skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory-portalen](active-directory-groups-create-azure-portal.md).
+    - **Typ av medlemskap.** Ändra medlemskap. Mer information om de olika tillgängliga medlemskaps typerna finns i [How to: Skapa en grundläggande grupp och Lägg till medlemmar med hjälp av](active-directory-groups-create-azure-portal.md)Azure Active Directory portalen.
     
     - **Objekt-ID.** Du kan inte ändra objekt-ID, men du kan kopiera och använda det i din PowerShell-kommandon för gruppen. Mer information om hur du använder PowerShell-cmdlets finns i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

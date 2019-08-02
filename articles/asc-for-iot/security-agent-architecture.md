@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för IoT-agenten Säkerhetsarkitektur förhandsversion | Microsoft Docs
-description: Förstå security agent-arkitektur för agenter som används i Azure Security Center för IoT-tjänsten.
+title: Förstå Azure Security Center för IoT Security Agent-arkitektur | Microsoft Docs
+description: Förstå säkerhets agent arkitekturen för de agenter som används i Azure Security Center för IoT-tjänsten.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,58 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f4ca9a2689ab9e09b4ebff903e757f5c352b556
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 998aeab197931a75579fc39b28e3a248b85fc57b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616568"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596902"
 ---
-# <a name="security-agent-reference-architecture"></a>Referensarkitektur för Security-agenten
+# <a name="security-agent-reference-architecture"></a>Referens arkitektur för säkerhets agent
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Security Center for IoT tillhandahåller referens arkitektur för säkerhets agenter som loggar, bearbetar, sammanställer och skickar säkerhets data via IoT Hub.
 
+Säkerhets agenter är utformade för att fungera i en begränsad IoT-miljö och är mycket anpassningsbara utifrån de värden som de ger jämfört med de resurser de använder.
 
-Azure Security Center (ASC) för IoT innehåller Referensarkitektur för säkerhetsagenter som loggar in, bearbeta, sammanställa och skicka säkerhetsdata via IoT hub.
+Säkerhets agenter har stöd för följande funktioner:
 
-Security agenter är utformade att fungera i en begränsad IoT-miljö och är mycket anpassningsbara när det gäller värden som de tillhandahåller jämfört med de resurser de använder.
+- Samla in rå säkerhets händelser från det underliggande operativ systemet (Linux, Windows). Mer information om tillgängliga säkerhets data insamlare finns [Azure Security Center för IoT agent-konfiguration](how-to-agent-configuration.md).
 
-Security agenter stöd för följande funktioner:
+- Samla in rå säkerhets händelser i meddelanden som skickas via IoT Hub.
 
-- Samla in råa säkerhetshändelser från det underliggande operativsystemet (Linux, Windows). Läs mer om tillgängliga säkerhetsuppdateringar datainsamlare i [ASC för IoT-agentkonfiguration](how-to-agent-configuration.md).
+- Autentisera med befintlig enhets identitet eller en särskild modul identitet. Mer information finns i [autentiseringsmetoder för säkerhets agenter](concept-security-agent-authentication-methods.md) .
 
-- Aggregera raw säkerhetshändelser i meddelanden som skickas via IoT hub.
+- Fjärrkonfigurera genom att använda **azureiotsecurity** -modulen, dubbla. Mer information finns i [Konfigurera ett Azure Security Center för IoT](how-to-agent-configuration.md)-agenten.
 
-- Autentisera med befintliga enhetsidentitet och en dedikerad modulen identitet. Se [Security agent autentiseringsmetoder](concept-security-agent-authentication-methods.md) vill veta mer.
+Azure Security Center för IoT-säkerhetsagenter utvecklas som projekt med öppen källkod och är tillgängliga från GitHub: 
 
-- Konfigurera via en fjärranslutning med hjälp av den **azureiotsecurity** modultvilling. Mer information finns i [konfigurera en ASC för IoT-agenten](how-to-agent-configuration.md).
+- [Azure Security Center för IoT C-baserad agent](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [Azure Security Center för IoT C#-baserad agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
-ASC för IoT-säkerhet agenter har utvecklats som projekt för öppen källkod och är tillgängliga från GitHub: 
+## <a name="agent-supported-platforms"></a>Plattformar som stöds
 
-- [ASC för IoT-C-baserad agent](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
-- [ASC för IoT C#-baserad agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
+Azure Security Center for IoT erbjuder olika installations agenter för 32-och 64-bitars fönster, och samma för 32-och 64-bitars Linux. Kontrol lera att du har rätt agent installations program för var och en av dina enheter enligt följande tabell:
 
-## <a name="agent-supported-platforms"></a>Agent som stöds plattformar
-
-ASC för IoT erbjuder olika installer agenter för 32-bitars och 64-bitars Windows och likadan ut för 32-bitars och 64-bitars Linux. Kontrollera att du har rätt agentinstallationsprogrammet för var och en av dina enheter enligt följande tabell:
-
-| 32- eller 64-bitars | Linux | Windows |    Information|
+| Arkitektur | Linux | Windows |    Information|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32-bitars  | C  | C#  ||
-| 64-bitars  | C#eller C           | C#      | Använda C-agenten för enheter med minimal resurser|
+| 32  | C  | C#  ||
+| 64  | C#eller C           | C#      | Vi rekommenderar att du använder C-agenten för enheter med mer begränsade eller minimala enhets resurser.|
+|
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om ASC för IoT security agent-arkitekturen och de tillgängliga installationsprogram.
+I den här artikeln har du lärt dig mer om Azure Security Center för IoT Security Agent-arkitekturen och de tillgängliga installations program.
 
-Om du vill fortsätta att komma igång med ASC för IoT-distributionen, Använd följande artiklar:
+Använd följande artiklar om du vill fortsätta att komma igång med Azure Security Center för IoT-distribution:
 
-- Förstå [Security agent autentiseringsmetoder](concept-security-agent-authentication-methods.md)
-- Välj och distribuera en [security-agenten](how-to-deploy-agent.md)
-- Granska ASC för IoT [tjänsten krav](service-prerequisites.md)
-- Lär dig hur du [aktivera ASC för IoT-tjänsten i din IoT-hubb](quickstart-onboard-iot-hub.md)
-- Mer information om tjänsten från den [ASC för IoT vanliga frågor och svar](resources-frequently-asked-questions.md)
+- Förstå [autentiseringsmetoder för säkerhets agenter](concept-security-agent-authentication-methods.md)
+- Välj och distribuera en [säkerhets agent](how-to-deploy-agent.md)
+- Granska förutsättningarna för Azure Security Center för IoT [-tjänster](service-prerequisites.md)
+- Lär dig hur du [aktiverar Azure Security Center för IoT-tjänsten i din IoT Hub](quickstart-onboard-iot-hub.md)
+- Läs mer om tjänsten i [vanliga frågor och svar om Azure Security Center for IoT](resources-frequently-asked-questions.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 01247dfc0046ef722d70fe48f7ab8ee63f685962
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0236491f9ebc8e3ecf7df8b74db4fd5ff441c7f8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153555"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677444"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Skapa och etablera en simulerad TPM-Edge-enhet på Windows
 
@@ -46,7 +46,7 @@ När du skapar en registrering i DPS har möjlighet att deklarera en **starttill
 
 Välj den SDK-språk som du vill använda för att skapa den simulerade enheten och följ stegen förrän du har skapat den enskilda registreringen.
 
-När du skapar den enskilda registreringen, Välj **aktivera** att deklarera att den simulerade TPM-enheten på utvecklingsdatorn Windows är en **IoT Edge-enhet**.
+När du skapar enskilda registreringar väljer du **Sant** för att deklarera att den SIMULERAde TPM-enheten på Windows Development-datorn är en **IoT Edge enhet**.
 
 Simulerade enheter och guider för enskild registrering:
 
@@ -66,9 +66,9 @@ IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter kö
 
 Följ anvisningarna för att installera IoT Edge-körningen på den enhet som kör den simulerade TPM i föregående avsnitt. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering.
 
-Vet DPS **ID-omfång** och **registrerings-ID** innan du installerar IoT Edge på din enhet.
+Känner till ditt DPS **-ID-omfång** och enhets **registrerings-ID: t** innan du installerar IoT Edge på enheten.
 
-[Installera och automatiskt etablera IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Installera och etablera IoT Edge automatiskt](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Verifiera installationen
 

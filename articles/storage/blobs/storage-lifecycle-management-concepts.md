@@ -1,20 +1,19 @@
 ---
 title: Hantera Azure Storage livs cykeln
 description: Lär dig hur du skapar policy regler för livs cykeln för att överföra ålders data från frekvent till låg frekvent lagring och Arkiv lag ring.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 6902bf73707dc749da76cd32fe48911fcc88ba1e
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.topic: conceptual
+ms.reviewer: yzheng
+ms.openlocfilehash: 77ed643afaf5e69f41224af68f5e9f8a93fcace5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305712"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722083"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -29,6 +28,8 @@ Med policyn för livs cykel hantering kan du:
 
 Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna i livs cykeln, men bara ibland efter två veckor. Utöver den första månaden kommer data uppsättningen sällan att användas. I det här scenariot är frekvent lagring bäst i de tidiga faserna. Låg frekvent lagring är lämplig för tillfällig åtkomst. Arkiv lag ring är det bästa alternativet på nivån efter att data har funnits under en månad. Genom att justera lagrings nivåer avseende ålder på data kan du utforma de billigaste lagrings alternativen för dina behov. För att uppnå den här över gången är policy regler för livs cykel hantering tillgängliga för att flytta ålders data till låg frekventa nivåer.
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## <a name="storage-account-support"></a>Stöd för lagrings konto
 
 Policyn för livs cykel hantering är tillgänglig med Generell användning v2-konton (GPv2), Blob Storage-konton och Premium Block Blob Storage-konton. I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).  
@@ -39,7 +40,7 @@ Funktionen för livs cykel hantering är kostnads fri. Kunderna debiteras den va
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Funktionen för livs cykel hantering är tillgänglig i alla globala Azure-och Azure Government regioner.
+Funktionen för livs cykel hantering är tillgänglig i alla Azure-regioner.
 
 ## <a name="add-or-remove-a-policy"></a>Lägga till eller ta bort en princip
 
@@ -221,13 +222,13 @@ En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
 En princip är en samling regler:
 
-| Parameternamn | Parameter typ | Anteckningar |
+| Parameternamn | Parametertyp | Anteckningar |
 |----------------|----------------|-------|
 | `rules`        | En matris med regel objekt | Minst en regel krävs i en princip. Du kan definiera upp till 100 regler i en princip.|
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parameter typ | Anteckningar | Krävs |
+| Parameternamn | Parametertyp | Anteckningar | Obligatorisk |
 |----------------|----------------|-------|----------|
 | `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | Sant |
 | `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | False | 
@@ -281,7 +282,7 @@ Filtrerar begränsnings regel åtgärder till en delmängd av blobbar i lagrings
 
 Filtren inkluderar:
 
-| Filter namn | Filter typ | Anteckningar | Krävs |
+| Filter namn | Filtertyp | Anteckningar | Obligatorisk |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob`. | Ja |
 | prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är `container1/foo`prefixMatch. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Nej |
@@ -296,7 +297,7 @@ Livs cykel hantering stöder skiktning och borttagning av blobbar och borttagnin
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Stöd för blobbar på frekvent nivå         | Stöds inte |
 | tierToArchive | Stöd för blobbar på frekvent eller låg frekvent nivå | Stöds inte |
-| delete        | Stöds                                   | Stöds     |
+| radera        | Stöds                                   | Stöds     |
 
 >[!NOTE]
 >Om du definierar mer än en åtgärd på samma BLOB, tillämpar livs cykel hanteringen den minst dyra åtgärden på blobben. Till exempel är åtgärden `delete` billigare än åtgärd. `tierToArchive` Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool`.

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 587d8040039080e15c61292279c5e5637d296b08
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351342"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639083"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Distribuera python till Azure Functions med Visual Studio Code
 
@@ -253,7 +253,7 @@ I de här stegen använder du tillägget Functions för att skapa en Function-ap
 1. Tillägget utför följande åtgärder, som du kan studera i Visual Studio Code-popup-meddelanden och **utdatafönstret** (processen tar några minuter):
 
     - Skapa en resurs grupp med det namn du angav (tar bort bindestreck).
-    - I den resurs gruppen skapar du lagrings kontot, värd planen och Function-appen. Som standard skapas en [förbruknings plan](functions-scale.md#consumption-plan) . Om du vill köra dina funktioner i en dedikerad plan måste du [aktivera publicering med avancerade alternativ](functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options)för att skapa.
+    - I den resurs gruppen skapar du lagrings kontot, värd planen och Function-appen. Som standard skapas en [förbruknings plan](functions-scale.md#consumption-plan) . Om du vill köra dina funktioner i en dedikerad plan måste du [aktivera publicering med avancerade alternativ](functions-develop-vs-code.md)för att skapa.
     - Distribuera din kod till Function-appen.
 
     **Azure: Funktions** Utforskaren visar också förloppet:

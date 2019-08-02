@@ -1,7 +1,7 @@
 ---
 title: Registrera ditt program – Custom Decision Service
 titlesuffix: Azure Cognitive Services
-description: En stegvisa anvisningar för hur du registrerar en ny app med Azure Custom Decision Service.
+description: En steg-för-steg-guide om hur du registrerar en ny app med Azure Custom Decision Service.
 services: cognitive-services
 author: slivkins
 manager: nitinme
@@ -11,33 +11,34 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
 ms.reviewer: marcozo
-ms.openlocfilehash: c56aef180f5e16d2ec1931caabe04295ef288ca9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a8e4e91e768e3ad28ea9ff88c18515db4a40323
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60509785"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704556"
 ---
 # <a name="register-your-application"></a>Registrera ditt program
 
-För att använda Custom Decision Service för ditt program måste du registrera den på portalen. Den här artikeln förklarar hur.
+Om du vill använda Custom Decision Service för ditt program kan du registrera det på portalen. I den här artikeln förklaras hur.
 
-1. Gå till den [förstasida](https://portal.ds.microsoft.com/) av Custom Decision Service. I menyfliksområdet klickar du på **Mina Portal**, som är markerade i bild:
+1. Gå till den [första sidan](https://portal.ds.microsoft.com/) i Custom Decision service. I menyfliksområdet klickar du på **min Portal**som marker ATS i bilden:
 
     ![Min Portal](./media/portal.png)
 
-    Om du inte redan är inloggad på portalen uppmanas du att logga in med ditt [microsoftkonto](https://account.microsoft.com/account). När du har loggat in visas på portalen ditt Microsoft-konto i det övre högra hörnet på sidan.
+    Om du inte redan har loggat in uppmanas du att logga in med din [Microsoft-konto](https://account.microsoft.com/account)i portalen. När du har loggat in visas Microsoft-konto i det övre högra hörnet på sidan.
 
-2. Registrera ditt program genom att klicka på den **ny App** knappen.
+2. Registrera ditt program genom att klicka på knappen **ny app** .
 
-3. I dialogrutan väljer du ett App-ID för ditt program. Custom Decision Service kräver ett unikt ID för varje program. Om någon annan har redan detta ID, tillfrågas du kan välja en annan enhet.
+3. I dialog rutan väljer du ett app-ID för programmet. Custom Decision Service kräver ett unikt ID för varje program. Om någon annan redan har tagit detta ID ber systemet dig att välja ett annat.
 
-4. Ange en uppsättning API: et för åtgärden. Den här inställningen är en RSS- eller Atom-feed som kommunicerar material för ditt program till Custom Decision Service. Ange ett namn för flödet och ange URL: en som de har hämtats. Om du vill göra det här steget senare klickar du på den **Feeds** knappen och klicka sedan på den **nytt flöde** knappen. Ett exempel som skapar en RSS-feed beskrivs senare.
+4. Ange ett API för åtgärds uppsättning. Den här inställningen är en RSS-eller Atom-feed som förmedlar det tillgängliga innehållet för ditt program att Custom Decision Service. Ange ett namn för feeden och ange den URL som den betjänas från. Om du vill göra det senare klickar du på feeds-knappen och sedan på knappen **ny feed** . Ett exempel som skapar en RSS-feed beskrivs senare.
 
-5. Om du vill registrera ditt program, Välj den **anpassad App** kryssrutan i det nedre vänstra hörnet. Ange en [anslutningssträngen](../../storage/common/storage-configure-connection-string.md) för Azure storage-konto där dina programdata loggas. Mer information om hur du skapar ett lagringskonto finns i [skapa, hantera eller ta bort ett lagringskonto](../../storage/common/storage-create-storage-account.md).
+5. Registrera ditt program genom att markera kryss rutan **anpassad app** i det nedre vänstra hörnet. Ange en [anslutnings sträng](../../storage/common/storage-configure-connection-string.md) för det Azure Storage-konto där dina program data loggas. Mer information om hur du skapar ett lagrings konto finns i [skapa, hantera eller ta bort ett lagrings konto](../../storage/common/storage-create-storage-account.md).
 
 ### <a name="next-steps"></a>Nästa steg
 
 * Kom igång med att optimera [en webbsida](custom-decision-service-get-started-browser.md) eller [en smartphone-app](custom-decision-service-get-started-app.md).
-* Gå igenom en [självstudien](custom-decision-service-tutorial-news.md) för en mer ingående exempel.
+* Arbeta i en [självstudie](custom-decision-service-tutorial-news.md) för ett mer djupgående exempel.
 * Mer information om de tillhandahållna funktionerna finns i [API-referensen](custom-decision-service-api-reference.md).

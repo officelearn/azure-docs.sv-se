@@ -1,27 +1,27 @@
 ---
-title: Registrera din organisation – Azure Active Directory | Microsoft Docs
+title: Registrera dig för din organisation – Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du registrerar dig din organisation att använda Azure och Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb306e1ecbbdf2142d88b837b9750bbd2166cfda
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60246905"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561622"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Registrera din organisation att använda Azure Active Directory
-Registrera dig för Azure Active Directory (AD Azure) eller en ny Microsoft Azure-prenumeration med hjälp av antingen:
+Registrera dig för Azure Active Directory (Azure AD) eller en ny Microsoft Azure prenumeration med hjälp av antingen:
 
 - **Microsoft-konto.** Använd ditt personligt Microsoft-konto för att få åtkomst till Azure och alla kundorienterade Microsoft-produkter och molntjänster, som Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE och Office 365. Registrera dig för en Outlook.com-postlåda automatiskt skapar ett Microsoft-konto. Mer information finns i [översikt över Microsoft-konto](https://account.microsoft.com/account).
 

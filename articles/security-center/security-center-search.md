@@ -1,6 +1,6 @@
 ---
-title: Sök i Azure Security Center | Microsoft Docs
-description: Lär dig hur Azure Security Center använder Azure Monitor-loggar search för att hämta och analysera dina säkerhetsdata.
+title: Azure Security Center Sök | Microsoft Docs
+description: Lär dig hur Azure Security Center använder Azure Monitor loggar Sök för att hämta och analysera säkerhets data.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2025444aa2fd83e05fdff97ea640ceefaa04
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574157"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662917"
 ---
-# <a name="azure-security-center-search"></a>Sök i Azure Security Center
+# <a name="azure-security-center-search-retired"></a>Azure Security Center Sök (dras tillbaka)
 
 > [!NOTE]
-> Instrumentpanelen för Security Center Search tas ur bruk 31 juli 2019. Mer information och alternativa tjänster finns i [tillbakadragning av Security Center-funktioner (juli 2019)](security-center-features-retirement-july2019.md#menu_search).
+> Security Center Sök instrument panelen har dragits tillbaka den 31 juli 2019. Mer information och alternativa tjänster finns i [dra tillbaka Security Center funktioner (2019 juli)](security-center-features-retirement-july2019.md#menu_search).
 
-Azure Security Center använder [Azure Monitor loggar search](../log-analytics/log-analytics-log-searches.md) att hämta och analysera dina säkerhetsdata. Azure Monitor-loggar tillhandahåller en frågesyntax för att snabbt hämta och konsolidera data. Du kan använda Azure Monitor-loggar sökning för att skapa frågor och analysera insamlade data från Security Center.
+Azure Security Center använder [Azure Monitor loggar Sök](../log-analytics/log-analytics-log-searches.md) för att hämta och analysera säkerhets data. Azure Monitor-loggar innehåller ett frågespråk för att snabbt hämta och konsolidera data. Från Security Center kan du utnyttja Azure Monitor loggar Sök för att skapa frågor och analysera insamlade data.
 
-Search är tillgängliga i både den kostnadsfria nivån och standardnivån i Security Center.  Data som är tillgängliga i dina sökningar i loggen är beroende av den nivå som tillämpas på din arbetsyta.  Se de Säkerhetscenter [prissättningssidan](../security-center/security-center-pricing.md) för mer information.
+Sök är tillgängligt på både den kostnads fria nivån och standard nivån för Security Center.  Vilka data som är tillgängliga i logg sökningen beror på vilken nivå nivå som används på din arbets yta.  Mer information finns på sidan med Security Center [prissättning](../security-center/security-center-pricing.md) .
 
 
 > [!NOTE]
-> Security Center sparas inte säkerhetsdata för en arbetsyta under den kostnadsfria nivån. Du kan skicka en mängd loggar till en arbetsyta under den kostnadsfria nivån och söka på dessa data men sökresultaten innehåller inte data från Security Center. Security Center sparar bara data till en arbetsyta under Standard-nivån.
+> Security Center sparar inte säkerhets data för en arbets yta under den kostnads fria nivån. Du kan skicka flera olika loggar till en arbets yta under den kostnads fria nivån och söka efter dessa data, men Sök resultaten omfattar inte data från Security Center. Security Center sparar bara data till en arbets yta under standard nivån.
 >
 >
 
-## <a name="access-search"></a>Åtkomst-sökning
-1. Huvudmenyn i Security Center, Välj **Search**.
+## <a name="access-search"></a>Åtkomsts ökning
+1. Under Security Center huvud menyn väljer du **Sök**.
 
-   ![Välj loggsökning][1]
+   ![Välj loggs ökning][1]
 
-2. Security Center visar en lista över alla arbetsytor under dina Azure-prenumerationer. Välj en arbetsyta. (Om du har endast en arbetsyta, visas inte den här Väljaren.)
+2. Security Center visar en lista över alla arbets ytor under dina Azure-prenumerationer. Välj en arbetsyta. (Om du bara har en arbets yta visas inte den här arbets ytans väljare.)
 
    ![Välj en arbetsyta][2]
 
-3. **Loggsöknings-** öppnas. Om du vill fråga efter mer data under den valda arbetsytan, anger du den här exempelfråga:
+3. **Loggs ökningen** öppnas. Om du vill fråga efter mer data under den valda arbets ytan anger du den här exempel frågan:
 
-   SecurityEvent | Om händelse-ID == 4625 | Sammanfatta antal() efter TargetAccount
+   SecurityEvent | där EventID = = 4625 | sammanfatta antal () efter TargetAccount
 
-   Resultatet visas alla konton som inte gick att logga in (händelse 4625).
+   Resultatet visar alla konton som inte kunde logga in (händelse 4625).
 
    ![Sökresultat][3]
 
-Se [Kusto-frågespråket](../log-analytics/log-analytics-search-reference.md) för mer information om hur du frågar efter data under den valda arbetsytan.
+Mer information om hur du frågar efter data på den valda arbets ytan finns i [Kusto frågespråk](../log-analytics/log-analytics-search-reference.md) .
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln lärde du dig att komma åt Sök i Security Center. Security Center använder search som Azure Monitor-loggar. Mer information om Azure Monitor-loggar search finns:
+I den här artikeln har du lärt dig hur du kommer åt sökning i Security Center. Security Center använder Azure Monitor loggar Sök. Mer information om Sök i Azure Monitor loggar finns i:
 
-- [Vad är Azure Monitor-loggar?](../log-analytics/log-analytics-overview.md) – Översikt över Azure Monitor-loggar
-- [Förstå log söker i Azure Monitor-loggar](../log-analytics/log-analytics-log-search-new.md) – beskriver hur du använder loggsökningar i Azure Monitor-loggar och tillhandahåller begrepp som du bör känna till innan du skapar en loggsökning
-- [Hitta data med hjälp av sökningar i loggen i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md) – självstudie om hur du använder loggsökning
-- [Kusto-sökreferens](../log-analytics/log-analytics-search-reference.md) – beskriver frågespråket i Azure Monitor-loggar
+- [Vad är Azure Monitor loggar?](../log-analytics/log-analytics-overview.md) – Översikt över Azure Monitor loggar
+- [Förstå loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-search-new.md) – beskriver hur loggs ökningar används i Azure Monitor loggar och ger begrepp som bör förstås innan en loggs ökning skapas
+- [Hitta data med loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md) – självstudier om att använda loggs ökning
+- [Sök referens för Kusto](../log-analytics/log-analytics-search-reference.md) – beskriver frågespråket i Azure Monitor loggar
 
 I följande avsnitt kan du lära dig mer om Security Center:
 
-- [Översikt över Security Center](security-center-intro.md) – beskriver Security Center viktiga funktioner
+- [Översikt över Security Center](security-center-intro.md) – beskriver viktiga funktioner i Security Center
 
 <!--Image references-->
 [1]: ./media/security-center-search/search.png

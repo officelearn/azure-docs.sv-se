@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9ffd5a173bcfae41e08babbadae1e67047ed452
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60203422"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725975"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiera data från ServiceNow med Azure Data Factory
 
@@ -41,7 +41,7 @@ Följande egenskaper har stöd för ServiceNow länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **ServiceNow** | Ja |
+| type | Egenskapen Type måste anges till: **ServiceNow** | Ja |
 | endpoint | Slutpunkten för ServiceNow-server (`http://<instance>.service-now.com`).  | Ja |
 | authenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **Basic**, **OAuth2** | Ja |
 | username | Användarnamnet som används för att ansluta till ServiceNow-servern för Basic och OAuth2-autentisering.  | Ja |
@@ -80,7 +80,7 @@ Kopiera data från ServiceNow genom att ange typegenskapen på datauppsättninge
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **ServiceNowObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **ServiceNowObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -90,11 +90,12 @@ Kopiera data från ServiceNow genom att ange typegenskapen på datauppsättninge
     "name": "ServiceNowDataset",
     "properties": {
         "type": "ServiceNowObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -109,7 +110,7 @@ Om du vill kopiera data från ServiceNow, ange typ av datakälla i kopieringsakt
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ServiceNowSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **ServiceNowSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Actual.alm_asset"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 Tänk på följande när du anger schemat och kolumnen för ServiceNow i fråga och **avser [prestandatips](#performance-tips) på Kopiera prestanda de**.
@@ -117,8 +118,8 @@ Tänk på följande när du anger schemat och kolumnen för ServiceNow i fråga 
 - **Schema:** ange scheman som `Actual` eller `Display` i ServiceNow-frågan, vilket du kan titta på det som parameter för `sysparm_display_value` som SANT eller FALSKT när du anropar [ServiceNow restful API: er](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Kolumn:** kolumnnamn för faktiska värden under `Actual` schemat är `[column name]_value`, och för visningsvärde under `Display` schemat är `[column name]_display_value`. Obs kolumnnamnet måste mappas till schemat som används i frågan.
 
-**Exempelfråga:** 
-`SELECT col_value FROM Actual.alm_asset` OR 
+**Exempel fråga:** 
+`SELECT col_value FROM Actual.alm_asset` ELLER 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Exempel:**

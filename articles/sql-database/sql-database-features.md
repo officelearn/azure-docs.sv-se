@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 5bdbd9bebfb819ae18de884a014c574e12c53ebf
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 3f991d90dfdd5d31d1a7cf7119356f40458e7614
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371706"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568232"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQL Server
 
@@ -89,9 +88,10 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](sql-database-json-features.md) | [Ja](sql-database-json-features.md) |
 | [Språk element](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta – se enskilda element |  Ja – se [skillnader i T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Ingen-se [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Ja. Endast till [SQL Server och SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) utan distribuerade transaktioner. |
+| [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) som läser från filer (CSV, Excel)| Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) som ett alternativ för CSV-format. | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) som ett alternativ för CSV-format. Spåra dessa förfrågningar på [feedback-objektet för hanterade instanser](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 | [Logg överföring](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](sql-database-business-continuity.md) | Inbyggt inbyggt som en del av processen för DMS-migrering. Inte tillgängligt som lösning för hög tillgänglighet, eftersom andra metoder för [hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas och vi inte rekommenderas att använda log-transport som ett alternativ. Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](sql-database-business-continuity.md). Inte tillgänglig som en mekanism för replikering mellan databaser – Använd sekundära repliker på [affärskritisk nivå](sql-database-service-tier-business-critical.md), [grupper för automatisk redundans](sql-database-auto-failover-group.md)eller [transaktionell replikering](sql-database-managed-instance-transactional-replication.md) som alternativ. |
 | [Inloggningar och användare](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Ja, men `CREATE` och `ALTER` inloggnings instruktioner erbjuder inte alla alternativ (inga Windows-och server nivå Azure Active Directory inloggningar). `EXECUTE AS LOGIN`stöds inte-Använd `EXECUTE AS USER` i stället.  | Ja, med vissa [skillnader](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Windows-inloggningar stöds inte och de bör ersättas med Azure Active Directory inloggningar. |
-| [Minimal loggning i Mass import](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nej | Nej |
+| [Minimal loggning i Mass import](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nej, endast fullständig återställnings modell stöds. | Nej, endast fullständig återställnings modell stöds. |
 | [Ändra system data](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Nej | Ja |
 | [OLE-automation](https://docs.microsoft.com/sql/database-engine/configure-windows/ole-automation-procedures-server-configuration-option) | Nej | Nej |
 | [Online index åtgärder](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Ja | Ja |
@@ -108,6 +108,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Predikat](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Ja | Ja |
 | [Fråga om aviseringar](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Nej | Ja |
 | [R-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Ja, i [offentlig för hands version](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Nej |
+| [Återställnings modeller](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | Endast fullständig återställning som garanterar hög tillgänglighet stöds. Enkla och Mass återställnings modeller är inte tillgängliga. | Endast fullständig återställning som garanterar hög tillgänglighet stöds. Enkla och Mass återställnings modeller är inte tillgängliga. | 
 | [Resurs styrning](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Nej | Ja |
 | [Restore-instruktioner](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Nej | Ja, med obligatoriska `FROM URL` alternativ för de säkerhets kopierings filer som placerats på Azure Blob Storage. Se [återställnings skillnader](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Återställ databasen från en säkerhets kopia](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Från automatiska säkerhets kopieringar – se [SQL Database återställning](sql-database-recovery-using-backups.md) | Från automatiska säkerhets kopieringar – se [SQL Database återställning](sql-database-recovery-using-backups.md) och fullständiga säkerhets kopior som finns på Azure Blob Storage – se [skillnader i säkerhets kopiering](sql-database-managed-instance-transact-sql-information.md#backup) |
@@ -148,6 +149,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [Automatiska redundansgrupper](sql-database-auto-failover-group.md) | Ja – alla tjänst nivåer förutom storskalig | Ja, i [offentlig för hands version](sql-database-auto-failover-group.md)|
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | Ja | Nej |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Ja | Ja |
+| Fil system åtkomst | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) för att komma åt och läsa in data från Azure Blob Storage som ett alternativ. | Nej. Använd [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) för att komma åt och läsa in data från Azure Blob Storage som ett alternativ. |
 | [Geo-återställning](sql-database-recovery-using-backups.md#geo-restore) | Ja – alla tjänst nivåer förutom storskalig | Ja – använder [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Skalnings arkitektur](sql-database-service-tier-hyperscale.md) | Ja | Nej |
 | [Långsiktig kvarhållning av säkerhets kopior – LTR](sql-database-long-term-retention.md) | Ja, Behåll automatiskt säkerhets kopieringar upp till 10 år. | Inte ännu. Använd `COPY_ONLY` [manuella säkerhets kopieringar](sql-database-managed-instance-transact-sql-information.md#backup) som en tillfällig lösning. |
@@ -167,7 +169,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [VNet](../virtual-network/virtual-networks-overview.md) | Delvis, den ger begränsad åtkomst med [VNet](sql-database-vnet-service-endpoint-rule-overview.md) -slutpunkter | Ja, den hanterade instansen matas in i kundens VNet. Se [undernät](sql-database-managed-instance-transact-sql-information.md#subnet) och [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
 
 ## <a name="tools"></a>Verktyg
-Azure SQL Database har stöd för olika data verktyg som kan hjälpa uou att hantera dina data.
+Azure SQL Database har stöd för olika data verktyg som kan hjälpa dig att hantera dina data.
 
 | **SQL-verktyg** | **Enkla databaser och elastiska pooler** | **Hanterade instanser** |
 | --- | --- | --- |

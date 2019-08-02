@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516873"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557364"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -37,7 +37,7 @@ Innan du kan använda en Linux Data Science-dator, måste du ha följande:
 * En **Azure-prenumeration**. Om du inte redan har en, se [skapa ditt kostnadsfria Azure-konto i dag](https://azure.microsoft.com/free/).
 * En [ **datavetenskap för Linux VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Mer information om att etablera den här virtuella datorn finns i [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [X2Go](https://wiki.x2go.org/doku.php) installerat på datorn och öppnas en XFCE-session. Information om hur du installerar och konfigurerar en **X2Go klienten**, se [installera och konfigurera X2Go klienten](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-* För en rullande jämnare upplevelse, växla flaggan gfx.xrender.enabled i om: config i webbläsaren FireFox för virtuella datorer. [Se mer här. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att växla *mousewheel.enable_pixel_scrolling* till False. [Instruktionerna här.](https://support.mozilla.org/en-US/questions/981140)
+* För en rullande jämnare upplevelse, växla flaggan gfx.xrender.enabled i om: config i webbläsaren FireFox för virtuella datorer. [Se mer här. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att växla *mousewheel.enable_pixel_scrolling* till False. [Instruktionerna här.](https://support.mozilla.org/questions/981140)
 * En **AzureML-konto**. Om du inte redan har en, registrera dig för ny tjänst när den [AzureML-startsidan](https://studio.azureml.net/). Det finns en kostnadsfri användning nivå hjälper dig att komma igång.
 
 ## <a name="download-the-spambase-dataset"></a>Hämta spambase datauppsättningen
@@ -180,10 +180,10 @@ Nu ska vi prova också en slumpmässig Skogsmodell. Slumpmässig skogar träna e
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Distribuera en modell i Azure Machine Learning studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) är en molnbaserad tjänst som gör det enkelt att skapa och distribuera modeller för förutsägelseanalys. En bra funktioner i Azure Machine Learning studio är förmågan att publicera alla R-funktion som en webbtjänst. Azure Machine Learning studio R-paket är det enkelt att göra direkt från våra R-session på DSVM distribution.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Distribuera en modell till Azure Machine Learning Studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) är en moln tjänst som gör det enkelt att bygga och distribuera förutsägelse analys modeller. En av de snygga funktionerna i Azure Machine Learning Studio är möjligheten att publicera alla R-funktioner som en webb tjänst. Med Azure Machine Learning Studio R-paketet kan du enkelt göra distributioner direkt från vår R-session på DSVM.
 
-Du måste logga in på Azure Machine Learning Studio om du vill distribuera beslut trädet koden i föregående avsnitt. Du behöver arbetsyte-ID och en Autentiseringstoken för att logga in. Du hittar de här värdena och initiera Azure Machine Learning-variabler med dem:
+Du måste logga in på Azure Machine Learning Studio om du vill distribuera beslut trädet koden i föregående avsnitt. Du behöver arbetsyte-ID och en Autentiseringstoken för att logga in. För att hitta dessa värden och initiera Azure Machine Learning variabler med dem:
 
 Välj **inställningar** i den vänstra menyn. Obs din **ARBETSYTE-ID**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -344,7 +344,7 @@ Flera exempelanteckningsböcker som är redan installerade på den virtuella dat
 >
 
 ## <a name="rattle"></a>Spännen
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (den R analytiska Verktyg att lära dig enkelt) är ett grafiskt R-verktyg för datautvinning. Den har ett intuitivt gränssnitt som gör det enkelt att läsa in, utforska, och omvandla data och skapa och utvärdera modeller.  Artikeln [Rattle: GUI Data Mining för R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) innehåller en genomgång som visar dess funktioner.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (den R analytiska Verktyg att lära dig enkelt) är ett grafiskt R-verktyg för datautvinning. Den har ett intuitivt gränssnitt som gör det enkelt att läsa in, utforska, och omvandla data och skapa och utvärdera modeller.  Artikeln [Rattle: Ett användar gränssnitt för Data utvinning](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) för R innehåller en genom gång som visar dess funktioner.
 
 Installera och starta spännen med följande kommandon:
 
@@ -423,7 +423,7 @@ En bra funktioner i spännen är förmågan att köra flera machine learning-met
 När du är klar att skapa modeller, väljer den **Log** fliken för att visa R-kod som körs av spännen under sessionen. Du kan välja den **exportera** för att spara den.
 
 > [!NOTE]
-> Det finns en bugg i aktuella versionen av spännen. Om du vill ändra skriptet eller använda den för att upprepa steg senare, måste du infoga tecknet # framför *exportera den här loggen...*  texten i loggen.
+> Det finns en bugg i aktuella versionen av spännen. Om du vill ändra skriptet eller använda det för att upprepa stegen senare måste du infoga ett #-tecken framför *export loggen...* i logg filens text.
 >
 >
 

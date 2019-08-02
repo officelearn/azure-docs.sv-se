@@ -1,6 +1,6 @@
 ---
-title: Distribuera StorSimple Device Manager-tjänsten | Microsoft Docs
-description: Beskriver hur du skapar och tar bort StorSimple Device Manager-tjänsten i Azure-portalen och beskriver hur du hanterar Registreringsnyckeln för tjänsten.
+title: Distribuera StorSimple Enhetshanteraren-tjänsten | Microsoft Docs
+description: Förklarar hur du skapar och tar bort StorSimple-Enhetshanteraren tjänsten i Azure Portal och beskriver hur du hanterar tjänst registrerings nyckeln.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -12,43 +12,46 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9f6e5b606caa661429a3c4d4a53e2021d57730aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116966"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516681"
 ---
-# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuera StorSimple Device Manager-tjänsten för StorSimple Virtual Array
+# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för StorSimple Virtual Array
+
 ## <a name="overview"></a>Översikt
 
-StorSimple Device Manager-tjänsten körs i Microsoft Azure och ansluter till flera StorSimple-enheter. När du har skapat tjänsten kan du använda det för att hantera enheter i Microsoft Azure-portalen som körs i en webbläsare. På så sätt kan du övervaka alla enheter som är anslutna till StorSimple Device Manager-tjänsten från en gemensam, central plats, vilket minimerar administrativa arbetet.
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-Vanliga uppgifter som rör en StorSimple Device Manager-tjänsten är:
+Tjänsten StorSimple Enhetshanteraren körs i Microsoft Azure och ansluter till flera StorSimple-enheter. När du har skapat tjänsten kan du använda den för att hantera enheterna från Microsoft Azure-portalen som körs i en webbläsare. På så sätt kan du övervaka alla enheter som är anslutna till StorSimple Enhetshanteraren-tjänsten från en enda central plats, vilket minimerar administrations belastningen.
+
+Vanliga uppgifter som rör en StorSimple Enhetshanteraren tjänst är:
 
 * Skapa en tjänst
 * Ta bort en tjänst
 * Hämta nyckel för tjänstregistrering
-* Återskapa nyckel för tjänstregistrering
+* Återskapa tjänst registrerings nyckeln
 
-Den här självstudien beskrivs hur du utför alla föregående aktiviteter. Informationen i den här artikeln gäller bara för StorSimple Virtual Array. Mer information om StorSimple 8000-serien, går du till [distribuera en StorSimple Manager-tjänsten](storsimple-manage-service.md).
+I den här självstudien beskrivs hur du utför vart och ett av föregående uppgifter. Informationen i den här artikeln gäller endast virtuella StorSimple-matriser. Mer information om StorSimple 8000-serien finns i [distribuera en StorSimple Manager-tjänst](storsimple-manage-service.md).
 
 ## <a name="create-a-service"></a>Skapa en tjänst
 
-Om du vill skapa en tjänst, måste du ha:
+Om du vill skapa en tjänst måste du ha:
 
-* En prenumeration med ett Enterprise-avtal
-* Ett aktivt Microsoft Azure storage-konto
-* Faktureringsinformation som används för access management
+* En prenumeration med en Enterprise-avtal
+* Ett aktivt Microsoft Azure lagrings konto
+* Den fakturerings information som används för åtkomst hantering
 
-Du kan också välja att generera ett storage-konto när du har skapat tjänsten.
+Du kan också välja att generera ett lagrings konto när du skapar tjänsten.
 
-En enskild tjänst kan hantera flera enheter. Men kan inte en enhet omfatta flera tjänster. Ett stort företag kan ha flera instanser av tjänsten att arbeta med olika prenumerationer, organisationer eller även distribution platser.
+En enskild tjänst kan hantera flera enheter. En enhet kan dock inte omfatta flera tjänster. Ett stort företag kan ha flera tjänst instanser för att arbeta med olika prenumerationer, organisationer eller till och med distributions platser.
 
 > [!NOTE]
-> Du behöver separata instanser av StorSimple Device Manager-tjänsten för att hantera enheter i StorSimple 8000-serien och StorSimple Virtual Array.
+> Du behöver separata instanser av StorSimple Enhetshanteraren-tjänsten för att hantera StorSimple 8000-seriens enheter och StorSimple virtuella matriser.
 
 
 Utför följande steg för att skapa en tjänst.
@@ -57,69 +60,69 @@ Utför följande steg för att skapa en tjänst.
 
 ## <a name="delete-a-service"></a>Ta bort en tjänst
 
-Innan du tar bort en tjänst kan du kontrollera att inga anslutna enheter använder den. Om tjänsten används, inaktiverar du de anslutna enheterna. Åtgärden inaktivera Server anslutningen mellan enheten och tjänsten, men bevara enhetsdata i molnet.
+Innan du tar bort en tjänst ser du till att inga anslutna enheter använder den. Om tjänsten används inaktiverar du de anslutna enheterna. Åtgärden inaktivera kommer att påverka anslutningen mellan enheten och tjänsten, men behåll enhets data i molnet.
 
 > [!IMPORTANT]
-> När en tjänst har tagits bort, kan inte åtgärden ångras. Alla enheter som med hjälp av tjänsten måste vara fabriksåterställning innan den kan användas med en annan tjänst. I det här scenariot går lokala data på enheten, samt konfiguration, förlorade.
+> När en tjänst har tagits bort går det inte att ångra åtgärden. Alla enheter som använder tjänsten måste återställas fabriks återställning innan den kan användas med en annan tjänst. I det här scenariot går det inte att förlora lokala data på enheten, och konfigurationen.
  
 
 Utför följande steg för att ta bort en tjänst.
 
-#### <a name="to-delete-a-service"></a>Att ta bort en tjänst
+#### <a name="to-delete-a-service"></a>Ta bort en tjänst
 
-1. Gå till **Alla resurser**. Sök efter din StorSimple Device Manager-tjänsten. Välj den tjänst som du vill ta bort.
+1. Gå till **Alla resurser**. Sök efter din StorSimple Enhetshanteraren-tjänst. Välj den tjänst som du vill ta bort.
    
-    ![Välj tjänsten för att ta bort](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Gå till instrumentpanelen så det finns inga enheter är anslutna till tjänsten. Om det finns inga enheter registrerade med den här tjänsten kan visas du dessutom en Banderollmeddelande om att. Klicka på **Ta bort**.
+    ![Välj den tjänst som ska tas bort](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
+2. Gå till instrument panelen för tjänsten för att se till att det inte finns några enheter anslutna till tjänsten. Om det inte finns några enheter som är registrerade med den här tjänsten visas även ett informations meddelande för-resultatet. Klicka på **Ta bort**.
    
-    ![Ta bort tjänsten](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
+    ![Ta bort tjänst](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
-3. När du uppmanas att bekräfta klickar du på **Ja** i meddelande om bekräftelse. 
+3. När du uppmanas att bekräfta klickar du på **Ja** i bekräftelse meddelandet. 
    
-    ![Bekräfta borttagning av](./media/storsimple-virtual-array-manage-service/deleteservice4.png)
-4. Det kan ta några minuter för tjänsten som ska tas bort. När tjänsten har tagits bort, kommer du att meddelas.
+    ![Bekräfta borttagning av tjänst](./media/storsimple-virtual-array-manage-service/deleteservice4.png)
+4. Det kan ta några minuter för tjänsten att tas bort. När tjänsten har tagits bort kommer du att meddelas.
    
-    ![Lyckad borttagning av](./media/storsimple-virtual-array-manage-service/deleteservice6.png)
+    ![Lyckad borttagning av tjänst](./media/storsimple-virtual-array-manage-service/deleteservice6.png)
 
-I listan över tjänster kommer att uppdateras.
+Listan över tjänster kommer att uppdateras.
 
- ![Uppdaterade listan över tjänster](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
+ ![Uppdaterad lista över tjänster](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Hämta nyckel för tjänstregistrering
-När du har skapat en tjänst, kommer du behöva registrera din StorSimple-enhet med tjänsten. Om du vill registrera din första StorSimple-enhet, måste nyckeln för tjänstregistrering. För att registrera ytterligare enheter med en befintlig StorSimple-tjänst, behöver du både Registreringsnyckeln och tjänstdatakrypteringsnyckel (som genereras på den första enheten under registreringen). Läs mer om krypteringsnyckeln för tjänstdata [StorSimple-säkerhet](storsimple-security.md). Du kan hämta nyckel för tjänstregistrering genom att öppna den **nycklar** bladet för din tjänst.
+När du har skapat en tjänst måste du registrera din StorSimple-enhet med tjänsten. För att registrera din första StorSimple-enhet behöver du tjänst registrerings nyckeln. Om du vill registrera ytterligare enheter med en befintlig StorSimple-tjänst behöver du både registrerings nyckeln och krypterings nyckeln för tjänst data (som genereras på den första enheten under registreringen). Mer information om krypterings nyckeln för tjänst data finns i [StorSimple Security](storsimple-security.md). Du kan hämta registrerings nyckeln genom att gå till bladet **nycklar** för din tjänst.
 
-Utför följande steg för att hämta Registreringsnyckeln för tjänsten.
+Utför följande steg för att hämta tjänst registrerings nyckeln.
 
-#### <a name="to-get-the-service-registration-key"></a>Att hämta tjänstregistreringsnyckeln
-1. I den **StorSimple Device Manager** gå till bladet **Management &gt;**  **nycklar**.
+#### <a name="to-get-the-service-registration-key"></a>Hämta tjänst registrerings nyckeln
+1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt;**  **nycklar**.
    
    ![Bladet Nycklar](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. I den **nycklar** bladet en tjänstregistreringsnyckel visas. Kopiera Registreringsnyckeln med hjälp av kopieringsikonen. 
+2. I bladet **nycklar** visas en tjänst registrerings nyckel. Kopiera registrerings nyckeln med hjälp av kopierings ikonen. 
 
-Behåll nyckeln för tjänstregistrering på en säker plats. Du behöver den här nyckeln samt tjänstdatakrypteringsnyckel, att registrera ytterligare enheter med den här tjänsten. När du har fått nyckeln för tjänstregistrering, måste du konfigurera din enhet via Windows PowerShell för StorSimple-gränssnittet.
+Behåll tjänst registrerings nyckeln på en säker plats. Du behöver den här nyckeln, samt krypterings nyckeln för tjänst data, för att registrera ytterligare enheter med tjänsten. När du har hämtat tjänst registrerings nyckeln måste du konfigurera enheten via Windows PowerShell för StorSimple-gränssnittet.
 
-## <a name="regenerate-the-service-registration-key"></a>Återskapa nyckel för tjänstregistrering
-Du måste återskapa en nyckel för tjänstregistrering om du behöver utföra nyckelrotation eller om listan över tjänstadministratörer har ändrats. När du återskapar en nyckel används den nya nyckeln endast för att registrera följande enheter. De enheter som redan har registrerats påverkas inte av den här processen.
+## <a name="regenerate-the-service-registration-key"></a>Återskapa tjänst registrerings nyckeln
+Du måste återskapa en tjänst registrerings nyckel om du måste utföra nyckel rotation eller om listan över tjänst administratörer har ändrats. När du återskapar nyckeln används den nya nyckeln bara för att registrera efterföljande enheter. De enheter som redan har registrerats påverkas inte av den här processen.
 
-Utför följande steg för att återskapa en nyckel för tjänstregistrering.
+Utför följande steg för att återskapa en tjänst registrerings nyckel.
 
-#### <a name="to-regenerate-the-service-registration-key"></a>Återskapa nyckel för tjänstregistrering
-1. I den **StorSimple Device Manager** gå till bladet **Management &gt;**  **nycklar**.
+#### <a name="to-regenerate-the-service-registration-key"></a>Återskapa tjänst registrerings nyckeln
+1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt;**  **nycklar**.
    
    ![Bladet Nycklar](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. I den **nycklar** bladet klickar du på **återskapa**.
+2. Klicka på **Återskapa**på bladet **nycklar** .
    
-   ![Klicka på Återskapa](./media/storsimple-virtual-array-manage-service/getregkey5.png)
-3. I den **återskapa tjänstregistreringsnyckeln** bladet, granska åtgärden krävs när nycklarna har återskapats. Alla efterföljande enheter som registreras med den här tjänsten använder den nya Registreringsnyckeln. Klicka på **återskapa** att bekräfta. Du kommer att meddelas när registreringen är klar.
+   ![Klicka på återskapa](./media/storsimple-virtual-array-manage-service/getregkey5.png)
+3. I bladet **Återskapa tjänst registrerings nyckel** granskar du den åtgärd som krävs när nycklarna återskapas. Alla efterföljande enheter som är registrerade med den här tjänsten kommer att använda den nya registrerings nyckeln. Klicka på **Återskapa** för att bekräfta. Du får ett meddelande när registreringen är klar.
    
-   ![Bekräfta att återskapa nyckeln](./media/storsimple-virtual-array-manage-service/getregkey3.png)
-4. En ny nyckel för tjänstregistrering visas.
+   ![Bekräfta återskapande nyckel](./media/storsimple-virtual-array-manage-service/getregkey3.png)
+4. En ny tjänst registrerings nyckel kommer att visas.
    
-    ![Bekräfta att återskapa nyckeln](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Bekräfta återskapande nyckel](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
-   Kopiera den här nyckeln och spara den för att registrera nya enheter med den här tjänsten.
+   Kopiera den här nyckeln och spara den för att registrera nya enheter med tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [börjar](storsimple-virtual-array-deploy1-portal-prep.md) med en StorSimple Virtual Array.
-* Lär dig hur du [administrera din StorSimple-enhet](storsimple-ova-web-ui-admin.md).
+* Lär dig hur du [kommer igång](storsimple-virtual-array-deploy1-portal-prep.md) med en virtuell StorSimple-matris.
+* Lär dig hur du [administrerar din StorSimple-enhet](storsimple-ova-web-ui-admin.md).
 

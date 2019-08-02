@@ -1,18 +1,19 @@
 ---
 title: Azure Monitor loggar data modell för Azure Backup
 description: Den här artikeln beskriver Azure Monitor loggar data modell information för Azure Backup data.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: adigan
-ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466163"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689227"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics data modell för Azure Backup data
 
@@ -329,12 +330,12 @@ Den här tabellen innehåller grundläggande fält om säkerhets kopierings hant
 
 |Fält  |Datatyp  | Beskrivning  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |Text         |Namn på säkerhets kopierings hanterings servern        |
+|BackupManagementServerName_s     |Text         |Namn på säkerhets kopierings hanterings servern        |
 |AzureBackupAgentVersion_s     |Text         |Versionen av Azure Backup-agenten på säkerhets kopierings hanterings servern          |
-|BackupManagmentServerVersion_s     |Text         |Version av säkerhets kopierings hanterings servern|
-|BackupManagmentServerOSVersion_s     |Text            |OS-version av säkerhets kopierings hanterings servern|
+|BackupManagementServerVersion_s     |Text         |Version av säkerhets kopierings hanterings servern|
+|BackupManagementServerOSVersion_s     |Text            |OS-version av säkerhets kopierings hanterings servern|
 |BackupManagementServerType_s     |Text         |Typ av säkerhets kopierings hanterings Server, som MABS, SC DPM|
-|BackupManagmentServerUniqueId_s     |Text         |Fält för att unikt identifiera säkerhets kopierings hanterings servern       |
+|BackupManagementServerUniqueId_s     |Text         |Fält för att unikt identifiera säkerhets kopierings hanterings servern       |
 
 ### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
 

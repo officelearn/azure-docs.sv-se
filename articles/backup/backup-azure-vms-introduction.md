@@ -1,18 +1,18 @@
 ---
 title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: Lär dig om säkerhets kopiering av virtuella Azure-datorer och notera några metod tips.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465222"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639742"
 ---
 # <a name="about-azure-vm-backup"></a>Om Säkerhetskopiering av virtuella Azure-datorer
 
@@ -111,8 +111,8 @@ Dessa vanliga scenarier kan påverka den totala säkerhets kopierings tiden:
 När du konfigurerar VM-säkerhetskopieringar föreslår vi följande metoder:
 
 - Ändra standard schema tiderna som anges i en princip. Till exempel, om standard tiden i principen är 12:00 AM, ökar du tiden med flera minuter så att resurserna optimalt används.
-- För säkerhets kopiering av virtuella datorer som använder Premium Storage rekommenderar vi att du kör den senaste versionen av Azure Backup ([omedelbar återställning](backup-instant-restore-capability.md)). Om du inte kör den senaste versionen allokerar säkerhets kopieringen cirka 50 procent av det totala lagrings utrymmet. Säkerhets kopierings tjänsten kräver det här utrymmet för att kopiera ögonblicks bilden till samma lagrings konto och för att överföra den till valvet.
 - Om du återställer virtuella datorer från ett enda valv rekommenderar vi starkt att du använder olika [generella v2-lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) för att säkerställa att mål lagrings kontot inte får någon begränsning. Till exempel måste varje virtuell dator ha ett annat lagrings konto. Om till exempel 10 virtuella datorer återställs använder du 10 olika lagrings konton.
+- För säkerhets kopiering av virtuella datorer som använder Premium Storage, med omedelbar återställning, rekommenderar vi att du allokerar *50%* ledigt utrymme för det totala allokerade lagrings utrymmet, vilket **endast** krävs för den första säkerhets kopieringen. Det lediga utrymmet på 50% är inte ett krav för säkerhets kopieringar när den första säkerhets kopieringen har slutförts
 - Restore från ett allmänt lagrings lager (ögonblicks bild) kommer att slutföras på några minuter eftersom ögonblicks bilden finns på samma lagrings konto. Det kan ta flera timmar att återställa från General-Purpose v2-lagrings skiktet (valvet). I de fall där data är tillgängliga i generell användning v1-lagring rekommenderar vi att du använder funktionen för [omedelbar återställning](backup-instant-restore-capability.md) för snabbare återställningar. (Om data måste återställas från ett valv, tar det längre tid.)
 - Gränsen för antalet diskar per lagrings konto är i förhållande till hur mycket diskarna som används av program som körs på en virtuell IaaS-dator (Infrastructure as a Service). Som allmän praxis bör du, om det finns 5 till 10 diskar eller mer på ett enda lagrings konto, utjämna belastningen genom att flytta några diskar till separata lagrings konton.
 

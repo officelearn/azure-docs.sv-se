@@ -1,9 +1,9 @@
 ---
 title: Uppgradera ett Azure Service Fabric-kluster | Microsoft Docs
-description: Uppgradera Service Fabric-kod och/eller konfiguration som kör Service Fabric-kluster, inklusive att ställa in kluster uppdateringsläge, uppgradera certifikat, att lägga till programmet portar, göra korrigeringsfiler för operativsystem, och så vidare. Vad kan du förvänta dig när uppgraderingen utförs?
+description: Uppgradera Service Fabric koden och/eller konfigurationen som kör ett Service Fabric kluster, inklusive inställning av kluster uppdaterings läge, uppgradera certifikat, lägga till program portar, utföra OS-uppdateringar och så vidare. Vad kan du förväntar dig när uppgraderingen utförs?
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
@@ -13,69 +13,69 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
-ms.author: aljo
-ms.openlocfilehash: 234bff5049babf0c4b1d036b40201720b2736228
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 03fd5f2950349f0dc76021d28845e383c0ba6a64
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714735"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599808"
 ---
-# <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Uppgradera Service Fabric-versionen av ett kluster
+# <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Uppgradera Service Fabric versionen av ett kluster
 
-Utformning av möjligheterna är avgörande för att uppnå långsiktig framgång av din produkt för alla moderna system. Ett Azure Service Fabric-kluster är en resurs som du äger, men delvis hanteras av Microsoft. Den här artikeln beskriver hur du uppgraderar versionen av Service Fabric som körs i din Azure-kluster.
+För alla moderna system är det viktigt att utforma för att kunna uppnå långsiktig framgång för din produkt. Ett Azure Service Fabric-kluster är en resurs som du äger, men som hanteras delvis av Microsoft. Den här artikeln beskriver hur du uppgraderar den version av Service Fabric som körs i ditt Azure-kluster.
 
-Du kan ställa in klustret för att ta emot automatiska infrastrukturuppgraderingar när de blir tillgängliga av Microsoft eller du kan välja en stöds fabric-versionen som du vill att klustret ska vara på.
+Du kan ange att klustret ska ta emot automatiska Fabric-uppgraderingar när de släpps av Microsoft, eller så kan du välja en infrastruktur version som stöds som du vill att klustret ska vara på.
 
-Du kan göra detta genom att ange ”upgradeMode” klusterkonfigurationen på portalen eller med hjälp av Resource Manager vid tidpunkten för skapandet eller senare på ett aktivt kluster 
+Du gör detta genom att ange kluster konfigurationen "upgradeMode" på portalen eller använda Resource Manager vid tidpunkten för skapandet eller senare i ett aktivt kluster 
 
 > [!NOTE]
-> Se till att hålla ditt kluster som kör en version stöds fabric alltid. Och när vi presentera en ny version av service fabric, markeras den tidigare versionen för support upphör efter 60 dagar efter att minst. De nya versionerna tillkännages [på service fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen är tillgänglig för att välja sedan. 
+> Se till att låta klustret köra en infrastruktur version som stöds alltid. När vi meddelar lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för slut för ande av support efter minst 60 dagar från det datumet. De nya versionerna visas [i Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen är tillgänglig och kan väljas. 
 > 
 > 
 
-14 dagar före utgången av den versionen som klustret körs en hälsotillståndshändelse genereras som placerar klustret i ett varningshälsotillstånd. Klustret förblir i ett varningstillstånd förrän du har uppgraderat till en version som stöds fabric.
+14 dagar före utgången av den version som klustret körs på, genereras en hälso händelse som placerar klustret i ett varnings hälso tillstånd. Klustret är i ett varnings tillstånd tills du uppgraderar till en infrastruktur version som stöds.
 
-## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Ange uppgraderingsläget i Azure portal
-Du kan ange klustret att automatiskt eller manuellt när du skapar klustret.
+## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Ange uppgraderings läget i Azure Portal
+Du kan ställa in klustret på automatisk eller manuell när du skapar klustret.
 
 ![Create_Manualmode][Create_Manualmode]
 
-Du kan ange klustret till automatisk eller manuell när på ett aktivt kluster med hjälp av hantera upplevelsen. 
+Du kan ställa in klustret på automatisk eller Manuell inloggning i ett Live-kluster med hjälp av funktionen Hantera upplevelse. 
 
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Uppgradera till en ny version av ett kluster som är inställd på manuell läge via portalen.
-Om du vill uppgradera till en ny version, allt du behöver göra är väljer du den tillgängliga versionen i listrutan och sparar. Fabric-uppgraderingen hämtar startats automatiskt. Kluster-hälsoprinciper (en kombination av nodhälsan och hälsotillstånd alla program som körs i klustret) följs under uppgraderingen.
+### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Uppgradera till en ny version på ett kluster som är inställt på manuellt läge via portalen.
+Om du vill uppgradera till en ny version behöver du bara välja den tillgängliga versionen i list rutan och spara. Fabric-uppgraderingen startar automatiskt. Kluster hälso principerna (en kombination av nods hälsa och hälso tillståndet alla program som körs i klustret) följer under uppgraderingen.
 
-Om klustret hälsoprinciper inte uppfylls, återställs uppgraderingen. Rulla ned det här dokumentet om du vill veta mer om hur du anger dessa anpassade hälsoprinciper. 
+Om klustrets hälso principer inte uppfylls, återställs uppgraderingen. Rulla ned det här dokumentet om du vill läsa mer om hur du ställer in de anpassade hälso principerna. 
 
-När du har åtgärdat problemen som resulterade i återställningen måste du initiera uppgraderingen igen genom att följa samma steg som innan.
+När du har åtgärdat problemen som resulterade i återställningen måste du starta uppgraderingen igen, genom att följa samma steg som ovan.
 
 ![Manage_Automaticmode][Manage_Automaticmode]
 
-## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Ange den Uppgraderingsläge med en Resource Manager-mall
-Lägga till ”upgradeMode”-konfiguration för resursdefinitionen Microsoft.ServiceFabric/clusters och ange ”clusterCodeVersion” till någon av versionerna som stöds fabric enligt nedan och därefter distribuera mallen. Giltiga värden för ”upgradeMode” är ”manuell” eller ”automatisk”
+## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Ange uppgraderings läget med en Resource Manager-mall
+Lägg till konfigurationen "upgradeMode" i resurs definitionen Microsoft. ServiceFabric/Clusters och ange "clusterCodeVersion" till någon av de infrastruktur versioner som stöds enligt nedan och distribuera sedan mallen. Giltiga värden för "upgradeMode" är "Manuell" eller "automatisk"
 
 ![ARMUpgradeMode][ARMUpgradeMode]
 
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Uppgradera till en ny version av ett kluster som är inställd på manuell läge via Resource Manager-mall.
-När klustret är i läget för manuella, för att uppgradera till en ny version, ändra ”clusterCodeVersion” till en version som stöds och distribuera den. Distribution av mallen, sparkar av Fabric-uppgraderingen hämtar startats automatiskt. Kluster-hälsoprinciper (en kombination av nodhälsan och hälsotillstånd alla program som körs i klustret) följs under uppgraderingen.
+### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Uppgradera till en ny version på ett kluster som är inställt på manuellt läge via en Resource Manager-mall.
+När klustret är i manuellt läge, för att uppgradera till en ny version, ändrar du "clusterCodeVersion" till en version som stöds och distribuerar den. Distribution av mallen, som används för att starta om Fabric-uppgraderingen, inaktive ras automatiskt. Kluster hälso principerna (en kombination av nods hälsa och hälso tillståndet alla program som körs i klustret) följer under uppgraderingen.
 
-Om klustret hälsoprinciper inte uppfylls, återställs uppgraderingen.  
+Om klustrets hälso principer inte uppfylls, återställs uppgraderingen.  
 
-När du har åtgärdat problemen som resulterade i återställningen måste du initiera uppgraderingen igen genom att följa samma steg som innan.
+När du har åtgärdat problemen som resulterade i återställningen måste du starta uppgraderingen igen, genom att följa samma steg som ovan.
 
-## <a name="set-custom-health-polices-for-upgrades"></a>Ange hälsoprinciper anpassade för uppgradering
-Du kan ange anpassade hälsoprinciper för uppgraderingen av fabric. Om du har angett ditt kluster till automatisk infrastrukturuppgraderingar kommer dessa principer gäller för den [fas 1 av de automatiska infrastrukturuppgraderingar](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
-Om du har angett ditt kluster för manuell fabric uppgraderingar, hämta principerna tillämpas varje gång som du väljer en ny version som utlöser systemet för att sätta igång fabric-uppgraderingen i klustret. Om du inte åsidosätter principerna kan används standardvärdena.
+## <a name="set-custom-health-polices-for-upgrades"></a>Ange anpassade hälso principer för uppgraderingar
+Du kan ange anpassade hälso principer för uppgradering av infrastrukturen. Om du har konfigurerat klustret till automatiska Fabric-uppgraderingar, kommer dessa principer att tillämpas på [fas 1 av de automatiska Fabric-uppgraderingarna](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
+Om du har ställt in klustret för manuella Fabric-uppgraderingar, kommer dessa principer att tillämpas varje gång du väljer en ny version som aktiverar systemet för att starta uppgraderingen av Fabric i klustret. Om du inte åsidosätter principerna används standardvärdena.
 
-Du kan ange anpassade hälsoprinciper eller granska de aktuella inställningarna under bladet ”uppgraderingen av fabric” genom att välja de avancerade inställningarna. Granska följande bild på hur du. 
+Du kan ange anpassade hälso principer eller granska de aktuella inställningarna på bladet "Fabric Upgrade" genom att välja avancerade uppgraderings inställningar. Läs följande bild om hur du gör. 
 
-![Hantera anpassade hälsoprinciper][HealthPolices]
+![Hantera anpassade hälso principer][HealthPolices]
 
-## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>Lista över alla tillgängliga versioner för alla miljöer för en viss prenumeration
-Kör följande kommando och du bör få utdata som liknar det här.
+## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>Visa en lista över alla tillgängliga versioner för alla miljöer för en specifik prenumeration
+Kör följande kommando och hämta utdata som liknar detta.
 
-”supportExpiryUtc” talar om när en viss version upphör att gälla eller har upphört att gälla. Den senaste versionen har inte ett giltigt datum – det har värdet ”9999-12-31T23:59:59.9999999”, vilket innebär bara att utgångsdatumet inte ännu har angetts.
+"supportExpiryUtc" visar när en specifik version upphör att gälla eller har upphört att gälla. Den senaste versionen har inte något giltigt datum-det har värdet "9999-12-31T23:59:59.9999999", vilket innebär att utgångs datumet inte har angetts än.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
@@ -120,9 +120,9 @@ Output:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du anpassar några av de [service fabric-kluster fabric-inställningar](service-fabric-cluster-fabric-settings.md)
-* Lär dig hur du [skala ditt kluster in och ut](service-fabric-cluster-scale-up-down.md)
-* Lär dig mer om [programuppgraderingar](service-fabric-application-upgrade.md)
+* Lär dig hur du anpassar några av [inställningarna för Service Fabric-klustrets infrastruktur resurser](service-fabric-cluster-fabric-settings.md)
+* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-up-down.md)
+* Lär dig mer om [program uppgraderingar](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

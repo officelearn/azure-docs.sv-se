@@ -1,6 +1,6 @@
 ---
-title: Med elastic database-klientbibliotek med Entity Framework | Microsoft Docs
-description: Använd Elastic Database-klientbiblioteket och Entity Framework för att koda databaser
+title: Använda klient biblioteket för Elastic Database med Entity Framework | Microsoft Docs
+description: Använda Elastic Database klient bibliotek och Entity Framework för att koda databaser
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,82 +10,81 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/04/2019
-ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331932"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568305"
 ---
-# <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database-klientbibliotek med Entity Framework
+# <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database klient bibliotek med Entity Framework
 
-Det här dokumentet visar de ändringar i ett Entity Framework-program som behövs för att integrera med den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md). Fokus ligger på att skriva [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md) och [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) med Entity Framework **Code First** metod. Den [Code först – ny databas](https://msdn.microsoft.com/data/jj193542.aspx) självstudien för EF fungerar som exemplet som körs i hela dokumentet. Exempelkoden som åtföljer det här dokumentet är en del av verktygen för elastiska databaser uppsättning exempel i Visual Studio-kodexempel.
+Det här dokumentet visar ändringarna i ett Entity Framework program som behövs för att integrera med [Elastic Database-verktygen](sql-database-elastic-scale-introduction.md). Fokus är att skapa [Shard kart hantering](sql-database-elastic-scale-shard-map-management.md) och [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md) med den Entity Framework **koden första** metoden. Själv studie kursen för att börja med en [ny databas](https://msdn.microsoft.com/data/jj193542.aspx) för EF fungerar som ett exempel i det här dokumentet. Exempel koden som medföljer detta dokument är en del av de elastiska databas verktygen i Visual Studio Code-exempel.
 
-## <a name="downloading-and-running-the-sample-code"></a>Ladda ned och kör exempelkoden
+## <a name="downloading-and-running-the-sample-code"></a>Hämta och köra exempel koden
 
 Så här hämtar du koden för den här artikeln:
 
 * Visual Studio 2012 eller senare krävs. 
-* Ladda ned den [elastiska DB-verktyg för Azure SQL - integrering av Entity Framework exempel](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) från MSDN. Packa upp exemplet på en plats som du väljer.
+* Ladda ned de [elastiska DB-verktygen för Azure SQL-Entity Framework integrations exempel](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) från MSDN. Packa upp exemplet på en plats som du väljer.
 * Starta Visual Studio. 
-* I Visual Studio väljer du Arkiv -> Öppna projekt/lösning. 
-* I den **öppna projekt** dialogrutan, navigera till exemplet som du laddade ned och välj **EntityFrameworkCodeFirst.sln** att öppna exemplet. 
+* I Visual Studio väljer du fil-> öppna projekt/lösning. 
+* I dialog rutan **öppna projekt** navigerar du till det exempel som du laddade ned och väljer **EntityFrameworkCodeFirst. SLN** för att öppna exemplet. 
 
-Om du vill köra exemplet måste du skapa tre tom databaser i Azure SQL Database:
+Om du vill köra exemplet måste du skapa tre tomma databaser i Azure SQL Database:
 
-* Shard kartan Manager-databasen
+* Shard Map Manager-databas
 * Shard 1-databas
 * Shard 2-databas
 
-När du har skapat dessa databaser, fyller du i platshållare i **Program.cs** med din Azure SQL DB-servernamnet, databasnamnen och dina autentiseringsuppgifter för att ansluta till databaser. Skapa lösningen i Visual Studio. Visual Studio laddar ned nödvändiga NuGet-paketen för elastic database-klientbiblioteket, Entity Framework och hantering av som en del av skapandeprocessen tillfälliga fel. Se till att återställa NuGet-paket är aktiverad för din lösning. Du kan aktivera den här inställningen genom att högerklicka på lösningsfilen i Visual Studio Solution Explorer. 
+När du har skapat dessa databaser fyller du i plats innehavarna i **program.cs** med namnet på din Azure SQL DB-server, databas namnen och dina autentiseringsuppgifter för att ansluta till databaserna. Bygg lösningen i Visual Studio. I Visual Studio hämtas nödvändiga NuGet-paket för klient biblioteket för elastiska databaser, Entity Framework och tillfälligt fel hantering som en del av bygg processen. Se till att återställa NuGet-paket är aktiverat för din lösning. Du kan aktivera den här inställningen genom att högerklicka på lösnings filen i Visual Studio-Solution Explorer. 
 
-## <a name="entity-framework-workflows"></a>Entity Framework arbetsflöden
+## <a name="entity-framework-workflows"></a>Entity Framework arbets flöden
 
-Entity Framework utvecklare förlitar sig på något av följande fyra arbetsflöden att bygga program och säkerställa persistence för programobjekt:
+Entity Framework utvecklare förlitar sig på något av följande fyra arbets flöden för att bygga program och se till att beständigheten för program objekt:
 
-* **Kod först (ny databas)** : EF-utvecklare skapar modellen i programkoden och sedan EF genererar databasen från den. 
-* **Kod först (befintlig databas)** : Utvecklaren kan EF generera programkoden för modellen från en befintlig databas.
-* **Modellera första**: Utvecklaren skapar modellen i EF designer och sedan EF skapar databasen från modellen.
-* **Databasen första**: Utvecklare använder EF verktyg för att härleda modellen från en befintlig databas. 
+* **Kod först (ny databas)** : EF-utvecklaren skapar modellen i program koden och sedan genererar EF databasen från den. 
+* **Kod först (befintlig databas)** : Utvecklaren tillåter att EF genererar program koden för modellen från en befintlig databas.
+* **Modell först**: Utvecklaren skapar modellen i EF-designern och sedan skapar EF databasen från modellen.
+* **Databas först**: Utvecklaren använder EF-verktyg för att härleda modellen från en befintlig databas. 
 
-Alla dessa metoder är beroende av DbContext-klassen för att hantera transparent databasanslutningar och databasschemat för ett program. Olika konstruktorer på basklassen DbContext gör det möjligt att olika nivåer av kontroll över relationen skapades, start av databasen och schemat skapas. Utmaningar uppstå främst från det faktum att databashantering för anslutning som tillhandahålls av EF korsar med funktioner för hantering av anslutningen databeroende routning gränssnitt som tillhandahålls av klientbiblioteket för elastiska databaser. 
+Alla dessa metoder förlitar sig på DbContext-klassen för transparent hantering av databas anslutningar och databas schema för ett program. Olika konstruktörer i DbContext-Bask Lassen tillåter olika nivåer av kontroll över skapande av anslutningar, databas start och schema skapande. Utmaningarna uppstår främst från det faktum att databas anslutnings hanteringen från EF överlappar anslutnings hanterings funktionerna i de data beroende routningsgränssnitt som tillhandahålls av klient biblioteket för Elastic Database. 
 
-## <a name="elastic-database-tools-assumptions"></a>Elastisk databas verktyg antaganden
+## <a name="elastic-database-tools-assumptions"></a>Antaganden om elastiska databas verktyg
 
-Termdefinitioner finns [ordlista för verktyg i elastiska databaser](sql-database-elastic-scale-glossary.md).
+För term definitioner, se [Elastic Database tools-ordlista](sql-database-elastic-scale-glossary.md).
 
-Med elastic database-klientbiblioteket definierar du partitioner för dina programdata som kallas shardletar. Shardletar identifieras av en shardingnyckel och mappas till specifika databaser. Ett program kan ha så många databaser efter behov och distribuera shardletar för att tillhandahålla tillräckligt med kapacitet eller prestanda som har gett aktuella affärskrav. Mappningen för horisontell partitionering nyckelvärden till databaser lagras av en skärvkarta som tillhandahålls av elastic database-klientens API: er. Den här funktionen kallas **Fragmentkarthantering**, eller SMM för kort. Fragmentkartan fungerar också som den asynkrona meddelandekön till databaser för begäranden som innehåller en shardingnyckel. Den här funktionen kallas **databeroende routning**. 
+Med klient biblioteket för Elastic Database definierar du partitioner för dina program data som kallas shardletar. Shardletar identifieras av en horisontell partitionering-nyckel och mappas till vissa databaser. Ett program kan ha så många databaser som behövs och distribuera shardletar för att tillhandahålla tillräckligt med kapacitet eller prestanda för aktuella affärs behov. Mappningen av horisontell partitionering-nyckel värden till databaserna lagras av en Shard-mappning från klient-API: erna för Elastic Database. Den här funktionen kallas **Shard Map Management**eller SMM för kort. Shard-kartan fungerar också som koordinator för databas anslutningar för begär Anden som har en horisontell partitionering-nyckel. Den här funktionen kallas för **data beroende routning**. 
 
-Fragmentkartehanteraren skyddar användare från inkonsekvent vyer i shardlet data som kan uppstå när samtidiga shardlet hanteringsåtgärder (till exempel hur du flyttar data från en shard till en annan) sker. Om du vill göra det hanteras shard-kartor den asynkrona meddelandekön biblioteket klienten databasanslutningar för ett program. På så sätt kan funktionen fragment kartan att avsluta en databasanslutning automatiskt när fragment hanteringsåtgärder kan påverka shardlet som anslutningen har skapats för. Den här metoden måste integrera med några av EFS funktioner, till exempel skapa nya anslutningar från en befintlig för att kontrollera om databasen finns. I allmänhet har vår Fjärrvisning att standard DbContext konstruktorer bara fungerar på ett tillförlitligt sätt för stängda databasanslutningar som kan klonas på ett säkert sätt för EF fungerar. Designprincipen elastisk databas i stället är endast mäkla öppnade anslutningar. En tror att stänga en anslutning som asynkrona av klientbiblioteket innan överlämnande till EF-DbContext kan lösa problemet. Genom att stänga anslutningen och förlita dig på EF öppna den igen, kan en dock foregoes verifiering och konsekvens kontroller som utförs av biblioteket. Funktionen migreringar i EF, använder dock dessa anslutningar för att hantera underliggande databasschemat på ett sätt som är transparent för programmet. Vi rekommenderar att du behåller och kombinera alla dessa funktioner från både klientbibliotek för elastiska databaser och EF i samma program. I följande avsnitt beskrivs de här egenskaperna och kraven i detalj. 
+Shard Map Manager skyddar användare från inkonsekventa vyer till shardlet-data som kan uppstå när samtidiga shardlet hanterings åtgärder (till exempel att flytta data från en Shard till en annan) sker. Det gör du genom att Shard Maps som hanteras av klient biblioteks koordinatorn databas anslutningar för ett program. Detta gör att Shard-kart funktionen automatiskt avdödar en databas anslutning när Shard hanterings åtgärder kan påverka shardlet som anslutningen har skapats för. Den här metoden måste integreras med några av EFs funktioner, till exempel skapa nya anslutningar från en befintlig för att kontrol lera om det finns några databas förekomster. I allmänhet har vår iakttagelse att de vanliga DbContext-konstruktörerna fungerar som tillförlitliga för stängda databas anslutningar som kan klonas på ett säkert sätt för EF-arbete. Design principen för Elastic Database är i stället endast till att endast Service Broker-öppna anslutningar. Det kan tänkas att stängning av en anslutning som upprättas av klient biblioteket innan du överlämnar det till EF-DbContext kan lösa problemet. Men genom att stänga anslutningen och förlita dig på EF för att öppna den igen, så är det en i föregående fall verifierings-och konsekvens kontrollerna som utförs av biblioteket. Funktionen migreringar i EF använder dock dessa anslutningar för att hantera det underliggande databasschemat på ett sätt som är transparent för programmet. Vi rekommenderar att du behåller och kombinerar alla dessa funktioner från både klient biblioteket för Elastic Database och EF i samma program. I följande avsnitt beskrivs dessa egenskaper och krav i detalj. 
 
 ## <a name="requirements"></a>Krav
 
-När du arbetar med både klientbibliotek för elastiska databaser och Entity Framework-API: er som du vill behålla följande egenskaper: 
+När du arbetar med både klient biblioteket för Elastic Database och Entity Framework API: er, vill du behålla följande egenskaper: 
 
-* **Skala ut**: Att lägga till eller ta bort databaser från datanivån för delat program efter behov för kapacitetskraven för programmet. Det innebär att kontroll över skapandet och borttagningen av databaser och använder karthanteraren API: er för elastiska databaser för att hantera databaser och mappningar av shardletar. 
-* **Konsekvens**: Programmet använder horisontell partitionering och använder funktioner för databeroende routning av klientbiblioteket. Om du vill undvika skadade eller fel frågeresultat är om asynkrona anslutningar via fragmentkartehanteraren. Detta bevarar också verifiering och konsekvens.
-* **Code första**: Att behålla praktiskt EFS kod första paradigm. I den första koden mappas klasser i programmet transparent till de underliggande strukturerna i databasen. Programkoden samverkar med DbSets som maskerar de flesta aspekter som ingår i den underliggande databasen-bearbetningen.
-* **Schemat**: Entity Framework hanterar inledande databasen schemat skapas och efterföljande schemat utvecklingen via migreringar. Genom att behålla de här funktionerna, är anpassning av din app enkelt som data utvecklas. 
+* **Skala ut**: För att lägga till eller ta bort databaser från data nivån i shardade-programmet vid behov för programmets kapacitets krav. Det innebär att du styr skapandet och borttagningen av databaser och använder de Elastic Database Shard Map Manager-API: erna för att hantera databaser och mappningar av shardletar. 
+* **Konsekvens**: Programmet använder horisontell partitionering och använder funktionerna för data beroende routning i klient biblioteket. För att undvika skador eller fel frågeresultat sammanställs anslutningarna via Shard Map Manager. Detta behåller även validering och konsekvens.
+* **Första koden**: För att bevara bekvämligheten hos EF: s första paradigm-kod. I kod först mappas klasser i programmet transparent till de underliggande databas strukturerna. Program koden interagerar med DbSets som maskerar de flesta aspekter som ingår i den underliggande databas bearbetningen.
+* **Schema**: Entity Framework hanterar det inledande skapandet av databas schema och efterföljande schema utveckling genom migrering. Genom att behålla dessa funktioner är det enkelt att anpassa din app när data utvecklas. 
 
-Följande riktlinjer anger hur uppfyller dessa krav för Code First-program med verktyg för elastiska databaser. 
+Följande rikt linjer ger information om hur du uppfyller dessa krav för att koda de första programmen med elastiska databas verktyg. 
 
-## <a name="data-dependent-routing-using-ef-dbcontext"></a>Databeroende routning med hjälp av EF DbContext
+## <a name="data-dependent-routing-using-ef-dbcontext"></a>Data beroende routning med EF DbContext
 
-Databasanslutningar med Entity Framework vanligtvis hanteras via underklasser av **DbContext**. Skapa dessa underklasser av som härleds från **DbContext**. Det är här du definierar din **DbSets** som implementerar databasstödd-samlingar av CLR-objekt för ditt program. Du kan identifiera flera användbara egenskaper som inte nödvändigtvis har för andra EF code första Programscenarier i samband med databeroende routning: 
+Databas anslutningar med Entity Framework hanteras vanligt vis via underklasser i **DbContext**. Skapa dessa underklasser genom att härleda från **DbContext**. Det är här du definierar din **DbSets** som implementerar de databasbaserade samlingarna av CLR-objekt för ditt program. I samband med data beroende routning kan du identifiera flera användbara egenskaper som inte nödvändigt vis är för andra EF-kodade första program scenarier: 
 
-* Databasen finns redan och har registrerats i fragmentkartan för elastiska databaser. 
-* Schemat för programmet har redan distribuerats till databasen (beskrivs nedan). 
-* Databeroende routning anslutningar till databasen asynkrona av fragmentkartan. 
+* Databasen finns redan och har registrerats i Shard-kartan för elastisk databas. 
+* Schemat för programmet har redan distribuerats till databasen (förklaras nedan). 
+* Data beroende routnings anslutningar till databasen har sammanställts av Shard-kartan. 
 
-Integrera **DbContexts** med databeroende routning för skala ut:
+Så här integrerar du **DbContexts** med data beroende routning för utskalning:
 
-1. Skapa fysiska databasanslutningar via klientgränssnitt elastisk databas av fragmentkartehanteraren, 
-2. Omsluta anslutningen med den **DbContext** underklass
-3. Skicka anslutningen till den **DbContext** basera klasser för att se till att all bearbetning på EF sida händer även. 
+1. Skapa fysiska databas anslutningar via de elastiska databas klient gränssnitten i Shard Map Manager. 
+2. Bryt anslutningen till underklassen **DbContext**
+3. Överför anslutningen till **DbContext** -bas klasserna för att säkerställa att all bearbetning på EF-sidan också sker. 
 
-I följande kodexempel visas den här metoden. (Den här koden är också i det tillhörande Visual Studio-projektet)
+I följande kod exempel visas den här metoden. (Den här koden finns också i det tillhör ande Visual Studio-projektet)
 
 ```csharp
 public class ElasticScaleContext<T> : DbContext
@@ -120,21 +119,21 @@ public DbSet<Blog> Blogs { get; set; }
     }
 ```
 
-## <a name="main-points"></a>Huvudändamålen
+## <a name="main-points"></a>Huvud punkter
 
-* En ny konstruktor ersätter Standardkonstruktorn i DbContext-underklass 
-* Konstruktorn new använder argument som krävs för databeroende Routning via klientbiblioteket för elastiska databaser:
+* En ny konstruktor ersätter Standardkonstruktorn i underklassen DbContext 
+* Den nya konstruktorn tar de argument som krävs för data beroende routning via klient biblioteket för Elastic Database:
   
-  * fragmentkartan för att få åtkomst till de databeroende routning gränssnitt
-  * nyckeln för horisontell partitionering för att identifiera shardlet,
-  * en anslutningssträng med autentiseringsuppgifterna för databeroende routning anslutningen till fragment. 
-* Anropet till Basklasskonstruktorn tar en detour till en statisk metod som utför alla steg krävs för databeroende routning. 
+  * Shard-kartan för att få åtkomst till data beroende routningsgränssnitt,
+  * horisontell partitionering-nyckeln för att identifiera shardlet,
+  * en anslutnings sträng med autentiseringsuppgifterna för den data beroende routning anslutningen till Shard. 
+* Anropet till Bask Lassens konstruktor tar en inblick i en statisk metod som utför alla steg som krävs för data beroende routning. 
   
-  * OpenConnectionForKey anrop av klientgränssnitt elastisk databas används på fragmentkartan för att upprätta en öppen anslutning.
-  * Fragmentkartan skapas en öppen anslutning till den shard som innehåller shardlet för den angivna shardingnyckel.
-  * Den här öppen anslutning skickas tillbaka till Basklasskonstruktorn av DbContext som visar att den här anslutningen är som ska användas av EF i stället för att låta EF automatiskt skapa en ny anslutning. Det här sättet anslutningen har taggats av elastic database-klientens API så att den kan garantera konsekvens under fragment kartan hanteringsåtgärder.
+  * Den använder OpenConnectionForKey-anropet av klient gränssnitten för Elastic Database på Shard-kartan för att upprätta en öppen anslutning.
+  * Shard-kartan skapar den öppna anslutningen till Shard som innehåller shardlet för den aktuella horisontell partitionering-nyckeln.
+  * Den här öppna anslutningen skickas tillbaka till Bask lass konstruktorn för DbContext för att indikera att den här anslutningen ska användas av EF i stället för att skapa en ny anslutning automatiskt. På så sätt har anslutningen taggats av klient-API: t för elastisk databas så att den kan garantera konsekvens under Shard Map Management-åtgärder.
 
-Använd nya konstruktorn för din DbContext-underklass i stället för Standardkonstruktorn i din kod. Här är ett exempel: 
+Använd den nya konstruktorn för DbContext-underklassen i stället för Standardkonstruktorn i koden. Här är ett exempel: 
 
 ```csharp
 // Create and save a new blog.
@@ -159,13 +158,13 @@ using (var db = new ElasticScaleContext<int>(
 }
 ```
 
-Nya konstruktorn öppnar anslutningen till den shard som innehåller data för shardlet som identifieras av värdet för **tenantid1**. Koden i den **med** block förblir oförändrat för att komma åt den **DbSet** för bloggar med EF på fragment för **tenantid1**. Detta ändrar semantik för koden i med blockera, till exempel alla databasåtgärder har nu begränsats till en shard där **tenantid1** sparas. Exempelvis kan en LINQ-fråga över bloggarna **DbSet** bara returnera bloggar som lagras på den aktuella sharden, men inte de som finns på andra shards.  
+Den nya konstruktorn öppnar anslutningen till Shard som innehåller data för shardlet som identifieras av värdet för **tenantid1**. Koden i det **använda** blocket förblir oförändrad för att få åtkomst till **DbSet** för Bloggar som använder EF på Shard för **tenantid1**. Detta ändrar semantiken för koden i det använda blocket, så att alla databas åtgärder nu är begränsade till den enda Shard där **tenantid1** hålls. En LINQ-fråga över bloggen **DbSet** skulle till exempel bara returnera Bloggar som lagras på den aktuella Shard, men inte de som lagras på andra Shards.  
 
-#### <a name="transient-faults-handling"></a>Tillfälliga fel som hanterar
+#### <a name="transient-faults-handling"></a>Hantering av tillfälliga fel
 
-Microsoft Patterns & Practices-teamet publicerade den [The hantering av Programblocket tillfälliga](https://msdn.microsoft.com/library/dn440719.aspx). Biblioteket används med Elastiskt skalat klientbibliotek i kombination med EF. Se dock till att det returnerar alla tillfälligt undantag till en plats där du kan se till att den nya konstruktorn används efter ett tillfälligt fel så att alla nya anslutningsförsök görs med hjälp av konstruktorer du tweaked. I annat fall en anslutning till rätt fragment är inte säkert och det finns inga garantier som anslutningen bibehålls vid ändringar till i fragmentkartan. 
+Microsoft patterns & Practices-teamet publicerade det [tillfälliga fel hanterings program blocket](https://msdn.microsoft.com/library/dn440719.aspx). Biblioteket används med elastisk skalnings klient bibliotek i kombination med EF. Se dock till att eventuella tillfälliga undantag returneras till en plats där du kan se till att den nya konstruktorn används efter ett tillfälligt fel så att alla nya anslutnings försök görs med hjälp av konstruktörer som du har justerat. Annars är en anslutning till rätt Shard inte garanterad och det finns inga garantier att anslutningen upprätthålls eftersom ändringar i Shard-mappningen sker. 
 
-Följande kodexempel visar hur du kan använda en SQL-återförsöksprincip runt den nya **DbContext** underklasskonstruktorer: 
+Följande kod exempel visar hur en princip för SQL-återförsök kan användas runt de nya **DbContext** -underklassens konstruktörer: 
 
 ```csharp
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
@@ -183,37 +182,37 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     }); 
 ```
 
-**SqlDatabaseUtils.SqlRetryPolicy** i koden ovan definieras som en **SqlDatabaseTransientErrorDetectionStrategy** med ett återförsöksvärde på 10 och 5 sekunder väntetid mellan återförsök. Den här metoden liknar vägledning för EF och användarinitierad transaktioner (se [begränsningar i Körningsstrategier (EF6 och senare)](https://msdn.microsoft.com/data/dn307226). Båda situationer kräver att programmet styr omfattningen som tillfälligt undantag returnerar: antingen öppna transaktionen eller återskapa kontext från rätt konstruktorn (som du såg) som använder klientbiblioteket för elastiska databaser.
+**SqlDatabaseUtils. SqlRetryPolicy** i koden ovan definieras som en **SqlDatabaseTransientErrorDetectionStrategy** med ett antal återförsök på 10 och 5 sekunders vänte tid mellan återförsök. Den här metoden liknar vägledningen för EF-och användarinitierade transaktioner (se [begränsningar med att försöka köra körnings strategier (EF6 och senare)](https://msdn.microsoft.com/data/dn307226). Båda situationerna kräver att programmet styr omfattningen som det tillfälliga undantaget returnerar: för att antingen öppna transaktionen igen eller (som visas), måste du återskapa kontexten från rätt konstruktor som använder klient biblioteket för Elastic Database.
 
-Behovet av att styra där tillfälliga undantag ta oss tillbaka i omfånget utesluter även användningen av inbyggt **SqlAzureExecutionStrategy** som medföljer EF. **SqlAzureExecutionStrategy** ska öppna en anslutning utan inte använda **OpenConnectionForKey** och därför kringgå verifiering som utförs som en del av den **OpenConnectionForKey**anropa. I stället kodexemplet använder inbyggt **DefaultExecutionStrategy** som också medföljer EF. Inte **SqlAzureExecutionStrategy**, den fungerar korrekt i kombination med återförsöksprincipen från hantering av tillfälliga fel. Körningsprincipen har angetts i den **ElasticScaleDbConfiguration** klass. Observera att vi inte valt att använda **DefaultSqlExecutionStrategy** eftersom den föreslår med **SqlAzureExecutionStrategy** om tillfälliga undantag inträffar - som skulle leda till fel beteende enligt beskrivningen. Läs mer om olika återförsöksprinciper och EF [Anslutningsåterhämtning i EF](https://msdn.microsoft.com/data/dn456835.aspx).     
+Behovet av att kontrol lera var tillfälliga undantag gör oss tillbaka i räckvidden innebär också att den inbyggda **SqlAzureExecutionStrategy** som medföljer EF används. **SqlAzureExecutionStrategy** skulle öppna en anslutning igen men inte använda **OpenConnectionForKey** och därmed kringgå all verifiering som utförs som en del av anropet **OpenConnectionForKey** . I stället använder kod exemplet den inbyggda **DefaultExecutionStrategy** som också levereras med EF. Till skillnad från **SqlAzureExecutionStrategy**fungerar den korrekt i kombination med principen för återförsök från tillfälligt fel hantering. Körnings principen anges i klassen **ElasticScaleDbConfiguration** . Observera att vi beslutade att inte använda **DefaultSqlExecutionStrategy** eftersom det föreslår användning av **SqlAzureExecutionStrategy** om tillfälliga undantag uppstår, vilket skulle leda till fel beteende som diskuteras. Mer information om de olika principerna för återförsök och EF finns i [anslutnings återhämtning i EF](https://msdn.microsoft.com/data/dn456835.aspx).     
 
-#### <a name="constructor-rewrites"></a>Konstruktorn omskrivningar
+#### <a name="constructor-rewrites"></a>Omskrivning av konstruktor
 
-Kodexemplen ovan illustrerar de standard-konstruktorn skriver krävs för ditt program för att kunna använda databeroende routning med Entity Framework. I följande tabell generaliserar den här metoden till andra konstruktorer. 
+Kod exemplen ovan illustrerar standardvärdet för konstruktörer som krävs för ditt program för att kunna använda data beroende routning med Entity Framework. Följande tabell generaliserar den här metoden med andra konstruktorer. 
 
-| Aktuella konstruktor | Ny konstruktorn för data | Grundläggande konstruktor | Anteckningar |
+| Aktuell konstruktor | Omskriven konstruktor för data | Base-konstruktor | Anteckningar |
 | --- | --- | --- | --- |
-| MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen måste vara en funktion av fragmentkartan och nyckeln databeroende routning. Du måste kringgå automatisk anslutning skapandet av EF och i stället använda fragmentkartan mäkla anslutningen. |
-| MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen är en funktion av fragmentkartan och nyckeln databeroende routning. En fasta databasrollen namn eller anslutningssträng fungerar inte som de kringgå verifiering av fragmentkartan. |
-| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |Anslutningen skapades för angivna kartan och horisontell partitionering shardnyckeln med modellen tillhandahålls. Den kompilerade modellen överförs till den grundläggande c'tor. |
-| MyContext(DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, bool) |DbContext (DbConnection, bool) |Anslutningen måste härledas från fragmentkartan och nyckeln. Det går inte att ange indata (såvida inte dessa indata har redan använder fragmentkartan och nyckeln). Resultatet skickas vidare. |
-| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |Anslutningen måste härledas från fragmentkartan och nyckeln. Det går inte att ange indata (såvida inte dessa indata använde fragmentkartan och nyckeln). Den kompilerade modellen skickas vidare. |
-| MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Konstruktorn new måste se till att alla anslutningar i ObjectContext skickas som en inmatning är riktas om till en anslutning som hanteras av Elastic Scale. En detaljerad beskrivning av ObjectContexts ligger utanför omfånget för det här dokumentet. |
-| MyContext(DbConnection, DbCompiledModel, bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext(DbConnection, DbCompiledModel, bool); |Anslutningen måste härledas från fragmentkartan och nyckeln. Anslutningen kan inte anges som indata (om inte dessa indata har redan använder fragmentkartan och nyckeln). Modellen och booleskt värde som överförs till konstruktorn basklass. |
+| MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen måste vara en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Du måste efter-pass skapa automatisk anslutning av EF, och i stället använda Shard-kartan för att hantera anslutningen. |
+| Kontext (sträng) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen är en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Ett fast databas namn eller en anslutnings sträng fungerar inte när de skickas genom Shard-mappningen. |
+| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |Anslutningen skapas för den angivna Shard-kartan och horisontell partitionering-nyckeln med den angivna modellen. Den kompilerade modellen överförs till bas-c'tor. |
+| Kontext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, bool) |DbContext (DbConnection, bool) |Anslutningen måste härledas från Shard-mappningen och nyckeln. Den kan inte tillhandahållas som indata (om inte indata redan användes med Shard-mappningen och nyckeln). Det booleska värdet skickas. |
+| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |Anslutningen måste härledas från Shard-mappningen och nyckeln. Den kan inte tillhandahållas som indata (om inte indata användes av Shard-mappningen och nyckeln). Den kompilerade modellen överförs. |
+| Kontext (ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |Den nya konstruktorn måste vara säker på att alla anslutningar i ObjectContext som skickas till en inkommande trafik dirigeras om till en anslutning som hanteras av elastisk skalning. En detaljerad diskussion om ObjectContexts ligger utanför det här dokumentets omfattning. |
+| MyContext(DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext(DbConnection, DbCompiledModel, bool); |Anslutningen måste härledas från Shard-mappningen och nyckeln. Det går inte att ange anslutningen som indata (om inte indata redan användes med Shard-mappningen och nyckeln). Modell och boolesk skickas till konstruktorn för Bask Lassen. |
 
-## <a name="shard-schema-deployment-through-ef-migrations"></a>Shard schemadistributionen via EF-migrering
+## <a name="shard-schema-deployment-through-ef-migrations"></a>Shard schema distribution genom EF-migreringar
 
-Automatisk schemahantering är att underlätta tillhandahålls av Entity Framework. I samband med program med hjälp av verktyg för elastiska databaser som du vill behålla den här funktionen att automatiskt etablera schemat till nyligen skapade shards när databaserna läggs till delat program. I första hand är att öka kapaciteten på datanivån för fragmenterade (sharded) program som använder EF. Förlita dig på EFS funktioner för schemahantering minskar enklare för administration av databasen med ett delat program som bygger på EF. 
+Automatisk schema hantering är en bekvämlighet som tillhandahålls av Entity Framework. I samband med program som använder elastiska databas verktyg vill du behålla den här funktionen för att automatiskt etablera schemat till nyskapade Shards när databaserna läggs till i shardade-programmet. Det främsta användnings fallet är att öka kapaciteten på data nivån för shardade-program med EF. Att förlita dig på EF: s funktioner för schema hantering minskar databas administrationens ansträngning med ett shardade-program som bygger på EF. 
 
-Schemadistributionen via EF-migrering fungerar bäst på **inte öppnats anslutningar**. Detta skiljer sig från det scenariot för databeroende routning som förlitar sig på öppnade anslutningen tillhandahålls av elastic database-klientens API. En annan skillnaden är konsekvens-krav: När önskvärt att garantera konsekvens för alla databeroende routning anslutningar att skydda mot manipulering av samtidiga fragment kartan, är det inte ett problem med ursprungliga schema-distribution till en ny databas som har ännu inte har registrerats i fragmentkartan och inte ännu allokerats för att lagra shardletar. Du kan därför förlitar sig på vanlig databasanslutningar för det här scenariot, till skillnad från databeroende routning.  
+Schema distribution via EF-migreringar fungerar bäst på **öppna anslutningar**. Detta är i motsats till scenariot för data oberoende routning som förlitar sig på den öppna anslutningen som finns i klient-API: t för Elastic Database. En annan skillnad är konsekvens kravet: Det är önskvärt att säkerställa konsekvens för alla data beroende routningslänkar för att skydda mot samtidiga Shard-mappningar, men det är inte viktigt med inledande schema distribution till en ny databas som ännu inte har registrerats i Shard-mappningen och ännu inte har allokerats för att lagra shardletar. Du kan därför förlita dig på vanliga databas anslutningar för det här scenariot, till skillnad från data beroende routning.  
 
-Detta leder till en metod där schemadistributionen via EF-migrering är direkt kopplade till registreringen av den nya databasen som ett fragment i programmets fragmentkartan. Detta är beroende av följande krav: 
+Detta leder till en metod där schema distribution via EF-migreringen är nära kopplad till registreringen av den nya databasen som en Shard i programmets Shard-karta. Detta är beroende av följande krav: 
 
 * Databasen har redan skapats. 
-* Databasen är tom – den innehåller inga användarschemat och inga användardata.
-* Databasen kan ännu inte nås via elastisk databas-klientens API: er för databeroende routning. 
+* Databasen är tom – den innehåller inget användar schema och inga användar data.
+* Databasen kan inte nås via Elastic Database client-API: er för data beroende routning. 
 
-Dessa krav är uppfyllda, kan du skapa en vanlig icke öppnade **SqlConnection** inledningsanförande EF-migrering för distribution av schemat. Följande kodexempel illustrerar den här metoden. 
+Med dessa krav på plats kan du skapa en vanlig icke-öppen **SQLConnection** för att starta EF-migreringar för schema distribution. I följande kod exempel visas den här metoden. 
 
 ```csharp
 // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
@@ -244,7 +243,7 @@ public void RegisterNewShard(string server, string database, string connStr, int
 } 
 ```
 
-Det här exemplet visar metoden **RegisterNewShard** som registrerar fragmentet i fragmentkartan, distribuerar schemat via EF-migrering och lagrar en mappning av en shardingnyckel till fragment. Den förlitar sig på en konstruktor med den **DbContext** underklass (**ElasticScaleContext** i det här exemplet) som tar en SQL-anslutningssträng som indata. Koden för den här konstruktorn är enkel och tydlig, som i följande exempel visas: 
+Det här exemplet visar metoden **RegisterNewShard** som registrerar Shard i Shard-kartan, distribuerar schemat via EF-migreringar och lagrar en mappning av en horisontell partitionering-nyckel till Shard. Den förlitar sig på en konstruktor i **DbContext** -underklassen (**ElasticScaleContext** i exemplet) som tar en SQL-anslutningssträng som indatamängd. Koden för den här konstruktorn är rak framåt, vilket visas i följande exempel: 
 
 ```csharp
 // C'tor to deploy schema and migrations to a new shard 
@@ -264,19 +263,19 @@ new CreateDatabaseIfNotExists<ElasticScaleContext<T>>());
 } 
 ```
 
-En kan ha använt versionen av konstruktorn ärvd från basklassen. Men koden måste se till att standard-initieraren för EF används när du ansluter. Kortsiktiga detour därför i den statiska metoden innan du anropar i Basklasskonstruktorn med anslutningssträngen. Observera att registreringen av fragment ska köras i en annan programdomän eller process för att se till att inställningarna för EF initieraren inte står i konflikt. 
+En kan ha använt den version av konstruktorn som ärvts från Bask Lassen. Men koden måste se till att standard initieraren för EF används vid anslutning. Därför är den korta insikten till den statiska metoden innan du anropar i Bask Lassens konstruktor med anslutnings strängen. Observera att registreringen av Shards ska köras i en annan app-domän eller process för att säkerställa att initierarens inställningar för EF inte står i konflikt. 
 
 ## <a name="limitations"></a>Begränsningar
 
-De metoder som beskrivs i det här dokumentet medföra några begränsningar: 
+De metoder som beskrivs i det här dokumentet medför några begränsningar: 
 
-* EF-program som använder **LocalDb** först måste du migrera till en vanlig SQL Server-databas innan du använder klientbiblioteket för elastiska databaser. Skala ut ett program via horisontell partitionering med Elastic Scale är inte möjligt med **LocalDb**. Observera att utveckling kan fortfarande använda **LocalDb**. 
-* Alla ändringar i programmet som implicerar schemaändringar för databasen måste du gå igenom EF-migrering på alla shards. Exempelkod för det här dokumentet visar inte hur du gör detta. Överväg att använda Update-Database med en ConnectionString-parameter för att iterera över alla shards; eller extrahera T-SQL-skript för väntande migreringen med hjälp av Update-Database med skriptet för - alternativet och tillämpa T-SQL-skript på din shards.  
-* Med en begäran kan antas det att alla dess databasbearbetning ingår i en enda shard som identifieras av shardingnyckel som anges i begäran. Men innehåller här antagandet inte alltid SANT. Till exempel när det går inte att göra en shardingnyckel som är tillgängliga. För att åtgärda det här klientbiblioteket ger den **MultiShardQuery** klass som implementerar en anslutning abstraktion för att fråga över flera fragment. Lära sig använda den **MultiShardQuery** i kombination med EF ligger utanför omfånget för det här dokumentet
+* EF-program som använder **LocalDb** måste först migrera till en vanlig SQL Server databas innan du använder klient biblioteket för Elastic Database. Det går inte att skala ut ett program via horisontell partitionering med elastisk skalning med **LocalDb**. Observera att utvecklingen fortfarande kan använda **LocalDb**. 
+* Ändringar i programmet som kräver databas schema ändringar måste gå igenom EF-migreringar på alla Shards. Exempel koden för det här dokumentet visar inte hur du gör detta. Överväg att använda Update-Database med en ConnectionString-parameter för att iterera över alla Shards; eller extrahera T-SQL-skriptet för den väntande migreringen med hjälp av Update-Database med alternativet-skript och tillämpa T-SQL-skriptet på din Shards.  
+* Med en begäran antas det att all bearbetning av databasen finns i en enda Shard som identifieras av horisontell partitionering-nyckeln som anges i begäran. Detta antagande är dock inte alltid sant. Till exempel när det inte går att göra en horisontell partitionering-nyckel tillgänglig. För att åtgärda detta tillhandahåller klient biblioteket **MultiShardQuery** -klassen som implementerar en anslutnings abstraktion för frågor över flera Shards. Inlärning för att använda **MultiShardQuery** i kombination med EF är utanför det här dokumentets omfång
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Genom att följa stegen i det här dokumentet, EF-program kan använda funktionen för elastic database-klientbiblioteket för databeroende routning av omstrukturering konstruktorerna i den **DbContext** underklasser som används i EF-programmet. Detta begränsar de ändringar som krävs för att de platserna där **DbContext** klasser finns redan. EF-program kan dessutom fortsätta att dra nytta av automatisk schemadistributionen genom att kombinera de steg som anropar nödvändiga EF-migrering med registreringen av nya fragmenten och mappningar i fragmentkartan. 
+Genom de steg som beskrivs i det här dokumentet kan EF-program använda klient biblioteks funktionen för elastiska databaser för data beroende routning genom att omväga konstruktörer för de **DbContext** -underklasser som används i programmet EF. Detta begränsar de ändringar som krävs för de platser där **DbContext** -klasser redan finns. Dessutom kan EF-program fortsätta att dra nytta av automatisk schema distribution genom att kombinera stegen som anropar de nödvändiga EF-migreringarna med registreringen av nya Shards och mappningar i Shard-kartan. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Varför uppdateras till Microsoft identity-plattformen (v2.0) | Azure
-description: Vet skillnaderna mellan Microsoft identity-plattformen (v2.0) slutpunkt och Azure Active Directory (Azure AD) v1.0 slutpunkt och Läs om fördelarna med att uppdatera till version 2.0.
+title: Varför uppdatera till Microsoft Identity Platform (v 2.0) | Azure
+description: Känn till skillnaderna mellan Microsoft Identity Platform (v 2.0)-slut punkten och Azure Active Directory (Azure AD) v 1.0-slutpunkten och lär dig fördelarna med att uppdatera till v 2.0.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -10,66 +10,66 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/07/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: df12b0db397656f639275f6a3f9697109985ea35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483009"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722173"
 ---
-# <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför ska du uppdatera till Microsoft identity-plattformen (v2.0)?
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför ska du uppdatera till Microsoft Identity Platform (v 2.0)?
 
-När du utvecklar ett nytt program är det viktigt att veta skillnaderna mellan Microsoft identity-plattformen (v2.0) och Azure Active Directory (v1.0)-slutpunkter. Den här artikeln beskriver de viktigaste skillnaderna mellan slutpunkterna och vissa befintliga begränsningar för Microsoft identity-plattformen.
+När du utvecklar ett nytt program är det viktigt att känna till skillnaderna mellan Microsoft Identity Platform (v 2.0) och Azure Active Directory (v 1.0) slut punkter. Den här artikeln beskriver de viktigaste skillnaderna mellan slut punkterna och några befintliga begränsningar för Microsoft Identity Platform.
 
 > [!NOTE]
-> Microsoft identity-plattformen slutpunkt stöder inte alla Azure AD-scenarier och funktioner. Läs mer om för att avgöra om du ska använda Microsoft identity-plattformen endpoint, [plattformsbegränsningar för Microsoft identity](#limitations).
+> Slut punkten för Microsoft Identity Platform stöder inte alla Azure AD-scenarier och-funktioner. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](#limitations).
 
-## <a name="who-can-sign-in"></a>Vem som kan logga in
+## <a name="who-can-sign-in"></a>Vem kan logga in
 
-![Vem som kan logga in med v1.0 och v2.0-slutpunkter](media/azure-ad-endpoint-comparison/who-can-sign-in.svg)
+![Vem kan logga in med v 1.0-och v 2.0-slut punkter](media/azure-ad-endpoint-comparison/who-can-sign-in.svg)
 
-* V1.0-slutpunkten tillåter bara arbets- och skolkonton konton att logga in på ditt program (Azure AD)
-* Microsoft identity-plattformen endpoint kan arbete och skola konton från Azure AD och personliga Microsoft-konton (MSA), till exempel hotmail.com, outlook.com och msn.com, logga in.
-* Båda slutpunkterna också acceptera inloggningar för *[gästanvändare](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* av Azure AD-katalog för program som har konfigurerats som *[enda klient](single-and-multi-tenant-apps.md)* eller för *flera innehavare* program som har konfigurerats för att peka på den klientspecifik-slutpunkten (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* V 1.0-slutpunkten tillåter endast arbets-och skol konton att logga in i ditt program (Azure AD)
+* Med Microsoft Identity Platform-slutpunkten kan du logga in med arbets-och skol konton från Azure AD och personliga Microsoft-konton (MSA), till exempel hotmail.com, outlook.com och msn.com.
+* Båda slut punkterna accepterar också inloggnings program för *[gäst användare](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* i en Azure AD-katalog för program som kon figurer ATS som *[en enskild klient](single-and-multi-tenant-apps.md)* eller för program *med flera klienter* som kon figurer ATS för att`https://login.microsoftonline.com/{TenantId_or_Name}`peka på den klient-/regionsspecifika slut punkten ().
 
-Microsoft identity-plattformen slutpunkten kan du skriva appar som har stöd för inloggningar från personliga Microsoft-konton och arbets-och skolkonton. Det gör att du kan skriva din app helt konto-oberoende. Exempel: om appen anropar den [Microsoft Graph](https://graph.microsoft.io), vissa ytterligare funktioner och data kommer att kunna arbeta konton, till exempel sina SharePoint-webbplatser eller katalogdata. Men för många åtgärder, till exempel [läsning av en användares e-post](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), samma kod kan komma åt e-post för både personliga och arbets och skolkonton.
+Med slut punkten för Microsoft Identity Platform kan du skriva appar som accepterar inloggningar från personliga Microsoft-konton och arbets-och skol konton. Det ger dig möjlighet att skriva appens fullständigt konto-oberoende. Om din app till exempel anropar [Microsoft Graph](https://graph.microsoft.io), kommer vissa ytterligare funktioner och data att vara tillgängliga för arbets konton, till exempel SharePoint-webbplatser eller katalog data. Men för många åtgärder, till exempel [läsning av en användares e-post](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), kan samma kod komma åt e-postmeddelandet för både personliga konton och arbets-och skol konton.
 
-Du kan använda Microsoft Authentication Library (MSAL) för Microsoft identity-plattformen slutpunkten för att få tillgång till konsumenten, högskolor, och enterprise världar. Azure AD v1.0 slutpunkten accepterar inloggningar från arbets- och skolkonton konton.
+För Microsoft Identity Platform-slutpunkten kan du använda Microsoft Authentication Library (MSAL) för att få till gång till konsument-, utbildnings-och företags världar. Azure AD v 1.0-slutpunkten accepterar bara inloggningar från arbets-och skol konton.
 
-## <a name="incremental-and-dynamic-consent"></a>Inkrementell och dynamiska medgivande
+## <a name="incremental-and-dynamic-consent"></a>Det stegvisa och dynamiska godkännandet
 
-Appar med hjälp av Azure AD v1.0 slutpunkten krävs för att ange sina OAuth 2.0-behörigheter som krävs i förväg, till exempel:
+Appar som använder Azure AD v 1.0-slutpunkten krävs för att ange deras obligatoriska OAuth 2,0-behörigheter i förväg, till exempel:
 
-![Exemplet visar Gränssnittet behörigheter för registrering](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Exempel som visar användar gränssnittet för behörighets registrering](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
-Behörighetsinställningar direkt från programregistrering är **Statiska**. Medan statiska behörigheterna för den app som definierats i Azure-portalen Håll koden bra och enkelt, anger möjliga problem för utvecklare:
+Behörigheterna som anges direkt på program registreringen är **statiska**. Även om statiska behörigheter för appen som definierats i Azure Portal låter koden vara Nice och enkel, visar den några möjliga problem för utvecklare:
 
-* Appen måste begära alla behörigheter som den skulle behöver vid användarens första inloggning. Detta kan leda till en lång lista med behörigheter som förhindrar användare från att godkänna appens åtkomst på första inloggning.
+* Appen måste begära alla behörigheter som den skulle behöva vid användarens första inloggning. Detta kan leda till en lång lista med behörigheter som förhindrar att slutanvändarna godkänner appens åtkomst vid första inloggningen.
 
-* Appen måste känner till alla de resurser som den skulle någonsin åt förbereds i förväg. Det var svårt att skapa appar som kan komma åt ett valfritt antal resurser.
+* Appen måste känna till alla resurser som den skulle ha haft till gång till i förväg. Det var svårt att skapa appar som kunde komma åt ett godtyckligt antal resurser.
 
-Med Microsoft identity-plattformen slutpunkt kan du ignorera statiska behörigheter som definierats i registreringsinformation app i Azure portal och begäran behörigheterna stegvis i stället vilket innebär att be om en utan minsta uppsättning behörigheter förskott och växande mer med tiden då kunden använder ytterligare funktioner. Om du vill göra det, du kan ange omfång som din app behöver när som helst genom att inkludera de nya scope i den `scope` parameter när du begär en åtkomsttoken - utan att behöva förväg definiera dem i registreringsinformation för programmet. Om användaren ännu inte har samtyckt till nya scope som lagts till i begäran, uppmanas de att endast godkänna de nya behörigheterna. Mer information finns i [behörigheter och samtycke scope](v2-permissions-and-consent.md).
+Med Microsoft Identity Platform-slutpunkten kan du ignorera de statiska behörigheter som definierats i appens registrerings information i Azure Portal och begär behörigheter stegvis i stället, vilket innebär att du frågar efter en minimal uppsättning behörigheter som är aktiva och växer mer med tiden när kunden använder ytterligare funktioner i appen. Om du vill göra det kan du ange de omfattningar som appen behöver när som helst genom att inkludera de nya omfången `scope` i parametern när du begär en åtkomsttoken – utan att behöva definiera dem i program registrerings informationen. Om användaren ännu inte har samtyckt till nya omfattningar som lagts till i begäran, uppmanas de bara att godkänna de nya behörigheterna. Läs mer i [behörigheter, medgivande och omfång](v2-permissions-and-consent.md).
 
-Så att en app för att begära behörighet dynamiskt via den `scope` parametern ger utvecklarna fullständig kontroll över din användarupplevelse. Du kan också klientdelens ditt medgivande upplevelse och be om alla behörigheter i en inledande auktoriseringsbegäran. Om din app kräver ett stort antal behörigheter, du kan samla in dessa behörigheter från användaren stegvis när de försöker att använda vissa funktioner i appen med tiden.
+Genom att tillåta en app att begära behörigheter dynamiskt `scope` via parametern ger utvecklare fullständig kontroll över din användar upplevelse. Du kan också läsa in din medgivande upplevelse och fråga efter alla behörigheter i en första auktoriseringsbegäran-begäran. Om din app kräver ett stort antal behörigheter kan du samla in dessa behörigheter från användaren stegvis när de försöker använda vissa funktioner i appen över tid.
 
-Administratörens godkännande klar på ett annat företag kräver fortfarande de statiska behörigheter som har registrerats för appen, så du bör ange dessa behörigheter för appar i portalen för registrering av appen om du behöver en administratör ge ditt medgivande för hela organisationen. Detta minskar cykler som krävs av administratören organisation för att konfigurera programmet.
+Administratörs medgivande som gjorts för en organisations räkning kräver fortfarande de statiska behörigheter som registrerats för appen, så du bör ange dessa behörigheter för appar i appens registrerings portal om du behöver en administratör för att ge tillåtelse åt hela organisationen. Detta minskar de cykler som krävs av organisationens administratör för att konfigurera programmet.
 
-## <a name="scopes-not-resources"></a>Scope, inte resurser
+## <a name="scopes-not-resources"></a>Omfattningar, inte resurser
 
-För appar som använder v1.0 slutpunkten kan en app kan fungera som en **resource**, eller en mottagare av token. En resurs kan definiera ett antal **scope** eller **oAuth2Permissions** som den förstår, vilket gör att klientdatorer appar att begära token från den resursen för en viss uppsättning omfång. Överväg att Azure AD Graph-API som ett exempel på en resurs:
+För appar som använder v 1.0-slutpunkten kan en app beter sig som en **resurs**eller en mottagare av tokens. En resurs kan definiera ett antal **omfattningar** eller **oAuth2Permissions** som den förstår, vilket gör det möjligt för klient program att begära token från den resursen för en viss uppsättning omfång. Överväg att använda Azure AD Graph API som ett exempel på en resurs:
 
-* Resurs-ID eller `AppID URI`: `https://graph.windows.net/`
-* Scope, eller `oAuth2Permissions`: `Directory.Read`, `Directory.Write`och så vidare.
+* Resurs-ID eller `AppID URI`:`https://graph.windows.net/`
+* Omfattningar, eller `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, och så vidare.
 
-Detta gäller för Microsoft identity-plattformen slutpunkten. En app kan fortfarande fungera som en resurs, definiera omfång och identifieras av en URI. Klientappar kan fortfarande att begära åtkomst till dessa omfattningar. Men det sätt som en klient begär att dessa behörigheter har ändrats.
+Detta gäller för Microsoft Identity Platform-slutpunkten. En app kan fortfarande fungera som en resurs, definiera omfång och identifieras av en URI. Klient program kan fortfarande begära åtkomst till dessa scope. Men det kan vara så att en klient begär dessa behörigheter.
 
-För att auktorisera v1.0 slutpunkten, en OAuth 2.0 kan begäran till Azure AD har tittat som:
+För den v 1.0-slutpunkten kan en OAuth 2,0-auktorisera begäran till Azure AD ha tittat på:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -78,9 +78,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Här är den **resource** parametern anges vilken resurs som klientappen begär auktorisering. Azure AD beräknade de behörigheter som krävs av appen utifrån statisk konfiguration i Azure portal och därefter utfärdade token.
+Här indikerade **resurs** parametern vilken resurs som klient appen begär auktorisering för. Azure AD beräknade de behörigheter som krävs av appen baserat på statisk konfiguration i Azure Portal och utfärdade tokens.
 
-För program som använder Microsoft identity-plattformen endpoint, auktorisera samma OAuth 2.0 begäran ut:
+För program som använder Microsoft Identity Platform-slutpunkten ser samma OAuth 2,0-auktoriserade begäran ut så här:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -89,109 +89,112 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Här är den **omfång** parametern anger vilka resurser och behörigheter appen begär auktorisering. Önskad resurs finns kvar i begäran – det är finns i vart och ett av värdena för omfångets parameter. Använda omfattningsparametern i det här sättet kan Microsoft identity-plattformen slutpunkten ska vara mer kompatibel med OAuth 2.0-specifikationen och överensstämmer bättre med vanliga metoder i branschen. Dessutom kan appar för att göra [inkrementella medgivande](#incremental-and-dynamic-consent) – endast begär behörigheter när programmet kräver dem inte direkt.
+Här anger **omfattnings** parametern vilken resurs och vilka behörigheter appen begär auktorisering. Den önskade resursen finns fortfarande i begäran – den ingår i värdena för omfattnings parametern. Genom att använda omfattnings parametern på det här sättet kan Microsoft Identity Platform-slutpunkten bli mer kompatibel med OAuth 2,0-specifikationen och anpassa sig närmare med vanliga bransch praxis. Det gör det också möjligt för appar att göra ett [stegvist godkännande](#incremental-and-dynamic-consent) – endast begära behörighet när programmet kräver dem i stället för att placeras överst.
 
-## <a name="well-known-scopes"></a>Välkända scope
+## <a name="well-known-scopes"></a>Välkända omfattningar
 
-### <a name="offline-access"></a>Offline-åtkomst
+### <a name="offline-access"></a>Åtkomst offline
 
-Appar med hjälp av Microsoft identity-plattformen slutpunkt kan kräva användning av en ny välkända behörighet för appar - den `offline_access` omfång. Alla appar måste begära denna behörighet om de behöver för att komma åt resurser på uppdrag av en användare under en långvarig tid, även om användaren inte kanske aktivt använder appen. Den `offline_access` omfattning visas för användaren i dialogrutor för användarmedgivande som **komma åt dina data när som helst**, som användaren måste samtycka till. Begär den `offline_access` behörighet kan din webbapp tar emot OAuth 2.0-refresh_tokens från Microsoft identity-plattformen slutpunkten. Uppdatera token är långlivade och kan utbyta för nya OAuth 2.0-åtkomsttoken under långa perioder av åtkomst.
+Appar som använder Microsoft Identity Platform-slutpunkten kan kräva att en ny välkänd behörighet för appar- `offline_access` omfånget används. Alla appar måste begära den här behörigheten om de behöver åtkomst till resurser för en användares räkning under en längre tids period, även om användaren inte kan använda appen aktivt. Omfånget visas för användaren i medgivande dialog rutor som **åtkomst till dina data när som helst**, vilka användaren måste godkänna. `offline_access` Om du begär behörigheten kommer din webbapp att kunna ta emot OAuth 2,0-refresh_tokens från slut punkten för Microsoft Identity Platform. `offline_access` Uppdaterade token är långa och kan bytas ut för nya OAuth 2,0-åtkomsttoken för utökade åtkomst perioder.
 
-Om din app inte begär det `offline_access` omfattning, det inte tar emot uppdateringstoken. Det innebär att när du lösa in en auktoriseringskod i OAuth 2.0-auktoriseringskodflödet endast får du tillbaka en åtkomsttoken från den `/token` slutpunkt. Som komma åt token är giltig för en kort tidsperiod (vanligtvis en timme), men till slut upphör att gälla. AT tidpunkt, din app behöver du därefter skickas användarna tillbaka till den `/authorize` slutpunkt för att hämta en ny auktoriseringskod. Under den här omdirigering, användaren kanske eller kanske inte behöver ange dem igen eller reconsent behörigheter, beroende på vilken typ av app.
+Om din app inte begär `offline_access` omfånget får den inte ta emot uppdateringstoken. Det innebär att när du löser in en auktoriseringskod i OAuth 2,0-Authorization Code Flow får du bara tillbaka en åtkomsttoken från `/token` slut punkten. Denna åtkomsttoken är fortfarande giltig under en kort tids period (vanligt vis en timme), men kommer att upphöra att gälla. Vid den tidpunkten måste din app omdirigera användaren tillbaka till `/authorize` slut punkten för att hämta en ny auktoriseringskod. Under den här omdirigeringen kanske användaren inte behöver ange sina autentiseringsuppgifter igen eller medgivande till behörigheter, beroende på typ av app.
 
-Mer information om OAuth 2.0 `refresh_tokens`, och `access_tokens`, Kolla in den [protokollreferens för Microsoft identity-plattformen](active-directory-v2-protocols.md).
+Om du vill veta mer om OAuth `refresh_tokens`2,0, `access_tokens`och kolla in [Microsoft Identity Platform Protocol-referens](active-directory-v2-protocols.md).
 
-### <a name="openid-profile-and-email"></a>OpenID-profil och e-post
+### <a name="openid-profile-and-email"></a>OpenID, profil och e-post
 
-Historiskt sett har mest grundläggande OpenID Connect-inloggning flödet med Microsofts identitetsplattform skulle uppge en mängd information om användaren i den resulterande *id_token*. Anspråk i en id_token kan innehålla användarens namn, önskad användarnamn, e-postadress, objekt-ID och mer.
+Tidigare var det mest grundläggande OpenID Connect-inloggnings flödet med Microsoft Identity Platform en mycket information om användaren i den resulterande *id_token*. Anspråken i en id_token kan innehålla användarens namn, önskat användar namn, e-postadress, objekt-ID med mera.
 
-Informationen som den `openid` omfång får din app åtkomst till är nu begränsade. Den `openid` omfång kan din app för att logga in användaren och ta emot en appspecifika identifierare för användaren. Om du vill hämta personliga data om användaren i din app, måste din app och begär ytterligare behörighet från användaren. Två nya scope `email` och `profile`, gör att du kan begära ytterligare behörighet.
+Den information som `openid` omfånget ger åtkomst till appen är nu begränsad. `openid` Omfånget tillåter bara att din app loggar in användaren och tar emot en app-Specific Identifier för användaren. Om du vill hämta personliga data om användaren i din app måste appen begära ytterligare behörigheter från användaren. Två nya omfattningar `email` och `profile`ger dig möjlighet att begära ytterligare behörigheter.
 
-* Den `email` omfånget gör din appåtkomst till användarens primära e-postadress via den `email` anspråk i id_token, förutsatt att användaren har en adresserbara e-postadress.
-* Den `profile` omfång får din appåtkomst till andra grundläggande information om användare, till exempel deras namn måste önskade användarnamn, objekt-ID och så vidare i id_token.
+* Med `email` hjälp av omfånget får appen åtkomst till användarens primära e- `email` postadress via anspråket i id_token, förutsatt att användaren har en adresserad e-postadress.
+* `profile` Omfånget ger appen åtkomst till all annan grundläggande information om användaren, t. ex. namn, önskat användar namn, objekt-ID och så vidare, i id_token.
 
-Dessa scope kan du koda din app på en minimal avslöjande sätt så att du kan bara be användaren ange mängden information som din app måste göra sitt jobb. Mer information om dessa scope finns [omfattningsreferens för Microsoft identity-plattformen](v2-permissions-and-consent.md).
+Med de här omfången kan du koda din app på ett minimalt sätt så att du bara kan fråga användaren om den information som appen behöver för att utföra sitt jobb. Mer information om de här omfattningarna finns i [referens för Microsoft Identity Platform](v2-permissions-and-consent.md).
 
-## <a name="token-claims"></a>Tokenanspråken
+## <a name="token-claims"></a>Token-anspråk
 
-Microsoft identity-plattformen endpoint utfärdar en mindre uppsättning anspråk i token som standard att hålla nyttolaster små. Om du har appar och tjänster som är beroende av en viss anspråk i en v1.0-token som inte längre som standard i en token för Microsoft identity-plattformen kan du använda den [valfria anspråk](active-directory-optional-claims.md) funktionen för att inkludera det vidare.
+Slut punkten för Microsoft Identity Platform utfärdar en mindre uppsättning anspråk i sina tokens som standard för att bevara nytto laster små. Om du har appar och tjänster som har ett beroende på ett visst anspråk i en v 1.0-token som inte längre anges som standard i en Microsoft Identity Platform-token, bör du överväga att använda funktionen [valfria anspråk](active-directory-optional-claims.md) för att ta med detta anspråk.
+
+> [!IMPORTANT]
+> v 1.0-och v 2.0-token kan utfärdas av både v 1.0-och v 2.0-slutpunkter! id_tokens matchar *alltid* den slut punkt som de begär från, och åtkomsttoken matchar *alltid* det format som förväntas av webb-API: et som klienten anropar med denna token.  Så om din app använder v 2.0-anslutningsslutpunkten för att hämta en token för att anropa Microsoft Graph, som förväntar sig token för v 1.0-format, så får appen en token i formatet v 1.0.  
 
 ## <a name="limitations"></a>Begränsningar
 
-Det finns några begränsningar vara medvetna om när du använder Microsoft identity-plattformen.
+Det finns några begränsningar som du bör känna till när du använder Microsoft Identity Platform.
 
-När du skapar program som integreras med Microsoft identity-plattformen måste du bestämma om Microsoft identity-plattformen endpoint autentisering protokollen och uppfyller dina behov. V1.0 slutpunkt och plattformen stöds fortfarande fullt ut och i vissa avseenden är fler funktioner än Microsoft identity-plattformen. Men Microsoft identity-plattformen [introducerar stora fördelar](azure-ad-endpoint-comparison.md) för utvecklare.
+När du skapar program som integreras med Microsoft Identity Platform måste du bestämma om slut punkten och autentiseringsprotokollen för Microsoft Identity Platform uppfyller dina behov. Slut punkten och plattformen för v 1.0 stöds fortfarande fullt ut, och i vissa hänseende är fler funktioner mer avancerade än Microsoft Identity Platform. Microsoft Identity Platform introducerar emellertid [betydande fördelar](azure-ad-endpoint-comparison.md) för utvecklare.
 
-Här är nu en förenklad rekommendation för utvecklare:
+Här är en förenklad rekommendation för utvecklare nu:
 
-* Om du vill ha eller behöver stöd för personliga Microsoft-konton i ditt program, eller du skriver ett nytt program kan du använda Microsoft identity-plattformen. Men innan du gör, kontrollera att du förstår de begränsningar som beskrivs i den här artikeln.
-* Om du migrerar eller uppdatera ett program som förlitar sig på SAML, kan du inte använda Microsoft identity-plattformen. I stället referera till den [för för Azure AD-v1.0](v1-overview.md).
+* Om du vill ha eller behöver stöd för personliga Microsoft-konton i ditt program, eller om du skriver ett nytt program, använder du Microsoft Identity Platform. Men innan du gör det, se till att du förstår de begränsningar som beskrivs i den här artikeln.
+* Om du migrerar eller uppdaterar ett program som förlitar sig på SAML kan du inte använda Microsoft Identity Platform. Se i stället till [Azure AD v 1.0-guiden](v1-overview.md).
 
-Microsoft identity-plattformen slutpunkten kommer att utvecklas för att ta bort de begränsningar som anges här, så att du behöver bara använda Microsoft identity-plattformen slutpunkten. Under tiden kan använda den här artikeln för att avgöra om Microsoft identity-plattformen slutpunkten är rätt för dig. Vi fortsätter att uppdatera den här artikeln för att återspegla det aktuella tillståndet för Microsoft identity-plattformen slutpunkten. Kontrollera att gå tillbaka till dina krav mot Microsoft identity-plattformsfunktioner för att omvärdera.
+Slut punkten för Microsoft Identity Platform kommer att utvecklas för att eliminera de begränsningar som anges här, så att du bara behöver använda Microsoft Identity Platform-slutpunkten. Under tiden kan du använda den här artikeln för att avgöra om slut punkten för Microsoft Identity Platform är rätt för dig. Vi fortsätter att uppdatera den här artikeln för att återspegla den aktuella statusen för Microsoft Identity Platform-slutpunkten. Kom tillbaka för att utvärdera dina krav mot Microsoft Identity Platform-funktioner.
 
 ### <a name="restrictions-on-app-registrations"></a>Begränsningar för app-registreringar
 
-För varje app som du vill integrera med Microsoft identity-plattformen slutpunkt, kan du skapa en appregistrering i den nya [ **appregistreringar** uppleva](https://aka.ms/appregistrations) i Azure-portalen. Befintliga appar för Microsoft-konto är inte kompatibla med portalen, men alla Azure AD-appar finns, oavsett var och när de har registrerats.
+För varje app som du vill integrera med Microsoft Identity Platform-slutpunkten kan du skapa en app-registrering i den nya [ **Appregistreringars** miljön](https://aka.ms/appregistrations) i Azure Portal. Befintliga Microsoft-konto appar är inte kompatibla med portalen, men alla Azure AD-appar är, oavsett var eller när de registrerades.
 
-App-registreringar som har stöd för arbete och skola konton och personliga konton har följande varningar:
+Appregistreringar som har stöd för arbets-och skol konton och personliga konton har följande varningar:
 
-* Bara två apphemligheter tillåts per program-ID.
-* Ett program som inte har registrerats i en klient kan bara hanteras av det konto som registrerade källan. Det kan inte delas med andra utvecklare. Detta är fallet för de flesta appar som registrerades med ett personligt microsoftkonto i portalen för registrering av appen. Om du vill dela dina appregistrering med flera utvecklare registrera programmet i en klient med den nya **appregistreringar** på Azure portal.
-* Det finns flera begränsningar på formatet för omdirigerings-URL som är tillåtet. Mer information om omdirigerings-URL finns i nästa avsnitt.
+* Endast två program hemligheter tillåts per program-ID.
+* Ett program som inte har registrerats i en klient organisation kan bara hanteras av det konto som registrerade det. Den kan inte delas med andra utvecklare. Detta är fallet för de flesta appar som registrerades med en personlig Microsoft-konto i registrerings portalen för appen. Om du vill dela din app-registrering med flera utvecklare registrerar du programmet i en klient med hjälp av den nya **Appregistreringar** avsnittet av Azure Portal.
+* Det finns flera begränsningar för formatet för den omdirigerings-URL som tillåts. Mer information om omdirigerings-URL finns i nästa avsnitt.
 
-### <a name="restrictions-on-redirect-urls"></a>Begränsningar för omdirigera URL: er
+### <a name="restrictions-on-redirect-urls"></a>Begränsningar för omdirigerings-URL: er
 
-Appar som har registrerats för Microsoft identity-plattformen är begränsade till en begränsad uppsättning omdirigerings-URL-värden. Omdirigerings-URL för webbappar och tjänster måste börja med schemat `https`, och alla omdirigerings-URL-värden måste dela en enda DNS-domän.  Registreringssystemet jämför hela DNS-namnet på DNS-namnet på omdirigerings-URL som du vill lägga till befintliga omdirigerings-URL. `http://localhost` kan också användas som en omdirigerings-URL.  
+Appar som har registrerats för Microsoft Identity Platform är begränsade till en begränsad uppsättning URL-värden för omdirigering. Omdirigerings-URL: en för webbappar och tjänster måste `https`börja med schemat, och alla omdirigerings-URL-värden måste dela en enda DNS-domän.  Registrerings systemet jämför hela DNS-namnet på den befintliga omdirigerings-URL: en till DNS-namnet för den omdirigerings-URL som du lägger till. `http://localhost`stöds också som en omdirigerings-URL.  
 
 Begäran om att lägga till DNS-namnet kommer att misslyckas om något av följande villkor föreligger:  
 
-* Hela DNS-namnet på den nya omdirigerings-URL: en matchar inte den befintliga omdirigerings-URL: en DNS-namn.
-* Hela DNS-namnet på den nya omdirigerings-URL är inte en underdomän till befintliga omdirigerings-URL.
+* Hela DNS-namnet för den nya omdirigerings-URL: n matchar inte DNS-namnet på den befintliga omdirigerings-URL: en
+* Hela DNS-namnet för den nya omdirigerings-URL: en är inte en under domän till den befintliga omdirigerings webb adressen.
 
 #### <a name="example-1"></a>Exempel 1
 
-Om appen har en omdirigerings-URL för `https://login.contoso.com`, du kan lägga till en omdirigerings-URL där matchar DNS-namnet exakt som de visas i följande exempel:
+Om appen har en omdirigerings- `https://login.contoso.com`URL för kan du lägga till en omdirigerings-URL där DNS-namnet matchar exakt, som du ser i följande exempel:
 
 `https://login.contoso.com/new`
 
-Alternativt kan du referera till DNS-underdomänen login.contoso.com, som visas i följande exempel:
+Eller så kan du referera till en DNS-underdomän för login.contoso.com, som du ser i följande exempel:
 
 `https://new.login.contoso.com`
 
 #### <a name="example-2"></a>Exempel 2
 
-Om du vill ha en app som har `login-east.contoso.com` och `login-west.contoso.com` som omdirigerings-URL: er, måste du lägga till de omdirigera URL: er i följande ordning:
+Om du vill ha en app som har `login-east.contoso.com` och `login-west.contoso.com` som omdirigerings-URL: er måste du lägga till dessa omdirigerings-URL: er i följande ordning:
 
 `https://contoso.com`  
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-Du kan lägga till två senare eftersom de är underdomäner i första omdirigerings-URL: en, contoso.com.
+Du kan lägga till de senare två eftersom de är under domäner för den första omdirigerings-URL: en, contoso.com.
 
-Du kan ha högst 20 svars-URL för ett visst program – den här gränsen gäller för alla typer av appar att registreringen har stöd för (ensidesapplikation (SPA), inbyggd klient, webbprogram och tjänsten).  
+Du kan bara ha 20 svars-URL: er för ett visst program – den här gränsen gäller för alla typer av appar som registreringen stöder (SPA), ursprunglig klient, webbapp och tjänst).  
 
-Läs hur du registrerar en app för användning med Microsoft identity-plattformen i [registrera en app med den nya upplevelsen för App-registreringar](quickstart-register-app.md).
+Information om hur du registrerar en app för användning med Microsoft Identity Platform finns i [Registrera en app med hjälp av den nya Appregistreringar](quickstart-register-app.md)-upplevelsen.
 
 ### <a name="restrictions-on-libraries-and-sdks"></a>Begränsningar för bibliotek och SDK: er
 
-Stöd för Microsoft identity-plattformen slutpunkten är för närvarande begränsad. Om du vill använda Microsoft identity-plattformen slutpunkten i ett produktionsprogram finns följande alternativ:
+Biblioteks stöd för Microsoft Identity Platform-slutpunkten är för närvarande begränsad. Om du vill använda Microsoft Identity Platform-slutpunkten i ett produktions program har du följande alternativ:
 
-* Du kan på ett säkert sätt använda allmänt tillgängligt från serversidan mellanprogram till inloggning och tokenverifiering om du bygger ett webbprogram. Dessa inkluderar OWIN OpenID Connect-mellanprogram för ASP.NET och Node.js Passport-plugin-programmet. Kodexempel som använder Microsoft mellanprogram, finns det [Microsoft identity-plattformen har börjat](v2-overview.md#getting-started) avsnittet.
-* Om du skapar ett skrivbord eller mobila program, kan du använda en av Microsoft Authentication Libraries (MSAL). Dessa bibliotek är allmänt tillgängliga eller i en förhandsversion av produktion som stöds, så det är säkert att använda dem i produktionsprogram. Du kan läsa mer om villkoren för förhandsversionen och tillgängliga bibliotek i [autentisering bibliotek referens](reference-v2-libraries.md).
-* För plattformar som inte omfattas av Microsoft-bibliotek, kan du integrera med Microsoft identity-plattformen slutpunkten genom att skicka och ta emot protokollmeddelanden i din programkod direkt. OpenID Connect och OAuth-protokoll [dokumenteras uttryckligen](active-directory-v2-protocols.md) som hjälper dig sådan integration.
-* Slutligen kan du använda OpenID Connect och OAuth bibliotek med öppen källkod för integrering med Microsoft identity-plattformen slutpunkten. Microsoft identity-plattformen slutpunkten ska vara kompatibel med många bibliotek för öppen källkod-protokollet utan ändringar. Dessa typer av bibliotek varierar efter språk och plattform. Den [OpenID Connect](https://openid.net/connect/) och [OAuth 2.0](https://oauth.net/2/) webbplatser underhålla en lista över populära implementeringar. Mer information finns i [Microsoft identity-plattformen och autentisering bibliotek](reference-v2-libraries.md), och en lista över klientbibliotek med öppen källkod och exempel som har testats med Microsoft identity-plattformen slutpunkt.
-* För referens anger den `.well-known` slutpunkten för Microsoft identity-plattformen common slutpunkten är `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Ersätt `common` med klient-ID för att hämta data som är specifika för din klient.  
+* Om du skapar ett webb program kan du på ett säkert sätt använda den allmänt tillgängliga mellanliggande server sidan för att utföra inloggning och verifiering av token. Det inkluderar OWIN OpenID Connect-programprogram för ASP.NET och Node. js Passport-plugin-programmet. Kod exempel som använder Microsoft mellanprogram finns i avsnittet [komma igång med Microsoft Identity Platform](v2-overview.md#getting-started) .
+* Om du skapar ett skriv bord eller ett mobilt program kan du använda något av Microsoft-MSAL (Authentication Libraries). Dessa bibliotek är allmänt tillgängliga eller i en för hands version som stöds för produktion, så det är säkert att använda dem i produktions program. Du kan läsa mer om villkoren i för hands versionen och de tillgängliga biblioteken i [autentiserings biblioteks referensen](reference-v2-libraries.md).
+* För plattformar som inte omfattas av Microsoft-bibliotek kan du integrera med Microsoft Identity Platform-slutpunkten genom att skicka och ta emot protokoll meddelanden direkt i program koden. OpenID Connect-och OAuth-protokollen [är uttryckligen dokumenterade](active-directory-v2-protocols.md) för att hjälpa dig att göra en sådan integrering.
+* Slutligen kan du använda OpenID Connect och OAuth-bibliotek med öppen källkod för att integrera med Microsoft Identity Platform-slutpunkten. Microsoft Identity Platform-slutpunkten bör vara kompatibel med många protokoll bibliotek med öppen källkod utan ändringar. Tillgängligheten för de här typerna av bibliotek varierar beroende på språk och plattform. [OpenID Connect](https://openid.net/connect/) och [OAuth 2,0](https://oauth.net/2/) -webbplatser har en lista över populära implementeringar. Mer information finns i [Microsoft Identity Platform and Authentication libraries](reference-v2-libraries.md)och i listan över klient bibliotek med öppen källkod och exempel som har testats med Microsoft Identity Platform-slutpunkten.
+* För referens `.well-known` är `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`slut punkten för den vanliga slut punkten för Microsoft Identity Platform. Ersätt `common` med klient-ID: t för att hämta data som är speciella för din klient.  
 
-### <a name="protocol-changes"></a>Protokollet ändringar
+### <a name="protocol-changes"></a>Protokoll ändringar
 
-Microsoft identity-plattformen slutpunkt stöder inte SAML eller WS-Federation; Det stöder bara OpenID Connect och OAuth 2.0.  Viktiga ändringar till OAuth 2.0-protokoll från v1.0-slutpunkten är: 
+Slut punkten för Microsoft Identity Platform stöder inte SAML eller WS-Federation; den stöder bara OpenID Connect och OAuth 2,0.  De viktiga ändringarna i OAuth 2,0-protokollen från v 1.0-slut punkten är: 
 
-* Den `email` anspråk returneras om ett valfritt anspråk konfigureras **eller** omfånget = e-post har angetts i begäran. 
-* Den `scope` parametern stöds nu i stället för den `resource` parametern.  
-* Många svar har ändrats så att de blir mer kompatibel med OAuth 2.0-specifikationen, till exempel returnera korrekt `expires_in` som ett heltal i stället för en sträng.  
+* Anspråket returneras om ett valfritt anspråk har kon figurer ATS eller om scope = email angavs i begäran. `email` 
+* Parametern stöds nu i stället `resource` för parametern. `scope`  
+* Många svar har ändrats för att göra dem mer kompatibla med OAuth 2,0-specifikationen, till exempel korrekt returneras `expires_in` som en int-sträng i stället för en sträng.  
 
-För att bättre förstå omfattning protocol-funktioner som stöds i Microsoft identity-plattformen endpoint, se [referens för OpenID Connect och OAuth 2.0-protokollet](active-directory-v2-protocols.md).
+För att bättre förstå omfattningen av de protokoll funktioner som stöds i Microsoft Identity Platform-slutpunkten, se [OpenID Connect och OAuth 2,0-protokoll referens](active-directory-v2-protocols.md).
 
 #### <a name="saml-restrictions"></a>SAML-begränsningar
 
-Om du har använt Active Directory Authentication Library (ADAL) i Windows-program, kanske du har dragit nytta av Windows-integrerad autentisering, som använder Security Assertion Markup Language (SAML) assertion bevilja. Med det här beviljandet federerade användare av Azure AD klienter tyst kan autentiseras med deras lokala Active Directory-instans utan att ange autentiseringsuppgifter. SAML assertion bevilja stöds inte på slutpunkten för Microsoft identity-plattformen.
+Om du har använt Active Directory-autentiseringsbibliotek (ADAL) i Windows-program kan du ha nytta av Windows-integrerad autentisering, som använder den beviljade SAML-kontrollen (Security Assertion Markup Language). Med det här bidraget kan användare av federerade Azure AD-klienter obevakat autentisera med sina lokala Active Directory-instanser utan att ange autentiseringsuppgifter. SAML Assertion-tilldelningen stöds inte på Microsoft Identity Platform-slutpunkten.

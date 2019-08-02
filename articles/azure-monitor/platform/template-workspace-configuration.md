@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Resource Manager-mallar för att skapa och konfigurera en Log Analytics-arbetsyta | Microsoft Docs
-description: Du kan använda Azure Resource Manager-mallar för att skapa och konfigurera Log Analytics-arbetsytor.
+title: Använd Azure Resource Manager mallar för att skapa och konfigurera en Log Analytics arbets yta | Microsoft Docs
+description: Du kan använda Azure Resource Manager mallar för att skapa och konfigurera Log Analytics arbets ytor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2acaba4e82f499ce1ca08a0ce17469ccb0a7e541
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827799"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698432"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics-arbetsyta med hjälp av Azure Resource Manager-mallar
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics arbets yta med Azure Resource Manager-mallar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan använda [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md) du skapar och konfigurerar Log Analytics-arbetsytor i Azure Monitor. Exempel på de uppgifter du kan utföra med mallar:
+Du kan använda [Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md) för att skapa och konfigurera Log Analytics arbets ytor i Azure Monitor. Exempel på de uppgifter som du kan utföra med mallarna är:
 
-* Skapa en arbetsyta inklusive inställningen prisnivå 
-* Lägga till en lösning
+* Skapa en arbets yta inklusive ange pris nivå 
+* Lägg till en lösning
 * Skapa sparade sökningar
 * Skapa en datorgrupp
 * Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
@@ -37,22 +37,22 @@ Du kan använda [Azure Resource Manager-mallar](../../azure-resource-manager/res
 * Lägg till log analytics-agenten till en Azure-dator
 * Konfigurera log analytics för att indexera data som samlas in med Azure-diagnostik
 
-Den här artikeln innehåller mallexempel på som beskriva några av den konfiguration som du kan utföra med mallar.
+Den här artikeln innehåller exempel på mallar som illustrerar en del av konfigurationen som du kan utföra med mallar.
 
 ## <a name="api-versions"></a>API-versioner
 
-I följande tabell visas den API-versionen för resurser som används i det här exemplet.
+I följande tabell visas API-versionen för de resurser som används i det här exemplet.
 
 | Resource | Resurstyp | API-version |
 |:---|:---|:---|
-| Arbetsyta   | Arbetsytor    | 2017-03-15-preview |
+| Arbetsyta   | arbetsytor    | 2017-03-15 – för hands version |
 | Search      | savedSearches | 2015-03-20 |
-| Datakälla | datakällor   | 2015-11-01-preview |
-| Lösning    | lösningar     | 2015-11-01-preview |
+| Datakälla | data källor   | 2015-11-01 – för hands version |
+| Lösning    | lösningar     | 2015-11-01 – för hands version |
 
-## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
+## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics arbets yta
 
-I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala datorn. JSON-mallen har konfigurerats för att endast kräva namnet och platsen för den nya arbetsytan (med standardvärden för arbetsytan parametrar, till exempel prisnivå och kvarhållning).  
+I följande exempel skapas en arbets yta med en mall från den lokala datorn. JSON-mallen är konfigurerad för att bara kräva namn och plats för den nya arbets ytan (med standardvärdena för de andra parametrarna för arbets ytan, till exempel pris nivå och kvarhållning).  
 
 ### <a name="create-and-deploy-template"></a>Skapa och distribuera mall
 
@@ -120,7 +120,7 @@ I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala d
 
 2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
 3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.
-4. Nu är det dags att distribuera den här mallen. Du kan använda PowerShell eller från kommandoraden för att skapa arbetsytan kan ange arbetsytans namn och plats som en del av kommandot.
+4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller kommando raden för att skapa arbets ytan och ange arbets ytans namn och plats som en del av kommandot.
 
    * För PowerShell använder du följande kommandon från mappen som innehåller mallen:
    
@@ -128,7 +128,7 @@ I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala d
         New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
-   * För kommandoraden, använder du följande kommandon från mappen som innehåller mallen:
+   * För kommando rad använder du följande kommandon från mappen som innehåller mallen:
 
         ```cmd
         azure config mode arm
@@ -137,9 +137,9 @@ I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala d
 
 Det kan ta några minuter att slutföra distributionen. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:<br><br> ![Exempelresultat när distributionen är klar](./media/template-workspace-configuration/template-output-01.png)
 
-## <a name="configure-a-log-analytics-workspace"></a>Konfigurera en Log Analytics-arbetsyta
+## <a name="configure-a-log-analytics-workspace"></a>Konfigurera en Log Analytics arbets yta
 
-I följande exempel i mallen visas hur du:
+I följande mall-exempel visas hur du:
 
 1. Lägga till lösningar i arbetsytan
 2. Skapa sparade sökningar
@@ -149,7 +149,7 @@ I följande exempel i mallen visas hur du:
 6. Samla in syslog-händelser från Linux-datorer
 7. Samla in händelser för fel och varningar från programmets händelselogg från Windows-datorer
 8. Samla in prestandaräknaren för minne tillgängligt, MB från Windows-datorer
-9. Samla in IIS-loggar och Windows-händelseloggar som skrivits av Azure-diagnostik till ett lagringskonto
+9. Samla in IIS-loggar och Windows-händelseloggar skrivna med Azure Diagnostics till ett lagrings konto
 
 ```json
 {
@@ -186,7 +186,6 @@ I följande exempel i mallen visas hur du:
         "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
-    {
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
@@ -535,13 +534,13 @@ I följande exempel i mallen visas hur du:
 }
 
 ```
-### <a name="deploying-the-sample-template"></a>Distribuera exempelmallen
+### <a name="deploying-the-sample-template"></a>Distribuera exempel mal len
 
-För att distribuera exempelmallen:
+Så här distribuerar du exempel mal len:
 
-1. Spara bifogade exemplet i en fil, till exempel `azuredeploy.json` 
-2. Redigera mallen om du vill att den konfiguration du vill ha
-3. Använda PowerShell eller från kommandoraden för att distribuera mallen
+1. Spara det bifogade exemplet i en fil, till exempel`azuredeploy.json` 
+2. Redigera mallen för att få den konfiguration du vill ha
+3. Använd PowerShell eller kommando raden för att distribuera mallen
 
 #### <a name="powershell"></a>PowerShell
 
@@ -556,18 +555,18 @@ azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
-## <a name="example-resource-manager-templates"></a>Exempel Resource Manager-mallar
+## <a name="example-resource-manager-templates"></a>Exempel på Resource Manager-mallar
 
-Azure Snabbstart mallgalleriet innehåller ett antal mallar för Log Analytics, inklusive:
+Galleriet för Azure snabb starts mal len innehåller flera mallar för Log Analytics, inklusive:
 
-* [Distribuera en virtuell dator som kör Windows med Log Analytics VM-tillägg](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Distribuera en virtuell dator som kör Linux med Log Analytics VM-tillägg](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [Övervaka Azure Site Recovery med en befintlig Log Analytics-arbetsyta](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [Övervaka Azure Web Apps med en befintlig Log Analytics-arbetsyta](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Lägg till ett befintligt lagringskonto i Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [Distribuera en virtuell dator som kör Windows med Log Analytics VM-tillägget](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Distribuera en virtuell dator som kör Linux med Log Analytics VM-tillägget](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Övervaka Azure Site Recovery att använda en befintlig Log Analytics arbets yta](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Övervaka Azure-Web Apps med hjälp av en befintlig Log Analytics arbets yta](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Lägg till ett befintligt lagrings konto i Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Distribuera Windows-agenten till Azure virtuella datorer med Resource Manager-mall](../../virtual-machines/extensions/oms-windows.md).
+* [Distribuera Windows-agenten till virtuella Azure-datorer med Resource Manager-mall](../../virtual-machines/extensions/oms-windows.md).
 
-* [Distribuera Linux-agenten till Azure virtuella datorer med Resource Manager-mall](../../virtual-machines/extensions/oms-linux.md).
+* [Distribuera Linux-agenten till virtuella Azure-datorer med Resource Manager-mall](../../virtual-machines/extensions/oms-linux.md).

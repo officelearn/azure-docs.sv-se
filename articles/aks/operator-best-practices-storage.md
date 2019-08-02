@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: mlearned
 ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67614579"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metodtips för lagring och säkerhetskopiering i Azure Kubernetes Service (AKS)
@@ -38,7 +38,7 @@ I följande tabell beskrivs de tillgängliga lagringstyper och deras funktioner:
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Delad konfiguration       | Azure Files   | Ja | Ja | Ja | Ja |
 | Strukturerade AppData        | Azure-diskar   | Ja | Nej  | Nej  | Ja |
-| Ostrukturerade data, filsystemsåtgärder | [BlobFuse (förhandsversion)][blobfuse] | Ja | Ja | Ja | Nej |
+| Ostrukturerade data, filsystemsåtgärder | [BlobFuse (för hands version)][blobfuse] | Ja | Ja | Ja | Nej |
 
 De två primära typerna av lagring för volymerna i AKS backas upp av Azure-diskar eller Azure Files. För att förbättra säkerheten, båda typer av lagring som använder Azure Storage Service Encryption (SSE) som standard som krypterar data i vila. Diskar kan för närvarande inte krypteras med Azure Disk Encryption den AKS nivån.
 
@@ -47,11 +47,11 @@ Azure Files är för närvarande tillgängliga i Standard-prestandanivån. Azure
 - *Premium* diskar backas upp av högpresterande SSD-diskar (SSD). Premium-diskar rekommenderas för alla produktionsarbetsbelastningar.
 - *Standard* diskar backas upp av roterande diskar (HDD) och är bra för arkivering eller sällan använda data.
 
-Förstå prestanda programbehov och åtkomstmönster för att välja rätt lagringsnivå. Läs mer om Managed Disks storlekar och prestandanivåer [översikt över Azure Managed Disks][managed-disks]
+Förstå prestanda programbehov och åtkomstmönster för att välja rätt lagringsnivå. Mer information om Managed Disks storlekar och prestanda nivåer finns i [Översikt över Azure Managed disks][managed-disks]
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>Skapa och använda lagringsklasser för att definiera programmets behov
 
-Typ av lagring som du använder har definierats med Kubernetes *lagringsklasser*. Klassen storage refereras sedan i distribution eller pod-specifikationen. Dessa definitioner fungerar tillsammans för att skapa lämpliga lagringen och ansluter den till poddar. Mer information finns i [lagringsklasser i AKS][aks-concepts-storage-classes].
+Typ av lagring som du använder har definierats med Kubernetes *lagringsklasser*. Klassen storage refereras sedan i distribution eller pod-specifikationen. Dessa definitioner fungerar tillsammans för att skapa lämpliga lagringen och ansluter den till poddar. Mer information finns i [lagrings klasser i AKS][aks-concepts-storage-classes].
 
 ## <a name="size-the-nodes-for-storage-needs"></a>Ändra storlek på noderna för lagringsbehov
 
@@ -68,7 +68,7 @@ Om dina program kräver Azure-diskar som lagringslösning, kan du planera för o
 
 Här är den *Standard_DS2_v2* tillåter dubbelt så många anslutna diskar och tillhandahåller tre till fyra gånger mängden IOPS och disk dataflöde. Om du endast har tittat på core beräkningsresurser och jämföra kostnader kan du välja den *Standard_B2ms* VM storlek och har dålig lagringsprestanda och begränsningar. Arbeta med programutvecklingsteamet för att förstå deras lagringsbehov för kapacitet och prestanda. Välj rätt VM-storlek för AKS-noder att uppfylla eller överträffa sina prestandabehov. Regelbundet baslinje program att justera storleken efter behov.
 
-Mer information om tillgängliga storlekar finns i [storlekar för Linux-datorer i Azure][vm-sizes].
+Mer information om tillgängliga VM-storlekar finns i [storlekar för virtuella Linux-datorer i Azure][vm-sizes].
 
 ## <a name="dynamically-provision-volumes"></a>Dynamiskt etablera volymer
 
@@ -80,25 +80,25 @@ När du vill koppla lagring till poddar kan använda du beständiga volymer. Des
 
 Ett permanent volym-anspråk (PVC) kan du dynamiskt skapa lagring efter behov. De underliggande Azure-diskarna skapas som poddar begär dem. I pod-definition begära du en volym för att skapas och ansluts till en utformade monteringssökväg
 
-Koncepten för att dynamiskt skapa och använda volymer, se [beständiga volymer anspråk][aks-concepts-storage-pvcs].
+Begrepp för hur du skapar och använder volymer dynamiskt finns i anspråk på [beständiga volymer][aks-concepts-storage-pvcs].
 
-Dessa volymer i praktiken finns i hur du skapar och använder en permanent volym med dynamiskt [Azure Disks][dynamic-disks] or [Azure Files][dynamic-files].
+Information om hur du visar dessa volymer finns i så här skapar och använder du en permanent volym med [Azure-diskar][dynamic-disks] eller [Azure Files][dynamic-files].
 
 Som en del av din lagring, anger du lämplig *reclaimPolicy*. Den här reclaimPolicy styr beteendet för underliggande Azure-lagringsresursen när poden tas bort och permanent volym kanske inte längre är nödvändiga. Den underliggande lagringsresursen kan tas bort eller bevaras för användning med en framtida pod. ReclaimPolicy kan ange *behålla* eller *ta bort*. Förstå dina program behöver och implementera regelbundna kontroller för lagringsutrymme som finns kvar för att minimera icke använt lagringsutrymme som används och faktureras.
 
-Mer information om klassen lagringsalternativ finns i [storage frigöra principer][reclaim-policy].
+Mer information om alternativ för lagrings klass finns i principer för att [frigöra lagrings utrymme][reclaim-policy].
 
 ## <a name="secure-and-back-up-your-data"></a>Skydda och säkerhetskopiera dina data
 
-**Bästa praxis riktlinjer** – säkerhetskopiera dina data med ett lämpligt verktyg för din typ, till exempel Velero eller Azure Site Recovery. Kontrollera integriteten och säkerheten för dessa säkerhetskopior.
+**Vägledning för bästa praxis** – säkerhetskopiera dina data med hjälp av ett lämpligt verktyg för din lagrings typ, till exempel Velero eller Azure Site Recovery. Kontrollera integriteten och säkerheten för dessa säkerhetskopior.
 
-När dina program lagrar och använda data sparas på diskar eller i filer, du behöver göra regelbundna säkerhetskopior eller ögonblicksbilder av dessa data. Azure-diskar som kan använda inbyggda ögonblicksbild tekniker. Du kan behöva en hook för dina program att tömma skriver till disken innan du utför ögonblicksbildsåtgärden. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], säkerhetskopiera data från beständiga volymer och regelbundet testa återställningsåtgärder för att kontrollera dataintegriteten och processer som krävs.
+När dina program lagrar och använda data sparas på diskar eller i filer, du behöver göra regelbundna säkerhetskopior eller ögonblicksbilder av dessa data. Azure-diskar som kan använda inbyggda ögonblicksbild tekniker. Du kan behöva en hook för dina program att tömma skriver till disken innan du utför ögonblicksbildsåtgärden. [Velero][velero] kan säkerhetskopiera beständiga volymer tillsammans med ytterligare kluster resurser och konfigurationer. Om du inte kan [ta bort tillstånd från dina program][remove-state]säkerhetskopierar du data från permanenta volymer och testar regelbundet återställnings åtgärderna för att kontrol lera data integriteten och de processer som krävs.
 
-Förstå begränsningar av olika metoder för säkerhetskopiering av data och du måste du inaktivera dina data för ögonblicksbild. Säkerhetskopiering av data kan inte nödvändigtvis du återställa din Programmiljö av klusterdistribution. Mer information om dessa scenarier finns i [bästa praxis för företag affärskontinuitet och haveriberedskap i AKS][best-practices-multi-region].
+Förstå begränsningar av olika metoder för säkerhetskopiering av data och du måste du inaktivera dina data för ögonblicksbild. Säkerhetskopiering av data kan inte nödvändigtvis du återställa din Programmiljö av klusterdistribution. Mer information om dessa scenarier finns i [metod tips för verksamhets kontinuitet och haveri beredskap i AKS][best-practices-multi-region].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln fokuserar på lagring bästa praxis i AKS. Läs mer om grunderna i storage i Kubernetes [lagringsbegrepp för program i AKS][aks-concepts-storage].
+Den här artikeln fokuserar på lagring bästa praxis i AKS. Mer information om grundläggande lagrings anvisningar i Kubernetes finns i [lagrings koncept för program i AKS][aks-concepts-storage].
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero

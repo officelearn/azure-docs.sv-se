@@ -1,6 +1,6 @@
 ---
-title: Använda sökning i Azure Application Insights | Microsoft Docs
-description: Sök och filtrera rådata telemetri som skickas av din webbapp.
+title: Använda search i Azure Application Insights | Microsoft Docs
+description: Sök och filtrera RAW-telemetri som skickas av din webbapp.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,160 +10,151 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 07/30/2019
 ms.author: mbullwin
-ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d08fd2ac6db63eee01c0653d2dbb1623fb1b51ed
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900266"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705409"
 ---
-# <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
-Search är en funktion i [Application Insights](../../azure-monitor/app/app-insights-overview.md) att du använder för att hitta och utforska enskilda telemetri-objekt, till exempel sidvisningar, undantag, eller webb-begäranden. Och du kan visa loggspårningar och händelser som du har kodat.
+# <a name="using-search-in-application-insights"></a>Använda Sök i Application Insights
 
-(För mer komplexa frågor över dina data använder [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
+Sök är en funktion i [Application Insights](../../azure-monitor/app/app-insights-overview.md) som du använder för att söka efter och utforska enskilda telemetri objekt, till exempel sidvyer, undantag eller webb förfrågningar. Du kan också Visa logg spårningar och händelser som du har kodat.
 
-## <a name="where-do-you-see-search"></a>Där ser du Search?
+(Om du vill ha mer komplexa frågor över dina data använder du [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
+
+## <a name="where-do-you-see-search"></a>Var ser du sökningen?
 
 ### <a name="in-the-azure-portal"></a>I Azure-portalen
 
-Du kan öppna diagnostiksökning uttryckligen från bladet översikt över Application Insights i ditt program:
+Du kan öppna diagnostisk sökning från fliken Application Insights översikt i ditt program (finns i det övre fältet) eller under undersöka till vänster.
 
-![Öppna diagnostiksökning](./media/diagnostic-search/001.png)
+![Fliken Sök](./media/diagnostic-search/view-custom-events.png)
 
-![Skärmbild av diagnostiksökning diagram](./media/diagnostic-search/002.png)
+Gå till den nedrullningsbara menyn händelse typer om du vill se en lista över telemetri-objekt – server begär Anden, sid visningar, anpassade händelser som du har kodat och så vidare. Längst upp i listan resultat är ett sammanfattnings diagram som visar antalet händelser över tid.
 
-Diagnostiksökning brödtext är en lista över telemetri objekt – serverbegäranden, sidan vyer, anpassade händelser som du har kodat och så vidare. Överst i listan är en sammanfattning av diagram som visar antalet händelser över tid.
-
-Klicka på Uppdatera för att få nya händelser.
+Klicka på från den nedrullningsbara menyn eller uppdatera för att hämta nya händelser.
 
 ### <a name="in-visual-studio"></a>I Visual Studio 2013
 
-I Visual Studio finns även en Application Insights-sökfönstret. Det är mest användbara för att visa telemetrihändelser som genereras av programmet som du felsöker. Men det kan också visa händelser som samlas in från din publicerade app på Azure-portalen.
+I Visual Studio finns det också ett Application Insights Sök fönster. Det är mest användbart när du vill visa telemetri-händelser som genererats av det program som du felsöker. Men det kan också visa de händelser som samlas in från den publicerade appen på Azure Portal.
 
-Öppna fönstret i Visual Studio:
+Öppna Sök-fönstret i Visual Studio:
 
-![Visual Studio öppna Application Insights-sökning](./media/diagnostic-search/32.png)
+![Visual Studio Open Application Insights-sökning](./media/diagnostic-search/32.png)
 
-Sökfönstret har funktioner som liknar webbportalen:
+Sök fönstret innehåller funktioner som liknar webb portalen:
 
-![Visual Studio Application Insights-sökfönstret](./media/diagnostic-search/34.png)
+![Fönstret Sök i Visual Studio Application Insights](./media/diagnostic-search/34.png)
 
-Fliken Spåra åtgärden är tillgänglig när du öppnar en begäran eller en Sidvisning. Åtgärden för ett '' är en sekvens av händelser som är kopplad till en enda förfrågan eller sidvisning. Beroendeanrop, undantag, spårningsloggar och anpassade händelser kan exempelvis vara en del av en enda åtgärd. Fliken Spåra åtgärden visar grafiskt tidpunkten och varaktighet av dessa händelser i förhållande till förfrågan eller sidvisning. 
+Fliken spåra åtgärd är tillgänglig när du öppnar en begäran eller sid visning. En "åtgärd" är en sekvens med händelser som associeras med till en enskild begäran eller sid visning. Till exempel kan beroende anrop, undantag, spårnings loggar och anpassade händelser ingå i en enda åtgärd. På fliken spåra åtgärd visas grafiskt tid och varaktighet för dessa händelser i förhållande till begäran eller sid visning.
 
 ## <a name="inspect-individual-items"></a>Granska enskilda objekt
 
-Välj alla telemetriobjekt för att se nyckelfält och relaterade objekt.
+Markera ett objekt för telemetri för att se nyckel fält och relaterade objekt.
 
-![Skärmbild av en begäran om enskilda beroende](./media/diagnostic-search/003.png)
+![Skärm bild av en enskild beroende förfrågan](./media/diagnostic-search/telemetry-item.png)
 
-Detaljer för slutpunkt till slutpunkt transaktion startas:
+Då startas vyn transaktions detaljer från slut punkt till slut punkt.
 
-![Skärmbild av detaljer för slutpunkt till slutpunkt-transaktion.](./media/diagnostic-search/004.png)
+## <a name="filter-event-types"></a>Filtrera händelse typer
 
-## <a name="filter-event-types"></a>Filtrera händelsetyper
-Öppna bladet Filter och välj händelsetyper som du vill se. (Om du senare vill återställa filtren som du har öppnat bladet, klickar du på Återställ.)
+Öppna den nedrullningsbara menyn händelse typer och välj de händelse typer som du vill se. (Om du senare vill återställa filtren klickar du på Återställ.)
 
-![Välj Filter och välj telemetrityper](./media/diagnostic-search/02-filter-req.png)
+Händelse typerna är:
 
-Händelsetyper är:
+* Spåra - [diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) inklusive TrackTrace, log4Net, NLog och system. Diagnostics. trace-anrop.
+* **Begär** HTTP-förfrågningar som tagits emot av serverprogrammet, inklusive sidor, skript, bilder, formatfiler och data. Dessa händelser används för att skapa översikts diagram över förfrågningar och svar.
+* **Telemetri för sid visning** - som[skickas av webb klienten](../../azure-monitor/app/javascript.md), används för att skapa sid visnings rapporter.
+* **Anpassad händelse** – om du infogade anrop till TrackEvent () för att kunna [övervaka användningen](../../azure-monitor/app/api-custom-events-metrics.md)kan du söka efter dem här.
+* **Undantag** – ej fångade [undantag på servern](../../azure-monitor/app/asp-net-exceptions.md)och de som du loggar med hjälp av TrackException ().
+* Beroende - [anrop från serverprogram](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](../../azure-monitor/app/javascript.md).
+* **Tillgänglighet** – resultat av [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md).
 
-* **Spårningen** - [diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) inklusive TrackTrace, log4Net, NLog och System.Diagnostic.Trace anrop.
-* **Begär** -HTTP-begäranden som tas emot av serverprogrammet, inklusive sidor, skript, bilder, filer och data. De här händelserna används för att skapa begäran och svaret översiktsdiagrammet.
-* **Sidvisning** - [telemetri som skickas av webbklienten](../../azure-monitor/app/javascript.md)används för att skapa sidan Visa rapporter. 
-* **Anpassad händelse** – om du har infogat anrop till TrackEvent() för att [övervaka användning](../../azure-monitor/app/api-custom-events-metrics.md), du kan söka efter den här.
-* **Undantag** – utan felhantering [undantag i servern](../../azure-monitor/app/asp-net-exceptions.md), och de som du loggar med TrackException().
-* **Beroende** - [anrop från serverprogrammet](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST API: er eller databaser och AJAX-anrop från din [klientkod](../../azure-monitor/app/javascript.md).
-* **Tillgänglighet** -resultatet av [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md).
+## <a name="filter-on-property-values"></a>Filtrera efter egenskaps värden
 
-## <a name="filter-on-property-values"></a>Filtrera på egenskapsvärden
-Du kan filtrera händelser på värdena i deras egenskaper. Tillgängliga egenskaper är beroende av händelsetyper som du har valt. 
+Du kan filtrera händelser på värdena för egenskaperna. Vilka egenskaper som är tillgängliga beror på vilka händelse typer du har valt. Klicka på filter ikonen ![Filter ikon](./media/diagnostic-search/filter-icon.png) för att starta.
 
-Till exempel välja ut begäranden med en specifik svarskod. 
+Om du väljer Nej värden för en viss egenskap har samma resultat som att välja alla värden. Den stänger av filtreringen av egenskapen.
 
-![Expandera en egenskap och välj ett värde](./media/diagnostic-search/03-response500.png)
+Observera att antalet till höger om filter värdena visar hur många förekomster som finns i den aktuella filtrerade uppsättningen.
 
-Välja inga värden för en viss egenskap har samma effekt som att välja alla värden. Det växlar av filtreringen på egenskapen.
+## <a name="find-events-with-the-same-property"></a>Hitta händelser med samma egenskap
 
-### <a name="narrow-your-search"></a>Begränsa sökningen
-Observera att antalet till höger om filtervärdena som visar hur många förekomster det tillhör den aktuella filtrera uppsättningen. 
+Om du vill hitta alla objekt med samma egenskaps värde kan du antingen skriva det i Sök fältet eller klicka på kryss rutan när du tittar på Egenskaper på fliken filter.
 
-Det är tydligt att begära de ”rpthuvud/anställda” resulterar i de flesta av de '500-fel i det här exemplet:
+![Klicka på kryss rutan för en egenskap på fliken filter](./media/diagnostic-search/filter-property.png)
 
-![Expandera en egenskap och välj ett värde](./media/diagnostic-search/04-failingReq.png)
-
-## <a name="find-events-with-the-same-property"></a>Söka efter händelser med samma egenskap
-Hitta alla objekt med samma egenskapsvärde:
-
-![Högerklicka på en egenskap](./media/diagnostic-search/12-samevalue.png)
-
-## <a name="search-the-data"></a>Söka efter data
+## <a name="search-the-data"></a>Sök i data
 
 > [!NOTE]
-> Om du vill skriva mer komplexa frågor, öppna [ **Analytics** ](../../azure-monitor/log-query/get-started-portal.md) högst upp på bladet Search.
-> 
+> Om du vill skriva mer komplexa frågor öppnar du [**loggar (analys)** ](../../azure-monitor/log-query/get-started-portal.md) från början av bladet Sök.
+>
 
-Du kan söka efter termer i egenskapen-värden. Detta är särskilt användbart om du har skrivit [anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md) med egenskapsvärden. 
+Du kan söka efter villkor i alla egenskaps värden. Detta är användbart om du har skrivit [anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md) med egenskaps värden.
 
-Du kanske vill ange ett adressintervall som sökningar över ett kortare intervall är snabbare. 
+Du kanske vill ange ett tidsintervall, eftersom sökningar över ett kortare intervall är snabbare.
 
-![Öppna diagnostiksökning](./media/diagnostic-search/appinsights-311search.png)
+![Öppna diagnostisk sökning](./media/diagnostic-search/search-property.png)
 
-En sökning efter fullständiga ord, inte delsträngar. Använd citattecken om du vill ange specialtecken.
+Sök efter fullständiga ord, inte del strängar. Använd citat tecken för att omsluta specialtecken.
 
-| string | är *inte* genom | men dessa gör att hitta |
+| Sträng | Hittades *inte* | Hittade |
 | --- | --- | --- |
-| HomeController.About |Startsida<br/>domänkontrollant<br/>ut | homecontroller<br/>Om<br/>"homecontroller.about"|
-|USA|UNI<br/>valda|USA<br/>tillstånd<br/>USA och<br/>”USA”
+| HomeController. om |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
+|USA|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
 
-Här följer sökuttryck som du kan använda:
+Här följer de Sök uttryck som du kan använda:
 
-| Exempelfråga | Verkan |
+| Exempel fråga | Verkan |
 | --- | --- |
-| `apple` |Hitta alla händelser i tidsintervallet vars fält innehåller ordet ”äpple” |
-| `apple AND banana` <br/>`apple banana` |Hitta händelser som innehåller båda orden. Använda kapital ”och” inte ”och”. <br/>Kortformat. |
-| `apple OR banana` |Söka efter händelser som innehåller antingen word. Använda ”eller”, inte ”eller”. |
-| `apple NOT banana` |Söka efter händelser som innehåller ett ord, men inte på den andra. |
+| `apple` |Sök efter alla händelser inom tidsintervallet vars fält innehåller ordet "Apple" |
+| `apple AND banana` <br/>`apple banana` |Hitta händelser som innehåller båda orden. Använd versal "och", inte "och". <br/>Kort form. |
+| `apple OR banana` |Hitta händelser som innehåller något av orden. Använd "eller", not "eller". |
+| `apple NOT banana` |Hitta händelser som innehåller ett ord men inte det andra. |
 
 ## <a name="sampling"></a>Samling
-Om din app genererar mycket telemetri (och du använder ASP.NET SDK version 2.0.0-beta3 eller senare), den anpassningsbara insamlingsmodulen automatiskt minskar den mängd som skickas till portalen genom att skicka en representativ del av händelserna. Dock händelser som är relaterade till samma begäran markerat eller avmarkerat som en grupp, så att du kan navigera mellan relaterade händelser. 
+
+Om din app genererar en stor mängd telemetri (och du använder ASP.NET SDK-version 2.0.0-beta3 eller senare), minskar den anpassningsbara samplings-modulen automatiskt volymen som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är relaterade till samma begäran markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser.
 
 [Lär dig mer om insamling](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Skapa arbetsobjekt
-Du kan skapa en bugg i GitHub eller Azure DevOps med information från alla telemetriobjekt. 
 
-![Klicka på nytt arbetsobjekt och Fyll i fälten.](./media/diagnostic-search/42.png)
+Du kan skapa en bugg i GitHub-eller Azure-DevOps med information från alla telemetri objekt.
 
-Första gången du gör detta uppmanas att konfigurera en länk till din Azure DevOps-organisation och dina projekt.
+Gå till vyn transaktions information från slut punkt till slut punkt genom att klicka på ett objekt för telemetri och välj sedan **skapa arbets objekt**.
 
-![Fyll URL: en för din Azure DevOps-tjänsterna och projektnamnet och klicka på auktorisera](./media/diagnostic-search/41.png)
+![Klicka på nytt arbets objekt, redigera fälten och klicka sedan på OK.](./media/diagnostic-search/work-item.png)
 
-(Du kan också konfigurera länken på bladet arbetsobjekt.)
+Första gången du gör detta uppmanas du att konfigurera en länk till din Azure DevOps-organisation och-projekt.
 
-## <a name="send-more-telemetry-to-application-insights"></a>Skicka mer telemetri till Application Insights
-Förutom out-of the box telemetri som skickas av Application Insights SDK, kan du:
+(Du kan också konfigurera länken på fliken arbets uppgifter.)
 
-* Samla in loggspårningar från önskat loggningsramverk i [.NET](../../azure-monitor/app/asp-net-trace-logs.md) eller [Java](../../azure-monitor/app/java-trace-logs.md). Det innebär att du kan söka igenom dina loggspårningar och korrelera dem med sidvisningar, undantag och andra händelser. 
-* [Skriva kod](../../azure-monitor/app/api-custom-events-metrics.md) att skicka anpassade händelser och sidvisningar undantag. 
+## <a name="send-more-telemetry-to-application-insights"></a>Skicka fler telemetri till Application Insights
 
-[Lär dig att skicka loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
+Förutom den färdiga telemetri som skickas av Application Insights SDK kan du:
 
-## <a name="questions"></a>FRÅGOR OCH SVAR
-### <a name="limits"></a>Hur mycket data finns kvar?
+* Avbilda logg spårningar från ditt favorit loggnings ramverk i [.net](../../azure-monitor/app/asp-net-trace-logs.md) eller [Java](../../azure-monitor/app/java-trace-logs.md). Det innebär att du kan söka igenom dina logg spårningar och korrelera dem med sidvyer, undantag och andra händelser.
+* [Skriv kod](../../azure-monitor/app/api-custom-events-metrics.md) för att skicka anpassade händelser, sid visningar och undantag.
 
-Se den [gränser sammanfattning](../../azure-monitor/app/pricing.md#limits-summary).
+[Lär dig hur du skickar loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
 
-### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Hur kan jag se postdata i min serverbegäranden?
-Vi loggas inte att skicka data automatiskt, men du kan använda [TrackTrace eller log anrop](../../azure-monitor/app/asp-net-trace-logs.md). Placera postdatan i parametern meddelande. Du kan inte filtrera på meddelandet på samma sätt som du kan filtrera efter egenskaper, men storleksgränsen är längre.
+## <a name="questions"></a>F & A
 
-## <a name="video"></a>Video
+### <a name="limits"></a>Hur mycket data behålls?
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+Se [Sammanfattning av gränser](../../azure-monitor/app/pricing.md#limits-summary).
+
+### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Hur kan jag se POST-data i mina server förfrågningar?
+
+Vi loggar inte in POST-data automatiskt, men du kan använda [TrackTrace-eller log-anrop](../../azure-monitor/app/asp-net-trace-logs.md). Lägg till POST-data i meddelande parametern. Det går inte att filtrera på meddelandet på samma sätt som du kan filtrera efter egenskaper, men storleks gränsen är längre.
 
 ## <a name="add"></a>Nästa steg
-* [Skriva komplexa frågor i Analytics](../../azure-monitor/log-query/get-started-portal.md)
+
+* [Skriv komplexa frågor i analys](../../azure-monitor/log-query/get-started-portal.md)
 * [Skicka loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
-* [Konfigurera tillgänglighet och svarstider tester](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Ställ in tillgänglighets-och svars tider](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)

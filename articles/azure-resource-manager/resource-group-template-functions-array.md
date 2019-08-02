@@ -1,21 +1,21 @@
 ---
-title: Azure Resource Manager-mall functions - matris och objekt | Microsoft Docs
-description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att arbeta med matriser och -objekt.
+title: Azure Resource Manager mall funktioner-matriser och objekt | Microsoft Docs
+description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med matriser och objekt.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/8/2018
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: ec671c8698676b237021352e963ba08e0ddfe47e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206377"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698209"
 ---
-# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funktioner för matris och objekt för Azure Resource Manager-mallar
+# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matris-och objekt funktioner för Azure Resource Manager mallar
 
-Resource Manager tillhandahåller flera funktioner för att arbeta med matriser och -objekt.
+Resource Manager innehåller flera funktioner för att arbeta med matriser och objekt.
 
 * [array](#array)
 * [coalesce](#coalesce)
@@ -29,13 +29,13 @@ Resource Manager tillhandahåller flera funktioner för att arbeta med matriser 
 * [last](#last)
 * [length](#length)
 * [max](#max)
-* [min](#min)
+* [minimum](#min)
 * [range](#range)
 * [skip](#skip)
 * [take](#take)
-* [union](#union)
+* [Union](#union)
 
-Om du vill ha en matris med strängvärden avgränsat med ett värde, se [dela](resource-group-template-functions-string.md#split).
+Om du vill hämta en matris med sträng värden som är avgränsade med ett värde, se [dela](resource-group-template-functions-string.md#split).
 
 <a id="array" />
 
@@ -50,7 +50,7 @@ Konverterar värdet till en matris.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Ja |int, string, array eller object |Värdet att konvertera till en matris. |
+| convertToArray |Ja |int, string, array eller object |Värdet som ska konverteras till en matris. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -58,7 +58,7 @@ En matris.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) visar hur du använder funktionen matris med olika typer.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) visas hur du använder funktionen array med olika typer.
 
 ```json
 {
@@ -99,11 +99,11 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| intOutput | Matris | [1] |
-| stringOutput | Matris | ["efgh"] |
-| objectOutput | Matris | [{"a": "b", "c": "d"}] |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["efgh"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -119,25 +119,25 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="coalesce" />
 
-## <a name="coalesce"></a>Slå samman
+## <a name="coalesce"></a>coalesce
 `coalesce(arg1, arg2, arg3, ...)`
 
-Returnerar första icke-null-värdet från parametrarna. Tomma strängar, tomma matriser och tomma objekt är inte null.
+Returnerar det första värdet som inte är null från parametrarna. Tomma strängar, tomma matriser och tomma objekt är inte null.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |int, string, array eller object |Första värdet som ska testas för null. |
-| ytterligare argument |Nej |int, string, array eller object |Ytterligare värden som ska testas för null. |
+| arg1 |Ja |int, string, array eller object |Det första värdet som ska testas för null. |
+| ytterligare argument |Nej |int, string, array eller object |Ytterligare värden att testa för null. |
 
 ### <a name="return-value"></a>Returvärde
 
-Värdet för de första icke-null-parametrar, vilket kan vara en sträng, ett int, en matris eller ett objekt. Null om alla parametrarna är null. 
+Värdet för de första icke-null-parametrarna, som kan vara en sträng, en heltals mat ris eller ett objekt. Null om alla parametrar är null. 
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) visar utdata från olika användningsområden för coalesce.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) visas utdata från olika användnings områden för sammanslagning.
 
 ```json
 {
@@ -185,13 +185,13 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| stringOutput | String | standard |
+| stringOutput | Sträng | standard |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"first": "default"} |
-| arrayOutput | Matris | [1] |
-| emptyOutput | Booleskt | True |
+| objectOutput | Object | {"First": "standard"} |
+| arrayOutput | Array | [1] |
+| emptyOutput | Bool | Sant |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -210,23 +210,23 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="concat"></a>concat
 `concat(arg1, arg2, arg3, ...)`
 
-Kombinerar flera matriser och returnerar sammanlänkad matris eller kombinerar flera strängvärden och returnerar en sammanfogad sträng. 
+Kombinerar flera matriser och returnerar den sammanfogade matrisen, eller kombinerar flera sträng värden och returnerar den sammanfogade strängen. 
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Den första matris eller sträng för sammanfogning. |
+| arg1 |Ja |matris eller sträng |Den första matrisen eller strängen för sammanfogning. |
 | ytterligare argument |Nej |matris eller sträng |Ytterligare matriser eller strängar i sekventiell ordning för sammanfogning. |
 
-Den här funktionen kan ta valfritt antal argument och kan acceptera strängar eller matriser för parametrarna.
+Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna.
 
 ### <a name="return-value"></a>Returvärde
-En sträng eller en matris med sammansatta värden.
+En sträng eller matris med sammanfogade värden.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) visar hur du kombinerar två matriser.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) visas hur du kombinerar två matriser.
 
 ```json
 {
@@ -265,7 +265,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Gå tillbaka | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| returrelaterade | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -279,7 +279,7 @@ Om du vill distribuera den här exempelmall med PowerShell använder du:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) visar hur du kombinerar två strängvärden och returnerar en sammanfogad sträng.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) visas hur du kombinerar två sträng värden och returnerar en sammanfogad sträng.
 
 ```json
 {
@@ -305,7 +305,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Sträng | prefix-5yj4yjf5mbg72 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -321,25 +321,25 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="contains" />
 
-## <a name="contains"></a>innehåller
+## <a name="contains"></a>contains
 `contains(container, itemToFind)`
 
-Kontrollerar om en matris innehåller ett värde, ett objekt som innehåller en nyckel eller en sträng innehåller en delsträng. Strängjämförelse är skiftlägeskänsligt. När du testar om ett objekt innehåller en nyckel är dock jämförelsen inte skiftlägeskänslig.
+Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyckel eller en sträng innehåller en under sträng. Sträng jämförelsen är Skift läges känslig. Men när du testar om ett objekt innehåller en nyckel är jämförelsen Skift läges okänslig.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| container |Ja |matris, objekt eller sträng |Det värde som innehåller värdet som ska hitta. |
-| itemToFind |Ja |sträng eller int |Värde att söka efter. |
+| container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
+| itemToFind |Ja |sträng eller heltal |Det värde som ska hittas. |
 
 ### <a name="return-value"></a>Returvärde
 
-**SANT** om objektet är hittades, i annat fall **FALSKT**.
+**Sant** om objektet hittas; annars **false**.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) visar hur du använder innehåller olika typer:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) visas hur du använder med olika typer:
 
 ```json
 {
@@ -394,12 +394,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringTrue | Booleskt | True |
-| stringFalse | Booleskt | False |
-| objectTrue | Booleskt | True |
-| objectFalse | Booleskt | False |
-| arrayTrue | Booleskt | True |
-| arrayFalse | Booleskt | False |
+| stringTrue | Bool | Sant |
+| stringFalse | Bool | False |
+| objectTrue | Bool | Sant |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | Sant |
+| arrayFalse | Bool | False |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -424,8 +424,8 @@ Skapar en matris från parametrarna.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |Sträng, heltal, matris, eller ett objekt |Det första värdet i matrisen. |
-| ytterligare argument |Nej |Sträng, heltal, matris, eller ett objekt |Ytterligare värden i matrisen. |
+| arg1 |Ja |Sträng, heltal, matris eller objekt |Det första värdet i matrisen. |
+| ytterligare argument |Nej |Sträng, heltal, matris eller objekt |Ytterligare värden i matrisen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -433,7 +433,7 @@ En matris.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) visar hur du använder createArray med olika typer:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) visas hur du använder createArray med olika typer:
 
 ```json
 {
@@ -474,12 +474,12 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| stringArray | Matris | ["a", "b", "c"] |
-| intArray | Matris | [1, 2, 3] |
-| objectArray | Matris | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | Matris | [[”en”, ”två”, ”tre”]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"One": "a", "två": "b", "tre": "c"}] |
+| arrayArray | Array | [["One", "två", "tre"]] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -495,7 +495,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>tom
+## <a name="empty"></a>saknas
 
 `empty(itemToTest)`
 
@@ -505,15 +505,15 @@ Anger om en matris, ett objekt eller en sträng är tom.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |matris, objekt eller sträng |Värde att kontrollera om den är tom. |
+| itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **SANT** om värdet är tomt, i annat fall **FALSKT**.
+Returnerar **Sant** om värdet är tomt. annars **false**.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) kontrollerar om en matris och objekt strängen är tom.
+Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) kontrollerar om en matris, ett objekt och en sträng är tomma.
 
 ```json
 {
@@ -554,11 +554,11 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Booleskt | True |
-| objectEmpty | Booleskt | True |
-| stringEmpty | Booleskt | True |
+| arrayEmpty | Bool | Sant |
+| objectEmpty | Bool | Sant |
+| stringEmpty | Bool | Sant |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -574,24 +574,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="first" />
 
-## <a name="first"></a>första
+## <a name="first"></a>förstagångskörningen
 `first(arg1)`
 
-Returnerar det första elementet i matrisen eller första tecknet i strängen.
+Returnerar det första elementet i matrisen eller första tecken i strängen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Värde att hämta den första element eller tecknet. |
+| arg1 |Ja |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
-Typ (sträng, int, matrisen eller objekt) av det första elementet i en matris eller det första tecknet i en sträng.
+Typen (sträng, heltal, matris eller objekt) för det första elementet i en matris, eller det första tecken i en sträng.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) visar hur du använder den första funktionen med en matris och sträng.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) visas hur du använder den första funktionen med en matris och sträng.
 
 ```json
 {
@@ -622,8 +622,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | String | en |
-| stringOutput | String | O |
+| arrayOutput | Sträng | en |
+| stringOutput | Sträng | O |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -639,26 +639,26 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="intersection" />
 
-## <a name="intersection"></a>skärningspunkten
+## <a name="intersection"></a>överlappning
 `intersection(arg1, arg2, arg3, ...)`
 
-Returnerar en enskild matris eller ett objekt med de vanliga element från parametrarna.
+Returnerar en enskild matris eller ett objekt med de gemensamma elementen från parametrarna.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller ett objekt |Det första värdet ska användas för att söka efter vanliga element. |
-| arg2 |Ja |matris eller ett objekt |Det andra värdet ska användas för att söka efter vanliga element. |
-| ytterligare argument |Nej |matris eller ett objekt |Ytterligare värden som ska användas för att söka efter vanliga element. |
+| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att hitta vanliga element. |
+| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att hitta vanliga element. |
+| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att hitta vanliga element. |
 
 ### <a name="return-value"></a>Returvärde
 
-En matris eller ett objekt med de vanliga element.
+En matris eller ett objekt med gemensamma element.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) visar hur du använder skärningspunkten med matriser och -objekt:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) visas hur du använder snitt med matriser och objekt:
 
 ```json
 {
@@ -699,10 +699,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {”en”: ”a”, ”tre”: ”c”} |
-| arrayOutput | Matris | ["two", "three"] |
+| objectOutput | Object | {"One": "a", "tre": "c"} |
+| arrayOutput | Array | ["två", "tre"] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -716,7 +716,7 @@ Om du vill distribuera den här exempelmall med PowerShell använder du:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json
 `json(arg1)`
 
 Returnerar ett JSON-objekt.
@@ -725,20 +725,20 @@ Returnerar ett JSON-objekt.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |string |Värdet att konvertera till JSON. |
+| arg1 |Ja |sträng |Värdet som ska konverteras till JSON. |
 
 
 ### <a name="return-value"></a>Returvärde
 
-JSON-objekt från den angivna strängen eller ett tomt-objekt när **null** har angetts.
+JSON-objektet från den angivna strängen, eller ett tomt objekt när **Null** har angetts.
 
 ### <a name="remarks"></a>Kommentarer
 
-Om du vill inkludera ett parametervärde eller variabeln i JSON-objekt kan du använda den [concat](resource-group-template-functions-string.md#concat) att skapa den sträng som du skickar till funktionen.
+Om du behöver inkludera ett parameter värde eller en variabel i JSON-objektet använder du funktionen [concat](resource-group-template-functions-string.md#concat) för att skapa den sträng som du skickar till funktionen.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) visar hur du använder funktionen json med matriser och -objekt:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) visas hur du använder JSON-funktionen med matriser och objekt:
 
 ```json
 {
@@ -771,11 +771,11 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
-| nullOutput | Boolean | True |
-| paramOutput | Object | {”a”: ”demonstrera värdet”}
+| nullOutput | Boolesk | Sant |
+| paramOutput | Object | {"a": "demo värde"}
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -791,24 +791,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="last" />
 
-## <a name="last"></a>senaste
+## <a name="last"></a>pågå
 `last (arg1)`
 
-Returnerar det sista elementet i matrisen eller sista tecknet i strängen.
+Returnerar det sista elementet i matrisen eller det sista tecken i strängen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Värde att hämta det sista elementet eller tecknet. |
+| arg1 |Ja |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
-Typ (sträng, int, matrisen eller objekt) av det sista elementet i en matris eller det sista tecknet i en sträng.
+Typen (sträng, heltal, matris eller objekt) för det sista elementet i en matris eller det sista tecken i en sträng.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) visar hur du använder den senaste funktionen med en matris och sträng.
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) visas hur du använder den sista funktionen med en matris och sträng.
 
 ```json
 {
@@ -837,10 +837,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | tre |
-| stringOutput | String | e |
+| arrayOutput | Sträng | tre |
+| stringOutput | Sträng | e |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -859,21 +859,21 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="length"></a>length
 `length(arg1)`
 
-Returnerar antalet element i en matris eller tecken i en sträng.
+Returnerar antalet element i en matris, tecken i en sträng eller på rot nivå egenskaper i ett objekt.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Matris för att använda för att hämta antalet element eller strängen som du använder för att hämta antalet tecken. |
+| arg1 |Ja |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
 
 ### <a name="return-value"></a>Returvärde
 
-Int. 
+En int. 
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) visar hur du använder längd med en matris och sträng:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) visas hur du använder length med en matris och en sträng:
 
 ```json
 {
@@ -891,6 +891,18 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -902,6 +914,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -913,6 +929,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -926,7 +943,7 @@ Om du vill distribuera den här exempelmall med PowerShell använder du:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
-Du kan använda den här funktionen med en matris för att ange antalet iterationer när du skapar resurser. I följande exempel parametern **siteNames** referera till en matris med som ska använda när du skapar webbplatser.
+Du kan använda den här funktionen med en matris för att ange antalet iterationer när du skapar resurser. I följande exempel skulle parametern **siteNames** referera till en matris med namn som ska användas för att skapa webbplatser.
 
 ```json
 "copy": {
@@ -935,28 +952,28 @@ Du kan använda den här funktionen med en matris för att ange antalet iteratio
 }
 ```
 
-Läs mer om hur du använder den här funktionen med en matris, [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
+Mer information om hur du använder den här funktionen med en matris finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
 
 <a id="max" />
 
 ## <a name="max"></a>max
 `max(arg1)`
 
-Returnerar det största värdet från en matris av heltal eller en kommaavgränsad lista med heltal.
+Returnerar det maximala värdet från en matris med heltal eller en kommaavgränsad lista med heltal.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris med heltal eller en kommaavgränsad lista med heltal |Samlingen som ska få det största värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det högsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
-Ett heltal som representerar det högsta värdet.
+Ett heltal som representerar det maximala värdet.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) visar hur du använder max med en matris och en lista med heltal:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) visas hur du använder Max med en matris och en lista med heltal:
 
 ```json
 {
@@ -984,7 +1001,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -1003,16 +1020,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>min
 `min(arg1)`
 
-Returnerar det minsta värdet från en matris av heltal eller en kommaavgränsad lista med heltal.
+Returnerar det minsta värdet från en matris med heltal eller en kommaavgränsad lista med heltal.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris med heltal eller en kommaavgränsad lista med heltal |Samlingen som ska få det minsta värdet. |
+| arg1 |Ja |matris med heltal eller kommaavgränsad lista med heltal |Samlingen för att hämta det lägsta värdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1020,7 +1037,7 @@ Ett heltal som representerar det lägsta värdet.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) visar hur du använder min med en matris och en lista med heltal:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) visas hur du använder min med en matris och en lista med heltal:
 
 ```json
 {
@@ -1067,17 +1084,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="range" />
 
-## <a name="range"></a>Adressintervall
+## <a name="range"></a>intervall
 `range(startingInteger, numberOfElements)`
 
-Skapar en matris av heltal från en start heltal- och som innehåller ett antal objekt.
+Skapar en matris med heltal från ett start-heltal och innehåller ett antal objekt.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | startingInteger |Ja |int |Det första heltalet i matrisen. |
-| numberofElements |Ja |int |Antal heltal i matrisen. |
+| numberofElements |Ja |int |Antalet heltal i matrisen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1085,7 +1102,7 @@ En matris med heltal.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) visar hur du använder funktionen intervall:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) visas hur du använder funktionen Range:
 
 ```json
 {
@@ -1113,9 +1130,9 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| rangeOutput | Matris | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1131,17 +1148,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>Hoppa över
+## <a name="skip"></a>hoppa över
 `skip(originalValue, numberToSkip)`
 
-Returnerar en matris med alla element efter det angivna värdet i matrisen eller returnerar en sträng där alla tecken efter det angivna värdet i strängen.
+Returnerar en matris med alla element efter det angivna talet i matrisen eller returnerar en sträng med alla tecken efter det angivna talet i strängen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matris eller sträng |Den matris eller sträng som ska användas för att hoppa över. |
-| numberToSkip |Ja |int |Antalet element eller tecken som ska hoppas över. Om det här värdet är 0 eller mindre, returneras alla element eller tecken i-värdet. Om den är större än längden på den matris eller sträng returneras en tom matris eller sträng. |
+| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
+| numberToSkip |Ja |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1149,7 +1166,7 @@ En matris eller sträng.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) hoppar över det angivna antalet element i matrisen och det angivna antalet tecken i en sträng.
+Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) hoppar över det angivna antalet element i matrisen och det angivna antalet tecken i en sträng.
 
 ```json
 {
@@ -1193,10 +1210,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Matris | ["three"] |
-| stringOutput | String | två tre |
+| arrayOutput | Array | ["tre"] |
+| stringOutput | Sträng | 2 3 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1212,17 +1229,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="take" />
 
-## <a name="take"></a>ta
+## <a name="take"></a>take
 `take(originalValue, numberToTake)`
 
-Returnerar en matris med det angivna antalet element från början av matrisen eller en sträng med det angivna antalet tecken från början av strängen.
+Returnerar en matris med det angivna antalet element från början av matrisen, eller en sträng med det angivna antalet tecken från början av strängen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matris eller sträng |Den matris eller sträng som ska ta elementen från. |
-| numberToTake |Ja |int |Antalet element eller tecken som ska ta. Om det här värdet är 0 eller mindre, returneras en tom matris eller sträng. Om den är större än längden på den angivna matris eller sträng returneras alla element i den matris eller sträng. |
+| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
+| numberToTake |Ja |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1230,7 +1247,7 @@ En matris eller sträng.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) tar det angivna antalet element från matrisen och tecken från en sträng.
+Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) använder det angivna antalet element från matrisen och tecken från en sträng.
 
 ```json
 {
@@ -1274,10 +1291,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Matris | [””, ”två”] |
-| stringOutput | String | på |
+| arrayOutput | Array | ["One", "två"] |
+| stringOutput | Sträng | på |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1296,15 +1313,15 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="union"></a>Union
 `union(arg1, arg2, arg3, ...)`
 
-Returnerar en enskild matris eller ett objekt med alla element från parametrarna. Duplicerade värden eller nycklar är endast ingår en gång.
+Returnerar en enskild matris eller ett objekt med alla element från parametrarna. Duplicerade värden eller nycklar ingår bara en gång.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller ett objekt |Det första värdet ska användas för anslutning element. |
-| arg2 |Ja |matris eller ett objekt |Det andra värdet ska användas för anslutning element. |
-| ytterligare argument |Nej |matris eller ett objekt |Ytterligare värden som ska användas för att ansluta till element. |
+| arg1 |Ja |matris eller objekt |Det första värdet som ska användas för att koppla ihop element. |
+| arg2 |Ja |matris eller objekt |Det andra värdet som ska användas för att koppla ihop element. |
+| ytterligare argument |Nej |matris eller objekt |Ytterligare värden som ska användas för att koppla ihop element. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1312,7 +1329,7 @@ En matris eller ett objekt.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) visar hur du använder union med matriser och -objekt:
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) visas hur du använder union med matriser och objekt:
 
 ```json
 {
@@ -1353,10 +1370,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Namn | Typ | Värde |
+| Namn | Typ | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {”en”: ”a”, ”två”: ”b”, ”tre”: ”c2”, ”fyra”: ”d”, ”fem”: ”e”} |
-| arrayOutput | Matris | [”en”, ”två”, ”tre”, ”fyra”] |
+| objectOutput | Object | {"One": "a", "två": "b", "tre": "C2", "fyra": "d", "fem": "e"} |
+| arrayOutput | Array | ["One", "två", "tre", "fyra"] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1374,5 +1391,5 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 * En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
 * Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
-* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
+* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](resource-group-template-deploy.md).
 

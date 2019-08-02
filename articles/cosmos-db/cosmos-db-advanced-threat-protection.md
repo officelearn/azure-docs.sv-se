@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: 02281a1cad9c7e6f9680441a699fa5d34558b890
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 0504da45cbbd60629954d3e3ca3230e05761c1d6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501499"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640358"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Avancerat skydd för Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säk
 > [!NOTE]
 >
 > * Avancerat skydd för Azure Cosmos DB är för närvarande endast tillgängligt för SQL-API: et.
-> * Avancerat skydd för Azure Cosmos DB är för närvarande tillgängligt i moln regioner i Azure myndigheter och suveräna myndigheter.
+> * Avancerat skydd för Azure Cosmos DB är för närvarande inte tillgängligt i moln regioner i Azure myndigheter och i vår suveräna region.
 
 För en fullständig utredning av säkerhets aviseringar rekommenderar vi att du aktiverar [diagnostikloggning i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), som loggar åtgärder på själva databasen, inklusive CRUD åtgärder på alla dokument, behållare och databaser.
 

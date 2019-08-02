@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 08/01/2019
 ms.author: jowargo
-ms.openlocfilehash: 09e5f5526c2d6953c574a7d7dd2425159ad88307
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d1aac5bb399fc113b57ad7e59f17d19f8bb1c97f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240729"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728834"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Xamarin.Android-appar med hjälp av Azure Notification Hubs
 
@@ -28,7 +28,7 @@ ms.locfileid: "66240729"
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Xamarin.Android-app. Du skapar en tom Xamarin.Android-app som tar emot push-meddelanden via Firebase Cloud Messaging (FCM). Du använder meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden finns i den [NotificationHubs app](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid) exemplet.
+I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Xamarin.Android-app. Du skapar en tom Xamarin.Android-app som tar emot push-meddelanden via Firebase Cloud Messaging (FCM). Du använder meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden är tillgänglig i exemplet på [NotificationHubs-appen](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid) .
 
 I den här självstudien gör du följande:
 
@@ -38,7 +38,7 @@ I den här självstudien gör du följande:
 > * Skapa en Xamarin.Android-app och anslut den till meddelandehubben
 > * Skicka testmeddelanden från Azure Portal
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * [Visual Studio med Xamarin] på Windows eller [Visual Studio för Mac] på OS X.
@@ -52,10 +52,10 @@ I den här självstudien gör du följande:
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-### <a name="configure-gcm-settings-for-the-notification-hub"></a>Konfigurera GCM-inställningarna för meddelandehubben
+### <a name="configure-gcmfcm-settings-for-the-notification-hub"></a>Konfigurera inställningar för GCM/FCM för Notification Hub
 
-1. Välj **Google (GCM)** i avsnittet **MEDDELANDEINSTÄLLNINGAR**.
-2. Ange den **äldre servernyckel** du antecknade från Google Firebase-konsolen.
+1. Välj **Google (GCM/FCM)/** i avsnittet **Inställningar** på den vänstra menyn.
+2. Ange **Server nyckeln** som du antecknade från Google Firebase-konsolen.
 3. Välj **Spara** i verktygsfältet.
 
     ![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
@@ -66,15 +66,15 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Skapa Visual Studio-projekt och lägg till NuGet-paket
 
-1. I Visual Studio öppnar du menyn **Arkiv**. Välj **Nytt** och sedan **Projekt**. I den **nytt projekt** fönstret gör du följande:
-    1. Expandera **installerad**, **Visual C#** , och klicka sedan på **Android**.
-    2. Välj **Android-App (Xamarin)** i listan.
+1. I Visual Studio öppnar du menyn **Arkiv**. Välj **Nytt** och sedan **Projekt**. Utför följande steg i fönstret **nytt projekt** :
+    1. Expandera **installerat**, **visuellt C#** och klicka sedan på **Android**.
+    2. Välj **Android-app (Xamarin)** i listan.
     3. Ange ett **namn** för projektet.
     4. Välj en **plats** för projektet.
     5. Välj **OK**
 
         ![Dialogrutan Nytt projekt](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)
-2. På den **ny Android-App** dialogrutan **tom App**, och välj **OK**.
+2. I dialog rutan **ny Android-app** väljer du **Tom app**och väljer **OK**.
 
     ![Dialogrutan Nytt projekt](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
 3. Utvidga **Egenskaper** i fönstret **Solution Explorer** och klicka på **AndroidManifest.xml**. Uppdatera paketnamnet så att det matchar paketnamnet som du angav när du lade till Firebase Cloud Messaging till ditt projekt i Google Firebase-konsolen.
@@ -113,7 +113,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     </receiver>
     ```
 
-2. Lägg till följande uttryck **innan programmet** element.
+2. Lägg till följande-uttryck **före program** elementet.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -144,14 +144,14 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     using Android.Gms.Common;
     ```
 
-7. Lägg till följande egenskaper till MainActivity-klassen. TAGG-variabeln används för att visa en varningsruta när appen körs:
+7. Lägg till följande egenskaper i MainActivity-klassen. TAG-variabeln används för att visa en varnings dialog ruta när appen körs:
 
     ```csharp
     public const string TAG = "MainActivity";
     internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
 
-8. Lägga till följande metod i klassen MainActivity. Kontrollerar den om **Google Play-tjänster** är tillgängliga på enheten.
+8. Lägg till följande metod i klassen MainActivity. Det kontrollerar om **Google Play-tjänsterna** är tillgängliga på enheten.
 
     ```csharp
     public bool IsPlayServicesAvailable()
@@ -174,7 +174,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     }
     ```
 
-9. Lägga till följande metod i klassen MainActivity som skapar en meddelandekanal.
+9. Lägg till följande metod i MainActivity-klassen som skapar en meddelande kanal.
 
     ```csharp
     private void CreateNotificationChannel()
@@ -218,57 +218,14 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     CreateNotificationChannel();
     ```
 
-11. Skapa en ny klass, `MyFirebaseIIDService`, på samma sätt som du skapade klassen `Constants`.
-12. Lägg till följande using-uttryck i `MyFirebaseIIDService.cs`:
-
-    ```csharp
-    using Android.Util;
-    using WindowsAzure.Messaging;
-    using Firebase.Iid;
-    ```
-
-13. I `MyFirebaseIIDService.cs` lägger du till följande `class`-deklaration och gör så att klassen ärver från `FirebaseInstanceIdService`:
-
-    ```csharp
-    [Service]
-    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
-    public class MyFirebaseIIDService : FirebaseInstanceIdService
-    ```
-
-14. I `MyFirebaseIIDService.cs` lägger du till följande kod:
-
-    ```csharp
-    const string TAG = "MyFirebaseIIDService";
-    NotificationHub hub;
-
-    public override void OnTokenRefresh()
-    {
-        var refreshedToken = FirebaseInstanceId.Instance.Token;
-        Log.Debug(TAG, "FCM token: " + refreshedToken);
-        SendRegistrationToServer(refreshedToken);
-    }
-
-    void SendRegistrationToServer(string token)
-    {
-        // Register with Notification Hubs
-        hub = new NotificationHub(Constants.NotificationHubName,
-                                    Constants.ListenConnectionString, this);
-
-        var tags = new List<string>() { };
-        var regID = hub.Register(token, tags.ToArray()).RegistrationId;
-
-        Log.Debug(TAG, $"Successful registration of ID {regID}");
-    }
-    ```
-
-15. Skapa ytterligare en ny klass för ditt projekt och ge den namnet `MyFirebaseMessagingService`.
+15. Lägg till en klass `MyFirebaseMessagingService` med namnet på ditt projekt. 
 16. Lägg till följande using-uttryck i `MyFirebaseMessagingService.cs`.
 
     ```csharp
     using Android.Util;
     using Firebase.Messaging;
-    using Android.Support.V4.App;
-    using Build = Android.OS.Build;
+    using Android.Support.V4.App;    
+    using WindowsAzure.Messaging;
     ```
 
 17. Lägg till följande ovanför klassdeklarationen och gör så att klassen ärver från `FirebaseMessagingService`:
@@ -276,57 +233,77 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     ```csharp
     [Service]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. Lägg till följande kod i `MyFirebaseMessagingService.cs`:
+18. Lägg till följande kod för `MyFirebaseMessagingService.cs` att bearbeta meddelanden som tas emot. 
 
     ```csharp
-    const string TAG = "MyFirebaseMsgService";
-    public override void OnMessageReceived(RemoteMessage message)
-    {
-        Log.Debug(TAG, "From: " + message.From);
-        if(message.GetNotification()!= null)
+        const string TAG = "MyFirebaseMsgService";
+        NotificationHub hub;
+    
+        public override void OnMessageReceived(RemoteMessage message)
         {
-            //These is how most messages will be received
-            Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
-            SendNotification(message.GetNotification().Body);
+            Log.Debug(TAG, "From: " + message.From);
+            if (message.GetNotification() != null)
+            {
+                //These is how most messages will be received
+                Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+                SendNotification(message.GetNotification().Body);
+            }
+            else
+            {
+                //Only used for debugging payloads sent from the Azure portal
+                SendNotification(message.Data.Values.First());
+    
+            }
         }
-        else
+    
+        void SendNotification(string messageBody)
         {
-            //Only used for debugging payloads sent from the Azure portal
-            SendNotification(message.Data.Values.First());
-
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.AddFlags(ActivityFlags.ClearTop);
+            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+    
+            var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID);
+    
+            notificationBuilder.SetContentTitle("FCM Message")
+                        .SetSmallIcon(Resource.Drawable.ic_launcher)
+                        .SetContentText(messageBody)
+                        .SetAutoCancel(true)
+                        .SetShowWhen(false)
+                        .SetContentIntent(pendingIntent);
+    
+            var notificationManager = NotificationManager.FromContext(this);
+    
+            notificationManager.Notify(0, notificationBuilder.Build());
         }
-    }
-
-    void SendNotification(string messageBody)
-    {
-        var intent = new Intent(this, typeof(MainActivity));
-        intent.AddFlags(ActivityFlags.ClearTop);
-        var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-
-        var notificationBuilder = new NotificationCompat.Builder(this)
-                    .SetContentTitle("FCM Message")
-                    .SetSmallIcon(Resource.Drawable.ic_launcher)
-                    .SetContentText(messageBody)
-                    .SetAutoCancel(true)
-                    .SetShowWhen(false)
-                    .SetContentIntent(pendingIntent);
-
-        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
-        {
-            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
-        }
-
-        var notificationManager = NotificationManager.FromContext(this);
-
-        notificationManager.Notify(0, notificationBuilder.Build());
-    }
     ```
 
-19. **Skapa** ditt projekt.
-20. **Kör** appen på din enhet eller i en inläst emulator
+19. Lägg till följande metoder i MyFirebaseMessagingService-klassen för att ta emot FCM Registration-token och skicka den till Notification Hubs-instansen (hubb). 
+
+    ```csharp
+        public override void OnNewToken(string token)
+        {
+            Log.Debug(TAG, "FCM token: " + token);
+            SendRegistrationToServer(token);
+        }
+
+        void SendRegistrationToServer(string token)
+        {
+            // Register with Notification Hubs
+            hub = new NotificationHub(Constants.NotificationHubName,
+                                        Constants.ListenConnectionString, this);
+
+            var tags = new List<string>() { };
+            var regID = hub.Register(token, tags.ToArray()).RegistrationId;
+
+            Log.Debug(TAG, $"Successful registration of ID {regID}");
+        }
+    ```
+1. **Skapa** ditt projekt.
+1. **Kör** appen på din enhet eller i en inläst emulator
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Skicka ett testmeddelande från Azure Portal
 
@@ -334,7 +311,7 @@ Du kan testa att ta emot meddelanden i appen med alternativet **Skicka test** i 
 
 ![Azure Portal – Skicka test](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
-Push-meddelanden skickas vanligtvis via en serverdelstjänst som Mobile Services eller ASP.NET med hjälp av ett kompatibelt bibliotek. Du kan också använda REST-API:et direkt för att skicka meddelanden om ett bibliotek inte är tillgängligt för din serverdel.
+Push-meddelanden skickas vanligtvis via en serverdelstjänst som Mobile Services eller ASP.NET med hjälp av ett kompatibelt bibliotek. Om ett bibliotek inte är tillgängligt för Server delen kan du också använda REST API direkt för att skicka meddelanden.
 
 ## <a name="next-steps"></a>Nästa steg
 

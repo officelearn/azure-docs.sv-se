@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: dad74410562aa54aeb61675e7dc1c0adccc44797
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881073"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679213"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Anslut din externa lösning med syslog
 
@@ -37,7 +37,7 @@ Du kan ansluta alla lokala installationer som stöder Syslog till Azure Sentinel
 
 Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.
 
-Mer information finns [i syslog-datakällor i Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
+Mer information finns i [syslog-datakällor i Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
 > Agenten kan samla in loggar från flera källor, men måste installeras på en dedikerad proxyserver.
@@ -47,6 +47,9 @@ Mer information finns [i syslog-datakällor i Azure Monitor](../azure-monitor/pl
 1. I Azure Sentinel-portalen väljer du **data anslutningar** och väljer **syslog** -raden i tabellen och i fönstret syslog till höger klickar du på **Öppna kopplings sida**.
 2. Om Linux-datorn finns i Azure väljer du **Hämta och installera agent på virtuell Azure Linux-dator**. I fönstret virtuella datorer väljer du de datorer som du vill installera agenten på och klickar på **Anslut** högst upp.
 1. Om Linux-datorn inte är i Azure väljer du **Ladda ned och installera agent på Linux-datorer som inte är Azure-datorer**. I fönstret **Direct agent** kopierar du kommandot under **Ladda ned och onboarding agent for Linux** och kör det på datorn. 
+   > [!NOTE]
+   > Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. 
+
 1. Följ instruktionerna under **Konfigurera loggarna som ska anslutas** i installations fönstret för syslog Connector:
     1. Klicka på länken för att **Öppna konfigurationen av avancerade inställningar för arbets ytan**. 
     1. Välj **data**följt av **syslog**.
@@ -55,7 +58,7 @@ Mer information finns [i syslog-datakällor i Azure Monitor](../azure-monitor/pl
        > Om du markerar kryss rutan för att **använda konfigurationen nedan för mina datorer**, kommer den här konfigurationen att gälla för alla Linux-datorer som är anslutna till den här arbets ytan. Du kan se den här konfigurationen i syslog-datorn under 
 1. Klicka på **Tryck här för att öppna konfigurations bladet**.
 1. Välj **data** och sedan **syslog**.
-   - Se till att varje funktion som du skickar av syslog finns i tabellen. Ange en allvarlighets grad för varje funktion som du ska övervaka. Klicka på **Verkställ**.
+   - Se till att varje funktion som du skickar av syslog finns i tabellen. För varje funktion ska du övervaka, ange en allvarlighets grad. Klicka på **Verkställ**.
 1. Kontrol lera att du har skickat dessa anläggningar på syslog-datorn. 
 
 1. Om du vill använda det relevanta schemat i Log Analytics för syslog-loggarna söker du efter **syslog**.

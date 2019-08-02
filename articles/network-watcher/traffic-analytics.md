@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872476"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620117"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -55,7 +55,7 @@ Trafik analys undersöker rå NSG flödes loggar och avbildar färre loggar geno
 
 ![Data flöde för bearbetning av NSG flödes loggar](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions"></a>Regioner som stöds
+## <a name="supported-regions-nsg"></a>Regioner som stöds: NSG 
 
 Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 
@@ -80,10 +80,12 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 * Sydostasien
 * Sydkorea, centrala
 * Indien, centrala
-* Södra Indien
+* Indien, södra
 * Östra Japan 
 * Västra Japan
 * Virginia (USA-förvaltad region)
+
+## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Log Analytics-arbetsytor
 
 Arbets ytan Log Analytics måste finnas i följande regioner:
 * Centrala Kanada
@@ -118,7 +120,7 @@ Ditt konto måste vara medlem i någon av följande [inbyggda Azure-roller](../r
 |Resource Manager   | Ägare                  |
 |                   | Deltagare            |
 |                   | Läsare                 |
-|                   | Nätverks deltagare    |
+|                   | Nätverksdeltagare    |
 
 Om ditt konto inte har tilldelats någon av de inbyggda rollerna måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som har tilldelats följande åtgärder på prenumerations nivå:
 
@@ -137,7 +139,7 @@ Information om hur du kontrollerar användar behörighet finns i [vanliga frågo
 
 ### <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
-För att analysera trafiken måste du ha en befintlig nätverks övervakare eller [Aktivera en nätverks övervakare](network-watcher-create.md) i varje region som du har NSG: er som du vill analysera trafiken för. Trafik analys kan aktive ras för NSG: er som finns i någon av de [regioner som stöds](#supported-regions).
+För att analysera trafiken måste du ha en befintlig nätverks övervakare eller [Aktivera en nätverks övervakare](network-watcher-create.md) i varje region som du har NSG: er som du vill analysera trafiken för. Trafik analys kan aktive ras för NSG: er som finns i någon av de [regioner som stöds](#supported-regions-nsg).
 
 ### <a name="select-a-network-security-group"></a>Välj en nätverks säkerhets grupp
 
@@ -147,7 +149,7 @@ På vänster sida av Azure Portal väljer du **övervaka**, sedan **Network Watc
 
 ![Val av NSG: er som kräver aktivering av NSG Flow-loggen](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-Om du försöker aktivera trafik analys för en NSG som finns i någon annan region än de regioner som [stöds](#supported-regions)visas fel meddelandet "Det gick inte att hitta".
+Om du försöker aktivera trafik analys för en NSG som finns i någon annan region än de regioner som [stöds](#supported-regions-nsg)visas fel meddelandet "Det gick inte att hitta".
 
 ## <a name="enable-flow-log-settings"></a>Aktivera flödes logg inställningar
 
@@ -174,17 +176,18 @@ Välj följande alternativ, som du ser på bilden:
 
 1. Välj *på* för **status**
 2. Välj *version 2* för **flödes loggar version**. Version 2 innehåller statistik för flödes-session (byte och paket)
-3. Välj ett befintligt lagrings konto för att lagra flödes loggarna i. Ange värdet till *0*om du vill lagra data permanent. Du debiteras Azure Storage avgifter för lagrings kontot.
+3. Välj ett befintligt lagrings konto för att lagra flödes loggarna i. Ange värdet till *0*om du vill lagra data permanent. Du debiteras Azure Storage avgifter för lagrings kontot. Kontrol lera att lagrings utrymmet för Data Lake Storage Gen2 hierarkiskt namn område är inställt på sant. Dessutom kan NSG Flow-loggar inte lagras i ett lagrings konto med en brand vägg. 
 4. Ange **kvarhållning** till det antal dagar som du vill lagra data för.
 5. Välj *för* **trafikanalys status**.
-6. Välj en befintlig Log Analytics (OMS)-arbets yta eller Välj **Skapa ny arbets yta** för att skapa en ny. En Log Analytics arbets yta används av Trafikanalys för att lagra aggregerade och indexerade data som sedan används för att generera analysen. Om du väljer en befintlig arbets yta måste den finnas i någon av de [regioner som stöds](#supported-regions) och ha uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbets yta eller om du inte har en arbets yta i en region som stöds skapar du en ny. Mer information om frågespråk finns i [Azure Log Analytics uppgradera till ny loggs ökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+6. Välj bearbetnings intervall. Baserat på ditt val samlas flödes loggar in från lagrings kontot och bearbetas av Trafikanalys. Du kan välja bearbetnings intervall för varannan timme eller var 10: e minut.
+7. Välj en befintlig Log Analytics (OMS)-arbets yta eller Välj **Skapa ny arbets yta** för att skapa en ny. En Log Analytics arbets yta används av Trafikanalys för att lagra aggregerade och indexerade data som sedan används för att generera analysen. Om du väljer en befintlig arbets yta måste den finnas i någon av de [regioner som stöds](#supported-regions-log-analytics-workspaces) och ha uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbets yta eller om du inte har en arbets yta i en region som stöds skapar du en ny. Mer information om frågespråk finns i [Azure Log Analytics uppgradera till ny loggs ökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     Log Analytics-arbetsytan som är värd för Traffic Analytics-lösningen och NSG: er behöver inte vara i samma region. Du kan till exempel ha trafik analys i en arbets yta i regionen Europa, västra, medan du kan ha NSG: er i USA och västra USA. Flera NSG: er kan konfigureras i samma arbets yta.
-7. Välj **Spara**.
+8. Välj **Spara**.
 
-    ![Val av lagrings konto, Log Analytics arbets yta och Trafikanalys aktivering](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
+    ![Val av lagrings konto, Log Analytics arbets yta och Trafikanalys aktivering](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafik analys för. Data från flödes loggar skickas till arbets ytan, så se till att lokala lagar och föreskrifter i ditt land/region tillåter data lagring i den region där arbets ytan finns.
+Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafik analys för. Data från flödes loggar skickas till arbets ytan, så se till att lokala lagar och föreskrifter i ditt land tillåter data lagring i den region där arbets ytan finns. Om du har angett olika bearbetnings intervall för olika NSG: er kommer data att samlas in i olika intervall. Exempel: Du kan välja att aktivera bearbetnings intervallet på 10 minuter för kritiska virtuella nätverk och 1 timme för icke-kritiska virtuella nätverk.
 
 Du kan också konfigurera trafik analys med hjälp av [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdleten i Azure PowerShell. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 

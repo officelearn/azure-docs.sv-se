@@ -1,6 +1,6 @@
 ---
-title: Språkanpassning i Azure Active Directory B2C | Microsoft Docs
-description: Lär dig mer om hur du anpassar den språk-upplevelsen.
+title: Språk anpassning i Azure Active Directory B2C | Microsoft Docs
+description: Läs mer om hur du anpassar språk upplevelsen.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,72 +10,72 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 48633b195df997f0e9a8f06bd4f5c553ca620e98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dd82cbb8370fd4c3ee0dca6a9acd0046c73c0ef
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509397"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716799"
 ---
-# <a name="language-customization-in-azure-active-directory-b2c"></a>Språkanpassning i Azure Active Directory B2C
+# <a name="language-customization-in-azure-active-directory-b2c"></a>Språk anpassning i Azure Active Directory B2C
 
-Språkanpassning i Azure Active Directory B2C (Azure AD B2C) gör att ditt användarflöde för olika språk så att den passar dina kunders behov.  Microsoft tillhandahåller översättningar för [36 språk](#supported-languages), men du kan också ange dina egna översättningar för alla språk. Även om din upplevelse har angetts för bara ett enda språk och kan du anpassa text på sidor.  
+Med språk anpassning i Azure Active Directory B2C (Azure AD B2C) kan ditt användar flöde anpassa olika språk så att de passar dina kund behov.  Microsoft tillhandahåller översättningarna för [36-språk](#supported-languages), men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse bara är avsedd för ett enda språk kan du anpassa valfri text på sidorna.
 
-## <a name="how-language-customization-works"></a>Så här fungerar språkanpassning
-Du kan använda språkanpassning för att välja vilka språk som ditt användarflöde finns i. När funktionen är aktiverad, kan du ange frågesträngparametern `ui_locales`, från ditt program. När du anropar i Azure AD B2C, översätts sidan till det språk som du har angett. Den här typen av konfiguration ger dig fullständig kontroll över språk i ditt användarflöde och ignorerar språkinställningarna för kundens webbläsare. 
+## <a name="how-language-customization-works"></a>Så här fungerar språk anpassning
+Du kan använda språk anpassning för att välja vilka språk som ditt användar flöde är tillgängligt i. När funktionen är aktive rad kan du ange `ui_locales`frågesträngparametern, från ditt program. När du anropar Azure AD B2C översätts sidan till det språk som du har angett. Den här typen av konfiguration ger dig fullständig kontroll över språken i ditt användar flöde och ignorerar språk inställningarna i kundens webbläsare.
 
-Du kanske inte behöver den här nivån av kontroll över vilka språk som kunderna ser. Om du inte anger en `ui_locales` parametern kundens upplevelse styrs av sina webbläsarinställningar.  Du kan fortfarande styra vilka språk som ditt användarflöde översätts till genom att lägga till det som ett språk som stöds. Om en kund webbläsare är inställd på att visa ett språk som du inte vill att stödja, är det språk som du valt som standard i kulturer som stöds visas i stället.
+Du kanske inte behöver den kontroll nivån över vilka språk som din kund ser. Om du inte anger en `ui_locales` parameter, styrs kundens upplevelse av webbläsarens inställningar.  Du kan fortfarande styra vilka språk som ditt användar flöde ska översättas till genom att lägga till det som ett språk som stöds. Om en kunds webbläsare är inställd på att visa ett språk som du inte vill ha stöd för, visas det språk som du valde som standard i en kultur som stöds i stället.
 
-- **UI-språk angett språk**: När du har aktiverat språkanpassning översätts ditt användarflöde till det språk som anges här.
-- **Webbläsaren begärt språk**: Om ingen `ui_locales` angavs, ditt användarflöde översätts till webbläsaren begärt-språket *om språket stöds*.
-- **Standardspråk för principen**: Om webbläsaren inte anger ett språk eller anger en som inte stöds, översätts användarflödet till användarens standardspråk för flödet.
-
->[!NOTE]
->Om du använder anpassade användarattribut, måste du ange dina egna översättningar. Mer information finns i [anpassa din strängar](#customize-your-strings).
->
-
-## <a name="support-requested-languages-for-uilocales"></a>Stöd för begärda språk för ui_locales 
-Principerna som skapats innan den allmänna tillgängligheten för språkanpassning måste du aktivera den här funktionen först. Principer och användarflöden som skapades när du har språkanpassning aktiverat som standard. 
-
-När du aktiverar språkanpassning på ett användarflöde, du kan styra användarflödet språk genom att lägga till den `ui_locales` parametern.
-1. I din Azure AD B2C-klient väljer **användarflöden**.
-2. Klicka på det användarflöde som du vill aktivera för översättningar.
-3. Välj **språk**.  
-4. Välj **aktivera språkanpassning**.
-
-## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Välj vilka språk i ditt användarflöde ska aktiveras 
-Aktivera ett antal språk för ditt användarflöde för att översättas till vid förfrågan från webbläsaren utan den `ui_locales` parametern.
-1. Kontrollera att ditt användarflöde har språkanpassning aktiverat från föregående instruktioner.
-2. På den **språk** för användarflödet, Välj ett språk som du vill stödja.
-3. I egenskapsfönstret ändrar **aktiverad** till **Ja**.  
-4. Välj **spara** överst i egenskapsfönstret.
+- **UI – lokala språk**som har angetts: När du har aktiverat språk anpassning översätts ditt användar flöde till det språk som anges här.
+- **Webbläsare – begärt språk**: Om ingen `ui_locales` parameter har angetts översätts ditt användar flöde till det begärda språket för webbläsaren, *om språket stöds*.
+- **Standard språk för princip**: Om webbläsaren inte anger något språk, eller om det anger en som inte stöds, översätts användar flödet till standard språket för användar flödet.
 
 >[!NOTE]
->Om en `ui_locales` parametern inte anges, sidan översätts till kundens webbläsarspråket endast om den är aktiverad.
+>Om du använder anpassade användarattribut måste du ange dina egna översättningar. Mer information finns i [Anpassa dina strängar](#customize-your-strings).
 >
 
-## <a name="customize-your-strings"></a>Anpassa din strängar
-Språkanpassning kan du anpassa valfri sträng i ditt användarflöde.
-1. Kontrollera att ditt användarflöde har språkanpassning aktiverat från de föregående anvisningarna.
-2. På den **språk** för användarflödet, Välj det språk som du vill anpassa.
-3. Under **sidan Utjämna resurser filer**, Välj den sida som du vill redigera.
-4. Välj **hämta standardvärden** (eller **hämta åsidosättningar** om du tidigare har redigerat det här språket).
+## <a name="support-requested-languages-for-uilocales"></a>Stöd för begärda språk för ui_locales
+Principer som skapades innan den allmänna tillgängligheten för språk anpassning måste aktivera den här funktionen först. Principer och användar flöden som har skapats efter att språk anpassning har Aktiver ATS som standard.
 
-De här stegen ger dig en JSON-fil som du kan använda för att börja redigera din strängar.
+När du aktiverar språk anpassning för ett användar flöde kan du kontrol lera språket för användar flödet genom att lägga till `ui_locales` parametern.
+1. Välj **användar flöden**i Azure AD B2C klient.
+2. Klicka på det användar flöde som du vill aktivera för översättningar.
+3. Välj **språk**.
+4. Välj **Aktivera språk anpassning**.
+
+## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Välj vilka språk i ditt användar flöde som är aktiverade
+Aktivera en uppsättning språk som ditt användar flöde ska översättas till när den begärs av webbläsaren utan `ui_locales` parametern.
+1. Se till att ditt användar flöde har aktiverat språk anpassning från föregående instruktioner.
+2. På sidan **språk** för användar flödet väljer du ett språk som du vill stödja.
+3. I fönstret Egenskaper ändrar du **aktiverat** till **Ja**.
+4. Välj **Spara** överst i fönstret Egenskaper.
+
+>[!NOTE]
+>Om en `ui_locales` parameter inte anges översätts sidan till kundens webb läsar språk endast om den är aktive rad.
+>
+
+## <a name="customize-your-strings"></a>Anpassa dina strängar
+Med språk anpassning kan du anpassa en sträng i ditt användar flöde.
+1. Se till att ditt användar flöde har aktiverat språk anpassning från föregående instruktioner.
+2. På sidan **språk** för användar flödet väljer du det språk som du vill anpassa.
+3. Under **filer på sidan filnivå – resurser**väljer du den sida som du vill redigera.
+4. Välj **Hämta** standardvärden (eller **Hämta åsidosättningar** om du tidigare har redigerat det här språket).
+
+De här stegen ger dig en JSON-fil som du kan använda för att börja redigera dina strängar.
 
 ### <a name="change-any-string-on-the-page"></a>Ändra valfri sträng på sidan
-1. Öppna JSON-fil som hämtats från föregående anvisningarna i en JSON-redigerare.
-2. Hitta elementet som du vill ändra.  Du kan hitta `StringId` för strängen som du letar efter eller leta efter den `Value` attribut som du vill ändra.
-3. Uppdatera den `Value` attributet med vad som ska visas.
-4. För varje sträng som du vill ändra, ändra `Override` till `true`.
-5. Spara filen och överföra dina ändringar. (Du hittar kontrollen på samma plats som där du laddade ned JSON-filen.) 
+1. Öppna JSON-filen som hämtats från tidigare instruktioner i en JSON-redigerare.
+2. Hitta det element som du vill ändra.  Du kan söka `StringId` efter den sträng som du söker eller leta efter det `Value` attribut som du vill ändra.
+3. `Value` Uppdatera attributet med det du vill visa.
+4. Ändra `Override` till`true`för varje sträng som du vill ändra.
+5. Spara filen och överför ändringarna. (Du kan hitta överförings kontrollen på samma plats som du laddade ned JSON-filen.)
 
 >[!IMPORTANT]
->Om du vill åsidosätta en sträng kan du se till att ange den `Override` värde att `true`.  Om värdet har inte ändrats, ignoreras posten. 
+>Om du behöver åsidosätta en sträng, se till att ange `Override` värdet till. `true`  Om värdet inte ändras ignoreras posten.
 >
 
-### <a name="change-extension-attributes"></a>Ändra tilläggsattribut
-Om du vill ändra strängen för en anpassad användarattribut, eller om du vill lägga till en till JSON, är det i följande format:
+### <a name="change-extension-attributes"></a>Ändra attribut för tillägg
+Om du vill ändra strängen för ett anpassat användarattribut, eller om du vill lägga till ett i JSON, är det i följande format:
 ```JSON
 {
   "LocalizedStrings": [
@@ -90,18 +90,18 @@ Om du vill ändra strängen för en anpassad användarattribut, eller om du vill
 }
 ```
 
-Ersätt `<ExtensionAttribute>` med namnet på din anpassade användarattribut.  
+Ersätt `<ExtensionAttribute>` med namnet på ditt anpassade användar-attribut.
 
 Ersätt `<ExtensionAttributeValue>` med den nya strängen som ska visas.
 
-### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Tillhandahåll en lista med värden genom att använda LocalizedCollections
-Om du vill ange en fast lista med värden för svar, måste du skapa en `LocalizedCollections` attribut.  `LocalizedCollections` är en matris med `Name` och `Value` par. Ordningen för objekten blir den ordning som de visas.  Att lägga till `LocalizedCollections`, använder du följande format:
+### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Ange en lista med värden med hjälp av LocalizedCollections
+Om du vill ange en uppsättning värden för svar måste du skapa ett `LocalizedCollections` -attribut.  `LocalizedCollections`är en matris med `Name` och `Value` par. Ordningen för objekten visas i den ordning som de visas.  Använd följande `LocalizedCollections`format för att lägga till:
 
 ```JSON
 {
   "LocalizedStrings": [...],
   "LocalizedCollections": [{
-      "ElementType":"ClaimType", 
+      "ElementType":"ClaimType",
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
       "Override": true,
@@ -119,63 +119,63 @@ Om du vill ange en fast lista med värden för svar, måste du skapa en `Localiz
 }
 ```
 
-* `ElementId` är du attributet att denna `LocalizedCollections` attributet är ett svar på.
-* `Name` är det värde som visas för användaren.
-* `Value` är det som returneras i anspråket när det här alternativet är markerat.
+* `ElementId`är det användar-attribut som `LocalizedCollections` det här attributet är ett svar på.
+* `Name`är värdet som visas för användaren.
+* `Value`är vad som returneras i anspråket när det här alternativet är markerat.
 
 ### <a name="upload-your-changes"></a>Överför dina ändringar
-1. När du har slutfört ändringarna till JSON-fil kan du gå tillbaka till din B2C-klient.
-2. Välj **användarflöden** och klicka på det användarflöde som du vill aktivera för översättningar.
+1. När du har slutfört ändringarna i JSON-filen går du tillbaka till B2C-klienten.
+2. Välj **användar flöden** och klicka på det användar flöde som du vill aktivera för översättningar.
 3. Välj **språk**.
 4. Välj det språk som du vill översätta till.
-5. Välj sidan där du vill ange översättningar.
-6. Välj mappikonen och välj JSON-fil att ladda upp.
- 
-Ändringarna sparas automatiskt i ditt användarflöde.
+5. Välj den sida där du vill ge översättningar.
+6. Välj mappikonen och välj den JSON-fil som ska överföras.
 
-## <a name="customize-the-page-ui-by-using-language-customization"></a>Anpassa sidan Användargränssnittet med hjälp av språkanpassning
+Ändringarna sparas automatiskt i ditt användar flöde.
 
-Det finns två sätt att lokalisera din HTML-innehåll. Ett sätt är att aktivera [språkanpassning](active-directory-b2c-reference-language-customization.md). Den här funktionen aktiveras kan Azure AD B2C att vidarebefordra parametern öppna ID Connect `ui-locales`, till slutpunkten.  Innehållsservern kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som språkspecifika.
+## <a name="customize-the-page-ui-by-using-language-customization"></a>Anpassa sid gränssnittet med hjälp av språk anpassning
 
-Du kan också hämta innehåll från olika platser baserat på det språk som används. Du kan ställa in en mappstruktur som värd för innehåll för specifika språk i din CORS-aktiverad slutpunkt. Du ringer upp rätt om du använder jokertecknet `{Culture:RFC5646}`.  Anta exempelvis att det här är din URI för anpassad sida:
+Det finns två sätt att lokalisera ditt HTML-innehåll. Ett sätt är att aktivera [språk anpassning](active-directory-b2c-reference-language-customization.md). Om du aktiverar den här funktionen kan Azure AD B2C vidarebefordra OpenID Connect- `ui-locales`parametern till din slut punkt.  Din innehålls Server kan använda den här parametern för att tillhandahålla anpassade HTML-sidor som är språkspecifika.
+
+Du kan också hämta innehåll från olika platser baserat på de nationella inställningar som används. I din CORS-aktiverade slut punkt kan du ställa in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet `{Culture:RFC5646}`.  Anta till exempel att det här är din anpassade sid-URI:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
 ```
-Du kan läsa in sidan i `fr`. När sidan hämtar HTML och CSS innehåll, det hämta från:
+Du kan läsa in sidan i `fr`. När sidan hämtar HTML-och CSS-innehåll, hämtas de från:
 ```
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-languages"></a>Lägg till anpassat språk
+## <a name="add-custom-languages"></a>Lägg till anpassade språk
 
-Du kan också lägga till språk som Microsoft för närvarande inte tillhandahåller översättningar för. Du måste ange översättningar för alla strängar i användarflödet.  Språk och nationella inställningar koder är begränsade till dem i ISO 639-1-standarden. 
+Du kan också lägga till språk som Microsoft för närvarande inte tillhandahåller översättningar för. Du måste ange översättningarna för alla strängar i användar flödet.  Språk-och lands koder är begränsade till dem i ISO 639-1-standarden.
 
-1. I din Azure AD B2C-klient väljer **användarflöden**.
-2. Klicka på användarflödet där du vill lägga till anpassade språk och klickar sedan på **språk**.
-3. Välj **Lägg till anpassat språk** högst upp på sidan.
-4. Identifiera vilket språk som du etablerar översättningar för genom att ange en giltig nationalitetskod i fönstret som öppnas för kontexten.
-5. För varje sida kan du hämta en uppsättning åsidosättningar för engelska och arbeta med översättningar.
-6. När du är klar med JSON-filerna kan överföra du dem för varje sida.
-7. Välj **aktivera**, och ditt användarflöde kan nu visa det här språket för dina användare.
-8. Spara språk.
+1. Välj **användar flöden**i Azure AD B2C klient.
+2. Klicka på det användar flöde där du vill lägga till anpassade språk och klicka sedan på **språk**.
+3. Välj **Lägg till anpassat språk** överst på sidan.
+4. I kontext fönstret som öppnas identifierar du vilket språk som du tillhandahåller översättningar för genom att ange en giltig språkkod.
+5. För varje sida kan du ladda ned en uppsättning åsidosättningar för engelska och arbeta med översättningarna.
+6. När du är klar med JSON-filerna kan du ladda upp dem för varje sida.
+7. Välj **Aktivera**och ditt användar flöde kan nu visa det här språket för dina användare.
+8. Spara språket.
 
 >[!IMPORTANT]
->Du måste aktivera anpassade språk eller överför åsidosättningar för den innan du kan spara.
+>Du måste antingen aktivera de anpassade språken eller överföra åsidosättningar för det innan du kan spara.
 >
 
 ## <a name="additional-information"></a>Ytterligare information
 
-### <a name="page-ui-customization-labels-as-overrides"></a>Page UI-anpassning etiketter som åsidosättningar
-När du aktiverar språkanpassning sparas tidigare ändringar för etiketter med hjälp av sidan anpassningar i en JSON-fil för engelska (en). Du kan fortsätta att ändra dina etiketter och andra strängar genom att ladda upp språkresurser i språkanpassning.
-### <a name="up-to-date-translations"></a>Uppdaterade översättningar
-Microsoft strävar efter att tillhandahålla de senaste översättningarna för din användning. Microsoft förbättrar översättningar och behåller dem i kompatibilitet för du kontinuerligt. Microsoft identifiera buggar och ändringarna i globala terminologi och gör uppdateringar som kommer att fungera sömlöst i ditt användarflöde.
+### <a name="page-ui-customization-labels-as-overrides"></a>Sid gränssnitt anpassnings etiketter som åsidosättningar
+När du aktiverar språk anpassning behålls dina tidigare redigeringar av etiketter med anpassning av sid gränssnitt i en JSON-fil för engelska (en). Du kan fortsätta att ändra dina etiketter och andra strängar genom att överföra språk resurser i språk anpassning.
+### <a name="up-to-date-translations"></a>Aktuella översättningar
+Microsoft strävar efter att tillhandahålla de senaste översättningarna för din användning. Microsoft förbättrar kontinuerligt översättningarna och ser till att de är kompatibla. Microsoft kommer att identifiera buggar och ändringar i global terminologi och göra uppdateringar som fungerar sömlöst i ditt användar flöde.
 ### <a name="support-for-right-to-left-languages"></a>Stöd för höger-till-vänster-språk
-Microsoft innehåller inte för närvarande stöd för höger-till-vänster-språk. Du kan göra detta genom att använda anpassade språkinställningar och med hjälp av CSS för att ändra hur strängarna visas.  Om du behöver den här funktionen kan du rösta [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
-### <a name="social-identity-provider-translations"></a>Sociala providern översättningar
-Microsoft tillhandahåller den `ui_locales` OIDC-parametern till sociala inloggningar. Men vissa sociala identitetsleverantörer, inklusive Facebook och Google, respekterar inte dem. 
-### <a name="browser-behavior"></a>Beteende för webbläsare
-Chrome och Firefox både begära för sina set-språk. Om det är ett språk som stöds, visas den före standard. Microsoft Edge för närvarande begär inte ett språk och går direkt till standardspråket.
+Microsoft tillhandahåller för närvarande inte stöd för språk som skrivs från höger till vänster. Du kan göra detta med hjälp av anpassade språk och använda CSS för att ändra hur strängarna visas.  Om du behöver den här funktionen kan du rösta på [Azure feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+### <a name="social-identity-provider-translations"></a>Översättningar av sociala identitets leverantörer
+Microsoft tillhandahåller `ui_locales` OIDC-parametern för sociala inloggningar. Men vissa sociala identitets leverantörer, inklusive Facebook och Google, följer inte dem.
+### <a name="browser-behavior"></a>Webb läsar beteende
+Chrome och Firefox båda förfrågningarna om deras inställda språk. Om det är ett språk som stöds visas det före standardvärdet. Microsoft Edge begär för närvarande inte ett språk och går direkt till standard språket.
 
 ### <a name="supported-languages"></a>Språk som stöds
 
@@ -186,34 +186,34 @@ Chrome och Firefox både begära för sina set-språk. Om det är ett språk som
 | Danska                | da            |
 | Tyska                | de            |
 | Grekiska                 | el            |
-| Svenska               | en            |
+| Svenska               | sv-SE            |
 | Spanska               | es            |
 | Finska               | fi            |
 | Franska                | fr            |
 | Gujarati              | gu            |
-| Hindi                 | hi            |
-| Kroatiska              | hr            |
+| Hindi                 | Hej            |
+| Kroatiska              | tim            |
 | Ungerska             | hu            |
 | Italienska               | it            |
 | Japanska              | ja            |
-| Kannada               | kn            |
+| Kannada               | 5,0            |
 | Koreanska                | ko            |
 | Malayalam             | ml            |
-| Marathi               | mr            |
+| Marathi               | Mr            |
 | Malajiska                 | ms            |
 | Norska bokmål      | nb            |
 | Nederländska                 | nl            |
-| Punjabi               | pa            |
+| Punjabi               | PA            |
 | Polska                | pl            |
-| Portugisiska - Brasilien   | pt-br         |
-| Portugisiska - Portugal | pt-pt         |
+| Portugisiska (Brasilien)   | pt-br         |
+| Portugisiska-Portugal | pt-pt         |
 | Rumänska              | ro            |
 | Ryska               | ru            |
 | Slovakiska                | sk            |
 | Svenska               | sv            |
-| Tamilska                 | ta            |
-| Telugu                | te            |
-| Thai                  | TH            |
-| Turkiska               | tr            |
-| Kinesiska – förenklad  | zh-hans       |
-| Kinesiska – traditionell | zh-hant       |
+| Tamilska                 | layout            |
+| Telugu                | &            |
+| Thai                  | :e            |
+| Turkiska               | TR            |
+| Kinesiska – Förenklad  | zh-hans       |
+| Kinesiska (traditionell) | zh-hant       |

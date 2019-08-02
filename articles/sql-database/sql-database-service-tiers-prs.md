@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Premium RS tjänsten dras tillbaka nivå | Microsoft Docs
-description: Premium RS tjänstnivån dras och stöd för den avslutar – Se migreringsalternativ.
+title: Förbrukade Azure SQL Database Premium RS service nivå | Microsoft Docs
+description: Den Premium RS tjänst nivån dras tillbaka och support för den slutar att se migreringen.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,95 +10,94 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790411"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566632"
 ---
-# <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Tjänstnivå för Azure SQL Database Premium RS (förhandsversion) tas ur - alternativ för migrering
+# <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS tjänst nivå (för hands version) dras tillbaka – alternativ för migrering
 
-I februari 2018 meddelade Microsoft att Premium RS tjänstnivån i Azure SQL Database inte skulle släppts för allmän tillgänglighet och skulle inte längre att stödjas efter 31 januari 2019. Den här slutet av support tidsgräns har utökats till den 30 juni 2019. Den här artikeln beskriver dina alternativ för att migrera från Premium RS tjänstnivån till en annan tjänstnivå. Efter den 30 juni 2019 Microsoft kommer automatiskt att migrera Premium RS-databaser till en allmänt tillgänglig tjänstnivå som bäst motsvarar prestandakraven för Premium RS-databasen.
+I februari 2018 meddelade Microsoft att den Premium RS tjänst nivån i Azure SQL Database inte skulle släppas för allmän tillgänglighet och inte längre stöds efter 31 januari 2019. Tids gränsen för slut på support har utökats till den 30 juni 2019. I den här artikeln beskrivs alternativen för att migrera från Premium RS tjänst nivå till en annan tjänst nivå. Efter den 30 juni 2019 kommer Microsoft automatiskt att migrera dina Premium RS-databaser till en allmänt tillgänglig tjänst nivå som närmast motsvarar prestanda kraven i Premium RSs databasen.
 
-Följande är mål för migrering och prisalternativ som är lämpligt för Premium RS-kunder:
+Följande är de destinationer för migrering och pris alternativ som kan vara lämpliga för Premium RS kunder:
 
-- vCore-tjänstnivåer
+- vCore tjänst nivåer
 
-  Den **generella** och **affärskritisk** tjänstnivåer i den [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md). Dessa två tjänstnivåer är allmänt tillgängliga. Den vCore-baserade inköpsmodellen erbjuder även den **hyperskala** tjänstnivå som kan anpassas efter på begäran till din arbetsbelastning behov med automatisk skalning upp till 100 TB per databas. Tjänstnivån hyperskala ger IO-prestanda som är jämförbar med Premium-tjänstnivån i den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) till ett pris som närmare på Premium RS-tjänstnivån.
+  **Generell användning** -och **affärskritisk** tjänst nivåerna i den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md). Dessa två tjänst nivåer är allmänt tillgängliga. Den vCore-baserade inköps modellen erbjuder också den storskaliga tjänst nivån som anpassar efter behov till din arbets belastnings behov med automatisk skalning upp till 100 TB per databas. Den storskaliga Service nivån ger i/o-prestanda som är jämförbar med Premium service-nivån i den [DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md) till ett pris närmare Premium RS tjänst nivå.
 - Priser för Dev/Test
 
-  [Priser för utveckling/testning](https://azure.microsoft.com/pricing/dev-test/) ger besparingar upp till 55% rabatt jämfört med priserna för licensinkluderade med Visual Studio-prenumerationen.
-- Azure Hybrid-förmånen och priser för reserverad kapacitet
+  [Prissättningen för utveckling/testning](https://azure.microsoft.com/pricing/dev-test/) ger besparingar på upp till 55% jämfört med licens avgifter med din Visual Studio-prenumeration.
+- Priser för Azure Hybrid-förmån och reserverad kapacitet
 
-  [Azure Hybrid-förmånen och reserverad kapacitet priser](https://azure.microsoft.com/pricing/details/sql-database/) ger besparingar på upp till 80% rabatt jämfört med priserna för licensinkluderade. Mer information om dessa alternativ finns i [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) och [Azure SQL Database reserverad kapacitet](sql-database-reserved-capacity.md).
+  [Priserna för Azure Hybrid-förmån och reserverad kapacitet](https://azure.microsoft.com/pricing/details/sql-database/) ger en besparing på upp till 80% jämfört med licens avgifter. Mer information om de här alternativen finns i [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) och [Azure SQL Database reserverad kapacitet](sql-database-reserved-capacity.md).
 
-## <a name="act-now-to-migrate-your-premium-rs-databases-to-alternative-sql-database-service-tiers"></a>Agera nu för att migrera dina databaser för Premium RS till alternativa SQL Database-tjänstnivåer
+## <a name="act-now-to-migrate-your-premium-rs-databases-to-alternative-sql-database-service-tiers"></a>Agera nu för att migrera Premium RS-databaser till alternativa SQL Database tjänst nivåer
 
-Granska riktlinjerna i den här artikeln tillsammans med våra priser och dokumentationen för att fastställa rätt migrering destinationer för Premium RS-arbetsbelastningar.
+Läs vägledningen i den här artikeln tillsammans med vår priser och dokumentation för att fastställa rätt migreringstjänster för dina Premium RS arbets belastningar.
 
-## <a name="migrate-compute-intensive-workloads-and-save"></a>Migrera beräkningsintensiva arbetsbelastningar och spara
+## <a name="migrate-compute-intensive-workloads-and-save"></a>Migrera beräknings intensiva arbets belastningar och spara
 
-För Premium RS beräkningsintensiva arbetsbelastningar rekommenderar vi att migrera till vår allmänt tillgänglig nivån för vCore-baserade generell användning och spara mer jämfört med inkluderade licenser priser med Azure Hybrid-förmånen för SQL Server och erbjudanden för reserverad kapacitet. Om du skulle i stället är kvar på en DTU-baserade köpalternativ, kan du migrera dina beräkningsintensiva Premium RS-databaser till en Standard-tjänstnivå och fortfarande spara jämfört med den Premium RS prissättning för allmän tillgänglighet (om den hade gått för allmän tillgänglighet).
+För dina beräknings intensiva Premium RS arbets belastningar rekommenderar vi att du migrerar till vår allmänt tillgängliga vCore-baserade Generell användning tjänst nivå och sparar fler jämfört med licens avgifter med hjälp av Azure Hybrid-förmån för SQL Server och reserverade kapacitets erbjudanden. Om du hellre vill behålla ett DTU-baserat köp alternativ kan du migrera dina beräknings intensiva Premium RS-databaser till en standard tjänst nivå och fortfarande Spara jämfört med den Premium RS allmänna tillgänglighets priset (om det hade blivit allmänt tillgängligt).
 
 > [!WARNING]
-> Migrera dina arbetsbelastningar för Premium RS till Premium DTU-baserade tjänstnivåer öka månatliga kostnader jämfört med aktuell Premium RS-prissättning. Vi rekommenderar att du överväger hyperskala eller affärskritisk nivå med Azure Hybrid-förmånen och reserverad kapacitet priser för att upprätthålla liknande eller lägre kostnader än Premium RS.
+> Om du migrerar Premium RS-arbetsbelastningar till DTU-baserade Premium service-nivåer kan du öka månads kostnaden jämfört med nuvarande Premium RS prissättning. Vi rekommenderar att du överväger de storskaliga eller Affärskritisk nivåerna med Azure Hybrid-förmån och reserverat kapacitets pris för att upprätthålla liknande eller lägre kostnader än Premium RS.
 
-### <a name="premium-rs-databases"></a>Premium RS-databaser
+### <a name="premium-rs-databases"></a>Premium RS databaser
 
-|**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
+|**Om du för närvarande är på...**|**Migrera till jämförbar vCore-baserad...**|**Migrera till jämförbar DTU-baserad...**|
 |---|---|---|
-|Premium RS 1|Allmänt syfte 1 vCore (Gen4)|Standard 3|
-|Premium RS 2|Allmänt syfte 2 virtuella kärnor (Gen4)|Standard 4|
-|Premium RS 4|Allmänt syfte 4 virtuella kärnor (Gen4)|Standard 6|
-|Premium RS 6|Allmänt syfte 6 virtuella kärnor (Gen4)|Standard 7|
+|Premium RS 1|Generell användning 1 vCore (Gen4)|Standard 3|
+|Premium RS 2|Generell användning 2 virtuella kärnor (Gen4)|Standard 4|
+|Premium RS 4|Generell användning 4 virtuella kärnor (Gen4)|Standard 6|
+|Premium RS 6|Generell användning 6 virtuella kärnor (Gen4)|Standard 7|
 
-### <a name="premium-rs-pools"></a>Premium RS-pooler
+### <a name="premium-rs-pools"></a>Premium RS pooler
 
-|**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
+|**Om du för närvarande är på...**|**Migrera till jämförbar vCore-baserad...**|**Migrera till jämförbar DTU-baserad...**|
 |---|---|---|
-|Premium RS lagringspoolen 125 DTU|Allmänt syfte 1 vCore (Gen4)|Standardpool 100 edtu: er|
-|Premium RS lagringspoolen 250 DTU|Allmänt syfte 2 virtuella kärnor (Gen4)|Standardpool 250 edtu: er|
-|Premium RS lagringspoolen 500 DTU|Allmänt syfte 4 virtuella kärnor (Gen4)|Standardpool 500 edtu: er|
-|Premium RS lagringspoolen 1000 DTU|Allmänt syfte 8 virtuella kärnor (Gen4)|Standardpool 1000 edtu: er|
+|Premium RS pool 125 DTU|Generell användning 1 vCore (Gen4)|Standardpool 100-eDTU: er|
+|Premium RS pool 250 DTU|Generell användning 2 virtuella kärnor (Gen4)|Standardpool 250-eDTU: er|
+|Premium RS pool 500 DTU|Generell användning 4 virtuella kärnor (Gen4)|Standardpool 500-eDTU: er|
+|Premium RS pool 1000 DTU|Generell användning 8 virtuella kärnor (Gen4)|Standardpool 1000-eDTU: er|
 
-## <a name="optimize-savings-and-performance-for-your-io-intensive-workloads"></a>Optimera besparingar och prestanda för dina i/o-intensiva arbetsbelastningar
+## <a name="optimize-savings-and-performance-for-your-io-intensive-workloads"></a>Optimera besparingar och prestanda för dina IO-intensiva arbets belastningar
 
-Vi rekommenderar att du migrerar dina i/o-intensiva enskilda databaser till vår vCore-baserade hyperskala nivå, för närvarande i förhandsversion och i/o-intensiva database-pooler till vår allmänt tillgänglig affärskritisk nivå för en optimal kombination av prestanda och kostnader.  Följande vCore-baserade alternativ att underhålla eller förbättra din aktuella prestanda och spara pengar när kombineras med Azure Hybrid-förmånen och reserverade kapacitet priser.
+Vi rekommenderar att du migrerar dina IO-intensiva enkla databaser till vår vCore-baserade hög skalnings nivå, som för närvarande finns i för hands version och dina IO-intensiva databas-pooler till vår allmänt tillgängliga Affärskritisk nivå, för den optimala kombinationen av prestanda och kostnad.  Följande vCore-baserade alternativ kommer att underhålla eller förbättra dina aktuella prestanda och kan spara pengar när de kombineras med Azure Hybrid-förmån och reserverade kapacitets priser.
 
-|**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
+|**Om du för närvarande är på...**|**Migrera till jämförbar vCore-baserad...**|**Migrera till jämförbar DTU-baserad...**|
 |---|---|---|
-|Premium RS 1| Hyperskala 1 vCore (Gen4) eller företag kritiska 1 vCore (Gen4)|Premium 1|
-|Premium RS 2| Hyperskala 2 virtuella kärnor (Gen4) eller Business kritiska 2 virtuella kärnor (Gen4|Premium 2|
-|Premium RS 4| Hyperskala 4 virtuella kärnor (Gen4) eller företag kritiska 4 virtuella kärnor (Gen4)|Premium 4
-|Premium RS 6| Hyperskala 6 virtuella kärnor (Gen4) eller företag kritiska 6 virtuella kärnor (Gen4)|Premium 6|
+|Premium RS 1| Skalning 1 vCore (Gen4) eller Affärskritisk 1 vCore (Gen4)|Premium 1|
+|Premium RS 2| Storskalig 2 virtuella kärnor (Gen4) eller Affärskritisk 2 virtuella kärnor (Gen4|Premium 2|
+|Premium RS 4| Storskalig 4-virtuella kärnor (Gen4) eller Affärskritisk 4 virtuella kärnor (Gen4)|Premium 4
+|Premium RS 6| Storskalig 6 virtuella kärnor (Gen4) eller Affärskritisk 6 virtuella kärnor (Gen4)|Premium 6|
 
-|**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
+|**Om du för närvarande är på...**|**Migrera till jämförbar vCore-baserad...**|**Migrera till jämförbar DTU-baserad...**|
 |---|---|---|
-|Premium RS lagringspoolen 125 DTU|Företag kritiska 2 virtuella kärnor (Gen4)|Premium-pool 125 edtu: er|
-|Premium RS lagringspoolen 250 DTU|Företag kritiska 2 virtuella kärnor (Gen4)|Premium-pool 250 edtu: er|
-|Premium RS lagringspoolen 500 DTU|Företag kritiska 4 virtuella kärnor (Gen4)|Premium-pool 500 edtu: er|
-|Premium RS lagringspoolen 1000 DTU|Företag kritiska 8 virtuella kärnor (Gen4)|Premium-pool 1000 edtu: er|
+|Premium RS pool 125 DTU|Affärskritisk 2 virtuella kärnor (Gen4)|Premium-pool 125 eDTU: er|
+|Premium RS pool 250 DTU|Affärskritisk 2 virtuella kärnor (Gen4)|Premium-pool 250 eDTU: er|
+|Premium RS pool 500 DTU|Affärskritisk 4 virtuella kärnor (Gen4)|Premium-pool 500 eDTU: er|
+|Premium RS pool 1000 DTU|Affärskritisk 8 virtuella kärnor (Gen4)|Premium-pool 1000 eDTU: er|
 
 ## <a name="take-advantage-of-our-new-offers"></a>Dra nytta av våra nya erbjudanden
 
-Vår tjänstnivåer i den vCore-baserade inköpsmodellen är berättigade till specialerbjudanden som kan du spara upp till 80% rabatt jämfört med inkluderade licenser priser. Använd din SQL Server Standard eller Enterprise edition-licenser med aktiv Software Assurance och spara upp till 55% rabatt jämfört med inkluderade licenser omfattar den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Du kan kombinera hybrid-förmånen med [Azure SQL Database reserverad kapacitet](sql-database-reserved-capacity.md) priser och spara upp till 80% när du genomför betalats i förskott till ett eller tre år termen.  Aktivera båda förmåner idag från Azure-portalen.
+Våra tjänst nivåer i den vCore-baserade inköps modellen är berättigade till Special erbjudanden som kan spara upp till 80% jämfört med licens priset. Använd SQL Server Standard-eller Enterprise Edition-licenser med aktiv Software Assurance för att spara upp till 55% jämfört med licens priset med [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Du kan kombinera hybrid-förmånen med [Azure SQL Database](sql-database-reserved-capacity.md) reserverat kapacitets priser och Spara upp till 80% när du betjänar på ett eller tre år.  Aktivera båda fördelarna idag från Azure Portal.
 
-Om du har några frågor eller problem angående den här ändras eller om du behöver hjälp med migrationen, kontakta [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Kontakta [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)om du har några frågor eller problem angående den här ändringen eller om du behöver hjälp med migreringen.
 
-## <a name="migration-from-a-premium-rs-service-tier-to-a-service-tier-in-either-the-dtu-or-the-vcore-model"></a>Migrering från en tjänstnivå för Premium RS till en tjänstnivå i DTU- eller vCore-modellen
+## <a name="migration-from-a-premium-rs-service-tier-to-a-service-tier-in-either-the-dtu-or-the-vcore-model"></a>Migrering från en Premium RS tjänst nivå till en tjänst nivå i antingen DTU-eller vCore-modellen
 
 ### <a name="migration-of-a-database"></a>Migrering av en databas
 
-Migrera en databas från Premium RS-tjänsten nivå till en tjänstenivå antingen DTU eller vCore-modellen påminner om att uppgradera eller nedgradera mellan tjänstnivåer på tjänstnivån Premium RS.
+Migrering av en databas från en Premium RS tjänst nivå till en tjänst nivå i antingen DTU-eller vCore-modellen liknar uppgradering eller nedgradering mellan tjänst nivåer på Premium RS tjänst nivå.
 
-### <a name="using-database-copy-to-convert-a-premium-rs-database-to-a-dtu-based-or-vcore-based-database"></a>Använda databaskopian och konvertera en Premium RS-databas till en DTU-baserade eller vCore-baserad databas
+### <a name="using-database-copy-to-convert-a-premium-rs-database-to-a-dtu-based-or-vcore-based-database"></a>Använda databas kopiering för att konvertera en Premium RS-databas till en DTU-baserad eller vCore-baserad databas
 
-Du kan kopiera en databas med lämplig storlek för beräkning av Premium RS till en databas med en DTU-baserade eller vCore-baserade beräkningsstorleken utan begränsningar eller särskilda ordningsföljd så länge Målstorlek för beräkning har stöd för den maximala databasstorleken av källdatabasen. Databaskopian skapar en ögonblicksbild av data från och med starttiden för kopieringen och utför inte synkronisera data mellan källan och målet.
+Du kan kopiera en databas med en Premium RS beräknings storlek till en databas med en DTU-baserad eller vCore beräknings storlek utan begränsningar eller särskilda sekvenser så länge mål beräknings storleken har stöd för den maximala databas storleken för käll databasen. Databas kopian skapar en ögonblicks bild av data från kopierings åtgärdens start tid och utför inte datasynkronisering mellan källan och målet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att få information om specifika storlekar och lagring som kan användas för enkel databas, finns i [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md)
-- För att få information om specifika storlekar och lagring som kan användas för elastiska pooler, se [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+- Mer information om de olika storlekarna för beräkning och lagrings storlek som är tillgängliga för en enskild databas finns i [SQL Database vCore resurs gränser för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md)
+- Mer information om de olika beräknings storlekarna och de lagrings storlekar som är tillgängliga för elastiska pooler finns i [SQL Database vCore resurs gränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).

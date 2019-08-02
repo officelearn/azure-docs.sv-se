@@ -1,7 +1,7 @@
 ---
-title: Entiteten matchare i en konversation Learner modell – Azure Cognitive Services | Microsoft Docs
+title: Enhets matchare i en Conversation Learner modell – Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du använder entiteten matchare i Konversationsdeltagare.
+description: Lär dig hur du använder enhets matchare i Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,88 +10,89 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60c4abf1590cb91fd460cc6a2a5ba75a225ebd80
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475751"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704043"
 ---
-# <a name="entity-resolvers"></a>Entiteten matchare
+# <a name="entity-resolvers"></a>Enhets matchare
 
-Den här kursen visar hur du använder entiteten matchare i Konversationsdeltagare
+Den här självstudien visar hur du använder enhets matchare i Conversation Learner
 
 ## <a name="video"></a>Video
 
-[![Entiteten matchare självstudiekursen förhandsversion](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
+[![Förhands granskning av enhets lösare för entitet](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
 
 ## <a name="requirements"></a>Krav
-Den här självstudien krävs att Allmänt självstudien Bot körs
+Den här självstudien kräver att roboten för allmän självstudie körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
 
-- Matchare typen är en valfri egenskap för anpassade entiteter.
-- Entiteten matchare utnyttja kraften hos förtränade entitet identifierare i LUIS att ge ytterligare information och tydlighet för din anpassade entitet.
+- Matchnings typ är en valfri egenskap för anpassade entiteter.
+- Enhets matchare använder kraften hos de förtränade enhets identifierarna i LUIS för att ge ytterligare information och klarhet för din anpassade entitet.
 
 ## <a name="steps"></a>Steg
 
-Starta på startsidan i Webbgränssnittet.
+Starta på Start sidan i webb gränssnittet.
 
 ### <a name="create-the-model"></a>Skapa modellen
 
-1. Välj **nya modellen**.
-2. Ange **entitet matchare** för **namn**.
+1. Välj **ny modell**.
+2. Ange **enhets matchare** för **namn**.
 3. Välj **Skapa**.
 
 ### <a name="create-a-pair-of-entities"></a>Skapa ett par med entiteter
 
-1. Välj **entiteter** i den vänstra panelen, sedan **ny entitet**.
-2. Ange **avgång** för **entitetsnamn**.
-3. Välj **datetimeV2** för **matchare typ**.
-4. Välj **Skapa**. Stäng endast i informationssyfte popup-fönstret genom att välja **OK**.
-5. Upprepa steg 1-4 om du vill skapa en andra enhet med namnet **returnera** med **datetimeV2** matchare typen.
+1. Välj **entiteter** i den vänstra panelen och sedan **ny entitet**.
+2. Ange **avgångs** **enhets namn**.
+3. Välj **datetimeV2** som **matchnings typ**.
+4. Välj **Skapa**. Stäng informations fönstret genom att välja **OK**.
+5. Upprepa steg 1-4 om du vill skapa en andra entitet med namnet **Return** med matchnings typen **datetimeV2** .
 
 ![](../media/T09_entities.png)
 
-### <a name="create-a-pair-of-actions"></a>Skapa ett par åtgärder
+### <a name="create-a-pair-of-actions"></a>Skapa ett åtgärds par
 
-1. Välj **åtgärder** i den vänstra panelen, sedan **ny åtgärd**.
-2. Ange **du lämnar på $departure och returnera på $return** för **Robotens svar...** .
-    - VIKTIGT - när att skriva i $[entityName] måste du trycker på RETUR eller klickar på entiteten i nedrullningsbara menyn annars Konversationsdeltagare kommer på det här som text i stället för en entitet.
-    - Observera att den **krävs entiteter** fält kommer också att få dessa entiteter och de kan inte tas bort. Detta förhindrar att den här åtgärden från att bli tillgängliga förrän båda krävs entiteter finns.
+1. Välj **åtgärder** i den vänstra panelen och sedan **ny åtgärd**.
+2. Ange **att du lämnar $Departure och returnerar $Return** för robotens **svar..** ..
+    - VIKTIGT – när du skriver i $ [entityName] måste du trycka på RETUR eller klicka på entiteten i den nedrullningsbara listan, Conversation Learner annars kan det vara text i stället för en entitet.
+    - Observera att fältet **obligatoriska entiteter** också kommer att hämta dessa entiteter och de kan inte tas bort. Detta förhindrar att den här åtgärden blir tillgänglig förrän båda nödvändiga entiteter finns.
 3. Välj **Skapa**.
-4. Välj **ny åtgärd** att skapa en andra åtgärd.
-5. Ange **när du planerar att resa?** för **Robotens svar...** .
-6. Ange **avgång** och **returnera** för **diskvalificera entiteter**. Dessa berätta för våra robotar kan inte vidta åtgärden om något av dessa entiteter innehåller ett värde.
+4. Välj **ny åtgärd** för att skapa en andra åtgärd.
+5. Ange **när du planerar att resa?** för **robotens svar..** ..
+6. Ange **avgångs** och **RETUR** fördekvalificerande entiteter. Dessa säger att vår robot inte vidtar den här åtgärden om någon av dessa entiteter innehåller ett värde.
 7. Välj **Skapa**.
 
 ![](../media/T09_actions.png)
 
 ### <a name="training"></a>Utbildning
 
-1. Titta på den **utbildning: [Status]** i det övre vänstra hörnet för **slutförd**.
-    - Du kan klicka på länken ”Uppdatera” om det tar för lång.
-    - Utbildning status krävs ”slutfört” så att våra entitet matchare fungerar när vi tränar modellen.
+1. Se **utbildningen: [status]** i det övre vänstra hörnet för **slutförd**.
+    - Du kan klicka på länken "uppdatera" om detta tar för lång tid.
+    - Utbildnings status "slutförd" är nödvändig så att våra enhets matchare fungerar när vi tränar modellen.
 
-2. På den vänstra panelen klickar du på ”Train-dialogrutor” och sedan på knappen ”Ny träna dialogruta”.
-3. Typen i den första användaren uttryck ”boka mig en flygning”. 
-4. Klicka på knappen ”poäng åtgärder”.
-5. Välj svar ”när du planerar att resa”?.
-6. Som användare, svara med, ”lämnar morgon och returnera söndag nästa vecka”.
-    - Observera hur Konversationsdeltagare har identifierat två ”har redan tränats datum” entiteter i den användaren aktivera.
-7. På panelen ”entitet identifiering” markerar du texten ”morgon” och kategorisera det som ”avgång”
-8. Även använda etiketten texten ”Sunday nästa vecka” som ”return”
-9. Klicka på knappen ”poäng åtgärder”.
-    - Observera hur den ”minne”-rutan innehåller avgång och gå sedan tillbaka datumen.
-    - Hovra över var och en och se hur entiteterna är date-objekt som tydligt avbilda faktiska kalenderdatumet istället för ”Sunday” eller ”imorgon”.
-10. Välj den ”du lämnar på...” Bot-svar.
-11. Klicka på knappen ”Spara”.
+2. Klicka på "träna dialog rutor" i den vänstra panelen och klicka sedan på knappen "ny träna dialog".
+3. Skriv in den första användaren uttryck, "boka mig en flygning". 
+4. Klicka på knappen "Poäng åtgärder".
+5. Välj svaret "när planerar du att resa?".
+6. Som användaren svarar med, "lämnar imorgon och returnerar söndag nästa vecka".
+    - Observera hur Conversation Learner har identifierat två "förtränade datum"-entiteter i den användaren.
+7. I panelen "entitets identifiering" väljer du texten "imorgon" och märk den som "avresa"
+8. Märk även texten "söndag nästa vecka" som "retur"
+9. Klicka på knappen "Poäng åtgärder".
+    - Observera att "minne"-fönstret innehåller avsändar-och retur datum.
+    - Hovra över var och en och se hur entiteterna är datum objekt som tydligt fångar in det faktiska kalender datumet i stället för "söndag" eller "imorgon".
+10. Välj "du lämnar..." Robot svar.
+11. Klicka på knappen Spara.
 
 ![](../media/T09_training.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Enum entiteter](./tutorial-enum-set-entity.md)
+> [Räkna upp entiteter](./tutorial-enum-set-entity.md)

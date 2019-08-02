@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489075"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618324"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Skapa och hantera en katalog i Azure AD-hantering av rättigheter (för hands version)
 
@@ -34,7 +34,7 @@ ms.locfileid: "68489075"
 
 En katalog är en behållare för resurser och åtkomst paket. Du skapar en katalog när du vill gruppera relaterade resurser och åtkomst paket. Vem som skapar katalogen blir den första katalog ägaren. En katalog ägare kan lägga till ytterligare katalog ägare.
 
-**Nödvändig roll:** Användar administratör eller katalog skapare
+**Nödvändig roll:** Global administratör, användar administratör eller katalog skapare
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -102,7 +102,7 @@ Du kan ta bort resurser från en katalog. En resurs kan bara tas bort från en k
 
 Du kan redigera namn och beskrivning för en katalog. Användarna ser den här informationen i ett åtkomst pakets information.
 
-**Nödvändig roll:** Användar administratör eller katalog ägare
+**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -118,7 +118,7 @@ Du kan redigera namn och beskrivning för en katalog. Användarna ser den här i
 
 Du kan ta bort en katalog, men bara om den inte har några åtkomst paket.
 
-**Nödvändig roll:** Användar administratör eller katalog ägare
+**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 

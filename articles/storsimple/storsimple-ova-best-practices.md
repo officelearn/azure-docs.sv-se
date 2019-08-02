@@ -1,6 +1,6 @@
 ---
-title: Metodtips för StorSimple Virtual Array | Microsoft Docs
-description: Beskriver Metodtips för distribution och hantering av StorSimple Virtual Array.
+title: Metod tips för virtuell StorSimple-matris | Microsoft Docs
+description: Beskriver de bästa metoderna för att distribuera och hantera den virtuella StorSimple-matrisen.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,277 +12,281 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2018
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630146"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516764"
 ---
-# <a name="storsimple-virtual-array-best-practices"></a>Metodtips för StorSimple Virtual Array
+# <a name="storsimple-virtual-array-best-practices"></a>Metod tips för virtuella StorSimple-matriser
+
 ## <a name="overview"></a>Översikt
-Microsoft Azure StorSimple Virtual Array är en integrerad lagringslösning som hanterar lagringsuppgifter mellan en lokal virtuell enhet som körs i ett hypervisor-programmet och Microsoft Azure-molnlagring. StorSimple Virtual Array är en effektiv och kostnadseffektiv alternativ till den fysiska 8000-serie-matrisen. Den virtuella matrisen kan köras på din befintliga infrastruktur för hypervisor-program, stöder både iSCSI- och SMB-protokoll och lämpar sig väl för scenarier med fjärranslutna kontor/avdelningskontor. Mer information om StorSimple-lösningarna går du till [översikt över Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-Den här artikeln beskriver de rekommenderade metoder som införts under installationen, distribution och hantering av StorSimple Virtual Array. Dessa metodtips innehåller verifierade riktlinjer för installation och hantering av den virtuella matrisen. Den här artikeln är avsedd för IT-administratörer som distribuerar och hanterar virtuella matriser i sina datacenter.
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-Vi rekommenderar en regelbunden granskning av de bästa metoderna för att säkerställa att enheten är fortfarande i efterlevnad när ändringar görs på installations- eller Flow. Bör du får problem när du implementerar dessa metodtips på din virtuella matris [kontakta Microsoft Support](storsimple-virtual-array-log-support-ticket.md) för att få hjälp.
+Microsoft Azure StorSimple virtuell matris är en integrerad lagrings lösning som hanterar lagrings aktiviteter mellan en lokal virtuell enhet som körs i en hypervisor och Microsoft Azure moln lagring. StorSimple Virtual Array är ett effektivt, kostnads effektivt alternativ till den fysiska matrisen 8000-serien. Den virtuella matrisen kan köras på din befintliga hypervisor-infrastruktur, stöder både iSCSI-och SMB-protokollen och lämpar sig väl för fjärran slutet av Office/filialer. Mer information om StorSimple-lösningarna finns i [Microsoft Azure StorSimple översikt](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-## <a name="configuration-best-practices"></a>Metodtips för konfiguration
-Dessa metodtips täcker de riktlinjer som måste följas under den första installationen och distributionen av virtuella matriser. Dessa metodtips är de som rör etablering av den virtuella datorn, grupprincipinställningar, storlek, att konfigurera nätverket, konfigurera storage-konton och skapa filresurser och volymer för den virtuella matrisen. 
+Den här artikeln beskriver de bästa metoderna som implementeras under den första installationen, distributionen och hanteringen av den virtuella StorSimple-matrisen. Dessa metod tips ger validerade rikt linjer för installation och hantering av den virtuella matrisen. Den här artikeln är riktad mot IT-administratörer som distribuerar och hanterar virtuella matriser i sina data Center.
 
-### <a name="provisioning"></a>Etablering
-StorSimple Virtual Array är en virtuell dator (VM) som har etablerats på hypervisor-programmet (Hyper-V eller VMware) på värdservern. Kontrollera att värden kan dedikera tillräckligt med resurser när du etablerar den virtuella datorn. Mer information går du till [minsta resurskraven](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) att etablera en matris.
+Vi rekommenderar en regelbunden granskning av de bästa metoderna för att se till att enheten fortfarande är kompatibel när ändringar görs i installationen eller åtgärds flödet. Om du stöter på problem när du implementerar dessa metod tips på din virtuella matris [kontaktar du Microsoft Support](storsimple-virtual-array-log-support-ticket.md) för att få hjälp.
 
-Implementera följande metodtips när du etablerar den virtuella matrisen:
+## <a name="configuration-best-practices"></a>Rekommenderade konfigurations metoder
+Dessa metod tips beskriver de rikt linjer som måste följas under den första installationen och distributionen av de virtuella matriserna. De här bästa metoderna är relaterade till etablering av den virtuella datorn, grup princip inställningar, storleks ändring, konfiguration av nätverk, konfiguration av lagrings konton och skapande av resurser och volymer för den virtuella matrisen. 
+
+### <a name="provisioning"></a>Etableras
+StorSimple Virtual Array är en virtuell dator (VM) som tillhandahålls på hypervisorn (Hyper-V eller VMware) på värd servern. När du konfigurerar den virtuella datorn måste du se till att värden kan tilldela tillräckligt med resurser. Mer information finns i [lägsta resurs krav](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) för att etablera en matris.
+
+Implementera följande metod tips när du konfigurerar den virtuella matrisen:
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Typ av virtuell dator** |**Generation 2** virtuell dator för användning med Windows Server 2012 eller senare och en *.vhdx* bild. <br></br> **Generation 1** virtuell dator för användning med Windows Server 2008 eller senare och en *VHD* bild. |Använd VM version 8 när du använder *.vmdk* bild. |
-| **Minnestyp** |Konfigurera som **statiskt minne**. <br></br> Använd inte den **dynamiskt minne** alternativet. | |
-| **Datatypen för disk** |Etablera som **dynamiskt expanderande**.<br></br> **Fast storlek** tar lång tid. <br></br> Använd inte den **differentierande** alternativet. |Använd den **tunn etablering** alternativet. |
-| **Data diskändring** |Expandera eller minska storleken är inte tillåtet. Ett försök att göra detta leder till förlust av alla lokala data på enheten. |Expandera eller minska storleken är inte tillåtet. Ett försök att göra detta leder till förlust av alla lokala data på enheten. |
+| **Typ av virtuell dator** |**Generation 2** Virtuell dator för användning med Windows Server 2012 eller senare och en *. vhdx* -avbildning. <br></br> **Generation 1** Virtuell dator för användning med Windows Server 2008 eller senare och en *VHD* -avbildning. |Använd Virtual Machine version 8 när du använder *. vmdk* -avbildning. |
+| **Minnes typ** |Konfigurera som **statiskt minne**. <br></br> Använd inte alternativet för **dynamiskt minne** . | |
+| **Typ av datadisk** |Etablera **dynamiskt expanderande**.<br></br> **Fast storlek** tar lång tid. <br></br> Använd inte alternativet **differentiering** . |Använd alternativet **tunn allokering** . |
+| **Ändring av data disk** |Det är inte tillåtet att utöka eller minska. Ett försök att göra detta leder till förlust av alla lokala data på enheten. |Det är inte tillåtet att utöka eller minska. Ett försök att göra detta leder till förlust av alla lokala data på enheten. |
 
 ### <a name="sizing"></a>Storleksändring
-När du ändrar storlek StorSimple Virtual Array, Tänk på följande faktorer:
+Tänk på följande faktorer när du ändrar storlek på den virtuella StorSimple-matrisen:
 
-* Lokal reservation för volymer eller resurser. Cirka 12% av utrymmet har reserverats på den lokala nivån för varje etablerade nivåindelad volym eller resurs. 10% av utrymmet är ungefär också reserverad för en lokalt Fäst volym för filsystem.
-* Overhead ögonblicksbild. Ungefär är 15% utrymme på den lokala nivån reserverad för ögonblicksbilder.
-* Du behöver för återställningar. Om du gör återställningen som en ny åtgärd bör storlek hänsyn till utrymmet som krävs för återställning. Återställningen görs till en resurs eller en volym med samma storlek.
-* Vissa bufferten ska allokeras för eventuella oväntade tillväxt.
+* Lokal reservation för volymer eller resurser. Cirka 12% av utrymmet är reserverat på den lokala nivån för varje volym eller resurs som har allokerats på nivå. Ungefär 10% av utrymmet är också reserverat för en lokalt fäst volym för fil system.
+* Overheadkostnad för bild. Ungefär 15% utrymme på den lokala nivån är reserverat för ögonblicks bilder.
+* Behöver återställas. Om du återställer som en ny åtgärd ska storleks ändringen vara ett konto för det utrymme som behövs för att återställa. Återställningen görs till en resurs eller volym av samma storlek.
+* Vissa buffertar ska tilldelas för oväntad tillväxt.
 
-Utifrån föregående faktorer kan storlekskraven visas med följande formel:
+Enligt föregående faktorer kan storleks kraven representeras av följande ekvation:
 
 `Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
 `Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
-I följande exempel visas hur du kan ändra storlek på en virtuell matris baserat på dina krav.
+I följande exempel visas hur du kan ändra storlek på en virtuell matris utifrån dina behov.
 
 #### <a name="example-1"></a>Exempel 1:
-På din virtuella matris som du vill kunna
+På den virtuella matrisen vill du kunna
 
-* etablera en 2 TB nivåindelad volym eller resurs.
-* etablera en 1 TB nivåindelad volym eller resurs.
-* etablera en 300 GB med lokalt fixerad volym eller resurs.
+* etablera en nivå volym eller resurs med 2 TB.
+* etablera en nivå volym eller resurs med 1 TB.
+* etablera en 300 GB lokalt fäst volym eller resurs.
 
-För den föregående volymer eller resurser kan vi beräkna krav på diskutrymme på den lokala nivån.
+För de föregående volymerna eller resurserna kan vi beräkna utrymmes kraven på den lokala nivån.
 
-Först för varje nivåindelad volym/resurs, skulle lokal reservation vara lika med 12% av storleken på volym/resurs. För lokalt Fäst volym/resurs är lokal reservation 10% av storleken på lokalt Fäst volym/resurs (utöver storleken). I det här exemplet behöver du
+För det första, för varje volym/resurs på nivå, skulle lokal reservation vara lika med 12% av volym/resurs storleken. För lokalt fästa volym/resurs är lokal reservation 10% av den lokalt fästa volym/resurs storleken (utöver den etablerade storleken). I det här exemplet behöver du
 
-* 240 GB lokal reservation (för en 2 TB nivåindelad volym/resurs)
-* 120 GB lokal reservation (för en 1 TB nivåindelad volym/resurs)
-* 330 GB för lokalt fixerad volym eller resurs (lägger till 10% av lokal reservation till 300 GB etablerad storlek)
+* 240 GB lokal reservation (för en nivå volym/resurs på 2 TB)
+* 120 GB lokal reservation (för en nivå volym/resurs på 1 TB)
+* 330 – GB för lokalt fixerad volym eller resurs (lägger till 10% av lokal reservation till den allokerade storleken på 300 GB)
 
-Det totala utrymmet som krävs på den lokala nivån hittills är: 240 GB + 120 GB + 330 GB = 690 GB.
+Det totala utrymmet som krävs på den lokala nivån är så långt: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Dessutom måste minst lika mycket utrymme på den lokala nivån som största enda reservationen. Den extra mängden används om du vill återställa från en ögonblicksbild i molnet. I det här exemplet är den största lokala reservationen 330 GB (inklusive reservation för file system), så Lägg till som 690 GB: 690 GB + 330 GB = 1020 GB.
-Om vi utförde efterföljande ytterligare återställningar kan vi alltid Frigör utrymme på den föregående återställningsåtgärden.
+För det andra behöver vi minst lika mycket utrymme på den lokala nivån som den största enkla reservationen. Den här extra mängden används om du behöver återställa från en ögonblicks bild av molnet. I det här exemplet är den största lokala reservationen 330 GB (inklusive reservation för fil system), så du lägger till den till 690 GB: 690 GB + 330 GB = 1020 GB.
+Om vi utför efterföljande ytterligare återställningar kan vi alltid frigöra utrymmet från föregående återställnings åtgärd.
 
-Vi behöver för det tredje 15% av din totala lokalt utrymme än så länge för att lagra lokala ögonblicksbilder, så att endast 85% av den är tillgänglig. I det här exemplet som skulle vara runt 1020 GB = 0.85&ast;etablerade data disk TB. Så etablerade datadisken skulle vara (1020&ast;(1/0.85)) = 1200 GB = 1,20 TB ~ 1,25 TB (avrundning till närmaste kvartilen)
+För det tredje behöver vi 15% av ditt totala lokala utrymme hittills för att lagra lokala ögonblicks bilder, så att endast 85% av det är tillgängligt. I det här exemplet är det cirka 1020 GB = 0,85&ast;etablerade data disk TB. Den etablerade data disken skulle därför vara (1020&ast;(1/0.85)) = 1200 GB = 1,20 TB ~ 1,25 TB (avrundat till närmaste kvartilen)
 
-Ta hänsyn till oväntad storleksökning och nya återställningar, bör du tillhandahålla en lokal disk av runt 1.25 – 1,5 TB.
+I takt med oväntad tillväxt och nya återställningar bör du etablera en lokal disk på cirka 1,25-1,5 TB.
 
 > [!NOTE]
-> Vi rekommenderar också att den lokala disken är tunt etablerad. Denna rekommendation beror på området återställning krävs bara när du vill återställa data som är äldre än fem dagar. Objektnivååterställning kan du återställa data för de senaste fem dagarna utan extra utrymme för återställning.
+> Vi rekommenderar också att den lokala disken är tunt etablerad. Den här rekommendationen beror på att återställnings utrymmet bara behövs om du vill återställa data som är äldre än fem dagar. Med återställning på objekt nivå kan du återställa data under de senaste fem dagarna utan att kräva det extra utrymmet för återställning.
 
 
 #### <a name="example-2"></a>Exempel 2:
-På din virtuella matris som du vill kunna
+På den virtuella matrisen vill du kunna
 
-* etablera en nivåindelad volym 2 TB
-* etablera en lokalt Fäst volym 300 GB
+* etablera en nivå volym på 2 TB
+* etablera en lokalt fäst volym på 300 GB
 
-Baserat på 12% av reservation lokala utrymmet för nivåindelade volymer/resurser och 10% för lokalt fixerade volymer/resurser, som vi behöver
+Baserat på 12% av lokalt utrymme med reservation för skiktade volymer/resurser och 10% för lokalt fästa volymer/resurser behöver vi
 
-* 240 GB lokal reservation (2 TB skikt i volym/resurs)
-* 330 GB för lokalt fixerad volym eller resurs (lägger till 10% av lokal reservation till området 300 GB som etablerats)
+* 240 GB lokal reservation (för 2 TB nivå volym/resurs)
+* 330 – GB för lokalt fixerad volym eller resurs (lägger till 10% av lokal reservation till det allokerade utrymmet på 300 GB)
 
-Totalt utrymme som krävs på den lokala nivån är: 240 GB + 330 GB = 570 GB
+Det totala utrymmet som krävs på den lokala nivån är: 240 GB + 330 GB = 570 GB
 
-Minsta lokala utrymmet som krävs för återställning är 330 GB.
+Det minsta lokala utrymmet som krävs för återställning är 330 GB.
 
-15% av total disken används för att lagra ögonblicksbilder så att endast 0.85 är tillgänglig. Så, diskens storlek är (900&ast;(1/0.85)) = 1,06 TB ~ 1,25 TB (avrundning till närmaste kvartilen)
+15% av din totala disk används för att lagra ögonblicks bilder så att endast 0,85 är tillgängligt. Disk storleken är (900&ast;(1/0.85)) = 1,06 TB ~ 1,25 TB (avrundat till närmaste kvartilen)
 
-Du kan ta hänsyn till eventuella oväntade tillväxten, för att etablera en lokal disk 1.25 – 1,5 TB.
+Vid en oväntad tillväxt kan du etablera en lokal disk på 1,25-1,5 TB.
 
-### <a name="group-policy"></a>En Grupprincip
-Grupprincip är en infrastruktur som gör det möjligt att implementera specifika konfigurationer för användare och datorer. Inställningar av grupprinciper finns i grupprincipobjekt (GPO), som är länkade till följande Active Directory Domain Services (AD DS)-behållare: platser, domäner eller organisationsenheter (OU). 
+### <a name="group-policy"></a>Grupprincip
+Grupprincip är en infrastruktur som gör att du kan implementera vissa konfigurationer för användare och datorer. Grupprincip inställningar finns i grupprincip objekt (GPO) som är länkade till följande Active Directory Domain Services-behållare (AD DS): platser, domäner eller organisationsenheter (OU). 
 
-Om din virtuella matris är ansluten till domänen, kan grupprincipobjekt tillämpas på den. Dessa grupprincipobjekt kan installera program, till exempel ett antivirusprogram som kan påverka driften av StorSimple Virtual Array negativt.
+Om din virtuella matris är domänansluten, kan grup princip objekt tillämpas på den. Dessa grup princip objekt kan installera program som en antivirus program vara som kan påverka driften av den virtuella StorSimple-matrisen.
 
-Därför rekommenderar vi att du:
+Vi rekommenderar därför att du:
 
-* Kontrollera att din virtuella matris är i sin egen organisationsenhet (OU) för Active Directory.
-* Se till att inga grupprincipobjekt (GPO) används för den virtuella matrisen. Du kan blockera arv för att säkerställa att den virtuella matrisen (underordnad nod) automatiskt inte ärver några GPO: er från överordnat. Mer information går du till [blockera arv](https://technet.microsoft.com/library/cc731076.aspx).
+* Se till att den virtuella matrisen finns i en egen organisationsenhet (OU) för Active Directory.
+* Se till att inga grup princip objekt (GPO) tillämpas på den virtuella matrisen. Du kan blockera arv för att se till att den virtuella matrisen (underordnad nod) inte automatiskt ärver grup princip objekt från den överordnade. Mer information finns i [Blockera arv](https://technet.microsoft.com/library/cc731076.aspx).
 
 ### <a name="networking"></a>Nätverk
-Nätverkskonfiguration för din virtuella matris görs via det lokala webbgränssnittet. Ett virtuellt nätverksgränssnitt aktiveras via hypervisor-programmet där den virtuella matrisen har etableras. Använd den [nätverksinställningar](storsimple-virtual-array-deploy3-fs-setup.md) att konfigurera det virtuella nätverket gränssnittets IP-adress, undernät och gateway.  Du kan också konfigurera den primära och sekundära DNS-server och tidsinställningar proxyinställningar för din enhet. De flesta av nätverkskonfigurationen är konfigurationen en gång. Granska den [StorSimple nätverkskraven](storsimple-ova-system-requirements.md#networking-requirements) innan du distribuerar den virtuella matrisen.
+Nätverks konfigurationen för din virtuella matris görs via det lokala webb gränssnittet. Ett virtuellt nätverks gränssnitt har Aktiver ATS via hypervisorn som den virtuella matrisen är etablerad i. Använd sidan [nätverks inställningar](storsimple-virtual-array-deploy3-fs-setup.md) om du vill konfigurera det virtuella nätverks gränssnittets IP-adress, undernät och gateway.  Du kan också konfigurera den primära och sekundära DNS-servern, tids inställningarna och valfria proxyinställningar för enheten. Det mesta av nätverks konfigurationen är en eng ång slö period. Granska [StorSimple nätverks krav](storsimple-ova-system-requirements.md#networking-requirements) innan du distribuerar den virtuella matrisen.
 
-Vi rekommenderar att du följer dessa bästa metoder när du distribuerar den virtuella matrisen:
+När du distribuerar den virtuella matrisen rekommenderar vi att du följer dessa rekommendationer:
 
-* Kontrollera att nätverket där den virtuella matrisen distribueras alltid har kapacitet att dedikera 5 Mbit/s bandbredd för Internet (eller mer).
+* Kontrol lera att nätverket där den virtuella matrisen har distribuerats alltid har kapaciteten att dedikera 5-Mbit/s Internet bandbredd (eller mer).
   
-  * Behovet av bandbredd för Internet varierar beroende på arbetsbelastningens och frekvens av dataändringar.
-  * Dataändring som kan hanteras står i direkt proportion till Internet-bandbredd. Till exempel när du tar en säkerhetskopia av kan en 5 Mbit/s bandbredd hantera en dataändring cirka 18 GB inom åtta timmar. Med fyra gånger mer bandbredd (20 Mbit/s), kan du hantera fyra gånger mer data ändras (72 GB).
-* Kontrollera anslutningen till Internet alltid är tillgänglig. Sporadiska eller otillförlitliga Internet-anslutningar till enheterna som kan leda till förlust av åtkomst till data i molnet och kan resultera i en konfiguration som inte stöds.
-* Om du planerar att distribuera en enhet som en iSCSI-server:
+  * Behovet av Internet bandbredd varierar beroende på dina arbets belastnings egenskaper och hur många data som ändras.
+  * Data ändringen som kan hanteras är direkt proportionell mot din Internet bandbredd. Som exempel vid säkerhets kopiering kan en bandbredd på 5 Mbit/s hantera en data ändring på cirka 18 GB på 8 timmar. Med fyra gånger större bandbredd (20 Mbit/s) kan du hantera fyra gånger större data ändringar (72 GB).
+* Se till att anslutning till Internet alltid är tillgänglig. Sporadisk eller otillförlitlig Internet anslutningar till enheterna kan leda till förlust av åtkomst till data i molnet och kan resultera i en konfiguration som inte stöds.
+* Om du planerar att distribuera din enhet som en iSCSI-server:
   
-  * Vi rekommenderar att du inaktiverar den **får IP-adress automatiskt** alternativet (DHCP).
+  * Vi rekommenderar att du inaktiverar alternativet **Hämta IP-adress automatiskt** (DHCP).
   * Konfigurera statiska IP-adresser. Du måste konfigurera en primär och en sekundär DNS-server.
-  * Om definierar flera nätverksgränssnitt på din virtuella matris, bara det första nätverksgränssnittet (det här gränssnittet är som standard **Ethernet**) kan nå ut till molnet. Du kan skapa flera virtuella nätverksgränssnitt på den virtuella matrisen (konfigurerat som en iSCSI-server) och ansluta dessa gränssnitt till olika undernät för att styra vilken typ av trafik.
-* Att begränsa den moln bandbredden (används av den virtuella matrisen), konfigurera begränsning på routern eller brandväggen. Om du definierar begränsning i din hypervisor-program, kommer den begränsning alla protokoll, inklusive iSCSI och SMB i stället för bara bandbredden som molnet.
-* Se till att tidssynkronisering för hypervisorer är aktiverat. Om du använder Hyper-V, väljer din virtuella matris i Hyper-V Manager, går du till **inställningar &gt; Integration Services**, och se till att den **tidssynkronisering** kontrolleras.
+  * Om du definierar flera nätverks gränssnitt på den virtuella matrisen, kan endast det första nätverks gränssnittet (som standard är **Ethernet**) komma åt molnet. Du kan styra typen av trafik genom att skapa flera virtuella nätverks gränssnitt på din virtuella matris (konfigurerad som en iSCSI-server) och ansluta dessa gränssnitt till olika undernät.
+* Om du vill begränsa moln bandbredden (används av den virtuella matrisen) konfigurerar du begränsning på routern eller brand väggen. Om du definierar begränsning i hypervisor-programmet kommer det att begränsa alla protokoll inklusive iSCSI och SMB i stället för bara moln bandbredden.
+* Kontrol lera att tidssynkroniseringen för hypervisorer är aktive rad. Om du använder Hyper-v väljer du din virtuella matris i Hyper-v Manager, går till **inställningar &gt; integrerings tjänster**och kontrollerar att tidssynkroniseringen är markerad.
 
 ### <a name="storage-accounts"></a>Lagringskonton
-StorSimple Virtual Array kan associeras med ett enda lagringskonto. Det här lagringskontot kan vara en automatiskt genererad storage-konto, ett konto i samma prenumeration som tjänsten, eller ett lagringskonto som är relaterade till en annan prenumeration. Läs mer om hur du [hantera lagringskonton för den virtuella matrisen](storsimple-virtual-array-manage-storage-accounts.md).
+StorSimple virtuella matris kan associeras med ett enda lagrings konto. Det här lagrings kontot kan vara ett automatiskt genererat lagrings konto, ett konto i samma prenumeration som tjänsten eller ett lagrings konto som är kopplat till en annan prenumeration. Mer information finns i [Hantera lagrings konton för den virtuella matrisen](storsimple-virtual-array-manage-storage-accounts.md).
 
-Använd följande rekommendationer för lagringskonton som är associerade med din virtuella matris.
+Använd följande rekommendationer för lagrings konton som är kopplade till den virtuella matrisen.
 
-* När du länkar flera virtuella matriser med ett enda lagringskonto ta maximala kapacitet (64 TB) för en virtuell matris och den maximala storleken (500 TB) för ett lagringskonto. Detta begränsar antalet full storlek virtuella matriser som kan associeras med lagringskontot i cirka 7.
-* När du skapar ett nytt lagringskonto
+* När du länkar flera virtuella matriser med ett enda lagrings konto, faktor i den maximala kapaciteten (64 TB) för en virtuell matris och den maximala storleken (500 TB) för ett lagrings konto. Detta begränsar antalet virtuella matriser i full storlek som kan associeras med lagrings kontot till ca 7.
+* När du skapar ett nytt lagrings konto
   
-  * Vi rekommenderar att du skapar den i regionen närmast office fjärranslutna kontor/avdelningskontor där StorSimple Virtual Array distribueras för att minimera svarstider.
-  * Ha i åtanke som du inte kan flytta ett lagringskonto i olika regioner. Du kan också flytta en tjänst mellan prenumerationer.
-  * Använd ett lagringskonto som implementerar redundans mellan datacenter. GEO-Redundant lagring (GRS), Zonredundant lagring (ZRS) och lokalt Redundant lagring (LRS) stöds för användning med din virtuella matris. Mer information om de olika typerna av lagringskonton går du till [Azure storage-replikering](../storage/common/storage-redundancy.md).
+  * Vi rekommenderar att du skapar den i den region som ligger närmast det fjärranslutna kontoret/avdelnings kontoret där din virtuella StorSimple-matris distribueras för att minimera fördröjning.
+  * Tänk på att du inte kan flytta ett lagrings konto mellan olika regioner. Du kan inte heller flytta en tjänst mellan prenumerationer.
+  * Använd ett lagrings konto som implementerar redundans mellan data Center. Geo-redundant lagring (GRS), zon redundant lagring (ZRS) och lokalt redundant lagring (LRS) stöds för användning med den virtuella matrisen. Mer information om de olika typerna av lagrings konton finns i [Azure Storage-replikering](../storage/common/storage-redundancy.md).
 
-### <a name="shares-and-volumes"></a>Filresurser och volymer
-Du kan etablera resurser när den är konfigurerad som en filserver och volymer när konfigurerad som en iSCSI-server för din StorSimple Virtual Array. Metodtips för att skapa resurserna och volymerna är relaterade till storleken och typ som har konfigurerats.
+### <a name="shares-and-volumes"></a>Resurser och volymer
+För din virtuella StorSimple-matris kan du etablera resurser när de är konfigurerade som en fil server och volymer när de konfigureras som en iSCSI-server. De bästa metoderna för att skapa resurser och volymer är relaterade till den storlek och den typ som kon figurer ATS.
 
 #### <a name="volumeshare-size"></a>Volym/resurs storlek
-Du kan etablera resurser när den är konfigurerad som en filserver och volymer när konfigurerad som en iSCSI-server på den virtuella matrisen. Metodtips för att skapa resurserna och volymerna är relaterade till storleken och typ som har konfigurerats. 
+På den virtuella matrisen kan du etablera resurser när de är konfigurerade som en fil server och volymer när de konfigureras som en iSCSI-server. De bästa metoderna för att skapa resurser och volymer är relaterade till den storlek och den typ som kon figurer ATS. 
 
-Tänk på följande metodtips när du etablerar resurser eller volymer på den virtuella enheten.
+Tänk på följande bästa metoder när du konfigurerar resurser eller volymer på den virtuella enheten.
 
-* Lagringsnivåer prestanda kan påverkas av filstorlekar i förhållande till den etablerade storleken för en nivåindelad resurs. Arbeta med stora filer kan resultera i en långsam nivå ut. När du arbetar med stora filer, rekommenderar vi att den största filen är mindre än 3 procent av resursstorleken.
-* Högst 16 volymer/resurser kan skapas på den virtuella matrisen. Storleksgränser volymer/resurser lokalt fixerade och nivåindelade alltid finns i den [begränsningar för StorSimple Virtual Array](storsimple-ova-limits.md).
-* När du skapar en volym, faktor i den förväntade dataförbrukning samt framtida tillväxt. Volymen kan inte utökas senare.
-* När volymen har skapats, kan du minska storleken på volymen på StorSimple.
-* När du skriver till en nivåindelad volym på StorSimple, när volymdata når ett visst tröskelvärde (i förhållande till det lokala utrymmet som är reserverat för volymen), begränsas I/O. Du kan fortsätta att skriva till den här volymen saktar ned I/O avsevärt. Även om du kan skriva till en nivåindelad volym utöver dess etablerad kapacitet (vi inte aktivt stoppar användaren från att skriva utöver etablerad kapacitet), visas en avisering om att du har oversubscribed. När du ser aviseringen, är det viktigt att du vidtar åtgärder, till exempel ta bort volymdata (volym expansion är för närvarande stöds inte).
-* För disaster recovery-användningsfall, eftersom antalet tillåtna resurser/volymer är 16 och det maximala antalet resurser/volymer som kan bearbetas parallellt även 16, har antalet resurser/volymer inte betydelse på RPO och RTO.
+* Fil storlekarna i förhållande till den allokerade storleken på en nivå resurs kan påverka prestanda på nivån. Att arbeta med stora filer kan resultera i en långsam nivå. När du arbetar med stora filer rekommenderar vi att den största filen är mindre än 3% av resursens storlek.
+* Högst 16 volymer/resurser kan skapas på den virtuella matrisen. För storleks gränserna för lokalt fästa och skiktade volymer/resurser, finns alltid [StorSimple virtuella mat ris gränser](storsimple-ova-limits.md).
+* När du skapar en volym ska du faktor i den förväntade data förbrukningen och framtida tillväxt. Volymen kan inte expanderas senare.
+* När volymen har skapats kan du inte krympa volymens storlek på StorSimple.
+* Vid skrivning till en nivå volym på StorSimple, när volym data når ett visst tröskelvärde (i förhållande till det lokala utrymme som reserver ATS för volymen), begränsas IO-värdet. Om du fortsätter att skriva till den här volymen minskar du i/o i/o avsevärt. Även om du kan skriva till en nivå volym utöver dess etablerade kapacitet (vi hindrar inte användaren från att skriva utöver den tillhandahållna kapaciteten) visas ett varnings meddelande om den effekt som du har överprenumererat på. När du ser aviseringen är det viktigt att du vidtar åtgärder som att ta bort volym data (volym expansion stöds inte för närvarande).
+* För haveri beredskap används fall, eftersom antalet tillåtna resurser/volymer är 16 och det maximala antalet resurser/volymer som kan bearbetas parallellt är 16, så har antalet resurser/volymer inte något som är försett med din återställnings-och återställnings tider.
 
-#### <a name="volumeshare-type"></a>Typ av volym/resurs
-StorSimple stöder två typer av volym/resurs baserat på användning: lokalt Fäst och nivåer. Lokalt fixerade volymer/resurser etableras tjockt medan nivåindelade volymer/resurser är tunt etablerad. Du kan inte konvertera en lokalt Fäst volym/resurs till nivåindelade eller *tvärtom* efter att de skapats.
+#### <a name="volumeshare-type"></a>Volym/resurs typ
+StorSimple har stöd för två volym-/resurs typer baserat på användningen: lokalt fästs och skiktas. Lokalt fästa volymer/resurser är tjockt etablerade, medan de skiktade volymerna/resurserna är tunt etablerade. Du kan inte konvertera en lokalt fixerad volym/resurs till nivå eller *vice versa* när du har skapat.
 
-Vi rekommenderar att du implementera följande metodtips när du konfigurerar StorSimple-volymer/resurser:
+Vi rekommenderar att du implementerar följande metod tips när du konfigurerar StorSimple-volymer/resurser:
 
-* Identifiera den typ av volym utifrån de arbetsbelastningar som du avser att distribuera innan du skapar en volym. Använd lokalt fixerade volymer för arbetsbelastningar som kräver lokala garantier av data (även under ett avbrott i molnet) och som kräver låg molnet svarstider. När du skapar en volym på din virtuella matris kan du inte ändra typ av volym från lokalt fixerade till nivåindelade eller *vice versa*. Skapa lokalt fixerade volymer kan t.ex, när du distribuerar SQL-arbetsbelastningar eller arbetsbelastningar som är värd för virtuella datorer (VM); Använd nivåindelade volymer för filen resurs arbetsbelastningar.
+* Identifiera volym typen baserat på de arbets belastningar som du tänker distribuera innan du skapar en volym. Använd lokalt fästa volymer för arbets belastningar som kräver lokala data garantier (även under ett moln avbrott) och som kräver låg moln fördröjning. När du har skapat en volym på den virtuella matrisen kan du inte ändra volym typen från lokalt fäst till en nivå eller *vice versa*. Du kan till exempel skapa lokalt fästa volymer när du distribuerar SQL-arbetsbelastningar eller arbets belastningar som är värdar för virtuella datorer (VM). Använd skiktade volymer för fil resurs arbets belastningar.
 
 
-#### <a name="volume-format"></a>Volym-format
-När du skapar StorSimple-volymer på iSCSI-servern, måste du initiera, montera och formatera volymerna. Den här åtgärden utförs på värden är ansluten till din StorSimple-enhet. Följande metodtips rekommenderas när montera och formatera volymer på StorSimple-värden.
+#### <a name="volume-format"></a>Volym format
+När du har skapat StorSimple-volymer på iSCSI-servern måste du initiera, montera och formatera volymerna. Den här åtgärden utförs på den värd som är ansluten till din StorSimple-enhet. Följande metod tips rekommenderas när du monterar och formaterar volymer på StorSimple-värden.
 
 * Utför en snabbformatering på alla StorSimple-volymer.
-* Formaterar en StorSimple-volym och använda en storlek på allokeringsenhet (AU) på 64 KB (standardvärdet är 4 KB). 64 KB AU: er baseras på testning görs inom företaget för vanliga StorSimple arbetsbelastningar och andra arbetsbelastningar.
-* När du använder StorSimple Virtual Array konfigurerad som en iSCSI-server, Använd inte volymer eller dynamiska diskar som dessa volymer eller diskar stöds inte av StorSimple.
+* När du formaterar en StorSimple volym bör du använda en storlek för allokeringsenhet (Australien) på 64 KB (Standardvärdet är 4 KB). 64 KB-Australien baseras på testning som har gjorts internt för vanliga StorSimple-arbetsbelastningar och andra arbets belastningar.
+* När du använder den virtuella StorSimple-matrisen som kon figurer ATS som en iSCSI-server ska du inte använda utsträckta volymer eller dynamiska diskar eftersom dessa volymer eller diskar inte stöds av StorSimple.
 
-#### <a name="share-access"></a>Åtkomst till resursen
-När du skapar resurser på din virtuella matris filserver kan du följa dessa riktlinjer:
+#### <a name="share-access"></a>Dela åtkomst
+Följ dessa rikt linjer när du skapar resurser på en virtuell mat ris fil Server:
 
-* När du skapar en resurs kan du tilldela en användargrupp som resursen administratör i stället för en enskild användare.
-* När resursen har skapats genom att redigera filresurser via Windows Explorer kan du hantera NTFS-behörigheter.
+* När du skapar en resurs ska du tilldela en användar grupp som en resurs administratör i stället för en enskild användare.
+* Du kan hantera NTFS-behörigheterna när resursen har skapats genom att redigera resurserna via Utforskaren i Windows.
 
-#### <a name="volume-access"></a>Åtkomst till en volym
-När du konfigurerar iSCSI-volymer på StorSimple Virtual Array, är det viktigt att kontrollera åtkomsten behov. För att avgöra vilka värdservrar som kan komma åt volymer, skapa och associera åtkomstkontrollposter (åtkomstkontrollposter) med StorSimple-volymer.
+#### <a name="volume-access"></a>Volym åtkomst
+När du konfigurerar iSCSI-volymerna på din virtuella StorSimple-matris är det viktigt att kontrol lera åtkomsten när det behövs. För att avgöra vilka värd servrar som kan komma åt volymer, skapa och associera åtkomst kontroll poster (ACR: er) med StorSimple-volymer.
 
-Använd följande metodtips när du konfigurerar åtkomstkontrollposter för StorSimple-volymer:
+Använd följande metod tips när du konfigurerar ACR: er för StorSimple-volymer:
 
 * Associera alltid minst en ACR med en volym.
 
-* När du tilldelar fler än en ACR till en volym, måste du kontrollera att volymen inte exponeras på ett sätt där det kan samtidigt användas av fler än en icke-klustrad värd. Om du har tilldelat flera åtkomstkontrollposter till en volym, visas ett varningsmeddelande, som du kan granska konfigurationen.
+* När du tilldelar fler än en ACR till en volym bör du se till att volymen inte exponeras på ett sätt som kan användas samtidigt av fler än en icke-klustrad värd. Om du har tilldelat flera ACR: er till en volym visas ett varnings meddelande där du kan granska konfigurationen.
 
 ### <a name="data-security-and-encryption"></a>Datasäkerhet och kryptering
-StorSimple Virtual Array har data encryption funktioner för säkerhet och som ser till att sekretessen och integriteten av dina data. När du använder dessa funktioner, rekommenderar vi att du följer dessa metodtips: 
+Din virtuella StorSimple-matris har data säkerhets-och krypterings funktioner som garanterar konfidentialitet och integritet för dina data. När du använder dessa funktioner rekommenderar vi att du följer dessa rekommendationer: 
 
-* Definiera en krypteringsnyckel för molnlagring för att generera AES-256-kryptering innan data skickas från din virtuella matris till molnet. Den här nyckeln är inte nödvändigt om krypteras dina data till att börja med. Nyckeln kan skapas och förblir säkra med en nyckelhanteringssystem som [Azure-nyckelvalv](../key-vault/key-vault-whatis.md).
-* När du konfigurerar storage-konto via StorSimple Manager-tjänsten kan du se till att du aktiverar SSL-läge att skapa en säker kanal för nätverkskommunikation mellan din StorSimple-enhet och molnet.
-* Återskapa nycklar för storage-konton (genom att gå till Azure Storage-tjänsten) med jämna mellanrum på grund av eventuella ändringar att få åtkomst till baserat på den ändrade listan över administratörer.
-* Data på din virtuella matris komprimeras och dedupliceras innan den skickas till Azure. Vi rekommenderar inte använda rolltjänsten Datadeduplicering på Windows Server-värd.
+* Definiera en krypterings nyckel för moln lagring för att generera AES-256-kryptering innan data skickas från den virtuella matrisen till molnet. Den här nyckeln krävs inte om dina data är krypterade att börja med. Nyckeln kan genereras och hållas säker med ett nyckel hanterings system, till exempel [Azure Key Vault](../key-vault/key-vault-whatis.md).
+* När du konfigurerar lagrings kontot via StorSimple Manager tjänsten ska du se till att aktivera SSL-läget för att skapa en säker kanal för nätverkskommunikation mellan din StorSimple-enhet och molnet.
+* Återskapa nycklar för dina lagrings konton (genom att komma åt Azure Storage tjänsten) med jämna mellanrum för att få åtkomst till eventuella ändringar av åtkomst baserat på den ändrade listan över administratörer.
+* Data på den virtuella matrisen komprimeras och dedupliceras innan de skickas till Azure. Vi rekommenderar inte att du använder roll tjänsten datadeduplicering på Windows Server-värden.
 
-## <a name="operational-best-practices"></a>Metodtips för fortlöpande
-Metodtips för fortlöpande är riktlinjer som ska följas under den dagliga driften eller driften av den virtuella matrisen. De här metoderna omfattar specifika hanteringsuppgifter, till exempel att säkerhetskopiera, återställa från en säkerhetskopia, utför en redundansväxling, inaktivera och ta bort matris, övervakning av systemanvändning och hälsotillstånd och köra virus-sökningar på din virtuella matris.
+## <a name="operational-best-practices"></a>Metod tips för användning
+De bästa metoderna för drift är rikt linjer som bör följas under den dagliga hanteringen eller driften av den virtuella matrisen. Dessa metoder beskriver olika hanterings uppgifter, till exempel säkerhets kopiering, återställning från en säkerhets kopia, utförande av redundans, inaktive ring och borttagning av matrisen, övervakning av system användning och hälso tillstånd, samt körning av virus genomsökningar på den virtuella matrisen.
 
 ### <a name="backups"></a>Säkerhetskopior
-Data på din virtuella matris har säkerhetskopierats till molnet på två sätt, en standard automatisk daglig säkerhetskopiering av hela enheten startar klockan 22.30 eller via en manuell säkerhetskopiering på begäran. Som standard skapar enheten automatiskt dagliga ögonblicksbilder av molnet för alla data som finns på denna. Mer information går du till [säkerhetskopiera StorSimple Virtual Array](storsimple-virtual-array-backup.md).
+Data på den virtuella matrisen säkerhets kopie ras till molnet på två sätt, en automatiserad standard säkerhets kopiering av hela enheten från 22:30 eller via en manuell säkerhets kopiering på begäran. Som standard skapar enheten automatiskt dagliga moln ögonblicks bilder av alla data som finns på den. Mer information finns i [säkerhetskopiera din virtuella StorSimple-matris](storsimple-virtual-array-backup.md).
 
-Frekvensen och kvarhållning av säkerhetskopior som är associerade med säkerhetskopiorna som standard kan inte ändras, men du kan konfigurera tiden då de dagliga säkerhetskopiorna startas varje dag. När du konfigurerar starttiden för de automatiska säkerhetskopieringarna, rekommenderar vi att:
+Den frekvens och kvarhållning som är associerad med standard säkerhets kopieringarna kan inte ändras, men du kan konfigurera tiden då de dagliga säkerhets kopieringarna initieras varje dag. När du konfigurerar start tiden för de automatiska säkerhets kopieringarna rekommenderar vi att:
 
-* Schemalägga säkerhetskopiorna för låg belastning. Starttid för säkerhetskopiering bör inte sammanfalla med ett stort antal i/o-värden.
-* Starta en manuell säkerhetskopiering på begäran när du planerar att utföra en redundansväxling av enhet eller före underhållsperiod, att skydda data på din virtuella matris.
+* Schemalägg säkerhets kopieringar för tider med låg belastning. Start tiden för säkerhets kopieringen bör inte sammanfalla med flera värden i/o.
+* Starta en manuell säkerhets kopiering på begäran när du planerar att utföra en redundansväxling av enheten eller före underhålls perioden för att skydda data på den virtuella matrisen.
 
 ### <a name="restore"></a>Återställ
-Du kan återställa från en säkerhetskopia på två sätt: återställa till en annan volym eller resurs eller utföra en återställning (finns endast på en virtuell matris som konfigurerats som en filserver). Objektnivååterställning kan du göra en detaljerad återställning av filer och mappar från en säkerhetskopia i molnet för alla resurser på StorSimple-enheten. Mer information går du till [återställa från en säkerhetskopia](storsimple-virtual-array-clone.md).
+Du kan återställa från en säkerhets kopia på två sätt: Återställ till en annan volym eller dela eller utföra en återställning på objekt nivå (endast tillgängligt på en virtuell matris som kon figurer ATS som en fil Server). Med återställning på objekt nivå kan du göra en detaljerad återställning av filer och mappar från en moln säkerhets kopia av alla resurser på StorSimple-enheten. Mer information finns i [återställa från en säkerhets kopia](storsimple-virtual-array-clone.md).
 
-Tänk på följande riktlinjer när du utför en återställning:
+När du utför en återställning bör du tänka på följande rikt linjer:
 
-* StorSimple Virtual Array stöder inte återställning på plats. Detta kan dock vara lätt uppnås genom en tvåstegsprocess: Frigör diskutrymme på den virtuella matrisen och Återställ sedan till en annan volym/resurs.
-* Vid återställning från en lokal volym, Tänk på att återställningen en långvarig åtgärd. Även om volymen kan snabbt komma online, fortsätter data att vara hydrerat i bakgrunden.
-* Typ av volym förblir densamma under återställningsprocessen. En nivåindelad volym återställs till en annan nivåindelad volym och en lokalt Fäst volym till en annan lokalt Fäst volym.
-* När du försöker återställa en volym eller en resurs från en säkerhetskopia om återställningsjobbet misslyckas, ange en målvolymen eller resursen fortfarande skapas i portalen. Det är viktigt att du tar bort den här oanvända målvolymen eller dela i portalen för att minimera eventuella framtida problem som härrör från det här elementet.
+* Din virtuella StorSimple-matris har inte stöd för återställning på plats. Detta kan dock lätt uppnås genom en två stegs process: frigör utrymme på den virtuella matrisen och återställ sedan till en annan volym/resurs.
+* När du återställer från en lokal volym bör du vara medveten om att återställningen kommer att vara en tids krävande åtgärd. Även om volymen kan komma att bli online, fortsätter data att behållas i bakgrunden.
+* Volym typen förblir samma under återställnings processen. En nivå volym återställs till en annan nivå volym och en lokalt fäst volym till en annan lokalt fixerad volym.
+* När du försöker återställa en volym eller en resurs från en säkerhets kopia kan en mål volym eller resurs fortfarande skapas i portalen om återställnings jobbet Miss lyckas. Det är viktigt att du tar bort den oanvända mål volymen eller resursen i portalen för att minimera eventuella framtida problem som uppstår på grund av det här elementet.
 
-### <a name="failover-and-disaster-recovery"></a>Redundans och haveriberedskap
-En redundansväxling av enhet kan du migrera dina data från en *källa* enheten i datacentret till en annan *target* enheten finns i samma eller en annan geografisk plats. Redundansväxling av enhet är för hela enheten. Under redundansväxlingen ändras molndata för källenheten ägarskap till som målenheten.
+### <a name="failover-and-disaster-recovery"></a>Redundansväxling och haveri beredskap
+Med en enhets växling kan du migrera data från en *käll* enhet i data centret till en annan målenhet på samma eller en annan geografisk plats. Redundansväxlingen för hela enheten. Under redundansväxlingen ändrar käll enhetens moln data ägande till den på mål enheten.
 
-För StorSimple Virtual Array, kan du bara växla över till en annan virtuell matris som hanteras av samma StorSimple Manager-tjänsten. En redundansväxling till en 8000-serien-enhet eller en matris som hanteras av en annan StorSimple Manager-tjänst (än som för källenheten) är inte tillåtet. Mer information om överväganden för växling vid fel, gå till [krav för redundansväxling av enhet](storsimple-virtual-array-failover-dr.md).
+För din virtuella StorSimple-matris kan du bara redundansväxla till en annan virtuell matris som hanteras av samma StorSimple Manager tjänst. En redundansväxling till en enhet på 8000-serien eller en matris som hanteras av en annan StorSimple Manager tjänst (än den som används för käll enheten) är inte tillåten. Om du vill veta mer om redundansväxlingen går du till [krav för enhetens redundans](storsimple-virtual-array-failover-dr.md).
 
-När du utför en växling vid fel över för din virtuella matris kan ha följande i åtanke:
+Tänk på följande när du utför en redundans för din virtuella matris:
 
-* Det är rekommenderad praxis att ta alla volymer/resurser offline innan du utför redundans för en planerad redundans. Följ instruktionerna operativsystemspecifika första att dra volymer/resurser offline på värden och sedan vidta de offline på den virtuella enheten.
-* För en fil haveriberedskap (DR) rekommenderar vi att du ansluter målenheten till samma domän som källan så att behörigheter till resursen löses automatiskt. Den här versionen stöder endast redundans till en målenhet i samma domän.
-* När ar har slutförts, tas källenheten bort automatiskt. Om enheten är inte längre tillgänglig, är den virtuella datorn som du har etablerats på värdsystemet fortfarande förbruka resurser. Vi rekommenderar att du tar bort den här virtuella datorn från värdsystemet för att förhindra att belasta betalar.
-* Att Observera att även om redundansen misslyckas, **data alltid är säkra i molnet**. Tänk på följande tre scenarier där redundansväxlingen inte slutfördes korrekt:
+* För en planerad redundansväxling rekommenderas bästa praxis att ta alla volymer/resurser offline innan redundansväxlingen initieras. Följ instruktionerna för operativ systemet för att ta volymerna/resurserna offline på värden först och ta sedan dem offline på den virtuella enheten.
+* För en fil Server haveri beredskap (DR) rekommenderar vi att du ansluter mål enheten till samma domän som källan så att resurs behörigheterna automatiskt löses. Det finns bara stöd för redundans till en mål enhet i samma domän i den här versionen.
+* När DR-filen har slutförts tas käll enheten bort automatiskt. Även om enheten inte längre är tillgänglig, kommer den virtuella dator som du har allokerat på värd systemet fortfarande att förbruka resurser. Vi rekommenderar att du tar bort den här virtuella datorn från värd systemet för att förhindra avgifter från att periodiseras.
+* Observera att även om redundansväxlingen Miss lyckas **är data alltid säkra i molnet**. Överväg följande tre scenarier där redundansväxlingen inte slutfördes korrekt:
   
-  * Ett fel inträffade under de första stegen för växling vid fel, till exempel när DR förhandskontroller utförs. I så fall kan är din målenheten fortfarande kan användas. Du kan göra om redundans på samma målenheten.
-  * Ett fel uppstod under riktig redundansväxling. I det här fallet markeras målenheten inte kan användas. Du måste etablera och konfigurera en annan virtuell matris för mål och använda det för redundans.
-  * Redundansväxlingen slutfördes varefter källenheten har tagits bort men målenheten har problem och du åtkomst till inte några data. Data är fortfarande säkert i molnet och enkelt kan hämtas genom att skapa en annan virtuell matris och använda det som en målenhet för DR.
+  * Ett fel uppstod i de inledande stegen i redundansväxlingen, till exempel när DR-kontrollerna utfördes. I den här situationen kan mål enheten fortfarande användas. Du kan försöka utföra redundansväxlingen på samma mål enhet igen.
+  * Ett fel uppstod under den faktiska redundansväxlingen. I det här fallet markeras mål enheten som oanvändbar. Du måste etablera och konfigurera en annan virtuell mål mat ris och använda den för redundans.
+  * Redundansväxlingen slutfördes efter vilken käll enheten togs bort, men mål enheten har problem och du kan inte komma åt några data. Informationen är fortfarande säker i molnet och kan enkelt hämtas genom att skapa en annan virtuell matris och sedan använda den som mål enhet för DR.
 
-### <a name="deactivate"></a>inaktivera
-När du inaktiverar en StorSimple Virtual Array Server anslutningen mellan enheten och motsvarande StorSimple Manager-tjänsten. Inaktiveringen är en **permanent** åtgärden och kan inte ångras. En inaktiverad enhet kan inte registreras med StorSimple Manager-tjänsten igen. Mer information går du till [inaktivera och ta bort StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md).
+### <a name="deactivate"></a>Inaktivera
+När du inaktiverar en virtuell StorSimple-matris kan du påverka anslutningen mellan enheten och motsvarande StorSimple Manager tjänst. Inaktive ringen är en **permanent** åtgärd och kan inte ångras. En inaktive rad enhet kan inte registreras med StorSimple Manager tjänsten igen. Mer information finns i [inaktivera och ta bort din virtuella StorSimple-matris](storsimple-virtual-array-deactivate-and-delete-device.md).
 
-Tänk på följande metodtips när du inaktiverar den virtuella matrisen:
+Tänk på följande rekommendationer när du inaktiverar din virtuella matris:
 
-* Ta en molnögonblicksbild av alla data innan du inaktiverar en virtuell enhet. När du inaktiverar en virtuell matris förloras alla lokala enhetsdata. Tar en ögonblicksbild i molnet kan du återställa data i ett senare skede.
-* Innan du inaktiverar en StorSimple Virtual Array, se till att stoppa eller ta bort klienter och värdar som beror på den enheten.
-* Ta bort en inaktiverad enhet om du inte längre använder så att den inte påföras kostnader.
+* Ta en moln ögonblicks bild av alla data innan du inaktiverar en virtuell enhet. När du inaktiverar en virtuell matris försvinner alla lokala enhets data. Genom att ta en moln ögonblicks bild kan du återställa data i ett senare skede.
+* Innan du inaktiverar en virtuell StorSimple-matris måste du stoppa eller ta bort klienter och värdar som är beroende av den enheten.
+* Ta bort en inaktive rad enhet om du inte längre använder så att den inte påförs några kostnader.
 
 ### <a name="monitoring"></a>Övervakning
-För att säkerställa att din StorSimple Virtual Array är en kontinuerlig felfritt, måste du övervaka matrisen och du får information från systemet, inklusive aviseringar. Implementera följande metodtips för att övervaka den övergripande hälsan för den virtuella matrisen:
+För att säkerställa att din virtuella StorSimple-matris är i ett kontinuerligt felfritt tillstånd, måste du övervaka matrisen och se till att du får information från systemet, inklusive aviseringar. För att övervaka den övergripande hälso statusen för den virtuella matrisen, implementera följande bästa praxis:
 
-* Konfigurera övervakning för att spåra diskanvändningen för din virtuella matris datadisk samt OS-disken. Om kör Hyper-V kan använda du en kombination av System Center Virtual Machine Manager (SCVMM) och System Center Operations Manager för att övervaka din virtualiseringsvärdar.
-* Konfigurera e-postmeddelanden på din virtuella matris att skicka aviseringar på vissa nivåer för användning.                                                                                                                                                                                                
+* Konfigurera övervakning för att spåra disk användningen av din virtuella mat ris data disk samt OS-disken. Om du kör Hyper-V kan du använda en kombination av System Center Virtual Machine Manager (SCVMM) och System Center Operations Manager för att övervaka dina Virtualization-värdar.
+* Konfigurera e-postaviseringar på den virtuella matrisen för att skicka aviseringar på vissa användnings nivåer.                                                                                                                                                                                                
 
-### <a name="index-search-and-virus-scan-applications"></a>Search index och virus skanna program
-En StorSimple Virtual Array kan automatiskt delar in data från den lokala nivån till Microsoft Azure-molnet. När ett program, till exempel en indexsökning eller en virusgenomsökning används för att skanna data som lagras i StorSimple, måste du noga med att molninformationen inte komma åt och dras tillbaka till den lokala nivån.
+### <a name="index-search-and-virus-scan-applications"></a>Program för index sökning och virus genomsökning
+En virtuell StorSimple-matris kan automatiskt Tier data från den lokala nivån till Microsoft Azure molnet. När ett program, till exempel en indexs ökning eller virus genomsökning används för att genomsöka data som lagras på StorSimple, måste du ta hänsyn till att moln data inte går att komma åt och kommer tillbaka till den lokala nivån.
 
-Vi rekommenderar att du implementera följande metodtips när du konfigurerar indexsökning search eller virus på den virtuella matrisen:
+Vi rekommenderar att du implementerar följande metod tips när du konfigurerar indexs ökningen eller virus genomsökningen på den virtuella matrisen:
 
-* Inaktivera åtgärder automatiskt konfigurerade fullständig genomsökning.
-* Konfigurera index search eller virus genomsökning programmet att utföra en inkrementell skanning för nivåindelade volymer. Detta skulle skanna endast den nya data sannolikt som finns på den lokala nivån. Data som är nivåindelade till molnet används inte under en inkrementell.
-* Se till att rätt sökfilter och inställningar har konfigurerats så att de avsedda typerna av filer hämta genomsöks. Till exempel bildfiler (JPEG, GIF- och TIFF) och tekniska ritningar bör inte genomsöks under inkrementell eller fullständig index återskapas.
+* Inaktivera alla automatiskt konfigurerade fullständiga skannings åtgärder.
+* Konfigurera indexs ökningen eller antivirus programmet för att utföra en stegvis genomsökning för volymer med flera nivåer. Detta genomsöker bara de nya data som troligt vis finns på den lokala nivån. Data som är i nivå av molnet kan inte nås under en stegvis åtgärd.
+* Kontrol lera att rätt Sök filter och inställningar har kon figurer ATS så att endast de avsedda typerna av filer kan genomsökas. Bildfiler (JPEG, GIF och TIFF) och teknik ritningar bör till exempel inte genomsökas under den stegvisa eller fullständiga index återuppbyggnaden.
 
-Om du använder Windows indexering processen, Följ dessa riktlinjer:
+Följ dessa rikt linjer om du använder Windows indexerings process:
 
-* Använd inte Windows-indexeraren för nivåindelade volymer eftersom det återkallar stora mängder data (TB) från molnet om indexet måste återskapas ofta. Återskapa indexet skulle hämta alla filtyper för att indexera sitt innehåll.
-* Använd Windows indexering processen för lokalt fästa volymer eftersom detta skulle bara komma åt data på de lokala nivåerna och skapa index (molndata inte kommer att komma åt).
+* Använd inte Windows-indexeraren för skiktade volymer eftersom den anropar stora mängder data (TBs) från molnet om indexet behöver återskapas ofta. Att återskapa indexet skulle hämta alla filtyper för att indexera innehållet.
+* Använd indexerings processen i Windows för lokalt fästa volymer eftersom detta bara kommer åt data på de lokala nivåerna för att bygga indexet (det går inte att komma åt moln data).
 
-### <a name="byte-range-locking"></a>Låsning byte-intervall
-Program kan låsa ett angivet antal byte i filerna. Om låsning av byte-intervallet är aktiverad på de program som skriver till StorSimple, fungerar inte sedan lagringsnivåer på den virtuella matrisen. Alla delar av filer som öppnats ska vara upplåst för lagringsnivåer för att fungera. Byte-intervallet låsning stöds inte med nivåindelade volymer på den virtuella matrisen.
+### <a name="byte-range-locking"></a>Låsning av byte intervall
+Program kan låsa ett angivet antal byte i filerna. Om låsning av byte intervall är aktiverat för de program som skriver till din StorSimple fungerar inte skiktning på den virtuella matrisen. För att nivån ska fungera måste alla områden i de filer som används låsas upp. Låsning av byte intervall stöds inte med skiktade volymer på den virtuella matrisen.
 
-Rekommenderade åtgärder för att minska låsning byte-intervallet är:
+Rekommenderade åtgärder för att under lätta byte intervall låsning:
 
-* Inaktivera byteintervall låsning i programlogiken.
-* Använd lokalt fixerade volymer (i stället för med skikt) för de data som är associerade med det här programmet. Inte på datanivå lokalt fixerade volymer till molnet.
-* När med hjälp av lokalt fixerade volymer med byte intervallet låsning aktiverat, är volymen online innan återställningen är klar. I så fall måste du vänta tills återställningen är klar.
+* Inaktivera byte intervall låsning i program logiken.
+* Använd lokalt fästa volymer (i stället för på nivå av) för de data som är kopplade till det här programmet. Lokalt fästa volymer har inte en nivå i molnet.
+* När du använder lokalt fästa volymer där låsning av byte intervall har Aktiver ATS kan volymen anslutas innan återställningen är klar. I dessa fall måste du vänta tills återställningen har slutförts.
 
 ## <a name="multiple-arrays"></a>Flera matriser
-Flera virtuella matriser kan behöva distribueras på grund av ett växande arbetsminnet för data som kan läcker över till molnet därmed påverka prestanda för enheten. I så fall är det bäst att skala enheter när arbetsminnet växer. Detta kräver en eller flera enheter som ska läggas till i det lokala datacentralen. När du lägger till enheter, kan du:
+Flera virtuella matriser kan behöva distribueras för att kunna användas för en växande arbets uppsättning data som kan spilla på molnet och därmed påverka enhetens prestanda. I dessa fall är det bäst att skala enheter när arbets minnet växer. Detta kräver att en eller flera enheter läggs till i det lokala data centret. När du lägger till enheterna kan du:
 
-* Dela upp den aktuella uppsättningen av data.
-* Distribuera nya arbetsbelastningar till nya enheter.
-* Om du distribuerar flera virtuella matriser, rekommenderar vi att från belastningsutjämning perspektiv, distribuera matrisen över olika hypervisor-värdar.
-* Flera virtuella matriser (när den har konfigurerats som en filserver eller en iSCSI-server) kan distribueras i en Distributed File System Namespace. Detaljerade anvisningar finns i [Distributed File System Namespace lösning med Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). Distribuerade Filtjänstreplikeringen rekommenderas inte för närvarande för användning med den virtuella matrisen. 
+* Dela den aktuella data uppsättningen.
+* Distribuera nya arbets belastningar till nya enheter.
+* Om du distribuerar flera virtuella matriser, rekommenderar vi att du från belastnings Utjämnings perspektiv distribuerar matrisen mellan olika hypervisor-värdar.
+* Flera virtuella matriser (när de har kon figurer ATS som en fil server eller en iSCSI-server) kan distribueras i ett Distributed File System-namnområde. Detaljerade anvisningar finns i [Distributed File System namn områdes lösning med distributions guide för Hybrid moln lagring](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System replikering rekommenderas inte för användning med den virtuella matrisen. 
 
 ## <a name="see-also"></a>Se också
-Lär dig hur du [administrera StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) via StorSimple Manager-tjänsten.
+Lär dig hur du [administrerar din virtuella StorSimple-matris](storsimple-virtual-array-manager-service-administration.md) via tjänsten StorSimple Manager.
 

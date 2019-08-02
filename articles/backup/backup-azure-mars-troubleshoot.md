@@ -1,18 +1,19 @@
 ---
 title: Felsöka Azure Backup Agent
 description: Felsöka installation och registrering av Azure Backup Agent
-author: saurabhsensharma
-manager: sivan
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: saurse
-ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12cc584b27134c5c109f1a95eb4ccf8a7b2f0c64
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465970"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689224"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -105,7 +106,7 @@ Om schemalagda säkerhets kopieringar inte aktive ras automatiskt, men manuella 
 - Se till att statusen för onlinesäkerhetskopiering är **aktive**rad. Gör så här för att kontrol lera statusen:
 
   1. I Schemaläggaren expanderar du **Microsoft** och väljer **onlinesäkerhetskopiering**.
-  1. Dubbelklicka på **Microsoft-OnlineBackup** och gå till fliken  utlösare.
+  1. Dubbelklicka på **Microsoft-OnlineBackup** och gå till fliken utlösare.
   1. Kontrol lera om status är aktive **rad**. Om den inte är det väljer du **Redigera**, väljer **aktive rad**och väljer sedan **OK**.
 
 - Se till att det användar konto som har valts för att köra uppgiften är antingen **system** -eller **lokal administratörs grupp** på servern. Verifiera användar kontot genom att gå till fliken **Allmänt** och kontrol lera **säkerhets** alternativen.

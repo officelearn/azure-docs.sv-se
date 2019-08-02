@@ -1,6 +1,6 @@
 ---
-title: Övervaka XTP minnesintern lagring | Microsoft Docs
-description: Uppskattning och övervaka XTP minnesintern lagring använder, kapacitet. Åtgärda felet kapacitet 41823
+title: Övervaka XTP minnes lagring | Microsoft Docs
+description: Uppskatta och övervaka XTP minnes användning, kapacitet; Lös kapacitets fel 41823
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,55 +10,54 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c5a57f634c01cc42934a98decd8f392334dede6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035765"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567972"
 ---
-# <a name="monitor-in-memory-oltp-storage"></a>Övervaka Minnesintern OLTP-lagring
+# <a name="monitor-in-memory-oltp-storage"></a>Övervaka minnes intern OLTP-lagring
 
-När du använder [In-Memory OLTP](sql-database-in-memory.md), finns data i minnesoptimerade tabeller och tabellvariabler i InMemory-OLTP-lagring. Varje Premium och affärskritisk tjänstenivå har en maximal storlek för In-Memory OLTP-lagring. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+När du använder [minnes intern OLTP](sql-database-in-memory.md)finns data i minnesoptimerade tabeller och table-variabler i minnes intern OLTP-lagring. Varje Premium-och Affärskritisk tjänst nivå har en maximal lagrings storlek i minnet för OLTP. Se [DTU-baserade resurs gränser – enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resurs gränser-elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore resurs gränser – enkla databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore resurs gränser – elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
-När den här gränsen överskrids, infognings- och åtgärder kan börjar misslyckas med fel 41823 för enskilda databaser och 41840 för elastiska pooler. I det här läget måste du antingen ta bort data för att frigöra minne, eller uppgradera tjänstnivån eller beräkna databasens storlek.
+När den här gränsen har överskridits kan infognings-och uppdaterings åtgärder börja Miss lyckas med fel 41823 för enskilda databaser och fel 41840 för elastiska pooler. Vid det här skedet måste du antingen ta bort data för att frigöra minne eller uppgradera tjänst nivån eller databasens beräknings storlek.
 
-## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Avgöra om data passar In-Memory OLTP-lagringstak
+## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Ta reda på om data passar in i minnet för minnes intern OLTP-lagring
 
-Kontrollera storage-begränsningar för olika tjänstnivåer. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+Ta reda på lagrings nivåerna för de olika tjänst nivåerna. Se [DTU-baserade resurs gränser – enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resurs gränser-elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore resurs gränser – enkla databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore resurs gränser – elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Uppskatta minneskraven för en minnesoptimerad tabell fungerar på samma sätt för SQL Server som den har i Azure SQL Database. Ta en stund att granska den här artikeln på [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+Att uppskatta minnes kraven för en minnesoptimerade tabell fungerar på samma sätt för SQL Server som i Azure SQL Database. Ta några minuter för att läsa artikeln på [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
-Tabell- och variabeln tabellrader samt index, räknas i förhållande datastorlek max användare. ALTER TABLE måste dessutom ha tillräckligt med utrymme för att skapa en ny version av hela tabellen och dess index.
+Tabell-och tabell variabel rader, samt index, räknas mot Max storleken för användar data. Dessutom behöver ALTER TABLE tillräckligt med utrymme för att skapa en ny version av hela tabellen och dess index.
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
-Du kan övervaka användning av InMemory-minne som en procentandel av lagringstak för beräkningsstorleken på din i den [Azure-portalen](https://portal.azure.com/): 
+Du kan övervaka minnes lagring i minnet i procent av lagrings utrymmet för din beräknings storlek i [Azure Portal](https://portal.azure.com/): 
 
-1. På bladet Database hitta resursen användning rutan och klicka på Redigera.
-2. Välj måtten som `In-Memory OLTP Storage percentage`.
-3. Klicka på rutan resursanvändningen för att öppna bladet mått för att lägga till en avisering, och sedan på Lägg till avisering.
+1. På bladet databas letar du reda på resurs användnings rutan och klickar på Redigera.
+2. Välj måttet `In-Memory OLTP Storage percentage`.
+3. Om du vill lägga till en avisering klickar du på rutan resursanvändning för att öppna bladet mått och klickar sedan på Lägg till avisering.
 
-Eller Använd följande fråga för att visa lagringsanvändning i minnet:
+Eller Använd följande fråga för att Visa lagrings belastningen i minnet:
 
 ```sql
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 ```
 
-## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Korrigera ut av InMemory OLTP-lagring situationer - fel 41823 och 41840
+## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Åtgärda inaktuella minnes fel i OLTP-lagring-fel 41823 och 41840
 
-Träffa InMemory-OLTP-lagringstak i databasresultat i INSERT, uppdatera, ändra och skapa-åtgärder misslyckas med felmeddelandet 41823 (för enkla databaser) eller fel 41840 (för elastiska pooler). Båda fel orsakar den aktiva transaktionen att avbryta.
+Genom att gå till lagrings gränsen för minnes intern OLTP i databasen resulterar det i att åtgärderna INSERT, UPDATE, ALTER och CREATE fungerar med fel meddelandet 41823 (för enskilda databaser) eller fel 41840 (för elastiska pooler). Båda felen gör att den aktiva transaktionen avbryts.
 
-Felmeddelanden 41823 och 41840 tyda på att de minnesoptimerade tabeller och tabellvariabler i databasen eller poolen har nått den maximala storleken för In-Memory OLTP-lagring.
+Fel meddelandena 41823 och 41840 anger att de minnesoptimerade tabellerna och tabellattribut i databasen eller poolen har nått den maximala lagrings storleken för minnes intern OLTP.
 
-Du löser det här felet, antingen:
+För att lösa det här felet, antingen:
 
-* Ta bort data från de minnesoptimerade tabellerna, potentiellt avlastning av data till traditionella, diskbaserade tabeller. eller,
-* Uppgradera tjänstnivån till en med tillräckligt med minnesintern lagring för de data som du behöver i minnesoptimerade tabeller.
+* Ta bort data från de minnesoptimerade tabellerna och eventuellt avlasta data till traditionella, diskbaserade tabeller. eller
+* Uppgradera tjänst nivån till en med tillräckligt minnes intern lagring för de data du behöver behålla i minnesoptimerade tabeller.
 
 > [!NOTE] 
-> I sällsynta fall kan fel 41823 och 41840 vara tillfälligt, vilket innebär att det finns tillräckligt med tillgängliga InMemory-OLTP-lagring och gör om åtgärden lyckas. Vi rekommenderar därför att både övervaka den övergripande tillgängliga InMemory-OLTP-lagringen och försök igen när den först påträffar fel 41823 eller 41840. Läs mer om logik för omprövning, [konfliktidentifiering och Omprövningslogik med In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> I sällsynta fall kan fel 41823 och 41840 vara tillfälliga, vilket innebär att det finns tillräckligt med minnes intern OLTP-lagring och att försök utföra åtgärden igen. Vi rekommenderar därför att både övervaka den övergripande tillgängliga InMemory OLTP-lagring och att försöka igen när du först påträffar fel 41823 eller 41840. Mer information om logik för omprövning finns i [konflikt identifiering och Omförsöks logik med InMemory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Nästa steg
-Övervaka vägledning finns i [övervaka Azure SQL Database med dynamiska hanteringsvyer](sql-database-monitoring-with-dmvs.md).
+Mer information om övervakning finns i [övervaknings Azure SQL Database med hjälp av vyer för dynamisk hantering](sql-database-monitoring-with-dmvs.md).

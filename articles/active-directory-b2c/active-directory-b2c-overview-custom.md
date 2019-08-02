@@ -1,6 +1,6 @@
 ---
-title: Anpassade principer för Azure Active Directory B2C | Microsoft Docs
-description: Läs mer om Azure Active Directory B2C anpassade principer.
+title: Azure Active Directory B2C anpassade principer | Microsoft Docs
+description: Lär dig mer om att Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,58 +10,58 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2938ae075bbd4c38b686ca6654bede678f876857
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509800"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716828"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Anpassade principer är konfigurationsfiler som definierar beteendet för din Azure Active Directory (Azure AD) B2C-klient. Användarflöden är fördefinierade i Azure AD B2C-portalen för de vanligaste uppgifterna identitet. Anpassade principer kan redigeras helt genom att utföra många olika aktiviteter.
+Anpassade principer är konfigurationsfiler som definierar beteendet för din Azure Active Directory (Azure AD) B2C-klient. Användar flöden är fördefinierade i Azure AD B2C Portal för de vanligaste identitets uppgifterna. Anpassade principer kan redige ras fullständigt av en identitets utvecklare för att utföra många olika uppgifter.
 
-## <a name="comparing-user-flows-and-custom-policies"></a>Jämföra användarflöden och anpassade principer
+## <a name="comparing-user-flows-and-custom-policies"></a>Jämföra användar flöden och anpassade principer
 
 | | Användarflöden | Anpassade principer |
 |-|-------------------|-----------------|
-| Målanvändare | Alla utvecklare av företagsprogram med eller utan kunskaper om identitet. | Experter, systemintegrerare, konsulter och interna identitet team. De är nöjd med OpenIDConnect flöden och förstå Identitetsproviders och Anspråksbaserad autentisering. |
-| Konfigurationsmetoden | Azure-portalen med ett användarvänligt användargränssnitt (UI). | Redigera XML-filer direkt och sedan ladda upp till Azure-portalen. |
-| Anpassning av Användargränssnittet | Fullständig anpassningar inklusive HTML, CSS och JavaScript.<br><br>Stöd för flera språk med anpassade strängar. | Samma |
-| Attributanpassning | Standardentiteter och anpassade attribut. | Samma |
-| Hantering av token och sessionen | Anpassade token och flera sessionsalternativ för. | Samma |
-| Identitetsprovidrar | Fördefinierade provider för lokal eller sociala och de flesta OIDC-identitetsleverantörer, till exempel federation med Azure Active Directory-klienter. | Standardbaserad OIDC, OAUTH och SAML.  Autentisering är också möjligt med hjälp av integrering med REST API: er. |
-| Identity-uppgifter | Registrera dig eller logga in med lokal eller många konton i sociala medier.<br><br>Återställning av lösenord.<br><br>Profilredigering.<br><br>Multi-Factor Authentication.<br><br>Anpassa token och sessioner.<br><br>Åtkomst-token flöden. | Utföra samma åtgärder som användarflöden med hjälp av anpassade identitetsprovidrar eller använda anpassade omfattningar.<br><br>Etablera ett användarkonto på ett annat system vid tidpunkten för registrering.<br><br>Skicka ett välkomstmeddelande med din egen e-post-leverantör.<br><br>Använd en användararkivet utanför Azure AD B2C.<br><br>Validera användaren tillhandahållit information med en betrodd dator med hjälp av ett API. |
+| Mål användare | Alla program utvecklare med eller utan identitets kunskaper. | Identitets tekniker, system integrerare, konsulter och interna identitets team. De är bekvämt med OpenID Connect-flöden och förstå identitets leverantörer och anspråksbaserad autentisering. |
+| Konfigurations metod | Azure Portal med ett användarvänligt användar gränssnitt (UI). | Redigera XML-filer direkt och ladda upp till Azure Portal. |
+| UI-anpassning | Fullständig anpassning av gränssnittet, inklusive HTML, CSS och Java Script.<br><br>Stöd för flera språk med anpassade strängar. | Det |
+| Attribut anpassning | Standard-och anpassade attribut. | Det |
+| Hantering av token och sessioner | Alternativ för anpassad token och flera sessioner. | Det |
+| Identitetsprovidrar | Fördefinierad lokal eller social Provider och de flesta OIDC-identitets leverantörer, till exempel Federation med Azure Active Directory klienter. | Standardbaserad OIDC, OAUTH och SAML.  Autentisering är också möjligt med hjälp av integrering med REST API: er. |
+| Identitets uppgifter | Registrera dig eller logga in med lokala eller många sociala konton.<br><br>Lösen ords återställning via självbetjäning.<br><br>Redigera profil.<br><br>Multi-Factor Authentication.<br><br>Anpassa token och sessioner.<br><br>Flöden för åtkomsttoken. | Slutför samma uppgifter som användar flöden med anpassade identitets leverantörer eller Använd anpassade omfattningar.<br><br>Etablera ett användar konto i ett annat system vid tidpunkten för registreringen.<br><br>Skicka ett välkomst meddelande med din egen e-posttjänstprovider.<br><br>Använd ett användar Arkiv utanför Azure AD B2C.<br><br>Verifiera användarens angivna information med ett betrott system med hjälp av ett API. |
 
 ## <a name="policy-files"></a>Principfiler
 
 Dessa tre typer av principfiler används:
 
-- **Grundläggande filen** -innehåller de flesta av definitionerna. Vi rekommenderar att du gör ett minsta antal ändringar till den här filen för att hjälpa till med felsökning och långsiktig underhåll av dina principer.
-- **Tilläggsfilen** -innehåller unika konfigurationsändringar för din klient.
-- **Förlitande part (RP) filen** -enskild uppgift designmiljöer-fil som anropas direkt av programmet eller tjänsten (kallas även för en förlitande part). Varje unik aktivitet kräver sin egen RP och beroende på anpassningen krav, antalet vara ”totala programmens x Totalt antal objekt”.
+- **Bas fil** – innehåller de flesta av definitionerna. Vi rekommenderar att du gör ett minsta antal ändringar i den här filen för att felsöka och långsiktigt underhåll av dina principer.
+- **Fil tillägg** – innehåller de unika konfigurations ändringarna för din klient.
+- **Förlitande part (RP)-fil** – den enda Task-fokuserade filen som anropas direkt av programmet eller tjänsten (kallas även förlitande part). Varje unik aktivitet kräver sin egen RP och, beroende på varumärkes krav, antalet kan vara "totalt antal program x totalt antal användnings fall".
 
-Användarflöden i Azure AD B2C följer tre-file-mönster som beskrivs ovan, men utvecklaren kan endast se RP-filen medan Azure-portalen gör ändringar i bakgrunden i tilläggsfilen.
+Användar flöden i Azure AD B2C följer mönstret med tre filer som illustreras ovan, men utvecklaren ser bara RP-filen, medan Azure Portal gör ändringar i bakgrunden till tilläggs filen.
 
-## <a name="custom-policy-core-concepts"></a>Anpassad princip för grundläggande begrepp
+## <a name="custom-policy-core-concepts"></a>Grundläggande begrepp för anpassad princip
 
-Identitets- och hantering av Kundidentitet tjänsten kund i Azure innehåller:
+Tjänsten för kund identitets-och åtkomst hantering (CIAM) i Azure innehåller:
 
-- En användarkatalog som är tillgänglig genom att använda Microsoft Graph och som innehåller användardata för både lokala konton och externa konton.
-- Åtkomst till den **Identitetsramverk** som samordnar förtroende mellan användare och entiteter och skickar anspråk mellan dem att slutföra en hanteringsaktivitet identitet eller åtkomst. 
-- En säkerhetstokentjänst (STS) som utfärdar-ID token, uppdatera token, och åtkomst-token (och motsvarande SAML intyg) och för att kontrollera dem för att skydda resurser.
+- En användar katalog som är tillgänglig med hjälp av Microsoft Graph och som innehåller användar data för både lokala konton och federerade konton.
+- Åtkomst till det **identitets miljö ramverk** som dirigerar förtroende mellan användare och entiteter och skickar anspråk mellan dem för att slutföra en identitets-eller åtkomst hanterings uppgift.
+- En säkerhetstokentjänst (STS) som utfärdar ID-token, uppdaterar tokens och åtkomsttoken (och motsvarande SAML-kontroller) och validerar dem för att skydda resurser.
 
-Azure AD B2C samverkar med identitetsleverantörer, användare, andra system och med lokala användarkatalogen i följd att uppnå en identity-uppgift. Till exempel logga in en användare, registrera en ny användare eller återställa ett lösenord. Den Identitetsramverk och en princip (kallas även en användarresa eller en förtroendeprincipen framework) upprättar flerparti förtroende och definierar explicit aktörer, åtgärder, protokoll och sekvens med steg för att slutföra.
+Azure AD B2C interagerar med identitets leverantörer, användare, andra system och med den lokala användar katalogen i turordning för att få en identitets uppgift. Du kan till exempel Logga in en användare, registrera en ny användare eller återställa ett lösen ord. I ramverket med identitets upplevelsen och en princip (kallas även för en användar resa eller en princip för förtroende ramverk) fastställs flera parter och det uttryckligen definierar aktörerna, åtgärderna, protokollen och hur många steg som ska utföras.
 
-Den Identitetsramverk är en fullständigt konfigurerbar, principdriven, molnbaserad Azure-plattformen som samordnar förtroende mellan entiteter i standardprotokollet format som OpenIDConnect, OAuth, SAML, WSFed och några inte är standard format, till exempel REST API-baserade system mellan system anspråk utbyten. Ramverket skapar användarvänligt, white etikett upplevelser som har stöd för HTML och CSS.
+Identitets miljö ramverket är en helt konfigurerbar, molnbaserad, molnbaserad, molnbaserad Azure-plattform som dirigerar förtroende mellan entiteter i standard protokoll format, till exempel OpenID Connect, OAuth, SAML, WSFed och några icke-standarder, till exempel REST API-baserade system-till-system-anspråk. Ramverket skapar användarvänliga, vita och märkta upplevelser som stöder HTML och CSS.
 
-En anpassad princip representeras som en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. XML-elementen definierar schemat för anspråk, anspråksomvandlingar, innehållsdefinitioner, Anspråksproviders, tekniska profiler och användaren resa orchestration-steg, bland annat. En anpassad princip är tillgänglig som en eller flera XML-filer som körs av Identitetsramverk när anropas av en förlitande part. Utvecklare som konfigurerar anpassade principer måste definiera betrodda relationer i noggrann detaljer som ska innehålla Metadataslutpunkter, exakt anspråk exchange-definitioner och konfigurera hemligheter, nycklar och certifikat som krävs av varje identitetsprovider.
+En anpassad princip representeras som en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. XML-elementen definierar anspråks schema, anspråks omvandlingar, innehålls definitioner, anspråks leverantörer, tekniska profiler och användnings steg för användar resan bland andra element. En anpassad princip är tillgänglig som en eller flera XML-filer som körs av identitets miljö ramverket när den anropas av en förlitande part. Utvecklare som konfigurerar anpassade principer måste definiera de betrodda relationerna i noggrann detalj för att inkludera slut punkter för metadata, exakta definitioner för anspråk och konfigurera hemligheter, nycklar och certifikat efter behov av varje identitets leverantör.
 
-### <a name="inheritance-model"></a>Arvsmodell
+### <a name="inheritance-model"></a>Arvs modell
 
-När ett program anropar principfilen som RP, Identitetsramverk i Azure AD B2C lägger till alla element från grundläggande fil från tilläggsfilen och sedan från RP principfil sätta ihop den aktuella principen gäller.  Delar av samma typ och namn i RP-filen åsidosätter de i tillägg och tillägg åsidosättningar base.
+När ett program anropar RP-principagenten, lägger identitets miljö ramverket i Azure AD B2C till alla element från bas filen, från tilläggs filen och sedan från RP-princip filen för att sammanställa den aktuella principen.  Element av samma typ och namn i RP-filen åsidosätter de i tilläggen och tilläggen åsidosätter bas.
 
 ## <a name="next-steps"></a>Nästa steg
 

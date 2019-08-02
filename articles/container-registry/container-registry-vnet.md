@@ -8,22 +8,25 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 2030496548df312b4f4cfab60c216d5f332c7ac2
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310399"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619880"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Begränsa åtkomsten till ett Azure Container Registry med hjälp av ett virtuellt Azure-nätverk eller brand Väggs regler
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) ger säker, privat nätverk för dina Azure-resurser och lokala resurser. Genom att begränsa åtkomsten till ditt privata Azure Container Registry från ett virtuellt Azure-nätverk ser du till att endast resurser i det virtuella nätverket har åtkomst till registret. Du kan också konfigurera brand Väggs regler för att tillåta att registret endast kommer åt från vissa IP-adresser för olika scenarier med olika platser.
 
-Den här artikeln visar två scenarier för att skapa nätverks åtkomst regler för att begränsa åtkomsten till ett Azure Container Registry: från en virtuell dator som distribueras i ett virtuellt nätverk eller från en offentlig IP-adress för en virtuell dator.
+Den här artikeln visar två scenarier för att konfigurera regler för inkommande nätverks åtkomst i ett behållar register: från en virtuell dator som distribueras i ett virtuellt nätverk eller från en virtuell DATORs offentliga IP-adress.
 
 > [!IMPORTANT]
 > Den här funktionen är för närvarande en för hands version och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
+
+Om du i stället behöver konfigurera åtkomst regler för resurser för att nå ett behållar register från bakom en brand vägg, se [Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg](container-registry-firewall-access-rules.md).
+
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
@@ -39,7 +42,7 @@ Den här artikeln visar två scenarier för att skapa nätverks åtkomst regler 
 
 * För att kunna använda Azure CLI-stegen i den här artikeln krävs Azure CLI version 2.0.58 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-* Om du inte redan har ett behållar register måste du skapa ett (Premium-SKU krävs) och skicka en `hello-world` exempel avbildning, till exempel från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] or the [Azure CLI][quickstart-cli] för att skapa ett register. 
+* Om du inte redan har ett behållar register måste du skapa ett (Premium-SKU krävs) och skicka en `hello-world` exempel avbildning, till exempel från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register. 
 
 * Om du vill begränsa åtkomsten till registret med ett virtuellt nätverk i en annan Azure-prenumeration måste du registrera resurs leverantören för Azure Container Registry i den prenumerationen. Exempel:
 
@@ -108,7 +111,7 @@ Efter installationen kör du följande kommando för att kontrol lera att Docker
 sudo docker run -it hello-world
 ```
 
-Resultat:
+Utdata:
 
 ```
 Hello from Docker!
@@ -136,7 +139,7 @@ När du skapar en virtuell dator skapar Azure som standard ett virtuellt nätver
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
 ```
 
-Resultat:
+Utdata:
 
 ```console
 [
@@ -168,7 +171,7 @@ az network vnet subnet show \
   --output tsv
 ``` 
 
-Resultat:
+Utdata:
 
 ```
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet

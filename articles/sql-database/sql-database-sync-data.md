@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24e340d25cb57f9a35f06f6dbd5a394d60a14fad
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693077"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566433"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -30,9 +29,9 @@ SQL Data Sync är en tjänst som bygger på Azure SQL Database som gör att du s
 
 Datasynkronisering är användbart i fall där data ska hållas uppdaterad över flera Azure SQL-databaser eller SQL Server-databaser. Här är huvudsakliga användningsområden för Data Sync:
 
-- **Hybrid datasynkronisering:** Du kan behålla data synkroniseras mellan dina lokala databaser och Azure SQL-databaser för att möjliggöra hybridprogram med Data Sync. Den här funktionen kan överklaga till kunder som överväger att flytta till molnet och vill placera några av sina program i Azure.
-- **Distribuerade program:** I många fall är det bra att separera olika arbetsbelastningar på olika databaser. Till exempel om du har en stor produktionsdatabas, men du måste också köra en arbetsbelastning för rapportering eller analyser på dessa data, är det bra att ha en andra databas för den här ytterligare arbetsbelastning. Denna metod minimerar prestandaförsämring på dina produktionsarbetsbelastningar. Du kan använda Data Sync för att hålla dessa två databaser synkroniseras.
-- **Globalt distribuerade program:** Många företag sträcker sig över flera regioner och även flera länder/regioner. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
+- **Synkronisering av hybrid data:** Med datasynkronisering kan du hålla data synkroniserade mellan dina lokala databaser och Azure SQL-databaser för att aktivera hybrid program. Den här funktionen kan överklaga till kunder som överväger att flytta till molnet och vill placera några av sina program i Azure.
+- **Distribuerade program:** I många fall är det bra att separera olika arbets belastningar i olika databaser. Till exempel om du har en stor produktionsdatabas, men du måste också köra en arbetsbelastning för rapportering eller analyser på dessa data, är det bra att ha en andra databas för den här ytterligare arbetsbelastning. Denna metod minimerar prestandaförsämring på dina produktionsarbetsbelastningar. Du kan använda Data Sync för att hålla dessa två databaser synkroniseras.
+- **Globalt distribuerade program:** Många företag sträcker sig över flera regioner och till och med flera länder/regioner. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
 
 Datasynkronisering är inte det en bättre lösningen för följande scenarier:
 
@@ -66,20 +65,20 @@ En Synkroniseringsgrupp har följande egenskaper:
 - Den **synkroniseringsintervall** beskriver hur ofta synkronisering sker.
 - Den **principen för konfliktlösning** är en säkerhetsnivå för gruppen, som kan vara *Hub wins* eller *medlem wins*.
 
-## <a name="how-does-data-sync-work"></a>Hur fungerar Data Sync
+## <a name="how-does-data-sync-work"></a>Hur fungerar synkronisering av data?
 
-- **Spåra dataändringar:** Datasynkronisering spårar ändringar genom att använda insert-, update- och delete-utlösare. Ändringarna sparas i en separat tabell i databasen. Observera att BULK INSERT inte aktiveras utlösare som standard. Om FIRE_TRIGGERS inte anges kör inga insert-utlösare. Lägga till alternativet FIRE_TRIGGERS så att Data Sync kan spåra dessa infogningar. 
-- **Synkronisera data:** Datasynkronisering har utformats i en modell med nav och ekrar. Hubben synkroniserar individuellt med varje medlem. Ändringar från hubben laddas ned till medlemmen och sedan överförs ändringar från medlemmen till hubben.
-- **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konfliktlösning, *Hub wins* eller *medlem wins*.
+- **Spårar data ändringar:** Datasynkronisering spårar ändringar med hjälp av INSERT-, Update-och Delete-utlösare. Ändringarna sparas i en separat tabell i databasen. Observera att BULK INSERT inte aktiveras utlösare som standard. Om FIRE_TRIGGERS inte anges kör inga insert-utlösare. Lägga till alternativet FIRE_TRIGGERS så att Data Sync kan spåra dessa infogningar. 
+- **Synkroniserar data:** Datasynkronisering är utformad i en nav-och eker-modell. Hubben synkroniserar individuellt med varje medlem. Ändringar från hubben laddas ned till medlemmen och sedan överförs ändringar från medlemmen till hubben.
+- **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konflikt lösning, *hubb-WINS* eller *medlems-WINS*.
   - Om du väljer *Hub wins*, ändringar i navet alltid över ändringar i medlemmen.
   - Om du väljer *medlem wins*, ändringar i medlem Skriv över ändringar i hubben. Om det finns mer än en medlem, beror det slutliga värdet på vilka medlem synkroniseras först.
 
-## <a name="compare-data-sync-with-transactional-replication"></a>Jämför Data Sync med Transaktionsreplikering
+## <a name="compare-data-sync-with-transactional-replication"></a>Jämför datasynkronisering med transaktionell replikering
 
 | | Datasynkronisering | Transaktionsreplikering |
 |---|---|---|
-| Fördelar | -Aktiv-aktiv-stöd<br/>Dubbelriktad kommunikation mellan lokala och Azure SQL Database | – Lägre fördröjning<br/>-Transaktionell konsekvens<br/>-Återanvända befintliga topologi efter migreringen |
-| Nackdelar | – 5 minuter eller mer fördröjning<br/>– Ingen transaktionell konsekvens<br/>-Högre prestandapåverkan | -Det går inte att publicera från Azure SQL Database enkel databas eller databas i pool<br/>-Hög underhållskostnad |
+| Fördelar | – Stöd för aktiv-aktiv<br/>– Dubbelriktad mellan lokala och Azure SQL Database | -Nedre latens<br/>– Transaktionell konsekvens<br/>-Återanvänd befintlig topologi efter migrering |
+| Nackdelar | – 5 min eller mer svars tid<br/>– Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database enskild databas eller databas i pooler<br/>– Kostnad för hög underhåll |
 | | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Kom igång med SQL-datasynkronisering
@@ -98,7 +97,7 @@ En Synkroniseringsgrupp har följande egenskaper:
 
 - [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 
-### <a name="did-something-go-wrong"></a>Något går fel
+### <a name="did-something-go-wrong"></a>Har något gå fel
 
 - [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
@@ -129,7 +128,7 @@ Etablering och borttagning under synkroniseringsgruppen, uppdatering och borttag
 - Namnen på objekten (databaser, tabeller och kolumner) kan inte innehålla utskrivbara tecken punkt (.), vänster hakparentes ([) eller fyrkantiga höger hakparentes (]).
 - Azure Active Directory-autentisering stöds inte.
 - Tabeller med samma namn men olika schemat (till exempel dbo.customers och sales.customers) stöds inte.
-- Kolumner med användardefinierade datatyper stöds inte
+- Kolumner med användardefinierade data typer stöds inte
 
 #### <a name="unsupported-data-types"></a>Datatyper
 
@@ -163,56 +162,56 @@ Datasynkronisering kan inte synkronisera skrivskyddad eller systemgenererade kol
 
 ## <a name="faq-about-sql-data-sync"></a>Vanliga frågor och svar om SQL Data Sync
 
-### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Hur mycket kostar SQL Data Sync-tjänsten
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Hur mycket kostar SQL Data Sync tjänsten
 
 Det finns ingen avgift för själva SQL Data Sync-tjänsten.  Men påförs du fortfarande kostnader för dataöverföring för dataförflyttning och från SQL Database-instansen. Mer information finns i [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
-### <a name="what-regions-support-data-sync"></a>Vilka regioner har stöd för datasynkronisering
+### <a name="what-regions-support-data-sync"></a>Vilka regioner stöder datasynkronisering
 
 SQL Data Sync är tillgänglig i alla regioner.
 
-### <a name="is-a-sql-database-account-required"></a>Är ett konto för SQL-databas som krävs
+### <a name="is-a-sql-database-account-required"></a>Är ett SQL Database konto obligatoriskt
 
 Ja. Du måste ha ett konto för SQL-databas som värd för Hubbdatabasen.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Jag kan använda Data Sync för att synkronisera mellan SQL Server lokala databaser
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan jag endast använda datasynkronisering för att synkronisera mellan SQL Server lokala databaser
 
 Inte direkt. Du kan synkronisera mellan en lokal SQL Server-databaser indirekt, men genom att skapa en hubb-databasen i Azure och sedan lägga till lokala databaser i synkroniseringsgruppen.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Jag kan använda Data Sync för att synkronisera mellan SQL-databaser som tillhör olika prenumerationer
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Kan jag använda Data Sync för att synkronisera mellan SQL-databaser som tillhör olika prenumerationer
 
 Ja. Du kan synkronisera mellan SQL-databaser som hör till resursgrupper som ägs av olika prenumerationer.
 
 - Om prenumerationerna som tillhör samma klientorganisation och du har behörighet till alla prenumerationer, kan du konfigurera synkroniseringsgruppen i Azure-portalen.
 - Annars kan behöva du använda PowerShell för att lägga till synkroniseringsmedlemmar som tillhör olika prenumerationer.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>Jag kan använda Data Sync för att synkronisera mellan SQL-databaser som tillhör olika moln (som Azures offentliga moln och Azure Kina)
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>Kan jag använda datasynkronisering för att synkronisera mellan SQL-databaser som tillhör olika moln (till exempel Azures offentliga moln och Azure Kina)
 
 Ja. Du kan synkronisera mellan SQL-databaser som tillhör olika moln måste du använda PowerShell för att lägga till synkroniseringsmedlemmar som tillhör olika prenumerationer.
 
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Jag kan använda datasynkronisering att fördefiniera data från min produktionsdatabas till en tom databas och sedan synkronisera dem
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Kan jag använda datasynkronisering för att dirigera data från min produktions databas till en tom databas och sedan synkronisera dem
 
 Ja. Skapa schemat manuellt i den nya databasen med hjälp av skript från ursprungligt. När du skapar schemat kan du lägga till tabeller till en synkroniseringsgrupp för att kopiera data och hålla den synkroniserad.
 
-### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Jag bör använda SQL Data Sync för att säkerhetskopiera och återställa Mina databaser
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Bör jag använda SQL Data Sync för att säkerhetskopiera och återställa mina databaser
 
 Du bör inte använda SQL Data Sync för att skapa en säkerhetskopia av dina data. Du kan inte säkerhetskopiera och återställa till en specifik tidpunkt eftersom SQL Data Sync synkroniseringar inte är en ny version. Dessutom kan SQL Data Sync säkerhetskopieras inte andra SQL-objekt, till exempel lagrade procedurer och göra inte motsvarigheten till en återställningsåtgärd snabbt.
 
 En rekommenderad säkerhetskopiering tekniken finns i [kopiera en Azure SQL database](sql-database-copy.md).
 
-### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Datasynkronisering kan synkronisera krypterade tabeller och kolumner
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Kan synkronisera krypterade tabeller och kolumner med datasynkronisering
 
 - Om en databas använder Always Encrypted kan du synkronisera de tabeller och kolumner som är *inte* krypterade. Du kan inte synkronisera krypterade kolumner eftersom datasynkronisering inte kan dekryptera data.
 - Om en kolumn använder på kolumnnivå kryptering (CLE), kan du synkronisera kolumnen så länge Radstorleken är mindre än den maximala storleken för 24 Mb. Datasynkronisering behandlar den kolumn som krypterats av nyckel (CLE) som normala binära data. Du måste ha samma certifikat för att dekryptera data på andra synkroniseringsmedlemmar.
 
-### <a name="is-collation-supported-in-sql-data-sync"></a>Har stöd för sorteringen i SQL Data Sync
+### <a name="is-collation-supported-in-sql-data-sync"></a>Stöds sortering i SQL Data Sync
 
 Ja. SQL Data Sync har stöd för sorteringen i följande scenarier:
 
 - Om tabellerna valda sync-schemat inte är redan i din hubb eller medlem databaser och sedan när du distribuerar synkroniseringsgruppen, skapas automatiskt av tjänsten motsvarande tabeller och kolumner med inställningarna för sortering som valts i tomt mål-databaser.
 - Om tabeller att synkronisera redan finns i både din hubb och medlemmen databaser, kräver SQL Data Sync att primärnyckelkolumnerna har samma sortering mellan hub och medlemmen databaser ska kunna distribuera synkroniseringsgruppen. Det finns inga begränsningar för sortering på kolumner utom primärnyckelkolumnerna.
 
-### <a name="is-federation-supported-in-sql-data-sync"></a>Stöds federation i SQL Data Sync
+### <a name="is-federation-supported-in-sql-data-sync"></a>Stöds Federation i SQL Data Sync
 
 Federationsrotdatabas kan användas i SQL Data Sync-tjänsten utan någon begränsning. Du kan inte lägga till federerad databas-slutpunkt i den aktuella versionen av SQL Data Sync.
 
@@ -229,7 +228,7 @@ Behöver du uppdatera schemat för en databas i en synkroniseringsgrupp? Schema�
 
 SQL Data Sync som fungerar som förväntat? Om du vill övervaka och felsöka problem, finns i följande artiklar:
 
-- [Övervaka Azure SQL Data Sync med Azure Monitor-loggar](sql-database-sync-monitor-oms.md)
+- [Övervaka Azure-SQL Data Sync med Azure Monitor loggar](sql-database-sync-monitor-oms.md)
 - [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Läs mer om Azure SQL Database

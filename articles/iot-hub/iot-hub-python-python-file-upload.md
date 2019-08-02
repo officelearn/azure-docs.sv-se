@@ -1,73 +1,65 @@
 ---
-title: Ladda upp filer från enheter till Azure IoT Hub med Python | Microsoft Docs
-description: Hur du överför filer från en enhet till molnet med Azure IoT-enhetens SDK för Python. Överförda filer lagras i en Azure storage blob-behållare.
-author: kgremban
-manager: philmea
+title: Ladda upp filer från enheter till Azure IoT Hub med python | Microsoft Docs
+description: Ladda upp filer från en enhet till molnet med hjälp av Azure IoT-enhetens SDK för python. Överförda filer lagras i en BLOB-behållare för Azure Storage.
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: kgremban
-ms.openlocfilehash: 23b0a2ac8e0264ddc1592479759cc8398d9ef5f8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 07/30/2019
+ms.author: robinsh
+ms.openlocfilehash: a529933cf4af572deacab1ae3c615ec0a0eca68f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621271"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667869"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Ladda upp filer från enheten till molnet med IoT Hub (python)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Den här artikeln visar hur du använder den [filen ladda upp funktionerna i IoT Hub](iot-hub-devguide-file-upload.md) att överföra en fil till [Azure blobblagring](../storage/index.yml). Självstudien visar hur du:
+Den här artikeln visar hur du använder [fil överförings funktionerna i IoT Hub](iot-hub-devguide-file-upload.md) för att ladda upp en fil till [Azure Blob Storage](../storage/index.yml). Självstudien visar hur du:
 
-* På ett säkert sätt ange en lagringsbehållare för att ladda upp en fil.
+* Tillhandahålla en lagrings behållare på ett säkert sätt för att ladda upp en fil.
 
-* Använda Python-klienten för att ladda upp en fil via din IoT-hubb.
+* Använd python-klienten för att ladda upp en fil via din IoT Hub.
 
-Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-python.md) snabbstarten visar grundläggande enhet-till-moln-meddelandefunktioner för IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. När du behöver upland filer från en enhet, kan du fortfarande använda säkerheten och pålitligheten för IoT Hub.
-
-> [!NOTE]
-> IoT Hub Python SDK stöder för närvarande endast överföra teckenbaserade filer som **.txt** filer.
-
-I slutet av den här kursen kan du köra Python-konsolapp:
-
-* **FileUpload.py**, som överför en fil till storage med hjälp av Python-enhets-SDK.
+[Genom att skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-python.md) -snabb start demonstreras de grundläggande meddelande funktionerna från enhet till moln i IoT Hub. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. När du behöver använda filer från en enhet kan du fortfarande använda säkerhet och tillförlitlighet för IoT Hub.
 
 > [!NOTE]
-> IoT-hubb har stöd för många enhetsplattformar och språk (inklusive C, .NET, Javascript, Python och Java) via SDK: er för Azure IoT-enheter. Referera till den [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) stegvisa instruktioner om hur du ansluter din enhet till Azure IoT Hub.
+> IoT Hub python SDK stöder för närvarande bara överföring av teckenbaserade filer, till exempel **txt** -filer.
 
-För att kunna genomföra den här kursen behöver du följande:
+I slutet av den här självstudien kör du python-konsol programmet:
 
-* [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
+* **FileUpload.py**, som laddar upp en fil till lagringen med python-enhets-SDK: n.
 
-* Om du använder Windows OS installerar du [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda native-DLL:er från Python.
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-* Ett aktivt Azure-konto. Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
+Följande är installations anvisningarna för kraven.
 
-* En IoT-hubb i ditt Azure-konto med en enhetsidentitet för att testa filuppladdningsfunktionen. 
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en app för enheter
+## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en enhets app
 
-I det här avsnittet skapar du enhetsapp för att ladda upp en fil till IoT hub.
+I det här avsnittet skapar du Device-appen för att ladda upp en fil till IoT Hub.
 
-1. I Kommandotolken, kör du följande kommando för att installera den **azure-iothub-device-client** paketet:
+1. Kör följande kommando i kommando tolken för att installera paketet **Azure-iothub-Device-client** :
 
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-2. Använd en textredigerare och skapa en testfil som du överför till blob storage.
+2. Med hjälp av en text redigerare skapar du en testfil som ska överföras till Blob Storage.
 
     > [!NOTE]
-    > IoT Hub Python SDK stöder för närvarande endast överföra teckenbaserade filer som **.txt** filer.
+    > IoT Hub python SDK stöder för närvarande bara överföring av teckenbaserade filer, till exempel **txt** -filer.
 
-3. Använd en textredigerare och skapa en **FileUpload.py** filen i arbetsmappen.
+3. Med hjälp av en text redigerare skapar du en **FileUpload.py** -fil i arbetsmappen.
 
-4. Lägg till följande `import` instruktioner och variabler i början av den **FileUpload.py** fil. 
+4. Lägg till följande `import` -instruktioner och variabler i början av **FileUpload.py** -filen. 
 
     ```python
     import time
@@ -83,9 +75,9 @@ I det här avsnittet skapar du enhetsapp för att ladda upp en fil till IoT hub.
     FILENAME = "[File name for storage]"
     ```
 
-5. I din fil ersätter `[Device Connection String]` med anslutningssträngen för din IoT hub-enhet. Ersätt `[Full path to file]` med sökvägen till Testfilen som du skapade eller alla filer på enheten som du vill ladda upp. Ersätt `[File name for storage]` med namnet som du vill ge till din fil när paketet har överförts till blob storage. 
+5. Ersätt `[Device Connection String]` med anslutnings strängen för din IoT Hub-enhet i filen. Ersätt `[Full path to file]` med sökvägen till test filen som du skapade, eller en fil på enheten som du vill ladda upp. Ersätt `[File name for storage]` med det namn som du vill ge filen när den har laddats upp till Blob Storage. 
 
-6. Skapa ett motanrop för den **upload_blob** funktionen:
+6. Skapa en motringning för **upload_blob** -funktionen:
 
     ```python
     def blob_upload_conf_callback(result, user_context):
@@ -95,7 +87,7 @@ I det här avsnittet skapar du enhetsapp för att ladda upp en fil till IoT hub.
             print ( "...file upload callback returned: " + str(result) )
     ```
 
-7. Lägg till följande kod för att ansluta klienten och ladda upp filen. Även innehålla de `main` rutinen:
+7. Lägg till följande kod för att ansluta klienten och ladda upp filen. Ta även med `main` rutinen:
 
     ```python
     def iothub_file_upload_sample_run():
@@ -131,31 +123,31 @@ I det här avsnittet skapar du enhetsapp för att ladda upp en fil till IoT hub.
         iothub_file_upload_sample_run()
     ```
 
-8. Spara och Stäng den **UploadFile.py** fil.
+8. Spara och Stäng filen **UploadFile.py** .
 
 ## <a name="run-the-application"></a>Köra programmet
 
 Nu är du redo att köra programmet.
 
-1. Kör följande kommando i Kommandotolken i arbetsmappen:
+1. Kör följande kommando i en kommando tolk i arbetsmappen:
 
     ```cmd/sh
     python FileUpload.py
     ```
 
-2. I följande skärmbild visas utdata från den **FileUpload** app:
+2. Följande skärm bild visar utdata från **fileupload** -appen:
 
-    ![Utdata från app för simulerade enheter](./media/iot-hub-python-python-file-upload/1.png)
+    ![Utdata från den simulerade enhets appen](./media/iot-hub-python-python-file-upload/1.png)
 
-3. Du kan använda portalen för att visa den överförda filen i storage-behållare som du har konfigurerat:
+3. Du kan använda portalen för att visa den överförda filen i den lagrings behållare som du konfigurerade:
 
-    ![Uppladdad fil](./media/iot-hub-python-python-file-upload/2.png)
+    ![Överförd fil](./media/iot-hub-python-python-file-upload/2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien beskrivs hur du använder filen ladda upp funktionerna i IoT Hub för att förenkla filöverföringar från enheter. Du kan fortsätta att utforska IoT hub funktioner och scenarier i följande artiklar:
+I den här självstudien har du lärt dig hur du använder fil överförings funktionerna i IoT Hub för att förenkla fil överföringar från enheter. Du kan fortsätta att utforska funktionerna och scenarierna i IoT Hub med följande artiklar:
 
-* [Skapa en IoT hub programmässigt](iot-hub-rm-template-powershell.md)
+* [Skapa en IoT Hub program mässigt](iot-hub-rm-template-powershell.md)
 
 * [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
 

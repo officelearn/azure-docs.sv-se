@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
 ms.openlocfilehash: 0672fb71ba4f56d0faf332df029100cb48741c8b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309892"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Använd en Azure-hanterad identitet för att autentisera till ett Azure Container Registry 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig mer om hanterade identiteter och hur du:
 
 Den här artikeln kräver att du kör Azure CLI-version 2.0.55 eller senare för att skapa Azure-resurser. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-Om du vill konfigurera ett behållar register och skicka en behållar avbildning till den måste du också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på alla [MacOS][docker-mac], [Windows][docker-windows]-eller [Linux][-Docker-Linux-] system.
+Om du vill konfigurera ett behållar register och skicka en behållar avbildning till den måste du också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på alla [MacOS][docker-mac]-, [Windows][docker-windows]-och [Linux][docker-linux] -system.
 
 ## <a name="why-use-a-managed-identity"></a>Varför ska jag använda en hanterad identitet?
 
@@ -93,7 +93,7 @@ Efter installationen kör du följande kommando för att kontrol lera att Docker
 sudo docker run -it hello-world
 ```
 
-Resultat:
+Utdata:
 
 ```
 Hello from Docker!

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7ac87000a6bbe7515106b42f57f9184396ed4168
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107270"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735675"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
 
@@ -25,7 +25,7 @@ Lär dig hur du använder Azure Functions för att skapa en funktion [utan serve
 
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -58,7 +58,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
     | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
     | **Namn** | Standard | Det här är namnet på den timerutlösta funktionen. |
-    | **Schema** | 0 \*/1 \* \* \* \* | Ett [CRON-uttryck](functions-bindings-timer.md#cron-expressions) med sex fält som schemalägger att funktionen ska köras varje minut. |
+    | **Schema** | 0 \*/1 \* \* \* \* | Ett [CRON-uttryck](functions-bindings-timer.md#ncrontab-expressions) med sex fält som schemalägger att funktionen ska köras varje minut. |
 
 4. Klicka på **Skapa**. En funktion skapas i valt språk som körs varje minut.
 

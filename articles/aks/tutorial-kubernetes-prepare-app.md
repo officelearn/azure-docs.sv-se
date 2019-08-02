@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614233"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740956"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudier: Förbered ett program för Azure Kubernetes Service (AKS)
 
@@ -34,7 +34,7 @@ I ytterligare självstudier så överförs containeravbildningen till en Azure C
 
 Den här självstudiekursen förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och `docker`-kommandon. Läs mer om grunderna för containrar i [Kom igång med Docker][docker-get-started].
 
-För att slutföra den här självstudien behöver du en lokal Docker-utvecklingsmiljö som kör Linux-containrar. Docker innehåller paket som konfigurerar Docker på en [Mac][docker-for-mac], [Windows][docker-for-windows], eller [Linux][docker för linux] system.
+För att slutföra den här självstudien behöver du en lokal Docker-utvecklingsmiljö som kör Linux-containrar. Docker innehåller paket som konfigurerar Docker på en [Mac][docker-for-mac]-, [Windows][docker-for-windows]-eller [Linux][docker-for-linux] -dator.
 
 Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slutföra stegen i dessa självstudier. Därför rekommenderar vi att du använder en fullständig Docker-utvecklingsmiljö.
 
@@ -58,7 +58,7 @@ Inuti katalogen finns programmets källkod, en förskapad Docker Compose-fil och
 
 ## <a name="create-container-images"></a>Skapa containeravbildningar
 
-[Docker Compose][docker-compose] kan användas för att automatisera att skapa behållaravbildningar och distribution av program med flera behållare.
+[Docker Compose][docker-compose] kan användas för att automatisera skapandet av behållar avbildningar och distribution av program med flera behållare.
 
 Använd `docker-compose.yaml`-exempelfilen för att skapa containeravbildningen, ladda ned Redis-avbildningen och starta programmet:
 
@@ -77,7 +77,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Kör den [docker ps][docker-ps] kommando för att se behållarna som körs:
+Kör kommandot [Docker PS][docker-ps] för att se de behållare som körs:
 
 ```
 $ docker ps
@@ -97,13 +97,13 @@ Om du vill visa programmet som körs anger du `http://localhost:8080` i en lokal
 
 Nu när programfunktionen har verifierats, kan containrarna som körs stoppas och tas bort. Ta inte bort containeravbildningarna – i nästa självstudie ska du ladda upp *azure-vote-front*-avbildningen till en Azure Container Registry-instans.
 
-Stoppa och ta bort behållarinstanser och resurser med den [docker-compose ned][docker-compose-down] kommando:
+Stoppa och ta bort behållar instanserna och resurserna med kommandot [Docker-List][docker-compose-down] :
 
 ```console
 docker-compose down
 ```
 
-När det lokala programmet har tagits bort, har du en Docker-avbildning som innehåller Azure Vote-programmet, *azure-front-front*, som används i nästa självstudie.
+När det lokala programmet har tagits bort har du en Docker-avbildning som innehåller Azures röst program, *Azure-rösta-framtill*, för användning med nästa självstudie.
 
 ## <a name="next-steps"></a>Nästa steg
 

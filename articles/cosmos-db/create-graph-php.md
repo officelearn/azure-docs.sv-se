@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480599"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736651"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabbstart: Skapa en grafdatabas i Azure Cosmos DB med hjälp av PHP och Azure-portalen
 
@@ -113,7 +113,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -123,9 +123,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     ]);
     ```
 
-3. Om grafdatabaskontot skapades den 20 december 2017 eller senare ändrar du `graphs.azure.com` i värdnamnet till `gremlin.cosmosdb.azure.com`.
-
-4. Ändra parametern `username` i parameter i anslutningsobjektet med din databas och ditt grafnamn. Om du använde de rekommenderade värdena `sample-database` och `sample-graph` ska det se ut som följande kod:
+3. Ändra parametern `username` i parameter i anslutningsobjektet med din databas och ditt grafnamn. Om du använde de rekommenderade värdena `sample-database` och `sample-graph` ska det se ut som följande kod:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -133,7 +131,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -143,7 +141,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     ]);
     ```
 
-5. I Azure Portal använder du kopieringsknappen för att kopiera PRIMÄR NYCKEL och klistra in den över `your_primary_key` i lösenordsparametern.
+4. I Azure Portal använder du kopieringsknappen för att kopiera PRIMÄR NYCKEL och klistra in den över `your_primary_key` i lösenordsparametern.
 
     Anslutningsobjektets initiering bör nu se ut som följande kod:
 
@@ -159,7 +157,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     ]);
     ```
 
-6. Spara filen `connect.php`.
+5. Spara filen `connect.php`.
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 
@@ -196,7 +194,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och Lägg märke till att de är anslutna till robin. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
+2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och Lägg märke till att de är anslutna till tax. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
    ![Nya hörn i grafen i datautforskaren på Azure Portal](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 
@@ -206,13 +204,13 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 4. Ange en etikett för *person*.
 
-5. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast id-nyckeln krävs.
+5. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast **ID-** nyckeln krävs.
 
-    key|värde|Anteckningar
+    Nyckel | Value | Anteckningar
     ----|----|----
-    id|ashley|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
-    kön|kvinna| 
-    teknik | Java | 
+    **id** | ashley | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
+    **kön** | kvinna | 
+    **Tech** | Java | 
 
     > [!NOTE]
     > I den här snabbstartsguiden skapar du en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
@@ -224,12 +222,12 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 8. Ange en etikett för *person*.
 
 9. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
-
-    key|värde|Anteckningar
+    
+    Nyckel | Value | Anteckningar
     ----|----|----
-    id|rakesh|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
-    kön|man| 
-    skola|MIT| 
+    **id** | rakesh | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
+    **kön** | man | 
+    **bänk** | MIT | 
 
 10. Klicka på **OK**. 
 

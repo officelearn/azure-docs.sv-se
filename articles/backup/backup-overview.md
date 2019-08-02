@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e3577a1a0da7809298697c55c84662bc15b0f1e7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a4fbfeb96d2316ce6af100cb16fcbf0d13f230f2
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639630"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737123"
 ---
-# <a name="what-is-azure-backup"></a>Vad är Azure Backup?
+# <a name="what-is-the-azure-backup-service"></a>Vad är tjänsten Azure Backup?
 
 Med Azure Backup-tjänsten kan du säkerhetskopiera data till Microsoft Azure-molnet. Du kan säkerhetskopiera lokala datorer och arbetsbelastningar, samt virtuella Azure-datorer.
 

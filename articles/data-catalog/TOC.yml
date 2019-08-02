@@ -55,7 +55,7 @@
 - name: Referens
   items:
     - name: Kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=data-catalog'
+      href: data-catalog-samples.md
     - name: REST
       href: /rest/api/datacatalog/
     - name: Sök i syntaxreferens

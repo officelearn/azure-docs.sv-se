@@ -3,26 +3,26 @@ title: Översikt över Azure Digital Twins | Microsoft Docs
 description: Läs mer om Azure Digital Twins, en Azure IoT-lösning för spatial intelligens.
 author: julieseto
 ms.author: jseto
-ms.date: 05/31/2019
+ms.date: 08/01/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459026"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736971"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Översikt över Azure Digital Twins
 
-Förhandsversionen av Azure Digital Twins är en Azure-IoT-tjänst som skapar omfattande modeller av den fysiska miljön. Det kan skapa diagram för spatial intelligens för att modellera relationer och interaktioner mellan människor, utrymmen och enheter.
+Azure Digitals förhands granskning är en Azure IoT-tjänst som skapar omfattande modeller av den fysiska miljön. Det kan skapa diagram för spatial intelligens för att modellera relationer och interaktioner mellan människor, utrymmen och enheter.
 
 Med Azure Digital Twins kan du köra frågor mot data från ett fysiskt utrymme i stället för ett stort antal skilda sensorer. Den här tjänsten hjälper dig att skapa återanvändbara, mycket skalbara, spatialt medvetna upplevelser som länkar strömmande data över hela den digitala och den fysiska världen. Dina appar har förbättrats med funktionerna för unikt relevant sammanhangsberoende. 
 
-Azure Digital Twins gäller för alla typer av miljöer, t.ex, informationslager, kontor, skolor, sjukhus och banker. Det kan även användas för idrottsarenor, fabriker, parkeringar, parker, smarta rutnät och städer. Här följer några scenarier där Azure Digital Twins kan vara till hjälp:
+Azure Digitals sammanflätade gäller för alla typer av miljöer, till exempel lager, kontor, skolor, sjukhus och banker. Det kan även användas för idrottsarenor, fabriker, parkeringar, parker, smarta rutnät och städer. Här följer några scenarier där Azure Digitals-dubblare kan vara till hjälp:
 
 - Förutse underhållsbehov för en fabrik.
 - Analysera energikrav i realtid för ett elnät.
@@ -33,7 +33,7 @@ Azure Digital Twins gäller för alla typer av miljöer, t.ex, informationslager
 - Analysera användningsnivåerna för en byggnad.
 - Hitta den mest använda kassan i din butik.
 
-Vad ditt verkliga affärsscenario är, är det mycket troligt att en motsvarande digitala instans kan etableras via Azure Digital Twins.
+Oavsett ditt verkliga affärs scenario är det mycket troligt att en motsvarande Digital instans kan tillhandahållas via Azures digitala dubbla.
 
 Följande videoklipp tar en närmare titt på Azure Digital Twins.
 
@@ -53,7 +53,7 @@ Tänk dig en smart verktygsapp som hanterar flera elmätare som är anslutna i e
 
 [Digitala tvillingobjektmodeller](./concepts-objectmodel-spatialgraph.md#model) är fördefinierade enhetsprotokoll och dataschema. De justerar lösningens domänspecifika behov att påskynda och förenkla utvecklingen.
 
-Ett rum användandet program kan exempelvis använda fördefinierade typer, till exempel olika platser, skapa, våning och utrymme.
+Till exempel kan ett Room-program använda fördefinierade utrymmes typer som campus, byggnad, golv och rum.
 
 ### <a name="multiple-and-nested-tenants"></a>Flera och kapslade klientorganisationer
 

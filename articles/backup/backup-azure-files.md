@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera Azure-filresurser
+title: Säkerhetskopiera och återställa Azure-filresurser
 description: Den här artikeln beskriver hur du säkerhetskopierar och återställer Azure-filresurser och förklarar hanteringsuppgifterna.
 author: dcurwin
 ms.author: dacurwin
@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9cb0150efcb4860af98b47aa5da4cfd24d2e9de9
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: c2e78f6925ae8ff72e7f603c886376b32e40cd94
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602024"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737265"
 ---
-# <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
+# <a name="back-up-and-restore-azure-file-shares"></a>Säkerhetskopiera och återställa Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
 
 I den här guiden får du lära du dig att:

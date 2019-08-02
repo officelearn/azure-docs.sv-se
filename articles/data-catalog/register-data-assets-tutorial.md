@@ -1,99 +1,99 @@
 ---
 title: Registrera datatillgångar i Azure Data Catalog
-description: Så här registrerar du datatillgångar i Azure Data Catalog
+description: Så här registrerar du data till gångar i din Azure Data Catalog
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 08/01/2019
+ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116711"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735205"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Självstudier: Registrera datatillgångar i Azure Data Catalog
 
-I den här självstudien använder du registreringsverktyget registrera datatillgångar från Azure SQL database-exempel i katalogen. Registreringen är den process där du extraherar viktiga strukturella metadata, t.ex. namn, typer och platser, från datakällan och dess tillgångar och kopierar dem till katalogen. Datakällan och datatillgångarna blir kvar där de är, men katalogen använder deras metadata för att göra det lättare att identifiera dem och förstå hur de kan användas.
+I den här självstudien använder du registrerings verktyget för att registrera data till gångar från Azure SQL Database-exemplet med katalogen. Registreringen är den process där du extraherar viktiga strukturella metadata, t.ex. namn, typer och platser, från datakällan och dess tillgångar och kopierar dem till katalogen. Datakällan och datatillgångarna blir kvar där de är, men katalogen använder deras metadata för att göra det lättare att identifiera dem och förstå hur de kan användas.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Registrera datatillgångar 
-> * Sök efter datatillgångar
+> * Sök efter data till gångar
 > * Kommentera datatillgångar
 > * Ansluta till datatillgångar
 > * Hantera datatillgångar
-> * Ta bort datatillgångar
+> * Ta bort data till gångar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Kom igång genom att slutföra den [snabbstarten](register-data-assets-tutorial.md).
+För att komma igång måste du slutföra [snabb](register-data-assets-tutorial.md)starten.
 
 * En [Microsoft Azure](https://azure.microsoft.com/) prenumeration.
 * Du måste ha en egen [Azure Active Directory-klient](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-Om du vill konfigurera Data Catalog, måste du vara ägare eller Medägare av en Azure-prenumeration.
+Om du vill konfigurera Data Catalog måste du vara ägare eller medägare till en Azure-prenumeration.
 
 ## <a name="register-data-assets"></a>Registrera datatillgångar
 
 ### <a name="register-a-data-source"></a>Registrera en datakälla
 
-Registrerar du datatillgångar (tabeller) från en [Azure SQL database exemplet](../sql-database/sql-database-single-database-get-started.md), men du kan använda valfri datakälla som stöds om du föredrar att arbeta med data som är vanliga och relevanta för din roll. En lista över datakällor som stöds finns i [Datakällor som stöds](data-catalog-dsr.md).
+Du registrerar data till gångar (tabeller) från ett [Azure SQL Database-exempel](../sql-database/sql-database-single-database-get-started.md), men du kan använda en data källa som stöds om du föredrar att arbeta med data som är välkända och relevanta för din roll. En lista över datakällor som stöds finns i [Datakällor som stöds](data-catalog-dsr.md).
 
-Azure SQL-databasnamnet som vi använder i den här självstudien är *RLSTest*.
+Det Azure SQL Database-namn som vi använder i den här självstudien är *RLSTest*.
 
-Nu kan du registrera datatillgångar från Azure SQL database-exempel med hjälp av Azure Data Catalog.
+Nu kan du registrera data till gångar från Azure SQL Database-exemplet med hjälp av Azure Data Catalog.
 
-1. Gå till den [startsidan för Azure Data Catalog](http://azuredatacatalog.com) och välj **publicera Data**.
+1. Gå till [Azure Data Catalog start sida](http://azuredatacatalog.com) och välj **publicera data**.
 
    ![Azure Data Catalog – knappen Publicera data](media/register-data-assets-tutorial/data-catalog-publish-data.png)
 
-2. Välj **starta program** för att hämta, installera och köra registreringsverktyget på datorn.
+2. Välj **starta program** för att ladda ned, installera och köra registrerings verktyget på din dator.
 
    ![Azure Data Catalog – knappen Starta](media/register-data-assets-tutorial/data-catalog-launch-application.png)
 
-3. På den **Välkommen** väljer **logga in** och ange dina autentiseringsuppgifter.
+3. På sidan **Välkommen** väljer du **Logga in** och anger dina autentiseringsuppgifter.
 
     ![Azure Data Catalog – välkomstsida](media/register-data-assets-tutorial/data-catalog-welcome-dialog.png)
 
-4. På den **Microsoft Azure Data Catalog** väljer **SQL Server** och **nästa**.
+4. Välj **SQL Server** och **nästa**på sidan **Microsoft Azure Data Catalog** .
 
     ![Azure Data Catalog – datakällor](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Ange SQL Server-anslutningsegenskaperna för din Azure SQL database-exemplet och välj **CONNECT**.
+5. Ange SQL Server anslutnings egenskaper för ditt Azure SQL Database-exempel och välj **Anslut**.
 
    ![Azure Data Catalog – SQL Server-anslutningsinställningar](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. Registrera metadata för din datatillgång. I det här exemplet registrerar du **produkten** objekt från Azure SQL database exempel namnområde:
+6. Registrera metadata för din datatillgång. I det här exemplet registrerar du **produkt** objekt från namn området för Azure SQL Database-exempel:
 
-    1. I den **Serverhierarki** konsolträdet, expandera din Azure SQL database-exemplet och välj **SalesLT**.
+    1. Expandera ditt Azure SQL Database-exempel i trädet **Server-hierarki** och välj **SalesLT**.
 
-    2. Välj **produkten**, **ProductCategory**, **ProductDescription**, och **ProductModel** genom att använda Ctrl + Välj.
+    2. Välj **produkt**, **ProductCategory**, **ProductDescription**och **ProductModel** genom att trycka på CTRL + Select.
 
-    3. Välj den **Flytta valda pilen** (**>**). Denna åtgärd flyttar alla markerade objekt till listan **Objekt som ska registreras**.
+    3. Välj pilen för den **flyttade-markerade pilen** ( **>** ). Denna åtgärd flyttar alla markerade objekt till listan **Objekt som ska registreras**.
 
           ![Självstudiekurs om Azure Data Catalog – bläddra bland och välj objekt](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
-    4. Välj **Inkludera förhandsgranskning** om du vill ta med en ögonblicksbild av data. Ögonblicksbilden innehåller upp till 20 poster från varje tabell och kopieras till katalogen.
+    4. Välj **Inkludera förhandsgranskning** om du vill ta med en ögonblicksbild av data. Ögonblicks bilden innehåller upp till 20 poster från varje tabell och kopieras till katalogen.
 
     5. Välj **Inkludera dataprofil** om du vill ta med en ögonblicksbild av objektstatistiken för dataprofilen (till exempel lägsta, högsta och genomsnittliga värden för en kolumn, antalet rader osv.).
 
-    6. I den **lägga till taggar** anger **försäljning, produkt, azure sql**. Denna åtgärd lägger till söktaggar för dessa datatillgångar. Taggar är ett bra sätt att hjälpa användarna att hitta en registrerad datakälla.
+    6. I fältet **Lägg till taggar** anger du **Sales, Product, Azure SQL**. Denna åtgärd lägger till söktaggar för dessa datatillgångar. Taggar är ett bra sätt att hjälpa användarna att hitta en registrerad datakälla.
 
     7. Ange namnet på en **expert** här (valfritt).
 
           ![Självstudiekurs om Azure Data Catalog – objekt som ska registreras](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Välj **registrera**. De objekt som du har valt registreras i Azure Data Catalog. I den här övningen registreras de markerade objekten från din Azure SQL database-exemplet. Registreringsverktyget extraherar metadata från datatillgången och kopierar dessa data till Azure Data Catalog-tjänsten. Dina data blir kvar där för tillfället förblir den. Data förblir under kontrollen av administratörer och principer för ursprung-system.
+    8. Välj **register**. De objekt som du har valt registreras i Azure Data Catalog. I den här övningen registreras de valda objekten från ditt Azure SQL Database-exempel. Registreringsverktyget extraherar metadata från datatillgången och kopierar dessa data till Azure Data Catalog-tjänsten. Informationen är kvar där den är kvar. Data förblir övervakare av administratörer och principer för ursprungs systemet.
 
           ![Azure Data Catalog – registrerade objekt](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
-    9. Om du vill se din registrerade datakällobjekt **visa Portal**. Bekräfta att du ser alla fyra tabeller och databasen i rutnätsvyn på Azure Data Catalog-portalen (Kontrollera att sökfältet är tydligt).
+    9. Välj **Visa Portal**om du vill se dina registrerade data käll objekt. I Azure Data Catalog-portalen bekräftar du att du ser alla fyra tabeller och databasen i diagramvyn (kontrol lera att Sök fältet är tydligt).
 
         ![Objekt på Azure Data Catalog-portalen](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-I den här övningen registrerade du objekt från Azure SQL database-exempel så att de enkelt kan identifieras av användare i din organisation.
+I den här övningen registrerade du objekt från Azure SQL Database-exemplet så att de enkelt kan identifieras av användare i organisationen.
 
 I nästa övning kommer du att lära dig att identifiera registrerade datatillgångar.
 
@@ -105,7 +105,7 @@ Sökningen har utformats att vara både intuitiv och kraftfull. Som standard mat
 
 Filtreringen är avsedd att komplettera sökningen. Du kan välja specifika egenskaper som experter, typ av datakälla, objekttyp och taggar för att visa matchande datatillgångar och för att begränsa sökresultaten till matchande tillgångar.
 
-Genom att använda en kombination av sökning och filtrering kan navigera du snabbt i datakällorna som är registrerade med Azure Data Catalog.
+Genom att använda en kombination av sökning och filtrering kan du snabbt navigera i de data källor som är registrerade med Azure Data Catalog.
 
 I den här övningen använder du Azure Data Catalog-portalen för att identifiera de datatillgångar som du registrerade i den föregående övningen. Mer information om söksyntaxen finns i [referens för söksyntax i Data Catalog](/rest/api/datacatalog/#search-syntax-reference).
 
@@ -115,26 +115,26 @@ Följande är några få exempel på hur du kan identifiera datatillgångar i ka
 
 Du kan använda en enkel sökning för att söka igenom en katalog med hjälp av ett eller flera sökvillkor. Resultatet returnerar tillgångar där ett eller flera av de angivna villkoren matchar en egenskap.
 
-1. Välj **Start** i Azure Data Catalog-portalen. Om du har stängt webbläsaren går du till den [startsidan för Azure Data Catalog](https://www.azuredatacatalog.com).
+1. Välj **Start** i Azure Data Catalog portalen. Om du har stängt webbläsaren går du till [Azure Data Catalog start sida](https://www.azuredatacatalog.com).
 
 2. Skriv `product` i sökrutan och tryck på **Retur**.
 
     ![Azure Data Catalog – enkel textsökning](media/register-data-assets-tutorial/data-catalog-basic-text-search.png)
 
-3. Kontrollera att du ser alla fyra tabeller och databasen i resultaten. Du kan växla mellan **rutnätsvy** och **listvy** genom att välja knappar i verktygsfältet, som visas i följande bild. Observera att sökordet markeras i sökresultatet eftersom alternativet **Markera** har inställningen **På**. Du kan också ange antalet **resultat per sida** i sökresultatet.
+3. Bekräfta att du ser alla fyra tabeller och databasen i resultaten. Du kan växla mellan **rutnätsvy** och **listvy** genom att välja knappar i verktygsfältet, som du ser i följande bild. Observera att sökordet markeras i sökresultatet eftersom alternativet **Markera** har inställningen **På**. Du kan också ange antalet **resultat per sida** i sökresultatet.
 
     ![Azure Data Catalog – resultat från en enkel textsökning](media/register-data-assets-tutorial/data-catalog-basic-text-search-results.png)
 
     Panelen **Sökningar** visas till vänster och panelen **Egenskaper** till höger. På panelen **Sökningar** kan du ändra sökvillkoren och filtrera resultatet. Panelen **Egenskaper** innehåller egenskaperna för ett valt objekt i listan eller rutnätet.
 
-4. Välj **produkten** i sökresultatet. Välj den **förhandsversion**, **kolumner**, **Dataprofil**, och **dokumentation** tabbar och välj pilen för att expandera det nedre fönstret.  
+4. Välj **produkt** i Sök resultaten. Välj flikarna för för **hands version**, **kolumner**, **data profil**och **dokumentation** eller Välj pilen för att expandera det nedre fönstret.  
 
     ![Azure Data Catalog – det nedre fönstret](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
 
     På fliken **Förhandsgranska** ser du en förhandsgranskning av data i tabellen **Product**.  
-5. Välj den **kolumner** fliken information om kolumner (till exempel **namn** och **datatypen**) i datatillgången.
+5. Välj fliken **kolumner** om du vill visa information om kolumner (t. ex. **namn** och **datatyp**) i data till gången.
 
-6. Välj den **Dataprofil** fliken för att se dataprofilen (till exempel: antalet rader, storleken på data eller det minsta värdet i en kolumn) i datatillgången.
+6. Välj fliken **data profil** för att se profilering av data (till exempel: antal rader, data storlek eller minimalt värde i en kolumn) i data till gången.
 
 ### <a name="discover-data-assets-with-property-scoping"></a>Identifiera datatillgångar med egenskapsomfång
 
@@ -144,13 +144,13 @@ Egenskapsomfång hjälper dig att identifiera datatillgångar där sökvillkoret
 
 2. Skriv `tags:product` i sökrutan och tryck på **Retur**. En lista med alla egenskaper som du kan använda för att söka i datakatalogen finns i [Data Catalog Search-syntaxreferensen](/rest/api/datacatalog/#search-syntax-reference).
 
-3. Kontrollera att du ser tabellerna och databasen i resultaten.  
+3. Bekräfta att du ser tabellerna och databasen i resultaten.  
 
     ![Data Catalog – resultat från sökning med egenskapsomfång](media/register-data-assets-tutorial/data-catalog-property-scoping-results.png)
 
 ### <a name="save-the-search"></a>Spara sökningen
 
-1. I den **sökningar** fönstret i den **aktuell sökning** , ange ett namn för sökningen och väljer **spara**.
+1. I fönstret **sökningar** i avsnittet **aktuell sökning** anger du ett namn för sökningen och väljer **Spara**.
 
     ![Azure Data Catalog – spara sökning](media/register-data-assets-tutorial/data-catalog-save-search.png)
 
@@ -178,33 +178,33 @@ Med jämförelseoperatorer kan du använda andra jämförelser än ”lika med�
 
 3. Tryck på **RETUR**.
 
-4. Kontrollera att du ser den **produkten**, **ProductCategory**, och **ProductDescription** tabeller och Azure SQL-databasen som du registrerade i sökresultat.
+4. Bekräfta att du ser tabellerna **Product**, **ProductCategory**och **ProductDescription** och den Azure SQL-databas som du registrerade i Sök resultaten.
 
     ![Azure Data Catalog – resultat från en jämförelsesökning](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
-Se [identifiera datatillgångar](data-catalog-how-to-discover.md) detaljerad information om hur du identifierar datatillgångar. Mer information om Söksyntaxen finns i [söksyntax för Data Catalog](/rest/api/datacatalog/#search-syntax-reference).
+Se [identifiera data till gångar](data-catalog-how-to-discover.md) för detaljerad information om identifiering av data till gångar. Mer information om Söksyntaxen finns i [referens för Data Catalog söksyntax](/rest/api/datacatalog/#search-syntax-reference).
 
 ## <a name="annotate-data-assets"></a>Kommentera datatillgångar
 
-I den här övningen ska du använda Azure Data Catalog-portalen för att kommentera (lägga till information som beskrivningar, taggar eller experter) befintliga datatillgångar i katalogen. Dina kommentarer kompletterar strukturella metadata som extraherats från datakällan under registreringen. Anteckningens gör datatillgångarna mycket lättare att identifiera och förstå.
+I den här övningen använder du Azure Data Catalog Portal för att kommentera (lägga till information som beskrivningar, taggar eller experter) befintliga data till gångar i katalogen. Anteckningarna kompletterar de strukturella metadata som extraherats från data källan under registreringen. Anteckningar gör data till gångarna mycket lättare att identifiera och förstå.
 
 I den här övningen kommenterar du en enskild datatillgång (ProductPhoto). Du lägger till ett eget namn och en beskrivning till ProductPhoto-datatillgången.  
 
-1. Gå till den [startsidan för Azure Data Catalog](https://www.azuredatacatalog.com) och Sök med `tags:product` att hitta de dataresurser som du har registrerat.
+1. Gå till [Azure Data Catalog start sida](https://www.azuredatacatalog.com) och Sök med `tags:product` för att hitta de data till gångar som du har registrerat.
 
-2. Välj **ProductModel** i sökresultaten.  
+2. Välj **ProductModel** i Sök resultat.  
 
 3. Skriv **Product images** som **Eget namn** och **Product photos for marketing materials** som **Beskrivning**.
 
     ![Azure Data Catalog – beskrivning för ProductPhoto](media/register-data-assets-tutorial/data-catalog-productmodel-description.png)
 
-    **Beskrivningen** hjälper andra att identifiera och förstå varför och hur den valda datatillgången ska användas. Du kan också lägga till fler taggar och visningskolumner. Du kan söka och filtrera datakällor med beskrivande metadata som du har lagt till katalogen.
+    **Beskrivningen** hjälper andra att identifiera och förstå varför och hur den valda datatillgången ska användas. Du kan också lägga till fler taggar och visningskolumner. Du kan söka efter och filtrera data källor med hjälp av de beskrivande metadata som du har lagt till i katalogen.
 
-Du kan också göra följande steg på den här sidan:
+Du kan också utföra följande steg på den här sidan:
 
-* Lägg till experter för datatillgången. Välj **Lägg till** i den **experter** området.
+* Lägg till experter för datatillgången. Välj **Lägg till** i **expert** -avsnittet.
 
-* Lägg till taggar på datauppsättningsnivå. Välj **Lägg till** i den **taggar** området. En tagg kan vara en användartagg eller en ordlistetagg. Standard Edition av Data Catalog innehåller en företagsordlista som hjälper katalogadministratörer att definiera en central taxonomi för företaget. Katalogens användare kan sedan lägga till anteckningar i datatillgångar med termer från ordlistan. Mer information finns i [Så här konfigurerar du en företagsordlista för hanterade taggar](data-catalog-how-to-business-glossary.md)
+* Lägg till taggar på datauppsättningsnivå. Välj **Lägg till** i avsnittet **taggar** . En tagg kan vara en användartagg eller en ordlistetagg. Standard Edition av Data Catalog innehåller en företagsordlista som hjälper katalogadministratörer att definiera en central taxonomi för företaget. Katalogens användare kan sedan lägga till anteckningar i datatillgångar med termer från ordlistan. Mer information finns i [Så här konfigurerar du en företagsordlista för hanterade taggar](data-catalog-how-to-business-glossary.md)
 
 * Lägg till taggar på kolumnnivå. Välj **Lägg till** under **taggar** för den kolumn som du vill kommentera.
 
@@ -218,7 +218,7 @@ Du kan också lägga till en anteckning till flera datatillgångar. Du kan till 
 
 ![Azure Data Catalog – kommentera flera datatillgångar](media/register-data-assets-tutorial/data-catalog-multi-select-annotate.png)
 
-Azure Data Catalog stöder kommentarer via crowdsourcing. Alla Data Catalog-användare kan lägga till taggar (användare eller ordlista), beskrivningar och andra metadata. Då kan användarna lägga till perspektiv på en datatillgång och dess användning och dela det perspektivet med andra användare.
+Azure Data Catalog stöder kommentarer via crowdsourcing. Alla Data Catalog användare kan lägga till taggar (användare eller ord lista), beskrivningar och andra metadata. Genom att göra det kan användarna lägga till perspektiv på en data till gång och dess användning och dela detta perspektiv med andra användare.
 
 Detaljerad information om hur du kommenterar datatillgångar finns i [Kommentera datatillgångar](data-catalog-how-to-annotate.md).
 
@@ -231,17 +231,17 @@ I den här övningen öppnar du datatillgångar i ett integrerat klientverktyg (
 
 ### <a name="connect-to-a-data-asset-from-excel"></a>Ansluta till en datatillgång från Excel
 
-1. Välj **Product** i sökresultatet. Välj **öppna i** i verktygsfältet och väljer **Excel**.
+1. Välj **Product** i sökresultatet. Välj **Öppna i** i verktygsfältet och välj **Excel**.
 
     ![Azure Data Catalog – anslut till datatillgång](media/register-data-assets-tutorial/data-catalog-connect1.png)
 
-2. Välj **öppna** i popup-fönstret för nedladdningen. Hur detta ser ut kan variera något beroende på webbläsaren.
+2. Välj **Öppna** i popup-fönstret Hämta. Hur detta ser ut kan variera något beroende på webbläsaren.
 
-3. I den **Microsoft Excel-säkerhetsmeddelande** väljer **aktivera**.
+3. I fönstret **säkerhets meddelande i Microsoft Excel** väljer du **Aktivera**.
 
     ![Azure Data Catalog – popup-fönster med säkerhetsmeddelande i Excel](media/register-data-assets-tutorial/data-catalog-excel-security-popup.png)
 
-4. Behåll standardinställningarna den **importdata** dialogrutan och välj **OK**.
+4. Behåll standardinställningarna i dialog rutan **Importera data** och välj **OK**.
 
     ![Azure Data Catalog – importera data i Excel](media/register-data-assets-tutorial/data-catalog-excel-import-data.png)
 
@@ -251,7 +251,7 @@ I den här övningen öppnar du datatillgångar i ett integrerat klientverktyg (
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-I den här övningen anslöt du till datatillgångar som identifierades med hjälp av Azure Data Catalog. På Azure Data Catalog-portalen kan du ansluta direkt med hjälp av klientprogrammen som är integrerade i **Öppna i**-menyn. Du kan också ansluta med valfria program som du väljer med hjälp av informationen om anslutningsplatsen som finns i datatillgångarnas metadata. Du kan till exempel använda SQL Server Management Studio för att ansluta till Azure SQL-databas för att komma åt data i datatillgångarna som registrerats i den här självstudien.
+I den här övningen anslöt du till datatillgångar som identifierades med hjälp av Azure Data Catalog. På Azure Data Catalog-portalen kan du ansluta direkt med hjälp av klientprogrammen som är integrerade i **Öppna i**-menyn. Du kan också ansluta med valfria program som du väljer med hjälp av informationen om anslutningsplatsen som finns i datatillgångarnas metadata. Du kan till exempel använda SQL Server Management Studio för att ansluta till Azure SQL-databasen för att komma åt data i data till gångar som registrerats i den här självstudien.
 
 1. Öppna **SQL Server Management Studio**.
 
@@ -261,13 +261,13 @@ I den här övningen anslöt du till datatillgångar som identifierades med hjä
 
     ![Azure Data Catalog – begär åtkomst](media/register-data-assets-tutorial/data-catalog-request-access.png)
 
-Välj **visa anslutningssträngar** att visa och kopiera ADO.NET-, ODBC- och OLEDB-anslutningssträngar till Urklipp för användning i dina program.
+Välj **Visa anslutnings strängar** för att visa och kopiera anslutnings strängar för ADO.net, ODBC och OLEDB till Urklipp för användning i programmet.
 
 ## <a name="manage-data-assets"></a>Hantera datatillgångar
 
-I det här steget konfigurerar du säkerheten för dina datatillgångar. Data Catalog ger inte användarna åtkomst till själva informationen. Datakällans ägare styr dataåtkomsten.
+I det här steget konfigurerar du säkerheten för dina datatillgångar. Data Catalog ger inte användare åtkomst till själva data. Datakällans ägare styr dataåtkomsten.
 
-Med Data Catalog kan du identifiera datakällor och visa metadata relaterade till de datakällor som registrerats i katalogen. Det kan dock finnas situationer då datakällor endast bör visas för särskilda användare eller för medlemmar i vissa grupper. Dessa scenarier kan du använda Data Catalog för att bli ägare av registrerade datatillgångar och styra visningen av de resurser som du äger.
+Med Data Catalog kan du identifiera datakällor och visa metadata relaterade till de datakällor som registrerats i katalogen. Det kan dock finnas situationer då datakällor endast bör visas för särskilda användare eller för medlemmar i vissa grupper. I dessa scenarier kan du använda Data Catalog för att bli ägare till registrerade data till gångar och kontrol lera synligheten för de till gångar du äger.
 
 > [!NOTE]
 > De hanteringsfunktioner som beskrivs i den här övningen är bara tillgängliga i Standard Edition av Azure Data Catalog, inte i den kostnadsfria versionen.
@@ -277,13 +277,13 @@ Med Data Catalog kan du identifiera datakällor och visa metadata relaterade til
 
 1. Gå till [startsidan för Azure Data Catalog](https://www.azuredatacatalog.com). I **sökrutan** skriver du `tags:cycles` och trycker på **Retur**.
 
-2. Markera ett objekt i resultatlistan och välj **bli ägare** i verktygsfältet.
+2. Markera ett objekt i resultat listan och välj **bli ägare** i verktygsfältet.
 
-3. I den **Management** delen av den **egenskaper** fönstret väljer **bli ägare**.
+3. I avsnittet **hantering** på panelen **Egenskaper** väljer du **bli ägare**.
 
     ![Azure Data Catalog – bli ägare](media/register-data-assets-tutorial/data-catalog-take-ownership.png)
 
-4. Om du vill begränsa synligheten väljer **ägare och dessa användare** i den **synlighet** och väljer **Lägg till**. Ange användarnas e-postadresser i textrutan och tryck på **Retur**.
+4. Om du vill begränsa synligheten väljer du **ägare & dessa användare** i avsnittet **synlighet** och väljer **Lägg till**. Ange användarnas e-postadresser i textrutan och tryck på **Retur**.
 
     ![Azure Data Catalog – begränsa åtkomst](media/register-data-assets-tutorial/data-catalog-ownership.png)
 
@@ -295,13 +295,13 @@ I Azure Data Catalog kan du ta bort enstaka eller flera tillgångar.
 
 1. Gå till [startsidan för Azure Data Catalog](https://www.azuredatacatalog.com).
 
-2. I den **Search** text anger `tags:cycles` och välj **RETUR**.
+2. I text rutan **Sök** skriver `tags:cycles` du och väljer **RETUR**.
 
-3. Markera ett objekt i resultatlistan och välj **ta bort** i verktygsfältet, som visas i följande bild:
+3. Markera ett objekt i resultat listan och välj **ta bort** i verktygsfältet, som du ser i följande bild:
 
     ![Azure Data Catalog – ta bort rutnätsobjekt](media/register-data-assets-tutorial/data-catalog-delete-grid-item.png)
 
-    Om du använder listvyn är kryssrutan till vänster om objektet, som visas i följande bild:
+    Om du använder listvyn visas kryss rutan till vänster om objektet, som du ser i följande bild:
 
     ![Azure Data Catalog – ta bort objekt i lista](media/register-data-assets-tutorial/data-catalog-delete-list-item.png)
 

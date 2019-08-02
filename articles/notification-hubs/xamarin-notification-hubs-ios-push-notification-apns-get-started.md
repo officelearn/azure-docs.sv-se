@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: cd6d22e7c689bce5c325863b914c5ee8abcbf40a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: baf7d5bdb156cc85a06ea2e315caca87832f3810
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240781"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742514"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Xamarin.iOS-appar med hjälp av Azure Notification Hubs
 
@@ -31,7 +31,7 @@ ms.locfileid: "66240781"
 
 I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en iOS-app. Du skapar en tom Xamarin.iOS-app som tar emot push-meddelanden med hjälp av [Apple Push Notification Service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html).
 
-När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden finns tillgänglig i exemplet [NotificationHubs-app][GitHub].
+När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden är tillgänglig i exemplet på [NotificationHubs-appen][GitHub] .
 
 I den här självstudiekursen får du skapa/uppdatera kod för att utföra följande uppgifter:
 
@@ -42,10 +42,10 @@ I den här självstudiekursen får du skapa/uppdatera kod för att utföra följ
 > * Konfigurera din meddelandehubb för att skicka push-meddelanden till iOS
 > * Skicka test-push-meddelanden
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* Den senaste versionen av [XCode][Install Xcode]
+* Den senaste versionen av [Xcode][Install Xcode]
 * En enhet som är kompatibel med iOS 10 (eller senare version)
 * Medlemskap i [Apple Developer Program](https://developer.apple.com/programs/).
 * [Visual Studio för Mac]
@@ -90,7 +90,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har ans
 
     ![Visual Studio – iOS-appkonfiguration][32]
 
-4. I vyn lösning dubbelklickar du på den `Entitlements.plist` och se till att **aktivera Push-meddelanden** kontrolleras.
+4. I vyn lösning dubbelklickar du `Entitlements.plist` på och kontrollerar att **Aktivera push-meddelanden** är markerat.
 
     ![Visual Studio – konfigurera iOS-berättiganden][33]
 
@@ -124,7 +124,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har ans
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

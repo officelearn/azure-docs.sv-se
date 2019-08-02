@@ -1,82 +1,82 @@
 ---
 title: Skapa Azure Data Catalog
-description: En Snabbstart om hur du skapar en Azure Data Catalog.
+description: En snabb start för hur du skapar en Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: f00e9eaf56f3973b357792a8d1923a4b5998e0a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/01/2019
+ms.openlocfilehash: df2f536dc95dd74dbae1c8bda1a9934a73fd1fe0
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003413"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736494"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Snabbstart: Skapa Azure Data Catalog
 
 Azure Data Catalog är en helt hanterad molntjänst som fungerar som ett registrerings- och identifieringssystem för datatillgångar på ett företag. En detaljerad översikt finns i [Vad är Azure Data Catalog?](overview.md)
 
-Den här snabbstarten hjälper dig att komma igång med att skapa en Azure Data Catalog.
+Den här snabb starten hjälper dig att komma igång med att skapa en Azure Data Catalog.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha för att komma igång:
+För att komma igång måste du ha:
 
 * En [Microsoft Azure](https://azure.microsoft.com/) prenumeration.
 * Du måste ha en egen [Azure Active Directory-klient](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-Om du vill konfigurera Data Catalog, måste du vara ägare eller Medägare av en Azure-prenumeration.
+Om du vill konfigurera Data Catalog måste du vara ägare eller medägare till en Azure-prenumeration.
 
-## <a name="create-a-data-catalog"></a>Skapa en datakatalog
+## <a name="create-a-data-catalog"></a>Skapa en data katalog
 
-Du kan bara etablera en datakatalog per organisation (Azure Active Directory-domän). Därför om ägaren eller medägaren av en Azure-prenumeration som tillhör den här Azure Active Directory-domänen har redan skapat en katalog kan skapa du inte en katalog igen även om du har flera Azure-prenumerationer. Du kan testa om en katalog har skapats av en användare i din Azure Active Directory-domän genom att gå till [startsidan för Azure Data Catalog](http://azuredatacatalog.com) och kontrollera om du ser katalogen. Om en katalog redan har skapats för dig hoppar du över följande procedur och går till nästa avsnitt.
+Du kan bara etablera en datakatalog per organisation (Azure Active Directory-domän). Om ägaren eller medägaren av en Azure-prenumeration som tillhör den här Azure Active Directorys domänen redan har skapat en katalog kan du därför inte skapa en katalog igen även om du har flera Azure-prenumerationer. Du kan testa om en katalog har skapats av en användare i din Azure Active Directory-domän genom att gå till [startsidan för Azure Data Catalog](http://azuredatacatalog.com) och kontrollera om du ser katalogen. Om en katalog redan har skapats för dig hoppar du över följande procedur och går till nästa avsnitt.
 
-1. Gå till den [Azure-portalen](https://portal.azure.com) > **skapa en resurs** och välj **Data Catalog**.
+1. Gå till [Azure Portal](https://portal.azure.com) > **skapa en resurs** och välj **Data Catalog**.
 
     ![Skapa Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
 
-2. Ange en **namn** för datakatalogen, den **prenumeration** du vill använda den **plats** för katalogen, och **prisnivån**. Välj sedan **Skapa**.
+2. Ange ett **namn** för data katalogen, den **prenumeration** som du vill använda, **platsen** för katalogen och **pris nivån**. Välj sedan **Skapa**.
 
 3. Gå till [startsidan för Azure Data Catalog](http://azuredatacatalog.com) och klicka på **Publicera data**.
 
    ![Azure Data Catalog – knappen Publicera data](media/data-catalog-get-started/data-catalog-publish-data.png)
 
-   Du kan också öppna startsidan för Data Catalog från den [service-sidan för Data Catalog](https://azure.microsoft.com/services/data-catalog) genom att välja **börjar**.
+   Du kan också gå till start sidan för Data Catalog från [Data Catalog service-sidan](https://azure.microsoft.com/services/data-catalog) genom att välja **Kom igång**.
 
    ![Azure Data Catalog – landningssida för marknadsföring](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
 
-4. Gå till den **inställningar** sidan.
+4. Gå till sidan **Inställningar** .
 
     ![Azure Data Catalog – etablering av datakatalog](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
 
-5. Expandera **priser** och verifiera din Azure Data Catalog **edition** (kostnadsfri eller Standard).
+5. Expandera **priser** och verifiera din Azure Data Catalog- **utgåva** (kostnads fri eller standard).
 
     ![Azure Data Catalog – välj version](media/data-catalog-get-started/data-catalog-create-catalog-select-edition.png)
 
-6. Om du väljer *Standard* edition som din prisnivå som du kan expandera **säkerhetsgrupper** och aktivera auktorisering av Active Directory-säkerhetsgrupper för att få åtkomst till Data Catalog och aktivera automatisk justering av fakturering.
+6. Om du väljer *standard* Edition som pris nivå kan du expandera **säkerhets grupper** och aktivera auktorisering Active Directory säkerhets grupper för att få åtkomst till Data Catalog och aktivera automatisk justering av fakturering.
 
-    ![Säkerhetsgrupper för Azure Data Catalog](media/data-catalog-get-started/data-catalog-standard-security-groups.png)
+    ![Azure Data Catalog säkerhets grupper](media/data-catalog-get-started/data-catalog-standard-security-groups.png)
 
-7. Expandera **Kataloganvändare** och klicka på **Lägg till** för att lägga till användare för datakatalogen. Du läggs automatiskt till den här gruppen.
+7. Expandera **Kataloganvändare** och klicka på **Lägg till** för att lägga till användare för datakatalogen. Du läggs automatiskt till i den här gruppen.
 
     ![Azure Data Catalog – användare](media/data-catalog-get-started/data-catalog-add-catalog-user.png)
 
-8. Om du väljer *Standard* edition som din prisnivå som du kan expandera **ordliste-administratörer** och klicka på **Lägg till** att lägga till ordliste-administratörer. Du läggs automatiskt till den här gruppen.
+8. Om du väljer *standard* Edition som pris nivå kan du expandera **ord lista administratörer** och klicka på **Lägg** till för att lägga till användare av ordlista-administratörer. Du läggs automatiskt till i den här gruppen.
 
-    ![Azure Data Catalog ordliste-administratörer](media/data-catalog-get-started/data-catalog-standard-glossary-admin.png)
+    ![Azure Data Catalog ord lista administratörer](media/data-catalog-get-started/data-catalog-standard-glossary-admin.png)
 
-9. Expandera **Katalogadministratörer** och klicka på **Lägg till** för att lägga till ytterligare administratörer för datakatalogen. Du läggs automatiskt till den här gruppen.
+9. Expandera **Katalogadministratörer** och klicka på **Lägg till** för att lägga till ytterligare administratörer för datakatalogen. Du läggs automatiskt till i den här gruppen.
 
     ![Azure Data Catalog – administratörer](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
 
-10. Expandera **Portal rubrik** och Lägg till ytterligare text som ska visas i rubriken för portalen.
+10. Expandera **Portal rubrik** och Lägg till ytterligare text som ska visas i Portal rubriken.
 
-    ![Azure Data Catalog-portalen rubrik](media/data-catalog-get-started/data-catalog-portal-title.png)
+    ![Azure Data Catalog-Portal rubrik](media/data-catalog-get-started/data-catalog-portal-title.png)
 
-11. När du har slutfört den **inställningar** sidan, navigera sedan till den **publicera** sidan.
+11. När du är klar med sidan **Inställningar** går du till sidan **publicera** .
 
     ![Azure Data Catalog – skapa katalogen](media/data-catalog-get-started/data-catalog-created.png)
 
@@ -86,9 +86,9 @@ Du kan bara etablera en datakatalog per organisation (Azure Active Directory-dom
 
 2. Välj **alla tjänster** och klicka sedan på **Data Catalog**.
 
-    ![Azure Data Catalog – Bläddra i Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
+    ![Azure Data Catalog – bläddra i Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
 
-    Du datakatalogen som du skapade.
+    Du ser data katalogen som du skapade.
 
     ![Azure Data Catalog – visa katalog i lista](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 
@@ -102,7 +102,7 @@ Du kan bara etablera en datakatalog per organisation (Azure Active Directory-dom
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du skapar en Azure Data Catalog för organisationen. Du kan nu registrera datakällor i din data catalog.
+I den här snabb starten har du lärt dig hur du skapar en Azure Data Catalog för din organisation. Nu kan du registrera data källor i din data katalog.
 
 > [!div class="nextstepaction"]
-> [Registrera datakällor i Azure Data Catalog](data-catalog-how-to-register.md)
+> [Registrera data källor i Azure Data Catalog](data-catalog-how-to-register.md)

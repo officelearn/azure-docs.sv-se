@@ -7,9 +7,7 @@
     - name: PowerShell – snabbstart
       href: quickstart-powershell.md
 - name: Funktioner och verktyg
-  items:
-    - name: Funktioner och verktyg
-      href: features.md
+  href: features.md
 - name: Självstudier
   items:
     - name: Ansible

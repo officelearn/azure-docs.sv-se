@@ -7,15 +7,15 @@ ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: a06504438340f62d5b338165cb8b159459ae35dc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: e63ad75effb03cf9dd5eb5c66b142cce629ea290
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467082"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736241"
 ---
-# <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
-Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
+# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Säkerhetskopiera Azure-filresurser i Azure-portalen
+I den här självstudien beskrivs hur du använder Azure Portal för att säkerhetskopiera [Azure](../storage/files/storage-files-introduction.md)-filresurser.
 
 I den här guiden får du lära du dig att:
 > [!div class="checklist"]

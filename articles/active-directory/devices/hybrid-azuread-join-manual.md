@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c9de4a9b72e446a7d2b6687af380ee910b58980
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052147"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741297"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudier: Konfigurera Azure Active Directory-hybridanslutna enheter manuellt
 
@@ -35,7 +35,7 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 > * Verifiera anslutna enheter
 > * Felsöka din implementering
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien förutsätts att du känner till:
 
@@ -80,10 +80,10 @@ Använd följande tabell för att få en översikt över stegen som krävs för 
 
 | Steg | Aktuell Windows hash-synkronisering av lösenord | Aktuell Windows och federation | Äldre Windows-enheter |
 | :--- | :---: | :---: | :---: |
-| Konfigurera en tjänstanslutningspunkt | ![Markera][1] | ![Markera][1] | ![Markera][1] |
-| Konfigurera utfärdande av anspråk |     | ![Markera][1] | ![Markera][1] |
-| Aktivera enheter som inte använder Windows 10 |       |        | ![Markera][1] |
-| Verifiera anslutna enheter | ![Markera][1] | ![Markera][1] | [Kontrollera][1] |
+| Konfigurera en tjänstanslutningspunkt | ![Kontrollera][1] | ![Kontrollera][1] | ![Kontrollera][1] |
+| Konfigurera utfärdande av anspråk |     | ![Kontrollera][1] | ![Kontrollera][1] |
+| Aktivera enheter som inte använder Windows 10 |       |        | ![Kontrollera][1] |
+| Verifiera anslutna enheter | ![Kontrollera][1] | ![Kontrollera][1] | [Utcheckning][1] |
 
 ## <a name="configure-a-service-connection-point"></a>Konfigurera en tjänstanslutningspunkt
 
@@ -139,7 +139,7 @@ Cmdleten `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Använder Active Directory PowerShell-modulen och Azure Active Directory Domain Services-verktyg (Azure AD DS). De här verktygen är beroende av Active Directory-webbtjänster som körs på en domänkontrollant. Active Directory Web Services fungerar på domänkontrollanter som kör Windows Server 2008 R2 och senare.
 * Det stöds endast av MSOnline PowerShell-modulversion 1.1.166.0. Ladda ned modulen via [den här länken](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Om AD DS-verktyg inte är installerade, `Initialize-ADSyncDomainJoinedComputerSync` misslyckas. Du kan installera AD DS-verktyg via Server Manager under **funktioner** > **verktyg för fjärrserveradministration** > **Rolladministrationsverktyg**.
+* Om AD DS- `Initialize-ADSyncDomainJoinedComputerSync` verktygen inte är installerade kommer att Miss förfaller. Du kan installera AD DS-verktyg via Serverhanteraren under **funktioner** > **verktyg för fjärrserveradministration** > **roll administrations verktyg**.
 
 För domänkontrollanter som kör Windows Server 2008 eller tidigare versioner använder du följande skript för att skapa tjänstanslutningspunkten. I en konfiguration med flera skogar använder du följande skript för att skapa tjänstanslutningspunkten i varje skog där det finns datorer.
 
@@ -174,10 +174,19 @@ I en federerad Azure AD-konfiguration förlitar sig enheter på AD FS eller en l
 
 Aktuella Windows-enheter autentiseras med hjälp av integrerad Windows-autentisering till en aktiv WS-Trust-slutpunkt (antingen version 1.3 eller 2005) som har den lokala federationstjänsten som värd.
 
+När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter
+- `/adfs/services/trust/2005/windowstransport`
+- `/adfs/services/trust/13/windowstransport`
+- `/adfs/services/trust/2005/usernamemixed`
+- `/adfs/services/trust/13/usernamemixed`
+- `/adfs/services/trust/2005/certificatemixed`
+- `/adfs/services/trust/13/certificatemixed`
+
+> [!WARNING]
+> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar WIndows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
+
 > [!NOTE]
-> När du använder AD FS måste antingen **adfs/services/trust/13/windowstransport** eller **adfs/services/trust/2005/windowstransport** aktiveras. Om du använder proxy för webbautentisering ska du även se till att slutpunkten publiceras via proxyn. Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
->
-> Om du inte har AD FS som en lokal federationstjänst följer du instruktionerna från din leverantör för att kontrollera att den stöder WS-Trust 1.3- eller 2005-slutpunkter och att de har publicerats via MEX-filen (Metadata Exchange).
+>Om du inte har AD FS som en lokal federationstjänst följer du instruktionerna från din leverantör för att kontrollera att den stöder WS-Trust 1.3- eller 2005-slutpunkter och att de har publicerats via MEX-filen (Metadata Exchange).
 
 För att enhetsregistrering ska kunna slutföras måste följande anspråk finnas i den token som tas emot av Azure DRS. Azure DRS skapar ett enhetsobjekt i Azure AD med några av de här uppgifterna. Azure AD Connect använder sedan den här informationen för att associera det nyligen skapade enhetsobjektet med det lokala datorkontot.
 
@@ -534,7 +543,7 @@ Om du vill undvika certifikatuppmaningar när användare av registrerade enheter
 
 ### <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter
 
-För att registrera äldre Windows-enheter måste du ladda ned och installera ett Windows Installer-paket (.msi) från Download Center. Mer information finns i avsnittet [kontrollerad validering av hybrid Azure AD-anslutning på Windows äldre enheter](hybrid-azuread-join-control.md#controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices).
+För att registrera äldre Windows-enheter måste du ladda ned och installera ett Windows Installer-paket (.msi) från Download Center. Mer information finns i avsnittet kontrollerad [validering av hybrid Azure AD-anslutning på Windows-baserade enheter](hybrid-azuread-join-control.md#controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices).
 
 ## <a name="verify-joined-devices"></a>Verifiera anslutna enheter
 

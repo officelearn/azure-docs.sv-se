@@ -1,19 +1,20 @@
 ---
 title: 'Felsöka Azure Backup fel: Gäst agentens status är inte tillgänglig'
 description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent, tillägg och diskar.
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Azure Backup; VM-agent; Nätverks anslutning;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465320"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688984"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: Problem med agenten eller tillägget
 
@@ -77,9 +78,9 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Orsak 2: [Säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**  
 **Orsak 3: [Den virtuella datorn har inte Internet åtkomst](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks-VMSnapshot-tilläggs åtgärd misslyckades
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks-VMSnapshot-tilläggs åtgärd misslyckades
 
-**Felkod**: ExtentionOperationFailedForManagedDisks <br>
+**Felkod**: ExtensionOperationFailedForManagedDisks <br>
 **Fel meddelande**: VMSnapshot-tilläggets åtgärd misslyckades<br>
 
 När du har registrerat och schemalagt en virtuell dator för Azure Backup tjänsten initierar säkerhets kopieringen jobbet genom att kommunicera med tillägget för säkerhets kopiering av virtuella datorer för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. Om ögonblicks bilden inte utlöses kan ett säkerhets kopierings fel uppstå. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:  
@@ -106,7 +107,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Felkod**: UserErrorUnsupportedDiskSize <br>
 **Fel meddelande**: För närvarande stöder Azure Backup inte disk storlekar som är större än 4 095 GB <br>
 
-Säkerhets kopieringen kunde inte utföras när den virtuella datorn skulle säkerhets kopie ras med en disk storlek som är större än 4 095 GB. Stöd för stora diskar kommer snart.  
+Säkerhets kopieringen kunde inte utföras när den virtuella datorn skulle säkerhets kopie ras med en disk storlek som är större än 4 095 GB. Om du vill registrera dig för en privat för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB upp till AskAzureBackupTeam@microsoft.com30TB i storlek, skriver du tillbaka till oss.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – det går inte att initiera säkerhets kopieringen eftersom en annan säkerhets kopiering pågår just nu
 

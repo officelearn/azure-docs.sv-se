@@ -1,7 +1,7 @@
 ---
 title: Visuellt gränssnitt
 titleSuffix: Azure Machine Learning service
-description: Lär dig om villkor, begrepp och arbetsflöde som tillsammans bildar det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten.
+description: Lär dig mer om termer, begrepp och arbets flöde som utgör det visuella gränssnittet (för hands version) för Azure Machine Learning tjänst.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,72 +9,71 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077380"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677990"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Vad är det visuella gränssnittet för Azure Machine Learning-tjänsten? 
 
-Det visuella gränssnittet (förhandsversion) för Azure Machine Learning-tjänsten kan du Förbered data, träna, testa, distribuera, hantera och spåra machine learning-modeller utan att skriva kod.
+Med Visual Interface (för hands versionen) för Azure Machine Learning service kan du utveckla data, träna, testa, distribuera, hantera och spåra maskin inlärnings modeller utan att skriva kod.
 
-Det finns ingen programmering krävs, du visuellt ansluta [datauppsättningar](#dataset) och [moduler](#module) att konstruera din modell.
+Det krävs ingen programmering, du ansluter visuellt [data uppsättningar](#dataset) och [moduler](#module) visuellt för att skapa din modell.
 
-Det visuella gränssnittet använder Azure Machine Learning-tjänsten [arbetsytan](concept-workspace.md) till:
+Det visuella gränssnittet använder din Azure Machine Learning tjänst [arbets yta](concept-workspace.md) för att:
 
-+ Skriva artefakter i [experimentera](#experiment) körs till arbetsytan.
-+ Åtkomst [datauppsättningar](#dataset).
-+ Använd den [beräkningsresurser](#compute) i arbetsytan för att köra experimentet. 
++ Skriv artefakter för [experiment](#experiment) körningar till arbets ytan.
++ Åtkomst till [data uppsättningar](#dataset).
++ Använd [beräknings resurserna](#compute) på arbets ytan för att köra experimentet. 
 + Registrera [modeller](concept-azure-machine-learning-architecture.md#models).
-+ [Distribuera](#deployment) modeller som webbtjänster på beräkningsresurser i arbetsytan.
++ [Distribuera](#deployment) modeller som webb tjänster för beräknings resurser i arbets ytan.
 
 ![Översikt över det visuella gränssnittet](media/ui-concept-visual-interface/overview.png)
 
 ## <a name="workflow"></a>Arbetsflöde
 
-Det visuella gränssnittet ger dig en interaktiv, visuell arbetsyta för att snabbt bygga, testa och iterera på en modell. 
+Det visuella gränssnittet ger dig en interaktiv, visuell arbets yta för att snabbt bygga, testa och iterera i en modell. 
 
-+ Du drar och släpper [moduler](#module) till arbetsytan.
-+ Koppla ihop moduler i formulär en [experimentera](#experiment).
-+ Kör experimentet med hjälp av beräkningsresursen i arbetsytan Machine Learning-tjänsten.
-+ Iterera din Modelldesign genom att redigera experimentet och köra det igen.
-+ När du är klar kan du konvertera dina **träningsexperiment** till en **förutsägelseexperiment**.
-+ [Distribuera](#deployment) förutsägelseexperiment som en webbsida tjänsten så att din modell kan användas av andra.
++ Du drar och släpper [moduler](#module) till arbets ytan.
++ Koppla ihop modulerna för att skapa ett [experiment](#experiment).
++ Kör experimentet med beräknings resursen i arbets ytan Machine Learnings tjänst.
++ Upprepa i modell designen genom att redigera experimentet och köra det igen.
++ När du är klar kan du konvertera ditt **utbildnings experiment** till ett **förutsägelse experiment**.
++ [Distribuera](#deployment) det förutsägande experimentet som en webb tjänst så att din modell kan användas av andra.
 
 ## <a name="experiment"></a>Experiment
 
-Skapa ett experiment från grunden eller använda ett befintligt exempelexperiment som mall.  Varje gång du kör ett experiment lagras artefakter i din arbetsyta.
+Skapa ett experiment från grunden eller Använd ett befintligt exempel experiment som mall.  Varje gången du kör ett experiment lagras artefakter i din arbets yta.
 
-Ett experiment består av datauppsättningar och analytiska moduler som du kopplar ihop för att skapa en modell. Mer konkret uttryckt så har ett giltigt experiment följande egenskaper:
+Ett experiment består av data uppsättningar och analys moduler som du ansluter tillsammans för att skapa en modell. Mer konkret uttryckt så har ett giltigt experiment följande egenskaper:
 
-* Datauppsättningar kan bara anslutas till moduler.
-* Moduler kan anslutas till datauppsättningar eller andra moduler.
-* Alla indataportar för moduler måste ha någon typ av koppling till dataflödet.
-* Alla nödvändiga parametrar för varje modul måste anges.
+* Data uppsättningar kan endast anslutas till moduler.
+* Moduler kan vara anslutna till antingen data uppsättningar eller andra moduler.
+* Alla indataportar för moduler måste ha viss anslutning till data flödet.
+* Alla obligatoriska parametrar för varje modul måste anges.
 
-Ett exempel på ett enkelt experiment finns i [snabbstarten: Förbereda och visualisera data utan att skriva kod i Azure Machine Learning](ui-quickstart-run-experiment.md).
 
-En fullständig genomgång av en lösning för förutsägelseanalys finns i [självstudien: Förutsäga bil pris med det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
+Information om hur du kommer igång med det visuella gränssnittet finns i [Självstudier: Förutsäg bil priset med det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
 
 ## <a name="dataset"></a>Datauppsättning
 
-En datauppsättning är data som har överförts till det visuella gränssnittet ska användas i modelleringsprocessen. Ett antal provdatauppsättningar ingår att experimentera med och du kan föra över fler datauppsättningar efter behov.
+En data uppsättning är data som har överförts till det visuella gränssnitt som ska användas i modellerings processen. Ett antal exempel data uppsättningar ingår som du kan experimentera med och du kan ladda upp fler data uppsättningar när du behöver dem.
 
 ## <a name="module"></a>Modul
 
-En modul är en algoritm som du kan tillämpa på dina data. Det visuella gränssnittet har ett antal moduler, med allt från dataåtkomstfunktioner till utbildning, bedömning och processer för verifiering.
+En modul är en algoritm som du kan tillämpa på dina data. Det visuella gränssnittet har ett antal moduler som sträcker sig från data ingångs funktioner till inlärnings-, poängsättnings-och validerings processer.
 
-En modul kan ha en uppsättning parametrar som du kan använda för att konfigurera modulens interna algoritmer. När du väljer en modul på arbetsytan visas modulens parametrar i fönstret egenskaper till höger om arbetsytan. Du kan ändra parametrarna i det här fönstret för att finjustera din modell.
+En modul kan ha en uppsättning parametrar som du kan använda för att konfigurera modulens interna algoritmer. När du väljer en modul på arbets ytan visas modulens parametrar i fönstret Egenskaper till höger om arbets ytan. Du kan ändra parametrarna i det här fönstret för att finjustera din modell.
 
-![Modulen egenskaper](media/ui-concept-visual-interface/properties.png)
+![Egenskaper för modul](media/ui-concept-visual-interface/properties.png)
 
-Vissa hjälp med att navigera genom bibliotek med maskininlärningsalgoritmer som är tillgängliga finns i [algoritm- och modulreferens referera till översikt](../algorithm-module-reference/module-reference.md)
+För viss hjälp att navigera genom biblioteket med Machine Learning-algoritmer tillgängliga, se [algoritmen & modul referens översikt](../algorithm-module-reference/module-reference.md)
 
-## <a name="compute"></a> Beräkningsresurser
+## <a name="compute"></a>Beräknings resurser
 
-Använd beräkningsresurser från din arbetsyta för att köra dina experiment eller värden dina distribuerade modeller som webbtjänster. Beräkningsmål som stöds är:
+Använd beräknings resurser från din arbets yta för att köra experimentet eller vara värd för dina distribuerade modeller som webb tjänster. Beräkningsmål som stöds är:
 
 
 | Beräkningsmål | Utbildning | Distribution |
@@ -82,22 +81,22 @@ Använd beräkningsresurser från din arbetsyta för att köra dina experiment e
 | Azure Machine Learning-beräkning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute mål är kopplade till din Machine Learning [arbetsytan](concept-workspace.md). Du hanterar din beräkningsmål i din arbetsyta i den [Azure-portalen](https://portal.azure.com).
+Compute-målen är kopplade till din Machine Learning- [arbetsyta](concept-workspace.md). Du hanterar dina beräknings mål i din arbets yta i [Azure Portal](https://portal.azure.com).
 
 ## <a name="deployment"></a>Distribution
 
-När din prediktiva analysmodell är färdig kan distribuera du den som en webbtjänst direkt från det visuella gränssnittet.
+När förutsägelse analys modellen är klar distribuerar du den som en webb tjänst direkt från det visuella gränssnittet.
 
-Webbtjänsterna är ett gränssnitt mellan ett program och dina bedömningsmodell. Ett externt program kan kommunicera med en arbetsflödesbaserad poängmodell i realtid. Ett anrop till en webbtjänst returnerar förutsägelser till ett externt program. Om du vill göra ett anrop till en webbtjänst skickar du en API-nyckel som skapades när du distribuerade webbtjänsten. Webbtjänsten baseras på REST, ett populärt arkitekturval för programmeringsprojekt.
+Webb tjänsterna tillhandahåller ett gränssnitt mellan ett program och din bedömnings modell. Ett externt program kan kommunicera med bedömnings modellen i real tid. Ett anrop till en webb tjänst returnerar förutsägelse resultat till ett externt program. Om du vill göra ett anrop till en webbtjänst skickar du en API-nyckel som skapades när du distribuerade webbtjänsten. Webb tjänsten baseras på REST, ett populärt arkitektur val för webb program projekt.
 
-Läs hur du distribuerar din modell i [självstudien: Distribuera en modell för maskininlärning med det visuella gränssnittet](ui-tutorial-automobile-price-deploy.md).
+Information om hur du distribuerar din modell finns i [Självstudier: Distribuera en maskin inlärnings modell med det visuella](ui-tutorial-automobile-price-deploy.md)gränssnittet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig grunderna i förutsägelseanalyser och maskininlärning med [snabbstarten: Förbereda och visualisera data utan att skriva kod i Azure Machine Learning](ui-quickstart-run-experiment.md).
-* Använd någon av exempel och ändra till suite dina behov:
-    * [Exempel 1 – Regression: Förutsäga pris](ui-sample-regression-predict-automobile-price-basic.md)
-    * [Exempel 2 – Regression: Förutsäga pris och jämföra algoritmer](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [Exempel 3 – klassificering: Förutsäga kreditrisk](ui-sample-classification-predict-credit-risk-basic.md)
-    * [Exempel 4 - klassificering: Förutsäga kreditrisken (kostnad känsliga)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [Exempel 5 - klassificering: Förutsäga kundomsättning, begär och ökad försäljning](ui-sample-classification-predict-churn.md)
+* Lär dig grunderna för förutsägelse analys och maskin inlärning med [Självstudier: Förutsäg bil pris med Visual Interface](ui-tutorial-automobile-price-train-score.md)
+* Använd ett av exemplen och ändra till Suite-behoven:
+    * [Exempel 1 – regression: Förutsägelse pris](ui-sample-regression-predict-automobile-price-basic.md)
+    * [Exempel 2 – regression: Förutsäg priser och jämför algoritmer](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [Exempel 3 – klassificering: Förutsägelse kredit risk](ui-sample-classification-predict-credit-risk-basic.md)
+    * [Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Exempel 5 – klassificering: Förutsäga omsättning, begär och försäljning](ui-sample-classification-predict-churn.md)

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 960320e280a613a537f1918d93e4584a13a0b374
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: aac328806e2570bd124626e916c250d481a11311
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309965"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567591"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutnings arkitektur för en hanterad instans i Azure SQL Database
 
@@ -99,7 +98,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 
 | Namn       |Port                        |Protocol|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|Hanterings  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI-UNDERNÄT  |Allow |
+|hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI-UNDERNÄT  |Allow |
 |mi_subnet   |Any                         |Any     |MI-UNDERNÄT        |MI-UNDERNÄT  |Allow |
 |health_probe|Any                         |Any     |AzureLoadBalancer|MI-UNDERNÄT  |Allow |
 
@@ -107,7 +106,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 
 | Namn       |Port          |Protocol|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
-|Hanterings  |80, 443, 12000|TCP     |MI-UNDERNÄT        |AzureCloud |Allow |
+|hantering  |80, 443, 12000|TCP     |MI-UNDERNÄT        |AzureCloud |Allow |
 |mi_subnet   |Any           |Any     |MI-UNDERNÄT        |MI-UNDERNÄT  |Allow |
 
 > [!IMPORTANT]

@@ -1,6 +1,6 @@
 ---
-title: Utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure
-description: Lär dig hur du utvecklar och distribuerar du Azure WebJobs till Azure App Service med Visual Studio.
+title: Utveckla och distribuera WebJobs med Visual Studio – Azure
+description: Lär dig hur du utvecklar och distribuerar Azure WebJobs för Azure App Service med hjälp av Visual Studio.
 services: app-service
 documentationcenter: ''
 author: ggailey777
@@ -15,165 +15,162 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: e66a2ffa6578ed0c9eb5eb19659adf9ba253bbeb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 2695ee2751a2834466c42d224101af246b829aca
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613361"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717626"
 ---
-# <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service
+# <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera WebJobs med Visual Studio – Azure App Service
 
-Den här artikeln förklarar hur du använder Visual Studio för att distribuera ett konsolprogramsprojekt till en webbapp i [Apptjänst](overview.md) som en [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). Information om hur du distribuerar WebJobs genom att använda den [Azure-portalen](https://portal.azure.com), se [kör bakgrundsaktiviteter med WebJobs](webjobs-create.md).
+Den här artikeln förklarar hur du använder Visual Studio för att distribuera ett konsol programs projekt till en webbapp i [App Service](overview.md) som ett [Azure](https://go.microsoft.com/fwlink/?LinkId=390226)-webbjobb. Information om hur du distribuerar WebJobs med hjälp av [Azure Portal](https://portal.azure.com)finns i [köra bakgrunds aktiviteter med WebJobs](webjobs-create.md).
 
-Du kan publicera en enkel webbapp för flera WebJobs. Se till att varje Webbjobb i en webbapp har ett unikt namn.
+Du kan publicera flera WebJobs i en enda webbapp. Se till att varje webb jobb i en webbapp har ett unikt namn.
 
-Version 3.x för den [Azure WebJobs SDK](webjobs-sdk-how-to.md) kan du utveckla WebJobs som körs som .NET Core-appar eller .NET Framework appar när .NET Framework-version 2.x stöder. Hur du distribuerar ett WebJobs-projekt skiljer sig för .NET Core-projekt jämfört med .NET Framework som.
+Med version 3. x av [Azure WEBJOBS SDK](webjobs-sdk-how-to.md) kan du utveckla WebJobs som körs som antingen .net Core-appar eller .NET Framework appar, medan version 2. x bara stöder .NET Framework. Hur du distribuerar ett WebJobs-projekt skiljer sig åt för .NET Core-projekt jämfört med .NET Framework.
 
-## <a name="webjobs-as-net-core-console-apps"></a>WebJobs som .NET Core-konsolappar
+## <a name="webjobs-as-net-core-console-apps"></a>WebJobs som .NET Core Console-appar
 
-När du använder version 3.x för WebJobs, kan du skapa och publicera WebJobs som .NET Core-konsolappar. Stegvisa anvisningar om hur du skapar och publicerar en .NET Core-konsolprogram till Azure som ett WebJob finns i [Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning](webjobs-sdk-get-started.md).
+När du använder version 3. x av webbjobben kan du skapa och publicera webbjobb som .NET Core Console-appar. Stegvisa instruktioner för att skapa och publicera ett .NET Core-konsolprogram till Azure som ett webb jobb finns i [komma igång med Azure WEBJOBS SDK för händelse driven bakgrunds bearbetning](webjobs-sdk-get-started.md).
 
 > [!NOTE]
-> .NET core WebJobs kan inte kopplas till webbprojekt. Om du behöver distribuera ditt WebJob med en webbapp, bör du [skapa ditt WebJob som en .NET Framework-konsolapp](#webjobs-as-net-framework-console-apps).  
+> Det går inte att länka .NET Core-webbjobb till webb projekt. Om du behöver distribuera ditt webbjobb med en webbapp, bör du [skapa ditt webbjobb som en .NET Framework-konsol program](#webjobs-as-net-framework-console-apps).  
 
 ### <a name="deploy-to-azure-app-service"></a>Distribuera till Azure App Service
 
-Publicera ett .NET Core WebJob på App Service från Visual Studio använder samma verktyg som publicerar en ASP.NET Core-app.
+Publicering av ett .NET Core-webbjobb till App Service från Visual Studio använder samma verktyg som publicering av en ASP.NET Core-app.
 
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)] 
 
-### <a name="webjob-types"></a>WebJob-typer
+### <a name="webjob-types"></a>Webb jobb typer
 
-Som standard publicerade ett WebJob från en .NET Core konsollprojekt körs bara när de utlöses eller på begäran. Du kan också uppdatera projektet till [körs enligt ett schema](#scheduled-execution) eller köras kontinuerligt.
+Som standard körs ett webbjobb som publicerats från ett .NET Core-konsol projekt bara när det utlöses eller på begäran. Du kan också uppdatera projektet så att det [körs enligt ett schema](#scheduled-execution) eller köras kontinuerligt.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
-#### <a name="scheduled-execution"></a>Schemalagda körning
+#### <a name="scheduled-execution"></a>Schemalagd körning
 
-När du publicerar ett .NET Core-konsolprogram som Azure, en ny *settings.job* fil läggs till i projektet. Använd den här filen om du vill ange en körschemat för ditt WebJob. Mer information finns i [schemalägga ett utlösta Webbjobb](#scheduling-a-triggered-webjob).
+När du publicerar ett .NET Core-konsolprogram till Azure läggs en ny *inställning. job* -fil till i projektet. Använd den här filen för att ange ett körnings schema för ditt webb jobb. Mer information finns i [Schemalägga ett utlöst webb jobb](#scheduling-a-triggered-webjob).
 
 #### <a name="continuous-execution"></a>Kontinuerlig körning
 
-Du kan använda Visual Studio för att ändra Webbjobb ska köras kontinuerligt när AlwaysOn är aktiverat i Azure.
+Du kan använda Visual Studio för att ändra att webb jobbet körs kontinuerligt när Always On är aktiverat i Azure.
 
-1. Om du inte redan gjort det, [publicera projektet på Azure](#deploy-to-azure-app-service).
+1. [Publicera projektet till Azure](#deploy-to-azure-app-service)om du inte redan gjort det.
 
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
-1. I den **publicera** fliken **inställningar**. 
+1. På fliken **publicera** väljer du **Inställningar**. 
 
-1. I den **profilinställningar** dialogrutan Välj **kontinuerlig** för **WebJob typ**, och välj **spara**.
+1. I dialog rutan **profil inställningar** väljer du **kontinuerlig** för **webb jobb typ**och väljer **Spara**.
 
-    ![Publicera dialogrutan Inställningar för ett Webbjobb](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
+    ![Dialog rutan publicera inställningar för ett webb jobb](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
 
-1. Välj **publicera** att publicera Webbjobb med de uppdaterade inställningarna.
+1. Välj **publicera** för att publicera webbjobbet igen med de uppdaterade inställningarna.
 
-## <a name="webjobs-as-net-framework-console-apps"></a>WebJobs som .NET Framework-konsolappar  
+## <a name="webjobs-as-net-framework-console-apps"></a>Webbjobb som .NET Framework-konsol program  
 
-När Visual Studio distribuerar ett WebJobs-aktiverad .NET Framework-konsolprogram projekt, utför två uppgifter:
+När Visual Studio distribuerar ett WebJobs-aktiverat .NET Framework-konsol program projekt kopieras runtime-filer till lämplig mapp i webbappen (*App_Data/Jobs/kontinuerligt* för kontinuerliga webbjobb och *App_Data/jobb/utlöses* för schemalagda eller webb jobb på begäran).
 
-* Kopierar körningsfiler till rätt mapp i webbapp (*App_Data/jobb/continuous* för kontinuerliga WebJobs och *App_Data/jobb/triggered* för schemalagd eller på begäran WebJobs).
-* Ställer in [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) jobb för WebJobs som är schemalagda att köras vid specifika tidpunkter. (Detta krävs inte för kontinuerliga WebJobs.)
+Ett WebJobs-aktiverat projekt har följande objekt tillagda:
 
-Ett WebJobs-aktiverade projekt har följande funktioner har lagts till:
+* [Microsoft. Web. WebJobs. Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-paketet.
+* Ett [webb jobb – publicera-Settings. JSON](#publishsettings) -fil som innehåller distributions-och Scheduler-inställningar. 
 
-* Den [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-paketet.
-* En [webjob publicera settings.json](#publishsettings) -fil som innehåller inställningar för distribution och scheduler. 
+![Diagram som visar vad som läggs till i en konsol app för att aktivera distribution som ett webb jobb](./media/webjobs-dotnet-deploy-vs/convert.png)
 
-![Diagram som visar vad som har lagts till i en Konsolapp för att aktivera distribution som ett WebJob](./media/webjobs-dotnet-deploy-vs/convert.png)
+Du kan lägga till dessa objekt i ett befintligt konsol programs projekt eller använda en mall för att skapa ett nytt webbjobb-aktiverat konsol program projekt. 
 
-Du kan lägga till dessa objekt i en befintlig konsolprogramsprojekt eller använda en mall för att skapa ett nytt projekt för WebJobs-aktiverade konsolprogram. 
+Du kan distribuera ett projekt som ett webb jobb separat eller länka det till ett webb projekt så att det automatiskt distribueras när du distribuerar webb projektet. För att länka projekt innehåller Visual Studio namnet på det WebJobs-aktiverade projektet i en [WebJobs-List. JSON-](#webjobslist) fil i webbprojektet.
 
-Du kan distribuera ett projekt som ett WebJob ensamt eller länka det till ett webbprojekt så att den distribuerar automatiskt när du distribuerar webbprojektet. Om du vill länka projekt, Visual Studio innehåller namnet på WebJobs-aktiverade projektet i en [webjobs list.json](#webjobslist) filen i webbprojektet.
-
-![Diagram över WebJob-projekt som länkar till webbprojekt](./media/webjobs-dotnet-deploy-vs/link.png)
+![Diagram över projekt för webb jobb som länkar till webb projekt](./media/webjobs-dotnet-deploy-vs/link.png)
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Om du använder Visual Studio 2015, installera den [Azure SDK för .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
+Om du använder Visual Studio 2015 installerar du [Azure SDK för .net (Visual studio 2015)](https://azure.microsoft.com/downloads/).
 
-Om du använder Visual Studio 2019 installerar den [arbetsbelastningen Azure development](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Om du använder Visual Studio 2019 installerar du [arbets belastningen Azure Development](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
-### <a id="convert"></a> Aktivera WebJobs distribution för ett befintligt projekt konsolprogram
+### <a id="convert"></a>Aktivera distribution av WebJobs för ett befintligt konsol program projekt
 
 Du kan välja mellan två alternativ:
 
-* [Aktivera automatisk distribution med ett webbprojekt](#convertlink).
+* [Aktivera automatisk distribution med ett webb projekt](#convertlink).
 
-  Konfigurera en befintlig konsolprogramsprojekt så att den automatiskt distribueras som ett WebJob när du distribuerar ett webbprojekt. Använd det här alternativet när du vill köra ditt WebJob i samma webbapp som du kör relaterade webbprogrammet.
+  Konfigurera ett befintligt konsol program projekt så att det automatiskt distribueras som ett webb jobb när du distribuerar ett webb projekt. Använd det här alternativet om du vill köra ditt webb jobb i samma webbapp som du kör det relaterade webb programmet i.
 
-* [Aktivera distribution utan ett webbprojekt](#convertnolink).
+* [Aktivera distribution utan ett webb projekt](#convertnolink).
 
-  Konfigurera en befintlig konsolprogramsprojekt ska distribueras som ett WebJob, med ingen länk till ett webbprojekt. Använd det här alternativet när du vill köra ett Webbjobb i en webbapp, där inga webbprogram som körs i webbappen. Du kanske vill göra detta för att kunna skala ditt WebJob-resurser oberoende av resurser i ditt webbprogram.
+  Konfigurera ett befintligt konsol programs projekt som ska distribueras som ett webb jobb utan någon länk till ett webb projekt. Använd det här alternativet om du vill köra ett webbjobb i en webbapp med sig själv, utan att något webb program körs i webbappen. Du kanske vill göra detta för att kunna skala dina webb jobbs resurser oberoende av dina webb programs resurser.
 
-#### <a id="convertlink"></a> Aktivera automatisk WebJobs-distribution med ett webbprojekt
+#### <a id="convertlink"></a>Aktivera automatisk distribution av WebJobs med ett webb projekt
 
-1. Högerklicka på webbprojektet i **Solution Explorer**, och klicka sedan på **Lägg till** > **befintligt projekt som Azure WebJob**.
+1. Högerklicka på webb projektet i **Solution Explorer**och klicka sedan på **Lägg till** > **befintligt projekt som Azure**-webbjobb.
    
-    ![Befintligt projekt som Azure WebJob](./media/webjobs-dotnet-deploy-vs/eawj.png)
+    ![Befintligt projekt som Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/eawj.png)
    
-    Den [lägga till Azure-Webbjobb](#configure) dialogrutan visas.
-2. I den **projektnamn** listrutan, väljer konsolprogrammet projektet ska läggas till som ett WebJob.
+    Dialog rutan [Lägg till Azure](#configure) -webbjobb visas.
+2. I list rutan **projekt namn** väljer du det konsol program projekt som ska läggas till som ett webb jobb.
    
-    ![Att markera projekt i dialogrutan Lägg till Azure-Webbjobb](./media/webjobs-dotnet-deploy-vs/aaw1.png)
-3. Slutför den [lägga till Azure-Webbjobb](#configure) dialogrutan och klicka sedan på **OK**. 
+    ![Välja projekt i dialog rutan Lägg till Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/aaw1.png)
+3. Slutför dialog rutan [Lägg till Azure](#configure) -webbjobb och klicka sedan på **OK**. 
 
-#### <a id="convertnolink"></a> Aktivera WebJobs distribution utan ett webbprojekt
-1. Högerklicka på konsolprogramprojektet i **Solution Explorer**, och klicka sedan på **Publicera som Azure WebJob...** . 
+#### <a id="convertnolink"></a>Aktivera distribution av WebJobs utan ett webb projekt
+1. Högerklicka på projektet konsol program i **Solution Explorer**och klicka sedan på **Publicera som Azure-webbjobb..** .. 
    
-    ![Publicera som Azure WebJob](./media/webjobs-dotnet-deploy-vs/paw.png)
+    ![Publicera som Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/paw.png)
    
-    Den [lägga till Azure-Webbjobb](#configure) dialogruta, med projekt som valts i den **projektnamn** box.
-2. Slutför den [lägga till Azure-Webbjobb](#configure) dialogrutan och klicka sedan på **OK**.
+    Dialog rutan [Lägg till Azure](#configure) -webbjobb visas med projektet markerat i rutan **projekt namn** .
+2. Slutför dialog rutan [Lägg till Azure](#configure) -webbjobb och klicka sedan på **OK**.
    
-   Den **Publicera webbplats** guiden visas.  Om du inte vill publicera omedelbart kan du stänga guiden. De inställningar som du har angett sparas för när du vill [distribuera projektet](#deploy).
+   Guiden **Publicera webbplats** visas.  Om du inte vill publicera omedelbart stänger du guiden. De inställningar du har angett sparas för när du vill [distribuera projektet](#deploy).
 
-### <a id="create"></a>Skapa ett nytt projekt för WebJobs-aktiverad
-Om du vill skapa ett nytt projekt för WebJobs-aktiverad, du kan använda projektmall konsolprogram och aktivera WebJobs distribution enligt beskrivningen i [ovan](#convert). Alternativt kan använda du mallen WebJobs nytt projekt:
+### <a id="create"></a>Skapa ett nytt WebJobs-aktiverat projekt
+Om du vill skapa ett nytt WebJobs-aktiverat projekt kan du använda projekt mal len konsol program och aktivera distribution av WebJobs enligt beskrivningen i [föregående avsnitt](#convert). Som ett alternativ kan du använda mallen WebJobs New-Project:
 
-* [Använda WebJobs nytt projekt mallen för ett oberoende WebJob](#createnolink)
+* [Använd mallen WebJobs New-Project för ett oberoende webbjobb](#createnolink)
   
-    Skapa ett projekt och konfigurera den att distribuera fristående som ett Webbjobb med ingen länk till ett webbprojekt. Använd det här alternativet när du vill köra ett Webbjobb i en webbapp, där inga webbprogram som körs i webbappen. Du kanske vill göra detta för att kunna skala ditt WebJob-resurser oberoende av resurser i ditt webbprogram.
-* [Använda WebJobs nytt projekt mallen för ett Webbjobb som är länkad till ett webbprojekt](#createlink)
+    Skapa ett projekt och konfigurera det för att distribuera det som ett webb jobb, utan länk till ett webb projekt. Använd det här alternativet om du vill köra ett webbjobb i en webbapp med sig själv, utan att något webb program körs i webbappen. Du kanske vill göra detta för att kunna skala dina webb jobbs resurser oberoende av dina webb programs resurser.
+* [Använd mallen WebJobs New-Project för ett webb jobb som är länkat till ett webb projekt](#createlink)
   
-    Skapa ett projekt som är konfigurerad för att distribuera automatiskt som ett WebJob när ett webbprojekt i samma lösning distribueras. Använd det här alternativet när du vill köra ditt WebJob i samma webbapp som du kör relaterade webbprogrammet.
+    Skapa ett projekt som är konfigurerat för att distribuera automatiskt som ett webb jobb när ett webb projekt i samma lösning distribueras. Använd det här alternativet om du vill köra ditt webb jobb i samma webbapp som du kör det relaterade webb programmet i.
 
 > [!NOTE]
-> Mallen WebJobs nytt projekt som automatiskt installerar NuGet-paket och innehåller koden i *Program.cs* för den [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Om du inte vill använda WebJobs-SDK, ta bort eller ändra den `host.RunAndBlock` instruktionen i *Program.cs*.
+> Med mallen WebJobs New-Project installeras automatiskt NuGet-paket och innehåller kod i *program.cs* för [WebJobs SDK](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Om du inte vill använda WebJobs SDK tar du `host.RunAndBlock` bort eller ändrar instruktionen i *program.cs*.
 > 
 > 
 
-#### <a id="createnolink"></a> Använda WebJobs nytt projekt mallen för ett oberoende WebJob
-1. Klicka på **filen** > **nytt projekt**, och sedan i den **nytt projekt** dialogrutan klickar du på **molnet**  >   **Azure WebJob (.NET Framework)** .
+#### <a id="createnolink"></a>Använd mallen WebJobs New-Project för ett oberoende webbjobb
+1. Klicka **på filen** > **nytt projekt**och klicka sedan på **Cloud** > **Azure-webbjobb (.NET Framework)** i dialog rutan **nytt projekt** .
    
-    ![Dialogrutan Nytt projekt som visar WebJob-mall](./media/webjobs-dotnet-deploy-vs/np.png)
-2. Följ anvisningarna som visas tidigare [gör konsolprogrammet projicera ett oberoende WebJobs-projekt](#convertnolink).
+    ![Dialog rutan nytt projekt med webbjobb-mall](./media/webjobs-dotnet-deploy-vs/np.png)
+2. Följ anvisningarna som visas ovan för att [göra konsol programmet till projekt ett oberoende projekt](#convertnolink)för WebJobs.
 
-#### <a id="createlink"></a> Använda WebJobs nytt projekt mallen för ett Webbjobb som är länkad till ett webbprojekt
-1. Högerklicka på webbprojektet i **Solution Explorer**, och klicka sedan på **Lägg till** > **nytt projekt i Azure-Webbjobb**.
+#### <a id="createlink"></a>Använd mallen WebJobs New-Project för ett webb jobb som är länkat till ett webb projekt
+1. Högerklicka på webb projektet i **Solution Explorer**och klicka sedan på **Lägg till** > **nytt Azure**-webbjobb-projekt.
    
-    ![Nya Azure WebJob menyn projektposten](./media/webjobs-dotnet-deploy-vs/nawj.png)
+    ![Nytt projekt meny alternativ för Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/nawj.png)
    
-    Den [lägga till Azure-Webbjobb](#configure) dialogrutan visas.
-2. Slutför den [lägga till Azure-Webbjobb](#configure) dialogrutan och klicka sedan på **OK**.
+    Dialog rutan [Lägg till Azure](#configure) -webbjobb visas.
+2. Slutför dialog rutan [Lägg till Azure](#configure) -webbjobb och klicka sedan på **OK**.
 
-### <a id="configure"></a>Dialogrutan Lägg till Azure-Webbjobb
-Den **lägga till Azure-Webbjobb** dialogrutan låter dig ange Webbjobbets namn och kör inställning för ditt WebJob. 
+### <a id="configure"></a>Dialog rutan Lägg till Azure-webbjobb
+I dialog rutan **Lägg till Azure** -webbjobb kan du ange webb jobbets namn och läge för körnings läge för ditt webb jobb. 
 
-![Azure-Webbjobb dialogrutan Lägg till](./media/webjobs-dotnet-deploy-vs/aaw2.png)
+![Dialog rutan Lägg till Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/aaw2.png)
 
-Fälten i den här dialogrutan motsvarar fälten på den **lägger till Webbjobb** dialogrutan i Azure Portal. Mer information finns i [kör bakgrundsaktiviteter med WebJobs](webjobs-create.md).
+Fälten i den här dialog rutan motsvarar fält i dialog rutan **Lägg till webbjobb** i Azure Portal. Mer information finns i [köra bakgrunds aktiviteter med WebJobs](webjobs-create.md).
 
 > [!NOTE]
-> * Information om kommandoradsverktyget distribution finns i [aktiverar kommandoraden eller kontinuerlig leverans av Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
-> * Om du distribuerar ett WebJob och sedan bestämmer du vill ändra typen av WebJob och distribuera om, måste du ta bort den *webjobs publicera settings.json* fil. Det gör Visual Studio som visar publiceringsalternativ igen, så att du kan ändra typ av WebJob.
-> * Om du distribuerar ett WebJob och senare ändrar körningsläge från kontinuerlig till icke-kontinuerliga eller tvärtom, skapar Visual Studio ett nytt WebJob i Azure när du distribuerar om. Om du ändrar andra inställningar för schemaläggning men lämna körningsläge samma eller växla mellan schemalagd och på begäran, Visual Studio befintliga jobbet i stället skapa ett nytt.
+> * Information om distribution av kommando raden finns i [Aktivera kommando rads-eller kontinuerlig leverans av Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+> * Om du distribuerar ett webb jobb och sedan bestämmer dig för att ändra typ av webb jobb och omdistribuera måste du ta bort filen *WebJobs-Publish-Settings. JSON* . Detta gör att Visual Studio visar publicerings alternativen igen, så att du kan ändra typ av webb jobb.
+> * Om du distribuerar ett webb jobb och senare ändrar körnings läget från kontinuerlig till icke-kontinuerlig eller vice versa, skapar Visual Studio ett nytt webbjobb i Azure när du distribuerar om. Om du ändrar andra schema inställningar men låter körnings läget vara samma eller växla mellan schemalagda och på begäran, uppdaterar Visual Studio det befintliga jobbet i stället för att skapa ett nytt.
 > 
 > 
 
 ### <a id="publishsettings"></a>webjob-publish-settings.json
-När du konfigurerar ett konsolprogram för distribution av WebJobs, Visual Studio installeras den [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paket- och lagrar schemaläggning av informationen i en *webjob publicera settings.json*  filen i projektet *egenskaper* mappen projektets WebJobs. Här är ett exempel på filen:
+När du konfigurerar ett konsol program för distribution av WebJobs, installerar Visual Studio [Microsoft. Web. WebJobs. publicera](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet-paket och lagrar schemaläggnings information i ett *webb jobb – Publish-Settings. JSON* -fil i projektet  *Mappen egenskaper* för WebJobs-projektet. Här är ett exempel på filen:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
@@ -185,10 +182,10 @@ När du konfigurerar ett konsolprogram för distribution av WebJobs, Visual Stud
           "runMode": "Continuous"
         }
 
-Du kan redigera den här filen direkt Visual Studio ger IntelliSense. Filschemat lagras på [ https://schemastore.org ](https://schemastore.org/schemas/json/webjob-publish-settings.json) och kan visa.  
+Du kan redigera den här filen direkt och Visual Studio innehåller IntelliSense. Fil schemat lagras på [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) och kan visas där.  
 
 ### <a id="webjobslist"></a>webjobs-list.json
-När du länkar ett WebJobs-aktiverade projekt till ett webbprojekt Visual Studio lagrar namnet på WebJobs-projekt i en *webjobs list.json* filen i webbprojektet *egenskaper* mapp. Listan kan innehålla flera WebJobs-projekt som du ser i följande exempel:
+När du länkar ett WebJobs-aktiverat projekt till ett webb projekt lagrar Visual Studio namnet på WebJobs-projektet i en WebJobs *-list. JSON-* fil i webbprojektets egenskaps -mapp. Listan kan innehålla flera jobb projekt, som du ser i följande exempel:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
@@ -202,20 +199,20 @@ När du länkar ett WebJobs-aktiverade projekt till ett webbprojekt Visual Studi
           ]
         }
 
-Du kan redigera den här filen direkt Visual Studio ger IntelliSense. Filschemat lagras på [ https://schemastore.org ](https://schemastore.org/schemas/json/webjobs-list.json) och kan visa.
+Du kan redigera den här filen direkt och Visual Studio innehåller IntelliSense. Fil schemat lagras på [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) och kan visas där.
 
 ### <a id="deploy"></a>Distribuera ett WebJobs-projekt
-Ett WebJobs-projekt som du har länkat till ett webbprojekt distribueras automatiskt med webbprojektet. Läs om hur webbdistribution för projektet **anvisningar hjälper** > **distribuera app** i det vänstra navigeringsfönstret.
+Ett WebJobs-projekt som du har länkat till ett webb projekt distribueras automatiskt med webbprojektet. Information om distribution av webb projekt finns i **instruktions guider** > **Distribuera App** i det vänstra navigerings fältet.
 
-Om du vill distribuera ett WebJobs-projekt genom att själva, högerklicka på projektet i **Solution Explorer** och klicka på **Publicera som Azure WebJob...** . 
+Om du vill distribuera ett WebJobs-projekt själva högerklickar du på projektet i **Solution Explorer** och klickar på **Publicera som Azure-webbjobb...** . 
 
-![Publicera som Azure WebJob](./media/webjobs-dotnet-deploy-vs/paw.png)
+![Publicera som Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/paw.png)
 
-För ett oberoende WebJob samma **Publicera webbplats** guiden som används för webbprojekt visas, men med färre tillgängliga inställningar att ändra.
+Samma **publicerings webb** guide som används för webb projekt visas för ett oberoende webb jobb, men med färre inställningar som kan ändras.
 
-## <a name="scheduling-a-triggered-webjob"></a>Schemalägga ett utlösta Webbjobb
+## <a name="scheduling-a-triggered-webjob"></a>Schemalägga ett utlöst webbjobb
 
-WebJobs använder en *settings.job* fil att avgöra när ett Webbjobb körs. Använd den här filen om du vill ange en körschemat för ditt WebJob. I följande exempel körs varje timme från 9: 00 till 17: 00:
+WebJobs använder en *Settings. job* -fil för att avgöra när ett webb jobb körs. Använd den här filen för att ange ett körnings schema för ditt webb jobb. Följande exempel körs varje timme från och med 9 till 5 PM:
 
 ```json
 {
@@ -223,28 +220,28 @@ WebJobs använder en *settings.job* fil att avgöra när ett Webbjobb körs. Anv
 }
 ```
 
-Den här filen måste finnas i roten på mappen WebJobs, längs sidan ditt WebJob skript, till exempel `wwwroot\app_data\jobs\triggered\{job name}` eller `wwwroot\app_data\jobs\continuous\{job name}`. När du distribuerar ett WebJob från Visual Studio, markera din `settings.job` filegenskaper som **kopiera om nyare**. 
+Den här filen måste finnas i roten i mappen WebJobs, tillsammans med webbjobbets skript, till exempel `wwwroot\app_data\jobs\triggered\{job name}` eller. `wwwroot\app_data\jobs\continuous\{job name}` När du distribuerar ett webb jobb från Visual Studio markerar `settings.job` du fil egenskaperna som **Kopiera om nyare**. 
 
-När du [skapa ett WebJob i Azure Portal](webjobs-create.md), filen settings.job skapas åt dig.
+När du [skapar ett webb jobb från Azure Portal](webjobs-create.md)skapas inställningar. job-filen åt dig.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="cron-expressions"></a>CRON-uttryck
 
-WebJobs använder samma CRON-uttryck för schemaläggning som timerutlösare i Azure Functions. Läs mer om CRON-stödet i den [timer utlösaren referensartikeln](../azure-functions/functions-bindings-timer.md#cron-expressions).
+WebJobs använder samma CRON-uttryck för schemaläggning som timer-utlösaren i Azure Functions. Mer information om CRON-support finns i [referens artikeln om timer](../azure-functions/functions-bindings-timer.md#cron-expressions)-utlösare.
 
-### <a name="settingjob-reference"></a>Setting.job referens
+### <a name="settingjob-reference"></a>inställning. jobb referens
 
 Följande inställningar stöds av WebJobs:
 
 | **Inställning** | **Typ**  | **Beskrivning** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Alla | Tillåter att jobbet ska köras på plats utan att först kopieras till en tillfällig mapp. Mer information finns i [WebJobs arbetskatalog](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Kontinuerlig igenkänning | Endast köra WebJobs på en enda instans vid utskalning. Mer information finns i [ställa in en kontinuerlig jobb som singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Utlöses | Köra Webbjobbet på ett CRON-baserade schema. Mer information finns i den [timer utlösaren referensartikeln](../azure-functions/functions-bindings-timer.md#cron-expressions). |
-| `stopping_wait_time`| Alla | Kan du styra beteendet avstängning. Mer information finns i [avslutning](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `is_in_place` | Alla | Tillåter att jobbet körs på plats utan att först kopieras till en Temp-mapp. Mer information finns i [WebJobs arbets katalog](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_singleton` | Kontinuerlig | Kör bara webbjobben på en enskild instans vid utskalning. Läs mer i [Ange ett kontinuerligt jobb som singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `schedule` | Utlöst | Kör webb jobbet på ett CRON-baserat schema. Mer information finns i [referens artikeln om timer](../azure-functions/functions-bindings-timer.md#cron-expressions)-utlösare. |
+| `stopping_wait_time`| Alla | Tillåter kontroll av avstängnings beteendet. Läs mer i en [korrekt avstängning](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om WebJobs-SDK](webjobs-sdk-how-to.md)
+> [Läs mer om WebJobs SDK](webjobs-sdk-how-to.md)

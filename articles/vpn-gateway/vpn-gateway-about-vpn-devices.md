@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 343bbf5c84ce97feb7b7d170523845f5a2f7c10d
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666267"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668427"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN Gateway från plats till plats
 
@@ -33,39 +33,39 @@ En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats
 
 Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna i följande lista bör fungera med VPN-gatewayer. Mer information om VPN-typerna (PolicyBased eller RouteBased) för den VPN Gateway-lösning som du vill konfigurera finns i [Om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 
-Hjälp med att konfigurera din VPN-enhet, se länkarna som motsvarar lämplig enhetsfamilj. Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
+Information om hur du konfigurerar VPN-enheten finns i länkarna som motsvarar lämplig enhets familj. Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
 
 |**Leverantör**          |**Enhetsfamilj**     |**Minsta operativsystemversion** |**Instruktioner för principbaserad konfiguration** |**Instruktioner för routningsbaserad konfiguration** |
 | ---                | ---                  | ---                   | ---            | ---           |
-| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Inte kompatibel  |[Konfigurationsguide](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
-| Allied Telesis     |AR-serie VPN-routrar |AR-serien 5.4.7+               |Kommer snart     |[Konfigurationsguide](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-serien |Principbaserad: 5.4.3<br>Routningsbaserad: 6.2.0 |[Konfigurationsguide](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Konfigurationsguide](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Inte kompatibel  |[Konfigurationsguide](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
+| Allied Telesis     |AR-serie VPN-routrar |AR-seriens 5.4.7 +               |Kommer snart     |[Konfigurationsguide](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
+| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-serien |Principbaserad före<br>Routningsbaserad 6.2.0 |[Konfigurationsguide](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Konfigurationsguide](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-serien |Barracuda Firewall 6.5 |[Konfigurationsguide](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Inte kompatibel |
-| Check Point |Security Gateway |R80.10 |[Konfigurationsguide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Konfigurationsguide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
+| Check Point |Security Gateway |R-80.10 |[Konfigurationsguide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Konfigurationsguide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4 och senare versioner (IKEv2*) |Stöds |[Konfigurationsguide*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
-| Cisco |ASR |Principbaserad: IOS 15.1<br>Routningsbaserad: IOS 15.2 |Stöds |Stöds |
-| Cisco | CSR | Routningsbaserad: IOS-XE 16.10 | | [Konfigurationsskript](vpn-gateway-download-vpndevicescript.md) |
-| Cisco |ISR |Principbaserad: IOS 15.0<br>Routningsbaserad *: IOS 15.1 |Stöds |Stöds |
+| Cisco |ASR |Principbaserad IOS 15,1<br>Routningsbaserad IOS 15,2 |Stöds |Stöds |
+| Cisco | REPRESENTANTER | Routningsbaserad IOS-XE 16.10 | | [Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
+| Cisco |ISR |Principbaserad IOS 15,0<br>Routningsbaserad *: IOS 15,1 |Stöds |Stöds |
 | Cisco |Meraki |Gäller inte |Inte kompatibel |Inte kompatibel |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 och senare |[Konfigurationsguide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Inte kompatibel |
 | F5 |BIG-IP-serien |12.0 |[Konfigurationsguide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Konfigurationsguide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.6 |  |[Konfigurationsguide](https://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
+| Fortinet |FortiGate |FortiOS 5.6 |  |[Konfigurationsguide](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/030680/connecting-a-local-fortigate-to-an-azure-fortigate-via-site-to-site-vpn) |
 | Internet Initiative Japan (IIJ) |SEIL-serien |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Konfigurationsguide](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Inte kompatibel |
-| Juniper |SRX |Principbaserad: JunOS 10.2<br>Routningsbaserad: JunOS 11.4 |Stöds |[Konfigurationsskript](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |J-serien |Principbaserad: JunOS 10.4r9<br>Routningsbaserad: JunOS 11.4 |Stöds |[Konfigurationsskript](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |ISG |ScreenOS 6.3 |Stöds |[Konfigurationsskript](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |SSG |ScreenOS 6.2 |Stöds |[Konfigurationsskript](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |MX |JunOS 12.x|Stöds |[Konfigurationsskript](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |SRX |Principbaserad JunOS 10,2<br>Routningsbaserad JunOS 11,4 |Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |J-serien |Principbaserad JunOS 10.4 R9<br>Routningsbaserad JunOS 11,4 |Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |ISG |ScreenOS 6.3 |Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |SSG |ScreenOS 6.2 |Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |MX |JunOS 12. x|Stöds |[Konfigurations skript](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |Routning och fjärråtkomst |Windows Server 2012 |Inte kompatibel |Stöds |
 | Open Systems AG |Mission Control Security Gateway |Gäller inte |[Konfigurationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Inte kompatibel |
-| Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad: 6.1.5 eller senare<br>Routningsbaserad: 7.1.4 |[Konfigurationsguide](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Konfigurationsguide](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
+| Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad 6.1.5 eller senare<br>Routningsbaserad 7.1.4 |[Konfigurationsguide](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Konfigurationsguide](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | Nästa datagenerations UTM (Nu-serien) | 9.0.1.3 | Inte kompatibel | [Konfigurationsguide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ-serie, NSA-serie<br>SuperMassive-serie<br>NSA-serie i E-klassen |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Inte kompatibel |[Konfigurationsguide](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
-| Sophos | XG nästa generations brandvägg | XG v17 | | [Konfigurationsguide](https://community.sophos.com/kb/127546)<br><br>[Konfigurationsguide - flera SAs](https://community.sophos.com/kb/en-us/133154) |
-| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [Konfigurationsguide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
-| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP via IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI via IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
+| Sophos | XG nästa generations brandvägg | XG v17 | | [Konfigurationsguide](https://community.sophos.com/kb/127546)<br><br>[Konfigurations guide – flera SAs](https://community.sophos.com/kb/en-us/133154) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [Konfigurations guide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
+| Ubiquiti | EdgeRouter | Rand v 1.10 |  | [BGP över IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI över IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Alla |Fireware XTM<br> Principbaserad: v11.11.x<br>Routningsbaserad: v11.12.x |[Konfigurationsguide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Konfigurationsguide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
-| Zyxel |ZyWALL USG-serien<br>ZyWALL ATP-serien<br>ZyWALL VPN-serien | ZLD v4.32+ | | [VTI via IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[BGP via IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
+| ZyXEL |ZyWALL USG-serien<br>ZyWALL ATP-serien<br>ZyWALL VPN-serien | ZLD v-4.32 + | | [VTI över IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[BGP över IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >
@@ -73,11 +73,11 @@ Hjälp med att konfigurera din VPN-enhet, se länkarna som motsvarar lämplig en
 >
 > (\*\*) Routrar i ISR 7200-serien stöder endast principbaserade VPN-gatewayer.
 
-## <a name="configscripts"></a>Ladda ned konfigurationsskript för VPN-enheten från Azure
+## <a name="configscripts"></a>Hämta konfigurations skript för VPN-enheter från Azure
 
-För vissa enheter kan du hämta konfigurationsskript direkt från Azure. Mer information och instruktioner finns i [konfigurationsskript för ladda ned VPN-enheten](vpn-gateway-download-vpndevicescript.md).
+För vissa enheter kan du hämta konfigurations skript direkt från Azure. Mer information och instruktioner för hämtning finns i [Ladda ned konfigurations skript för VPN-enheter](vpn-gateway-download-vpndevicescript.md).
 
-### <a name="devices-with-available-configuration-scripts"></a>Enheter med tillgängliga konfigurationsskript
+### <a name="devices-with-available-configuration-scripts"></a>Enheter med tillgängliga konfigurations skript
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
@@ -152,22 +152,22 @@ Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena 
 
 |-  |**Kryptering**|**Autentisering**|**PFS-grupp**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Ingen         |
+| 1 |GCM AES256    |GCM (AES256)      |Inga         |
 | 2 |AES256        |SHA1              |Ingen         |
-| 3 |3DES          |SHA1              |Inga         |
-| 4 |AES256        |SHA256            |Ingen         |
+| 3 |3DES          |SHA1              |Ingen         |
+| 4 |AES256        |SHA256            |Inga         |
 | 5 |AES128        |SHA1              |Ingen         |
-| 6 |3DES          |SHA256            |Inga         |
+| 6 |3DES          |SHA256            |Ingen         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure Gateway som svarare
 
 |-  |**Kryptering**|**Autentisering**|**PFS-grupp**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Inga         |
+| 1 |GCM AES256    |GCM (AES256)      |Ingen         |
 | 2 |AES256        |SHA1              |Ingen         |
 | 3 |3DES          |SHA1              |Inga         |
 | 4 |AES256        |SHA256            |Inga         |
-| 5 |AES128        |SHA1              |Inga         |
+| 5 |AES128        |SHA1              |Ingen         |
 | 6 |3DES          |SHA256            |Inga         |
 | 7 |DES           |SHA1              |Inga         |
 | 8 |AES256        |SHA1              |1            |
@@ -202,7 +202,7 @@ Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena 
 
 ### <a name="feb-16-2017"></a>16 februari 2017
 
-**Palo Alto Networks-enheter med tidigare versioner än 7.1.4** för Azure-vägbaserad VPN: Om du använder VPN-enheter från Palo Alto Networks med en PAN-OS-version äldre än 7.1.4 och problem med anslutningen till Azure-vägbaserade VPN-gatewayer, utför du följande steg:
+**Palo-enheter i nätverk med tidigare versioner än 7.1.4** för Azure Route-baserade VPN: Om du använder VPN-enheter från Palo-nätverk med PAN-OS-version före 7.1.4 och har problem med anslutningen till Azure Route-baserade VPN-gatewayer utför du följande steg:
 
 1. Kontrollera Palo Alto Networks-enhetens version av den inbyggda programvaran (firmware). Om din version av PAN-OS är äldre än 7.1.4 uppgraderar du till 7.1.4.
 2. På Palo Alto Networks-enheten ändrar du livslängden för Phase 2 SA (eller Quick Mode SA) till 28 800 sekunder (8 timmar) vid anslutning till Azure VPN-gatewayen.

@@ -9,39 +9,39 @@ ms.author: robreed
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a82358a2194f10a2112ed89109f0f2933dfd5fe2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8187e4c6f2c7dc721c178bad50b6c3ada2a65367
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478614"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717227"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Flytta ditt Azure Automation-konto till en annan prenumeration
 
-Azure ger dig möjligheten att flytta resurser till en ny resursgrupp eller prenumeration. Du kan flytta resurser via Azure portal, PowerShell, Azure CLI eller REST API. Mer information om processen finns [flytta resurser till en ny resursgrupp eller prenumeration](../../azure-resource-manager/resource-group-move-resources.md). 
+Azure ger dig möjlighet att flytta vissa resurser till en ny resurs grupp eller prenumeration. Du kan flytta resurser via Azure Portal, PowerShell, Azure CLI eller REST API. Mer information om processen finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../../azure-resource-manager/resource-group-move-resources.md).
 
-Azure Automation-konton är en av de resurser som kan flyttas. I den här artikeln får lära du dig stegen för att flytta Automation-konton till en annan resurs eller prenumeration.
+Azure Automation-konton är en av de resurser som kan flyttas. I den här artikeln lär du dig hur du flyttar Automation-konton till en annan resurs eller prenumeration.
 
-Övergripande steg för att flytta ditt Automation-konto är:
+De övergripande stegen för att flytta ditt Automation-konto är:
 
 1. Ta bort dina lösningar.
-2. Ta bort länken till din arbetsyta.
+2. Ta bort länken till arbets ytan.
 3. Flytta Automation-kontot.
 4. Ta bort och återskapa kör som-konton.
 5. Återaktivera dina lösningar.
 
 ## <a name="remove-solutions"></a>Ta bort lösningar
 
-Om du vill ta bort länken till din arbetsyta från ditt Automation-konto, måste dessa lösningar tas bort från din arbetsyta:
+Om du vill ta bort länken till arbets ytan från ditt Automation-konto måste du ta bort dessa lösningar från arbets ytan:
 - **Ändringsspårning och inventering**
-- **Hantering av uppdateringar** 
-- **Starta/Stoppa VM under belastning** 
+- **Hantering av uppdateringar**
+- **Starta/stoppa virtuella datorer under några timmar**
 
-Hitta varje lösning i din resursgrupp och välj **ta bort**. På den **ta bort resurser** bekräftar du resurser att tas bort och välj **ta bort**.
+Leta upp varje lösning i resurs gruppen och välj **ta bort**. På sidan **ta bort resurser** bekräftar du de resurser som ska tas bort och väljer **ta bort**.
 
-![Ta bort lösningar från Azure portal](../media/move-account/delete-solutions.png)
+![Ta bort lösningar från Azure Portal](../media/move-account/delete-solutions.png)
 
-Du kan utföra samma åtgärd med den [Remove-AzureRmResource](/powershell/module/azurerm.resources/remove-azurermresource) som det visas i följande exempel:
+Du kan utföra samma aktivitet med cmdleten [Remove-AzureRmResource](/powershell/module/azurerm.resources/remove-azurermresource) som visas i följande exempel:
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -53,97 +53,98 @@ Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' 
 
 ### <a name="additional-steps-for-startstop-vms"></a>Ytterligare steg för att starta/stoppa virtuella datorer
 
-För den **Starta/Stoppa VM** lösning, du måste också ta bort aviseringsregler som skapats av lösningen.
+För lösningen **Starta/stoppa virtuella datorer** måste du också ta bort de aviserings regler som skapats av lösningen.
 
-I Azure-portalen går du till resursgruppen och välj **övervakning** > **aviseringar** > **hantera Varningsregler**.
+I Azure Portal går du till din resurs grupp och väljer **övervaknings** > **aviseringar** > **Hantera aviserings regler**.
 
-![Aviseringar sidan som visar valet av hantera aviseringsregler](../media/move-account/alert-rules.png)
+![Sidan aviseringar med val av hantera aviserings regler](../media/move-account/alert-rules.png)
 
-På den **regler** bör du se en lista över de aviseringar som konfigurerats i den resursgruppen. Den **Starta/Stoppa VM** lösningen skapar tre Varningsregler:
+På sidan **regler** bör du se en lista över de aviseringar som kon figurer ATS i resurs gruppen. Lösningen **Starta/stoppa virtuella datorer** skapar tre varnings regler:
 
 * AutoStop_VM_Child
 * ScheduledStartStop_Parent
 * SequencedStartStop_Parent
 
-Välj de här tre aviseringsregler och välj sedan **ta bort**. Den här åtgärden tar bort dessa Varningsregler.
+Välj dessa tre varnings regler och välj sedan **ta bort**. Den här åtgärden tar bort dessa aviserings regler.
 
-![Regler för sidan som begär bekräftelse av borttagning för valda regler](../media/move-account/delete-rules.png)
+![Sidan regler begär bekräftelse av borttagning för markerade regler](../media/move-account/delete-rules.png)
 
 > [!NOTE]
-> Om du inte ser några Varningsregler på den **regler** , ändra den **Status** att visa **inaktiverad** aviseringar, eftersom du kan ha inaktiverat dem.
+> Om du inte ser några varnings regler på sidan **regler** ändrar du **statusen** för att visa inaktiverade aviseringar, eftersom du kan ha inaktiverat dem.
 
-När varningsreglerna har tagits bort kan du ta bort åtgärdsgrupp som har skapats för den **Starta/Stoppa VM** lösning meddelanden.
+När aviserings reglerna tas bort tar du bort den åtgärds grupp som skapades för meddelanden **om att starta/stoppa VM-** lösningar.
 
-I Azure-portalen väljer du **övervakaren** > **aviseringar** > **hantera åtgärdsgrupper**.
+I Azure Portal väljer du **övervaka** > **aviseringar** > **Hantera åtgärds grupper**.
 
-Välj **StartStop_VM_Notification** i listan. På sidan åtgärd gruppen väljer **ta bort**.
+Välj **StartStop_VM_Notification** i listan. På sidan åtgärds grupp väljer du **ta bort**.
 
-![Välj på sidan med åtgärden ta bort](../media/move-account/delete-action-group.png)
+![Sidan åtgärds grupp väljer du ta bort](../media/move-account/delete-action-group.png)
 
-På samma sätt kan du ta bort din åtgärdsgruppen med hjälp av PowerShell med den [: Remove-AzureRmActionGroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) cmdlet, som visas i följande exempel:
+På samma sätt kan du ta bort åtgärds gruppen med hjälp av PowerShell med cmdleten [Remove-AzureRmActionGroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) , som visas i följande exempel:
 
 ```azurepowershell-interactive
 Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
 ```
 
-## <a name="unlink-your-workspace"></a>Ta bort länken till din arbetsyta
+## <a name="unlink-your-workspace"></a>Ta bort länk till arbets ytan
 
-I Azure-portalen väljer du **automatiseringskontot** > **relaterade resurser** > **länkade arbetsytan**. Välj **ta bort arbetsytans länk** att ta bort länken till arbetsytan från ditt Automation-konto.
+I Azure Portal väljer du **Automation-konto** > **relaterade resurser** > **länkad arbets yta**. Välj **länken för att ta bort länkar** för arbets ytan från ditt Automation-konto.
 
-![Ta bort länk till en arbetsyta från ett Automation-konto](../media/move-account/unlink-workspace.png)
+![Ta bort länken till en arbets yta från ett Automation-konto](../media/move-account/unlink-workspace.png)
 
-## <a name="move-your-automation-account"></a>Flytta Automation-konto
+## <a name="move-your-automation-account"></a>Flytta ditt Automation-konto
 
-När du tar bort tidigare objekt, kan du fortsätta att ta bort ditt Automation-konto och dess runbooks. Bläddra till resursgruppen för ditt Automation-konto i Azure-portalen. Välj **flytta** > **flytta till en annan prenumeration**.
+När du har tagit bort föregående objekt kan du fortsätta att ta bort ditt Automation-konto och dess Runbooks. I Azure Portal bläddrar du till resurs gruppen för ditt Automation-konto. Välj **Flytta** > **Flytta till en annan prenumeration**.
 
-![Sidan med resursgrupper, flytta till en annan prenumeration](../media/move-account/move-resources.png)
+![Sidan resurs grupp flyttar du till en annan prenumeration](../media/move-account/move-resources.png)
 
-Välj resurserna i resursgruppen som du vill flytta. Se till att du inkluderar din **automatiseringskontot**, **Runbook**, och **Log Analytics-arbetsyta** resurser.
+Välj de resurser i resurs gruppen som du vill flytta. Se till att du inkluderar ditt **Automation-konto**, din **Runbook**och **Log Analytics arbets ytans** resurser.
 
-När förflyttningen har slutförts, finns det ytterligare steg som krävs för att få allt att fungera.
+När flyttningen är klar finns det ytterligare steg som krävs för att allt ska fungera.
 
 ## <a name="re-create-run-as-accounts"></a>Återskapa kör som-konton
 
-[Kör som-konton](../manage-runas-account.md) skapa ett tjänstobjekt i Azure Active Directory att autentisera med Azure-resurser. När du ändrar prenumerationer, används det befintliga kör som-kontot inte längre i Automation-kontot.
+[Kör som-konton](../manage-runas-account.md) skapa ett huvud namn för tjänsten i Azure Active Directory för att autentisera med Azure-resurser. När du ändrar prenumerationer använder Automation-kontot inte längre det befintliga kör som-kontot.
 
-Gå till ditt Automation-konto i den nya prenumerationen och välj **kör som-konton** under **kontoinställningar**. Du ser att kör som-konton visas som ofullständig nu.
+Gå till ditt Automation-konto i den nya prenumerationen och välj **Kör som-konton** under **konto inställningar**. Du ser att kör som-kontona visas som ofullständiga nu.
 
 ![Kör som-konton är ofullständiga](../media/move-account/run-as-accounts.png)
 
-Välj Kör som-kontona. På den **egenskaper** väljer **ta bort** att ta bort kör som-kontot.
+Välj varje kör som-konto. På sidan **Egenskaper** väljer du **ta bort** för att ta bort kör som-kontot.
 
 > [!NOTE]
-> Om du inte har behörighet att skapa eller visa kör som-konton, visas följande meddelande: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Läs om de behörigheter som krävs för att konfigurera ett kör som-konto i [behörigheter som krävs för att konfigurera kör som-konton](../manage-runas-account.md#permissions).
+> Om du inte har behörighet att skapa eller Visa kör som-konton visas följande meddelande: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.`Information om vilka behörigheter som krävs för att konfigurera ett Kör som-konto finns i [behörigheter som krävs för att konfigurera kör som-konton](../manage-runas-account.md#permissions).
 
-När kör som-konton tas bort, väljer **skapa** under **kör som-konto**. På den **Lägg till Kör som-konto** väljer **skapa** skapa kör som-konto och tjänstens huvudnamn. Upprepa föregående steg med den **klassiska kör som-konto**.
+När kör som-kontona har tagits bort väljer du **skapa** under **Kör som-konto i Azure**. På sidan **Lägg till Azure kör som-konto** väljer du **skapa** för att skapa kör som-kontot och tjänstens huvud namn. Upprepa föregående steg med det **klassiska kör som-kontot i Azure**.
 
 ## <a name="enable-solutions"></a>Aktivera lösningar
 
-När du har återskapat kör som-konton, ska du återaktivera de lösningar som du har tagit bort innan flytten. Aktivera **ändringsspårning och inventering** och **uppdateringshantering**, Välj den respektive kapaciteten i ditt Automation-konto. Välj Log Analytics-arbetsytan som du har flyttat över och **aktivera**.
+När du har återskapat kör som-kontona återaktiverar du de lösningar som du tog bort innan du flyttar igen. Aktivera **ändringsspårning och inventering** och **uppdateringshantering**genom att välja respektive funktion i ditt Automation-konto. Välj den Log Analytics arbets ytan du flyttade över och välj **Aktivera**.
 
-![Återaktivera lösningar i ditt flyttade Automation-konto](../media/move-account/reenable-solutions.png)
+![Återaktivera lösningar i det flyttade Automation-kontot](../media/move-account/reenable-solutions.png)
 
-Datorer som är integrerat med dina lösningar kommer att vara synliga när du har anslutit den befintliga Log Analytics-arbetsytan.
+Datorer som är inbyggda med dina lösningar visas när du har anslutit till den befintliga Log Analytics-arbetsytan.
 
-Aktivera den **Starta/Stoppa VM** vid låg belastning på nätverket lösning måste du distribuera lösningen igen. Under **relaterade resurser**väljer **Starta/Stoppa VM** > **Läs mer om att aktivera lösningen** > **skapa** att starta distributionen.
+Om du vill aktivera lösningen för att **Starta/stoppa virtuella datorer** vid låg belastnings tider måste du distribuera om lösningen. Under **relaterade resurser**väljer du **Starta/stoppa virtuella datorer** > **Läs mer om och aktiverar lösningen** > **skapa** för att starta distributionen.
 
-På den **lägga till lösning** väljer din Log Analytics-arbetsytan och Automation-kontot.  
+På sidan **Lägg till lösning** väljer du Log Analytics arbets yta och Automation-konto.
 
-![Lägga till lösning meny](../media/move-account/add-solution-vm.png)
+![Menyn Lägg till lösning](../media/move-account/add-solution-vm.png)
 
-Detaljerade anvisningar om hur du konfigurerar lösningen finns i [Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation](../automation-solution-vm-management.md).
+Detaljerade anvisningar om hur du konfigurerar lösningen finns i [Starta/stoppa virtuella datorer vid låg belastnings lösning i Azure Automation](../automation-solution-vm-management.md).
 
-## <a name="post-move-verification"></a>Efter flytten verifiering
+## <a name="post-move-verification"></a>Verifiering efter flytt
 
-När förflyttningen har slutförts, kontrollerar du följande lista med aktiviteter som ska verifieras:
+När flyttningen är klar kontrollerar du följande lista över aktiviteter som ska verifieras:
 
-|Funktion|Tester|Felsökning av länk|
+|Funktion|Tester|Fel söknings länk|
 |---|---|---|
-|Runbooks|En runbook kan har kör och ansluta till Azure-resurser.|[Felsöka runbook-flöden](../troubleshoot/runbooks.md)
-| Källkontroll|Du kan köra en manuell synkronisering på din källkontrolldatabasen.|[Källkontrollsintegrering](../source-control-integration.md)|
-|Ändringsspårning och inventering|Kontrollera att du ser aktuella inventeringsdata från dina virtuella datorer.|[Felsöka ändringsspårning](../troubleshoot/change-tracking.md)|
-|Hantering av uppdateringar|Kontrollera att du ser dina datorer och de är felfria.</br>Kör en programuppdateringsdistribution för testning.|[Felsöka hantering av uppdateringar](../troubleshoot/update-management.md)|
+|Runbooks|En Runbook kan köra och ansluta till Azure-resurser.|[Felsöka runbook-flöden](../troubleshoot/runbooks.md)
+|Käll kontroll|Du kan köra en manuell synkronisering på din lagrings platsen för käll kontroll.|[Källkontrollsintegrering](../source-control-integration.md)|
+|Ändrings spårning och inventering|Kontrol lera att du ser aktuella inventerings data från datorerna.|[Felsöka ändrings spårning](../troubleshoot/change-tracking.md)|
+|Hantering av uppdateringar|Kontrol lera att du ser dina datorer och att de är felfria.</br>Kör en test program uppdaterings distribution.|[Felsöka uppdaterings hantering](../troubleshoot/update-management.md)|
+|Delade resurser|Kontrol lera att du ser alla dina delade resurser, till exempel [autentiseringsuppgifter](../shared-resources/credentials.md), [variabler](../shared-resources/variables.md)osv.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du flyttar resurser i Azure finns [flytta resurser i Azure](../../azure-resource-manager/move-support-resources.md).
+Läs mer om hur du flyttar resurser i Azure i [Flytta resurser i Azure](../../azure-resource-manager/move-support-resources.md).

@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure SQL Database prestandaproblem med intelligenta insikter | Microsoft Docs
-description: Intelligent Insights hjälper dig att felsöka problem med Azure SQL Database-prestanda.
+title: Felsök Azure SQL Database prestanda problem med Intelligent Insights | Microsoft Docs
+description: Intelligent Insights hjälper dig att felsöka Azure SQL Database prestanda problem.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,326 +10,325 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f6b20806f75cc28b5f4f740ffb67faae491ae84
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703509"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567919"
 ---
-# <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
+# <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsök Azure SQL Database prestanda problem med Intelligent Insights
 
-Den här sidan innehåller information om Azure SQL Database och prestandaproblem för hanterad instans har identifierats genom den [smarta insikter](sql-database-intelligent-insights.md) diagnostiklogg för databas prestanda. Diagnostiklogg telemetri kan strömmas till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), eller en lösning från tredje part för anpassade DevOps-varningar och rapporteringsfunktioner.
+Den här sidan innehåller information om prestanda problem för Azure SQL Database och hanterade instanser som upptäckts genom att logga in med hjälp av [intelligent Insights](sql-database-intelligent-insights.md) Database-prestandadiagnostik. Telemetri för diagnostikloggar kan strömmas till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 > [!NOTE]
-> En snabb SQL Database-prestanda med hjälp av Intelligent Insights felsökningsguide finns den [rekommenderas felsöka flöde](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flödesschema i det här dokumentet.
+> En snabb SQL Database prestanda fel söknings guide med hjälp av Intelligent Insights finns i det [rekommenderade fel söknings flödet](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) i det här dokumentet.
 >
 
-## <a name="detectable-database-performance-patterns"></a>Flashminnet mönster i prestanda
+## <a name="detectable-database-performance-patterns"></a>Identifiera mönster för databas prestanda
 
-Intelligent Insights identifierar automatiskt prestandaproblem med SQL-databas och Managed Instance databaser baserat på frågan körningstider vänta, fel eller timeout. Den returnerar identifierade prestandamönster in diagnostik. Flashminnet prestandamönster sammanfattas i tabellen nedan.
+Intelligent Insights identifierar automatiskt prestanda problem med SQL Database och hanterade instans databaser baserat på vänte tider, fel eller tids gränser för frågekörning. Den utvärderar identifierade prestanda mönster i Diagnostic-loggen. Identifierade prestanda mönster sammanfattas i tabellen nedan.
 
-| Prestandamönster för flashminnet | Beskrivning för Azure SQL Database och elastiska pooler | Beskrivning för databaser i Managed Instance |
+| Identifierade prestanda mönster | Beskrivning av Azure SQL Database och elastiska pooler | Beskrivning av databaser i hanterad instans |
 | :------------------- | ------------------- | ------------------- |
-| [Nådde resursbegränsningar](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Användning av tillgängliga resurser (dtu: er), databasen arbetstrådar eller databasen inloggningssessioner som är tillgängliga på den övervakade prenumerationen har nått gränserna. Detta påverkar prestandan för SQL Database. | Förbrukning av processorresurserna når Managed Instance gränser. Detta påverkar prestanda för databasen. |
-| [Ökning av arbetsbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Ökning av arbetsbelastning eller kontinuerlig anhopning av arbetsbelastningen för databasen har identifierats. Detta påverkar prestandan för SQL Database. | Ökning av arbetsbelastning har identifierats. Detta påverkar prestanda för databasen. |
-| [Minnesbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Arbetare som begärt minne beviljar måste vänta tills minnesallokeringar statistiskt signifikanta mängder tid. Eller arbetare som begärt minne ger ökad ackumulerade finns. Detta påverkar prestandan för SQL Database. | Arbetare som har begärt minne beviljar väntar minnesallokeringar för en statistiskt betydande tidsperiod. Detta påverkar prestanda för databasen. |
-| [Låsning](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Långa databasen låsning upptäcktes påverkar prestandan för SQL Database. | Långa databasen låsning upptäcktes påverka databasens prestanda. |
-| [Ökad MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Högsta grad av parallellitet (MAXDOP) har ändrats påverkar frågans körning effektiviteten. Detta påverkar prestandan för SQL Database. | Högsta grad av parallellitet (MAXDOP) har ändrats påverkar frågans körning effektiviteten. Detta påverkar prestanda för databasen. |
-| [Pagelatch konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Flera trådar försöker samtidigt komma åt samma data i minnet bufferten sidorna vilket resulterar i ökad väntetider och orsakar pagelatch konkurrens. Detta påverkar prestanda för SQL-databas. | Flera trådar försöker samtidigt komma åt samma data i minnet bufferten sidorna vilket resulterar i ökad väntetider och orsakar pagelatch konkurrens. Detta påverkar databas prestanda. |
-| [Index som saknas](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Index som saknas upptäcktes att det påverkar prestanda för SQL-databas. | Index som saknas har identifierats som påverkar prestanda för databasen. |
-| [Ny fråga](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Ny fråga har identifierats som påverkar prestandan för SQL-databas. | Ny fråga har identifierats som påverkar prestandan i databasen. |
-| [Ökad vänta statistik](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Ökad databasen väntetider har identifierats som påverkar prestanda för SQL-databas. | Ökad databasen väntetider identifierades påverka databasens prestanda. |
-| [TempDB konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en flaskhals. Detta påverkar prestandan för SQL Database. | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en flaskhals. Detta påverkar prestanda för databasen. |
-| [Elastisk pool DTU brist](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Brist på tillgängliga edtu: er i den elastiska poolen påverkar prestandan för SQL Database. | Inte tillgängligt för hanterad instans som den använder vCore-modellen. |
-| [Planera Regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats. Detta påverkar prestandan för SQL Database. | Ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats. Detta påverkar prestanda för databasen. |
-| [Databasbegränsade konfigurationen ändras](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Konfigurationsändring på SQL-databasen har identifierats som påverkar prestanda för databasen. | Konfigurationsändring på databasen har identifierats som påverkar prestanda för databasen. |
-| [Långsam klienten](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Långsamma programklienten kan inte använda utdata från databasen tillräckligt snabbt. Detta påverkar prestandan för SQL Database. | Långsamma programklienten kan inte använda utdata från databasen tillräckligt snabbt. Detta påverkar prestanda för databasen. |
-| [Priser för nedgradering av nivå](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Priser nivån nedgradering åtgärd minskade tillgängliga resurser. Detta påverkar prestandan för SQL Database. | Priser nivån nedgradering åtgärd minskade tillgängliga resurser. Detta påverkar prestanda för databasen. |
+| [Når resurs gränser](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Användning av tillgängliga resurser (DTU: er), databas arbets trådar eller databas inloggnings sessioner som är tillgängliga i den övervakade prenumerationen har nått gränsen. Detta påverkar SQL Database prestandan. | Användningen av processor resurser når gränser för hanterade instanser. Detta påverkar databasens prestanda. |
+| [Ökad arbets belastning](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Ökad arbets belastning eller kontinuerlig ackumulering av arbets belastningen på databasen upptäcktes. Detta påverkar SQL Database prestandan. | Arbets belastnings ökning har upptäckts. Detta påverkar databasens prestanda. |
+| [Minnes belastning](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Arbetare som begärde minnes anslag måste vänta på minnes tilldelningar för statistiskt signifikanta tids mängder. Eller en ökad ackumulering av arbetare som har begärt minnes beviljande. Detta påverkar SQL Database prestandan. | Arbetare som har begärt minnes bidrag väntar på minnes tilldelningar för en statistiskt betydande tids period. Detta påverkar databasens prestanda. |
+| [Spärr](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | En kraftig databas låsning påträffades som påverkar SQL Database prestanda. | Databasens prestanda har upptäckts för överdriven databas. |
+| [Ökad MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Den högsta graden av Parallel-alternativ (MAXDOP) har ändrats påverkar effektiviteten i körningen av frågan. Detta påverkar SQL Database prestandan. | Den högsta graden av Parallel-alternativ (MAXDOP) har ändrats påverkar effektiviteten i körningen av frågan. Detta påverkar databasens prestanda. |
+| [PAGELATCH-konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Flera trådar försöker samtidigt få åtkomst till samma InMemory DataBuffer-sidor som resulterar i ökade vänte tider och orsakar PAGELATCH konkurrens. Detta påverkar prestandan för SQL Database. | Flera trådar försöker samtidigt få åtkomst till samma InMemory DataBuffer-sidor som resulterar i ökade vänte tider och orsakar PAGELATCH konkurrens. Detta påverkar prestandan för databasen. |
+| [Index saknas](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Ett index som saknas påverkar SQL Database-prestanda. | Indexet som saknas har identifierats som påverkar databasens prestanda. |
+| [Ny fråga](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | En ny fråga som påverkar den övergripande SQL Database prestanda har upptäckts. | En ny fråga som påverkar den övergripande databas prestandan påträffades. |
+| [Ökad vänte statistik](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Den ökade vänte tiden för databasen har upptäckts som påverkar prestandan för SQL-databasen. | Ökade vänte tider för databasen upptäcktes under databasens prestanda. |
+| [TempDB-konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en Flask hals. Detta påverkar SQL Database prestandan. | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en Flask hals. Detta påverkar databasens prestanda. |
+| [DTU-underskott för elastisk pool](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Brist på tillgängliga eDTU: er i den elastiska poolen påverkar SQL Database prestanda. | Inte tillgängligt för den hanterade instansen eftersom den använder vCore-modellen. |
+| [Plan regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Ny plan eller en ändring i arbets belastningen för en befintlig plan upptäcktes. Detta påverkar SQL Database prestandan. | Ny plan eller en ändring i arbets belastningen för en befintlig plan upptäcktes. Detta påverkar databasens prestanda. |
+| [Ändring av konfigurations värde för databas omfattning](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Konfigurations ändringen på den SQL Database upptäckte att databasens prestanda påverkas. | Konfigurations ändringen av databasen upptäcktes och gjorde att databasens prestanda påverkas. |
+| [Långsam klient](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Långsam program klient kan inte använda utdata från databasen tillräckligt snabbt. Detta påverkar SQL Database prestandan. | Långsam program klient kan inte använda utdata från databasen tillräckligt snabbt. Detta påverkar databasens prestanda. |
+| [Nedgradering av pris nivå](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Åtgärden för nedgradering av pris nivå minskar tillgängliga resurser. Detta påverkar SQL Database prestandan. | Åtgärden för nedgradering av pris nivå minskar tillgängliga resurser. Detta påverkar databasens prestanda. |
 
 > [!TIP]
-> Kontinuerlig prestandaoptimering i SQL Database, aktivera [automatisk justering i Azure SQL Database](sql-database-automatic-tuning.md). Den här unika funktionen i SQL Database inbyggd intelligens kontinuerligt övervakar din SQL-databas, automatiskt justerar index och gäller fråga körning plan korrigeringar.
+> För kontinuerlig prestanda optimering av SQL Database aktiverar [Azure SQL Database automatisk justering](sql-database-automatic-tuning.md). Den här unika funktionen i SQL Database inbyggd intelligens övervakar din SQL-databas kontinuerligt, justerar indexen automatiskt och tillämpar korrigeringar för frågekörningen.
 >
 
-I följande avsnitt beskrivs flashminnet prestandamönster i detalj.
+I följande avsnitt beskrivs identifierade prestanda mönster mer detaljerat.
 
-## <a name="reaching-resource-limits"></a>Nådde resursbegränsningar
-
-### <a name="what-is-happening"></a>Vad händer
-
-Det här mönstret flashminnet prestanda kombinerar prestandaproblem som är relaterade till når tillgängliga resursbegränsningar, worker begränsningar och tidsgränser för sessioner. Om det här prestandaproblemet har identifierats, anger en beskrivningsfält för diagnostikloggen om prestandaproblemet är relaterat till resursen, worker eller tidsgränser för sessioner.
-
-Resurser på SQL-databas är normalt refererade till [DTU](sql-database-what-is-a-dtu.md) eller [vCore](sql-database-service-tiers-vcore.md) resurser. Mönstret för att nå resursgränser kan identifieras när identifierats fråga prestandaförsämring orsakas av når någon av de uppmätta resursbegränsningar.
-
-Sessionen gränser resursen avser antalet tillgängliga samtidiga inloggningar till SQL-databasen. Det här mönstret prestanda känns igen när program som är anslutna till SQL-databaser har nått antalet tillgängliga samtidiga inloggningar till databasen. Om program försöker att använda fler sessioner än vad som finns på en databas, påverkas prestanda för frågor.
-
-Nå worker gränser är ett specialfall nå resursbegränsningar eftersom tillgängliga arbeten inte räknas i DTU eller vCore användningen. Nå worker gränser för en databas kan orsaka röstfunktion resursspecifika väntetider, vilket resulterar i fråga prestandaförsämring.
-
-### <a name="troubleshooting"></a>Felsökning
-
-Diagnostikloggen matar ut fråga hash-värden för frågor som påverkas prestanda och procentandelar för förbrukningen av resursen. Du kan använda den här informationen som utgångspunkt för att optimera din databas-arbetsbelastning. I synnerhet kan du optimera de frågor som påverkar försämrade prestanda genom att lägga till index. Eller du kan optimera program med en mer även distribution av arbetsbelastning. Om du inte att minska arbetsbelastningar eller göra optimeringar kan du överväga att öka prisnivån för prenumerationen för SQL-databas att öka mängden tillgängliga resurser.
-
-Om du har nått gränserna tillgänglig, kan du optimera dina program genom att minska antalet inloggningar som gjorts i databasen. Om du inte att minska antalet inloggningar från dina program till databasen kan du överväga att öka prisnivån för din databas. Eller så kan du dela upp och flytta databasen till flera databaser för en mer avvägd arbetsbelastningsfördelning.
-
-Fler förslag om hur du löser tidsgränser för sessioner finns [hur du arbetar med gränserna för högsta inloggningar för SQL Database](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Se [översikt över resource begränsar på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.
-
-## <a name="workload-increase"></a>Ökning av arbetsbelastning
+## <a name="reaching-resource-limits"></a>Når resurs gränser
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret prestanda identifierar problem har fått genom en ökning av arbetsbelastning eller i allvarligare format, en arbetsbelastning pile-up.
+Det här identifierade prestanda mönstret kombinerar prestanda problem som rör tillgängliga resurs gränser, arbets gränser och sessionsgränser. När detta prestanda problem har identifierats anger ett beskrivnings fält i Diagnostic-loggen om prestanda problemet är relaterat till resurs-, arbets-eller sessionsgräns.
 
-Den här identifieringen görs genom en kombination av flera mått. Grundläggande måttet mäts är upptäcka en ökning jämfört med tidigare arbetsbelastning baslinjen arbetsbelastning. Den andra formen av identifieringen baseras på mätningar i en stor ökning i aktiva trådar som är tillräckligt stor för att påverka prestanda för frågor.
+Resurser på SQL Database kallas vanligt vis för [DTU](sql-database-what-is-a-dtu.md) -eller [vCore](sql-database-service-tiers-vcore.md) -resurser. Mönstret för att nå resurs gränserna identifieras när prestanda försämringen för frågor har identifierats genom att nå någon av de uppmätta resurs gränserna.
 
-I sin allvarligare form kan arbetsbelastningen kontinuerligt växer på grund av SQL-databasen oförmåga att hantera arbetsbelastningen. Resultatet är en ständigt växande arbetsbelastningsstorlek är arbetsbelastningen pile-up tillstånd. På grund av det här tillståndet ökar den tid som arbetsbelastningen väntar för körning. Det här tillståndet motsvarar en av databasen allvarligaste problemen. Det här problemet har identifierats genom övervakning ökning av antalet avbrutna trådar. 
+Resursen för sessionsgränser anger antalet tillgängliga samtidiga inloggningar till SQL-databasen. Detta prestanda mönster identifieras när program som är anslutna till SQL-databaserna har uppnått antalet tillgängliga samtidiga inloggningar till databasen. Om program försöker använda fler sessioner än vad som är tillgängligt i en databas påverkas frågans prestanda.
+
+Att nå arbets gränser är ett särskilt fall där resurs begränsningar nås, eftersom tillgängliga arbetare inte räknas i DTU-eller vCore-användningen. Att nå arbetarnas gränser för en databas kan orsaka en ökning av resursens angivna vänte tider, vilket leder till försämrade prestanda.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar antalet frågor vars körning har ökat och fråge-hash av frågan med största bidraget till arbetsbelastningen ökar. Du kan använda den här informationen som utgångspunkt för att optimera arbetsbelastningen. Frågan som identifieras som är störst inom den arbetsbelastning ökade är särskilt användbart som din startpunkt.
+I diagnostikloggar visas frågor om hash-värden för frågor som påverkar procent andelen prestanda och resursförbrukning. Du kan använda den här informationen som utgångs punkt för att optimera databasens arbets belastning. I synnerhet kan du optimera de frågor som påverkar prestanda försämringen genom att lägga till index. Eller så kan du optimera program med en mer jämn arbets belastnings distribution. Om du inte kan minska arbets belastningarna eller göra optimeringar bör du överväga att öka pris nivån för SQL Database-prenumerationen för att öka mängden tillgängliga resurser.
 
-Du kan överväga att distribuera arbetsbelastningar jämnare till databasen. Överväg att optimera den fråga som påverkar prestanda genom att lägga till index. Du kan även distribuera arbetsbelastningen mellan flera databaser. Om lösningarna inte är möjligt kan du överväga att öka prisnivån för prenumerationen för SQL-databas att öka mängden tillgängliga resurser.
+Om du har nått gränserna för tillgängliga sessioner kan du optimera dina program genom att minska antalet inloggningar som görs i databasen. Om du inte kan minska antalet inloggningar från dina program till databasen kan du öka pris nivån för din databas. Du kan också dela upp och flytta databasen till flera databaser för en mer bal anse rad arbets belastnings distribution.
 
-## <a name="memory-pressure"></a>Minnesbelastning
+Mer information om hur du löser sessionsgränser finns i [Hantera gränserna för SQL Database maximala inloggningar](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Se [Översikt över resurs gränser på en SQL Database-Server](sql-database-resource-limits-database-server.md) för information om begränsningar på Server-och prenumerations nivåer.
+
+## <a name="workload-increase"></a>Ökad arbets belastning
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret prestanda anger försämring i den aktuella databasprestanda som orsakas av minnesbelastning eller på dess allvarligare sätt det pile-up minne, jämfört med de senaste sju dagar prestanda-baslinjen.
+Det här prestanda mönstret identifierar problem som orsakas av en arbets belastnings ökning eller, i dess mer allvarliga form, en arbets belastnings grupp.
 
-Minnesbelastning anger ett prestandavillkor där det finns ett stort antal trådar som begär minne ger i SQL-databasen. Den stora volymen orsakar en hög tillstånd där SQL-databasen är inte effektivt allokera minne till alla arbeten som begär den. En av de vanligaste orsakerna till det här problemet är relaterat till mängden ledigt minne till SQL-databasen å ena sidan. Å andra sidan, gör en ökning av arbetsbelastning ökningen i arbetstrådar och minnesbelastningen.
+Den här identifieringen görs genom en kombination av flera mått. Det grundläggande måttet som mäts är en ökning av arbets belastningen jämfört med den tidigare bas linjen för arbets belastningen. Den andra typen av identifiering baseras på att mäta en stor ökning av aktiva arbets trådar som är tillräckligt stora för att påverka frågans prestanda.
 
-Allvarligare form av minnesbelastning är pile-up minneskapacitet. Det här tillståndet anger att ett högre antal arbetstrådar begär minne beviljar än det finns frågor lanserar minnet. Det här antalet trådar som begär minne ger också kan vara ständigt ökar (lagra) eftersom SQL database engine kan inte allokera minne tillräckligt effektivt för att uppfylla behovet. Pile-up minneskapacitet representerar en av databasen allvarligaste problemen.
+I ett mer allvarligt formulär kan arbets belastningen sammanställa kontinuerligt på grund av SQL-databasens oförmåga att hantera arbets belastningen. Resultatet är en ständigt växande arbets belastnings storlek, vilket är ett villkor för arbets belastnings sammanställningen. På grund av det här tillståndet är tiden som arbets belastningen väntar på att körningen växer. Det här tillståndet representerar ett av de mest allvarliga prestanda problemen i databasen. Det här problemet upptäcks genom övervakning av ökningen av antalet avbrutna arbets trådar. 
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar minnesinformation för objektet store med clerk (det vill säga arbetstråd), som har markerats som högsta orsaken till hög minnesanvändning och relevanta tidsstämplar. Du kan använda den här informationen som grund för felsökning. 
+I Diagnostic-loggen visas antalet frågor vars körning har ökat och frågans hash-fråga med det största bidraget till arbets belastnings ökningen. Du kan använda den här informationen som utgångs punkt för att optimera arbets belastningen. Frågan som identifieras som största bidrags givare till arbets belastnings ökningen är särskilt användbar som start punkt.
 
-Du kan optimera eller ta bort frågor som rör lagerarbetare med högsta minnesanvändning. Du kan också se till att du inte köra frågor mot data som du inte planerar att använda. Det är en bra idé att alltid använda en WHERE-sats i dina frågor. Vi rekommenderar dessutom att du skapar icke-grupperade index om du vill söka efter data i stället för att skanna den.
+Du kan överväga att distribuera arbets belastningarna mer jämnt till databasen. Överväg att optimera frågan som påverkar prestandan genom att lägga till index. Du kan också distribuera arbets belastningen mellan flera databaser. Om dessa lösningar inte är möjliga bör du överväga att öka pris nivån för SQL Database-prenumerationen för att öka mängden tillgängliga resurser.
 
-Du kan också minska arbetsbelastningen genom att optimera eller fördelat över flera databaser. Eller du kan distribuera arbetsbelastningen mellan flera databaser. Om lösningarna inte är möjligt kan du överväga att öka prisnivån för prenumerationen för SQL-databas att öka mängden minnesresurser som är tillgängliga i databasen.
+## <a name="memory-pressure"></a>Minnes belastning
 
-Ytterligare förslag om felsökning finns i [minne ger stensättningar: Mystiska SQL Server minne konsumenten med många namn](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+### <a name="what-is-happening"></a>Vad händer
+
+Det här prestanda mönstret indikerar försämring i den aktuella databas prestandan som orsakas av minnes belastningen, eller i dess mer allvarliga form ett minnes sammanställnings villkor jämfört med den senaste sju dagars prestanda bas linjen.
+
+Minnes belastningen anger ett prestanda villkor där det finns ett stort antal arbets trådar som begär minnes anslag i SQL-databasen. Hög volym orsakar ett högt minnes användnings villkor där SQL-databasen inte kan allokera minne till alla arbets tagare som begär det. En av de vanligaste orsakerna till det här problemet är relaterad till mängden minne som är tillgängligt för SQL-databasen på en hand. Å andra sidan orsakar en ökning i arbets belastningen ökningen av arbets trådar och minnes belastning.
+
+En mer svår form av minnes belastning är minnes sammanställnings villkoret. Det här villkoret indikerar att ett högre antal arbets trådar begär minnes anslag än det finns frågor som frigör minnet. Det här antalet arbets trådar som begär minnes anslag kan också öka kontinuerligt (Piling upp) eftersom SQL Database Engine inte kan allokera tillräckligt mycket minne för att uppfylla behovet. Minnes sammanställnings villkoret representerar ett av de mest allvarliga databas prestanda problemen.
+
+### <a name="troubleshooting"></a>Felsökning
+
+I Diagnostic-loggen visas minnes objektets lagrings information med den ansvariga (dvs. arbets tråd) som är den högsta orsaken för hög minnes användning och relevanta tidsstämplar. Du kan använda den här informationen som grund för fel sökning. 
+
+Du kan optimera eller ta bort frågor som är relaterade till clerkerna med högsta minnes användning. Du kan också se till att du inte frågar efter data som du inte planerar att använda. Bra tillvägagångs är att alltid använda en WHERE-sats i dina frågor. Dessutom rekommenderar vi att du skapar grupperade index för att söka efter data i stället för att genomsöka dem.
+
+Du kan också minska arbets belastningen genom att optimera eller distribuera den över flera databaser. Du kan också distribuera arbets belastningen mellan flera databaser. Om dessa lösningar inte är möjliga bör du överväga att öka pris nivån för SQL Database-prenumerationen för att öka mängden minnes resurser som är tillgängliga för databasen.
+
+Ytterligare fel söknings förslag finns [i minnes beviljande meditation: Mystiska SQL Server minnes konsumenten med många namn](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Låsning
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret prestanda anger försämring i den aktuella databasprestanda där långa databasen låsning upptäcks jämfört med de senaste sju dagar prestanda-baslinjen. 
+Det här prestanda mönstret indikerar försämring i den aktuella databas prestandan där överdriven databas låsning upptäcks jämfört med den senaste sju dagars prestanda bas linjen. 
 
-I moderna RDBMS är låsning viktigt för att implementera flertrådat system där maximeras prestanda genom att köra flera samtidiga arbetare och parallella databastransaktioner där det är möjligt. Låsning i det här sammanhanget refererar till inbyggd-åtkomstmekanismen där bara en enda transaktion kan endast komma åt rader, sidor, tabeller och filer som krävs och inte konkurrerar med en annan transaktion för resurser. När transaktionen som låsta resurser som ska användas är klar med dem. släpps låset på dessa resurser, vilket gör att andra transaktioner att få åtkomst till resurser som krävs. Läs mer om hur du låser [låsa databasmotorn](https://msdn.microsoft.com/library/ms190615.aspx).
+I modern RDBMS är låsning nödvändig för att implementera multitrådade system där prestanda maximeras genom att köra flera samtidiga arbetare och parallella databas transaktioner där det är möjligt. Låsning i det här sammanhanget syftar på den inbyggda Access-mekanismen där endast en enskild transaktion kan komma åt de rader, sidor, tabeller och filer som krävs och inte konkurrerar med en annan transaktion för resurser. När den transaktion som låste resurserna för användning görs med, släpps låset på dessa resurser, vilket gör att andra transaktioner kan komma åt nödvändiga resurser. Mer information om att låsa finns i [Lås i databas motorn](https://msdn.microsoft.com/library/ms190615.aspx).
 
-Om transaktioner som utförs av SQL-motor som väntar på under längre tid att få åtkomst till resurser som låst för användning, gör den här väntetid minskningen av arbetsbelastningsprestandan för körning. 
+Om transaktioner som körs av SQL-motorn väntar på längre tids perioder för att få åtkomst till resurser som är låsta för användning, kan den här vänte tiden leda till att prestandan för arbets belastningen går långsammare. 
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar låsning information som du kan använda som underlag för felsökning. Du kan analysera rapporterade blockerar frågor, det vill säga de frågor som introducerar prestandaförsämring låsning och ta bort dem. I vissa fall kanske du lyckas på att optimera frågorna som blockerar.
+I diagnostik-loggen visas låsnings information som du kan använda som grund för fel sökning. Du kan analysera de rapporterade blockerande frågorna, det vill säga de frågor som introducerar prestanda försämringen och ta bort dem. I vissa fall kan det hända att du har optimerat spärrnings frågorna.
 
-Det enklaste och säkraste sättet att åtgärda problemet är att hålla transaktioner kort och att minska Lås storleken för de dyraste frågorna. Du kan dela upp en stor grupp med åtgärder i mindre åtgärder. Det är en bra idé att minska fråga Lås storleken genom att göra frågan så effektivt som möjligt. Minska stora genomsökningar eftersom de ökar risken för låsningar och negativt påverka den övergripande databasens prestanda. Du kan skapa nya index eller lägga till kolumner i det befintliga indexet för att undvika tabellsökningar för identifierade frågor som orsakar låsning. 
+Det enklaste och säkraste sättet att åtgärda problemet är att hålla transaktionerna korta och minska de dyraste frågornas lock-avtryck. Du kan dela upp en stor sats med åtgärder i mindre operationer. Bra tillvägagångs sätt är att minska storleken på frågearkivet genom att göra frågan så effektiv som möjligt. Minska stora inläsningar eftersom de ökar risken för död lägen och påverkar den övergripande databas prestanda negativt. För identifierade frågor som orsakar låsning kan du skapa nya index eller lägga till kolumner i det befintliga indexet för att undvika att tabellen genomsöks. 
 
-Fler förslag finns i [hur du löser blockerande problem som orsakas av Lås eskalering i SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Mer information finns i [så här löser du spärrnings problem som orsakas av lås eskalering i SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
 ## <a name="increased-maxdop"></a>Ökad MAXDOP
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret flashminnet prestanda anger ett villkor där en körning för valda frågeplan har parallelliseras fler än det skulle ha varit. Frågeoptimeringen SQL-databas kan förbättra prestanda för arbetsbelastningen genom att köra frågor parallellt för att påskynda saker där det är möjligt. I vissa fall kan lägga mer tid på att vänta på varandra för att synkronisera och slå samman resultat jämfört med samma frågan körs med färre parallella arbeten eller även i vissa fall jämfört med en enda arbetstråd i parallella arbeten bearbetning av en fråga.
+Det här identifierade prestanda mönstret indikerar ett villkor där en vald frågeplan för frågekörningen är parallellt mer än vad som borde ha varit. SQL Database Query Optimering kan förbättra arbets belastnings prestandan genom att köra frågor parallellt för att snabba upp saker där det är möjligt. I vissa fall kan parallella arbetare som bearbetar en fråga ägna mer tid åt att synkronisera och slå samman resultat jämfört med att köra samma fråga med färre parallella arbetare, eller till och med i vissa fall jämfört med en enda arbets tråd.
 
-Systemet expert analyserar den aktuella databasens prestanda jämfört med baslinjeperioden. Den avgör om en tidigare pågående fråga körs långsammare än tidigare eftersom körningen frågeplanen mer parallelliseras än den ska vara.
+Expert systemet analyserar den aktuella databas prestandan jämfört med bas linje perioden. Den avgör om en tidigare körnings fråga körs långsammare än tidigare eftersom frågekörningen är mer parallell än den ska vara.
 
-MAXDOP serverkonfigurationsalternativet på SQL Database används för att styra hur många CPU-kärnor som kan användas för att köra samma fråga parallellt. 
+Konfigurations alternativet MAXDOP på SQL Database används för att styra hur många processor kärnor som kan användas för att köra samma fråga parallellt. 
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar fråga hashvärden som rör frågor som varaktighet för körning ökat eftersom de har mer än de skulle ha varit parallelliseras. Loggen visar också CXP väntetider. Den här gången representerar den tid som en enda kalender/coordinator tråd (tråd 0) väntar på att alla trådar slutförts innan du sammanfogar resultaten och flytta framåt. Dessutom diagnostikloggen matar ut väntetider som väntade dålig prestanda-frågor i körningsmiljön för övergripande. Du kan använda den här informationen som grund för felsökning.
+I Diagnostic-loggen visas fråga-hashar som är relaterade till frågor för vilka körnings tiden ökar, eftersom de har blivit parallella än vad de hade. Loggen utvärderar även CXP vänte tider. Den här tiden representerar tiden som en enskild organisatör/koordinator tråd (tråd 0) väntar på att alla andra trådar ska slutföras innan resultaten slås samman och flyttas framåt. Dessutom utvärderar diagnostikloggar de vänte tider som de dåligt presterande frågorna väntade i körnings övergripande. Du kan använda den här informationen som grund för fel sökning.
 
-Börja optimera eller förenkla komplexa frågor. Det är en bra idé att dela upp långa batch-jobb i mindre. Se dessutom till att du har skapat index för att stödja dina frågor. Du kan också manuellt tillämpa den högsta graden av parallellitet (MAXDOP) för en fråga som har flaggats som dålig utför. För att konfigurera den här åtgärden med hjälp av T-SQL, se [konfigurera serverkonfigurationsalternativet för MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Börja med att optimera eller förenkla komplexa frågor. Bra tillvägagångs sätt är att dela upp långa batch-jobb i mindre. Se dessutom till att du har skapat index som stöd för dina frågor. Du kan också manuellt framtvinga den högsta graden av parallellitet (MAXDOP) för en fråga som har flaggats som en dålig utförande. Information om hur du konfigurerar den här åtgärden med hjälp av T-SQL finns i [Konfigurera konfigurations alternativet för MAXDOP-servern](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
-Ställa in MAXDOP-servern konfigurationsalternativet till noll (0) som ett standardvärde anger att SQL-databas kan använda alla tillgängliga logiska CPU-kärnor för att parallellisera trådar för att köra en enskild fråga. Ange MAXDOP till en (1) anger att endast en core kan användas för körning av en enskild fråga. I praktiken kan innebär det att parallellitet är avstängd. Tillgängliga kärnor till databasen och diagnostik logga information beroende på den per fall till fall, du kan finjustera MAXDOP kan antalet kärnor som används för parallell frågekörning som eventuellt kan lösa problemet i ditt fall.
+Ställer in MAXDOP på noll (0) som standardvärde anger att SQL Database kan använda alla tillgängliga logiska processor kärnor för att parallellisera trådar för att köra en enskild fråga. Ange MAXDOP till en (1) anger att endast en kärna kan användas för en enda fråga. I praktiska termer innebär detta att parallellitet är inaktiverat. Beroende på varje fall, tillgängliga kärnor i databasen och information om diagnostikinformation, kan du finjustera alternativet MAXDOP till antalet kärnor som används för parallell frågekörning och som kan lösa problemet i ditt fall.
 
-## <a name="pagelatch-contention"></a>Pagelatch konkurrens
+## <a name="pagelatch-contention"></a>PAGELATCH-konkurrens
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret prestanda indikerar den aktuella arbetsbelastningen för databasen prestandaförsämring på grund av pagelatch konkurrens jämfört med de senaste sju dagar arbetsbelastning baslinjen.
+Detta prestanda mönster indikerar den aktuella prestanda försämringen av databasens arbets belastning på grund av PAGELATCH-konkurrens jämfört med den senaste sju dagars arbets belastnings bas linjen.
 
-Lås är förenklad synkroniseringsmekanismer som används av SQL-databas för att aktivera flertrådsteknik. De garantera InMemory-datastrukturer som innehåller index, datasidor och andra interna strukturer.
+Lås är lätta mekanismer för synkronisering som används av SQL Database för att aktivera multitrådning. De garanterar konsekvens för minnes intern strukturer som innehåller index, data sidor och andra interna strukturer.
 
-Det finns många typer av lås på SQL-databasen. För enkelhetens skull används bufferten Lås för att skydda sidor i minnet i buffertpoolen. I/o-Lås används för att skydda sidor som ännu inte har lästs in i buffertpoolen. När data skrivs till eller läsa från en sida i buffertpoolen, måste en arbetstråd att erhålla en buffert spärr för sidan först. När en arbetstråd försöker komma åt en sida som inte finns i InMemory-buffertpoolen, görs en i/o-begäran att läsa in nödvändig information från lagringen. Den här sekvensen av händelser som indikerar en allvarligare typ av försämrade prestanda.
+Det finns många typer av lås som är tillgängliga i SQL-databasen. För enkelhetens skull används buffertutrymme för att skydda minnes sidor i bufferten. I/o-lås används för att skydda sidor som ännu inte har lästs in i bufferten. När data skrivs till eller läses från en sida i bufferten måste en arbets tråd först skaffa ett buffertutrymme för sidan. När en arbets tråd försöker komma åt en sida som inte redan är tillgänglig i poolen i minnet, görs en IO-begäran för att läsa in nödvändig information från lagrings platsen. Den här sekvensen av händelser visar en mer allvarlig form av prestanda försämring.
 
-På sidan Lås konkurrens när flera trådar samtidigt försöker hämta lås på samma struktur i minnet, vilket medför en ökad väntetid för frågekörning. När det gäller pagelatch-i/o-konkurrens, när data ska kunna nås från lagring, är väntetiden ännu större. Det kan påverka arbetsbelastningens prestanda avsevärt. Pagelatch konkurrensen är det vanligaste scenariot för trådar väntar på varandra och tävlar om resurser på flera CPU-system.
+Konkurrens på sid låsen inträffar när flera trådar samtidigt försöker erhålla lås i samma minnes struktur, vilket ger en ökad vänte tid för att köra frågor. När det gäller PAGELATCH i/o-konkurrens om data behöver nås från lagringen är denna vänte tid ännu högre. Det kan påverka arbets belastnings prestanda avsevärt. PAGELATCH-konkurrens är det vanligaste scenariot för trådar som väntar på varandra och konkurrerar om resurser på flera processor system.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar pagelatch konkurrens information. Du kan använda den här informationen som grund för felsökning.
+Diagnostik-loggen visar information om PAGELATCH-innehåll. Du kan använda den här informationen som grund för fel sökning.
 
-Eftersom en pagelatch är en mekanism för interna kontroll i SQL Database, avgör den automatiskt när de ska användas. Programmet beslut, inklusive design av schema, kan påverka pagelatch beteende på grund av deterministisk beteendet för lås.
+Eftersom en PAGELATCH är en intern kontroll mekanism i SQL Database, bestämmer den automatiskt när de ska användas. Program beslut, inklusive schema design, kan påverka PAGELATCH-beteendet på grund av det deterministiska beteendet för lås.
 
-En metod för att hantera spärr konkurrens är att ersätta en sekventiell indexnyckeln med en sekventiellt nyckel att fördela infogningar i ett index adressintervall. Vanligtvis distribuerar en ledande kolumnen i indexet arbetsbelastningen proportionellt. Ett annat sätt att tänka på är Tabellpartitionering. Skapa en hash partitioneringsschema med en beräknad kolumn för en partitionerad tabell är en vanlig metod för att förhindra överdriven spärr konkurrens. När det gäller pagelatch-i/o-konkurrens hjälper introduktion till index till att minimera det här prestandaproblemet. 
+En metod för att hantera spärr konkurrens är att ersätta en sekventiell index nyckel med en insekventiell nyckel för att jämnt distribuera infogningar i ett index intervall. Normalt distribuerar en inledande kolumn i index arbets belastningen proportionellt. En annan metod att överväga är tabell partitionering. Att skapa ett hash-partitionerings schema med en beräknad kolumn på en partitionerad tabell är ett gemensamt tillvägagångs sätt för att minimera överdriven spärr-konkurrens. Om du använder PAGELATCH i/o-konkurrens hjälper indexen att hjälpa till att minimera det här prestanda problemet. 
 
-Mer information finns i [diagnostisera och Lös låsa konkurrensen på SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (PDF-nedladdning).
+Mer information finns i [diagnostisera och lösa låsnings konkurrens på SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (PDF-nedladdning).
 
-## <a name="missing-index"></a>Index som saknas
+## <a name="missing-index"></a>Index saknas
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret prestanda indikerar den aktuella databasen arbetsbelastning försämrade prestanda jämfört med de senaste sju dagar baslinjen på grund av ett index som saknas.
+Detta prestanda mönster anger den aktuella prestanda försämringen för databasens arbets belastning jämfört med den senaste sju dagars bas linjen på grund av ett saknat index.
 
-Ett index används för att påskynda prestanda för frågor. Det ger snabb åtkomst till data från tabeller genom att minska antalet sidor i datauppsättningen som måste vara besökt eller genomsöks.
+Ett index används för att påskynda prestandan för frågor. Den ger snabb åtkomst till tabell data genom att minska antalet data uppsättnings sidor som behöver besökas eller genomsökas.
 
-Specifika frågor som orsakade prestandaförsämring identifieras via den här identifieringen skapar index som skulle vara fördelaktigt att prestandan.
+Vissa frågor som orsakade försämrade prestanda identifieras genom den här identifieringen för vilken skapandet av index skulle bli fördelaktigt i prestandan.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar frågan hashvärden för de frågor som har identifierats för att påverka arbetsbelastningens prestanda. Du kan skapa index för de här frågorna. Du kan också optimera eller ta bort de här frågorna om de inte behövs. Ett bra prestanda-tips är att undvika att köra frågor mot data som du inte använder.
+I diagnostikloggar visas frågans hashar för de frågor som identifierats för att påverka arbets Belastningens prestanda. Du kan bygga index för dessa frågor. Du kan också optimera eller ta bort dessa frågor om de inte behövs. En bra prestanda rutin är att undvika att fråga data som du inte använder.
 
 > [!TIP]
-> Visste du att SQL Database inbyggd intelligens automatiskt kan hantera bäst prestanda indexen för din databas?
+> Visste du att SQL Database inbyggd intelligens automatiskt kan hantera de bästa presterande indexen för dina databaser?
 >
-> För kontinuerlig prestandaoptimering i SQL Database, rekommenderar vi att du aktiverar [automatisk justering i SQL Database](sql-database-automatic-tuning.md). Den här unika funktionen i SQL Database inbyggd intelligens kontinuerligt övervakar din SQL-databas och automatiskt justerar och skapar index för dina databaser.
+> För kontinuerlig prestanda optimering av SQL Database rekommenderar vi att du aktiverar [SQL Database automatisk justering](sql-database-automatic-tuning.md). Den här unika funktionen i SQL Database inbyggd intelligens övervakar din SQL-databas kontinuerligt och justerar och skapar index för dina databaser automatiskt.
 >
 
 ## <a name="new-query"></a>Ny fråga
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret prestanda indikerar att en ny fråga har identifierats som är sämre prestanda och påverkar arbetsbelastningsprestandan jämfört med prestandabaslinje för sju dagar.
+Detta prestanda mönster indikerar att en ny fråga identifieras som fungerar dåligt och som påverkar arbets belastnings prestandan jämfört med prestanda bas linjen för sju dagar.
 
-Skriva en fråga med bra prestanda ibland kan det vara en utmaning. Mer information om hur du skriver frågor finns i [skriva SQL-frågor](https://msdn.microsoft.com/library/bb264565.aspx). För att optimera prestanda för befintliga frågor, se [frågejusteringar](https://msdn.microsoft.com/library/ms176005.aspx).
+Det kan ibland vara en utmaning att skriva en egen körnings fråga. Mer information om hur du skriver frågor finns i [skriva SQL-frågor](https://msdn.microsoft.com/library/bb264565.aspx). Information om hur du optimerar befintliga frågor finns i [justering av frågor](https://msdn.microsoft.com/library/ms176005.aspx).
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostiken logginformation utdata upp till två nya de flesta CPU förbrukar frågor, inklusive deras fråga hashvärden. Eftersom identifierade frågan påverkar arbetsbelastningens prestanda, kan du optimera din fråga. Det är en bra idé att hämta endast data som du behöver använda. Vi rekommenderar också att använda frågor med en WHERE-sats. Vi rekommenderar också att du förenkla komplexa frågor och dela upp dem i mindre frågor. En annan bra praxis är att bryta ned stora batchfrågekörning i mindre batch-frågor. Introduktion till index för nya frågor är vanligtvis en god idé att åtgärda prestandaproblemet.
+I Diagnostic-loggen visas information upp till två nya processor krävande frågor, inklusive deras fråge-hashar. Eftersom den identifierade frågan påverkar arbets belastnings prestandan kan du optimera din fråga. Bra tillvägagångs är att bara hämta de data som du behöver använda. Vi rekommenderar också att du använder frågor med en WHERE-sats. Vi rekommenderar också att du fören klar komplexa frågor och delar upp dem i mindre frågor. En annan bra idé är att dela upp stora batch-frågor i mindre batch-frågor. Introduktion av index för nya frågor är vanligt vis en bra idé att minimera det här prestanda problemet.
 
 Överväg att använda [Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
-## <a name="increased-wait-statistic"></a>Ökad vänta statistik
+## <a name="increased-wait-statistic"></a>Ökad vänte statistik
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret flashminnet prestanda anger en arbetsbelastning prestandaförsämring som identifieras dålig prestanda frågor jämfört med de senaste sju dagar arbetsbelastning baslinjen.
+Det här identifierade prestanda mönstret indikerar en försämring av arbets belastnings prestanda där dåliga frågor identifieras jämfört med den senaste sju dagars arbets belastnings bas linjen.
 
-I det här fallet systemet kan inte klassificera dålig prestanda frågorna under andra flashminnet standardprestanda-kategorier, men det har upptäckts ansvarar för regressionen vänta statistiken. Därför det anser dem som frågor med *ökat vänta statistik*, där vänta statistiken ansvarar för regressionen också exponeras. 
+I det här fallet kan systemet inte klassificera de dåligt utförda frågorna under någon annan standard prestanda kategori, men det identifierade den väntande statistik som är ansvarig för regressionen. Därför anses det som frågor med *ökad wait-statistik*, där den väntande statistik som är ansvarig för regressionen också exponeras. 
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostiklogg utdata information om information om ökad vänta tid och fråga hash-värden för frågorna som påverkas.
+I Diagnostic-loggen visas information om ökad information om vänte tid och fråga om hash-värden för de berörda frågorna.
 
-Eftersom systemet det gick inte att kunna identifiera orsaken till frågorna dålig prestanda, är diagnostikinformationen en bra utgångspunkt för manuell felsökning. Du kan optimera prestanda för dessa frågor. Ett bra tips är att hämta endast data som du behöver för att använda och för att förenkla och bryter ned komplexa frågor i mindre. 
+Eftersom systemet inte kunde identifiera rotor saken för de dåliga frågorna är diagnostikinformation en bra utgångs punkt för manuell fel sökning. Du kan optimera prestanda för dessa frågor. En bra idé är att bara hämta de data du behöver använda och för att förenkla och dela upp komplexa frågor i mindre. 
 
-Läs mer om hur du optimerar prestanda för frågor, [frågejusteringar](https://msdn.microsoft.com/library/ms176005.aspx).
+Mer information om hur du optimerar prestanda för frågor finns i [fråga justering](https://msdn.microsoft.com/library/ms176005.aspx).
 
-## <a name="tempdb-contention"></a>TempDB konkurrens
+## <a name="tempdb-contention"></a>TempDB-konkurrens
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret flashminnet prestanda anger prestandavillkor databasen där en flaskhals trådar som försöker få åtkomst till tempDB-resurser finns. (Det här tillståndet är inte i/o som är relaterade.) Vanligt scenario för det här prestandaproblemet är hundratals samtidiga frågor att alla skapa, använda och sedan släppa små tempDB-register. Systemet upptäckte att antalet samtidiga frågor med hjälp av samma tempDB-register ökat med tillräckligt med statistisk signifikans kan påverka databasens prestanda jämfört med de senaste sju dagar prestanda-baslinjen.
+Det här identifierade prestanda mönstret indikerar ett databas prestanda tillstånd där det finns en Flask hals för trådar som försöker komma åt tempDB-resurser. (Det här villkoret är inte i/o relaterat.) Det vanligaste scenariot för det här prestanda problemet är hundratals samtidiga frågor som alla skapar, använder och sedan tar bort små tempDB-tabeller. Systemet upptäckte att antalet samtidiga frågor som använder samma tempDB-tabeller ökade med tillräcklig statistisk betydelse för att påverka databasens prestanda jämfört med den senaste sju dagars prestanda bas linjen.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar tempDB konkurrens information. Du kan använda informationen som startpunkt för felsökning. Det finns två saker som du kan välja för att lösa den här typen av konkurrens och öka genomflödet av den övergripande arbetsbelastningen: Du kan sluta använda de temporära tabellerna. Du kan också använda minnesoptimerade tabeller. 
+I diagnostik-loggen visas information om tempDB-konkurrens. Du kan använda informationen som utgångs punkt för fel sökning. Det finns två saker som du kan vidta för att minska den här typen av konkurrens och öka data flödet för den övergripande arbets belastningen: Du kan sluta använda de temporära tabellerna. Du kan också använda minnesoptimerade tabeller. 
 
-Mer information finns i [introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Mer information finns i [Introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
-## <a name="elastic-pool-dtu-shortage"></a>Elastisk pool DTU brist
+## <a name="elastic-pool-dtu-shortage"></a>DTU-underskott för elastisk pool
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret flashminnet prestanda anger en försämring i den aktuella databasen arbetsbelastningens prestanda jämfört med grundregel de senaste sju dagar. Det är på grund av brist på tillgängliga dtu: er i den elastiska poolen för din prenumeration. 
+Det här identifierade prestanda mönstret visar en försämring av den aktuella databasens arbets belastnings prestanda jämfört med den senaste sju dagars bas linjen. Det beror på brist på tillgänglig DTU: er i den elastiska poolen av din prenumeration. 
 
-Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](sql-database-purchase-models.md#dtu-based-purchasing-model), som består av ett blandat mått av CPU- och IO (data- och transaktionslogg loggning i/o). [Elastisk pool i Azure-resurser](sql-database-elastic-pool.md) används som en pool med tillgängliga eDTU-resurser som delas mellan flera databaser för att skala syften. När tillgängliga eDTU-resurser i en elastisk pool inte är tillräckligt stort för alla databaser i poolen kan har en elastisk pool DTU brist prestandaproblem identifierats av systemet.
+Resurser på SQL Database kallas vanligt vis för [DTU-resurser](sql-database-purchase-models.md#dtu-based-purchasing-model)som består av ett blandat mått på processor-och IO-resurser (data-och transaktions loggs-i/o). [Azure Elastic pool-resurser](sql-database-elastic-pool.md) används som en pool av tillgängliga eDTU-resurser som delas mellan flera databaser i skalnings syfte. När tillgängliga eDTU-resurser i den elastiska poolen inte är tillräckligt stora för att stödja alla databaser i poolen, upptäcks prestanda problem i elastisk pool i systemet.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen matar ut information om den elastiska poolen, visas de översta DTU förbrukar databaserna och ger en procentandel av poolens DTU som används av top förbrukar-databasen.
+I Diagnostic-loggen visas information om den elastiska poolen, en lista över de främsta DTU-databaserna och en procent andel av poolens DTU som används av databasen som förbrukas.
 
-Eftersom den här prestandavillkor är relaterat till flera databaser med samma pool av edtu: er i den elastiska poolen, fokusera felsökningsstegen på de översta DTU förbrukar databaserna. Du kan minska serverns arbetsbelastning förbrukar top-databaser som innehåller optimering för frågorna som förbrukar längst upp på de här databaserna. Du kan också kontrollera att du inte köra frågor mot data som du inte använder. En annan metod är att optimera program med hjälp av de främsta DTU förbrukar databaserna och omdistribuera arbetsbelastningen mellan flera databaser.
+Eftersom det här prestanda tillståndet är relaterat till flera databaser med samma pool av eDTU: er i den elastiska poolen, fokuserar vi på fel söknings stegen på de översta DTU-förbrukade databaserna. Du kan minska arbets belastningen för de mest krävande databaserna, som innehåller optimering av de mest krävande frågorna på dessa databaser. Du kan också se till att du inte frågar efter data som du inte använder. En annan metod är att optimera program genom att använda de översta DTU-förbrukade databaserna och distribuera om arbets belastningen mellan flera databaser.
 
-Om minskning och optimering av den nuvarande arbetsbelastningen på dina viktigaste DTU förbrukar databaser inte är möjligt kan du överväga att öka din elastiska pool prisnivå. Till exempel öka resulterar i fler tillgängliga dtu: erna i den elastiska poolen.
+Om du inte kan göra en minskning och optimering av den aktuella arbets belastningen på dina främsta DTU-krävande databaser kan du överväga att öka pris nivån för den elastiska poolen. En sådan ökning resulterar i ökningen av tillgängliga DTU: er i den elastiska poolen.
 
-## <a name="plan-regression"></a>Planera Regression
+## <a name="plan-regression"></a>Plan regression
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret flashminnet prestanda anger ett villkor där SQL-databas som använder en icke-optimal frågeplan för körning. Icke-optimal plan gör normalt ökad frågekörning, vilket leder till längre väntetid för aktuella och andra frågor.
+Det här identifierade prestanda mönstret anger ett villkor där SQL Database använder en suboptimala körnings plan för frågor. Den optimala planen orsakar vanligt vis ökad frågekörningen, vilket leder till längre vänte tider för aktuella och andra frågor.
 
-SQL-databasen anger frågeplanen för körning med minsta möjliga kostnad för körning av en fråga. Befintliga prenumerationer är ibland inte längre är effektiv som typ av frågor och arbetsbelastningar ändring, eller kanske SQL-databasen inte har gjort en bra utvärdering. Som en följd av korrigering kan frågeplaner för körning manuellt framtvingas.
+SQL-databasen avgör hur körnings planen körs med minst kostnad för körning av fråga. När typen av frågor och arbets belastningar ändras, är ibland befintliga planer inte längre effektiva eller kanske SQL Database inte gjorde en bra utvärdering. Som en korrigerings fråga kan du utföra frågor om frågekörning manuellt.
 
-Det här mönstret flashminnet prestanda kombinerar tre olika fall av plan regression: regression av nya och gamla planen regression befintliga planer som ändrats arbetsbelastning. Viss typ av plan regression som inträffat finns i den *information* egenskap i diagnostikloggen för.
+Det här identifierade prestanda mönstret kombinerar tre olika fall av plan regression: ny plan regression, Gammal plan regression och befintliga planer har ändrats arbets belastning. Den specifika typen av plan regression som inträffat finns i egenskapen *information* i Diagnostic-loggen.
 
-Ny plan regression villkoret refererar till ett tillstånd som SQL Database starta körning av en ny körning frågeplan som inte är så effektivt som den gamla planen. Den gamla planen regression villkoren refererar till tillståndet när SQL Database växlar från att använda en ny, mer effektiv plan för att den gamla prenumerationen är inte lika effektiva som den nya planen. Den befintliga planer som ändrats arbetsbelastning regressionen refererar till tillståndet som gammalt och de nya planerna kontinuerligt alternativ, med saldo kommer fler mot planen dålig prestanda.
+Det nya plan Regressions villkoret refererar till ett tillstånd där SQL Database börjar köra en ny frågeplan för frågekörningen som inte är lika effektiv som den gamla planen. Det gamla plan Regressions villkoret avser tillståndet när SQL Database växlar från att använda en ny, mer effektiv plan till den gamla planen, vilket inte är lika effektivt som den nya planen. De befintliga planerna ändrade arbets belastnings regressionen syftar på det tillstånd i vilket de gamla och nya planerna ständigt alternerar, med saldot som går mer mot den låga presterande planen.
 
-Mer information om plan upprepningar finns [vad är plan regression i SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
+Mer information om plan regressioner finns i [Vad är plan regression i SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen matar ut fråga hashvärden, bra planering ID, felaktig plan-ID och fråga ID: N. Du kan använda den här informationen som grund för felsökning.
+I Diagnostic-loggen visas frågans hash-värden, bra plan-ID, dåligt plan-ID och fråge-ID. Du kan använda den här informationen som grund för fel sökning.
 
-Du kan analysera vilken plan som är bättre utför för dina specifika frågor som du kan identifiera med frågan-hashvärden som tillhandahålls. När du har bestämt vilken plan fungerar bäst för dina frågor kan du tvinga den manuellt. 
+Du kan analysera vilken plan som fungerar bättre för dina speciella frågor som du kan identifiera med de angivna hashvärdet. När du har fastställt vilka planer som fungerar bättre för dina frågor kan du framtvinga det manuellt. 
 
-Mer information finns i [Lär dig hur SQL Server förebygger plan regression](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+Mer information finns i [Lär dig hur SQL Server förhindrar plan regressioner](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
 > [!TIP]
-> Visste du att SQL Database inbyggd intelligens kan hantera bäst att genomföra frågan körningsplaner för dina databaser automatiskt?
+> Visste du att SQL Database inbyggd intelligens automatiskt kan hantera de bästa körnings planerna för att köra frågor för dina databaser?
 >
-> För kontinuerlig prestandaoptimering i SQL Database, rekommenderar vi att du aktiverar [automatisk justering i SQL Database](sql-database-automatic-tuning.md). Den här unika funktionen i SQL Database inbyggd intelligens kontinuerligt övervakar din SQL-databas och automatiskt justerar och bäst att genomföra frågan skapas körningsplaner för dina databaser.
+> För kontinuerlig prestanda optimering av SQL Database rekommenderar vi att du aktiverar [SQL Database automatisk justering](sql-database-automatic-tuning.md). Den här unika funktionen i SQL Database inbyggd intelligens övervakar din SQL-databas kontinuerligt och justerar automatiskt och skapar bästa körnings planer för dina databaser.
 >
 
-## <a name="database-scoped-configuration-value-change"></a>Databasbegränsade konfigurationen ändras
+## <a name="database-scoped-configuration-value-change"></a>Ändring av konfigurations värde för databas omfattning
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret flashminnet prestanda visar ett tillstånd som gör en ändring i den databasbegränsade konfigurationen prestanda regression som upptäcks jämfört med de senaste sju dagar databasen arbetsbelastning beteendet. Det här mönstret anger att en ny ändring som gjorts i den databasbegränsade konfigurationen inte verkar vara fördelaktigt att databasens prestanda.
+Det här identifierade prestanda mönstret indikerar ett villkor där en ändring i den databasbaserade konfigurationen orsakar prestanda regression som identifieras jämfört med den senaste sju dagars databasens arbets belastnings beteende. Det här mönstret anger att en nyligen utförd ändring i den databasbaserade konfigurationen inte verkar vara fördelaktig i databasens prestanda.
 
-Databasbegränsade konfigurationsändringar kan ställas in för varje enskild databas. Den här konfigurationen används på grundval av fall för att optimera enskilda prestandan för din databas. Följande alternativ kan konfigureras för varje enskild databas: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES och rensa PROCEDURE_CACHE.
+Konfigurations ändringar i databasen kan ställas in för varje enskild databas. Den här konfigurationen används i fall-för-fall-basis för att optimera den enskilda databasens prestanda. Följande alternativ kan konfigureras för varje enskild databas: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES och CLEAR PROCEDURE_CACHE.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostiklogg utdata databasbegränsade konfigurationsändringar som gjorts nyligen som orsakade försämring jämfört med det tidigare beteendet i sju dagar arbetsbelastning. Du kan återställa konfigurationsändringar i tidigare värden. Du kan även finjustera värde med värde tills den önskade prestandanivån har uppnåtts. Du kan kopiera konfigurationsvärden för databas-omfång från en liknande databas med tillfredsställande prestanda. Om det inte går att felsöka prestanda återgå till standardvärden för standard-SQL-databas och försök att finjustera från och med den här baslinjen.
+I diagnostik-loggen visas de konfigurations ändringar som gjorts nyligen och som gjorde att prestanda försämringen jämförs med föregående sju dagars arbets belastnings beteende. Du kan återställa konfigurations ändringarna till föregående värden. Du kan också justera värde efter värde tills den önskade prestanda nivån har uppnåtts. Du kan kopiera konfigurations värden för databas omfattning från en liknande databas med tillfredsställande prestanda. Om du inte kan felsöka prestandan återgår du till standardvärdet SQL Database standardvärden och försöker finjustera start från den här bas linjen.
 
-Läs mer om hur du optimerar databasbegränsade konfigurationen och T-SQL-syntax för att ändra konfigurationen för [Alter database scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
+Mer information om hur du optimerar en databas-och T-SQL-syntax vid ändring av konfigurationen finns i [Alter Database-scoped Configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 
-## <a name="slow-client"></a>Långsam klienten
+## <a name="slow-client"></a>Långsam klient
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret flashminnet prestanda visar ett tillstånd där den klient som använder SQL-databasen inte kan använda utdata från databasen så fort databasen skickar resultaten. Eftersom SQL-databas inte är lagra resultaten för de utförda frågorna i en buffert, långsammare och väntar tills klienten att använda utdata överförda fråga innan du fortsätter. Det här tillståndet kan också relateras till ett nätverk som inte är tillräckligt snabbt nog att skicka utdata från SQL-databasen till konsumerande klienten.
+Det här identifierade prestanda mönstret visar ett villkor där klienten som använder SQL-databasen inte kan använda utdata från databasen så snabbt som databasen skickar resultatet. Eftersom SQL Database inte lagrar resultat från de körda frågorna i en buffert går det långsamt och väntar på att klienten ska använda de utdata som skickats innan de fortsätter. Det här villkoret kan också vara relaterat till ett nätverk som inte är tillräckligt snabbt för att överföra utdata från SQL-databasen till klienten som konsumeras.
 
-Det här tillståndet genereras bara om en prestanda regression upptäcks jämfört med de senaste sju dagar databasen arbetsbelastning beteendet. Det här prestandaproblemet identifieras endast om en statistiskt betydande prestandaförsämring jämfört med beteende för tidigare prestanda.
+Det här villkoret skapas endast om en prestanda regression identifieras jämfört med den senaste sju dagars databasens arbets belastnings beteende. Det här prestanda problemet identifieras bara om en statistiskt märkbar prestanda försämring sker jämfört med tidigare prestanda beteende.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Det här mönstret flashminnet prestanda anger ett villkor för klientsidan. Felsöka krävs på klientsidan eller klientside-nätverk. Diagnostikloggen visar frågan hashvärden och väntetider som verkar väntar på de flesta för att klienten ska använda dem inom de senaste två timmarna. Du kan använda den här informationen som grund för felsökning.
+Detta identifierade prestanda mönster indikerar ett villkor på klient sidan. Fel sökning krävs på klient sidans program eller på klient sidans nätverk. Diagnostik-loggen utvärderar frågans hashar och vänte tider som förefaller vara mest för klienten att använda dem inom de senaste två timmarna. Du kan använda den här informationen som grund för fel sökning.
 
-Du kan optimera prestanda för ditt program för användning av dessa frågor. Du kan också överväga möjliga problem med nätverkssvarstiden. Eftersom försämring prestandaproblemet baserades på ändringen i den senaste baslinjen för prestanda för sju dagar, kan du undersöka om de senaste ändringarna för programmet eller nätverket villkor beror på den här prestandahändelser i regression. 
+Du kan optimera prestanda för ditt program för användning av dessa frågor. Du kan också överväga eventuella problem med nätverks fördröjning. Eftersom problemet med prestanda försämringen baseras på en ändring under den senaste sju dagars prestanda bas linjen kan du undersöka om de senaste ändringarna i program-eller nätverks tillståndet orsakade denna prestanda Regressions händelse. 
 
-## <a name="pricing-tier-downgrade"></a>Priser för nedgradering av nivå
+## <a name="pricing-tier-downgrade"></a>Nedgradering av pris nivå
 
 ### <a name="what-is-happening"></a>Vad händer
 
-Det här mönstret flashminnet prestanda visar ett tillstånd där prisnivån för din SQL Database-prenumeration har nedgraderas. Systemet upptäckte en minskning på grund av minskning av resurser (dtu: er) tillgängliga i databasen i den aktuella databasprestanda jämfört med grundregel de senaste sju dagar.
+Det här identifierade prestanda mönstret anger ett villkor där pris nivån för din SQL Database-prenumeration har degraderats. På grund av en minskning av resurser (DTU: er) som är tillgängliga för databasen, upptäckte systemet en minskning av den aktuella databas prestandan jämfört med den senaste sju dagars bas linjen.
 
-Dessutom kan uppstå det ett villkor där prisnivån för din SQL-databasprenumeration nedgraderas och sedan uppgradera till en högre nivå inom en kort tidsperiod. Identifiering av den här tillfälliga prestandaförsämring används för utdata i informationsavsnittet loggens diagnostik som en prisnivå nivå nedgradera och uppgradera.
+Dessutom kan det finnas ett villkor där pris nivån för din SQL Database-prenumeration har degraderats och uppgraderats till en högre nivå under en kort tids period. Identifiering av den här tillfälliga prestanda försämringen visas i avsnittet information i Diagnostic-loggen som en degradering och uppgradering av pris nivån.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Om du minskar din prisnivå och därför dtu: er tillgängliga för SQL-databas, och du är nöjd med prestanda, är det du behöver inte göra något. Om du minskar din prisnivå och du är nöjd med din SQL database-prestanda, minska arbetsbelastningen i din databas eller överväga att öka prisnivån till en högre nivå.
+Om du har minskat pris nivån och därför DTU: er är tillgänglig för SQL Database och du är nöjd med prestandan behöver du inte göra något. Om du har minskat pris nivån och du inte är nöjd med din SQL Database-prestanda minskar du databas arbets belastningarna eller ökar pris nivån till en högre nivå.
 
-## <a name="recommended-troubleshooting-flow"></a>Rekommenderade felsöka flöde
+## <a name="recommended-troubleshooting-flow"></a>Rekommenderat fel söknings flöde
 
- Följ flödesschema för en rekommenderad metod för att felsöka prestandaproblem med hjälp av smarta insikter.
+ Följ flödesschemat för en rekommenderad metod för att felsöka prestanda problem med hjälp av Intelligent Insights.
 
-Åtkomst till smarta insikter via Azure portal genom att gå till Azure SQL Analytics. Försök att hitta den inkommande Prestandavarning och markera den. Identifiera vad som händer på sidan identifieringar. Se den tillhandahållna Rotorsaksanalys av problemet, frågetexten, fråga tid trender och incident utvecklingen. Försök att lösa problemet med hjälp av Intelligent Insights-rekommendation för hur du minimerar prestandaproblemet. 
+Kom åt Intelligent Insights via Azure Portal genom att gå till Azure SQL-analys. Försök att hitta den inkommande prestanda aviseringen och välj den. Identifiera vad som händer på sidan identifieringar. Observera den tillhandahållna rotor Saks analysen av problemet, frågetext, fråge tids trender och incident utveckling. Försök att lösa problemet med hjälp av Intelligent Insights rekommendation för att minimera prestanda problemet. 
 
-[![Felsökning av flödesschema](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
+[![Fel sökning av flödes diagram](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
 > [!TIP]
-> Välj flödesschema för att ladda ned en PDF-version.
+> Välj flödesschemat för att ladda ned en PDF-version.
 
-Intelligent Insights behöver du normalt en timme för att utföra Rotorsaksanalys av prestandaproblemet. Om du inte hittar ditt problem i intelligenta insikter och det är viktigt att du kan använda Query Store för att identifiera de grundläggande orsakerna till prestandaproblemet manuellt. (Normalt problemen är mindre än en timme gamla.) Mer information finns i [övervaka prestanda med hjälp av Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights behöver vanligt vis en timmes tid för att utföra rotor Saks analysen av prestanda problemet. Om du inte kan hitta ditt problem i Intelligent Insights och det är viktigt för dig, kan du använda Frågearkivet för att manuellt identifiera rotor saken till prestanda problemet. (Vanligt vis är de här problemen mindre än en timme gammal.) Mer information finns i [övervaka prestanda med hjälp av Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig [smarta insikter](sql-database-intelligent-insights.md) begrepp.
-- Använd den [diagnostikloggen för Intelligent Insights Azure SQL Database prestanda](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Övervaka [Azure SQL Database med hjälp av Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Lär dig hur du [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Lär dig [intelligent Insights](sql-database-intelligent-insights.md) begrepp.
+- Använd [loggen Intelligent Insights Azure SQL Database prestanda diagnos](sql-database-intelligent-insights-use-diagnostics-log.md).
+- Övervaka [Azure SQL Database med Azure SQL-analys](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Lär dig att [samla in och använda loggdata från dina Azure-resurser](../azure-monitor/platform/diagnostic-logs-overview.md).

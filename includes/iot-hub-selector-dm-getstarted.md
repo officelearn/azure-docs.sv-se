@@ -4,30 +4,30 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 60c0c700dde5afda2ca93a92b334cbc4f0134043
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187447"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667965"
 ---
 > [!div class="op_single_selector"]
-> * [Enhet: Node.js-tjänst: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Enhet: C#Tjänsten: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
-> * [Enhet: Java-tjänst: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
-> * [Enhet: Python Service: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [NET](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
-Backend-appar kan använda Azure IoT Hub primitiver som [enhetstvillingen] [ lnk-devtwin] och [direkta metoder][lnk-c2dmethod], för att starta och övervaka enhet hanteringsåtgärder på enheter. Den här kursen visar hur en app på serversidan och en enhetsapp kan fungera tillsammans för att initiera och övervaka en fjärransluten enhet omstart med hjälp av IoT Hub.
+Backend-appar kan använda Azure IoT Hub primitiver, till exempel [enhets dubbla][lnk-devtwin] och [direkta metoder][lnk-c2dmethod], för att fjärrstarta och övervaka enhets hanterings åtgärder på enheter. Den här självstudien visar hur en backend-app och en app-app kan arbeta tillsammans för att initiera och övervaka en fjärromstart av enheten med hjälp av IoT Hub.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-Använd en direkt metod för att initiera åtgärder för hantering av enhet (till exempel omstart, fabriksåterställning och uppdatering av inbyggd programvara) från en backend-app i molnet. Enheten ansvarar för att:
+Använd en direkt metod för att initiera enhets hanterings åtgärder (t. ex. omstart, fabriks återställning och uppdatering av inbyggd program vara) från en backend-app i molnet. Enheten ansvarar för:
 
-* Hantering av metodbegäran som skickats från IoT Hub.
-* Initierar enhetsspecifika åtgärd på enheten.
-* Tillhandahåller statusuppdateringar via *rapporterade egenskaper* till IoT Hub.
+* Hantering av metoden Request som skickas från IoT Hub.
+* Initierar motsvarande enhetsspecifika åtgärd på enheten.
+* Tillhandahålla status uppdateringar via *rapporterade egenskaper* till IoT Hub.
 
-Du kan använda en backend-app i molnet för att köra enhetstvillingfrågor för att rapportera om förloppet för åtgärder för hantering av din enhet.
+Du kan använda en backend-app i molnet för att köra enhets dubbla frågor för att rapportera om förloppet för enhets hanterings åtgärderna.
 
 [lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

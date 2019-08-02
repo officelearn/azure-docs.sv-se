@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2464332727b0ef1e616c04a975df5ac475a7b19
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956688"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610282"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -34,9 +34,9 @@ Det här felet kan inträffa när OS-diskkryptering testas på en målmiljö fö
 - Dataenheter är rekursivt monterad under katalogen /mnt/ eller varandra (till exempel /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Andra Azure Disk Encryption [krav](azure-security-disk-encryption-prerequisites.md) för Linux inte uppfylls.
 
-## <a name="bkmk_Ubuntu14"></a> Uppdatera standard-kerneln för Ubuntu 14.04 LTS
+## <a name="bkmk_Ubuntu14"></a>Uppdatera standard kärnan för Ubuntu 14,04-LTS
 
-Ubuntu 14.04 LTS-avbildning levereras med en standard kernel-version 4.4. Den här kernel-versionen har ett känt problem där av minne borttagare felaktigt avslutar kommandot dd under OS krypteringsprocessen. Det här felet har åtgärdats i den senaste Azure anpassade Linux-kernel. Undvik det här felet, innan du aktiverar kryptering på avbildningen, uppdatera till den [Azure justerade kernel 4.15](https://packages.ubuntu.com/trusty/linux-azure) eller senare med följande kommandon:
+Ubuntu 14,04 LTS-avbildningen levereras med en standard-kernel-version på 4,4. Den här kernel-versionen har ett känt problem där slut på minne-Killer felaktigt avslutar kommandot DD under processen för operativ system kryptering. Den här buggen har åtgärd ATS i den senaste Azure-justerade Linux-kärnan. För att undvika det här felet, innan du aktiverar kryptering på avbildningen, uppdaterar du till [Azure-justerade kernel 4,15](https://packages.ubuntu.com/trusty/linux-azure) eller senare med hjälp av följande kommandon:
 
 ```
 sudo apt-get update
@@ -44,27 +44,27 @@ sudo apt-get install linux-azure
 sudo reboot
 ```
 
-När den virtuella datorn har startats om in i ny kerneln, kan den nya kernel-versionen bekräftas med hjälp av:
+När den virtuella datorn har startats om i den nya kerneln kan den nya kernel-versionen bekräftas med:
 
 ```
 uname -a
 ```
 
-## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Uppdatera Azure VM-agenten och tillägg versioner
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Uppdatera Azure Virtual Machine agent och tilläggs versioner
 
-Azure Disk Encryption-åtgärder misslyckas på avbildningar av virtuella datorer med hjälp av stöds inte versioner av Azure VM-agenten. Linux-avbildningar med agentversioner tidigare än 2.2.38 ska uppdateras innan du aktiverar krypteringen. Mer information finns i [så här uppdaterar du Azure Linux Agent på en virtuell dator](../virtual-machines/extensions/update-linux-agent.md) och [minsta version som stöds för agenter på virtuella datorer i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Azure Disk Encryption åtgärder kan Miss lyckas på avbildningar av virtuella datorer med hjälp av versioner av Azure Virtual Machine agent som inte stöds. Linux-avbildningar med agent versioner tidigare än 2.2.38 bör uppdateras innan kryptering aktive ras. Mer information finns i [så här uppdaterar du Azure Linux-agenten på en VM](../virtual-machines/extensions/update-linux-agent.md) och [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-Det krävs också att rätt version av tillägget Microsoft.Azure.Security.AzureDiskEncryption eller Microsoft.Azure.Security.AzureDiskEncryptionForLinux gäst-agenten. Tillägget versioner underhålls och uppdateras automatiskt av plattformen när Azure VM agent krav är uppfyllda och en version som stöds av virtuella datorns agent används.
+Rätt version av gäst agent tillägget Microsoft. Azure. Security. AzureDiskEncryption eller Microsoft. Azure. Security. AzureDiskEncryptionForLinux krävs också. Tilläggs versioner underhålls och uppdateras automatiskt av plattformen när krav för Azure Virtual Machine agent är uppfyllda och en version av den virtuella dator agenten som stöds används.
 
-Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux-tillägget har gjorts inaktuell och längre stöds inte.  
+Tillägget Microsoft. OSTCExtensions. AzureDiskEncryptionForLinux är föråldrat och stöds inte längre.  
 
-## <a name="unable-to-encrypt-linux-disks"></a>Det går inte att kryptera diskar för Linux
+## <a name="unable-to-encrypt-linux-disks"></a>Det gick inte att kryptera Linux-diskar
 
 I vissa fall kan har Linux diskkryptering verkar ha fastnat på ”OS diskkryptering igång” och SSH inaktiverats. Krypteringsprocessen kan ta mellan 3-16 timmar att slutföra på en lagerartiklar galleriavbildning. Om flera terabyte storlek datadiskar läggs kan processen ta dagar.
 
 Linux OS-disk kryptering sekvensen demonterar operativsystemenheten tillfälligt. Den utför sedan block för block kryptering av hela OS-disken innan den monterar om i det krypterade tillståndet. Till skillnad från Azure Disk Encryption på Windows kan Linux-diskkryptering inte för samtidig användning av den virtuella datorn medan kryptering pågår. Prestandaegenskaperna för den virtuella datorn kan göra stor skillnad i den tid som krävs för att slutföra krypteringen. Följande egenskaper är storleken på disken och om lagringskontot är standard eller (SSD) premiumlagring.
 
-Om du vill kontrollera krypteringsstatus för, avsöker den **ProgressMessage** fält som returneras från den [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) kommando. Medan operativsystemenheten krypteras den virtuella datorn försätts i ett tillstånd för underhåll och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen. Den **EncryptionInProgress** meddelande rapporter för flesta av tiden medan kryptering pågår. Flera timmar senare, en **VMRestartPending** uppmanas du att starta om den virtuella datorn. Exempel:
+Om du vill kontrol lera krypterings statusen avsöker du fältet **ProgressMessage** som returnerades från kommandot [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) . Medan operativsystemenheten krypteras den virtuella datorn försätts i ett tillstånd för underhåll och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen. Den **EncryptionInProgress** meddelande rapporter för flesta av tiden medan kryptering pågår. Flera timmar senare, en **VMRestartPending** uppmanas du att starta om den virtuella datorn. Exempel:
 
 
 ```azurepowershell
@@ -97,10 +97,10 @@ Alla inställningar för nätverkssäkerhetsgrupper som tillämpas måste fortfa
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault bakom en brandvägg
 
-När kryptering aktiveras med [autentiseringsuppgifter för Azure AD](azure-security-disk-encryption-prerequisites-aad.md), den Virtuella måldatorn måste tillåta anslutning till både Azure Active Directory-slutpunkter och Key Vault-slutpunkter. Aktuella autentiseringsslutpunkter för Azure Active Directory underhålls i avsnitt 56 och 59 i den [Office 365-URL: er och IP-adressintervall](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) dokumentation. Key Vault-anvisningar finns i dokumentationen om hur du [åtkomst till Azure Key Vault bakom en brandvägg](../key-vault/key-vault-access-behind-firewall.md).
+När kryptering aktive ras med [autentiseringsuppgifter för Azure AD](azure-security-disk-encryption-prerequisites-aad.md)måste den virtuella mål datorn tillåta anslutning till både Azure Active Directory slut punkter och Key Vault slut punkter. Nuvarande Azure Active Directory autentiserings slut punkter underhålls i avsnitten 56 och 59 i dokumentationen för [Office 365-URL: er och IP-adressintervall](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) . Key Vault-instruktioner finns i dokumentationen om hur du [får åtkomst till Azure Key Vault bakom en brand vägg](../key-vault/key-vault-access-behind-firewall.md).
 
-### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
-Den virtuella datorn måste kunna komma åt den [tjänsten Azure Instance Metadata](../virtual-machines/windows/instance-metadata-service.md) slutpunkt som använder en välkänd icke-dirigerbara IP-adress (`169.254.169.254`) som kan nås från den virtuella datorn.  Proxykonfigurationer som ändrar lokala HTTP-trafik till den här adressen (till exempel att lägga till en X-vidarebefordrade-för-rubrik) stöds inte.
+### <a name="azure-instance-metadata-service"></a>Azure-Instance Metadata Service 
+Den virtuella datorn måste kunna komma åt [Azure instance metadata service](../virtual-machines/windows/instance-metadata-service.md) -slutpunkten som använder en välkänd icke-flyttbar IP-adress`169.254.169.254`() som bara kan nås från den virtuella datorn.  Proxykonfigurationen som ändrar lokal HTTP-trafik till den här adressen (till exempel att lägga till ett X-vidarebefordrat-för-huvud) stöds inte.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Linux pakethantering bakom en brandvägg
 
@@ -146,17 +146,17 @@ DISKPART> list vol
 If the expected encryption state does not match what is being reported in the portal, see the following support article:
 [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
-## <a name="troubleshooting-encryption-status"></a>Felsöka krypteringsstatus 
+## <a name="troubleshooting-encryption-status"></a>Felsöka krypterings status 
 
-Portalen visas en disk som är krypterade även när det har varit okrypterade i den virtuella datorn.  Detta kan inträffa när på låg nivå kommandon används för att dekryptera direkt disken från den virtuella datorn istället för att använda de högre nivån Azure Disk Encryption kommandona för hantering.  Den högre nivån kommandon inte bara företagsprinciperna disken från den virtuella datorn, men utanför den virtuella datorn de också uppdatera inställningar för viktiga plattform filnivåkryptering och tillägg som är associerade med den virtuella datorn.  Om dessa inte sparas i justering, kommer plattformen inte kunna rapportera krypteringsstatus eller etablera den virtuella datorn korrekt.   
+Portalen kan visa en disk som krypterad även efter att den har krypterats på den virtuella datorn.  Detta kan inträffa när lågnivå kommandon används för att direkt dekryptera disken inifrån den virtuella datorn, i stället för att använda Azure Disk Encryption hanterings kommandon på högre nivå.  Med kommandona på högre nivå kan du inte bara dekryptera disken inifrån den virtuella datorn, men utanför den virtuella datorn uppdaterar de också viktiga krypterings inställningar och tilläggs inställningar som är associerade med den virtuella datorn.  Om dessa inte behålls i justeringen kommer plattformen inte att kunna rapportera krypterings status eller upprätta den virtuella datorn korrekt.   
 
-För att inaktivera Azure Disk Encryption med PowerShell, Använd [inaktivera AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) följt av [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Kör Remove-AzVMDiskEncryptionExtension innan krypteringen är inaktiverad kommer att misslyckas.
+Om du vill inaktivera Azure Disk Encryption med PowerShell använder du [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) följt av [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Det går inte att köra Remove-AzVMDiskEncryptionExtension innan krypteringen inaktive ras.
 
-För att inaktivera Azure Disk Encryption med CLI, använder [az vm encryption inaktivera](/cli/azure/vm/encryption). 
+Om du vill inaktivera Azure Disk Encryption med CLI använder du [inaktivera AZ VM-kryptering](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lärt dig mer om några vanliga problem i Azure Disk Encryption och hur du felsöker dessa problem. Mer information om den här tjänsten och dess funktioner finns i följande artiklar:
 
 - [Tillämpa diskkryptering i Azure Security Center](../security-center/security-center-apply-disk-encryption.md)
-- [Azure datakryptering i vila](azure-security-encryption-atrest.md)
+- [Azure datakryptering i vila](fundamentals/encryption-atrest.md)

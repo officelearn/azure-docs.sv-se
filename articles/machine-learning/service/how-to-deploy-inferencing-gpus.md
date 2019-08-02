@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 520e7fe953256e4c489e4c540493d9f74dda3aef
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494359"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694348"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 
@@ -25,6 +25,9 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 
 > [!TIP]
 > Även om kodfragmenten i den här artikeln usee en TensorFlow-modell kan du använda informationen för alla Machine Learning-ramverk som stöder GPU: er.
+
+> [!NOTE]
+> Informationen i den här artikeln bygger på informationen i artikeln [distribuera till Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md) . Där artikeln i allmänhet täcker distribution till AKS, behandlar den här artikeln GPU-bestämd distribution.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -87,7 +90,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure kommer att debiteras så länge AKS-klustret finns. Se till att ta bort ditt AKS-kluster när du är klar.
 
-Mer information om hur du använder Azure Kubernetes service med Azure Machine Learning-tjänsten finns i [distribuera och var](how-to-deploy-and-where.md#deploy-aks).
+Mer information om hur du använder AKS med Azure Machine Learning-tjänsten finns i [distribuera till Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Skriv start skriptet
 
@@ -162,7 +165,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-Mer information finns i referens dokumentationen för [AksService. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-).
+Mer information finns i referens dokumentationen för [AksService. deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-).
 
 ## <a name="define-the-inference-configuration"></a>Definiera konfigurationen för konfigurations störningar
 

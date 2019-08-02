@@ -1,7 +1,7 @@
 ---
-title: Använd och visa kraven - projektet URL-förhandsgranskning
+title: Använda och Visa krav – för hands versionen av Project URL
 titlesuffix: Azure Cognitive Services
-description: 'Använd och visa kraven för projektet URL: en förhandsversion av API-slutpunkten.'
+description: Använd och Visa krav för för hands versionen av API-slutpunkten för Project URL.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme
@@ -10,16 +10,17 @@ ms.subservice: url-preview
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 8078fe17ae3b282887f4bceb1bb10b34d6a007f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 38707a0914a48b6a13f519d5e076457319363a92
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60832174"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707038"
 ---
-# <a name="project-url-preview-use-and-display-requirements"></a>URL-förhandsgranskning för projektet använder och visa krav
+# <a name="project-url-preview-use-and-display-requirements"></a>Project URL-förhandsgranskning Använd och Visa krav
 
-Bara använda data från Project URL-förhandsgranskning för att visa förhandsgranskning kodfragment och miniatyrbilder som är länkade till sina källplatser i slutet användarinitierad URL delning på sociala medier, chattrobot eller liknande erbjudanden. Du måste inte kopiera, lagra eller cachelagra alla data som du får från URL-förhandsgranskning för projektet. Du måste respektera ett begärande om att inaktivera förhandsversioner som kan visas från webbplats eller innehållsägare.
+Använd endast data från förhands granskning av Project URL för att visa för hands versions-och miniatyr bilder som är länkade till käll platser, i slutanvändarens URL-delning på sociala medier, chatt-robot eller liknande erbjudanden. Du får inte kopiera, lagra eller cachelagra data som du tar emot från för hands versionen av Project URL. Du måste respektera alla begär Anden om du vill inaktivera för hands versionerna som du kan ta emot från webbplats eller innehålls ägare.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Översikt över URL-förhandsgranskning](overview.md)

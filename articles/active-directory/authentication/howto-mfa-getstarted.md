@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa2254ff3223be4312f4e9b3db4d9d83da443c0
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 182b9da402e633033411f85eb59b31f76749f3cd
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311328"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666259"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -52,7 +52,7 @@ Azure Multi-Factor Authentication distribueras genom att tvinga principer med vi
 
 * Alla användare, en speciell användare, medlem i en grupp eller tilldelad roll
 * Specifika moln program som ska användas
-* Enhets plattform
+* Enhetsplattform
 * Enhetens tillstånd
 * Nätverks plats eller geo-lokaliserad IP-adress
 * Klientprogram
@@ -71,7 +71,7 @@ Principer för villkorlig åtkomst framtvingar registrering, vilket kräver att 
 
 * Läckta autentiseringsuppgifter
 * Inloggningar från anonyma IP-adresser
-* Omöjliga resor till ovanliga platser
+* Omöjligt att resa till ovanliga platser
 * Inloggningar från okända platser
 * Inloggningar från angripna enheter
 * Inloggningar från IP-adresser med misstänkta aktiviteter
@@ -95,7 +95,7 @@ Vi rekommenderar att organisationer använder villkorlig åtkomst för att defin
       2. Ange IP-intervall
    2. Om du använder länder/regioner
       1. Expandera den nedrullningsbara menyn och välj de länder eller regioner som du vill definiera för den här namngivna platsen.
-      2. Bestäm om du vill inkludera okända områden. Okända områden är IP-adresser som inte kan mappas till ett land/en region.
+      2. Bestäm om du vill inkludera okända områden. Okända områden är IP-adresser som inte kan mappas till ett land/region.
 7. Klicka på **Skapa**
 
 ## <a name="plan-authentication-methods"></a>Planera autentiseringsmetoder
@@ -109,11 +109,11 @@ Ett push-meddelande skickas till Microsoft Authenticator-appen på din mobila en
 > [!NOTE]
 > Om din organisation har personal som arbetar i eller reser i Kina fungerar inte **meddelandet via mobilappen** på **Android-enheter** i det landet. Alternativa metoder bör göras tillgängliga för dessa användare.
 
-### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
+### <a name="verification-code-from-mobile-app"></a>Verifieringskod från mobilapp
 
 En mobilapp som Microsoft Authenticator-appen genererar en ny OATH-verifierings kod var 30: e sekund. Användaren anger verifierings koden i inloggnings gränssnittet. Alternativet mobil app kan användas om telefonen har en data-eller mobilen signal.
 
-### <a name="call-to-phone"></a>Ring till telefon
+### <a name="call-to-phone"></a>Samtal till telefon
 
 Ett automatiskt röst samtal placeras till användaren. Användaren svarar på anropet och trycker **#** på telefon tangent bordet för att godkänna deras autentisering. Samtal till telefon är en bra säkerhets kopierings metod för meddelande-eller verifierings kod från en mobilapp.
 
@@ -360,6 +360,9 @@ Nu när du har planerat din lösning kan du implementera genom att följa stegen
    1. Med [identitets skydd](../identity-protection/howto-mfa-policy.md)
 1. Skicka användar kommunikation och få användare att registrera sig[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Håll koll på vem som har registrerats](#identify-non-registered-users)
+
+> [!TIP]
+> Statliga moln användare kan registrera sig på[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Hantera din lösning
 

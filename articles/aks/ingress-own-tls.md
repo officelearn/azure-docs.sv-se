@@ -1,6 +1,6 @@
 ---
-title: Använd dina egna TLS-certifikat för ingress med kluster Azure Kubernetes Service (AKS)
-description: Lär dig hur du installerar och konfigurerar en NGINX ingress-kontrollant som använder dina egna certifikat i ett kluster i Azure Kubernetes Service (AKS).
+title: Använd dina egna TLS-certifikat för ingress med Azure Kubernetes service (AKS)-kluster
+description: Lär dig hur du installerar och konfigurerar en NGINX ingress-kontrollant som använder dina egna certifikat i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,42 +8,42 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
 ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67615441"
 ---
-# <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollanten för HTTPS och Använd dina egna TLS-certifikat på Azure Kubernetes Service (AKS)
+# <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingångs kontroll och Använd dina egna TLS-certifikat på Azure Kubernetes service (AKS)
 
 En ingress-kontrollant är en del av programvaran som tillhandahåller omvänd proxy, konfigurerbar trafikroutning och TLS-Avslut för Kubernetes-tjänster. Kubernetes ingress-resurser används för att konfigurera inkommande regler och vägar för enskilda Kubernetes-tjänster. Med hjälp av en ingress-kontrollant och ingress-regler kan en IP-adress användas för att dirigera trafik till flera tjänster i ett Kubernetes-kluster.
 
-Den här artikeln visar hur du distribuerar den [ingress-kontrollanten för NGINX][nginx-ingress] i ett kluster i Azure Kubernetes Service (AKS). Du skapa egna certifikat och skapa ett Kubernetes-hemlighet för användning med inkommande väg. Slutligen körs två program i AKS-kluster som är tillgänglig via en IP-adress.
+Den här artikeln visar hur du distribuerar [nginx ingress][nginx-ingress] -kontrollanten i ett Azure Kubernetes service-kluster (AKS). Du genererar dina egna certifikat och skapar en Kubernetes-hemlighet för användning med ingångs vägen. Slutligen körs två program i AKS-klustret, som var och en är tillgänglig över en enskild IP-adress.
 
 Du kan också:
 
-- [Skapa en grundläggande ingress-kontrollant med extern nätverksanslutning][aks-ingress-basic]
-- [Aktivera HTTP-programmet routning tillägg][aks-http-app-routing]
-- [Skapa en ingress-kontrollant som använder ett privat internt nätverk och IP-adress][aks-ingress-internal]
-- Skapa en ingress-kontrollant som använder vi kryptera för att automatiskt generera TLS-certifikat [med en dynamisk offentlig IP-adress][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+- [Skapa en grundläggande ingångs kontroll med extern nätverks anslutning][aks-ingress-basic]
+- [Aktivera routnings tillägget för HTTP-program][aks-http-app-routing]
+- [Skapa en ingångs kontroll enhet som använder ett internt, privat nätverk och IP-adress][aks-ingress-internal]
+- Skapa en ingångs kontroll enhet som använder kryptera för att automatiskt generera TLS [-certifikat med en dynamisk offentlig IP-adress][aks-ingress-tls] eller [med en statisk offentlig IP-adress][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln använder Helm för att installera NGINX ingress-kontrollanten och en exempelwebbapp. Du måste ha Helm initieras i AKS-klustret och använda ett tjänstkonto för Tiller. Kontrollera att du använder den senaste versionen av Helm. Uppgradera anvisningar finns i den [Helm installera docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+I den här artikeln används Helm för att installera NGINX ingress-kontrollanten och en webbapp. Du måste ha Helm initierat i ditt AKS-kluster och med ett tjänst konto för till gången. Kontrol lera att du använder den senaste versionen av Helm. Anvisningar om hur du uppgraderar finns i [installations dokument för Helm][helm-install]. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
 
-Den här artikeln kräver också att du kör Azure CLI version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
-## <a name="create-an-ingress-controller"></a>Skapa en ingress-kontrollant
+## <a name="create-an-ingress-controller"></a>Skapa en ingångs kontroll enhet
 
-Du kan skapa ingress-kontrollant med `Helm` installera *nginx-ingress*. För extra redundans två repliker av NGINX ingående kontrollenheterna distribueras med den `--set controller.replicaCount` parametern. Om du vill utnyttja alla fördelar med repliker av ingress-kontrollant, kontrollera att det finns fler än en nod i AKS-klustret.
+Om du vill skapa en ingångs `Helm` kontroll, använder du för att installera *nginx-ingress*. För ytterligare redundans distribueras två repliker av nginx-ingångs styrenheterna med `--set controller.replicaCount` parametern. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
 
-Ingress-kontrollant måste också schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i förhandsversion i AKS) bör inte köra ingress-kontrollant. En nod-väljare anges med hjälp av den `--set nodeSelector` parametern ska berätta för Kubernetes-Schemaläggaren för att köra ingress-kontrollanten för NGINX på en Linux-baserade nod.
-
-> [!TIP]
-> I följande exempel skapas ett Kubernetes-namnområde för ingress-resurser med namnet *ingress-grundläggande*. Ange ett namnområde för din egen miljö efter behov. Om AKS-klustret inte RBAC aktiverat lägger du till `--set rbac.create=false` för Helm-kommandon.
+Ingångs kontroll enheten måste också schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i för hands version i AKS) behöver inte köra ingångs styrenheten. En Node-selektor anges med `--set nodeSelector` parametern för att instruera Kubernetes Scheduler att köra nginx-ingångs styrenheten på en Linux-baserad nod.
 
 > [!TIP]
-> Om du vill aktivera [klienten källa IP konservering][client-source-ip] för begäranden till behållare i klustret, lägga till `--set controller.service.externalTrafficPolicy=Local` till Helm installationskommando. Klienten källan IP lagras i rubriken under *X vidarebefordras för*. När du använder en ingress-kontrollant med klienten källa IP konservering aktiverad, fungerar inte SSL direkt.
+> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat `--set rbac.create=false` lägger du till dem i Helm-kommandona.
+
+> [!TIP]
+> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. När du använder en ingångs kontroll för att aktivera IP-konservering för klient källa fungerar inte SSL-vidarekoppling.
 
 ```console
 # Create a namespace for your ingress resources
@@ -57,9 +57,9 @@ helm install stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Under installationen skapas en Azure offentlig IP-adress för ingress-kontrollant. Den här offentliga IP-adressen är statisk för livslängden för ingress-kontrollant. Om du tar bort ingress-kontrollant förloras den offentliga IP-adresstilldelningen. Om du skapar sedan en ytterligare ingress-kontrollant, tilldelas en ny offentlig IP-adress. Om du vill behålla användningen av offentliga IP-adress kan du i stället [skapa en ingress-kontrollant med en statisk offentlig IP-adress][aks-ingress-static-tls].
+Under installationen skapas en offentlig Azure-IP-adress för ingångs styrenheten. Den här offentliga IP-adressen är statisk för den ingångs kontrollens livs längd. Om du tar bort ingångs kontrollen går den offentliga IP-adresstilldelning förlorad. Om du sedan skapar ytterligare en ingångs kontroll, tilldelas en ny offentlig IP-adress. Om du vill behålla användningen av den offentliga IP-adressen kan du i stället skapa en ingångs [kontroll enhet med en statisk offentlig IP-adress][aks-ingress-static-tls].
 
-Hämta den offentliga IP-adressen med den `kubectl get service` kommando. Det tar några minuter för IP-adress som ska tilldelas till tjänsten.
+Använd `kubectl get service` kommandot för att hämta den offentliga IP-adressen. Det tar några minuter innan IP-adressen tilldelas till tjänsten.
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -71,15 +71,15 @@ virulent-seal-nginx-ingress-default-backend   ClusterIP      10.0.50.5     <none
 
 Anteckna den här offentliga IP-adressen, eftersom den används i det sista steget för att testa distributionen.
 
-Inga inkommande regler har skapats ännu. Om du bläddrar till den offentliga IP-adressen visas NGINX ingående controller standard 404-sida.
+Inga ingress-regler har skapats ännu. Om du bläddrar till den offentliga IP-adressen visas sidan NGINX ingångs styrenhetens standard 404.
 
 ## <a name="generate-tls-certificates"></a>Generera TLS-certifikat
 
-I den här artikeln ska vi skapa ett självsignerat certifikat med `openssl`. För produktion bör du begära ett betrodda, signerade certifikat via en provider eller en egen certifikatutfärdare (CA). I nästa steg ska du skapa ett Kubernetes *hemlighet* med hjälp av TLS-certifikat och privata nyckeln genereras av OpenSSL.
+I den här artikeln ska vi generera ett självsignerat certifikat med `openssl`. För produktions användningen bör du begära ett betrott signerat certifikat via en provider eller din egen certifikat utfärdare (CA). I nästa steg genererar du en Kubernetes- *hemlighet* med TLS-certifikatet och den privata nyckeln som genereras av OpenSSL.
 
-I följande exempel genererar ett 2048-bitars RSA X 509 certifikat som gäller för 365 dagar med namnet *aks-ingress-tls.crt*. Den privata nyckelfilen heter *aks-ingress-tls.key*. En Kubernetes TLS-hemlighet kräver båda dessa filer.
+I följande exempel genereras ett 2048-bitars RSA X509-certifikat giltigt i 365 dagar med namnet *AKS-ingress-TLS. CRT*. Den privata nyckel filen heter *AKS-ingress-TLS. Key*. En Kubernetes TLS-hemlighet kräver båda dessa filer.
 
-Den här artikeln fungerar med den *demo.azure.com* vanliga ämnesnamn och behöver inte ändras. För användning i produktion, ange dina egna organisationens värden för den `-subj` parameter:
+Den här artikeln fungerar med det *demo.Azure.com* ämnets gemensamma namn och behöver inte ändras. För produktions användning anger du dina egna organisations värden för `-subj` parametern:
 
 ```console
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -88,11 +88,11 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -subj "/CN=demo.azure.com/O=aks-ingress-tls"
 ```
 
-## <a name="create-kubernetes-secret-for-the-tls-certificate"></a>Skapa Kubernetes-hemlighet för TLS-certifikat
+## <a name="create-kubernetes-secret-for-the-tls-certificate"></a>Skapa Kubernetes-hemlighet för TLS-certifikatet
 
-Om du vill tillåta Kubernetes att använda TLS-certifikat och privat nyckel för ingress-kontrollant du skapar och använder en hemlighet. Hemligheten definieras en gång och använder certifikat och nyckelfil som skapades i föregående steg. Du kan sedan referera den här hemligheten när du definierar ingående vägar.
+Om du vill tillåta att Kubernetes använder TLS-certifikatet och den privata nyckeln för ingångs styrenheten skapar du och använder en hemlighet. Hemligheten definieras en gång och använder certifikatet och nyckel filen som skapades i föregående steg. Du refererar sedan till den här hemligheten när du definierar ingress-vägar.
 
-I följande exempel skapas ett hemliga namn *aks-ingress-tls*:
+I följande exempel skapas ett hemligt namn *AKS – ingress-TLS*:
 
 ```console
 kubectl create secret tls aks-ingress-tls \
@@ -101,23 +101,23 @@ kubectl create secret tls aks-ingress-tls \
     --cert aks-ingress-tls.crt
 ```
 
-## <a name="run-demo-applications"></a>Köra demo-program
+## <a name="run-demo-applications"></a>Köra demo program
 
-Ingress-kontrollanten och en hemlighet med ditt certifikat har konfigurerats. Nu ska vi köra två demonstrera program i AKS-klustret. I det här exemplet används Helm för att distribuera två instanser av en enkel ”Hello world”-program.
+En ingångs kontroll och en hemlighet med ditt certifikat har kon figurer ATS. Nu ska vi köra två demo program i ditt AKS-kluster. I det här exemplet används Helm för att distribuera två instanser av ett enkelt "Hello World"-program.
 
-Innan du kan installera exempel Helm-diagram, lägger du till lagringsplatsen Azure-exempel i miljön Helm på följande sätt:
+Innan du kan installera exempel Helm-diagrammen lägger du till Azure samples-lagringsplatsen i din Helm-miljö på följande sätt:
 
 ```console
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
-Skapa det första demonstrationsprogrammet från ett Helm-diagram med följande kommando:
+Skapa det första demonstrations programmet från ett Helm-diagram med följande kommando:
 
 ```console
 helm install azure-samples/aks-helloworld --namespace ingress-basic
 ```
 
-Nu installera en andra instans av demoprogrammet. För den andra instansen anger du ett nytt namn så att de två programmen är visuellt åtskilda. Du kan även ange ett unikt namn:
+Installera nu en andra instans av demo programmet. För den andra instansen anger du en ny rubrik så att de två programmen är visuellt åtskilda. Du anger också ett unikt tjänst namn:
 
 ```console
 helm install azure-samples/aks-helloworld \
@@ -126,18 +126,18 @@ helm install azure-samples/aks-helloworld \
     --set serviceName="ingress-demo"
 ```
 
-## <a name="create-an-ingress-route"></a>Skapa en inkommande väg
+## <a name="create-an-ingress-route"></a>Skapa en ingress-väg
 
-Båda programmen körs nu på ett Kubernetes-kluster, men de är konfigurerade med en tjänst av typen `ClusterIP`. Programmen är därför inte tillgänglig från internet. Skapa en Kubernetes ingress-resurs så att de blir allmänt tillgänglig. Ingress-resursen konfigurerar regler som vidarebefordrar trafik till en av de två programmen.
+Båda programmen körs nu på ditt Kubernetes-kluster, men de har kon figurer ATS med en tjänst `ClusterIP`av typen. Därför är programmen inte tillgängliga från Internet. Skapa en Kubernetes ingress-resurs för att göra dem offentligt tillgängliga. I ingress-resursen konfigureras de regler som dirigerar trafik till ett av de två programmen.
 
-I följande exempel trafik till adressen `https://demo.azure.com/` dirigeras till tjänsten med namnet `aks-helloworld`. Trafik till adressen `https://demo.azure.com/hello-world-two` dirigeras till den `ingress-demo` service. I den här artikeln behöver du inte ändra dessa demo-värdnamn. Ange namnen på har angetts som en del av processen för begäran och generering av certifikat för produktion.
+I följande exempel dirigeras trafik till adressen `https://demo.azure.com/` till tjänsten med namnet. `aks-helloworld` Trafik till adressen `https://demo.azure.com/hello-world-two` dirigeras `ingress-demo` till tjänsten. I den här artikeln behöver du inte ändra namnen på dessa demonstrations värdar. För produktions användning anger du namnen som anges som en del av certifikatbegäran och generations processen.
 
 > [!TIP]
-> Om det värdnamn som angavs under beställningsprocessen certifikat, CN-namnet inte matchar värden som definierats i ingående längs vägen, du inkommande controller visar en *falska certifikat som Kubernetes Ingress domänkontrollanten*. Kontrollera att ditt certifikat- och ingångsanspråk väg värd namn matchar.
+> Om det värdnamn som anges under processen för certifikatbegäran, CN-namnet, inte matchar den angivna värden i din ingångs väg, visar ingångs enheten ett *Kubernetes*-ingångs enhets förfalskat certifikat. Kontrol lera att ditt certifikat och att dirigera värdnamn matchar.
 
-Den *tls* avsnittet talar om inkommande väg att använda den hemlighet som du namnger *aks-ingress-tls* för värden *demo.azure.com*. Igen, ange din egen värdadress för produktion.
+Avsnittet *TLS* instruerar ingångs vägen att använda hemligheten med namnet *AKS-ingress-tls* för värden *demo.Azure.com*. För produktions användning anger du din egen värd adress.
 
-Skapa en fil med namnet `hello-world-ingress.yaml` och kopiera följande YAML.
+Skapa en fil med `hello-world-ingress.yaml` namnet och kopiera i följande exempel yaml.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -167,7 +167,7 @@ spec:
         path: /hello-world-two(/|$)(.*)
 ```
 
-Skapa den ingående resursen med hjälp av den `kubectl apply -f hello-world-ingress.yaml` kommando.
+Skapa den inkommande resursen med hjälp `kubectl apply -f hello-world-ingress.yaml` av kommandot.
 
 ```
 $ kubectl apply -f hello-world-ingress.yaml
@@ -175,15 +175,15 @@ $ kubectl apply -f hello-world-ingress.yaml
 ingress.extensions/hello-world-ingress created
 ```
 
-## <a name="test-the-ingress-configuration"></a>Testa ingress-konfiguration
+## <a name="test-the-ingress-configuration"></a>Testa ingress-konfigurationen
 
-Så här testar du certifikat med vår falska *demo.azure.com* vara värd för, använder `curl` och ange den *--lösa* parametern. Den här parametern kan du mappa den *demo.azure.com* namn till offentliga IP-adressen för ingress-kontrollant. Ange din egen ingress-styrenhet, offentliga IP-adress som du ser i följande exempel:
+Om du vill testa certifikaten med vår falska *demo.Azure.com* - `curl` värd, använder du och anger parametern *--* parameter. Med den här parametern kan du mappa *demo.Azure.com* -namnet till den offentliga IP-adressen för din ingångs kontroll. Ange den offentliga IP-adressen för din egen ingångs kontroll, som du ser i följande exempel:
 
 ```
 curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 ```
 
-Ingen ytterligare sökväg har tillhandahållits med adressen så ingress-kontrollant som standard den */* väg. Första demoprogrammet returneras enligt följande komprimerade exempel på utdata:
+Ingen ytterligare sökväg tillhandahölls med adressen, så ingångs styrenhetens standardinställning för */* vägen. Det första demo programmet returneras, som du ser i följande komprimerade exempel utdata:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
@@ -197,7 +197,7 @@ $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 [...]
 ```
 
-Den *- v* parameter i vår `curl` kommando visar utförlig information, inklusive TLS-certifikatet som togs emot. Halvvägs via curl-utdata, du kan kontrollera att dina egna TLS-certifikat har använts. Den *-k* parametern fortsätter att läsa in sidan, även om vi använder ett självsignerat certifikat. I följande exempel visar att den *utfärdare: CN=demo.Azure.com; O = aks-ingress-tls* certifikat har använts:
+Parametern *-v* i vårt `curl` kommando matar utförlig information, inklusive det mottagna TLS-certifikatet. Halvvägs genom dina typografiska utdata kan du kontrol lera att ditt eget TLS-certifikat användes. Parametern *-k* fortsätter att läsa in sidan även om vi använder ett självsignerat certifikat. Följande exempel visar att *utfärdaren: CN = demo. Azure. com; O = AKS-ingångs-* TLS-certifikat användes:
 
 ```
 [...]
@@ -210,7 +210,7 @@ Den *- v* parameter i vår `curl` kommando visar utförlig information, inklusiv
 [...]
 ```
 
-Lägg nu till */hello-world-two* sökvägen till adressen, till exempel `https://demo.azure.com/hello-world-two`. Andra demoprogrammet med anpassade rubriken returneras enligt följande komprimerade exempel på utdata:
+Lägg nu till */Hello-World-Two* sökväg till adressen, till exempel `https://demo.azure.com/hello-world-two`. Det andra demonstrations programmet med den anpassade rubriken returneras, som du ser i följande komprimerade exempel utdata:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two
@@ -226,17 +226,17 @@ $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/h
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Den här artikeln används Helm för att installera komponenter för ingångshändelser och exempelappar. När du distribuerar ett Helm-diagram, skapas ett antal Kubernetes-resurser. Dessa resurser inkluderar poddar, distributioner och tjänster. Om du vill rensa resurserna du antingen ta bort hela exemplet namnområde eller enskilda resurser.
+I den här artikeln används Helm för att installera ingångs komponenter och exempel appar. När du distribuerar ett Helm-diagram skapas ett antal Kubernetes-resurser. Dessa resurser omfattar poddar, distributioner och tjänster. Om du vill rensa dessa resurser kan du antingen ta bort hela exempel namnområdet eller enskilda resurser.
 
-### <a name="delete-the-sample-namespace-and-all-resources"></a>Ta bort namnområdet exemplet och alla resurser
+### <a name="delete-the-sample-namespace-and-all-resources"></a>Ta bort exempel namn området och alla resurser
 
-Ta bort namnområdet hela exemplet genom att använda den `kubectl delete` kommandot och ange namnet på ditt namnområde. Alla resurser i namnområdet tas bort.
+Om du vill ta bort hela exempel namnområdet `kubectl delete` använder du kommandot och anger namn på namn området. Alla resurser i namn området tas bort.
 
 ```console
 kubectl delete namespace ingress-basic
 ```
 
-Ta sedan bort Helm-lagringsplatsen för AKS hello world-app:
+Ta sedan bort Helm-lagrings platsen för appen AKS Hello World:
 
 ```console
 helm repo remove azure-samples
@@ -244,7 +244,7 @@ helm repo remove azure-samples
 
 ### <a name="delete-resources-individually"></a>Ta bort resurser individuellt
 
-Du kan också är en mer detaljerad metod att ta bort enskilda resurserna som du skapade. Lista Helm släpper med den `helm list` kommando. Leta efter diagram med namnet *nginx-ingress* och *aks-helloworld*, vilket visas i följande Exempelutdata:
+Alternativt är en mer detaljerad metod att ta bort de enskilda resurserna som skapats. Visar en lista med Helm- `helm list` versioner med kommandot. Leta efter diagram med namnet *nginx – ingress* och *AKS-HelloWorld*, som du ser i följande exempel resultat:
 
 ```
 $ helm list
@@ -255,7 +255,7 @@ billowing-guppy 1           Tue Oct 23 16:41:38 2018    DEPLOYED    aks-hellowor
 listless-quokka 1           Tue Oct 23 16:41:30 2018    DEPLOYED    aks-helloworld-0.1.0                default
 ```
 
-Ta bort versionerna med de `helm delete` kommando. I följande exempel tar bort NGINX ingående distribution och två AKS hello world exempelapparna.
+Ta bort utgåvorna `helm delete` med kommandot. I följande exempel tar vi bort NGINX ingress-distributionen och de två exempel AKS Hello World-apparna.
 
 ```
 $ helm delete virulent-seal billowing-guppy listless-quokka
@@ -265,25 +265,25 @@ release "billowing-guppy" deleted
 release "listless-quokka" deleted
 ```
 
-Ta sedan bort Helm-lagringsplatsen för AKS hello world-app:
+Ta sedan bort Helm-lagrings platsen för appen AKS Hello World:
 
 ```console
 helm repo remove azure-samples
 ```
 
-Ta bort den inkommande väg som dirigeras trafiken till exempelapparna:
+Ta bort ingångs vägen som riktar sig mot trafik till exempel apparna:
 
 ```console
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-Ta bort certifikatet hemlighet:
+Ta bort certifikat hemligheten:
 
 ```console
 kubectl delete secret aks-ingress-tls
 ```
 
-Slutligen kan du ta bort de själva namnområde. Använd den `kubectl delete` kommandot och ange namnet på ditt namnområde:
+Slutligen kan du ta bort själva namn området. `kubectl delete` Använd kommandot och ange namn på namn område:
 
 ```console
 kubectl delete namespace ingress-basic
@@ -291,17 +291,17 @@ kubectl delete namespace ingress-basic
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln ingår vissa externa komponenter till AKS. Mer information om dessa komponenter finns på följande sidor i projektet:
+I den här artikeln ingår några externa komponenter i AKS. Mer information om dessa komponenter finns i följande projekt sidor:
 
 - [Helm CLI][helm-cli]
-- [Ingress-kontrollanten för NGINX][nginx-ingress]
+- [NGINX ingress-styrenhet][nginx-ingress]
 
 Du kan också:
 
-- [Skapa en grundläggande ingress-kontrollant med extern nätverksanslutning][aks-ingress-basic]
-- [Aktivera HTTP-programmet routning tillägg][aks-http-app-routing]
-- [Skapa en ingress-kontrollant som använder ett privat internt nätverk och IP-adress][aks-ingress-internal]
-- Skapa en ingress-kontrollant som använder vi kryptera för att automatiskt generera TLS-certifikat [med en dynamisk offentlig IP-adress][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+- [Skapa en grundläggande ingångs kontroll med extern nätverks anslutning][aks-ingress-basic]
+- [Aktivera routnings tillägget för HTTP-program][aks-http-app-routing]
+- [Skapa en ingångs kontroll enhet som använder ett internt, privat nätverk och IP-adress][aks-ingress-internal]
+- Skapa en ingångs kontroll enhet som använder kryptera för att automatiskt generera TLS [-certifikat med en dynamisk offentlig IP-adress][aks-ingress-tls] eller [med en statisk offentlig IP-adress][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm

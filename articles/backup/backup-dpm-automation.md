@@ -1,18 +1,19 @@
 ---
 title: Azure Backup – Använd PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med PowerShell
-author: kasinh
-manager: vvithal
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan
-ms.openlocfilehash: a269db3d97f23c16e848026ce78fc04c7a1182e8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 8e17747e2f1f29243215eac85e4e5fa761e11692
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465141"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688935"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 
@@ -252,7 +253,7 @@ Börja med att skapa en ny skydds grupp med hjälp av cmdleten [New-DPMProtectio
 $PG = New-DPMProtectionGroup -DPMServerName " TestingServer " -Name "ProtectGroup01"
 ```
 
-Cmdleten ovan kommer att skapa en skydds grupp med namnet *ProtectGroup01*. En befintlig skydds grupp kan också ändras senare för att lägga till säkerhets kopia i Azure-molnet. Men för att göra ändringar i skydds gruppen – nya eller befintliga – behöver vi en referens till ett ändrings Bart  objekt med hjälp av cmdleten [Get-DPMModifiableProtectionGroup](https://technet.microsoft.com/library/hh881713) .
+Cmdleten ovan kommer att skapa en skydds grupp med namnet *ProtectGroup01*. En befintlig skydds grupp kan också ändras senare för att lägga till säkerhets kopia i Azure-molnet. Men för att göra ändringar i skydds gruppen – nya eller befintliga – behöver vi en referens till ett ändrings Bart objekt med hjälp av cmdleten [Get-DPMModifiableProtectionGroup](https://technet.microsoft.com/library/hh881713) .
 
 ```powershell
 $MPG = Get-ModifiableProtectionGroup $PG
@@ -273,7 +274,7 @@ Listan över servrar där DPM-agenten är installerad och hanteras av DPM-server
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-Nu ska du hämta listan över data källor ```$server``` med hjälp av cmdleten [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) . I det här exemplet filtreras vi för volymen *D:\\*  som vi vill konfigurera för säkerhets kopiering. Den här data källan läggs sedan till i skydds gruppen med hjälp av cmdleten [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) . Kom ihåg att använda  objektet ```$MPG``` ändrings bara skydds grupp för att göra tilläggen.
+Nu ska du hämta listan över data källor ```$server``` med hjälp av cmdleten [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) . I det här exemplet filtreras vi för volymen *D:\\*  som vi vill konfigurera för säkerhets kopiering. Den här data källan läggs sedan till i skydds gruppen med hjälp av cmdleten [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) . Kom ihåg att använda objektet ```$MPG``` ändrings bara skydds grupp för att göra tilläggen.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }

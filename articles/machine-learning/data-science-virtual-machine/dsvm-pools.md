@@ -4,7 +4,7 @@ description: Distribuera pooler med virtuella datorer för datavetenskap som en 
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys, tdsp
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
-ms.author: gokuma
-ms.openlocfilehash: 5cce7f691204a0fd116627fadde1076a4505fcb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 44983de87ce2e774356bf506e3a868da922a3ba3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502290"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558048"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Skapa en delad pool av virtuella datorer för datavetenskap
 
 Den här artikeln beskrivs hur du kan skapa en delad pool av virtuella datorer för datavetenskap (Dsvm) för ett team att använda. Fördelarna med att använda en delad pool är bättre resursutnyttjande, hjälp till delning och samarbete och effektivare hanteringen av DSVM resurser. 
 
-Du kan använda många metoder och tekniker för att skapa en pool med Dsvm. Den här artikeln handlar om pooler för interaktiva virtuella datorer. Ett alternativt hanterade beräkningsinfrastruktur är beräkning av Azure Machine Learning. Se [konfigurera beräkningsmål](../service/how-to-set-up-training-targets.md#amlcompute) för mer information.
+Du kan använda många metoder och tekniker för att skapa en pool med Dsvm. Den här artikeln fokuserar på pooler för interaktiva virtuella datorer. En alternativ hanterad beräknings infrastruktur är Azure Machine Learning beräkning. Mer information finns i [Konfigurera Compute-mål](../service/how-to-set-up-training-targets.md#amlcompute) .
 
 ## <a name="interactive-vm-pool"></a>Interaktiv VM-pool
 

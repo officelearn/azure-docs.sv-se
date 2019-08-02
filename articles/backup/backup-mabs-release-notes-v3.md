@@ -1,19 +1,20 @@
 ---
 title: Viktig information för Microsoft Azure Backup Server v3
 description: Den här artikeln innehåller information om kända problem och lösningar för MABS v3.
-author: JYOTHIRMAISURI
-manager: vvithal
+ms.reviewer: v-jysur
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/22/2018
-ms.author: v-jysur
+ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: e0bcdeeda2f8517b85059817669c19d66c723902
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: a80a5ac64b58d93bb0d4e4b799cb7424805c9baa
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465074"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698377"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Viktig information för Microsoft Azure Backup Server
 Den här artikeln innehåller kända problem och lösningar för Microsoft Azure Backup Server (MABS) v3.
@@ -60,7 +61,7 @@ Den här artikeln innehåller kända problem och lösningar för Microsoft Azure
 1.  [Säkerhetskopiera](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) SQL-databasen och avinstallera Mabs v2 (Välj att behålla skyddade data under avinstallationen).
 2.  Uppgradera till SQL 2017 (Enterprise) och avinstallera rapportering som en del av uppgraderingen.
 3. [Installera](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
-4.  [Installera](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-181) SQL Server Management Studio (SSMS).
+4.  [Installera](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-182) SQL Server Management Studio (SSMS).
 5.  Konfigurera rapportering med parametrarna enligt beskrivningen i [SSRS-konfigurationen med SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Installera](backup-azure-microsoft-azure-backup.md) MABS V3.
 7. [Återställ](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL med SSMS och kör verktyget DPM-Sync enligt beskrivningen [här](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).

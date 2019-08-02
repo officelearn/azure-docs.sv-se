@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 611a52f43b5b0e076ae37df9df86479ec894c6f4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: a610a2c01a1e935c55942b621e5b3799cb002fc0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849150"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698646"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Konfigurera en regel för IP-begränsning med en brand vägg för webbaserade program för Azure-tjänsten för front dörr
 I den här artikeln beskrivs hur du konfigurerar regler för IP-begränsning i en brand vägg för webbaserade program (WAF) för Azure-tjänsten för frontend-tjänsten med hjälp av Azure CLI, Azure PowerShell eller en Azure Resource Manager mall.
 
 En IP-adress – baserad åtkomst kontroll regel är en anpassad WAF-regel som låter dig styra åtkomsten till dina webb program. Det gör du genom att ange en lista över IP-adresser eller IP-adressintervall i CIDR-format (Classless Inter-Domain routing).
 
-Som standard är ditt webb program tillgängligt från Internet. Om du vill begränsa åtkomsten till klienter från en lista med kända IP-adresser eller IP-adressintervall måste du skapa två IP-matchande regler. Den första IP-matchande regeln innehåller listan över IP-adresser som matchande värden och anger att åtgärden ska tillåtas. Den andra, med lägre prioritet, blockerar alla andra IP-adresser med hjälp av operatorn **all** och anger åtgärden till **blockera**. När en regel för IP-begränsning har tillämpats får begär Anden som härstammar från adresser utanför listan över tillåtna 403 ett svar som inte tillåts.  
+Som standard är ditt webb program tillgängligt från Internet. Om du vill begränsa åtkomsten till klienter från en lista med kända IP-adresser eller IP-adressintervall måste du skapa två IP-matchande regler. Den första IP-matchande regeln innehåller listan över IP-adresser som matchande värden och anger att åtgärdenska tillåtas. Den andra, med lägre prioritet, blockerar alla andra IP-adresser med hjälp av operatorn **all** och anger åtgärden till **blockera**. När en regel för IP-begränsning har tillämpats får begär Anden som härstammar från adresser utanför listan över tillåtna 403 ett svar som inte tillåts.  
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Konfigurera en WAF-princip med Azure CLI
 
@@ -40,7 +40,7 @@ Skapa en profil för Azure frontend-tjänsten genom att följa anvisningarna i [
 
 ### <a name="create-a-waf-policy"></a>Skapa en WAF-princip
 
-Skapa en WAF-princip med hjälp av kommandot [AZ Network WAF-policy Create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) . I exemplet nedan ersätter du princip namnet *IPAllowPolicyExampleCLI* med ett unikt princip namn.
+Skapa en WAF-princip med hjälp av kommandot [AZ Network WAF-policy Create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) . I exemplet nedan ersätter du princip namnet *IPAllowPolicyExampleCLI* med ett unikt princip namn.
 
 ```azurecli-interactive 
 az network waf-policy create \
@@ -50,7 +50,7 @@ az network waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Lägg till en anpassad kontroll regel för IP-åtkomst
 
-Använd kommandot [AZ Network WAF-policy Create-Rule Create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) för att lägga till en anpassad kontroll regel för IP-åtkomst för den WAF-princip som du nyss skapade.
+Använd kommandot [AZ Network WAF-policy Create-Rule Create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) för att lägga till en anpassad kontroll regel för IP-åtkomst för den WAF-princip som du nyss skapade.
 
 I följande exempel:
 -  Ersätt *IPAllowPolicyExampleCLI* med din unika princip som skapats tidigare.
@@ -82,7 +82,7 @@ az network waf-policy custom-rule create \
 ```
     
 ### <a name="find-the-id-of-a-waf-policy"></a>Hitta ID för en WAF-princip 
-Hitta en WAF-princips ID med hjälp av kommandot [AZ Network WAF-policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show) . Ersätt *IPAllowPolicyExampleCLI* i följande exempel med din unika princip som du skapade tidigare.
+Hitta en WAF-princips ID med hjälp av kommandot [AZ Network WAF-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) . Ersätt *IPAllowPolicyExampleCLI* i följande exempel med din unika princip som du skapade tidigare.
 
    ```azurecli
    az network waf-policy show \

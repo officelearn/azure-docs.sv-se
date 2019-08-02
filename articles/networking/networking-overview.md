@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2019
 ms.author: kumud
-ms.openlocfilehash: 9fb7fc9b4f0e5af0847876ff41b6a307f8a09749
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 857b38693ca85d6ab397cbe850f0cd530fefc88c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348026"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598383"
 ---
 # <a name="azure-networking"></a>Azure-nätverk
 
@@ -38,7 +38,7 @@ I det här avsnittet beskrivs tjänster som ger anslutning mellan Azure-resurser
 |[VPN Gateway](#vpngateway)|Skickar krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via det offentliga Internet.|<p>[Plats-till-plats-anslutningar](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-till-VNet-anslutningar](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Punkt-till-plats-anslutningar](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[Virtuellt WAN](#virtualwan)|Optimerar och automatiserar gren anslutningen till och via Azure. Azure-regioner fungerar som hubbar som du kan välja att ansluta dina grenar till.|<p>[Plats-till-plats-anslutningar](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute-anslutningar](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Är värd för DNS-domäner som tillhandahåller namn matchning med hjälp av Microsoft Azure-infrastrukturen.|<p>[Använda Azure DNS som värd för din domän](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Skapa DNS-poster för en webbapp](../dns/dns-web-sites-custom-domain.md)</p> <p>[Skapa en aliasresurspost för Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Skapa en aliasresurspost för offentlig IP-adress](../dns/tutorial-alias-pip.md)</p> <p>[Skapa en aliasresurspost för zon resurs posten](../dns/tutorial-alias-rr.md)</p>|
-|[Azure-skydds (för hands version)](#bastion)|Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure skydds behöver inte dina virtuella datorer en offentlig IP-adress|<p>[Skapa en Azure skydds-värd](../bastion/bastion-create-host-portal.md)</p><p>[Ansluta med SSH till en virtuell Linux-dator](../bastion/bastion-connect-vm-ssh.md)</p><p>[Ansluta via RDP till en virtuell Windows-dator](/bastion/bastion-connect-vm-rdp.md)</p>|
+|[Azure-skydds (för hands version)](#bastion)|Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure skydds behöver inte dina virtuella datorer en offentlig IP-adress|<p>[Skapa en Azure skydds-värd](../bastion/bastion-create-host-portal.md)</p><p>[Ansluta med SSH till en virtuell Linux-dator](../bastion/bastion-connect-vm-ssh.md)</p><p>[Ansluta via RDP till en virtuell Windows-dator](../bastion/bastion-connect-vm-rdp.md)</p>|
 ||||
 
 
@@ -74,7 +74,7 @@ Azure Virtual WAN är en nätverks tjänst som tillhandahåller optimerad och au
 Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster. Mer information finns i [Vad är Azure DNS?](../dns/dns-overview.md).
 
 ### <a name="bastion"></a>Azure-skydds (för hands version)
-Azure skydds-tjänsten är en ny helt plattforms oberoende PaaS-tjänst som du etablerar i det virtuella nätverket. Den ger säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure Portal via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress. Mer information finns i [Vad är Azure skydds?](/bastion/bastion-overview.md).
+Azure skydds-tjänsten är en ny helt plattforms oberoende PaaS-tjänst som du etablerar i det virtuella nätverket. Den ger säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure Portal via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress. Mer information finns i [Vad är Azure skydds?](../bastion/bastion-overview.md).
 
 ![Azure skydds-arkitektur](./media/networking-overview/architecture.png)
 

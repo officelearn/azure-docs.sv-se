@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325493"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montera en Azure-filresurs i Azure Container Instances
@@ -83,13 +83,13 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>Hantera filer på monterad volym
 
-När behållaren har startats kan du använda den enkla webbappen som distribueras via Microsoft [ACI-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] -kommandot:
+När behållaren har startats kan du använda den enkla webbappen som distribueras via Microsoft [ACI-hellofiles-][aci-hellofiles] avbildningen för att skapa små textfiler i Azure-filresursen på den monterings Sök väg du angav. Hämta webbappens fullständigt kvalificerade domän namn (FQDN) med kommandot [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-När du har sparat text med appen kan du använda [Azure Portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] för att hämta och inspektera filen som skrivits till fil resursen.
+När du har sparat text med appen kan du använda [Azure Portal][portal] eller ett verktyg som [Microsoft Azure Storage Explorer][storage-explorer] för att hämta och granska filen som skrivits till fil resursen.
 
 ## <a name="deploy-container-and-mount-volume---yaml"></a>Distribuera behållare och montera volym – YAML
 

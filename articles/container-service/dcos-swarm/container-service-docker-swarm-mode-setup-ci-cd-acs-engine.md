@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fd502a308d6298dc2941461632a2832ac336c45c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849873"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598550"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>FÖRÅLDRAD Full CI/CD-pipeline för att distribuera ett program med flera behållare på Azure Container Service med ACS-motorn och Docker Swarm-läge med Azure DevOps
 
@@ -112,7 +112,7 @@ I det här steget skapar du en pipeline för bygge för ditt Azure DevOps-projek
 
     ![Konfiguration av variabler för Azure DevOps-build](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 
-5. På sidan **versions definitioner** öppnar du fliken  utlösare och konfigurerar versionen för att använda kontinuerlig integrering med den förgrening som du skapade i kraven. Välj sedan **batch-ändringar**. Se till att du väljer *Docker-Linux* som **gren specifikation**.
+5. På sidan **versions definitioner** öppnar du fliken utlösare och konfigurerar versionen för att använda kontinuerlig integrering med den förgrening som du skapade i kraven. Välj sedan **batch-ändringar**. Se till att du väljer *Docker-Linux* som **gren specifikation**.
 
     ![Azure-DevOps – konfiguration av databas för skapande](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
 
@@ -197,7 +197,7 @@ Med Azure-DevOps kan du [hantera versioner i olika miljöer](https://www.visuals
 
 ### <a name="initial-release-setup"></a>Installation av inledande version
 
-1. Om du vill skapa en versions pipeline  > klickar du på releases **+ release**
+1. Om du vill skapa en versions pipeline > klickar du på releases **+ release**
 
 2. Konfigurera artefakt källan genom att klicka på **artefakter** > **Länka en artefakt källa**. Här länkar du den nya versions pipelinen till den version som du definierade i föregående steg. Därefter är filen filen Docker. yml tillgänglig i versions processen.
 
@@ -251,6 +251,6 @@ Nu när du är färdig med konfigurationen är det dags att testa den nya CI/CD-
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om CI/CD med Azure DevOps finns i [Översikt över Azure DevOps-version](https://www.visualstudio.com/docs/build/overview).
+* Mer information om CI/CD med Azure DevOps finns i artikeln om [pipeline-dokumentation för Azure](/azure/devops/pipelines/?view=azure-devops) .
 * Mer information om ACS-motorn finns i [ACS-motorn GitHub lagrings platsen](https://github.com/Azure/acs-engine).
 * Mer information om Docker Swarm läge finns i [Översikt över Docker Swarm läge](https://docs.docker.com/engine/swarm/).

@@ -1,54 +1,54 @@
 ---
-title: Massimport och uppdatera data i Azure Cosmos DB med hjälp av klientbiblioteket för bulk-executor
-description: 'Utföra massåtgärder i Azure Cosmos DB via massimport och Massuppdatering API: er som erbjuds av bulk executor biblioteket.'
+title: Mass import och uppdatering av data i Azure Cosmos DB med hjälp av bulk utförar-biblioteket
+description: 'Utför Mass åtgärder i Azure Cosmos DB via Mass import och Mass uppdaterings-API: er som erbjuds av bulk utförar-biblioteket.'
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: e4357007ec1cfac2cf6a10d339c6b3aa3ae41488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257104"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637788"
 ---
-# <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB bulk executor biblioteket – översikt
+# <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Översikt över Azure Cosmos DB utförar-bibliotek
  
-Azure Cosmos DB är en snabb, flexibel och globalt distribuerad databastjänst som är utformat att Elastiskt skala ut med stöd: 
+Azure Cosmos DB är en snabb, flexibel och globalt distribuerad databastjänst som är utformad för att elastiskt skala ut och stödja: 
 
-* Stor läser och skriver dataflöde (miljoner åtgärder per sekund).  
-* Lagra stora mängder (hundratals terabyte eller även flera) transaktions- och data med förutsägbara millisekunds fördröjning.  
+* Stora läs- och skrivdataflöden (flera miljoner åtgärder per sekund).  
+* Lagra stora mängder (hundratals terabyte eller mer) transaktions- och åtgärdsdata med förutsägbara millisekundssvarstider.  
 
-Massinläsning executor biblioteket kan du använda den här massivt dataflöde och lagring. Massinläsning executor biblioteket kan du utför åtgärder i Azure Cosmos DB via massimport och masskyddsåtgärder uppdatera API: er. Du kan läsa mer om funktionerna i bulk executor bibliotek i följande avsnitt. 
+Massexecutor-biblioteket hjälper dig att dra nytta av det omfattande dataflödet och lagringsutrymmet. Med massexecutor-biblioteket kan du utföra massåtgärder i Azure Cosmos DB med hjälp av API:er för massimport och massuppdatering. Du kan läsa mer om funktionerna i massexecutor-biblioteket i följande avsnitt. 
 
 > [!NOTE] 
-> För närvarande bulk executor bibliotek stöder import och uppdateringsåtgärder och det här biblioteket som stöds av endast Azure Cosmos DB SQL API och Gremlin-API-konton.
+> För närvarande stöder bulk utförar-biblioteket import-och uppdaterings åtgärder och det här biblioteket stöds endast av Azure Cosmos DB SQL API-och Gremlin API-konton.
  
-## <a name="key-features-of-the-bulk-executor-library"></a>Viktiga funktioner i bulk executor biblioteket  
+## <a name="key-features-of-the-bulk-executor-library"></a>Huvud funktioner i bulk utförar-biblioteket  
  
-* Det minskar avsevärt klientsidan beräkningsresurser som behövs för att fylla det dataflöde som allokeras till en behållare. Ett enda flertrådade program som skriver data med hjälp av bulk importera API uppnår 10 gånger högre genomströmning för skrivning jämfört med ett flertrådiga program som skriver data parallellt vid överbelastas klienten datorns processor.  
+* Det minskar avsevärt de beräknings resurser på klient sidan som krävs för att fylla data flödet som allokerats till en behållare. Ett enda trådat program som skriver data med hjälp av Mass import-API: n uppnår 10 gånger större Skriv data flöde jämfört med ett program med flera trådar som skriver parallella data samtidigt som nätverket överbelastas klient datorns processor.  
 
-* Den avlägsnar tedious uppgifter för att skriva programlogik som hanterar hastighetsbegränsning på begäran, timeout för begäran och andra tillfälliga undantag eftersom de effektivt hanterar dem i biblioteket.  
+* Den sammanfattar de omständliga uppgifterna i att skriva program logik för att hantera hastighets begränsning av begäran, begär tids gränser och andra tillfälliga undantag genom att effektivt hantera dem i biblioteket.  
 
-* Det ger en förenklad mekanism för program som utför massåtgärder att skala ut. En enda grupp executor-instans som körs på en virtuell Azure-dator kan använda större än 500 K RU/s och du kan få ett högre dataflöde kostnad genom att lägga till ytterligare instanser på enskilda klient-VM.  
+* Det ger en förenklad mekanism för program som utför Mass åtgärder för att skala ut. En enskild utförar-instans som körs på en virtuell Azure-dator kan förbruka mer än 500 000 RU/s och du kan uppnå en högre data flödes hastighet genom att lägga till ytterligare instanser på enskilda virtuella klient datorer.  
  
-* Det kan masstilldela importera fler än en terabyte data inom en timme med hjälp av en skalbar arkitektur.  
+* Den kan Mass import av mer än en terabyte data inom en timme med hjälp av en skalbar arkitektur.  
 
-* Det kan masstilldela uppdatera befintliga data i Azure Cosmos DB-behållare som korrigeringar. 
+* Det kan Mass uppdatera befintliga data i Azure Cosmos DB behållare som korrigeringsfiler. 
  
-## <a name="how-does-the-bulk-executor-operate"></a>Hur fungerar Bulk-Executor? 
+## <a name="how-does-the-bulk-executor-operate"></a>Hur fungerar bulk-utförar? 
 
-När en bulkåtgärd att importera eller uppdatera dokument utlöses med en batch med entiteter, blandad inledningsvis till buckets som motsvarar deras partitionsnyckelintervall för Azure Cosmos DB. Inom varje bucket som motsvarar en partitionsnyckelintervall, kan de delas upp i mini-batchar och varje act Mini batch som en nyttolast som har genomförts på serversidan. Massinläsning executor biblioteket har inbyggda optimeringar för samtidig körning av dessa mini-batchar både inom och mellan olika partition nyckelintervall. Följande bild illustrerar hur bulk executor slår ihop data till olika partitionsnycklar:  
+När en Mass åtgärd för import eller uppdatering av dokument utlöses med en batch med entiteter, grupperas de först i buckets som motsvarar deras Azure Cosmos DB partitionsnyckel. I varje Bucket som motsvarar ett nyckel intervall är de uppdelade i mini-batchar och varje mini-batch fungerar som en nytto last som bekräftas på Server sidan. Bulk utförar-biblioteket har byggts i optimeringar för samtidig körning av dessa mini-batchar både inom och över partitionerings nyckel intervall. Följande bild illustrerar hur Mass utförar batcherar data i olika partitionsnyckel:  
 
-![Massinläsning executor arkitektur](./media/bulk-executor-overview/bulk-executor-architecture.png)
+![Mass utförar-arkitektur](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-Bulk Executor biblioteket ser till att använda högst dataflödet som allokerats till en samling. Den använder en [AIMD-style överbelastning mekanismen för multifaktoråtkomstkontroll](https://tools.ietf.org/html/rfc5681) partitionera nyckelintervall att effektivt hantera hastighetsbegränsning och tidsgränser för varje Azure Cosmos DB. 
+I bulk utförar-biblioteket ser du till att maximally använder det data flöde som allokerats till en samling. Den använder en [AIMD](https://tools.ietf.org/html/rfc5681) för överbelastnings kontroll för varje Azure Cosmos DB partitionsnyckel för att effektivt hantera hastighets begränsning och tids gränser. 
 
 ## <a name="next-steps"></a>Nästa steg 
   
-* Lär dig mer genom att prova exempelprogrammen förbrukar Bulk Executor biblioteket i [.NET](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md).  
-* Kolla in de bulk executor SDK information och viktig information i [.NET](sql-api-sdk-bulk-executor-dot-net.md) och [Java](sql-api-sdk-bulk-executor-java.md).
-* Massinläsning Executor biblioteket är integrerad i Cosmos DB Spark connector, mer information finns i [Azure Cosmos DB Spark connector](spark-connector.md) artikeln.  
-* Massinläsning executor biblioteket är också integrerat i en ny version av [Azure Cosmos DB-anslutningsapp](https://aka.ms/bulkexecutor-adf-v2) för Azure Data Factory att kopiera data.
+* Lär dig mer genom att testa exempel programmen som använder bulk utförar-biblioteket i [.net](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md).  
+* Kolla in utförar SDK-information och viktig information i [.net](sql-api-sdk-bulk-executor-dot-net.md) och [Java](sql-api-sdk-bulk-executor-java.md).
+* Bulk utförar-biblioteket är integrerat i Cosmos DB Spark-anslutningsprogrammet för mer information finns i artikeln [Azure Cosmos DB Spark Connector](spark-connector.md) .  
+* Bulk utförar-biblioteket är också integrerat i en ny version av [Azure Cosmos DB Connector](https://aka.ms/bulkexecutor-adf-v2) för Azure Data Factory för att kopiera data.

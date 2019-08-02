@@ -1,7 +1,7 @@
 ---
 title: Custom Decision Service-arbetsflöde
 titlesuffix: Azure Cognitive Services
-description: Den här artikeln innehåller det rekommenderat arbetsflöden för Azure Custom Decision Service.
+description: Den här artikeln innehåller det rekommenderade arbets flödet för Azure-Custom Decision Service.
 services: cognitive-services
 author: noellelacharite
 manager: nitinme
@@ -10,20 +10,21 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: nolachar
-ms.openlocfilehash: 086858f88a1b058e0e94fb356fbd06cf299b14f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: cce40c53fdfb052cc6c1f2941b2e3b4ae710ae21
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60580053"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707199"
 ---
 # <a name="custom-decision-service-workflow"></a>Custom Decision Service-arbetsflöde
 
-Vi rekommenderar detta mönster följs när du skapar dina appar.
+Vi rekommenderar att du följer det här mönstret när du skapar dina appar.
 
 ![Custom Decision Service-arbetsflöde](media/custom-decision-service-workflow.png)
 
-Lägg till en [anslutningssträngen för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string).
+Lägg till en [Azure Storage anslutnings sträng](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string).
 
 ## <a name="next-steps"></a>Nästa steg
 

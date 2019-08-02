@@ -9,20 +9,31 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: diberry
-ms.openlocfilehash: 63a898bd807b168ae17ec90e442c6ee6c001c715
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ab30e201dc5e4e9a226e23a37e8dbd63f17dd742
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559891"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717438"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
 Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.  
 
 ## <a name="release-notes"></a>Viktig information 
+
+### <a name="july-23-2019"></a>23 juli 2019
+
+* Uppdatera [identifierarna – text](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.2.3) till 1.2.3
+    * Ålder, temperatur, dimension och valuta igenkänning i italienska.
+    * Förbättra helg igenkänning på engelska för att beräkna tacksägelse datum baserade datum på ett korrekt sätt.
+    * Förbättringar på franska datum/tid för att minska antalet falska positiva identifieringar av icke-datum-och icke-tidsentiteter.
+    * Stöd för kalender/skola/räkenskapsår och akronymer på engelska DateRange.
+    * Förbättrad telefonnummer på telefonnummer på kinesiska och japanska.
+    * Förbättrat stöd för NumberRange på engelska.
+    * Prestanda förbättringar.
 
 ### <a name="june-24-2019"></a>24 juni 2019
 

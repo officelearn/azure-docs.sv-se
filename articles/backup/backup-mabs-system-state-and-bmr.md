@@ -1,19 +1,19 @@
 ---
 title: Azure Backup Server skyddar system tillstånd och återställer till Bare Metal
 description: Använd Azure Backup Server för att säkerhetskopiera system tillstånd och ge skydd mot Bare Metal Recovery (BMR).
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: raynew
-ms.openlocfilehash: a21169a5d9da7c9f1baf8a7d1e7365348860fca1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12412122ba116eedc592fadc57949f707e52c355
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465034"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639667"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Säkerhetskopiera system tillstånd och Återställ till Bare Metal med Azure Backup Server
 
@@ -107,7 +107,7 @@ När säkerhets kopieringen är slutförd överförs filen till säkerhets kopie
 Konfigurera en skydds grupp enligt beskrivningen i [distribuera skydds grupper](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Observera att du inte kan skydda BMR och system tillstånd för samma dator i olika grupper. När du väljer BMR aktive ras också system tillstånd automatiskt.
 
 
-1.  Öppna guiden Skapa ny skydds grupp på säkerhets kopierings servern administratörskonsol genom att  > välja skydds**åtgärder** > **skapa skydds grupp**.
+1.  Öppna guiden Skapa ny skydds grupp på säkerhets kopierings servern administratörskonsol genom att > välja skydds**åtgärder** > **skapa skydds grupp**.
 
 2.  Välj **servrar**på sidan **Välj typ av skydds grupp** och välj sedan **Nästa**.
 

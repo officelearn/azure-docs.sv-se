@@ -1,89 +1,89 @@
 ---
-title: Bevilja åtkomst till Azure BLOB-objekt och köer med hjälp av Azure Active Directory | Microsoft Docs
-description: Tillåter åtkomst till Azure BLOB-objekt och köer med hjälp av Azure Active Directory.
+title: Ge åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory | Microsoft Docs
+description: Ge åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8033dda4059a52cea2b775fc8765a9f2a91b96dd
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302419"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514888"
 ---
-# <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Bevilja åtkomst till Azure BLOB-objekt och köer med hjälp av Azure Active Directory
+# <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Ge åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory
 
-Azure Storage stöder auktoriserar förfrågningar till Blob- och Queue storage med hjälp av Azure Active Directory (AD). Du kan använda rollbaserad åtkomstkontroll (RBAC) för att ge behörigheter till ett säkerhetsobjekt som kan vara en användare, grupp eller program tjänstens huvudnamn med Azure AD. Säkerhetsobjektet autentiseras av Azure AD för att returnera en OAuth 2.0-token. Token kan användas för att auktorisera en begäran om åtkomst till en resurs i Blob eller Queue storage.
+Azure Storage stöder användning av Azure Active Directory (AD) för att auktorisera begär anden till blob-och Queue-lagring. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, grupp eller ett program tjänst objekt. Säkerhets objekt autentiseras av Azure AD för att returnera en OAuth 2,0-token. Token kan användas för att auktorisera en begäran om åtkomst till en resurs i BLOB-eller Queue-lagring.
 
-Auktorisering av användare eller program med hjälp av en OAuth 2.0-token som returneras av Azure AD tillhandahåller överlägsen säkerhet och användarvänlighet över delad nyckel auktorisering och signaturer för delad åtkomst (SAS). Med Azure AD finns det inget behov att lagra kontoåtkomstnyckel med din kod och risk potentiella säkerhetsproblem. Du kan fortsätta använda delad nyckel auktorisering med program, kringgår med hjälp av Azure AD behovet av att spara din åtkomstnyckel med din kod. Du kan också fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt storage-konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig om du återkallar en komprometterad SAS. Microsoft rekommenderar att du använder Azure AD-auktorisering med Azure Storage-program när det är möjligt.
+Auktorisering av användare eller program med hjälp av en OAuth 2,0-token som returnerades av Azure AD ger överlägsen säkerhet och enkel användning över delad nyckeltoken och signaturer för delad åtkomst (SAS). Med Azure AD behöver du inte lagra konto åtkomst nyckeln med din kod och riskerar att innebära potentiella säkerhets risker. Även om du kan fortsätta att använda autentisering med delad nyckel med dina program kan du använda Azure AD för att kringgå behovet av att lagra din konto åtkomst nyckel med din kod. Du kan även fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt lagrings konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig för att återkalla en komprometterad SAS. Microsoft rekommenderar att du använder Azure AD-auktorisering med dina Azure Storage-program när det är möjligt.
 
-Auktorisering med Azure AD är tillgänglig för alla Allmänt och Blob storage-konton i alla offentliga regioner och nationella moln. Storage-konton som skapats med stöd för Azure Resource Manager deployment model Azure AD-auktorisering.
+Auktorisering med Azure AD är tillgängligt för alla generella och Blob Storage-konton i alla offentliga regioner och nationella moln. Endast lagrings konton som skapats med Azure Resource Manager distributions modell har stöd för Azure AD-auktorisering.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Översikt över Azure AD för blobbar och köer
 
-När ett säkerhetsobjekt (en användare, grupp eller program) försöker få åtkomst till en blob eller kön resurs, måste begäran ha behörighet, om det inte en blob som är tillgängliga för anonym åtkomst. Med Azure AD är åtkomst till en resurs en tvåstegsprocess. Först autentiseras säkerhetsobjektets identitet och en OAuth 2.0-token returneras. Därefter token skickas som en del av en begäran till tjänsten Blob eller en kö och används av tjänsten för att godkänna åtkomst till den angivna resursen.
+När ett säkerhets objekt (en användare, grupp eller ett program) försöker få åtkomst till en BLOB-eller Queue-resurs, måste begäran auktoriseras, såvida det inte är en blob som är tillgänglig för anonym åtkomst. Med Azure AD är åtkomst till en resurs en två stegs process. Först autentiseras säkerhets objektets identitet och en OAuth 2,0-token returneras. Därefter skickas token som en del av en begäran till Bloben eller Kötjänst och används av tjänsten för att ge åtkomst till den angivna resursen.
 
-Autentisering-steget kräver att ett program begär en OAuth 2.0-åtkomsttoken vid körning. Om ett program körs från inom en Azure-enhet som en Azure-dator, en skalningsuppsättning för virtuell dator eller en Azure Functions-app, den kan använda en [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) att komma åt blobar eller köer. Läs hur du godkänner begäranden som görs av en hanterad identitet till tjänsten Azure Blob eller kön i [auktorisera åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md).
+Steget autentisering kräver att ett program begär en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs från en Azure-entitet, till exempel en virtuell Azure-dator, en skalnings uppsättning för virtuella datorer eller en Azure Functions app, kan den använda en [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) för att få åtkomst till blobbar eller köer. Information om hur du auktoriserar begär Anden som görs av en hanterad identitet till Azure-blobben eller Kötjänst finns i [bevilja åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md).
 
-Steg för auktorisering kräver att en eller flera RBAC-roller måste tilldelas till säkerhetsobjektet. Azure Storage tillhandahåller RBAC-roller som omfattar vanliga uppsättningar av behörigheter för blob-och kö. De roller som tilldelas till säkerhetsobjekt avgör vilka behörigheter som huvudkontot har. Läs mer om att tilldela RBAC-roller för Azure Storage i [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
+Auktoriserings steget kräver att en eller flera RBAC-roller tilldelas säkerhets objekt. Azure Storage tillhandahåller RBAC-roller som omfattar vanliga uppsättningar med behörigheter för blob-och Queue-data. Rollerna som tilldelas ett säkerhets objekt bestämmer vilka behörigheter som huvud kontot ska ha. Mer information om hur du tilldelar RBAC-roller för Azure Storage finns i [Hantera åtkomst behörigheter till lagrings data med RBAC](storage-auth-aad-rbac.md).
 
-Interna program och webbprogram som gör begäranden till tjänsten Azure Blob eller en kö kan du också auktorisera med Azure AD. Läs hur du begär en åtkomsttoken och använda den för att godkänna begäranden för blob-eller kön i [auktorisera åtkomst till Azure Storage med Azure AD från ett Azure Storage-program](storage-auth-aad-app.md).
+Interna program och webb program som gör förfrågningar till Azure-blobben eller Kötjänst kan också ge åtkomst till Azure AD. Information om hur du begär en åtkomsttoken och använder den för att auktorisera förfrågningar om BLOB-eller Queue-data finns i [bevilja åtkomst till Azure Storage med Azure AD från ett Azure Storage-program](storage-auth-aad-app.md).
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>Tilldela RBAC-roller för åtkomsträttigheter
+## <a name="assigning-rbac-roles-for-access-rights"></a>Tilldela RBAC-roller för åtkomst rättigheter
 
-Azure Active Directory (Azure AD) auktoriserar åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för åtkomst till blob-och kö. Du kan också definiera anpassade roller för åtkomst till blob-och kö.
+Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar med behörigheter som används för att få åtkomst till blob-och Queue-data. Du kan också definiera anpassade roller för åtkomst till blob-och Queue-data.
 
-När en RBAC-roll tilldelas till en Azure AD-säkerhetsobjekt, Azure beviljar åtkomst till att dessa resurser för det säkerhetsobjektet. Åtkomst kan begränsas till nivån för prenumerationen, resursgruppen, storage-konto eller en enskild behållare eller en kö. En Azure AD-säkerhetsobjekt kan vara en användare, en grupp, tjänstens huvudnamn för ett program eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="built-in-rbac-roles-for-blobs-and-queues"></a>Inbyggda RBAC-roller för blobbar och köer
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-Om du vill lära dig mer om att tilldela en inbyggd RBAC-roll till säkerhetsobjekt, finns i följande artiklar:
+Information om hur du tilldelar en inbyggd RBAC-roll till ett säkerhets objekt finns i någon av följande artiklar:
 
-- [Bevilja åtkomst till Azure blob och kö data med RBAC i Azure portal](storage-auth-aad-rbac-portal.md)
-- [Bevilja åtkomst till Azure blob och kö data med RBAC med Azure CLI](storage-auth-aad-rbac-cli.md)
-- [Bevilja åtkomst till Azure blob och kö data med RBAC med hjälp av PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Bevilja åtkomst till blob- och ködata i Azure med RBAC på Azure-portalen](storage-auth-aad-rbac-portal.md)
+- [Bevilja åtkomst till blob- och ködata i Azure med RBAC med hjälp av Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Bevilja åtkomst till blob- och ködata i Azure med RBAC med hjälp av PowerShell](storage-auth-aad-rbac-powershell.md)
 
-Mer information om hur inbyggda roller definieras för Azure Storage, se [förstå rolldefinitioner](../../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade RBAC-roller finns i [skapa anpassade roller för rollbaserad åtkomstkontroll i](../../role-based-access-control/custom-roles.md).
+Mer information om hur inbyggda roller definieras för Azure Storage finns i [förstå roll definitioner](../../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade RBAC-roller finns i [skapa anpassade roller för Azure Role-baserade Access Control](../../role-based-access-control/custom-roles.md).
 
-### <a name="access-permissions-for-data-operations"></a>Åtkomstbehörighet för dataåtgärder
+### <a name="access-permissions-for-data-operations"></a>Åtkomst behörigheter för data åtgärder
 
-Mer information om de behörigheter som krävs för att anropa specifika åtgärder för Blob eller Queue service finns [behörigheter för att anropa blob och kö dataåtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Mer information om de behörigheter som krävs för att anropa vissa BLOB-eller Kötjänst-åtgärder finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
-## <a name="resource-scope"></a>Resurs-omfång
+## <a name="resource-scope"></a>Resurs omfång
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="access-data-with-an-azure-ad-account"></a>Åtkomst till data med en Azure AD-konto
+## <a name="access-data-with-an-azure-ad-account"></a>Få åtkomst till data med ett Azure AD-konto
 
-Åtkomst till blob eller kön data via Azure portal, PowerShell eller Azure CLI kan auktoriseras med hjälp av användarens Azure AD-konto eller med hjälp av kontoåtkomstnycklar (delad nyckel auktorisering).
+Åtkomst till BLOB-eller Queue-data via Azure Portal, PowerShell eller Azure CLI kan godkännas antingen med hjälp av användarens Azure AD-konto eller genom att använda konto åtkomst nycklar (autentisering med delad nyckel).
 
-### <a name="data-access-from-the-azure-portal"></a>Åtkomst till data från Azure portal
+### <a name="data-access-from-the-azure-portal"></a>Data åtkomst från Azure Portal
 
-Azure-portalen kan använda Azure AD-konto eller kontonycklar för åtkomst till blob och kö data i ett Azure storage-konto. Vilka Azure-portalen använder auktoriseringsschema beror på de RBAC-roller som har tilldelats dig.
+Azure Portal kan använda antingen ditt Azure AD-konto eller konto åtkomst nycklar för att få åtkomst till blob-och Queue-data i ett Azure Storage-konto. Vilket Authorization-schema som Azure Portal använder beror på de RBAC-roller som har tilldelats dig.
 
-När du försöker komma åt data blob eller kön, Azure-portalen kontrollerar om du har tilldelats en RBAC-roll med **Microsoft.Storage/storageAccounts/listkeys/action**. Om du har tilldelats en roll med den här åtgärden, använder Azure-portalen kontonyckeln för åtkomst till blob och kö data via delade nyckel auktorisering. Om du inte har tilldelats en roll med den här åtgärden, försöker Azure-portalen komma åt data med hjälp av Azure AD-konto.
+När du försöker komma åt BLOB-eller Queue-data kontrollerar Azure Portal först om du har tilldelats en RBAC-roll med **Microsoft. Storage/storageAccounts/listnycklar/Action**. Om du har tilldelats en roll med den här åtgärden använder Azure Portal konto nyckeln för att komma åt blob-och Queue-data via autentisering med delad nyckel. Om du inte har tilldelats en roll med den här åtgärden försöker Azure Portal komma åt data med ditt Azure AD-konto.
 
-Data från Azure portal med din Azure AD-konto du behöver behörighet att komma åt blob-och kön att få åtkomst till blob eller en kö och du behöver också behörighet att navigera genom lagringskontoresurserna i Azure-portalen. De inbyggda rollerna som tillhandahålls av Azure Storage bevilja åtkomst till blob och kö resurser, men de ge inte behörigheter till lagringskontoresurserna. Därför åtkomst till portalen kräver även tilldelningen av en Azure Resource Manager-roll som den [läsare](../../role-based-access-control/built-in-roles.md#reader) roll, begränsad till storage-konto eller högre. Den **läsare** rollen ger de mest begränsade behörigheterna, men en annan Azure Resource Manager-roll som ger åtkomst till hantering av lagringsresurser-konto är också tillåtet. Mer information om hur du tilldelar behörigheter till användare för åtkomst till data i Azure-portalen med ett Azure AD-konto finns [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](storage-auth-aad-rbac-portal.md).
+För att få åtkomst till BLOB-eller Queue-data från Azure Portal med ditt Azure AD-konto måste du ha behörighet att komma åt blob-och Queue-data och du måste också ha behörighet att navigera genom lagrings konto resurserna i Azure Portal. De inbyggda roller som tillhandahålls av Azure Storage bevilja åtkomst till blob-och Queue-resurser, men de beviljar inte behörigheter till lagrings konto resurser. Av den anledningen kräver åtkomst till portalen också tilldelningen av en Azure Resource Manager roll, till exempel rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) , som är begränsad till lagrings kontots nivå eller högre. Rollen **läsare** ger mest begränsade behörigheter, men en annan Azure Resource Manager roll som beviljar åtkomst till lagrings kontots hanterings resurser är också acceptabel. Mer information om hur du tilldelar behörigheter till användare för data åtkomst i Azure Portal med ett Azure AD-konto finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](storage-auth-aad-rbac-portal.md).
 
-Azure-portalen anger vilka auktoriseringsschema används när du navigerar till en behållare eller en kö. Läs mer om dataåtkomst i portalen, [använder Azure portal för att få åtkomst till blob eller kön data](storage-access-blobs-queues-portal.md).
+Azure Portal anger vilket Authorization Scheme som används när du navigerar till en behållare eller kö. Mer information om data åtkomst i portalen finns i [använda Azure Portal för att få åtkomst till BLOB-eller Queue-data](storage-access-blobs-queues-portal.md).
 
-### <a name="data-access-from-powershell-or-azure-cli"></a>Åtkomst till data från PowerShell eller Azure CLI
+### <a name="data-access-from-powershell-or-azure-cli"></a>Data åtkomst från PowerShell eller Azure CLI
 
-Azure CLI och PowerShell stöd för logga in med autentiseringsuppgifter för Azure AD. När du har loggat in körs din session under autentiseringsuppgifterna. Mer information finns i [kör Azure CLI eller PowerShell-kommandon med autentiseringsuppgifter för Azure AD åtkomst till blob-eller kön](storage-auth-aad-script.md).
+Azure CLI och PowerShell-stöd för att logga in med autentiseringsuppgifter för Azure AD. När du har loggat in körs sessionen under dessa autentiseringsuppgifter. Läs mer i [köra Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](storage-auth-aad-script.md).
 
 ## <a name="azure-ad-authorization-over-smb-for-azure-files"></a>Azure AD-auktorisering över SMB för Azure Files
 
-Azure Files stöder auktorisering med Azure AD via SMB för domänanslutna datorer endast (förhandsversion). Läs om hur du använder Azure AD via SMB för Azure Files i [översikt av Azure Active Directory-auktorisering över SMB för Azure Files (förhandsversion)](../files/storage-files-active-directory-overview.md).
+Azure Files stöder auktorisering med Azure AD över SMB endast för domänanslutna virtuella datorer (för hands version). Information om hur du använder Azure AD över SMB för Azure Files finns i [Översikt över Azure Active Directory auktorisering över SMB för Azure Files (för hands version)](../files/storage-files-active-directory-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Bevilja åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md)
+- [Ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md)
 - [Autentisera med Azure Active Directory från ett program för åtkomst till blobar och köer](storage-auth-aad-app.md)
-- [Azure Storage-support för Azure Active Directory-baserad åtkomstkontroll som är allmänt tillgänglig](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)
+- [Azure Storage stöd för Azure Active Directory baserad åtkomst kontroll allmänt tillgänglig](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)

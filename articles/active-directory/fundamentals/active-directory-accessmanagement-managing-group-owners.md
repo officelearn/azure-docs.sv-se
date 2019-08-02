@@ -2,30 +2,30 @@
 title: Lägg till eller ta bort gruppägare - Azure Active Directory | Microsoft Docs
 description: Instruktioner om hur du lägger till eller ta bort gruppen ägare med hjälp av Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd684e1bd48f877a74280b33b4df65d7baaa0fe7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d259be0c04af0fcf3628a9f296730749404610cb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507178"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562089"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Lägg till eller ta bort gruppägare i Azure Active Directory
-Azure Active Directory (Azure AD)-grupper ägs och hanteras av gruppägare. Gruppägare kan vara användare eller tjänstens huvudnamn och kan hantera för gruppen, inklusive medlemskap. Endast befintliga gruppägare eller hantering av gruppen Administratörer kan tilldela gruppen onwers. Gruppägare behöver inte vara medlemmar i gruppen.
+Azure Active Directory (Azure AD)-grupper ägs och hanteras av gruppägare. Grupp ägare kan vara användare eller tjänstens huvud namn och kan hantera gruppen inklusive medlemskap. Endast befintliga grupp ägare eller grupp hanterings administratörer kan tilldela grupp onwers. Gruppägare behöver inte vara medlemmar i gruppen.
 
-När en grupp har ingen ägare, kan hantering av gruppen Administratörer fortfarande hantera gruppen.
+När en grupp saknar ägare kan grupp hanterings administratörer fortfarande hantera gruppen.
 
 ## <a name="add-an-owner-to-a-group"></a>Lägg till en ägare till en grupp
-Nedan finns anvisningar för att lägga till en användare som ägare till en grupp med hjälp av Azure AD-portalen. Om du vill lägga till ett huvudnamn för tjänsten som ägare av en grupp, följ instruktionerna för att göra det med hjälp av [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
+Nedan visas instruktioner för att lägga till en användare som ägare till en grupp med hjälp av Azure AD-portalen. Om du vill lägga till ett huvud namn för tjänsten som ägare av en grupp följer du anvisningarna för att göra det med hjälp av [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
 
 ### <a name="to-add-a-group-owner"></a>Att lägga till gruppägare
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.

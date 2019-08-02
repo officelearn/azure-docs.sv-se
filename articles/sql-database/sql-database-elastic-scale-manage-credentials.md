@@ -1,6 +1,6 @@
 ---
-title: Hantera autentiseringsuppgifter i klientbiblioteket för elastiska databaser | Microsoft Docs
-description: Hur du ställer in rätt nivå av autentiseringsuppgifter för administratören att skrivskyddade för appar för elastisk databas
+title: Hantera autentiseringsuppgifter i klient biblioteket för Elastic Database | Microsoft Docs
+description: Ange rätt nivå för autentiseringsuppgifter, admin till skrivskyddad, för Elastic Database-appar
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,68 +10,67 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d89e83092775828016c2c47a96164319f5474c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241762"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568427"
 ---
-# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Autentiseringsuppgifter som används för att få åtkomst till klientbiblioteket för elastiska databaser
+# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Autentiseringsuppgifter som används för att komma åt Elastic Database klient biblioteket
 
-Den [Elastic Database-klientbiblioteket](sql-database-elastic-database-client-library.md) använder tre olika typer av autentiseringsuppgifter för åtkomst till den [karthanteraren](sql-database-elastic-scale-shard-map-management.md). Beroende på behov, använda autentiseringsuppgifter med den lägsta nivån av åtkomst som möjligt.
+I [Elastic Database klient biblioteket](sql-database-elastic-database-client-library.md) används tre olika typer av autentiseringsuppgifter för att få åtkomst till [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). Beroende på behov använder du autentiseringsuppgiften med den lägsta möjliga åtkomst nivån.
 
-* **Autentiseringsuppgifter för hantering**: för att skapa eller ändra en karthanteraren. (Se den [ordlista](sql-database-elastic-scale-glossary.md).)
-* **Autentiseringsuppgifter för åtkomst**: åtkomst till en befintlig karthanteraren för att få information om shards.
-* **Autentiseringsuppgifter för anslutning**: att ansluta till shards.
+* **Autentiseringsuppgifter för hantering**: för att skapa eller ändra en Shard Map Manager. (Se [ord](sql-database-elastic-scale-glossary.md)listan.)
+* **Autentiseringsuppgifter för åtkomst**: för att få åtkomst till en befintlig Shard Map Manager för att hämta information om Shards.
+* **Autentiseringsuppgifter för anslutning**: för att ansluta till Shards.
 
-Se även [hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
+Se även [Hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
 
 ## <a name="about-management-credentials"></a>Om autentiseringsuppgifter för hantering
 
-Autentiseringsuppgifter för hantering som används för att skapa en **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager))-objekt för program som manipulerar fragmentkartor. (Till exempel se [att lägga till en shard med elastiska Databasverktyg](sql-database-elastic-scale-add-a-shard.md) och [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md)). Användaren av Elastiskt skalat klientbibliotek skapar SQL-användare och SQL-inloggningar och ser till var och en har beviljats Läs/Skriv-behörigheter på fragmentkartan kartan databasen och alla fragment databaser samt. Dessa autentiseringsuppgifter används för att underhålla globala fragmentkartan och lokala shard-kartor när ändringar i fragmentkartan utförs. Till exempel använda autentiseringsuppgifter för hantering för att skapa fragment manager Kartobjekt (med hjälp av **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
+Hanterings autentiseringsuppgifter används för att skapa ett **ShardMapManager** -objekt ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) för program som manipulerar Shard-kartor. (Se till exempel [lägga till en Shard med hjälp av Elastic Database verktyg](sql-database-elastic-scale-add-a-shard.md) och [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md)). Användaren av klient biblioteket för elastisk skalning skapar SQL-användare och SQL-inloggningar och ser till att varje beviljas Läs-/Skriv behörighet för den globala Shard Map-databasen och alla Shard-databaser. Dessa autentiseringsuppgifter används för att underhålla den globala Shard-kartan och de lokala Shard-kartorna när ändringar i Shard-mappningen utförs. Använd till exempel hanterings uppgifter för att skapa Shard Map Manager-objektet (med **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
 
 ```java
 // Obtain a shard map manager.
 ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(smmAdminConnectionString,ShardMapManagerLoadPolicy.Lazy);
 ```
 
-Variabeln **smmAdminConnectionString** är en anslutningssträng som innehåller autentiseringsuppgifterna för hantering. Ger läsåtkomst till både fragment kartan databas och enskilda shards användar-ID och lösenord. Anslutningssträngen management innehåller även servernamnet och databasnamnet för att identifiera fragmentkartan kartan databasen. Här är en typisk anslutningssträng för detta ändamål:
+Variabeln **smmAdminConnectionString** är en anslutnings sträng som innehåller autentiseringsuppgifterna för hantering. Användar-ID och lösen ord ger Läs-/Skriv behörighet till både Shard Map-databas och enskilda Shards. Hanterings anslutnings strängen innehåller även Server namnet och databas namnet för att identifiera den globala Shard Map-databasen. Här är en typisk anslutnings sträng för det syftet:
 
 ```java
 "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;”
 ```
 
-Använd inte värden i form av ”username@server” – i stället använda värdet ”användarnamn”.  Det beror på att autentiseringsuppgifter måste arbeta mot både databas och enskilda shards, vilket kan vara på olika servrar.
+Använd inte värden i formatet "username@server", istället för att använda värdet "username".  Detta beror på att autentiseringsuppgifterna måste fungera mot både Shard Map Manager-databasen och enskilda Shards, vilket kan finnas på olika servrar.
 
-## <a name="access-credentials"></a>Autentiseringsuppgifter
+## <a name="access-credentials"></a>Autentiseringsuppgifter för åtkomst
 
-När du skapar ett fragment kartan manager i ett program som inte administrerar fragmentkartor Använd autentiseringsuppgifter som har skrivskyddad behörighet på den globala fragmentkartan. Den information som hämtas från global fragmentkartan under dessa autentiseringsuppgifter används för [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) och att fylla i fragment kartan cachen på klienten. Autentiseringsuppgifterna som tillhandahålls via samma mönster för anrop till **GetSqlShardMapManager**:
+När du skapar en Shard Map Manager i ett program som inte administrerar Shard Maps, använder du autentiseringsuppgifter som har Läs behörighet för den globala Shard-kartan. Informationen som hämtas från den globala Shard-kartan under dessa autentiseringsuppgifter används för [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md) och för att fylla i Shard Map-cachen på klienten. Autentiseringsuppgifterna tillhandahålls via samma anrops mönster till **GetSqlShardMapManager**:
 
 ```java
 // Obtain shard map manager.
 ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(smmReadOnlyConnectionString, ShardMapManagerLoadPolicy.Lazy);  
 ```
 
-Observera användningen av den **smmReadOnlyConnectionString** så att användningen av olika autentiseringsuppgifter för den här åtkomsten för **icke-administratörer** användare: de här autentiseringsuppgifterna ska inte ger skrivbehörighet på global fragmentkartan.
+Observera användningen av **smmReadOnlyConnectionString** för att återspegla användningen av olika autentiseringsuppgifter för den här åtkomsten för användare som **inte är administratörer** : dessa autentiseringsuppgifter ska inte ge Skriv behörighet till den globala Shard-kartan.
 
 ## <a name="connection-credentials"></a>Autentiseringsuppgifter för anslutning
 
-Ytterligare autentiseringsuppgifter behövs när du använder den **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) metoden för att få åtkomst till en shard som är associerade med en shardingnyckel. Dessa autentiseringsuppgifter måste du ange behörigheter för skrivskyddad åtkomst till lokala fragment kartan tabeller som finns på fragmentet. Detta behövs för att utföra anslutningsverifiering för databeroende routning på fragmentet. Det här kodfragmentet tillåter åtkomst till data i samband med databeroende routning:
+Ytterligare autentiseringsuppgifter krävs när du använder metoden **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) för att få åtkomst till en Shard som är associerad med en horisontell partitionering-nyckel. Dessa autentiseringsuppgifter måste ge behörighet för skrivskyddad åtkomst till de lokala Shard kart tabeller som finns på Shard. Detta krävs för att utföra anslutnings validering för data beroende routning på Shard. Det här kodfragmentet ger åtkomst till data i kontexten för data beroende Routning:
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))
 ```
 
-I det här exemplet **smmUserConnectionString** innehåller anslutningssträngen för autentiseringsuppgifter. Här är en typisk anslutningssträng för användarens autentiseringsuppgifter för Azure SQL DB:
+I det här exemplet innehåller **smmUserConnectionString** anslutnings strängen för användarens autentiseringsuppgifter. För Azure SQL DB är här en typisk anslutnings sträng för användarautentiseringsuppgifter:
 
 ```java
 "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 ```
 
-Som med administratörsautentiseringsuppgifter och Använd inte värden i form av ”username@server”. Använd ”användarnamn” i stället bara.  Observera också att anslutningssträngen inte innehåller en servernamnet och databasnamnet. Det beror på den **OpenConnectionForKey** anrop dirigerar automatiskt anslutningen till rätt fragment baserat på nyckeln. Därför tillhandahålls inte databasnamnet och servernamn.
+Använd inte värden i formatet "username@server" som med administratörs behörighet. Använd istället "username".  Observera också att anslutnings strängen inte innehåller ett server namn och ett databas namn. Det beror på att **OpenConnectionForKey** -anropet automatiskt dirigerar anslutningen till rätt Shard baserat på nyckeln. Därför anges inte databas namnet och Server namnet.
 
 ## <a name="see-also"></a>Se också
 

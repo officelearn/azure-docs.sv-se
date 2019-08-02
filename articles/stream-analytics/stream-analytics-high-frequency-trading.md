@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 33a7b27d065fc0383e4693053f7bfb6d56e2d33b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae82c0e72287ee4c89cb3fb2294bf4bd79aec8c3
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480093"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598644"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Handelssimulering med hög frekvens med Stream Analytics
 Kombinationen av SQL-språket och JavaScript-användardefinierade funktion (UDF) och användardefinierade aggregeringar (UDA) i Azure Stream Analytics gör det möjligt för användare att utföra avancerade analyser. Avancerade analyser kan innehålla onlineutbildning för maskininlärning och bedömningar samt tillståndskänslig processimulering. I den här artikeln finns en beskrivning av hur du utför linjär regression i ett Azure Stream Analytics-jobb som kör kontinuerlig träning och bedömning i ett scenario med högfrekvent handel.
@@ -65,7 +65,7 @@ Här följer några exempel på händelser som genereras:
 >Tidsstämpeln för händelsen är **lastUpdated** i epoktid.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Förutsägelsemodell för handel med hög frekvens
-Under den här demonstrationen använder vi en linjär modell så som den beskrivits i [en artikel](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf) av Darryl Shen.
+Under den här demonstrationen använder vi en linjär modell så som den beskrivits i [en artikel](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html) av Darryl Shen.
 
 Volume Order Imbalance (VOI) är en funktion som hanterar diskrepanser mellan aktuellt bud/försäljningspris och volym samt aktuellt bud/försäljningspris och volym från förra ticket. Artikeln visar korrelationen mellan VOI och framtida prisfluktueringar. Den bygger en linjär modell med de senaste fem VOI-värdena och prisförändringarna för de kommande tio ticken. Modellen tränas med linjär regression och baseras på data från föregående dag. 
 

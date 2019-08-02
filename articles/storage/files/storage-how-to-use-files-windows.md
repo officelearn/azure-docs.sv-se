@@ -1,19 +1,18 @@
 ---
 title: Använda en Azure-filresurs med Windows | Microsoft Docs
 description: Lär dig hur du använder en Azure-filresurs med Windows och Windows Server.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d2bad808d0bcbbd5dc8052db0f8fd32fc4c1180a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560484"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699481"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -48,9 +47,9 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
 
-* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Du kan lära dig om [olika sätt att lösa blockeras-port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Du kan lära dig om [olika sätt att lösa den blockerade port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    Följande PowerShell koden förutsätter att du har installerat Azure PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
+    Följande PowerShell-kod förutsätter att du har installerat Azure PowerShell-modulen. mer information finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) . Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
@@ -237,16 +236,16 @@ I följande tabell finns detaljerad information om status för SMB 1 i varje ver
 | Windows Server 2019                       | Inaktiverad             | Ta bort med Windows-funktionen |
 | Windows Server, versioner 1709+            | Inaktiverad             | Ta bort med Windows-funktionen |
 | Windows 10, versioner 1709+                | Inaktiverad             | Ta bort med Windows-funktionen |
-| Windows Server 2016                       | Enabled              | Ta bort med Windows-funktionen |
-| Windows 10, versionerna 1507, 1607 och 1703 | Enabled              | Ta bort med Windows-funktionen |
-| Windows Server 2012 R2                    | Enabled              | Ta bort med Windows-funktionen | 
-| Windows 8.1                               | Enabled              | Ta bort med Windows-funktionen | 
-| Windows Server 2012                       | Enabled              | Inaktivera med registret       | 
-| Windows Server 2008 R2                    | Enabled              | Inaktivera med registret       |
-| Windows 7                                 | Enabled              | Inaktivera med registret       | 
+| Windows Server 2016                       | Aktiverad              | Ta bort med Windows-funktionen |
+| Windows 10, versionerna 1507, 1607 och 1703 | Aktiverad              | Ta bort med Windows-funktionen |
+| Windows Server 2012 R2                    | Aktiverad              | Ta bort med Windows-funktionen | 
+| Windows 8.1                               | Aktiverad              | Ta bort med Windows-funktionen | 
+| Windows Server 2012                       | Aktiverad              | Inaktivera med registret       | 
+| Windows Server 2008 R2                    | Aktiverad              | Inaktivera med registret       |
+| Windows 7                                 | Aktiverad              | Inaktivera med registret       | 
 
 ### <a name="auditing-smb-1-usage"></a>Granskning av SMB 1-användning
-> Gäller för Windows Server 2019, Windows Server-halvårskanal (version 1709 och 1803), Windows Server 2016, Windows 10 (versionerna 1507, 1607, 1703, 1709 och 1803), Windows Server 2012 R2 och Windows 8.1
+> Gäller för Windows Server 2019, Windows Server halvårs kanal (version 1709 och 1803), Windows Server 2016, Windows 10 (version 1507, 1607, 1703, 1709 och 1803), Windows Server 2012 R2 och Windows 8,1
 
 Innan du tar bort SMB 1 i din miljö kan det vara bra att granska användning av SMB 1 för att se om några klienter kommer att störas av ändringen. Om alla begäranden görs mot SMB-resurser med SMB 1 loggas en granskningshändelse i händelseloggen i `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -260,7 +259,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Ta bort SMB 1 från Windows Server
-> Gäller för Windows Server 2019, Windows Server, halvårskanal (version 1709 och 1803), Windows Server 2016, Windows Server 2012 R2
+> Gäller för Windows Server 2019, halvårs kanal för Windows Server (version 1709 och 1803), Windows Server 2016, Windows Server 2012 R2
 
 Om du vill ta bort SMB 1 från en Windows Server-instans kör du följande cmdlet från en upphöjd PowerShell-session:
 

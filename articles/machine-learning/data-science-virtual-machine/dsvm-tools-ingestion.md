@@ -4,7 +4,7 @@ description: Läs om verktyg för datainhämtning och verktyg som redan är inst
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: ffc6071206236bc25d3c02576225c1de935f722a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502237"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557707"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data Science Virtual Machine verktyg för datainhämtning
 
-En av de första tekniska stegen i en datavetenskap eller AI-projekt är att identifiera datauppsättningarna som ska användas och anpassa dem till din analytics-miljö. Den virtuella datorn på datavetenskap (DSVM) erbjuder verktyg och bibliotek att importera data från olika källor till en analysdata storage lokalt på DSVM eller i en plattform för företagsdata i molnet eller lokalt. 
+En av de första tekniska stegen i en datavetenskap eller AI-projekt är att identifiera datauppsättningarna som ska användas och anpassa dem till din analytics-miljö. Data Science Virtual Machine (DSVM) innehåller verktyg och bibliotek för att överföra data från olika källor till en analytisk data lagring lokalt på DSVM eller i en data plattform i molnet eller lokalt. 
 
 Här är några verktyg för flytt av data som har vi lagt till på DSVM. 
 

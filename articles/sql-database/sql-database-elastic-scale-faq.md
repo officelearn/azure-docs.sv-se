@@ -1,6 +1,6 @@
 ---
-title: Azure SQL elastisk skalning vanliga frågor och svar | Microsoft Docs
-description: Vanliga frågor om Azure SQL Database Elastic Scale.
+title: Vanliga frågor och svar om elastiska Azure SQL | Microsoft Docs
+description: Vanliga frågor om Azure SQL Database elastisk skalning.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,51 +10,50 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2b101aebd048b94ac95e1dba0f6504446d6d6803
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584955"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568433"
 ---
-# <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om elastiska Databasverktyg
+# <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Elastic Database-verktyg
 
-## <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Om jag har en enda klient per shard och inga shardingnyckel, hur jag fylla shardingnyckel schemat information
+## <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Om jag har en enda klient per Shard och ingen horisontell partitionering-nyckel, Hur fyller jag i horisontell partitionering-nyckeln för schema informationen
 
-Info schemaobjekt används endast för att dela dokument scenarier. Om ett program är sin natur enda klient kan det kräver inte verktyget Dela sammanfoga och därför finns inget behov att fylla i information schemaobjekt.
+Objektet schema information används endast för att dela upp sammanfognings scenarier. Om ett program är enskilt med en enda klient behöver det inte verktyget Dela sammanslagning och därför behöver du inte fylla i schema information-objektet.
 
-## <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>Jag har etablerat en databas och jag har redan en Karthanteraren, hur registrerar jag mig den nya databasen som en shard
+## <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>Jag har skapat en databas och har redan en Shard Map Manager, Hur registrerar jag den här nya databasen som en Shard
 
-Se [att lägga till en shard till ett program med hjälp av klientbiblioteket för elastiska databaser](sql-database-elastic-scale-add-a-shard.md).
+Se [lägga till en Shard till ett program med hjälp av klient biblioteket för Elastic Database](sql-database-elastic-scale-add-a-shard.md).
 
-## <a name="how-much-do-elastic-database-tools-cost"></a>Hur mycket kostar elastiska Databasverktyg
+## <a name="how-much-do-elastic-database-tools-cost"></a>Hur mycket kostar elastiska databas verktyg
 
-Med hjälp av klientbiblioteket för elastiska databaser leder inte till några kostnader. Kostnader tillkommer endast för Azure SQL-databaser som du använder för shards och Fragmentkartehanteraren, samt web/worker-roller som du etablerar för verktyget Dela sammanfoga.
+Det kostar inget att använda klient biblioteket för Elastic Database. Kostnader kan bara användas för de Azure SQL-databaser som du använder för Shards och Shard Map Manager, samt de webb-och arbets roller som du etablerar för verktyget Dela sammanslagning.
 
-## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Varför är min inloggningsinformation fungerar inte när jag lägger till en shard från en annan server
+## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Varför fungerar inte mina autentiseringsuppgifter när jag lägger till en Shard från en annan server
 
-Använd inte autentiseringsuppgifter i form av ”användar-ID =username@servername”, i stället använder bara ”användar-ID = username”.  Glöm inte att ”användarnamn” inloggningen har behörighet på fragmentet.
+Använd inte autentiseringsuppgifter i formatet "User ID =username@servername", och Använd i stället bara "User ID = username".  Se också till att "username"-inloggningen har behörighet för Shard.
 
-## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Behöver skapa en Karthanteraren och fylla i shards varje gång börjar jag mina program
+## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Måste jag skapa en Shard Map Manager och fylla i Shards varje gång jag startar mina program
 
-Nej – skapandet av Fragmentkartehanteraren (till exempel [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) är en engångsåtgärd.  Ditt program bör använda anropet [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) på starttiden för programmet.  Det bör bara ett sådant anrop per programdomän.
+Nej – skapandet av Shard Map Manager (till exempel [ShardMapManagerFactory. CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) är en engångs åtgärd.  Programmet bör använda anropet [ShardMapManagerFactory. TryGetSqlShardMapManager ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) vid programmets start tid.  Det ska bara finnas ett sådant anrop per program domän.
 
-## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Jag har frågor om hur du använder Verktyg för elastiska databaser, hur kan jag få dem besvarade
+## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Jag har frågor om att använda elastiska databas verktyg, hur får jag svar på dem
 
-Kontakta oss på den [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Kontakta oss på [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>När jag får en databasanslutning med en shardingnyckel, men jag kan fortfarande köra frågor mot data för andra horisontell partitionering nycklar till samma fragment.  Är det avsiktligt
+## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>När jag får en databas anslutning med en horisontell partitionering-nyckel kan jag fortfarande fråga efter data för andra horisontell partitionering-nycklar på samma Shard.  Är detta enligt design
 
-Elastic Scale APIs ger en anslutning till rätt databas för din shardingnyckel men anger inte viktiga filtrering för horisontell partitionering.  Lägg till **där** satser i frågan för att begränsa omfånget till den angivna shardingnyckel om det behövs.
+API: erna för elastisk skalning ger dig en anslutning till rätt databas för din horisontell partitionering-nyckel, men ger inte horisontell partitionering-nyckel filtrering.  Lägg till **WHERE** -satser i frågan för att begränsa omfattningen till den angivna horisontell partitionering-nyckeln, om det behövs.
 
-## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>Jag kan använda en annan utgåva av SQL-databas för varje fragment i min fragment set
+## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>Kan jag använda en annan SQL Database-utgåva för varje Shard i min Shard-uppsättning
 
-Ja, en shard är en individuell databas och en shard kan därför vara en Premium-versionen medan en annan vara en Standard-utgåva. Dessutom kan utgåvan av ett fragment skala upp eller ned flera gånger under livslängden för fragmentet.
+Ja, en Shard är en enskild databas och därför kan en Shard vara en Premium version, medan en annan är en standard version. Dessutom kan versionen av en Shard skalas upp eller ned flera gånger under Shard livs längd.
 
-## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Varken etablera för delnings-verktyget (eller ta bort) en databas under en delad tunnel eller merge-åtgärd
+## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Etablerar verktyget för delad sammanslagning (eller tar bort) en databas under en delnings-eller sammanslagnings åtgärd
 
-Nej. För **dela** åtgärder, måldatabasen måste finnas med lämpligt schema och registreras med Fragmentkartehanteraren.  För **merge** åtgärder, måste du ta bort fragmentet från fragmentkartehanteraren och sedan ta bort databasen.
+Nej. För **Split** -åtgärder måste mål databasen finnas med lämpligt schema och registreras med Shard Map Manager.  För **sammanfognings** åtgärder måste du ta bort Shard från Shard Map Manager och sedan ta bort databasen.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

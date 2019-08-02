@@ -1,6 +1,6 @@
 ---
-title: Baslinjeprincip kräver MFA för administratörer – Azure Active Directory
-description: Princip för villkorlig åtkomst att kräva multifaktorautentisering för administratörer
+title: Bas linje princip Kräv MFA för administratörer – Azure Active Directory
+description: Princip för villkorlig åtkomst för att kräva Multi-Factor Authentication för administratörer
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,60 +11,60 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4474283b9a233e39497cd05f0f04ea0984f02401
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560939"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608153"
 ---
-# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Baslinjeprincip: Kräva MFA för administratörer (förhandsversion)
+# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Bas linje princip: Kräv MFA för administratörer (för hands version)
 
-Användare med åtkomst till behöriga konton har obegränsad åtkomst till din miljö. På grund av strömmen dessa konton, ska du hantera dem med särskild försiktighet. En vanlig metod för att förbättra skyddet av Privilegierade konton är att kräva en starkare form av verifiering för kontot när de används för att logga in. I Azure Active Directory, kan du få en starkare Kontoverifiering genom att kräva multifaktorautentisering (MFA).
+Användare med åtkomst till privilegierade konton har obegränsad åtkomst till din miljö. På grund av den kraft de här kontona har måste du behandla dem med särskild omsorg. En gemensam metod för att förbättra skyddet av privilegierade konton är att kräva en starkare form av konto verifiering när de används för inloggning. I Azure Active Directory kan du få en bättre konto verifiering genom att kräva Multi-Factor Authentication (MFA).
 
-**Kräva MFA för administratörer (förhandsversion)**  är en [baslinjeprincip](concept-baseline-protection.md) som kräver MFA varje gång som något av följande administratörsroller i privileged loggar in:
+**Kräv MFA för administratörer (för hands version)**  är en [bas linje princip](concept-baseline-protection.md) som kräver MFA varje gång en av följande privilegierade administratörs roller loggar in:
 
 * Global administratör
 * SharePoint-administratör
 * Exchange-administratör
-* Administratör för villkorlig åtkomst
+* Administratör av villkorsstyrd åtkomst
 * Säkerhetsadministratör
-* Supportavdelningsadministratören / lösenordsadministratör
+* Administratör för supportavdelningen/lösen ords administratör
 * Faktureringsadministratör
 * Användaradministratör
 
-När du aktiverar den kräver MFA för administratörer principen kommer ovan nio administratörsroller att behöva registrera för MFA med Autentiseringsappen. När MFA-registrering är klar, behöver administratörer och genomför MFA varje gång de loggar in.
+När du aktiverar principen Kräv MFA för administratörer krävs de ovannämnda nio administratörs rollerna som ska registreras för MFA med hjälp av Authenticator-appen. När MFA-registreringen är klar måste administratörerna utföra MFA varje gång de loggar in.
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Eftersom den **kräver MFA för administratörer (förhandsversion)** principen gäller för alla kritiska administratörer, flera saker som behöver göras för att säkerställa en smidig distribution. Dessa överväganden omfattar identifiera användare och tjänsten principer i Azure AD som inte kan eller inte utför MFA, samt program och klienter som används av din organisation och som inte stöder modern autentisering.
+Eftersom principen **KRÄV MFA för administratörer (för hands version)** gäller för alla kritiska administratörer måste flera saker vidtas för att säkerställa en smidig distribution. Dessa överväganden omfattar att identifiera användare och tjänst principer i Azure AD som inte kan eller inte bör utföra MFA, samt program och klienter som används av din organisation som inte stöder modern autentisering.
 
 ### <a name="legacy-protocols"></a>Äldre protokoll
 
-Äldre autentiseringsprotokoll (IMAP, SMTP-, POP3 osv.) som används av e-postklienter för autentisering. Dessa protokoll har inte stöd för MFA. De flesta av de konto kompromisser som setts av Microsoft orsakas av illvilliga aktörer utför attacker mot äldre protokoll försök att kringgå MFA. För att säkerställa att MFA krävs när du loggar in ett administratörskonto och obehöriga inte kringgå MFA, blockerar den här principen alla autentiseringsbegäranden administratörskonton från äldre protokoll.
+Bakåtkompatibla autentiseringsprotokoll (IMAP, SMTP, POP3 osv.) används av e-postklienter för att göra autentiseringsbegäranden. Dessa protokoll stöder inte MFA. De flesta konto kompromisser som visas av Microsoft orsakas av felaktiga aktörer som utför attacker mot äldre protokoll som försöker kringgå MFA. För att säkerställa att MFA krävs vid inloggning på ett administrativt konto och felaktiga aktörer inte kan kringgå MFA, blockerar den här principen alla autentiseringsbegäranden som görs till administratörs konton från äldre protokoll.
 
 > [!WARNING]
-> Innan du aktiverar den här principen måste du kontrollera att dina administratörer inte använder äldre autentiseringsprotokoll. Finns i artikeln [så här: Blockera äldre autentisering till Azure AD med villkorlig åtkomst](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) för mer information.
+> Innan du aktiverar den här principen bör du kontrol lera att dina administratörer inte använder äldre autentiseringsprotokoll. Se artikeln [How to: Blockera äldre autentisering till Azure AD med villkorlig åtkomst](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) för mer information.
 
-## <a name="enable-the-baseline-policy"></a>Aktivera baslinjeprincip för
+## <a name="enable-the-baseline-policy"></a>Aktivera bas linje principen
 
-Principen **baslinjeprincip: Kräva MFA för administratörer (förhandsversion)** är förkonfigurerad och visas högst upp när du navigerar till bladet för villkorlig åtkomst i Azure-portalen.
+Princip **bas linje princip: Kräv MFA för administratörer (för hands** version) är förkonfigurerade och visas överst när du navigerar till bladet för villkorlig åtkomst i Azure Portal.
 
-Att aktivera den här principen och skydda dina administratörer:
+Så här aktiverar du den här principen och skyddar dina administratörer:
 
-1. Logga in på den **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
-1. Välj i listan med principer, **baslinjeprincip: Kräva MFA för administratörer (förhandsversion)** .
-1. Ange **aktiverar principen** till **Använd principen omedelbart**.
-1. Klicka på **spara**.
+1. I listan med principer väljer **du bas linje princip: Kräv MFA för administratörer (för hands**version).
+1. Ange principen för att **aktivera principen** **direkt**.
+1. Klicka på **Spara**.
 
 > [!WARNING]
-> Det uppstod ett alternativ **aktivera principen automatiskt i framtiden** när den här principen fanns i en förhandsversion. Vi har tagit bort det här alternativet för att minimera plötsliga användarna påverkas. Om du har valt det här alternativet när det inte fanns **Använd inte principen** automatiskt nu markerade. Om de vill använda den här baslinjeprincip, se stegen ovan för att aktivera den.
+> Det uppstod ett alternativ **för att automatiskt aktivera principen i framtiden** när den här principen var i för hands version. Vi har tagit bort det här alternativet för att minimera plötslig användar påverkan. Om du har valt det här alternativet när det var tillgängligt ska **du inte använda principen** automatiskt nu. Om de vill använda den här bas linje principen, se stegen ovan för att aktivera den.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i:
 
-* [Protection principer för villkorlig åtkomst baslinje](concept-baseline-protection.md)
-* [Fem steg för att skydda din infrastruktur för Identitetshantering](../../security/azure-ad-secure-steps.md)
+* [Principer för bas linje skydd för villkorlig åtkomst](concept-baseline-protection.md)
+* [Fem steg för att skydda din identitets infrastruktur](../../security/fundamentals/steps-secure-identity.md)
 * [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)

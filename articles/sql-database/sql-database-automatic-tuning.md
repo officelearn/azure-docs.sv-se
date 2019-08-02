@@ -1,6 +1,6 @@
 ---
-title: Azure SQL-databas – automatisk justering | Microsoft Docs
-description: Azure SQL Database analyserar SQL-fråga och anpassas efter automatiskt arbetsbelastning per användare.
+title: Azure SQL Database-automatisk justering | Microsoft Docs
+description: Azure SQL Database analyserar SQL-fråga och anpassar automatiskt efter användarens arbets belastning.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,83 +10,82 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ddee3dabd51d95f230f0178dfb647f8e297b3d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61415776"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569396"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
-Azure SQL Database automatisk justering ger högsta prestanda och stabil arbetsbelastningar genom kontinuerlig prestandajustering baserat på AI och machine learning.
+Azure SQL Database automatisk justering ger högsta prestanda och stabila arbets belastningar genom kontinuerlig prestanda justering baserat på AI och maskin inlärning.
 
-Automatisk justering är en fullständigt hanterad intelligent prestanda-tjänst som använder inbyggd intelligens för att kontinuerligt övervaka frågor som körs på en databas och förbättrar automatiskt deras prestanda. Detta uppnås med dynamiskt anpassning av databasen för att ändra arbetsbelastningar och tillämpa justeringsrekommendationer. Automatisk justering vågrätt lär sig från alla databaser på Azure via AI och det förbättrar dynamiskt prestandajusteringsåtgärderna. Ju längre en Azure SQL Database körs med automatisk justering på, desto bättre utförs.
+Automatisk justering är en helt hanterad intelligent prestanda tjänst som använder inbyggd intelligens för att kontinuerligt övervaka frågor som utförs på en databas och den förbättrar prestandan automatiskt. Detta uppnås genom dynamisk anpassning av databasen till förändringar av arbets belastningarna och att tillämpa justerings rekommendationer. Automatisk justering lär sig vågrätt från alla databaser i Azure via AI och förbättrar justerings åtgärderna dynamiskt. Den längre en Azure SQL Database körs med automatisk justering på, desto bättre utförs.
 
-Azure SQL Database automatisk justering kan vara en av de viktigaste funktionerna som du kan aktivera för att tillhandahålla stabila och prestandaoptimerade arbetsbelastningar.
+Azure SQL Database automatisk justering kan vara en av de viktigaste funktionerna som du kan aktivera för att tillhandahålla stabila och högsta databas arbets belastningar.
 
-## <a name="what-can-automatic-tuning-do-for-you"></a>Vad kan automatisk justering göra för dig?
+## <a name="what-can-automatic-tuning-do-for-you"></a>Vad kan automatisk justering utföra?
 
-- Automatisk prestandajustering för Azure SQL-databaser
-- Automatisk kontroll av prestandavinster
-- Automatisk återställning och självhantering korrigering
+- Automatisk prestanda justering av Azure SQL-databaser
+- Automatiserad verifiering av prestanda vinster
+- Automatisk återställning och själv korrigering
 - Justeringshistorik
-- Justera åtgärden T-SQL-skript för manuell distribution
-- Proaktiv arbetsbelastning prestandaövervakning
-- Skala ut-funktionen på hundratusentals databaser
-- Positiv påverkan på DevOps-resurser och den totala ägandekostnaden
+- Justerings åtgärd T-SQL-skript för manuella distributioner
+- Övervakning av proaktiva arbets belastnings prestanda
+- Skala ut kapacitet på hundratals tusentals databaser
+- Positiv påverkan på DevOps-resurser och den totala ägande kostnaden
 
-## <a name="safe-reliable-and-proven"></a>Säker, pålitlig och beprövad
+## <a name="safe-reliable-and-proven"></a>Säkert, tillförlitligt och beprövat
 
-Justeringsåtgärder som tillämpas på Azure SQL är-databaser helt säkra för prestanda för dina mest intensiva arbetsbelastningar. Systemet har utformats med försiktighet inte stör användaren arbetsbelastningar. Automatiska justeringsrekommendationer tillämpas endast vid tidpunkter med låg belastning. Systemet kan också tillfälligt inaktivera automatisk justering åtgärder för att skydda arbetsbelastningsprestandan. I detta fall, kommer ”inaktiverad av systemet” meddelandet att visas i Azure-portalen. Automatisk justering betraktar arbetsbelastningar med högst prioritet för resursen.
+Justerings åtgärder som tillämpas på Azure SQL-databaser är fullständigt säkra för prestanda för dina mest intensiva arbets belastningar. Systemet har utformats med bryr sig om att inte störa användar arbets belastningarna. Automatiska justerings rekommendationer tillämpas bara vid tidpunkten för en låg belastning. Systemet kan också tillfälligt inaktivera automatiska justerings åtgärder för att skydda arbets belastnings prestandan. I sådana fall visas meddelandet "inaktiverat av systemet" i Azure Portal. Automatisk justering avser arbets belastningar med den högsta resurs prioriteten.
 
-Mekanismer för automatisk justering är mogen och har varit högerklicksmeny på flera miljoner databaser som körs på Azure. Automatisk justering åtgärder som tillämpas verifieras automatiskt att se till att det finns en positiv förbättring för arbetsbelastningsprestandan. Försämrad prestandarekommendationer dynamiskt upptäcks och utan dröjsmål har återställts. Det finns en tydlig spårning av justering av förbättringarna för varje Azure SQL-databas via justering historiken registreras. 
+Automatiska justerings mekanismer är mogna och har blivit utmärkta för flera miljoner databaser som körs på Azure. Automatiska justerings åtgärder som tillämpas verifieras automatiskt för att se till att det finns en positiv förbättring av arbets belastnings prestandan. Prestanda rekommendationerna för försämrat identifieras dynamiskt och snabbt. Genom den registrerade justerings historiken finns det en tydlig spårning av de justerings förbättringar som gjorts för varje Azure SQL Database. 
 
-![Hur fungerar automatisk justering](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
+![Hur fungerar automatisk justering?](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL Database automatisk justering delar logiken core med SQL Server-automatisk justering motorn. Ytterligare teknisk information om mekanismen för inbyggd intelligens, finns i [automatisk justering i SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database automatisk justering delar sin kärn logik med SQL Server automatisk justerings motor. Ytterligare teknisk information om den inbyggda intelligens mekanismen finns [SQL Server automatisk justering](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
-## <a name="use-automatic-tuning"></a>Använda automatisk justering
+## <a name="use-automatic-tuning"></a>Använd automatisk justering
 
-Automatisk justering måste vara aktiverat på din prenumeration. För att aktivera automatisk justering med hjälp av Azure portal, se [aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
+Automatisk justering måste vara aktiverat för din prenumeration. Om du vill aktivera automatisk justering med hjälp av Azure Portal, se [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
 
-Automatisk justering kan arbeta självständigt genom att automatiskt tillämpa justeringsrekommendationer, inklusive automatisk kontroll av prestandavinster. 
+Automatisk justering kan användas självständigt genom att automatiskt tillämpa justerings rekommendationer, inklusive automatiserad verifiering av prestanda vinster. 
 
-Automatisk tillämpning av justeringsrekommendationer kan stängas av för mer kontroll och justeringsrekommendationer kan tillämpas manuellt via Azure-portalen. Du kan också använda lösningen för att visa automatiska justeringsrekommendationer endast och tillämpa dem manuellt via skript och verktyg du väljer. 
+Om du vill ha mer kontroll kan du stänga av automatisk användning av justerings rekommendationer och justera rekommendationer kan tillämpas manuellt via Azure Portal. Du kan också använda lösningen för att Visa automatiska justerings rekommendationer och manuellt tillämpa dem via skript och verktyg som du själv väljer. 
 
-Finns det inbäddade videoklippet för en översikt över hur automatisk justering fungerar och för vanliga Användningsscenarier:
+En översikt över hur automatisk justering fungerar och för vanliga användnings scenarier finns i den inbäddade videon:
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
 >
 
-## <a name="automatic-tuning-options"></a>Alternativen för automatisk justering
+## <a name="automatic-tuning-options"></a>Alternativ för automatisk justering
 
-Alternativen för automatisk justering i Azure SQL Database är:
+Alternativen för automatisk justering är tillgängliga i Azure SQL Database:
 
-| Alternativ för automatisk justering | Enkel databas och stöd för databas i pool | Stöd för databaser i instansen |
+| Alternativ för automatisk justering | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX** -identifierar index som kan förbättra prestandan för din arbetsbelastning, skapar index och automatiskt verifierar att prestanda för frågor har förbättrats. | Ja | Nej | 
-| **DROP INDEX** -identifierar redundant och duplicerade index dagligen, förutom unika index och index som inte använts under en längre tid (> 90 dagar). Observera att just nu alternativet inte är kompatibel med program som använder partition växla och index-tips. | Ja | Nej |
-| **Tvinga fram den senaste bra PLANERINGEN** (plan för automatisk korrigering) – identifierar SQL-frågor med Körningsplan som är lägre än den tidigare bra planering och frågor med senaste kända planen i stället för försämrad planen. | Ja | Ja |
+| **Skapa index** – identifierar index som kan förbättra prestandan för din arbets belastning, skapar index och automatiskt verifierar att prestandan för frågor har förbättrats. | Ja | Nej | 
+| **Drop index** – identifierar redundanta och duplicerade index dagligen, förutom unika index och index som inte har använts under en längre tid (> 90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partition växlings-och index tips. | Ja | Nej |
+| **FRAMTVINGA senaste effektiva plan** (automatisk plan korrigering) – identifierar SQL-frågor med hjälp av en körnings plan som är långsammare än den tidigare fungerande planen och frågor som använder det senaste fungerande schemat i stället för försämrat-planen. | Ja | Ja |
 
-Automatisk justering identifierar **CREATE INDEX**, **DROP INDEX**, och **kraft senaste bra planera** rekommendationer som kan optimera din databasprestanda och visar dem i [Azure-portalen](sql-database-advisor-portal.md), och visar dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Mer information om den senaste bra PLANERINGEN kraft och konfigurera alternativen för automatisk justering via T-SQL, se [automatisk justering introducerar plan för automatisk korrigering](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
+Automatisk justering identifierar **skapa index**, **Drop index**och **Framtvinga senaste lämpliga plan** rekommendationer som kan optimera databas prestanda och visa dem i [Azure Portal](sql-database-advisor-portal.md)och exponera dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [ REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Om du vill veta mer om den senaste effektiva planen och konfigurera alternativ för automatisk justering via T-SQL, se [Automatisk justering inför automatisk plan korrigering](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 
-Du kan antingen manuellt tillämpa justeringsrekommendationer med hjälp av portalen eller du kan låta automatisk justering självständigt gäller justeringsrekommendationer för dig. Fördelarna med att låta systemet självständigt gäller justeringsrekommendationer för dig är att den verifierar automatiskt det finns en positiv vinst arbetsbelastningsprestandan och om det finns inga betydande prestandaförbättringar har identifierats, kommer det att automatiskt återgå justering rekommendationen. Observera att valideringsfasen vid frågor som påverkas av justeringsrekommendationer som inte utförs ofta, kan ta upp till 72 timmar avsiktligt.
+Du kan antingen manuellt tillämpa justerings rekommendationer med hjälp av portalen, eller så kan du låta automatisk justering tillämpa justerings rekommendationer åt dig. Fördelarna med att låta systemet tillämpa justerings rekommendationer för dig är att det automatiskt validerar att det finns en positiv vinst för arbets belastnings prestandan, och om det inte finns någon betydande prestanda förbättring påträffad kommer den att Återställ automatiskt justerings rekommendationen. Observera att om frågor påverkas av justerings rekommendationer som inte körs ofta kan validerings fasen ta upp till 72 timmar efter design.
 
-I de fall du tillämpar manuellt justering finns rekommendationer, automatisk prestanda verifiering och återföring mekanismer inte. Dessutom förblir manuellt applicerade rekommendationer aktiv och visas i listan över rekommendationer för 24 – 48 timmar. innan systemet automatiskt återkallar dem. Om du vill ta bort en rekommendation tidigare kan du manuellt ta bort den.
+Om du använder justerings rekommendationer manuellt, är den automatiska prestanda valideringen och återförings metoderna inte tillgängliga. Dessutom förblir manuellt tillämpade rekommendationer aktiva och visas i listan över rekommendationer för 24-48 timmar. innan systemet återkallar dem automatiskt. Om du vill ta bort en rekommendation tidigare kan du ta bort den manuellt.
 
-Alternativen för automatisk justering kan aktiveras eller inaktiveras per databas oberoende av varandra, eller de kan konfigureras på SQL Database-servrar och tillämpas på alla databaser som ärver inställningar från servern. SQL Database-servrar kan ärva Azure-standardinställningar för inställningar för automatisk justering. Azure-standardinställningar just nu är inställda på att FORCE_LAST_GOOD_PLAN är aktiverad, CREATE_INDEX är aktiverad och DROP_INDEX är inaktiverad.
+Automatiska justerings alternativ kan aktive ras oberoende eller inaktive ras per databas, eller så kan de konfigureras på SQL Database servrar och tillämpas på alla databaser som ärver inställningar från servern. SQL Database servrar kan ärva Azure-standardvärden för automatiska justerings inställningar. Azure-standardvärden för tillfället är inställt på FORCE_LAST_GOOD_PLAN är aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX är inaktive rad.
 
-Konfigurera automatisk justering alternativ på en server och ärver inställningar för databaser som tillhör den överordnade servern är en rekommenderad metod för att konfigurera automatisk justering som förenklar hanteringen av automatiska justeringsalternativ för ett stort antal databaser.
+Att konfigurera alternativ för automatisk justering på en server och ärva inställningar för databaser som tillhör den överordnade servern är en rekommenderad metod för att konfigurera automatisk justering eftersom det fören klar hanteringen av automatiska justerings alternativ för ett stort antal databaser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att aktivera automatisk justering i Azure SQL Database för att hantera din arbetsbelastning, se [aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
-- Om du vill granska och tillämpa automatiska justeringsrekommendationer manuellt finns i [hitta och tillämpa prestandarekommendationer](sql-database-advisor-portal.md).
-- Läs hur du använder T-SQL för att tillämpa och visa automatiska justeringsrekommendationer i [hantera automatisk justering via T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
-- Läs om hur du skapar e-postmeddelanden för automatiska justeringsrekommendationer i [e-postmeddelanden för automatisk justering](sql-database-automatic-tuning-email-notifications.md).
-- Läs om inbyggd intelligens som används i automatisk justering i [artificiell intelligens justerar Azure SQL-databaser](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- Läs om hur automatisk justering fungerar i Azure SQL Database och SQL server 2017 i [automatisk justering i SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+- Om du vill aktivera automatisk justering i Azure SQL Database för att hantera din arbets belastning, se [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
+- Information om hur du manuellt granskar och använder automatiska justerings rekommendationer finns i [hitta och tillämpa prestanda rekommendationer](sql-database-advisor-portal.md).
+- Information om hur du använder T-SQL för att tillämpa och Visa rekommendationer för automatisk justering finns i [hantera automatisk justering via T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
+- Information om hur du skapar e-postaviseringar för automatiska justerings rekommendationer finns i [e-postaviseringar för automatisk justering](sql-database-automatic-tuning-email-notifications.md).
+- Om du vill lära dig mer om inbyggd intelligens som används i automatisk justering, se [artificiell intelligens justerar Azure SQL-databaser](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Information om hur automatisk justering fungerar i Azure SQL Database och SQL Server 2017 finns i [SQL Server automatisk justering](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

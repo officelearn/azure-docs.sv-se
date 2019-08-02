@@ -1,18 +1,19 @@
 ---
 title: Konfigurera rapporter för Azure Backup
 description: Konfigurera Power BI rapporter för Azure Backup med hjälp av ett Recovery Services-valv.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: adigan
-ms.openlocfilehash: ae772446a4955f9f9def830d5c770f7d826b7e48
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466618"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689361"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln visar hur du konfigurerar rapporter för Azure Backup med hjälp av ett Recovery Services-valv. Den visar också hur du får åtkomst till rapporter med hjälp av Power BI. När du har slutfört de här stegen kan du gå direkt till Power BI för att visa, anpassa och skapa rapporter.
@@ -33,7 +34,7 @@ Undvik det här problemet genom att ladda ned den senaste appen (version 1,8).
 ## <a name="prerequisites"></a>Förutsättningar
 - Skapa ett [Azure Storage-konto](../storage/common/storage-quickstart-create-account.md) för att konfigurera det för-rapporter. Det här lagrings kontot används för att lagra rapporter relaterade data.
 - [Skapa ett Power BI konto](https://powerbi.microsoft.com/landing/signin/) om du vill visa, anpassa och skapa egna rapporter med hjälp av Power BI portalen.
-- Registrera resurs leverantören **Microsoft. Insights**, om den inte redan har registrerats. Använd prenumerationerna för lagrings kontot och Recovery Services valvet så att rapporterings data kan flöda till lagrings kontot. För att göra det här steget går du till Azure Portal,  > väljer prenumerations**resurs leverantörer**och söker efter den här providern för att registrera den.
+- Registrera resurs leverantören **Microsoft. Insights**, om den inte redan har registrerats. Använd prenumerationerna för lagrings kontot och Recovery Services valvet så att rapporterings data kan flöda till lagrings kontot. För att göra det här steget går du till Azure Portal, > väljer prenumerations**resurs leverantörer**och söker efter den här providern för att registrera den.
 
 ## <a name="configure-storage-account-for-reports"></a>Konfigurera lagrings konto för rapporter
 Följ dessa steg om du vill konfigurera lagrings kontot för ett Recovery Services valv med hjälp av Azure Portal. Detta är en engångs konfiguration. När lagrings kontot har kon figurer ATS kan du gå direkt till Power BI för att Visa innehålls paketet och använda rapporter.

@@ -4,35 +4,35 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: f2470f937d2d812bf79cea3c23d89a50717a5a92
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aa43fe6c7999b8fa73419916870f9dfca0c01e3d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277471"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601382"
 ---
-| Resource | [Förbrukningsplan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium-abonnemang](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service-plan](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| Resource | [Förbruknings plan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium-plan](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan) <sup>1</sup> |
 | --- | --- | --- | --- |
-| Skala ut | Händelsedriven | Händelsedriven | [Manuell/automatisk skalning](../articles/app-service/web-sites-scale.md) | 
-| Max. antal instanser | 200 | 20 | 10-20 |
-|Standard [tidsgräns](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
-|Max [tidsgräns](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | obegränsade | obegränsade<sup>3</sup> |
-| Maxvärde utgående anslutningar (per instans) | 600 active (1200 totalt) | obegränsade | obegränsade |
-| Maxstorlek för begäran (MB)<sup>4</sup> | 100 | 100 | 100 |
-| Max stränglängd för frågan<sup>4</sup> | 4096 | 4096 | 4096 |
-| URL: en begäran om maxlängd<sup>4</sup> | 8192 | 8192 | 8192 |
+| Skala ut | Händelse driven | Händelse driven | [Manuell/autoskalning](../articles/app-service/web-sites-scale.md) | 
+| Maximalt antal instanser | 200 | 20 | 10-20 |
+|[Tids gräns](../articles/azure-functions/functions-scale.md#timeout) för standard tid (min) |5 | 30 |30<sup>2</sup> |
+|Max [time-out-varaktighet](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded | obegränsat<sup>3</sup> |
+| Max. utgående anslutningar (per instans) | 600 aktiv (1200 totalt) | unbounded | unbounded |
+| Max storlek för begäran (MB)<sup>4</sup> | 100 | 100 | 100 |
+| Max. frågesträngs längd<sup>4</sup> | 4096 | 4096 | 4096 |
+| Max. URL-längd för begäran<sup>4</sup> | 8192 | 8192 | 8192 |
 | [ACU](../articles/virtual-machines/windows/acu.md) per instans | 100 | 210-840 | 100-840 |
-| Maximalt minne (GB per instans) | 1.5 | 3.5-14 | 1.75-14 |
-| Funktionsappar per plan |100 |100 |obegränsade<sup>5</sup> |
-| [App Service-planer](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resursgrupp |100 per resursgrupp |
-| Storage<sup>6</sup> |1 GB |250 GB |50-1000 GB |
+| Maximalt minne (GB per instans) | 1.5 | 3.5-14 | 1,75-14 |
+| Function-appar per plan |100 |100 |obegränsad<sup>5</sup> |
+| [App Service-planer](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resurs grupp |100 per resurs grupp |
+| Storage<sup>6</sup> |1 GB |250 GB |50-1000 GB |
 | Anpassade domäner per app</a> |500<sup>7</sup> |500 |500 |
-| Anpassad domän [SSL-stöd](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |obegränsade SNI SSL-anslutning som ingår | obegränsade SNI SSL och 1 IP SSL-anslutningar ingår |obegränsade SNI SSL och 1 IP SSL-anslutningar ingår | 
+| Stöd för anpassad domän- [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |en obunden SNI SSL anslutning ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår |obegränsade SNI SSL och 1 IP SSL anslutningar ingår | 
 
-<sup>1</sup> gränser för de olika alternativen för App Service-plan, finns det [begränsningar för App Service-plan](../articles/azure-subscription-service-limits.md#app-service-limits).  
-<sup>2</sup> tidsgränsen för Functions 1.x-körning i en App Service-plan är obegränsade som standard.  
-<sup>3</sup> kräver App Service-planen [alltid på](../articles/azure-functions/functions-scale.md#always-on). Övergå till standard [priserna](https://azure.microsoft.com/pricing/details/app-service/).  
-<sup>4</sup> dessa gränser är [i värden](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
-<sup>5</sup> det faktiska antalet funktionsappar som du kan ha beror på aktiviteten för appar, storleken på instanserna av datorer och motsvarande resursutnyttjandet.
-<sup>6</sup> lagringsgränsen är den totala innehållsstorleken i tillfällig lagring över alla appar i samma App Service-planen. Förbrukningsplan använder Azure Files för tillfällig lagring.  
-<sup>7</sup> när funktionsappen är värd för en [förbrukningsplan](../articles/azure-functions/functions-scale.md#consumption-plan), endast alternativet CNAME stöds. För funktionsappar i en [premiumprenumerationen](../articles/azure-functions/functions-scale.md#premium-plan) eller en [App Service-plan](../articles/azure-functions/functions-scale.md#app-service-plan), kan du mappa en anpassad domän med en CNAME-post eller en A-post.
+<sup>1</sup> vissa gränser för de olika App Service plan alternativen finns i [App Service plan gränser](../articles/azure-subscription-service-limits.md#app-service-limits).  
+<sup>2</sup> som standard är tids gränsen för funktioner 1. x-körningsmiljön i en app service plan obegränsad.  
+<sup>3</sup> kräver att App Service plan anges till [Always on](../articles/azure-functions/functions-scale.md#always-on). Betala enligt [standardpriser](https://azure.microsoft.com/pricing/details/app-service/).  
+<sup>4</sup> de här gränserna [anges på värden](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
+<sup>5</sup> det faktiska antalet funktions program som du kan vara värd för beror på aktivitetens appar, storleken på dator instanserna och motsvarande resursutnyttjande.  
+<sup>6</sup> lagrings gränsen är den totala innehålls storleken i tillfällig lagring över alla appar i samma app service plan. Förbruknings planen använder Azure Files för tillfällig lagring.  
+<sup>7</sup> när din Function-app finns i en [förbruknings plan](../articles/azure-functions/functions-scale.md#consumption-plan)stöds endast alternativet CNAME. För Function-appar i en [Premium-plan](../articles/azure-functions/functions-scale.md#premium-plan) eller en [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan)kan du mappa en anpassad domän med antingen en CNAME-eller en a-post.

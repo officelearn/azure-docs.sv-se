@@ -1,18 +1,19 @@
 ---
 title: Säkerhetskopiera filer i Azure Stack virtuella datorer
 description: Använd Azure Backup för att säkerhetskopiera och återställa Azure Stack filer och program till din Azure Stack-miljö.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
-ms.author: adigan
-ms.openlocfilehash: 36e7fceb63e6013ca09e8c2e2db18d6795f61273
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7214cf4c16cc4ee5e76d479d153395085a7e3a6e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465087"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688947"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Säkerhetskopiera filer på Azure Stack
 Du kan använda Azure Backup för att skydda (eller säkerhetskopiera) filer och program på Azure Stack. Om du vill säkerhetskopiera filer och program installerar du Microsoft Azure Backup server som en virtuell dator som körs på Azure Stack. Du kan skydda filerna på alla Azure Stack-servrar i samma virtuella nätverk. När du har installerat Azure Backup Server lägger du till Azure-diskar för att öka den lokala lagrings platsen för säkerhets kopierings data på kort sikt. Azure Backup Server använder Azure Storage för långsiktig kvarhållning.

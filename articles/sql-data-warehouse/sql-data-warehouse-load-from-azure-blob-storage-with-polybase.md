@@ -1,6 +1,6 @@
 ---
-title: Läsa in Contoso Retail-data till Azure SQL Data Warehouse | Microsoft Docs
-description: Använda PolyBase och T-SQL-kommandon för att läsa in två tabeller från Contoso Retail-data till Azure SQL Data Warehouse.
+title: Läs in Contosos detalj handels data till Azure SQL Data Warehouse | Microsoft Docs
+description: Använd PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,32 +11,32 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67595525"
 ---
-# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Läsa in Contoso Retail-data till Azure SQL Data Warehouse
+# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Läs in Contosos detalj handels data till Azure SQL Data Warehouse
 
-I den här självstudien får du lära dig att använda PolyBase och T-SQL-kommandon för att läsa in två tabeller från Contoso Retail-data till Azure SQL Data Warehouse. 
+I den här självstudien får du lära dig att använda PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till Azure SQL Data Warehouse. 
 
-I den här självstudiekursen kommer du att:
+I den här självstudien kommer du att:
 
-1. Konfigurera PolyBase för att läsa in från Azure blob storage
-2. Hämta offentliga data till databasen
-3. Utföra optimeringar när belastningen är klar.
+1. Konfigurera PolyBase för att läsa in från Azure Blob Storage
+2. Läs in offentliga data i databasen
+3. Utför optimeringar när belastningen är färdig.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du vill köra den här självstudien behöver du ett Azure-konto som redan har ett SQL Data Warehouse. Om du inte har ett data warehouse etableras, se [skapa ett SQL Data Warehouse och ange brandväggsregel på servernivå][Create a SQL Data Warehouse].
+För att kunna köra den här självstudien behöver du ett Azure-konto som redan har en SQL Data Warehouse. Om du inte har ett data lager som har tillhandahållits, se [skapa en SQL Data Warehouse och ange brand Väggs regel på server nivå][Create a SQL Data Warehouse].
 
-## <a name="1-configure-the-data-source"></a>1. Konfigurera datakälla
-PolyBase använder externa T-SQL-objekt för att definiera platsen och attribut för externa data. De externa objektdefinitionerna lagras i SQL Data Warehouse. Data lagras externt.
+## <a name="1-configure-the-data-source"></a>1. Konfigurera data källan
+PolyBase använder externa T-SQL-objekt för att definiera platsen och attributen för externa data. De externa objekt definitionerna lagras i SQL Data Warehouse. Data lagras externt.
 
 ### <a name="11-create-a-credential"></a>1.1. Skapa en autentiseringsuppgift
-**Hoppa över detta steg** om du läser in den offentliga Contoso-data. Du behöver inte säker åtkomst till den offentliga data eftersom det redan finns tillgängliga för alla.
+**Hoppa över det här steget** om du läser in offentliga contoso-data. Du behöver inte säker åtkomst till offentliga data eftersom den redan är tillgänglig för alla.
 
-**Hoppa inte över det här steget** om du använder den här självstudien som en mall för att läsa in dina egna data. Använd följande skript för att skapa en databas-omfattande autentisering för att komma åt data via en autentiseringsuppgift och sedan använda den när du definierar platsen för datakällan.
+**Hoppa inte över det här steget** om du använder den här självstudien som mall för att läsa in dina data. För att få åtkomst till data via en autentiseringsuppgift använder du följande skript för att skapa en databas-begränsad autentiseringsuppgift och använder den när du definierar data källans plats.
 
 ```sql
 -- A: Create a master key.
@@ -71,8 +71,8 @@ WITH (
 );
 ```
 
-### <a name="12-create-the-external-data-source"></a>1.2. Skapa extern datakälla
-Använd det här [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] kommando för att lagra platsen för data och vilken typ av data. 
+### <a name="12-create-the-external-data-source"></a>1.2. Skapa den externa data källan
+Använd det här kommandot [skapa extern data källa][CREATE EXTERNAL DATA SOURCE] för att lagra data platsen och data typen. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -84,12 +84,12 @@ WITH
 ```
 
 > [!IMPORTANT]
-> Om du väljer att offentliggöra din azure blob storage-behållare, Kom ihåg att som dataägaren du kommer att debiteras för data kostnader för utgående trafik när data lämnar datacentret. 
+> Om du väljer att göra dina Azure Blob Storage-behållare offentliga måste du komma ihåg att som data ägare debiteras du för avgifter för utgående data när data lämnar data centret. 
 > 
 > 
 
-## <a name="2-configure-data-format"></a>2. Konfigurera dataformat
-Data lagras i textfiler i Azure blob storage och fälten avgränsas med en avgränsare. I SSMS, kör du följande [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] kommando för att ange formatet för data i textfiler. Contoso-data är okomprimerade pipe avgränsade.
+## <a name="2-configure-data-format"></a>2. Konfigurera data format
+Data lagras i textfiler i Azure Blob Storage, och varje fält skiljs åt med en avgränsare. I SSMS kör du följande kommando för att [Skapa externt fil format][CREATE EXTERNAL FILE FORMAT] för att ange formatet för data i textfilerna. Contoso-data är okomprimerade och pipe-avgränsade.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -104,10 +104,10 @@ WITH
 ``` 
 
 ## <a name="3-create-the-external-tables"></a>3. Skapa externa tabeller
-Nu när du har angett dataformatet för käll- och filen, är du redo att skapa externa tabeller. 
+Nu när du har angett data källan och fil formatet är du redo att skapa de externa tabellerna. 
 
 ### <a name="31-create-a-schema-for-the-data"></a>3.1. Skapa ett schema för data.
-Skapa ett schema för att skapa en plats för att lagra Contoso-data i databasen.
+Skapa ett schema för att skapa en plats för att lagra contoso-data i databasen.
 
 ```sql
 CREATE SCHEMA [asb]
@@ -115,9 +115,9 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. Skapa de externa tabellerna.
-Kör följande skript för att skapa de externa tabellerna som DimProduct och FactOnlineSales. Allt du gör här definiera kolumnnamn och datatyper och binda dem till platsen och Azure blob storage-filernas format. Definitionen lagras i SQL Data Warehouse och data är fortfarande i Azure Storage Blob.
+Kör följande skript för att skapa DimProduct-och FactOnlineSales-externa tabeller. Allt du gör här är att definiera kolumn namn och data typer och att binda dem till platsen och formatet för Azure Blob Storage-filerna. Definitionen lagras i SQL Data Warehouse och data finns fortfarande i Azure Storage Blob.
 
-Den **plats** parametern är mappen i rotmappen i Azure Storage Blob. Varje tabell är i en annan mapp.
+Parametern **location** är mappen under rotmappen i Azure Storage blob. Varje tabell finns i en annan mapp.
 
 ```sql
 --DimProduct
@@ -202,22 +202,22 @@ WITH
 ```
 
 ## <a name="4-load-the-data"></a>4. Läs in data
-Det finns olika sätt att komma åt externa data.  Du kan fråga efter data direkt från externa tabeller, läsa in data till nya tabeller i datalagret eller lägga till externa data i befintliga data warehouse-tabeller.  
+Det finns olika sätt att komma åt externa data.  Du kan fråga efter data direkt från de externa tabellerna, läsa in data i nya tabeller i informations lagret eller lägga till externa data i befintliga data lager tabeller.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. Skapa ett nytt schema
-CTAS skapar en ny tabell som innehåller data.  Börja med att skapa ett schema för contoso-data.
+CTAS skapar en ny tabell som innehåller data.  Börja med att skapa ett schema för Contoso-data.
 
 ```sql
 CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-the-data-into-new-tables"></a>4.2. Läsa in data till nya tabeller
-Om du vill läsa in data från Azure blob storage till data warehouse-tabell, använder den [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you've created. To load the data into new tables, use one [CTAS][CTAS] instruktionen per tabell. 
+### <a name="42-load-the-data-into-new-tables"></a>4.2. Läs in data i nya tabeller
+Använd uttrycket [CREATE TABLE as Select (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] för att läsa in data från Azure Blob Storage till data lager tabellen. När du läser in med CTAS utnyttjas de mest skrivna externa tabellerna som du har skapat. Om du vill läsa in data i nya tabeller använder du ett [CTAs][CTAS] -uttryck per tabell. 
  
-CTAS skapar en ny tabell och fylla den med resultatet av en select-instruktion. CTAS definierar den nya tabellen om du vill ha samma kolumner och datatyper som resultatet av select-instruktionen. Om du väljer alla kolumner från en extern tabell kommer den nya tabellen att en replik av kolumner och datatyper i den externa tabellen.
+CTAS skapar en ny tabell och fyller den med resultatet av en SELECT-instruktion. CTAS definierar den nya tabellen för att ha samma kolumner och data typer som resultatet av SELECT-instruktionen. Om du väljer alla kolumner från en extern tabell är den nya tabellen en replik av kolumnerna och data typerna i den externa tabellen.
 
-I det här exemplet skapar vi både dimensionen och faktatabellen som hash-distribuerade tabeller. 
+I det här exemplet skapar vi både dimensionen och fakta tabellen som hash-distribuerade tabeller. 
 
 ```sql
 SELECT GETDATE();
@@ -227,8 +227,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a>4.3 spåra belastningsförloppet
-Du kan följa förloppet vid inläsningen med dynamiska hanteringsvyer (DMV). 
+### <a name="43-track-the-load-progress"></a>4,3 spåra inläsnings förloppet
+Du kan följa förloppet för din belastning med hjälp av DMV: er (Dynamic Management views). 
 
 ```sql
 -- To see all requests
@@ -264,9 +264,9 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Optimera columnstore-komprimering
-Som standard lagrar SQL Data Warehouse tabellen som ett grupperat kolumnlagringsindex. När en belastning är klar, kan vissa av datarader inte komprimeras till columnstore.  Det finns olika orsaker till varför detta kan inträffa. Mer information finns i [hantera kolumnlagringsindex][manage columnstore indexes].
+Som standard lagrar SQL Data Warehouse tabellen som ett grupperat columnstore-index. När en belastning är klar kanske vissa av data raderna inte komprimeras till columnstore.  Det kan bero på olika orsaker. Mer information finns i [Hantera columnstore-index][manage columnstore indexes].
 
-Återskapa tabellen om du vill framtvinga kolumnlagringsindexet Komprimera alla rader för att optimera prestanda för frågor och columnstore-komprimering efter en belastning. 
+Om du vill optimera prestanda och columnstore-komprimering efter en belastning måste du återskapa tabellen för att tvinga columnstore-indexet att komprimera alla rader. 
 
 ```sql
 SELECT GETDATE();
@@ -276,14 +276,14 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Mer information om underhåll av columnstore-index finns i den [hantera kolumnlagringsindex][manage columnstore indexes] artikeln.
+Mer information om hur du behåller columnstore-index finns i artikeln [Hantera columnstore-index][manage columnstore indexes] .
 
 ## <a name="6-optimize-statistics"></a>6. Optimera statistik
-Det är bäst att skapa enkolumns-statistik direkt efter en belastning. Om du vet att vissa kolumner som inte kommer att vara i fråga predikat, kan du hoppa över skapa statistik på dessa kolumner. Om du skapar enkolumns-statistik för varje kolumn, kan det ta lång tid att återskapa all statistik. 
+Det är bäst att skapa statistik med en kolumn direkt efter en belastning. Om du vet att vissa kolumner inte kommer att finnas i frågesyntaxen kan du hoppa över att skapa statistik för dessa kolumner. Om du skapar en statistik med en kolumn på varje kolumn kan det ta lång tid att återskapa all statistik. 
 
-Om du vill skapa enkolumns-statistik för varje kolumn för varje tabell som du kan använda lagrade proceduren kodexemplet `prc_sqldw_create_stats` i den [statistik][statistics] artikeln.
+Om du väljer att skapa en statistik med en kolumn på varje kolumn i varje tabell, kan du använda exemplet `prc_sqldw_create_stats` på den lagrade procedur koden i [statistik][statistics] artikeln.
 
-I följande exempel är en bra utgångspunkt för att skapa statistik. Den skapar enkolumns-statistik för varje kolumn i dimensionstabellen och på varje sammanbinder kolumn i faktatabellerna. Du kan alltid lägga till en eller flera kolumner statistik till andra fakta tabellkolumner vid ett senare tillfälle.
+I följande exempel visas en start punkt för att skapa statistik. Den skapar statistik med en kolumn för varje kolumn i tabellen dimension och i varje kopplings kolumn i fakta tabellerna. Du kan alltid lägga till en eller flera kolumn statistik i andra fakta tabell kolumner senare.
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -327,10 +327,10 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## <a name="achievement-unlocked"></a>Prestation låsas upp!
-Offentliga data har lästs in Azure SQL Data Warehouse. Bra jobbat!
+## <a name="achievement-unlocked"></a>Utmärkelse upplåst!
+Du har läst in offentliga data i Azure SQL Data Warehouse. Bra jobbat!
 
-Nu kan du börja skicka frågor till tabeller för att utforska dina data. Kör följande fråga för att ta reda på total försäljning per varumärke:
+Nu kan du börja fråga tabellerna och utforska dina data. Kör följande fråga för att ta reda på total försäljning per varumärke:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -341,7 +341,7 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs in en fullständig uppsättning data genom att köra exemplet [läsa in fullständig Contoso detaljhandel datalagret](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) från Microsoft SQL Server-exempellagringsplatsen.
+Om du vill läsa in den fullständiga data uppsättningen kör du exemplet [Läs in det fullständiga contoso-informations lagret](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) från Microsoft SQL Server exempel lagrings plats.
 
 För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][SQL Data Warehouse development overview].
 

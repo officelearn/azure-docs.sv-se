@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: e844fbe542e0517ffe1f99b550544e6eaca22885
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 28d01f1acbc6d9ff033567b10efc801925752191
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402367"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618493"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden från moln till enhet med IoT Hub (Java)
 
@@ -41,7 +41,7 @@ I slutet av den här självstudien kör du två Java-konsol program:
 * **send-C2D-** Messages, som skickar ett meddelande från molnet till enheten till den simulerade appen via IoT Hub och sedan får leverans bekräftelse.
 
 > [!NOTE]
-> IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
+> IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java, python och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -109,7 +109,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som skickar meddelanden fr�
 
 2. Gå till den nya mappen Send-C2D-Messages i kommando tolken.
 
-3. Använd en text redigerare och öppna filen Pom. xml i mappen Send-C2D-Messages och Lägg till följande beroende till noden beroenden  . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
+3. Använd en text redigerare och öppna filen Pom. xml i mappen Send-C2D-Messages och Lägg till följande beroende till noden beroenden . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
 
     ```xml
     <dependency>

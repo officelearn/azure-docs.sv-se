@@ -1,17 +1,17 @@
 ---
 title: Systemfunktioner
-description: Läs mer om SQL systemfunktioner i Azure Cosmos DB.
+description: Lär dig mer om SQL system-funktioner i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 11a6fdad187670bcb5af4c56198fd7343680690d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b0e9c751d46f805af75196da464a39783c95ae6a
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342656"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619995"
 ---
 # <a name="system-functions"></a>Systemfunktioner
 
@@ -23,23 +23,23 @@ ms.locfileid: "67342656"
 |[Funktioner för typkontroll](#type-checking-functions)|Med funktionerna för typkontroll kan du kontrollera typen av ett uttryck i SQL-frågor.|  
 |[Strängfunktioner](#string-functions)|Strängfunktioner utföra en åtgärd på ett strängvärde för indata och returnerar en sträng, numeriskt eller booleskt värde.|  
 |[Matrisfunktioner](#array-functions)|Matrisfunktioner kan du utföra en åtgärd på en matris indatavärdet och returnera numeriska, booleskt värde eller Matrisvärde.|
-|[Datum- och tidsfunktioner](#date-time-functions)|Datum- och tidsfunktioner kan du hämta den aktuella UTC-datum och tid på två sätt; en numerisk tidsstämpel vars värde är Unix epoch i millisekunder eller som en sträng som överensstämmer med ISO 8601-format.|
+|[Datum-och tids funktioner](#date-time-functions)|Med funktionerna för datum och tid kan du hämta aktuellt UTC-datum och tid i två formulär; en numerisk tidstämpel vars värde är UNIX-epoken i millisekunder eller som en sträng som följer ISO 8601-formatet.|
 |[Spatial funktioner](#spatial-functions)|Funktionerna spatial utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.|  
 
 Nedan visas en lista över funktioner i varje kategori:
 
 | Funktionsgrupp | Åtgärder |
 |---------|----------|
-| Matematiska funktioner | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, TAN |
-| Funktioner för typkontroll | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
+| Matematiska funktioner | ABS, TAK, EXP, VÅNING, LOG, LOG10, POTENS, ROUND, SIGN, SQRT, FYRKANT, TRUNC, ARCCOS, ARCSIN, ARCTAN, ATN2, COS, COT, GRADER, PI, RADIANER, RAND, SIN, TAN |
+| Typ kontroll funktioner | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
 | Strängfunktioner | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, UPPER |
 | Matrisfunktioner | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH och ARRAY_SLICE |
-| Datum- och tidsfunktioner | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
+| Datum-och tids funktioner | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
 | Spatiella funktioner | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, ST_ISVALIDDETAILED |
 
-Om du använder en användardefinierad funktion (UDF) som en inbyggd funktion är nu tillgänglig, blir motsvarande inbyggda funktionen går snabbare att köra och mer effektivt.
+Om du för närvarande använder en användardefinierad funktion (UDF) för vilken en inbyggd funktion nu är tillgänglig, kan motsvarande inbyggda funktion gå snabbare att köra och effektivare.
 
-Den största skillnaden mellan Cosmos DB och ANSI SQL-funktioner är att Cosmos DB-funktioner är avsedda att fungera bra med schemalös och blandat schema. Till exempel om en egenskap saknas eller har ett icke-numeriska värde som `unknown`, objektet har hoppats över i stället för att returnera ett fel.
+Den största skillnaden mellan Cosmos DB Functions och ANSI SQL Functions är att Cosmos DB funktioner är utformade för att fungera bra med schema lösa och blandade schema data. Om t. ex. en egenskap saknas eller har ett icke-numeriskt värde `unknown`, hoppas objektet över i stället för att returnera ett fel.
 
 ##  <a name="mathematical-functions"></a> Matematiska funktioner  
 
@@ -66,9 +66,9 @@ Här är en tabell med inbyggda matematiska funktioner som stöds.
 |[COS](#bk_cos)|[COT](#bk_cot)|[GRADER](#bk_degrees)|  
 |[EXP](#bk_exp)|[VÅNING](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANER](#bk_radians)|[AVRUNDA](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[RUTA](#bk_square)|[INLOGGNING](#bk_sign)|  
-|[TAN](#bk_tan)|[AVKORTA](#bk_trunc)||  
+|[RADIANER](#bk_radians)|[AVRUNDA](#bk_round)|[SLUMP](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[RUTA](#bk_square)|
+|[INLOGGNING](#bk_sign)|[TAN](#bk_tan)|[AVKORTA](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  Returnerar det absoluta (positiva) värdet för det angivna numeriska uttrycket.  
@@ -425,7 +425,7 @@ EXP (<numeric_expression>)
   
   E upphöjt till ett tal är konstanten **e** upphöjt till för talet. Till exempel EXP(1.0) = e ^ 1.0 = 2.71828182845905 och EXP(10) = e ^ 10 = 22026.4657948067.  
   
-  Exponenten för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n. Och den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOG (EXP (n)) = n.  
+  Exponenten för den naturliga logaritmen för ett tal är själva siffran: EXP (LOG (n)) = n. Och den naturliga logaritmen av exponenten för ett tal är själva siffran: LOG (EXP (n)) = n.  
   
   **Exempel**  
   
@@ -482,7 +482,7 @@ LOG (<numeric_expression> [, <base>])
   
   Den naturliga logaritmen är logaritmen för talet **e**, där **e** är en onormal konstant ungefär lika 2.718281828.  
   
-  Den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOGG (EXP (n)) = n. Och exponentiell för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n.  
+  Den naturliga logaritmen av exponenten för ett tal är själva siffran: LOG (EXP (n)) = n. Och exponenten för den naturliga logaritmen för ett tal är själva siffran: EXP (LOG (n)) = n.  
   
   **Exempel**  
   
@@ -555,13 +555,7 @@ SELECT LOG10(100) AS log10
 ```  
 PI ()  
 ```  
-  
- **Argument**  
-  
-- `numeric_expression`  
-  
-   Är ett numeriskt uttryck.  
-  
+   
   **Returnera typer**  
   
   Returnerar ett numeriskt uttryck.  
@@ -677,14 +671,14 @@ ROUND(<numeric_expression>)
   
   **Kommentarer**
   
-  Avrundning åtgärden utförs följer mittpunkten avrundning från noll. Om indata är ett numeriskt uttryck som ligger exakt två heltal kommer resultatet att närmaste heltalsvärde från noll.  
+  Avrundnings åtgärden som utförs följer följande mitt punkts avrundning bort från noll. Om indatatypen är ett numeriskt uttryck som är exakt mellan två heltal blir resultatet det närmaste heltal svärdet bort från noll.  
   
-  |<numeric_expression>|Avrundat|
+  |< Numeric_Expression >|Rektangel|
   |-|-|
-  |-6.5000|-7|
-  |-0.5|-1|
+  |– 6,5000|-7|
+  |– 0,5|-1|
   |0,5|1|
-  |6.5000|7||
+  |6,5000|7||
   
   **Exempel**  
   
@@ -699,7 +693,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+#### <a name="bk_rand"></a>SLUMP
+ Returnerar ett slumpmässigt genererat numeriskt värde från [0, 1).
+ 
+ **Syntax**  
   
+```  
+RAND ()  
+```  
+
+  **Returnera typer**  
+  
+  Returnerar ett numeriskt uttryck.  
+  
+  **Exempel**  
+  
+  I följande exempel returneras ett slumpmässigt genererat numeriskt värde.  
+  
+```  
+SELECT RAND() AS rand 
+```  
+  
+ Här är resultatuppsättningen.  
+  
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
+
 ####  <a name="bk_sign"></a> INLOGGNING  
  Returnerar positiv (+ 1), noll (0) eller minustecken (-1) i det angivna numeriska uttrycket.  
   
@@ -898,9 +919,9 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
 ```
 
-## <a id="type-checking-functions"></a>Funktioner för typkontroll
+## <a id="type-checking-functions"></a>Typ kontroll funktioner
 
-Funktioner för typkontroll kan du kontrollera vilken typ av ett uttryck i en SQL-fråga. Du kan använda typkontroll funktioner för att avgöra vilka typer av egenskaper i objekt i farten, när de är variabel eller okänd. Här är en tabell med stöds inbyggda funktioner för typkontroll:
+Med typ kontroll funktionerna kan du kontrol lera typen av uttryck i en SQL-fråga. Du kan använda typ kontroll funktioner för att avgöra vilka typer av egenskaper som finns i objekt i farten, när de är variabla eller okända. Här är en tabell över inbyggda typ kontroll funktioner som stöds:
 
 Typkontroll mot indatavärden stöd för följande funktioner och var och en returnerar ett booleskt värde.  
   
@@ -1223,9 +1244,9 @@ SELECT
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
 
-## <a id="string-functions"></a>Strängfunktioner
+## <a id="string-functions"></a>Sträng funktioner
 
-Följande skalärfunktioner utföra en åtgärd på ett strängvärde för indata och returnerar en sträng, numeriskt värde eller boolesk värde:
+Följande skalära funktioner utför en åtgärd på ett sträng indatavärde och returnerar ett sträng värde, ett numeriskt värde eller ett booleskt värde:
   
 ||||  
 |-|-|-|  
@@ -1557,10 +1578,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 - `num_expr`  
   
-   Är ett numeriskt uttryck. Om num_expr är negativt eller icke-bestämt antal, är resultatet odefinierad.
+   Är ett numeriskt uttryck. Om num_expr är negativt eller ej ändligt är resultatet odefinierat.
 
   > [!NOTE]
-  > Den maximala längden på resultatet är 10 000 tecken d.v.s. (length(str_expr) * num_expr) < = 10000.
+  > Den maximala längden på resultatet är 10 000 tecken, t. ex. (längd (str_expr) * num_expr) < = 10 000.
   
   **Returnera typer**  
   
@@ -1716,8 +1737,8 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 [{"s1": false, "s2": true}]  
 ```  
 
-  ####  <a name="bk_stringtoarray"></a> StringToArray  
- Returnerar uttryck översättas till en matris. Om uttrycket inte kan översättas, returnerar odefinierad.  
+  ####  <a name="bk_stringtoarray"></a>StringToArray  
+ Returnerar uttryck som har översatts till en matris. Om uttrycket inte kan översättas returneras undefined.  
   
  **Syntax**  
   
@@ -1729,17 +1750,17 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   Är ett skalärt uttryck som ska utvärderas som ett JSON-matris-uttryck. Observera att kapslade strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)
+   Är ett giltigt skalärt uttryck som ska utvärderas som ett JSON-mat ris uttryck. Observera att kapslade sträng värden måste skrivas med dubbla citat tecken för att vara giltiga. Mer information om JSON-formatet finns i [JSON.org](https://json.org/)
   
   **Returnera typer**  
   
-  Returnerar ett matrisuttryck eller odefinierad.  
+  Returnerar ett mat ris uttryck eller odefinierat.  
   
   **Exempel**  
   
-  I följande exempel visas hur StringToArray beter sig över olika typer. 
+  I följande exempel visas hur StringToArray beter sig mellan olika typer. 
   
- Följande är exempel med giltiga indata.
+ Följande är exempel på giltiga indatatyper.
 
 ```
 SELECT 
@@ -1756,10 +1777,10 @@ Här är resultatuppsättningen.
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-Följande är ett exempel på ogiltiga indata. 
+Följande är ett exempel på ogiltiga indatatyper. 
    
- Enkla citattecken i matrisen är inte giltig JSON.
-Även om de är giltiga i en fråga, kommer de inte att parsa till giltiga matriser. Strängar i matrisen strängen måste antingen undantas ”[\\”\\”]” eller omgivande citattecken måste vara enkel ”[” ”]”.
+ Enkla citat tecken i matrisen är inte giltiga JSON.
+Även om de är giltiga i en fråga går de inte att parsa till giltiga matriser. Strängar i mat ris strängen måste antingen föregås av [\\\\"]" eller det omgivande citatet måste vara Single ["]".
 
 ```
 SELECT
@@ -1772,9 +1793,9 @@ Här är resultatuppsättningen.
 [{}]
 ```
 
-Här följer några exempel på ogiltiga indata.
+Följande är exempel på ogiltiga indatatyper.
    
- Det uttryck som skickas kommer att tolkas som en JSON-matris. följande utvärderar inte för att ange matris och därför returnera odefinierad.
+ Det överförda uttrycket kommer att parsas som en JSON-matris. följande utvärderar inte till typ mat ris och returnerar således odefinierad.
    
 ```
 SELECT
@@ -1791,8 +1812,8 @@ Här är resultatuppsättningen.
 [{}]
 ```
 
-####  <a name="bk_stringtoboolean"></a> StringToBoolean  
- Returnerar uttryck översättas till ett booleskt värde. Om uttrycket inte kan översättas, returnerar odefinierad.  
+####  <a name="bk_stringtoboolean"></a>StringToBoolean  
+ Returnerar uttryck som har översatts till ett booleskt värde. Om uttrycket inte kan översättas returneras undefined.  
   
  **Syntax**  
   
@@ -1804,19 +1825,19 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   Är ett skalärt uttryck som ska utvärderas som ett booleskt uttryck.  
+   Är ett giltigt skalärt uttryck som ska utvärderas som ett booleskt uttryck.  
   
   **Returnera typer**  
   
-  Returnerar ett booleskt uttryck eller odefinierad.  
+  Returnerar ett booleskt uttryck eller odefinierat.  
   
   **Exempel**  
   
-  I följande exempel visas hur StringToBoolean beter sig över olika typer. 
+  I följande exempel visas hur StringToBoolean beter sig mellan olika typer. 
  
- Följande är exempel med giltiga indata.
+ Följande är exempel på giltiga indatatyper.
 
-Blanksteg tillåts endast innan eller efter ”true” / ”false”.
+Blank steg tillåts bara före eller efter "true"/"false".
 
 ```  
 SELECT 
@@ -1831,9 +1852,9 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
-Följande är exempel med ogiltiga indata.
+Följande är exempel på ogiltiga indatatyper.
 
- Booleska värden är skiftlägeskänsliga och måste skrivas med små bokstäver för d.v.s. ”true” och ”false”.
+ Booleska värden är Skift läges känsliga och måste skrivas med små bokstäver, d.v.s. "sant" och "falskt".
 
 ```  
 SELECT 
@@ -1847,7 +1868,7 @@ Här är resultatuppsättningen.
 [{}]
 ``` 
 
-Det uttryck som skickas ska parsas som ett booleskt uttryck; dessa indata utvärderas inte för att ange booleskt värde och därför returnera odefinierad.
+Det överförda uttrycket kommer att parsas som ett booleskt uttryck. de här inmatningarna utvärderas inte till typen Boolean och returneras därför inte.
 
 ```  
 SELECT 
@@ -1864,8 +1885,8 @@ Här är resultatuppsättningen.
 [{}]
 ```  
 
-####  <a name="bk_stringtonull"></a> StringToNull  
- Returnerar uttryck översätts till null. Om uttrycket inte kan översättas, returnerar odefinierad.  
+####  <a name="bk_stringtonull"></a>StringToNull  
+ Returnerar uttryck översatt till null. Om uttrycket inte kan översättas returneras undefined.  
   
  **Syntax**  
   
@@ -1877,19 +1898,19 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   Är ett skalärt uttryck som ska utvärderas som ett null-uttryck.
+   Är ett giltigt skalärt uttryck som ska utvärderas som ett null-uttryck.
   
   **Returnera typer**  
   
-  Returnerar ett uttryck som är null eller odefinierad.  
+  Returnerar ett null-uttryck eller ett odefinierat värde.  
   
   **Exempel**  
   
-  I följande exempel visas hur StringToNull beter sig över olika typer. 
+  I följande exempel visas hur StringToNull beter sig mellan olika typer. 
 
-Följande är exempel med giltiga indata.
+Följande är exempel på giltiga indatatyper.
 
- Blanksteg tillåts endast före eller efter ”null”.
+ Blank steg tillåts bara före eller efter "null".
 
 ```  
 SELECT 
@@ -1904,9 +1925,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
-Följande är exempel med ogiltiga indata.
+Följande är exempel på ogiltiga indatatyper.
 
-Null är skiftlägeskänsligt och måste skrivas med alla gemener d.v.s. ”null”.
+Null är Skift läges känsligt och måste skrivas med alla gemener, t. ex. "null".
 
 ```  
 SELECT    
@@ -1920,7 +1941,7 @@ SELECT
 [{}]
 ```  
 
-Det uttryck som skickas kommer att tolkas som ett null-uttryck; dessa indata utvärderas inte om du vill ange null och därför returnera odefinierad.
+Det överförda uttrycket kommer att parsas som ett null-uttryck. dessa indata kan inte utvärderas till typen null och returneras därför inte.
 
 ```  
 SELECT    
@@ -1936,8 +1957,8 @@ SELECT
 [{}]
 ```  
 
-####  <a name="bk_stringtonumber"></a> StringToNumber  
- Returnerar uttryck översättas till ett tal. Om uttrycket inte kan översättas, returnerar odefinierad.  
+####  <a name="bk_stringtonumber"></a>StringToNumber  
+ Returnerar uttryck översatt till ett tal. Om uttrycket inte kan översättas returneras undefined.  
   
  **Syntax**  
   
@@ -1949,17 +1970,17 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   Är ett skalärt uttryck som ska utvärderas som ett JSON-Number-uttryck. Siffror i JSON måste vara ett heltal eller ett flyttal. Mer information om JSON-format finns [json.org](https://json.org/)  
+   Är ett giltigt skalärt uttryck som ska utvärderas som ett JSON Number-uttryck. Talen i JSON måste vara ett heltal eller en flyttal. Mer information om JSON-formatet finns i [JSON.org](https://json.org/)  
   
   **Returnera typer**  
   
-  Returnerar ett antal uttryck eller odefinierad.  
+  Returnerar ett tal uttryck eller ett odefinierat värde.  
   
   **Exempel**  
   
-  I följande exempel visas hur StringToNumber beter sig över olika typer. 
+  I följande exempel visas hur StringToNumber beter sig mellan olika typer. 
 
-Blanksteg tillåts endast före eller efter hur många.
+Blank steg tillåts bara före eller efter talet.
 
 ```  
 SELECT 
@@ -1975,7 +1996,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-I JSON som ett giltigt nummer måste vara antingen vara ett heltal eller ett flyttal peka tal.
+I JSON måste ett giltigt tal vara ett heltal eller ett flytt ALS nummer.
 
 ```  
 SELECT   
@@ -1988,7 +2009,7 @@ SELECT
 {{}}
 ```  
 
-Det uttryck som skickas kommer att tolkas som ett antal uttryck; dessa indata utvärderas inte för att ange antal och därför returnera odefinierad. 
+Det överförda uttrycket kommer att tolkas som ett tal uttryck. dessa indata utvärderas inte till typ nummer och returneras därför inte. 
 
 ```  
 SELECT 
@@ -2006,8 +2027,8 @@ SELECT
 {{}}
 ```  
 
-####  <a name="bk_stringtoobject"></a> StringToObject  
- Returnerar uttryck översättas till ett objekt. Om uttrycket inte kan översättas, returnerar odefinierad.  
+####  <a name="bk_stringtoobject"></a>StringToObject  
+ Returnerar uttryck översatt till ett objekt. Om uttrycket inte kan översättas returneras undefined.  
   
  **Syntax**  
   
@@ -2019,17 +2040,17 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   Är ett skalärt uttryck som ska utvärderas som ett uttryck för JSON-objekt. Observera att kapslade strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)  
+   Är ett giltigt skalärt uttryck som ska utvärderas som ett JSON-objekt uttryck. Observera att kapslade sträng värden måste skrivas med dubbla citat tecken för att vara giltiga. Mer information om JSON-formatet finns i [JSON.org](https://json.org/)  
   
   **Returnera typer**  
   
-  Returnerar ett objektuttryck eller odefinierad.  
+  Returnerar ett objekt uttryck eller ett odefinierat objekt.  
   
   **Exempel**  
   
-  I följande exempel visas hur StringToObject beter sig över olika typer. 
+  I följande exempel visas hur StringToObject beter sig mellan olika typer. 
   
- Följande är exempel med giltiga indata.
+ Följande är exempel på giltiga indatatyper.
 
 ``` 
 SELECT 
@@ -2048,10 +2069,10 @@ Här är resultatuppsättningen.
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- Följande är exempel med ogiltiga indata.
-Även om de är giltiga i en fråga, kommer de inte att parsa giltiga objekt. Strängar i strängen i objektet måste antingen undantas ”{\\” en\\”:\\” str\\”}” eller omgivande citattecken måste vara enkel ' {”a”: ”str”} ”.
+ Följande är exempel på ogiltiga indatatyper.
+Även om de är giltiga i en fråga, kommer de inte att parsas till giltiga objekt. Strängar inom en objekt sträng måste\\antingen vara undantagna "{" a\\":\\" Str\\"} eller så måste det omgivande citatet vara en enstaka {" a ":" Str "}.
 
-Enkla citattecken som omger egenskapsnamn är inte giltig JSON.
+Enkla citat tecken som omger egenskaps namnen är inte giltiga JSON.
 
 ``` 
 SELECT 
@@ -2064,7 +2085,7 @@ Här är resultatuppsättningen.
 [{}]
 ```  
 
-Egenskapsnamn utan omgivande citattecken är inte giltig JSON.
+Egenskaps namn utan omgivande citat tecken är inte giltiga JSON.
 
 ``` 
 SELECT 
@@ -2077,9 +2098,9 @@ Här är resultatuppsättningen.
 [{}]
 ``` 
 
-Följande är exempel med ogiltiga indata.
+Följande är exempel på ogiltiga indatatyper.
 
- Det uttryck som skickas kommer att tolkas som ett JSON-objekt. dessa indata utvärderas inte för att ange objekt och därför returnera odefinierad.
+ Det överförda uttrycket kommer att parsas som ett JSON-objekt. dessa indata utvärderas inte till Type-objekt och returneras därför inte.
 
 ``` 
 SELECT 
@@ -2114,7 +2135,7 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
 - `num_expr`  
   
-   Är ett numeriskt uttryck för att ange start- och tecken.    
+   Är ett giltigt numeriskt uttryck som anger start-och slut tecken.    
   
   **Returnera typer**  
   
@@ -2280,9 +2301,9 @@ SELECT UPPER("Abc") AS upper
 [{"upper": "ABC"}]  
 ```
 
-## <a id="array-functions"></a>Matrisfunktioner
+## <a id="array-functions"></a>Mat ris funktioner
 
-Följande skalärfunktioner utföra en åtgärd på en matris indatavärdet och returnera numeriska, booleskt värde eller matris värde:
+Följande skalära funktioner utför en åtgärd på ett värde för mat ris värden och returnerar numeriska värden, booleska eller matriskonstanter:
   
 ||||  
 |-|-|-|  
@@ -2323,7 +2344,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Returnerar ett booleskt värde som anger huruvida matrisen innehåller det angivna värdet. Du kan söka efter en partiell eller fullständig matchning av ett objekt med hjälp av ett booleskt uttryck i kommandot. 
+Returnerar ett booleskt värde som anger huruvida matrisen innehåller det angivna värdet. Du kan söka efter en partiell eller fullständig matchning av ett objekt genom att använda ett booleskt uttryck i kommandot. 
 
 **Syntax**  
   
@@ -2343,7 +2364,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 - `bool_expr`  
   
-   Är ett booleskt uttryck. Om den är inställd på ' true'and om det angivna värdet är ett objekt, kommandot söker efter en delvis matchning (objektet search är en delmängd av ett av objekten). Om den är inställd på 'false', söker kommandot efter en fullständig matchning av alla objekt i matrisen. Standardvärdet om inget anges är false. 
+   Är ett booleskt uttryck. Om det är inställt på "true'and om det angivna sökvärdet är ett objekt, söker kommandot efter en partiell matchning (sökobjektet är en delmängd av ett av objekten). Om den har angetts till false söker kommandot efter en fullständig matchning av alla objekt i matrisen. Standardvärdet om inget värde anges är falskt. 
   
   **Returnera typer**  
   
@@ -2473,16 +2494,16 @@ SELECT
            "s7": [] 
 }]  
 ```  
-## <a id="date-time-functions"></a>Datum och tid funktionen
+## <a id="date-time-functions"></a>Funktionen datum och tid
 
-Följande skalära funktioner kan du hämta den aktuella UTC-datum och tid på två sätt; en numerisk tidsstämpel vars värde är Unix epoch i millisekunder eller som en sträng som överensstämmer med ISO 8601-format. 
+Med följande skalära funktioner kan du hämta aktuellt UTC-datum och tid i två formulär; en numerisk tidstämpel vars värde är UNIX-epoken i millisekunder eller som en sträng som följer ISO 8601-formatet. 
 
 |||
 |-|-|
 |[GETCURRENTDATETIME](#bk_get_current_date_time)|[GETCURRENTTIMESTAMP](#bk_get_current_timestamp)||
 
-####  <a name="bk_get_current_date_time"></a> GETCURRENTDATETIME
- Returnerar den aktuella UTC-datum och tid som en ISO 8601-sträng.
+####  <a name="bk_get_current_date_time"></a>GETCURRENTDATETIME
+ Returnerar aktuellt UTC-datum och-tid som en ISO 8601-sträng.
   
  **Syntax**
   
@@ -2492,39 +2513,39 @@ GETCURRENTDATETIME ()
   
   **Returnera typer**
   
-  Returnerar det aktuella UTC datum- och ISO 8601 strängvärdet. 
+  Returnerar aktuellt UTC-datum och klock slags ISO 8601-sträng värde. 
 
-  Detta uttrycks i formatet ÅÅÅÅ-MM-DDThh:mm:ss.sssZ där:
+  Detta uttrycks i formatet ÅÅÅÅ-MM-DDThh: mm: SS. sssZ där:
   
   |||
   |-|-|
-  |ÅÅÅÅ|fyrsiffrigt år|
-  |MM|månad med två siffror (01 = januari, osv.)|
-  |DD|tvåsiffrig dag i månaden (01 till 31)|
-  |T|signifier början av tidselement|
-  |hh|två siffror timme (00-23)|
-  |mm|två siffror minuter (00 till och med 59)|
-  |ss|två siffror sekunder (00 till och med 59)|
-  |.sss|tre siffrorna i decimaltal av en sekund|
-  |Z|UTC (Coordinated Universal Time) designator||
+  |MMMM|fyrsiffrigt år|
+  |MM|tvåsiffrig månad (01 = januari osv.)|
+  |DD|fyrsiffrigt dag i månad (01 till 31)|
+  |t|indikerare för start av tids element|
+  |formatet|två siffror per timme (00 – 23)|
+  |hög|två siffer minuter (00 till 59)|
+  |ss|två siffror i sekunder (00 till 59)|
+  |.sss|tre siffror på Decimal bråk i en sekund|
+  |Z|UTC-beteckning (Coordinated Universal Time)||
   
-  Mer information om ISO 8601-format finns i [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+  Mer information om ISO 8601-formatet finns i [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
   **Kommentarer**
 
-  GETCURRENTDATETIME är en funktion som icke-deterministisk. 
+  GETCURRENTDATETIME är en icke-deterministisk funktion. 
   
   Resultatet som returneras är UTC (Coordinated Universal Time).
 
   **Exempel**  
   
-  I följande exempel visar hur du hämtar den aktuella UTC-datum tid med hjälp av den inbyggda funktionen GetCurrentDateTime.
+  I följande exempel visas hur du hämtar den aktuella UTC-datum tiden med den inbyggda funktionen GetCurrentDateTime.
   
 ```  
 SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 ```  
   
- Här är en exempel-resultatuppsättning.
+ Här är ett exempel på en resultat uppsättning.
   
 ```  
 [{
@@ -2532,8 +2553,8 @@ SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 }]  
 ```  
 
-####  <a name="bk_get_current_timestamp"></a> GETCURRENTTIMESTAMP
- Returnerar antalet millisekunder som har förflutit sedan 00:00:00 torsdag den 1 januari 1970. 
+####  <a name="bk_get_current_timestamp"></a>GETCURRENTTIMESTAMP
+ Returnerar antalet millisekunder som har förflutit sedan 00:00:00 torsdag, 1 januari 1970. 
   
  **Syntax**  
   
@@ -2543,23 +2564,23 @@ GETCURRENTTIMESTAMP ()
   
   **Returnera typer**  
   
-  Returnerar ett numeriskt värde, det aktuella antalet millisekunder som har förflutit sedan Unix epoch t.ex. antalet millisekunder som har förflutit sedan 00:00:00 torsdag den 1 januari 1970.
+  Returnerar ett numeriskt värde, det aktuella antalet millisekunder som har förflutit sedan UNIX-epoken, dvs. antalet millisekunder som har förflutit sedan 00:00:00 torsdag, 1 januari 1970.
 
   **Kommentarer**
 
-  GETCURRENTTIMESTAMP är en funktion som icke-deterministisk.
+  GETCURRENTTIMESTAMP är en icke-deterministisk funktion.
   
   Resultatet som returneras är UTC (Coordinated Universal Time).
 
   **Exempel**  
   
-  I följande exempel visar hur du hämtar den aktuella tidsstämpeln som använder den inbyggda funktionen GetCurrentTimestamp.
+  I följande exempel visas hur du hämtar den aktuella tidsstämpeln med hjälp av den inbyggda funktionen GetCurrentTimestamp.
   
 ```  
 SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 ```  
   
- Här är en exempel-resultatuppsättning.
+ Här är ett exempel på en resultat uppsättning.
   
 ```  
 [{
@@ -2567,7 +2588,7 @@ SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 }]  
 ```
 
-## <a id="spatial-functions"></a>Spatial funktioner
+## <a id="spatial-functions"></a>Spatiala funktioner
 
 Cosmos DB stöder följande inbyggda OGC-funktioner (Open Geospatial Consortium) för geospatial frågekörning. Följande skalärfunktioner utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.  
   
@@ -2778,5 +2799,5 @@ SELECT ST_ISVALIDDETAILED({
 ## <a name="next-steps"></a>Nästa steg
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
-- [UDFs](sql-query-udfs.md)
-- [Aggregeringar](sql-query-aggregates.md)
+- [UDF: er](sql-query-udfs.md)
+- [Agg regeringar](sql-query-aggregates.md)

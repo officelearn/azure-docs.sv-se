@@ -1,18 +1,18 @@
 ---
 title: Tyst installation av Azure Backup Server v2
 description: Använd ett PowerShell-skript för att installera Azure Backup Server v2 obevakat. Den här typen av installation kallas även för en obevakad installation.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: raynew
-ms.openlocfilehash: add1f4057b5b52310f53553dcd23e3357fb1ee29
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4bce7aeebee729ed253d39720ef520880c261a22
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465011"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639658"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Köra en obevakad installation av Azure Backup Server
 

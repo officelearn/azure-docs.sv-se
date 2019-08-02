@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database dynamisk datamaskning | Microsoft docs
-description: SQL Database dynamisk datamaskning begränsar exponering av känsliga data genom att maskera den för icke-privilegierade användare
+title: Azure SQL Database dynamisk data maskning | Microsoft-dokument
+description: SQL Database dynamisk data maskning begränsar känslig data exponering genom att maskera den för icke-privilegierade användare
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,55 +10,54 @@ ms.topic: conceptual
 author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: 1db1535779d180994c9ce4350d11f4c696da9e3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 366b9437aab134985c73611fa8b46c6fbd3d309c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721549"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568760"
 ---
-# <a name="sql-database-dynamic-data-masking"></a>SQL Database dynamisk datamaskning
+# <a name="sql-database-dynamic-data-masking"></a>SQL Database dynamisk data maskning
 
-SQL Database dynamisk datamaskning begränsar exponering av känsliga data genom att maskera den för icke-privilegierade användare. 
+SQL Database dynamisk data maskning begränsar känslig data exponering genom att maskera den till icke-privilegierade användare. 
 
 Dynamisk datamaskning förhindrar obehörig åtkomst till känsliga data genom att låta kunder ange hur mycket av känsliga data som avslöja med minimal påverkan på programnivån. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad.
 
-Till exempel en representant på ett Callcenter kan identifiera anropare genom flera siffrorna i sina kreditkortsnummer, men de dataobjekt bör inte exponeras fullständigt för servicerepresentant. Du kan definiera en maskningsregel att masker alla men de sista fyra siffrorna i alla kreditkortsnummer i resultatet som angetts av en fråga. Ett annat exempel är en mask för lämpliga data kan du definiera i syfte för att skydda personligt identifierbar information (PII), så att utvecklare kan fråga produktionsmiljöer för felsökning utan brott mot kompatibilitetsföreskrifter.
+En tjänst representant i ett Call Center kan till exempel identifiera anropare med flera siffror i deras kreditkorts nummer, men dessa data objekt bör inte vara helt exponerade för tjänst representanten. En masknings regel kan definieras som maskerar alla de sista fyra siffrorna i ett kreditkorts nummer i resultat uppsättningen för en fråga. Ett annat exempel är att en lämplig datamask kan definieras för att skydda personligt identifierbar information (PII)-data, så att en utvecklare kan fråga produktions miljöer i fel söknings syfte utan att överskrida reglerna för efterlevnad.
 
-## <a name="sql-database-dynamic-data-masking-basics"></a>SQL Database dynamisk datamaskning grunderna
+## <a name="sql-database-dynamic-data-masking-basics"></a>Grunderna för SQL Database dynamisk data maskering
 
-Du ställer in en dynamisk datamaskning principen i Azure portal genom att välja åtgärden i din SQL Database konfigurationsbladet eller inställningsbladet för dynamisk datamaskning.
+Du konfigurerar en princip för dynamisk data maskering i Azure Portal genom att välja åtgärden dynamisk data maskning i bladet för SQL Database konfiguration eller bladet inställningar.
 
-### <a name="dynamic-data-masking-permissions"></a>Dynamiska data maskning behörigheter
+### <a name="dynamic-data-masking-permissions"></a>Behörigheter för dynamisk data maskering
 
-Dynamisk datamaskning kan konfigureras av administratören för Azure SQL Database,-serveradministratören eller [SQL-säkerhetsansvarig](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) roller.
+Dynamisk datamaskering kan konfigureras av rollerna Azure SQL Database admin, Server administratör eller [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) .
 
-### <a name="dynamic-data-masking-policy"></a>Dynamiska data maskning princip
+### <a name="dynamic-data-masking-policy"></a>Princip för dynamisk data maskering
 
-* **SQL-användare uteslutna från maskering** – en uppsättning SQL-användare eller AAD-identiteter som hämtar omaskerat data i SQL-frågeresultat. Användare med administratörsbehörighet är alltid uteslutna från maskering och finns i den ursprungliga informationen utan någon mask.
-* **Maskera regler** – en uppsättning regler som definierar de avsedda fält som ska vara dold och maskningsfunktion som används. De angivna fält kan definieras med ett databasnamn för schemat, tabellnamnet och kolumnnamnet.
-* **Maskera funktioner** – en uppsättning metoder som styr exponering av data för olika scenarier.
+* **SQL-användare exkluderas från maskering** – en uppsättning SQL-användare eller AAD-identiteter som hämtar data som inte har maskerats i SQL-frågeresultaten. Användare med administratörs behörighet är alltid exkluderade från maskering och kan se ursprungliga data utan någon mask.
+* **Masknings regler** – en uppsättning regler som definierar de angivna fälten som ska maskeras och den masknings funktion som används. De angivna fälten kan definieras med ett databas schema namn, tabell namn och kolumn namn.
+* **Maskera funktioner** – en uppsättning metoder som styr exponeringen av data för olika scenarier.
 
-| Maskeringsfunktion | Maskera logik |
+| Maskerings funktion | Maskering av logik |
 | --- | --- |
-| **Standard** |**Fullständig maskning enligt datatyperna för respektive fält**<br/><br/>• Använd XXXX eller färre Xs om fältet är mindre än 4 tecken för strängdatatyper (nchar, ntext, nvarchar).<br/>• Använd värdet noll för numeriska datatyper (bigint, bit, decimal, int, pengar, numeriska, smallint, smallmoney, tinyint, float, real).<br/>• Använd 01-01-1900 för datum/tid-datatyper (datum, datetime2, datetime, datetimeoffset, smalldatetime, tid).<br/>• För SQL-variant, aktuell typ standardvärdet används.<br/>• För XML-dokumentet \<maskeras / > används.<br/>• Använd ett tomt värde för speciella datatyper (tidsstämpel tabell, hierarchyid, GUID, binary, bild, varbinary spatial typer). |
-| **Kreditkort** |**Maskera metod, som visar de sista fyra siffrorna i fälten avsedda** och lägger till en konstant sträng som ett prefix i form av ett kreditkort.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **E-post** |**Maskera metod, som visar den första bokstaven och ersätter domänen med XXX.com** med hjälp av en konstantsträng prefix i form av en e-postadress.<br/><br/>aXX@XXXX.com |
-| **Slumptal** |**Maskering av metoden, vilket genererar ett slumptal** enligt de valda gränser och faktiska datatyper. Om de angivna gränserna är lika med, är maskningsfunktion ett tal.<br/><br/>![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
-| **Anpassad text** |**Maskera metod, som visar de första och sista tecknet** och lägger till en anpassad utfyllnad sträng i mitten. Om den ursprungliga strängen är kortare än exponerat prefix och suffix, används endast utfyllnad strängen. <br/>prefix[padding]suffix<br/><br/>![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
+| **Standard** |**Fullständig maskering enligt data typerna för de angivna fälten**<br/><br/>• Använd XXXX eller färre XS om fältets storlek är mindre än 4 tecken för sträng data typer (nchar, ntext, nvarchar).<br/>• Använd ett nollvärde för numeriska data typer (bigint, bit, decimal, int, Money, numeric, smallint, smallmoney, tinyint, Float, Real).<br/>• Använd 01-01-1900 för datum-/tids data typer (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, Time).<br/>• För SQL-variant används standardvärdet för den aktuella typen.<br/>• För XML används dokumentet \<maskerat/>.<br/>• Använd ett tomt värde för särskilda data typer (tidsstämpel-tabell, hierarchyid, GUID, binär, bild, varbinary spatial types). |
+| **Kredit kort** |**Masknings metod som visar de sista fyra siffrorna i de angivna fälten** och lägger till en konstant sträng som ett prefix i form av ett kredit kort.<br/><br/>XXXX-XXXX-XXXX-1234 |
+| **E-post** |**Maskerings metod som visar den första bokstaven och ersätter domänen med xxx.com** med ett konstant sträng-prefix i form av en e-postadress.<br/><br/>aXX@XXXX.com |
+| **Slumptal** |**Maskerings metod, som genererar ett slumptal** enligt de valda gränserna och faktiska data typerna. Om de angivna gränserna är lika är Maskerings funktionen ett konstant nummer.<br/><br/>![Navigerings fönster](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **Anpassad text** |**Maskerings metod som visar de första och sista tecknen** och lägger till en anpassad utfyllnads sträng i mitten. Om den ursprungliga strängen är kortare än det exponerade prefixet och suffixet, används bara utfyllnads strängen. <br/>prefix[padding]suffix<br/><br/>![Navigerings fönster](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 
 ### <a name="recommended-fields-to-mask"></a>Rekommenderade fält att maskera
 
-Rekommendationsmotorn DDM flaggar vissa fält från databasen som potentiellt känsliga, vilket kan vara bra kandidater för Maskning. Dynamisk Datamaskning-bladet i portalen visas de rekommendera kolumnerna för din databas. Allt du behöver göra är att klicka på **Lägg till Mask** för en eller flera kolumner och sedan **spara** att tillämpa en mask för dessa fält.
+DDM rekommenderar motorn att flagga vissa fält från databasen som potentiellt känsliga fält, vilket kan vara bra för att maskera. På bladet dynamisk data maskning i portalen ser du de rekommenderade kolumnerna för din databas. Allt du behöver göra är att klicka på **Lägg till mask** för en eller flera kolumner och sedan **Spara** för att tillämpa en mask för dessa fält.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Konfigurera dynamisk datamaskering för din databas med PowerShell-cmdletar
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Konfigurera dynamisk data maskning för din databas med PowerShell-cmdletar
 
-Se [cmdlet: ar för Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql).
+Se [Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql)-cmdletar.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Konfigurera dynamisk datamaskning för din databas med hjälp av REST API
+## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Konfigurera dynamisk data maskning för databasen med hjälp av REST API
 
 Se [åtgärder för Azure SQL Database](https://docs.microsoft.com/rest/api/sql/).

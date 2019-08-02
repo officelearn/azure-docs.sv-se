@@ -1,175 +1,285 @@
 ---
-title: Skapa och hantera integrationskonton för B2B - lösningar i Azure Logic Apps | Microsoft Docs
-description: Skapa, länkar, flytta och ta bort integrationskonton för enterprise-integration och B2B-lösningar med Azure Logic Apps
+title: Skapa och hantera integrations konton för B2B-lösningar – Azure Logic Apps
+description: Skapa, länka, flytta och ta bort integrations konton för Enterprise-integration och B2B-lösningar med hjälp av Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
 ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 04/30/2018
+ms.suite: integration
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: carmonm
+ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
+ms.topic: conceptual
+ms.date: 07/26/2019
+ms.openlocfilehash: cffcfe53cf30d8fc34fdb27e50ef74e71700125a
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60999684"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607013"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Skapa och hantera integrationskonton för B2B-lösningar med logic apps
+# <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>Skapa och hantera integrations konton för B2B-lösningar med hjälp av Azure Logic Apps
 
-Innan du kan skapa [enterprise-integration och B2B-lösningar](../logic-apps/logic-apps-enterprise-integration-overview.md) med [Azure Logic Apps](../logic-apps/logic-apps-overview.md), du måste först ha ett integrationskonto som är där du skapar, lagrar och hantera B2B-artefakter som handel med partners, avtal, kartor, scheman, certifikat och så vidare. Innan din logikapp kan arbeta med artefakter i ditt integrationskonto och använda Logic Apps B2B-anslutningar, till exempel XML-verifiering, måste du [länka ditt integrationskonto](#link-account) i logikappen. Om du vill länka dem båda integration-kontot och logik appen måste ha den *samma* Azure-plats eller region.
+Innan du kan skapa [Enterprise-integration och B2B-lösningar](../logic-apps/logic-apps-enterprise-integration-overview.md) med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md)måste du skapa ett integrations konto, som är en separat Azure-resurs som tillhandahåller en säker, skalbar och hanterbar behållare för integrerings artefakter som du definierar och använder med dina Logic app-arbetsflöden.
 
-Den här artikeln visar hur du utför dessa uppgifter:
+Du kan till exempel skapa, lagra och hantera B2B-artefakter, till exempel handels partner, avtal, kartor, scheman, certifikat och batch-konfigurationer. Innan din Logic-app kan arbeta med dessa artefakter och använda Logic Apps B2B-kopplingar måste du dessutom [Länka ditt integrations konto](#link-account) till din Logic app. Både ditt integrations konto och din Logic app måste finnas på *samma* plats eller region.
 
-* Skapa ditt integrationskonto.
-* Länka ditt integrationskonto till en logikapp.
-* Flytta ditt integrationskonto till en annan Azure-resursgrupp eller prenumeration.
-* Ta bort ditt integrationskonto.
+> [!TIP]
+> Om du vill skapa ett integrations konto i en [integrerings tjänst miljö](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), se [skapa integrations konton i en ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
 
-Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
+Det här avsnittet visar hur du utför dessa uppgifter:
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+* Skapa ditt integrations konto.
+* Länka ditt integrations konto till en Logic app.
+* Ändra pris nivån för ditt integrations konto.
+* Ta bort länken till integrations kontot från en Logic app.
+* Flytta ditt integrations konto till en annan Azure-resurs grupp eller prenumeration.
+* Ta bort ditt integrations konto.
 
-Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a> med autentiseringsuppgifterna för ditt Azure-konto.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="create-integration-account"></a>Skapa integrationskontot
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-1. Välj den Azure-huvudmenyn **alla tjänster**. Ange ”integrationskonton” i sökrutan som filter och välj **integrationskonton**.
+## <a name="create-integration-account"></a>Skapa integrations konto
 
-   ![Hitta integrationskonton](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet [Azure PowerShell](https://docs.microsoft.com//powershell/module/azurerm.logicapp/New-AzureRmIntegrationAccount)eller [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
 
-2. Under **integrationskonton**, Välj **Lägg till**.
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
-   ![Välj ”Lägg till” skapa integrationskontot](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
+1. Välj **Skapa en resurs** på Azure-huvudmenyn. I sökrutan anger du "integrations konto" som filter och väljer integrations **konto**.
 
-3. Innehåller information om ditt integrationskonto: 
+   ![Skapa nytt integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
 
-   ![Ange information för ditt integrationskonto](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
+1. Under **integrations konto**väljer du **skapa**.
 
-   | Egenskap | Obligatoriskt | Exempelvärde | Beskrivning | 
-   |----------|----------|---------------|-------------|
-   | Name | Ja | test-integration-account | Namnet på ditt integrationskonto. I det här exemplet använder du det angivna namnet. | 
-   | Prenumeration | Ja | <*Azure-prenumerationsnamn*> | Namnet på Azure-prenumeration du använder | 
-   | Resursgrupp | Ja | test-integration-account-rg | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) används för att organisera relaterade resurser. I det här exemplet skapar du en ny resursgrupp med det angivna namnet. | 
-   | Prisnivå | Ja | Lediga | Den prisnivå som du vill använda. Det här exemplet väljer **kostnadsfri**, men mer information finns i [Logic Apps gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md) och [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Location | Ja | Västra USA | Regionen där att lagra din kontoinformation för integrering. Antingen välja samma plats som din logikapp eller skapa en logikapp på samma plats som din integrationskontot. | 
-   | Log Analytics-arbetsyta | Nej | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
-   ||||| 
+   ![Välj "Lägg till" för att skapa integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
 
-4. När du är klar väljer du **Fäst på instrumentpanelen** och sedan **Skapa**.
+1. Ange den här informationen om ditt integrations konto:
 
-   När Azure distribuerar din integrationskontot till den valda platsen har vanligtvis inom en minut, öppnas Azure ditt integrationskonto.
+   ![Ange information om integrations kontot](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   ![Öppnar Azure ditt integrationskonto](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
+   | Egenskap | Obligatorisk | Value | Beskrivning |
+   |----------|----------|-------|-------------|
+   | **Namn** | Ja | <*integration-account-name*> | Namnet på ditt integrations konto, till exempel "Fabrikam-integration" |
+   | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumerationens namn |
+   | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md) som ska användas för att organisera relaterade resurser. I det här exemplet skapar du en ny resurs grupp med namnet "FabrikamIntegration-RG". |
+   | **Prisnivå** | Ja | <*pris nivå*> | Pris nivån för integrations kontot, som du kan ändra senare. I det här exemplet väljer du **kostnads fri**. Mer information finns i följande avsnitt: <p>- [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps priser](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Location** | Ja | <*Azure-region*> | Den region där du vill lagra dina metadata för integrations kontot. Välj antingen samma plats som din Logic app eller skapa Logi Kap par på samma plats som ditt integrations konto. I det här exemplet använder du "västra USA". <p>**Obs!** Om du vill skapa ett integrations konto i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)väljer du denna ISE som plats. Mer information finns i [skapa integrations konton i en ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Log Analytics** | Nej | Av, på | Behåll inställningen **av** i det här exemplet. |
+   |||||
 
-Innan din logikapp kan använda ditt integrationskonto, måste du nu koppla integrationskontot till logikappen.
+1. När du är klar väljer du **skapa**.
+
+   När distributionen är klar öppnas ditt integrations konto i Azure.
+
+   ![Azure öppnar integrations kontot](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
+
+1. Innan din Logi Kap par kan använda ditt integrations konto, följer du stegen nedan för att länka ditt integrerings konto och din Logic app tillsammans.
 
 <a name="link-account"></a>
 
-## <a name="link-to-logic-app"></a>Länka till logikapp
+## <a name="link-to-logic-app"></a>Länka till Logic app
 
-Om du vill ge dina logic apps-åtkomst till ett integrationkonto som innehåller dina B2B-artefakter, till exempel samarbetspartner, avtal, kartor och scheman, måste du koppla din integrationskontot till logikappen. 
+Om du vill ge dina Logi Kap par åtkomst till ett integrations konto som innehåller dina B2B-artefakter måste du först länka ditt integrations konto till din Logic app. Både Logic app-och integrations kontot måste finnas i samma region. För den här uppgiften kan du använda Azure Portal genom att följa stegen i det här avsnittet.
 
-> [!NOTE]
-> Din integration-konto och logic app måste finnas i samma region.
+1. Leta upp och öppna din Logic app i Azure Portal.
 
-1. Hitta och öppna logikappen i Azure-portalen.
+1. Öppna en befintlig Logic-app eller skapa en ny Logic app i [Azure Portal](https://portal.azure.com).
 
-2. På din logikapp-menyn, under **inställningar**väljer **arbetsflödesinställningarna**. I den **Välj ett integrationskonto** väljer integrationskontot att länka till din logikapp.
+1. På din Logic Apps-meny, under **Inställningar**, väljer du **arbets flödes inställningar**. Öppna listan **Välj ett integrations konto** under **integrations konto**. Välj det integrations konto som ska länkas till din Logic app.
 
-   ![Välj ditt integrationskonto](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-2.png)
+   ![Välj ditt integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/select-integration-account.png)
 
-3. För att slutföra länkar, Välj **spara**.
+1. Slutför länkningen genom att välja **Spara**.
 
-   ![Välj ditt integrationskonto](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-3.png)
+   ![Välj ditt integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
 
-   När ditt integrationskonto har kopplats visas ett bekräftelsemeddelande i Azure. 
+   När integrations kontot har länkats visar Azure ett bekräftelse meddelande.
 
-   ![Azure bekräftar lyckad länk](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-5.png)
+   ![Azure bekräftar en lyckad länk](./media/logic-apps-enterprise-integration-create-integration-account/link-confirmation.png)
 
-Din logikapp kan nu använda eventuella och alla artefakter i ditt integrationskonto plus B2B-anslutningar, till exempel XML-verifiering och flat fil kodning eller avkodning.  
+Nu kan din Logic-app använda artefakterna i ditt integrations konto plus B2B-kopplingarna, till exempel XML-verifiering och flat fil kodning eller avkodning.  
 
-## <a name="unlink-from-logic-app"></a>Avlänka från logikappen
+<a name="change-pricing-tier"></a>
 
-För att länka din logikapp till ett annat konto eller inte längre använda ett konto för integrering med din logikapp, kan du ta bort länk via Azure Resource Explorer.
+## <a name="change-pricing-tier"></a>Ändra prisnivå
 
-1. I webbläsaren går du till <a href="https://resources.azure.com" target="_blank">Azure Resource Explorer (https://resources.azure.com)</a>. Kontrollera att du har loggat in med samma Azure-autentiseringsuppgifter.
+Om du vill öka [gränserna](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) för ett integrations konto kan du [Uppgradera till en högre pris nivå](#upgrade-pricing-tier), om det är tillgängligt. Du kan till exempel uppgradera från den kostnads fria nivån till Basic-nivån eller standard nivån. Du kan också [nedgradera till en lägre nivå](#downgrade-pricing-tier), om det är tillgängligt. Mer information om pris information finns i följande avsnitt:
+
+* [Prissättning för Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/)
+* [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md#integration-accounts)
+
+<a name="upgrade-pricing-tier"></a>
+
+### <a name="upgrade-pricing-tier"></a>Uppgradera pris nivå
+
+Om du vill göra den här ändringen kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet eller i [Azure CLI](#upgrade-tier-azure-cli).
+
+#### <a name="azure-portal"></a>Azure Portal
+
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+
+1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
+
+   ![Hitta integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
+
+   Azure visar alla integrations konton i dina Azure-prenumerationer.
+
+1. Under **integrations konton**väljer du det integrations konto som du vill flytta. På integrations konto menyn väljer du **Översikt**.
+
+   ![På menyn integrations konto väljer du "Översikt"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
+
+1. I översikts fönstret väljer du **uppgraderings pris nivå**, som visar en lista över tillgängliga högre nivåer. När du väljer en nivå börjar ändringen gälla.
+
+<a name="upgrade-tier-azure-cli"></a>
+
+#### <a name="azure-cli"></a>Azure CLI
+
+1. Om du inte redan har gjort det måste du [Installera kraven för Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+
+1. Öppna Azure [**Cloud Shell**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) -miljön i Azure Portal.
+
+   ![Öppna Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
+
+1. I kommando tolken anger du kommandot [ **AZ Resource** ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)och anger `skuName` den högre nivån som du vill ha.
+
+   ```Azure CLI
+   az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
+   ```
+  
+   Om du till exempel har nivån Basic kan du ställa in `skuName` på: `Standard`
+
+   ```Azure CLI
+   az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
+   ```
+
+<a name="downgrade-pricing-tier"></a>
+
+### <a name="downgrade-pricing-tier"></a>Nedgradera pris nivå
+
+Använd [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)för att göra den här ändringen.
+
+1. Om du inte redan har gjort det måste du [Installera kraven för Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+
+1. Öppna Azure [**Cloud Shell**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) -miljön i Azure Portal.
+
+   ![Öppna Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
+
+1. I kommando tolken anger du [ **resurs kommandot AZ** ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) och anger `skuName` den lägre nivån som du vill använda.
+
+   ```Azure CLI
+   az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
+   ```
+  
+   Om du till exempel har standard nivån kan du ställa in `skuName` på: `Basic`
+
+   ```Azure CLI
+   az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
+   ```
+
+## <a name="unlink-from-logic-app"></a>Ta bort länk från Logic app
+
+Om du vill länka din Logic app till ett annat integrations konto, eller om du inte längre vill använda ett integrations konto med din Logic-app, tar du bort länken med hjälp av Azure Resource Explorer.
+
+1. Öppna webbläsarens fönster och gå till [Azure Resource Explorer (https://resources.azure.com)](https://resources.azure.com). Logga in med samma autentiseringsuppgifter för Azure-kontot.
 
    ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
-2. Ange logikappens namn i sökrutan och hitta sedan din logikapp.
+1. I sökrutan anger du namnet på din Logic app så att du kan hitta och välja din Logic app.
 
-   ![Hitta och välj logikapp](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-find-logic-app.png)
+   ![Hitta och välj Logic app](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-find-logic-app.png)
 
-3. Välj på namnlisten i explorer **Läs/Skriv**.
+1. I namn listen i Utforskaren väljer du **Läs/skriv**.
 
-   ![Aktivera läget ”Läs/Skriv”](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-choose-read-write-mode.png)
+   ![Aktivera läget Läs/skriv](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-read-write.png)
 
-4. På den **Data** fliken **redigera**.
+1. På fliken **data** väljer du **Redigera**.
 
-   ![På fliken ”Data” Välj ”Redigera”](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-choose-edit.png)
+   ![På fliken "data" väljer du "redigera"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
-5. I redigeraren, hitta den `integrationAccount` egenskapen för att integrationen konto och ta bort den egenskap som har det här formatet:
+1. Leta upp `integrationAccount` objektet i redigeraren och ta bort egenskapen som har det här formatet:
 
    ```json
-   "integrationAccount": {
-      "name": "<integration-account-name>",
-      "id": "<integration-account-resource-ID>",
-      "type": "Microsoft.Logic/integrationAccounts"  
+   {
+      // <other-attributes>
+      "integrationAccount": {
+         "name": "<integration-account-name>",
+         "id": "<integration-account-resource-ID>",
+         "type": "Microsoft.Logic/integrationAccounts"  
    },
    ```
 
    Exempel:
 
-   ![Hitta ”integrationAccount” egenskapsdefinition](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
+   ![Hitta "integrationAccount"-objekt](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
-6. På den **Data** fliken **placera** att spara dina ändringar. 
+1. På fliken **data** väljer du **Lägg** för att spara ändringarna.
 
-   ![Välj ”placera” för att spara ändringar](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-save-changes.png)
+   ![Om du vill spara ändringarna väljer du "Lägg"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-save-changes.png)
 
-7. I Azure portal under din logikapp **arbetsflödesinställningarna**, kontrollerar du att den **integrationskontot** egenskap visas nu tom.
+1. Leta upp och välj din Logic app i Azure Portal. Under appens **arbets flödes inställningar**kontrollerar du att **integrations kontots** egenskap nu är tom.
 
-   ![Kontrollera att integrationskontot inte är länkad](./media/logic-apps-enterprise-integration-create-integration-account/unlinked-account.png)
+   ![Kontrol lera att integrations kontot inte är länkat](./media/logic-apps-enterprise-integration-create-integration-account/unlinked-account.png)
 
-## <a name="move-integration-account"></a>Flytta integrationskontot
+## <a name="move-integration-account"></a>Flytta integrations konto
 
-Du kan flytta ditt integrationskonto till en annan Azure-prenumeration eller resursgrupp grupp.
+Du kan flytta ditt integrations konto till en annan Azure-resurs grupp eller Azure-prenumeration. När du flyttar resurser skapar Azure nya resurs-ID: n, så se till att du använder de nya ID: na i stället och uppdaterar eventuella skript eller verktyg som är kopplade till de flyttade resurserna. Om du vill ändra prenumerationen måste du också ange en befintlig eller ny resurs grupp.
 
-1. Välj på Azure-huvudmenyn **alla tjänster**. Ange ”integrationskonton” i sökrutan som filter och välj **integrationskonton**.
+För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet eller i [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move).
 
-   ![Hitta ditt integrationskonto](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
-2. Under **integrationskonton**, Välj integrationskontot som du vill flytta. På din integration account menyn under **inställningar**, Välj **egenskaper**.
+1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
 
-   ![Välj ”egenskaper” under ”inställningar”](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-properties.png)
+   ![Hitta integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
 
-3. Ändra Azure-resursgrupp eller prenumeration för din integrationskontot.
+   Azure visar alla integrations konton i dina Azure-prenumerationer.
 
-   ![Välj ”Ändra resursgrupp” eller ”ändra prenumeration”](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
+1. Under **integrations konton**väljer du det integrations konto som du vill flytta. På integrations konto menyn väljer du **Översikt**.
 
-4. När du är klar kan du se till att du uppdaterar alla skript med nya resurs-ID för artefakterna.  
+   ![På menyn integrations konto väljer du "Översikt"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
-## <a name="delete-integration-account"></a>Ta bort integrationskontot
+1. Klicka på **ändra**bredvid antingen **resurs grupp** eller **prenumerations namn**.
 
-1. Välj på Azure-huvudmenyn **alla tjänster**. Ange ”integrationskonton” i sökrutan som filter och välj **integrationskonton**.
+   ![Ändra resurs grupp eller prenumeration](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
 
-   ![Hitta ditt integrationskonto](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+1. Välj eventuella relaterade resurser som du vill flytta.
 
-2. Under **integrationskonton**, Välj integrationskontot som du vill ta bort. På menyn integration-kontot väljer **översikt**, välj sedan **ta bort**. 
+1. Använd följande steg för att ändra resurs gruppen eller prenumerationen baserat på ditt val:
 
-   ![Välj integrationskontot. På sidan ”Översikt” väljer du ”ta bort”](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
+   * Resursgrupp: Välj mål resurs grupp i listan **resurs grupp** . Om du vill skapa en annan resurs grupp väljer du **skapa en ny resurs grupp**.
 
-3. För att bekräfta att du vill ta bort ditt integrationskonto, Välj **Ja**.
+   * Prenumeration: I listan **prenumeration** väljer du mål prenumerationen. Välj mål resurs grupp i listan **resurs grupp** . Om du vill skapa en annan resurs grupp väljer du **skapa en ny resurs grupp**.
 
-   ![Bekräfta borttagningen, väljer du ”Ja”](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
+1. För att bekräfta att alla skript eller verktyg som är kopplade till de flyttade resurserna inte fungerar förrän du uppdaterar dem med de nya resurs-ID: n, markerar du rutan bekräftelse och väljer sedan **OK**.
+
+1. När du är klar kontrollerar du att du uppdaterar alla skript med de nya resurs-ID: na för dina flyttade resurser.  
+
+## <a name="delete-integration-account"></a>Ta bort integrations konto
+
+För den här uppgiften kan du använda antingen Azure Portal genom att följa stegen i det här avsnittet, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Remove-AzureRmIntegrationAccount).
+
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+
+1. I den huvudsakliga Azure Search-rutan anger du "integration Accounts" som filter och väljer **integrations konton**.
+
+   ![Hitta integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/find-integration-account.png)
+
+   Azure visar alla integrations konton i dina Azure-prenumerationer.
+
+1. Under **integrations konton**väljer du det integrations konto som du vill ta bort. På integrations konto menyn väljer du **Översikt**.
+
+   ![På menyn integrations konto väljer du "Översikt"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
+
+1. I översikts fönstret väljer du **ta bort**.
+
+   ![I fönstret Översikt väljer du ta bort](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
+
+1. Bekräfta att du vill ta bort integrations kontot genom att välja **Ja**.
+
+   ![Bekräfta borttagningen genom att välja Ja](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md)
-* [Skapa avtal](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* [Skapa handels partner i ditt integrations konto](../logic-apps/logic-apps-enterprise-integration-partners.md)
+* [Skapa avtal mellan partner i ditt integrations konto](../logic-apps/logic-apps-enterprise-integration-agreements.md)

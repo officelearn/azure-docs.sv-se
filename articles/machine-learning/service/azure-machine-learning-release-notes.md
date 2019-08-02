@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f39c914bce3fbc47775a76f1c3a1fb64de560505
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498342"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565116"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -28,7 +28,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
 ### <a name="azure-machine-learning-sdk-for-python-v1053"></a>Azure Machine Learning SDK för python v-1.0.53
 
 + **Nya funktioner**
-    + Automatiserad Machine Learning stöder nu utbildning av ONNX-modeller på fjärrdatorns mål
+  + Automatiserad Machine Learning stöder nu utbildning av ONNX-modeller på fjärrdatorns mål
   + Azure Machine Learning kan nu återuppta utbildningen från en tidigare körnings-, kontroll punkts-eller modell fil.
     + Lär dig hur du [använder uppskattningar för att återuppta inlärningen från en tidigare körning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
@@ -80,9 +80,6 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
     + Modell beskrivningen kan nu uppdateras korrekt efter registreringen
     + Modell-och bild borttagning innehåller nu mer information om överordnade objekt som är beroende av dem och som gör att borttagningen Miss fungerar
     + Förbättra resursutnyttjande för fjärrkörningar med hjälp av azureml. mlflow.
-  + **azureml-dataprep**
-    + Data Ströms objekt kan nu itereras över, vilket genererar en sekvens med poster.
-    + Lägg `_summarize_each` till som experimentell funktion `azureml.dataprep.Dataflow`i.
   + **azureml-explain-model**
     + Argument för fasta omvandlingar för LIME-förklaringar för rå funktions prioritet i azureml-contrib-Restore-Model-paket
     + Lägg till scipy-sparse-stöd för LimeExplainer
@@ -115,6 +112,15 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
   + **azureml-train-core**
     + Strängar har nu accepterats som beräknings mål för automatisk justering av den automatiska parametern
     + Den oanvända RunConfiguration-inställningen auto_prepare_environment har marker ATS som föråldrad.
+
+### <a name="azure-machine-learning-data-prep-sdk-v119"></a>Azure Machine Learning data prep SDK v 1.1.9
+
++ **Nya funktioner**
+  + Stöd har lagts till för att läsa en fil direkt från en http-eller HTTPS-URL.
+
++ **Fel korrigeringar och förbättringar**
+  + Förbättrat fel meddelande vid försök att läsa en Parquet-datauppsättning från en fjärrkälla (som inte stöds för närvarande).
+  + En bugg har åtgärd ATS vid skrivning till Parquet-filformat i ADLS gen 2 och uppdatering av ADLS gen 2-behållare i sökvägen.
 
 ## <a name="2019-07-09"></a>2019-07-09
 

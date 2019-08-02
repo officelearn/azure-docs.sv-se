@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 79bc5e640498788ef805d07a26dd29e943117b58
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476976"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516584"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus köer för obeställbara meddelanden
 
@@ -108,7 +108,7 @@ Du kan komma åt kön för obeställbara meddelanden med hjälp av följande syn
 
 ```
 <queue path>/$deadletterqueue
-<topic path>/Subscription/<subscription path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
 Om du använder .NET SDK kan du hämta sökvägen till kön för obeställbara meddelanden med hjälp av metoden SubscriptionClient. FormatDeadLetterPath (). Den här metoden tar ämnets namn/prenumerations namn och suffix med **/$DeadLetterQueue**.

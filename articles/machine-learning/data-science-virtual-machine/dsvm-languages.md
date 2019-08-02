@@ -5,7 +5,7 @@ description: Läs mer om programmet språk och relaterade verktyg som har förin
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 1df3c986132de2a3e7ec9547a996abef60ea04ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502268"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558126"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Språk som stöds på den virtuella datorn för datavetenskap 
 
@@ -193,7 +193,7 @@ R har installerats på DSVM i en global miljö kan läsas av alla användare. Me
 | ------------- | ------------- |
 | Språkversioner stöds | 0.6 |
 | Stöds DSVM-versioner      | Linux, Windows     |
-| Hur är det konfigurerade / installerad på DSVM?  | Windows: Installerad på `C:\JuliaPro-VERSION`<br /> Linux: Installerad på `/opt/JuliaPro-VERSION`    |
+| Hur är det konfigurerade / installerad på DSVM?  | Windows: Installerad på`C:\JuliaPro-VERSION`<br /> Linux: Installerad på`/opt/JuliaPro-VERSION`    |
 | Innehåller länkar till exempel      | Exempel Jupyter-anteckningsböcker för Julia ingår     |
 | Relaterade verktyg på DSVM      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Hur du använder / köra den?    
@@ -222,7 +222,7 @@ Förvalet Julia platsen är en global miljö som kan läsas av alla användare. 
 Öppna terminal och kan bara köras `julia`. 
 * Använda i en IDE-miljö
 
-Använd `Juno` Julia-IDE installeras på DSVM och finns tillgängligt som en genväg menyn.
+Använd `Juno` Julia IDE som är installerad på DSVM och tillgänglig som en genväg till en program meny.
 
 * Med hjälp av i Jupyter
 
@@ -234,12 +234,12 @@ Förvalet Julia platsen är en global miljö som kan läsas av alla användare. 
 
 ## <a name="other-languages"></a>Andra språk
 
-**C#** : Tillgänglig på Windows och kan nås via Visual Studio Community edition eller på en `Developer Command Prompt for Visual Studio` där du kan bara köra `csc` kommando. 
+**C#** : Tillgängligt i Windows och tillgängligt via Visual Studio Community Edition eller på en `Developer Command Prompt for Visual Studio` plats där du bara kan köra `csc` kommandot. 
 
-**Java**: OpenJDK är tillgänglig på både Linux och Windows-versionen av DSVM och ange på vägen. Du kan skriva `javac` eller `java` kommando på Kommandotolken i Windows eller på bash-gränssnittet i Linux för att använda Java. 
+**Java**: OpenJDK finns i både Linux-och Windows-versionen av DSVM och anges på sökvägen. Du kan skriva `javac` eller `java` kommando på Kommandotolken i Windows eller på bash-gränssnittet i Linux för att använda Java. 
 
 **node.js**: node.js finns på både Linux och Windows-versionen av DSVM och ange på vägen. Du kan skriva `node` eller `npm` kommando på Kommandotolken i Windows eller på bash-gränssnittet i Linux för att komma åt node.js. Node.js tools for Visual Studio-tillägget installeras på Windows, för att tillhandahålla en grafisk IDE för att utveckla node.js-programmet. 
 
-**F#** : Tillgänglig på Windows och kan nås via Visual Studio Community edition eller på en `Developer Command Prompt for Visual Studio` där du kan bara köra `fsc` kommando. 
+**F#** : Tillgängligt i Windows och tillgängligt via Visual Studio Community Edition eller på en `Developer Command Prompt for Visual Studio` plats där du bara kan köra `fsc` kommandot. 
 
 

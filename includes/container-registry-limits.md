@@ -9,31 +9,31 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67187707"
 ---
 | Resource | Basic | Standard | Premium |
 |---|---|---|---|
-| Storage<sup>1</sup> | 10 GiB | 100 giB| 500 giB |
-| Maximal bildstorlek för lager | 200 GiB | 200 GiB | 200 GiB |
+| Lagring<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
+| Största bild skikt storlek | 200 GiB | 200 GiB | 200 GiB |
 | ReadOps per minut<sup>2, 3</sup> | 1,000 | 3,000 | 10 000 |
 | WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2,000 |
-| Ladda ned bandbredd Mbit/s<sup>2</sup> | 30 | 60 | 100 |
-| Ladda upp bandbredd Mbit/s<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
+| Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
+| Ladda upp bandbredd MBps<sup>2</sup> | 10 | 20 | 50 |
+| Webhook-konfigurationer | 2 | 10 | 100 |
 | Geo-replikering | Gäller inte | Gäller inte | [Stöds][geo-replication] |
 | Förtroende för innehåll | Gäller inte | Gäller inte | [Stöds][content-trust] |
 
-<sup>1</sup>angivna lagringsgränserna är mängden *ingår* lagring för varje nivå. Du debiteras en ytterligare daglig avgift per GiB för lagring av avbildningen över gränserna. Priset information finns i [priser för Azure Container Registry][pricing].
+<sup>1</sup> De angivna lagrings gränserna är mängden lagrings utrymme som *ingår* för varje nivå. Du debiteras ytterligare en daglig taxa per GiB för avbildnings lagring över dessa gränser. Mer information om priser finns i [Azure Container Registry prissättning][pricing].
 
-<sup>2</sup>*ReadOps*, *WriteOps*, och *bandbredd* är minsta beräkningar. Azure Container Registry strävar efter att förbättra prestanda som kräver användning.
+<sup>2</sup> *ReadOps*, *WriteOps*och *bandbredd* är minimala uppskattningar. Azure Container Registry strävar efter att förbättra prestandan när användningen kräver.
 
-<sup>3</sup>A [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) översätts till flera läsåtgärder baserat på antalet lager i avbildningen, plus manifest hämtning.
+<sup>3</sup> En [Docker-pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) översätter sig till flera Läs åtgärder baserat på antalet lager i bilden, plus manifest hämtning.
 
-<sup>4</sup>A [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) översätts till flera skrivåtgärder, baserat på antalet lager som måste skickas. En `docker push` innehåller *ReadOps* att hämta ett manifest för en befintlig avbildning.
+<sup>4</sup> En [Docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) översätts till flera Skriv åtgärder baserat på antalet lager som måste flyttas. En `docker push` innehåller *ReadOps* för att hämta ett manifest för en befintlig avbildning.
 
 <!-- LINKS - External -->
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/

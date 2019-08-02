@@ -1,5 +1,5 @@
 ---
-title: Skapa en Linux-VM med Azure Image Builder (förhandsversion)
+title: Skapa en virtuell Linux-dator med Azure Image Builder (för hands version)
 description: Skapa en virtuell Linux-dator med Azure Image Builder.
 author: cynthn
 ms.author: cynthn
@@ -7,42 +7,43 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 2966a1803d0664312d71ba992a5ba65f73b27370
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1bac04bbb67c7472de92c6da322121bafc20a560
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667514"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695438"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Förhandsversion: Skapa en virtuell Linux-dator med Azure Image Builder
 
-Den här artikeln visar hur du kan skapa en anpassad Linux-avbildning med hjälp av Azure Image Builder och Azure CLI. I exemplet i den här artikeln använder tre olika [anpassare](image-builder-json.md#properties-customize) för att anpassa avbildningen:
+Den här artikeln visar hur du kan skapa en anpassad Linux-avbildning med hjälp av Azure Image Builder och Azure CLI. Exemplet i den här artikeln använder tre olika [anpassningar](image-builder-json.md#properties-customize) för att anpassa avbildningen:
 
-- Gränssnitt (ScriptUri) - nedladdningar och körs en [kommandoskriptet](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
-- Shell (intern) - körningar specifika kommandon. I det här exemplet är infogade kommandon skapar en katalog och uppdaterar Operativsystemet.
-- Fil - kopior en [filen från GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) i en katalog på den virtuella datorn.
+- Shell (ScriptUri) – hämtar och kör ett [Shell-skript](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
+- Shell (infogat) – kör specifika kommandon. I det här exemplet inkluderar de infogade kommandona hur du skapar en katalog och uppdaterar operativ systemet.
+- Fil – kopierar en [fil från GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) till en katalog på den virtuella datorn.
 
+Du kan också ange en `buildTimeoutInMinutes`. Standardvärdet är 240 minuter, och du kan öka Bygg tiden för att kunna köra versioner längre.
 
-Vi kommer att använda en exempelmall .json konfigurera avbildningen. JSON-fil som använder vi finns här: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
+Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateLinux. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
 > [!IMPORTANT]
-> Azure Image Builder är för närvarande i offentlig förhandsversion.
+> Azure Image Builder är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registrera funktionerna
-Du måste registrera den nya funktionen för att använda Azure Image Builder i förhandsversionen.
+Om du vill använda Azure Image Builder i för hands versionen måste du registrera den nya funktionen.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Kontrollera status för funktionen registreringen.
+Kontrol lera status för funktions registreringen.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Kontrollera din registrering.
+Kontrol lera registreringen.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -50,7 +51,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Om de inte svarar registrerade, kör du följande:
+Om de inte säger att de är registrerade kör du följande:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -58,9 +59,9 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="setup-example-variables"></a>Konfigurera exempel variabler
+## <a name="setup-example-variables"></a>Exempel på variabler för konfigurering
 
-Vi kommer att använda vissa typer av information flera gånger, så att vi ska skapa några variabler för att lagra informationen.
+Vi kommer att använda vissa delar av informationen flera gånger, så vi skapar några variabler för att lagra informationen.
 
 
 ```azurecli-interactive
@@ -74,23 +75,23 @@ imageName=myBuilderImage
 runOutputName=aibLinux
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan hämta den här med `az account show | grep id`.
+Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`hjälp av.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
 ```
 
 ## <a name="create-the-resource-group"></a>Skapa resursgruppen.
-Det här används för att lagra avbildningen configuration mall artefakten och image.
+Detta används för att lagra bild konfigurations mal len artefakt och avbildningen.
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
-## <a name="set-permissions-on-the-resource-group"></a>Ange behörigheter för resursgruppen.
-Ge Image Builder ”bidragsgivar” behörighet att skapa avbildningen i resursgruppen. Utan rätt behörighet misslyckas bild-versionen. 
+## <a name="set-permissions-on-the-resource-group"></a>Ange behörigheter för resurs gruppen
+Ge avbildnings verktyget deltagare behörighet att skapa avbildningen i resurs gruppen. Utan rätt behörigheter går det inte att generera avbildningen. 
 
-Den `--assignee` värdet är app registrerings-ID för Image Builder-tjänsten. 
+`--assignee` Värdet är appens registrerings-ID för tjänsten Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -99,9 +100,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## <a name="download-the-template-example"></a>Ladda ned mall-exempel
+## <a name="download-the-template-example"></a>Hämta mal Lav exemplet
 
-En parametriserade bild configuration exempelmall har skapats för dig att använda. Hämta JSON-filen och konfigurera den med de variabler som du angav tidigare.
+En parameter som exempel på en avbildnings konfiguration har skapats som du kan använda. Hämta exempel-. JSON-filen och konfigurera den med de variabler du angav tidigare.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -113,20 +114,20 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-Du kan ändra det här exemplet .json efter behov. Exempelvis kan du öka värdet för `buildTimeoutInMinutes` för längre körs versioner. Du kan redigera filen i Cloud Shell med `vi`.
+Du kan ändra det här exemplet. JSON efter behov. Du kan till exempel öka värdet för `buildTimeoutInMinutes` om du vill att ska kunna köra versioner längre. Du kan redigera filen i Cloud Shell med hjälp av en text redigerare `vi`som.
 
 ```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
 
 > [!NOTE]
-> För Källavbildningen, måste du alltid [ange en version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), du kan inte använda `latest`.
+> För käll avbildningen måste du alltid [Ange en version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)som du inte kan `latest`använda.
 >
-> Om du lägger till eller ändra resursgruppen där avbildningen distribueras, måste du kontrollera att den [behörigheter som har angetts för resursgruppen](#set-permissions-on-the-resource-group).
+> Om du lägger till eller ändrar resurs gruppen där avbildningen distribueras måste du kontrol lera att [behörigheterna har angetts för resurs gruppen](#set-permissions-on-the-resource-group).
 
 
-## <a name="submit-the-image-configuration"></a>Skicka avbildningen-konfiguration
-Skicka bildkonfiguration till VM Image Builder-tjänsten
+## <a name="submit-the-image-configuration"></a>Skicka avbildnings konfigurationen
+Skicka avbildnings konfigurationen till tjänsten VM Image Builder
 
 ```azurecli-interactive
 az resource create \
@@ -137,14 +138,14 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
-Om den har slutförts, den returnerar ett meddelande och skapa en image builder configuration mall artefakt i $imageResourceGroup. Du kan se resursgruppen i portalen om du aktiverar ”Visa dolda typer”.
+Om det är klart kommer det att returnera ett meddelande om att det är klart och skapa en avbildning för konfigurations mal len för avbildnings byggare i $imageResourceGroup. Du kan se resurs gruppen i portalen om du aktiverar Visa dolda typer.
 
-Dessutom skapas Image Builder i bakgrunden, en mellanlagrings resursgrupp i din prenumeration. Image Builder använder mellanlagrings resursgruppen för versionen av avbildningen. Namnet på resursgruppen som kommer att visas i följande format: `IT_<DestinationResourceGroup>_<TemplateName>`.
+I bakgrunden skapar Image Builder en resurs grupp för mellanlagring i din prenumeration. Image Builder använder mellanlagrings resurs gruppen för avbildnings versionen. Namnet på resurs gruppen är i det här formatet: `IT_<DestinationResourceGroup>_<TemplateName>`.
 
 > [!IMPORTANT]
-> Ta inte bort mellanlagring resursgruppen direkt. Om du tar bort avbildning mall artefakten raderas automatiskt mellanlagring resursgruppen. Mer information finns i den [Rensa](#clean-up) i slutet av den här artikeln.
+> Ta inte bort den mellanlagrings resurs gruppen direkt. Om du tar bort bild mal len artefakt tas den mellanlagrings resurs gruppen bort automatiskt. Mer information finns i avsnittet [Rensa](#clean-up) i slutet av den här artikeln.
 
-Om tjänsten rapporterar ett fel vid avbildning configuration mall överföring, finns i den [felsökning](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steg. Du måste också ta bort mallen innan du försöker skicka bygget. Ta bort mallen:
+Om tjänsten rapporterar ett fel under sändningen av avbildnings konfigurations mal len, se [fel söknings](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) stegen. Du måste också ta bort mallen innan du försöker skicka in bygget igen. Så här tar du bort mallen:
 
 ```azurecli-interactive
 az resource delete \
@@ -153,9 +154,9 @@ az resource delete \
     -n helloImageTemplateLinux01
 ```
 
-## <a name="start-the-image-build"></a>Starta avbildningen-version
+## <a name="start-the-image-build"></a>Starta Image-versionen
 
-Starta avbildningen-version.
+Starta avbildnings versionen.
 
 
 ```azurecli-interactive
@@ -166,14 +167,14 @@ az resource invoke-action \
      --action Run 
 ```
 
-Vänta tills versionen har slutförts i det här exemplet, det kan ta 10 – 15 minuter.
+Vänta tills versionen har slutförts, det kan ta 10-15 minuter för det här exemplet.
 
-Om det uppstår några fel läser dessa [felsökning](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steg.
+Om du stöter på några fel kan du läsa följande [fel söknings](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steg.
 
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Skapa den virtuella datorn med den avbildning som du skapat.
+Skapa den virtuella datorn med den avbildning som du har skapat.
 
 ```azurecli-interactive
 az vm create \
@@ -185,13 +186,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Hämta IP-adressen från utdata för att skapa den virtuella datorn och använda den för att SSH till den virtuella datorn.
+Hämta IP-adressen från utdata från att skapa den virtuella datorn och Använd den för SSH till den virtuella datorn.
 
 ```azurecli-interactive
 ssh azureuser@<pubIp>
 ```
 
-Du bör se bilden har anpassats med ett meddelande om dagen när din SSH-anslutning upprättas!
+Du bör se att avbildningen har anpassats till ett meddelande om dygnet så snart din SSH-anslutning har upprättats!
 
 ```console
 
@@ -202,23 +203,23 @@ Du bör se bilden har anpassats med ett meddelande om dagen när din SSH-anslutn
 *******************************************************
 ```
 
-Typ `exit` när du är klar för att Stäng SSH-anslutningen.
+Skriv `exit` när du är färdig för att stänga ssh-anslutningen.
 
-## <a name="check-the-source"></a>Kontrollera källan
+## <a name="check-the-source"></a>Kontrol lera källan
 
-I bild Builder mallen i ”egenskaper”, visas Källavbildningen, anpassning skripta den körs, och var den ska distribueras.
+I Image Builder-mallen, i "Properties", kommer du att se käll avbildningen, anpassnings skriptet som den körs och var den distribueras.
 
 ```azurecli-interactive
 cat helloImageTemplateLinux.json
 ```
 
-Mer detaljerad information om den här JSON-fil finns i [Image builder-mallreferensen](image-builder-json.md)
+Mer detaljerad information om denna. JSON-fil finns i [referens för Image Builder-mallar](image-builder-json.md)
 
 ## <a name="clean-up"></a>Rensa
 
-När du är klar kan du ta bort resurserna.
+När du är färdig kan du ta bort resurserna.
 
-Ta bort image builder-mall.
+Ta bort Image Builder-mallen.
 
 ```azurecli-interactive
 az resource delete \
@@ -227,7 +228,7 @@ az resource delete \
     -n helloImageTemplateLinux01
 ```
 
-Ta bort resursgruppen bild.
+Ta bort resurs gruppen avbildning.
 
 ```bash
 az group delete -n $imageResourceGroup
@@ -236,4 +237,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om komponenterna i JSON-fil som används i den här artikeln finns [Image Builder-mallreferensen](image-builder-json.md).
+Mer information om komponenterna i. JSON-filen som används i den här artikeln finns i [referens för Image Builder-mallar](image-builder-json.md).

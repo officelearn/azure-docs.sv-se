@@ -1,7 +1,7 @@
 ---
-title: Slutpunkten för projekt-URL-förhandsgranskning
+title: Slut punkt för förhandsgranska projekt URL
 titlesuffix: Azure Cognitive Services
-description: Sammanfattning av URL-förhandsgranskning-slutpunkten.
+description: Översikt över slut punkten för för hands versionen av URL.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme
@@ -10,19 +10,20 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 43254db734a48f3e7aaa5a26a7fbf3981c9e9d87
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3ef5ebd4ec88deac8c49430f36956d3711c8c535
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592870"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706942"
 ---
-# <a name="project-url-preview-endpoint"></a>Slutpunkten för projekt-URL-förhandsgranskning
+# <a name="project-url-preview-endpoint"></a>Slut punkt för förhandsgranska projekt URL
 
-URL: en förhandsversion API innehåller en slutpunkt.
+URL: en för för hands versionen innehåller en slut punkt.
 
 ## <a name="endpoint"></a>Slutpunkt
-För att få en URL-förhandsgranskning kan du skicka en begäran till följande slutpunkt. Använd rubriker och URL-parametrar för andra specifikationer.
+Om du vill hämta en URL för förhands granskning skickar du en begäran till följande slut punkt. Använd sidhuvudena och URL-parametrarna för andra specifikationer.
 
 GET:
 ```
@@ -31,14 +32,14 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ```
 
 ### <a name="query-parameters"></a>Frågeparametrar
-|Namn|Värde|Type|Obligatoriskt|  
+|Namn|Värde|type|Obligatorisk|  
 |----------|-----------|----------|--------------|  
-|frågor och|URL: en för att förhandsgranska|String |Ja|
-|säker sökning|Ogiltig vuxet innehåll eller oäkta innehåll har blockerats med felkoden 400, och *isFamilyFriendly* flaggan returneras inte. <p>Är det som gäller för juridiska vuxna nedan. Statuskod returnerar 200, och *isFamilyFriendly* flaggan är inställd på false.<ul><li>safeSearch = strikt: Rubrik, beskrivning, URL: en och avbildning returneras inte.</li><li>safeSearch = måttlig; Hämta rubrik, URL: en och beskrivning, men inte beskrivande avbildningen.</li><li>safeSearch =. Få svar objekt/allt – namn, URL: en, beskrivning, bild.</li></ul> |String|Krävs inte. </br> Som standard safeSearch = strikt.| 
+|frågor och|URL som ska förhandsgranskas|Sträng |Ja|
+|safeSearch|Otillåtet innehåll i vuxna, eller pirattillverkade innehåll, blockeras med felkod 400 och flaggan *isFamilyFriendly* returneras inte. <p>För innehåll som är olämpligt för barn, nedan är beteendet. Status koden returnerar 200 och *isFamilyFriendly* -flaggan har angetts till false.<ul><li>safeSearch = strikt: Rubrik, beskrivning, URL och bild kommer inte att returneras.</li><li>safeSearch = måttlig; Hämta rubrik, URL och beskrivning, men inte en beskrivande bild.</li><li>safeSearch = off; Hämta alla svars objekt/element – rubrik, URL, beskrivning och bild.</li></ul> |Sträng|Krävs inte. </br> Standardvärdet är safeSearch = Strict.| 
 
 ## <a name="response-object"></a>Svarsobjekt
 
-Svaret innehåller HTTP-huvuden och webbsidan objekt med attribut som visas i följande exempel: `name`, `url`, `description`, `isFamilyFriendly`, och `primaryImageOfPage`.
+Svaret innehåller HTTP-huvuden och webb Side objekt med attribut som visas i följande exempel: `name` `description`, `url` `isFamilyFriendly`,, och `primaryImageOfPage`.
 
 ```
 BingAPIs-TraceId: 15AFE52A97AA422F960433A94803F6CE

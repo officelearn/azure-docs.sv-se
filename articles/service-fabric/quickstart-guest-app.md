@@ -3,7 +3,7 @@ title: Distribuera snabbt en befintlig app till ett Azure Service Fabric-kluster
 description: Använda en Azure Service Fabric-kluster som värd för ett befintligt Node.js-program med Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,25 +13,25 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: aljo
-ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 6cf9594e6e1db3e163d25843b1fec0c0ff98c250
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428229"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592447"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
 Den här snabbstarten hjälper dig att distribuera ett befintligt program (Node.js i det här exemplet) till ett Service Fabric-kluster som körs på Azure.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Vilket innefattar hur du installerar Service Fabric SDK och Visual Studio 2019 eller 2015.
+Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Inklusive installation av Service Fabric SDK och Visual Studio 2019 eller 2015.
 
-Du måste också ha ett befintligt Node.js-program för distribution. Denna snabbstart använder en enkel Node.js-webbplats som du kan hämta [här][download-sample]. Extrahera filen till din `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\`-mapp när du har skapat projektet i nästa steg.
+Du måste också ha ett befintligt Node.js-program för distribution. I den här snabb starten används en enkel Node. js-webbplats som kan hämtas [här][download-sample]. Extrahera filen till din `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\`-mapp när du har skapat projektet i nästa steg.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][create-account] innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][create-account].
 
 ## <a name="create-the-service"></a>Skapa tjänsten
 
@@ -66,7 +66,7 @@ Tryck på **OK**.
 
 Visual Studio skapar programprojektet och aktörtjänstprojektet och visar dem i Solution Explorer.
 
-Programprojektet (**MyGuestApp**) innehåller inte någon kod direkt. Projektet refererar till en uppsättning tjänstprojekt. Den innehåller också tre andra typer av innehåll:
+Programprojektet (**MyGuestApp**) innehåller ingen kod direkt. Projektet refererar till en uppsättning tjänst projekt. Dessutom innehåller den tre andra typer av innehåll:
 
 * **Publicera profiler**  
 Verktygsinställningar för olika miljöer.
@@ -83,7 +83,7 @@ En översikt över innehållet i tjänstprojektet finns i [Komma igång med Reli
 
 För exemplet Node.js-appen som vi distribuerar används port **80** och vi behöver tala om för Service Fabric att porten ska exponeras.
 
-Öppna filen **ServiceManifest.xml** i projektet. Längst ned i manifestet, det finns en `<Resources> \ <Endpoints>` med en transaktion som redan har definierats. Ändra posten för att lägga till `Port`, `Protocol` och `Type`. 
+Öppna filen **ServiceManifest.xml** i projektet. Längst ned i manifestet finns en `<Resources> \ <Endpoints>` med en-post som redan har definierats. Ändra posten för att lägga till `Port`, `Protocol` och `Type`. 
 
 ```xml
   <Resources>
@@ -98,7 +98,7 @@ För exemplet Node.js-appen som vi distribuerar används port **80** och vi beh�
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
-Om du trycker på **F5** och kör projektet, den har distribuerats till det lokala klustret. Men vi vill distribuera till Azure i stället.
+Om du trycker på **F5** och kör projektet distribueras det till det lokala klustret. Men vi vill distribuera till Azure i stället.
 
 Högerklicka på projektet och välj **Publicera...** , vilket öppnar en dialogruta för att publicera till Azure.
 
@@ -106,9 +106,9 @@ Högerklicka på projektet och välj **Publicera...** , vilket öppnar en dialog
 
 Välj målprofilen **PublishProfiles\Cloud.xml**.
 
-Om du inte gjort detta tidigare väljer du ett Azure-konto för distribution. Om du inte har en ännu, kan du [registrera dig för en][create-account].
+Om du inte gjort detta tidigare väljer du ett Azure-konto för distribution. Om du inte har någon ännu, [Registrera dig för ett][create-account].
 
-Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har något väljer **&lt;Skapa nytt kluster... &gt;** som öppnar webbläsarfönstret till Azure-portalen. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Under **Anslutningens slutpunkt** väljer du Service Fabric-klustret att distribuera till. Om du inte har en sådan väljer **&lt;du skapa nytt kluster... som&gt;** öppnar fönstret webbläsare till Azure Portal. Mer information finns i [Skapa ett kluster i portalen](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 När du skapar Service Fabric-kluster, se till att ange **Anpassade slutpunkter** till **80**.
 
@@ -130,11 +130,11 @@ Kontrollera översiktsbladet för tjänstadressen. Använda domännamnet från e
 
 ![Bladet Service fabric-översikt på Azure portal][overview]
 
-Navigera till den här adressen där du kan se den `HELLO WORLD` svar.
+Navigera till den här adressen där du ser `HELLO WORLD` svaret.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
-Glöm inte att ta bort alla resurser som du har skapat i den här snabbstarten eftersom du debiteras för dessa resurser.
+Glöm inte att ta bort alla resurser som du har skapat för den här snabb starten, eftersom du debiteras för dessa resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [körbara filer för gäst](service-fabric-guest-executables-introduction.md).

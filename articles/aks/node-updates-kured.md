@@ -1,6 +1,6 @@
 ---
-title: Uppdatera och starta om Linux-noder med kured i Azure Kubernetes Service (AKS)
-description: Lär dig att uppdatera Linux-noder och automatiskt starta om dem med kured i Azure Kubernetes Service (AKS)
+title: Uppdatera och starta om Linux-noder med kured i Azure Kubernetes service (AKS)
+description: Lär dig hur du uppdaterar Linux-noder och startar om dem automatiskt med kured i Azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,82 +8,82 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mlearned
 ms.openlocfilehash: 580d1316c2bfc6514a148ed6fba78a8e77bd880e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67614906"
 ---
-# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Använda säkerhet och kernel-uppdateringar för Linux-noder i Azure Kubernetes Service (AKS)
+# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)
 
-För att skydda dina kluster kan tillämpas automatiskt säkerhetsuppdateringar på Linux-noder i AKS. Dessa uppdateringar innehåller OS säkerhetskorrigeringar eller kernel-uppdateringar. Vissa av dessa uppdateringar kräver en nod startas om för att slutföra processen. AKS inte automatiskt starta om de här Linux-noder för att slutföra uppdateringsprocessen.
+För att skydda dina kluster tillämpas säkerhets uppdateringar automatiskt på Linux-noder i AKS. Dessa uppdateringar omfattar säkerhets korrigeringar för operativ system eller kernel-uppdateringar. Vissa av dessa uppdateringar kräver att en nod startas om för att slutföra processen. AKS startar inte om dessa Linux-noder automatiskt för att slutföra uppdaterings processen.
 
-Processen för att hålla Windows-filservernoder (för närvarande i förhandsversion i AKS) är lite annorlunda. Windows Server-noder tar inte emot dagliga uppdateringar. I stället du har uppgraderat AKS som distribuerar nya noder med senaste basavbildningen med Windows Server och korrigeringar. AKS-kluster som använder Windows Server-noder kan se [uppgradera en nodpool i AKS][nodepool-upgrade].
+Processen att behålla Windows Server-noder (för närvarande i för hands version i AKS) är lite annorlunda. Windows Server-noder får inte dagliga uppdateringar. I stället utför du en AKS-uppgradering som distribuerar nya noder med den senaste Server avbildningen och korrigeringarna för bas fönstret. Information om AKS-kluster som använder Windows Server-noder finns i [uppgradera en Node-pool i AKS][nodepool-upgrade].
 
-Den här artikeln visar hur du använder öppen källkod [kured (KUbernetes starta om Daemon)][kured] att titta på för Linux-noder som kräver en omstart och sedan automatiskt hanterar den ändra på tidsplanering för att köra poddar och node starta om processen.
+Den här artikeln visar hur du använder [kured (KUbernetes REboot daemon)][kured] för att se om det finns Linux-noder som kräver en omstart, och som automatiskt hanterar omschemaläggningen av pågående poddar och omstart av en nod.
 
 > [!NOTE]
-> `Kured` är ett projekt med öppen källkod av Weaveworks. Stöd för det här projektet i AKS tillhandahålls i mån av möjlighet. Ytterligare stöd finns i #weave-community slack-kanal.
+> `Kured`är ett projekt med öppen källkod från Weaveworks. Stöd för det här projektet i AKS tillhandahålls på bästa möjliga sätt. Ytterligare support finns i #weave-communityns slack-kanal.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-## <a name="understand-the-aks-node-update-experience"></a>Förstå av uppdateringar för AKS-nod
+## <a name="understand-the-aks-node-update-experience"></a>Förstå uppdaterings upplevelsen av AKS-noden
 
-I ett AKS-kluster kör Kubernetes-noderna som virtuella Azure-datorer (VM). Dessa Linux-baserade virtuella datorer använder en Ubuntu-avbildning med OS som konfigurerats för att automatiskt söka efter uppdateringar varje natt. Om säkerhets- eller kernel-uppdateringar är tillgängliga kan de automatiskt hämtas och installeras.
+I ett AKS-kluster körs dina Kubernetes-noder som virtuella Azure-datorer (VM). Dessa Linux-baserade virtuella datorer använder en Ubuntu avbildning, där operativ systemet har kon figurer ATS för automatisk sökning efter uppdateringar varje natt. Om säkerhets-eller kernel-uppdateringar är tillgängliga laddas de ned och installeras automatiskt.
 
-![AKS noden uppdatera och starta om processen med kured](media/node-updates-kured/node-reboot-process.png)
+![Uppdatering och omstart av AKS-nod med kured](media/node-updates-kured/node-reboot-process.png)
 
-Vissa säkerhetsuppdateringar, till exempel kernel-uppdateringar kräver en nod startas om för att slutföra processen. En Linux-nod som kräver en omstart skapar en fil med namnet */var/run/reboot-required*. Den här processen för omstart sker inte automatiskt.
+Vissa säkerhets uppdateringar, till exempel kernel-uppdateringar, kräver en omstart av en nod för att slutföra processen. En Linux-nod som kräver en omstart skapar en fil med namnet */var/run/reboot-required*. Den här omstarts processen sker inte automatiskt.
 
-Du kan använda din egen arbetsflöden och processer för att hantera omstarter av noden, eller använda `kured` att dirigera processen. Med `kured`, ett [DaemonSet][DaemonSet] distribueras som körs en pod på varje Linux-nod i klustret. Dessa poddar i DaemonSet Håll utkik efter förekomsten av den */var/run/reboot-required* fil och sedan startar en process för att starta om noderna.
+Du kan använda dina egna arbets flöden och processer för att hantera omstarter av noder `kured` eller använda för att dirigera processen. Med `kured`distribueras en [DaemonSet][DaemonSet] som kör en POD på varje Linux-nod i klustret. Dessa poddar i DaemonSet tittar efter förekomsten av */var/run/reboot-required* -filen och initierar sedan en process för att starta om noderna.
 
-### <a name="node-upgrades"></a>Uppgraderingen
+### <a name="node-upgrades"></a>Nods uppgraderingar
 
-Det finns en till process i AKS som låter dig *uppgradera* ett kluster. En uppgradering är vanligtvis att flytta till en nyare version av Kubernetes, inte bara tillämpa säkerhetsuppdateringar för noden. Ett AKS-uppgraderingen utförs följande åtgärder:
+Det finns en ytterligare process i AKS som gör det möjligt att *Uppgradera* ett kluster. En uppgradering är vanligt vis att flytta till en senare version av Kubernetes, inte bara att använda säkerhets uppdateringar för noder. En AKS-uppgradering utför följande åtgärder:
 
-* En ny nod distribueras med de senaste säkerhetsuppdateringarna och Kubernetes-version som används.
-* En gammal nod avspärrade och tömda.
-* Poddar schemaläggs på den nya noden.
+* En ny nod distribueras med de senaste säkerhets uppdateringarna och Kubernetes-versionen som tillämpas.
+* En gammal nod är avspärrade och töms.
+* Poddar är schemalagda för den nya noden.
 * Den gamla noden tas bort.
 
-Du kan inte finnas kvar på samma Kubernetes-version under en uppgradering händelse. Du måste ange en nyare version av Kubernetes. Om du vill uppgradera till den senaste versionen av Kubernetes, kan du [uppgradera AKS-klustret][aks-upgrade].
+Du kan inte ha kvar samma Kubernetes-version under en uppgraderings händelse. Du måste ange en nyare version av Kubernetes. Om du vill uppgradera till den senaste versionen av Kubernetes kan du [uppgradera ditt AKS-kluster][aks-upgrade].
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>Distribuera kured i ett AKS-kluster
 
-Att distribuera den `kured` DaemonSet, Använd följande exempel YAML manifest från sina GitHub-projektsidan. Den här manifestet skapar en roll och klusterrollen bindningar och ett tjänstkonto och sedan distribuerar den DaemonSet med hjälp av `kured` version 1.1.0 som stöder AKS-kluster 1.9 eller senare.
+Om du vill `kured` distribuera DaemonSet använder du följande exempel yaml manifest från projekt sidan för GitHub. Det här manifestet skapar en roll-och kluster roll, bindningar och ett tjänst konto och distribuerar sedan DaemonSet med `kured` version 1.1.0 som stöder AKS-kluster 1,9 eller senare.
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
 ```
 
-Du kan också konfigurera ytterligare parametrar för `kured`, till exempel integration med Prometheus eller Slack. Mer information om ytterligare konfigurationsparametrar finns i den [kured installation docs][kured-install].
+Du kan också konfigurera ytterligare parametrar för `kured`, till exempel integration med Prometheus eller slack. Mer information om ytterligare konfigurations parametrar finns i [installations dokumenten för kured][kured-install].
 
 ## <a name="update-cluster-nodes"></a>Uppdatera klusternoder
 
-Linux-noder i AKS Sök efter uppdateringar varje kväll som standard. Om du inte vill vänta kan du manuellt utföra en uppdatering för att kontrollera att `kured` körs korrekt. Följ stegen för att först [SSH till någon av AKS-noder][aks-ssh]. När du har en SSH-anslutning till Linux-noden kan söka efter uppdateringar och tillämpa dem på följande sätt:
+Som standard söker Linux-noder i AKS efter uppdateringar varje kväll. Om du inte vill vänta kan du utföra en uppdatering manuellt för att kontrol lera att `kured` den fungerar korrekt. Börja med att följa stegen för [SSH till en av dina AKS-noder][aks-ssh]. När du har en SSH-anslutning till Linux-noden söker du efter uppdateringar och tillämpar dem på följande sätt:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-Om uppdateringar har tillämpats som kräver en omstart av nod, en fil skrivs till */var/run/reboot-required*. `Kured` söker efter noder som kräver en omstart var 60: e minut som standard.
+Om uppdateringar tillämpades som kräver en omstart av en nod, skrivs en fil till */var/run/reboot-required*. `Kured`söker efter noder som kräver en omstart var 60 minut som standard.
 
-## <a name="monitor-and-review-reboot-process"></a>Övervaka och granskningsprocessen för omstart
+## <a name="monitor-and-review-reboot-process"></a>Övervaka och granska omstart
 
-När en av replikerna i DaemonSet har upptäckt att det krävs en omstart av nod, Lås ett för noden via API: et för Kubernetes. Den här låset förhindrar ytterligare poddar som schemaläggs på noden. Låset anger också att endast en nod ska startas om samtidigt. Med noden avspärrade körs poddar är tömda från noden och noden startas om.
+När en av replikerna i DaemonSet har identifierat att en omstart av en nod krävs, placeras ett lås på noden via Kubernetes-API: et. Det här låset förhindrar att ytterligare poddar schemaläggs på noden. Låset indikerar också att endast en nod ska startas om i taget. När noden avspärrade av, töms poddar från noden och noden startas om.
 
-Du kan övervaka statusen för de noder som använder den [kubectl få noder][kubectl-get-nodes] kommando. Följande Exempelutdata visar en nod med statusen *SchedulingDisabled* eftersom noden förbereder för att starta om:
+Du kan övervaka status för noderna med hjälp av kommandot [kubectl get Nodes][kubectl-get-nodes] . Följande exempel på utdata visar en nod med statusen *SchedulingDisabled* när noden förbereds för omstart:
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-När uppdateringen är klar kan du visa status för de noder som använder den [kubectl få noder][kubectl-get-nodes] med den `--output wide` parametern. Dessa ytterligare utdata kan du se en skillnad i *KERNEL-VERSION* av de underliggande noderna, som visas i följande Exempelutdata. Den *aks-nodepool1-28993262-0* uppdaterades i ett föregående steg och visar kernel-version *4.15.0-1039-azure*. Noden *aks-nodepool1-28993262-1* som inte har uppdaterat visar kernel-version *4.15.0-1037-azure*.
+När uppdaterings processen är klar kan du Visa status för noderna med hjälp av kommandot [kubectl get Nodes][kubectl-get-nodes] med `--output wide` parametern. Med den här ytterligare utmatningen kan du se en skillnad i *kernel-versionen* av de underliggande noderna, som visas i följande exempel på utdata. *AKS-nodepool1-28993262-0* uppdaterades i ett föregående steg och visar kernel-version *4.15.0-1039-Azure*. Noden *AKS-nodepool1-28993262-1* som inte har uppdaterats visar kernel *-version 4.15.0-1037-Azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
@@ -93,9 +93,9 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs hur du använder `kured` att starta om Linux-noder automatiskt som en del av processen för att uppdatera din. Om du vill uppgradera till den senaste versionen av Kubernetes, kan du [uppgradera AKS-klustret][aks-upgrade].
+Den här artikeln innehåller information om `kured` hur du använder för att starta om Linux-noder automatiskt som en del av säkerhets uppdaterings processen. Om du vill uppgradera till den senaste versionen av Kubernetes kan du [uppgradera ditt AKS-kluster][aks-upgrade].
 
-AKS-kluster som använder Windows Server-noder kan se [uppgradera en nodpool i AKS][nodepool-upgrade].
+Information om AKS-kluster som använder Windows Server-noder finns i [uppgradera en Node-pool i AKS][nodepool-upgrade].
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured

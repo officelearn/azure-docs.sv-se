@@ -1,11 +1,10 @@
 ---
-title: Azure Service Fabric fristående skalning av klustret | Microsoft Docs
-description: Mer information om skalning fristående i Service Fabric-kluster i eller ut och upp eller ned.
+title: Azure Service Fabric fristående kluster skalning | Microsoft Docs
+description: Lär dig mer om skalning Service Fabric fristående kluster i eller ut och upp eller ned.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: chackdan
-editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,46 +13,46 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: dekapur
-ms.openlocfilehash: 05049b9b08b4630c4299a6d3054c7815b082af52
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eedf80ec82a748f5da8e51aed8b4d403dffe4169
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516039"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599864"
 ---
-# <a name="scaling-service-fabric-standalone-clusters"></a>Skala fristående Service Fabric-kluster
-Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster, kan du skala klustret horisontellt (ändra antalet noder) eller lodrätt (ändra resurser noder).  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.
+# <a name="scaling-service-fabric-standalone-clusters"></a>Skala Service Fabric fristående kluster
+Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster kan du skala klustret vågrätt (ändra antalet noder) eller lodrätt (ändra resurserna för noderna).  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
 
-Varför skala klustret? Programbegäran ändras med tiden.  Du kan behöva öka klusterresurser för att uppfylla ökade programtrafik för arbetsbelastning eller ditt nätverk eller minska klusterresurser när behovet sjunker.
+Varför ska du skala klustret? Program krav ändras med tiden.  Du kan behöva öka kluster resurserna för att möta ökad program belastning eller nätverks trafik eller minska kluster resurserna när efter frågan går vidare.
 
-## <a name="scaling-in-and-out-or-horizontal-scaling"></a>Skala in och ut eller horisontell skalning
-Ändrar antalet noder i klustret.  När de nya noderna ansluta till klustret, den [Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md) flyttar tjänster till dem som minskar belastningen på de befintliga noderna.  Du kan också minska antalet noder om klustrets resurser inte som används effektivt.  Eftersom noder lämna klustret, tjänster flytta utanför dessa noder och belastningen ökar på övriga noder.  Minska antalet noder i ett kluster som körs i Azure kan du spara pengar, eftersom du betalar för antalet virtuella datorer du användning och inte arbetsbelastningen för dessa virtuella datorer.  
+## <a name="scaling-in-and-out-or-horizontal-scaling"></a>Skala in och ut eller vågrät skalning
+Ändrar antalet noder i klustret.  När de nya noderna ansluter till klustret, flyttar [kluster resurs hanteraren](service-fabric-cluster-resource-manager-introduction.md) tjänster till dem som minskar belastningen på de befintliga noderna.  Du kan också minska antalet noder om klustrets resurser inte används effektivt.  När noder lämnar klustret flyttas tjänsterna från dessa noder och belastningen ökar på de återstående noderna.  Att minska antalet noder i ett kluster som körs i Azure kan spara pengar, eftersom du betalar för antalet virtuella datorer som du använder och inte arbets belastningen på de virtuella datorerna.  
 
-- Fördelar: Oändlig skala, i teorin.  Om programmet har utformats för skalbarhet, kan du aktivera Obegränsad tillväxt genom att lägga till fler noder.  Verktygsuppsättningen i miljöer i molnet gör det enkelt att lägga till eller ta bort noder, så att det är enkelt att justera kapacitet och du betalar bara för de resurser du använder.  
-- Nackdelar: Program måste vara [utformats för skalbarhet](service-fabric-concepts-scalability.md).  Databaser och persistence kan kräva ytterligare arkitektoniska arbete att skala samt.  [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md) i Service Fabric tillståndskänsliga tjänster, men gör det mycket enklare att skala dina programdata.
+- Fördelar Oändlig skala i teorin.  Om ditt program har utformats för skalbarhet kan du aktivera obegränsad tillväxt genom att lägga till fler noder.  Verktyget i moln miljöer gör det enkelt att lägga till eller ta bort noder, så det är enkelt att justera kapaciteten och du betalar bara för de resurser du använder.  
+- Nack delarna Program måste utformas [för skalbarhet](service-fabric-concepts-scalability.md).  Program databaser och persistence kan kräva ytterligare arkitektur arbete för att skala.  [Pålitliga samlingar](service-fabric-reliable-services-reliable-collections.md) i Service Fabric tillstånds känsliga tjänster, men gör det mycket enklare att skala dina program data.
 
-Fristående kluster kan du distribuera Service Fabric-kluster lokalt eller i molnleverantör önskar.  Nodtyper består av fysiska datorer eller virtuella datorer, beroende på din distribution. Jämfört med kluster som körs i Azure, är skala ett fristående kluster lite mer komplicerat.  Du måste manuellt ändra antalet noder i klustret och sedan köra en uppgradering av klustret konfiguration.
+Med fristående kluster kan du distribuera Service Fabric-kluster lokalt eller i valfri moln leverantör.  Nodtyper består av fysiska datorer eller virtuella datorer, beroende på din distribution. Jämfört med kluster som körs i Azure är processen för skalning av ett fristående kluster lite mer engagerad.  Du måste manuellt ändra antalet noder i klustret och sedan köra en uppgradering av kluster konfigurationen.
 
-Borttagning av noder kan starta flera uppgraderingar. Vissa noder har markerats med `IsSeedNode=”true”` tagga och kan identifieras genom att fråga klustret manifest med [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Borttagning av dessa noder kan ta längre tid än andra eftersom startvärdesnoder måste flyttas i sådana scenarier. Klustret måste ha minst tre primära noden typ noder.
+Borttagning av noder kan initiera flera uppgraderingar. Vissa noder är markerade med `IsSeedNode=”true”` tagg och kan identifieras genom att fråga kluster manifestet med hjälp av [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Borttagning av sådana noder kan ta längre tid än andra eftersom startnoderna måste flyttas runt i sådana scenarier. Klustret måste ha minst tre primära noder av Node-typ.
 
 > [!WARNING]
-> Vi rekommenderar att du inte minskar antalet noder nedan den [klusterstorleken av tillförlitlighetsnivån](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) för klustret. Detta påverkar möjligheten för Service Fabric-systemtjänster att replikeras över klustret, och kommer göra instabil eller eventuellt förstöra klustret.
+> Vi rekommenderar att du inte sänker antalet noder under [kluster storleken på Tillförlitlighets nivån](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) för klustret. Detta påverkar möjligheten för Service Fabric system tjänsterna att replikeras över klustret och kommer att göra eller möjligen förstöra klustret.
 >
 
-Tänk på följande riktlinjer när du skalar ett fristående kluster:
-- Ersättning av primära noder måste vara utförs en nod efter en annan, i stället för att ta bort och sedan lägga till i batchar.
-- Kontrollera om det finns några noder som refererar till nodtyp innan du tar bort en nodtyp. Ta bort dessa noder innan du tar bort motsvarande nodtyp. När alla motsvarande noder har tagits bort kan du ta bort NodeType från klusterkonfigurationen och börja en konfiguration uppgradera med [Start ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
+När du skalar ett fristående kluster bör du ha följande rikt linjer i åtanke:
+- Utbyte av primära noder bör utföras en nod efter en annan, i stället för att ta bort och sedan lägga till i batchar.
+- Innan du tar bort en nodtyp kontrollerar du om det finns noder som refererar till nodtypen. Ta bort de här noderna innan du tar bort motsvarande nodtyp. När alla motsvarande noder har tagits bort kan du ta bort NodeType från kluster konfigurationen och påbörja en konfigurations uppgradering med [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
 
 Mer information finns i [skala ett fristående kluster](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
-## <a name="scaling-up-and-down-or-vertical-scaling"></a>Skala upp och ner eller vertikal skalning 
-Ändrar resurser (CPU, minne eller lagring) av noder i klustret.
-- Fördelar: Arkitektur för programvara och programmet förblir densamma.
-- Nackdelar: Begränsad skala, eftersom det inte finns en gräns för hur mycket du kan öka resurser på enskilda noder. Driftstopp, eftersom du behöver vidta fysiska eller virtuella datorer offline för att lägga till eller ta bort resurser.
+## <a name="scaling-up-and-down-or-vertical-scaling"></a>Skala upp och ned eller lodrät skalning 
+Ändrar resurserna (CPU, minne eller lagring) för noder i klustret.
+- Fördelar Program varan och program arkitekturen är oförändrade.
+- Nack delarna Begränsad skala, eftersom det finns en gräns för hur mycket du kan öka resurser på enskilda noder. Nedtid, eftersom du måste göra fysiska eller virtuella datorer offline för att kunna lägga till eller ta bort resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [program skalbarhet](service-fabric-concepts-scalability.md).
 * [Skala ett Azure-kluster in eller ut](service-fabric-tutorial-scale-cluster.md).
-* [Skala ett Azure-kluster programmässigt](service-fabric-cluster-programmatic-scaling.md) med fluent Azure compute SDK.
+* [Skala ett Azure-kluster program mässigt](service-fabric-cluster-programmatic-scaling.md) med hjälp av Fluent Azure Compute SDK.
 * [Skala ett fristående kluster in eller ut](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

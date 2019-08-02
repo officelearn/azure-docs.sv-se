@@ -1,18 +1,18 @@
 ---
 title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: raynew
-ms.openlocfilehash: a6b7dfe8fb8ade7f84f41fb5602aff68b4f52cf2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464823"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639477"
 ---
 # <a name="azure-backup-support-matrix"></a>Stödmatris för Azure Backup
 

@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: afc8dbfa0bc1b1ad37e5f1a0f290c42998ed1e4b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479712"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Anslutnings strängar för Azure SQL Data Warehouse
-Du kan ansluta till SQL Data Warehouse med flera olika program protokoll, till exempel [ADO.net][ADO.NET], [ODBC][ODBC], [php][php] och [JDBC][JDBC]. Nedan visas några exempel på anslutnings strängar för varje protokoll.  Du kan också använda Azure Portal för att bygga anslutnings strängen.  Om du vill bygga anslutnings strängen med hjälp av Azure Portal navigerar du till bladet  databas under Essentials och klickar på *Visa databas anslutnings strängar*.
+Du kan ansluta till SQL Data Warehouse med flera olika program protokoll, till exempel [ADO.net][ADO.NET], [ODBC][ODBC], [php][PHP] och [JDBC][JDBC]. Nedan visas några exempel på anslutnings strängar för varje protokoll.  Du kan också använda Azure Portal för att bygga anslutnings strängen.  Om du vill bygga anslutnings strängen med hjälp av Azure Portal navigerar du till bladet databas under Essentials och klickar på *Visa databas anslutnings strängar*.
 
 ## <a name="sample-adonet-connection-string"></a>Exempel på ADO.NET-anslutningssträng
 ```csharp

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: fdc130a7ac13e1cc551c50a7ab284ff640ecbbe4
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: c52b41c4e6d0618b4df9b2aed985bbd22d89f419
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305762"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567204"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 

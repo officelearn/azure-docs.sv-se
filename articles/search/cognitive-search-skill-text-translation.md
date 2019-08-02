@@ -1,6 +1,6 @@
 ---
 title: Text översättning kognitiv Sök kompetens – Azure Search
-description: Utvärderar text, och för varje post, returnerar text översatt till det angivna mål språket i en Azure Search anriknings pipeline.
+description: Utvärderar text och, för varje post, returnerar text som har översatts till det angivna mål språket i en Azure Search anriknings pipeline.
 services: search
 manager: briansmi
 author: careyjmac
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
 ms.custom: seodec2018
-ms.openlocfilehash: 0268a16ecc07d578e1e3dc2b15ad9208509c2a8c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c267d6b2b5a8606c8caaba15c9316a8dbcb989b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351300"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698822"
 ---
-#   <a name="text-translation-cognitive-skill-preview"></a>Text översättning kognitiv kompetens (för hands version)
+#   <a name="text-translation-cognitive-skill"></a>Kognitiv kompetens för text översättning
 
-**Text översättnings** kunskapen utvärderar text och returnerar texten översatt till det angivna mål språket för varje post. Den här kunskapen använder [Translator text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) som finns i Cognitive Services.  Även om den är tillgänglig i den senaste Azure Search allmänt tillgängliga API-versionen anses den vara i för hands version och bör behandlas som sådan tills den är allmänt tillgänglig.
+**Text översättnings** kunskapen utvärderar text och returnerar texten översatt till det angivna mål språket för varje post. Den här kunskapen använder [Translator text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) som finns i Cognitive Services.
 
 Den här funktionen är användbar om du förväntar dig att dokumenten kanske inte är på ett språk, vilket innebär att du kan normalisera texten till ett enda språk innan du indexerar den genom att översätta den.  Det är också användbart vid lokalisering av användnings fall där du kanske vill ha kopior av samma text som finns på flera språk.
 

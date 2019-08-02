@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera Azure Database för MySQL-VNet-tjänstslutpunkter och regler med hjälp av Azure CLI | Microsoft Docs
-description: Den här artikeln beskriver hur du skapar och hanterar Azure Database for MySQL-VNet-tjänstslutpunkter och regler med hjälp av Azure CLI-kommandoraden.
+title: Skapa och hantera Azure Database for MySQL VNet-tjänstens slut punkter och regler med hjälp av Azure CLI | Microsoft Docs
+description: Den här artikeln beskriver hur du skapar och hanterar Azure Database for MySQL VNet-tjänstens slut punkter och regler med hjälp av kommando raden i Azure CLI.
 author: bolzmj
 ms.author: mbolz
 manager: jhubbard
@@ -8,27 +8,27 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 199a5ead9856c5f9cba404ce89611efe2d78de8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: d08b99c0a668286d9e9b94f2229915be8ff106f0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160456"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610403"
 ---
-# <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Skapa och hantera Azure Database för MySQL-VNet-tjänstslutpunkter med Azure CLI
-Virtuella nätverk (VNet) services-slutpunkter och regler kan du utöka det privata adressutrymmet för ett virtuellt nätverk till Azure Database för MySQL-server. Med praktiska Azure kommandoradsgränssnitt (CLI) kommandon kan du skapa, uppdatera, ta bort, lista och visa tjänstslutpunkter för virtuellt nätverk och regler för att hantera servern. En översikt över Azure Database för MySQL-VNet-tjänstslutpunkter, inklusive begränsningar, finns i [Azure Database för MySQL Server VNet-tjänstslutpunkter](concepts-data-access-and-security-vnet.md). VNet-tjänstslutpunkter är tillgängliga i alla regioner som stöds för Azure Database for MySQL.
+# <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Skapa och hantera Azure Database for MySQL VNet-tjänstens slut punkter med Azure CLI
+VNet-tjänstslutpunkter och regler utökar det privata adressutrymmet för ett virtuellt nätverk till din Azure Database for MySQL-server. Med hjälp av ett bekvämt kommando rads gränssnitt (CLI) för kommando tolken kan du skapa, uppdatera, ta bort, lista och Visa VNet-tjänstens slut punkter och regler för att hantera servern. En översikt över Azure Database for MySQL VNet-tjänstens slut punkter, inklusive begränsningar, finns i [Azure Database for MySQL serverns VNet-](concepts-data-access-and-security-vnet.md)slutpunkter. VNet-tjänstens slut punkter är tillgängliga i alla regioner som stöds för Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom den här guiden, måste du:
-- Installera [Azure CLI](/cli/azure/install-azure-cli) eller använda Azure Cloud Shell i webbläsaren.
+## <a name="prerequisites"></a>Förutsättningar
+För att gå igenom den här instruktions guiden behöver du:
+- Installera [Azure CLI](/cli/azure/install-azure-cli) eller Använd Azure Cloud Shell i webbläsaren.
 - En [Azure Database för MySQL-servern och databasen](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 > [!NOTE]
 > Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
-> VNet peering om trafik flödar genom en gemensam Gateway för virtuellt nätverk med tjänstslutpunkter och ska flöda till peer-datorn kan du skapa en ACL/VNet-regel som tillåter Azure Virtual Machines i Gateway virtuella nätverk till Azure Database for MySQL-server.
+> Om det gäller VNet-peering, om trafik flödar genom en gemensam VNet-Gateway med tjänst slut punkter och ska flöda till motparten, skapar du en ACL/VNet-regel för att tillåta Azure Virtual Machines i gatewayens VNet att komma åt Azure Database for MySQL-servern.
 
-## <a name="configure-vnet-service-endpoints-for-azure-database-for-mysql"></a>Konfigurera Vnet-tjänstslutpunkter för Azure Database for MySQL
-Den [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) kommandon används för att konfigurera virtuella nätverk.
+## <a name="configure-vnet-service-endpoints-for-azure-database-for-mysql"></a>Konfigurera VNet-tjänstens slut punkter för Azure Database for MySQL
+[AZ Network VNet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) -kommandon används för att konfigurera virtuella nätverk.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -43,24 +43,28 @@ az login
 
 Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Ersätt egenskapen **ID** från **az login**-utdata för din prenumeration i platshållaren för prenumerations-ID.
 
-- Kontot måste ha tillräcklig behörighet för att skapa ett virtuellt nätverk och tjänstslutpunkten.
+- Kontot måste ha de behörigheter som krävs för att skapa ett virtuellt nätverk och en tjänst slut punkt.
 
-Tjänstslutpunkter kan konfigureras i virtuella nätverk separat, av en användare med skrivbehörighet för det virtuella nätverket.
+Tjänst slut punkter kan konfigureras på virtuella nätverk oberoende av en användare med Skriv behörighet till det virtuella nätverket.
 
-Om du vill skydda Azure-tjänstresurser i ett virtuellt nätverk, måste användaren ha behörighet att ”Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/” för undernäten läggas till. Den här behörigheten ingår som standard i de inbyggda tjänstadministratörsrollerna och kan ändras genom att skapa anpassade roller.
+För att skydda Azure-tjänstens resurser till ett VNet måste användaren ha behörighet till "Microsoft. Network/virtualNetworks/subnets/joinViaServiceEndpoint/" för de undernät som läggs till. Den här behörigheten ingår som standard i de inbyggda tjänstadministratörsrollerna och kan ändras genom att skapa anpassade roller.
 
 Lär dig mer om [inbyggda roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) och att tilldela specifika behörigheter till [anpassade roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om VNet och Azure-tjänstresurser finns i olika prenumerationer bör resurserna finnas under samma Active Directory (AD)-klient.
+Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om VNet-och Azure-tjänstens resurser finns i olika prenumerationer bör resurserna vara under samma Active Directory-klient (AD). Se till att båda prenumerationerna har **Microsoft. SQL** -Resurshanterarens registrerad. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att den här artikeln om tjänsten endpoint konfigurationer och överväganden innan du kör exempelskriptet nedan, eller konfigurera tjänstslutpunkter. **Tjänstslutpunkt för virtuellt nätverk:** En [tjänstslutpunkt för virtuellt nätverk](../virtual-network/virtual-network-service-endpoints-overview.md) är ett undernät som egenskaper innehåller en eller flera formella Azure-tjänst-typnamn. Services-slutpunkter för virtuellt nätverk använder namnet på tjänsten **Microsoft.Sql**, som refererar till Azure-tjänsten med namnet SQL-databas. Den här tjänsttaggen gäller även för Azure SQL Database, Azure Database för PostgreSQL och MySQL-tjänster. Det är viktigt att tänka på när du använder den **Microsoft.Sql** servicetagg till en VNet-tjänstslutpunkt konfigurerar den för alla Azure Database-tjänster, inklusive Azure SQL Database, Azure Database for PostgreSQL-tjänstens slutpunkt trafik och Azure Database for MySQL-servrar i undernät. 
+> Vi rekommenderar starkt att läsa den här artikeln om konfiguration och överväganden för tjänst slut punkter innan du kör exempel skriptet nedan eller konfigurerar tjänst slut punkter. **Virtual Network tjänst slut punkt:** En [Virtual Network tjänst slut punkt](../virtual-network/virtual-network-service-endpoints-overview.md) är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typ. I VNet Services-slutpunkter används tjänst typs namnet **Microsoft. SQL**, som refererar till Azure-tjänsten med namnet SQL Database. Den här tjänst tag gen gäller även för Azure SQL Database-, Azure Database for PostgreSQL-och MySQL-tjänster. Det är viktigt att du noterar när du använder service tag-taggen **Microsoft. SQL** för en VNet-tjänst slut punkt som konfigurerar tjänst slut punkts trafik för alla Azure Database-tjänster, inklusive Azure SQL Database, Azure Database for PostgreSQL och Azure Database för MySQL-servrar i under nätet. 
 > 
 
-### <a name="sample-script-to-create-an-azure-database-for-mysql-database-create-a-vnet-vnet-service-endpoint-and-secure-the-server-to-the-subnet-with-a-vnet-rule"></a>Exempel på skript för att skapa en Azure Database for MySQL-databas, skapa ett virtuellt nätverk, VNet-tjänstslutpunkt och skydda server till undernät med en VNet-regel
-I det här exempelskriptet ändrar du markerade rader om du vill anpassa administratörens användarnamn och lösenord. Ersätt prenumerations-ID som används i den `az account set --subscription` med ditt eget prenumerations-ID.
+### <a name="sample-script-to-create-an-azure-database-for-mysql-database-create-a-vnet-vnet-service-endpoint-and-secure-the-server-to-the-subnet-with-a-vnet-rule"></a>Exempel skript om du vill skapa en Azure Database for MySQL databas skapar du ett VNet, VNet-slutpunkt och skyddar servern till under nätet med en VNet-regel
+I det här exempelskriptet ändrar du markerade rader om du vill anpassa administratörens användarnamn och lösenord. Ersätt SubscriptionID som används i `az account set --subscription` kommandot med ditt eget prenumerations-ID.
 [!code-azurecli-interactive[main](../../cli_scripts/mysql/create-mysql-server-vnet/create-mysql-server.sh?highlight=5,20 "Create an Azure Database for MySQL, VNet, VNet service endpoint, and VNet rule.")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 [!code-azurecli-interactive[main](../../cli_scripts/mysql/create-mysql-server-vnet/delete-mysql.sh "Delete the resource group.")]
+
+<!-- Link references, to text, Within this same GitHub repo. --> 
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+

@@ -1,6 +1,6 @@
 ---
-title: Automatisera replikeringen av schemaändringar i Azure SQL Data Sync | Microsoft Docs
-description: Lär dig att automatisera replikeringen av schemaändringar i Azure SQL Data Sync.
+title: Automatisera replikeringen av schema ändringar i Azure SQL Data Sync | Microsoft Docs
+description: Lär dig hur du automatiserar replikeringen av schema ändringar i Azure SQL Data Sync.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -10,37 +10,36 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 712ccfa71c85629111428a4e0c7acaea050942b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1c3f49808a59576f02178dee1107b4019e34b5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331354"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566256"
 ---
-# <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schemaändringar i Azure SQL Data Sync
+# <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schema ändringar i Azure SQL Data Sync
 
-SQL Data Sync kan användarna synkronisera data mellan Azure SQL-databaser och en lokal SQL Server i en riktning eller i båda riktningarna. En av de nuvarande begränsningarna för SQL Data Sync är en avsaknaden av stöd för replikering av ändringar av entitetsschemat. Varje gång du ändrar tabellens schema, måste du tillämpa ändringarna manuellt för alla slutpunkter, inklusive hubben och alla medlemmar och sedan uppdatera synkroniseringsschemat.
+SQL Data Sync låter användarna synkronisera data mellan Azure SQL-databaser och lokala SQL Server i en riktning eller i båda riktningarna. En av de aktuella begränsningarna i SQL Data Sync saknar stöd för replikering av schema ändringar. Varje gång du ändrar tabellens schema måste du tillämpa ändringarna manuellt på alla slut punkter, inklusive hubben och alla medlemmar, och sedan uppdatera synkroniseringsschemat.
 
-Den här artikeln introducerar en lösning för att replikera ändringar av entitetsschemat automatiskt till alla SQL Data Sync-slutpunkter.
-1. Den här lösningen använder en DDL-utlösare för att spåra ändringar av entitetsschemat.
-1. Utlösaren Infoga kommandona schemat ändras i en spårning.
-1. Den här spårningstabell synkroniseras till alla slutpunkter med hjälp av tjänsten Data Sync.
-1. DML-utlösare efter infogning används för att tillämpa schemaändringarna på de andra slutpunkterna.
+Den här artikeln introducerar en lösning för att automatiskt replikera schema ändringar till alla SQL Data Sync-slutpunkter.
+1. Den här lösningen använder en DDL-utlösare för att spåra schema ändringar.
+1. Utlösaren infogar schema ändrings kommandona i en spårnings tabell.
+1. Den här spårnings tabellen synkroniseras till alla slut punkter med hjälp av tjänsten Data Sync.
+1. DML-utlösare efter infogning används för att tillämpa schema ändringarna på de andra slut punkterna.
 
-Den här artikeln använder ALTER TABLE som ett exempel på en schemaändring, men den här lösningen fungerar även för andra typer av ändringar av entitetsschemat.
+I den här artikeln används ALTER TABLE som ett exempel på en schema ändring, men den här lösningen fungerar även för andra typer av schema ändringar.
 
 > [!IMPORTANT]
-> Vi rekommenderar att du läser den här artikeln noggrant, särskilt i avsnitten om [felsökning](#troubleshoot) och [annat att tänka på](#other), innan du börjar implementera automatiserade ändringen schemareplikeringen i miljön synkronisering. Vi rekommenderar också att du läser [synkronisera data i flera moln och lokala databaser med SQL Data Sync](sql-database-sync-data.md). Vissa databasåtgärder kan bryta lösningen som beskrivs i den här artikeln. Ytterligare en kunskaper om SQL Server och Transact-SQL kan krävas för att felsöka problemen.
+> Vi rekommenderar att du läser den här artikeln noggrant, i synnerhet avsnitt om [fel sökning](#troubleshoot) och [andra överväganden](#other), innan du börjar implementera automatisk replikering av schema ändringar i din synkroniserade miljö. Vi rekommenderar också att du läser [Sync-data i flera moln och lokala databaser med SQL Data Sync](sql-database-sync-data.md). Vissa databas åtgärder kan bryta lösningen som beskrivs i den här artikeln. Ytterligare domän kunskaper om SQL Server och Transact-SQL kan krävas för att felsöka problemen.
 
-![Automatisera replikeringen av schemaändringar](media/sql-database-update-sync-schema/automate-schema-changes.png)
+![Automatisera replikeringen av schema ändringar](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
-## <a name="set-up-automated-schema-change-replication"></a>Konfigurera automatiserade ändringen schemareplikeringen
+## <a name="set-up-automated-schema-change-replication"></a>Konfigurera automatisk replikering av schema ändringar
 
-### <a name="create-a-table-to-track-schema-changes"></a>Skapa en tabell för att spåra ändringar av entitetsschemat
+### <a name="create-a-table-to-track-schema-changes"></a>Skapa en tabell för att spåra schema ändringar
 
-Skapa en tabell för att spåra ändringar av entitetsschemat i alla databaser i synkroniseringsgruppen:
+Skapa en tabell för att spåra schema ändringar i alla databaser i Sync-gruppen:
 
 ```sql
 CREATE TABLE SchemaChanges (
@@ -50,11 +49,11 @@ SqlStmt nvarchar(max),
 )
 ```
 
-Den här tabellen innehåller en identity-kolumn för att spåra ordningen på schemaändringar. Du kan lägga till fler fält om du vill logga mer information om det behövs.
+Den här tabellen innehåller en identitets kolumn för att spåra ordningen på schema ändringar. Du kan lägga till fler fält för att logga mer information om det behövs.
 
-### <a name="create-a-table-to-track-the-history-of-schema-changes"></a>Skapa en tabell för att spåra historiken för schemaändringar
+### <a name="create-a-table-to-track-the-history-of-schema-changes"></a>Skapa en tabell för att spåra historiken för schema ändringar
 
-Skapa en tabell för att spåra ID för kommandot change nyligen tillämpade schemat för alla slutpunkter.
+På alla slut punkter skapar du en tabell för att spåra ID för det senast tillämpade schema ändrings kommandot.
 
 ```sql
 CREATE TABLE SchemaChangeHistory (
@@ -65,9 +64,9 @@ GO
 INSERT INTO SchemaChangeHistory VALUES (0)
 ```
 
-### <a name="create-an-alter-table-ddl-trigger-in-the-database-where-schema-changes-are-made"></a>Skapa en ALTER TABLE DDL-utlösare i databasen där schemaändringar görs
+### <a name="create-an-alter-table-ddl-trigger-in-the-database-where-schema-changes-are-made"></a>Skapa en ALTER TABLE DDL-utlösare i databasen där schema ändringar görs
 
-Skapa en DDL-utlösare för ALTER TABLE-åtgärderna. Du behöver bara skapa den här utlösaren i databasen där schemaändringar görs. För att undvika konflikter kan endast tillåta schemaändringar i en databas i en synkroniseringsgrupp.
+Skapa en DDL-utlösare för ALTER TABLE-åtgärder. Du behöver bara skapa den här utlösaren i databasen där schema ändringar görs. För att undvika konflikter kan du bara tillåta schema ändringar i en databas i en Sync-grupp.
 
 ```sql
 CREATE TRIGGER AlterTableDDLTrigger
@@ -83,13 +82,13 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-Utlösaren infogar en post i tabellen för varje ALTER TABLE-kommando schemat ändringsspårning. Det här exemplet lägger till ett filter för att undvika att replikera schemaändringar som gjorts under schemat **DataSync**, eftersom de är mest sannolika gjorda av tjänsten Data Sync. Lägga till fler filter om du bara vill replikera vissa typer av ändringar av entitetsschemat.
+Utlösaren infogar en post i tabellen schema ändrings spårning för varje ALTER TABLE-kommando. I det här exemplet läggs ett filter till för att undvika att replikera schema ändringar som görs under schema **DataSync**, eftersom de är mest sannolika av tjänsten Data Sync. Lägg till fler filter om du bara vill replikera vissa typer av schema ändringar.
 
-Du kan också lägga till fler utlösare för att replikera andra typer av ändringar av entitetsschemat. Till exempel skapa CREATE_PROCEDURE, ALTER_PROCEDURE och DROP_PROCEDURE utlösare för att replikera ändringar till lagrade procedurer.
+Du kan också lägga till fler utlösare för att replikera andra typer av schema ändringar. Du kan till exempel skapa CREATE_PROCEDURE-, ALTER_PROCEDURE-och DROP_PROCEDURE-utlösare för att replikera ändringar till lagrade procedurer.
 
-### <a name="create-a-trigger-on-other-endpoints-to-apply-schema-changes-during-insertion"></a>Skapa en utlösare för andra slutpunkter och tillämpa schemaändringar under infogning
+### <a name="create-a-trigger-on-other-endpoints-to-apply-schema-changes-during-insertion"></a>Skapa en utlösare på andra slut punkter för att tillämpa schema ändringar under infogning
 
-Den här utlösaren körs kommandot schemat ändras när den har synkroniserats till andra slutpunkter. Du måste skapa den här utlösaren för alla slutpunkter, förutom den där schemaändringar görs (det vill säga i databasen där DDL utlösa `AlterTableDDLTrigger` har skapats i föregående steg).
+Den här utlösaren kör kommandot schema ändring när den synkroniseras till andra slut punkter. Du måste skapa den här utlösaren på alla slut punkter, förutom den där schema ändringar görs (det vill säga i databasen där DDL-utlösaren `AlterTableDDLTrigger` skapas i föregående steg).
 
 ```sql
 CREATE TRIGGER SchemaChangesTrigger
@@ -120,103 +119,103 @@ BEGIN
 END
 ```
 
-Den här utlösaren körs efter inmatningen och kontrollerar om det aktuella kommandot ska köras nästa. Logiken som kod säkerställer att ingen ändring schema-instruktionen har hoppats över och alla ändringar tillämpas även om infogningen är ogiltigt.
+Den här utlösaren körs efter infogningen och kontrollerar om det aktuella kommandot ska köras nästa. Kod logiken ser till att ingen schema ändrings instruktion hoppas över och alla ändringar tillämpas även om infogningen är i rätt ordning.
 
-### <a name="sync-the-schema-change-tracking-table-to-all-endpoints"></a>Synkronisera schemat Ändringsspårningsregistret till alla slutpunkter
+### <a name="sync-the-schema-change-tracking-table-to-all-endpoints"></a>Synkronisera spårnings tabellen för schema ändringar till alla slut punkter
 
-Du kan synkronisera schemat Ändringsspårningsregistret till alla slutpunkter med hjälp av befintlig synkroniseringsgrupp eller en ny synkroniseringsgrupp. Kontrollera att ändringarna i tabellen Uppföljning kan synkroniseras till alla slutpunkter, särskilt när du använder en riktning synkronisering.
+Du kan synkronisera spårnings tabellen för schema ändringar till alla slut punkter med hjälp av den befintliga Sync-gruppen eller en ny Sync-grupp. Se till att ändringarna i spårnings tabellen kan synkroniseras till alla slut punkter, särskilt när du använder synkronisering med en riktning.
 
-Synkronisera inte historiktabellen för schemat ändras eftersom tabellen upprätthåller olika tillstånd på olika slutpunkter.
+Synkronisera inte tabellen ändra historik för schema, eftersom tabellen behåller olika tillstånd för olika slut punkter.
 
-### <a name="apply-the-schema-changes-in-a-sync-group"></a>Tillämpa schemaändringar i en synkroniseringsgrupp
+### <a name="apply-the-schema-changes-in-a-sync-group"></a>Använda schema ändringarna i en synkroniserad grupp
 
-Replikeras endast schemaändringar gjorts i databasen var DDL-utlösare ska skapas. Schemaändringar som gjorts i andra databaser replikeras inte.
+Endast schema ändringar som gjorts i databasen där DDL-utlösaren skapas replikeras. Schema ändringar som gjorts i andra databaser replikeras inte.
 
-När schemaändringarna replikeras till alla slutpunkter, måste du också vidta ytterligare åtgärder för att uppdatera synkroniseringsschemat för att starta eller stoppa synkroniserar de nya kolumnerna.
+När schema ändringarna har repliker ATS till alla slut punkter måste du också vidta ytterligare åtgärder för att uppdatera synkroniseringsschemat för att starta eller stoppa synkroniseringen av de nya kolumnerna.
 
-#### <a name="add-new-columns"></a>Lägga till nya kolumner
+#### <a name="add-new-columns"></a>Lägg till nya kolumner
 
-1.  Göra schemat ändras.
+1.  Gör schema ändringen.
 
-1.  Undvika att data om de nya kolumnerna genomförs förrän du har slutfört steg som skapar utlösaren.
+1.  Undvik data förändringar där de nya kolumnerna är inblandade tills du har slutfört steget som skapar utlösaren.
 
-1.  Vänta tills schemaändringarna tillämpas på alla slutpunkter.
+1.  Vänta tills schema ändringarna tillämpas på alla slut punkter.
 
-1.  Uppdatera databasschemat och Lägg till den nya kolumnen till i synkroniseringsschemat.
+1.  Uppdatera databasschemat och Lägg till den nya kolumnen i synkroniseringsschemat.
 
-1.  Data i den nya kolumnen har synkroniserats under nästa synkronisering.
+1.  Data i den nya kolumnen synkroniseras under nästa synkronisering.
 
 #### <a name="remove-columns"></a>Ta bort kolumner
 
-1.  Ta bort kolumner från synkroniseringsschemat. Datasynkronisering stoppar synkroniserar data i dessa kolumner.
+1.  Ta bort kolumnerna från synkroniseringsschemat. Datasynkroniseringen stoppar synkronisering av data i dessa kolumner.
 
-1.  Göra schemat ändras.
-
-1.  Uppdatera databasschemat.
-
-#### <a name="update-data-types"></a>Uppdatera datatyper
-
-1.  Göra schemat ändras.
-
-1.  Vänta tills schemaändringarna tillämpas på alla slutpunkter.
+1.  Gör schema ändringen.
 
 1.  Uppdatera databasschemat.
 
-1.  Om nya och gamla datatyperna inte är helt kompatibla – till exempel om du ändrar från `int` till `bigint` -synkroniseringen misslyckas innan de steg som skapar utlösare har utförts. Synkronisera lyckas efter ett nytt försök.
+#### <a name="update-data-types"></a>Uppdatera data typer
+
+1.  Gör schema ändringen.
+
+1.  Vänta tills schema ändringarna tillämpas på alla slut punkter.
+
+1.  Uppdatera databasschemat.
+
+1.  Om de nya och gamla data typerna inte är helt kompatibla, till exempel om du ändrar från `int` till `bigint` Sync kan Miss lyckas innan stegen som skapar utlösarna har slutförts. Synkroniseringen lyckas efter ett nytt försök.
 
 #### <a name="rename-columns-or-tables"></a>Byt namn på kolumner eller tabeller
 
-Byta namn på kolumner eller tabeller gör datasynkronisering slutar att fungera. Skapa en ny tabell eller kolumn, återfyller data, och sedan ta bort den gamla tabellen eller kolumnen i stället för att byta namn på.
+Att byta namn på kolumner eller tabeller gör att datasynkroniseringen slutar fungera. Skapa en ny tabell eller kolumn, Fyll i data och ta sedan bort den gamla tabellen eller kolumnen i stället för att byta namn.
 
-#### <a name="other-types-of-schema-changes"></a>Andra typer av schemaändringar
+#### <a name="other-types-of-schema-changes"></a>Andra typer av schema ändringar
 
-För andra typer av schemaändringar – exempelvis krävs skapa lagrade procedurer eller släppa ett index - uppdaterar synkroniseringsschemat inte.
+För andra typer av schema ändringar – till exempel att skapa lagrade procedurer eller släppa ett index, krävs inte synkroniseringsschemat.
 
-## <a name="troubleshoot"></a> Felsöka automatiserade ändringen schemareplikeringen
+## <a name="troubleshoot"></a>Felsöka automatisk replikering av schema ändringar
 
-Replikering logiken i den här artikeln slutar fungera i vissa situationer – till exempel om du har gjort ett schema som ändras i en lokal databas som inte stöds i Azure SQL Database. I så fall misslyckas synkroniserar schemat Ändringsspårningsregistret. Du måste korrigera problemet manuellt:
+Den replikeringsfrekvens som beskrivs i den här artikeln upphör att fungera i vissa situationer, till exempel om du har gjort en schema ändring i en lokal databas som inte stöds i Azure SQL Database. I så fall Miss lyckas synkroniseringen av schema ändrings spårnings tabellen. Du behöver åtgärda det här problemet manuellt:
 
-1.  Inaktivera DDL-utlösare och undvika eventuella ytterligare schemaändringar förrän problemet har lösts.
+1.  Inaktivera DDL-utlösaren och Undvik eventuella ytterligare schema ändringar tills problemet har åtgärd ATS.
 
-1.  Inaktivera AFTER INSERT-utlösare på den slutpunkt som där en schemaändring inte kan göras i endpoint-databasen där problemet sker. Denna åtgärd kan kommandot schemat ändras för att synkroniseras.
+1.  I slut punkts databasen där problemet inträffar inaktiverar du efter INFOGNINGs utlösaren på slut punkten där schema ändringen inte kan göras. Den här åtgärden tillåter att kommandot schema ändring synkroniseras.
 
-1.  Utlös sync för att synkronisera Ändringsspårningsregistret schemat.
+1.  Utlös synkronisering för att synkronisera tabellen schema ändrings spårning.
 
-1.  I endpoint-databasen där problemet sker, ändra frågan schemat historiktabellen att hämta ID för senaste tillämpade schemat ändra kommandot.
+1.  I slut punkts databasen där problemet inträffar frågar du tabellen schema ändrings historik för att hämta ID för senast använda schema ändrings kommando.
 
-1.  Fråga schemat för ändringsspårning tabell om du vill visa alla kommandon med ett ID som är större än det ID-värdet som du hämtade i föregående steg.
+1.  Fråga spårnings tabellen för schema ändring om du vill visa alla kommandon med ett ID som är större än det ID-värde som du hämtade i föregående steg.
 
-    a.  Ignorera de kommandon som inte kan köras i databasen för slutpunkten. Du behöver åtgärda inkonsekvens i schemat. Återställa de ursprungliga schemaändringarna om inkonsekvensen påverkar ditt program.
+    a.  Ignorera de kommandon som inte kan köras i slut punkts databasen. Du måste hantera inkonsekvenser i schemat. Återställ de ursprungliga schema ändringarna om inkonsekvensen påverkar ditt program.
 
-    b.  Tillämpa manuellt de kommandon som ska användas.
+    b.  Tillämpa de kommandon som ska användas manuellt.
 
-1.  Uppdatera schemat ändra historik tabell och ange ID för senaste tillämpade till det korrekta värdet.
+1.  Uppdatera tabellen schema ändrings historik och ange det senast använda ID: t till rätt värde.
 
-1.  Kontrollera om schemat är uppdaterad.
+1.  Kontrol lera om schemat är uppdaterat.
 
-1.  Återaktivera AFTER INSERT utlösaren inaktiverad i det andra steget.
+1.  Återaktivera aktiveringen av utlösaren efter INFOGNING inaktive rad i det andra steget.
 
-1.  Återaktivera DDL-utlösare som inaktiverade i det första steget.
+1.  Återaktivera DDL-utlösaren inaktive rad i det första steget.
 
-Om du vill rensa posterna i tabellen schema ändra spårning, använder du borttagning i stället för TRUNCATE. Aldrig reseed identitetskolumnen i schemat Ändringsspårningsregistret med hjälp av DBCC CHECKIDENT. Du kan skapa ny schemaändring spårningstabeller och uppdatera tabellnamnet i DDL-utlösare om omläggning krävs.
+Om du vill rensa posterna i tabellen schema ändrings spårning, använder du DELETE i stället för TRUNKERA. Dirigera aldrig om identitets kolumnen i tabellen schema ändrings spårning med hjälp av DBCC CHECKIDENT. Du kan skapa nya spårnings tabeller för schema ändringar och uppdatera tabell namnet i DDL-utlösaren om omdirigering krävs.
 
-## <a name="other"></a> Annat att tänka på
+## <a name="other"></a>Andra överväganden
 
--   Databasanvändare som konfigurerar databaserna för hubben och medlem måste ha tillräckligt med behörighet att köra kommandona schemat ändras.
+-   Databas användare som konfigurerar nav-och medlems databaser måste ha tillräcklig behörighet för att köra kommandona för schema ändringar.
 
--   Du kan lägga till fler filter i DDL-utlösare för att bara replikera schemaändring i valda tabeller eller åtgärder.
+-   Du kan lägga till fler filter i DDL-utlösaren för att endast replikera schema ändringar i valda tabeller eller åtgärder.
 
--   Du kan endast ändra schemat i databasen var DDL-utlösare ska skapas.
+-   Du kan bara göra schema ändringar i databasen där DDL-utlösaren skapas.
 
--   Om du gör en ändring i en lokal SQL Server-databas, kontrollera att en schemaändring stöds i Azure SQL Database.
+-   Om du gör en ändring i en lokal SQL Server databas, se till att schema ändringen stöds i Azure SQL Database.
 
--   Om schemat ändras i databaser än databasen var DDL-utlösare ska skapas, replikeras inte ändringarna. För att undvika det här problemet kan skapa du DDL-utlösare för att blockera ändringar på andra slutpunkter.
+-   Om schema ändringar görs i andra databaser än databasen där DDL-utlösaren skapas replikeras inte ändringarna. För att undvika det här problemet kan du skapa DDL-utlösare för att blockera ändringar på andra slut punkter.
 
--   Om du vill ändra schemat för schemat ändra spårningstabell, inaktivera DDL-utlösare innan du gör ändringen och sedan manuellt tillämpa ändringen för alla slutpunkter. Det fungerar inte att uppdatera schemat i en AFTER INSERT-utlösare i samma tabell.
+-   Om du behöver ändra schemat för schema ändrings spårnings tabellen inaktiverar du DDL-utlösaren innan du gör ändringen och tillämpar sedan ändringarna manuellt på alla slut punkter. Att uppdatera schemat i en efter INFOGNINGs utlösare i samma tabell fungerar inte.
 
--   Inte reseed identity-kolumn med hjälp av DBCC CHECKIDENT.
+-   Dirigera inte om kolumnen identitet med hjälp av DBCC CHECKIDENT.
 
--   Använd inte TRUNCATE för att rensa data i tabellen schemat ändringsspårning.
+-   Använd inte TRUNKERA för att rensa data i spårnings tabellen för schema ändringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -230,7 +229,7 @@ Mer information om SQL Data Sync finns i:
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Övervaka – [övervaka SQL Data Sync med Azure Monitor-loggar](sql-database-sync-monitor-oms.md)
+-   Övervaka [SQL Data Sync med Azure Monitor loggar](sql-database-sync-monitor-oms.md)
 -   Felsökning – [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Uppdatera synkroniseringsschemat
     -   Med PowerShell – [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/sql-database-sync-update-schema.md)

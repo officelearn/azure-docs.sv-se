@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae13de156d502cdd731005d460641ca452448d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d721e750ddb77ba293643ad978cecf4bd2dbac0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108661"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618821"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
@@ -61,7 +61,7 @@ När du har dessa tre krav som är redo, följer du dessa steg för att konfigur
 6. Ladda upp PFX-certifikatet och ange lösenordet för certifikatet. 
 7. Välj **spara** att spara dina ändringar. 
 8. Lägg till en [DNS-post](../../dns/dns-operations-recordsets-portal.md) som omdirigerar den nya externa URL: en till domänen msappproxy.net.
-9. Kontrollera att DNS-posten har konfigurerats korrekt genom att använda den [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) kommando för att se om din externa URL: en kan nås och msapproxy.net domänen som visas som ett alias.
+9. Kontrol lera att DNS-posten har kon figurer ATS på rätt sätt med kommandot [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) för att se om din externa URL kan kontaktas och msapproxy.net-domänen visas som ett alias.
 
 >[!TIP] 
 >Du behöver bara ladda upp ett certifikat per egen domän. När du överför ett certifikat, kan du välja den anpassade domänen när du publicerar en ny app och inte behöver göra ytterligare konfigurationsinställningar förutom DNS-posten. 
@@ -73,7 +73,7 @@ Det finns ingen begränsning för certifikat signatur metoder. Elliptic Curve Cr
 
 Du kan använda ett jokerteckencertifikat så länge jokertecknet matchar den önskade externa URL: en.
 
-Du kan inte använda ett certifikat utfärdat av en egen offentlig nyckelinfrastruktur (PKI) på grund av säkerhetsöverväganden.
+Certifikat som utfärdas av din egen infrastruktur för offentliga nycklar (PKI) kan användas om certifikat kedjan är installerad på klient enheterna. Intune kan användas för att distribuera dessa certifikat till hanterade enheter. För icke-hanterade enheter måste certifikaten installeras manuellt.
 
 ### <a name="changing-the-domain"></a>Ändra domänen
 Alla verifierade domäner visas i listrutan externa URL: en för ditt program. Om du vill ändra domänen du bara uppdatera fältet för programmet. Om domänen som du vill inte finns i listan [Lägg till den som en verifierad domän](../fundamentals/add-custom-domain.md). Om du väljer en domän som inte har en tillhörande certifikat än Följ steg 5 – 7 för att lägga till certifikatet. Kontrollera sedan att du uppdaterar DNS-posten att omdirigera från den nya externa URL: en. 

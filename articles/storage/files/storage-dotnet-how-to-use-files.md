@@ -1,7 +1,6 @@
 ---
 title: Utveckla för Azure Files med .NET | Microsoft Docs
 description: Lär dig hur du utvecklar .NET-program och tjänster som använder Azure Files för att lagra fildata.
-services: storage
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779471"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699787"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
@@ -53,13 +52,13 @@ Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg beskriver h
 
 Alla kodexempel i den här självstudiekursen kan läggas till i `Main()`-metoden i konsolprogrammets `Program.cs`-fil.
 
-Du kan använda Azure Storage-klientbiblioteket i alla typer av .NET-program, inklusive en Azure-molnet tjänsten eller web app, och stationära och mobila program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
+Du kan använda Azure Storage klient bibliotek i vilken typ av .NET-program som helst, inklusive en Azure-moln tjänst eller webbapp, samt Skriv bords-och mobil program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
 Det finns två paket som du måste referera till i ditt projekt för att slutföra den här kursen:
 
-* [Vanliga Microsoft Azure Storage-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Det här paketet ger programmatisk åtkomst till vanliga resurser i ditt storage-konto.
-* [Microsoft Azure Storage Blob-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Det här paketet ger programmatisk åtkomst till Blob-resurser i ditt lagringskonto.
+* [Microsoft Azure Storage gemensamt bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Det här paketet ger programmatisk åtkomst till vanliga resurser i ditt lagrings konto.
+* [Microsoft Azure Storage BLOB-bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Det här paketet ger programmatisk åtkomst till BLOB-resurser i ditt lagrings konto.
 * [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
 Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
@@ -221,7 +220,7 @@ if (share.Exists())
 }
 ```
 
-Mer information om hur du skapar och använder signaturer för delad åtkomst finns i [med signaturer för delad åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Mer information om hur du skapar och använder signaturer för delad åtkomst finns i [använda signaturer för delad åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="copy-files"></a>Kopiera filer
 Från och med version 5.x av klientbiblioteket för Azure Storage kan du kopiera en fil till en annan fil, en fil till en blobb eller en blobb till en fil. I nästa avsnitt ser du hur du utför kopieringsåtgärderna genom programmering.
@@ -402,7 +401,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Felsöka Azure File Storage med hjälp av mätvärden
 Nu stöder Azure Storage Analytics mätvärden för Azure Files. Med hjälp av mätvärdesdata kan du spåra begäranden och diagnostisera problem.
 
-Du kan aktivera mätvärden för Azure Files från den [Azure-portalen](https://portal.azure.com). Du kan också aktivera mätvärden via programmering genom att anropa åtgärden Ange egenskaper för filtjänsten via REST-API:et eller någon av dess motsvarigheter i klientbiblioteket för Azure Storage.
+Du kan aktivera mått för Azure Files från [Azure Portal](https://portal.azure.com). Du kan också aktivera mätvärden via programmering genom att anropa åtgärden Ange egenskaper för filtjänsten via REST-API:et eller någon av dess motsvarigheter i klientbiblioteket för Azure Storage.
 
 Följande kodexempel visar hur du använder Storage-klientbiblioteket för .NET för att aktivera mätvärden för Azure Files.
 

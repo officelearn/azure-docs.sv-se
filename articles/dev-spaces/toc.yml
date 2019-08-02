@@ -9,18 +9,18 @@
       items:
         - name: Teamutveckling
           href: quickstart-team-development.md
-        - name: Kör ett program
+        - name: Felsöka och iterera
+          items:
+            - name: Använda Visual Studio Code och Java
+              href: quickstart-java.md
+            - name: Använda Visual Studio Code och .NET Core
+              href: quickstart-netcore.md
+            - name: Använda Visual Studio Code och Node.js
+              href: quickstart-nodejs.md
+            - name: Använda Visual Studio och .NET Core
+              href: quickstart-netcore-visualstudio.md
+        - name: Utveckla med CLI
           href: quickstart-cli.md
-        - name: Köra ett program med Dockerfile
-          href: quickstart-cli-dockerfile.md
-        - name: Köra och felsöka Java med VS Code
-          href: quickstart-java.md
-        - name: Köra och felsöka .NET Core med VS Code
-          href: quickstart-netcore.md
-        - name: Köra och felsöka Node.js med VS Code
-          href: quickstart-nodejs.md
-        - name: Köra och felsöka .NET Core med Visual Studio
-          href: quickstart-netcore-visualstudio.md
     - name: Självstudier
       items:
         - name: Java (VS Code och CLI)

@@ -48,4 +48,11 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/security/develop/secure-dev-overview">Metodtips för säker utveckling</a>
-          - html: <a href="/azure/security/azure-security-threat-modeling-tool">Hotmodellering</a>
+  - title: Resurser
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/security-code-analysis-overview">Analys av Microsoft-säkerhetskod</a>
+          - html: <a href="/azure/security/develop/threat-modeling-tool">Hotmodelleringsverktyg</a>

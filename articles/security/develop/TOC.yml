@@ -18,3 +18,17 @@
           href: secure-develop.md
         - name: Distribuera säkra appar
           href: secure-deploy.md
+- name: Lösningar
+  expanded: true
+  items:
+    - name: Analys av Microsoft-säkerhetskod
+      expanded: true
+      items:
+        - name: Översikt
+          href: security-code-analysis-overview.md
+        - name: Registrering och installation
+          href: security-code-analysis-onboard.md
+        - name: Konfiguration
+          href: security-code-analysis-customize.md
+        - name: Vanliga frågor och svar
+          href: security-code-analysis-faq.md

@@ -99,16 +99,20 @@
           href: howto-build-iotc-device-bridge.md
     - name: Administration
       items:
-        - name: Administrera ditt program
+        - name: Hantera ditt program
           href: howto-administer.md
+        - name: Hantera användare och roller
+          href: howto-manage-users-roles.md
+        - name: Visa din faktura
+          href: howto-view-bill.md
+        - name: Anpassa användargränssnitt i program
+          href: howto-customize-ui.md
         - name: Förbereda och ladda upp avbildning
           href: howto-prepare-images.md
         - name: Konfigurera instrumentpanelen för program
           href: howto-configure-homepage.md
         - name: Använda paneler på instrumentpanelen
           href: howto-use-tiles.md
-        - name: Anpassa användargränssnitt i program
-          href: howto-customize-ui.md
         - name: Använda programmallar
           href: howto-use-app-templates.md
         - name: Hantera från Azure-portalen

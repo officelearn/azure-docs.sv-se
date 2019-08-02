@@ -221,6 +221,8 @@
           items:
             - name: Användaretablering för galleriappar
               href: application-provisioning-config-how-to.md
+            - name: Aktivera automatisk användaretablering för appar för flera innehavare
+              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Konfigurera automatisk användaretablering
               href: configure-automatic-user-provisioning-portal.md
             - name: Anpassa programattribut

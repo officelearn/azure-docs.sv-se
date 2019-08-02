@@ -1,5 +1,5 @@
 ---
-title: Geografisk tillgänglighet och valuta Support | Azure
+title: Stöd för geografisk tillgänglighet och valuta | Azure
 description: Geografisk tillgänglighet i Azure Marketplace och AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
@@ -7,18 +7,18 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 344479a270119137a256620304d88f139d0b0322
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938256"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619963"
 ---
-# <a name="geographic-availability-and-currency-support"></a>Geografisk tillgänglighet och support för valuta
+# <a name="geographic-availability-and-currency-support"></a>Stöd för geografisk tillgänglighet och valuta
 
-Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definieras av kundens faktureringsadress och transaktioner kan utföras i 17 valutor. I tabellen nedan listas varje stöds geografisk plats, dess [ISO 3166 tvåsiffrig alpha kod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), och i den tilldelade valutan.
+Azure Marketplace-och AppSource-erbjudanden kan köpas i 141-geografiska områden som definieras av kundens fakturerings adress, och transaktioner kan slutföras i 17 valutor. Tabellen nedan visar varje geografisk plats som stöds, dess [ISO 3166 2-siffriga alfa kod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)och den tilldelade valutan.
 
-|   Namn på Land/Region               |   ISO-2   |   Valuta   |
+|   Land/region namn               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
 | Afghanistan                         | AF        | USD          |
 | Albanien                             | AL        | USD          |
@@ -26,14 +26,14 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Andorra                             | AD        | EUR          |
 | Angola                              | AO        | USD          |
 | Argentina                           | AR        | USD          |
-| Armenien                             | AM        | USD          |
+| Armenien                             | -        | USD          |
 | Australien                           | AU        | AUD          |
 | Österrike                             | AT        | EUR          |
 | Azerbajdzjan                          | AZ        | USD          |
 | Bahrain                             | BH        | USD          |
 | Bangladesh                          | BD        | USD          |
 | Barbados                            | BB        | USD          |
-| Vitryssland                             | BY        | USD          |
+| Republiken Vitryssland                             | BY        | USD          |
 | Belgien                             | BE        | EUR          |
 | Belize                              | BZ        | USD          |
 | Bermuda                             | BM        | USD          |
@@ -52,7 +52,7 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
 | Kroatien                             | HR        | EUR          |
-| Curaçao                             | CW        | USD          |
+| Curaçao                             | FELAKTIG        | USD          |
 | Cypern                              | CY        | EUR          |
 | Tjeckien                      | CZ        | EUR          |
 | Danmark                             | DK        | DKK          |
@@ -66,7 +66,7 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Fiji                                | FJ        | AUD          |
 | Finland                             | FI        | EUR          |
 | Frankrike                              | FR        | EUR          |
-| Georgien                             | GE        | USD          |
+| Georgia                             | GE        | USD          |
 | Tyskland                             | DE        | EUR          |
 | Ghana                               | GH        | USD          |
 | Grekland                              | GR        | EUR          |
@@ -76,17 +76,17 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Ungern                             | HU        | EUR          |
 | Island                             | IS        | EUR          |
 | Indien                               | IN        | INR          |
-| Indonesien                           | ID        | USD          |
+| Indonesien                           | id        | USD          |
 | Irak                                | IQ        | USD          |
 | Irland                             | IE        | EUR          |
 | Israel                              | IL        | USD          |
-| Italien                               | IT        | EUR          |
+| Italien                               | it        | EUR          |
 | Jamaica                             | JM        | USD          |
 | Japan                               | JP        | JPY          |
 | Jordanien                              | JO        | USD          |
-| Kazakhstan                          | KZ        | USD          |
+| Kazakstan                          | KZ        | USD          |
 | Kenya                               | KE        | USD          |
-| Sydkorea                       | KR        | KRW          |
+| Korea (södra)                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
 | Kirgizistan                          | KG        | USD          |
 | Lettland                              | LV        | EUR          |
@@ -96,17 +96,17 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Litauen                           | LT        | EUR          |
 | Luxemburg                          | LU        | EUR          |
 | Macao SAR                           | MO        | USD          |
-| Norra Makedonien                     | MK        | USD          |
+| Nordmakedonien                     | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
-| Mauritius                           | MU        | USD          |
-| Mexiko                              | MX        | USD          |
+| Mauritius                           | MK        | USD          |
+| Mexico                              | MX        | USD          |
 | Moldavien                             | MD        | USD          |
 | Monaco                              | MC        | EUR          |
 | Mongoliet                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
-| Marocko                             | MA        | USD          |
-| Namibia                             | Saknas        | USD          |
+| Marokko                             | MA        | USD          |
+| Namibia                             | Ej tillämpligt        | USD          |
 | Nepal                               | NP        | USD          |
 | Nederländerna                         | NL        | EUR          |
 | Nicaragua                           | NI        | USD          |
@@ -147,20 +147,20 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Tunisien                             | TN        | USD          |
 | Turkiet                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
-| Heliga stolen (Vatikanstaten)             | VA        | EUR          |
+| Vatikanstaten (Heliga stolen)             | VA        | EUR          |
 | Amerikanska Jungfruöarna | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ukraina                             | UA        | USD          |
 | Förenade Arabemiraten                | AE        | USD          |
-| Storbritannien                      | GB        | GBP          |
+| Storbritannien och Nordirland                      | GB        | GBP          |
 | USA                       | USA        | USD          |
 | Uruguay                             | UY        | USD          |
 | Uzbekistan                          | UZ        | USD          |
 | Venezuela                           | VE        | USD          |
 | Vietnam                             | VN        | USD          |
-| Jemen                               | ALL        | USD          |
+| Jemen                               | CHANSEN        | USD          |
 | Zambia                              | ZM        | USD          |
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* För kunder i Brasilien använder Marketplace via Cloud Solution Providers (CSP) USD.
+\*För kunder i Brasilien använder Marketplace via Cloud solution providers (CSP) USD.

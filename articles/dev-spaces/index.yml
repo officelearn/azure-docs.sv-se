@@ -12,45 +12,46 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
 abstract:
-  description: Med Azure Dev Spaces kan du testa och iterativt utveckla hela ditt mikrotjänstprogram som körs i Azure Kubernetes Service (AKS) utan att behöva replikera eller fingera beroenden. Med Azure Dev Spaces blir det enklare att samarbeta med teamet i ett delat kluster i Azure Kubernetes Service (AKS) och att köra och felsöka containrar direkt i AKS. Lär dig hur du använder Azure Dev Spaces med hjälp av dessa snabbstarter.
+  description: Med Azure Dev Spaces kan du testa och iterativt utveckla hela ditt mikrotjänstprogram genom att köra det i Azure Kubernetes Service (AKS) utan att behöva replikera eller fingera beroenden. Med Azure Dev Spaces blir det enklare att samarbeta med ditt team i ett delat kluster i Azure Kubernetes Service (AKS) och att köra och felsöka containrar direkt i AKS. Lär dig hur du använder Azure Dev Spaces med hjälp av dessa snabbstarter.
 sections:
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph
-        text: 'Lär dig använda Azure Dev Spaces i AKS:'
+        text: 'Lär dig hur du använder Azure Dev Spaces för att samarbeta i mikrotjänster i AKS:'
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Utveckla som en del av ett team
+              src: 'https://docs.microsoft.com/media/common/i_configure-teams.svg'
+            text: Utveckla mikrotjänster som en del av ett team
             href: quickstart-team-development.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Kör ett program
-            href: quickstart-cli.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Köra ett program med Dockerfile
-            href: quickstart-cli-dockerfile.md
       - type: paragraph
-        text: 'Lär dig hur du utvecklar och felsöker iterativt direkt i AKS med Azure Dev Spaces:'
+        text: 'Lär dig hur du snabbt itererar och felsöker för utveckling med en inre loop i Azure Dev Spaces:'
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: Utveckla med Java
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Använda Visual Studio Code och Java
             href: quickstart-java.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Utveckla med .NET och VS Code
+            text: Använda Visual Studio Code och .NET Core
             href: quickstart-netcore.md
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Utveckla med .NET och Visual Studio
-            href: quickstart-netcore-visualstudio.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Utveckla med Node.js
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Använda Visual Studio Code och Node.js
             href: quickstart-nodejs.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Använda Visual Studio och .NET Core
+            href: quickstart-netcore-visualstudio.md
+      - type: paragraph
+        text: 'Lär dig hur du utvecklar mikrotjänster för nästan alla språk med hjälp av Azure CLI med Azure Dev Spaces:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Utveckla med Azure CLI
+            href: quickstart-cli.md

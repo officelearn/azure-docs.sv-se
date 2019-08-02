@@ -1,6 +1,6 @@
 ---
-title: Fråga efter shardade Azure SQL-databaser | Microsoft Docs
-description: Kör frågor över shards med hjälp av klientbiblioteket för elastiska databaser.
+title: Fråga shardade Azure SQL-databaser | Microsoft Docs
+description: Kör frågor över Shards med klient biblioteket för Elastic Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,31 +10,30 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 471af9e1bc699ccaa8bc930ab930d6d40bbdc984
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761700"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568373"
 ---
-# <a name="multi-shard-querying-using-elastic-database-tools"></a>Multi-shard-frågor med hjälp av verktyg för elastiska databaser
+# <a name="multi-shard-querying-using-elastic-database-tools"></a>Shard frågor med Elastic Database-verktyg
 
 ## <a name="overview"></a>Översikt
 
-Med den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md), du kan skapa shardad databaslösningar. **Multi-shard-frågor** används för uppgifter som samling/rapportering som kräver att du kör en fråga som sträcker sig över flera shard. (Skiljer sig från detta till [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md), som utför allt arbete på en enda shard.)
+Med [Elastic Database verktyg](sql-database-elastic-scale-introduction.md)kan du skapa shardade-databas lösningar. **Multi-Shard-frågor** används för uppgifter som data insamling/rapportering som kräver körning av en fråga som sträcker sig över flera Shards. (Kontrast till [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md), som utför allt arbete på en enda Shard.)
 
-1. Hämta en **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) eller **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.NET ](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) med hjälp av den **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)), eller **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)) metoden. Se [konstruera en ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) och [hämta en RangeShardMap eller ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
-2. Skapa en **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardconnection), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection)) objekt.
-3. Skapa en **MultiShardStatement eller MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)).
-4. Ange den **egenskapen CommandText** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)) till ett T-SQL-kommando.
-5. Kör kommandot genom att anropa den **ExecuteQueryAsync eller ExecuteReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement.executeQueryAsync), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)) metoden.
-6. Visa resultatet med hjälp av den **MultiShardResultSet eller MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardresultset), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)) klass.
+1. Hämta en **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) eller **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) med hjälp av **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), **TryGetListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [ .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) eller metoden **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)). Se [konstruera en ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) och [Hämta en RangeShardMap eller ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
+2. Skapa ett **MultiShardConnection** -objekt ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardconnection), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection)).
+3. Skapa en **MultiShardStatement eller MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)).
+4. Ange **CommandText-egenskapen** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)) till ett T-SQL-kommando.
+5. Kör kommandot genom att anropa metoden **ExecuteQueryAsync eller ExecuteReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardstatement.executeQueryAsync), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand)).
+6. Visa resultaten med hjälp av klassen **MultiShardResultSet eller MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard.multishardresultset), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)).
 
 ## <a name="example"></a>Exempel
 
-Följande kod visar användningen av Multi-shard frågor med hjälp av en viss **ShardMap** med namnet *myShardMap*.
+Följande kod illustrerar användningen av multi-Shard-frågor med en angiven **ShardMap** med namnet *myShardMap*.
 
 ```csharp
 using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString))
@@ -59,14 +58,14 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-En viktig skillnad är konstruktion av Multi-shard-anslutningar. Där **SqlConnection** körs på en enskild databas i **MultiShardConnection** tar en ***samling shards*** som indata. Lägg till i samlingen med shards från en skärvkarta. Frågan körs sedan i samling av shards med **UNION ALL** semantik sätta ihop ett enskilt övergripande resultat. Du kan också namnet på den shard som raden kommer från kan läggas till utdata med den **ExecutionOptions** -egenskapen i kommandot.
+En viktig skillnad är att bygga anslutningar med flera Shard. När **SQLConnection** körs på en enskild databas tar **MultiShardConnection** en ***samling Shards*** som indata. Fyll i samlingen av Shards från en Shard-karta. Frågan körs sedan på samlingen Shards med **union all** semantik för att sammanställa ett enda övergripande resultat. Alternativt kan namnet på Shard där raden kommer från kan läggas till i utdata med hjälp av egenskapen **ExecutionOptions** i kommandot.
 
-Observera anropet till **myShardMap.GetShards()** . Den här metoden hämtar alla shards från fragmentkartan och gör det enkelt att köra en fråga över alla relevanta databaser. Insamling av shards för en Multi-shard-fråga kan vara förfinade ytterligare genom att utföra en LINQ-fråga över denna datainsamling returneras vid anrop till **myShardMap.GetShards()** . I kombination med ofullständiga resultat principen, har den aktuella funktionen Multi-shard-frågor utformats för att fungera bra med tiotals upp till hundratals shards.
+Notera anropet till **myShardMap. GetShards ()** . Den här metoden hämtar alla Shards från Shard-kartan och ger ett enkelt sätt att köra en fråga i alla relevanta databaser. Mängden Shards för en Shard-fråga kan förfinas ytterligare genom att utföra en LINQ-fråga över samlingen som returneras från anropet till **myShardMap. GetShards ()** . I kombination med den partiella resultat principen har den aktuella funktionen i multi-Shard-frågor utformats för att fungera bra i upp till hundratals Shards.
 
-En begränsning med Multi-shard-frågor finns för närvarande bristen på validering av fragment och shardletar som efterfrågas. Databeroende routning verifierar att en viss shard är en del av fragmentkartan vid tidpunkten för fråga, men Multi-shard-frågor utför inte den här kontrollen. Detta kan leda till Multi-shard-frågor som körs på databaser som har tagits bort från fragmentkartan.
+En begränsning med multi-Shard-frågor är för närvarande brist på verifiering för Shards och shardletar som efter frågas. Medan data beroende routning verifierar att en specifik Shard är en del av Shard-kartan vid tidpunkten för frågan, utför inte Multi-Shard-frågor den här kontrollen. Detta kan leda till att flera Shard-frågor körs på databaser som har tagits bort från Shard-kartan.
 
-## <a name="multi-shard-queries-and-split-merge-operations"></a>Multi-shard-frågor och åtgärder för dela / sammanslå
+## <a name="multi-shard-queries-and-split-merge-operations"></a>Shard frågor och dela sammanslagnings åtgärder
 
-Multi-shard-frågor verifierar inte om shardletar på databasen deltar i pågående dela / sammanslå åtgärder. (Se [skala med verktyget elastiska databaser dela och slå samman](sql-database-elastic-scale-overview-split-and-merge.md).) Detta kan leda till inkonsekvenser där rader från samma shardlet visar för flera databaser i samma Multi-shard-fråga. Tänk på dessa begränsningar och Överväg tömning pågående åtgärder för dela / sammanslå och ändringar i fragmentkartan när du utför Multi-shard-frågor.
+Frågor med multi-Shard verifierar inte om shardletar på den efterfrågade databasen deltar i pågående delnings sammanslagnings åtgärder. (Se [skalning med Elastic Database dela-merge-verktyget](sql-database-elastic-scale-overview-split-and-merge.md).) Detta kan leda till inkonsekvenser där rader från samma shardlet visas för flera databaser i samma multi-Shard-fråga. Tänk på dessa begränsningar och Överväg att tömma pågående delnings sammanslagnings åtgärder och ändringar i Shard-kartan samtidigt som du utför frågor med flera Shard.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

@@ -179,7 +179,7 @@
           items:
             - name: Uppdatera mobilitetstjänsten för virtuella Azure-datorer
               href: azure-to-azure-autoupdate.md
-            - name: Uppdateringar i Azure Site Recovery
+            - name: Hantera Site Recovery-uppdateringar
               href: service-updates-how-to.md
             - name: Ta bort servrar och inaktivera skydd
               href: site-recovery-manage-registration-and-protection.md
@@ -263,7 +263,7 @@
               href: vmware-azure-manage-process-server.md
             - name: Hantera vCenter-servrar
               href: vmware-azure-manage-vcenter.md
-            - name: Uppdateringar i Azure Site Recovery
+            - name: Hantera Site Recovery-uppdateringar
               href: service-updates-how-to.md
             - name: Ta bort servrar och inaktivera skydd
               href: site-recovery-manage-registration-and-protection.md
@@ -281,6 +281,8 @@
               href: concepts-on-premises-to-azure-networking.md
         - name: Konfigurera haveriberedskap
           items:
+            - name: Genomgång – Konfigurera haveriberedskap
+              href: physical-azure-disaster-recovery.md
             - name: Konfigurera källmiljön
               href: physical-azure-set-up-source.md
             - name: Konfigurera målmiljön
@@ -293,8 +295,6 @@
                   href: vmware-azure-install-mobility-service.md
                 - name: Distribuera mobilitetstjänsten med System Center Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
-                - name: Genomgång – Konfigurera haveriberedskap
-                  href: physical-azure-disaster-recovery.md
         - name: Köra redundans och återställning efter fel
           href: physical-to-azure-failover-failback.md
         - name: Hantera
@@ -307,7 +307,7 @@
               href: vmware-azure-manage-process-server.md
             - name: Ta bort servrar och inaktivera skydd
               href: site-recovery-manage-registration-and-protection.md
-            - name: Uppdateringar i Azure Site Recovery
+            - name: Hantera Site Recovery-uppdateringar
               href: service-updates-how-to.md
             - name: Ta bort ett valv
               href: delete-vault.md
@@ -361,10 +361,12 @@
               href: upgrade-2012R2-to-2016.md
             - name: Ta bort servrar och inaktivera skydd
               href: site-recovery-manage-registration-and-protection.md
-            - name: Uppdateringar i Azure Site Recovery
+            - name: Hantera Site Recovery-uppdateringar
               href: service-updates-how-to.md
             - name: Ta bort ett valv
               href: delete-vault.md
+            - name: Flytta ett valv till en annan region
+              href: move-vaults-across-regions.md
     - name: Haveriberedskap för appar
       items:
         - name: Konfigurera haveriberedskap för Azure för lokala appar
@@ -423,39 +425,45 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Lägga till Azure Automation-runbookflöden i återställningsplaner för att samordna redundans
       href: site-recovery-runbook-automation.md
-- name: Övervaka och felsök
+- name: Övervakning
   items:
-    - name: Övervaka Azure Site Recovery
+    - name: Vanliga frågor om övervakning
+      href: monitoring-common-questions.md
+    - name: Övervaka Site Recovery
       href: site-recovery-monitor-and-troubleshoot.md
-    - name: Virtuella Azure-datorer
+    - name: Övervaka Site Recovery med Azure Monitor-loggar
+      href: monitor-log-analytics.md
+    - name: Övervaka processervrar
+      href: vmware-physical-azure-monitor-process-server.md
+- name: Felsökning
+  items:
+    - name: Felsöka virtuella Azure-datorer
       items:
-        - name: Felsöka replikeringsfel för virtuella Azure-datorer
+        - name: Felsöka replikering av virtuella Azure-datorer
           href: azure-to-azure-troubleshoot-errors.md
-        - name: Felsöka pågående replikering för virtuella Azure-datorer
+        - name: Felsöka pågående replikering
           href: azure-to-azure-troubleshoot-replication.md
-        - name: Felsöka mobilitetstjänsten för virtuella Azure-datorer
+        - name: Felsöka problem med mobilitetstjänsten
           href: site-recovery-extension-troubleshoot.md
-    - name: VMware/fysisk server
+    - name: Felsöka virtuella VMware-datorer/fysiska servrar
       items:
-        - name: Övervaka processervrar
-          href: vmware-physical-azure-monitor-process-server.md
-        - name: Felsöka replikering från VMware till Azure
+        - name: Felsöka replikering av virtuella VMware-datorer/fysiska servrar
           href: vmware-azure-troubleshoot-replication.md
-        - name: Felsöka konfigurationsservern
+        - name: Felsöka konfigurationsservrar
           href: vmware-azure-troubleshoot-configuration-server.md
         - name: Felsöka processervrar
           href: vmware-physical-azure-troubleshoot-process-server.md
-        - name: Felsöka push-installation av mobilitetstjänsten för virtuella VMware-datorer/fysiska servrar
+        - name: Felsöka push-installation av mobilitetstjänsten
           href: vmware-azure-troubleshoot-push-install.md
         - name: Felsöka redundans till Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Felsöka återaktivering av skydd och återställning efter fel för virtuella VMware-datorer
           href: vmware-azure-troubleshoot-failback-reprotect.md
-        - name: Felsöka uppgraderingsfel för Microsoft Azure Site Recovery-providern
+        - name: Felsöka uppgraderingsfel för provider
           href: vmware-azure-troubleshoot-upgrade-failures.md
         - name: Felsöka vCenter-identifieringsfel
           href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
-    - name: Hyper-V
+    - name: Felsöka Hyper-V
       items:
         - name: Felsöka Hyper-V-replikering
           href: hyper-v-azure-troubleshoot.md
